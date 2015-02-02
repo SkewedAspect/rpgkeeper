@@ -1,0 +1,113 @@
+<div class="modal-header">
+    <h3 class="modal-title"><i class="fa fa-user-plus"></i> Add Character</h3>
+</div>
+
+<div class="modal-body">
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Ex: 'Aerissa, The Lionhearted'" ng-model="char.name">
+            <p class="help-block text-right">
+                <small>
+                    If you're having an issue come up with names, we recommend visiting
+                    <a href="http://www.seventhsanctum.com/index-name.php">7th Sanctum's</a> wonderful name generators.
+                </small>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="system">System</label>
+            <select id="system" class="form-control" ng-options="system.id as system.name for system in systems" ng-model="char.system" ng-required>
+                <option value="">Please Select a System</option>
+            </select>
+            <p class="help-block text-right">
+                <small>
+                    If your RPG system isn't listed, try the Generic system. If, instead, you'd like something more
+                    tailored, feel free to <a href="">request</a> a new system.
+                </small>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" placeholder="Ex: 'Level 12 Fighter, Knife's Edge campaign'" ng-model="char.description">
+            <p class="help-block text-right">
+                <small>
+                    This is a small, one line description of your character. It's mainly used to differentiate
+                    characters on the character list.
+                </small>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="thumbnail">Thumbnail</label>
+            <div class="media" style="margin-top: 0;">
+                <div class="media-left">
+                    <img class="media-object img-thumbnail" ng-attr-src="{{ char.thumbnail || 'http://placehold.it/200' }}" height="100px" width="100px" style="max-width: inherit">
+                </div>
+                <div class="media-body" style="vertical-align: bottom">
+                    <p class="help-block">
+                        The thumbnail image is used whenever we display your character in lists on the site. It is also
+                        part of the publicly viewable information about your character, and can be used as an avatar for
+                        your character on thirdparty sites.
+                    </p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="thumbnail" placeholder="Thumbnail URL" ng-model="char.thumbnail">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" ng-click="selectImage('thumbnail')">
+                                <i class="fa fa-dropbox"></i> Add from Dropbox
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="help-block text-right">
+                <small>
+                    The thumbnail should be a square image sized at at least <code>200x200px</code>. If omitted, the
+                    portrait image will be used instead.
+                </small>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="portrait">Portrait</label>
+            <div class="media" style="margin-top: 0;">
+                <div class="media-left">
+                    <img class="media-object img-thumbnail" ng-attr-src="{{ char.portrait || 'http://placehold.it/800x1200' }}" height="300px" width="200px" style="max-width: inherit">
+                </div>
+                <div class="media-body" style="vertical-align: bottom">
+                    <p class="help-block">
+                        The portrait is a nice, large cover image for your character. While we know not everyone has
+                        access to artists, there is tons of websites online where you can find stock images and fantasy
+                        artwork. If you're still unable to find something suitable, consider checking out
+                        <a href="">Deviant Art</a>, and commissioning an artist.
+                    </p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="portrait" placeholder="Portrait URL" ng-model="char.portrait">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" ng-click="selectImage('portrait')">
+                                <i class="fa fa-dropbox"></i> Add from Dropbox
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="help-block text-right">
+                <small>
+                    The portrait should be an image at least <code>400px</code> wide. We recommend images with
+                    dimensions of <code>800x1200px</code>.
+                </small>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="bio">Biography</label>
+            <textarea rows="5" class="form-control" id="bio" placeholder="Biography" ng-model="char.biography"></textarea>
+            <p class="help-block text-right">
+                <small>
+                    This is just a nice place to put any sort of descriptive text about your character you want.
+                </small>
+            </p>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="$close(char)"><i class="fa fa-save"></i> Save</button>
+    <button class="btn btn-default" ng-click="$dismiss('canceled')">Cancel</button>
+</div>

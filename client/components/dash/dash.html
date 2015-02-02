@@ -1,0 +1,45 @@
+<div id="dashboard" class="container">
+    <!-- If the user isn't authenticated, we don't let them see anything. -->
+    <div ng-hide="isAuthenticated()" class="text-center">
+        <h4>You are not currently signed in.</h4>
+        <p>Please sign in using the red <i class="fa fa-google-plus text-danger"></i> button in the upper right.</p>
+    </div>
+
+    <!-- If they are, we show them a list of their characters -->
+    <div ng-show="isAuthenticated()">
+        <div class="clearfix" style="margin-bottom: 10px;">
+            <button class="btn btn-primary pull-right" ng-click="addChar()">
+                <i class="fa fa-user-plus"></i> Add Character
+            </button>
+        </div>
+        <div id="characters" class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <div class="row">
+                    <div class="col-sm-6 col-md-7">
+                        <h4 class="char-title"><i class="fa fa-user"></i> Characters</h4>
+                    </div>
+                    <div class="col-sm-6 col-md-5 hidden-xs">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="search-characters"><i class="fa fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Search Characters" aria-describedby="search-characters" ng-model="searchChars">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="characters.length == 0" class="panel-body">
+                <h4 class="text-center">No Characters, yet.</h4>
+            </div>
+            <div ng-if="characters.length > 0" class="list-group">
+                <a href="/characters/{{ char.id }}" class="list-group-item" ng-repeat="char in characters | filter:searchChars | orderBy: ['system', 'name']">
+                    <div class="btn-toolbar pull-right">
+                        <button class="btn btn-primary" ng-click="editChar(char, $event)"><i class="fa fa-edit"></i> Edit</button>
+                        <button class="btn btn-danger" ng-click="deleteChar(char, $event)"><i class="fa fa-trash-o"></i> Delete</button>
+                    </div>
+                    <img class="img-thumbnail hidden-xs" ng-attr-src="{{ char.thumbnail || 'http://placehold.it/200' }}">
+                    <h4 class="list-group-item-heading">{{ char.name }} <small>({{ getSystemName(char.system) }})</small></h4>
+                    <p class="list-group-item-text"><i>{{ char.description }}</i></p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

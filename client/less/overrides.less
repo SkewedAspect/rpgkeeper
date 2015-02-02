@@ -1,0 +1,52 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Overrides
+//----------------------------------------------------------------------------------------------------------------------
+
+.monospace {
+    font-family: monospace;
+}
+
+.hidden-print {
+    @media print {
+        display: none;
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Bootstrap Overrides
+//----------------------------------------------------------------------------------------------------------------------
+
+// Original Bootstrap's CSS depends on empty href attributes to style cursors for several components (pagination, tabs
+// etc.). But in AngularJS adding empty href attributes to link tags will cause unwanted route changes. See:
+//      http://angular-ui.github.io/bootstrap/#/getting_started
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
+
+.modal-backdrop.fade {
+    height: 100%;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+code {
+    background-color: rgba(0,0,0,0.06);
+    font-size: 80%;
+    color: rgb(102, 102, 102);
+    border-radius: 4px;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Google Plus toast configuration  (see: http://stackoverflow.com/a/20583754)
+//----------------------------------------------------------------------------------------------------------------------
+
+iframe[src^="https://apis.google.com/u/0/_/widget/oauthflow/toast"] {
+    display: none;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
