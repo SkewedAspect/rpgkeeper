@@ -11,6 +11,7 @@ var app = angular.module('rpgkeeper', [
         'lodash',
         'Dropbox',
         'ui.bootstrap',
+        'ui.codemirror',
         'directive.g+signin',
 
         'rpgkeeper.services',
@@ -35,6 +36,7 @@ var app = angular.module('rpgkeeper', [
         app.controller = $controllerProvider.register;
         app.directive = $compileProvider.directive;
         app.filter = $filterProvider.register;
+        app.factory = $provide.factory;
         app.service = $provide.service;
     }]);
 
