@@ -27,7 +27,7 @@ function generateID()
 // RPGKeeper models
 //----------------------------------------------------------------------------------------------------------------------
 
-db.Character = jbase.defineModel('characters', {
+db.Character = jbase.defineModel('base_characters', {
     name: { type: String, required: true },
     system: { type: String, required: true },
     user: { type: String, required: true },
