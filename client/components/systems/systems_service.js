@@ -4,7 +4,7 @@
 // @module systems_service.js
 // ---------------------------------------------------------------------------------------------------------------------
 
-function SystemsServiceFactory(Promise, $http)
+function SystemsServiceFactory(Promise, $http, _)
 {
     function SystemsService()
     {
@@ -26,6 +26,17 @@ function SystemsServiceFactory(Promise, $http)
             .then(function(systems)
             {
                 self.systems = systems;
+
+                // Load system scripts
+                _.each(systems, function(system)
+                {
+                    _.each(system.scripts, function(scriptSrc)
+                    {
+                        var script = document.createElement('script');
+                        script.src = scriptSrc;
+                        document.body.appendChild(script);
+                    });
+                });
             });
     }; // end refresh
 
@@ -37,6 +48,7 @@ function SystemsServiceFactory(Promise, $http)
 angular.module('rpgkeeper.services').service('SystemsService', [
     '$q',
     '$http',
+    'lodash',
     SystemsServiceFactory
 ]);
 

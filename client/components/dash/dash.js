@@ -35,7 +35,7 @@ function DashController($scope, $location, $modal, authSvc, charSvc, systemsSvc)
 
     $scope.getSystemName = function(systemShort)
     {
-        return (_.find($scope.systems, { short: systemShort }) || {}).name;
+        return (_.find($scope.systems, { id: systemShort }) || {}).name;
     }; // end getSystemName
 
     $scope.addChar = function()

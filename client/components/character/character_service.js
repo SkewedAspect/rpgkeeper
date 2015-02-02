@@ -46,9 +46,14 @@ function BaseCharacterServiceFactory(Promise, $http, $cacheFactory, $routeParams
         return new Promise(function(resolve, reject)
         {
             $http.put('/characters', char)
-                .success(function(data)
+                .success(function(charID)
                 {
-                    resolve(data);
+                    console.log('char:', char.id, char.system);
+                    $http.put('/systems/' + char.system + '/' + charID, {})
+                        .success(function()
+                        {
+                            resolve(charID);
+                        });
                 })
                 .error(function(response)
                 {

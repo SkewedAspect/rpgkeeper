@@ -6,6 +6,7 @@
 
 var _ = require('lodash');
 var express = require('express');
+var discoverable = require('discoverable');
 
 var routeUtils = require('./utils');
 
@@ -14,6 +15,7 @@ var logger = require('omega-logger').loggerFor(module);
 //----------------------------------------------------------------------------------------------------------------------
 
 var router = express.Router();
+var systems = [];
 
 //----------------------------------------------------------------------------------------------------------------------
 // Middleware
@@ -26,6 +28,22 @@ router.use(routeUtils.requestLogger(logger));
 router.use(routeUtils.errorLogger(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
+// Load Systems
+//----------------------------------------------------------------------------------------------------------------------
+
+discoverable('rpgk-systems')
+    .then(function(systemModules)
+    {
+        systems = systemModules;
+
+        // Attach the routers from the systems.
+        _.each(systems, function(system)
+        {
+            router.use('/' + system.id, system.router);
+        });
+    });
+
+//----------------------------------------------------------------------------------------------------------------------
 // REST Endpoints
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -33,14 +51,16 @@ router.get('/', function(req, resp)
 {
     routeUtils.interceptHTML(resp, function()
     {
-        resp.json([
-            {
-                name: "Test System",
-                id: "test",
-                short: "test",
-                description: "The test system, yo!"
-            }
-        ]);
+        resp.json(_.reduce(systems, function(results, system)
+        {
+            results.push({
+                name: system.name,
+                id: system.id,
+                description: system.description,
+                scripts: system.scripts
+            });
+            return results;
+        }, []));
     });
 });
 
