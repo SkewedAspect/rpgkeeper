@@ -4,7 +4,7 @@
 // @module character_resource
 // ---------------------------------------------------------------------------------------------------------------------
 
-function BaseCharacterResourceFactory($resource)
+function BaseCharacterResourceFactory(Promise, $http, $resource)
 {
     var Character = $resource('/characters/:charID', {}, {
         save: {
@@ -63,7 +63,17 @@ function BaseCharacterResourceFactory($resource)
 
     BaseCharacterResource.prototype.delete = function()
     {
-        return this.$resource.$delete({ charID: this.id });
+        var delPath = '/systems/' + this.$resource.system + '/characters/' + this.id;
+        return this.$resource.$delete({ charID: this.id })
+            .then(function()
+            {
+                return new Promise(function(resolve, reject)
+                {
+                    $http.delete(delPath)
+                        .success(resolve)
+                        .error(reject);
+                });
+            });
     }; // end delete
 
     return function(id){ return new BaseCharacterResource(id); };
@@ -72,6 +82,8 @@ function BaseCharacterResourceFactory($resource)
 // ---------------------------------------------------------------------------------------------------------------------
 
 angular.module('rpgkeeper.services').factory('BaseCharacterResource', [
+    '$q',
+    '$http',
     '$resource',
     BaseCharacterResourceFactory
 ]);
