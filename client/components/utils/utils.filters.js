@@ -17,7 +17,7 @@ function MarkdownFilter($rootScope, $sce, $cacheFactory)
 
     if(!$rootScope.markdownCache)
     {
-        $rootScope.markdownCache = $cacheFactory('markdown-cache', 100);
+        $rootScope.markdownCache = $cacheFactory('markdown-cache', { capacity: 100 });
     } // end if
 
     return function markdown(text, skipCache)
