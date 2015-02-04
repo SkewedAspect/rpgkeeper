@@ -17,7 +17,7 @@ function DashController($scope, $location, $modal, authSvc, charSvc, systemsSvc)
     authSvc.initialized
         .then(function()
         {
-            charSvc.getByUser()
+            charSvc.getByUser(authSvc.user.email)
                 .then(function(characters)
                 {
                     $scope.characters = characters;
