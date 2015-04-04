@@ -20,10 +20,25 @@ module.exports = function(grunt)
                 }
             }
         },
+        plugins: {
+            index: {
+                src: "client/index.tpl.html",
+                dest: "client/index.html",
+                modules: "rpgk-systems",
+                urlPrefix: "/systems/"
+            }
+        },
         watch: {
             less: {
                 files: ['<%= project.less %>'],
                 tasks: ['less'],
+                options: {
+                    atBegin: true
+                }
+            },
+            plugins: {
+                files: ['client/index.tpl.html'],
+                tasks: ['plugins'],
                 options: {
                     atBegin: true
                 }
@@ -34,9 +49,10 @@ module.exports = function(grunt)
     // Grunt Tasks.
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadTasks('tasks');
 
     // Setup the build task.
-    grunt.registerTask('build', ['less']);
+    grunt.registerTask('build', ['less', 'plugins']);
 }; // module.exports
 
 // ---------------------------------------------------------------------------------------------------------------------

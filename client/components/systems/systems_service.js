@@ -26,17 +26,6 @@ function SystemsServiceFactory(Promise, $http, _)
             .then(function(systems)
             {
                 self.systems = systems;
-
-                // Load system scripts
-                _.each(systems, function(system)
-                {
-                    _.each(system.scripts, function(scriptSrc)
-                    {
-                        var script = document.createElement('script');
-                        script.src = scriptSrc;
-                        document.body.appendChild(script);
-                    });
-                });
             });
     }; // end refresh
 

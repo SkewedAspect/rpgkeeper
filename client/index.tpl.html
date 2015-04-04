@@ -75,15 +75,8 @@
         <script src="/components/utils/utils.directives.js"></script>
 
         <!-- System Scripts -->
-        <script src="/systems//generic/components/character/character.js"></script>
-        <script src="/systems//generic/components/character/character_resource.js"></script>
-        <script src="/systems//generic/components/character/character_service.js"></script>
-        <script src="/systems//generic/components/counter/counter.js"></script>
-        <script src="/systems//generic/components/rolls/rolls.js"></script>
-        <script src="/systems//generic/pages/notes/notes.js"></script>
-        <script src="/systems//generic/pages/notes/notes_service.js"></script>
-        <script src="/systems//generic/pages/stats/stats.js"></script>
-        
+        <% _.forEach(scripts, function(src) { %><script src="<%= src %>"></script>
+        <% }); %>
     </head>
     <body>
         <site-header></site-header>

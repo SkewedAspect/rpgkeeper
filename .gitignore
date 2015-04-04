@@ -3,6 +3,9 @@
 # IntelliJ artifacts
 .idea
 
+# Build artifacts
+client/index.html
+
 # Bower artifacts
 client/vendor
 

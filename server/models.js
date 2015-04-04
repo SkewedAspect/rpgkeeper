@@ -6,13 +6,13 @@
 
 var path = require('path');
 
-var jbase = require('jbase');
+var trivialdb = require('trivialdb');
 var base62 = require('base62');
 var uuid = require('node-uuid');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var db = { errors: jbase.errors };
+var db = { errors: trivialdb.errors };
 var rootPath = path.join(__dirname, 'db');
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ function generateID()
 // RPGKeeper models
 //----------------------------------------------------------------------------------------------------------------------
 
-db.Character = jbase.defineModel('base_characters', {
+db.Character = trivialdb.defineModel('base_characters', {
     name: { type: String, required: true },
     system: { type: String, required: true },
     user: { type: String, required: true },
@@ -41,7 +41,7 @@ db.Character = jbase.defineModel('base_characters', {
 // User models
 //----------------------------------------------------------------------------------------------------------------------
 
-db.User = jbase.defineModel('users', {
+db.User = trivialdb.defineModel('users', {
     gPlusID: String,
     nickname: String,
     tagline: String,

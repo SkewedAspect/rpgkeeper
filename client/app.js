@@ -10,6 +10,7 @@ var app = angular.module('rpgkeeper', [
 
         'lodash',
         'Dropbox',
+        'rpgdice',
         'ui.bootstrap',
         'ui.codemirror',
         'directive.g+signin',
@@ -28,16 +29,6 @@ var app = angular.module('rpgkeeper', [
             .when('/dashboard', { templateUrl: '/components/dash/dash.html', controller: 'DashController' })
             .when('/characters/:charID', { templateUrl: '/components/character/character.html', controller: 'CharacterController' })
             .otherwise({redirectTo: '/'});
-    }])
-    .config(['$controllerProvider', '$compileProvider', '$filterProvider', '$provide', function($controllerProvider, $compileProvider, $filterProvider, $provide)
-    {
-        // This is required so that we can lazy load modules after angular's bootstrap phase.
-        // It'd be nice to figure out a better way to do this.
-        app.controller = $controllerProvider.register;
-        app.directive = $compileProvider.directive;
-        app.filter = $filterProvider.register;
-        app.factory = $provide.factory;
-        app.service = $provide.service;
     }]);
 
 // ---------------------------------------------------------------------------------------------------------------------
