@@ -41,7 +41,7 @@ function DashController($scope, $location, $modal, authSvc, charSvc, systemsSvc)
     $scope.addChar = function()
     {
         var modalInstance = $modal.open({
-            templateUrl: '/components/dash/modals/add_edit_char.html',
+            templateUrl: '/pages/dash/modals/add_edit_char.html',
             controller: 'AddEditCharacterController',
             size: 'lg',
             scope: $scope,
@@ -70,7 +70,7 @@ function DashController($scope, $location, $modal, authSvc, charSvc, systemsSvc)
         event.stopPropagation();
 
         var modalInstance = $modal.open({
-            templateUrl: '/components/dash/modals/add_edit_char.html',
+            templateUrl: '/pages/dash/modals/add_edit_char.html',
             controller: 'AddEditCharacterController',
             size: 'lg',
             scope: $scope,
@@ -95,7 +95,7 @@ function DashController($scope, $location, $modal, authSvc, charSvc, systemsSvc)
         event.stopPropagation();
 
         var modalInstance = $modal.open({
-            templateUrl: '/components/dash/modals/delete_char.html',
+            templateUrl: '/pages/dash/modals/delete_char.html',
             size: 'lg'
         });
 

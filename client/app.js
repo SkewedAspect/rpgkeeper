@@ -25,9 +25,9 @@ var app = angular.module('rpgkeeper', [
         $locationProvider.html5Mode(true);
 
         $routeProvider
-            .when('/', { templateUrl: '/components/home/home.html', controller: 'HomeController' })
-            .when('/dashboard', { templateUrl: '/components/dash/dash.html', controller: 'DashController' })
-            .when('/characters/:charID', { templateUrl: '/components/character/character.html', controller: 'CharacterController' })
+            .when('/', { templateUrl: '/pages/home/home.html', controller: 'HomeController' })
+            .when('/dashboard', { templateUrl: '/pages/dash/dash.html', controller: 'DashController' })
+            .when('/characters/:charID', { templateUrl: '/pages/character/character.html', controller: 'CharacterController' })
             .otherwise({redirectTo: '/'});
     }]);
 
