@@ -55,7 +55,6 @@ function DashController($scope, $location, $modal, authSvc, charSvc, systemsSvc)
         modalInstance.result
             .then(function (char)
             {
-                console.log('new char:', char);
                 charSvc.new(char)
                     .then(function(id)
                     {
@@ -84,7 +83,6 @@ function DashController($scope, $location, $modal, authSvc, charSvc, systemsSvc)
         modalInstance.result
             .then(function (char)
             {
-                console.log('edit char:', char);
                 char.save();
             });
     }; // end editChar
@@ -105,7 +103,7 @@ function DashController($scope, $location, $modal, authSvc, charSvc, systemsSvc)
                 char.delete()
                     .then(function()
                     {
-                        charSvc.getByUser()
+                        charSvc.getByUser(authSvc.user.email)
                             .then(function(characters)
                             {
                                 $scope.characters = characters;
