@@ -25,7 +25,7 @@ module.exports = function(grunt)
                 src: "client/index.tpl.html",
                 dest: "client/index.html",
                 modules: "rpgk-systems",
-                urlPrefix: "/systems/"
+                urlPrefix: "/systems"
             }
         },
         watch: {
