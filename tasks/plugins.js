@@ -32,6 +32,7 @@ module.exports = function(grunt)
             catalog.getModules(config.modules)
                 .then(function(modules)
                 {
+                    var ids = [];
                     var scripts = [];
                     _.each(modules, function(module)
                     {
@@ -41,8 +42,18 @@ module.exports = function(grunt)
                         // Now that we have that directory, we require the module
                         module = require(module.filename);
 
-                        // Get a list of scripts that need to be included
-                        var scriptPaths = grunt.file.expand(path.join(modPath, module.scripts));
+                        // Populate the list of ids
+                        ids.push(module.id);
+
+                        // Modify our module's scripts to include the module path
+                        var scriptStrings = _.reduce([].concat(module.scripts), function(results, scriptString)
+                        {
+                            results.push(path.join(modPath, scriptString));
+                            return results;
+                        }, []);
+
+                        // Expand the paths
+                        var scriptPaths = grunt.file.expand(scriptStrings);
 
                         // Rewrite the files paths into a url
                         scripts = scripts.concat(_.reduce(scriptPaths, function(results, scriptPath)
@@ -54,8 +65,10 @@ module.exports = function(grunt)
                         }, []));
                     });
 
+                    console.log('ids:', ids);
+
                     var input = grunt.file.read(config.src);
-                    grunt.file.write(config.dest, grunt.template.process(input, { data: { scripts: scripts } }));
+                    grunt.file.write(config.dest, grunt.template.process(input, { data: { scripts: scripts, modules: ids } }));
                 });
         });
 }; // end module.exports
