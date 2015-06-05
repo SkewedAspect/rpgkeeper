@@ -65,8 +65,6 @@ module.exports = function(grunt)
                         }, []));
                     });
 
-                    console.log('ids:', ids);
-
                     var input = grunt.file.read(config.src);
                     grunt.file.write(config.dest, grunt.template.process(input, { data: { scripts: scripts, modules: ids } }));
                 });
