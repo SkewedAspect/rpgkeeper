@@ -56,6 +56,39 @@
         <!-- App Style -->
         <link href="css/rpgkeeper.min.css" rel="stylesheet">
 
+        <!-- Main Script -->
+        <script>
+            // Declare the rpgkeeper apps, and all module dependencies
+            angular.module('rpgkeeper', [
+                'ngRoute',
+                'ngResource',
+
+                'lodash',
+                'Dropbox',
+                'rpgdice',
+                'ui.bootstrap',
+                'ui.codemirror',
+                'directive.g+signin',
+
+                'rpgkeeper.systems'
+            ]);
+
+            // ---------------------------------------------------------------------------------------------------------
+
+            angular.module('rpgkeeper.utils', []);
+            angular.module('rpgkeeper.services', ['rpgkeeper.utils']);
+            angular.module('rpgkeeper.controllers', ['rpgkeeper.services']);
+            angular.module('rpgkeeper.directives', ['rpgkeeper.controllers']);
+
+            // We assume that all systems expose an angular module of the same name as the system's id.
+            angular.module('rpgkeeper.systems', [
+                'rpgkeeper.directives',
+                <% _.forEach(modules, function(module) { %>'<%= module %>',
+                <% }); %>
+            ]);
+
+            // ---------------------------------------------------------------------------------------------------------
+        </script>
         <!-- App Scripts -->
         <script src="/app.js"></script>
         <script src="/components/libs.js"></script>

@@ -56,6 +56,40 @@
         <!-- App Style -->
         <link href="css/rpgkeeper.min.css" rel="stylesheet">
 
+        <!-- Main Script -->
+        <script>
+            // Declare the rpgkeeper apps, and all module dependencies
+            angular.module('rpgkeeper', [
+                'ngRoute',
+                'ngResource',
+
+                'lodash',
+                'Dropbox',
+                'rpgdice',
+                'ui.bootstrap',
+                'ui.codemirror',
+                'directive.g+signin',
+
+                'rpgkeeper.systems'
+            ]);
+
+            // ---------------------------------------------------------------------------------------------------------
+
+            angular.module('rpgkeeper.utils', []);
+            angular.module('rpgkeeper.services', ['rpgkeeper.utils']);
+            angular.module('rpgkeeper.controllers', ['rpgkeeper.services']);
+            angular.module('rpgkeeper.directives', ['rpgkeeper.controllers']);
+
+            // We assume that all systems expose an angular module of the same name as the system's id.
+            angular.module('rpgkeeper.systems', [
+                'rpgkeeper.directives',
+                'eote',
+                'generic',
+                
+            ]);
+
+            // ---------------------------------------------------------------------------------------------------------
+        </script>
         <!-- App Scripts -->
         <script src="/app.js"></script>
         <script src="/components/libs.js"></script>
@@ -76,14 +110,21 @@
         <script src="/pages/character/character.js"></script>
 
         <!-- System Scripts -->
-        <script src="/systems//generic/components/character/character.js"></script>
-        <script src="/systems//generic/components/character/character_resource.js"></script>
-        <script src="/systems//generic/components/character/character_service.js"></script>
-        <script src="/systems//generic/components/counter/counter.js"></script>
-        <script src="/systems//generic/components/rolls/rolls.js"></script>
-        <script src="/systems//generic/pages/details/details.js"></script>
-        <script src="/systems//generic/pages/notes/notes.js"></script>
-        <script src="/systems//generic/pages/notes/notes_service.js"></script>
+        <script src="/systems/eote/modules.js"></script>
+        <script src="/systems/eote/components/character/characterModel.js"></script>
+        <script src="/systems/eote/components/character/characterService.js"></script>
+        <script src="/systems/eote/pages/character/character.js"></script>
+        <script src="/systems/eote/pages/notes/notes.js"></script>
+        <script src="/systems/eote/pages/notes/notes_service.js"></script>
+        <script src="/systems/generic/modules.js"></script>
+        <script src="/systems/generic/components/character/character.js"></script>
+        <script src="/systems/generic/components/character/character_resource.js"></script>
+        <script src="/systems/generic/components/character/character_service.js"></script>
+        <script src="/systems/generic/components/counter/counter.js"></script>
+        <script src="/systems/generic/components/rolls/rolls.js"></script>
+        <script src="/systems/generic/pages/details/details.js"></script>
+        <script src="/systems/generic/pages/notes/notes.js"></script>
+        <script src="/systems/generic/pages/notes/notes_service.js"></script>
         
     </head>
     <body>
