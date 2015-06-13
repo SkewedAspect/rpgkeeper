@@ -50,9 +50,26 @@ function EnterDirective()
     };
 } // end EnterDirective
 
+function PopoverHtmlUnsafePopupDirective()
+{
+    return {
+        restrict: "EA",
+        replace: true,
+        scope: { title: "@", content: "@", placement: "@", animation: "&", isOpen: "&" },
+        templateUrl: "/components/utils/popover-html-unsafe-popup.html"
+    };
+} // end PopoverHtmlUnsafePopupDirective
+
+function PopoverHtmlUnsafe($tooltip)
+{
+    return $tooltip("popoverHtmlUnsafe", "popover", "click");
+} // end PopoverHtmlUnsafe
+
 // ---------------------------------------------------------------------------------------------------------------------
 
 angular.module('rpgkeeper.utils').directive('markdown', MarkdownDirective);
 angular.module('rpgkeeper.utils').directive('ngEnter', EnterDirective);
+angular.module('rpgkeeper.utils').directive('popoverHtmlUnsafePopup', PopoverHtmlUnsafePopupDirective);
+angular.module('rpgkeeper.utils').directive('popoverHtmlUnsafe', ['$tooltip', PopoverHtmlUnsafe]);
 
 // ---------------------------------------------------------------------------------------------------------------------
