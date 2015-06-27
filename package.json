@@ -22,7 +22,9 @@
     "node-uuid": "^1.4.2",
     "omega-logger": "^0.6.0",
     "passport": "^0.2.1",
-    "passport-google-plus": "^0.5.1"
+    "passport-google-plus": "^0.5.1",
+    "rpgkeeper-generic": "^1.0.0-alpha.1",
+    "rpgkeeper-eote": "^1.0.0-alpha.1"
   },
   "devDependencies": {
     "chai": "^1.10.0",
