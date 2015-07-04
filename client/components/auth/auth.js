@@ -4,7 +4,7 @@
 // @module auth.js
 // ---------------------------------------------------------------------------------------------------------------------
 
-function AuthServiceFactory($rootScope, $http, Promise)
+function AuthServiceFactory($rootScope, $http, $location, Promise)
 {
     function AuthService()
     {
@@ -23,6 +23,12 @@ function AuthServiceFactory($rootScope, $http, Promise)
                     {
                         self.initDeferred.resolve();
                         resolved = true;
+
+                        // If we are not on a character page, we redirect to the dashboard.
+                        if(!$location.path().match(/^\/characters.*/))
+                        {
+                            $location.path('/dashboard');
+                        } // end if
                     } // end if
                 });
         });
@@ -87,6 +93,7 @@ function AuthServiceFactory($rootScope, $http, Promise)
 angular.module('rpgkeeper.services').service('AuthService', [
     '$rootScope',
     '$http',
+    '$location',
     '$q',
     AuthServiceFactory
 ]);
