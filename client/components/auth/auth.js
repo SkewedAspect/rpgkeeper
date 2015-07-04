@@ -75,6 +75,21 @@ function AuthServiceFactory($rootScope, $http, $location, Promise)
         get initialized(){ return this.initDeferred.promise; }
     }; // end signOut
 
+    AuthService.prototype.isAdmin = function()
+    {
+        return !!this._user.admin;
+    }; // end isAdmin
+
+    AuthService.prototype.canAdd = function()
+    {
+        return !!this._user.admin || !!(this._user.permissions || {}).canAdd;
+    }; // end canAdd
+
+    AuthService.prototype.canEdit = function()
+    {
+        return !!this._user.admin || !!(this._user.permissions || {}).canEdit;
+    }; // end canEdit
+
     AuthService.prototype.signOut = function()
     {
         $http.post('/auth/logout')

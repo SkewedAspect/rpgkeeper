@@ -48,6 +48,11 @@ db.User = trivialdb.defineModel('users', {
     email: String,
     displayName: String,
     avatar: String,
+    admin: { type: Boolean, default: false },
+    permissions: {
+        canAdd: { type: Boolean, default: false },
+        canEdit: { type: Boolean, default: false }
+    },
     created: { type: Date, default: Date.now() }
 }, { rootPath: rootPath, pk: 'email' });
 
