@@ -1,34 +1,45 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Main RPGKeeper Styles
+// Overrides
 //----------------------------------------------------------------------------------------------------------------------
 
-@import "bootstrap";
-@import "overrides";
-
-//----------------------------------------------------------------------------------------------------------------------
-// Variable Overrides
-//----------------------------------------------------------------------------------------------------------------------
-
-@brand-primary: #f90;
-@brand-success: #8cc358;
-@brand-info: #79cbe9;
-@brand-warning: #ffd74f;
-@brand-danger: #bb3228;
-
-@google-red: #DD4B39;
-
-//----------------------------------------------------------------------------------------------------------------------
-
-body {
-    padding-top: 60px;
+.monospace {
+    font-family: monospace;
 }
 
-.text-google {
-    color: @google-red;
+.hidden-print {
+    @media print {
+        display: none;
+    }
 }
 
-.btn-google {
-    .button-variant(#fff; @google-red; darken(@google-red, 5%));
+//----------------------------------------------------------------------------------------------------------------------
+// Bootstrap Overrides
+//----------------------------------------------------------------------------------------------------------------------
+
+// Original Bootstrap's CSS depends on empty href attributes to style cursors for several components (pagination, tabs
+// etc.)
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
+
+.btn:focus, input:focus, textarea:focus {
+    outline: none !important;
+}
+
+code {
+    background-color: rgba(0,0,0,0.06);
+    font-size: 80%;
+    color: rgb(102, 102, 102);
+    border-radius: 4px;
+}
+
+.card {
+    .card-header .card-title {
+        margin: 0;
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------

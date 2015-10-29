@@ -42,12 +42,8 @@ db.Character = trivialdb.defineModel('base_characters', {
 //----------------------------------------------------------------------------------------------------------------------
 
 db.User = trivialdb.defineModel('users', {
-    gPlusID: String,
-    nickname: String,
-    tagline: String,
     email: String,
-    displayName: String,
-    avatar: String,
+    name: String,
     admin: { type: Boolean, default: false },
     permissions: {
         canAdd: { type: Boolean, default: false },

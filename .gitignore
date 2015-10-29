@@ -4,13 +4,10 @@
 .idea
 
 # Build artifacts
-client/index.html
+dist
 
 # Bower artifacts
-client/vendor
-
-# LESS artifacts
-client/css
+vendor
 
 # DB artifacts
 server/db/*.json
