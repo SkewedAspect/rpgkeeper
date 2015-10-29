@@ -16,15 +16,20 @@
                 </li>
             </ul>
             <div class="form-inline navbar-form pull-right">
-                <p class="form-control-static">{{ display }}&nbsp;</p>
                 <button v-if="!loggedIn" class="btn btn-primary" @click="signIn()">
                     <i class="fa fa-fw fa-envelope-o"></i>
                     <span>Sign In</span>
                 </button>
-                <button v-if="loggedIn" class="btn btn-primary" @click="signOut()">
-                    <i class="fa fa-fw fa-sign-out"></i>
-                    <span>Sign Out</span>
-                </button>
+                <span v-if="loggedIn">
+                    <span style="display: inline-block; vertical-align: middle; margin-right: 10px;">
+                        <gravatar class="img-circle" :email="user.email" :size="64" width="32px"></gravatar>
+                        {{ display }}
+                    </span>
+                    <button class="btn btn-primary" @click="signOut()">
+                        <i class="fa fa-fw fa-sign-out"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </span>
             </div>
         </div>
     </nav>
@@ -37,7 +42,12 @@
     import stateSvc from '../state/stateService.js';
     import personaSvc from '../persona/personaService.js';
 
+    import GravatarComponent from '../gravatar/gravatar.vue';
+
     export default {
+        components: {
+            gravatar: GravatarComponent
+        },
         data: function()
         {
             return {
@@ -52,7 +62,8 @@
             display: function()
             {
                 return (this.state.user || {}).name || (this.state.user || {}).email;
-            }
+            },
+            user: function(){ return this.state.user; }
         },
         methods: {
             signIn: function()
