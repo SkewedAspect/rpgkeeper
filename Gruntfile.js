@@ -4,55 +4,110 @@
 
 module.exports = function(grunt)
 {
-    // Project configuration.
     grunt.initConfig({
-        project: {
-            less: ['client/less/**/*.less', 'client/components/**/*.less', 'client/pages/**/*.less']
+        clean: ['dist'],
+        copy: {
+            index: {
+                src: 'client/index.html',
+                dest: 'dist/index.html'
+            },
+            static: {
+                expand: true,
+                cwd: 'client',
+                src: 'static/**/*',
+                dest: 'dist'
+            },
+            html: {
+                expand: true,
+                cwd: 'client',
+                src: '**/*.html',
+                dest: 'dist'
+            },
+            vendor: {
+                expand: true,
+                src: ['vendor/**/*.css', 'vendor/**/*.js', 'vendor/font-awesome/**/*'],
+                dest: 'dist'
+            }
         },
-        less: {
-            min: {
+        browserify: {
+            options: {
+                transform: [ ["vueify"], ["babelify"] ]
+            },
+            debug: {
                 options: {
-                    paths: ['node_modules/bootstrap/less'],
-                    compress: true
+                    browserifyOptions: {
+                        debug: true
+                    }
                 },
                 files: {
-                    'client/css/rpgkeeper.min.css': ['<%= project.less %>']
+                    "./dist/app.js": "client/app.js"
                 }
             }
         },
-        plugins: {
-            index: {
-                src: "client/index.tpl.html",
-                dest: "client/index.html",
-                modules: "rpgk-systems",
-                urlPrefix: "/systems"
+        sass: {
+            dist: {
+                options: {
+                    includePaths: ['vendor/bootstrap/scss', 'client/scss', 'client'],
+                    style: 'expanded'
+                },
+                files: {
+                    'dist/css/app.css': 'client/scss/theme.scss'
+                }
+            }
+        },
+        postcss: {
+            options: {
+                processors: [ require('autoprefixer')({browsers: 'last 2 versions'}) ]
+            },
+            dist: {
+                src: 'dist/css/*.css'
             }
         },
         watch: {
-            less: {
-                files: ['<%= project.less %>'],
-                tasks: ['less'],
-                options: {
-                    atBegin: true
-                }
+            index: {
+                files: ["client/index.html"],
+                tasks: ["copy:index"]
             },
-            plugins: {
-                files: ['client/index.tpl.html'],
-                tasks: ['plugins'],
-                options: {
-                    atBegin: true
-                }
+            html: {
+                files: ["client/**/*.html"],
+                tasks: ["copy:html"]
+            },
+            scss: {
+                files: ["client/scss/**/*.scss"],
+                tasks: ["sass", "postcss"]
+            },
+            scripts: {
+                files: ["client/**/*.js", 'client/**/*.vue', "client/components/**/*.scss", "client/pages/**/*.scss"],
+                tasks: ["browserify"]
+            }
+        },
+        browserSync: {
+            bsFiles: {
+                src: ['dist/css/*.css', 'dist/**/*.html', 'dist/app.js']
+            },
+            options: {
+                watchTask: true,
+                proxy: "localhost:" + require('./config').port
             }
         }
     });
 
-    // Grunt Tasks.
-    grunt.loadNpmTasks('grunt-contrib-less');
+    //------------------------------------------------------------------------------------------------------------------
+
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks("grunt-browserify");
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadTasks('tasks');
+    grunt.loadNpmTasks('grunt-browser-sync');
 
-    // Setup the build task.
-    grunt.registerTask('build', ['less', 'plugins']);
-}; // module.exports
+    //------------------------------------------------------------------------------------------------------------------
 
-// ---------------------------------------------------------------------------------------------------------------------
+    grunt.registerTask("build", ["clean", "sass", "postcss", "copy", "browserify"]);
+    grunt.registerTask("default", ["build", /*'browserSync',*/ 'watch']);
+
+    //------------------------------------------------------------------------------------------------------------------
+};
+
+//----------------------------------------------------------------------------------------------------------------------

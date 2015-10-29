@@ -1,44 +1,88 @@
-// ---------------------------------------------------------------------------------------------------------------------
-// Main Angular Application.
-//
-// @module app.js
-// ---------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
+/// Main Client-side Application
+///
+/// @module
+//----------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper')
-    .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider)
-    {
-        $locationProvider.html5Mode(true);
+import marked from 'marked';
 
-        $routeProvider
-            .when('/', { templateUrl: '/pages/home/home.html', controller: 'HomeController' })
-            .when('/dashboard', { templateUrl: '/pages/dash/dash.html', controller: 'DashController' })
-            .when('/characters/:charID', { templateUrl: '/pages/character/character.html', controller: 'CharacterController' })
-            .otherwise({redirectTo: '/'});
-    }])
-    .run(function()
-    {
-        //--------------------------------------------------------------------------------------------------------------
-        // Configure the marked markdown parser
-        //--------------------------------------------------------------------------------------------------------------
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-        var renderer = new marked.Renderer();
+// Services
+import RouterSvc from './components/router/routerService';
 
-        renderer.table = function(header, body)
-        {
-            return '<div class="table-responsive"><table class="table table-striped table-hover table-bordered"><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-        }; // end table parsing
+// Pages
+import HomeComponent from './pages/home/home.vue';
+import DashboardComponent from './pages/dashboard/dashboard.vue';
 
-        // Configure marked parser
-        marked.setOptions({
-            gfm: true,
-            tables: true,
-            breaks: false,
-            pedantic: false,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false,
-            renderer: renderer
-        });
-    });
+// Filters
+import './components/moment/momentFilters';
+
+// Components
+import header from './components/header/header.vue';
+import footer from './components/footer/footer.vue';
+
+//----------------------------------------------------------------------------------------------------------------------
+// App Setup
+//----------------------------------------------------------------------------------------------------------------------
+
+Vue.config.debug = true;
+Vue.use(VueRouter);
+
+var app = Vue.extend({
+    components: {
+        'site-header': header,
+        'site-footer': footer
+    }
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Router
+//----------------------------------------------------------------------------------------------------------------------
+
+RouterSvc.setup({
+    history: true,
+    saveScrollPosition: true,
+    linkActiveClass: 'active'
+});
+
+RouterSvc.map({
+    '/': {
+        name: 'home',
+        component: HomeComponent
+    },
+    '/dashboard': {
+        name: 'dashboard',
+        component: DashboardComponent
+    }
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Service Setup
+//----------------------------------------------------------------------------------------------------------------------
+
+// Configure the marked markdown parser
+var renderer = new marked.Renderer();
+
+renderer.table = function(header, body)
+{
+    return `<div class="table-responsive"><table class="table table-striped table-hover table-bordered"><thead>${header}</thead><tbody>${body}</tbody></table></div>`;
+}; // end table parsing
+
+// Configure marked parser
+marked.setOptions({
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    renderer: renderer
+});
+
+// Setup router
+RouterSvc.start(app, '#main-app');
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -1,16 +1,27 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Configuration for RPGKeeper
-//
-// @module characters.js
+/// MomentFilters
+///
+/// @module
 //----------------------------------------------------------------------------------------------------------------------
+
+import Vue from 'vue';
+import moment from 'moment';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
-    // General configuration
-    http: {
-        port: 5678
-    }
-}; // end exports
+Vue.filter('date', function(value, format)
+{
+    return moment(value).format(format);
+});
+
+Vue.filter('calendar', function(value)
+{
+    return moment(value).calendar();
+});
+
+Vue.filter('fromNow', function(value)
+{
+    return moment(value).fromNow();
+});
 
 //----------------------------------------------------------------------------------------------------------------------

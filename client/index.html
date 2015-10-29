@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <!-- Mobile Chrome address bar Color -->
+        <meta name="theme-color" content="#000000">
+
+        <!-- iOS Web App tags -->
+        <meta name=apple-mobile-web-app-capable content=yes>
+
+        <title>RPGKeeper</title>
+
+        <!-- Icons -->
+        <link rel="apple-touch-icon" sizes="192x192" href="/images/logo.png">
+        <link rel="icon" sizes="192x192" href="/images/logo.png">
+
+        <!-- Bower Components -->
+        <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/vendor/rpg-awesome/css/rpg-awesome.min.css" rel="stylesheet">
+        <link href="/static/rpgicons/style.css" rel="stylesheet">
+
+        <link href="/vendor/codemirror/lib/codemirror.css" rel="stylesheet">
+        <script src="/vendor/codemirror/lib/codemirror.js"></script>
+        <script src="/vendor/codemirror/addon/mode/overlay.js"></script>
+        <script src="/vendor/codemirror/mode/xml/xml.js"></script>
+        <script src="/vendor/codemirror/mode/markdown/markdown.js"></script>
+        <script src="/vendor/codemirror/mode/gfm/gfm.js"></script>
+        <script src="/vendor/codemirror/mode/javascript/javascript.js"></script>
+        <script src="/vendor/codemirror/mode/css/css.js"></script>
+        <script src="/vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="/vendor/codemirror/mode/clike/clike.js"></script>
+        <script src="/vendor/codemirror/mode/meta.js"></script>
+
+        <script src="https://login.persona.org/include.js"></script>
+
+        <!-- App Style -->
+        <link href="/css/app.css" rel="stylesheet">
+    </head>
+    <body class="container-fluid">
+        <div id="main-app">
+            <site-header></site-header>
+            <router-view></router-view>
+            <site-footer></site-footer>
+        </div>
+
+        <!-- App Scripts -->
+        <script src="/app.js"></script>
+
+        <!-- Dropbox -->
+        <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js"
+                id="dropboxjs" data-app-key="678jhziclljis0y"></script>
+    </body>
+</html>

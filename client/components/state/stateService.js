@@ -1,16 +1,23 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Configuration for RPGKeeper
-//
-// @module characters.js
+/// StateService
+///
+/// @module
 //----------------------------------------------------------------------------------------------------------------------
+
+class StateService {
+    constructor()
+    {
+        this.state = {
+            user: null
+        };
+    } // end constructor
+
+    get user(){ return this.state.user; }
+    set user(val){ this.state.user = val; }
+} // end StateService
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
-    // General configuration
-    http: {
-        port: 5678
-    }
-}; // end exports
+export default new StateService();
 
 //----------------------------------------------------------------------------------------------------------------------
