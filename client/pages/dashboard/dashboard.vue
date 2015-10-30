@@ -318,7 +318,6 @@
                 else
                 {
                     char = new Character(this.newChar);
-                    console.log('char', char);
                 } // end if
 
                 // Save the character
@@ -334,6 +333,7 @@
                             this.refreshCharList();
                         } // end if
 
+                        //TODO: Need something like ng-toast
                         console.log('saved!');
                     });
             }
@@ -347,7 +347,6 @@
             systemsSvc.loading
                 .then(() =>
                 {
-                    console.log('systems:', this.systems, systemsSvc.systems);
                     this.systems = systemsSvc.systems;
                 });
 

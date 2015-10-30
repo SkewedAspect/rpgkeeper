@@ -1,6 +1,8 @@
 <template>
-    <h1>Character goes here!</h1>
-    <pre>{{ baseChar | json }}</pre>
+    <div id="character"  class="container">
+        <h1>Character goes here!</h1>
+        <pre>{{ baseChar | json }}</pre>
+    </div>
 </template>
 
 <script type="text/babel">
