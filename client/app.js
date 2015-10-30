@@ -11,6 +11,7 @@ import VueRouter from 'vue-router';
 
 // Services
 import RouterSvc from './components/router/routerService';
+import SystemsSvc from './components/systems/systemsService';
 
 // Pages
 import HomeComponent from './pages/home/home.vue';
