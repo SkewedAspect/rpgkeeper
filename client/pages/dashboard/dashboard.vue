@@ -33,7 +33,7 @@
                     <h4 class="text-center">No Characters, yet.</h4>
                 </div>
                 <div v-else class="list-group">
-                    <a :href="char.url" class="list-group-item" v-for="char in characters | filterBy searchFilter | orderBy 'system' | orderBy 'name'">
+                    <a v-link="{ path: char.url }" class="list-group-item" v-for="char in characters | filterBy searchFilter | orderBy 'system' | orderBy 'name'">
                         <div class="btn-toolbar pull-right">
                             <button class="btn btn-primary" @click.prevent.stop="editChar(char)"><i class="fa fa-edit"></i> Edit</button>
                             <button class="btn btn-danger" @click.prevent.stop="confirmDelete(char)"><i class="fa fa-trash-o"></i> Delete</button>
@@ -210,7 +210,7 @@
     import Character from '../../components/character/characterModel';
 
     import stateSvc from '../../components/state/stateService';
-    import routerSvc from '../../components/router/routerService';
+    import routeSvc from '../../components/route/routeService';
     import charSvc from '../../components/character/characterService.js';
     import systemsSvc from '../../components/systems/systemsService';
     import dropboxSvc from '../../components/dropbox/dropboxService';
@@ -327,7 +327,7 @@
                     {
                         if(isNew)
                         {
-                            routerSvc.go(char.url);
+                            routeSvc.go(char.url);
                         }
                         else
                         {

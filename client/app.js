@@ -10,12 +10,13 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 // Services
-import RouterSvc from './components/router/routerService';
+import RouterSvc from './components/route/routeService';
 import SystemsSvc from './components/systems/systemsService';
 
 // Pages
 import HomeComponent from './pages/home/home.vue';
 import DashboardComponent from './pages/dashboard/dashboard.vue';
+import CharacterComponent from './pages/character/character.vue';
 
 // Filters
 import './components/moment/momentFilters';
@@ -56,6 +57,10 @@ RouterSvc.map({
     '/dashboard': {
         name: 'dashboard',
         component: DashboardComponent
+    },
+    '/characters/:id': {
+        name: 'character',
+        component: CharacterComponent
     }
 });
 
