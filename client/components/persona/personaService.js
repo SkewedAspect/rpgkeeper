@@ -30,8 +30,6 @@ class PersonaService
         $http.post(this.loginUrl, { assertion })
             .then((response) =>
             {
-                console.log('logged in:', response.data);
-
                 // Assign to the properties
                 stateSvc.user = response.data;
 
