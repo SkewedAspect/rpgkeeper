@@ -1,19 +1,25 @@
 <template>
     <div id="character"  class="container">
-        <h1>Character goes here!</h1>
-        <pre>{{ baseChar | json }}</pre>
+        <component :is="baseChar.system" :base="baseChar"></component>
     </div>
 </template>
 
 <script type="text/babel">
     import charSvc from '../../components/character/characterService.js';
 
+    // Systems
+    import GenericCharacterComponent from '../../systems/generic/character.vue'
+    import EotECharacterComponent from '../../systems/eote/character.vue'
+
     export default {
+        components: {
+            generic: GenericCharacterComponent,
+            eote: EotECharacterComponent
+        },
         data: function()
         {
             return {
-                baseChar: null,
-                systemChar: null,
+                baseChar: {},
                 charID: this.$route.params.id
             };
         },

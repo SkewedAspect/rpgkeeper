@@ -13,17 +13,6 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from 'passport';
 
-// Auth
-import serialization from './auth/serialization';
-import personaAuth from './auth/persona';
-
-// Routes
-import routeUtils from './routes/utils';
-//import rootRouter from './routes/root';
-import newsRouter from './routes/news';
-import charRouter from './routes/characters';
-import sysRouter from './routes/systems';
-
 // Config
 import config from '../config';
 
@@ -32,7 +21,7 @@ import config from '../config';
 // If we're configured for debug, default to debug level logging
 if(config.debug)
 {
-    logging.defaultConsoleHandler.level = 'DEBUG';
+    logging.defaultConsoleHandler.level = logging.getLevel('DEBUG');
 } // end if
 
 // If an environment variable is set, override any other logging level defaults.
@@ -42,6 +31,22 @@ if(process.env.LOG_LEVEL)
 } // end if
 
 var logger = logging.loggerFor(module);
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// Systems
+import './systems/generic/system';
+import './systems/eote/system';
+
+// Auth
+import serialization from './auth/serialization';
+import personaAuth from './auth/persona';
+
+// Routes
+import routeUtils from './routes/utils';
+import newsRouter from './routes/news';
+import charRouter from './routes/characters';
+import sysRouter from './routes/systems';
 
 //----------------------------------------------------------------------------------------------------------------------
 
