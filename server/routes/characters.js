@@ -4,16 +4,16 @@
 // @module characters.js
 //----------------------------------------------------------------------------------------------------------------------
 
-var _ = require('lodash');
-var express = require('express');
+import _ from 'lodash';
+import express from 'express';
+import logging from 'omega-logger';
 
-var routeUtils = require('./utils');
-var querymodel = require('../querymodel');
-var models = require('../models');
-
-var logger = require('omega-logger').loggerFor(module);
+import routeUtils from './utils';
+import models from '../models';
 
 //----------------------------------------------------------------------------------------------------------------------
+
+var logger = logging.loggerFor(module);
 
 var router = express.Router();
 
@@ -35,7 +35,7 @@ router.get('/', function(req, resp)
 {
     routeUtils.interceptHTML(resp, function()
     {
-        querymodel.search(models.Character, req)
+        models.BaseCharacter.filter(req.query)
             .then(function(characters)
             {
                 resp.json(characters);
@@ -47,7 +47,7 @@ router.get('/:charID', function(req, resp)
 {
     routeUtils.interceptHTML(resp, function()
     {
-        models.Character.get(req.params.charID)
+        models.BaseCharacter.get(req.params.charID)
             .then(function(character)
             {
                 resp.json(character);
@@ -68,9 +68,9 @@ router.post('/', function(req, resp)
     if(req.isAuthenticated())
     {
         // We don't trust anything coming from the client.
-        req.body.user = req.user.id;
+        req.body.user = req.user.email;
 
-        new models.Character(req.body).save()
+        new models.BaseCharacter(req.body).save()
             .then(function(char)
             {
                 resp.json(char.id);
@@ -94,7 +94,7 @@ router.put('/:charID', function(req, resp)
 {
     if(req.isAuthenticated())
     {
-        models.Character.get(req.params.charID)
+        models.BaseCharacter.get(req.params.charID)
             .then(function(character)
             {
                 _.assign(character, req.body);
@@ -131,10 +131,10 @@ router.delete('/:charID', function(req, resp)
 {
     if(req.isAuthenticated())
     {
-        models.Character.get(req.params.charID)
+        models.BaseCharacter.get(req.params.charID)
             .then(function(character)
             {
-                character.remove()
+                character.delete()
                     .then(function()
                     {
                         resp.end();

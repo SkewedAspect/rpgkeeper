@@ -10,6 +10,10 @@ module.exports = {
     debug: true,
     http: {
         port: 5678
+    },
+    rethink: {
+        host: 'localhost',
+        db: 'rpgkeeper'
     }
 }; // end exports
 

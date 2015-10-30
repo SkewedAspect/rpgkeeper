@@ -1,19 +1,22 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Models for RPGKeeper
+// Database models for RPGKeeper
 //
-// @module models.js
+// @module models
 //----------------------------------------------------------------------------------------------------------------------
 
-var path = require('path');
+import base62 from 'base62';
+import uuid from 'node-uuid';
+import connect from 'thinky';
 
-var trivialdb = require('trivialdb');
-var base62 = require('base62');
-var uuid = require('node-uuid');
+import config from '../config';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var db = { errors: trivialdb.errors };
-var rootPath = path.join(__dirname, 'db');
+var thinky = connect(config.rethink);
+var type = thinky.type;
+var r = thinky.r;
+
+var db = { r, type, errors: thinky.Errors };
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -24,33 +27,32 @@ function generateID()
 } // end generateID
 
 //----------------------------------------------------------------------------------------------------------------------
-// RPGKeeper models
+
+db.BaseCharacter = thinky.createModel('base_characters', {
+    id: type.string().default(generateID),
+    name: type.string().required(),
+    system: type.string().required(),
+    description: type.string(),
+    portrait: type.string(),
+    thumbnail: type.string(),
+    biography: type.string(),
+    user: type.string().required()
+});
+
 //----------------------------------------------------------------------------------------------------------------------
 
-db.Character = trivialdb.defineModel('base_characters', {
-    name: { type: String, required: true },
-    system: { type: String, required: true },
-    user: { type: String, required: true },
-    portrait: String,
-    thumbnail: String,
-    biography: String,
-    description: String
-}, { rootPath: rootPath, idFunc: generateID });
-
-//----------------------------------------------------------------------------------------------------------------------
-// User models
-//----------------------------------------------------------------------------------------------------------------------
-
-db.User = trivialdb.defineModel('users', {
-    email: String,
-    name: String,
-    admin: { type: Boolean, default: false },
+db.User = thinky.createModel('users', {
+    email: type.string().required(),
+    name: type.string(),
+    admin: type.boolean().default(false),
     permissions: {
-        canAdd: { type: Boolean, default: false },
-        canEdit: { type: Boolean, default: false }
+        canAdd: type.boolean().default(false),
+        canEdit: type.boolean().default(false),
     },
-    created: { type: Date, default: Date.now() }
-}, { rootPath: rootPath, pk: 'email' });
+    created: type.date().default(r.now())
+}, { pk: 'email' });
+
+db.User.hasMany(db.BaseCharacter, 'characters', 'email', 'user');
 
 //----------------------------------------------------------------------------------------------------------------------
 
