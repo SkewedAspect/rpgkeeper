@@ -6,7 +6,7 @@ import _ from 'lodash';
 import $http from 'axios';
 
 import stateSvc from '../state/stateService';
-import routerSvc from '../router/routerService';
+import routeSvc from '../route/routeService';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -34,7 +34,11 @@ class PersonaService
 
                 // Assign to the properties
                 stateSvc.user = response.data;
-                routerSvc.go('/dashboard');
+
+                if(routeSvc.path == '/')
+                {
+                    routeSvc.go('/dashboard');
+                } // end if
             })
             .catch((response) =>
             {
@@ -49,7 +53,7 @@ class PersonaService
             .then(() =>
             {
                 this.signOut();
-                routerSvc.go('/');
+                routeSvc.go('/');
             })
             .catch((response) =>
             {

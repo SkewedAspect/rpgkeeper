@@ -8,13 +8,14 @@ import VueRouter from 'vue-router';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class RouterService {
+class RouteService {
     setup(options)
     {
         this.router = new VueRouter(options);
     } // end constructor
 
     get app(){ return this.router.app; }
+    get path(){ return this.router.app.$route.path; }
 
     // Router API
     go() { this.router.go.apply(this.router, arguments); }
@@ -29,6 +30,6 @@ class RouterService {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default new RouterService();
+export default new RouteService();
 
 //----------------------------------------------------------------------------------------------------------------------
