@@ -5,17 +5,28 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
+import Promise from 'bluebird';
 import express from 'express';
 import logging from 'omega-logger';
 
 import routeUtils from './utils';
 import models from '../models';
 
+// System Models
+import generic from '../systems/generic/models';
+//import eote from '../systems/eote/models';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 var logger = logging.loggerFor(module);
 
 var router = express.Router();
+
+// Create a lookup object for system models
+var systemModels = {
+    generic,
+    //eote
+};
 
 //----------------------------------------------------------------------------------------------------------------------
 // Middleware
@@ -33,10 +44,10 @@ router.use(routeUtils.errorLogger(logger));
 
 router.get('/', function(req, resp)
 {
-    routeUtils.interceptHTML(resp, function()
+    routeUtils.interceptHTML(resp, () =>
     {
         models.BaseCharacter.filter(req.query)
-            .then(function(characters)
+            .then((characters) =>
             {
                 resp.json(characters);
             });
@@ -48,11 +59,11 @@ router.get('/:charID', function(req, resp)
     routeUtils.interceptHTML(resp, function()
     {
         models.BaseCharacter.get(req.params.charID)
-            .then(function(character)
+            .then((character) =>
             {
                 resp.json(character);
             })
-            .catch(models.errors.DocumentNotFound, function(error)
+            .catch(models.errors.DocumentNotFound, (error) =>
             {
                 resp.status(404).json({
                     human: "Character not found.",
@@ -71,11 +82,17 @@ router.post('/', function(req, resp)
         req.body.user = req.user.email;
 
         new models.BaseCharacter(req.body).save()
-            .then(function(char)
+            .then((char) =>
             {
-                resp.json(char.id);
+                // Save a new system character
+                var sysChar = systemModels[char.system].Character({ id: char.id, user: char.user });
+                sysChar.save()
+                    .then(() =>
+                    {
+                        resp.json(char.id);
+                    });
             })
-            .catch(function(error)
+            .catch((error) =>
             {
                 resp.status(500).json({
                     human: "Cannot save character.",
@@ -95,7 +112,7 @@ router.put('/:charID', function(req, resp)
     if(req.isAuthenticated())
     {
         models.BaseCharacter.get(req.params.charID)
-            .then(function(character)
+            .then((character) =>
             {
                 _.assign(character, req.body);
                 character.save()
@@ -104,7 +121,7 @@ router.put('/:charID', function(req, resp)
                         resp.json(character);
                     });
             })
-            .catch(function(error)
+            .catch((error) =>
             {
                 resp.status(500).json({
                     human: "Cannot save character.",
@@ -112,7 +129,7 @@ router.put('/:charID', function(req, resp)
                     stack: error.stack
                 });
             })
-            .catch(models.errors.DocumentNotFound, function(error)
+            .catch(models.errors.DocumentNotFound, (error) =>
             {
                 resp.status(404).json({
                     human: "Character not found.",
@@ -132,15 +149,19 @@ router.delete('/:charID', function(req, resp)
     if(req.isAuthenticated())
     {
         models.BaseCharacter.get(req.params.charID)
-            .then(function(character)
+            .then((character) =>
             {
-                character.delete()
-                    .then(function()
+                systemModels[character.system].Character.get(req.params.charID)
+                    .then((sysChar) =>
+                    {
+                        return Promise.join(character.delete(), sysChar.delete())
+                    })
+                    .then(() =>
                     {
                         resp.end();
                     });
             })
-            .catch(function(error)
+            .catch((error) =>
             {
                 resp.status(500).json({
                     human: "Cannot save character.",
@@ -148,7 +169,7 @@ router.delete('/:charID', function(req, resp)
                     stack: error.stack
                 });
             })
-            .catch(models.errors.DocumentNotFound, function(error)
+            .catch(models.errors.DocumentNotFound, (error) =>
             {
                 resp.status(404).json({
                     human: "Character not found.",
