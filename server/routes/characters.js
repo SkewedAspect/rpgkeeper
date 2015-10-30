@@ -121,18 +121,18 @@ router.put('/:charID', function(req, resp)
                         resp.json(character);
                     });
             })
-            .catch((error) =>
-            {
-                resp.status(500).json({
-                    human: "Cannot save character.",
-                    message: error.message,
-                    stack: error.stack
-                });
-            })
             .catch(models.errors.DocumentNotFound, (error) =>
             {
                 resp.status(404).json({
                     human: "Character not found.",
+                    message: error.message,
+                    stack: error.stack
+                });
+            })
+            .catch((error) =>
+            {
+                resp.status(500).json({
+                    human: "Cannot save character.",
                     message: error.message,
                     stack: error.stack
                 });
@@ -161,18 +161,18 @@ router.delete('/:charID', function(req, resp)
                         resp.end();
                     });
             })
-            .catch((error) =>
-            {
-                resp.status(500).json({
-                    human: "Cannot save character.",
-                    message: error.message,
-                    stack: error.stack
-                });
-            })
             .catch(models.errors.DocumentNotFound, (error) =>
             {
                 resp.status(404).json({
                     human: "Character not found.",
+                    message: error.message,
+                    stack: error.stack
+                });
+            })
+            .catch((error) =>
+            {
+                resp.status(500).json({
+                    human: "Cannot delete character.",
                     message: error.message,
                     stack: error.stack
                 });
