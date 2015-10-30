@@ -21,6 +21,22 @@ class SystemsService {
         return _.find(this.systems, { id });
     } // end get
 
+    getChar(system, charID)
+    {
+        return $http.get(`/systems/${ system }/character/${ charID }`)
+            .then((response) =>
+            {
+                return response.data;
+            })
+            .catch((response) =>
+            {
+                if(response.status !== 404)
+                {
+                    console.error('Error getting system character:', response.data);
+                } // end if
+            });
+    } // end getChar
+
     refresh()
     {
         return $http.get('/systems')
