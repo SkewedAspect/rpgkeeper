@@ -1,15 +1,14 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Routes for system operations
-//
-// @module systems.js
+/// Edge of the Empire System
+///
+/// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
 import express from 'express';
 import logging from 'omega-logger';
 
-import systemMan from '../systems/manager';
-import routeUtils from './utils';
+import systemMan from '../manager';
+import routeUtils from '../../routes/utils';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -28,28 +27,15 @@ router.use(routeUtils.requestLogger(logger));
 router.use(routeUtils.errorLogger(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
-// REST Endpoints
-//----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', function(req, resp)
-{
-    routeUtils.interceptHTML(resp, function()
-    {
-        resp.json(systemMan.systems);
-    });
-});
-
-// Mount the systems
-_.each(systemMan.systems, (system) =>
-{
-    //TODO: Figure out how to make this a `logger.debug` statement
-    console.log(`Building routes for "${system.name}" system.`);
-
-    router.use('/' + system.id, system.router);
-});
+// Router Goes here!
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = router;
+var id = 'eote';
+var name = 'Edge of the Empire';
+var description = "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.";
+
+systemMan.register(id, name, description, router);
 
 //----------------------------------------------------------------------------------------------------------------------
