@@ -15,7 +15,8 @@ class CharacterModel {
         this._state = definition;
     } // end constructor
 
-    get url(){ return '/characters/' + this.id; }
+    get id(){ return this._state.id; }
+    get url(){ return '/characters' + (this.id ? '/' + this.id : ''); }
     get fullSystem(){ return systemsSvc.get(this._state.system); }
 
     get name(){ return this._state.name; }
@@ -26,7 +27,7 @@ class CharacterModel {
     set user(val){ this._state.user = val; }
     get portrait(){ return this._state.portrait; }
     set portrait(val){ this._state.portrait = val; }
-    get thumbnail(){ return this._state.thumbnail || 'http://placehold.it/200'; }
+    get thumbnail(){ return this._state.thumbnail; }
     set thumbnail(val){ this._state.thumbnail = val; }
     get biography(){ return this._state.biography; }
     set biography(val){ this._state.biography = val; }
@@ -46,7 +47,18 @@ class CharacterModel {
 
     save()
     {
-        return $http.put(this.url, this._state).then(() => {});
+        if(!this.id)
+        {
+            return $http.post(this.url, this._state).then((response) =>
+            {
+                this._state.id = response.data;
+                return this;
+            });
+        }
+        else
+        {
+            return $http.put(this.url, this._state).then(() => this);
+        } // end if
     } // end save
 
     delete()
