@@ -23,6 +23,34 @@
             }
         }
     }
+
+    #delModal {
+        .modal-dialog {
+            width: 75%;
+            max-width: 900px;
+            min-width: 420px;
+        }
+    }
+
+    #addEditModal {
+        .modal-dialog {
+            width: 75%;
+            max-width: 900px;
+            min-width: 420px;
+        }
+
+        form {
+            fieldset {
+                & > div.text-right {
+                    line-height: 1rem;
+                }
+            }
+
+            label {
+                font-weight: bold;
+            }
+        }
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------

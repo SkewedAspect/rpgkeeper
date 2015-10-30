@@ -9,6 +9,7 @@
     "bootstrap": "4.0.0-alpha",
     "font-awesome": "~4.4.0",
     "codemirror": "~4.12.0",
-    "rpg-awesome": "https://github.com/nagoshiashumari/Rpg-Awesome.git#0.0.1"
+    "rpg-awesome": "https://github.com/nagoshiashumari/Rpg-Awesome.git#0.0.1",
+    "jquery": "~2.1.4"
   }
 }

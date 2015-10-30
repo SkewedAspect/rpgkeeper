@@ -63,7 +63,7 @@ router.get('/:charID', function(req, resp)
     });
 });
 
-router.put('/', function(req, resp)
+router.post('/', function(req, resp)
 {
     if(req.isAuthenticated())
     {
