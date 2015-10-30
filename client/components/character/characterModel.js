@@ -12,6 +12,7 @@ import systemsSvc from '../systems/systemsService';
 class CharacterModel {
     constructor(definition)
     {
+        this.$dirty = false;
         this._state = definition;
     } // end constructor
 
@@ -20,19 +21,19 @@ class CharacterModel {
     get fullSystem(){ return systemsSvc.get(this._state.system); }
 
     get name(){ return this._state.name; }
-    set name(val){ this._state.name = val; }
+    set name(val){ this.$dirty = true; this._state.name = val; }
     get system(){ return this._state.system; }
-    set system(val){ this._state.system = val; }
+    set system(val){ this.$dirty = true; this._state.system = val; }
     get user(){ return this._state.user; }
-    set user(val){ this._state.user = val; }
+    set user(val){ this.$dirty = true; this._state.user = val; }
     get portrait(){ return this._state.portrait; }
-    set portrait(val){ this._state.portrait = val; }
+    set portrait(val){ this.$dirty = true; this._state.portrait = val; }
     get thumbnail(){ return this._state.thumbnail; }
-    set thumbnail(val){ this._state.thumbnail = val; }
+    set thumbnail(val){ this.$dirty = true; this._state.thumbnail = val; }
     get biography(){ return this._state.biography; }
-    set biography(val){ this._state.biography = val; }
+    set biography(val){ this.$dirty = true; this._state.biography = val; }
     get description(){ return this._state.description; }
-    set description(val){ this._state.description = val; }
+    set description(val){ this.$dirty = true; this._state.description = val; }
 
     refresh()
     {
@@ -51,13 +52,18 @@ class CharacterModel {
         {
             return $http.post(this.url, this._state).then((response) =>
             {
+                this.$dirty = false;
                 this._state.id = response.data;
                 return this;
             });
         }
         else
         {
-            return $http.put(this.url, this._state).then(() => this);
+            return $http.put(this.url, this._state).then(() =>
+            {
+                this.$dirty = false;
+                return this;
+            });
         } // end if
     } // end save
 

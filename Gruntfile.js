@@ -86,8 +86,7 @@ module.exports = function(grunt)
                 src: ['dist/css/*.css', 'dist/**/*.html', 'dist/app.js']
             },
             options: {
-                watchTask: true,
-                proxy: "localhost:" + require('./config').port
+                watchTask: true
             }
         }
     });
@@ -105,7 +104,7 @@ module.exports = function(grunt)
     //------------------------------------------------------------------------------------------------------------------
 
     grunt.registerTask("build", ["clean", "sass", "postcss", "copy", "browserify"]);
-    grunt.registerTask("default", ["build", /*'browserSync',*/ 'watch']);
+    grunt.registerTask("default", ["build", 'browserSync', 'watch']);
 
     //------------------------------------------------------------------------------------------------------------------
 };
