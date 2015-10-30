@@ -65,6 +65,11 @@ class CharacterModel {
     {
         return $http.delete(this.url).then(() => {});
     } // end delete
+
+    toJSON()
+    {
+        return this._state;
+    }
 } // end CharacterModel
 
 //----------------------------------------------------------------------------------------------------------------------
