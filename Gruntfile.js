@@ -25,7 +25,7 @@ module.exports = function(grunt)
             },
             vendor: {
                 expand: true,
-                src: ['vendor/**/*.css', 'vendor/**/*.js', 'vendor/font-awesome/**/*'],
+                src: ['vendor/**/*.css', 'vendor/**/*.js', 'vendor/font-awesome/**/*', 'vendor/rpg-awesome/**/*'],
                 dest: 'dist'
             }
         },
@@ -77,7 +77,13 @@ module.exports = function(grunt)
                 tasks: ["sass", "postcss"]
             },
             scripts: {
-                files: ["client/**/*.js", 'client/**/*.vue', "client/components/**/*.scss", "client/pages/**/*.scss"],
+                files: [
+                    "client/**/*.js",
+                    'client/**/*.vue',
+                    "client/components/**/*.scss",
+                    "client/pages/**/*.scss",
+                    "client/systems/**/*.scss"
+                ],
                 tasks: ["browserify"]
             }
         },

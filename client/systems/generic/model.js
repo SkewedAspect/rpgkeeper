@@ -15,7 +15,6 @@ import systemsSvc from '../../components/systems/systemsService';
 class GenericCharacter {
     constructor(base, system)
     {
-        this.$dirty = false;
         this._base = base;
         this._system = system;
     } // end constructor
@@ -62,16 +61,11 @@ class GenericCharacter {
 
     save()
     {
-        var promises = [];
+        var promises = [$http.put(this.systemURL, this._system)];
 
         if(this._base.$dirty)
         {
             promises.push(this._base.save());
-        } // end if
-
-        if(this.$dirty)
-        {
-            promises.push($http.put(this.url, this._system));
         } // end if
 
         return Promise.all(promises).then(() => this);
