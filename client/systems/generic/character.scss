@@ -1,0 +1,71 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Generic Character
+//----------------------------------------------------------------------------------------------------------------------
+
+#generic-char {
+    .upper-sheet {
+        display: flex;
+
+        .card {
+            margin-bottom: 0;
+        }
+
+        .main {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            margin-right: 5px;
+
+            .portrait-block {
+                flex: 1 1 auto;
+                display: flex;
+                margin-bottom: 5px;
+
+                .portrait {
+                    flex: 0 1 300px;
+                    margin-right: 5px;
+
+                    img {
+                        height: 445px;
+                        width: 300px;
+                    }
+                }
+
+                .counters {
+                    flex: 1 1 auto;
+                    margin-left: 5px;
+                    position: relative;
+
+                    & > .card {
+                        // Fuck flexbox and height 100% not working
+                        position: absolute;
+                        top: 0; bottom: 0; left: 0; right: 0;
+                    }
+                }
+            }
+
+            .stats {
+                flex: 1 1 auto;
+                margin-top: 5px;
+            }
+        }
+
+        .sidebar {
+            position: relative;
+            flex: 0 1 400px;
+            margin-left: 5px;
+
+            & > .card {
+                // Fuck flexbox and height 100% not working
+                position: absolute;
+                top: 0; bottom: 0; left: 0; right: 0;
+            }
+        }
+    }
+
+    #notes {
+        margin-top: 10px;
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
