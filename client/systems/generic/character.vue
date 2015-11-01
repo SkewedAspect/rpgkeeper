@@ -79,10 +79,10 @@
 <style lang="sass" src="./character.scss"></style>
 
 <script type="text/babel">
-    import GenericCharacter from './model';
+    import GenericCharacter from './components/model';
     import systemsSvc from '../../components/systems/systemsService';
 
-    import counter from './counter.vue';
+    import counter from './components/counter.vue';
 
     export default {
         components: {

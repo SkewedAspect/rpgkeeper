@@ -8,7 +8,7 @@ import _ from 'lodash';
 import Promise from 'bluebird';
 import $http from 'axios';
 
-import systemsSvc from '../../components/systems/systemsService';
+import systemsSvc from '../../../components/systems/systemsService';
 
 //----------------------------------------------------------------------------------------------------------------------
 
