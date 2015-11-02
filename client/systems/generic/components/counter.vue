@@ -28,7 +28,7 @@
         </div>
 
         <!-- Edit Modal -->
-        <modal v-ref:edit-modal  :backdrop="'static'" :keyboard="false">
+        <modal v-ref:edit-modal :backdrop="'static'" :keyboard="false">
             <div class="modal-header" slot="header">
                 <h4 class="modal-title">
                     <i class="fa fa-edit"></i>
@@ -37,11 +37,11 @@
             </div>
             <div class="modal-body" slot="body">
                 <form>
-                    <fieldset>
+                    <fieldset class="form-group">
                         <label for="name">Name</label>
                         <input id="name" type="text" class="form-control" v-model="counterClone.name">
                     </fieldset>
-                    <fieldset>
+                    <fieldset class="form-group">
                         <label for="step">Step</label>
                         <div class="input-group">
                             <input id="step" type="number" class="form-control" step=".01" v-model="counterClone.step" number>
@@ -53,7 +53,7 @@
                             </span>
                         </div>
                     </fieldset>
-                    <fieldset>
+                    <fieldset class="form-group">
                         <label for="min">Min</label>
                         <div class="input-group">
                             <input id="min" type="number" class="form-control" v-model="counterClone.min" number>
@@ -65,7 +65,7 @@
                             </span>
                         </div>
                     </fieldset>
-                    <fieldset>
+                    <fieldset class="form-group">
                         <label for="max">Max</label>
                         <div class="input-group">
                             <input id="max" type="number" class="form-control" v-model="counterClone.max" number>
@@ -82,10 +82,16 @@
             <div class="modal-footer" slot="footer">
                 <button type="button"
                         class="btn btn-success"
-                        @click="saveEdits()">Save Counter</button>
+                        @click="saveEdits()">
+                    <i class="fa fa-save"></i>
+                    Save Counter
+                </button>
                 <button type="button"
                         class="btn btn-secondary"
-                        @click="$refs.editModal.hideModal()">Cancel</button>
+                        @click="$refs.editModal.hideModal()">
+                    <i class="fa fa-times"></i>
+                    Cancel
+                </button>
             </div>
         </modal>
     </div>
