@@ -42,6 +42,14 @@ code {
     }
 }
 
+form {
+    fieldset {
+        label {
+            font-weight: bold;
+        }
+    }
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 // Stacked Tabs in Bootstrap 3:
 //      http://stackoverflow.com/questions/18432577/stacked-tabs-in-bootstrap-3
