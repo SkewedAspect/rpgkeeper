@@ -61,10 +61,16 @@
             <div class="modal-footer" slot="footer">
                 <button type="button"
                         class="btn btn-danger"
-                        @click="deleteChar()">Delete Character</button>
+                        @click="deleteChar()">
+                    <i class="fa fa-trash-o"></i>
+                    Delete Character
+                </button>
                 <button type="button"
                         class="btn btn-secondary"
-                        @click="close('delModal')">Cancel</button>
+                        @click="close('delModal')">
+                    <i class="fa fa-times"></i>
+                    Cancel
+                </button>
             </div>
         </modal>
 
@@ -192,10 +198,16 @@
             <div class="modal-footer" slot="footer">
                 <button type="button"
                         class="btn btn-primary"
-                        @click="saveChar()">Save changes</button>
+                        @click="saveChar()">
+                    <i class="fa fa-save"></i>
+                    Save changes
+                </button>
                 <button type="button"
                         class="btn btn-secondary"
-                        @click="close('addEditModal')">Close</button>
+                        @click="close('addEditModal')">
+                    <i class="fa fa-times"></i>
+                    Cancel
+                </button>
             </div>
         </modal>
     </div>
