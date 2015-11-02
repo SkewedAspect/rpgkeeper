@@ -105,7 +105,7 @@
         data: function()
         {
             return {
-                rollClone: null,
+                rollClone: {},
                 currentResults: null
             };
         },
