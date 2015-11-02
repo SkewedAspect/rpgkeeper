@@ -196,7 +196,6 @@
             },
             saveEdits: function()
             {
-                console.log('clone:', this.counterClone);
                 _.assign(this.counter, this.counterClone);
                 this.$refs.editModal.hideModal();
 

@@ -38,7 +38,6 @@
                                     Counters
                                 </div>
                                 <div class="card-block">
-                                    <!-- Counters Go Here! -->
                                     <counter v-for="counter in char.counters" :counter="counter" :save="char.save.bind(char)"></counter>
                                 </div>
                             </div>
@@ -58,8 +57,9 @@
                             <i class="fa fa-random"></i>
                             Rolls
                         </div>
-                        <!-- Rolls Go Here! -->
-                        <pre v-for="roll in char.rolls">{{ roll | json }}</pre>
+                        <div class="card-block">
+                            <roll v-for="roll in char.rolls" :roll="roll" :save="char.save.bind(char)"></roll>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,10 +83,12 @@
     import systemsSvc from '../../components/systems/systemsService';
 
     import counter from './components/counter.vue';
+    import roll from './components/roll.vue';
 
     export default {
         components: {
-            counter: counter
+            counter: counter,
+            roll: roll
         },
         props: {
             base: {
