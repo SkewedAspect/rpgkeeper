@@ -12,11 +12,11 @@
                             Add
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="#" @click="open('addCounter')">
                                 <i class="fa fa-bar-chart"></i>
                                 Counter
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="#" @click="open('addRoll')">
                                 <i class="fa fa-random"></i>
                                 Roll
                             </a>
@@ -71,12 +71,99 @@
             </div>
             <notes :notes="char.notes" :save="char.save.bind(char)"></notes>
         </div>
+
+        <!-- Add Roll Modal -->
+        <modal v-ref:add-roll :backdrop="'static'" :keyboard="false">
+            <div class="modal-header" slot="header">
+                <h4 class="modal-title">
+                    <i class="fa fa-plus"></i>
+                    New Roll
+                </h4>
+            </div>
+            <div class="modal-body" slot="body">
+                <form>
+                    <fieldset class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" class="form-control" v-model="newRoll.name">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="expr">Expression</label>
+                        <input id="expr" type="text" class="form-control" v-model="newRoll.expression">
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer" slot="footer">
+                <button type="button"
+                        class="btn btn-success"
+                        @click="addRoll()">
+                    <i class="fa fa-save"></i>
+                    Add Roll
+                </button>
+                <button type="button"
+                        class="btn btn-secondary"
+                        @click="$refs.addRoll.hideModal()">
+                    <i class="fa fa-times"></i>
+                    Cancel
+                </button>
+            </div>
+        </modal>
+
+        <!-- Add Counter Modal -->
+        <modal v-ref:add-counter :backdrop="'static'" :keyboard="false">
+            <div class="modal-header" slot="header">
+                <h4 class="modal-title">
+                    <i class="fa fa-plus"></i>
+                    Add Counter
+                </h4>
+            </div>
+            <div class="modal-body" slot="body">
+                <form>
+                    <fieldset class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" class="form-control" v-model="newCounter.name">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="value">Value</label>
+                        <input id="value" type="number" class="form-control" v-model="newCounter.value" number>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="step">Step</label>
+                        <input id="step" type="number" class="form-control" step=".01" v-model="newCounter.step" number>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="min">Min</label>
+                        <input id="min" type="number" class="form-control" v-model="newCounter.min" number>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="max">Max</label>
+                        <input id="max" type="number" class="form-control" v-model="newCounter.max" number>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer" slot="footer">
+                <button type="button"
+                        class="btn btn-success"
+                        @click="addCounter()">
+                    <i class="fa fa-save"></i>
+                    Save Counter
+                </button>
+                <button type="button"
+                        class="btn btn-secondary"
+                        @click="$refs.addCounter.hideModal()">
+                    <i class="fa fa-times"></i>
+                    Cancel
+                </button>
+            </div>
+        </modal>
+
     </div>
 </template>
 
 <style lang="sass" src="./character.scss"></style>
 
 <script type="text/babel">
+    import { modal } from 'vueboot';
+
     import GenericCharacter from './components/model';
     import systemsSvc from '../../components/systems/systemsService';
 
@@ -88,7 +175,8 @@
         components: {
             counter: counter,
             roll: roll,
-            notes: notes
+            notes: notes,
+            modal: modal
         },
         props: {
             base: {
@@ -98,8 +186,32 @@
         data: function()
         {
             return {
-                char: null
+                char: null,
+                newRoll: {},
+                newCounter: {}
             };
+        },
+        methods: {
+            open: function(modal)
+            {
+                this.$refs[modal].showModal();
+            },
+            addRoll: function()
+            {
+                this.char.rolls.push(this.newRoll);
+                this.newRoll = {};
+                this.$refs.addRoll.hideModal();
+
+                this.char.save();
+            },
+            addCounter: function()
+            {
+                this.char.counters.push(this.newCounter);
+                this.newCounter = {};
+                this.$refs.addCounter.hideModal();
+
+                this.char.save();
+            }
         },
         activate: function(done)
         {
