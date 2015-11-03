@@ -63,15 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div id="notes" class="card">
-                <div class="card-header">
-                    <i class="fa fa-file-text-o"></i>
-                    Notes
-                </div>
-                <div class="card-block">
-                    <pre v-for="note in char.notes">{{ note | json }}</pre>
-                </div>
-            </div>
+            <notes :notes="char.notes" :save="char.save.bind(char)"></notes>
         </div>
     </div>
 </template>
@@ -84,11 +76,13 @@
 
     import counter from './components/counter.vue';
     import roll from './components/roll.vue';
+    import notes from './components/notes.vue';
 
     export default {
         components: {
             counter: counter,
-            roll: roll
+            roll: roll,
+            notes: notes
         },
         props: {
             base: {
@@ -108,8 +102,6 @@
                 {
                     // Wrap this in a model!
                     this.char = new GenericCharacter(this.base, char);
-
-                    console.log('char:', this.char);
                     done();
                 });
         }
