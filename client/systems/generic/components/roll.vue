@@ -44,7 +44,7 @@
                     class="btn btn-success"
                     @click="saveEdits()">
                 <i class="fa fa-save"></i>
-                Save Counter
+                Save Roll
             </button>
             <button type="button"
                     class="btn btn-secondary"
