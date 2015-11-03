@@ -11,6 +11,9 @@ module.exports = {
     http: {
         port: 5678
     },
+    auth: {
+        checkAudience: false
+    },
     rethink: {
         host: 'localhost',
         db: 'rpgkeeper'
