@@ -26,7 +26,7 @@
                         <i class="fa fa-times"></i>
                         Cancel
                     </button>
-                    <button v-if="!note.editing" class="btn btn-sm btn-danger" @click="deleteNote(note)">
+                    <button v-if="!note.editing" class="btn btn-sm btn-danger" @click="confirmDelete(note)">
                         <i class="fa fa-trash-o"></i>
                         Delete
                     </button>
@@ -52,6 +52,34 @@
                 </div>
             </tab>
         </tabs>
+
+        <!-- Delete Modal -->
+        <modal id="delModal" v-ref:del-modal>
+            <div class="modal-header" slot="header">
+                <h4 class="modal-title">
+                    <i class="fa fa-trash-o"></i>
+                    Delete "{{ delNote.name }}" Note
+                </h4>
+            </div>
+            <div class="modal-body text-center" slot="body">
+                <h3><i class="fa fa-exclamation-triangle"></i> Are you sure you want to delete this note?</h3>
+                <p class="text-danger"><b>This cannot be undone!</b></p>
+            </div>
+            <div class="modal-footer" slot="footer">
+                <button type="button"
+                        class="btn btn-danger"
+                        @click="deleteNote()">
+                    <i class="fa fa-trash-o"></i>
+                    Delete Note
+                </button>
+                <button type="button"
+                        class="btn btn-secondary"
+                        @click="$refs.delModal.hideModal()">
+                    <i class="fa fa-times"></i>
+                    Cancel
+                </button>
+            </div>
+        </modal>
     </div>
 </template>
 
@@ -68,10 +96,11 @@
 <script type="text/babel">
     import _ from 'lodash';
     import marked from 'marked';
-    import { tabset, tab } from 'vueboot';
+    import { modal, tabset, tab } from 'vueboot';
 
     export default {
         components: {
+            modal : modal,
             tabs: tabset,
             tab: tab
         },
@@ -87,7 +116,9 @@
         },
         data: function()
         {
-            return {};
+            return {
+                delNote: {}
+            };
         },
         methods: {
             tabName: function(note)
@@ -99,10 +130,16 @@
                 note.editing = true;
                 note.clone = _.clone(_.omit(note, 'clone'));
             },
-            deleteNote: function(note)
+            confirmDelete: function(note)
             {
+                this.delNote = note;
+                this.$refs.delModal.showModal();
+            },
+            deleteNote: function()
+            {
+                this.$refs.delModal.hideModal();
                 this.$refs.notes.activateTab(this.notes.length - 2);
-                this.notes.$remove(note);
+                this.notes.$remove(this.delNote);
                 this.save();
             },
             cancel: function(note)
