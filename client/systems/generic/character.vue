@@ -37,7 +37,10 @@
                                     <i class="fa fa-bar-chart-o"></i>
                                     Counters
                                 </div>
-                                <div class="card-block">
+                                <div v-if="!char.counters || char.counters.length == 0" class="text-center card-block">
+                                    <h6>No counters, yet.</h6>
+                                </div>
+                                <div class="card-block" v-else>
                                     <counter v-for="counter in char.counters" :counter="counter" :save="char.save.bind(char)"></counter>
                                 </div>
                             </div>
@@ -57,7 +60,10 @@
                             <i class="fa fa-random"></i>
                             Rolls
                         </div>
-                        <div class="card-block">
+                        <div v-if="!char.rolls || char.rolls.length == 0" class="text-center card-block">
+                            <h6>No rolls, yet.</h6>
+                        </div>
+                        <div class="card-block" v-else>
                             <roll v-for="roll in char.rolls" :roll="roll" :save="char.save.bind(char)"></roll>
                         </div>
                     </div>

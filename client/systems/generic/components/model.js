@@ -17,6 +17,8 @@ class GenericCharacter {
     {
         this._base = base;
         this._system = system;
+
+        this._ensureValidity();
     } // end constructor
 
     get id(){ return this._base.id; }
@@ -45,6 +47,24 @@ class GenericCharacter {
     get rolls(){ return this._system.rolls; }
     get notes(){ return this._system.notes; }
 
+    _ensureValidity()
+    {
+        if(!_.isArray(this._system.counters))
+        {
+            this._system.counters = [];
+        } // end if
+
+        if(!_.isArray(this._system.rolls))
+        {
+            this._system.rolls = [];
+        } // end if
+
+        if(!_.isArray(this._system.notes))
+        {
+            this._system.notes = [];
+        } // end if
+    }
+
     refresh()
     {
         this.loading = Promise.join(
@@ -53,6 +73,7 @@ class GenericCharacter {
                 .then((response) =>
                 {
                     this._system = response.data || {};
+                    this._ensureValidity();
                 })
         );
 
