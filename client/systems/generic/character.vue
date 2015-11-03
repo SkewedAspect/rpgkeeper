@@ -35,7 +35,7 @@
                             <h6>No counters, yet.</h6>
                         </div>
                         <div v-else>
-                            <counter v-for="counter in char.counters" :counter="counter" :save="char.save.bind(char)"></counter>
+                            <counter v-for="counter in char.counters" :counter="counter" :save="save" :on-delete="deleteCounter"></counter>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                                 <h6>No rolls, yet.</h6>
                             </div>
                             <div v-else>
-                                <roll v-for="roll in char.rolls" :roll="roll" :save="char.save.bind(char)"></roll>
+                                <roll v-for="roll in char.rolls" :roll="roll" :save="save"></roll>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Notes -->
-            <notes :notes="char.notes" :save="char.save.bind(char)"></notes>
+            <notes :notes="char.notes" :save="save"></notes>
         </div>
 
         <!-- Add Roll Modal -->
@@ -225,6 +225,15 @@
             }
         },
         methods: {
+            save: function()
+            {
+                this.char.save();
+            },
+            deleteCounter: function(counter)
+            {
+                this.char.counters.$remove(counter);
+                this.char.save();
+            },
             executeRoll: function()
             {
                 this.rollResults = diceSvc.roll(this.rollExpression, {});
