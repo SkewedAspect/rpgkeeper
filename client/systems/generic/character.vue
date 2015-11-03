@@ -60,11 +60,32 @@
                             <i class="fa fa-random"></i>
                             Rolls
                         </div>
-                        <div v-if="!char.rolls || char.rolls.length == 0" class="text-center card-block">
-                            <h6>No rolls, yet.</h6>
-                        </div>
-                        <div class="card-block" v-else>
-                            <roll v-for="roll in char.rolls" :roll="roll" :save="char.save.bind(char)"></roll>
+                        <div class="card-block">
+                            <div class="input-group roll-component" style="margin-right: -10px">
+                                <span class="input-group-addon" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ rollRendered }}">
+                                    <button v-if="rollValue || rollValue === 0" type="button" class="close" @click.prevent.stop="clearRoll()">
+                                        <span aria-hidden="true">
+                                            &times;
+                                        </span>
+                                        <span class="sr-only">Clear</span>
+                                    </button>
+                                    {{ rollValue }}
+                                </span>
+                                <input type="text" class="form-control" placeholder="ex: 1d20 +1" v-model="rollExpression">
+                                <span class="input-group-btn" style="width: auto">
+                                    <button class="btn btn-secondary" type="button" title="Click to roll" @click="executeRoll()">
+                                        <i class="fa fa-random"></i>
+                                        Roll
+                                    </button>
+                                </span>
+                            </div>
+                            <hr>
+                            <div v-if="!char.rolls || char.rolls.length == 0" class="text-center">
+                                <h6>No rolls, yet.</h6>
+                            </div>
+                            <div v-else>
+                                <roll v-for="roll in char.rolls" :roll="roll" :save="char.save.bind(char)"></roll>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -166,6 +187,7 @@
 
     import GenericCharacter from './components/model';
     import systemsSvc from '../../components/systems/systemsService';
+    import diceSvc from '../../components/dice/diceService';
 
     import counter from './components/counter.vue';
     import roll from './components/roll.vue';
@@ -188,10 +210,36 @@
             return {
                 char: null,
                 newRoll: {},
-                newCounter: {}
+                newCounter: {},
+                rollResults: null,
+                rollExpression: ""
             };
         },
+        computed: {
+            rollRendered: function()
+            {
+                if(this.rollResults)
+                {
+                    return this.rollResults.render();
+                } // end if
+
+                return "";
+            },
+            rollValue: function()
+            {
+                return (this.rollResults || {}).value;
+            }
+        },
         methods: {
+            executeRoll: function()
+            {
+                this.rollResults = diceSvc.roll(this.rollExpression, {});
+            },
+            clearRoll: function()
+            {
+                this.rollResults = null;
+                this.rollExpression = "";
+            },
             open: function(modal)
             {
                 this.$refs[modal].showModal();
