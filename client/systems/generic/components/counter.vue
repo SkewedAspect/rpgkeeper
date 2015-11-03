@@ -1,11 +1,17 @@
 <template>
     <div class="card counter">
         <div class="card-header">
+            <button type="button" class="close" aria-label="Close" @click="confirmDelete()" style="margin-left: 10px;">
+                <span aria-hidden="true">
+                    <i class="fa fa-trash-o"></i>
+                </span>
+                <span class="sr-only">Delete</span>
+            </button>
             <button type="button" class="close" aria-label="Close" @click="edit()">
                 <span aria-hidden="true">
                     <i class="fa fa-edit"></i>
                 </span>
-                <span class="sr-only">Close</span>
+                <span class="sr-only">Edit</span>
             </button>
             {{ counter.name }}
         </div>
@@ -97,6 +103,34 @@
                 </button>
             </div>
         </modal>
+
+        <!-- Delete Modal -->
+        <modal id="delModal" v-ref:del-modal>
+            <div class="modal-header" slot="header">
+                <h4 class="modal-title">
+                    <i class="fa fa-trash-o"></i>
+                    Delete "{{ counter.name }}" Counter
+                </h4>
+            </div>
+            <div class="modal-body text-center" slot="body">
+                <h3><i class="fa fa-exclamation-triangle"></i> Are you sure you want to delete this counter?</h3>
+                <p class="text-danger"><b>This cannot be undone!</b></p>
+            </div>
+            <div class="modal-footer" slot="footer">
+                <button type="button"
+                        class="btn btn-danger"
+                        @click="deleteCounter()">
+                    <i class="fa fa-trash-o"></i>
+                    Delete Counter
+                </button>
+                <button type="button"
+                        class="btn btn-secondary"
+                        @click="$refs.delModal.hideModal()">
+                    <i class="fa fa-times"></i>
+                    Cancel
+                </button>
+            </div>
+        </modal>
     </div>
 </template>
 
@@ -163,6 +197,10 @@
             save: {
                 type: Function,
                 required: true
+            },
+            onDelete: {
+                type: Function,
+                required: true
             }
         },
         data: function()
@@ -205,13 +243,23 @@
                 this.counterClone = _.clone(this.counter);
                 this.$refs.editModal.showModal();
             },
+            confirmDelete: function()
+            {
+                this.$refs.delModal.showModal();
+            },
+            deleteCounter: function()
+            {
+                this.onDelete(this.counter);
+                this.$refs.delModal.hideModal();
+            },
             saveEdits: function()
             {
                 _.assign(this.counter, this.counterClone);
                 this.$refs.editModal.hideModal();
 
                 this.save();
-            }
+            },
+
         },
         watch: {
             'counter.value': function()
