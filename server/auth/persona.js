@@ -17,8 +17,8 @@ var logger = logging.loggerFor(module);
 //----------------------------------------------------------------------------------------------------------------------
 
 passport.use(new PersonaStrategy({
-        audience: config.audience || 'http://localhost:' + config.http.port,
-        checkAudience: config.checkAudience || false
+        audience: config.auth.audience || 'http://localhost:' + config.http.port,
+        checkAudience: config.auth.checkAudience || false
     },
     function(email, done)
     {
