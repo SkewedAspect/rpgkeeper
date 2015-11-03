@@ -8,7 +8,10 @@
             <i class="fa fa-file-text-o"></i>
             Notes
         </div>
-        <tabs v-ref:notes :orientation="'left'">
+        <div v-if="!notes || notes.length == 0" class="text-center card-block">
+            <h6>No notes, yet.</h6>
+        </div>
+        <tabs v-ref:notes :orientation="'left'" v-else>
             <tab v-for="note in notes" :header="tabName(note)">
                 <div class="btn-toolbar pull-right">
                     <button v-if="note.editing" class="btn btn-sm btn-success" @click="saveNote(note)">
