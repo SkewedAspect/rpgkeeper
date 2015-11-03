@@ -27,30 +27,15 @@
             </header>
             <div class="upper-sheet">
                 <div class="main">
-                    <div class="portrait-block">
-                        <div class="portrait">
-                            <img class="img-thumbnail" :src="char.portrait || 'http://placehold.it/800x1200'" height="445px" width="300px" style="max-width: inherit">
-                        </div>
-                        <div class="counters">
-                            <div class="card">
-                                <div class="card-header">
-                                    <i class="fa fa-bar-chart-o"></i>
-                                    Counters
-                                </div>
-                                <div v-if="!char.counters || char.counters.length == 0" class="text-center card-block">
-                                    <h6>No counters, yet.</h6>
-                                </div>
-                                <div class="card-block" v-else>
-                                    <counter v-for="counter in char.counters" :counter="counter" :save="char.save.bind(char)"></counter>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="portrait">
+                        <img class="img-thumbnail" :src="char.portrait || 'http://placehold.it/800x1200'" height="445px" width="300px" style="max-width: inherit">
                     </div>
-                    <div class="stats">
-                        <div class="card">
-                            <div class="card-block">
-                                <h6 class="text-center" style="margin: 0">No Stats, yet.</h6>
-                            </div>
+                    <div class="counters">
+                        <div v-if="!char.counters || char.counters.length == 0" class="text-center card-block">
+                            <h6>No counters, yet.</h6>
+                        </div>
+                        <div v-else>
+                            <counter v-for="counter in char.counters" :counter="counter" :save="char.save.bind(char)"></counter>
                         </div>
                     </div>
                 </div>
@@ -90,6 +75,15 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Stats -->
+            <div id="stats" class="card">
+                <div class="card-block">
+                    <h6 class="text-center" style="margin: 0">No Stats, yet.</h6>
+                </div>
+            </div>
+
+            <!-- Notes -->
             <notes :notes="char.notes" :save="char.save.bind(char)"></notes>
         </div>
 
