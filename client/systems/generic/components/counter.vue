@@ -9,15 +9,18 @@
             </button>
             {{ counter.name }}
         </div>
-        <div class="input-group counter-style">
+        <div v-if="counter.max === undefined && counter.min === undefined" class="counter-style">
+            <input type="number" class="form-control" v-model="counter.value" :step="counter.step" :max="counter.max" :min="counter.min" number debounce="1000">
+        </div>
+        <div class="input-group counter-style" v-else>
             <input type="number" class="form-control" v-model="counter.value" :step="counter.step" :max="counter.max" :min="counter.min" number debounce="1000">
             <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button" title="Increment Value" @click="inc()">
+                <!--button class="btn btn-secondary" type="button" title="Increment Value" @click="inc()">
                     <i class="fa fa-plus"></i>
                 </button>
                 <button class="btn btn-secondary" type="button" title="Decrement Value" @click="dec()">
                     <i class="fa fa-minus"></i>
-                </button>
+                </button-->
                 <button v-if="counter.max !== undefined" class="btn btn-secondary" type="button" title="Set to Max" @click="toMax()">
                     <i class="fa fa-step-backward fa-rotate-90"></i>
                 </button>
@@ -132,6 +135,14 @@
                     border-top-right-radius: 0;
                     margin-right: -1px;
                  }
+            }
+        }
+
+        .counter-style {
+            input {
+                border: none;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
             }
         }
     }
