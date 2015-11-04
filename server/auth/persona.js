@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import passport from 'passport';
-import { Strategy as PersonaStrategy } from 'passport-persona';
+import { Strategy as PersonaStrategy } from 'persona-pass';
 
 import config from '../../config';
 import models from '../models';
