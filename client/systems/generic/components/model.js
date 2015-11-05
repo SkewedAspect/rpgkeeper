@@ -124,7 +124,40 @@ class GenericCharacter {
         {
             this._system.notes = [];
         } // end if
-    }
+    } // end _ensureValidity
+
+    _move(array, from, to)
+    {
+        array.splice(to, 0, array.splice(from, 1)[0]);
+    } // end _move
+
+    moveUp(listName, item)
+    {
+        var list = this._system[listName];
+
+        if(_.isArray(list))
+        {
+            var from = list.indexOf(item);
+            var to = Math.max(from - 1, 0);
+
+            this._move(list, from, to);
+            this.save();
+        } // end if
+    } // end moveUp
+
+    moveDown(listName, item)
+    {
+        var list = this._system[listName];
+
+        if(_.isArray(list))
+        {
+            var from = list.indexOf(item);
+            var to = Math.min(from + 1, (list.length - 1));
+
+            this._move(list, from, to);
+            this.save();
+        } // end if
+    } // end moveDown
 
     refresh()
     {
