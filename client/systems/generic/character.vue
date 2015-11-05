@@ -69,7 +69,7 @@
                                 <h6>No rolls, yet.</h6>
                             </div>
                             <div v-else>
-                                <roll v-for="roll in char.rolls" :roll="roll" :save="save"></roll>
+                                <roll v-for="roll in char.rolls" :roll="roll" :context="char.rollContext" :save="save"></roll>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="expr">Expression</label>
-                        <input id="expr" type="text" class="form-control" v-model="newRoll.expression">
+                        <textarea id="expr" rows="5" class="form-control monospace" v-model="newRoll.expression"></textarea>
                     </fieldset>
                 </form>
             </div>
@@ -201,7 +201,7 @@
         props: {
             base: {
                 required: true
-            },
+            }
         },
         data: function()
         {

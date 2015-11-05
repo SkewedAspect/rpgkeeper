@@ -105,7 +105,6 @@ class GenericCharacter {
             } // end if
         });
 
-        console.log('context:', context);
         return context;
     } // end rollContext
 

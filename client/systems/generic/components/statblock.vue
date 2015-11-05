@@ -1,6 +1,18 @@
 <template>
     <div class="card statblock">
         <div class="card-header">
+            <button type="button" class="close" aria-label="Close" @click="confirmDelete()" style="margin-left: 10px">
+                <span aria-hidden="true">
+                    <i class="fa fa-trash-o"></i>
+                </span>
+                <span class="sr-only">Delete</span>
+            </button>
+            <button type="button" class="close" aria-label="Close" @click="edit()">
+                <span aria-hidden="true">
+                    <i class="fa fa-edit"></i>
+                </span>
+                <span class="sr-only">Edit</span>
+            </button>
             {{ statblock.name }}
         </div>
         <table v-if="statblock.type == 'table'" class="table table-sm text-center">
@@ -22,7 +34,23 @@
     </div>
 </template>
 
-<!--style lang="sass" src=""></style-->
+<style lang="sass">
+    .card.statblock {
+
+        .card-header {
+            font-size: .85rem;
+            font-weight: 500;
+
+            button.close {
+                line-height: .75;
+
+                & > span {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+</style>
 
 <script type="text/babel">
     import rpgdice from 'rpgdicejs';
