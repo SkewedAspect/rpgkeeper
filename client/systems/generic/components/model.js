@@ -6,6 +6,7 @@
 
 import _ from 'lodash';
 import Promise from 'bluebird';
+import rpgdice from 'rpgdicejs';
 import $http from 'axios';
 
 import systemsSvc from '../../../components/systems/systemsService';
@@ -45,7 +46,68 @@ class GenericCharacter {
     // System Character
     get counters(){ return this._system.counters; }
     get rolls(){ return this._system.rolls; }
+    get stats(){ return this._system.stats; }
     get notes(){ return this._system.notes; }
+
+    get rollContext()
+    {
+        var context = {};
+
+        _.each(this._system.stats, (block) =>
+        {
+            context[block.name] = {};
+            if(block.type == 'table')
+            {
+                var pkIdx = _.findIndex(block.columns, { pk: true }) || 0;
+
+                _.each(block.rows, (row) =>
+                {
+                    var pk = row[pkIdx];
+                    var subObj = {};
+                    _.each(block.columns, (col, index) =>
+                    {
+                        if(!col.pk)
+                        {
+                            // Handle computed properties
+                            if(col.type === 'computed')
+                            {
+                                Object.defineProperty(subObj, col.name, {
+                                    get: function(){ return rpgdice.eval(row[index], context).value; }
+                                });
+                            }
+                            else
+                            {
+                                subObj[col.name] = row[index];
+                            } // end if
+                        } // end if
+                    });
+
+                    context[block.name][pk] = subObj;
+                });
+            } // end if
+
+            if(block.type == 'list')
+            {
+                _.each(block.items, (item) =>
+                {
+                    // Handle computed properties
+                    if(item.type === 'computed')
+                    {
+                        Object.defineProperty(context[block.name], item.key, {
+                            get: function(){ return rpgdice.eval(item.value, context).value; }
+                        });
+                    }
+                    else
+                    {
+                        context[block.name][item.key] = item.value;
+                    } // end if
+                });
+            } // end if
+        });
+
+        console.log('context:', context);
+        return context;
+    } // end rollContext
 
     _ensureValidity()
     {
