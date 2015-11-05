@@ -28,6 +28,7 @@ db.Character = thinky.createModel('characters', {
         type.object().schema({
             name: type.string().required(),
             value: type.number(),
+            min: type.number(),
             max: type.number(),
             steps: type.number()
         }).removeExtra()

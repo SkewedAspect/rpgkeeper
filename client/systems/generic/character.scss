@@ -5,6 +5,7 @@
 #generic-char {
     .upper-sheet {
         display: flex;
+        flex-wrap: wrap;
 
         .card {
             margin-bottom: 0;

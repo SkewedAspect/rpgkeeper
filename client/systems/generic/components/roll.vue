@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <template>
     <div class="input-group roll-component">
         <span class="input-group-addon" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ renderedText }}">
@@ -35,7 +36,7 @@
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="expr">Expression</label>
-                    <input id="expr" type="text" class="form-control" v-model="rollClone.expression">
+                    <textarea id="expr" rows="5" class="form-control monospace" v-model="rollClone.expression"></textarea>
                 </fieldset>
             </form>
         </div>
@@ -90,7 +91,7 @@
 
     export default {
         components: {
-            modal: modal
+            modal
         },
         props: {
             roll: {
@@ -99,6 +100,10 @@
             },
             save: {
                 type: Function,
+                required: true
+            },
+            context: {
+                type: Object,
                 required: true
             }
         },
@@ -132,7 +137,7 @@
             },
             executeRoll: function()
             {
-                this.currentResults = diceSvc.roll(this.roll.expression, {});
+                this.currentResults = diceSvc.roll(this.roll.expression, this.context);
             },
             clear: function()
             {
