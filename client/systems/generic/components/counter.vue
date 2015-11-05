@@ -1,7 +1,7 @@
 <template>
     <div class="card counter">
         <div class="card-header">
-            <button type="button" class="close" aria-label="Close" @click="confirmDelete()" style="margin-left: 10px;">
+            <button type="button" class="close" aria-label="Close" @click="confirmDelete()">
                 <span aria-hidden="true">
                     <i class="fa fa-trash-o"></i>
                 </span>
@@ -12,6 +12,18 @@
                     <i class="fa fa-edit"></i>
                 </span>
                 <span class="sr-only">Edit</span>
+            </button>
+            <button type="button" class="close" aria-label="Close" @click="moveUp('counters', counter)">
+                <span aria-hidden="true">
+                    <i class="fa fa-caret-up"></i>
+                </span>
+                <span class="sr-only">Move Up</span>
+            </button>
+            <button type="button" class="close" aria-label="Close" @click="moveDown('counters', counter)">
+                <span aria-hidden="true">
+                    <i class="fa fa-caret-down"></i>
+                </span>
+                <span class="sr-only">Move Down</span>
             </button>
             {{ counter.name }}
         </div>
@@ -145,6 +157,7 @@
 
             button.close {
                 line-height: .75;
+                margin-left: 10px;
 
                 & > span {
                     font-size: 1rem;
@@ -192,6 +205,14 @@
         },
         props: {
             counter: {
+                required: true
+            },
+            moveUp: {
+                type: Function,
+                required: true
+            },
+            moveDown: {
+                type: Function,
                 required: true
             },
             save: {

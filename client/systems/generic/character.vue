@@ -35,7 +35,7 @@
                             <h6>No counters, yet.</h6>
                         </div>
                         <div v-else>
-                            <counter v-for="counter in char.counters" :counter="counter" :save="save" :on-delete="deleteCounter"></counter>
+                            <counter v-for="counter in char.counters" :counter="counter" :save="save" :on-delete="deleteCounter" :move-up="moveUp" :move-down="moveDown"></counter>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     <h6 class="text-center" style="margin: 0">No Stats, yet.</h6>
                 </div>
                 <div class="stats-list"  v-else>
-                    <statblock v-for="statblock in char.stats" :statblock="statblock" :context="char.rollContext"></statblock>
+                    <statblock v-for="statblock in char.stats" :statblock="statblock" :context="char.rollContext" :move-up="moveUp" :move-down="moveDown"></statblock>
                 </div>
             </div>
 
@@ -229,6 +229,14 @@
             }
         },
         methods: {
+            moveUp: function(listName, item)
+            {
+                this.char.moveUp(listName, item);
+            },
+            moveDown: function(listName, item)
+            {
+                this.char.moveDown(listName, item);
+            },
             save: function()
             {
                 this.char.save();

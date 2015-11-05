@@ -13,6 +13,18 @@
                 </span>
                 <span class="sr-only">Edit</span>
             </button>
+            <button type="button" class="close" aria-label="Close" @click="moveUp('stats', statblock)">
+                <span aria-hidden="true">
+                    <i class="fa fa-caret-up"></i>
+                </span>
+                <span class="sr-only">Move Up</span>
+            </button>
+            <button type="button" class="close" aria-label="Close" @click="moveDown('stats', statblock)">
+                <span aria-hidden="true">
+                    <i class="fa fa-caret-down"></i>
+                </span>
+                <span class="sr-only">Move Down</span>
+            </button>
             {{ statblock.name }}
         </div>
         <table v-if="statblock.type == 'table'" class="table table-sm text-center">
@@ -43,6 +55,7 @@
 
             button.close {
                 line-height: .75;
+                margin-left: 10px;
 
                 & > span {
                     font-size: 1rem;
@@ -63,6 +76,14 @@
             },
             context: {
                 type: Object,
+                required: true
+            },
+            moveUp: {
+                type: Function,
+                required: true
+            },
+            moveDown: {
+                type: Function,
                 required: true
             }
         },
