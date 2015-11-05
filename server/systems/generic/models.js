@@ -23,26 +23,27 @@ var db = { r, type, errors: thinky.Errors };
 
 db.Character = thinky.createModel('characters', {
     id: type.string(),
-    counters: [
+    stats: type.array().default([]),
+    counters: type.array().schema(
         type.object().schema({
             name: type.string().required(),
             value: type.number(),
             max: type.number(),
             steps: type.number()
-        })
-    ],
-    rolls: [
+        }).removeExtra()
+    ).default([]),
+    rolls: type.array().schema(
         type.object().schema({
             name: type.string().required(),
             expression: type.string()
-        })
-    ],
-    notes: [
+        }).removeExtra()
+    ).default([]),
+    notes: type.array().schema(
         type.object().schema({
             name: type.string().required(),
             content: type.string()
-        })
-    ],
+        }).removeExtra()
+    ).default([]),
     user: type.string().required()
 });
 

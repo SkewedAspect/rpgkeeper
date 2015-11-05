@@ -78,8 +78,11 @@
 
             <!-- Stats -->
             <div id="stats" class="card">
-                <div class="card-block">
+                <div v-if="!char.stats || char.stats.length === 0"  class="card-block">
                     <h6 class="text-center" style="margin: 0">No Stats, yet.</h6>
+                </div>
+                <div class="stats-list"  v-else>
+                    <statblock v-for="statblock in char.stats" :statblock="statblock" :context="char.rollContext"></statblock>
                 </div>
             </div>
 
@@ -170,7 +173,6 @@
                 </button>
             </div>
         </modal>
-
     </div>
 </template>
 
@@ -185,12 +187,14 @@
 
     import counter from './components/counter.vue';
     import roll from './components/roll.vue';
+    import statblock from './components/statblock.vue';
     import notes from './components/notes.vue';
 
     export default {
         components: {
             counter: counter,
             roll: roll,
+            statblock: statblock,
             notes: notes,
             modal: modal
         },
@@ -271,6 +275,7 @@
                 {
                     // Wrap this in a model!
                     this.char = new GenericCharacter(this.base, char);
+                    console.log('sys char:', JSON.parse(JSON.stringify(this.char._system)));
                     done();
                 });
         }
