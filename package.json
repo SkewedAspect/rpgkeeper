@@ -1,12 +1,13 @@
 {
   "name": "rpgkeeper",
-  "version": "2.0.0-alpha.3",
+  "version": "2.0.0-beta.1",
   "description": "A site for managing your digital character sheets.",
   "main": "server.js",
   "scripts": {
     "test": "mocha tests --reporter spec --recursive"
   },
-  "author": "",
+  "repository": "Morgul/rpgkkeper",
+  "author": "Christopher S. Case <chris.case@g33xnexus.com>",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.7.0",
