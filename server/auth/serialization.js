@@ -11,11 +11,11 @@ var models = require('../models');
 //----------------------------------------------------------------------------------------------------------------------
 
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, user.email);
 });
 
-passport.deserializeUser(function(id, done) {
-    models.User.get(id)
+passport.deserializeUser(function(email, done) {
+    models.User.get(email)
         .then(function(user)
         {
             done(null, user);
