@@ -1,0 +1,18 @@
+rethinkdb:
+    image: rethinkdb:2.2
+     ports:
+        - 5679:8080
+        - 28015:28015
+    restart: always
+
+rpgkeeper:
+    image: rpgkeeper:latest
+    environment:
+        LOG_LEVEL: info
+        RETHINK_DB_HOST: rethinkdb
+    links:
+        - rethinkdb
+    command: node server.js
+    restart: always
+    ports:
+        - 5678:5678
