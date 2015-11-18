@@ -15,7 +15,8 @@ module.exports = {
         checkAudience: false
     },
     rethink: {
-        host: 'localhost',
+        host: process.env.RETHINK_DB_HOST || 'localhost',
+        port: process.env.RETHINK_DB_PORT || 28015,
         db: 'rpgkeeper'
     }
 }; // end exports
