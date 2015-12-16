@@ -12,6 +12,10 @@
     }
 }
 
+.no-click {
+    pointer-events: none;
+}
+
 hr.sm {
     margin-top: 10px;
     margin-bottom: 10px;
