@@ -6,7 +6,7 @@
   ],
   "private": true,
   "dependencies": {
-    "bootstrap": "4.0.0-alpha",
+    "bootstrap": "4.0.0-alpha.2",
     "font-awesome": "~4.4.0",
     "codemirror": "~4.12.0",
     "rpg-awesome": "https://github.com/nagoshiashumari/Rpg-Awesome.git#0.0.1",
