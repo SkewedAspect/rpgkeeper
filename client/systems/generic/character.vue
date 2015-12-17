@@ -82,7 +82,7 @@
                     <h6 class="text-center" style="margin: 0">No Stats, yet.</h6>
                 </div>
                 <div class="stats-list"  v-else>
-                    <statblock v-for="statblock in char.stats" :statblock="statblock" :context="char.rollContext" :move-up="moveUp" :move-down="moveDown"></statblock>
+                    <statblock v-for="statblock in char.stats" :statblock="statblock" :context="char.rollContext" :move-up="moveUp" :move-down="moveDown" :save="save"></statblock>
                 </div>
             </div>
 
