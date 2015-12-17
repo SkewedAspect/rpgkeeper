@@ -253,6 +253,10 @@
             moveDown: {
                 type: Function,
                 required: true
+            },
+            save: {
+                type: Function,
+                required: true
             }
         },
         data: function()
@@ -287,6 +291,12 @@
 
                 // Update Vue
                 this.statblockClone.columns = columns;
+            },
+            saveEdit: function()
+            {
+                _.assign(this.statblock, this.statblockClone);
+                this.$refs.editModal.hideModal();
+                this.save();
             },
             renderCell: function(cell, index)
             {
