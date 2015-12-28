@@ -14,6 +14,8 @@ class CharacterModel {
     {
         this.$dirty = false;
         this._state = definition;
+        this.saving = false;
+        this.lastSaved = undefined;
     } // end constructor
 
     get id(){ return this._state.id; }
@@ -39,6 +41,9 @@ class CharacterModel {
     {
         this.loading = $http.get(this.url).then((response) =>
         {
+            this.saving = false;
+            this.lastSaved = undefined;
+
             this._state = response.data || {};
             return this;
         });
@@ -48,12 +53,15 @@ class CharacterModel {
 
     save()
     {
+        this.saving = true;
         if(!this.id)
         {
             return $http.post(this.url, this._state).then((response) =>
             {
+                this.saving = false;
                 this.$dirty = false;
                 this._state.id = response.data;
+                this.lastSaved = Date.now();
                 return this;
             });
         }
@@ -61,7 +69,9 @@ class CharacterModel {
         {
             return $http.put(this.url, this._state).then(() =>
             {
+                this.saving = false;
                 this.$dirty = false;
+                this.lastSaved = Date.now();
                 return this;
             });
         } // end if
