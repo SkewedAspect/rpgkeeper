@@ -198,9 +198,16 @@
         data: function()
         {
             return {
+                defaultStats: {
+                    name: null,
+                    type: "list",
+                    rows: [],
+                    columns: [],
+                    items: []
+                },
                 statblock: {
                     name: null,
-                    type: null,
+                    type: "list",
                     rows: [],
                     columns: [],
                     items: []
@@ -210,12 +217,27 @@
         methods: {
             show: function()
             {
+                // Default to any properties not listed
+                this.stats = _.defaults({}, this.stats, this.defaultStats);
+
+                // Now we copy stats to our statblock
                 _.assign(this.statblock, _.cloneDeep(this.stats));
                 this.$refs.modal.showModal();
             },
+            showModal: function()
+            {
+                // This is compatibility for the modal api.
+                this.show();
+            },
             hide: function()
             {
+                this.statblock = _.cloneDeep(this.defaultStats);
                 this.$refs.modal.hideModal();
+            },
+            hideModal: function()
+            {
+                // This is compatibility for the modal api.
+                this.hide();
             },
             makeColumnPrimary: function(columnName)
             {
