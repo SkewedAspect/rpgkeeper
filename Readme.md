@@ -37,14 +37,11 @@ These are systems I'd like to add support for:
 
 ## TODO:
 
-* [ ] Read-only support
-    * If you are not logged in, you get a read-only version of the page, suitable for GMs to look at, etc.
+* [ ] Read-only support: [#4](https://github.com/Morgul/rpgkeeper/issues/4)
+* [ ] Add a loading bar when loading the character for the first time: [#6](https://github.com/Morgul/rpgkeeper/issues/6)
+* [ ] Add saving/saved indicator: [#7](https://github.com/Morgul/rpgkeeper/issues/7)
 * [ ] Convert existing systems
-    * [ ] Generic System
-        * [ ] Edit/Add Stat blocks
-        * [ ] Add saving/saved indicator
-            * A little btn-outline'd button next to Add. Have it go from 'Saving' to 'Saved', and then fade out after a minute.
-        * [ ] Add a loading bar when loading the character for the first time. (This can be slow.)
-        * [ ] Pull all modals out into their own components. (_These will be easier to work with in the long run._)
+    * [ ] Generic System: [#5](https://github.com/Morgul/rpgkeeper/issues/5)
+        * [ ] Pull all modals out into their own components. _These will be easier to work with in the long run._ 
     * [ ] EotE System
         * [ ]  EVEYRTHING NEEDS CONVERSION
