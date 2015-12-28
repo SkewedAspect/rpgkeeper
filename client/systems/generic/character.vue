@@ -6,21 +6,19 @@
         <div v-else>
             <header>
                 <div class="pull-right">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="btn-toolbar">
+                        <button class="btn btn-primary" @click="open('addCounter')">
                             <i class="fa fa-plus"></i>
-                            Add
+                            Counter
                         </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#" @click="open('addCounter')">
-                                <i class="fa fa-bar-chart"></i>
-                                Counter
-                            </a>
-                            <a class="dropdown-item" href="#" @click="open('addRoll')">
-                                <i class="fa fa-random"></i>
-                                Roll
-                            </a>
-                        </div>
+                        <button class="btn btn-primary" @click="open('addRoll')">
+                            <i class="fa fa-plus"></i>
+                            Roll
+                        </button>
+                        <button class="btn btn-primary" @click="open('addStatblock')">
+                            <i class="fa fa-plus"></i>
+                            Statblock
+                        </button>
                     </div>
                 </div>
                 <h1>{{ char.name }}</h1>
@@ -173,6 +171,9 @@
                 </button>
             </div>
         </modal>
+
+        <!-- Add Statblock Modal -->
+        <add-edit-stat-modal v-ref:add-statblock :stats="newStatblock" :mode="'add'" :save="addStatblock"></add-edit-stat-modal>
     </div>
 </template>
 
@@ -189,6 +190,7 @@
     import roll from './components/roll.vue';
     import statblock from './components/statblock.vue';
     import notes from './components/notes.vue';
+    import AddEditStatModal from './modals/statAddEdit.vue';
 
     export default {
         components: {
@@ -196,7 +198,8 @@
             roll: roll,
             statblock: statblock,
             notes: notes,
-            modal: modal
+            modal: modal,
+            addEditStatModal: AddEditStatModal
         },
         props: {
             base: {
@@ -209,6 +212,7 @@
                 char: null,
                 newRoll: {},
                 newCounter: {},
+                newStatblock: {},
                 rollResults: null,
                 rollExpression: ""
             };
@@ -273,6 +277,12 @@
                 this.newCounter = {};
                 this.$refs.addCounter.hideModal();
 
+                this.char.save();
+            },
+            addStatblock: function()
+            {
+                this.char.stats.push(this.newStatblock);
+                this.newStatblock = {};
                 this.char.save();
             }
         },
