@@ -11,12 +11,15 @@
             {{ currentValue }}
         </span>
         <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button" title="Click to roll" @click="executeRoll()" style="width: calc(100% - 50px)">
-                    {{ roll.name }}
-                </button>
-                <button class="btn btn-secondary" type="button" title="Click to edit" @click="editRoll()">
-                    <i class="fa fa-edit"></i>
-                </button>
+            <button class="btn btn-secondary named-button" type="button" title="Execute Roll" @click="execute()">
+                {{ roll.name }}
+            </button>
+            <button class="btn btn-secondary" type="button" title="Edit Roll" @click="edit()">
+                <i class="fa fa-fw fa-edit"></i>
+            </button>
+            <button class="btn btn-danger" type="button" title="Remove Roll" @click="$refs.deleteModal.show()">
+                <i class="fa fa-fw fa-trash-o"></i>
+            </button>
         </span>
     </div>
 
@@ -55,6 +58,9 @@
             </button>
         </div>
     </modal>
+
+    <!-- Delete Roll Modal -->
+    <delete-modal v-ref:delete-modal :title="'Roll'" :text="'this roll'" :on-delete="remove"></delete-modal>
 </template>
 
 <style lang="sass">
@@ -79,6 +85,10 @@
 
         .input-group-btn {
             width: 100%;
+
+            .named-button {
+                width: calc(100% - 106px);
+            }
         }
     }
 </style>
@@ -86,12 +96,14 @@
 <script type="text/babel">
     import _ from 'lodash';
     import diceSvc from '../../../components/dice/diceService';
+    import DeleteModal from '../../../modals/delete.vue';
 
     import { modal } from 'vueboot';
 
     export default {
         components: {
-            modal
+            modal,
+            deleteModal: DeleteModal
         },
         props: {
             roll: {
@@ -104,6 +116,10 @@
             },
             context: {
                 type: Object,
+                required: true
+            },
+            rolls: {
+                type: Array,
                 required: true
             }
         },
@@ -130,12 +146,12 @@
             }
         },
         methods: {
-            editRoll: function()
+            edit: function()
             {
                 this.rollClone = _.clone(this.roll);
                 this.$refs.editModal.showModal();
             },
-            executeRoll: function()
+            execute: function()
             {
                 this.currentResults = diceSvc.roll(this.roll.expression, this.context);
             },
@@ -148,6 +164,11 @@
                 _.assign(this.roll, this.rollClone);
                 this.$refs.editModal.hideModal();
 
+                this.save();
+            },
+            remove: function()
+            {
+                this.rolls.$remove(this.roll);
                 this.save();
             }
         },

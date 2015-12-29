@@ -67,7 +67,7 @@
                                 <h6>No rolls, yet.</h6>
                             </div>
                             <div v-else>
-                                <roll v-for="roll in char.rolls" :roll="roll" :context="char.rollContext" :save="save"></roll>
+                                <roll v-for="roll in char.rolls" :roll="roll" :rolls="char.rolls" :context="char.rollContext" :save="save"></roll>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                     <h6 class="text-center" style="margin: 0">No Stats, yet.</h6>
                 </div>
                 <div class="stats-list"  v-else>
-                    <statblock v-for="statblock in char.stats" :statblock="statblock" :context="char.rollContext" :move-up="moveUp" :move-down="moveDown" :save="save"></statblock>
+                    <statblock v-for="statblock in char.stats" :statblock="statblock" :context="char.rollContext" :move-up="moveUp" :move-down="moveDown" :save="save" :on-delete="deleteStatblock"></statblock>
                 </div>
             </div>
 
@@ -283,6 +283,11 @@
             {
                 this.char.stats.push(this.newStatblock);
                 this.newStatblock = {};
+                this.char.save();
+            },
+            deleteStatblock: function(statblock)
+            {
+                this.char.stats.$remove(statblock);
                 this.char.save();
             }
         },
