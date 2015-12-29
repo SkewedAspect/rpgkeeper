@@ -37,8 +37,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="sidebar">
-                    <div id="rolls" class="card">
+                <!--div class="sidebar"-->
+                    <div id="rolls" class="sidebar card">
                         <div class="card-header">
                             <i class="fa fa-random"></i>
                             Rolls
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                <!--/div-->
             </div>
 
             <!-- Stats -->

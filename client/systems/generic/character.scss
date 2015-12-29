@@ -18,7 +18,7 @@
             margin-right: 5px;
 
             @media (min-width: 62em) {
-                flex: 0 1 475px;
+                flex: 0 1 500px;
                 flex-direction: row;
 
                 .portrait {
@@ -26,14 +26,12 @@
                 }
 
                 .counters {
-                    width: 251px;
-                    flex: 0 1 175px;
                     margin-top: 0 !important;
                     margin-left: 5px;
                 }
             }
             @media (min-width: 75em) {
-                flex: 0 1 675px;
+                flex: 0 1 550px;
 
                 .portrait {
                     flex: 0 1 auto !important;
@@ -42,8 +40,6 @@
                 }
 
                 .counters {
-                    width: auto;
-                    flex: 1 1 auto;
                     margin-top: 0 !important;
                     margin-left: 5px;
                 }
@@ -61,21 +57,13 @@
             }
 
             .counters {
-                flex: 1 1 auto;
                 margin-top: 5px;
             }
         }
 
         .sidebar {
-            position: relative;
-            flex: 1 1 auto;
+            flex: 1 1 5%;
             margin-left: 5px;
-
-            & > .card {
-                // Fuck flexbox and height 100% not working
-                position: absolute;
-                top: 0; bottom: 0; left: 0; right: 0;
-            }
         }
     }
 
