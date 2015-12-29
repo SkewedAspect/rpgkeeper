@@ -38,14 +38,14 @@
                     </div>
                 </div>
                 <div class="sidebar">
-                    <div class="card">
+                    <div id="rolls" class="card">
                         <div class="card-header">
                             <i class="fa fa-random"></i>
                             Rolls
                         </div>
                         <div class="card-block">
-                            <div class="input-group roll-component" style="margin-right: -10px">
-                                <span class="input-group-addon" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ rollRendered }}">
+                            <div class="input-group">
+                                <span class="input-group-addon roll-display" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ rollRendered }}">
                                     <button v-if="rollValue || rollValue === 0" type="button" class="close" @click.prevent.stop="clearRoll()">
                                         <span aria-hidden="true">
                                             &times;
@@ -55,7 +55,7 @@
                                     {{ rollValue }}
                                 </span>
                                 <input type="text" class="form-control" placeholder="ex: 1d20 +1" v-model="rollExpression">
-                                <span class="input-group-btn" style="width: auto">
+                                <span class="input-group-btn">
                                     <button class="btn btn-secondary" type="button" title="Click to roll" @click="executeRoll()">
                                         <i class="fa fa-random"></i>
                                         Roll
