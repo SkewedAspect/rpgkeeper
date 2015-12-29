@@ -79,6 +79,28 @@
         }
     }
 
+    #rolls {
+        .roll-display {
+            position: relative;
+            min-width: 65px;
+            text-align: right;
+            padding-left: 0;
+            padding-right: 25px;
+            cursor: pointer;
+
+            button.close {
+                float: none;
+                position: absolute;
+                top: 4px;
+                right: 8px;
+            }
+        }
+
+        .card-block {
+            padding: 1em;
+        }
+    }
+
     #notes, #stats {
         margin-top: 10px;
     }
