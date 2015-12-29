@@ -1,7 +1,7 @@
 <template>
     <div class="card statblock">
         <div class="card-header">
-            <button type="button" class="close" aria-label="Close" @click="confirmDelete()" style="margin-left: 10px">
+            <button type="button" class="close" aria-label="Close" @click="$refs.deleteModal.show()" style="margin-left: 10px">
                 <span aria-hidden="true">
                     <i class="fa fa-trash-o"></i>
                 </span>
@@ -47,6 +47,9 @@
 
     <!-- Edit Modal -->
     <add-edit-modal v-ref:edit-modal :stats="statblock" :save="save"></add-edit-modal>
+
+    <!-- Delete Modal -->
+    <delete-modal v-ref:delete-modal :title="deleteTitle" :text="'this statblock'" :on-delete="remove"></delete-modal>
 </template>
 
 <style lang="sass">
@@ -72,10 +75,12 @@
     import rpgdice from 'rpgdicejs';
 
     import AddEditModal from '../modals/statAddEdit.vue';
+    import DeleteModal from '../../../modals/delete.vue';
 
     export default {
         components: {
-            'add-edit-modal': AddEditModal
+            addEditModal: AddEditModal,
+            deleteModal: DeleteModal
         },
         props: {
             statblock: {
@@ -96,20 +101,23 @@
             },
             save: {
                 type: Function,
-                required: true
+                required: true,
+                default: () => {}
+            },
+            onDelete: {
+                type: Function,
+                default: () => { console.warn('Failed to pass in `onDelete` function. Doing nothing.'); }
             }
         },
         data: function()
         {
-            return {
-                statblockClone: {
-                    name: null,
-                    type: null,
-                    rows: [],
-                    columns: [],
-                    items: []
-                }
-            };
+            return {};
+        },
+        computed: {
+            deleteTitle: function()
+            {
+                return `"${this.statblock.name}" Statblock`
+            }
         },
         methods: {
             renderCell: function(cell, index)
@@ -145,6 +153,10 @@
             evalComputed: function(evalStr)
             {
                 return rpgdice.eval(evalStr, this.context).value;
+            },
+            remove: function()
+            {
+                this.onDelete(this.statblock);
             }
         }
     }
