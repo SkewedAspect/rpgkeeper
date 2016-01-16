@@ -80,7 +80,7 @@
                     <h6 class="text-center" style="margin: 0">No Stats, yet.</h6>
                 </div>
                 <div class="stats-list"  v-else>
-                    <statblock v-for="statblock in char.stats" :statblock="statblock" :context="char.rollContext" :move-up="moveUp" :move-down="moveDown" :save="save" :on-delete="deleteStatblock"></statblock>
+                    <statblock v-for="statblock in char.stats" :statblock.sync="statblock" :context="char.rollContext" :move-up="moveUp" :move-down="moveDown" :save="save" :on-delete="deleteStatblock"></statblock>
                 </div>
             </div>
 
@@ -173,7 +173,7 @@
         </modal>
 
         <!-- Add Statblock Modal -->
-        <add-edit-stat-modal v-ref:add-statblock :stats="newStatblock" :mode="'add'" :save="addStatblock"></add-edit-stat-modal>
+        <add-edit-stat-modal v-ref:add-statblock :stats.sync="newStatblock" :mode="'add'" :save="addStatblock"></add-edit-stat-modal>
     </div>
 </template>
 

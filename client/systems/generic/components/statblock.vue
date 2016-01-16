@@ -46,7 +46,7 @@
     </div>
 
     <!-- Edit Modal -->
-    <add-edit-modal v-ref:edit-modal :stats="statblock" :save="save"></add-edit-modal>
+    <add-edit-modal v-ref:edit-modal :stats.sync="statblock" :save="save"></add-edit-modal>
 
     <!-- Delete Modal -->
     <delete-modal v-ref:delete-modal :title="deleteTitle" :text="'this statblock'" :on-delete="remove"></delete-modal>
@@ -85,6 +85,7 @@
         props: {
             statblock: {
                 type: Object,
+                twoWay: true,
                 required: true
             },
             context: {
