@@ -133,7 +133,7 @@
                                 <textarea v-if="item.type == 'computed'" class="form-control monospace" style="font-size: .85rem;" rows="3" v-model="item.value"></textarea>
                             </td>
                             <td style="width: 1%">
-                                <button class="btn btn-danger btn-block" title="Remove row"
+                                <button class="btn btn-danger btn-block" title="Remove row" type="button"
                                         @click.prevent.stop="statblock.items.$remove(item)">
                                     <i class="fa fa-fw fa-trash-o"></i>
                                 </button>
@@ -155,7 +155,7 @@
                     class="btn btn-success"
                     @click="saveModal()">
                 <i class="fa fa-save"></i>
-                Save Roll
+                Save
             </button>
             <button type="button"
                     class="btn btn-secondary"
@@ -178,6 +178,7 @@
         props: {
             stats: {
                 type: Object,
+                twoWay: true,
                 default: {
                     name: null,
                     type: "list",
