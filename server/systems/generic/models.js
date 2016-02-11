@@ -11,11 +11,11 @@ import _ from 'lodash';
 import trivialModels from 'trivialmodels';
 
 var types = trivialModels.types;
-var db = { errors: trivialModels.errors };
+var db = {errors: trivialModels.errors};
 
 //----------------------------------------------------------------------------------------------------------------------
 
-db.Character =  trivialModels.define(
+db.Character = trivialModels.define(
     {
         name: 'Character',
         driver: {
@@ -28,16 +28,17 @@ db.Character =  trivialModels.define(
                 },
                 pk: 'id'
             }
+        },
+        schema: {
+            id: types.String({pk: true}),
+            stats: types.Array({default: []}),
+            counters: types.Array({default: []}),
+            rolls: types.Array({default: []}),
+            notes: types.Array({default: []}),
+            user: types.String({required: true})
         }
-    },
-    {
-        id: types.String({ pk: true }),
-        stats: types.Array({ default: [] }),
-        counters: types.Array({default: []}),
-        rolls: types.Array({default: []}),
-        notes: types.Array({default: []}),
-        user: types.String({ required: true })
-    });
+    }
+);
 
 //----------------------------------------------------------------------------------------------------------------------
 
