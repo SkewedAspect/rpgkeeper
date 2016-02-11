@@ -1,58 +1,93 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Database models for RPGKeeper
-//
-// @module models
+/// Models
+///
+/// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import base62 from 'base62';
-import uuid from 'node-uuid';
-import connect from 'thinky';
+import trivialModels from 'trivialmodels';
 
-import config from '../config';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-var thinky = connect(config.rethink);
-var type = thinky.type;
-var r = thinky.r;
-
-var db = { r, type, errors: thinky.Errors };
+var types = trivialModels.types;
+var db = { errors: trivialModels.errors };
 
 //----------------------------------------------------------------------------------------------------------------------
 
-// This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid.
-function generateID()
-{
-    return base62.encode(new Buffer(uuid.v4(null, [])).readUInt32LE(0));
-} // end generateID
-
-//----------------------------------------------------------------------------------------------------------------------
-
-db.BaseCharacter = thinky.createModel('base_characters', {
-    id: type.string().default(generateID),
-    name: type.string().required(),
-    system: type.string().required(),
-    description: type.string(),
-    portrait: type.string(),
-    thumbnail: type.string(),
-    biography: type.string(),
-    user: type.string().required()
+db.Account = trivialModels.define({
+    name: 'Account',
+    driver: {
+        name: 'TrivialDB',
+        options: {
+            name: 'accounts',
+            dbPath: 'server/db',
+            pk: 'email'
+        }
+    },
+    schema: {
+        email: types.String({ pk: true }),
+        hash: types.String(),
+        salt: types.String({ default: 'super-insecure-salt' }),
+        iterations: types.Number({ default: 10000 }),
+        mutedChats: types.Array({ default: [] }),
+        created: types.Date({ auto: true })
+    }
 });
 
-//----------------------------------------------------------------------------------------------------------------------
-
-db.User = thinky.createModel('users', {
-    email: type.string().required(),
-    name: type.string(),
-    admin: type.boolean().default(false),
-    permissions: {
-        canAdd: type.boolean().default(false),
-        canEdit: type.boolean().default(false),
+db.Character = trivialModels.define({
+    name: 'Character',
+    driver: {
+        name: 'TrivialDB',
+        options: {
+            name: 'characters',
+            dbPath: 'server/db'
+        }
     },
-    created: type.date().default(r.now())
-}, { pk: 'email' });
+    schema: {
+        id: types.String({ pk: true }),
+        name: types.String({ required: true }),
+        avatar: types.String({ default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250" }),
+        primary: types.Boolean({ default: false }),
+        account: types.String({ required: true })
+    }
+});
 
-db.User.hasMany(db.BaseCharacter, 'characters', 'email', 'user');
+db.Chat = trivialModels.define({
+    name: 'Chat',
+    driver: {
+        name: 'TrivialDB',
+        options: {
+            name: 'chats',
+            dbPath: 'server/db'
+        }
+    },
+    schema: {
+        id: types.String({ pk: true }),
+        name: types.String(),
+        type: types.String({ required: true }),
+        avatar: types.String({ default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250" }),
+        participants: types.Array({ required: true }),
+        characters: types.Array({ default: [] }),
+        owner: types.String(),
+        archived: types.Boolean({ default: false })
+    }
+});
+
+db.Message = trivialModels.define({
+    name: 'Message',
+    driver: {
+        name: 'TrivialDB',
+        options: {
+            name: 'messages',
+            dbPath: 'server/db'
+        }
+    },
+    schema: {
+        id: types.String({ pk: true }),
+        type: types.String({ required: true }),
+        chat: types.String({ required: true }),
+        content: types.String({ required: true }),
+        character: types.String({ required: true }),
+        sent: types.Date({ auto: true })
+    }
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 
