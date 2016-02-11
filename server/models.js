@@ -12,7 +12,7 @@ var db = {errors: trivialModels.errors};
 //----------------------------------------------------------------------------------------------------------------------
 
 db.User = trivialModels.define({
-    name: 'user',
+    name: 'User',
     driver: {
         name: 'TrivialDB',
         options: {
@@ -31,11 +31,11 @@ db.User = trivialModels.define({
 });
 
 db.BaseCharacter = trivialModels.define({
-    name: 'character',
+    name: 'Character',
     driver: {
         name: 'TrivialDB',
         options: {
-            name: 'base',
+            name: 'character',
             dbPath: 'server/db',
             pk: 'id'
         },
