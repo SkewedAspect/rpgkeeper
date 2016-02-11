@@ -13,7 +13,6 @@ import trivialModels from 'trivialmodels';
 var types = trivialModels.types;
 var db = { errors: trivialModels.errors };
 
-
 //----------------------------------------------------------------------------------------------------------------------
 
 db.Character =  trivialModels.define(
@@ -23,19 +22,22 @@ db.Character =  trivialModels.define(
             name: 'TrivialDB',
             options: {
                 name: 'characters',
-                dbPath: 'server/db/generic/',
+                namespace: {
+                    name: 'generic',
+                    dbPath: 'server/db',
+                },
                 pk: 'id'
             }
         }
     },
-     {
-    id: types.String({ pk: true }),
-    stats: types.Array({ default: [] }),
-    counters: types.Array({default: []}),
-    rolls: types.Array({default: []}),
-    notes: types.Array({default: []}),
-    user: types.String({ required: true })
-});
+    {
+        id: types.String({ pk: true }),
+        stats: types.Array({ default: [] }),
+        counters: types.Array({default: []}),
+        rolls: types.Array({default: []}),
+        notes: types.Array({default: []}),
+        user: types.String({ required: true })
+    });
 
 //----------------------------------------------------------------------------------------------------------------------
 
