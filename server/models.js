@@ -30,7 +30,8 @@ db.User = trivialModels.define({
     }
 });
 
-db.BaseCharacter = trivialModels.define({
+db.BaseCharacter = trivialModels.define(
+    {
     name: 'Character',
     driver: {
         name: 'TrivialDB',
@@ -38,7 +39,8 @@ db.BaseCharacter = trivialModels.define({
             name: 'character',
             dbPath: 'server/db',
             pk: 'id'
-        },
+        }
+    },
         schema: {
             id: types.String({pk: true}),
             name: types.String({required: true}),
