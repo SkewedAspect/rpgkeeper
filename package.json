@@ -31,6 +31,7 @@
     "rpgdicejs": "^1.0.0",
     "thinky": "^2.1.9",
     "trivialdb": "^1.3.0",
+    "trivialmodels": "^1.0.0-beta.8",
     "vue": "^1.0.1",
     "vue-router": "^0.7.5",
     "vueboot": "^0.3.0"
