@@ -8,7 +8,7 @@ import _ from 'lodash';
 import express from 'express';
 import logging from 'omega-logger';
 
-import systemMan from '../systems/manager';
+import systemMan from '../../systems/manager';
 import routeUtils from './utils';
 
 //----------------------------------------------------------------------------------------------------------------------

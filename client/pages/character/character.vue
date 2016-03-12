@@ -8,8 +8,8 @@
     import charSvc from '../../components/character/characterService.js';
 
     // Systems
-    import GenericCharacterComponent from '../../systems/generic/character.vue'
-    import EotECharacterComponent from '../../systems/eote/character.vue'
+    import GenericCharacterComponent from '../../../systems/generic/client/character.vue'
+    import EotECharacterComponent from '../../../systems/eote/client/character.vue'
 
     export default {
         components: {

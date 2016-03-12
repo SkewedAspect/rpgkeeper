@@ -95,8 +95,8 @@
 
 <script type="text/babel">
     import _ from 'lodash';
-    import diceSvc from '../../../components/dice/diceService';
-    import DeleteModal from '../../../modals/delete.vue';
+    import diceSvc from '../../../../client/components/dice/diceService';
+    import DeleteModal from '../../../../client/modals/delete.vue';
 
     import { modal } from 'vueboot';
 
