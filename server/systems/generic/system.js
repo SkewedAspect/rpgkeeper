@@ -30,14 +30,14 @@ router.use(routeUtils.errorLogger(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/character/:charID', function(req, resp)
+router.get('/character/:charID', (req, resp) =>
 {
     models.Character.get(req.params.charID)
-        .then(function(character)
+        .then((character) =>
         {
             resp.json(character);
         })
-        .catch(models.errors.DocumentNotFound, function(error)
+        .catch(models.errors.DocumentNotFound, (error) =>
         {
             resp.status(404).json({
                 human: "Character not found.",
@@ -47,7 +47,7 @@ router.get('/character/:charID', function(req, resp)
         });
 });
 
-router.put('/character/:charID', function(req, resp)
+router.put('/character/:charID', (req, resp) =>
 {
     if(req.isAuthenticated())
     {
@@ -55,11 +55,7 @@ router.put('/character/:charID', function(req, resp)
             .then((character) =>
             {
                 _.assign(character, req.body);
-                character.save()
-                    .then(function()
-                    {
-                        resp.json(character);
-                    });
+                character.$save().then(() => { resp.json(character); });
             })
             .catch(models.errors.DocumentNotFound, (error) =>
             {

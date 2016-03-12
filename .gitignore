@@ -10,7 +10,7 @@ dist
 vendor
 
 # DB artifacts
-server/db/*.json
+server/db/
 
 # Node artifacts
 node_modules

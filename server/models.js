@@ -7,7 +7,7 @@
 import trivialModels from 'trivialmodels';
 
 var types = trivialModels.types;
-var db = {errors: trivialModels.errors};
+var db = { errors: trivialModels.errors };
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -16,42 +16,41 @@ db.User = trivialModels.define({
     driver: {
         name: 'TrivialDB',
         options: {
-            name: 'base',
-            dbPath: 'server/db',
-            pk: 'email'
+            name: 'users',
+            namespace: 'base',
+            dbPath: 'server/db'
         }
     },
     schema: {
-        email: types.String({pk: true}),
         name: types.String(),
-        admin: types.Boolean({default: false}),
-        created: types.Date({auto: true}),
-        permissions: types.Object()
+        email: types.String({ pk: true }),
+        created: types.Date({ auto: true }),
+        permissions: types.Array({ default: [] }),
+        groups: types.Array({ default: [] })
     }
 });
 
-db.BaseCharacter = trivialModels.define(
-    {
+db.BaseCharacter = trivialModels.define({
     name: 'Character',
     driver: {
         name: 'TrivialDB',
         options: {
-            name: 'character',
-            dbPath: 'server/db',
-            pk: 'id'
+            name: 'characters',
+            namespace: 'base',
+            dbPath: 'server/db'
         }
     },
-        schema: {
-            id: types.String({pk: true}),
-            name: types.String({required: true}),
-            system: types.String({required: true}),
-            description: types.String(),
-            portrait: types.String(),
-            thumbnail: types.String(),
-            biography: types.String(),
-            user: types.String({required: true})
-        }
-    });
+    schema: {
+        id: types.String({ pk: true }),
+        name: types.String({ required: true }),
+        system: types.String({ required: true }),
+        description: types.String(),
+        portrait: types.String(),
+        thumbnail: types.String(),
+        biography: types.String(),
+        user: types.String({ required: true })
+    }
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 

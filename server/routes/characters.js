@@ -65,6 +65,8 @@ router.get('/:charID', function(req, resp)
             })
             .catch(models.errors.DocumentNotFound, (error) =>
             {
+                logger.warn('Character not found:\n', error.stack);
+                
                 resp.status(404).json({
                     human: "Character not found.",
                     message: error.message,
@@ -81,12 +83,12 @@ router.post('/', function(req, resp)
         // We don't trust anything coming from the client.
         req.body.user = req.user.email;
 
-        new models.BaseCharacter(req.body).save()
+        new models.BaseCharacter(req.body).$save()
             .then((char) =>
             {
                 // Save a new system character
-                var sysChar = systemModels[char.system].Character({ id: char.id, user: char.user });
-                sysChar.save()
+                var sysChar = new systemModels[char.system].Character({ id: char.id, user: char.user });
+                sysChar.$save()
                     .then(() =>
                     {
                         resp.json(char.id);
@@ -94,6 +96,8 @@ router.post('/', function(req, resp)
             })
             .catch((error) =>
             {
+                logger.error('Cannot save character:\n', error.stack);
+                
                 resp.status(500).json({
                     human: "Cannot save character.",
                     message: error.message,
@@ -115,7 +119,7 @@ router.put('/:charID', function(req, resp)
             .then((character) =>
             {
                 _.assign(character, req.body);
-                character.save()
+                character.$save()
                     .then(function()
                     {
                         resp.json(character);
@@ -123,6 +127,8 @@ router.put('/:charID', function(req, resp)
             })
             .catch(models.errors.DocumentNotFound, (error) =>
             {
+                logger.warn('Character not found:\n', error.stack);
+                
                 resp.status(404).json({
                     human: "Character not found.",
                     message: error.message,
@@ -131,6 +137,8 @@ router.put('/:charID', function(req, resp)
             })
             .catch((error) =>
             {
+                logger.error('Cannot save character:\n', error.stack);
+                
                 resp.status(500).json({
                     human: "Cannot save character.",
                     message: error.message,
@@ -149,20 +157,27 @@ router.delete('/:charID', function(req, resp)
     if(req.isAuthenticated())
     {
         models.BaseCharacter.get(req.params.charID)
+            .tap((character) => { return character.$delete(); })
             .then((character) =>
             {
-                systemModels[character.system].Character.get(req.params.charID)
+                return systemModels[character.system].Character.get(req.params.charID)
                     .then((sysChar) =>
                     {
-                        return Promise.join(character.delete(), sysChar.delete())
+                        return sysChar.$delete()
                     })
-                    .then(() =>
+                    .catch(models.errors.DocumentNotFound, (error) =>
+                    {
+                        logger.warn(`System specific character not found: '${ req.params.charID }'.`);
+                    })
+                    .finally(() =>
                     {
                         resp.end();
                     });
             })
             .catch(models.errors.DocumentNotFound, (error) =>
             {
+                logger.warn('Character not found:\n', error.stack);
+
                 resp.status(404).json({
                     human: "Character not found.",
                     message: error.message,
@@ -171,6 +186,8 @@ router.delete('/:charID', function(req, resp)
             })
             .catch((error) =>
             {
+                logger.error('Cannot delete character:\n', error.stack);
+
                 resp.status(500).json({
                     human: "Cannot delete character.",
                     message: error.message,
