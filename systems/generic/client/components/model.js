@@ -9,7 +9,7 @@ import Promise from 'bluebird';
 import rpgdice from 'rpgdicejs';
 import $http from 'axios';
 
-import systemsSvc from '../../../components/systems/systemsService';
+import systemsSvc from '../../../../client/components/systems/systemsService';
 
 //----------------------------------------------------------------------------------------------------------------------
 
