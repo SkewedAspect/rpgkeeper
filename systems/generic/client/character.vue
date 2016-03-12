@@ -183,8 +183,8 @@
     import { modal } from 'vueboot';
 
     import GenericCharacter from './components/model';
-    import systemsSvc from '../../components/systems/systemsService';
-    import diceSvc from '../../components/dice/diceService';
+    import systemsSvc from '../../../client/components/systems/systemsService';
+    import diceSvc from '../../../client/components/dice/diceService';
 
     import counter from './components/counter.vue';
     import roll from './components/roll.vue';
