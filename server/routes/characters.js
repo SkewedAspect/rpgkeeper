@@ -13,8 +13,8 @@ import routeUtils from './utils';
 import models from '../models';
 
 // System Models
-import generic from '../systems/generic/models';
-//import eote from '../systems/eote/models';
+import generic from '../../systems/generic/models';
+//import eote from '../../systems/eote/models';
 
 //----------------------------------------------------------------------------------------------------------------------
 

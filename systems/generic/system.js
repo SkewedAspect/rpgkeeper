@@ -10,7 +10,7 @@ import logging from 'omega-logger';
 
 import models from './models';
 import systemMan from '../manager';
-import routeUtils from '../../routes/utils';
+import routeUtils from '../../server/routes/utils';
 
 //----------------------------------------------------------------------------------------------------------------------
 
