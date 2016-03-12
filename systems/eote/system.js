@@ -8,7 +8,7 @@ import express from 'express';
 import logging from 'omega-logger';
 
 import systemMan from '../manager';
-import routeUtils from '../../routes/utils';
+import routeUtils from '../../server/routes/utils';
 
 //----------------------------------------------------------------------------------------------------------------------
 

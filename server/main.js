@@ -35,8 +35,8 @@ var logger = logging.loggerFor(module);
 //----------------------------------------------------------------------------------------------------------------------
 
 // Systems
-import './systems/generic/system';
-import './systems/eote/system';
+import '../systems/generic/system';
+import '../systems/eote/system';
 
 // Auth
 import serialization from './auth/serialization';
