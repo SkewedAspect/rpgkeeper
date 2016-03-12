@@ -16,15 +16,15 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(email, done) {
     models.User.get(email)
-        .then(function(user)
+        .then((user) =>
         {
             done(null, user);
         })
-        .catch(models.errors.DocumentNotFound, function()
+        .catch(models.errors.DocumentNotFound, () =>
         {
             done(new Error('User not found.'));
         })
-        .catch(function(error)
+        .catch((error) =>
         {
             done(error);
         });

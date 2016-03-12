@@ -1,58 +1,56 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Database models for RPGKeeper
-//
-// @module models
+/// Models
+///
+/// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import base62 from 'base62';
-import uuid from 'node-uuid';
-import connect from 'thinky';
+import trivialModels from 'trivialmodels';
 
-import config from '../config';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-var thinky = connect(config.rethink);
-var type = thinky.type;
-var r = thinky.r;
-
-var db = { r, type, errors: thinky.Errors };
+var types = trivialModels.types;
+var db = { errors: trivialModels.errors };
 
 //----------------------------------------------------------------------------------------------------------------------
 
-// This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid.
-function generateID()
-{
-    return base62.encode(new Buffer(uuid.v4(null, [])).readUInt32LE(0));
-} // end generateID
-
-//----------------------------------------------------------------------------------------------------------------------
-
-db.BaseCharacter = thinky.createModel('base_characters', {
-    id: type.string().default(generateID),
-    name: type.string().required(),
-    system: type.string().required(),
-    description: type.string(),
-    portrait: type.string(),
-    thumbnail: type.string(),
-    biography: type.string(),
-    user: type.string().required()
+db.User = trivialModels.define({
+    name: 'User',
+    driver: {
+        name: 'TrivialDB',
+        options: {
+            name: 'users',
+            namespace: 'base',
+            dbPath: 'server/db'
+        }
+    },
+    schema: {
+        name: types.String(),
+        email: types.String({ pk: true }),
+        created: types.Date({ auto: true }),
+        permissions: types.Array({ default: [] }),
+        groups: types.Array({ default: [] })
+    }
 });
 
-//----------------------------------------------------------------------------------------------------------------------
-
-db.User = thinky.createModel('users', {
-    email: type.string().required(),
-    name: type.string(),
-    admin: type.boolean().default(false),
-    permissions: {
-        canAdd: type.boolean().default(false),
-        canEdit: type.boolean().default(false),
+db.BaseCharacter = trivialModels.define({
+    name: 'Character',
+    driver: {
+        name: 'TrivialDB',
+        options: {
+            name: 'characters',
+            namespace: 'base',
+            dbPath: 'server/db'
+        }
     },
-    created: type.date().default(r.now())
-}, { pk: 'email' });
-
-db.User.hasMany(db.BaseCharacter, 'characters', 'email', 'user');
+    schema: {
+        id: types.String({ pk: true }),
+        name: types.String({ required: true }),
+        system: types.String({ required: true }),
+        description: types.String(),
+        portrait: types.String(),
+        thumbnail: types.String(),
+        biography: types.String(),
+        user: types.String({ required: true })
+    }
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 
