@@ -20,21 +20,17 @@ passport.use(new PersonaStrategy({
         audience: config.auth.audience || 'http://localhost:' + config.http.port,
         checkAudience: config.auth.checkAudience || false
     },
-    function(email, done)
+    (email, done) =>
     {
         models.User.get(email)
-            .then(function(user)
+            .then((user) =>
             {
                 done(null, user);
             })
-            .catch(models.errors.DocumentNotFound, function()
+            .catch(models.errors.DocumentNotFound, () =>
             {
                 var user = new models.User({ email: email });
-                user.save()
-                    .then(function()
-                    {
-                        done(null, user);
-                    });
+                user.$save().then(() => { done(null, user); });
             });
     })
 );
