@@ -4,6 +4,7 @@
   "description": "A site for managing your digital character sheets.",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "mocha tests --reporter spec --recursive"
   },
   "repository": "Morgul/rpgkkeper",
@@ -27,6 +28,7 @@
     "node-uuid": "^1.4.2",
     "omega-logger": "^0.6.0",
     "passport": "^0.3.0",
+    "passport-local": "^1.0.0",
     "persona-pass": "^0.2.0",
     "rpgdicejs": "^1.0.0",
     "thinky": "^2.1.9",

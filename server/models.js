@@ -25,8 +25,27 @@ db.User = trivialModels.define({
         name: types.String(),
         email: types.String({ pk: true }),
         created: types.Date({ auto: true }),
+        hash: types.Object({ default: { iterations: 0, salt: '', hash: '' } }),
         permissions: types.Array({ default: [] }),
         groups: types.Array({ default: [] })
+    }
+});
+
+db.Reset = trivialModels.define({
+    name: 'Reset',
+    driver: {
+        name: 'TrivialDB',
+        options: {
+            name: 'resets',
+            namespace: 'base',
+            dbPath: 'server/db'
+        }
+    },
+    schema: {
+        id: types.String({ pk: true }),
+        tokenHash: types.Object({ default: { iterations: 0, salt: '', hash: '' } }),
+        email: types.String({ required: true }),
+        created: types.Date({ auto: true })
     }
 });
 
