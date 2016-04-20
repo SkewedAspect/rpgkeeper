@@ -74,9 +74,25 @@ class AuthService {
             });
     } // end logout
     
-    register()
+    register(data)
     {
-        
+        return $http.post('/users', data)
+            .catch((error) =>
+            {
+                if(error.status == 422)
+                {
+                    return Promise.reject(new errors.PasswordMismatch());
+                }
+                else if(error.status == 409)
+                {
+                    return Promise.reject(new errors.UserExists(data.email));
+                }
+                else
+                {
+                    console.error('error:', error);
+                    return Promise.reject(error.data);
+                } // end if
+            });
     } // end register
 } // end AuthService
 
