@@ -29,9 +29,32 @@ class LoginFailureError extends BaseError
 
 //----------------------------------------------------------------------------------------------------------------------
 
+class UserExistsError extends BaseError
+{
+    constructor(email)
+    {
+        super(`A user with the email ${email} already exists.`);
+        this.email = email;
+    } // end constructor
+} // end UserExistsError
+
+//----------------------------------------------------------------------------------------------------------------------
+
+class PasswordMismatchError extends BaseError
+{
+    constructor()
+    {
+        super('The supplied passwords do no match.');
+    } // end constructor
+} // end PasswordMismatchError
+
+//----------------------------------------------------------------------------------------------------------------------
+
 export default {
     NotImplemented: NotImplementedError,
-    LoginFailure: LoginFailureError
+    LoginFailure: LoginFailureError,
+    UserExists: UserExistsError,
+    PasswordMismatch: PasswordMismatchError
 };
 
 //----------------------------------------------------------------------------------------------------------------------

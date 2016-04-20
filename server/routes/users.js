@@ -51,30 +51,55 @@ router.post('/', (req, resp) =>
 {
     // Don't risk accidentally storing the password in plaintext.
     var password = req.body.password;
+    var password2 = req.body.password2;
     delete req.body.password;
+    delete req.body.password2;
 
-    // Generate a hash object
-    hash.generate(password)
-        .then((hashObj) =>
-        {
-            var userDef = _.assign({}, req.body, { hash: hashObj });
-
-            (new models.User(userDef)).$save()
-                .then(() =>
-                {
-                    resp.end();
-                })
-                .catch((error) =>
-                {
-                    logger.error('Cannot save user:\n', error.stack);
-
-                    resp.status(500).json({
-                        human: "Cannot save character.",
-                        message: error.message,
-                        stack: error.stack
-                    });
+    if(password == password2)
+    {
+        return models.User.get(req.body.email)
+            .then(() =>
+            {
+                // We already have a user with this email.
+                resp.status(409).json({
+                    human: "User already exists.",
+                    message: `User '${ req.body.email }' already exists.`,
+                    stack: (new Error()).stack
                 });
+            })
+            .catch(models.errors.DocumentNotFound, () =>
+            {
+                // In the event we don't already have a user with this name, we create one.
+                return hash.generate(password, 20000)
+                    .then((hashObj) =>
+                    {
+                        var userDef = _.assign({}, req.body, { hash: hashObj, created: new Date() });
+                        (new models.User(userDef)).$save()
+                            .then(() =>
+                            {
+                                resp.end();
+                            })
+                            .catch((error) =>
+                            {
+                                logger.error('Cannot save user:\n', error.stack);
+
+                                resp.status(500).json({
+                                    human: "Cannot save character.",
+                                    message: error.message,
+                                    stack: error.stack
+                                });
+                            });
+                    });
+            });
+    }
+    else
+    {
+        resp.status(422).json({
+            human: "Passwords do not match.",
+            message: "Passwords do not match.",
+            stack: (new Error()).stack
         });
+    } // end if
 });
 
 // Update user

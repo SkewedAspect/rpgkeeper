@@ -26,7 +26,7 @@ function randomPassword(bytes = 16)
  * Generates a password using PBKDF2, using a random 64 byte salt.
  *
  * @param {string} plaintext - The plaintext password.
- * @param {number} iterations - The number of iterations to run PBKDF2. (Defaults to 10,000.)
+ * @param {number} [iterations = 10000] - The number of iterations to run PBKDF2.
  * @returns {Promise} Returns a `Promise` that resolves to an object with `hash`, `iterations`, and `salt`. (Both `hash`
  * and `salt` are base64 encoded.)
  */
