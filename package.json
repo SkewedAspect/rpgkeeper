@@ -35,6 +35,7 @@
     "trivialdb": "^1.3.0",
     "trivialmodels": "^1.0.0-beta.8",
     "vue": "^1.0.1",
+    "vue-recaptcha": "git+https://github.com/DanSnow/vue-recaptcha.git",
     "vue-router": "^0.7.5",
     "vueboot": "^0.3.0"
   },

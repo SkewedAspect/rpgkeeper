@@ -8,6 +8,8 @@ import _ from 'lodash';
 import Promise from 'bluebird';
 import express from 'express';
 import logging from 'omega-logger';
+import $http from 'axios';
+
 
 import models from '../models';
 import hash from '../auth/hash';
@@ -49,57 +51,82 @@ router.get('/', (req, resp) =>
 // Create a new user
 router.post('/', (req, resp) =>
 {
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
     // Don't risk accidentally storing the password in plaintext.
     var password = req.body.password;
     var password2 = req.body.password2;
     delete req.body.password;
     delete req.body.password2;
 
-    if(password == password2)
-    {
-        return models.User.get(req.body.email)
-            .then(() =>
+    // Verify the Recaptcha!
+    return $http.get('https://www.google.com/recaptcha/api/siteverify', { params: {
+            secret: '6LeE2R0TAAAAANJ6H1Dyj0OE15wJZ1wlGH71YH8X',
+            response: req.body.recaptcha,
+            remoteip: ip
+        }})
+        .then((response) =>
+        {
+            // Did the recaptcha get correctly verified?
+            if(response.data.success)
             {
-                // We already have a user with this email.
-                resp.status(409).json({
-                    human: "User already exists.",
-                    message: `User '${ req.body.email }' already exists.`,
+                if(password == password2)
+                {
+                    return models.User.get(req.body.email)
+                        .then(() =>
+                        {
+                            // We already have a user with this email.
+                            resp.status(409).json({
+                                human: "User already exists.",
+                                message: `User '${ req.body.email }' already exists.`,
+                                stack: (new Error()).stack
+                            });
+                        })
+                        .catch(models.errors.DocumentNotFound, () =>
+                        {
+                            // In the event we don't already have a user with this name, we create one.
+                            return hash.generate(password, 20000)
+                                .then((hashObj) =>
+                                {
+                                    var userDef = _.assign({}, req.body, {hash: hashObj, created: new Date()});
+                                    (new models.User(userDef)).$save()
+                                        .then(() =>
+                                        {
+                                            resp.end();
+                                        })
+                                        .catch((error) =>
+                                        {
+                                            logger.error('Cannot save user:\n', error.stack);
+
+                                            resp.status(500).json({
+                                                human: "Cannot save character.",
+                                                message: error.message,
+                                                stack: error.stack
+                                            });
+                                        });
+                                });
+                        });
+                }
+                else
+                {
+                    resp.status(422).json({
+                        human: "Passwords do not match.",
+                        message: "Passwords do not match.",
+                        stack: (new Error()).stack
+                    });
+                } // end if
+            }
+            else
+            {
+                logger.warn('User failed to pass captcha:', logger.dump(response.data), logger.dump(req.body));
+                
+                resp.status(403).json({
+                    human: "Failed Captcha Verification.",
+                    message: "The user failed to pass the captcha.",
                     stack: (new Error()).stack
                 });
-            })
-            .catch(models.errors.DocumentNotFound, () =>
-            {
-                // In the event we don't already have a user with this name, we create one.
-                return hash.generate(password, 20000)
-                    .then((hashObj) =>
-                    {
-                        var userDef = _.assign({}, req.body, { hash: hashObj, created: new Date() });
-                        (new models.User(userDef)).$save()
-                            .then(() =>
-                            {
-                                resp.end();
-                            })
-                            .catch((error) =>
-                            {
-                                logger.error('Cannot save user:\n', error.stack);
-
-                                resp.status(500).json({
-                                    human: "Cannot save character.",
-                                    message: error.message,
-                                    stack: error.stack
-                                });
-                            });
-                    });
-            });
-    }
-    else
-    {
-        resp.status(422).json({
-            human: "Passwords do not match.",
-            message: "Passwords do not match.",
-            stack: (new Error()).stack
+            } // end if
         });
-    } // end if
 });
 
 // Update user
