@@ -50,11 +50,22 @@ class PasswordMismatchError extends BaseError
 
 //----------------------------------------------------------------------------------------------------------------------
 
+class CaptchaValidationError extends BaseError
+{
+    constructor()
+    {
+        super('The user failed to pass the captcha.');
+    } // end constructor
+} // end CaptchaValidationError
+
+//----------------------------------------------------------------------------------------------------------------------
+
 export default {
     NotImplemented: NotImplementedError,
     LoginFailure: LoginFailureError,
     UserExists: UserExistsError,
-    PasswordMismatch: PasswordMismatchError
+    PasswordMismatch: PasswordMismatchError,
+    CaptchaValidation: CaptchaValidationError
 };
 
 //----------------------------------------------------------------------------------------------------------------------

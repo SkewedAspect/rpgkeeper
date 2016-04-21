@@ -83,6 +83,9 @@
                         </small>
                     </div>
                 </div>
+
+                <!-- reCAPTCHA -->
+                <vue-recaptcha class="recaptcha" @verify="onVerify" @expired="onExpired" :key="reCaptchaOpts.sitekey"></vue-recaptcha>
             </form>
 
             <!-- Bottom Links -->
@@ -104,7 +107,7 @@
                     v-if="mode == 'register'"
                     class="btn btn-success"
                     @click="register()"
-                    :disabled="!emailValid || !passwordValid || !passwordsMatch">
+                    :disabled="!emailValid || !passwordValid || !recaptchaValid || !passwordsMatch">
                 <i class="fa fa-save"></i>
                 Register
             </button>
@@ -159,11 +162,19 @@
         }
     }
 
+    .recaptcha {
+        text-align: center;
+
+        div > div {
+            margin: 0 auto;
+        }
+    }
 </style>
 
 <script type="text/babel">
     import _ from 'lodash';
     import { alert, modal } from 'vueboot';
+    import VueRecaptcha from 'vue-recaptcha';
 
     import errors from '../components/errors/errors';
     import authSvc from '../services/auth/auth';
@@ -171,20 +182,28 @@
     export default {
         components: {
             alert,
-            modal
+            modal,
+            VueRecaptcha
         },
         data: function()
         {
             return {
                 mode: 'login',
+
                 loginFailure: false,
                 passwordMismatch: false,
                 userExists: false,
+                captchaInvalid: false,
+
                 loginForm: {
                     remember: false,
                     email: "",
                     password: "",
-                    password2: undefined
+                    password2: undefined,
+                    recaptcha: undefined
+                },
+                reCaptchaOpts: {
+                    sitekey: '6LeE2R0TAAAAALRIVO4e8U_NGLn-5aPtolvbbgHH'
                 }
             };
         },
@@ -201,6 +220,10 @@
             passwordsMatch()
             {
                 return !_.isEmpty(this.loginForm.password) && this.loginForm.password == this.loginForm.password2;
+            },
+            recaptchaValid()
+            {
+                return this.loginForm.recaptcha !== undefined;
             }
         },
         methods: {
@@ -234,6 +257,12 @@
                         delete this.loginForm.password2;
                         return this.login();
                     })
+                    .catch(errors.CaptchaValidation, () =>
+                    {
+                        this.loginForm.recaptcha = undefined;
+                        window.grecaptcha.reset();
+                        this.captchaInvalid = true;
+                    })
                     .catch(errors.PasswordMismatch, () =>
                     {
                         this.passwordMismatch = true;
@@ -248,6 +277,7 @@
                 this.loginFailure = false;
                 this.passwordMismatch = false;
                 this.userExists = false;
+                this.captchaInvalid = false;
             },
             loginMode()
             {
@@ -267,7 +297,16 @@
                 this.loginForm.email = "";
                 this.loginForm.password = "";
                 this.loginForm.password2 = undefined;
+                this.loginForm.recaptcha = undefined;
                 this.loginForm.remember = false;
+            },
+            onVerify: function(response)
+            {
+                this.loginForm.recaptcha = response;
+            },
+            onExpired: function()
+            {
+                this.loginForm.recaptcha = undefined;
             }
         }
     }

@@ -79,13 +79,17 @@ class AuthService {
         return $http.post('/users', data)
             .catch((error) =>
             {
-                if(error.status == 422)
+                if(error.status == 403)
                 {
-                    return Promise.reject(new errors.PasswordMismatch());
+                    return Promise.reject(new errors.CaptchaValidation());
                 }
                 else if(error.status == 409)
                 {
                     return Promise.reject(new errors.UserExists(data.email));
+                }
+                else if(error.status == 422)
+                {
+                    return Promise.reject(new errors.PasswordMismatch());
                 }
                 else
                 {
