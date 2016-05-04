@@ -59,6 +59,9 @@ RouterSvc.map({
         name: 'home',
         component: HomeComponent
     },
+    '/reset/:token': {
+        component: HomeComponent
+    },
     '/dashboard': {
         name: 'dashboard',
         component: DashboardComponent

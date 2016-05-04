@@ -60,12 +60,24 @@ class CaptchaValidationError extends BaseError
 
 //----------------------------------------------------------------------------------------------------------------------
 
+class TokenValidationError extends BaseError
+{
+    constructor(token)
+    {
+        super(`The reset token is invalid, or expired: '${ token }'.`);
+        this.token = token;
+    } // end constructor
+} // end TokenValidationError
+
+//----------------------------------------------------------------------------------------------------------------------
+
 export default {
     NotImplemented: NotImplementedError,
     LoginFailure: LoginFailureError,
     UserExists: UserExistsError,
     PasswordMismatch: PasswordMismatchError,
-    CaptchaValidation: CaptchaValidationError
+    CaptchaValidation: CaptchaValidationError,
+    TokenValidation: TokenValidationError
 };
 
 //----------------------------------------------------------------------------------------------------------------------

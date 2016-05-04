@@ -42,9 +42,8 @@ db.Reset = trivialModels.define({
         }
     },
     schema: {
-        id: types.String({ pk: true }),
-        tokenHash: types.Object({ default: { iterations: 0, salt: '', hash: '' } }),
-        email: types.String({ required: true }),
+        email: types.String({ pk: true }),
+        token: types.String({ required: true }),
         created: types.Date({ auto: true })
     }
 });
