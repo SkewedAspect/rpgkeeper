@@ -269,7 +269,7 @@ router.post('/:email/forgot', (req, resp) =>
                 + "Thank you,\n"
                 + "RPGKeeper Staff";
             
-            mg.sendText('no-reply@rpgkeeper.com', [reset.email, 'chris.case@g33xnexus.com'], 'Password Reset', text, (error) =>
+            mg.sendText('no-reply@rpgkeeper.com', [reset.email], 'Password Reset', text, (error) =>
             {
                 if(error)
                 {
