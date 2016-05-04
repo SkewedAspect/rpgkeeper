@@ -8,7 +8,11 @@ import _ from 'lodash';
 import Promise from 'bluebird';
 import express from 'express';
 import logging from 'omega-logger';
+import uuid from 'node-uuid';
+import base62 from 'base62';
 import $http from 'axios';
+import config from '../../config';
+import { Mailgun } from 'mailgun';
 
 
 import models from '../models';
@@ -19,7 +23,16 @@ import routeUtils from './utils';
 
 var logger = logging.loggerFor(module);
 
+var mg = new Mailgun(config.mail.api);
+
 var router = express.Router();
+
+//----------------------------------------------------------------------------------------------------------------------
+
+function generateToken()
+{
+    return base62.encode(new Buffer(uuid.v4(null, [])).readUInt32LE(0));
+} // end generateToken
 
 //----------------------------------------------------------------------------------------------------------------------
 // Middleware
@@ -192,8 +205,141 @@ router.put('/:email', (req, resp) =>
 });
 
 // Forgot Password
+router.post('/:email/forgot', (req, resp) =>
+{
+    var email = req.params.email;
+    models.User.get(email)
+        .then((user) => 
+        {
+            // Get or Create a reset token from the db
+            return models.Reset.get(email)
+                .then((reset) =>
+                {
+                    // If it was created in the last 2 hours, return it
+                    if(Date.now() - reset.created <= 2 * 60 * 60 * 1000)
+                    {
+                        return reset;
+                    }
+                    else
+                    {
+                        // Otherwise, we delete the old token
+                        return reset.$delete()
+                            .then(() =>
+                            {
+                                // And we return an error as if we had not found it.
+                                return Promise.reject(new models.errors.DocumentNotFound(email));
+                            });
+                    } // end if
+                })
+                .catch(models.errors.DocumentNotFound, () =>
+                {
+                    // Create a new reset token
+                    var reset = new models.Reset({
+                        email,
+                        token: generateToken(),
+                        created: new Date()
+                    });
+                    
+                    // Save the token to the db
+                    return reset.$save();
+                });
+        })
+        .then((reset) =>
+        {
+            var text = "We've received a request to reset your password on rpgkeeper.com. If you did not make this request, please delete this email.\n\n"
+                + "To reset your password, please click the following link (or copy and paste it into your browser):\n\n"
+                + `${ req.protocol }://${ req.get('host') }/reset/${ reset.token }\n\n`
+                + "Thank you,\n"
+                + "RPGKeeper Staff";
+            
+            mg.sendText('no-reply@rpgkeeper.com', [reset.email, 'chris.case@g33xnexus.com'], 'Password Reset', text, (error) =>
+            {
+                if(error)
+                {
+                    console.error('Error sending email:\n', error.stack);
+                } // end if
+                
+                resp.end();
+            });
+            
+        })
+        .catch(models.errors.DocumentNotFound, () =>
+        {
+            logger.warn(`Attempt to set forgotten password for unknown user '${ email }'.`);
+        })
+        .catch((error) =>
+        {
+            logger.warn(`Encountered error attempting to set forgotten password for user '${ email }': \n`, error.stack);
+        });
+});
 
 // Reset Password
+router.post('/reset/:token', (req, resp) =>
+{
+    // Don't risk accidentally storing the password in plaintext.
+    var password = req.body.password;
+    var password2 = req.body.password2;
+    delete req.body.password;
+    delete req.body.password2;
+    
+    console.log('password', password);
+    
+    return models.Reset.filter({ token: req.params.token })
+        .get(0)
+        .then((reset) =>
+        {
+            if(reset)
+            {
+                // If it was created in the last 2 hours, return it
+                if(Date.now() - reset.created <= 2 * 60 * 60 * 1000)
+                {
+                    //TODO: Update the damned password.
+                    return models.User.get(reset.email)
+                        .then(function(user)
+                        {
+                            if(password == password2)
+                            {
+                                return hash.generate(password, 20000)
+                                    .then((hashObj) =>
+                                    {
+                                        user.hash = hashObj;
+                                        
+                                        return user.$save()
+                                            .then(() =>
+                                            {
+                                                resp.end();
+                                                return reset.$delete();
+                                            });
+                                    });
+                            }
+                            else
+                            {
+                                resp.status(422).json({
+                                    human: "Passwords do not match.",
+                                    message: "Passwords do not match.",
+                                    stack: (new Error()).stack
+                                });
+                            } // end if
+                        })
+                        .catch(models.errors.DocumentNotFound, () =>
+                        {
+                            logger.warn(`Attempt to reset password for unknown user '${ email }'.`);
+                            resp.status(403).end();
+                        });
+                }
+                else
+                {
+                    // The token is too old
+                    resp.status(403).end();
+                } // end if
+            }
+            else 
+            {
+                // The token was invalid
+                resp.status(403).end();
+            } // end if
+        })
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 

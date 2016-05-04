@@ -80,6 +80,14 @@
             {
                 return authSvc.logout();
             }
+        },
+        ready()
+        {
+            // We're doing a reset password procedure
+            if(this.$route.params.token)
+            {
+                this.$refs.loginModal.show();
+            } // end if
         }
     }
 </script>

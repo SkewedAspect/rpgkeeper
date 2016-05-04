@@ -91,6 +91,7 @@ app.use('/news', newsRouter);
 
 // Serve index.html
 app.get('/', routeUtils.serveIndex);
+app.get('/reset/*', routeUtils.serveIndex);
 app.get('/dashboard', routeUtils.serveIndex);
 
 // Start the server

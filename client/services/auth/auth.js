@@ -74,6 +74,33 @@ class AuthService {
             });
     } // end logout
     
+    forgot(email)
+    {
+        return $http.post(`/users/${ email }/forgot`);
+    } // end forgot
+
+    reset(token, data)
+    {
+        console.log('data?', data);
+        return $http.post(`/users/reset/${ token }`, data)
+        .catch((error) =>
+        {
+            if(error.status == 403)
+            {
+                return Promise.reject(new errors.TokenValidation(token));
+            }
+            else if(error.status == 422)
+            {
+                return Promise.reject(new errors.PasswordMismatch());
+            }
+            else
+            {
+                console.error('error:', error);
+                return Promise.reject(error.data);
+            } // end if
+        });
+    } // end reset
+
     register(data)
     {
         return $http.post('/users', data)
