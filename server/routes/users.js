@@ -293,7 +293,6 @@ router.post('/reset/:token', (req, resp) =>
                 // If it was created in the last 2 hours, return it
                 if(Date.now() - reset.created <= 2 * 60 * 60 * 1000)
                 {
-                    //TODO: Update the damned password.
                     return models.User.get(reset.email)
                         .then(function(user)
                         {
