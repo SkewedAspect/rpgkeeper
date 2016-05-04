@@ -83,27 +83,49 @@ class AuthService {
     {
         console.log('data?', data);
         return $http.post(`/users/reset/${ token }`, data)
-        .catch((error) =>
-        {
-            if(error.status == 403)
+            .then(() =>
             {
-                return Promise.reject(new errors.TokenValidation(token));
-            }
-            else if(error.status == 422)
+                // We should be logged in now
+                return $http.get('/users')
+                    .then((response) =>
+                    {
+                        routeSvc.go('/dashboard');
+                        this.user = response.data;
+                    })
+                    .catch(() => { routeSvc.go('/'); });
+            })
+            .catch((error) =>
             {
-                return Promise.reject(new errors.PasswordMismatch());
-            }
-            else
-            {
-                console.error('error:', error);
-                return Promise.reject(error.data);
-            } // end if
-        });
+                if(error.status == 403)
+                {
+                    return Promise.reject(new errors.TokenValidation(token));
+                }
+                else if(error.status == 422)
+                {
+                    return Promise.reject(new errors.PasswordMismatch());
+                }
+                else
+                {
+                    console.error('error:', error);
+                    return Promise.reject(error.data);
+                } // end if
+            });
     } // end reset
 
     register(data)
     {
         return $http.post('/users', data)
+            .then(() =>
+            {
+                // We should be logged in now
+                return $http.get('/users')
+                    .then((response) =>
+                    {
+                        routeSvc.go('/dashboard');
+                        this.user = response.data;
+                    })
+                    .catch(() => { routeSvc.go('/'); });
+            })
             .catch((error) =>
             {
                 if(error.status == 403)
