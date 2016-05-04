@@ -12,6 +12,7 @@ import uuid from 'node-uuid';
 import base62 from 'base62';
 import $http from 'axios';
 import config from '../../config';
+import passport from 'passport';
 import { Mailgun } from 'mailgun';
 
 
@@ -103,9 +104,25 @@ router.post('/', (req, resp) =>
                                 {
                                     var userDef = _.assign({}, req.body, {hash: hashObj, created: new Date()});
                                     (new models.User(userDef)).$save()
-                                        .then(() =>
+                                        .then((user) =>
                                         {
-                                            resp.end();
+                                            // Log the user in with passport
+                                            req.login(user, (error) =>
+                                            {
+                                                if(error)
+                                                {
+                                                    resp.status(500).json({
+                                                        human: "Error logging user in.",
+                                                        message: "Error logging user in.",
+                                                        stack: error.stack
+                                                    });
+                                                }
+                                                else
+                                                {
+                                                    // Response with 'OK'.
+                                                    resp.end();
+                                                } // end if
+                                            });
                                         })
                                         .catch((error) =>
                                         {
@@ -256,7 +273,7 @@ router.post('/:email/forgot', (req, resp) =>
             {
                 if(error)
                 {
-                    console.error('Error sending email:\n', error.stack);
+                    logger.error('Error sending email:\n', error.stack);
                 } // end if
                 
                 resp.end();
@@ -282,8 +299,6 @@ router.post('/reset/:token', (req, resp) =>
     delete req.body.password;
     delete req.body.password2;
     
-    console.log('password', password);
-    
     return models.Reset.filter({ token: req.params.token })
         .get(0)
         .then((reset) =>
@@ -306,7 +321,25 @@ router.post('/reset/:token', (req, resp) =>
                                         return user.$save()
                                             .then(() =>
                                             {
-                                                resp.end();
+                                                // Log the user in with passport
+                                                req.login(user, (error) =>
+                                                {
+                                                    if(error)
+                                                    {
+                                                        resp.status(500).json({
+                                                            human: "Error logging user in.",
+                                                            message: "Error logging user in.",
+                                                            stack: error.stack
+                                                        });
+                                                    }
+                                                    else 
+                                                    {
+                                                        // Response with 'OK'.
+                                                        resp.end();
+                                                    } // end if
+                                                });
+
+                                                // Delete the used reset token
                                                 return reset.$delete();
                                             });
                                     });
