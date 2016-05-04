@@ -33,20 +33,26 @@
             </div>
         </div>
     </nav>
+    <login-modal v-ref:login-modal></login-modal>
 </template>
 
-<style lang="sass" src="./header.scss"></style>
+<style lang="sass" rel="stylesheet/scss">
+    #site-header {
+    }
+</style>
 
 <script type="text/babel" lang="es">
     import _ from 'lodash';
+    import authSvc from '../../services/auth/auth';
     import stateSvc from '../state/stateService.js';
-    import personaSvc from '../persona/personaService.js';
 
+    import LoginModal from '../../modals/login.vue';
     import GravatarComponent from '../gravatar/gravatar.vue';
 
     export default {
         components: {
-            gravatar: GravatarComponent
+            gravatar: GravatarComponent,
+            loginModal: LoginModal
         },
         data: function()
         {
@@ -68,12 +74,20 @@
         methods: {
             signIn: function()
             {
-                personaSvc.signIn();
+                this.$refs.loginModal.show();
             },
             signOut: function()
             {
-                personaSvc.signOut();
+                return authSvc.logout();
             }
+        },
+        ready()
+        {
+            // We're doing a reset password procedure
+            if(this.$route.params.token)
+            {
+                this.$refs.loginModal.show();
+            } // end if
         }
     }
 </script>

@@ -11,13 +11,8 @@ module.exports = {
     http: {
         port: 5678
     },
-    auth: {
-        checkAudience: false
-    },
-    rethink: {
-        host: process.env.RETHINK_DB_HOST || 'localhost',
-        port: process.env.RETHINK_DB_PORT || 28015,
-        db: 'rpgkeeper'
+    mail: {
+        api: process.env.MAILGUN_KEY || "key-7ff79b53f0f751441fc07d2a325cedb3"
     }
 }; // end exports
 

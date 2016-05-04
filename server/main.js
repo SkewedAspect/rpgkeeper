@@ -39,14 +39,15 @@ import '../systems/generic/system';
 import '../systems/eote/system';
 
 // Auth
-import serialization from './auth/serialization';
-import personaAuth from './auth/persona';
+import './auth/serialization';
+import localAuth from './auth/local';
 
 // Routes
 import routeUtils from './routes/utils';
 import newsRouter from './routes/news';
 import charRouter from './routes/characters';
 import sysRouter from './routes/systems';
+import userRouter from './routes/users';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -59,7 +60,7 @@ app.use(routeUtils.requestLogger(logger));
 // Basic error logging
 app.use(routeUtils.errorLogger(logger));
 
-// Passport support
+// Auth support
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(session({
@@ -76,8 +77,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Set up out authentication support
-personaAuth.initialize(app);
+// Set up our authentication support
+localAuth.initialize(app);
 
 // Setup static serving
 app.use(express.static(path.resolve('./dist')));
@@ -85,10 +86,12 @@ app.use(express.static(path.resolve('./dist')));
 // Set up our application routes
 app.use('/characters', charRouter);
 app.use('/systems', sysRouter);
+app.use('/users', userRouter);
 app.use('/news', newsRouter);
 
 // Serve index.html
 app.get('/', routeUtils.serveIndex);
+app.get('/reset/*', routeUtils.serveIndex);
 app.get('/dashboard', routeUtils.serveIndex);
 
 // Start the server

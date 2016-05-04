@@ -4,6 +4,12 @@
 /// @module
 //----------------------------------------------------------------------------------------------------------------------
 
+// Overwrite the global promise with Bluebird. This makes `axios` use Bluebird promises.
+import Promise from 'bluebird';
+window.Promise = Promise;
+
+//----------------------------------------------------------------------------------------------------------------------
+
 import marked from 'marked';
 
 import Vue from 'vue';
@@ -11,7 +17,6 @@ import VueRouter from 'vue-router';
 
 // Services
 import RouterSvc from './components/route/routeService';
-import SystemsSvc from './components/systems/systemsService';
 
 // Pages
 import HomeComponent from './pages/home/home.vue';
@@ -52,6 +57,9 @@ RouterSvc.setup({
 RouterSvc.map({
     '/': {
         name: 'home',
+        component: HomeComponent
+    },
+    '/reset/:token': {
         component: HomeComponent
     },
     '/dashboard': {

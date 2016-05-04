@@ -30,7 +30,8 @@ hr.sm {
 .nav,
 .pagination,
 .carousel,
-.panel-title a {
+.panel-title a,
+a {
     cursor: pointer;
 }
 
@@ -70,6 +71,10 @@ form {
 
 .text-left {
     text-align: left;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

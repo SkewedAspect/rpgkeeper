@@ -4,6 +4,7 @@
 /// @module
 //----------------------------------------------------------------------------------------------------------------------
 
+import _ from 'lodash';
 import VueRouter from 'vue-router';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -15,7 +16,7 @@ class RouteService {
     } // end constructor
 
     get app(){ return this.router.app; }
-    get path(){ return this.router.app.$route.path; }
+    get path(){ return _.get(this.router, 'app.$route.path'); }
 
     // Router API
     go() { this.router.go.apply(this.router, arguments); }
