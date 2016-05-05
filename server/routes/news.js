@@ -10,6 +10,7 @@ var path = require('path');
 var _ = require('lodash');
 var express = require('express');
 var Promise = require('bluebird');
+var fastmatter = require('fastmatter');
 
 var routeUtils = require('./utils');
 
@@ -41,6 +42,7 @@ router.get('/', function(req, resp)
         json: function()
         {
             var newsPath = path.resolve(__dirname + '/../news');
+
             fs.readdirAsync(newsPath)
                 .then(function(files)
                 {
@@ -52,17 +54,12 @@ router.get('/', function(req, resp)
                         filePromises.push(fs.readFileAsync(filePath, { encoding: 'utf8' })
                                 .then(function(file)
                                 {
-                                    var titleRe = /^(?:#(.*)|(.*)\n=+)\n+/;
-                                    var match = titleRe.exec(file);
-
-                                    var body = file.slice(match.index + match[0].length);
-
-                                    // Parse filename as date
-                                    var year = fileName.substr(0, 4);
-                                    var month = fileName.substr(4, 2);
-                                    var day = fileName.substr(6, 2);
-
-                                    return { title: match[1] || match[2], body: body, date: new Date([month, day, year].join('/')) };
+                                    var data = fastmatter(file);
+                                    
+                                    // Parse as a date
+                                    data.attributes.date = new Date(data.attributes.date);
+                                    
+                                    return data;
                                 })
                         );
                     });

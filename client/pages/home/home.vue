@@ -14,8 +14,8 @@
             </div>
             <ul class="list-group">
                 <li class="list-group-item news-article" v-for="article in articles">
-                    <div class="pull-right text-muted">{{ article.date | date 'MMM Do YYYY' }}</div>
-                    <h1 class="list-group-item-heading" v-html="article.title | markdown"></h1>
+                    <div class="pull-right text-muted">{{ article.attributes.date | date 'MMM Do YYYY' }}</div>
+                    <h1 class="list-group-item-heading" v-html="article.attributes.title | markdown"></h1>
                     <div class="list-group-item-text" v-html="article.body | markdown"></div>
                 </li>
             </ul>
