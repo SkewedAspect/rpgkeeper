@@ -24,7 +24,13 @@ var DnD4eCharacter = trivialModels.define({
     gender: types.Enum({ values: ['M', 'F', 'O'] }),
     alignment: types.Enum({ values: ['LG', 'G', 'U', 'E', 'CE'] }),
     speed: type.Number({ integer: true }),
-    languages: types.Array({ default: [] }),
+    languages: types.Array({
+        schema:{
+            language: types.String({ required: true }),
+            script: types.String()
+        },
+        default: []
+    }),
     paragonPath: types.String(),
     epicDestiny: types.String(),
     
@@ -40,23 +46,91 @@ var DnD4eCharacter = trivialModels.define({
     acAbility: types.String({ default: 'strength' }),
     
     // Health
-    hp: types.Object(),
-    surges: types.Object(),
+    hp: types.Object({
+        schema: {
+            max: types.Number({ integer: true }),
+            current: types.Number({ integer: true }),
+            temp: types.Number({ integer: true })
+        }
+    }),
+    surges: types.Object({
+        schema: {
+            perDay: types.Number({ integer: true }),
+            current: types.Number({ integer: true }),
+            secondWindAvailable: type.Boolean({ default: true })
+        }
+    }),
     
     // Additional Character details
     experience: types.Number({ integer: true }),
     wealth: types.Number(),
-    skills: types.Array({ default: [] }),
-    powers: types.Array({ default: [] }),
-    feats: types.Array({ default: [] }),
-    bonuses: types.Array({ default: [] }),
-    equipment: types.Array({ default: [] }),
-    pools: types.Array({ default: [] }),
+    skills: types.Array({
+        schema: {
+            name: types.String({ required: true }),
+            armorPenalty: types.Number({ integer: true }),
+            trained: type.Boolean({ default: true }),
+            removed: type.Boolean({ default: false })
+        },
+        default: []
+    }),
+    powers: types.Array({
+        schema: {
+        
+        },
+        default: []
+    }),
+    feats: types.Array({
+        schema: {
+        
+        },
+        default: []
+    }),
+    bonuses: types.Array({
+        schema: {
+        
+        },
+        default: []
+    }),
+    equipment: types.Array({
+        schema: {
+        
+        },
+        default: []
+    }),
+    pools: types.Array({
+        schema: {
+            name: types.String({ required: true }),
+            value: types.Number({ integer: true, required: true }),
+            max: types.Number({ integer: true }),
+            reset: types.Number({ integer: true })
+        },
+        default: [
+            { name: 'Action Points', value: 1 }
+        ]
+    }),
     
     // Misc
-    rolls: types.Array({ default: [] }),
-    notes: types.Array({ default: [] }),
-    conditions: types.Array({ default: [] }),
+    rolls: types.Array({
+        schema: {
+            name: types.String({ required: true }),
+            expression: types.String({ required: true })
+        },
+        default: []
+    }),
+    notes: types.Array({
+        schema: {
+            name: types.String({ required: true }),
+            content: types.String({ required: true })
+        },
+        default: []
+    }),
+    conditions: types.Array({
+        schema: {
+            condition: types.String({ required: true }),
+            duration: types.String({ default: 'Unspecified.' })
+        },
+        default: []
+    }),
 });
 ```
 
@@ -70,10 +144,10 @@ This is an array of objects, with the language name and the name of the script u
 schema is very simple:
 
 ```javascript
-var Language = trivialModels.define({
+var schema = {
     language: types.String({ required: true }),
     script: types.String()
-});
+};
 ```
 
 If a `script` property is not there, the `language` property should be used instead.
@@ -98,11 +172,11 @@ var will = 10 + Math.floor(level / 2) + bonuses.getSum('will');
 Hit points have a maximum, a current value, and temporary HP:
 
 ```javascript
-var HP = trivialModels.define({
+var schema = {
     max: types.Number({ integer: true }),
     current: types.Number({ integer: true }),
     temp: types.Number({ integer: true })
-});
+};
 ```
 
 From this we can calculate our Bloodied and Surge Value:
@@ -122,11 +196,11 @@ incorrectly. The code won't blow up on 0, so I feel no strong urge to fix this._
 Surges have a limited number per day, a current value.
 
 ```javascript
-var Surges = trivialModels.define({
+var schema = {
     perDay: types.Number({ integer: true }),
     current: types.Number({ integer: true }),
     secondWindAvailable: type.Boolean({ default: true })
-});
+};
 ```
 
 The `secondWindAvailable` property indicates wether or not a second wind is _available_.
@@ -142,12 +216,12 @@ efficient to simply store a list of changes to the default skills, rather than a
 has the following schema:
 
 ```javascript
-var Skill = trivialModels.define({
+var schema = {
     name: types.String({ required: true }),
     armorPenalty: types.Number({ integer: true }),
     trained: type.Boolean({ default: true }),
     removed: type.Boolean({ default: false })
-});
+};
 ```
 
 As per everything else, bonuses are handled via the Bonus system, and all we store is a list of any skills that have
@@ -175,16 +249,53 @@ be used for default skills.)
 
 #### Pools
 
-...
+Pools are, essentially named, positive integers that may or may not have an upper bound. All characters have atleast an
+'Action Points' pool.
+
+```javascript
+var schema = {
+    name: types.String({ required: true }),
+    value: types.Number({ integer: true, required: true }),
+    max: types.Number({ integer: true }),
+    reset: types.Number({ integer: true })
+};
+```
+
+The `reset` property is the value the pool resets to.
 
 #### Rolls
 
-...
+A roll is simply a named dice expression.
+
+```javascript
+var schema = {
+    name: types.String({ required: true }),
+    expression: types.String({ required: true })
+};
+```
 
 #### Notes
 
-...
+Notes are simply named markdown files.
+
+```javascript
+var schema = {
+    name: types.String({ required: true }),
+    content: types.String({ required: true })
+};
+```
 
 #### Conditions
 
-...
+Conditions are a simple construct to help the player keep track of effects on their character. They are super simple,
+and designed to be very flexible.
+
+```javascript
+var schema = {
+    condition: types.String({ required: true }),
+    duration: types.String({ default: 'Unspecified.' })
+};
+```
+
+Suggestions have been made to integrate them into the bonus system, but I feel that would add too much complexity for
+very little gain at the moment.
