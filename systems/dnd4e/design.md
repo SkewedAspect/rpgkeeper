@@ -8,12 +8,12 @@ get it right this time around.
 The key to getting `dnd4e` right is figuring out how to store the data in a database correctly. If I can correctly store
 characters, the UI can be tweaked or molded as needed.
 
-### DnD4eCharacter Model
+### Character Model
 
 The basic overview of the model is this:
 
 ```javascript
-var DnD4eCharacter = trivialModels.define({
+var Character = trivialModels.define({
     baseChar: types.String({ pk: true }),
     
     // Basic Biographic info
@@ -21,6 +21,7 @@ var DnD4eCharacter = trivialModels.define({
     race: types.String(),
     size: types.Enum({ values: ['T', 'S', 'M', 'L', 'H', 'G'] }),
     level: type.Number({ integer: true }),
+    age: type.Number({ integer: true }),
     gender: types.Enum({ values: ['M', 'F', 'O'] }),
     alignment: types.Enum({ values: ['LG', 'G', 'U', 'E', 'CE'] }),
     speed: type.Number({ integer: true }),
@@ -49,6 +50,7 @@ var DnD4eCharacter = trivialModels.define({
     hp: types.Object({
         schema: {
             max: types.Number({ integer: true }),
+            nonlethal: types.Number({ integer: true }),
             current: types.Number({ integer: true }),
             temp: types.Number({ integer: true })
         }
@@ -75,19 +77,34 @@ var DnD4eCharacter = trivialModels.define({
     }),
     powers: types.Array({
         schema: {
-        
+            powerID: types.String({ required: true }),
+            used: types.Number({ integer: true, default: 0 }),
+            maxUses: types.Number({ integer: true, default: 1 }),
+            rolls: types.Array({
+                schema: {
+                    name: types.String({ required: true }),
+                    expression: types.String({ required: true })
+                },
+                default: []
+            }),
+            notes: types.String()
         },
         default: []
     }),
     feats: types.Array({
         schema: {
-        
+            featID: types.String({ required: true }),
+            notes: types.String()
         },
         default: []
     }),
     bonuses: types.Array({
         schema: {
-        
+            name: types.String({ required: true }),
+            type: types.String({ required: true, default: 'untyped' }),
+            value: types.Number({ integer: true, required: true }),
+            source: types.String(),
+            stacks: type.Boolean({ default: false })
         },
         default: []
     }),
@@ -130,7 +147,7 @@ var DnD4eCharacter = trivialModels.define({
             duration: types.String({ default: 'Unspecified.' })
         },
         default: []
-    }),
+    })
 });
 ```
 
@@ -161,10 +178,10 @@ you add? To store this, we use the `acAbility` property.
 The calculation for defenses (in psuedo code) should be:
 
 ```javascript
-var ac = 10 + Math.floor(level / 2) + abilities[acAbility].mod + bonuses.getSum('ac');
-var fortitude = 10 + Math.floor(level / 2) + bonuses.getSum('fortitude');
-var reflex = 10 + Math.floor(level / 2) + bonuses.getSum('reflex');
-var will = 10 + Math.floor(level / 2) + bonuses.getSum('will');
+var ac = 10 + Math.floor(level / 2) + abilities[acAbility].mod + bonuses.get('ac');
+var fortitude = 10 + Math.floor(level / 2) + bonuses.get('fortitude');
+var reflex = 10 + Math.floor(level / 2) + bonuses.get('reflex');
+var will = 10 + Math.floor(level / 2) + bonuses.get('will');
 ```
 
 #### HP
@@ -203,7 +220,7 @@ var schema = {
 };
 ```
 
-The `secondWindAvailable` property indicates wether or not a second wind is _available_.
+The `secondWindAvailable` property indicates whether or not a second wind is _available_.
 
 #### Wealth
 
@@ -232,16 +249,62 @@ be used for default skills.)
 
 #### Powers
 
-...
+Powers are basically just a reference to a Power model, with some metadata:
 
+```javascript
+var schema = {
+    powerID: types.String({ required: true }),
+    used: types.Number({ integer: true, default: 0 }),
+    maxUses: types.Number({ integer: true, default: 1 }),
+    notes: types.String()
+};
+```
+
+This way we can store the number of times the power's been used, as well as the maximum number of uses, along with any 
+rolls, and notes about the power.
 
 #### Feats
 
-...
+Feats, like powers, are just a reference to a Feat model, with some metadata:
+
+```javascript
+var schema = {
+    featID: types.String({ required: true }),
+    notes: types.String()
+};
+```
+
+There's nothing super special to store with feats, other than notes.
 
 #### Bonuses
 
-...
+A 'bonus' is some value (possibly negative) that is added to a basic stat in order to get the final value. Bonuses 
+themselves are fairly straightforward:
+
+```javascript
+var schema = {
+    name: types.String({ required: true }),
+    type: types.String({ required: true, default: 'untyped' }),
+    value: types.Number({ integer: true, required: true }),
+    source: types.String(),
+    stacks: type.Boolean({ default: false })
+};
+```
+
+Each bonus has a name, this is what will be used in the code (or user input) to reference the bonus by. All bonuses have 
+a type (for stacking logic) and a value. Additionally, the bonus can list where it came from (useful to the player) and
+a bonus can indicate that it stacks with other bonuses of the same type. (This is rare, and generally only exists in
+homebrew material.)
+
+The `BonusService` will have the following methods:
+
+* `load(bonusesArray)` - Takes an array of bonuses, clearing previous bonuses and calculated values
+* `add(bonus)` - Takes a bonus object, clearing the calculated value for the bonus of that name
+* `get(bonusName)` - Calculates (and caches) the total bonus for that name, and returns the value
+* `recalculate(bonusName)` - clears the cached value for the bonus of that name. If no name is passed, clears entire cache
+
+It will be in charge of maintaining and calculating all bonuses for the character. (It will need to implement correct
+bonus stacking logic, which is not simple, to say the least.)
 
 #### Equipment
 
