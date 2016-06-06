@@ -238,7 +238,7 @@ db.DnDClass = trivialModels.define({
     driver: {
         name: 'TrivialDB',
         options: {
-            name: 'class',
+            name: 'classes',
             dbPath: 'server/db',
             namespace: 'dnd35'
         }
