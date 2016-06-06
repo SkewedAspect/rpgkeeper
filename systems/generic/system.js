@@ -37,6 +37,6 @@ var id = 'generic';
 var name = 'Generic';
 var description = 'A generic system designed to be usable with any pen and paper RPG.';
 
-systemMan.register(id, name, description, router);
+systemMan.register(id, name, description, router, models);
 
 //----------------------------------------------------------------------------------------------------------------------

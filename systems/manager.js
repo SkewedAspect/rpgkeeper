@@ -19,9 +19,9 @@ class SystemManager {
         return _.find(this.systems, { id });
     } // end get
 
-    register(id, name, description, router)
+    register(id, name, description, router, models)
     {
-        this.systems.push({ id, name, description, router });
+        this.systems.push({ id, name, description, router, models });
         this.systems = _.uniq(this.systems, 'id');
     } // end registerSystem
     
