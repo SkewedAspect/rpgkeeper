@@ -1,0 +1,285 @@
+{
+    "barbarian": {
+        "id": "barbarian",
+        "name": "Barbarian",
+        "description": "From the frozen wastes of the north and the hellish jungles of the south come brave, even reckless, warriors. Civilized people call them barbarians or berserkers and suspect them of mayhem, impiety, and atrocities. These “barbarians,” however, have proven their mettle and their value to those who would be their allies. To enemies who underestimated them, they have proved their cunning, resourcefulness, persistence, and mercilessness.",
+        "features": [
+            {
+                "name": "Weapon and Armor Proficiency",
+                "description": "A barbarian is proficient with all simple and martial weapons, light armor, medium armor, and shields (except tower shields)."
+            },
+            {
+                "name": "Fast Movement",
+                "type": "ex",
+                "description": "A barbarian’s land speed is faster than the norm for his race by +10 feet. This benefit applies only when he is wearing no armor, light armor, or medium armor and not carrying a heavy load. Apply this bonus before modifying the barbarian’s speed because of any load carried or armor worn. For example, a human barbarian has a speed of 40 feet, rather than 30 feet, when wearing light or no armor. When wearing medium armor or carrying a medium load, his speed drops to 30 feet. A halfling barbarian has a speed of 30 feet, rather than 20 feet, in light or no armor. When wearing medium armor or carrying a medium load, his speed drops to 20 feet." },
+            {
+                "name": "Illiteracy",
+                "description": "Barbarians are the only characters who do not automatically know how to read and write. A barbarian may spend 2 skill points to gain the ability to read and write all languages he is able to speak.\n\nA barbarian who gains a level in any other class automatically gains literacy. Any other character who gains a barbarian level does not lose the literacy he or she already had."
+            },
+            {
+                "name": "Rage",
+                "type": "ex",
+                "description": "A barbarian can fly into a screaming blood frenzy a certain number of times per day. In a rage, a barbarian gains phenomenal strength and durability but becomes reckless and less able to defend himself. He temporarily gains a +4 bonus to Strength, a +4 bonus to Constitution, and a +2 morale bonus on Will saves, but he takes a –2 penalty to Armor Class.\n\nThe increase in Constitution increases the barbarian’s hit points by 2 points per level, but these hit points go away at the end of the rage when his Constitution score drops back to normal. (These extra hit points are not lost first the way temporary hit points are; see Temporary Hit Points) While raging, a barbarian cannot use any Charisma-, Dexterity-, or Intelligence-based skills (except for Balance, Escape Artist, Intimidate, and Ride), the Concentration skill, or any abilities that require patience or concentration, nor can he cast spells or activate magic items that require a command word, a spell trigger (such as a wand), or spell completion (such as a scroll) to function. He can use any feat he has except Combat Expertise, item creation feats, and metamagic feats. A fit of rage lasts for a number of rounds equal to 3 + the character’s (newly improved) Constitution modifier. A barbarian may prematurely end his rage. At the end of the rage, the barbarian loses the rage modifiers and restrictions and becomes fatigued (–2 penalty to Strength, –2 penalty to Dex- terity, can’t charge or run) for the duration of the current encounter (unless he is a 17th-level barbarian, at which point this limitation no longer applies).\n\nA barbarian can fly into a rage only once per encounter. At 1st level he can use his rage ability once per day. At 4th level and every four levels thereafter, he can use it one additional time per day (to a maximum of six times per day at 20th level). Entering a rage takes no time itself, but a barbarian can do it only during his action (see Initiative), not in response to someone else’s action. A barbarian can’t, for example, fly into a rage when struck down by an arrow in order to get the extra hit points from the increased Constitution, although the extra hit points would be of benefit if he had gone into a rage earlier in the round, _before_ the arrow struck."
+            },
+            {
+                "name": "Uncanny Dodge",
+                "type": "ex",
+                "description": "At 2nd level, a barbarian gains the ability to react to danger before his senses would normally allow him to do so. He retains his Dexterity bonus to AC (if any) even if he is caught flat-footed or struck by an invisible attacker. However, he still loses his Dexterity bonus to AC if immobilized.\n\nIf a barbarian already has uncanny dodge from a different class (a barbarian with at least four levels of rogue, for example), he automatically gains improved uncanny dodge instead."
+            },
+            {
+                "name": "Trap Sense",
+                "type": "ex",
+                "description": "Starting at 3rd level, a barbarian has an intuitive sense that alerts him to danger from traps, giving him a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise by +1 every three barbarian levels thereafter (6th, 9th, 12th, 15th, and 18th level). Trap sense bonuses gained from multiple classes stack."
+            },
+            {
+                "name": "Improved Uncanny Dodge",
+                "type": "ex",
+                "description": "At 5th level and higher, a barbarian can no longer be flanked; he can react to opponents on opposite sides of him as easily as he can react to a single attacker. This defense denies a rogue the ability to sneak attack the barbarian by flanking him, unless the attacker has at least four more rogue levels than the target has barbarian levels.\n\nIf a character already has uncanny dodge (see above) from a second class, the character automatically gains improved uncanny dodge instead, and the levels from the classes that grant uncanny dodge stack to determine the minimum level a rogue must be to flank the character."
+            },
+            {
+                "name": "Damage Reduction",
+                "type": "ex",
+                "description": "At 7th level, a barbarian gains the ability to shrug off some amount of injury from each blow or attack. Subtract 1 from the damage the barbarian takes each time he is dealt damage from a weapon or a natural attack. At 10th level, and every three barbarian levels thereafter (13th, 16th, and 19th level), this damage reduction rises by 1 point. Damage reduction can reduce damage to 0 but not below 0."
+            },
+            {
+                "name": "Greater Rage",
+                "type": "ex",
+                "description": "At 11th level, a barbarian’s bonuses to Strength and Constitution during his rage each increase to +6, and his morale bonus on Will saves increases to +3. The penalty to AC remains at –2."
+            },
+            {
+                "name": "Indomitable Will",
+                "type": "ex",
+                "description": "While in a rage, a barbarian of 14th level or higher gains a +4 bonus on Will saves to resist enchantment spells. This bonus stacks with all other modifiers, including the morale bonus on Will saves he also receives during his rage."
+            },
+            {
+                "name": "Tireless Rage",
+                "type": "ex",
+                "description": "At 17th level and higher, a barbarian no longer becomes fatigued at the end of his rage."
+            },
+            {
+                "name": "Mighty Rage",
+                "type": "ex",
+                "description": "At 20th level, a barbarian’s bonuses to Strength and Constitution during his rage each increase to +8, and his morale bonus on Will saves increases to +4. The penalty to AC remains at –2."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "bard": {
+        "id": "bard",
+        "name": "Bard",
+        "description": "It is said that music has a special magic, and the bard proves that saying true. Wandering across the land, gathering lore, telling stories, working magic with his music, and living on the gratitude of his audience—such is the life of a bard. When chance or opportunity draws them into a conflict, bards serve as diplomats, negotiators, messengers, scouts, and spies.\n\nA bard’s magic comes from the heart. If his heart is good, a bard brings hope and courage to the downtrodden and uses his tricks, music, and magic to thwart the schemes of evildoers. If the nobles of the land are corrupt, the good bard is an enemy of the state, cunningly evading capture and raising the spirits of the oppressed. But music can spring from an evil heart as well. Evil bards forego blatant violence in favor of manipulation, holding sway over the hearts and minds of others and taking what enraptured audiences “willingly” give.",
+        "features": [
+            {
+                "name": "Weapon and Armor Proficiency",
+                "description": "A bard is proficient with all simple weapons, plus the longsword, rapier, sap, short sword, shortbow, and whip. Bards are proficient with light armor and shields (except tower shields).\n\nBecause the somatic components required for bard spells are relatively simple, a bard can cast bard spells while wearing light armor without incurring the normal arcane spell failure chance. However, like any other arcane spellcaster, a bard wearing medium or heavy armor or using a shield incurs a chance of arcane spell failure if the spell in question has a somatic component (most do). A multiclass bard still incurs the normal arcane spell failure chance for arcane spells received from other classes."
+            },
+            {
+                "name": "Spells",
+                "description": "A bard casts arcane spells (the same type of spells available to sorcerers and wizards), which are drawn from the bard spell (page 181) list. He can cast any spell he knows without preparing it ahead of time, the way a wizard or cleric must (see below). Every bard spell has a verbal component (singing, reciting, or music).\nTo learn or cast a spell, a bard must have a Charisma score equal to at least 10 + the spell level (Cha 10 for 0-level spells, Cha 11 for 1st-level spells, and so forth). The Difficulty Class for a saving throw against a bard’s spell is 10 + the spell level + the bard’s Charisma modifier.\n\nLike other spellcasters, a bard can cast only a certain number of spells of each spell level per day. In addition, he receives bonus spells per day if he has a high Charisma score. When the table indicates that the bard gets 0 spells per day of a given spell level (for instance, 1st- level spells for a 2nd-level bard), he gains only the bonus spells he would be entitled to based on his Charisma score for that spell level.\n\nThe bard’s selection of spells is extremely limited. A bard begins play knowing four 0-level spells (also called cantrips) of your choice. At most new bard levels, he gains one or more new spells. (Unlike spells per day, the number of spells a bard knows is not affected by his Charisma score; the numbers are fixed.)\n\nUpon reaching 5th level, and at every third bard level after that (8th, 11th, and so on), a bard can choose to learn a new spell in place of one he already knows. In effect, the bard “loses” the old spell in exchange for the new one. The new spell’s level must be the same as that of the spell being exchanged, and it must be at least two levels lower than the highest-level bard spell the bard can cast. For instance, upon reaching 5th level, a bard could trade a single 0-level spell (two spell levels below the highest-level bard spell he can cast, which is 2nd) for a different 0-level spell. At 8th level, he could trade in a single 0-level or 1st-level spell (since he now can cast 3rd-level bard spells) for a different spell of the same level. A bard may swap only a single spell at any given level, and must choose whether or not to swap the spell at the same time that he gains new spells known for the level.\n\nAs noted above, a bard need not prepare his spells in advance. He can cast any spell he knows at any time, assuming he has not yet used up his allotment of spells per day for the spell’s level. For example, at 1st level, Gimble the bard can cast two 0-level spells per day for being 1st level. However, he knows four 0-level spells: detect magic, ghost sound, light, and read magic. Thus, on any given day,he can cast some combination of those four spells a total of two times. He does not have to decide ahead of time which spells he’ll cast."
+            },
+            {
+                "name": "Bardic Knowledge",
+                "description": "A bard picks up a lot of stray knowledge while wandering the land and learning stories from other bards. He may make a special bardic knowledge check with a bonus equal to his bard level + his Intelligence modifier to see whether he knows some relevant information about local notable people, legendary items, or noteworthy places. (If the bard has 5 or more ranks in Knowledge (history), he gains a +2 bonus on this check.)\n\n| DC | Type of Knowledge | Examples |\n|:--:|-------------------|----------|\n| 10 | Common, known by at least a substantial minority of the local population. | A local mayor’s reputation for drinking; common legends about a powerful place of mystery.|\n| 20 | Uncommon but available, known by only a few people in the area. | A local priest’s shady past; legends about a powerful Magic item. |\n| 25 | Obscure, known by few, hard to come by. | A knight’s family history; legends about a minor place of mystery or magic item |\n| 30 | Extremely obscure, known by very few, possibly forgotten by most who once knew it, possibly known only by those who don’t understand the significance of the knowledge. | A mighty wizard’s childhood nickname; the history of a petty magic item. |\n\nA successful bardic knowledge check will not reveal the powers of a magic item but may give a hint as to its general function. A bard may not take 10 or take 20 on this check; this sort of knowledge is essentially random. The DM can determine the Difficulty Class of the check by referring to the table above."
+            },
+            {
+                "name": "Bardic Music",
+                "description": "Once per day per bard level, a bard can use his song or poetics to produce magical effects on those around him (usually including himself, if desired). While these abilities fall under the category of bardic music and the descriptions discuss singing or playing instruments, they can all be activated by reciting poetry, chanting, singing lyrical songs, singing melodies (fa-la-la, and so forth), whistling, playing an instrument, or playing an instrument in combination with some spoken performance. Each ability requires both a minimum bard level and a minimum number of ranks in the Perform skill to qualify; if a bard does not have the required number of ranks in at least one Perform skill, he does not gain the bardic music ability until he acquires the needed ranks.\n\nStarting a bardic music effect is a standard action. Some bardic music abilities require concentration, which means the bard must take a standard action each round to maintain the ability. Even while using bardic music that doesn’t require concentration, a bard cannot cast spells, activate magic items by spell completion (such as scrolls), or activate magic items by magic word (such as wands). Just as for casting a spell with a verbal component (see Components), a deaf bard has a 20% chance to fail when attempting to use bardic music. If he fails, the attempt still counts against his daily limit.\n\n_Countersong (Su)_: A bard with 3 or more ranks in a Perform skill can use his music or poetics to counter magical effects that depend on sound (but not spells that simply have verbal components). Each round of the countersong, he makes a Perform check. Any creature within 30 feet of the bard (including the bard himself ) that is affected by a sonic or language-dependent magical attack (such as a sound burst or command spell) may use the bard’s Perform check result in place of its saving throw if, after the saving throw is rolled, the Perform check result proves to be higher. If a creature within range of the countersong is already under the effect of a noninstan- taneous sonic or language-dependent magical attack, it gains another saving throw against the effect each round it hears the countersong, but it must use the bard’s Perform check result for the save. Countersong has no effect against effects that don’t allow saves. The bard may keep up the countersong for 10 rounds.\n\n_Fascinate (Sp)_: A bard with 3 or more ranks in a Perform skill can use his music or poetics to cause one or more creatures to become fascinated with him. Each creature to be fascinated must be within 90 feet, able to see and hear the bard, and able to pay attention to him. The bard must also be able to see the creature. The distraction of a nearby combat or other dangers prevents the ability from working. For every three levels a bard attains beyond 1st, he can target one additional creature with a single use of this ability (two at 4th level, three at 7th level, and so on).\n\nTo use the ability, a bard makes a Perform check. His check result is the DC for each affected creature’s Will save against the effect. If a creature’s saving throw succeeds, the bard cannot attempt to fascinate that creature again for 24 hours. If its saving throw fails, the creature sits quietly and listens to the song, taking no other actions, for as long as the bard continues to play and concentrate (up to a maximum of 1 round per bard level). While fascinated, a target takes a –4 penalty on skill checks made as reactions, such as Listen and Spot checks. Any potential threat requires the bard to make another Perform check and allows the creature a new saving throw against a DC equal to the new Perform check result. Any obvious threat, such as someone drawing a weapon, casting a spell, or aiming a ranged weapon at the target, automatically breaks the effect. _Fascinate_ is an enchantment (compulsion), mind-affecting ability.\n\n_Inspire Courage (Su)_: A bard with 3 or more ranks in a Perform skill can use song or poetics to inspire courage in his allies (including himself ), bolstering them against fear and improving their combat abilities. To be affected, an ally must be able to hear the bard sing. The effect lasts for as long as the ally hears the bard sing and for 5 rounds thereafter. An affected ally receives a +1 morale bonus on saving throws against charm and fear effects and a +1 morale bonus on attack and weapon damage rolls. At 8th level, and every six bard levels thereafter, this bonus increases by 1 (+2 at 8th, +3 at 14th, and +4 at 20th). Inspire courage is a mind-affecting ability.\n\n_Inspire Competence (Su)_: A bard of 3rd level or higher with 6 or more ranks in a Perform skill can use his music or poetics to help an ally succeed at a task. The ally must be within 30 feet and able to see and hear the bard. The bard must also be able to see the ally. Depending on the task that the ally has at hand, the bard may use his bardic music to lift the ally’s spirits, to help him or her focus mentally, or in some other way. The ally gets a +2 competence bonus on skill checks with a particular skill as long as he or she continues to hear the bard’s music. The DM may rule that certain uses of this ability are infeasible—chanting to make a rogue move more quietly, for example, is self-defeating. The effect lasts as long as the bard concentrates, up to a maximum of 2 minutes. A bard can’t inspire competence in himself. Inspire competence is a mind-affecting ability.\n\n_Suggestion (Sp)_: A bard of 6th level or higher with 9 or more ranks in a Perform skill can make a suggestion (as the spell) to a creature that he has already fascinated (see above). Using this ability does not break the bard’s concentration on the fascinate effect, nor does it allow a second saving throw against the fascinate effect. Making a suggestion doesn’t count against a bard’s daily limit on bardic music performances. A Will saving throw (DC 10 + 1/2 bard’s level + bard’s Cha modifier) negates the effect. This ability affects only a single creature (but see mass suggestion, below). _Suggestion_ is an enchantment (compulsion), mind-affecting, language dependent ability.\n\n_Inspire Greatness (Su)_: A bard of 9th level or higher with 12 or more ranks in a Perform skill can use music or poetics to inspire greatness in himself or a single willing ally within 30 feet, granting him or her extra fighting capability. For every three levels a bard attains beyond 9th, he can target one additional ally with a single use of this ability (two at 12th level, three at 15th, four at 18th). To inspire greatness, a bard must sing and an ally must hear him sing. The effect lasts for as long as the ally hears the bard sing and for 5 rounds thereafter. A creature inspired with greatness gains 2 bonus Hit Dice (d10s), the commensurate number of temporary hit points (apply the target’s Constitution modifier, if any, to these bonus Hit Dice), a +2 competence bonus on attack rolls, and a +1 competence bonus on Fortitude saves. The bonus Hit Dice count as regular Hit Dice for determining the effect of spells such as sleep. Inspire greatness is a mind-affecting ability.\n\n_Song of Freedom (Sp)_: A bard of 12th level or higher with 15 or more ranks in a Perform skill can use music or poetics to create an effect equivalent to the _break enchantment_ spell (caster level equals the character’s bard level). Using this ability requires 1 minute of uninterrupted concentration and music, and it functions on a single target within 30 feet. A bard can’t use _song of freedom_ on himself.\n\n_Inspire Heroics (Su)_: A bard of 15th level or higher with 18 or more ranks in a Perform skill can use music or poetics to inspire tremendous heroism in himself or a single willing ally within 30 feet, allowing that creature to fight bravely even against over- whelming odds. For every three bard levels the character attains beyond 15th, he can inspire heroics in one additional creature. To inspire heroics, a bard must sing and an ally must hear the bard sing for a full round. A creature so inspired gains a +4 morale bonus on saving throws and a +4 dodge bonus to AC. The effect lasts for as long as the ally hears the bard sing and for up to 5 rounds thereafter. Inspire heroics is a mind-affecting ability.\n\n_Mass Suggestion (Sp)_: This ability functions like suggestion, above, except that a bard of 18th level or higher with 21 or more ranks in a Perform skill can make the suggestion simultaneously to any number of creatures that he has already fascinated (see above). _Mass suggestion_ is an enchantment (compulsion), mind-affecting, language-dependent ability."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "cleric": {
+        "id": "cleric",
+        "name": "Cleric",
+        "description": "The handiwork of the gods is everywhere—in places of natural beauty, in mighty crusades, in soaring temples, and in the hearts of worshipers. Like people, gods run the gamut from benevolent to malicious, reserved to intrusive, simple to inscrutable. The gods, however, work mostly through intermediaries—their clerics. Good clerics heal, protect, and avenge. Evil clerics pillage, destroy, and sabotage. A cleric uses the power of his god to make his god’s will manifest. And if a cleric uses his god’s power to improve his own lot, that’s to be expected, too.",
+        "features": [
+            {
+                "name": "Weapon and Armor Proficiency",
+                "description": "Clerics are proficient with all simple weapons, with all types of armor (light, medium, and heavy), and with shields (except tower shields).\n\nEvery deity has a favored weapon (see Deities), and his or her clerics consider it a point of pride to wield that weapon. A cleric who chooses the War domain receives the Weapon Focus feat related to that weapon as a bonus feat. He also receives the appropriate Martial Weapon Proficiency feat as a bonus feat, if the weapon falls into that category."
+            },
+            {
+                "name": "Aura",
+                "type": "ex",
+                "description": "A cleric of a chaotic, evil, good, or lawful deity has a particularly powerful aura corresponding to the deity’s alignment (see the detect evil spell for details). Clerics who don’t worship a specific deity but choose the Chaotic, Evil, Good, or Lawful domain have a similarly powerful aura of the corresponding alignment."
+            },
+            {
+                "name": "Spells",
+                "description": "A cleric casts divine spells (the same type of spells avail- able to the druid, paladin, and ranger), which are drawn from the cleric spell list (page 183). However, his alignment may restrict him from casting certain spells opposed to his moral or ethical beliefs; see Chaotic, Evil, Good, and Lawful Spells, below. A cleric must choose and prepare his spells in advance (see below).\n\nTo prepare or cast a spell, a cleric must have a Wisdom score equal to at least 10 + the spell level (Wis 10 for 0-level spells, Wis 11 for 1st-level spells, and so forth). The Difficulty Class for a saving throw against a cleric’s spell is 10 + the spell level + the cleric’s Wisdom modifier.\n\nLike other spellcasters, a cleric can cast only a certain number of spells of each spell level per day. His base daily spell allotment is given on Table 3–7: The Cleric. In addition, he receives bonus spells per day if he has a high Wisdom score. A cleric also gets one domain spell of each spell level he can cast, starting at 1st level. When a cleric prepares a spell in a domain spell slot, it must come from one of his two domains (see Deities, Domains, and Domain Spells, below).Clerics do not acquire their spells from books or scrolls, nor do they prepare them through study. Instead, they meditate or pray for their spells, receiving them through their own strength of faith or as divine inspiration. Each cleric must choose a time at which he must spend 1 hour each day in quiet contemplation or supplication to regain his daily allotment of spells. Typically, this hour is at dawn or noon for good clerics and at dusk or midnight for evil ones. Time spent resting has no effect on whether a cleric can prepare spells. A cleric may prepare and cast any spell on the cleric spell list (page 183), provided that he can cast spells of that level, but he must choose which spells to prepare during his daily meditation."
+            },
+            {
+                "name": "Deity, Domains, and Domain Spells",
+                "description": "Choose a deity for your cleric. The cleric’s deity influences his alignment, what magic he can perform, his values, and how others see him. You may also choose for your cleric to have no deity.\n\nIf the typical worshipers of a deity include the members of a race, a cleric must be of the indicated race to choose that deity as his own.(The god may have occasional worshipers of other races, but not clerics.)\n\nWhen you have chosen an alignment and a deity for your cleric, choose two domains from among those given on Table 3–7 for the deity. While the clerics of a particular religion are united in their reverence for their deity, each cleric emphasizes different aspects of the deity’s interests. You can select an alignment domain (Chaos, Evil, Good, or Law) for your cleric only if his alignment matches that domain.\n\nIf your cleric is not devoted to a particular deity, you still select two domains to represent his spiritual inclinations and abilities. The restriction on alignment domains still applies.\n\nEach domain gives your cleric access to a domain spell at each spell level he can cast, from 1st on up, as well as a granted power. Your cleric gets the granted powers of both the domains selected. With access to two domain spells at a given spell level, a cleric prepares one or the other each day in his domain spell slot. If a domain spell is not on the cleric spell list, a cleric can prepare it only in his domain spell slot.\n\nFor example, Jozan is a 1st-level cleric of Pelor. He chooses Good and Healing (from Pelor’s domain options) as his two domains. He gets the granted powers of both his selected domains. The Good domain allows him to cast all spells with the good descriptor at +1 caster level (as if he were one level higher as a cleric) as a granted power, and it gives him access to _protection from evil_ as a 1st-level domain spell. The Healing domain allows him to cast all healing subschool spells of the conjuration school at +1 caster level as a granted power, and it gives him access to _cure light wounds_ as a 1st-level domain spell. When Jozan prepares his spells, he gets one 1st-level spell for being a 1st-level cleric, one bonus 1st-level spell for having a high Wisdom score (15), and one domain spell. The domain spell must be one of the two to which he has access, either _protection from evil_ or _cure light wounds_."
+            },
+            {
+                "name": "Spontaneous Casting",
+                "description": "A good cleric (or a neutral cleric of a good deity) can channel stored spell energy into healing spells that the cleric did not prepare ahead of time. The cleric can “lose” any prepared spell that is not a domain spell in order to cast any _cure_ spell of the same spell level or lower (a _cure_ spell is any spell with “cure” in its name). For example, a good cleric who has prepared command (a 1st-level spell) may lose command in order to cast _cure light wounds_ (also a 1st-level spell). Clerics of good deities can cast _cure_ spells in this way because they are especially proficient at wielding positive energy.\n\nAn evil cleric (or a neutral cleric of an evil deity), on the other hand, can’t convert prepared spells to cure spells but can convert them to _inflict_ spells (an _inflict_ spell is one with “inflict” in its name).\n\nA cleric who is neither good nor evil and whose deity is neither good nor evil can convert spells to either _cure_ spells or _inflict_ spells (player’s choice), depending on whether the cleric is more proficient at wielding positive or negative energy. Once the player makes this choice, it cannot be reversed. This choice also determines whether the cleric turns or commands undead (see below). Exceptions: All lawful neutral clerics of Wee Jas (goddess of death and magic) convert prepared spells to _inflict_ spells, not _cure_ spells. All clerics of St. Cuthbert (god of retribution) and all nonevil clerics of Obad-Hai (god of nature) convert prepared spells to _cure_ spells, not _inflict_ spells."
+            },
+            {
+                "name": "Chaotic, Evil, Good, and Lawful Spells",
+                "description": "A cleric can’t cast spells of an alignment opposed to his own or his deity’s (if he has one). For example, a good cleric (or a neutral cleric of a good deity) cannot cast evil spells. Spells associated with particular alignments are indicated by the chaos, evil, good, and law descriptors in their spell descriptions."
+            },
+            {
+                "name": "Turn or Rebuke Undead",
+                "type": "su",
+                "description": "Any cleric, regardless of alignment, has the power to affect undead creatures (such as skeletons, zombies, ghosts, and vampires) by channeling the power of his faith through his holy (or unholy) symbol.\n\nA good cleric (or a neutral cleric who worships a good deity) can turn or destroy undead creatures. An evil cleric (or a neutral cleric who worships an evil deity) instead rebukes or commands such creatures., forcing them to cower in awe of his power. If your character is a neutral cleric of a neutral deity, you must choose whether his turning ability functions as that of a good cleric or an evil cleric. Once you make this choice, it cannot be reversed. This decision also determines whether the cleric can cast spontaneous _cure_ or _inflict_ spells (see above). Exceptions: All lawful neutral clerics of Wee Jas (goddess of death and magic) rebuke or command undead. All clerics of St. Cuthbert (god of retribution) and all nonevil clerics of Obad-Hai (god of nature) turn of destroy undead.\n\nA cleric may attempt to turn undead a number of times per day equal to 3 + his Charisma modifier. A cleric with 5 or more ranks in Knowledge (religion) gets a +2 bonus on turning checks against undead."
+            },
+            {
+                "name": "Bonus Languages",
+                "description": "A cleric’s bonus language options include Celestial, Abyssal, and Infernal (the languages of good, chaotic evil, and lawful evil outsiders, respectively). These choices are in addition to the bonus languages available to the character because of his race."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "druid": {
+        "id": "druid",
+        "name": "Druid",
+        "description": "The fury of a storm, the gentle strength of the morning sun, the cunning of the fox, the power of the bear—all these and more are at the druid’s command. The druid however, claims no mastery over nature. That claim, she says, is the empty boast of a city dweller. The druid gains her power not by ruling nature but by being at one with it. To trespassers in a druid’s sacred grove, and to those who feel her wrath, the distinction is overly fine.",
+        "features": [
+            {
+                "name": "Weapon and Armor Proficiency",
+                "description": "Druids are proficient with the following weapons: club, dagger, dart, quarterstaff, scimitar, sickle, shortspear, sling, and spear. They are also proficient with all natural attacks (claw, bite, and so forth) of any form they assume with wild shape (see below).\n\nDruids are proficient with light and medium armor but are prohibited from wearing metal armor; thus, they may wear only padded, leather, or hide armor. (A druid may also wear wooden armor that has been altered by the _ironwood_ spell so that it functions as though it were steel. Druids are proficient with shields (except tower shields) but must use only wooden ones.\n\nA druid who wears prohibited armor or carries a prohibited shield is unable to cast druid spells or use any of her supernatural or spelllike class abilities while doing so and for 24 hours thereafter."
+            },
+            {
+                "name": "Spells",
+                "description": "A druid casts divine spells (the same type of spells available to the cleric, paladin, and ranger), which are drawn from the druid spell list. Her alignment may restrict her from casting certain spells opposed to her moral or ethical beliefs; see Chaotic, Evil, Good, and Lawful Spells, below. A druid must choose and prepare her spells in advance (see below).\n\nTo prepare or cast a spell, the druid must have a Wisdom score equal to at least 10 + the spell level (Wis 10 for 0-level spells, Wis 11 for 1st-level spells, and so forth). The Difficulty Class for a saving throw against a druid’s spell is 10 + the spell level + the druid’s Wisdom modifier.\n\nLike other spellcasters, a druid can cast only a certain number of spells of each spell level per day. Her base daily spell allotment is given on Table 3–8: The Druid. In addition, she receives bonus spells per day if she has a high Wisdom score (see Table 1–1: Ability Modifiers and Bonus Spells, page8). She does not have access to any domain spells or granted powers, as a cleric does.\n\nA druid prepares and casts spells the way a cleric does, though she cannot lose a prepared spell to cast a cure spell in its place (but see Spontaneous Casting, below). A druid may prepare and cast any spell on the druid spell list (page 189), provided that she can cast spells of that level, but she must choose which spells to prepare during her daily meditation."
+            },
+            {
+                "name": "Spontaneous Casting",
+                "description": "A druid can channel stored spell energy into summoning spells that she hasn’t prepared ahead of time. She can “lose” a prepared spell in order to cast any _summon nature’s ally_ spell of the same level or lower. For example, a druid who has prepared _repel vermin_ (a 4th-level spell) may lose _repel vermin_ in order to cast _summon nature’s ally_ IV (also a 4th-level spell)."
+            },
+            {
+                "name": "Chaotic, Evil, Good, and Lawful Spells",
+                "description": "A druid can’t cast spells of an alignment opposed to her own or her deity’s (if she has one). For example, a neutral good druid cannot cast evil spells. Spells associated with particular alignments are indicated by the chaos, evil, good, and law descriptors in their spell descriptions."
+            },
+            {
+                "name": "Bonus Languages",
+                "description": "A druid’s bonus language options include Sylvan, the language of woodland creatures. This choice is in addition to the bonus languages available to the character because of her race.\n\nA druid also knows Druidic, a secret language known only to druids, which she learns upon becoming a 1st-level druid. Druidic is a free language for a druid; that is, she knows it in addition to her regular allotment of languages and it doesn’t take up a language slot. Druids are forbidden to teach this language to nondruids. Druidic has its own alphabet."
+            },
+            {
+                "name": "Animal Companion",
+                "type": "ex",
+                "description": "A druid may begin play with an animal companion selected from the following list: badger, camel, dire rat, dog, riding dog, eagle, hawk, horse (light or heavy), owl, pony, snake (Small or Medium viper), or wolf. If the DM’s campaign takes place wholly or partly in an aquatic environment, the DM may add the following creatures to the druid’s list of options: crocodile, porpoise, Medium shark, and squid. This animal is a loyal companion that accompanies the druid on her adventures as appropriate for its kind.\n\nA 1st-level druid’s companion is completely typical for its kind except as noted in the sidebar on page 36. As a druid advances in level, the animal’s power increases as shown on the table in the sidebar.\n\nIf a druid releases her companion from service, she may gain a new one by performing a ceremony requiring 24 uninterrupted hours of prayer. This ceremony can also replace an animal companion that has perished.\n\nA druid of 4th level or higher may select from alternative lists of animals (see the sidebar). Should she select an animal companion from one of these alternative lists, the creature gains abilities as if the character’s druid level were lower than it actually is. Subtract the value indicated in the appropriate list header from the character’s druid level and compare the result with the druid level entry on the table in the sidebar to determine the animal companion’s powers. (If this adjustment would reduce the druid’s effective level to 0 or lower, she can’t have that animal as a companion.) For example, a 6th-level druid could select a leopard as an animal companion. The leopard would have characteristics and special abilities as if the druid were 3rd level (taking into account the –3 adjustment) instead of 6th level."
+            },
+            {
+                "name": "Nature Sense",
+                "type": "ex",
+                "description": "A druid gains a +2 bonus on Knowledge (nature) and Survival checks."
+            },
+            {
+                "name": "Wild Empathy",
+                "type": "ex",
+                "description": "A druid can use body language, vocaliza- tions, and demeanor to improve the attitude of an animal (such as a bear or a monitor lizard). This ability functions just like a Diplomacy check made to improve the attitude of a person (see Chapter 4: Skills). The druid rolls 1d20 and adds her druid level and her Charisma modifier to determine the wild empathy check result. The typical domestic animal has a starting attitude of indifferent, while wild animals are usually unfriendly.\n\nTo use wild empathy, the druid and the animal must be able to study each other, which means that they must be within 30 feet of one another under normal conditions. Generally, influencing an animal in this way takes 1 minute but, as with influencing people, it might take more or less time.\n\nA druid can also use this ability to influence a magical beast with an Intelligence score of 1 or 2 (such as a basilisk or a girallon), but she takes a –4 penalty on the check."
+            },
+            {
+                "name": "Woodland Stride",
+                "type": "ex",
+                "description": "Starting at 2nd level, a druid may move through any sort of undergrowth (such as natural thorns, briars, overgrown areas, and similar terrain) at her normal speed and with- out taking damage or suffering any other impairment. However, thorns, briars, and overgrown areas that have been magically manipulated to impede motion still affect her."
+            },
+            {
+                "name": "Trackless Step",
+                "type": "ex",
+                "description": "Starting at 3rd level, a druid leaves no trail in natural surroundings and cannot be tracked. She may choose to leave a trail if so desired."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "fighter": {
+        "id": "fighter",
+        "name": "Fighter",
+        "description": "The questing knight, the conquering overlord, the king’s champion, the elite foot soldier, the hardened mercenary, and the bandit king— all are fighters. Fighters can be stalwart defenders of those in need, cruel marauders, or gutsy adventurers. Some are among the land’s best souls, willing to face death for the greater good. Others are among the worst, with no qualms about killing for private gain, or even for sport. Fighters who are not actively adventuring may be soldiers, guards, bodyguards, champions, or criminal enforcers. An adventuring fighter might call himself a warrior, a mercenary, a thug, or simply an adventurer.",
+        "features": [
+            {
+                "name": "Weapon and Armor Proficiency",
+                "description": "A fighter is proficient with all simple and martial weapons and with all armor (heavy, medium, and light) and shields (including tower shields)."
+            },
+            {
+                "name": "Bonus Feats",
+                "description": "At 1st level, a fighter gets a bonus combat-oriented feat in addition to the feat that any 1st-level character gets and the bonus feat granted to a human character. The fighter gains an additional bonus feat at 2nd level and every two fighter levels thereafter (4th, 6th, 8th, 10th, 12th, 14th, 16th, 18th, and 20th). These bonus feats must be drawn from the feats noted as fighter bonus feats in the PHB. A fighter must still meet all prerequisites for a bonus feat, including ability score and base attack bonus minimums. These bonus feats are in addition to the feat that a character of any class gets from advancing levels. A fighter is not limited to the list of fighter bonus feats when choosing these feats."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "monk": {
+        "id": "monk",
+        "name": "Monk",
+        "description": "Dotted across the landscape are monasteries—small, walled cloisters inhabited by monks who pursue personal perfection through action as well as contemplation. They train themselves to be versatile warriors skilled at fighting without weapons or armor. The inhabitants of monasteries headed by good masters serve as protectors of the people. Ready for battle even when barefoot and dressed in peasant clothes, monks can travel unnoticed among the populace, catching bandits, warlords, and corrupt nobles unawares. In contrast, the residents of monasteries headed by evil masters rule the surrounding lands through fear, as an evil warlord and his entourage might. Evil monks make ideal spies, infiltrators, and assassins.\n\nThe individual monk is unlikely to care passionately about championing commoners or amassing wealth. She cares primarily for the perfection of her art and, thereby, her personal perfection. Her goal is to achieve a state that is beyond the mortal realm.",
+        "features": [
+            {
+                "name": "",
+                "description": ""
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "paladin": {
+        "id": "paladin",
+        "name": "Paladin",
+        "description": "The compassion to pursue good, the will to uphold law, and the power to defeat evil—these are the three weapons of the paladin. Few have the purity and devotion that it takes to walk the paladin’s path, but those few are rewarded with the power to protect, to heal, and to smite. In a land of scheming wizards, unholy priests, bloodthirsty dragons, and infernal fiends, the paladin is the final hope that cannot be extinguished.",
+        "features": [
+            {
+                "name": "",
+                "description": ""
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "ranger": {
+        "id": "ranger",
+        "name": "Ranger",
+        "description": "The forests are home to fierce and cunning creatures, such as bloodthirsty owlbears and malicious displacer beasts. But more cunning and powerful than these monsters is the ranger, a skilled hunter and stalker. He knows the woods as if they were his home (as indeed they are), and he knows his prey in deadly detail.",
+        "features": [
+            {
+                "name": "",
+                "description": ""
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "rogue": {
+        "id": "rogue",
+        "name": "Rogue",
+        "description": "Rogues share little in common with each other. Some are stealthy thieves. Others are silver-tongued tricksters. Still others are scouts, infiltrators, spies, diplomats, or thugs. What they share is versatility, adaptability, and resourcefulness. In general, rogues are skilled at getting what others don’t want them to get: entrance into a locked treasure vault, safe passage past a deadly trap, secret battle plans, a guard’s trust, or some random person’s pocket money.",
+        "features": [
+            {
+                "name": "",
+                "description": ""
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "sorcerer": {
+        "id": "sorcerer",
+        "name": "Sorcerer",
+        "description": "Sorcerers create magic the way a poet creates poems, with inborn talent honed by practice. They have no books, no mentors, no theories—just raw power that they direct at will. Some sorcerers claim that the blood of dragons courses through their veins. That claim may even be true in some cases—it is common knowledge that certain powerful dragons can take humanoid form and even have humanoid lovers, and it’s difficult to prove that a given sorcerer does not have a dragon ancestor. It’s true that sorcerers often have striking good looks, usually with a touch of the exotic that hints at an unusual heritage. Others hold that the claim is either an unsubstantiated boast on the part of certain sorcerers or envious gossip on the part of those who lack the sorcerer’s gift.",
+        "features": [
+            {
+                "name": "",
+                "description": ""
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "wizard": {
+        "id": "wizard",
+        "name": "Wizard",
+        "description": "A few unintelligible words and fleeting gestures carry more power than a battleaxe, when they are the words and gestures of a wizard. These simple acts make magic seem easy, but they only hint at the time the wizard must spend poring over her spellbook preparing each spell for casting, and the years before that spent in apprenticeship to learn the arts of magic.\n\nWizards depend on intensive study to create their magic. They examine musty old tomes, debate magical theory with their peers, and practice minor magics whenever they can. For a wizard, magic is not a talent but a difficult, rewarding art.",
+        "features": [
+            {
+                "name": "",
+                "description": ""
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    }
+}
