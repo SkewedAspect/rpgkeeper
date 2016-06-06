@@ -13,6 +13,10 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from 'passport';
 
+// Session Store
+import FileStoreConstructor from 'session-file-store';
+var FileStore = FileStoreConstructor(session);
+
 // Config
 import config from '../config';
 
@@ -71,7 +75,8 @@ app.use(session({
 
     // maxAge = 12hrs
     cookie: { maxAge: 1000 * 60 * 60 * 12},
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new FileStore({ path: './server/db/sessions' })
     //saveUninitialized: true
 }));
 app.use(passport.initialize());
