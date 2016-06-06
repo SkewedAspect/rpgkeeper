@@ -8,13 +8,15 @@
     import charSvc from '../../components/character/characterService.js';
 
     // Systems
-    import GenericCharacterComponent from '../../../systems/generic/client/character.vue'
-    import EotECharacterComponent from '../../../systems/eote/client/character.vue'
+    import GenericCharacter from '../../../systems/generic/client/character.vue'
+    import EotECharacter from '../../../systems/eote/client/character.vue'
+    import DnD35Character from '../../../systems/dnd35/client/character.vue'
 
     export default {
         components: {
-            generic: GenericCharacterComponent,
-            eote: EotECharacterComponent
+            generic: GenericCharacter,
+            eote: EotECharacter,
+            dnd35: DnD35Character
         },
         data: function()
         {
