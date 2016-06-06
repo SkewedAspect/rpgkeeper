@@ -41,6 +41,7 @@ var logger = logging.loggerFor(module);
 // Systems
 import '../systems/generic/system';
 import '../systems/eote/system';
+import '../systems/dnd35/system';
 
 // Auth
 import './auth/serialization';
