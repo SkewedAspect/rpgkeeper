@@ -1,0 +1,303 @@
+{
+    "human": {
+        "id": "human",
+        "name": "Human",
+        "description": "Most humans are the descendants of pioneers, conquerors, traders, travelers, refugees, and other people on the move. As a result, human lands are home to a mix of people—physically, culturally, religiously, and politically different. Hardy or fine, light-skinned or dark, showy or austere, primitive or civilized, devout or impious, humans run the gamut.",
+        "size": "M",
+        "speed": 30,
+        "features": [
+            {
+                "name": "Automatic Language",
+                "description": "Common."
+            },
+            {
+                "name": "Bonus Language",
+                "description": "Any (other than secret languages, such as Druidic). Humans mingle with all kinds of other folk and thus can learn any language found in an area."
+            },
+            {
+                "name": "Favored Class",
+                "description": "Any. When determining whether a multiclass hu- man takes an experience point penalty, her highest-level class does not count."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "dwarf": {
+        "id": "dwarf",
+        "name": "Dwarf",
+        "description": "Dwarves are known for their skill in warfare, their ability to with- stand physical and magical punishment, their knowledge of the earth’s secrets, their hard work, and their capacity for drinking ale. Their mysterious kingdoms, carved out from the insides of moun- tains, are renowned for the marvelous treasures that they produce as gifts or for trade.",
+        "size": "S",
+        "speed": 20,
+        "features": [
+            {
+                "name": "Darkvision",
+                "description": "Dwarves can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and dwarves can function just fine with no light at all."
+            },
+            {
+                "name": "Stonecunning",
+                "description": "This ability grants a dwarf a +2 racial bonus on Search checks to notice unusual stonework, such as sliding walls, stonework traps, new construction (even when built to match the old), unsafe stone surfaces, shaky stone ceilings, and the like. Something that isn’t stone but that is disguised as stone also counts as unusual stonework. A dwarf who merely comes within 10 feet of unusual stonework can make a Search check as if he were actively searching, and a dwarf can use the Search skill to find stonework traps as a rogue can. A dwarf can also intuit depth, sensing his approximate depth underground as naturally as a human can sense which way is up. Dwarves have a sixth sense about stonework, an innate ability that they get plenty of opportunity to practice and hone in their underground homes."
+            },
+            {
+                "name": "Weapon Familiarity",
+                "description": "Dwarves may treat dwarven waraxes and dwarven urgroshes as martial weapons, rather than exotic weapons."
+            },
+            {
+                "name": "Stability",
+                "description": "Dwarves are exceptionally stable on their feet. A dwarf gains a +4 bonus on ability checks made to resist being bull rushed or tripped when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground)."
+            },
+            {
+                "name": "Resistant",
+                "description": "+2 racial bonus on saving throws against poison: Dwarves are hardy and resistant to toxins."
+            },
+            {
+                "name": "Innate Resistance",
+                "description": "+2 racial bonus on saving throws against spells and spell-like effects: dwarves have an innate resistance to magic spells."
+            },
+            {
+                "name": "Common Enemy",
+                "description": "+1 racial bonus to attack rolls against orcs (including half-orcs) and goblinoids (including goblins, hobgoblins, and bugbears): Dwarves are trained in the special combat techniques that allow them to fight their common enemies more effectively."
+            },
+            {
+                "name": "Giant Hunter",
+                "description": "+4dodgebonustoArmorClassagainstmonstersofthegianttype (such as ogres, trolls, and hill giants): This bonus represents special training that dwarves undergo, during which they learn tricks that previous generations developed in their battles with giants. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it’s caught flat-footed, it loses its dodge bonus, too. The _Monster Manual_ has information on which creatures are of the giant type."
+            },
+            {
+                "name": "Metalcunning",
+                "description": "+2 racial bonus on Appraise checks that are related to stone or metal items: Dwarves are familiar with valuable items of all kinds, especially those made of stone or metal."
+            },
+            {
+                "name": "Artisan",
+                "description": "+2 racial bonus on Craft checks that are related to stone or metal: Dwarves are especially capable with stonework and metalwork."
+            },
+            {
+                "name": "Automatic Languages",
+                "description": "Common and Dwarven."
+            },
+            {
+                "name": "Bonus Languages",
+                "description": "Giant, Gnome, Goblin, Orc, Terran, and Undercommon. Dwarves are familiar with the languages of their enemies and of their subterranean allies."
+            },
+            {
+                "name": "Favored Class",
+                "description": "Fighter. A multiclass dwarf’s fighter class does not count when determining whether he takes an experience point penalty for multiclassing. Dwarven culture extols the virtues of battle, and the vocation comes easily to dwarves."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "elf": {
+        "id": "elf",
+        "name": "Elf",
+        "description": "Elves mingle freely in human lands, always welcome yet never at home there. They are well known for their poetry, dance, song, lore, and magical arts. Elves favor things of natural and simple beauty. When danger threatens their woodland homes, however, elves reveal a more martial side, demonstrating skill with sword, bow, and battle strategy.",
+        "size": "M",
+        "speed": 30,
+        "features": [
+            {
+                "name": "Sleep Immunity",
+                "description": "Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects."
+            },
+            {
+                "name": "Low-light Vision",
+                "description": "An elf can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. She retains the ability to distinguish color and detail under these conditions."
+            },
+            {
+                "name": "Weapon Proficiency",
+                "description": "Elves receive the Martial Weapon Proficiency feats for the longsword, rapier, longbow (including composite longbow), and shortbow (including composite shortbow) as bonus feats. Elves esteem the arts of swordplay and archery, so all elves are familiar with these weapons."
+            },
+            {
+                "name": "Keen Senses",
+                "description": "+2 racial bonus on Listen, Search, and Spot checks. An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for it. An elf’s senses are so keen that she practically has a sixth sense about hidden portals."
+            },
+            {
+                "name": "Automatic Languages",
+                "description": "Common and Elven."
+            },
+            {
+                "name": "Bonus Languages",
+                "description": "Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan. Elves com- monly know the languages of their enemies and of their friends, as well as Draconic, the language commonly found in ancient tomes of secret knowledge."
+            },
+            {
+                "name": "Favored Class",
+                "description": "Wizard. A multiclass elf’s wizard class does not count when determining whether she takes an experience point penalty for multiclassing. Wizardry comes naturally to elves—indeed, they sometimes claim to have invented it, and fighter/wizards are especially common among them."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "gnome": {
+        "id": "gnome",
+        "name": "Gnome",
+        "description": "Gnomes are welcome everywhere as technicians, alchemists, and inventors. Despite the demand for their skills, most gnomes prefer to remain among their own kind, living in comfortable burrows beneath rolling, wooded hills where animals abound.",
+        "size": "S",
+        "speed": 20,
+        "features": [
+            {
+                "name": "Low-light Vision",
+                "description": "A gnome can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. He retains the ability to distinguish color and detail under these conditions."
+            },
+            {
+                "name": "Weapon Familiarity",
+                "description": "Gnomes may treat gnome hooked hammers as martial weapons rather than exotic weapons."
+            },
+            {
+                "name": "Illusory Studies",
+                "description": "+2 racial bonus on saving throws against illusions: Gnomes are innately familiar with illusions of all kinds."
+            },
+            {
+                "name": "Skilled Illusionist",
+                "description": "Add +1 to the Difficulty Class for all saving throws against illusion spells cast by gnomes. Their innate familiarity with these effects make their illusions more difficult to see through. This adjustment stacks with those from similar effects, such as the Spell Focus feat."
+            },
+            {
+                "name": "Common Enemy",
+                "description": "+1 racial bonus on attack rolls against kobolds and goblinoids (including goblins, hobgoblins, and bugbears): Gnomes battle these creatures frequently and practice special techniques for fighting them."
+            },
+            {
+                "name": "Giant Hunter",
+                "description": "+4 dodge bonus to Armor Class against monsters of the giant type (such as ogres, trolls, and hill giants): This bonus represents special training that gnomes undergo, during which they learn tricks that previous generations developed in their battles with giants. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it’s caught flat-footed, it loses its dodge bonus, too. The _Monster Manual_ has information on which creatures are of the giant type."
+            },
+            {
+                "name": "Keen Ears",
+                "description": "+2 racial bonus on Listen checks: Gnomes have keen ears."
+            },
+            {
+                "name": "Natural Alchemist",
+                "description": "+2 racial bonus on Craft (alchemy) checks: A gnome’s sensitive nose allows him to monitor alchemical processes by smell."
+            },
+            {
+                "name": "Automatic Languages",
+                "description": "Common and Gnome."
+            },
+            {
+                "name": "Bonus Languages",
+                "description": "Draconic, Dwarven, Elven, Giant, Goblin, and Orc. Gnomes deal more with elves and dwarves than elves and dwarves deal with one another, and they learn the languages of their enemies (kobolds, giants, goblins, and orcs) as well. In addition, a gnome can use speak with a burrowing mammal (a badger, fox, rabbit, or the like, see below). This ability is innate to gnomes."
+            },
+            {
+                "name": "Spell-Like Abilities",
+                "description": "1/day — _speak with animals_ (burrowing mammal only, duration 1 minute). A gnome with a Charisma score of at least 10 also has the following spell-like abilities: 1/day — _dancing lights_, _ghost sound_, _prestidigitation_. Caster level 1st; save DC 10 + gnome’s Cha modifier + spell level."
+            },
+            {
+                "name": "Favored Class",
+                "description": "Bard. A multiclass gnome’s bard class does not count when determining whether he takes an experience point penalty."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "half-elf": {
+        "id": "half-elf",
+        "name": "Half-Elf",
+        "description": "Humans and elves sometimes wed, the elf attracted to the human’s energy and the human to the elf’s grace. These marriages end quickly as elves count years because a human’s life is so brief, but they leave an enduring legacy—half-elf children.\n\nThe life of a half-elf can be hard. If raised by elves, the half-elf seems to grow with astounding speed, reaching maturity within two decades. The half-elf becomes an adult long before she has had time to learn the intricacies of elven art and culture, or even grammar. She leaves behind her childhood friends, becoming physically an adult but culturally still a child by elven standards. Typically, she leaves her elven home, which is no longer familiar, and finds her way among humans.\n\nIf, on the other hand, she is raised by humans, the half-elf finds herself different from her peers: more aloof, more sensitive, less ambitious, and slower to mature. Some half-elves try to fit in among humans, while others find their identities in their difference. Most find places for themselves in human lands, but some feel like outsiders all their lives.",
+        "size": "M",
+        "speed": 30,
+        "features": [
+            {
+                "name": "Sleep Immunity",
+                "description": "Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects."
+            },
+            {
+                "name": "Low-light Vision",
+                "description": "A half-elf can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. She retains the ability to distinguish color and detail under these conditions."
+            },
+            {
+                "name": "Keen Senses",
+                "description": "+1 racial bonus on Listen, Search, and Spot checks: A half-elf does not have the elf’s ability to notice secret doors simply by passing near them. Half-elves have keen senses, but not as keen as those of an elf."
+            },
+            {
+                "name": "Natural Diplomat",
+                "description": "+2 racial bonus on Diplomacy and Gather Information checks: Half-elves get along naturally with all people."
+            },
+            {
+                "name": "Elven Blood",
+                "description": "For all effects related to race, a half-elf is considered an elf. Half-elves, for example, are just as vulnerable to special effects that affect elves as their elf ancestors are, and they can use magic items that are only usable by elves."
+            },
+            {
+                "name": "Automatic Languages",
+                "description": "Common and Elven."
+            },
+            {
+                "name": "Bonus Languages",
+                "description": "Any (other than secret languages, such as Druidic). Half-elves have all the versatility and broad (if shallow) experience that humans have."
+            },
+            {
+                "name": "Favored Class",
+                "description": "Any.Whendeterminingwhetheramulticlasshalf- elf takes an experience point penalty, her highest-level class does not count."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "half-orc": {
+        "id": "half-orc",
+        "name": "Half-Orc",
+        "description": "In the wild frontiers, tribes of human and orc barbarians live in uneasy balance, fighting in times of war and trading in times of peace. Half-orcs who are born in the frontier may live with either human or orc parents, but they are nevertheless exposed to both cultures. Some, for whatever reason, leave their homeland and travel to civilized lands, bringing with them the tenacity, courage, and combat prowess that they developed in the wilds.",
+        "size": "M",
+        "speed": 30,
+        "features": [
+            {
+                "name": "Darkvision",
+                "description": "Half-orcs (and orcs) can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and half-orcs can function just fine with no light at all."
+            },
+            {
+                "name": "Orc Blood",
+                "description": "For all effects related to race, a half-orc is considered an orc. Half-orcs, for example, are just as vulnerable to special effects that affect orcs as their orc ancestors are, and they can use magic items that are only usable by orcs."
+            },
+            {
+                "name": "Automatic Languages",
+                "description": "Common and Orc."
+            },
+            {
+                "name": "Bonus Languages",
+                "description": "Draconic, Giant, Gnoll, Goblin, and Abyssal. Smart half-orcs (who are rare) may know the languages of their allies or rivals."
+            },
+            {
+                "name": "Favored Class",
+                "description": "Barbarian. A multiclass half-orc’s barbarian class does not count when determining whether he takes an experience point penalty. Ferocity runs in a half-orc’s veins."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    },
+    "halfling": {
+        "id": "halfling",
+        "name": "Halfling",
+        "description": "Halflings are clever, capable opportunists. Halfling individuals and clans find room for themselves wherever they can. Often they are strangers and wanderers, and others react to them with suspicion or curiosity. Depending on the clan, halflings might be reliable, hard-working (if clannish) citizens, or they might be thieves just waiting for the opportunity to make a big score and disappear in the dead of night. Regardless, halflings are cunning, resourceful survivors.",
+        "size": "S",
+        "speed": 20,
+        "features": [
+            {
+                "name": "Natural Agility",
+                "description": "+2 racial bonus on Climb, Jump, and Move Silently checks: Halflings are agile, surefooted, and athletic."
+            },
+            {
+                "name": "Lucky",
+                "description": "+1 racial bonus on all saving throws: Halflings are surprisingly capable of avoiding mishaps."
+            },
+            {
+                "name": "Fearless",
+                "description": "+2 morale bonus on saving throws against fear. This bonus stacks with the halfling’s +1 bonus on saving throws in general."
+            },
+            {
+                "name": "Natural Marksman",
+                "description": "+1 racial bonus on attack rolls with a thrown weapon and slings: Throwing and slinging stones is a universal sport among halflings, and they develop especially good aim."
+            },
+            {
+                "name": "Keen Ears",
+                "description": "+2 racial bonus on Listen checks: Halflings have keen ears."
+            },
+            {
+                "name": "Automatic Languages",
+                "description": "Common and Halfling."
+            },
+            {
+                "name": "Bonus Languages",
+                "description": "Dwarven, Elven, Gnome, Goblin, and Orc. Smart halflings learn the languages of their friends and enemies."
+            },
+            {
+                "name": "Favored Class",
+                "description": "Rogue. A multiclass halfling’s rogue class does not count when determining whether she take an experience point penalty for multiclassing. Halflings have long had to rely on stealth, wit, and skill, and the vocation of rogue comes naturally to them."
+            }
+        ],
+        "source": "Player's Handbook",
+        "official": true
+    }
+}
