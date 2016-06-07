@@ -16,7 +16,6 @@ import systemMan from '../manager';
 import InitialClasses from './initial/classes.json';
 import InitialFeats from './initial/feats.json';
 import InitialSpells from './initial/spells.json';
-import InitialSpecialAbilities from './initial/special_abilities.json';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -72,7 +71,6 @@ module.exports = Promise.resolve()
     .then(() => { return loadInitial(models.DnDClass, InitialClasses); })
     .then(() => { return loadInitial(models.Feats, InitialFeats); })
     .then(() => { return loadInitial(models.Spells, InitialSpells); })
-    .then(() => { return loadInitial(models.SpecialAbilities, InitialSpecialAbilities); })
     .then(() => { logger.info('[dnd35] Loading initial data done.') });
 
 //----------------------------------------------------------------------------------------------------------------------

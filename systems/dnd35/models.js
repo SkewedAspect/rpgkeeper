@@ -118,7 +118,10 @@ db.Character = trivialModels.define({
         }),
         specialAbilities: types.Array({
             schema: {
-                abilityID: types.String({ required: true }),
+                name: types.String({ required: true }),
+                type: types.String(),
+                description: types.String({ required: true }),
+                source: types.String({ required: true }),
                 notes: types.String()
             },
             default: []
@@ -323,27 +326,6 @@ db.Spells = trivialModels.define({
         arcaneFocus: types.String(),
         official: types.Boolean({ default: false }),
         owner: types.String({ required: true })
-    }
-});
-
-db.SpecialAbilities = trivialModels.define({
-    name: 'SpecialAbilities',
-    driver: {
-        name: 'TrivialDB',
-        options: {
-            name: 'special_abilities',
-            dbPath: 'server/db',
-            namespace: 'dnd35'
-        }
-    },
-    schema: {
-        id: types.String({ pk: true }),
-        name: types.String({ required: true }),
-        type: types.String({ required: true }),
-        description: types.String({ required: true }),
-        source: types.String({ required: true }),
-        official: types.Boolean({ default: false }),
-        owner: types.String()
     }
 });
 
