@@ -28,7 +28,7 @@ db.Character = trivialModels.define({
         id: types.String({ pk: true }),
         
         // Class and level
-        classes: type.Array({
+        classes: types.Array({
             schema:{
                 classID: types.String({ required: true }),
                 level: types.Number({ integer: true })
@@ -37,8 +37,7 @@ db.Character = trivialModels.define({
         }),
 
         // Basic Biographic info
-        race: types.String(),
-        size: types.Enum({ values: ['T', 'S', 'M', 'L', 'H', 'G'] }),
+        raceID: types.String(),
         age: types.Number({ integer: true }),
         height: types.String(),
         gender: types.Enum({ values: ['M', 'F', 'O'] }),
@@ -243,8 +242,37 @@ db.Character = trivialModels.define({
     }
 });
 
-db.DnDClass = trivialModels.define({
-    name: 'DnDClass',
+db.Race = trivialModels.define({
+    name: 'Race',
+    driver: {
+        name: 'TrivialDB',
+        options: {
+            name: 'races',
+            dbPath: 'server/db',
+            namespace: 'dnd35'
+        }
+    },
+    schema: {
+        id: types.String({ pk: true }),
+        name: types.String({ required: true }),
+        size: types.Enum({ values: ['T', 'S', 'M', 'L', 'H', 'G'] }),
+        speed: types.Number({ integer: true }),
+        description: types.String(),
+        traits: types.Array({
+            schema: {
+                name: types.String({ required: true }),
+                description: types.String({ required: true })
+            },
+            default: []
+        }),
+        source: types.String({ required: true }),
+        official: types.Boolean({ default: false }),
+        owner: types.String()
+    }
+});
+
+db.Class = trivialModels.define({
+    name: 'Class',
     driver: {
         name: 'TrivialDB',
         options: {
@@ -271,7 +299,7 @@ db.DnDClass = trivialModels.define({
     }
 });
 
-db.Feats = trivialModels.define({
+db.Feat = trivialModels.define({
     name: 'Feats',
     driver: {
         name: 'TrivialDB',
@@ -294,7 +322,7 @@ db.Feats = trivialModels.define({
     }
 });
 
-db.Spells = trivialModels.define({
+db.Spell = trivialModels.define({
     name: 'Spells',
     driver: {
         name: 'TrivialDB',

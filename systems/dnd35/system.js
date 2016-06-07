@@ -13,6 +13,7 @@ import models from './models';
 import systemMan from '../manager';
 
 // Initial Data
+import InitialRaces from './initial/races.json';
 import InitialClasses from './initial/classes.json';
 import InitialFeats from './initial/feats.json';
 import InitialSpells from './initial/spells.json';
@@ -68,9 +69,10 @@ function loadInitial(Model, initialData)
 //----------------------------------------------------------------------------------------------------------------------
 
 module.exports = Promise.resolve()
-    .then(() => { return loadInitial(models.DnDClass, InitialClasses); })
-    .then(() => { return loadInitial(models.Feats, InitialFeats); })
-    .then(() => { return loadInitial(models.Spells, InitialSpells); })
+    .then(() => { return loadInitial(models.Race, InitialRaces); })
+    .then(() => { return loadInitial(models.Class, InitialClasses); })
+    .then(() => { return loadInitial(models.Feat, InitialFeats); })
+    .then(() => { return loadInitial(models.Spell, InitialSpells); })
     .then(() => { logger.info('[dnd35] Loading initial data done.') });
 
 //----------------------------------------------------------------------------------------------------------------------
