@@ -26,12 +26,19 @@ db.Character = trivialModels.define({
     schema: {
         // The base character
         id: types.String({ pk: true }),
+        
+        // Class and level
+        classes: type.Array({
+            schema:{
+                classID: types.String({ required: true }),
+                level: types.Number({ integer: true })
+            },
+            default: []
+        }),
 
         // Basic Biographic info
-        classID: types.String(),
         race: types.String(),
         size: types.Enum({ values: ['T', 'S', 'M', 'L', 'H', 'G'] }),
-        level: types.Number({ integer: true }),
         age: types.Number({ integer: true }),
         height: types.String(),
         gender: types.Enum({ values: ['M', 'F', 'O'] }),
