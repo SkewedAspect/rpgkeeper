@@ -47,7 +47,7 @@ module.exports = function(grunt)
         sass: {
             dist: {
                 options: {
-                    includePaths: ['vendor/bootstrap/scss', 'client/scss', 'client'],
+                    includePaths: ['vendor/bootstrap/scss', 'client/scss', 'client', 'systems/**/scss'],
                     style: 'expanded'
                 },
                 files: {
@@ -79,20 +79,14 @@ module.exports = function(grunt)
             scripts: {
                 files: [
                     "client/**/*.js",
+                    "systems/**/*.js",
                     'client/**/*.vue',
+                    'systems/**/*.vue',
                     "client/components/**/*.scss",
                     "client/pages/**/*.scss",
-                    "client/systems/**/*.scss"
+                    "systems/**/*.scss"
                 ],
                 tasks: ["browserify"]
-            }
-        },
-        browserSync: {
-            bsFiles: {
-                src: ['dist/css/*.css', 'dist/**/*.html', 'dist/app.js']
-            },
-            options: {
-                watchTask: true
             }
         }
     });
@@ -105,12 +99,11 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-browser-sync');
 
     //------------------------------------------------------------------------------------------------------------------
 
     grunt.registerTask("build", ["clean", "sass", "postcss", "copy", "browserify"]);
-    grunt.registerTask("default", ["build", 'browserSync', 'watch']);
+    grunt.registerTask("default", ["build", 'watch']);
 
     //------------------------------------------------------------------------------------------------------------------
 };
