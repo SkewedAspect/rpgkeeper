@@ -51,7 +51,7 @@ class SystemManager {
                 models.Character.get(req.params.charID)
                     .then((character) =>
                     {
-                        _.assign(character, req.body);
+                        _.assign(character, req.body, { user: req.user.email });
                         character.$save().then(() => { resp.json(character); });
                     })
                     .catch(models.errors.DocumentNotFound, (error) =>
