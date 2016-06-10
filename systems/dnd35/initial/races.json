@@ -1,11 +1,20 @@
 {
+    "test": {
+        "id": "test",
+        "name": "Test Race",
+        "description": "This exists because of a DB bug. It shouldn't show up, ever.",
+        "size": "M",
+        "speed": 30,
+        "source": "frustration",
+        "official": false
+    },
     "human": {
         "id": "human",
         "name": "Human",
         "description": "Most humans are the descendants of pioneers, conquerors, traders, travelers, refugees, and other people on the move. As a result, human lands are home to a mix of people—physically, culturally, religiously, and politically different. Hardy or fine, light-skinned or dark, showy or austere, primitive or civilized, devout or impious, humans run the gamut.",
         "size": "M",
         "speed": 30,
-        "features": [
+        "traits": [
             {
                 "name": "Automatic Language",
                 "description": "Common."
@@ -16,7 +25,7 @@
             },
             {
                 "name": "Favored Class",
-                "description": "Any. When determining whether a multiclass hu- man takes an experience point penalty, her highest-level class does not count."
+                "description": "Any. When determining whether a multiclass human takes an experience point penalty, her highest-level class does not count."
             }
         ],
         "source": "Player's Handbook",
@@ -25,10 +34,10 @@
     "dwarf": {
         "id": "dwarf",
         "name": "Dwarf",
-        "description": "Dwarves are known for their skill in warfare, their ability to with- stand physical and magical punishment, their knowledge of the earth’s secrets, their hard work, and their capacity for drinking ale. Their mysterious kingdoms, carved out from the insides of moun- tains, are renowned for the marvelous treasures that they produce as gifts or for trade.",
+        "description": "Dwarves are known for their skill in warfare, their ability to withstand physical and magical punishment, their knowledge of the earth’s secrets, their hard work, and their capacity for drinking ale. Their mysterious kingdoms, carved out from the insides of mountains, are renowned for the marvelous treasures that they produce as gifts or for trade.",
         "size": "S",
         "speed": 20,
-        "features": [
+        "traits": [
             {
                 "name": "Darkvision",
                 "description": "Dwarves can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and dwarves can function just fine with no light at all."
@@ -59,7 +68,7 @@
             },
             {
                 "name": "Giant Hunter",
-                "description": "+4dodgebonustoArmorClassagainstmonstersofthegianttype (such as ogres, trolls, and hill giants): This bonus represents special training that dwarves undergo, during which they learn tricks that previous generations developed in their battles with giants. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it’s caught flat-footed, it loses its dodge bonus, too. The _Monster Manual_ has information on which creatures are of the giant type."
+                "description": "+4 dodge bonus to Armor Class against monsters of the giant type (such as ogres, trolls, and hill giants): This bonus represents special training that dwarves undergo, during which they learn tricks that previous generations developed in their battles with giants. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it’s caught flat-footed, it loses its dodge bonus, too. The _Monster Manual_ has information on which creatures are of the giant type."
             },
             {
                 "name": "Metalcunning",
@@ -91,7 +100,7 @@
         "description": "Elves mingle freely in human lands, always welcome yet never at home there. They are well known for their poetry, dance, song, lore, and magical arts. Elves favor things of natural and simple beauty. When danger threatens their woodland homes, however, elves reveal a more martial side, demonstrating skill with sword, bow, and battle strategy.",
         "size": "M",
         "speed": 30,
-        "features": [
+        "traits": [
             {
                 "name": "Sleep Immunity",
                 "description": "Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects."
@@ -114,7 +123,7 @@
             },
             {
                 "name": "Bonus Languages",
-                "description": "Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan. Elves com- monly know the languages of their enemies and of their friends, as well as Draconic, the language commonly found in ancient tomes of secret knowledge."
+                "description": "Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan. Elves commonly know the languages of their enemies and of their friends, as well as Draconic, the language commonly found in ancient tomes of secret knowledge."
             },
             {
                 "name": "Favored Class",
@@ -130,7 +139,7 @@
         "description": "Gnomes are welcome everywhere as technicians, alchemists, and inventors. Despite the demand for their skills, most gnomes prefer to remain among their own kind, living in comfortable burrows beneath rolling, wooded hills where animals abound.",
         "size": "S",
         "speed": 20,
-        "features": [
+        "traits": [
             {
                 "name": "Low-light Vision",
                 "description": "A gnome can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. He retains the ability to distinguish color and detail under these conditions."
@@ -189,7 +198,7 @@
         "description": "Humans and elves sometimes wed, the elf attracted to the human’s energy and the human to the elf’s grace. These marriages end quickly as elves count years because a human’s life is so brief, but they leave an enduring legacy—half-elf children.\n\nThe life of a half-elf can be hard. If raised by elves, the half-elf seems to grow with astounding speed, reaching maturity within two decades. The half-elf becomes an adult long before she has had time to learn the intricacies of elven art and culture, or even grammar. She leaves behind her childhood friends, becoming physically an adult but culturally still a child by elven standards. Typically, she leaves her elven home, which is no longer familiar, and finds her way among humans.\n\nIf, on the other hand, she is raised by humans, the half-elf finds herself different from her peers: more aloof, more sensitive, less ambitious, and slower to mature. Some half-elves try to fit in among humans, while others find their identities in their difference. Most find places for themselves in human lands, but some feel like outsiders all their lives.",
         "size": "M",
         "speed": 30,
-        "features": [
+        "traits": [
             {
                 "name": "Sleep Immunity",
                 "description": "Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects."
@@ -220,7 +229,7 @@
             },
             {
                 "name": "Favored Class",
-                "description": "Any.Whendeterminingwhetheramulticlasshalf- elf takes an experience point penalty, her highest-level class does not count."
+                "description": "Any. When determining whether a multiclass half-elf takes an experience point penalty, her highest-level class does not count."
             }
         ],
         "source": "Player's Handbook",
@@ -232,7 +241,7 @@
         "description": "In the wild frontiers, tribes of human and orc barbarians live in uneasy balance, fighting in times of war and trading in times of peace. Half-orcs who are born in the frontier may live with either human or orc parents, but they are nevertheless exposed to both cultures. Some, for whatever reason, leave their homeland and travel to civilized lands, bringing with them the tenacity, courage, and combat prowess that they developed in the wilds.",
         "size": "M",
         "speed": 30,
-        "features": [
+        "traits": [
             {
                 "name": "Darkvision",
                 "description": "Half-orcs (and orcs) can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and half-orcs can function just fine with no light at all."
@@ -263,7 +272,7 @@
         "description": "Halflings are clever, capable opportunists. Halfling individuals and clans find room for themselves wherever they can. Often they are strangers and wanderers, and others react to them with suspicion or curiosity. Depending on the clan, halflings might be reliable, hard-working (if clannish) citizens, or they might be thieves just waiting for the opportunity to make a big score and disappear in the dead of night. Regardless, halflings are cunning, resourceful survivors.",
         "size": "S",
         "speed": 20,
-        "features": [
+        "traits": [
             {
                 "name": "Natural Agility",
                 "description": "+2 racial bonus on Climb, Jump, and Move Silently checks: Halflings are agile, surefooted, and athletic."
