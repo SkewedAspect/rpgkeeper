@@ -12,6 +12,12 @@ import logging from 'omega-logger';
 import models from './models';
 import systemMan from '../manager';
 
+// Routes
+import raceRouter from './routes/races';
+import classRouter from './routes/classes';
+import featRouter from './routes/feats';
+import spellRouter from './routes/spells';
+
 // Initial Data
 import InitialRaces from './initial/races.json';
 import InitialClasses from './initial/classes.json';
@@ -23,6 +29,15 @@ import InitialSpells from './initial/spells.json';
 var logger = logging.loggerFor(module);
 
 var router = express.Router();
+
+//----------------------------------------------------------------------------------------------------------------------
+// Setup Router
+//----------------------------------------------------------------------------------------------------------------------
+
+router.use('/races', raceRouter);
+router.use('/classes', classRouter);
+router.use('/feats', featRouter);
+router.use('/spells', spellRouter);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Register System
