@@ -63,6 +63,11 @@ class BaseSystemCharacterModel {
             });
     } // end _loadSystemChar
     
+    _cleanForSave()
+    {
+        return Promise.resolve(this._system);
+    } // end _cleanForSave
+    
     //------------------------------------------------------------------------------------------------------------------
     // Public
     //------------------------------------------------------------------------------------------------------------------
@@ -79,7 +84,9 @@ class BaseSystemCharacterModel {
 
     save()
     {
-        var promises = [$http.put(this.systemURL, this._system)];
+        var promises = [
+            this._cleanForSave().then((systemChar) => $http.put(this.systemURL, systemChar))
+        ];
 
         if(this._base.$dirty)
         {

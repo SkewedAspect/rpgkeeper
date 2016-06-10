@@ -144,6 +144,32 @@ class DnD35Character extends BaseSystemCharacterModel {
                 });
             });
     } // end _loadSystemChar
+    
+    _cleanForSave()
+    {
+        // Ensure we're a plain object
+        var char = JSON.parse(JSON.stringify(this._system));
+
+        // Clean classes
+        char.classes = _.map(char.classes, (classObj) =>
+        {
+            return {
+                classID: classObj.classID,
+                level: classObj.level
+            };
+        });
+
+        // Clean notes
+        char.notes = _.map(char.notes, (note) =>
+        {
+            return {
+                name: note.name,
+                content: note.content
+            };
+        });
+
+        return Promise.resolve(char);
+    } // end _cleanForSave
 } // end DnD35Character
 
 //----------------------------------------------------------------------------------------------------------------------
