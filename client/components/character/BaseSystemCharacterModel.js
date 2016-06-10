@@ -53,6 +53,16 @@ class BaseSystemCharacterModel {
         } // end if
     } // end _ensureValidity
     
+    _loadSystemChar()
+    {
+        return $http.get(this.systemURL)
+            .then((response) =>
+            {
+                this._system = response.data || {};
+                this._ensureValidity();
+            });
+    } // end _loadSystemChar
+    
     //------------------------------------------------------------------------------------------------------------------
     // Public
     //------------------------------------------------------------------------------------------------------------------
@@ -61,12 +71,7 @@ class BaseSystemCharacterModel {
     {
         this.loading = Promise.join(
             this._base.refresh(),
-            $http.get(this.systemURL)
-                .then((response) =>
-                {
-                    this._system = response.data || {};
-                    this._ensureValidity();
-                })
+            this._loadSystemChar()
         );
 
         return this.loading;
