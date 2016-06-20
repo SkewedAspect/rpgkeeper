@@ -1,5 +1,5 @@
 <template>
-    <div id="generic-char">
+    <div id="generic-char" class="container">
         <div v-if="!char">
             <h4 class="text-center">Loading...</h4>
         </div>

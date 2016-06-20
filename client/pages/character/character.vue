@@ -1,5 +1,5 @@
 <template>
-    <div id="character"  class="container">
+    <div id="character"  class="container-fluid">
         <component :is="baseChar.system" :base="baseChar"></component>
     </div>
 </template>
