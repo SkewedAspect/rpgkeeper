@@ -26,7 +26,6 @@ class BaseSystemCharacterModel {
             this.saving = true;
             this.savePromise = this.savePromise
                 .then(() => this._save())
-                .tap(() => { console.log('saved!') })
                 .then(() => { this.saving = false; })
                 .then(() => this);
         }, 1000, { leading: false });
