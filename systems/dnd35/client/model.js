@@ -25,9 +25,53 @@ class DnD35Character extends BaseSystemCharacterModel {
         this._race = undefined;
         
         window.char = this;
-        
+
         this.refresh();
     } // end constructor
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Static Options
+    //------------------------------------------------------------------------------------------------------------------
+    
+    get genderOptions()
+    {
+        return [
+            { value: 'M', display: 'Male' },
+            { value: 'F', display: 'Female' },
+            { value: 'O', display: 'Other' }
+        ]
+    }
+    
+    get alignmentOptions()
+    {
+        return [
+            { value: 'LG', display: 'Lawful Good' },
+            { value: 'NG', display: 'Neutral Good' },
+            { value: 'CG', display: 'Chaotic Good' },
+            { value: 'LN', display: 'Lawful Neutral' },
+            { value: 'N', display: 'True Neutral' },
+            { value: 'CN', display: 'Chaotic Neutral' },
+            { value: 'LE', display: 'Lawful Evil' },
+            { value: 'NE', display: 'Neutral Evil' },
+            { value: 'CE', display: 'Chaotic Evil' }
+        ]
+    }
+    
+    get sizeOptions()
+    {
+        return [
+            { value: 'T', display: 'Tiny' },
+            { value: 'S', display: 'Small' },
+            { value: 'M', display: 'Medium' },
+            { value: 'L', display: 'Large' },
+            { value: 'H', display: 'Huge' },
+            { value: 'G', display: 'Gigantic' }
+        ]
+    }
+    
+    //------------------------------------------------------------------------------------------------------------------
+    // Properties
+    //------------------------------------------------------------------------------------------------------------------
     
     // Populated
     get race(){ return this._race; }
@@ -37,32 +81,39 @@ class DnD35Character extends BaseSystemCharacterModel {
     
     // Basic Biographic info
     get raceID(){ return this._system.raceID; }
-    set raceID(val){ this._system.raceID = val; }
+    set raceID(val){ Vue.set(this._system, 'raceID', val); this.save(); }
     get age(){ return this._system.age; }
-    set age(val){ this._system.age = val; }
+    set age(val){ Vue.set(this._system, 'age', val); this.save(); }
     get height(){ return this._system.height; }
-    set height(val){ this._system.height = val; }
+    set height(val){ Vue.set(this._system, 'height', val); this.save(); }
     get gender(){ return this._system.gender; }
-    set gender(val){ this._system.gender = val; }
+    set gender(val){ Vue.set(this._system, 'gender', val); this.save(); }
     get alignment(){ return this._system.alignment; }
-    set alignment(val){ this._system.alignment = val; }
+    set alignment(val){ Vue.set(this._system, 'alignment', val); this.save(); }
     get speed(){ return this._system.speed; }
-    set speed(val){ this._system.speed = val; }
+    set speed(val){ Vue.set(this._system, 'speed', val); this.save(); }
     get languages(){ return this._system.languages; }
+    get size()
+    {
+        if(this.race)
+        {
+            return (_.find(this.sizeOptions, { value: this.race.size }) || {}).display;
+        } // end if
+    }
     
     // Abilities
     get strength(){ return this._system.strength; }
-    set strength(val){ this._system.strength = val; }
+    set strength(val){ Vue.set(this._system, 'strength', val); this.save(); }
     get dexterity(){ return this._system.dexterity; }
-    set dexterity(val){ this._system.dexterity = val; }
+    set dexterity(val){ Vue.set(this._system, 'dexterity', val); this.save(); }
     get constitution(){ return this._system.constitution; }
-    set constitution(val){ this._system.constitution = val; }
+    set constitution(val){ Vue.set(this._system, 'constitution', val); this.save(); }
     get intelligence(){ return this._system.intelligence; }
-    set intelligence(val){ this._system.intelligence = val; }
+    set intelligence(val){ Vue.set(this._system, 'intelligence', val); this.save(); }
     get wisdom(){ return this._system.wisdom; }
-    set wisdom(val){ this._system.wisdom = val; }
+    set wisdom(val){ Vue.set(this._system, 'wisdom', val); }
     get charisma(){ return this._system.charisma; }
-    set charisma(val){ this._system.charisma = val; }
+    set charisma(val){ Vue.set(this._system, 'charisma', val); this.save(); }
     
     // Health
     get hp(){ return this._system.hp; }
@@ -70,16 +121,16 @@ class DnD35Character extends BaseSystemCharacterModel {
     
     // Combat
     get baseAttackBonus(){ return this._system.baseAttackBonus; }
-    set baseAttackBonus(val){ this._system.baseAttackBonus = val; }
+    set baseAttackBonus(val){ Vue.set(this._system, 'baseAttackBonus', val); this.save(); }
     get spellResistance(){ return this._system.spellResistance; }
-    set spellResistance(val){ this._system.spellResistance = val; }
+    set spellResistance(val){ Vue.set(this._system, 'spellResistance', val); this.save(); }
     get attacks(){ return this._system.attacks; }
 
     // Additional Character details
     get experience(){ return this._system.experience; }
-    set experience(val){ this._system.experience = val; }
+    set experience(val){ Vue.set(this._system, 'experience', val); this.save(); }
     get wealth(){ return this._system.wealth; }
-    set wealth(val){ this._system.wealth = val; }
+    set wealth(val){ Vue.set(this._system, 'wealth', val); this.save(); }
     get skills(){ return this._system.skills; }
     get bonuses(){ return this._system.bonuses; }
     get feats(){ return this._system.feats; }
@@ -88,20 +139,20 @@ class DnD35Character extends BaseSystemCharacterModel {
     // Magic
     get spells(){ return this._system.spells; }
     get spellSave(){ return this._system.spellSave; }
-    set spellSave(val){ this._system.spellSave = val; }
+    set spellSave(val){ Vue.set(this._system, 'spellSave', val); this.save(); }
     get spellFailure(){ return this._system.spellFailure; }
-    set spellFailure(val){ this._system.spellFailure = val; }
+    set spellFailure(val){ Vue.set(this._system, 'spellFailure', val); this.save(); }
     get spellLevels(){ return this._system.spellLevels; }
     
     // Equipment
     get armor(){ return this._system.armor; }
-    set armor(val){ this._system.armor = val; }
+    set armor(val){ Vue.set(this._system, 'armor', val); this.save(); }
     get shield(){ return this._system.shield; }
-    set shield(val){ this._system.shield = val; }
+    set shield(val){ Vue.set(this._system, 'shield', val); this.save(); }
     get protectiveItem1(){ return this._system.protectiveItem1; }
-    set protectiveItem1(val){ this._system.protectiveItem1 = val; }
+    set protectiveItem1(val){ Vue.set(this._system, 'protectiveItem1', val); this.save(); }
     get protectiveItem2(){ return this._system.protectiveItem2; }
-    set protectiveItem2(val){ this._system.protectiveItem2 = val; }
+    set protectiveItem2(val){ Vue.set(this._system, 'protectiveItem2', val); this.save(); }
     get items(){ return this._system.items; }
     
     // Misc
