@@ -18,6 +18,18 @@ class BaseSystemCharacterModel {
         this._base = base;
         this._system = system;
         this._ensureValidity();
+        
+        this.saving = false;
+        this.savePromise = Promise.resolve();
+        this._saveFunc = _.throttle(() =>
+        {
+            this.saving = true;
+            this.savePromise = this.savePromise
+                .then(() => this._save())
+                .tap(() => { console.log('saved!') })
+                .then(() => { this.saving = false; })
+                .then(() => this);
+        }, 1000, { leading: false });
     } // end constructor
 
     get id(){ return this._base.id; }
@@ -68,6 +80,20 @@ class BaseSystemCharacterModel {
         return Promise.resolve(this._system);
     } // end _cleanForSave
     
+    _save()
+    {
+        var promises = [
+            this._cleanForSave().then((systemChar) => $http.put(this.systemURL, systemChar))
+        ];
+
+        if(this._base.$dirty)
+        {
+            promises.push(this._base.save());
+        } // end if
+
+        return Promise.all(promises);
+    } // end save
+    
     //------------------------------------------------------------------------------------------------------------------
     // Public
     //------------------------------------------------------------------------------------------------------------------
@@ -84,16 +110,7 @@ class BaseSystemCharacterModel {
 
     save()
     {
-        var promises = [
-            this._cleanForSave().then((systemChar) => $http.put(this.systemURL, systemChar))
-        ];
-
-        if(this._base.$dirty)
-        {
-            promises.push(this._base.save());
-        } // end if
-
-        return Promise.all(promises).then(() => this);
+        return this._saveFunc();
     } // end save
 
     delete()
