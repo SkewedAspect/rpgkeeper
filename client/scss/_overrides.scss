@@ -60,6 +60,11 @@ form {
     }
 }
 
+// This is to fix a bug with selects
+select {
+    height: 38px;
+}
+
 // I don't really get their new system.
 .text-center {
     text-align: center;
