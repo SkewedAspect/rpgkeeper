@@ -13,7 +13,6 @@
                 <div class="name">
                     <h1>
                         {{ char.name }}
-                        <!--<small class="text-muted">{{ char.description }}</small>-->
                         <button class="btn btn-success-outline btn-sm" style="pointer-events: none">
                             <span v-if="!char.saving">
                                 <i class="fa fa-check"></i>
@@ -109,6 +108,7 @@
     #dnd35-char {
         header {
             display: flex;
+            flex-wrap: wrap;
 
             .name {
                 flex: 1 1 auto;
