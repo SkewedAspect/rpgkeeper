@@ -44,8 +44,8 @@ router.use('/spells', spellRouter);
 //----------------------------------------------------------------------------------------------------------------------
 
 var id = 'dnd35';
-var name = 'Dungeons and Dragons 3.5th Edition';
-var description = 'A system that should work with D&D 3/3.5/Pathfinder.';
+var name = 'Dungeons and Dragons v3.5';
+var description = 'A system that should work with D&D v3/3.5 and Pathfinder.';
 
 systemMan.register(id, name, description, router, models);
 systemMan.buildGeneralEndpoints(router, models);
