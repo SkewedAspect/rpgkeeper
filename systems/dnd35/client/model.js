@@ -30,7 +30,7 @@ class DnD35Character extends BaseSystemCharacterModel {
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
-    // Static Options
+    // Static Data
     //------------------------------------------------------------------------------------------------------------------
     
     get genderOptions()
@@ -68,7 +68,64 @@ class DnD35Character extends BaseSystemCharacterModel {
             { value: 'G', display: 'Gigantic' }
         ]
     }
-    
+
+    get defaultSkills()
+    {
+        return [
+            { name: 'Appraise', ability: 'intelligence', armorPenalty: false, untrained: true },
+            { name: 'Balance', ability: 'dexterity', armorPenalty: true, untrained: true },
+            { name: 'Bluff', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Climb', ability: 'strength', armorPenalty: true, untrained: true },
+            { name: 'Concentration', ability: 'constitution', armorPenalty: false, untrained: true },
+            { name: 'Decipher Script', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Diplomacy', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Disable Device', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Disguise', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Escape Artist', ability: 'dexterity', armorPenalty: true, untrained: true },
+            { name: 'Forgery', ability: 'intelligence', armorPenalty: false, untrained: true },
+            { name: 'Gather Information', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Handle Animal', ability: 'charisma', armorPenalty: false, untrained: false },
+            { name: 'Heal', ability: 'wisdom', armorPenalty: false, untrained: true },
+            { name: 'Hide', ability: 'dexterity', armorPenalty: true, untrained: true },
+            { name: 'Intimidate', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Jump', ability: 'strength', armorPenalty: true, untrained: true },
+            { name: 'Knowledge (Arcana)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (Arch/Eng)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (Dungeoneering)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (Geography)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (History)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (Local)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (Nature)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (Nobility/Royalty)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (The Planes)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (Psionics)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Knowledge (Religion)', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Listen', ability: 'Wisdom', armorPenalty: false, untrained: true },
+            { name: 'Move Silently', ability: 'dexterity', armorPenalty: true, untrained: true },
+            { name: 'Open Lock', ability: 'dexterity', armorPenalty: false, untrained: true },
+            { name: 'Perform (Act)', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Perform (Comedy)', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Perform (Dance)', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Perform (Keyboard)', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Perform (Oratory)', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Perform (Percussion)', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Perform (String Instrument)', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Perform (Wind Instrument)', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Perform (Sing)', ability: 'charisma', armorPenalty: false, untrained: true },
+            { name: 'Ride', ability: 'dexterity', armorPenalty: false, untrained: true },
+            { name: 'Search', ability: 'intelligence', armorPenalty: false, untrained: true },
+            { name: 'Sense Motive', ability: 'wisdom', armorPenalty: false, untrained: true },
+            { name: 'Slight of Hand', ability: 'dexterity', armorPenalty: true, untrained: false },
+            { name: 'Spellcraft', ability: 'intelligence', armorPenalty: false, untrained: false },
+            { name: 'Spot', ability: 'wisdom', armorPenalty: false, untrained: true },
+            { name: 'Survival', ability: 'wisdom', armorPenalty: false, untrained: true },
+            { name: 'Swim', ability: 'strength', armorPenalty: true, untrained: true },
+            { name: 'Tumble', ability: 'dexterity', armorPenalty: true, untrained: false },
+            { name: 'Use Magic Device', ability: 'charisma', armorPenalty: false, untrained: false },
+            { name: 'Use Rope', ability: 'dexterity', armorPenalty: false, untrained: true }
+        ]
+    }
+
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
@@ -131,7 +188,16 @@ class DnD35Character extends BaseSystemCharacterModel {
     set experience(val){ Vue.set(this._system, 'experience', val); this.save(); }
     get wealth(){ return this._system.wealth; }
     set wealth(val){ Vue.set(this._system, 'wealth', val); this.save(); }
-    get skills(){ return this._system.skills; }
+    get skills()
+    {
+        if(!this._system.skills || this._system.skills.length < 1)
+        {
+            this._system.skills = _.cloneDeep(this.defaultSkills);
+            this.save();
+        } // end if
+        
+        return this._system.skills;
+    }
     get bonuses(){ return this._system.bonuses; }
     get feats(){ return this._system.feats; }
     get specialAbilities(){ return this._system.specialAbilities; }
