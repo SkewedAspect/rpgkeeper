@@ -172,6 +172,14 @@ class DnD35Character extends BaseSystemCharacterModel {
     get charisma(){ return this._system.charisma; }
     set charisma(val){ Vue.set(this._system, 'charisma', val); this.save(); }
     
+    // AbilityMods
+    get strMod(){ return Math.floor((this._system.strength - 10) / 2 || 0); }
+    get dexMod(){ return Math.floor((this._system.dexterity - 10) / 2 || 0); }
+    get conMod(){ return Math.floor((this._system.constitution - 10) / 2 || 0); }
+    get intMod(){ return Math.floor((this._system.intelligence - 10) / 2 || 0); }
+    get wisMod(){ return Math.floor((this._system.wisdom - 10) / 2 || 0); }
+    get chaMod(){ return Math.floor((this._system.charisma - 10) / 2 || 0); }
+    
     // Health
     get hp(){ return this._system.hp; }
     get damageReduction(){ return this._system.damageReduction; }
@@ -287,6 +295,18 @@ class DnD35Character extends BaseSystemCharacterModel {
 
         return Promise.resolve(char);
     } // end _cleanForSave
+    
+    toJSON()
+    {
+        return _.merge(super.toJSON(), {
+            strMod: this.strMod,
+            dexMod: this.dexMod,
+            intMod: this.intMod,
+            conMod: this.conMod,
+            wisMod: this.wisMod,
+            chaMod: this.chaMod
+        });
+    }
 } // end DnD35Character
 
 //----------------------------------------------------------------------------------------------------------------------
