@@ -101,7 +101,8 @@ db.Character = trivialModels.define({
                 }),
                 ranks: types.Number({ integer: true, required: true }),
                 armorPenalty: types.Boolean({ default: false }),
-                removed: types.Boolean({ default: false })
+                untrained: types.Boolean({ default: true }),
+                hidden: types.Boolean({ default: false })
             },
             default: []
         }),
