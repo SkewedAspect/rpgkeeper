@@ -12,21 +12,14 @@ import logging from 'omega-logger';
 import routeUtils from './utils';
 import models from '../models';
 
-// System Models
-import generic from '../../systems/generic/models';
-//import eote from '../../systems/eote/models';
+// Managers
+import systemMan from '../../systems/manager';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 var logger = logging.loggerFor(module);
 
 var router = express.Router();
-
-// Create a lookup object for system models
-var systemModels = {
-    generic,
-    //eote
-};
 
 //----------------------------------------------------------------------------------------------------------------------
 // Middleware
@@ -86,8 +79,11 @@ router.post('/', function(req, resp)
         new models.BaseCharacter(req.body).$save()
             .then((char) =>
             {
+                // Get the System specific Character Model
+                var SysCharacter = systemMan.get(char.system).models.Character;
+                
                 // Save a new system character
-                var sysChar = new systemModels[char.system].Character({ id: char.id, user: char.user });
+                var sysChar = new SysCharacter({ id: char.id, user: char.user });
                 sysChar.$save()
                     .then(() =>
                     {
@@ -160,7 +156,9 @@ router.delete('/:charID', function(req, resp)
             .tap((character) => { return character.$delete(); })
             .then((character) =>
             {
-                return systemModels[character.system].Character.get(req.params.charID)
+                // Get the System specific Character Model
+                var SysCharacter = systemMan.get(character.system).models.Character;
+                return SysCharacter.get(req.params.charID)
                     .then((sysChar) =>
                     {
                         return sysChar.$delete()

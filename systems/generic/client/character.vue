@@ -1,5 +1,5 @@
 <template>
-    <div id="generic-char">
+    <div id="generic-char" class="container">
         <div v-if="!char">
             <h4 class="text-center">Loading...</h4>
         </div>
@@ -21,7 +21,7 @@
                         </button>
                     </div>
                 </div>
-                <h1>{{ char.name }}</h1>
+                <h1>{{ char.name }} <small class="text-muted">{{ char.description }}</small></h1>
             </header>
             <div class="upper-sheet">
                 <div class="main">
@@ -189,16 +189,16 @@
     import counter from './components/counter.vue';
     import roll from './components/roll.vue';
     import statblock from './components/statblock.vue';
-    import notes from './components/notes.vue';
+    import notes from '../../../client/components/notes/notes.vue';
     import AddEditStatModal from './modals/statAddEdit.vue';
 
     export default {
         components: {
-            counter: counter,
-            roll: roll,
-            statblock: statblock,
-            notes: notes,
-            modal: modal,
+            counter,
+            roll,
+            statblock,
+            notes,
+            modal,
             addEditStatModal: AddEditStatModal
         },
         props: {
@@ -298,7 +298,6 @@
                 {
                     // Wrap this in a model!
                     this.char = new GenericCharacter(this.base, char);
-                    console.log('sys char:', JSON.parse(JSON.stringify(this.char._system)));
                     done();
                 });
         }

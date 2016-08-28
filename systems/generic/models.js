@@ -4,11 +4,9 @@
 // @module models
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
+import trivialModels from 'trivialmodels';
 
 //----------------------------------------------------------------------------------------------------------------------
-
-import trivialModels from 'trivialmodels';
 
 var types = trivialModels.types;
 var db = { errors: trivialModels.errors };
