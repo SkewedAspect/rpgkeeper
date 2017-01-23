@@ -6,11 +6,5 @@
 # Build artifacts
 dist
 
-# Bower artifacts
-vendor
-
-# DB artifacts
-server/db/
-
 # Node artifacts
 node_modules
