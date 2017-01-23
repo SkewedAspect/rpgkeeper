@@ -9,7 +9,7 @@
 module.exports = {
     debug: true,
     secret: process.env.SESSION_SECRET || "etched municipality unconscionably fribble *&^%$## 88",
-    key: "rpgmap-session",
+    key: "rpgk-session",
     google: {
         clientID: "712153107187-8e00g8d18nbk5esiffhkrbtr12vktlvq.apps.googleusercontent.com",
         clientSecret: process.env.CLIENT_SECRET || "hOsFjUL-f_yky8djy1OSuvmp"
@@ -21,7 +21,7 @@ module.exports = {
     rethink: {
         host: process.env.RETHINK_DB_HOST || 'localhost',
         port: process.env.RETHINK_DB_PORT || 28015,
-        db: 'rpgmap'
+        db: 'rpgkeeper'
     },
     logging: {
         streams: [

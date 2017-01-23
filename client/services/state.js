@@ -1,21 +1,19 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Theme Styling
+// StateService
+//
+// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-// Bootstrap options
-$enable-flex: false;
-$enable-rounded: true;
-$enable-shadows: true;
-$enable-gradients: true;
-$enable-transitions: true;
-$enable-hover-media-query: true;
+class StateService
+{
+    constructor()
+    {
+        this.state = {};
+    } // end constructor
+} // end StateService
 
 //----------------------------------------------------------------------------------------------------------------------
 
-$brand-primary: #f90;
-$brand-success: #8cc358;
-$brand-info: #79cbe9;
-$brand-warning: #ffd74f;
-$brand-danger: #bb3228;
+export default new StateService();
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -12,8 +12,7 @@ const serialization = require('./serialization');
 const config = require('../../config');
 const models = require('../models');
 
-const logging = require('trivial-logging');
-const logger = logging.loggerFor(module);
+const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -55,6 +54,7 @@ passport.use(new GoogleStrategy((token, profile, done) =>
             })
             .catch(function(error)
             {
+                console.log('sup2??');
                 logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
                 done(error);
             });

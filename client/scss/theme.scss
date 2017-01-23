@@ -2,18 +2,63 @@
 // App Theme
 //----------------------------------------------------------------------------------------------------------------------
 
-@import "variables";
-@import "bootstrap";
+@import "utilities";
 @import "overrides";
 
 //----------------------------------------------------------------------------------------------------------------------
 
-body {
-    padding-top: 60px;
+html, body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
 }
 
-*:focus {
-    outline: 0;
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// List groups, because `md-list` has issues
+//----------------------------------------------------------------------------------------------------------------------
+
+ul.list-group {
+	display: block;
+	padding-left: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	list-style: none;
+
+	li {
+		position: relative;
+		display: block;
+	}
 }
 
 //----------------------------------------------------------------------------------------------------------------------
