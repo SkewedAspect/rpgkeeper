@@ -47,6 +47,7 @@ router.get('/', (request, response) =>
 
                                 // Parse as a date
                                 data.attributes.date = new Date(data.attributes.date);
+                                data.attributes.filename = fileName;
 
                                 return data;
                             }));
