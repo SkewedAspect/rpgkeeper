@@ -4,25 +4,20 @@
 // @module serialization.js
 //----------------------------------------------------------------------------------------------------------------------
 
-var passport = require('passport');
-
-var models = require('../models');
+const passport = require('passport');
+const models = require('../models');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-passport.serializeUser(function(user, done) {
-    done(null, user.email);
+passport.serializeUser(function(account, done) {
+    done(null, account.id);
 });
 
-passport.deserializeUser(function(email, done) {
-    models.User.get(email)
-        .then((user) =>
+passport.deserializeUser(function(id, done) {
+    models.Account.get(id)
+        .then((account) =>
         {
-            done(null, user);
-        })
-        .catch(models.errors.DocumentNotFound, () =>
-        {
-            done(new Error('User not found.'));
+            done(null, account);
         })
         .catch((error) =>
         {

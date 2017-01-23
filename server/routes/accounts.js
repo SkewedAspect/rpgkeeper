@@ -1,35 +1,29 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Routes for system operations
+// Account REST API
 //
-// @module systems.js
+// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 const _ = require('lodash');
 const express = require('express');
-const logging = require('trivial-logging');
 
-const systemMan = require('../../systems/manager');
 const routeUtils = require('./utils');
+const models = require('../models');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const logger = logging.loggerFor(module);
 const router = express.Router();
 const promisify = routeUtils.promisify;
+const ensureAuthenticated = routeUtils.ensureAuthenticated;
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', (request, response) =>
+router.put('/:accountID', ensureAuthenticated, promisify((req, resp) =>
 {
-    routeUtils.interceptHTML(response, () => { response.json(systemMan.systems); });
-});
-
-// Mount the systems
-_.each(systemMan.systems, (system) =>
-{
-    logger.debug(`Building routes for "${system.name}" system.`);
-    router.use('/' + system.id, system.router);
-});
+    // Update the account record.
+    const account = _.merge(req.user, _.omit(req.body, 'id', 'googleID', 'permissions', 'groups'));
+    return account.save();
+}));
 
 //----------------------------------------------------------------------------------------------------------------------
 
