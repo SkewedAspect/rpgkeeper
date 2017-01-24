@@ -12,29 +12,10 @@
 			</small>
 		</h1>
         <md-layout class="news" :md-gutter="true">
-			<md-layout md-flex-small="100" md-flex-medium="50" v-for="article in articles">
-				<md-card :id="`readmore-${ article.attributes.filename }`">
-					<md-card-header>
-						<div class="md-title">{{ article.attributes.title }}</div>
-						<div class="md-subhead">{{ renderDate(article) }} by {{ article.attributes.user }}</div>
-					</md-card-header>
-
-					<md-card-content style="flex: 1" v-html="renderTruncated(article)"></md-card-content>
-
-					<md-card-actions>
-						<md-button @click="openReadMore(article)">Read More</md-button>
-					</md-card-actions>
-				</md-card>
+			<md-layout md-flex-small="100" v-for="article in articles">
+				<news-article :article="article"></news-article>
 			</md-layout>
 		</md-layout>
-		<md-dialog-alert
-			:md-title="readMoreTitle"
-			:md-content-html="readMoreBody"
-			:md-open-from="readMoreID"
-			:md-close-to="readMoreID"
-			@close="onReadMoreClosed"
-			ref="readMore">
-		</md-dialog-alert>
 	</div>
 </template>
 
@@ -63,64 +44,20 @@
     import moment from 'moment';
     import $http from 'axios';
 
+    // Components
+    import Article from '../components/news/article.vue';
+
     //------------------------------------------------------------------------------------------------------------------
 
 	export default {
+	    components: {
+	        newsArticle: Article
+		},
         data()
         {
             return {
-                readMore: undefined,
                 articles: []
             };
-        },
-		computed: {
-            readMoreID()
-			{
-			    return `#readmore-${ _.get(this.readMore, 'attributes.filename', 'unknown') }`;
-			},
-			readMoreTitle()
-			{
-			    return _.get(this.readMore, 'attributes.title', 'Unknown Title');
-			},
-			readMoreBody()
-			{
-			    if(this.readMore)
-				{
-				    return this.renderBody(this.readMore);
-				} // end if
-
-				return " ";
-			}
-		},
-        methods: {
-            renderTruncated(article)
-            {
-                const blurb = article.body.split('--- $READMORE')[0];
-                return marked(blurb);
-            },
-			renderBody(article)
-			{
-			    let body = article.body.replace('--- $READMORE', '');
-			    body = `<div class="md-subhead">${ this.renderDate(this.readMore) } by ${ this.readMore.attributes.user }</div>\n\n${ body }`;
-
-                return marked(body);
-			},
-			renderDate(article)
-			{
-				return moment(article.attributes.date).format('MMM Do YYYY');
-			},
-			openReadMore(article)
-			{
-			    this.readMore = article;
-			    this.$refs.readMore.open();
-			},
-			onReadMoreClosed()
-			{
-			    setTimeout(() =>
-				{
-                    this.readMore = undefined;
-				}, 250);
-			}
         },
         mounted()
         {
