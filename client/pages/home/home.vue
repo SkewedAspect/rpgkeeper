@@ -45,7 +45,7 @@
     import $http from 'axios';
 
     // Components
-    import Article from '../components/news/article.vue';
+    import Article from './components/article.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
