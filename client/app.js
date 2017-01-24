@@ -22,13 +22,10 @@ import pkg from '../package.json';
 import AppComponent from './app.vue';
 
 // Pages
-import MainPage from './pages/main.vue';
+import HomePage from './pages/home/home.vue';
 // import HomeComponent from './pages/home/home.vue';
 // import DashboardComponent from './pages/dashboard/dashboard.vue';
 // import CharacterComponent from './pages/character/character.vue';
-
-// Filters
-import './components/moment/momentFilters';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Vue Material
@@ -55,7 +52,7 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        { path: '/', name: 'home', component: MainPage },
+        { path: '/', name: 'home', component: HomePage },
         // { path: '/dashboard', name: 'dashboard', component: DashboardPage },
         // { path: '/characters/:id', name: 'character', component: CharacterPage },
         // { path: '/settings', name: 'settings', component: SettingsPage },
