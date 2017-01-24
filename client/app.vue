@@ -6,6 +6,7 @@
 	<div id="app">
 		<site-header></site-header>
 		<router-view></router-view>
+		<site-footer></site-footer>
 	</div>
 </template>
 
@@ -24,12 +25,14 @@
 
 	// Components
 	import SiteHeader from './components/header.vue';
+    import SiteFooter from './components/footer.vue';
 
 	//------------------------------------------------------------------------------------------------------------------
 
 	export default {
 		components: {
-			siteHeader: SiteHeader
+			siteHeader: SiteHeader,
+            siteFooter: SiteFooter
 		}
 	}
 </script>
