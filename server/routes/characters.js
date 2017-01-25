@@ -27,7 +27,7 @@ router.get('/', (request, response) =>
 {
     routeUtils.interceptHTML(response, promisify(() =>
     {
-        models.BaseCharacter.filter(request.query);
+        return models.BaseCharacter.filter(request.query);
     }));
 });
 
@@ -35,7 +35,7 @@ router.get('/:charID', (request, response) =>
 {
     routeUtils.interceptHTML(response, promisify(() =>
     {
-        models.BaseCharacter.get(request.params.charID)
+        return models.BaseCharacter.get(request.params.charID)
             .catch(models.errors.DocumentNotFound, (error) =>
             {
                 logger.warn('Character not found:\n', error.stack);
