@@ -1,7 +1,7 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// SystemsService
-///
-/// @module
+// SystemService
+//
+// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
@@ -9,47 +9,32 @@ import $http from 'axios';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class SystemsService {
+class SystemService {
     constructor()
     {
         this.systems = [];
-        this.loading = this.refresh();
     } // end constructor
+
+    //------------------------------------------------------------------------------------------------------------------
 
     get(id)
     {
-        return _.find(this.systems, { id });
+        return _.find(this.systems, { id }) || id;
     } // end get
-
-    getChar(system, charID)
-    {
-        return $http.get(`/systems/${ system }/character/${ charID }`)
-            .then((response) =>
-            {
-                return response.data;
-            })
-            .catch((response) =>
-            {
-                if(response.status !== 404)
-                {
-                    console.error('Error getting system character:', response.data);
-                } // end if
-            });
-    } // end getChar
 
     refresh()
     {
-        return $http.get('/systems')
-            .then((response) =>
+        return this.loading = $http.get('/systems')
+            .get('data')
+            .then((systems) =>
             {
-                this.systems = response.data || [];
-                return this.systems;
+                return this.systems = (systems || []);
             });
     } // end refresh
-} // end SystemsService
+} // end SystemService
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default new SystemsService();
+export default new SystemService();
 
 //----------------------------------------------------------------------------------------------------------------------

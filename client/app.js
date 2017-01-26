@@ -23,9 +23,11 @@ import AppComponent from './app.vue';
 
 // Pages
 import HomePage from './pages/home/home.vue';
-// import HomeComponent from './pages/home/home.vue';
-// import DashboardComponent from './pages/dashboard/dashboard.vue';
-// import CharacterComponent from './pages/character/character.vue';
+import DashboardPage from './pages/dashboard/dashboard.vue';
+// import CharacterPage from './pages/character/character.vue';
+
+// Services
+import systemSvc from './services/system';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Vue Material
@@ -53,7 +55,7 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/', name: 'home', component: HomePage },
-        // { path: '/dashboard', name: 'dashboard', component: DashboardPage },
+        { path: '/dashboard', name: 'dashboard', component: DashboardPage },
         // { path: '/characters/:id', name: 'character', component: CharacterPage },
         // { path: '/settings', name: 'settings', component: SettingsPage },
     ]
@@ -93,6 +95,9 @@ marked.setOptions({
     smartypants: false,
     renderer: renderer
 });
+
+// Pull a list of systems
+systemSvc.refresh();
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Version information
