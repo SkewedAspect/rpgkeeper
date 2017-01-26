@@ -26,6 +26,8 @@ class SystemManager
             Risus,
             EdgeOfTheEmpire
         ];
+
+        _.each(this.systems, (system) => system.init(this));
     } // end constructor
 
     get(id)
