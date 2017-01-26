@@ -4,10 +4,9 @@
 // @module models
 //----------------------------------------------------------------------------------------------------------------------
 
-const base62 = require('base62');
-const uuid = require('node-uuid');
-
 const connect = require('thinky');
+
+const { shortID } = require('./utilities');
 const config = require('../config');
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -17,14 +16,6 @@ const type = thinky.type;
 const r = thinky.r;
 
 const db = { r, type, errors: thinky.Errors };
-
-//----------------------------------------------------------------------------------------------------------------------
-
-// This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid.
-function shortID()
-{
-    return base62.encode(new Buffer(uuid.v4(null, [])).readUInt32LE(0));
-} // end shortID
 
 //----------------------------------------------------------------------------------------------------------------------
 

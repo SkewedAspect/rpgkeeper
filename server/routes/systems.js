@@ -15,7 +15,6 @@ const routeUtils = require('./utils');
 
 const logger = logging.loggerFor(module);
 const router = express.Router();
-const promisify = routeUtils.promisify;
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -1,42 +1,42 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// Generic System
-///
-/// @module
+// Generic System
+//
+// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import express from 'express';
-import logging from 'omega-logger';
+const express = require('express');
+const logging = require('trivial-logging');
 
-import models from './models';
-import systemMan from '../manager';
-import routeUtils from '../../server/routes/utils';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-var logger = logging.loggerFor(module);
-
-var router = express.Router();
-
-//----------------------------------------------------------------------------------------------------------------------
-// Middleware
-//----------------------------------------------------------------------------------------------------------------------
-
-// Basic request logging
-router.use(routeUtils.requestLogger(logger));
-
-// Basic error logging
-router.use(routeUtils.errorLogger(logger));
+const models = require('./models');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-systemMan.buildGeneralEndpoints(router, models);
+const logger = logging.loggerFor(module);
+const router = express.Router();
+
+//----------------------------------------------------------------------------------------------------------------------
+// System definition
+//----------------------------------------------------------------------------------------------------------------------
+
+const id = 'generic';
+const name = 'Generic';
+const description = 'A generic system designed to be usable with any pen and paper RPG.';
+
+//----------------------------------------------------------------------------------------------------------------------
+// Initialization
+//----------------------------------------------------------------------------------------------------------------------
+
+function init(manager)
+{
+    manager.buildGeneralEndpoints(router, models);
+} // end init
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var id = 'generic';
-var name = 'Generic';
-var description = 'A generic system designed to be usable with any pen and paper RPG.';
+logger.info(`Loaded '${ name }' system.`);
 
-systemMan.register(id, name, description, router, models);
+//----------------------------------------------------------------------------------------------------------------------
+
+module.exports = { id, name, router, description, init };
 
 //----------------------------------------------------------------------------------------------------------------------

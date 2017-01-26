@@ -1,37 +1,31 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Database models for RPGKeeper
+// Database models for Generic System
 //
 // @module models
 //----------------------------------------------------------------------------------------------------------------------
 
-import trivialModels from 'trivialmodels';
+const connect = require('thinky');
+
+const config = require('../../config');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var types = trivialModels.types;
-var db = { errors: trivialModels.errors };
+const thinky = connect(config.rethink);
+const type = thinky.type;
+const r = thinky.r;
+
+const db = { r, type, errors: thinky.Errors };
 
 //----------------------------------------------------------------------------------------------------------------------
 
-db.Character = trivialModels.define({
-    name: 'Character',
-    driver: {
-        name: 'TrivialDB',
-        options: {
-            name: 'characters',
-            dbPath: 'server/db',
-            namespace: 'generic'
-        }
-    },
-    schema: {
-        id: types.String({ pk: true }),
-        stats: types.Array({ default: [] }),
-        counters: types.Array({ default: [] }),
-        rolls: types.Array({ default: [] }),
-        notes: types.Array({ default: [] }),
-        user: types.String({ required: true })
-    }
-});
+db.Character = thinky.createModel('generic_characters', {
+    id: type.string(),
+    stats: type.array().default([]),
+    counters: type.array().default([]),
+    rolls: type.array().default([]),
+    notes: type.array().default([]),
+    user: type.string().required()
+}, { enforce_extra: "remove" });
 
 //----------------------------------------------------------------------------------------------------------------------
 

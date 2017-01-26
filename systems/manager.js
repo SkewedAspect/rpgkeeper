@@ -10,15 +10,20 @@ const routeUtils = require('../server/routes/utils');
 const promisify = routeUtils.promisify;
 const ensureAuthenticated = routeUtils.ensureAuthenticated;
 
+// Systems
+const Generic = require('./generic/system');
+const EdgeOfTheEmpire = require('./eote/system');
+
 //----------------------------------------------------------------------------------------------------------------------
 
 class SystemManager
 {
     constructor()
     {
-        this.systems = [];
-
-        // TODO: Make the systems manager the place where the systems are registered.
+        this.systems = [
+            Generic,
+            EdgeOfTheEmpire
+        ];
     } // end constructor
 
     get(id)
@@ -26,12 +31,6 @@ class SystemManager
         return _.find(this.systems, { id });
     } // end get
 
-    register(id, name, description, router, models)
-    {
-        this.systems.push({ id, name, description, router, models });
-        this.systems = _.uniqBy(this.systems, 'id');
-    } // end registerSystem
-    
     buildGeneralEndpoints(router, models)
     {
         router.get('/character/:charID', promisify((req, resp) =>
