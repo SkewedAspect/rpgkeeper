@@ -26,7 +26,7 @@ router.get('/', (request, response) =>
 // Mount the systems
 _.each(systemMan.systems, (system) =>
 {
-    logger.debug(`Building routes for "${system.name}" system.`);
+    logger.debug(`Building routes for "${ system.name }" system.`);
     router.use('/' + system.id, system.router);
 });
 
