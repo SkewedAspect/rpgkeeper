@@ -11,6 +11,7 @@ const promisify = routeUtils.promisify;
 const ensureAuthenticated = routeUtils.ensureAuthenticated;
 
 // Systems
+const Risus = require('./risus/system');
 const Generic = require('./generic/system');
 const EdgeOfTheEmpire = require('./eote/system');
 
@@ -22,6 +23,7 @@ class SystemManager
     {
         this.systems = [
             Generic,
+            Risus,
             EdgeOfTheEmpire
         ];
     } // end constructor
