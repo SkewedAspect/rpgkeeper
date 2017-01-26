@@ -1,36 +1,65 @@
+<!--------------------------------------------------------------------------------------------------------------------->
+<!-- character.vue                                                                                                         -->
+<!--------------------------------------------------------------------------------------------------------------------->
+
 <template>
-    <div id="character"  class="container-fluid">
-        <component :is="baseChar.system" :base="baseChar"></component>
+    <div id="character-page">
+        <component v-if="loaded" :is="character.system.id" :character="character"></component>
+        <div class="loading container text-center"v-else>
+            <loader></loader>
+        </div>
     </div>
 </template>
 
-<script type="text/babel">
-    import charSvc from '../../components/character/characterService.js';
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<style rel="stylesheet/scss" lang="sass">
+    #character-page {
+        .loading {
+            margin: 16px;
+        }
+    }
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<script>
+    //------------------------------------------------------------------------------------------------------------------
+
+    import charSvc from '../../services/character';
+    import spinkit from '../../components/spinkit';
 
     // Systems
-    import GenericCharacter from '../../../systems/generic/client/character.vue'
-    import EotECharacter from '../../../systems/eote/client/character.vue'
-    import DnD35Character from '../../../systems/dnd35/client/character.vue'
+    import RisusCharacter from '../../../systems/risus/client/character.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: "character-page",
         components: {
-            generic: GenericCharacter,
-            eote: EotECharacter,
-            dnd35: DnD35Character
+            loader: spinkit.wave,
+
+            // Systems
+            risus: RisusCharacter
         },
-        data: function()
+        data()
         {
             return {
-                baseChar: {},
-                charID: this.$route.params.id
+                loaded: false,
+                character: undefined
             };
         },
-        ready: function()
+        mounted()
         {
-            charSvc.get(this.charID)
-                .then((char) => {
-                    this.baseChar = char;
+            this.loading = charSvc.get(this.$route.params.id)
+                .then((character) =>
+                {
+                    this.character = character;
+                    return character.populateSystem()
+                        .then(() => { this.loaded = true; });
                 });
         }
     }
 </script>
+
+<!--------------------------------------------------------------------------------------------------------------------->

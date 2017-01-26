@@ -24,7 +24,7 @@ import AppComponent from './app.vue';
 // Pages
 import HomePage from './pages/home/home.vue';
 import DashboardPage from './pages/dashboard/dashboard.vue';
-// import CharacterPage from './pages/character/character.vue';
+import CharacterPage from './pages/character/character.vue';
 
 // Services
 import systemSvc from './services/system';
@@ -56,7 +56,7 @@ const router = new VueRouter({
     routes: [
         { path: '/', name: 'home', component: HomePage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
-        // { path: '/characters/:id', name: 'character', component: CharacterPage },
+        { path: '/characters/:id', name: 'character', component: CharacterPage },
         // { path: '/settings', name: 'settings', component: SettingsPage },
     ]
 });

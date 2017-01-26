@@ -50,7 +50,7 @@ class CharacterModel
 
     toJSON()
     {
-        return _.merge({}, this.system.toJSON(), this.$base.toJSON());
+        return _.merge({}, this.$system, this.$base);
     } // end toJSON
 } // end CharacterModel
 

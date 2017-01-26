@@ -4,7 +4,7 @@
 
 <template>
     <div id="risus-character" class="container">
-        <pre>{{ JSON.stringify(character) }}</pre>
+        <pre>{{ JSON.stringify(character, null, 2) }}</pre>
     </div>
 </template>
 
