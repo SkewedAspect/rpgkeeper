@@ -44,7 +44,7 @@
 
                     <md-card-content style="flex: 1">
                         <md-list class="md-triple-line">
-                            <md-list-item v-for="char in characters" :href="`/characters/${ char.id }`">
+                            <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
                                 <md-avatar>
                                     <img :src="char.thumbnail">
                                 </md-avatar>
@@ -120,6 +120,12 @@
             return {
                 characters: []
             };
+        },
+        methods: {
+            goTo(path)
+            {
+                this.$router.push(path);
+            }
         },
         mounted()
         {
