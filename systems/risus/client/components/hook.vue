@@ -1,13 +1,13 @@
 <!--------------------------------------------------------------------------------------------------------------------->
-<!-- cliche.vue                                                                                                         -->
+<!-- hook.vue                                                                                                         -->
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <md-list-item id="cliche-item">
+    <md-list-item id="hook-item">
         <div class="md-list-text-container">
-            <span><b>{{ cliche.description }}</b> ({{ cliche.value }})</span>
-            <span>Tools/Abilities: {{ cliche.tools }}</span>
+            <span><b>{{ hook.description }}</b></span>
         </div>
+
         <md-button class="md-icon-button md-list-action"
                    @click.prevent.stop="edit()">
             <md-icon>edit</md-icon>
@@ -20,29 +20,21 @@
         <!-- Dialogs -->
 
         <md-dialog-confirm
-            :md-title="`Delete '${ cliche.description }' Cliche`"
-            md-content="Are your sure you want to delete this cliche?"
+            :md-title="`Delete Hook`"
+            :md-content="`Are your sure you want to delete this hook: '${ hook.description }'?`"
             md-ok-text="Delete"
             md-cancel-text="Cancel"
             @close="onConfirmDeleteClosed"
-            ref="deleteCliche">
+            ref="deleteHook">
         </md-dialog-confirm>
 
-        <md-dialog ref="editCliche">
-            <md-dialog-title>Edit '{{ cliche.description }}' Cliche</md-dialog-title>
+        <md-dialog ref="editHook">
+            <md-dialog-title>Edit Hook</md-dialog-title>
 
             <md-dialog-content>
                 <md-input-container>
                     <label>Description</label>
-                    <md-input v-model="editCliche.description"></md-input>
-                </md-input-container>
-                <md-input-container>
-                    <label>Value</label>
-                    <md-input type="number" v-model="editCliche.value"></md-input>
-                </md-input-container>
-                <md-input-container>
-                    <label>Textarea</label>
-                    <md-textarea v-model="editCliche.tools"></md-textarea>
+                    <md-input v-model="editHook.description"></md-input>
                 </md-input-container>
             </md-dialog-content>
 
@@ -58,7 +50,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style rel="stylesheet/scss" lang="sass">
-    #cliche-item {
+    #hook-item {
     }
 </style>
 
@@ -73,7 +65,7 @@
 
     export default {
         props: {
-            cliche: {
+            hook: {
                 type: Object,
                 required: true
             }
@@ -81,43 +73,38 @@
         data()
         {
             return {
-                editCliche: {
-                    value: undefined,
-                    description: undefined,
-                    tools: undefined
+                editHook: {
+                    description: undefined
                 }
             };
         },
         methods: {
             edit()
             {
-                _.merge(this.editCliche, this.cliche);
-                this.$refs.editCliche.open();
+                _.merge(this.editHook, this.hook);
+                this.$refs.editHook.open();
             },
             clearEdit()
             {
                 setTimeout(() =>
                 {
-                    this.editCliche.index = undefined;
-                    this.editCliche.value = undefined;
-                    this.editCliche.description = undefined;
-                    this.editCliche.tools = undefined;
+                    this.editHook.description = undefined;
                 }, 500);
             },
             cancelEdit()
             {
                 this.clearEdit();
-                this.$refs.editCliche.close();
+                this.$refs.editHook.close();
             },
             saveEdit()
             {
-                _.merge(this.cliche, this.editCliche);
+                _.merge(this.hook, this.editHook);
                 this.clearEdit();
-                this.$refs.editCliche.close();
+                this.$refs.editHook.close();
             },
             confirmDelete()
             {
-                this.$refs.deleteCliche.open();
+                this.$refs.deleteHook.open();
             },
             onConfirmDeleteClosed(result)
             {

@@ -6,7 +6,7 @@
     <div id="risus-character" class="container">
         <md-layout md-gutter="16">
             <portrait :src="character.portrait"></portrait>
-            <md-layout md-flex-xsmall="100">
+            <md-layout md-flex-xsmall="100" style="min-width: 50%">
                 <md-card style="flex: 1">
                     <md-card-content>
                         <md-input-container>
@@ -20,19 +20,32 @@
                     </md-card-content>
                 </md-card>
             </md-layout>
-            <md-layout md-flex="100">
-                <md-card style="flex: 1">
-                    <md-card-content>
-                        <md-list class="md-double-line">
-                            <cliche-item  v-for="(cliche, index) in cliches" :cliche="cliche"
-                                @deleted="onDeleteCliche(index)"></cliche-item>
-                        </md-list>
-                    </md-card-content>
-                    <md-card-actions>
-                        <md-button @click="openNewCliche()">Add Cliche</md-button>
-                    </md-card-actions>
-                </md-card>
-            </md-layout>
+                <md-layout md-flex-small="100" style="min-width: 50%">
+                    <md-card style="flex: 1">
+                        <md-card-content style="flex: 1">
+                            <md-list class="md-double-line">
+                                <cliche-item  v-for="(cliche, index) in cliches" :cliche="cliche"
+                                              @deleted="onDeleteCliche(index)"></cliche-item>
+                            </md-list>
+                        </md-card-content>
+                        <md-card-actions>
+                            <md-button @click="openNewCliche()">Add Cliche</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </md-layout>
+                <md-layout md-flex-small="100" style="min-width: 50%">
+                    <md-card style="flex: 1">
+                        <md-card-content style="flex: 1">
+                            <md-list>
+                                <hook-item  v-for="(hook, index) in hooks" :hook="hook"
+                                              @deleted="onDeleteHook(index)"></hook-item>
+                            </md-list>
+                        </md-card-content>
+                        <md-card-actions>
+                            <md-button @click="openNewHook()">Add Hook</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </md-layout>
         </md-layout>
 
         <!-- Dialogs -->
@@ -58,6 +71,22 @@
             <md-dialog-actions>
                 <md-button class="md-primary" @click="cancelNewCliche()">Cancel</md-button>
                 <md-button class="md-primary" @click="saveNewCliche()">Ok</md-button>
+            </md-dialog-actions>
+        </md-dialog>
+
+        <md-dialog ref="newHook">
+            <md-dialog-title>New Hook</md-dialog-title>
+
+            <md-dialog-content>
+                <md-input-container>
+                    <label>Description</label>
+                    <md-input v-model="newHook.description"></md-input>
+                </md-input-container>
+            </md-dialog-content>
+
+            <md-dialog-actions>
+                <md-button class="md-primary" @click="cancelNewHook()">Cancel</md-button>
+                <md-button class="md-primary" @click="saveNewHook()">Ok</md-button>
             </md-dialog-actions>
         </md-dialog>
     </div>
@@ -95,13 +124,15 @@
 
     // Components
     import ClicheComponent from './components/cliche.vue';
+    import HookComponent from './components/hook.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         components: {
             portrait: PortraitComponent,
-            clicheItem: ClicheComponent
+            clicheItem: ClicheComponent,
+            hookItem: HookComponent
         },
         props: {
             character: {
@@ -116,6 +147,9 @@
                     value: undefined,
                     description: undefined,
                     tools: undefined
+                },
+                newHook: {
+                    description: undefined
                 }
             };
         },
@@ -123,6 +157,10 @@
             cliches()
             {
                 return _.sortBy(this.character.cliches, 'value').reverse();
+            },
+            hooks()
+            {
+                return this.character.hooks;
             }
         },
         methods: {
@@ -130,6 +168,11 @@
             {
                 this.character.cliches.splice(clicheIndex, 1)
             },
+            onDeleteHook(hookIndex)
+            {
+                this.character.hooks.splice(hookIndex, 1)
+            },
+
             openNewCliche()
             {
                 this.clearNewCliche();
@@ -155,6 +198,26 @@
                 this.character.cliches.push(_.cloneDeep(this.newCliche));
                 this.clearNewCliche();
                 this.$refs.newCliche.close();
+            },
+            openNewHook()
+            {
+                this.clearNewHook();
+                this.$refs.newHook.open();
+            },
+            clearNewHook()
+            {
+                setTimeout(() => { this.newHook.description = undefined; }, 500);
+            },
+            cancelNewHook()
+            {
+                this.clearNewHook();
+                this.$refs.newHook.close();
+            },
+            saveNewHook()
+            {
+                this.character.hooks.push(_.cloneDeep(this.newHook));
+                this.clearNewHook();
+                this.$refs.newHook.close();
             }
         }
     }
