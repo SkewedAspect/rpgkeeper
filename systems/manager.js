@@ -64,7 +64,7 @@ class SystemManager
                         {
                             if(baseChar.owner == request.user.email)
                             {
-                                _.merge(character, update);
+                                _.assign(character, update);
                                 return character.save();
                             }
                             else
