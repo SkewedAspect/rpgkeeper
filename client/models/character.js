@@ -31,7 +31,7 @@ class CharacterModel
     _save()
     {
         const verb = this.$base.id ? 'put' : 'post';
-        return Promise.all($http[verb](this.baseURL, this.$base), $http[verb](this.systemURL, this.$system))
+        return Promise.join($http[verb](this.baseURL, this.$base), $http[verb](this.systemURL, this.$system))
             .then(() => this);
     } // end _save
 
