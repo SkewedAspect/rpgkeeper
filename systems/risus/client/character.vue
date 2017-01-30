@@ -11,12 +11,13 @@
                     <md-card-content>
                         <md-input-container>
                             <label>Name</label>
-                            <md-input v-model="character.name"></md-input>
+                            <md-input v-model="name"></md-input>
                         </md-input-container>
                         <md-input-container>
                             <label>Description</label>
-                            <md-textarea v-model="character.description"></md-textarea>
+                            <md-textarea v-model="description"></md-textarea>
                         </md-input-container>
+                        <pool name="Lucky Shots" v-model="character.luckyShots.current" :max="character.luckyShots.max"></pool>
                     </md-card-content>
                 </md-card>
             </md-layout>
@@ -38,7 +39,7 @@
                         <md-card-content style="flex: 1">
                             <md-list>
                                 <hook-item  v-for="(hook, index) in hooks" :hook="hook"
-                                              @deleted="onDeleteHook(index)"></hook-item>
+                                    @deleted="onDeleteHook(index)"></hook-item>
                             </md-list>
                         </md-card-content>
                         <md-card-actions>
@@ -120,9 +121,10 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
-    import PortraitComponent from '../../../client/components/portrait.vue';
 
     // Components
+    import PoolComponent from '../../../client/components/pool.vue';
+    import PortraitComponent from '../../../client/components/portrait.vue';
     import ClicheComponent from './components/cliche.vue';
     import HookComponent from './components/hook.vue';
 
@@ -130,6 +132,7 @@
 
     export default {
         components: {
+            pool: PoolComponent,
             portrait: PortraitComponent,
             clicheItem: ClicheComponent,
             hookItem: HookComponent
@@ -154,6 +157,14 @@
             };
         },
         computed: {
+            name: {
+                get: function(){ return this.character.name; },
+                set: function(val){ this._setName(val); }
+            },
+            description: {
+                get: function(){ return this.character.description; },
+                set: function(val){ this._setDescription(val); }
+            },
             cliches()
             {
                 return _.sortBy(this.character.cliches, 'value').reverse();
@@ -219,6 +230,18 @@
                 this.clearNewHook();
                 this.$refs.newHook.close();
             }
+        },
+        watch: {
+            character: {
+                handler: function(){ this.character.$save(); },
+                deep: true
+            }
+        },
+        mounted()
+        {
+            // Debounce functions
+            this._setDescription = _.debounce((desc) => { this.character.description = desc; }, 1000, { maxWait: 2000 });
+            this._setName = _.debounce((name) => { this.character.name = name; }, 1000, { maxWait: 2000 });
         }
     }
 </script>

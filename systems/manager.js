@@ -10,6 +10,8 @@ const routeUtils = require('../server/routes/utils');
 const promisify = routeUtils.promisify;
 const ensureAuthenticated = routeUtils.ensureAuthenticated;
 
+const baseModels = require('../server/models');
+
 // Systems
 const Risus = require('./risus/system');
 const Generic = require('./generic/system');
@@ -54,21 +56,25 @@ class SystemManager
         {
             const update = _.merge({}, _.omit(request.body, 'id'), { owner: request.user.email });
 
-            return models.Character.get(request.params.charID)
-                .then((character) =>
+            return baseModels.BaseCharacter.get(request.params.charID)
+                .then((baseChar) =>
                 {
-                    if(character.owner == request.user.email)
-                    {
-                        _.merge(character, update);
-                        return character.save();
-                    }
-                    else
-                    {
-                        response.status(403).json({
-                            type: 'NotAuthorized',
-                            message: `You are not authorized to update system character '${ request.params.charID }'.`
-                        });
-                    } // end if
+                    return models.Character.get(request.params.charID)
+                        .then((character) =>
+                        {
+                            if(baseChar.owner == request.user.email)
+                            {
+                                _.merge(character, update);
+                                return character.save();
+                            }
+                            else
+                            {
+                                response.status(403).json({
+                                    type: 'NotAuthorized',
+                                    message: `You are not authorized to update system character '${ request.params.charID }'.`
+                                });
+                            } // end if
+                        })
                 })
                 .catch(models.errors.DocumentNotFound, (error) =>
                 {

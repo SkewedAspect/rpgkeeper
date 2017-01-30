@@ -4,6 +4,7 @@
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
+import Vue from 'vue';
 import $http from 'axios';
 import Promise from 'bluebird';
 
@@ -41,6 +42,21 @@ class CharacterService
                 {
                     return target.$system[name];
                 } // end if
+            },
+            set(target, name, value)
+            {
+                let actualTarget = target.$system;
+                if(name in target)
+                {
+                    actualTarget = target;
+                }
+                else if(name in target.$base)
+                {
+                    actualTarget = target.$base;
+                } // end if
+
+                Vue.set(actualTarget, name, value);
+                return actualTarget[name] == value;
             }
         };
     } // end _buildHandler()
