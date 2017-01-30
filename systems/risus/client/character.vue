@@ -17,7 +17,7 @@
                             <label>Description</label>
                             <md-textarea v-model="description" ref="desc"></md-textarea>
                         </md-input-container>
-                        <pool name="Lucky Shots" v-model="character.luckyShots.current" :max="character.luckyShots.max"></pool>
+                        <pool name="Lucky Shots" :pool="character.luckyShots"></pool>
                     </md-card-content>
                 </md-card>
             </md-layout>
