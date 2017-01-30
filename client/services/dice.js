@@ -18,7 +18,7 @@ class DiceService {
     roll(rollTxt, scope)
     {
         // We cache the expression objects, since they're costly to create, and can be evaluated multiple times.
-        var expr = this.cache.get(rollTxt);
+        let expr = this.cache.get(rollTxt);
         if(!expr)
         {
             expr = rpgdice.parse(rollTxt);

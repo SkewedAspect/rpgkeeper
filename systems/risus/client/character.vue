@@ -6,47 +6,70 @@
     <div id="risus-character" class="container">
         <md-layout md-gutter="16">
             <portrait :src="character.portrait"></portrait>
-            <md-layout md-flex-xsmall="100" style="min-width: 50%">
+            <md-layout md-flex-xsmall="100" style="min-width: 275px">
                 <md-card style="flex: 1">
-                    <md-card-content>
+                    <md-card-content style="flex: 1">
                         <md-input-container>
                             <label>Name</label>
                             <md-input v-model="name"></md-input>
                         </md-input-container>
                         <md-input-container>
                             <label>Description</label>
-                            <md-textarea v-model="description"></md-textarea>
+                            <md-textarea v-model="description" ref="desc"></md-textarea>
                         </md-input-container>
                         <pool name="Lucky Shots" v-model="character.luckyShots.current" :max="character.luckyShots.max"></pool>
                     </md-card-content>
                 </md-card>
             </md-layout>
-                <md-layout md-flex-small="100" style="min-width: 50%">
-                    <md-card style="flex: 1">
-                        <md-card-content style="flex: 1">
-                            <md-list class="md-double-line">
-                                <cliche-item  v-for="(cliche, index) in cliches" :cliche="cliche"
-                                              @deleted="onDeleteCliche(index)"></cliche-item>
-                            </md-list>
-                        </md-card-content>
-                        <md-card-actions>
-                            <md-button @click="openNewCliche()">Add Cliche</md-button>
-                        </md-card-actions>
-                    </md-card>
-                </md-layout>
-                <md-layout md-flex-small="100" style="min-width: 50%">
-                    <md-card style="flex: 1">
-                        <md-card-content style="flex: 1">
-                            <md-list>
-                                <hook-item  v-for="(hook, index) in hooks" :hook="hook"
-                                    @deleted="onDeleteHook(index)"></hook-item>
-                            </md-list>
-                        </md-card-content>
-                        <md-card-actions>
-                            <md-button @click="openNewHook()">Add Hook</md-button>
-                        </md-card-actions>
-                    </md-card>
-                </md-layout>
+            <md-layout md-flex-xsmall="100" style="min-width: 275px">
+                <md-card style="flex: 1">
+                    <md-card-content style="flex: 1; padding-bottom: 0">
+                        <md-input-container md-inline style="margin-bottom: 10px;">
+                            <label>Roll this many six sided dice...</label>
+                            <md-input type="number" min="0" v-model="dice"></md-input>
+                        </md-input-container>
+                        <md-list class="md-double-line md-dense roll-list">
+                            <md-list-item v-for="item in rolls">
+                                <div class="md-list-text-container">
+                                    <span>{{ item.display }}</span>
+                                    <span>{{ item.name }}</span>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-card-content>
+                    <md-card-actions>
+                        <md-button @click="roll()">Roll</md-button>
+                        <md-button @click="clearRolls()">Clear</md-button>
+                    </md-card-actions>
+                </md-card>
+            </md-layout>
+            <md-layout md-flex-small="100" style="min-width: 50%">
+                <md-card style="flex: 1">
+                    <md-card-content style="flex: 1">
+                        <md-list class="md-double-line">
+                            <cliche-item  v-for="(cliche, index) in cliches" :cliche="cliche"
+                                          @click.native="rollCliche(cliche)"
+                                          @deleted="onDeleteCliche(index)"></cliche-item>
+                        </md-list>
+                    </md-card-content>
+                    <md-card-actions>
+                        <md-button @click="openNewCliche()">Add Cliche</md-button>
+                    </md-card-actions>
+                </md-card>
+            </md-layout>
+            <md-layout md-flex-small="100" style="min-width: 50%">
+                <md-card style="flex: 1">
+                    <md-card-content style="flex: 1">
+                        <md-list>
+                            <hook-item  v-for="(hook, index) in hooks" :hook="hook"
+                                @deleted="onDeleteHook(index)"></hook-item>
+                        </md-list>
+                    </md-card-content>
+                    <md-card-actions>
+                        <md-button @click="openNewHook()">Add Hook</md-button>
+                    </md-card-actions>
+                </md-card>
+            </md-layout>
         </md-layout>
 
         <!-- Dialogs -->
@@ -95,7 +118,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass" scoped>
+<style rel="stylesheet/scss" lang="sass">
     #risus-character {
         padding: 8px 16px;
 
@@ -112,6 +135,15 @@
                 display: none;
             }
         }
+
+        .roll-list {
+            overflow-y: auto;
+            max-height: 275px;
+
+            .md-list-item-container {
+                min-height: 40px !important;
+            }
+        }
     }
 </style>
 
@@ -121,6 +153,9 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
+
+    // Services
+    import diceSvc from '../../../client/services/dice';
 
     // Components
     import PoolComponent from '../../../client/components/pool.vue';
@@ -146,6 +181,9 @@
         data()
         {
             return {
+                dice: undefined,
+                rollName: undefined,
+                rolls: [],
                 newCliche: {
                     value: undefined,
                     description: undefined,
@@ -175,6 +213,26 @@
             }
         },
         methods: {
+            roll()
+            {
+                const roll = diceSvc.roll(`${ this.dice }d6`);
+                this.rolls.unshift({ roll, name: this.rollName, display: `${ roll.render() } = ${ roll.value }` });
+                this.rollName = undefined;
+            },
+            clearRolls()
+            {
+                this.rolls = [];
+                this.dice = null;
+                this.rollName = undefined;
+            },
+
+            rollCliche(cliche)
+            {
+                this.dice = cliche.value;
+                this.rollName = cliche.description;
+                this.roll();
+            },
+
             onDeleteCliche(clicheIndex)
             {
                 this.character.cliches.splice(clicheIndex, 1)
@@ -239,6 +297,13 @@
         },
         mounted()
         {
+            // FIXME: This is to work arounf a bug with textarea resizing!
+            setTimeout(() =>
+            {
+                this.character.description = this.character.description + ' ';
+                this.character.description = this.character.description.trim();
+            }, 250);
+
             // Debounce functions
             this._setDescription = _.debounce((desc) => { this.character.description = desc; }, 1000, { maxWait: 2000 });
             this._setName = _.debounce((name) => { this.character.name = name; }, 1000, { maxWait: 2000 });
