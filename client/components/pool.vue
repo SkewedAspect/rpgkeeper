@@ -4,7 +4,12 @@
 
 <template>
     <div id="pool">
-        <div v-if="name" class="pool-label md-subheading">{{ name }}</div>
+        <div class="clearfix">
+            <md-button class="md-icon-button md-dense edit-btn" @click="openEditMax()">
+                <md-icon>edit</md-icon>
+            </md-button>
+            <div v-if="name" class="pool-label md-subheading">{{ name }}</div>
+        </div>
         <div v-if="max > 0" class="pool-icons">
             <span v-for="index in poolRange">
                 <md-icon v-if="isChecked(index)"
@@ -24,6 +29,24 @@
             </span>
         </div>
         <h2 class="md-caption" v-else>No Pool.</h2>
+
+        <!-- Edit Dialog -->
+
+        <md-dialog ref="editPool">
+            <md-dialog-title>Edit Pool</md-dialog-title>
+
+            <md-dialog-content>
+                <md-input-container>
+                    <label>Maximum</label>
+                    <md-input type="number" v-model="editMax"></md-input>
+                </md-input-container>
+            </md-dialog-content>
+
+            <md-dialog-actions>
+                <md-button class="md-primary" @click="cancelEdit()">Cancel</md-button>
+                <md-button class="md-primary" @click="saveEdit()">Ok</md-button>
+            </md-dialog-actions>
+        </md-dialog>
     </div>
 </template>
 
@@ -41,6 +64,23 @@
                 cursor: pointer;
             }
         }
+
+        .edit-btn {
+            float: right;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            min-height: 24px;
+            line-height: 24px;
+
+            .md-icon {
+                font-size: 16px;
+                width: 16px;
+                height: 16px;
+                min-width: 16px;
+                min-height: 16px;
+            }
+        }
     }
 </style>
 
@@ -55,11 +95,10 @@
 
     export default {
         props: {
-            max: {
-                type: Number,
+            pool: {
+                type: Object,
                 required: true
             },
-            value: {},
             name: { type: String },
             checkedIcon: {
                 type: String,
@@ -73,18 +112,25 @@
         data()
         {
             return {
-                hoveredIndex: undefined
+                hoveredIndex: undefined,
+                editMax: null
             };
         },
         computed:
         {
             poolRange(){ return _.range(this.max); },
-            current: {
-                get: function(){ return this.value; },
+            max: {
+                get: function(){ return this.pool.max; },
                 set: function(val)
                 {
-                    const newVal = val < 0 ? undefined : val;
-                    this.$emit('input', newVal);
+                    this.pool.max = val < 0 ? undefined : val;
+                },
+            },
+            current: {
+                get: function(){ return this.pool.current; },
+                set: function(val)
+                {
+                    this.pool.current = val < 0 ? undefined : val;
                 },
             },
             currentIndex()
@@ -94,6 +140,11 @@
             }
         },
         methods: {
+            openEditMax()
+            {
+                this.editMax = this.pool.max;
+                this.$refs.editPool.open();
+            },
             onMouseOver(index)
             {
                 this.hoveredIndex = index;
@@ -123,6 +174,17 @@
             isChecked(index)
             {
                 return index <= this.currentIndex;
+            },
+            cancelEdit()
+            {
+                this.editMax = null;
+                this.$refs.editPool.close();
+            },
+            saveEdit()
+            {
+                this.pool.max = this.editMax;
+                this.editMax = null;
+                this.$refs.editPool.close();
             }
         }
     }
