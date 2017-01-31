@@ -11,13 +11,13 @@
                     <md-card-content style="flex: 1">
                         <md-input-container>
                             <label>Name</label>
-                            <md-input v-model="name"></md-input>
+                            <md-input v-model="name" :disabled="!isAuthorized"></md-input>
                         </md-input-container>
                         <md-input-container>
                             <label>Description</label>
-                            <md-textarea v-model="description" ref="desc"></md-textarea>
+                            <md-textarea v-model="description" :disabled="!isAuthorized"></md-textarea>
                         </md-input-container>
-                        <pool name="Lucky Shots" :pool="character.luckyShots"></pool>
+                        <pool name="Lucky Shots" :pool="character.luckyShots" :edit-disabled="!isAuthorized"></pool>
                     </md-card-content>
                 </md-card>
             </md-layout>
@@ -49,11 +49,11 @@
                         <md-list class="md-double-line">
                             <cliche-item  v-for="(cliche, index) in cliches" :cliche="cliche"
                                           @click.native="rollCliche(cliche)"
-                                          @deleted="onDeleteCliche(index)"></cliche-item>
+                                          @deleted="onDeleteCliche(index)" :disabled="!isAuthorized"></cliche-item>
                         </md-list>
                     </md-card-content>
                     <md-card-actions>
-                        <md-button @click="openNewCliche()">Add Cliche</md-button>
+                        <md-button @click="openNewCliche()" :disabled="!isAuthorized">Add Cliche</md-button>
                     </md-card-actions>
                 </md-card>
             </md-layout>
@@ -62,11 +62,11 @@
                     <md-card-content style="flex: 1">
                         <md-list>
                             <hook-item  v-for="(hook, index) in hooks" :hook="hook"
-                                @deleted="onDeleteHook(index)"></hook-item>
+                                @deleted="onDeleteHook(index)" :disabled="!isAuthorized"></hook-item>
                         </md-list>
                     </md-card-content>
                     <md-card-actions>
-                        <md-button @click="openNewHook()">Add Hook</md-button>
+                        <md-button @click="openNewHook()" :disabled="!isAuthorized">Add Hook</md-button>
                     </md-card-actions>
                 </md-card>
             </md-layout>
@@ -155,6 +155,7 @@
     import _ from 'lodash';
 
     // Services
+    import stateSvc from '../../../client/services/state';
     import diceSvc from '../../../client/services/dice';
 
     // Components
@@ -181,6 +182,8 @@
         data()
         {
             return {
+                state: stateSvc.state,
+
                 dice: undefined,
                 rollName: undefined,
                 rolls: [],
@@ -195,6 +198,8 @@
             };
         },
         computed: {
+            account(){ return this.state.account; },
+            isAuthorized(){ return _.get(this.account, 'email', 'nope!') == this.character.owner; },
             name: {
                 get: function(){ return this.character.name; },
                 set: function(val){ this._setName(val); }

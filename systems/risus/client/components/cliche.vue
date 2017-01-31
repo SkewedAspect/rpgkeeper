@@ -8,11 +8,11 @@
             <span><b>{{ cliche.description }}</b> ({{ cliche.value }})</span>
             <span>Tools/Abilities: {{ cliche.tools }}</span>
         </div>
-        <md-button class="md-icon-button md-list-action"
+        <md-button v-if="!disabled" class="md-icon-button md-list-action"
                    @click.prevent.stop="edit()">
             <md-icon>edit</md-icon>
         </md-button>
-        <md-button class="md-icon-button md-list-action md-warn"
+        <md-button v-if="!disabled" class="md-icon-button md-list-action md-warn"
                    @click.prevent.stop="confirmDelete()">
             <md-icon class="md-warn">delete</md-icon>
         </md-button>
@@ -76,6 +76,10 @@
             cliche: {
                 type: Object,
                 required: true
+            },
+            disabled: {
+                type: Boolean,
+                default: false
             }
         },
         data()
