@@ -1,5 +1,5 @@
 <!--------------------------------------------------------------------------------------------------------------------->
-<!-- hook.vue                                                                                                         -->
+<!-- Hook Item                                                                                                       -->
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
@@ -8,11 +8,11 @@
             <span><b>{{ hook.description }}</b></span>
         </div>
 
-        <md-button class="md-icon-button md-list-action"
+        <md-button v-if="!disabled" class="md-icon-button md-list-action"
                    @click.prevent.stop="edit()">
             <md-icon>edit</md-icon>
         </md-button>
-        <md-button class="md-icon-button md-list-action md-warn"
+        <md-button v-if="!disabled" class="md-icon-button md-list-action md-warn"
                    @click.prevent.stop="confirmDelete()">
             <md-icon class="md-warn">delete</md-icon>
         </md-button>
@@ -43,7 +43,6 @@
                 <md-button class="md-primary" @click="saveEdit()">Ok</md-button>
             </md-dialog-actions>
         </md-dialog>
-
     </md-list-item>
 </template>
 
@@ -68,6 +67,10 @@
             hook: {
                 type: Object,
                 required: true
+            },
+            disabled: {
+                type: Boolean,
+                default: false
             }
         },
         data()

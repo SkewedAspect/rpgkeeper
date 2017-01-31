@@ -5,7 +5,7 @@
 <template>
     <div id="pool">
         <div class="clearfix">
-            <md-button class="md-icon-button md-dense edit-btn" @click="openEditMax()">
+            <md-button class="md-icon-button md-dense edit-btn" @click="openEditMax()" v-if="!editDisabled">
                 <md-icon>edit</md-icon>
             </md-button>
             <div v-if="name" class="pool-label md-subheading">{{ name }}</div>
@@ -13,14 +13,14 @@
         <div v-if="max > 0" class="pool-icons">
             <span v-for="index in poolRange">
                 <md-icon v-if="isChecked(index)"
-                         :class="checkHover(index)"
+                         :class="[checkHover(index), { 'read-only': editDisabled }]"
                          @mouseover.native="onMouseOver(index)"
                          @mouseout.native="onMouseOut(index)"
                          @click.native.prevent.stop="setIndex(index)">
                     {{ checkedIcon }}
                 </md-icon>
                 <md-icon v-else
-                         :class="checkHover(index)"
+                         :class="[checkHover(index), { 'read-only': editDisabled }]"
                          @mouseover.native="onMouseOver(index)"
                          @mouseout.native="onMouseOut(index)"
                          @click.native.prevent.stop="setIndex(index)">
@@ -62,6 +62,10 @@
         .pool-icons {
             .md-icon {
                 cursor: pointer;
+
+                &.read-only {
+                    cursor: inherit;
+                }
             }
         }
 
@@ -107,6 +111,10 @@
             uncheckedIcon: {
                 type: String,
                 default: 'check_box_outline_blank'
+            },
+            editDisabled: {
+                type: Boolean,
+                default: false
             }
         },
         data()
@@ -142,26 +150,38 @@
         methods: {
             openEditMax()
             {
-                this.editMax = this.pool.max;
-                this.$refs.editPool.open();
+                if(!this.editDisabled)
+                {
+                    this.editMax = this.pool.max;
+                    this.$refs.editPool.open();
+                } // end if
             },
             onMouseOver(index)
             {
-                this.hoveredIndex = index;
+                if(!this.editDisabled)
+                {
+                    this.hoveredIndex = index;
+                } // end if
             },
             onMouseOut()
             {
-                this.hoveredIndex = undefined;
+                if(!this.editDisabled)
+                {
+                    this.hoveredIndex = undefined;
+                } // end if
             },
             setIndex(index)
             {
-                if(index == this.currentIndex)
+                if(!this.editDisabled)
                 {
-                    this.current -= 1;
-                }
-                else
-                {
-                    this.current = (index + 1);
+                    if(index == this.currentIndex)
+                    {
+                        this.current -= 1;
+                    }
+                    else
+                    {
+                        this.current = (index + 1);
+                    } // end if
                 } // end if
             },
             checkHover(index)
