@@ -19,29 +19,43 @@ The systems I'm initially building/supporting:
 
 * Generic System
     * This should be suitable for any system that doesn't use special dice. (Or, any system, if you don't mind rolling physical dice.)
-* Dungeons and Dragons 4th Edition
-    * I still run/play in several of these campaigns, so I plan on supporting this for a while to come.
-* Edge of the Empire
-    * I run a lot of EotE content, and the system is simple enough it wasn't that hard.
-
-These are systems I'd like to add support for:
-
-* Vampire the Masquerade
-    * This is nostalgic for me, and I have a lot of old characters I'd like to digitize.
-* Dungeons and Dragons 3.5 Edition
-    * Another nostalgic system that still has quite a following.
-* Dungeons and Dragons 5th Edition
-    * While I'm not a fan, I know it's the next version of D&D, and I'd like to support it.
 * Risus
     * Should be simple, and is great for one-shots.
+* Edge of the Empire
+    * I run a lot of EotE content, and the system is simple enough it wasn't that hard.
+* Dungeons and Dragons 3.5 Edition
+    * Another nostalgic system that still has quite a following.
+* Dungeons and Dragons 4th Edition
+    * I still run/play in several of these campaigns, so I plan on supporting this for a while to come.
+* Dungeons and Dragons 5th Edition
+    * While I'm not a fan, I know it's the next version of D&D, and I'd like to support it.
+* Vampire the Masquerade
+    * This is nostalgic for me, and I have a lot of old characters I'd like to digitize.
 
-## TODO:
+## Current Progress
 
-* [ ] Read-only support: [#4](https://github.com/Morgul/rpgkeeper/issues/4)
-* [ ] Add a loading bar when loading the character for the first time: [#6](https://github.com/Morgul/rpgkeeper/issues/6)
-* [ ] Add saving/saved indicator: [#7](https://github.com/Morgul/rpgkeeper/issues/7)
-* [ ] Convert existing systems
-    * [ ] Generic System: [#5](https://github.com/Morgul/rpgkeeper/issues/5)
-        * [ ] Pull all modals out into their own components. _These will be easier to work with in the long run._ 
-    * [ ] EotE System
-        * [ ]  EVEYRTHING NEEDS CONVERSION
+* [ ] Campaign Support
+    * [ ] Initial Design
+* [ ] Systems
+    * [ ] Generic System
+        * [ ] Convert old system
+        * [ ] Data model
+        * [ ] UI
+    * [X] Risus
+        * [X] Data model
+        * [X] UI
+    * [ ] Edge of the Empire
+        * [X] Data Model
+        * [ ] UI
+    * [ ] Dungeons and Dragons 3.5
+        * [ ] Data model
+        * [ ] UI
+    * [ ] Dungeons and Dragons 4
+        * [ ] Data model
+        * [ ] UI
+    * [ ] Dungeons and Dragons 5
+        * [ ] Data model
+        * [ ] UI
+    * [ ] Vampire the Masquerade
+        * [ ] Data model
+        * [ ] UI
