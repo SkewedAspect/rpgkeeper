@@ -7,12 +7,18 @@
 import _ from 'lodash';
 import $http from 'axios';
 
+import BaseService from './base';
+
 //----------------------------------------------------------------------------------------------------------------------
 
-class SystemService {
+class SystemService extends BaseService
+{
     constructor()
     {
-        this.systems = [];
+        super();
+
+        // State properties
+        this.$defineProperty('systems', []);
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------

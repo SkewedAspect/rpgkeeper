@@ -14,9 +14,20 @@
 
                         <md-input-container md-inline style="flex: 1">
                             <md-input placeholder="Filter"></md-input>
+                            <md-icon style="margin: 8px">search</md-icon>
                         </md-input-container>
 
-                        <md-icon style="margin: 8px">search</md-icon>
+                        <md-menu md-direction="bottom left">
+                            <md-button class="md-icon-button" md-menu-trigger>
+                                <md-icon>filter_list</md-icon>
+                            </md-button>
+
+                            <md-menu-content>
+                                <md-menu-item>Filters</md-menu-item>
+                                <md-menu-item>Go</md-menu-item>
+                                <md-menu-item>Here</md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
                     </md-toolbar>
 
                     <md-card-content style="flex: 1">
@@ -37,9 +48,21 @@
 
                         <md-input-container md-inline style="flex: 1">
                             <md-input placeholder="Filter"></md-input>
+                            <md-icon style="margin: 8px">search</md-icon>
                         </md-input-container>
 
-                        <md-icon style="margin: 8px">search</md-icon>
+                        <md-menu md-direction="bottom left" md-size="7">
+                            <md-button class="md-icon-button" :class="{ 'md-accent': !!systemFilter }" md-menu-trigger>
+                                <md-icon>filter_list</md-icon>
+                            </md-button>
+
+                            <md-menu-content>
+                                <md-menu-item :class="{ 'md-accent': systemFilter == system.id }"
+                                              v-for="system in systems" @click="setSystemFilter(system.id)">
+                                    {{ system.name }}
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
                     </md-toolbar>
 
                     <md-card-content style="flex: 1">
@@ -96,6 +119,10 @@
                     }
                 }
 
+                .md-icon {
+                    color: white;
+                }
+
                 &:after {
                     background-color: rgba(200, 200, 200, .87);
                 }
@@ -109,6 +136,8 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    import _ from 'lodash';
+    import stateSvc from '../../services/state';
     import systemSvc from '../../services/system';
     import charSvc from '../../services/character';
     
@@ -118,13 +147,40 @@
         data()
         {
             return {
-                characters: []
+                state: stateSvc.state,
+                systemFilter: undefined,
+                characterList: []
             };
+        },
+        computed: {
+            systems(){ return this.state.systems; },
+            characters()
+            {
+                if(this.systemFilter)
+                {
+                    return _.filter(this.characterList, { systemID: this.systemFilter });
+                }
+                else
+                {
+                    return this.characterList;
+                } // end if
+            }
         },
         methods: {
             goTo(path)
             {
                 this.$router.push(path);
+            },
+            setSystemFilter(systemID)
+            {
+                if(this.systemFilter != systemID)
+                {
+                    this.systemFilter = systemID;
+                }
+                else
+                {
+                    this.systemFilter = undefined;
+                } // end if
             }
         },
         mounted()
@@ -138,7 +194,7 @@
                     return charSvc.refresh()
                         .then((characters) =>
                         {
-                            this.characters = characters;
+                            this.characterList = characters;
                         });
                 });
             });
