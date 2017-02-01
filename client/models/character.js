@@ -24,6 +24,7 @@ class CharacterModel
 
     get baseURL(){ return `/characters/${ this.$base.id || '' }`; }
     get systemURL(){ return `/systems/${ this.$base.system }/character/${ this.$base.id || '' }`; }
+    get systemID(){ return this.$base.system; }
     get system(){ return systemSvc.get(this.$base.system); }
 
     //------------------------------------------------------------------------------------------------------------------
