@@ -1,0 +1,2003 @@
+{
+    "Transcendent Lineage": {
+        "name": "Transcendent Lineage",
+        "description": "*Benefit:* When you use your _memory of a thousand lifetimes_ racial power, you can reroll the die and add either result to the triggering roll.",
+        "prerequisites": "21st level, deva",
+        "id": "Transcendent Lineage"
+    },
+    "Shard Link": {
+        "name": "Shard Link",
+        "description": "Once during each of your turns, when you attack an enemy that you have combat advantage against, choose one ally within range of your telepathy. The ally gains combat advantage on his or her next attack against that enemy made before the start of your next turn.",
+        "prerequisites": "shardmind, telepathy racial trait, any psionic class",
+        "id": "Shard Link"
+    },
+    "Implement Expertise": {
+        "name": "Implement Expertise",
+        "description": "Choose a type of implement. You gain a +1 bonus to attack rolls with any implement power you use through that type of implement. The bonus increases to +2 at 15th level and +3 at 25th level.",
+        "prerequisites": "",
+        "special": "You can take this feat more than once. Each time you take this feat, choose a different type of implement.",
+        "id": "Implement Expertise"
+    },
+    "Psionic Rush [Augment]": {
+        "name": "Psionic Rush [Augment]",
+        "description": "When you spend an action point to take an extra action, you can reduce the cost to augment any augmentable power you use during that action by 1 power point.",
+        "prerequisites": "11th level, Psionic Augmentation class feature",
+        "id": "Psionic Rush [Augment]"
+    },
+    "Radiant Fist's Action (Radiant Fist)": {
+        "name": "Radiant Fist's Action (Radiant Fist)",
+        "description": "When you spend an action point to take an extra action, you regain 15 hit points. Until the end of your next turn, your attacks deal extra radiant damage equal to your Wisdom modifier.",
+        "prerequisites": "11th level",
+        "id": "Radiant Fist's Action (Radiant Fist)"
+    },
+    "Liberating Shard Swarm": {
+        "name": "Liberating Shard Swarm",
+        "description": "When you use your shard swarm, you can also make a saving throw.",
+        "prerequisites": "shardmind, shard swarm racial power",
+        "id": "Liberating Shard Swarm"
+    },
+    "Time-Lapse Time Bender Path Feature": {
+        "name": "Time-Lapse Time Bender Path Feature",
+        "description": "When you spend an action point to make an attack with a psionic power, you gain a +1 bonus to the attack roll and can teleport 6 squares as a free action after the attack.",
+        "prerequisites": "11th level, Psion",
+        "id": "Time-Lapse Time Bender Path Feature"
+    },
+    "Sneak Attack (Rogue)": {
+        "id": "Sneak Attack (Rogue)",
+        "name": "Sneak Attack (Rogue)",
+        "prerequisites": "Rogue",
+        "description": "Once per round, when you have combat advantage against an enemy and are using a weapon from the light blade, the crossbow, or the sling weapon group, an attack you make against that enemy deals extra damage if the attack hits. You decide whether to apply the extra damage after making the damage roll. As you advance in level, your extra damage increases.\n\n\nLevel             |  Sneak Attack Damage\n----------  |  -------------------\n1st-10th       |  +2d6\n11st-20th     |  +3d6\n21st-30th     |  +5d6",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Dual Challenge": {
+        "name": "Dual Challenge",
+        "description": "Whenever you mark an enemy with Combat Challenge, you can mark one additional enemy adjacent to that enemy. This mark lasts until the end ofyour next turn.",
+        "prerequisites": "21st level, fighter, Combat Challenge class feature",
+        "special": "",
+        "id": "Dual Challenge"
+    },
+    "Martial Alacrity": {
+        "name": "Martial Alacrity",
+        "description": "You gain a +2 feat bonus to initiative checks. Also, during your first turn in an encounter, you can shift as a minor action.",
+        "prerequisites": "Dex 15, any martial class",
+        "special": "",
+        "id": "Martial Alacrity"
+    },
+    "Dagger Advantage (Daggermaster)": {
+        "id": "Dagger Advantage (Daggermaster)",
+        "name": "Dagger Advantage (Daggermaster)",
+        "prerequisites": "Daggermaster paragon path, 16th level",
+        "description": "When you score a critical hit with a dagger, the target grants combat advantage to you until the end of your next turn.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Eyes in the Back of Your Head": {
+        "name": "Eyes in the Back of Your Head",
+        "description": "Being flanked doesn't cause you to grant combat advantage.",
+        "prerequisites": "11th level",
+        "id": "Eyes in the Back of Your Head"
+    },
+    "Rogue Weapon Mastery": {
+        "id": "Rogue Weapon Mastery",
+        "name": "Rogue Weapon Mastery",
+        "prerequisites": "11th level, Rogue, Rogue Weapon Talent",
+        "description": "When you wield a dagger or shuriken the weapon gains the high crit property.\r\n\r\n**High Crit**: A high crit weapon deals more damage when you score a critical hit with it. A critical hit deals maximum weapon damage and an extra 1[W] at 1st–10th levels, an extra 2[W] at 11th–20th levels, and an extra 3[W] at 21st–30th levels. This extra damage is in addition to any critical damage the weapon supplies if it is a magic weapon.",
+        "special": "",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Deft Blade ": {
+        "name": "Deft Blade ",
+        "description": "When you make a basic attack using a light blade,you can target AC or Reflex.",
+        "prerequisites": "11th level, any martial class",
+        "special": "",
+        "id": "Deft Blade "
+    },
+    "Halfling Agility": {
+        "name": "Halfling Agility",
+        "description": "When you use your halfling _second chance_ ability, the attacker takes a -2 penalty to the new attack roll.",
+        "prerequisites": "Halfling, _second chance_ racial power",
+        "special": "",
+        "id": "Halfling Agility"
+    },
+    "Expansive Burst": {
+        "name": "Expansive Burst",
+        "description": "Your close burst and area burst attacks ignore cover, but not superior cover.",
+        "prerequisites": "11th level",
+        "special": "",
+        "id": "Expansive Burst"
+    },
+    "Fey Trickster": {
+        "name": "Fey Trickster",
+        "description": "You gain the wizard cantrips _mage hand_ and _prestidigitation_ as encounter powers.",
+        "prerequisites": "Gnome",
+        "special": "",
+        "id": "Fey Trickster"
+    },
+    "Arcane Admixture": {
+        "id": "Arcane Admixture",
+        "name": "Arcane Admixture",
+        "prerequisites": "11th level, any arcane class",
+        "description": "Choose one arcane power that you know and choose acid, cold, fire, lightning, or thunder. The power now deals that damage type in addition to its normal damage type and gains that keyword.\r\n\r\nEach time you gain a level, you can choose to reassign either the power to which this feat's effect applies or the additional damage type applied (or both).",
+        "special": "You can take this feat more than once. Each time you select this feat, choose a different power. You can't apply this feat to the same power more than once.",
+        "owner": "chris.case@g33xnexus.com",
+        "exists": true
+    },
+    "Arcane Mastery": {
+        "name": "Arcane Mastery",
+        "description": "Once per encounter, you can spend an action point to regain the use of a daily wizard power you've already used today, instead of taking an extra action.",
+        "prerequisites": "Wizard",
+        "special": "",
+        "id": "Arcane Mastery"
+    },
+    "Improved Second Wind": {
+        "name": "Improved Second Wind",
+        "description": "When you use your second wind, you heal an additional 5 hit points.",
+        "id": "Improved Second Wind"
+    },
+    "Battle Sovereignty [Invincible Mind Path Feature]": {
+        "name": "Battle Sovereignty [Invincible Mind Path Feature]",
+        "description": "You gain a +10 bonus to initiative checks and a +2 bonus to weapon attack rolls.",
+        "prerequisites": "21st Level, Invincible Mind Epic Destiny",
+        "id": "Battle Sovereignty [Invincible Mind Path Feature]"
+    },
+    "Borrow from the Future Time Bender Path Feature": {
+        "name": "Borrow from the Future Time Bender Path Feature",
+        "description": "You can take an extra move action during your turn, but if you do so, you lose your move action on your next turn. You can't use this feature on consecutive rounds.",
+        "prerequisites": "16th level, Psion",
+        "id": "Borrow from the Future Time Bender Path Feature"
+    },
+    "Steel Defense Action (Swordmaster)": {
+        "name": "Steel Defense Action (Swordmaster)",
+        "description": "When you spend an action point to take an extra action, you also gain a +4 bonus to AC and Reflex defense until the start of your next turn.",
+        "prerequisites": "Swordmaster paragon path, 11th level",
+        "id": "Steel Defense Action (Swordmaster)"
+    },
+    "Defense Bonuses (Human)": {
+        "id": "Defense Bonuses (Human)",
+        "name": "Defense Bonuses (Human)",
+        "prerequisites": "Human",
+        "description": "+1 to Fortitude, Reflex, and Will defenses.",
+        "exists": true,
+        "owner": "chris.case@g33xnexus.com"
+    },
+    "Oncoming Storm": {
+        "name": "Oncoming Storm",
+        "description": "When you hit with any lightning attack power, you gain a +1 bonus to attack rolls with thunder powers until the end of your next turn.",
+        "prerequisites": "",
+        "special": "",
+        "id": "Oncoming Storm"
+    },
+    "Weapon Focus": {
+        "id": "Weapon Focus",
+        "name": "Weapon Focus",
+        "prerequisites": "",
+        "description": "Choose a specific weapon group, such as spears or heavy blades. You gain a +1 feat bonus to damage rolls with your chosen weapon group. At 11th level, this bonus increases to +2. At 21st level, it increases to +3.",
+        "special": "You can take this feat more than once. Each time you select this feat, choose another weapon group.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Unarmored Defense (Monk)": {
+        "name": "Unarmored Defense (Monk)",
+        "description": "While you are wearing cloth armor or no armor and aren't using a shield, you gain a +2 bonus to AC.",
+        "prerequisites": "Monk",
+        "id": "Unarmored Defense (Monk)"
+    },
+    "Far Shot": {
+        "name": "Far Shot",
+        "description": "When you use a projectile weapon such as a bow or a crossbow, increase both the normal range and the long range by 5 squares.",
+        "prerequisites": "Dex 13",
+        "special": "",
+        "id": "Far Shot"
+    },
+    "Trusted Spellcasting": {
+        "name": "Trusted Spellcasting",
+        "description": "Choose one arcane encounter attack power that you know and that does not already deal damage on a miss. That power now deals half damage on a miss.",
+        "prerequisites": "21st level, any arcane class",
+        "special": "",
+        "id": "Trusted Spellcasting"
+    },
+    "Unarmed Combatant (Monk)": {
+        "name": "Unarmed Combatant (Monk)",
+        "description": "You can make unarmed attacks with much greater effectiveness than most other combatants can. When you make a weapon attack such as a melee basic attack. you can use the monk unarmed strike, which is a weapon in the unarmed weapon group. This weapon has the off-hand weapon property and a +3 proficiency bonus, and it deals 1d8 damage. You must have a hand free to use your monk unarmed strike, even if you're kicking, kneeing, elbowing, or head­-butting a target. Your monk unarmed strike can't be turned into a magic weapon, but it can benefit from a magic ki focus if you have one.",
+        "id": "Unarmed Combatant (Monk)"
+    },
+    "Becoming the One Demiurge Feature": {
+        "name": "Becoming the One Demiurge Feature",
+        "description": "Your Charisma score and one other ability score of your choice both increase by 2.",
+        "prerequisites": "21st level, Demiurge Epic Destiny",
+        "id": "Becoming the One Demiurge Feature"
+    },
+    "Durable": {
+        "name": "Durable",
+        "description": "Increase your number of healing surges by two.",
+        "prerequisites": "",
+        "special": "",
+        "id": "Durable"
+    },
+    "Powerful Charge": {
+        "name": "Powerful Charge",
+        "description": "When you charge, you gain a +2 bonus to damage and a +2 bonus to bull rush attempts.",
+        "prerequisites": "Str 13",
+        "special": "",
+        "id": "Powerful Charge"
+    },
+    "Gritty Determination": {
+        "name": "Gritty Determination",
+        "description": "Whenever you use a daily attack power, you gain temporary hit points equal to one-half your level + your Constitution modifier.",
+        "prerequisites": "11th level",
+        "id": "Gritty Determination"
+    },
+    "Mobile Warrior": {
+        "name": "Mobile Warrior",
+        "description": "When you make an attack with a flail, a heavy blade, a light blade, or a spear, you can shift 1 square after resolving the attack, whether or not it hits.",
+        "prerequisites": "21st level, Dex 17, fighter",
+        "special": "",
+        "id": "Mobile Warrior"
+    },
+    "Defensive Aura [Talaric Ironjack Path Feature]": {
+        "name": "Defensive Aura [Talaric Ironjack Path Feature]",
+        "description": "Whenever you hit with an unaugmented at-will psionic attack power while you have at least 1 power point, you gain a +2 power bonus to all defenses until the start of your next turn,",
+        "prerequisites": "11th Level, Talaric Ironjack Paragon Path",
+        "id": "Defensive Aura [Talaric Ironjack Path Feature]"
+    },
+    "Discern Asshole": {
+        "name": "Discern Asshole",
+        "description": "You are able to discern if the player is an asshole, or not.",
+        "prerequisites": "Insight 10+",
+        "id": "Discern Asshole"
+    },
+    "Linguist": {
+        "name": "Linguist",
+        "description": "Learn three new languages. You can now speak, read, and write those languages fluently.",
+        "prerequisites": "",
+        "special": "You can take this feat more than once. Each time you select this feat, choose three new languages to learn.",
+        "id": "Linguist"
+    },
+    "Nimble Reaction (Halfling)": {
+        "name": "Nimble Reaction (Halfling)",
+        "description": "You gain a +2 racial bonus to AC against opportunity attacks.",
+        "prerequisites": "Halfling",
+        "id": "Nimble Reaction (Halfling)"
+    },
+    "Twist the Arcane Fabric": {
+        "name": "Twist the Arcane Fabric",
+        "description": "Before you use an area or close arcane power, you can use a free action to expend your _fey step_ racial power to teleport an ally rather than yourself. If you do so, select one ally within the area of effect targeted by the arcane power and teleport that ally 3 sqaures.",
+        "prerequisites": "Eladrin, any arcane class",
+        "special": "",
+        "id": "Twist the Arcane Fabric"
+    },
+    "Arcane Reserves": {
+        "name": "Arcane Reserves",
+        "description": "Ifall your arcane encounter attack powers are expended, you gain a +2 bonus to damage rolls with your arcane at-will attack powers until the end ofthe encounter or until you regain the use of one ofyour arcane encounter attack powers.",
+        "prerequisites": "Human, any arcane class",
+        "special": "",
+        "id": "Arcane Reserves"
+    },
+    "Lost in the Crowd": {
+        "name": "Lost in the Crowd",
+        "description": "You gain a +2 bonus to AC when you are adjacent to at least two enemies larger than you.",
+        "prerequisites": "Halfling",
+        "special": "",
+        "id": "Lost in the Crowd"
+    },
+    "Loan from the Past Time Bender Path Feature": {
+        "name": "Loan from the Past Time Bender Path Feature",
+        "description": "Whenever you roll initiative, roll an additional d20. Once during that encounter, you can replace an attack roll, a skill check, an ability check, or a saving throw with that roll.",
+        "prerequisites": "11th level, Psion",
+        "id": "Loan from the Past Time Bender Path Feature"
+    },
+    "Wizard Implement Expertise": {
+        "name": "Wizard Implement Expertise",
+        "description": "When you wield a wizard implement while using an arcane power, you can score a critical hit on a roll of 19-20.",
+        "prerequisites": "21st level, Int 21, Wis 15, wizard",
+        "special": "",
+        "id": "Wizard Implement Expertise"
+    },
+    "Light Blade Precision": {
+        "name": "Light Blade Precision",
+        "description": "You gain a +2 bonus to damage rolls with light blades against Large or larger targets.",
+        "prerequisites": "Dex 13, Small or Medium size",
+        "special": "",
+        "id": "Light Blade Precision"
+    },
+    "Defensive Advantage": {
+        "name": "Defensive Advantage",
+        "description": "When you have combat advantage against an enemy, you gain a +2 bonus to AC against that enemy’s attacks.",
+        "prerequisites": "Dex 17",
+        "special": "",
+        "id": "Defensive Advantage"
+    },
+    "Advantage of Cunning": {
+        "name": "Advantage of Cunning",
+        "description": "When you slide an ally with your Virtue of Cunning, you can also slide an enemy that was adjacent to that ally into the space the ally vacated.",
+        "prerequisites": "Bard, Virtue of Cunning class feature",
+        "special": "",
+        "id": "Advantage of Cunning"
+    },
+    "Moradin's Resolve": {
+        "name": "Moradin's Resolve",
+        "description": "You can invoke the power of your deity to use _Moradin's resolve_.",
+        "prerequisites": "Channel Divinity class feature, must worship Moradin",
+        "special": "",
+        "id": "Moradin's Resolve"
+    },
+    "Improved Rageblood Vigor": {
+        "name": "Improved Rageblood Vigor",
+        "description": "You gain 5 additional temporary hit points from your Rageblood Vigor.",
+        "prerequisites": "Barbarian, Rageblood Vigor class feature",
+        "special": "",
+        "id": "Improved Rageblood Vigor"
+    },
+    "Improved Tome of Readiness": {
+        "name": "Improved Tome of Readiness",
+        "description": "After you prepare your daily and utility wizard powers after an extended rest, choose one daily or utility power in your spellbook that you didn't prepare and store this power in your tome.",
+        "prerequisites": "11th level, Con 13, Wis 13, wizard, Tome of Readiness class feature",
+        "special": "",
+        "id": "Improved Tome of Readiness"
+    },
+    "Rogue Weapon Talent (Rogue)": {
+        "id": "Rogue Weapon Talent (Rogue)",
+        "name": "Rogue Weapon Talent (Rogue)",
+        "prerequisites": "Rogue",
+        "description": "When you wield a shuriken, your weapon damage die increases by one size. When you wield a dagger, you gain a +1 bonus to attack rolls.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Improved Armor of Faith": {
+        "name": "Improved Armor of Faith",
+        "description": "While you are neither wearing heavy armor nor using a shield, you gain a +1 bonus to AC.\r\n\r\nThe bonus increases to +2 at 11th level and +3 at 21st level.",
+        "prerequisites": "Armor of Faith Power",
+        "special": "",
+        "id": "Improved Armor of Faith"
+    },
+    "Dragonborn Frenzy": {
+        "name": "Dragonborn Frenzy",
+        "description": "While you are bloodied, you gain a +2 bonus to damage rolls.",
+        "prerequisites": "Dragonborn",
+        "special": "",
+        "id": "Dragonborn Frenzy"
+    },
+    "Toughness": {
+        "id": "Toughness",
+        "name": "Toughness",
+        "prerequisites": "",
+        "description": "When you take this feat, you gain additional hit points. You gain an additional 5 hit points at each tier of play (at 1st, 11th, and 21st level).",
+        "special": "",
+        "owner": "chris.case@g33xnexus.com",
+        "exists": true
+    },
+    "Energy Essence (Essence Mage)": {
+        "name": "Energy Essence (Essence Mage)",
+        "description": "If you hit with an arcane attack power that deals more than one type of damage, you deal 1d6 extra damage.",
+        "prerequisites": "Essence Mage pargon path, 11th level",
+        "id": "Energy Essence (Essence Mage)"
+    },
+    "Combat Superiority": {
+        "name": "Combat Superiority",
+        "description": "You gain a bonus to opportunity attacks equal to your Wisdom modifier. An enemy struck by your opportunity attack stops moving, if a move provoked the attack. If it still has actions remaining, it can use them to resume moving.",
+        "id": "Combat Superiority"
+    },
+    "Cursed Advantage": {
+        "name": "Cursed Advantage",
+        "description": "You gain combat advantage against bloodied enemies cursed by you.",
+        "prerequisites": "Drow, warlock, Warlock's Curse class feature",
+        "special": "",
+        "id": "Cursed Advantage"
+    },
+    "Versatile Expertise": {
+        "name": "Versatile Expertise",
+        "description": "Choose a weapon group and an implement type. You gain a +1 feat bonus to attack rolls both when using a weapon from the chosen group and when using an implement of the chosen type. The bonus increases to +2 at 15th level and +3 at 25th level.",
+        "prerequisites": "",
+        "special": "You can take this feat more than once. Each time you take this feat, choose a different weapon group and a different implement type.",
+        "id": "Versatile Expertise"
+    },
+    "Agile Hunter": {
+        "name": "Agile Hunter",
+        "description": "When you score a critical hit with a melee attack against the target of your Hunter's Quarry, you can shift as a free action, and the enemy takes a -2 penalty on attack rolls against you until the end of your next turn.",
+        "prerequisites": "Dex 15, Ranger, Hunter's Quarry class feature",
+        "special": "",
+        "id": "Agile Hunter"
+    },
+    "Auspicious Lineage": {
+        "name": "Auspicious Lineage",
+        "description": "When you use your memory of a thousand lifetimes racial power, you add 1d8 to the triggering roll, instead of 1d6.",
+        "prerequisites": "Deva",
+        "special": "",
+        "id": "Auspicious Lineage"
+    },
+    "Raging Storm": {
+        "name": "Raging Storm",
+        "description": "You gain a +1 feat bonus to damage rolls when you use a power that has the lightning or thunder keyword.\r\n\r\nAt 11th level, this bonus increases to +2. At 21st level, it increases to +3. \r\n",
+        "prerequisites": "Dex 13",
+        "special": "",
+        "id": "Raging Storm"
+    },
+    "Skill Focus": {
+        "name": "Skill Focus",
+        "description": "Choose a skill in which you have training. You have a +3 feat bonus to checks with that skill.",
+        "prerequisites": "Training in chosen skill",
+        "special": "You can take this feat more than once. Each time you select this feat, choose a different skill.",
+        "id": "Skill Focus"
+    },
+    "Two-Weapon Flurry": {
+        "id": "Two-Weapon Flurry",
+        "name": "Two-Weapon Flurry",
+        "prerequisites": "Dex 19, Two-Weapon Fighting",
+        "description": "While holding a melee weapon in each hand, if you make a successful opportunity attack with your primary weapon, you can also make an opportunity attack with your off-hand weapon against the same target (but with a –5 penalty to the attack roll).",
+        "special": "",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Epic Fortitude": {
+        "name": "Epic Fortitude",
+        "description": "You gain a +4 bonus to Fortitude.",
+        "prerequisites": "21st level",
+        "id": "Epic Fortitude"
+    },
+    "Threefold Reflex [Augment]": {
+        "name": "Threefold Reflex [Augment]",
+        "description": "You gain a +1 feat bonus to Reflex.\n\nDuring your turn, you can spend 1 power point to increase the bonus to +3 until the end ofyour next turn.",
+        "prerequisites": "11th level, Psionic Augmentation class feature",
+        "id": "Threefold Reflex [Augment]"
+    },
+    "Destructive Wizardry": {
+        "name": "Destructive Wizardry",
+        "description": "When you use an arcane attack power and hit two or more creatures, you gain a +2 bonus to that power's damage rolls.\r\nThis bonus increases to +3 at 11th level and to +4 at 21st level.",
+        "prerequisites": "Dex 13, wizard",
+        "special": "",
+        "id": "Destructive Wizardry"
+    },
+    "Action Surge": {
+        "name": "Action Surge",
+        "description": "You gain a +3 bonus to attack rolls you make during any action you gained by spending an action point.",
+        "prerequisites": "Human",
+        "special": "",
+        "id": "Action Surge"
+    },
+    "Deadly Rage": {
+        "name": "Deadly Rage",
+        "description": "You gain a +1 bonus to damage rolls while raging. The bonus increases to +2 at 11th level and +3 at 21st level.",
+        "prerequisites": "Barbarian",
+        "special": "",
+        "id": "Deadly Rage"
+    },
+    "Channel Divinity": {
+        "name": "Channel Divinity",
+        "description": "You gain the Channel Divinity class feature, which means you can use a single _Channel Divinity_ power once per encounter. You also gain a divinity feat of your choice.",
+        "id": "Channel Divinity"
+    },
+    "Hidden Sniper": {
+        "name": "Hidden Sniper",
+        "description": "If you have partial concealment against a target, you gain combat advantage against it with your ranged attacks.",
+        "id": "Hidden Sniper"
+    },
+    "Healing Hands": {
+        "name": "Healing Hands",
+        "description": "When you use the _lay on hands_ power, the affected ally regains additional hit points equal to your Charisma modifier.",
+        "prerequisites": "Paladin, _lay on hands_ power",
+        "special": "",
+        "id": "Healing Hands"
+    },
+    "Improved Initiative": {
+        "name": "Improved Initiative",
+        "prerequisites": "You gain a +4 feat bonus to initiative checks.",
+        "id": "Improved Initiative"
+    },
+    "Sieze the Moment": {
+        "name": "Sieze the Moment",
+        "description": "During the first round of combat and during surprise rounds, you automatically gain combat advantage over a foe whose initiative result is lower than yours.",
+        "prerequisites": "Dex 17",
+        "special": "",
+        "id": "Sieze the Moment"
+    },
+    "Quickened Spellcasting": {
+        "id": "Quickened Spellcasting",
+        "name": "Quickened Spellcasting",
+        "prerequisites": "21st level, any arcane class",
+        "description": "Choose an arcane at-will attack power that is used as a standard action. Once per encounter, you can use that power as a minor action.",
+        "special": "",
+        "exists": true,
+        "owner": "chris.case@g33xnexus.com"
+    },
+    "Skill Power": {
+        "name": "Skill Power",
+        "description": "You gain a skill power of your level or lower from a skill in which you are trained.",
+        "prerequisites": "2nd  level",
+        "special": "",
+        "id": "Skill Power"
+    },
+    "Reckless Scramble": {
+        "name": "Reckless Scramble",
+        "description": "When a power lets you shift, you can instead choose to move that distance + 2 squares.",
+        "prerequisites": "Rogue. Artful dodger class feature.",
+        "special": "",
+        "id": "Reckless Scramble"
+    },
+    "Tempest Magic": {
+        "name": "Tempest Magic",
+        "description": "When you use an arcane power that has the lightning or thunder keyword, you gain a +1 feat bonus to damage rolls. While you are bloodied, this bonus becomes +2.\r\n\r\nAt 11th level, this bonus increases to +2 (or +4 when bloodied). At 21st level, it increases to +3 (or +6 when bloodied).",
+        "prerequisites": "Sorcerer, Con 13, Dex 13, Storm Magic class feature",
+        "special": "",
+        "id": "Tempest Magic"
+    },
+    "Opportunistic Withdrawl": {
+        "name": "Opportunistic Withdrawl",
+        "description": "While you are adjacent to an enemy granting combat advantage to you, your movement doesn't provoke opportunity attacks from that enemy.",
+        "prerequisites": "11th level",
+        "id": "Opportunistic Withdrawl"
+    },
+    "Storm's Embrace (Storm Magic)": {
+        "name": "Storm's Embrace (Storm Magic)",
+        "description": "When you roll a natural 20 on an attack roll for an arcane power, wind surges around you and your enemy. You can push the target 1 square and then fly a number of squares equal to 1 + your Dexterity modifier after applying the attack's other effects.",
+        "prerequisites": "Sorcerer, Storm Magic feature",
+        "id": "Storm's Embrace (Storm Magic)"
+    },
+    "Echoes of Thunder": {
+        "name": "Echoes of Thunder",
+        "description": "When you hit with any thunder attack power, you gain a +1 bonus to damage rolls until the end of your next turn. The bonus increases to +2 at 11th level and +3 at 21st level.",
+        "prerequisites": "",
+        "special": "",
+        "id": "Echoes of Thunder"
+    },
+    "Two-Weapon Fighting": {
+        "id": "Two-Weapon Fighting",
+        "name": "Two-Weapon Fighting",
+        "prerequisites": "Dex 13",
+        "description": "While holding a melee weapon in each hand, you gain a +1 bonus to damage rolls with your main weapon.",
+        "special": "",
+        "owner": "chris.case@g33xnexus.com",
+        "exists": true
+    },
+    "Demand's Reach": {
+        "name": "Demand's Reach",
+        "description": "The burst of your battlemind's demand increases to 5.",
+        "prerequisites": "11th level, battlemind, battlemind's demand power",
+        "id": "Demand's Reach"
+    },
+    "Sorcerous Vision": {
+        "name": "Sorcerous Vision",
+        "description": "Whenever you would make a Perception check or an Insight check, you can make an Arcana check instead.",
+        "prerequisites": "11th level, sorcerer",
+        "special": "",
+        "id": "Sorcerous Vision"
+    },
+    "Improved Misty Step": {
+        "name": "Improved Misty Step",
+        "description": "Your Misty Step now allows you to teleport an additional 2 squares.",
+        "prerequisites": "Int 13, warlock, fey pact",
+        "special": "",
+        "id": "Improved Misty Step"
+    },
+    "Improved Majestic Word": {
+        "name": "Improved Majestic Word",
+        "description": "When you use _majestic word_, the target of the power gains temporary hit points equal to your Charisma modifier.",
+        "prerequisites": "Bard, _majestic word_ power",
+        "special": "",
+        "id": "Improved Majestic Word"
+    },
+    "Spontaneous Resurrection (Undying Warrior)": {
+        "name": "Spontaneous Resurrection (Undying Warrior)",
+        "description": "When you die, you can return to life at the start of your next turn. Doing this doesn’t require an action. You appear in a space of your choice within 5 squares of where you died and have hit points equal to your bloodied value. You are freed of any temporary effects existing at the time of your death, but permanent conditions remain. Each additional time you are slain during the same day increases the time until you can rise again.\n\n_Second Death:_ Return to life at the end of the encounter.\n\n_Third Death:_ Return to life 1 hour after the end of the encounter.\n\n_Fourth Death:_ Return to life 12 hours after the end of the encounter.\n\n_Fifth Death or More:_ Return to life 24 hours after the end of the encounter.\n\nIf you don’t use this ability, you can still be raised from the dead normally.",
+        "prerequisites": "Undying Warrior epic destiny, 30th level",
+        "id": "Spontaneous Resurrection (Undying Warrior)"
+    },
+    "Anger Unleashed": {
+        "name": "Anger Unleashed",
+        "description": "The first time you are bloodied during an encounter, you gain a +2 bonus to attack rolls until the end of your next turn.",
+        "prerequisites": "Half-orc",
+        "special": "",
+        "id": "Anger Unleashed"
+    },
+    "Daunting Challenge": {
+        "name": "Daunting Challenge",
+        "description": "Creatures marked by you take a -3 penalty to attack rolls for any attack that doesn’t include you as a target (rather than a -2 penalty).",
+        "prerequisites": "11th level, fighter, Combat Challenge class feature",
+        "special": "",
+        "id": "Daunting Challenge"
+    },
+    "Elven Precision": {
+        "name": "Elven Precision",
+        "description": "When you use the _elven accuracy_ power, you gain a +2 bonus to the new attack roll.",
+        "prerequisites": "Elf, _elven accuracy_ racial power",
+        "special": "",
+        "id": "Elven Precision"
+    },
+    "Fighter Weapon Talent": {
+        "name": "Fighter Weapon Talent",
+        "description": "Choose either one-handed or two-handed weapons. When using a weapon of your chosen style, you gain a +1 bonus to attack rolls.",
+        "id": "Fighter Weapon Talent"
+    },
+    "Paragon Power Points": {
+        "name": "Paragon Power Points",
+        "description": "You gain 2 additional power points.",
+        "prerequisites": "11 level, Psion",
+        "id": "Paragon Power Points"
+    },
+    "Focused Wizardry": {
+        "name": "Focused Wizardry",
+        "description": "When you use an arcane burst or blast attack power and only one creature is within the area of effect, you gain a +2 bonus to the attack roll.",
+        "prerequisites": "21st level, wizard",
+        "special": "",
+        "id": "Focused Wizardry"
+    },
+    "Human Perseverance": {
+        "name": "Human Perseverance",
+        "description": "You gain a +1 feat bonus to saving throws.",
+        "prerequisites": "Human",
+        "special": "",
+        "id": "Human Perseverance"
+    },
+    "Dagger Precision (Daggermaster)": {
+        "id": "Dagger Precision (Daggermaster)",
+        "name": "Dagger Precision (Daggermaster)",
+        "prerequisites": "Daggermaster paragon path, 11th level",
+        "description": "You can score critical hits with daggers on a roll of 18–20.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Bardic Knowledge": {
+        "name": "Bardic Knowledge",
+        "description": "You gain a +2 feat bonus to Arcana, Dungeoneering, History, Nature, Religion, and Streetwise checks.",
+        "prerequisites": "Bard",
+        "special": "",
+        "id": "Bardic Knowledge"
+    },
+    "Reckless Attacker": {
+        "name": "Reckless Attacker",
+        "description": "When you score a critical hit with a fighter attack power, you can make a melee basic attack as a free action. If you do so, you take a -2 penalty to AC until the end of your next turn.",
+        "prerequisites": "11th level, fighter",
+        "special": "",
+        "id": "Reckless Attacker"
+    },
+    "Paragon Defenses": {
+        "name": "Paragon Defenses",
+        "description": "You gain a +1 feat bonus to Fortitude, Reflex, and Will.",
+        "prerequisites": "11th level",
+        "id": "Paragon Defenses"
+    },
+    "Two-Weapon Defense": {
+        "id": "Two-Weapon Defense",
+        "name": "Two-Weapon Defense",
+        "prerequisites": "Dex 13, Two-Weapon Fighting",
+        "description": "While holding a melee weapon in each hand, you gain a +1 shield bonus to AC and Reflex.",
+        "special": "",
+        "owner": "chris.case@g33xnexus.com",
+        "exists": true
+    },
+    "Power Points [Talaric Ironjack Path Feature]": {
+        "name": "Power Points [Talaric Ironjack Path Feature]",
+        "description": "You gain 2 additional Power Points.",
+        "prerequisites": "11th Level, Talaric Ironjack Paragon Path",
+        "id": "Power Points [Talaric Ironjack Path Feature]"
+    },
+    "Rising Fury": {
+        "name": "Rising Fury",
+        "description": "When you reduce an enemy to 0 hit points, you gain a +2 feat bonus to weapon damage rolls until the end of your next turn. The bonus increases to +3 at 11th level and +4 at 21st level.",
+        "prerequisites": "Barbarian",
+        "special": "",
+        "id": "Rising Fury"
+    },
+    "Rogue Tactics (Rogue)": {
+        "id": "Rogue Tactics (Rogue)",
+        "name": "Rogue Tactics (Rogue)",
+        "prerequisites": "Rogue",
+        "description": "Rogues operate in a variety of ways. Some rogues use their natural charm and cunning trickery to deceive foes. Others rely on brute strength to overcome their enemies.\n\nChoose one of the following options:\n\n**Artful Dodger**: You gain a bonus to AC equal to your Charisma modifier against opportunity attacks.\n\n**Brutal Scoundrel**: You gain a bonus to Sneak Attack damage equal to your Strength modifier.\n\nThe choice you make also provides bonuses to certain rogue powers. Individual powers detail the effects (if any) your Rogue Tactics selection has on them.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Potent Rebirth": {
+        "name": "Potent Rebirth",
+        "description": "When you drop to 0 hit points or fewer, you gain a +2 bonus to attack rolls and damage rolls until the end of the encounter.",
+        "prerequisites": "",
+        "special": "",
+        "id": "Potent Rebirth"
+    },
+    "Fervent Talent [Mutliclass Ardent]": {
+        "name": "Fervent Talent [Mutliclass Ardent]",
+        "description": "You gain training in one skiIl from the ardent's class skills list.\\n\\nOnce per day, you can use the ardent's ardent surge power.",
+        "prerequisites": "Cha 13",
+        "id": "Fervent Talent [Mutliclass Ardent]"
+    },
+    "Iron Propulsion": {
+        "name": "Iron Propulsion",
+        "description": "While you have at least 1 power point, you ignore the speed penalty normally incurred by your armor.",
+        "prerequisites": "11th level, battlemind",
+        "id": "Iron Propulsion"
+    },
+    "Radiant Power": {
+        "name": "Radiant Power",
+        "description": "When you make an implement attack, you can take a –2 penalty to the attack roll. If you do so and the attack hits, it deals 2 extra radiant damage.\r\n\r\nThe extra radiant damage increases to 4 at 11th level and 6 at 21st level.",
+        "prerequisites": "",
+        "special": "",
+        "id": "Radiant Power"
+    },
+    "Improved Dragon Soul": {
+        "name": "Improved Dragon Soul",
+        "description": "The resistance granted by your Dragon Soul increases by 2. The increase changes to 5 at 11th level and 10 at 21st level.",
+        "prerequisites": "Sorcerer, Dragon Magic class feature",
+        "special": "",
+        "id": "Improved Dragon Soul"
+    },
+    "Marked Fury": {
+        "name": "Marked Fury",
+        "description": "If an adjacent enemy that is marked by you makes an attack that doesn't include you as a target, it takes a penalty to the attack roll equal to either -2 or the number of enemies adjacent to you, whichever is worse. This penalty replaces the normal penalty for having a creature marked.",
+        "prerequisites": "Fighter",
+        "special": "",
+        "id": "Marked Fury"
+    },
+    "Expanded Spellbook": {
+        "name": "Expanded Spellbook",
+        "description": "Choose one daily wizard attack spell of every level you know. Add this spell to your spellbook.\r\nEach time you gain a new level of daily wizard attack spells, you learn one extra spell of that level (in\r\nother words, add three spells to your spellbook instead of only two).\r\nThis feat doesn't change the number of daily attack spells you can prepare each day.",
+        "prerequisites": "Wis 13, Wizard",
+        "special": "",
+        "id": "Expanded Spellbook"
+    },
+    "Undying Stamina (Undying Warrior)": {
+        "name": "Undying Stamina (Undying Warrior)",
+        "description": "Each time you reach a milestone, you regain 1d4 healing surges.",
+        "prerequisites": "Undying Warrior epic destiny, 24th level",
+        "id": "Undying Stamina (Undying Warrior)"
+    },
+    "Devastating Critical": {
+        "name": "Devastating Critical",
+        "description": "When you score a critical hit, you deal an extra 1d10 damage.",
+        "prerequisites": "",
+        "special": "",
+        "id": "Devastating Critical"
+    },
+    "Defiant Fire": {
+        "name": "Defiant Fire",
+        "description": "The first time you are bloodied during an encounter, you gain a use of your battle resilience that you can use only the next time you are hit or missed during the encounter.",
+        "prerequisites": "11th level, battlemind, battle resilience power",
+        "id": "Defiant Fire"
+    },
+    "Wounded Resurgence (Undying Warrior)": {
+        "name": "Wounded Resurgence (Undying Warrior)",
+        "description": "If you are bloodied, you can spend a healing surge as a minor action to restore your current hit points to your bloodied value. Also, you don’t take a death penalty when you are returned to life by the Raise Dead ritual.",
+        "prerequisites": "Undying Warrior epic destiny, 21st level",
+        "id": "Wounded Resurgence (Undying Warrior)"
+    },
+    "Lethal Hunter": {
+        "id": "Lethal Hunter",
+        "name": "Lethal Hunter",
+        "prerequisites": "Ranger, Hunter's Quarry class feature",
+        "description": "The extra damage dice from your Hunter's Quarry class feature increase from d6s to d8s.",
+        "special": "",
+        "owner": "chris.case@g33xnexus.com",
+        "exists": true
+    },
+    "Light Step": {
+        "name": "Light Step",
+        "description": "For the purpose of hourly or daily travel rates, add 1 to your overland speed and the speed of all allies in your traveling group.\r\nAdd 5 to the DC required to find of follow your tracks. If traveling with allies, you can share this benefit with up to five other characters.\r\nYou gain a +1 feat bonus to Acrobatics checks and Stealth checks.",
+        "prerequisites": "Elf",
+        "special": "",
+        "id": "Light Step"
+    },
+    "Ironjack's Command [Talaric Ironjack Path Feature]": {
+        "name": "Ironjack's Command [Talaric Ironjack Path Feature]",
+        "description": "Whenever you spend a healing surge and regain hit points, each ally within 2 squares of you can shift 1 square as a free action.",
+        "prerequisites": "16th level, Talaric Ironjack Paragon Path",
+        "id": "Ironjack's Command [Talaric Ironjack Path Feature]"
+    },
+    "Unarmored Agility (Monk)": {
+        "name": "Unarmored Agility (Monk)",
+        "description": "You gain a +2 feat bonus to AC while wearing either cloth armor or no armor.",
+        "id": "Unarmored Agility (Monk)"
+    },
+    "Deceptive Mind": {
+        "name": "Deceptive Mind",
+        "description": "You gain a +2 bonus to all defenses while your battle resilience is in effect.",
+        "prerequisites": "battlemind, battle resilience power",
+        "id": "Deceptive Mind"
+    },
+    "Ritual Caster": {
+        "name": "Ritual Caster",
+        "description": "You can master and perform rituals of your level or lower. See Chapter 10 for information on acquiring, mastering, and performing rituals. Even though some rituals use the Heal skill or the Nature skill, the Arcana skill or the Religion skill is required to understand how to perform rituals.",
+        "prerequisites": "Trained in Arcana or Religion",
+        "special": "",
+        "id": "Ritual Caster"
+    },
+    "Combat Challenge": {
+        "name": "Combat Challenge",
+        "description": "In combat, it’s dangerous to ignore a fighter. Every time you attack an enemy, whether the attack hits or misses, you can choose to mark that target. The mark lasts until the end of your next turn. While a target is marked, it takes a –2 penalty to attack rolls for any attack that doesn’t include you as a target. A creature can be subject to only one mark at a time. A new mark supersedes a mark that was already in place.\n\nIn addition, whenever a marked enemy that is adjacent to you shifts or makes an attack that does not include you, you can make a melee basic attack against that enemy as an immediate interrupt.",
+        "id": "Combat Challenge"
+    },
+    "Avenging Spirit": {
+        "name": "Avenging Spirit",
+        "description": "When an ally of your level or higher is reduced to 0 hit points or fewer, you gain an action point that you must use before the end of your next turn or the action point is lost. You must see or hear the ally when he or she is reduced to 0 hit points or fewer to gain this feat’s benefit.",
+        "prerequisites": "11th level, human fighter or human warlord",
+        "special": "",
+        "id": "Avenging Spirit"
+    },
+    "Steel Grace (Swordmaster)": {
+        "name": "Steel Grace (Swordmaster)",
+        "description": "When you charge with a light blade or a heavy blade that is not a pole-arm, you can use _Containing Strike_ or _Reaping Strike_ instead of your melee basic attack.",
+        "prerequisites": "Swordmaster paragon path, 11th level",
+        "id": "Steel Grace (Swordmaster)"
+    },
+    "Paragon Power Points Time Bender Path Feature": {
+        "name": "Paragon Power Points Time Bender Path Feature",
+        "description": "You gain 2 additional power points.",
+        "prerequisites": "11th level, Psion",
+        "id": "Paragon Power Points Time Bender Path Feature"
+    },
+    "Defense Mobility": {
+        "name": "Defense Mobility",
+        "description": "You gain a +2 bonus to AC against opportunity attacks.",
+        "prerequisites": "",
+        "special": "",
+        "id": "Defense Mobility"
+    },
+    "Bold (Halfling)": {
+        "name": "Bold (Halfling)",
+        "description": "You gain a +5 racial bonus to saving throws against fear.",
+        "prerequisites": "Halfling",
+        "id": "Bold (Halfling)"
+    },
+    "First Strike (Rogue)": {
+        "id": "First Strike (Rogue)",
+        "name": "First Strike (Rogue)",
+        "prerequisites": "Rogue",
+        "description": "At the start of an encounter, you have combat advantage against any creatures that have not yet acted in that encounter.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Storm Power (Storm Magic)": {
+        "name": "Storm Power (Storm Magic)",
+        "description": "You gain a bonus to the damage rolls of arcane powers equal to your Dexterity modifier. The bonus equals your Dexterity modifier + 2 at 11th level and your Dexterity modifier + 4 at 21st level.",
+        "prerequisites": "Sorcerer, Storm Magic feature",
+        "id": "Storm Power (Storm Magic)"
+    },
+    "Armor of Bahamut": {
+        "name": "Armor of Bahamut",
+        "description": "You can invoke the power of your deity to use _Armor of Bahamut_.",
+        "prerequisites": "Channel Divinity class feature, must worship Bahamut",
+        "special": "",
+        "id": "Armor of Bahamut"
+    },
+    "Superior Action [Talaric Ironjack Path Feature]": {
+        "name": "Superior Action [Talaric Ironjack Path Feature]",
+        "description": "When you spend an action point to make an attack, you gain a +4 power bonus to the attack roll and you regain hit points equal to twice your Constitution modifier.",
+        "prerequisites": "11th Level, Talaric Ironjack Paragon Path",
+        "id": "Superior Action [Talaric Ironjack Path Feature]"
+    },
+    "Weapon Proficiency": {
+        "name": "Weapon Proficiency",
+        "description": "You gain proficiency in a single weapon of your choice.",
+        "prerequisites": "",
+        "special": "You can take this feat more than once. Each time you select this feat, choose another weapon.",
+        "id": "Weapon Proficiency"
+    },
+    "Steel Blitz (Swordmaster)": {
+        "name": "Steel Blitz (Swordmaster)",
+        "description": "When you score a critical hit with a light blade or a heavy blade, you regain the use of a fighter encounter power you’ve already used in the encounter.",
+        "prerequisites": "Swordmaster paragon path, 16th level",
+        "id": "Steel Blitz (Swordmaster)"
+    },
+    "Jack of All Trades": {
+        "name": "Jack of All Trades",
+        "description": "You gain a +2 feat bonus to all untrained skill checks.",
+        "prerequisites": "Int 13",
+        "special": "",
+        "id": "Jack of All Trades"
+    },
+    "Spell Accuracy": {
+        "name": "Spell Accuracy",
+        "description": "You can omit a number of squares from the area of effect of any of your area or close wizard powers. This number can't exceed your Wisdom modifier.",
+        "prerequisites": "Wizard",
+        "special": "",
+        "id": "Spell Accuracy"
+    },
+    "Guaranteed Retribution": {
+        "name": "Guaranteed Retribution",
+        "description": "When any enemy other than your oath of enmity target hits you, you gain a +1 feat bonus to attack rolls against your oath of enmity target until the end of your next turn.",
+        "prerequisites": "Censure of Retribution Class Feature",
+        "special": "",
+        "id": "Guaranteed Retribution"
+    },
+    "Quick Draw": {
+        "id": "Quick Draw",
+        "name": "Quick Draw",
+        "prerequisites": "Dex 13",
+        "description": "You can draw a weapon (or an object stored in a belt pouch, bandolier, or similar container, such as a potion) as part of the same action used to attack with the weapon or use the object.\r\n\r\nYou also gain a +2 feat bonus to initiative checks.",
+        "special": "",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Backstabber": {
+        "id": "Backstabber",
+        "name": "Backstabber",
+        "prerequisites": "Rogue, Sneak Attack class feature",
+        "description": "The extra damage dice from your Sneak Attack class feature increase from d6s to d8s.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Armored Swiftness Training": {
+        "name": "Armored Swiftness Training",
+        "description": "You don't take an armor check penalty to your Dexterity-based skill checks.",
+        "prerequisites": "Any martial class",
+        "special": "",
+        "id": "Armored Swiftness Training"
+    },
+    "Press the Advantage": {
+        "name": "Press the Advantage",
+        "description": "If you score a critical hit while you have combat advantage, you gain combat advantage against the target until the end of your next turn.",
+        "prerequisites": "Cha 15, rogue",
+        "special": "",
+        "id": "Press the Advantage"
+    },
+    "Flanking Maneuver": {
+        "name": "Flanking Maneuver",
+        "description": "You can move diagonally even if a wall corner normally blocks such movement.\n\nYou can move through enemies’ spaces. You provoke opportunity attacks for this movement as normal. You can’t end your move in an enemy’s space.",
+        "prerequisites": "Dex 17, trained in Acrobatics, level 21",
+        "id": "Flanking Maneuver"
+    },
+    "Mental Bastion": {
+        "name": "Mental Bastion",
+        "description": "You gain a +1 bonus to Will. This bonus increases to +2 at 11th level and +3 at 21st level.",
+        "prerequisites": "Monk, stone fist feature",
+        "id": "Mental Bastion"
+    },
+    "Point-Blank Shot": {
+        "name": "Point-Blank Shot",
+        "description": "If you make a ranged attack against a foe within 5 squares of you, your attack ignores cover and concealment, including superior cover but not total concealment.",
+        "prerequisites": "",
+        "special": "",
+        "id": "Point-Blank Shot"
+    },
+    "Cull the Weak": {
+        "name": "Cull the Weak",
+        "description": "When you have combat advantage against a bloodied or weakened target, you gain a +2 bonus to melee weapon damage rolls against the target.",
+        "prerequisites": "11th level, Cha 15, Rogue",
+        "special": "",
+        "id": "Cull the Weak"
+    },
+    "Power Attack": {
+        "name": "Power Attack",
+        "description": "When making a melee attack, you can take a -2 penalty to the attack roll. If the attack hits, you gain a +2 bonus to the damage roll (or a +3 bonus to the damage roll with a two-handed weapon).\r\n\r\nThis extra damage increases by level, as shown on the table below, but the attack penalty remains the same:\r\n\r\n1st-10th - +2 (+3 two-handed)\r\n11th-20th - +4 (+6 two-handed)\r\n21st-30th - +6 (9 two-handed)",
+        "prerequisites": "Str 15",
+        "special": "",
+        "id": "Power Attack"
+    },
+    "Daggermaster's Action (Daggermaster)": {
+        "id": "Daggermaster's Action (Daggermaster)",
+        "name": "Daggermaster's Action (Daggermaster)",
+        "prerequisites": "Daggermaster paragon path, 11th level",
+        "description": "You can spend an action point to re-roll one attack roll or damage roll you made using a dagger, instead of taking an extra action.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Essential Action (Essence Mage)": {
+        "name": "Essential Action (Essence Mage)",
+        "description": "When you spend an action point to take an extra action, you gain a +4 bonus to attack rolls with arcane powers until the start of your next turn.",
+        "prerequisites": "Essence Mage pargon path, 11th level",
+        "id": "Essential Action (Essence Mage)"
+    },
+    "Dooming Action": {
+        "name": "Dooming Action",
+        "description": "When you spend an action point to take an extra action and you have already dealt your Warlock's Curse extra damage during your current turn, you can deal the extra damage a second time during this turn.",
+        "prerequisites": "Warlock, Warlock's Curse class feature",
+        "special": "",
+        "id": "Dooming Action"
+    },
+    "Storm Soul (Storm Magic)": {
+        "name": "Storm Soul (Storm Magic)",
+        "description": "You gain resist 5 thunder and resist 5 lightning. This resistance increases to 10 at 11th level and 15 at 21st level. While this resistance is active, your arcane powers ignore all targets' resistance to that damage type up to the value of your resistance.\n\nIf you are hit by an attack, you can end this resistance as an immediate interrupt to gain a +4 power bonus to all defenses until the end of your next turn. If you do so, the resistance returns after you take a short rest or an extended rest.",
+        "prerequisites": "Sorcerer, Storm Magic feature",
+        "id": "Storm Soul (Storm Magic)"
+    },
+    "Crashing Tempest Style": {
+        "name": "Crashing Tempest Style",
+        "description": "While you are wielding a club, you gain a +2 bonus to damage dealt by your _Flurry of Blows_ power.",
+        "prerequisites": "Monk, Flurry of Blows class feature",
+        "id": "Crashing Tempest Style"
+    },
+    "Essential Resistance (Essence Mage)": {
+        "name": "Essential Resistance (Essence Mage)",
+        "description": "Whenever you gain resistance, increase that resistance by 3 (or by 4 at 21st level and higher).",
+        "prerequisites": "Essence Mage pargon path, 16th level",
+        "id": "Essential Resistance (Essence Mage)"
+    },
+    "Evasive Footwork": {
+        "name": "Evasive Footwork",
+        "description": "When you shift 2 or more squares on your turn, you gain a +1 bonus to AC and Reflex until the start of your next turn.",
+        "prerequisites": "11th level, Dex 17, Cha 15, rogue",
+        "id": "Evasive Footwork"
+    },
+    "Rending Tempest": {
+        "name": "Rending Tempest",
+        "description": "When you hit a target with a melee attack using two weapons during your turn, your subsequent melee attacks against the target deal 1[W] extra damage on a hit during the same turn.",
+        "prerequisites": "21st level, Dex 17, fighter or ranger",
+        "special": "",
+        "id": "Rending Tempest"
+    },
+    "Avandra's Gift": {
+        "name": "Avandra's Gift",
+        "description": "When you use your _second change_ racial power and the enemy's attack misses, you gain combat advantage for the next attack roll you make against that enemy before the end of your next turn.",
+        "prerequisites": "11th level, halfling, rogue",
+        "special": "",
+        "id": "Avandra's Gift"
+    },
+    "Empowering Shadows": {
+        "name": "Empowering Shadows",
+        "description": "When you have concealment from your Shadow Walk, you gain a +1 bonus to damage rolls.",
+        "prerequisites": "Warlock, Shadow Walk class feature",
+        "special": "",
+        "id": "Empowering Shadows"
+    },
+    "Ascendant Lineage": {
+        "name": "Ascendant Lineage",
+        "description": "When you use your memory of a thousand lifetimes racial power and the triggering roll still fails, you don’t expend the use of memory of a thousand lifetimes. However, you can’t use the power again until the start of your next turn.",
+        "prerequisites": "11th level",
+        "special": "",
+        "id": "Ascendant Lineage"
+    },
+    "Improved Monk Unarmed Strike": {
+        "name": "Improved Monk Unarmed Strike",
+        "description": "The damage die of your monk unarmed strike becomes 1d10, instead of 1d8.",
+        "prerequisites": "Monk, Unarmed Combatant class feature",
+        "id": "Improved Monk Unarmed Strike"
+    },
+    "Escape Artist": {
+        "name": "Escape Artist",
+        "description": "You can attempt to escape a grab as a minor action, instead of as a move action.\r\n\r\nYou gain a +2 feat bonus to Acrobatics checks.",
+        "prerequisites": "Trained in Acrobatics",
+        "special": "",
+        "id": "Escape Artist"
+    },
+    "Resilient Demand": {
+        "name": "Resilient Demand",
+        "description": "When you augment your battlemind’s demand, you gain a +2 power bonus to all defenses until the start of your next turn.",
+        "prerequisites": "battlemind, battle resilience power",
+        "id": "Resilient Demand"
+    },
+    "Peerless Predator (God Hunter)": {
+        "name": "Peerless Predator (God Hunter)",
+        "description": "Once per encounter, you can re-roll an attack roll against a creature that is higher level than you.",
+        "prerequisites": "21st level, ranger or rogue, God Hunter epic destiny",
+        "id": "Peerless Predator (God Hunter)"
+    },
+    "Wild Senses": {
+        "name": "Wild Senses",
+        "description": "Whenever you make a Perception check to find tracks, you roll twice and use either result. You also gain a +3 feat bonus to initiative checks.",
+        "prerequisites": "Shifter",
+        "id": "Wild Senses"
+    },
+    "Primal Fury": {
+        "name": "Primal Fury",
+        "description": "You gain a +1 bonus to attack rolls with primal powers against bloodied enemies.",
+        "prerequisites": "Druid, Primal Predator class feature",
+        "id": "Primal Fury"
+    },
+    "Defensive Mobility": {
+        "name": "Defensive Mobility",
+        "description": "You gain a +2 bonus to AC against opportunity attacks.",
+        "id": "Defensive Mobility"
+    },
+    "Distant Advantage": {
+        "name": "Distant Advantage",
+        "description": "You gain combat advantage for ranged or area attacks against any enemy flanked by your allies.",
+        "id": "Distant Advantage"
+    },
+    "Mettle": {
+        "name": "Mettle",
+        "description": "When an area or close attack targeting your Fortitude or Will defense misses you and still deals damage on a miss, you take no damage from the attack.",
+        "prerequisites": "Paragon tier",
+        "id": "Mettle"
+    },
+    "Uncanny Dodge": {
+        "name": "Uncanny Dodge",
+        "description": "Enemies do not gain the normal +2 bonus to attack rolls against you when they have combat advantage. Any other benefits derived from combat advantage still apply.",
+        "prerequisites": "Wis 15",
+        "id": "Uncanny Dodge"
+    },
+    "Stalking Panther Form": {
+        "name": "Stalking Panther Form",
+        "description": "While you are in beast form, you gain a +5 feat bonus to Stealth checks and a +4 feat bonus to initiative checks.",
+        "prerequisites": "11th level, druid, wild shape power",
+        "id": "Stalking Panther Form"
+    },
+    "Hunting Wolf Form": {
+        "name": "Hunting Wolf Form",
+        "description": "While you are in beast form, you gain a +5 feat bonus to Perception checks and a +1 feat bonus to speed.",
+        "prerequisites": "11th level, druid, wild shape power",
+        "id": "Hunting Wolf Form"
+    },
+    "Quick Wild Shape": {
+        "name": "Quick Wild Shape",
+        "description": "You can use your wild shape power as a free action during your turn.",
+        "prerequisites": "11th level, druid, wild shape power",
+        "id": "Quick Wild Shape"
+    },
+    "Predator's Burst": {
+        "name": "Predator's Burst",
+        "description": "When you charge while you are in beast form, you gain a +2 bonus to speed and a +1 bonus to the damage rolls of the charge attack.",
+        "prerequisites": "Druid, Primal Predator class fea­ture, wild shape power",
+        "id": "Predator's Burst"
+    },
+    "Eager for Blood": {
+        "name": "Eager for Blood",
+        "description": "During the first round of combat, you avenger weapon attacks deal 1[W] extra damage.",
+        "prerequisites": "11th level, avenger",
+        "id": "Eager for Blood"
+    },
+    "Swordbond (Swordmage)": {
+        "name": "Swordbond (Swordmage)",
+        "description": "By spending 1 hour of meditation with a chosen light or heavy blade, you forge a special bond with the weapon. As a standard action, you can call your bonded weapon to your hand from up to 10 squares away.\n\nYou can forge a bond with a different blade using the same meditation process (for instance, if you acquire a new blade that has magical abilities). If you forge a bond with a different blade, the old bond dissipates.\n\nIf your bonded weapon is broken or damaged, you can spend 1 hour of meditation to recreate the weapon from a fragment. (This process automatically destroys any other fragments of the weapon in existence, so you can’t use it to create multiple copies of a broken weapon.)",
+        "id": "Swordbond (Swordmage)"
+    },
+    "Swordmage Warding": {
+        "name": "Swordmage Warding",
+        "description": "While you are conscious and wielding either a light blade or a heavy blade, you maintain a field of magi- cal force around you.\n\nThis field provides a +1 bonus to AC, or a +3 bonus if you are wielding a blade in one hand and have your other hand free (not carrying a shield, an off-hand weapon, a two-handed weapon, or anything else).\n\nIf you become unconscious, your Swordmage Warding benefit disappears. You can restore it by taking a short rest or an extended rest.",
+        "id": "Swordmage Warding"
+    },
+    "Swordmage Aegis": {
+        "name": "Swordmage Aegis",
+        "description": "You can place a magical warding upon a foe, allowing you to respond to the foe’s attacks against your allies with a counterassault or a timely protection.\n\nChoose one of the following Swordmage Aegis powers. These powers are described in full below.\n\n_Aegis of Assault_: You teleport to the side of the attacker and respond with an attack of your own.\n\n_Aegis of Shielding_: You deflect some of the damage of an incoming attack.",
+        "id": "Swordmage Aegis"
+    },
+    "Retributive Shield [Swordmage]": {
+        "name": "Retributive Shield [Swordmage]",
+        "description": "When you use your aegis of shielding power, you gain a +2 bonus to the next attack roll made before the end of your next turn against the foe that triggered the _aegis of shielding_ immediate interrupt.",
+        "prerequisites": "Swordmage with aegis of shielding",
+        "id": "Retributive Shield [Swordmage]"
+    },
+    "Intelligent Blademaster [Swordmage]": {
+        "name": "Intelligent Blademaster [Swordmage]",
+        "description": "You can use your Intelligence modifier instead of your Strength modifier when making a basic attack with a melee weapon.",
+        "prerequisites": "Swordmage",
+        "id": "Intelligent Blademaster [Swordmage]"
+    },
+    "Improved Swordbond [Swordmage]": {
+        "name": "Improved Swordbond [Swordmage]",
+        "description": "You can call your bonded weapon to your hand from up to 20 squares away with a minor action.",
+        "prerequisites": "Swordmage",
+        "id": "Improved Swordbond [Swordmage]"
+    },
+    "Defensive Minions": {
+        "name": "Defensive Minions",
+        "description": "A creature you summon using an artificer summoning power has a +2 feat bonus to all defenses.",
+        "prerequisites": "Artificer",
+        "id": "Defensive Minions"
+    },
+    "Alchemist": {
+        "name": "Alchemist",
+        "description": "You can make alchemical items of your level or lower. You must have the correct formula and an appropriate skill.\n\nYou can take this feat instead of the Ritual Caster feat granted by your class feature.",
+        "id": "Alchemist"
+    },
+    "Arcane Empowerment": {
+        "name": "Arcane Empowerment",
+        "description": "Your study of magic has given you the ability to manipulate the arcane energy contained within items. You begin each day with the ability to empower a magic item, and you gain one additional arcane empowerment for each milestone you reach.\nYou must spend a short rest with an item in order to empower it. You can empower an item in two ways.",
+        "prerequisites": "Artificer",
+        "id": "Arcane Empowerment"
+    },
+    "Arcane Rejuvination": {
+        "name": "Arcane Rejuvination",
+        "description": "Before combat, an artificer spends time infusing his or her allies' magic items with curative energy. Whenever one of the artificers' allies uses a magic item's daily power, that ally absorbs the energy and gains temporary hit points equal to one-half your level + your Intelligence modifier.",
+        "prerequisites": "Artificer",
+        "id": "Arcane Rejuvination"
+    },
+    "Healing Infusion": {
+        "name": "Healing Infusion",
+        "description": "You can create healing infusions for later use. At the end of an extended rest, you create two healing infusions that last until the end your next extended rest. At 16th level, you instead create three healing infusion.\n\nYou determine the effect of a healing infusion at the time you use the power, not at the time you create it. When you use a healing Infusion power, you expend one of the infusions you created during your last extended rest. During a short rest, you or an ally can spend a healing surge to replenish one of the infusions expended.",
+        "prerequisites": "Artificer",
+        "id": "Healing Infusion"
+    },
+    "Ritual Casting (Artificer)": {
+        "name": "Ritual Casting (Artificer)",
+        "description": "You gain the Ritual Caster feat as a bonus feat, allowing you to use magical rituals. You own a ritual book, and it contains the following rituals that you have mastered: Brew Potion, Disenchant Magic Item, Enchant Magic Item, and Make Whole. In additions, you can use Disenchant Magic Item without expending components.",
+        "owner": "virginia.case@g33xnexus.com",
+        "id": "Ritual Casting (Artificer)"
+    },
+    "Master Mixer": {
+        "name": "Master Mixer",
+        "description": "You can make alchemical items of your level + 3 or lower. You must have the correct formula and an appropriate skill.",
+        "prerequisites": "Artificer",
+        "id": "Master Mixer"
+    },
+    "Alertness": {
+        "name": "Alertness",
+        "description": "You don’t grant enemies combat advantage during surprise rounds.\n\nYou also gain a +2 feat bonus to Perception checks.",
+        "id": "Alertness"
+    },
+    "Companion Spirit": {
+        "name": "Companion Spirit",
+        "description": "As part of your initiation as a shaman, you acquired a spirit companion, an animal spirit that accompanies and assists you. Many shaman powers have the spirit keyword (page 220). Your spirit companion must be present when you use such a power.\n\nYou gain the call spirit companion power, which allows you to call your spirit companion to your side. In addition, choose one of the following Companion Spirit options. Your choice provides you with a Spirit Boon as well as a special attack made through your spirit companion, and your choice determines one of your at-will attack powers. Your choice also provides bonuses to certain shaman powers, as detailed in those powers.",
+        "prerequisites": "Shaman Class Feature",
+        "id": "Companion Spirit"
+    },
+    "Melee Training": {
+        "id": "Melee Training",
+        "name": "Melee Training",
+        "description": "Choose an ability other than Strength. When you make a melee basic attack using a weapon you are proficient with, you can use that ability instead of Strength for the attack roll and the damage roll.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Superior Implement Training": {
+        "name": "Superior Implement Training",
+        "description": "You can use a Single superior implement ofyour choice. The implement must be ofa type you are already able to use.\n\n**Special:** You can take this feat more than once. Each time you take this feat, choose a different superior implement.",
+        "id": "Superior Implement Training"
+    },
+    "Protector Spirit Adept": {
+        "name": "Protector Spirit Adept",
+        "description": "Your allies gain a +1 bonus to Fortitude, Reflex, and Will while adjacent to your spirit companion.",
+        "prerequisites": "Shaman, Protector Spirit class feature",
+        "id": "Protector Spirit Adept"
+    },
+    "Shared Healing Spirit": {
+        "name": "Shared Healing Spirit",
+        "description": "When you use healing spirit, you can choose one ally within 2 squares of the target to regain the additional hit points, instead of an ally adjacent to your spirit companion.",
+        "prerequisites": "Shaman, healing spirit power",
+        "id": "Shared Healing Spirit"
+    },
+    "Font of Life": {
+        "name": "Font of Life",
+        "description": "At the start of your turn, you can make a saving throw\nagainst one effect that a save can end. On a save, the\neffect immediately ends, preventing it from affecting\nyou on your current turn. If you save against being\nstunned or dazed, you can act normally on your turn.\nIf you save against ongoing damage, you avoid taking\nthe damage.\nIf you fail the saving throw, you still make a saving\nthrow against the effect at the end of your turn.",
+        "prerequisites": "Warden",
+        "id": "Font of Life"
+    },
+    "Earthstrength": {
+        "name": "Earthstrength",
+        "description": "While you are not wearing heavy\narmor, you can use your Constitution modifier in\nplace of your Dexterity or Intelligence modifier to\ndetermine your AC.\nIn addition, when you use your second wind, you\ngain an additional bonus to AC equal to your Constitution modifier. The bonus lasts until the end of your\nnext turn.",
+        "prerequisites": "Warden",
+        "id": "Earthstrength"
+    },
+    "Nature's Wrath": {
+        "name": "Nature's Wrath",
+        "description": "Once during each of your turns, you can mark each\nadjacent enemy as a free action. This mark lasts until\nthe end of your next turn.",
+        "prerequisites": "Warden",
+        "id": "Nature's Wrath"
+    },
+    "Crushing Earthstrength": {
+        "name": "Crushing Earthstrength",
+        "description": "When you use your second wind, you gain a bonus to weapon damage rolls equal to your Constitution modifier until the end of your next turn.",
+        "prerequisites": "Warden, Earthstrength class feature",
+        "id": "Crushing Earthstrength"
+    },
+    "Manifest Resistance": {
+        "name": "Manifest Resistance",
+        "description": "Increase the resist value provided by your elemental manifestation (if any) by 5. For example, when manifesting firesoul at 1st level to 10th level, you gain resist 10 fire (instead of resist 5 fire).",
+        "prerequisites": "Genasi",
+        "id": "Manifest Resistance"
+    },
+    "Versatile Resistance": {
+        "name": "Versatile Resistance",
+        "description": "You gain resist 5 cold, resist 5 fire, and resist 5 lightning regardless of your elemental manifestation.",
+        "prerequisites": "Genasi",
+        "id": "Versatile Resistance"
+    },
+    "Extra Manifestation": {
+        "name": "Extra Manifestation",
+        "description": "Select a new genasi elemental manifestation: earthsoul, firesoul, stormsoul, watersoul, or windsoul. When you take a short rest or an extended rest, you can adopt this new elemental manifestation instead of the one you had been exhibiting.",
+        "prerequisites": "Genasi",
+        "id": "Extra Manifestation"
+    },
+    "Stormrider": {
+        "name": "Stormrider",
+        "description": "You gain a +1 feat bonus to speed when you are manifesting windsoul or watersoul. When flying, you hover.",
+        "prerequisites": "Genasi",
+        "id": "Stormrider"
+    },
+    "Radiant Hammer Fists (Radiant Fist)": {
+        "name": "Radiant Hammer Fists (Radiant Fist)",
+        "description": "Whenever your Flurry of Blows power deals damage, you\ncan make that damage radiant , instead of any other\ndamage type. In addition, whenever you score a critical hit with a monk power or a radiant fist power,\neach enemy adjacent to you is blinded until the end of\nyour next turn.",
+        "prerequisites": "16th level",
+        "id": "Radiant Hammer Fists (Radiant Fist)"
+    },
+    "Evasion": {
+        "name": "Evasion",
+        "description": "When an area or close attack targeting your AC or Reflex defense misses you but deals damage on a miss, you take no damage from the attack.",
+        "prerequisites": "Dex 15",
+        "id": "Evasion"
+    },
+    "Brutal Flurry": {
+        "name": "Brutal Flurry",
+        "description": "Whenever you target only one creature\nwith your Flurry of Blows power, the creature takes\n2 extra damage. The extra damage increases to 4 at\n21st level.",
+        "prerequisites": "11th level, monk, Flurry of Blows class feature",
+        "id": "Brutal Flurry"
+    },
+    "Dual Soul": {
+        "name": "Dual Soul",
+        "description": "At the start of your turn, you can make a saving throw against each effect currently rendering you dazed or dominated. If you fail the saving throw, you do not make a saving throw against the effect at the end of your turn.",
+        "prerequisites": "Kalashtar",
+        "id": "Dual Soul"
+    },
+    "Arcane Initiate [Multiclass Wizard]": {
+        "name": "Arcane Initiate [Multiclass Wizard]",
+        "description": "You gain training in the Arcana skill.\nChoose a 1st-level wizard at-will power. You can use that power once per encounter.\nIn addition, you can use an orb, a staff, or a wand as an implement when using a wizard power or a wizard paragon path power.",
+        "prerequisites": "Int 13",
+        "id": "Arcane Initiate [Multiclass Wizard]"
+    },
+    "Staff Expertise": {
+        "name": "Staff Expertise",
+        "description": "You gain a +1 feat bonus to the attack rolls of implement powers and weapon powers that you use with a staff. This bonus increases to +2 at 11th level and +3 at 21st level.\n\nIn addition, when you make a ranged attack or an area attack with a staff as an implement, you don't provoke opportunity attacks for doing so.\n\nWhen you make a melee weapon attack with a staff, the weapon's reach for that attack increases by 1.",
+        "id": "Staff Expertise"
+    },
+    "Bloodbond": {
+        "name": "Bloodbond",
+        "description": "You gain the _encaging spirits_ power. In addition, while you are not wearing heavy armor, you can shift as a minor action.",
+        "prerequisites": "Seeker's Bond class feature",
+        "id": "Bloodbond"
+    },
+    "Implement Focus": {
+        "name": "Implement Focus",
+        "description": "Choose an implement with which you have proficiency. You gain a +1 feat bonus to the damage rolls of implement attacks that you make with the chosen implement. This bonus increases to +2 at 11th level and +3 at 21st level.\n\nSpecial: You can choose this feat more than once. Each time you select this feat, choose another implement with which you have proficiency",
+        "id": "Implement Focus"
+    },
+    "Dilettante": {
+        "name": "Dilettante",
+        "description": "At 1st level, you choose an at-will power from a class different from yours. You can use that power as an encounter power.",
+        "prerequisites": "Half-Elf",
+        "id": "Dilettante"
+    },
+    "Dual Heritage": {
+        "name": "Dual Heritage",
+        "description": "You can take feats that have either elf or human as a prerequisite (as well as those specifically for half-elves), as long as you meet any other requirements.",
+        "prerequisites": "Half-Elf",
+        "id": "Dual Heritage"
+    },
+    "Group Diplomacy": {
+        "name": "Group Diplomacy",
+        "description": "You grant allies within 10 squares of you a +1 racial bonus to Diplomacy checks.",
+        "prerequisites": "Half-Elf",
+        "id": "Group Diplomacy"
+    },
+    "Prime Shot": {
+        "id": "Prime Shot",
+        "name": "Prime Shot",
+        "description": "If none of your allies are nearer to your target than you are, you receive a +1 bonus to ranged attack rolls against that target.",
+        "exists": true,
+        "owner": "chris.case@g33xnexus.com"
+    },
+    "Shadow Walk": {
+        "name": "Shadow Walk",
+        "description": "On your turn, if you move at least 3 squares away from where you started your turn, you gain concealment until the end of your next turn.",
+        "prerequisites": "Warlock",
+        "id": "Shadow Walk"
+    },
+    "Warlock's Curse": {
+        "name": "Warlock's Curse",
+        "description": "Once per turn as a minor action, you can place a Warlock’s Curse on the enemy nearest to you that you can see. A cursed enemy is more vulnerable to your attacks. If you damage a cursed enemy, you deal extra damage. You decide whether to apply the extra damage after making the damage roll. You can deal this extra damage once per round.\nA Warlock’s Curse remains in effect until the end of the encounter or until the cursed enemy drops to 0 hit points or fewer.\nYou can place a Warlock’s Curse on multiple targets over the course of an encounter; each curse requires the use of a minor action. You can’t place a Warlock’s Curse on a creature that is already affected by your or another character’s Warlock’s Curse.\n\nAs you advance in level, your extra damage increases.\nLevel Warlock’s Curse Extra Damage\n1st–10th +1d6\n11th–20th +2d6\n21st–30th +3d6",
+        "prerequisites": "Warlock",
+        "id": "Warlock's Curse"
+    },
+    "Killing Curse": {
+        "name": "Killing Curse",
+        "description": "The extra damage dice from your Warlock's Curse class feature increase from d6s to d8s.",
+        "prerequisites": "Warlock, Warlock's Curse class feature",
+        "id": "Killing Curse"
+    },
+    "Darkspiral Aura": {
+        "name": "Darkspiral Aura",
+        "description": "When an enemy under your Warlock’s Curse is reduced to 0 hit points or fewer, add 1 to your Darkspiral Aura. Your Darkspiral Aura has a starting value of 0, and it resets to 0 when you take a short rest or an extended rest.\nOnce per round as a free action when an enemy makes a melee attack or a ranged attack against you,\nyou can use your Darkspiral Aura as an immediate interrupt, dealing 1d6 necrotic and psychic damage\nto that enemy for each point of your Darkspiral Aura’s current value. If this attack deals less than 12 damage, the value of your Darkspiral Aura becomes 0. If this attack deals 12 damage or more, you can\ncause the enemy to be weakened for its attack (which means the attack deals half damage), and the value of your Darkspiral Aura becomes 1.\nAt 11th level, the damage you deal increases to 1d8 per point of your Darkspiral Aura’s current value,\nand at 21st level the damage increases to 1d10 per point of your Darkspiral Aura’s current value.",
+        "prerequisites": "Warlock, Dark Pact",
+        "id": "Darkspiral Aura"
+    },
+    "Scholar Theme Starting Feature": {
+        "name": "Scholar Theme Starting Feature",
+        "description": "You know one additional language chosen from Draconic, Dwarven, and Elven. In addition, you gain the Use Vulnerability power.",
+        "owner": "artslavekeito@aol.com",
+        "id": "Scholar Theme Starting Feature"
+    },
+    "Scholar Theme Level 5 Feature": {
+        "name": "Scholar Theme Level 5 Feature",
+        "description": "Choose training in one new skill and one new language. The skill you choose must be Arcana,\nDungeoneering, History, Nature, or Religion; if you already have training in all of these skills, you instead gain a +2 bonus to skill checks with one of those skills. \nThe language you choose must be Draconic, Dwarven, or Elven; if you already know all three, choose one language from those listed in the Rules Compendium (page 69) or Player's Handbook (page 25).",
+        "prerequisites": "Scholar Theme",
+        "owner": "artslavekeito@aol.com",
+        "id": "Scholar Theme Level 5 Feature"
+    },
+    "Languages": {
+        "name": "Languages",
+        "description": "Known written and spoken languages.",
+        "owner": "artslavekeito@aol.com",
+        "id": "Languages"
+    },
+    "Pledge of Retribution": {
+        "name": "Pledge of Retribution",
+        "description": "If you miss your oath of enmity target with an attack, you gain a +1 bonus to the next attack roll you make against that target before the end of your next turn.",
+        "prerequisites": "11th level, avenger, Censure of Retribution class feature, oath of enmity power",
+        "id": "Pledge of Retribution"
+    },
+    "Astral Majesty": {
+        "name": "Astral Majesty",
+        "description": "You have a +1 to all defenses against attacks made by bloodied creatures.",
+        "prerequisites": "Deva Racial Feature",
+        "id": "Astral Majesty"
+    },
+    "Astral Resistance": {
+        "name": "Astral Resistance",
+        "description": "You have resistance to necrotic damage and radiant damage equal to 5 + one-half your level.",
+        "prerequisites": "Deva Racial Feature",
+        "id": "Astral Resistance"
+    },
+    "Immortal Origin": {
+        "name": "Immortal Origin",
+        "description": "Your spirit is native to the Astral Sea, so you are considered an immortal creature for the purpose of effects that relate to creature origin.",
+        "prerequisites": "Deva Racial Feature",
+        "id": "Immortal Origin"
+    },
+    "Armor of Faith": {
+        "name": "Armor of Faith",
+        "description": "The favor of your deity wards you from harm. While you are neither wearing heavy armor nor using a shield, you gain a +3 bonus to AC.",
+        "prerequisites": "Avenger Class Feature",
+        "id": "Armor of Faith"
+    },
+    "Censure of Retribution": {
+        "name": "Censure of Retribution",
+        "description": "When any enemy other than your oath of enmity target hits you, you gain a bonus to damage rolls equal to your Intelligence modifier until the end of your next turn. This bonus is cumulative.",
+        "prerequisites": "Deva Class Feature",
+        "id": "Censure of Retribution"
+    },
+    "Devout Guidance": {
+        "name": "Devout Guidance",
+        "description": "When you use your divine guidance, the target gains a +3 power bonus to the second attack roll.",
+        "prerequisites": "11th level, avenger, divine guidance power",
+        "id": "Devout Guidance"
+    },
+    "Inspired Recovery": {
+        "name": "Inspired Recovery",
+        "description": "When an ally who can see you spends an action point to take an extra action, that ally also regains hit points equal to one-half your level + your Charisma modifier.",
+        "prerequisites": "Warlord, Commanding Presence class feature",
+        "id": "Inspired Recovery"
+    },
+    "Lightning Reflexes": {
+        "name": "Lightning Reflexes",
+        "description": "You gain a +2 feat bonus to your Reflex defense.",
+        "id": "Lightning Reflexes"
+    },
+    "Skill Training": {
+        "name": "Skill Training",
+        "description": "You gain training in one skill. The skill need not be on your class skill list.\n\n**Special:** You can take this feat more than once. Each time you select this feat, choose a skill in which you are not trained.",
+        "id": "Skill Training"
+    },
+    "Combat Commander": {
+        "name": "Combat Commander",
+        "description": "The bonus to initiative granted by your Combat Leader class feature is now equal to your Charisma modifier or your Intelligence modifier, whichever is higher.",
+        "prerequisites": "Warlord, Combat Leader class feature",
+        "id": "Combat Commander"
+    },
+    "Bolstering Mantle": {
+        "name": "Bolstering Mantle",
+        "description": "Whenever you spend a healing surge, one ally within the radius of your Ardent Mantle can either  gain 5 temporary hit points or make a saving throw.",
+        "prerequisites": "Ardent, Ardent Mantle class feature",
+        "id": "Bolstering Mantle"
+    },
+    "Heartening Surge": {
+        "name": "Heartening Surge",
+        "description": "The bonus that your _ardent surge_ grants to either defenses or attack rolls increases by 1.",
+        "prerequisites": "Ardent, _ardent surge_ power",
+        "id": "Heartening Surge"
+    },
+    "Mantle of Caution": {
+        "name": "Mantle of Caution",
+        "description": "While you are bloodied, allies within the radius of your Ardent Mantle gain a +2 bonus to Fortitude, Reflex, and Will.",
+        "prerequisites": "11th level, ardent, Ardent Mantle class feature",
+        "id": "Mantle of Caution"
+    },
+    "Psionic Toughness [Augment]": {
+        "name": "Psionic Toughness [Augment]",
+        "description": "When you take this feat, you gain additional hit points. You gain 3 additional hit points at each tier of play (at 1st, 11th, and 21st level).\n\nIn addition, when you use your second wind, you can spend 1 power point to regain 5 additional hit points. The additional hit points regained increase to 10 at 11th level and 15 at 21st level.",
+        "prerequisites": "Psionic Augmentation class feature",
+        "id": "Psionic Toughness [Augment]"
+    },
+    "Improved Ardent Surge": {
+        "name": "Improved Ardent Surge",
+        "description": "The target of your ardent surge regains additional hit points equal to your Charisma modifier.",
+        "prerequisites": "11th level, ardent, ardent surge power",
+        "id": "Improved Ardent Surge"
+    },
+    "Empowered Dragon Breath [Dragonborn]": {
+        "name": "Empowered Dragon Breath [Dragonborn]",
+        "description": "Use d10s for the damage roll of your dragon breath power instead of d6s.",
+        "prerequisites": "Dragonborn, dragon breath racial power",
+        "id": "Empowered Dragon Breath [Dragonborn]"
+    },
+    "Combat Medic": {
+        "name": "Combat Medic",
+        "description": "You administer first aid to stabilize the dying as a minor action, instead of a standard action.\nYou also gain a +2 feat bonus to Heal checks.",
+        "prerequisites": "Trained in Heal",
+        "id": "Combat Medic"
+    },
+    "Reinvigorating Attack [Invincible Mind Path Feature]": {
+        "name": "Reinvigorating Attack [Invincible Mind Path Feature]",
+        "description": "When you have 0 power points and hit an enemy with a battle­mind at-will attack that is unaugmented, you regain 2 power points.",
+        "prerequisites": "Invincible Mind, Level 24",
+        "id": "Reinvigorating Attack [Invincible Mind Path Feature]"
+    },
+    "Epic Reflexes": {
+        "name": "Epic Reflexes",
+        "description": "You gain a +4 bonus to Reflex.",
+        "prerequisites": "21st level",
+        "id": "Epic Reflexes"
+    },
+    "Epic Will": {
+        "name": "Epic Will",
+        "description": "You gain a +4 bonus to Will.",
+        "prerequisites": "21st level",
+        "id": "Epic Will"
+    },
+    "Indomitable Will": {
+        "name": "Indomitable Will",
+        "description": "You gain a +2 feat bonus to Will and saving throws against effects that make you dazed, dominated, or stunned.",
+        "prerequisites": "21 level",
+        "id": "Indomitable Will"
+    },
+    "Opportune Reflexes": {
+        "name": "Opportune Reflexes",
+        "description": "You gain a +2 feat bonus to Reflex and saving throws against ongoing damage.",
+        "prerequisites": "21st level",
+        "id": "Opportune Reflexes"
+    },
+    "Invincible [Invincible Mind Path Feature]": {
+        "name": "Invincible [Invincible Mind Path Feature]",
+        "description": "When you drop to 0 hit points or fewer,you can spend a healing surge as an immediate interrupt.",
+        "prerequisites": "30th level, Invincible Mind epic destiny",
+        "id": "Invincible [Invincible Mind Path Feature]"
+    },
+    "Invigorating Demand": {
+        "name": "Invigorating Demand",
+        "description": "When you augment your *battlemind’s demand*, you gain temporary hit points equal to your Constitution modifier.",
+        "prerequisites": "21st level, battlemind, battlemind’s demand power",
+        "id": "Invigorating Demand"
+    },
+    "Rune of Destruction (Runepriest)": {
+        "name": "Rune of Destruction (Runepriest)",
+        "description": "Allies gain a +1 bonus to attack rolls against enemies that are adjacent to you or to any other runepriests who are in this rune state.",
+        "id": "Rune of Destruction (Runepriest)"
+    },
+    "Rune of Protection (Runepriest)": {
+        "name": "Rune of Protection (Runepriest)",
+        "description": "While adjacent to you, allies gain resist 2 to all damage. The resistance increases to 4 at 11th level and 6 at 21st level.",
+        "id": "Rune of Protection (Runepriest)"
+    },
+    "Wrathful Hammer (Runepriest)": {
+        "name": "Wrathful Hammer (Runepriest)",
+        "description": "You gain proficiency with\nmilitary hammers and military maces. In addition,\nwhenever an enemy deals damage to you with an\nattack. you gain a bonus to damage rolls against that\nenemy until the end of your next turn. The bonus\nequals your Constitution modifier, regardless of the\nnumber of times the enemy damages you in a round.",
+        "id": "Wrathful Hammer (Runepriest)"
+    },
+    "Deific Agony (Godhunter)": {
+        "name": "Deific Agony (Godhunter)",
+        "description": "When you score a critical hit against a creature that is higher level than you, the creature takes a –5 penalty to saving throws and cannot regain hit points or recharge any powers until the end of your next turn.",
+        "prerequisites": "24th level, ranger or rogue, God Hunter epic destiny",
+        "id": "Deific Agony (Godhunter)"
+    },
+    "Blasphemous Recovery (Godhunter)": {
+        "name": "Blasphemous Recovery (Godhunter)",
+        "description": "Once per day, when you are hit by an attack from a creature that is higher level than you, you can choose to treat that attack as a miss and then regain the use of second wind and the use of one encounter power you have used during this encounter.",
+        "prerequisites": "30th level, ranger or rogue, God Hunter epic destiny",
+        "id": "Blasphemous Recovery (Godhunter)"
+    },
+    "Light Blade Mastery": {
+        "name": "Light Blade Mastery",
+        "description": "When you make a melee weapon attack with a light blade, you can score a critical hit on a natural roll of 19 or 20.",
+        "prerequisites": "Str 17, Dex 21",
+        "id": "Light Blade Mastery"
+    },
+    "Unfettered Stride": {
+        "name": "Unfettered Stride",
+        "description": "You can ignore the effect of difficult terrain on your movement.",
+        "prerequisites": "Trained in Acrobatics",
+        "id": "Unfettered Stride"
+    },
+    "Rune of Hope [Rune]": {
+        "name": "Rune of Hope [Rune]",
+        "description": "The target of your rune of mending also gains temporary hit points equal to the number of rune feats you have.",
+        "prerequisites": "Runepriest, _rune of mending_ power",
+        "id": "Rune of Hope [Rune]"
+    },
+    "Rune of Zeal [Rune]": {
+        "name": "Rune of Zeal [Rune]",
+        "description": "You gain a feat bonus to Athletics checks\nand Endurance checks equal to the number of rune\nfeats you have.",
+        "prerequisites": "Runepriest",
+        "id": "Rune of Zeal [Rune]"
+    },
+    "Robust Defenses": {
+        "id": "Robust Defenses",
+        "name": "Robust Defenses",
+        "prerequisites": "21st level",
+        "description": "You gain a +2 feat bonus to Fortitude, Reflex, and Will.",
+        "exists": true,
+        "owner": "travis.a.odom@gmail.com"
+    },
+    "Rune of Vengeance [Rune]": {
+        "name": "Rune of Vengeance [Rune]",
+        "description": "The first time you are bloodied during an encounter, you gain a bonus to damage rolls equal to\nthe number of rune feats you have. The bonus lasts\nuntil the end of your next turn.",
+        "prerequisites": "Runepriest",
+        "id": "Rune of Vengeance [Rune]"
+    },
+    "Rune of Eloquence [Rune]": {
+        "name": "Rune of Eloquence [Rune]",
+        "description": "You gain a feat bonus to Bluff checks and\nDiplomacy checks equal to the number of rune feats you have.",
+        "prerequisites": "Runepriest",
+        "id": "Rune of Eloquence [Rune]"
+    },
+    "Markings of the Victor": {
+        "name": "Markings of the Victor",
+        "description": "The first time you make an attack roll\nduring each encounter, you can roll twice and use\neither result.",
+        "prerequisites": "Goliath",
+        "id": "Markings of the Victor"
+    },
+    "Markings of the Blessed": {
+        "name": "Markings of the Blessed",
+        "description": "The first time you make a saving throw\nduring each encounter, you can roll twice and use\neither result.",
+        "prerequisites": "Goliath",
+        "id": "Markings of the Blessed"
+    },
+    "Impending Victory": {
+        "name": "Impending Victory",
+        "description": "You gain a +1 bonus to attack rolls with\nat-will powers against bloodied creatures.",
+        "id": "Impending Victory"
+    },
+    "Axe Mastery": {
+        "name": "Axe Mastery",
+        "description": "When you make a melee weapon attack\nwith an axe, you can score a critical hit on a natural\nroll of 19 or 20.",
+        "prerequisites": "Str 21, Con 17",
+        "id": "Axe Mastery"
+    },
+    "Divine Mastery": {
+        "name": "Divine Mastery",
+        "description": "When you spend an action point to\ntake an extra action, you also regain the use of a\ndivine encounter power you have used during this\nencounter.",
+        "prerequisites": "21st level, any divine class",
+        "id": "Divine Mastery"
+    },
+    "Rune of Health [Rune]": {
+        "name": "Rune of Health [Rune]",
+        "description": "Each ally, other than the target, in the\nburst of your rune of mending regains hit points equal\nto 3 + the number of rune feats you have.",
+        "prerequisites": "21st level, runepriest, rune of mending power",
+        "id": "Rune of Health [Rune]"
+    },
+    "Clinging Radiance": {
+        "name": "Clinging Radiance",
+        "description": "When you hit a target with a divine attack power that has the radiant keyword, the target loses any concealment or total concealment it has and cannot gain concealment or total concealment until the end of your next turn.",
+        "prerequisites": "11th level, any divine class",
+        "id": "Clinging Radiance"
+    },
+    "Saving Grace": {
+        "name": "Saving Grace",
+        "description": "When you succeed on a saving throw, you can choose not to end the effect you saved against and instead allow and ally within 5 square of you to make a saving throw with a bonus equal to your Wisdom modifier.",
+        "prerequisites": "11th level, any divine class",
+        "id": "Saving Grace"
+    },
+    "Runes of the Blade Smith [Master of the Forge Path Feature]": {
+        "name": "Runes of the Blade Smith [Master of the Forge Path Feature]",
+        "description": "When you take a short or an extended rest, you can touch\none weapon that you or an ally carries. That weapon\nthen gains a +1 bonus to damage rolls until you grant\nthis bonus to a different weapon.",
+        "prerequisites": "11th level, master of the forge paragon destiny",
+        "id": "Runes of the Blade Smith [Master of the Forge Path Feature]"
+    },
+    "Forge Rune Action [Master of the Forge Path Feature]": {
+        "name": "Forge Rune Action [Master of the Forge Path Feature]",
+        "description": "When you spend an action point to take an extra action, you and\neach ally within 5 squares of you gain a +4 bonus to\nweapon damage rolls until the end of your next turn.",
+        "prerequisites": "11th level, master of the forge paragon destiny",
+        "id": "Forge Rune Action [Master of the Forge Path Feature]"
+    },
+    "Indomitable Steel [Master of the Forge Path Feature]": {
+        "name": "Indomitable Steel [Master of the Forge Path Feature]",
+        "description": "When you take\na short or an extended rest, you can touch one suit of\nheavy armor that you or an ally wears. That armor\ngains a +1 bonus to AC until you grant this bonus to a\ndifferent suit of armor.",
+        "prerequisites": "16th level, master of the forge paragon path",
+        "id": "Indomitable Steel [Master of the Forge Path Feature]"
+    },
+    "Liberate the Mind [Avatar of Freedom Feature]": {
+        "name": "Liberate the Mind [Avatar of Freedom Feature]",
+        "description": "Allies adjacent to you gain a +2 bonus to saving throws against being dominated, immobilized, restrained, or slowed.",
+        "prerequisites": "21st level, avatar of freedom epic destiny",
+        "id": "Liberate the Mind [Avatar of Freedom Feature]"
+    },
+    "Liberating Revival [Avatar of Freedom Feature]": {
+        "name": "Liberating Revival [Avatar of Freedom Feature]",
+        "description": "The first time\neach day you begin your turn dying or dead, you revive. You regain hit points equal to your bloodied value, and each ally within 10 squares of you ends any immobilizing,\n slowing, or restraining effect currently affecting him or her.",
+        "prerequisites": "24th level, avatar of freedom epic destiny",
+        "id": "Liberating Revival [Avatar of Freedom Feature]"
+    },
+    "Icon of Hope": {
+        "name": "Icon of Hope",
+        "description": "Bloodied allies withing 10 squares of you gain a +1 bonus to saving throws.",
+        "prerequisites": "21st level, any divine class",
+        "id": "Icon of Hope"
+    },
+    "Agent of Freedom [Avatar of Freedom Feature]": {
+        "name": "Agent of Freedom [Avatar of Freedom Feature]",
+        "description": "You cannot be dominated, immobilized, slowed, restrained, or petrified . You ignore difficult terrain, and you can shift your speed as a move action.",
+        "prerequisites": "30th level, avatar of freedom epic destiny",
+        "id": "Agent of Freedom [Avatar of Freedom Feature]"
+    },
+    "Magnificent Beast": {
+        "name": "Magnificent Beast",
+        "description": "When you use  wild shape to change from your humanoid form to beast form, you can change your size to Large. While you are in a Large beast form, you gain a +2 bonus to  damage roll  and speed.",
+        "prerequisites": "21st level, Sovereign Beast epic destiny",
+        "id": "Magnificent Beast"
+    },
+    "Rune of Battle [Rune]": {
+        "name": "Rune of Battle [Rune]",
+        "description": "Whenever you score a critical hit with a\nrunepriest power, one ally adjacent to the target can\nmake a melee basic attack against that target as a free\naction. The ally gains a bonus to the attack roll and\nthe damage roll equal to the number of rune feats you\nhave.",
+        "prerequisites": "21st level, runepriest",
+        "id": "Rune of Battle [Rune]"
+    },
+    "Sovereign's Charge": {
+        "name": "Sovereign's Charge",
+        "description": "Once per encounter when you charge while in beast form, you can use one of your beast form encounter attack powers in place of a melee basic attack. If the attack hits, the  target is also knocked prone.",
+        "prerequisites": "24th level, Sovereign Beast epic destiny",
+        "id": "Sovereign's Charge"
+    },
+    "Divine Health": {
+        "name": "Divine Health",
+        "description": "You gain resistance to poison equal to one-half your level + your wisdom modifier. You can't become infected by any disease of level 30 or lower.",
+        "prerequisites": "21st level, any divine class",
+        "id": "Divine Health"
+    },
+    "Sovereign's Inheritance": {
+        "name": "Sovereign's Inheritance",
+        "description": "When you reduce a nonminion enemy to 0 hit points with a beast form attack power, you can choose either to spend a healing surge or to regain the use of an encounter attack power that you  have used during this encounter.",
+        "prerequisites": "30th level, Sovereign Beast epic destiny",
+        "id": "Sovereign's Inheritance"
+    },
+    "Primal Aspect Form": {
+        "name": "Primal Aspect Form",
+        "description": "While you are bloodied in beast form, you gain regeneration 2.",
+        "prerequisites": "21st level, druid, wild shape power",
+        "id": "Primal Aspect Form"
+    },
+    "Primal Resurgence": {
+        "name": "Primal Resurgence",
+        "description": "Once per day, when you become bloodied, as a free action you can regain the use of a primal daily power you have already used today.",
+        "prerequisites": "21st level, any primal class",
+        "id": "Primal Resurgence"
+    },
+    "Epic Resurgence": {
+        "name": "Epic Resurgence",
+        "description": "The first time you score a critical hit during an encounter, you regain the use of one encounter attack power of your choice. If you use an attack that targets multiple foes, you gain this feat’s benefit only on the first attack roll you make.",
+        "prerequisites": "level 21",
+        "id": "Epic Resurgence"
+    },
+    "Mantle of Clarity": {
+        "name": "Mantle of Clarity",
+        "description": "You and each ally within 5 squares of you gain a bonus to all defenses against opportunity attacks. The bonus equals your Wisdom modifier.\nIn addition, each ally within 5 squares of you gains a +2 bonus to Insight checks and Perception checks.\nYou also gain the _ardent alacrity_ power.",
+        "prerequisites": "Ardent",
+        "id": "Mantle of Clarity"
+    },
+    "Mark of Healing [Dragonmark]": {
+        "name": "Mark of Healing [Dragonmark]",
+        "description": "Benefit: Whenever you use a healing power on an ally or use Heal to allow an ally to spend his or her second wind, that ally can also make a saving throw.\n\nYou can master and perform rituals in the restoration category and the Remove Affliction (PHB1 p.311) ritual as if you had the Ritual Caster feat.",
+        "id": "Mark of Healing [Dragonmark]"
+    },
+    "Storm Spellfury": {
+        "name": "Storm Spellfury",
+        "description": "Whenever you use a sorcerer at-will attack power and hit at least one enemy, you can fly 2 squares as a free action after resolving the attack.",
+        "prerequisites": "11th level, sorcerer, Storm Magic class feature",
+        "id": "Storm Spellfury"
+    },
+    "[Storm Sovereign] Stormborn": {
+        "name": "[Storm Sovereign] Stormborn",
+        "description": "You increase your Constitution score by 2 and your origin changes to elemental. Additionally, you gain resist lightning and thunder equal to 15 + one-half your level.",
+        "prerequisites": "21st level, Storm Sovereign epic destiny",
+        "id": "[Storm Sovereign] Stormborn"
+    },
+    "Draconic Restoration": {
+        "name": "Draconic Restoration",
+        "description": "When you use your second wind, you regain the use of your dragon breath.",
+        "prerequisites": "21st level, dragonborn, dragon breath racial power",
+        "id": "Draconic Restoration"
+    },
+    "Underfoot": {
+        "name": "Underfoot",
+        "description": "You can move through the space of a creature two or more sizes larger than you (Large or larger) without provoking opportunity attacks from that creature. You don’t provoke when you leave an adjacent square to enter the target creature’s space, or when you leave the target creature’s space to enter an adjacent square.\n\nYou still provoke attacks from other creatures. You can’t end your move in another creature’s space.",
+        "prerequisites": "Halfling, trained in Acrobatics",
+        "id": "Underfoot"
+    },
+    "Crossbow Expertise": {
+        "name": "Crossbow Expertise",
+        "description": "You gain a +1 feat bonus to weapon attack rolls that you make with a crossbow. This bonus increases to +2 at 11th level and +3 at 21st level.\nAlso you ignore partial cover and superior cover with weapon attacks you make with a crossbow.",
+        "id": "Crossbow Expertise"
+    },
+    "Secret Stride": {
+        "id": "Secret Stride",
+        "name": "Secret Stride",
+        "prerequisites": "Trained in Stealth",
+        "description": "You do not incur penalties to your Stealth checks if you move at full speed while hiding or sneaking. You still take the full penalty if you run.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Steady Shooter": {
+        "name": "Steady Shooter",
+        "description": "You gain a +3 bonus to damage rolls with crossbow attacks if you haven't moved since the end of your last turn.",
+        "prerequisites": "Constitution 15",
+        "id": "Steady Shooter"
+    },
+    "Seize the Moment": {
+        "name": "Seize the Moment",
+        "description": "During the first round of combat and during surprise rounds, you automatically gain combat advantage over a foe whose initiative result is lower than yours.",
+        "prerequisites": "Dex 17",
+        "id": "Seize the Moment"
+    },
+    "Combat Opportunity": {
+        "name": "Combat Opportunity",
+        "description": "Whenever one of your allies hits an enemy with an opportunity attack, that enemy grants combat advantage to you until the end of your next turn.",
+        "prerequisites": "11th level, rogue",
+        "id": "Combat Opportunity"
+    },
+    "Expert Sneak": {
+        "id": "Expert Sneak",
+        "name": "Expert Sneak",
+        "prerequisites": "11th level, rogue",
+        "description": "You have combat advantage against enemies that are deafened, immobilized, slowed, or weakened.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Merciless Killer": {
+        "id": "Merciless Killer",
+        "name": "Merciless Killer",
+        "prerequisites": "Drow",
+        "description": "When a bloodied foe grants combat advantage to you, you gain a +5 bonus to the damage roll.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Martial Mastery": {
+        "id": "Martial Mastery",
+        "name": "Martial Mastery",
+        "prerequisites": "21st level, any martial class",
+        "description": "When you spend an action point to take an extra action, you also regain the use of a martial encounter power you have used during this encounter.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Darkfire Warrior": {
+        "name": "Darkfire Warrior",
+        "description": "When you reduce the target of your _Darkfire_ racial power to zero hit points with a weapon attack, you regain the use of _Darkfire._",
+        "prerequisites": "21st level, drow, any martial class",
+        "id": "Darkfire Warrior"
+    },
+    "Two-Fisted Shooter": {
+        "name": "Two-Fisted Shooter",
+        "description": "You can treat the hand crossbow as an offhand weapon and you can reload it one-handed as a free action. When you score a critical hit and have a hand crossbow in your offhand you can make a ranged basic attack with that weapon.",
+        "prerequisites": "rogue",
+        "id": "Two-Fisted Shooter"
+    },
+    "Fey Origin": {
+        "name": "Fey Origin",
+        "description": "Your ancestors were native to the Feywild, so you are considered a few creature for the purpose of effects that relate to creature origin.",
+        "prerequisites": "Drow Racial Feature",
+        "id": "Fey Origin"
+    },
+    "Sharpshooter Talent": {
+        "name": "Sharpshooter Talent",
+        "description": "Choose crossbows or slings. You gain a +1 bonus to attack with any weapon of the chosen group. You gain _Far Shot_ as a bonus feat, even if you do not meet the prerequisites.",
+        "prerequisites": "Rogue Class Feature",
+        "id": "Sharpshooter Talent"
+    },
+    "Trance": {
+        "id": "Trance",
+        "name": "Trance",
+        "prerequisites": "Drow Racial Feature",
+        "description": "Rather than sleep, drow enter a meditative state known as a trance. You need to spend 4 hours in this state to gain the same benefits other races gain from taking a 6-hour extended rest. While in a trance, you are fully aware of your surroundings and notice approaching enemies and other events as normal.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Crossbow Savant": {
+        "name": "Crossbow Savant",
+        "description": "You add 5 squares to the normal range of any crossbow you wield and 10 squares to the long range.Treat a hand crossbow as an offhand weapon. Treat any crossbow that has the load minor property as having the load free property instead.",
+        "prerequisites": "Cloaked Sniper Paragon Path Feature",
+        "id": "Crossbow Savant"
+    },
+    "Sniper Action": {
+        "name": "Sniper Action",
+        "description": "When you spend an action point to make a ranged basic attack and have combat advantage against the target of the attack, you can add your sneak attack damage, even if you have already dealt sneak attack damage during this round. If the attack hits, you can shift one square.",
+        "prerequisites": "Cloaked Sniper Paragon Path Feature",
+        "id": "Sniper Action"
+    },
+    "Versatile Combatant": {
+        "name": "Versatile Combatant",
+        "description": "When you are armed with a melee weapon in your main hand, and a hand crossbow in your offhand, you do not provoke opportunity attacks when attacking with your hand crossbow.",
+        "prerequisites": "Cloaked Sniper Paragon Path Feature",
+        "id": "Versatile Combatant"
+    },
+    "Death's Eye": {
+        "name": "Death's Eye",
+        "description": "Whenever you reduce an enemy to 0 hit points, choose another enemy you can see. Until the end of your next turn, you gain combat advantage against the second enemy, and takes a -2 penalty to attack rolls against you.",
+        "prerequisites": "Perfect Assassin Feature",
+        "id": "Death's Eye"
+    },
+    "Student of Battle [Multiclass Warlord]": {
+        "name": "Student of Battle [Multiclass Warlord]",
+        "description": "You gain training in one skill from the warlord's class skill list.\nOnce per day, you can use the warlord's _inspiring word_ power.",
+        "id": "Student of Battle [Multiclass Warlord]"
+    },
+    "[Storm Sovereign] Thunder and Lightning": {
+        "name": "[Storm Sovereign] Thunder and Lightning",
+        "prerequisites": "24th level, Storm Sovereign epic destiny",
+        "description": "Once per day, when you die, your body discorporates into a storm of elemental fury. You heal to one-half hit points and gain the insubstantial and phasing qualities. You gain an aura 5; when any enemy begins its turn inside that aura, it automatically takes 15 lightning and thunder damage, and you can slide that enemy 3 squares. You can use encounter and at-will powers, but you cannot use daily powers, activate magic items, or perform rituals. If you die in elemental storm form, you are dead.\n\nAt the end of the encounter, after a short rest you reconstitute yourself from the base elements. Your current hit point total is unchanged, but you no longer experience the other benefits and drawbacks from being in elemental storm form.",
+        "global": "global",
+        "id": "[Storm Sovereign] Thunder and Lightning"
+    },
+    "Light Blade Expertise": {
+        "name": "Light Blade Expertise",
+        "description": "Benefit: You gain a +1 feat bonus to weapon attack rolls that you make with a light blade. In addition, you gain a +1 bonus to the damage rolls of weapon attacks that you make with a light blade against a creature granting combat advantage to you. Both of these bonuses increase to +2 at 11th level and +3 at 21st level.",
+        "global": "global",
+        "id": "Light Blade Expertise"
+    },
+    "Improved Defenses": {
+        "name": "Improved Defenses",
+        "description": "You gain a +1 feat bonus to Fortitude, Reflex, and Will. This bonus increases to +2 at 11th level and +3 at 21st level.",
+        "global": "global",
+        "id": "Improved Defenses"
+    },
+    "Two-Weapon Opening": {
+        "name": "Two-Weapon Opening",
+        "prerequisites": "11th level, Two-Weapon Fighting feat",
+        "description": "When you are wielding two melee weapons and score a critical hit with your main weapon, you can make a melee basic attack with your off-hand weapon against the same target as a free action.",
+        "global": "global",
+        "id": "Two-Weapon Opening"
+    },
+    "Lolthtouched": {
+        "name": "Lolthtouched",
+        "prerequisites": "Drow racial feature",
+        "description": "Once per encounter, you can use either the cloud of darkness power or the darkfire power.",
+        "global": "global",
+        "id": "Lolthtouched"
+    },
+    "Sorrowborn (Raven Knight)": {
+        "name": "Sorrowborn (Raven Knight)",
+        "prerequisites": "Raven Knight feature, 21st level",
+        "description": "You gain a +2 bonus to Constitution, a +2 bonus to Dexterity, and a +2 bonus to speed.\nIf your origin is not already shadow, your origin changes to shadow, and henceforth you are considered a shadow creature for the purpose of effects that relate to creature origin.\nYou also gain darkvision if you do not already have darkvision.",
+        "global": "global",
+        "id": "Sorrowborn (Raven Knight)"
+    },
+    "Bleak Visage": {
+        "id": "Bleak Visage",
+        "name": "Bleak Visage",
+        "prerequisites": "Raven Knight feature, 21st level",
+        "description": "Any enemy adjacent to you takes a –2 penalty to attack rolls against you.",
+        "exists": true,
+        "owner": "artslavekeito@aol.com"
+    },
+    "Shadow Rush (Raven Knight)": {
+        "name": "Shadow Rush (Raven Knight)",
+        "prerequisites": "Raven Knight feature",
+        "description": "Whenever you charge or run, you gain insubstantial and phasing until the end of your next turn.",
+        "global": "global",
+        "id": "Shadow Rush (Raven Knight)"
+    },
+    "Fist of Heaven": {
+        "name": "Fist of Heaven",
+        "prerequisites": "21st level, avenger, _oath of enmity_ power",
+        "description": "Your _oath of enmity_ target takes a -2 penalty to saving throws.",
+        "global": "global",
+        "id": "Fist of Heaven"
+    },
+    "[Ranger] Two-Blade Fighting Style": {
+        "id": "[Ranger] Two-Blade Fighting Style",
+        "name": "[Ranger] Two-Blade Fighting Style",
+        "prerequisites": "Ranger",
+        "description": "Because of your\nfocus on two-weapon melee attacks, you can wield a one-handed weapon in your off hand as if it were an off-hand weapon. (Make sure to designate on your character sheet which weapon is main and which is off- hand.) In addition, you gain Toughness as a bonus feat.",
+        "exists": true,
+        "owner": "chris.case@g33xnexus.com"
+    },
+    "Initiate of the Faith [Multiclass Cleric]": {
+        "id": "Initiate of the Faith [Multiclass Cleric]",
+        "name": "Initiate of the Faith [Multiclass Cleric]",
+        "prerequisites": "Wis 13",
+        "description": "You gain training in the Religion skill. Once per day, you can use the cleric’s _healing word_\npower.\n\nIn addition, you can use a holy symbol as an implement when using a cleric power or a cleric paragon path power.",
+        "exists": true,
+        "owner": "chris.case@g33xnexus.com"
+    },
+    "Unyielding Fortitude": {
+        "name": "Unyielding Fortitude",
+        "prerequisites": "21st level",
+        "description": "You gain a +2 feat bonus to Fortitude and death saving throws.",
+        "global": "global",
+        "id": "Unyielding Fortitude"
+    },
+    "[Ranger] Hunter's Quarry": {
+        "name": "[Ranger] Hunter's Quarry",
+        "prerequisites": "Ranger",
+        "description": "Once per turn as a minor action, you can designate the enemy nearest to you as your quarry.\n\nOnce per round, you deal extra damage to your quarry. The extra damage is based on your level. If you can make multiple attacks in a round, you decide which attack to apply the extra damage to after all the attacks are rolled.\n\nThe hunter’s quarry effect remains active until the end of the encounter, until the quarry is defeated, or until you designate a different target as your quarry. You can designate one enemy as your quarry at a time.",
+        "global": "global",
+        "id": "[Ranger] Hunter's Quarry"
+    },
+    "[Storm Sovereign] Cyclone's Master": {
+        "name": "[Storm Sovereign] Cyclone's Master",
+        "prerequisites": "30th level, Storm Sovereign epic destiny",
+        "description": "You gain a fly speed equal to your speed + 2 and can hover. You do not need to land at the end of your movement. Addi­tionally, you gain an aura 5; any creature that enters or begins its turn within your aura loses any resistance to lightning or thunder. Whenever you deal damage with an attack, you can choose to have the attack deal lightning or thunder damage instead of its normal damage.",
+        "global": "global",
+        "id": "[Storm Sovereign] Cyclone's Master"
+    }
+}

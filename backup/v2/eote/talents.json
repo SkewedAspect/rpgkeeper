@@ -1,0 +1,676 @@
+{
+    "Adversary": {
+        "name": "Adversary",
+        "description": "Upgrade the difficulty of any combat check targeting this character once per rank of Adversary.",
+        "activation": "Passive",
+        "ranked": true,
+        "trees": [
+            "NPC only"
+        ],
+        "id": "Adversary"
+    },
+    "Anatomy Lessons": {
+        "name": "Anatomy Lessons",
+        "description": "After a successful attack with a non-starship/vehicle weapon, the character may spend one Destiny Point to add damage equal to his Intellect to one hit of the attack.",
+        "activation": "Active (Incidental)",
+        "ranked": false,
+        "trees": [
+            "Assassin",
+            "Doctor"
+        ],
+        "id": "Anatomy Lessons"
+    },
+    "Armor Master": {
+        "name": "Armor Master",
+        "description": "When wearing armor, the character increases his total soak value by one.",
+        "activation": "Passive",
+        "ranked": false,
+        "trees": [
+            "Gadgeteer"
+        ],
+        "id": "Armor Master"
+    },
+    "Armor Master (Improved)": {
+        "name": "Armor Master (Improved)",
+        "description": "When wearing armor with a soak value of two or higher, the character increases his defense by one.",
+        "activation": "Passive",
+        "ranked": false,
+        "trees": [
+            "Gadgeteer"
+        ],
+        "id": "Armor Master (Improved)"
+    },
+    "Bacta Specialist": {
+        "name": "Bacta Specialist",
+        "description": "Patients under the character's supervision regain one additional wound per rank of Bacta Specialist each time they recover a wound while recovering in a Bacta tank or under supervised medical conditions or long-term care.",
+        "activation": "Passive",
+        "ranked": true,
+        "trees": [
+            "Doctor"
+        ],
+        "id": "Bacta Specialist"
+    },
+    "Deadly Accuracy": {
+        "name": "Deadly Accuracy",
+        "activation": "Passive",
+        "ranked": true,
+        "ranks": 1,
+        "trees": [
+            "Assassin",
+            "Gadgeteer",
+            "Mercenary Soldier"
+        ],
+        "description": "Each time the character gains a rank of Deadly Accuracy, he must choose one combat skill. The character may add his basic training ranks in that combat skill as additional damage to one hit of a successful attack made with that skill with non starship/vehicle weapons. He cannot choose the same combat skill twice.",
+        "id": "Deadly Accuracy"
+    },
+    "Lethal Blows": {
+        "name": "Lethal Blows",
+        "ranked": true,
+        "ranks": 2,
+        "activation": "Passive",
+        "trees": [
+            "Assassin",
+            "Marauder",
+            "Mercenary Soldier"
+        ],
+        "description": "The character adds +10 per rank of Lethal Blows to any Critical Injury rolls inflicted on opponents.",
+        "id": "Lethal Blows"
+    },
+    "Natural Negotiator": {
+        "name": "Natural Negotiator",
+        "activation": "Active (Incidental)",
+        "description": "Once per game session the character may reroll any one Cool or Negotiation check.",
+        "id": "Natural Negotiator"
+    },
+    "Spare Clip": {
+        "name": "Spare Clip",
+        "activation": "Passive",
+        "description": "The character does not run out of ammo on a <despair></despair>. Items with the Limited Ammo quality run out of ammo as normal.",
+        "id": "Spare Clip"
+    },
+    "Convincing Demeanor": {
+        "name": "Convincing Demeanor",
+        "ranked": true,
+        "ranks": 2,
+        "activation": "Passive",
+        "description": "Remove <setback></setback> per rank of Convincing Demeanor from any Deception or Skulduggery check.",
+        "id": "Convincing Demeanor"
+    },
+    "Durable": {
+        "name": "Durable",
+        "ranked": true,
+        "ranks": 3,
+        "activation": "Passive",
+        "description": "The character may reduce a Critical Injury result he suffers by 10 per rank of Durable, to a minimum of one.",
+        "id": "Durable"
+    },
+    "Nobody's Fool": {
+        "ranked": true,
+        "name": "Nobody's Fool",
+        "ranks": 3,
+        "activation": "Passive",
+        "description": "The difficulty of any Charm, Coercion, or Deception checks attempted against the character is upgraded once for each rank of Nobody's Fool.",
+        "id": "Nobody's Fool",
+        "trees": []
+    },
+    "Black Market Contacts": {
+        "name": "Black Market Contacts",
+        "ranked": true,
+        "ranks": 2,
+        "activation": "Active (Incidental)",
+        "description": "When looking to purchase illegal, exotic, or black market goods, the character may decrease an item's rarity by one level per rank in Black Market Goods. For each level an item's rarity is decreased, it's cost increases by 50% of its base cost.",
+        "id": "Black Market Contacts"
+    },
+    "Bypass Security": {
+        "name": "Bypass Security",
+        "ranked": true,
+        "activation": "Passive",
+        "ranks": 2,
+        "description": "Remove <setback></setback> equal to the character's ranks in Bypass Security  from Skulduggery or Computers skills checks made to disable a security device, or open a locked door.",
+        "id": "Bypass Security"
+    },
+    "Codebreaker": {
+        "name": "Codebreaker",
+        "ranked": true,
+        "ranks": 2,
+        "activation": "Passive",
+        "description": "The character removes <setback></setback> from any attempt to break codes, or decrypt communications equal to his ranks in Codebreaker. In addition, the character decreases the difficulty of Computer or Intellect checks made to break codes or decrypt communications by one. (_This does not increase with additional ranks of Codebreaker._)",
+        "id": "Codebreaker"
+    },
+    "Confidence": {
+        "name": "Confidence",
+        "ranked": true,
+        "ranks": 3,
+        "activation": "Passive",
+        "description": "The character may decrease the difficulty of any **Discipline** check to avoid the effects of fear by one per rank of Confidence. If he decreases the difficulty to zero, he does not have to make a **Discipline** check.",
+        "id": "Confidence",
+        "trees": [
+            "Peacekeeper",
+            "Sage",
+            "Soresu Defender",
+            "Starfighter Ace"
+        ]
+    },
+    "Defensive Slicing (Improved)": {
+        "name": "Defensive Slicing (Improved)",
+        "ranked": true,
+        "ranks": 3,
+        "activation": "Passive",
+        "description": "When attempting to defend a computer system against intrusion, the character upgrades the difficulty of an opponent's dice pool a number of times equal to his ranks in Defensive Slicing. (_This replaces the usual benefit of Defensive Slicing._)",
+        "id": "Defensive Slicing (Improved)"
+    },
+    "Enduring": {
+        "name": "Enduring",
+        "ranked": true,
+        "ranks": 1,
+        "activation": "Passive",
+        "description": "Character gains +1 soak value per rank of Enduring.",
+        "id": "Enduring"
+    },
+    "Master Pilot": {
+        "name": "Master Pilot",
+        "activation": "Active (Incidental)",
+        "description": "Oncer per round when piloting a starship (a ship piloted by using the Piloting (Space) skill), the character may voluntarily suffer two strain to perform any action as a maneuver instead.",
+        "id": "Master Pilot"
+    },
+    "Master Slicer": {
+        "name": "Master Slicer",
+        "activation": "Active (Incidental)",
+        "description": "Oncer per round, the character may perform a Master Slicer incidental to suffer two strain and decrease the difficulty of the next Computers or other slicing-related check by one, to a minimum of **Easy (<difficulty></difficulty>)**",
+        "id": "Master Slicer"
+    },
+    "Natural Programmer": {
+        "name": "Natural Programmer",
+        "activation": "Active (Incidental)",
+        "description": "Oncer per game session, the character may reroll any one Computers or Astrogation check.",
+        "id": "Natural Programmer"
+    },
+    "Researcher": {
+        "name": "Researcher",
+        "ranked": true,
+        "ranks": 2,
+        "activation": "Passive",
+        "description": "The character removes <setback></setback> per rank of Researcher from all Knowledge checks. Researching takes 50% less time (_this does not increase with multiple ranks of researcher._).",
+        "id": "Researcher"
+    },
+    "Wheel and Deal": {
+        "name": "Wheel and Deal",
+        "ranked": true,
+        "activation": "Passive",
+        "ranks": 2,
+        "description": "When he sells goods to a reputable merchant or business, the character gains an additional 10% more credits per rank of Wheel and Deal (based on the original sell price of the good or item.)",
+        "id": "Wheel and Deal"
+    },
+    "Toughened": {
+        "name": "Toughened",
+        "ranked": true,
+        "ranks": 1,
+        "activation": "Passive",
+        "description": "The character increases his wound threshold by two per rank of Toughened.",
+        "id": "Toughened"
+    },
+    "Parry": {
+        "name": "Parry",
+        "ranked": true,
+        "ranks": 1,
+        "activation": "Active (Incidental)",
+        "description": "When the character suffers a hit from a Brawl, Melee, or Lightsaber combat check, after damage is calculated (but before soak is applied, so immediately after step 3 of *Perform a Combat Check*, page 148 F&D), the character may take a Parry incidental. He suffers 3 strain and reduces the damage dealt by that hit from the attack by a number equal to two plus his ranks in Parry. This talent may only be used when the character is wielding a Lightsaber or Melee weapon.",
+        "id": "Parry"
+    },
+    "Multiple Opponents": {
+        "name": "Multiple Opponents",
+        "activation": "Passive",
+        "description": "The character adds <boost></boost> to his Brawl, Melee and Lightsaber combat checks when engaged with multiple opponents. This includes single groups of multiple minions.",
+        "id": "Multiple Opponents"
+    },
+    "Sarlacc Sweep": {
+        "name": "Sarlacc Sweep",
+        "activation": "Active (Action)",
+        "description": "_Force Talent._ The character may take the Sarlacc Sweep action, making a Lightsaber combat check with a +1 difficulty against one engaged target. The character may spend <advantage></advantage><advantage></advantage> generated by this combat check to hit one additional target he is engaged with. He may do this once per engaged target, paying <advantage></advantage><advantage></advantage> for each additional hit.\nWhen performing a combat check while benefiting from the Sarlacc Sweep incidental, the character must always target the opponent with the highest difficulty and highest defense (if this is two separate targets, the GM chooses which target is the initial target).",
+        "id": "Sarlacc Sweep"
+    },
+    "Force Rating": {
+        "name": "Force Rating",
+        "activation": "Passive",
+        "description": "Gain a +1 Force Rating.",
+        "ranked": true,
+        "ranks": 2,
+        "id": "Force Rating"
+    },
+    "Niman Technique": {
+        "name": "Niman Technique",
+        "activation": "Passive",
+        "description": "_Force Talent._ When making a Lightsaber skill check, the character may use Willpower instead of Brawn.",
+        "id": "Niman Technique"
+    },
+    "Sum Djem": {
+        "name": "Sum Djem",
+        "activation": "Passive",
+        "description": "_Force Talent._ When the character makes a Lightsaber combat check, he may spend <triumph></triumph> or <advantage></advantage><advantage></advantage> to disarm his opponent (with GM's approval). The disarmed weapon lands anywhere within short range of the engagement (character's choice).",
+        "id": "Sum Djem"
+    },
+    "Rapid Reaction": {
+        "name": "Rapid Reaction",
+        "ranked": true,
+        "ranks": 1,
+        "activation": "Passive",
+        "description": "The character may suffer a number of strain to add an equal number of <success></success> to any Vigilance or Cool check to determine Initiative order. The number may not exceed his ranks in Rapid Reaction.",
+        "id": "Rapid Reaction"
+    },
+    "Rapid Recovery": {
+        "name": "Rapid Recovery",
+        "ranked": true,
+        "activation": "Passive",
+        "description": "When this character heals strain after an encounter has concluded, he heals one additional strain per rank in Rapid Recovery.",
+        "id": "Rapid Recovery"
+    },
+    "Grit": {
+        "name": "Grit",
+        "ranked": true,
+        "ranks": 1,
+        "activation": "Passive",
+        "description": "Each rank of Grit increases a character's strain threshold by one.",
+        "id": "Grit"
+    },
+    "Disorient": {
+        "name": "Disorient",
+        "ranked": true,
+        "ranks": 1,
+        "activation": "Passive",
+        "description": "After hitting with a combat check, the character may spend <advantage></advantage><advantage></advantage> to disorient his foe (see page 230). Disoriented targets add <setback></setback> to all skill checks. The target is disoriented for a number of rounds equal to the attacker's ranks in Disorient.",
+        "id": "Disorient"
+    },
+    "Forager": {
+        "name": "Forager",
+        "activation": "Passive",
+        "description": "The character removes up to <setback></setback><setback></setback> from his skill checks to find food, water, or shelter. Survival checks to forage take half the time.",
+        "id": "Forager"
+    },
+    "Quick Strike": {
+        "name": "Quick Strike",
+        "ranked": true,
+        "ranks": 1,
+        "activation": "Passive",
+        "description": "The character adds <boost></boost> per rank of Quick Strike to his combat checks made against any target that has not yet acted in the encounter.",
+        "id": "Quick Strike"
+    },
+    "Dodge": {
+        "name": "Dodge",
+        "ranked": true,
+        "ranks": 1,
+        "activation": "Active (Incidental)",
+        "description": "When targeted by a combat check (ranged or melee) the character may choose to immediately perform a Dodge incidental to suffer a number of strain, then upgrade the difficulty of the combat check by that number. The number of strain suffered cannot exceed his ranks in Dodge.",
+        "id": "Dodge"
+    },
+    "Frenzied Attack": {
+        "name": "Frenzied Attack",
+        "activation": "Active (Incidental)",
+        "description": "When making a Melee or Brawl combat check, the character may suffer a number of strain, then upgrade the ability of his combat check by that number. This number cannot exceed his ranks in Frenzied Attack.",
+        "id": "Frenzied Attack"
+    },
+    "Soft Spot": {
+        "name": "Soft Spot",
+        "activation": "Active (Incidental)",
+        "description": "After making a successful attack with a non-starship/ vehicle weapon, the character may spend one Destiny Point to add damage equal to his Cunning to one hit of the successful attack.",
+        "id": "Soft Spot"
+    },
+    "Uncanny Reactions": {
+        "name": "Uncanny Reactions",
+        "activation": "Passive",
+        "trees": [
+            "Seer"
+        ],
+        "description": "Add <boost></boost> per rank of Uncanny Reaction to all Vigilance checks.",
+        "ranked": true,
+        "id": "Uncanny Reactions"
+    },
+    "Keen Eyed": {
+        "name": "Keen Eyed",
+        "activation": "Passive",
+        "ranked": true,
+        "trees": [
+            "Seer"
+        ],
+        "description": "Remove <setback></setback> per rank of Keen Eyed from Perception and Vigilance checks. Decrease time to search a specific area by half.",
+        "id": "Keen Eyed"
+    },
+    "Sense Danger": {
+        "name": "Sense Danger",
+        "activation": "Active (Incidental)",
+        "trees": [
+            "Seer"
+        ],
+        "description": "Once per game remove <setback></setback> <setback></setback> from any one check.",
+        "id": "Sense Danger"
+    },
+    "Natural Hunter": {
+        "name": "Natural Hunter",
+        "activation": "Active (Incidental)",
+        "trees": [
+            "Scout"
+        ],
+        "description": "Once per game session, the character may reroll any one Perception or Vigilance check.",
+        "id": "Natural Hunter"
+    },
+    "Reflect": {
+        "name": "Reflect",
+        "ranked": true,
+        "activation": "Passive",
+        "trees": [
+            "Ataru Striker",
+            "Niman Disciple",
+            "Protector",
+            "Shien Expert",
+            "Soresu Defender"
+        ],
+        "description": "_Force talent_. When the character suffers a hit from a Ranged (Light), Ranged (Heavy), or Gunnery combat check, and after damage is calculated (but before soak is applied, so immediately after step 3 of **Perform a Combat Check**, page 148), if the character is wielding a lightsaber, he may take the Reflect incidental. He suffers 3 strain and reduces the damage dealt by that hit from the attack by a number equal to two plus his ranks in Reflect. This talent may only be used when the character is wielding a Lightsaber weapon.",
+        "id": "Reflect"
+    },
+    "Defensive Driving": {
+        "name": "Defensive Driving",
+        "ranked": true,
+        "activation": "Passive",
+        "trees": [
+            "Squadron Leader"
+        ],
+        "description": "Increase defense of vehicle or starship being piloted by <difficulty></difficulty> per rank.",
+        "id": "Defensive Driving"
+    },
+    "Situational Awareness": {
+        "name": "Situational Awareness",
+        "activation": "Passive",
+        "trees": [
+            "Squadron Leader"
+        ],
+        "description": "Allies within short range of the vehicle add <boost></boost> to their Perception and Vigilance checks. Allies within close range add <boost></boost><boost></boost> instead.",
+        "id": "Situational Awareness"
+    },
+    "Tricky Target": {
+        "name": "Tricky Target",
+        "activation": "Passive",
+        "trees": [
+            "Squadron Leader"
+        ],
+        "description": "Count vehicle or starship piloted as having a silhouette 1 lower when being attacked.",
+        "id": "Tricky Target"
+    },
+    "Dedication": {
+        "name": "Dedication",
+        "ranked": true,
+        "activation": "Passive",
+        "description": "Each rank permanently increases a single characteristic of the player's choice by one point. This cannot bring a characteristic above 6.",
+        "trees": [
+            "Assassin",
+            "Bodyguard",
+            "Doctor",
+            "Force Sensitive Exile",
+            "Fringer",
+            "Gadgeteer",
+            "Marauder",
+            "Mechanic",
+            "Outlaw Tech",
+            "Pilot",
+            "Politico",
+            "Scholar",
+            "Scoundrel",
+            "Scout",
+            "Slicer",
+            "Mercenary Soldier",
+            "Survivalist",
+            "Thief",
+            "Trader"
+        ],
+        "id": "Dedication"
+    },
+    "Precise Aim": {
+        "name": "Precise Aim",
+        "ranked": true,
+        "activation": "Active (Maneuver)",
+        "description": "Once per round on the character's turn, the character may perform a Precise Aim maneuver before attempting a combat check and suffer a number of  strain. The number of strain cannot exceed his ranks in Precise Aim. He then decreases the target's defense (ranged and melee) by one per strain suffered for that combat check.",
+        "trees": [
+            "Assassin"
+        ],
+        "id": "Precise Aim"
+    },
+    "Defensive Training": {
+        "name": "Defensive Training",
+        "activation": "Passive",
+        "description": "When wielding a lightsaber, melee weapon, or brawling weapon, the weapon gains Defensive X, where X equals ranks in Defensive Training.",
+        "ranked": true,
+        "id": "Defensive Training"
+    },
+    "Brilliant Evasion": {
+        "name": "Brilliant Evasion",
+        "activation": "Active (Action)",
+        "trees": [
+            "Squadron Leader"
+        ],
+        "description": "Once per encounter may take Brilliant Evasion action. Select 1 opponent and make an *opposed Piloting (Space or Planetary)* check to stop opponent from attacking character for rounds equal to Agility.",
+        "id": "Brilliant Evasion"
+    },
+    "Jump Up": {
+        "name": "Jump Up",
+        "ranked": false,
+        "activation": "Active (Incidental)",
+        "trees": [
+            "Assassin",
+            "Fringer",
+            "Thief"
+        ],
+        "description": "Once per round on the character's turn, the character may stand up from prone or a seated position as an incidental.",
+        "id": "Jump Up"
+    },
+    "Stalker": {
+        "name": "Stalker",
+        "activation": "Passive",
+        "ranked": true,
+        "trees": [
+            "Assassin",
+            "Scout",
+            "Survivalist",
+            "Thief"
+        ],
+        "description": "The character adds <boost></boost> per rank of Stalker to all Coordination and Stealth checks.",
+        "id": "Stalker"
+    },
+    "Targeted Blow": {
+        "name": "Targeted Blow",
+        "activation": "Active (Incidental)",
+        "trees": [
+            "Assassin",
+            "Mercenary Soldier"
+        ],
+        "description": "On a successful attack during combat with a non-starship/vehicle weapon, the character may spend on Destiny Point to add damage equal to his Agility to one hit of the successful attack.",
+        "id": "Targeted Blow"
+    },
+    "Second Wind": {
+        "name": "Second Wind",
+        "activation": "Active (Incidental)",
+        "trees": [
+            "Peacekeeper",
+            "Shii-Cho Knight"
+        ],
+        "description": "Once per encounter the character may use a Second Wind incidental to recover an amount of strain equal to his ranks in Second Wind.",
+        "id": "Second Wind"
+    },
+    "Commanding Presence": {
+        "name": "Commanding Presence",
+        "activation": "Passive",
+        "ranked": true,
+        "trees": [
+            "Peacekeeper"
+        ],
+        "description": "The character removes <setback></setback> per rank of Commanding Presence form his **Leadership** and **Cool** checks.",
+        "id": "Commanding Presence"
+    },
+    "Enhanced Leader": {
+        "name": "Enhanced Leader",
+        "activation": "Passive",
+        "trees": [
+            "Peacekeeper"
+        ],
+        "description": "_Force Talent_. When making a Leadership check, the character may add <force></force> no greater than Force rating to the check. The character may spend <force-point></force-point> to add <success></success> or <advantage></advantage> (character's choice) to the result.",
+        "id": "Enhanced Leader"
+    },
+    "Steely Nerves": {
+        "name": "Steely Nerves",
+        "activation": "Active (Incidental)",
+        "trees": [
+            "Advisor",
+            "Peacekeeper"
+        ],
+        "description": "The character may spend one Destiny Point to ignore the effects of ongoing Critical Injuries on any **Presence** or **Willpower**-related checks unto the end of the encounter. He still suffers from the injury itself.",
+        "id": "Steely Nerves"
+    },
+    "Soresu Technique": {
+        "name": "Soresu Technique",
+        "activation": "Passive",
+        "trees": [
+            "Soresu Defender"
+        ],
+        "description": "_Force Talent_. When making a **Lightsaber** skill check, the character may use Intellect instead of Brawn.",
+        "id": "Soresu Technique"
+    },
+    "Parry (Improved)": {
+        "name": "Parry (Improved)",
+        "activation": "Active (Incidental)",
+        "trees": [
+            "Ataru Striker",
+            "Makashi Duelist",
+            "Shii-Cho Knight",
+            "Soresu Defender"
+        ],
+        "description": "Then the character suffers a hit from a **Brawl**, **Melee** or **Lightsaber** combat check and uses the Parry incidental to reduce the damage from that hit, after the attack is resolved, the character may spend <despair></despair> or <threat></threat><threat></threat><threat></threat> to automatically hit the attacker once with a wielded Brawl, Melee, or Lightsaber weapon. This his deals the weapon's base damage plus any damage from applicable talents or abilities. This talent may not be used if the original attack incapacitates the character.",
+        "id": "Parry (Improved)"
+    },
+    "Parry (Supreme)": {
+        "name": "Parry (Supreme)",
+        "activation": "Passive",
+        "trees": [
+            "Soresu Defender"
+        ],
+        "description": "_Force Talent_. If the user did not make a combat check during his previous turn, the suffers 1 strain when taking the Parry incidental, instead of 3.",
+        "id": "Parry (Supreme)"
+    },
+    "Reflect (Improved)": {
+        "name": "Reflect (Improved)",
+        "activation": "Active (Incidental - Out of turn)",
+        "trees": [
+            "Shien Expert",
+            "Soresu Defender"
+        ],
+        "description": "_Force Talent_. When the character suffers a hit from a a **Ranged (light)**, **Ranged (Heavy)**, or **Gunnery** combat check and used the Reflect incidental to reduce the damage from that hit, after the attack is resolved, the character may spend <despair></despair> or <threat></threat><threat></threat><threat></threat> to automatically hit one target within medium range, dealing the same damage as the hit from the initial ranged attack.\n\nThe ranged attack's hit must be one that is able to be reflected and redirected (generally only blaster weapons or other energy attacks fall into this category anything else is subject to GM oversight). This talent may not be used if the original attack incapacitates the character.",
+        "id": "Reflect (Improved)"
+    },
+    "Quick Draw": {
+        "name": "Quick Draw",
+        "activation": "Active (Incidental)",
+        "trees": [
+            "Assassin",
+            "Force Sensitive Exile",
+            "Scoundrel"
+        ],
+        "description": "Once per round on the character's turn, he may draw or holster an easily accessible weapon as an incidental. This talent also reduces the amount of time to draw or stow a weapon that usually requires more than one maneuver to properly prepare or stow, by one maneuver.",
+        "id": "Quick Draw"
+    },
+    "Feral Strength": {
+        "name": "Feral Strength",
+        "activation": "Active (Incidental)",
+        "ranked": true,
+        "trees": [
+            "Marauder"
+        ],
+        "description": "When making a Melee Brawl combat check, the character may suffer a number of strain, then upgrade the ability of his combat check by that number. The number cannot exceed his ranks in Frenzied Attack.",
+        "id": "Feral Strength"
+    },
+    "Intimidating": {
+        "name": "Intimidating",
+        "ranked": true,
+        "activation": "Active (Incidental - Out of turn)",
+        "trees": [
+            "Agressor"
+        ],
+        "description": "When attempting a Coercion check, the character may suffer a number of strain to downgrade the difficulty of the check a number of times equal to the strain suffered. This number cannot exceed his ranks in Intimidating. When the character is the target of a Coercion check, the character may suffer a number of strain to upgrade the difficulty of the check a number of times equal to the strain suffered. This number cannot exceed his ranks in Intimidating.",
+        "id": "Intimidating"
+    },
+    "Fearsome": {
+        "name": "Fearsome",
+        "ranked": true,
+        "activation": "Passive",
+        "trees": [
+            "Aggressor"
+        ],
+        "description": "When an adversary becomes engaged with the character, the character may force the adversary to make a fear check (see page 326), with the difficulty equal to the character's ranks in Fearsome. At the GM's discretion, some adversaries may be immune to this talent based on the type ov adversary or ongoing circumstances.",
+        "id": "Fearsome"
+    },
+    "Street Smarts": {
+        "name": "Street Smarts",
+        "ranked": true,
+        "activation": "Passive",
+        "trees": [
+            "Shadow",
+            "Shien Expert"
+        ],
+        "description": "The character removes <setback></setback> per rank of Street Smarts from his Streetwise and Knowledge (Underworld) checks.",
+        "id": "Street Smarts"
+    },
+    "Shien Technique": {
+        "name": "Shien Technique",
+        "activation": "Passive",
+        "trees": [
+            "Shien Expert"
+        ],
+        "description": "_Force talent_. When making a Lightsaber skill check, the character may use Cunning instead of Brawn.",
+        "id": "Shien Technique"
+    },
+    "Saber Throw": {
+        "name": "Saber Throw",
+        "activation": "Active (Action)",
+        "trees": [
+            "Ataru Striker",
+            "Shien Expert"
+        ],
+        "description": "_Force talent_. The character may take the Saber Throw action, making a Lightsaber combat check as a ranged attack at one target within medium range, adding <force></force> no greater than his Force rating to the check. The character must spend <force-point></force-point> and succeed on the check to hit is target; he may spend <force-point></force-point> to have his weapon return to his hand after resolving the attack.",
+        "id": "Saber Throw"
+    },
+    "Disruptive Strike": {
+        "name": "Disruptive Strike",
+        "activation": "Active (Action)",
+        "trees": [
+            "Shien Expert"
+        ],
+        "description": "_Force talent_. The character may take a Disruptive Strike action, making a Lightsaber (Cunning) combat check against one engaged target and adding <force></force> no greater that Force rating to the check. The character may spend <force-point></force-point> to add <failure></failure> to the target's next combat check made during this encounter.",
+        "id": "Disruptive Strike"
+    },
+    "Side step": {
+        "name": "Side step",
+        "ranked": true,
+        "activation": "Active (Maneuver)",
+        "trees": [
+            "Hunter",
+            "Shien Expert"
+        ],
+        "description": "Once per round on the character's turn, the character may perform a Side Step maneuver to try to avoid incoming ranged attacks. He then suffers a number of strain no greater than his ranks in Side Step. Until the start of the character's turn, upgrade the difficulty of all ranged combat checks targeting the character a number of times equal to the strain suffered by the character.",
+        "id": "Side step"
+    },
+    "Conditioned": {
+        "name": "Conditioned",
+        "ranked": true,
+        "activation": "Passive",
+        "trees": [
+            "Ataru Striker",
+            "Chien Expert",
+            "Shii-Cho Knight"
+        ],
+        "description": "The character removes <setback></setback> per rank of Conditioned from his Atheletics and Coordination checks. He reduces the damage and strain suffered from falling by 1 rank per Coordination.",
+        "id": "Conditioned"
+    },
+    "Force Assault": {
+        "name": "Force Assault",
+        "activation": "Active (Maneuver)",
+        "trees": [
+            "Niman Disciple"
+        ],
+        "description": "Spend <triumph></triumph> or <advantage></advantage><advantage></advantage><advantage></advantage> on a missed Lightsaber (Willpower) combat check to immediately perform Move Force power action as a maneuver."
+    }
+}

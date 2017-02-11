@@ -1,0 +1,4448 @@
+{
+    "36HUFh": {
+        "baseChar": "36HUFh",
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 2
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 3
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 2
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 4
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 3
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 2
+            }
+        ],
+        "soak": 3,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 1,
+        "rangedDefense": 1,
+        "wounds": 0,
+        "woundThreshold": 12,
+        "strain": 0,
+        "strainThreshold": 12,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "All",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            }
+        ],
+        "talents": [
+            {
+                "name": "Rapid Recovery",
+                "ranks": 1
+            },
+            {
+                "name": "Grit",
+                "ranks": 1
+            },
+            {
+                "name": "Disorient",
+                "ranks": 1
+            },
+            {
+                "name": "Forager"
+            },
+            {
+                "name": "Quick Strike",
+                "ranks": 1
+            },
+            {
+                "name": "Dodge",
+                "ranks": 1
+            },
+            {
+                "name": "Frenzied Attack",
+                "ranks": 1
+            },
+            {
+                "name": "Soft Spot"
+            }
+        ],
+        "forcePowers": [],
+        "abilities": [
+            "Human Special Ability"
+        ],
+        "equipment": [],
+        "notes": [],
+        "totalXP": 328,
+        "availableXP": 39,
+        "gender": "Female",
+        "species": "Human",
+        "age": 28,
+        "height": "5'10\"",
+        "specializations": [
+            "Scout",
+            "Infiltrator"
+        ],
+        "criticals": [],
+        "career": "Spy",
+        "armor": {
+            "name": "Armored Clothing",
+            "defense": 1,
+            "soak": 1,
+            "hardPoints": 1,
+            "encumbrance": 3
+        },
+        "weapons": [
+            {
+                "name": "Blaster Pistol",
+                "skill": "Ranged - Light",
+                "damage": 6,
+                "critical": 3,
+                "range": "medium",
+                "special": [
+                    "Stun setting"
+                ]
+            },
+            {
+                "name": "Vibroknife",
+                "skill": "Melee",
+                "damage": 1,
+                "critical": 2,
+                "range": "engaged",
+                "special": [
+                    "Pierce 2",
+                    "Vicious 1"
+                ]
+            }
+        ],
+        "quickNotes": ""
+    },
+    "2Wo61U": {
+        "baseChar": "2Wo61U",
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 1
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 2
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 4
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 3
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 2
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 3
+            }
+        ],
+        "soak": 3,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 2,
+        "rangedDefense": 2,
+        "wounds": 0,
+        "woundThreshold": 12,
+        "strain": 0,
+        "strainThreshold": 12,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "All",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": false
+            }
+        ],
+        "talents": [
+            {
+                "name": "Black Market Contacts",
+                "ranks": 2
+            },
+            {
+                "name": "Durable",
+                "ranks": 2
+            },
+            {
+                "name": "Codebreaker"
+            }
+        ],
+        "forcePowers": [],
+        "abilities": [
+            "Droid Special Ability",
+            "Inorganic"
+        ],
+        "equipment": [],
+        "notes": [
+            {
+                "name": "Armor",
+                "content": "## Armor\n\nShe has armor plating integrated into her chasis, which provides an additional 1/1 defense.",
+                "active": true
+            }
+        ],
+        "totalXP": 0,
+        "availableXP": 0,
+        "gender": "Female",
+        "species": "Droid",
+        "age": null,
+        "height": "5'6\"",
+        "specializations": [],
+        "weapons": [
+            {
+                "name": "Blaster Pistol",
+                "skill": "Ranged - Light",
+                "damage": 6,
+                "critical": 3,
+                "range": "medium",
+                "special": [
+                    "Stun setting"
+                ]
+            },
+            {
+                "name": "Shock Gloves",
+                "skill": "Brawl",
+                "damage": 0,
+                "critical": 5,
+                "range": "engaged",
+                "special": [
+                    "Stun 3"
+                ]
+            }
+        ],
+        "criticals": [
+            "Compromised",
+            "Horrific Injury"
+        ],
+        "armor": {
+            "name": "Integrated Armor",
+            "defense": 1,
+            "soak": 2,
+            "hardPoints": 4,
+            "encumbrance": 0
+        },
+        "career": "Artificial Intelligence",
+        "quickNotes": ""
+    },
+    "xJ1dZ": {
+        "baseChar": "xJ1dZ",
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 6
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 2
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 4
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 6
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 5
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 4
+            }
+        ],
+        "soak": 10,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 0,
+        "rangedDefense": 0,
+        "wounds": 0,
+        "woundThreshold": 30,
+        "strain": 0,
+        "strainThreshold": 20,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 5,
+                "career": true
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 5,
+                "career": true
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 5,
+                "career": true
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 5,
+                "career": true
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "All",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 3,
+                "career": true
+            }
+        ],
+        "talents": [
+            {
+                "name": "Convincing Demeanor",
+                "description": {
+                    "id": "Convincing Demeanor",
+                    "name": "Convincing Demeanor",
+                    "description": "Remove <setback></setback> per rank of Convincing Demeanor from any Deception or Skulduggery check.",
+                    "activation": "Passive",
+                    "ranked": true,
+                    "official": false,
+                    "trees": []
+                },
+                "ranks": 2
+            },
+            {
+                "name": "Durable",
+                "description": {
+                    "id": "Durable",
+                    "name": "Durable",
+                    "description": "The character may reduce a Critical Injury result he suffers by 10 per rank of Durable, to a minimum of one.",
+                    "activation": "Passive",
+                    "ranked": true,
+                    "official": false,
+                    "trees": []
+                },
+                "ranks": 3
+            },
+            {
+                "name": "Nobody's Fool",
+                "description": {
+                    "id": "Nobody's Fool",
+                    "name": "Nobody's Fool",
+                    "description": "The difficulty of any Charm, Coercion, or Deception checks attempted against the character is upgraded once for each rank of Nobody's Fool.",
+                    "activation": "Passive",
+                    "ranked": true,
+                    "official": false,
+                    "trees": []
+                },
+                "ranks": 3
+            },
+            {
+                "name": "Black Market Contacts",
+                "description": {
+                    "id": "Black Market Contacts",
+                    "name": "Black Market Contacts",
+                    "description": "When looking to purchase illegal, exotic, or black market goods, the character may decrease an item's rarity by one level per rank in Black Market Goods. For each level an item's rarity is decreased, it's cost increases by 50% of its base cost.",
+                    "activation": "Active (Incidental)",
+                    "ranked": true,
+                    "official": false,
+                    "trees": []
+                },
+                "ranks": 3
+            }
+        ],
+        "forcePowers": [],
+        "abilities": [
+            "Awkward"
+        ],
+        "equipment": [],
+        "notes": [],
+        "totalXP": 0,
+        "availableXP": 0,
+        "gender": "Male",
+        "species": "Hutt",
+        "age": 823,
+        "height": "5'10\""
+    },
+    "3jsDFU": {
+        "baseChar": "3jsDFU",
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 1
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 3
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 4
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 5
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 2
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 1
+            }
+        ],
+        "soak": 4,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 1,
+        "rangedDefense": 1,
+        "wounds": 22,
+        "woundThreshold": 11,
+        "strain": 0,
+        "strainThreshold": 15,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "All",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": true
+            }
+        ],
+        "talents": [
+            {
+                "name": "Well Rounded",
+                "ranks": 1,
+                "notes": "Chosen Skills: Charm, Deception"
+            },
+            {
+                "name": "Grit",
+                "ranks": 3
+            },
+            {
+                "name": "Knowledge Specialization",
+                "ranks": 2,
+                "notes": "Chosen Knowledge Skill: Lore"
+            },
+            {
+                "name": "Researcher",
+                "ranks": 1
+            },
+            {
+                "name": "Enduring",
+                "ranks": 1
+            },
+            {
+                "name": "Dedication",
+                "ranks": 2
+            },
+            {
+                "name": "Lethal Blows",
+                "ranks": 2
+            },
+            {
+                "name": "Precise Aim",
+                "ranks": 1
+            },
+            {
+                "name": "Jump Up"
+            },
+            {
+                "name": "Stalker",
+                "ranks": 2
+            },
+            {
+                "name": "Dodge",
+                "ranks": 1
+            },
+            {
+                "name": "Anatomy Lessons"
+            },
+            {
+                "name": "Quick Draw"
+            }
+        ],
+        "forcePowers": [],
+        "abilities": [
+            "Chiss Skill Training",
+            "Infravision"
+        ],
+        "equipment": [],
+        "notes": [
+            {
+                "name": "Equipment",
+                "content": "#Gear\n\n- Backpack\n- Utility Belt\n\n\n- Comlink\n- Datapad\n- Comm Scrambler\n- Thermal Cloak\n- Glow Rods (2)\n- Power Packs (3)\n- Archaeologist's Tools\n- Electrobinoculars\n- General Purpose Scanner\n- Climbing Gear\n- Breath Mask\n- Emergency Repair Patches (6)\n- Stimpacks (6)\n- Medpac\n- Frag Grenades (4)\n\n\n#Armor\n\n| Type         | Defense | Soak | Encum | HP | Special |\n|:------------:|:-------:|:----:|:-----:|:--:|:-------:|\n| Padded Armor | 0       | 2    | 2     | 0  | -       |\n\n#Weapons\n\n| Type            | Skill          | Damage | Crit | Range   | Encum | HP | Special             |\n|:---------------:|:--------------:|:------:|:----:|:-------:|:-----:|:--:|:-------------------:|\n| Blaster Rifle   | Ranged - Heavy | 9      | 3    | Long    | 4     | 4  | Stun Setting        |\n| Vibroknife      | Melee          | +1     | 2    | Engaged | 1     | 2  | Pierce 2, Vicious 1 |\n| Holdout Blaster | Ranged - Light | 5      | 4    | Short   | 1     | 1  | Stun Setting        |",
+                "active": true
+            }
+        ],
+        "totalXP": 445,
+        "availableXP": 30,
+        "quickNotes": "8,500 credits",
+        "specializations": [
+            "Archaeologist",
+            "Assassin"
+        ],
+        "armor": {
+            "name": "Modified Heavy Battle Armor",
+            "defense": 1,
+            "soak": 2,
+            "hardPoints": 4,
+            "encumbrance": 2,
+            "upgrades": "**Cortosis Weave** - Wearer immune to Pierce and Breach.\n\n**Strength Enhancing System** - Increase's wearer's Brawn by 1 point while wearing this armor.\n\nThis does not increase soak or wound threshold."
+        },
+        "weapons": [
+            {
+                "name": "Blaster Rifle",
+                "skill": "Ranged - Heavy",
+                "damage": 9,
+                "critical": 3,
+                "range": "long",
+                "special": [
+                    "Stun setting"
+                ]
+            },
+            {
+                "name": "Vibroknife",
+                "skill": "Melee",
+                "damage": 2,
+                "critical": 2,
+                "range": "engaged",
+                "special": [
+                    "Pierce 2",
+                    "Vicious 2"
+                ],
+                "upgrades": "**Superior** - Add automatic <advantage></advantage> to rolls.\n\nIncrease base damage by 1.\n\n**Serrated Edge** - Grant weapon Vicious (+1) quality."
+            },
+            {
+                "name": "Holdout blaster",
+                "skill": "Ranged - Light",
+                "damage": 5,
+                "critical": 4,
+                "range": "short",
+                "special": [
+                    "Stun setting"
+                ]
+            },
+            {
+                "name": "Force Pike",
+                "skill": "Melee",
+                "damage": 4,
+                "critical": 2,
+                "range": "engaged",
+                "special": [
+                    "Pierce 2",
+                    "Stun Setting",
+                    "Vicious 1",
+                    "Stun 5"
+                ],
+                "upgrades": "**Superior** - Add automatic <advantage></advantage> to rolls.\n\nIncrease base damage by 1.\n\n**Serrated Edge** - Grant weapon Vicious (+1) quality.\n\n**Stun Pulse** - Weapon gains Stun 2 quality.\n(Mod - +3 Stun quality.)"
+            }
+        ],
+        "criticals": [
+            "Off-Balance",
+            "Discouraging Wound",
+            "Bleeding Out",
+            "Slightly Dazed",
+            "Knocked Senseless",
+            "Temporarily Lame",
+            "At the Brink"
+        ],
+        "gender": "Female",
+        "species": "Chiss",
+        "age": 32,
+        "height": "5' 9\"",
+        "career": "Explorer"
+    },
+    "cM2T2": {
+        "baseChar": "cM2T2",
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 5
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 3
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 2
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 3
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 2
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 1
+            }
+        ],
+        "soak": 7,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 1,
+        "rangedDefense": 1,
+        "wounds": 19,
+        "woundThreshold": 19,
+        "strain": 0,
+        "strainThreshold": 12,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "All",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 4,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 4,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 3,
+                "career": false
+            }
+        ],
+        "talents": [
+            {
+                "name": "Adversary",
+                "ranks": 2
+            },
+            {
+                "name": "Parry",
+                "ranks": 2
+            },
+            {
+                "name": "Multiple Opponents"
+            },
+            {
+                "name": "Natural Hunter"
+            },
+            {
+                "name": "Reflect",
+                "ranks": 2
+            }
+        ],
+        "forcePowers": [],
+        "abilities": [
+            "Droid Special Ability",
+            "Inorganic",
+            "Mechanical Being",
+            "Kaleesh Special Ability"
+        ],
+        "equipment": [],
+        "notes": [],
+        "totalXP": 0,
+        "availableXP": 0,
+        "gender": "Male",
+        "species": "Droid",
+        "specializations": [],
+        "armor": {
+            "name": "Integrated Armor",
+            "defense": 1,
+            "soak": 3,
+            "hardPoints": 0,
+            "encumbrance": 0,
+            "upgrades": "Strength Enhancing System, Cortosis Weave"
+        },
+        "weapons": [
+            {
+                "name": "Basic Lightsaber",
+                "skill": "Lightsaber",
+                "damage": 6,
+                "critical": 2,
+                "range": "engaged",
+                "special": [
+                    "Breach 1",
+                    "Sunder"
+                ]
+            },
+            {
+                "name": "Basic Lightsaber",
+                "skill": "Lightsaber",
+                "damage": 6,
+                "critical": 2,
+                "range": "engaged",
+                "special": [
+                    "Breach 1",
+                    "Sunder"
+                ]
+            },
+            {
+                "name": "Basic Lightsaber",
+                "skill": "Lightsaber",
+                "damage": 6,
+                "critical": 2,
+                "range": "engaged",
+                "special": [
+                    "Breach 1",
+                    "Sunder"
+                ]
+            },
+            {
+                "name": "Basic Lightsaber",
+                "skill": "Lightsaber",
+                "damage": 6,
+                "critical": 2,
+                "range": "engaged",
+                "special": [
+                    "Breach 1",
+                    "Sunder"
+                ]
+            }
+        ],
+        "criticals": [
+            "Agonizing Wound",
+            "Bleeding Out",
+            "Maimed",
+            "Gruesome Injury"
+        ],
+        "quickNotes": "Gruesome Injury: Agility"
+    },
+    "4zt2Hf": {
+        "baseChar": "4zt2Hf",
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 2
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 5
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 2
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 2
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 2
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 3
+            }
+        ],
+        "soak": 5,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 1,
+        "rangedDefense": 1,
+        "wounds": 3,
+        "woundThreshold": 12,
+        "strain": 0,
+        "strainThreshold": 12,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "All",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            }
+        ],
+        "talents": [
+            {
+                "name": "Quick Strike",
+                "ranks": 2
+            },
+            {
+                "name": "Defensive Driving",
+                "ranks": 1
+            },
+            {
+                "name": "Situational Awareness"
+            },
+            {
+                "name": "Tricky Target"
+            },
+            {
+                "name": "Rapid Reaction"
+            },
+            {
+                "name": "Brilliant Evasion"
+            }
+        ],
+        "forcePowers": [],
+        "abilities": [],
+        "equipment": [],
+        "notes": [
+            {
+                "name": "notes",
+                "content": "",
+                "active": true
+            }
+        ],
+        "totalXP": 170,
+        "availableXP": 42,
+        "specializations": [
+            "Squadron Leader",
+            "Commodore"
+        ],
+        "armor": {
+            "name": "Modified Heavy Battle Armor",
+            "defense": 1,
+            "soak": 3,
+            "hardPoints": 4,
+            "encumbrance": 2,
+            "upgrades": "- *Cortosis Weave*\n - wearer immune to Pierce and Breach\n- *Superior Armor Construction*\n - +1 Soak, -2 Encumbrance\n- *Energy Dispersion System*\n - Increase soak by 2 for Strain damage"
+        },
+        "weapons": [
+            {
+                "name": "Heavy Blaster Pistol",
+                "skill": "Ranged - Light",
+                "damage": 8,
+                "critical": 3,
+                "range": "medium",
+                "special": [
+                    "Stun setting"
+                ],
+                "upgrades": "- *Superior*\n - +1 damage, +1 <advantage></advantage> on each check made for this weapon\n- *Shadowsheath*\n - Adds <difficulty></difficulty><difficulty></difficulty> to checks made to detect this weapon or its holster"
+            },
+            {
+                "name": "Vibroknife",
+                "skill": "Melee",
+                "damage": 3,
+                "critical": 1,
+                "range": "engaged",
+                "special": [
+                    "Pierce 2",
+                    "Vicious 2"
+                ],
+                "upgrades": "- *Serrated Edge*\n - +1 Vicious\n- *Monomolecular Edge*\n - decreases crit rating by 1"
+            }
+        ],
+        "criticals": [
+            "Overpowered",
+            "Compromised"
+        ],
+        "career": "Commander",
+        "quickNotes": "Credits: 28200\n\nDuty:\n 5 - Rebellion\n 10 - Republic"
+    },
+    "4yfKJk": {
+        "baseChar": "4yfKJk",
+        "talents": [
+            {
+                "name": "Toughened",
+                "ranks": 1
+            },
+            {
+                "name": "Feral Strength",
+                "ranks": 1
+            }
+        ],
+        "forcePowers": [
+            {
+                "name": "Sense",
+                "upgrades": [
+                    {
+                        "index": 0,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 1,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 2,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 3,
+                        "ranks": 1
+                    }
+                ]
+            },
+            {
+                "name": "Battle Meditation",
+                "upgrades": [
+                    {
+                        "index": 1,
+                        "ranks": 2
+                    },
+                    {
+                        "index": 2,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 3,
+                        "ranks": 1
+                    }
+                ]
+            },
+            {
+                "name": "Protect/Unleash",
+                "upgrades": []
+            }
+        ],
+        "specializations": [
+            "Marauder",
+            "Force Sensitive Emergent"
+        ],
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 3
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 3
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 2
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 2
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 3
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 3
+            }
+        ],
+        "soak": 0,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 0,
+        "rangedDefense": 0,
+        "wounds": 0,
+        "woundThreshold": 0,
+        "strain": 0,
+        "strainThreshold": 0,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "All",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            }
+        ],
+        "abilities": [],
+        "equipment": [],
+        "criticals": [],
+        "notes": [],
+        "totalXP": 0,
+        "availableXP": 0,
+        "gender": "Female",
+        "species": "Human",
+        "age": 15,
+        "height": "5'4\"",
+        "career": "Hired Gun",
+        "armor": {
+            "defense": 0,
+            "soak": 0,
+            "hardPoints": 0,
+            "encumbrance": 0
+        },
+        "weapons": []
+    },
+    "4DtGAM": {
+        "baseChar": "4DtGAM",
+        "talents": [
+            {
+                "name": "Uncanny Reactions",
+                "ranks": 1
+            },
+            {
+                "name": "Keen Eyed",
+                "ranks": 1
+            },
+            {
+                "name": "Grit",
+                "ranks": 2
+            },
+            {
+                "name": "Sense Danger"
+            },
+            {
+                "name": "Force Rating",
+                "ranks": 1
+            },
+            {
+                "name": "Nobody's Fool",
+                "ranks": 1
+            },
+            {
+                "name": "Niman Technique"
+            },
+            {
+                "name": "Parry",
+                "ranks": 1
+            },
+            {
+                "name": "Defensive Training",
+                "ranks": 1
+            },
+            {
+                "name": "Sum Djem"
+            },
+            {
+                "name": "Reflect",
+                "ranks": 1
+            },
+            {
+                "name": "Dedication",
+                "ranks": 1
+            },
+            {
+                "name": "Force Assault"
+            }
+        ],
+        "forcePowers": [
+            {
+                "name": "Move",
+                "upgrades": [
+                    {
+                        "index": 0,
+                        "ranks": 2
+                    },
+                    {
+                        "index": 1,
+                        "ranks": 2
+                    },
+                    {
+                        "index": 2,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 3,
+                        "ranks": 2
+                    }
+                ]
+            },
+            {
+                "name": "Sense",
+                "upgrades": [
+                    {
+                        "index": 0,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 1,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 2,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 7,
+                        "ranks": 1
+                    }
+                ]
+            }
+        ],
+        "specializations": [
+            "Seer (Career)",
+            "Niman Disciple"
+        ],
+        "armor": {
+            "name": "Custom Heavy Battle Armor",
+            "defense": 1,
+            "soak": 5,
+            "hardPoints": 4,
+            "encumbrance": 0,
+            "upgrades": "Superior Armor Customization: Armor gains the Superior Quality (Encumbrance -1, Soak +1)\n\nCortosis Weave: Armor gains the Cortosis quality (Soak is Immune to Pierce and Breach)\n\nEnergy Dispersion System: When reducing strain damage by the character's soak, count the character's soak as two higher."
+        },
+        "weapons": [
+            {
+                "name": "Holdout blaster",
+                "skill": "Ranged - Light",
+                "damage": 5,
+                "critical": 4,
+                "range": "short",
+                "special": [
+                    "Stun setting"
+                ]
+            },
+            {
+                "name": "Blaster Rifle",
+                "skill": "Ranged - Heavy",
+                "damage": 9,
+                "critical": 3,
+                "range": "long",
+                "special": [
+                    "Stun setting"
+                ]
+            },
+            {
+                "name": "Shoto",
+                "skill": "Lightsaber",
+                "damage": 5,
+                "critical": 2,
+                "range": "engaged",
+                "special": [
+                    "Accurate 1",
+                    "Breach 1",
+                    "Sunder"
+                ]
+            },
+            {
+                "name": "Basic Lightsaber",
+                "skill": "Lightsaber",
+                "damage": 6,
+                "critical": 2,
+                "range": "engaged",
+                "special": [
+                    "Breach 1",
+                    "Sunder"
+                ],
+                "upgrades": "Dantari Crystal\nBase Modifiers: Installing this crystal changes a\nlightsaber’s base damage to 7 and critical rating to\n2, and the lightsaber gains the Breach 1 and Sunder\nweapon qualities. When making a Force power check\nas part of a combat check, a character using a lightsaber\nwith a Dantari crystal may spend Ω to recover\n2 strain. If the crystal is ever removed, the lightsaber\nloses these qualities and abilities, and reverts to its\nprevious base damage and critical rating.\nModification Options: 1 Decrease the weapon’s\ncritical rating by one to a minimum of 1 Mod, 2 Damage\n+1 Mods.\nHard Points Required: 2.\nPrice: (R) 12,000 credits."
+            }
+        ],
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 2
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 2
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 3
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 2
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 5
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 2
+            }
+        ],
+        "soak": 5,
+        "forceRank": 2,
+        "forcePool": 2,
+        "forceCommitted": 0,
+        "meleeDefense": 2,
+        "rangedDefense": 1,
+        "wounds": 8,
+        "woundThreshold": 12,
+        "strain": 0,
+        "strainThreshold": 16,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            }
+        ],
+        "abilities": [
+            "Human Special Ability"
+        ],
+        "equipment": [],
+        "criticals": [
+            "Winded"
+        ],
+        "notes": [],
+        "totalXP": 510,
+        "availableXP": 40,
+        "career": "Mystic",
+        "quickNotes": "Conflict: 0/10\nMorality: 61"
+    },
+    "2gmFVI": {
+        "baseChar": "2gmFVI",
+        "talents": [
+            {
+                "name": "Second Wind",
+                "ranks": 2
+            },
+            {
+                "name": "Confidence",
+                "ranks": 2
+            },
+            {
+                "name": "Commanding Presence",
+                "ranks": 1
+            },
+            {
+                "name": "Toughened",
+                "ranks": 4
+            },
+            {
+                "name": "Enhanced Leader"
+            },
+            {
+                "name": "Steely Nerves"
+            },
+            {
+                "name": "Dedication",
+                "ranks": 2
+            },
+            {
+                "name": "Force Rating",
+                "ranks": 2
+            },
+            {
+                "name": "Parry",
+                "ranks": 3
+            },
+            {
+                "name": "Soresu Technique"
+            },
+            {
+                "name": "Reflect",
+                "ranks": 2
+            },
+            {
+                "name": "Grit",
+                "ranks": 2
+            },
+            {
+                "name": "Confidence",
+                "ranks": 1
+            },
+            {
+                "name": "Parry (Improved)"
+            },
+            {
+                "name": "Parry (Supreme)"
+            },
+            {
+                "name": "Reflect (Improved)"
+            },
+            {
+                "name": "Adversary",
+                "ranks": 2
+            },
+            {
+                "name": "Black Market Contacts",
+                "ranks": 2
+            }
+        ],
+        "forcePowers": [
+            {
+                "name": "Enhance",
+                "upgrades": [
+                    {
+                        "index": 0,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 1,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 2,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 3,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 4,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 5,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 6,
+                        "ranks": 1
+                    }
+                ]
+            },
+            {
+                "name": "Influence",
+                "upgrades": [
+                    {
+                        "index": 0,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 1,
+                        "ranks": 3
+                    },
+                    {
+                        "index": 2,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 3,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 4,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 5,
+                        "ranks": 2
+                    }
+                ]
+            },
+            {
+                "name": "Protect/Unleash",
+                "upgrades": [
+                    {
+                        "index": 1,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 2,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 3,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 4,
+                        "ranks": 1
+                    }
+                ]
+            },
+            {
+                "name": "Move",
+                "upgrades": [
+                    {
+                        "index": 0,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 1,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 3,
+                        "ranks": 1
+                    }
+                ]
+            }
+        ],
+        "specializations": [
+            "PeaceKeeper",
+            "Soresu Defender"
+        ],
+        "armor": {
+            "name": "Armored Robes",
+            "defense": 1,
+            "soak": 2,
+            "hardPoints": 2,
+            "encumbrance": 5,
+            "upgrades": "Superior Armor Customization, Energy Dispersion System"
+        },
+        "weapons": [
+            {
+                "name": "Obi Wan's Lightsaber",
+                "skill": "Lightsaber",
+                "damage": 11,
+                "critical": 1,
+                "range": "engaged",
+                "special": [
+                    "Superior",
+                    "Breach 2",
+                    "Sunder",
+                    "Vicious 1"
+                ],
+                "upgrades": "Superior Weapon Customization, Extended hilt, Dantari Crystal"
+            }
+        ],
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 2
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 2
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 4
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 2
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 4
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 3
+            }
+        ],
+        "soak": 5,
+        "forceRank": 3,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 1,
+        "rangedDefense": 1,
+        "wounds": 0,
+        "woundThreshold": 20,
+        "strain": 0,
+        "strainThreshold": 14,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 4,
+                "career": false
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "type": "combat",
+                "name": "Lightsaber (Soresu)",
+                "characteristic": "Intellect",
+                "ranks": 5,
+                "career": true
+            }
+        ],
+        "abilities": [
+            "Human Special Ability"
+        ],
+        "equipment": [],
+        "criticals": [],
+        "notes": [
+            {
+                "name": "Lightsaber Details",
+                "content": "## Dantari Crystal\n\nWhen making a Force power check as part of a combat check, a character using a lightsaber with a Dantari crystal may spend <forcepoint></forcepoint> to recover 2 strain.\n\n## Superior\n\nAdd automatic <advantage></advantage> on all checks related to weapon's use, and its base damage is increased by 1.",
+                "active": true,
+                "favorite": true
+            }
+        ],
+        "totalXP": 0,
+        "availableXP": 0,
+        "career": "Guardian"
+    },
+    "2BkAY6": {
+        "baseChar": "2BkAY6",
+        "talents": [
+            {
+                "name": "Intimidating",
+                "ranks": 1
+            },
+            {
+                "name": "Fearsome",
+                "ranks": 3
+            },
+            {
+                "name": "Grit"
+            },
+            {
+                "name": "Force Rating"
+            },
+            {
+                "name": "Street Smarts",
+                "ranks": 1
+            },
+            {
+                "name": "Shien Technique"
+            },
+            {
+                "name": "Saber Throw"
+            },
+            {
+                "name": "Disruptive Strike"
+            },
+            {
+                "name": "Side step",
+                "ranks": 1
+            },
+            {
+                "name": "Reflect",
+                "ranks": 2
+            },
+            {
+                "name": "Parry",
+                "ranks": 2
+            },
+            {
+                "name": "Conditioned",
+                "ranks": 1
+            },
+            {
+                "name": "Adversary",
+                "ranks": 1
+            }
+        ],
+        "forcePowers": [
+            {
+                "name": "Enhance",
+                "upgrades": [
+                    {
+                        "index": 0,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 1,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 2,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 3,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 4,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 6,
+                        "ranks": 1
+                    }
+                ]
+            },
+            {
+                "name": "Bind",
+                "upgrades": [
+                    {
+                        "index": 0,
+                        "ranks": 3
+                    },
+                    {
+                        "index": 1,
+                        "ranks": 1
+                    },
+                    {
+                        "index": 2,
+                        "ranks": 1
+                    }
+                ]
+            },
+            {
+                "name": "Move",
+                "upgrades": [
+                    {
+                        "index": 0,
+                        "ranks": 2
+                    },
+                    {
+                        "index": 3,
+                        "ranks": 1
+                    }
+                ]
+            }
+        ],
+        "specializations": [
+            "Aggressor",
+            "Shien Expert"
+        ],
+        "armor": {
+            "name": "Sith Armor",
+            "defense": 1,
+            "soak": 3,
+            "hardPoints": 4,
+            "encumbrance": 5,
+            "upgrades": "Vacuum Sealed, Strength Enhancing System, Cortosis Weave, Superior"
+        },
+        "weapons": [
+            {
+                "name": "Haran (Lightsaber)",
+                "skill": "Lightsaber",
+                "damage": 10,
+                "critical": 1,
+                "range": "engaged",
+                "special": [
+                    "Breach 1",
+                    "Sunder",
+                    "Vicious 2",
+                    "Superior"
+                ],
+                "upgrades": "Ilum Crystal (all mods), Superior Hilt, on a <triumph></triumph>, may Sunder a weapon, causing it to immediately be destroyed."
+            }
+        ],
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 5
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 2
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 2
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 2
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 3
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 2
+            }
+        ],
+        "soak": 7,
+        "forceRank": 2,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 1,
+        "rangedDefense": 1,
+        "wounds": 7,
+        "woundThreshold": 15,
+        "strain": 0,
+        "strainThreshold": 13,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            }
+        ],
+        "abilities": [
+            "Human Special Ability"
+        ],
+        "equipment": [],
+        "criticals": [
+            "Agonizing Wound",
+            "Off-Balance",
+            "Horrific Injury"
+        ],
+        "notes": [],
+        "totalXP": 0,
+        "availableXP": 0,
+        "gender": "Female",
+        "species": "Human",
+        "age": 24,
+        "height": "5'9\"",
+        "career": "Warrior",
+        "quickNotes": ""
+    },
+    "byX3I": {
+        "baseChar": "byX3I",
+        "talents": [],
+        "forcePowers": [],
+        "specializations": [],
+        "armor": {
+            "defense": 0,
+            "soak": 0,
+            "hardPoints": 0,
+            "encumbrance": 0
+        },
+        "weapons": [
+            {
+                "name": "Heavy Blaster Pistol",
+                "skill": "Ranged - Light",
+                "damage": 7,
+                "critical": 3,
+                "range": "medium",
+                "special": [
+                    "Stun setting"
+                ]
+            }
+        ],
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 2
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 2
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 3
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 3
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 2
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 4
+            }
+        ],
+        "soak": 0,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 0,
+        "rangedDefense": 0,
+        "wounds": 0,
+        "woundThreshold": 0,
+        "strain": 0,
+        "strainThreshold": 0,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 3,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 4,
+                "career": true
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 4,
+                "career": false
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 4,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 2,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": false
+            }
+        ],
+        "abilities": [],
+        "equipment": [],
+        "criticals": [],
+        "notes": [],
+        "totalXP": 0,
+        "availableXP": 0,
+        "career": "NPC"
+    },
+    "28BnQI": {
+        "baseChar": "28BnQI",
+        "talents": [],
+        "forcePowers": []
+    },
+    "4mkoy": {
+        "baseChar": "4mkoy",
+        "talents": [],
+        "forcePowers": []
+    }
+}
