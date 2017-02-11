@@ -41,10 +41,10 @@ db.BaseCharacter = thinky.createModel('base_characters', {
     id: type.string().default(shortID),
     name: type.string().required(),
     system: type.string().required(),
-    description: type.string(),
+    description: type.string().default(''),
     portrait: type.string(),
-    thumbnail: type.string(),
-    biography: type.string(),
+    thumbnail: type.string().default('/static/images/thumbnailPlaceholder.png'),
+    biography: type.string().default(''),
     owner: type.string().required()
 });
 

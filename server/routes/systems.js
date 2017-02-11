@@ -20,7 +20,13 @@ const router = express.Router();
 
 router.get('/', (request, response) =>
 {
-    routeUtils.interceptHTML(response, () => { response.json(systemMan.systems); });
+    routeUtils.interceptHTML(response, () =>
+    {
+        const systems = _(systemMan.systems)
+            .map((system) => _.omit(system, ['models']));
+
+        response.json(systems);
+    });
 });
 
 // Mount the systems

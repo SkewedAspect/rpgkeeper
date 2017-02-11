@@ -15,7 +15,7 @@
                         </md-input-container>
                         <md-input-container>
                             <label>Description</label>
-                            <md-textarea v-model="description" :disabled="!isAuthorized"></md-textarea>
+                            <md-textarea v-model="biography" :disabled="!isAuthorized"></md-textarea>
                         </md-input-container>
                         <pool name="Lucky Shots" :pool="character.luckyShots" :edit-disabled="!isAuthorized"></pool>
                     </md-card-content>
@@ -38,8 +38,8 @@
                         </md-list>
                     </md-card-content>
                     <md-card-actions>
-                        <md-button @click="roll()">Roll</md-button>
-                        <md-button @click="clearRolls()">Clear</md-button>
+                        <md-button @click.native="roll()">Roll</md-button>
+                        <md-button @click.native="clearRolls()">Clear</md-button>
                     </md-card-actions>
                 </md-card>
             </md-layout>
@@ -53,7 +53,7 @@
                         </md-list>
                     </md-card-content>
                     <md-card-actions>
-                        <md-button @click="openNewCliche()" :disabled="!isAuthorized">Add Cliche</md-button>
+                        <md-button @click.native="openNewCliche()" :disabled="!isAuthorized">Add Cliche</md-button>
                     </md-card-actions>
                 </md-card>
             </md-layout>
@@ -66,7 +66,7 @@
                         </md-list>
                     </md-card-content>
                     <md-card-actions>
-                        <md-button @click="openNewHook()" :disabled="!isAuthorized">Add Hook</md-button>
+                        <md-button @click.native="openNewHook()" :disabled="!isAuthorized">Add Hook</md-button>
                     </md-card-actions>
                 </md-card>
             </md-layout>
@@ -87,14 +87,14 @@
                     <md-input type="number" v-model="newCliche.value"></md-input>
                 </md-input-container>
                 <md-input-container>
-                    <label>Textarea</label>
+                    <label>Tools/Abilities</label>
                     <md-textarea v-model="newCliche.tools"></md-textarea>
                 </md-input-container>
             </md-dialog-content>
 
             <md-dialog-actions>
-                <md-button class="md-primary" @click="cancelNewCliche()">Cancel</md-button>
-                <md-button class="md-primary" @click="saveNewCliche()">Ok</md-button>
+                <md-button class="md-primary" @click.native="cancelNewCliche()">Cancel</md-button>
+                <md-button class="md-primary" @click.native="saveNewCliche()">Ok</md-button>
             </md-dialog-actions>
         </md-dialog>
 
@@ -109,8 +109,8 @@
             </md-dialog-content>
 
             <md-dialog-actions>
-                <md-button class="md-primary" @click="cancelNewHook()">Cancel</md-button>
-                <md-button class="md-primary" @click="saveNewHook()">Ok</md-button>
+                <md-button class="md-primary" @click.native="cancelNewHook()">Cancel</md-button>
+                <md-button class="md-primary" @click.native="saveNewHook()">Ok</md-button>
             </md-dialog-actions>
         </md-dialog>
     </div>
@@ -204,9 +204,9 @@
                 get: function(){ return this.character.name; },
                 set: function(val){ this._setName(val); }
             },
-            description: {
-                get: function(){ return this.character.description; },
-                set: function(val){ this._setDescription(val); }
+            biography: {
+                get: function(){ return this.character.biography; },
+                set: function(val){ this._setBiography(val); }
             },
             cliches()
             {
@@ -310,7 +310,7 @@
             }, 250);
 
             // Debounce functions
-            this._setDescription = _.debounce((desc) => { this.character.description = desc; }, 1000, { maxWait: 2000 });
+            this._setBiography = _.debounce((desc) => { this.character.biography = desc; }, 1000, { maxWait: 2000 });
             this._setName = _.debounce((name) => { this.character.name = name; }, 1000, { maxWait: 2000 });
         }
     }

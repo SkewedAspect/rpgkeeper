@@ -14,6 +14,7 @@
     "base62": "^1.1.1",
     "bluebird": "^3.4.3",
     "body-parser": "^1.15.2",
+    "bunyan": "^1.8.5",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
@@ -29,8 +30,8 @@
     "passport": "^0.3.2",
     "passport-google-web": "^1.0.0",
     "rpgdicejs": "^1.0.0",
-    "trivial-logging": "^1.1.0",
     "thinky": "^2.3.8",
+    "trivial-logging": "^1.1.0",
     "vue": "^2.0.5",
     "vue-router": "^2.0.1"
   },
@@ -49,7 +50,7 @@
     "grunt-sass": "^2.0.0",
     "spinkit": "^1.2.5",
     "vue": "^2.0.5",
-    "vue-material": "^0.6.0",
+    "vue-material": "^0.7.1",
     "vueify": "^9.2.4"
   }
 }

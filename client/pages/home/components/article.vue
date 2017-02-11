@@ -13,7 +13,7 @@
             <md-card-content style="flex: 1" v-html="truncatedBody"></md-card-content>
 
             <md-card-actions>
-                <md-button @click="openReadMore">Read More</md-button>
+                <md-button @click.native="openReadMore">Read More</md-button>
             </md-card-actions>
         </md-card>
 

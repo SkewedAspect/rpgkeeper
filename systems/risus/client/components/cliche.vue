@@ -9,11 +9,11 @@
             <span>Tools/Abilities: {{ cliche.tools }}</span>
         </div>
         <md-button v-if="!disabled" class="md-icon-button md-list-action"
-                   @click.prevent.stop="edit()">
+                   @click.native.prevent.stop="edit()">
             <md-icon>edit</md-icon>
         </md-button>
         <md-button v-if="!disabled" class="md-icon-button md-list-action md-warn"
-                   @click.prevent.stop="confirmDelete()">
+                   @click.native.prevent.stop="confirmDelete()">
             <md-icon class="md-warn">delete</md-icon>
         </md-button>
 
@@ -47,8 +47,8 @@
             </md-dialog-content>
 
             <md-dialog-actions>
-                <md-button class="md-primary" @click="cancelEdit()">Cancel</md-button>
-                <md-button class="md-primary" @click="saveEdit()">Ok</md-button>
+                <md-button class="md-primary" @click.native="cancelEdit()">Cancel</md-button>
+                <md-button class="md-primary" @click.native="saveEdit()">Ok</md-button>
             </md-dialog-actions>
         </md-dialog>
 

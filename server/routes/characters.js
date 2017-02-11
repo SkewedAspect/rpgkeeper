@@ -64,7 +64,8 @@ router.post('/', ensureAuthenticated, promisify((request, response) =>
             const SysCharacter = systemMan.get(char.system).models.Character;
 
             // Save a new system character
-            return (new SysCharacter({ id: char.id, user: char.user })).save().get('id');
+            return (new SysCharacter({ id: char.id, user: char.user })).save()
+                .then(() => char);
         })
         .catch((error) =>
         {
