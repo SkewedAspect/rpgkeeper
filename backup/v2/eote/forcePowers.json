@@ -1,0 +1,214 @@
+{
+    "Move": {
+        "name": "Move",
+        "description": "The Force user can move small objects via the power of the Force.\n\nThe user may spend <force-point></force-point> to move one object of silhouette 0 that is within short range up to his maximum range. The default maximum range is short range.",
+        "upgrades": [
+            {
+                "name": "Range",
+                "description": "Spend <force-point></force-point> to increase power's range by a number of range bands equal to Range upgrades purchased."
+            },
+            {
+                "name": "Magnitude",
+                "description": "Spend <force-point></force-point> to increase the targets affected equal to Magnitude upgrades purchased."
+            },
+            {
+                "name": "Strength",
+                "description": "Spend <force-point></force-point> to increase silhouette able to be targeted equal to Strength upgrades purchased."
+            },
+            {
+                "name": "Control",
+                "description": "The Force user can hurl objects to damage targets by making a Discipline check combined with a Move power check, dealing damage equal to 10 times silhouette.\n\n---\n\nThe Force user can pull objects out of secure mountings or out of an opponent's grasp."
+            }
+        ],
+        "official": true,
+        "id": "Move"
+    },
+    "Sense": {
+        "name": "Sense",
+        "description": "The Force user can sense the Force interacting with the world around him.\n\nThe user may spend <force-point></force-point> to sense all living things within short range (including sentient and non-sentient beings).\n\nThe user may spend <force-point></force-point> to sense the current emotional state of one living target with whom he is engaged.",
+        "upgrades": [
+            {
+                "name": "Control",
+                "description": "Ongoing effect: Commit <force></force>. Once per round, when an attack targets the Force user, he upgrades the difficulty of the pool once."
+            },
+            {
+                "name": "Duration",
+                "description": "Sense's ongoing effects may be triggered one additional time per round."
+            },
+            {
+                "name": "Strength",
+                "description": "When using Sense's ongoing effects, upgrade the pool twice, instead of once."
+            },
+            {
+                "name": "Control",
+                "description": "Ongoing effect: Commit <force></force>. Once per round, when the Force user makes a combat check, he upgrade the ability of that check once."
+            },
+            {
+                "name": "Control",
+                "description": "Effect: Spend <force-point></force-point>.The Force user senses the current thoughts of one living target with whom he is engaged."
+            },
+            {
+                "name": "Range",
+                "description": "Spend <force-point></force-point> to increase power's range by a number of range bands equal to Range upgrades purchased."
+            },
+            {
+                "name": "Magnitude",
+                "description": "Spend <force-point></force-point> to increase number of targets affected by power equal to Magnitude upgrades purchased."
+            },
+            {
+                "name": "Control 2",
+                "description": "Effect: Spend <force-point></force-point> The Force user sense the current thoughts of one living target with whom he is engaged."
+            }
+        ],
+        "official": true,
+        "id": "Sense"
+    },
+    "Battle Meditation": {
+        "name": "Battle Meditation",
+        "description": "The Force user directs allies in battle, making them more effective as a coordinated unit.\n\nThe user may spend <force-point></force-point> to add one automatic <advantage></advantage> to all checks a number of engaged friendly targets up to his Presence make before the end of his next turn. If the user used <dark-side></dark-side> to generate <force-point></force-point>, reduce each target's Willpower by 1 (to a minimum of 1) until the end of the encounter.",
+        "upgrades": [
+            {
+                "name": "Magnitude",
+                "description": "Spend <force-point></force-point> to affect a number of additional targets equal to Presence per rank of Magnitude purchased."
+            },
+            {
+                "name": "Range",
+                "description": "Spend <force-point></force-point> to increase power's range by a number of range bands equal to Range upgrades purchased."
+            },
+            {
+                "name": "Control",
+                "description": "The user may make an **Easy (<difficulty></difficulty>) Leadership check** combined with the **Battle Meditation power check**. If the user is able to activate the power and succeeds on the check, he may send simple orders as part of the power."
+            },
+            {
+                "name": "Strength",
+                "description": "Spend <force-point></force-point> to add one additional <advantage></advantage> to affected characters' checks."
+            },
+            {
+                "name": "Duration",
+                "description": "Commit <force></force><force></force><force></force> to sustain the ongoing effects of the power on each affected target while it remains in range."
+            },
+            {
+                "name": "Mastery",
+                "description": "If the user did not use <dark-side></dark-side> to generate <force-point></force-point>, choose one skill. While affected by the power, each affected character counts as having the same number of ranks in the chosen skill as the affected character with the most ranks in the skill. If the user used <dark-side></dark-side> to generate <force-point></force-point>, each affected character must make an **Easy (<difficulty></difficulty>) Discipline check** to resist obeying orders."
+            }
+        ],
+        "official": false,
+        "id": "Battle Meditation"
+    },
+    "Protect/Unleash": {
+        "name": "Protect/Unleash",
+        "description": "The Force user guides the flow of energy, protecting himself and others or unleashing blasts of power on his foes.\n\n**Protect:** The user spends <force-point></force-point><force-point></force-point> and succeeds at an **Average (<difficulty></difficulty><difficulty></difficulty>) Discipline check** to reduce damage from an energy-based weapon that hits himself or an engaged character by amount equal to Willpower plus 1 per <success></success> Dark side Force users may only protect themselves.\n\n**Unleash:** The user spends <force-point></force-point><force-point></force-point> and succeeds at an **Average (<difficulty></difficulty><difficulty></difficulty>) Discipline check** to make a ranged attack with a range of short, base damage equal to Willpower, and a Critical of 4. The user gains 1 Conflict.",
+        "upgrades": [
+            {
+                "name": "Range",
+                "description": "Spend <force-point></force-point><force-point></force-point> to increase by a number of range bands equal to Range upgrades purchased."
+            },
+            {
+                "name": "Magnitude",
+                "description": "Spend <force-point></force-point> to affect 1 additional target within range per rank of Magnitude purchased."
+            },
+            {
+                "name": "Strength",
+                "description": "Spend <force-point></force-point> to decrease damage to add damage equal to ranks of Strength purchased."
+            },
+            {
+                "name": "Control",
+                "description": "<b>Protect:</b> Spend <advantage></advantage> to gain defense equal to <advantage></advantage> spent.\n\n<b>Unleash:</b> Spend <advantage></advantage> to inflict 1 strain on target."
+            },
+            {
+                "name": "Control",
+                "description": "<b>Protect:</b> Spend <force-point></force-point> to allow power to protect against all types of attack.\n\n<b>Unleash:</b> Spend <force-point></force-point> to give the attack Ensnare 2."
+            }
+        ],
+        "official": false,
+        "id": "Protect/Unleash"
+    },
+    "Enhance": {
+        "name": "Enhance",
+        "description": "When making an Athletics check, the Force user may roll an <b>Enhance power check</b> as part of the pool.\n\nThe user may spend <forcepoint></forcepoint> to gain <success></success> or <advantage></advantage> (user's choice) on the check.",
+        "id": "Enhance",
+        "upgrades": [
+            {
+                "name": "Control",
+                "description": "Enhance can be used with the Resilience skill."
+            },
+            {
+                "name": "Control",
+                "description": "Enhance can be used with the Brawl skill."
+            },
+            {
+                "name": "Control",
+                "description": "Ongoing effect. Commit <force></force>. The user increases his Brawn characteristic by 1 (to a maximum of 6)."
+            },
+            {
+                "name": "Control",
+                "description": "Take a Force Leap action. Make an <b>Enhance power check</b>. The user may spend <force-point></force-point> to jump horizontally to any location in short range."
+            },
+            {
+                "name": "Control",
+                "description": "When performing a Force Leap, the user can jump vertically in addition to jumping horizontally."
+            },
+            {
+                "name": "Range",
+                "description": "Spend <force-point></force-point> to increase power's range by a number of range bands equal to Range upgrades purchased."
+            },
+            {
+                "name": "Control",
+                "description": "The user can perform a Force Leap as a maneuver instead of an action."
+            }
+        ],
+        "official": false
+    },
+    "Influence": {
+        "name": "Influence",
+        "description": "The character may attempt to guide, shape and even twist the thoughts and feelings of others.\n\n<b>Special Rule (<light-side></light-side>/<dark-side></dark-side> use):</b> When guiding and shaping thoughts, only <force-point></force-point> generated from <dark-side></dark-side> may be used to generate negative emotions such as rage, fear, and hatred. Only <force-point></force-point> generated from <light-side></light-side> may be used to generate positive emotions such as peace, tranquility, and friendliness. Other emotions such as confusion can be created from <force-point></force-point> generated from either <light-side></light-side> or <dark-side></dark-side>.\n\nThe character may spend <force-point></force-point> to stress the mind of one living target he is engaged with, inflicting 1 strain.",
+        "id": "Influence",
+        "upgrades": [
+            {
+                "name": "Range",
+                "description": "Spend <force-point></force-point> to increase power's range by a number of range bands equal to Range upgrades purchased."
+            },
+            {
+                "name": "Magnitude",
+                "description": "Spend <force-point></force-point> to increase targets affected equal to Magnitude upgrades purchased."
+            },
+            {
+                "name": "Control",
+                "description": "When making a Coercion, Charm, Deception, Leadership, or Negotiation check, the Force user may roll and <b>Influence power check</b> as part of his dice pool. He may spend <force-point></force-point> to gain <success></success> or <advantage></advantage> (user's choice) on the check."
+            },
+            {
+                "name": "Control",
+                "description": "The Force user may make an <b>opposed Discipline vs. Discipline check</b> combined with an <b>Influence power check</b>. If the user spends <force-point></force-point> and succeeds on the check, he can force the target to adopt an emotional state or believe something untrue, lasting for 1 round or 5 minutes."
+            },
+            {
+                "name": "Strength",
+                "description": "When stressing the mind of a target, the character inflicts 2 strain."
+            },
+            {
+                "name": "Duration",
+                "description": "Spend <force-point></force-point> to increase duration by number of round (or minutes) equal to Duration upgrades purchased."
+            }
+        ],
+        "official": false
+    },
+    "Bind": {
+        "name": "Bind",
+        "description": "The Force user restrains an enemy, preventing the target from acting.\n\nThe user may spend <force-point></force-point> to immobilize a target within short range until the end of the user's next turn. If the user used any <dark-side></dark-side> to generate <force-point></force-point>, the target also suffers 1 wound per <force-point></force-point> spent on the check (ignoring soak).",
+        "upgrades": [
+            {
+                "name": "Strength",
+                "description": "Spend <force-point></force-point> to disorient the target for a number of rounds equal to Strength upgrades purchased."
+            },
+            {
+                "name": "Duration",
+                "description": "Commit <force></force><force></force><force></force> to sustain the ongoing effects of the power on each affected target."
+            },
+            {
+                "name": "Mastery",
+                "description": "When the user is making a *Bind power check*, if the check was not already opposed, the user may roll an opposed *Discipline vs. Discipline check* against one target of the power. If no <dark-side></dark-side> were used to generate <force-point></force-point> and the user succeeds on the check, he may immediately stagger the target until the end of his next turn. If any <dark-side></dark-side> were used to generate <force-point></force-point> and the check succeeds, the target suffers a Critical Injury, adding + 10 to the roll per <force-point></force-point> spent on the check."
+            }
+        ],
+        "official": false,
+        "id": "Bind"
+    }
+}

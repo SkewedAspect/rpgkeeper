@@ -1,0 +1,66 @@
+{
+    "Bothan Special Ability": {
+        "name": "Bothan Special Ability",
+        "id": "Bothan Special Ability",
+        "description": "Bothans begin the game with one rank in Streetwise. They still may not train Streetwise above rank 2 during character creation. They also start with one rank in the Convincing Demeanor talent."
+    },
+    "Human Special Ability": {
+        "name": "Human Special Ability",
+        "id": "Human Special Ability",
+        "description": "Humans start the game with one rank in two different non-career skills of their choice. They may not train these skills above rank two at character creation."
+    },
+    "Awkward": {
+        "name": "Awkward",
+        "description": "These creatures have great physical strength but their bulk imposes severe limitations in flexibility and agility. They add <setback></setback><setback></setback><setback></setback> to all Brawl, Melee, and Coordination checks they're required to make.",
+        "id": "Awkward"
+    },
+    "Ponderous": {
+        "name": "Ponderous",
+        "description": "These creatures can never spend more than one maneuver moving per turn.",
+        "id": "Ponderous"
+    },
+    "Droid Special Ability": {
+        "name": "Droid Special Ability",
+        "description": "Droids do not need to eat, sleep, or breath, and are unaffected by toxins or poisons. Droids have a cybernetic implant cap of 6, instead of their brawn rating. In addition, after selecting a career, a Droid Player Character may train one rank in six of the eight career skills (instead of the usual four). After selecting their first specialization, a Droid Player Character may train one rank in three of the four specialization skills (instead of the usual two).",
+        "id": "Droid Special Ability"
+    },
+    "Wookie Rage": {
+        "name": "Wookie Rage",
+        "description": "When the Wookie suffers any wounds, he deals +1 damage with Brawl and Melee attacks. When suffering a Critical Injury, he deals +2 damage with Brawl and Melee attacks instead.",
+        "id": "Wookie Rage"
+    },
+    "Inorganic": {
+        "name": "Inorganic",
+        "description": "Does not gain the benefits of recovering with a bacta tank, stimpack, or Medicine check. Inorganic characters do recover naturally from resting, as their systems attempt self-repairs. Otherwise inorganic characters need to be tended with a Mechanics check, using the same difficulties and results of Medicine checks for organic beings. Due to their resilient metallic construction droids tart the game with one rank in the Enduring talent.",
+        "id": "Inorganic"
+    },
+    "Mechanical Being": {
+        "name": "Mechanical Being",
+        "description": "Droids cannot become Force sensitive, nor acquire a Force Rating by any means. Droids cannot use Force powers, and also cannot be affected by mind-altering Force powers.",
+        "id": "Mechanical Being"
+    },
+    "Foobar": {
+        "name": "Foobar",
+        "description": "This is my **new**, _special_ ability! It's cool!",
+        "id": "Foobar"
+    },
+    "Chiss Skill Training": {
+        "name": "Chiss Skill Training",
+        "description": "Chiss begin the game with one rank in Cool. Thy still may not train Cool above rank 2 during character creation.",
+        "id": "Chiss Skill Training"
+    },
+    "Infravision": {
+        "name": "Infravision",
+        "description": "Chiss have adapted to be able to see in both the infrared and normal visual spectra. This enables Chiss characters to remove up to <setback></setback> added to checks by lighting conditions.",
+        "id": "Infravision"
+    },
+    "Kaleesh Special Ability": {
+        "name": "Kaleesh Special Ability",
+        "description": "Kaleesh have adapted to see very well in low-light conditions. This allows Kaleesh to remove up to <setback></setback> added to checks added to lighting conditions.",
+        "id": "Kaleesh Special Ability"
+    },
+    "": {
+        "name": "",
+        "description": "Humans start the game with one rank each in two different non-career skills of their choice. They still may not train these skills above rank 2 at character creation  (computer and mechanics)."
+    }
+}

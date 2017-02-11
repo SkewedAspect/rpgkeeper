@@ -1,0 +1,462 @@
+{
+    "1bfs9P": {
+        "id": "1bfs9P",
+        "counters": [
+            {
+                "max": 20,
+                "min": 0,
+                "name": "Level",
+                "value": 6
+            },
+            {
+                "max": 81,
+                "min": -10,
+                "name": "Hitpoints",
+                "value": 49
+            },
+            {
+                "min": 0,
+                "name": "Character Points",
+                "value": 18
+            },
+            {
+                "name": "Gold",
+                "value": 42
+            }
+        ],
+        "notes": [
+            {
+                "content": "### Misc:\n\n----\n\n* **Resistances:** 5pts cold, electricity, fire\n* **Languages:** Infernal, Elven, Draconic, Orc\n* **Speed:** 20ft/5sq <small>(Base: 30ft/6sq)</small>\n* **Grapple:** 6 <small>(Str Mod(3) + Base Attack Bonus(3))</small>\n* **Initiative:** +2\n\n### Feats\n\n----\n<div class=\"card-columns\">\n    <div class=\"card\">\n        <div class=\"card-block\">\n            <h4 class=\"card-title\">Combat Expertise</h4>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                You are trained at using your combat skill for defense as well as offense.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Prerequisites:</b> Int 13.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Benefit:</b> When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class. This number may not exceed your base attack bonus. The changes to attack rolls and Armor Class last until your next action.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Normal:</b> A character without the Combat Expertise feat can fight defensively while using the attack or full attack action to take a -4 penalty on attack rolls and gain a +2 dodge bonus to Armor Class.\n            </p>\n        </div>\n    </div>\n<div class=\"card\">\n        <div class=\"card-block\">\n            <h4 class=\"card-title\">Toughness</h4>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                You are tougher than normal.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Benefit:</b> You gain +3 hitpoints per level.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Note:</b> This is a house-ruled variant.\n            </p>\n        </div>\n    </div>\n    <div class=\"card\">\n        <div class=\"card-block\">\n            <h4 class=\"card-title\">Endurance</h4>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                You are capable of amazing feats of stamina.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Benefit:</b> You gain a +4 bonus on the following checks and saves:<br>\n                <ul style=\"font-size: 12px\">\n                    <li>Swim checks made to resist nonlethal damage</li>\n                    <li>Constitution checks made to continue running</li>\n                    <li>Constitution checks made to avoid nonlethal damage from a forced march</li>\n                    <li>Constitution checks made to hold your breath</li>\n                    <li>Constitution checks made to avoid nonlethal damage from starvation or thirst</li>\n                    <li>Fortitude saves made to avoid nonlethal damage from hot or cold environments</li>\n                    <li>Fortitude saves made to resist damage from suffocation</li>\n               </ul>\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                Also, you may sleep in light or medium armor without becoming fatigued.\n            </p>\n        </div>\n    </div>\n    <div class=\"card\">\n        <div class=\"card-block\">\n            <h4 class=\"card-title\">Weapon Focus <small><i>(Scimitar)</i></small></h4>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                You are especially good at using this weapon.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Prerequisites:</b> Proficiency with Scimitar, base attack bonus +1.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Benefit:</b> You gain a +1 bonus on all attack rolls you make using the selected weapon.\n            </p>\n        </div>\n    </div>\n<div class=\"card\">\n        <div class=\"card-block\">\n            <h4 class=\"card-title\">Weapon Specialization <small><i>(Scimitar)</i></small></h4>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                You deal extra damage when using this weapon.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Prerequisites:</b> Proficiency with Scimitar, Weapon Focus with Scimitar, fighter level 4.\n            </p>\n            <p class=\"card-text\" style=\"font-size: 14px; margin-bottom: .25rem;\">\n                <b>Benefit:</b> You gain a +2 bonus on all damage rolls you make using the selected weapon.\n            </p>\n        </div>\n    </div>\n</div>\n\n### Racial Traits\n\n----\n<div style=\"font-size: .85rem; display: flex\">\n    <div class=\"card\" style=\"flex: 1 1 50%; margin-right: 5px;\">\n        <div class=\"card-block\">\n            <h4 class=\"card-title\">Darkvision <small><i>(60ft, 12sq)</i></small></h4>\n            <p class=\"card-text\">\n            Tieflings can see in the dark up to 60feet. Darkvision is black and white only, but it is otherwise like normal sight, and Tieflings can function just fine with no light at all.\n            </p>\n        </div>\n    </div>\n    <div class=\"card\" style=\"flex: 1 1 50%; margin-left: 5px; page-break-inside: avoid; break-inside: avoid;\">\n        <div class=\"card-block\">\n            <h4 class=\"card-title\">Darkness  <small><i>(once per day)</i></small></h4>\n            <p class=\"card-text\">\n            <b>Components:</b> V, M/DF<br>\n            <b>Casting Time:</b> 1 standard action<br>\n            <b>Range:</b> Touch<br>\n            <b>Target:</b> Object touched<br>\n            <b>Duration:</b> 10 min./level (D)<br>\n            <b>Materials:</b> A bit of bat fur and either a drop of pitch or a piece of coal.<br>\n<p>\n            This spell causes an object to radiate shadowy illumination out to a 20-foot radius. All creatures in the area gain concealment (20% miss chance). Even creatures that can normally see in such conditions (such as with darkvision or lowlight vision) have the miss chance in an area shrouded in magical darkness. Normal lights (torches, candles, lanterns, and so forth) are incapable of brightening the area, as are light spells of lower level (such as light or dancing lights). Higher level light spells (such as daylight) are not affected by darkness.<p>\n<p>If darkness is cast on a small object that is then placed inside or under a lightproof covering, the spell’s effect is blocked until the covering is removed.</p>\n<p>Darkness counters or dispels any light spell of equal or lower spell level.</p>\n            </p>\n        </div>\n    </div>\n</div>",
+                "name": "Details",
+                "editing": false,
+                "clone": {}
+            },
+            {
+                "content": "### Armor\n\n* **Armor** - Half-Plate <small class=\"monospace\">(+7 AB, +0 MD, -7 ACP, 40% ASF, 20ft Spd)</small>\n* **Shield** - Heavy Steel <small class=\"monospace\">(+2 SB, -2 ACP, 15% ASF)</small>\n\n### Magic Items Worn\n\n* **Head** - \n* **Eyes** - \n* **Neck** - Magic Amulet (from family)\n* **Shoulder** - \n* **Ring 1** - \n* **Ring 2** - \n* **Hands** - \n* **Arms/Wrists** -\n* **Body** - \n* **Torso** - \n* **Waist** - \n* **Feet** - \n\n## Items\n\n* Adventurer' Kit\n* 50ft Rope\n* Potion Cure Light Wounds (Heal: d8 + 3)\n",
+                "name": "Equipment",
+                "editing": false,
+                "clone": {}
+            },
+            {
+                "content": "## Local Area\n\n<img class=\"img-thumbnail\" src=\"https://lh3.googleusercontent.com/Pk742y2KnVmuWD3tXiiavUSeJH4s2U6RDKJMTWSt1j3jaluqZBwL26h01uZUtMxC2DXDdgzmpbiXNdO5nlkxVxjhTX16jBj47lci8egEtDZBwd3Z7-d8UwP9s0iAeByzN5Hxj5WhRPCn-VMJI5LJ_xwP954YGA_W7DQ13EJdvLBC-v7NmL8eOnoEKliERyI8_iZMvX47My-yXRQSELhn3Kf1diEZcBVO-XaPC8AVnQiguCPFbc8puZ0Yt6YkLJ066vg3kT1q01-5OihjKE66xTm1V91Xnne_EsnhsCYJ9pfAJ-aj1kMa7ZR8zLwZlVhgHdUniu4ctD429JwyIqNLj4O4poUkm5NVuHHUUkl8Nt95Mnwe5-MLhTzZcWE0FKWRkGcT9A-dbgBxduk5gWQ8p3nr1JwIph1gtxtOMccEEEfMkUDZG_uxHujC1A0Hbz0Z8muCINJ_fKkQeim_AynCd0iDYdOauTAGpCUwNemxu0fvzUursH8-7KTSdCvQo6sH5bIL-9hOZhwgnlBethummY6n2f-jQWRoxn-ylxvsb_s=w2602-h1952-no\" width=\"100%\">\n\n## Sparrow's Point\n\n<img class=\"img-thumbnail\" src=\"https://lh3.googleusercontent.com/RI1gKc8iJcyz8XUJmjnyR0HL8NAuL0Zj3a_1TIGc51ivEdkwAGZvxxh3WNNUh2DJ0BvDgl5A5VkagOdju7dScgQbzz30I-l8dLWJKzKiGNXa__DzFV-KmWF3CAyHtmnGH3WRgFNdXrzZ3_oN_dsrfEIcOTyuMWKJ9xCzqhlaUvnej5aadrNc0Lxd-VLJ-yf_Tbv3zWJbgLYkt1svGmtHQeLQ2gmNhFi4tiVh6nE4bVbXWsHc6GxTrXJtMCI4Ndu3hRUlH9-YdPA36eOcuhyCIpBj_A1d8n5R-uSYABQkjfuVyzF01H0rs8jBruRN7TZJ9nlRa7ocJQ6eT5od9YEV1A3N4RDTYN5H3FQbaId1E815szgJ5v52Ap7EbptSuBG1iz3SnK8sHjuc9j1uCqRP10Vst3an_ZV1rn3VHD6Hvfip-hiDtWERTpSweY8azjWSBq-gWiHXo41MQczdHkX2N9h3BIUM8UJZ0TKUGIzRJ39iPbpJByPNYUSfaUHym70Eoo0CshZw4FEQ1u01Y2PpJSbMkkimLzDqS2UHoaT7oEg=w2602-h1952-no\" width=\"100%\">",
+                "name": "Maps",
+                "editing": false,
+                "clone": {}
+            },
+            {
+                "content": "## World Map\n\n<img class=\"img-thumbnail\" src=\"https://lh3.googleusercontent.com/NZzMwvs1q4yBAr0A-00dZgunhnQpEAioX2SYJ5oVtYS5TNbbayXAceunzzyTwt5MOqnfWyUnPjXKCu1dnL-2PN6qy8Yx5BHZXfdAug3XcnMEfIvdSjcwgFFOsipI71rWoveSgl6Q0GafL17SW8_38P1EEhMRYMV0k9nuMoBWpmeTjb1E9GQQan4AYGZDFH1TVqcwBVEHgDmuGxr4aSp33joThtSUvVvn-RI5ifLE1CoZPI_kXa8j5a9JAJpZrMwJqrE-YHlRXH0IGJsXpZNXZj8OVxVDqg_XprdkKZEO0hLoUAx5s-yqJih1TLpgaOJu-azRJKDUW1J9Uz_Qtjr0v3k0dVXkxFSnuoHoMPVhylKOkh1dcNRXU5I4PajRbs2vDm6W8cUJJZilzGZBt5HgRjrxMTq-wKvFTG5Eqwx90b_r8up-atG64hwzkI9b72Y4S8_ZDH294xK-n4RF8WKFHfh0JmGs5LXUtu725rxgMGNQnCYeoIHshifBxmd_eLM9iNPeBGzG6tPi_FVazVuDmwVaoIu37G3UyP4moSR80GE=w2820-h2114-no\" width=\"100%\">\n\n## Details\n\nThe Taurë forest contains the elves, and wood elves, high elves, and dark elves vie for control (with a fair amount of detail fleshed out, so I can expand more if you like). The dwarves are unified for the most part in the mountains to the west, and the desolate and deserted frozen tundra of Khan A'dah stretch out to the north.\n\nToernë, the largest human city, serves as a cultural and economic hub for the entire region. The humans, as humans do, have sort of spread out all over, so there's not really any sort of central government for them. The Dreadful own Westbury, and for the moment seem content with the one city.\n\nThe Mandius wastes are harsh and inhospitable deserts that contain only the toughest sorts, slavers and treasure hunters and kobolds and whatnot. There are rumors and stories of massive treasure beneath the sands, for those with the ability to find it.\n\nThe island at the bottom is Ishoy, covered in jungle and mystery. Also, dinosaurs. That's been the hub for my nautical campaign, which is exploring the area south of this map.",
+                "name": "The World",
+                "editing": false,
+                "clone": {}
+            }
+        ],
+        "rolls": [
+            {
+                "expression": "1d20 + 'Ability Scores.Dex.Modifier' + 'Bonuses.Racial Initiative.Bonus'",
+                "name": "Initiative"
+            },
+            {
+                "expression": "1d20 + 'Bonuses.Base Attack.Bonus' + 'Ability Scores.Str.Modifier' + 'Weapons.Holy Scimitar.Bonus' + 'Bonuses.Weapon Focus.Bonus'",
+                "name": "[Attack] Scimitar"
+            },
+            {
+                "expression": "1d6 + 'Weapons.Holy Scimitar.Bonus' + 'Ability Scores.Str.Modifier' + 'Bonuses.Weapon Spec.Bonus'",
+                "name": "[Damage] Scimitar"
+            },
+            {
+                "expression": "3d6 + 'Weapons.Holy Scimitar.Bonus' + 'Ability Scores.Str.Modifier' + 'Bonuses.Weapon Spec.Bonus'",
+                "name": "[Damage] Scimitar (vs Evil)"
+            },
+            {
+                "expression": "1d20 + 'Ability Scores.Cha.Modifier'",
+                "name": "Bluff"
+            },
+            {
+                "expression": "1d20 + 'Skills.Intimidate.Total'",
+                "name": "Intimidate"
+            }
+        ],
+        "stats": [
+            {
+                "columns": [
+                    {
+                        "name": "Ability",
+                        "pk": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Score",
+                        "type": "number"
+                    },
+                    {
+                        "name": "Modifier",
+                        "type": "computed"
+                    }
+                ],
+                "items": [],
+                "name": "Ability Scores",
+                "rows": [
+                    [
+                        "Str",
+                        18,
+                        "floor(('Ability Scores.Str.Score' - 10) / 2)"
+                    ],
+                    [
+                        "Dex",
+                        13,
+                        "floor(('Ability Scores.Dex.Score' - 10) / 2)"
+                    ],
+                    [
+                        "Con",
+                        18,
+                        "floor(('Ability Scores.Con.Score' - 10) / 2)"
+                    ],
+                    [
+                        "Int",
+                        17,
+                        "floor(('Ability Scores.Int.Score' - 10) / 2)"
+                    ],
+                    [
+                        "Wis",
+                        11,
+                        "floor(('Ability Scores.Wis.Score' - 10) / 2)"
+                    ],
+                    [
+                        "Cha",
+                        14,
+                        "floor(('Ability Scores.Cha.Score' - 10) / 2)"
+                    ]
+                ],
+                "type": "table"
+            },
+            {
+                "columns": [
+                    {
+                        "name": "Weapon",
+                        "pk": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Bonus",
+                        "type": "number"
+                    },
+                    {
+                        "name": "Damage",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Critical",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Range",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Type",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Notes",
+                        "type": "string"
+                    }
+                ],
+                "items": [],
+                "name": "Weapons",
+                "rows": [
+                    [
+                        "Holy Scimitar",
+                        2,
+                        "1d6",
+                        "18-20/x2",
+                        "—",
+                        "Slashing",
+                        "Holy (+2d6 v evil)"
+                    ],
+                    [
+                        "Hand Crossbow",
+                        0,
+                        "1d4",
+                        "19-20/x2",
+                        "30ft.",
+                        "Piercing"
+                    ]
+                ],
+                "type": "table"
+            },
+            {
+                "columns": [
+                    {
+                        "name": "Skill",
+                        "pk": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Class",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "Ranks",
+                        "type": "number"
+                    },
+                    {
+                        "name": "Total",
+                        "type": "computed"
+                    }
+                ],
+                "items": [],
+                "name": "Skills",
+                "rows": [
+                    [
+                        "Balance",
+                        true,
+                        2,
+                        "'Skills.Balance.Ranks' + 'Ability Scores.Dex.Modifier' + 'Bonuses.Racial Skill.Bonus'"
+                    ],
+                    [
+                        "Diplomacy",
+                        true,
+                        8,
+                        "'Skills.Diplomacy.Ranks' + 'Ability Scores.Cha.Modifier'"
+                    ],
+                    [
+                        "Gather Information",
+                        false,
+                        4,
+                        "'Skills.Gather Information.Ranks' + 'Ability Scores.Cha.Modifier'"
+                    ],
+                    [
+                        "Hide",
+                        false,
+                        1,
+                        "'Skills.Balance.Ranks' + 'Ability Scores.Dex.Modifier' + 'Bonuses.Racial Skill.Bonus'"
+                    ],
+                    [
+                        "Intimidate",
+                        true,
+                        8,
+                        "'Skills.Intimidate.Ranks' + 'Ability Scores.Cha.Modifier'"
+                    ],
+                    [
+                        "Jump",
+                        true,
+                        0,
+                        "'Skills.Jump.Ranks' + 'Ability Scores.Str.Modifier'"
+                    ],
+                    [
+                        "Knowledge",
+                        false,
+                        0,
+                        "'Skills.Knowledge.Ranks' + 'Ability Scores.Int.Modifier'"
+                    ],
+                    [
+                        "Listen",
+                        false,
+                        0,
+                        "'Skills.Listen.Ranks' + 'Ability Scores.Wis.Modifier'"
+                    ],
+                    [
+                        "Move Silently",
+                        false,
+                        0,
+                        "'Skills.Balance.Ranks' + 'Ability Scores.Dex.Modifier' + 'Bonuses.Racial Skill.Bonus'"
+                    ],
+                    [
+                        "Ride",
+                        true,
+                        0,
+                        "'Skills.Ride.Ranks' + 'Ability Scores.Dex.Modifier'"
+                    ],
+                    [
+                        "Search",
+                        false,
+                        0,
+                        "'Skills.Sense Motive.Ranks' + 'Ability Scores.Wis.Modifier'"
+                    ],
+                    [
+                        "Sense Motive",
+                        false,
+                        4,
+                        "'Skills.Sense Motive.Ranks' + 'Ability Scores.Wis.Modifier'"
+                    ],
+                    [
+                        "Spot",
+                        false,
+                        4,
+                        "'Skills.Spot.Ranks' + 'Ability Scores.Wis.Modifier'"
+                    ],
+                    [
+                        "Survival",
+                        true,
+                        7,
+                        "'Skills.Survival.Ranks' + 'Ability Scores.Wis.Modifier'"
+                    ],
+                    [
+                        "Swim",
+                        true,
+                        0,
+                        "'Skills.Swim.Ranks' + 'Ability Scores.Str.Modifier'"
+                    ],
+                    [
+                        "Tumble",
+                        null,
+                        0,
+                        "'Skills.Tumble.Ranks' + 'Ability Scores.Dex.Modifier'"
+                    ]
+                ],
+                "type": "table"
+            },
+            {
+                "columns": [],
+                "items": [
+                    {
+                        "key": "AC",
+                        "type": "computed",
+                        "value": "10 + 'Armor.armor.Bonus' + 'Armor.shield.Bonus' + min('Ability Scores.Dex.Modifier', 'Armor.armor.Max Dex')"
+                    },
+                    {
+                        "key": "Touch",
+                        "type": "computed",
+                        "value": "10 + min('Ability Scores.Dex.Modifier', 'Armor.armor.Max Dex')"
+                    },
+                    {
+                        "key": "Flat-Footed",
+                        "type": "computed",
+                        "value": "10 + 'Armor.armor.Bonus' + 'Armor.shield.Bonus'"
+                    }
+                ],
+                "name": "Armor Class",
+                "rows": [],
+                "type": "list"
+            },
+            {
+                "columns": [
+                    {
+                        "name": "Name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Type",
+                        "pk": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Bonus",
+                        "type": "number"
+                    },
+                    {
+                        "name": "Max Dex",
+                        "type": "number"
+                    },
+                    {
+                        "name": "Armor Check Penalty",
+                        "type": "number"
+                    }
+                ],
+                "name": "Armor",
+                "rows": [
+                    [
+                        "Half-Plate",
+                        "armor",
+                        7,
+                        0,
+                        -7
+                    ],
+                    [
+                        "Heavy Steel",
+                        "shield",
+                        2,
+                        null,
+                        -2
+                    ]
+                ],
+                "type": "table"
+            },
+            {
+                "columns": [
+                    {
+                        "name": "Throw",
+                        "pk": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Base",
+                        "type": "number"
+                    },
+                    {
+                        "name": "Total",
+                        "type": "computed"
+                    }
+                ],
+                "items": [],
+                "name": "Saving Throws",
+                "rows": [
+                    [
+                        "Fortitude",
+                        4,
+                        "'Saving Throws.Fortitude.Base' + 'Ability Scores.Con.Modifier'"
+                    ],
+                    [
+                        "Reflex",
+                        1,
+                        "'Saving Throws.Reflex.Base' + 'Ability Scores.Dex.Modifier'"
+                    ],
+                    [
+                        "Will",
+                        1,
+                        "'Saving Throws.Will.Base' + 'Ability Scores.Wis.Modifier'"
+                    ]
+                ],
+                "type": "table"
+            },
+            {
+                "columns": [
+                    {
+                        "name": "Name",
+                        "pk": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Type",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Bonus",
+                        "type": "number"
+                    }
+                ],
+                "items": [],
+                "name": "Bonuses",
+                "rows": [
+                    [
+                        "Base Attack",
+                        "class",
+                        6
+                    ],
+                    [
+                        "Racial Skill",
+                        "racial",
+                        2
+                    ],
+                    [
+                        "Racial Initiative",
+                        "racial",
+                        2
+                    ],
+                    [
+                        "Weapon Focus",
+                        "feat",
+                        1
+                    ],
+                    [
+                        "Weapon Spec",
+                        "feat",
+                        2
+                    ]
+                ],
+                "type": "table"
+            }
+        ],
+        "user": "chris.case@g33xnexus.com"
+    }
+}
