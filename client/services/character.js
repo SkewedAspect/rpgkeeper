@@ -70,6 +70,25 @@ class CharacterService
 
     //------------------------------------------------------------------------------------------------------------------
 
+    create(charDef)
+    {
+        console.log('charDef:', charDef);
+        return $http.post('/characters', charDef)
+            .get('data')
+            .then((baseState) =>
+            {
+                return this._buildProxy(baseState);
+            })
+            .then((proxy) =>
+            {
+                // Store the proxy in our cache
+                this.$cache[proxy.id] = proxy;
+
+                // Return the newly created proxy
+                return proxy;
+            });
+    } // end create
+
     get(id)
     {
         if(id in this.$cache)
@@ -112,6 +131,16 @@ class CharacterService
                 return proxy;
             });
     } // end refresh
+
+    delete(id)
+    {
+        return $http.delete(`/characters/${ id }`)
+            .get('data')
+            .then(() =>
+            {
+                delete this.$cache[id];
+            });
+    } // end delete
 } // end CharacterService
 
 //----------------------------------------------------------------------------------------------------------------------

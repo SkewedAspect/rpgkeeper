@@ -5,7 +5,7 @@
 <template>
     <div id="pool">
         <div class="clearfix">
-            <md-button class="md-icon-button md-dense edit-btn" @click="openEditMax()" v-if="!editDisabled">
+            <md-button class="md-icon-button md-dense edit-btn" @click.native="openEditMax()" v-if="!editDisabled">
                 <md-icon>edit</md-icon>
             </md-button>
             <div v-if="name" class="pool-label md-subheading">{{ name }}</div>
@@ -43,8 +43,8 @@
             </md-dialog-content>
 
             <md-dialog-actions>
-                <md-button class="md-primary" @click="cancelEdit()">Cancel</md-button>
-                <md-button class="md-primary" @click="saveEdit()">Ok</md-button>
+                <md-button class="md-primary" @click.native="cancelEdit()">Cancel</md-button>
+                <md-button class="md-primary" @click.native="saveEdit()">Ok</md-button>
             </md-dialog-actions>
         </md-dialog>
     </div>

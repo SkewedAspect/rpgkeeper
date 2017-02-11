@@ -19,7 +19,7 @@
                 </md-card-content>
 
                 <md-card-actions>
-                    <md-button @click="goTo('/dashboard')">Go to Dashboard</md-button>
+                    <md-button @click.native="goTo('/dashboard')">Go to Dashboard</md-button>
                 </md-card-actions>
             </md-card>
         </div>
