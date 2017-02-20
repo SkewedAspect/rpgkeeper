@@ -216,13 +216,13 @@
             };
         },
         computed: {
-            systems(){ return this.state.systems; },
+            systems(){ return _.filter(this.state.systems, (sys) => sys.disabled != true); },
             characters()
             {
                 return _(this.characterList)
                     .filter((char) =>
                     {
-                        return !this.systemFilter || char.systemID == this.systemFilter;
+                        return !char.system.disabled && (!this.systemFilter || char.systemID == this.systemFilter);
                     })
                     .filter((char) =>
                     {
