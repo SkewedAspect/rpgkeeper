@@ -47,6 +47,7 @@
     // Systems
 //    import GenericCharacter from '../../../systems/generic/client/character.vue';
     import RisusCharacter from '../../../systems/risus/client/character.vue';
+    import FateCharacter from '../../../systems/fate/client/character.vue';
     import EoteCharacter from '../../../systems/eote/client/character.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -58,6 +59,7 @@
 
             // Systems
 //            generic: GenericCharacter,
+            fate: FateCharacter,
             risus: RisusCharacter,
             eote: EoteCharacter
         },

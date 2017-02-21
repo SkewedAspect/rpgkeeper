@@ -14,6 +14,7 @@ const baseModels = require('../server/models');
 
 // Systems
 const Risus = require('./risus/system');
+const Fate = require('./fate/system');
 const Generic = require('./generic/system');
 const EdgeOfTheEmpire = require('./eote/system');
 
@@ -26,6 +27,7 @@ class SystemManager
         this.systems = [
             Generic,
             Risus,
+            Fate,
             EdgeOfTheEmpire
         ];
 
