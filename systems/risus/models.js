@@ -19,8 +19,11 @@ const db = { r, type, errors: thinky.Errors };
 
 db.Character = thinky.createModel('risus_characters', {
     id: type.string(),
+    advancementPoints: type.number().integer().min(0).default(0),
+    ffDice: type.number().integer().min(0).default(0),
     cliches: type.array().schema({
         value: type.number().integer().min(1).default(1),
+        current: type.number().integer().min(0),
         description: type.string().required(),
         tools: type.string()
     }).default([]),

@@ -17,6 +17,20 @@
                             <label>Description</label>
                             <md-textarea v-model="biography" :disabled="!isAuthorized"></md-textarea>
                         </md-input-container>
+                        <md-layout md-gutter="16">
+                            <md-layout md-flex="50">
+                                <md-input-container>
+                                    <label>Advancement Points</label>
+                                    <md-input type="number" v-model="character.advancementPoints" :disabled="!isAuthorized"></md-input>
+                                </md-input-container>
+                            </md-layout>
+                            <md-layout md-flex="50">
+                                <md-input-container>
+                                    <label>Fire and Forget Dice</label>
+                                    <md-input type="number" v-model="character.ffDice" :disabled="!isAuthorized"></md-input>
+                                </md-input-container>
+                            </md-layout>
+                        </md-layout>
                         <pool name="Lucky Shots" :pool="character.luckyShots" :edit-disabled="!isAuthorized"></pool>
                     </md-card-content>
                 </md-card>
@@ -24,9 +38,10 @@
             <md-layout md-flex-xsmall="100" style="min-width: 275px">
                 <md-card style="flex: 1">
                     <md-card-content style="flex: 1; padding-bottom: 0">
-                        <md-input-container md-inline style="margin-bottom: 10px;">
-                            <label>Roll this many six sided dice...</label>
+                        <md-input-container style="margin-bottom: 10px;">
+                            <label>Dice</label>
                             <md-input type="number" min="0" v-model="dice"></md-input>
+                            <span style="margin-left: 10px; padding-top: 4px">D6</span>
                         </md-input-container>
                         <md-list class="md-double-line md-dense roll-list">
                             <md-list-item v-for="item in rolls">

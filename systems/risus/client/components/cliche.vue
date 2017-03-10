@@ -3,7 +3,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <md-list-item id="cliche-item">
+    <md-list-item id="cliche-item" class="md-button">
         <div class="md-list-text-container">
             <span><b>{{ cliche.description }}</b> ({{ cliche.value }})</span>
             <span>Tools/Abilities: {{ cliche.tools }}</span>
@@ -51,7 +51,6 @@
                 <md-button class="md-primary" @click.native="saveEdit()">Ok</md-button>
             </md-dialog-actions>
         </md-dialog>
-
     </md-list-item>
 </template>
 
