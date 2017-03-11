@@ -50,6 +50,9 @@
 
 <style rel="stylesheet/scss" lang="sass">
     #hook-item {
+        .md-list-text-container > * {
+            white-space: normal;
+        }
     }
 </style>
 

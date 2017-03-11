@@ -58,6 +58,9 @@
 
 <style rel="stylesheet/scss" lang="sass">
     #cliche-item {
+        .md-list-text-container > * {
+            white-space: normal;
+        }
     }
 </style>
 
