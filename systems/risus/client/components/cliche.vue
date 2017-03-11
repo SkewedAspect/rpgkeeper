@@ -4,6 +4,10 @@
 
 <template>
     <md-list-item id="cliche-item" class="md-button">
+        <md-input-container style="max-width: 40px; margin-right: 16px;" @click.native.prevent.stop="">
+            <label>Current</label>
+            <md-input type="number" v-model="cliche.current" :disabled="disabled" min="0" :max="cliche.value"></md-input>
+        </md-input-container>
         <div class="md-list-text-container">
             <span><b>{{ cliche.description }}</b> ({{ cliche.value }})</span>
             <span>Tools/Abilities: {{ cliche.tools }}</span>

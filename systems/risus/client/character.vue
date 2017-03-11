@@ -248,7 +248,7 @@
 
             rollCliche(cliche)
             {
-                this.dice = cliche.value;
+                this.dice = cliche.current;
                 this.rollName = cliche.description;
                 this.roll();
             },
