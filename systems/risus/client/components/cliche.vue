@@ -4,13 +4,13 @@
 
 <template>
     <md-list-item id="cliche-item" class="md-button">
-        <md-input-container style="max-width: 40px; margin-right: 16px;" @click.native.prevent.stop="">
+        <md-input-container class="cliche-current-input" style="" @click.native.prevent.stop="">
             <label>Current</label>
             <md-input type="number" v-model="cliche.current" :disabled="disabled" min="0" :max="cliche.value"></md-input>
         </md-input-container>
         <div class="md-list-text-container">
             <span><b>{{ cliche.description }}</b> ({{ cliche.value }})</span>
-            <span>Tools/Abilities: {{ cliche.tools }}</span>
+            <span v-if="cliche.tools"><b>Tools/Abilities</b>: {{ cliche.tools }}</span>
         </div>
         <md-button v-if="!disabled" class="md-icon-button md-list-action"
                    @click.native.prevent.stop="edit()">
@@ -62,8 +62,29 @@
 
 <style rel="stylesheet/scss" lang="sass">
     #cliche-item {
-        .md-list-text-container > * {
-            white-space: normal;
+        padding: 0 !important;
+
+        .md-list-item-container {
+            padding: 0 !important;
+            flex-wrap: wrap !important;
+        }
+
+        .md-list-text-container {
+            min-width: 150px;
+
+            & > * {
+                white-space: normal;
+            }
+        }
+
+        .cliche-current-input {
+            max-width: 40px;
+            margin-right: 16px;
+
+            @media(max-width: 320px)
+            {
+                /*max-width: 100%;*/
+            }
         }
     }
 </style>

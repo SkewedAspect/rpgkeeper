@@ -35,7 +35,7 @@
                     </md-card-content>
                 </md-card>
             </md-layout>
-            <md-layout md-flex-xsmall="100" style="min-width: 275px">
+            <md-layout md-flex-xsmall="100" id="rolls">
                 <md-card style="flex: 1">
                     <md-card-content style="flex: 1; padding-bottom: 0">
                         <md-input-container style="margin-bottom: 10px;">
@@ -148,6 +148,15 @@
             @media(max-width: 600px)
             {
                 display: none;
+            }
+        }
+
+        #rolls {
+            min-width: 275px;
+
+            @media(min-width: 945px)
+            {
+                max-width: 300px;
             }
         }
 
