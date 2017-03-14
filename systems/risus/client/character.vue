@@ -87,6 +87,8 @@
             </md-layout>
         </md-layout>
 
+        <notes :notes="character.notes" :save="character.save"></notes>
+
         <!-- Dialogs -->
 
         <md-dialog ref="newCliche">
@@ -183,6 +185,7 @@
     import diceSvc from '../../../client/services/dice';
 
     // Components
+    import NotesComponent from '../../../client/components/notes/notes.vue';
     import PoolComponent from '../../../client/components/pool.vue';
     import PortraitComponent from '../../../client/components/portrait.vue';
     import ClicheComponent from './components/cliche.vue';
@@ -192,6 +195,7 @@
 
     export default {
         components: {
+            notes: NotesComponent,
             pool: PoolComponent,
             portrait: PortraitComponent,
             clicheItem: ClicheComponent,
