@@ -3,8 +3,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div id="note-page">
-        {{ pageContent }}
+    <div id="note-page" v-html="pageContent">
     </div>
 </template>
 
@@ -12,6 +11,13 @@
 
 <style rel="stylesheet/scss" lang="sass">
     #note-page {
+        & > p:first-child {
+            margin-top: 0;
+        }
+
+        & > p:last-child {
+            margin-bottom: 0;
+        }
     }
 </style>
 
