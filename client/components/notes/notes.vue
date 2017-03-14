@@ -1,190 +1,80 @@
-<template>
-    <div id="notes" class="card">
-        <div class="card-header">
-            <button class="btn btn-primary pull-right" @click="newNote()">
-                <i class="fa fa-plus"></i>
-                New Page
-            </button>
-            <i class="fa fa-file-text-o"></i>
-            Notes
-        </div>
-        <div v-if="!notes || notes.length == 0" class="text-center card-block">
-            <h6>No notes, yet.</h6>
-        </div>
-        <tabs v-ref:notes :orientation="'left'" v-else>
-            <tab v-for="note in notes" :header="tabName(note)">
-                <div class="btn-toolbar pull-right">
-                    <button v-if="note.editing" class="btn btn-sm btn-success" @click="saveNote(note)">
-                        <i class="fa fa-save"></i>
-                        Save
-                    </button>
-                    <button v-if="!note.editing" class="btn btn-sm btn-secondary" @click="edit(note)">
-                        <i class="fa fa-edit"></i>
-                        Edit
-                    </button>
-                    <button v-if="note.editing" class="btn btn-sm btn-secondary" @click="cancel(note)">
-                        <i class="fa fa-times"></i>
-                        Cancel
-                    </button>
-                    <button v-if="!note.editing" class="btn btn-sm btn-danger" @click="confirmDelete(note)">
-                        <i class="fa fa-trash-o"></i>
-                        Delete
-                    </button>
-                </div>
-                <form v-if="note.editing">
-                    <h2><i class="fa fa-edit"></i> Editing Page</h2>
-                    <fieldset class="form-group">
-                        <label for="name">Name</label>
-                        <input id="name" class="form-control" type="text" v-model="note.clone.name">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="content">Content</label>
-                        <textarea id="content" class="form-control monospace" rows="20" v-model="note.clone.content"></textarea>
-                        <div class="text-right">
-                            <small class="text-muted">
-                                You may use HTML or <a href="https://help.github.com/articles/markdown-basics/">markdown</a> formatting.
-                            </small>
-                        </div>
-                    </fieldset>
-                </form>
-                <div v-if="!note.editing">
-                    {{{ note.content | markdown }}}
-                </div>
-            </tab>
-        </tabs>
+<!--------------------------------------------------------------------------------------------------------------------->
+<!-- notes.vue                                                                                                         -->
+<!--------------------------------------------------------------------------------------------------------------------->
 
-        <!-- Delete Modal -->
-        <modal id="delModal" v-ref:del-modal>
-            <div class="modal-header" slot="header">
-                <h4 class="modal-title">
-                    <i class="fa fa-trash-o"></i>
-                    Delete "{{ delNote.name }}" Note
-                </h4>
+<template>
+    <md-card id="notes">
+        <md-toolbar>
+            <h2 class="md-title" v-flex="1">Notes</h2>
+        </md-toolbar>
+        <md-card-content style="display: flex">
+            <md-list v-flex="'0 1 300px'" id="note-tabs">
+                <md-list-item @click.native="loadPage(page)" v-for="page in notes">
+                    {{ page.title }}
+                    <md-button v-if="!disabled" class="md-icon-button md-list-action md-warn"
+                               @click.native.prevent.stop="confirmDelete(page)">
+                        <md-icon class="md-warn">delete</md-icon>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+            <div v-flex="max" style="padding-left: 16px; padding-right: 16px">
+                So, here's a few words.
             </div>
-            <div class="modal-body text-center" slot="body">
-                <h3><i class="fa fa-exclamation-triangle"></i> Are you sure you want to delete this note?</h3>
-                <p class="text-danger"><b>This cannot be undone!</b></p>
-            </div>
-            <div class="modal-footer" slot="footer">
-                <button type="button"
-                        class="btn btn-danger"
-                        @click="deleteNote()">
-                    <i class="fa fa-trash-o"></i>
-                    Delete Note
-                </button>
-                <button type="button"
-                        class="btn btn-secondary"
-                        @click="$refs.delModal.hideModal()">
-                    <i class="fa fa-times"></i>
-                    Cancel
-                </button>
-            </div>
-        </modal>
-    </div>
+        </md-card-content>
+    </md-card>
 </template>
 
-<style lang="sass">
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<style rel="stylesheet/scss" lang="sass">
     #notes {
-        .card-header {
-            > button {
-                margin-top: -7px;
-              }
+        #note-tabs {
+            margin-left: -16px;
+            margin-top: -16px;
+            margin-bottom: -24px;
+            box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
+
+            .md-list-action:first-child {
+                margin: 0;
+            }
         }
     }
 </style>
 
-<script type="text/babel">
-    import _ from 'lodash';
-    import marked from 'marked';
-    import { modal, tabset, tab } from 'vueboot';
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<script>
+    //------------------------------------------------------------------------------------------------------------------
+    
+    import NotePage from './page.vue';
+    
+    //------------------------------------------------------------------------------------------------------------------
 
     export default {
         components: {
-            modal : modal,
-            tabs: tabset,
-            tab: tab
+            notePage: NotePage
         },
         props: {
             notes: {
                 type: Array,
                 required: true
             },
+            disabled: {
+                type: Boolean,
+                default: false
+            },
             save: {
                 type: Function,
-                required: true
+                default: () => {}
             }
         },
-        data: function()
+        data()
         {
             return {
-                delNote: {}
+                // Data goes here
             };
-        },
-        methods: {
-            tabName: function(note)
-            {
-                return '<i class="fa fa-file-text-o"></i> ' + note.name + (note.editing ? ' <span>*</span>' : '');
-            },
-            edit: function(note)
-            {
-                note.editing = true;
-                note.clone = _.clone(_.omit(note, 'clone'));
-            },
-            confirmDelete: function(note)
-            {
-                this.delNote = note;
-                this.$refs.delModal.showModal();
-            },
-            deleteNote: function()
-            {
-                this.$refs.delModal.hideModal();
-                this.$refs.notes.activateTab(this.notes.length - 2);
-                this.notes.$remove(this.delNote);
-                this.save();
-            },
-            cancel: function(note)
-            {
-                note.editing = false;
-                note.clone = {};
-            },
-            saveNote: function(note)
-            {
-                note.name = note.clone.name;
-                note.content = note.clone.content;
-                note.editing = false;
-                note.clone = {};
-
-                this.save();
-            },
-            newNote: function()
-            {
-                this.notes.push({
-                    name: "New Page",
-                    content: "",
-                    editing: true,
-                    clone: {
-                        name: "",
-                        content: ""
-                    }
-                });
-
-                // Wait for the next tick, so we can be sure the tab's been added.
-                this.$nextTick(() => {
-                    this.$refs.notes.activateTab(this.notes.length - 1);
-                });
-            }
-        },
-        filters: {
-            markdown: marked,
-        },
-        ready: function()
-        {
-            // Pre-populate note with a editing and clone field
-            this.notes.forEach((note, index) =>
-            {
-                this.$set('notes[' + index + '].editing', false);
-                this.$set('notes[' + index + '].clone', {});
-            });
         }
     }
 </script>
+
+<!--------------------------------------------------------------------------------------------------------------------->
