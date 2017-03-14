@@ -217,6 +217,7 @@
                 rolls: [],
                 newCliche: {
                     value: undefined,
+                    current: undefined,
                     description: undefined,
                     tools: undefined
                 },
@@ -286,6 +287,7 @@
                 {
                     this.newCliche.index = undefined;
                     this.newCliche.value = undefined;
+                    this.newCliche.current = undefined;
                     this.newCliche.description = undefined;
                     this.newCliche.tools = undefined;
                 }, 500);
@@ -297,6 +299,7 @@
             },
             saveNewCliche()
             {
+                this.newCliche.current = this.newCliche.value;
                 this.character.cliches.push(_.cloneDeep(this.newCliche));
                 this.clearNewCliche();
                 this.$refs.newCliche.close();
