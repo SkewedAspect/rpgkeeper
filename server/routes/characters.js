@@ -55,7 +55,7 @@ router.post('/', ensureAuthenticated, promisify((request, response) =>
         owner: request.user.email
     };
 
-    const baseChar = _.merge({}, _.omit(request.body, 'id'), overrides);
+    const baseChar = _.assign({}, _.omit(request.body, 'id'), overrides);
 
     return (new models.BaseCharacter(baseChar)).save()
         .then((char) =>
@@ -81,14 +81,14 @@ router.post('/', ensureAuthenticated, promisify((request, response) =>
 
 router.put('/:charID', ensureAuthenticated, promisify((request, response) =>
 {
-    const update = _.merge({}, _.omit(request.body, 'id'), { owner: request.user.email });
+    const update = _.assign({}, _.omit(request.body, 'id'), { owner: request.user.email });
 
     return models.BaseCharacter.get(request.params.charID)
         .then((character) =>
         {
             if(character.owner == request.user.email)
             {
-                _.merge(character, update);
+                _.assign(character, update);
                 character.save();
             }
             else

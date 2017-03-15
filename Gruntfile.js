@@ -36,7 +36,7 @@ module.exports = function(grunt)
             vendor: {
                 expand: true,
                 cwd: 'node_modules',
-                src: ['spinkit/**/*.css'],
+                src: ['spinkit/**/*.css', 'codemirror/lib/codemirror.css'],
                 dest: 'dist/vendor'
             }
         },
