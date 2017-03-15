@@ -15,6 +15,7 @@
     "bluebird": "^3.4.3",
     "body-parser": "^1.15.2",
     "bunyan": "^1.8.5",
+    "codemirror": "^5.24.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
@@ -33,6 +34,7 @@
     "thinky": "^2.3.8",
     "trivial-logging": "^1.1.0",
     "vue": "^2.0.5",
+    "vue-code": "^1.2.0",
     "vue-router": "^2.0.1"
   },
   "devDependencies": {
