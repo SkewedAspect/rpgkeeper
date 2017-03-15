@@ -21,9 +21,13 @@ passport.use(new GoogleStrategy((token, profile, done) =>
         models.Account.getAll(profile.id, { index: 'googleID' })
             .then(function(accounts)
             {
-                if(accounts[0])
+                const account = accounts[0];
+                if(account)
                 {
-                    return accounts[0];
+                    account.avatar = profile.picture;
+                    account.name = profile.name;
+                    account.givenName = profile.givenName;
+                    return account.save();
                 }
                 else
                 {
@@ -54,7 +58,6 @@ passport.use(new GoogleStrategy((token, profile, done) =>
             })
             .catch(function(error)
             {
-                console.log('sup2??');
                 logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
                 done(error);
             });
