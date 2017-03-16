@@ -11,7 +11,7 @@
         </md-toolbar>
         <md-card-content style="display: flex" v-if="currentPageID">
             <md-list v-flex="'0 1 300px'" id="note-tabs">
-                <md-list-item @click.native="loadPage(page)" v-for="page in notes" :class="{ 'md-accent': page.title == currentPage.title }">
+                <md-list-item @click.native="loadPage(page)" v-for="page in notes" :class="{ 'md-accent': page.id == currentPage.id }">
                     {{ page.title }}
                     <md-button v-if="!disabled" class="md-icon-button md-list-action md-warn"
                                @click.native.prevent.stop="confirmDelete(page)">
@@ -117,6 +117,10 @@
                 margin: 0;
             }
         }
+
+        ul:not(.md-list)>li+li {
+            margin-top: 0;
+        }
     }
 
     #code-mirror-input {
@@ -206,6 +210,7 @@
                     title: ''
                 },
                 codeMirror: {
+                    lineWrapping: true,
                     mode: 'markdown'
                 }
             };
