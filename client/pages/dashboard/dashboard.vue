@@ -7,7 +7,7 @@
         <md-layout md-gutter="16">
 
             <!-- Campaigns -->
-            <md-layout md-flex-small="100" md-flex-medium="50">
+            <!--md-layout md-flex-small="100" md-flex-medium="50">
                 <md-card v-flex="1">
                     <md-toolbar class="md-dense">
                         <h2 class="md-title" v-flex="1">Campaigns</h2>
@@ -38,10 +38,10 @@
                         <md-button :disabled="true">New Campaign</md-button>
                     </md-card-actions>
                 </md-card>
-            </md-layout>
+            </md-layout-->
 
             <!-- Characters -->
-            <md-layout md-flex-small="100" md-flex-medium="50">
+            <md-layout md-flex-small="100">
                 <md-card v-flex="1">
                     <md-toolbar class="md-dense">
                         <h2 class="md-title" v-flex="1">Characters</h2>
