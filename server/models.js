@@ -20,7 +20,7 @@ const db = { r, type, errors: thinky.Errors };
 //----------------------------------------------------------------------------------------------------------------------
 
 db.Account = thinky.createModel('accounts', {
-    id: type.string(shortID),
+    id: type.string().default(shortID),
     name: type.string(),
     givenName: type.string(),
     avatar: type.string(),
@@ -46,6 +46,7 @@ db.BaseCharacter = thinky.createModel('base_characters', {
     thumbnail: type.string().default('/static/images/thumbnailPlaceholder.png'),
     biography: type.string().default(''),
     notes: type.array().schema({
+            id: type.string().default(shortID),
             title: type.string().required(),
             contents: type.string().default('')
         }).default([]),
