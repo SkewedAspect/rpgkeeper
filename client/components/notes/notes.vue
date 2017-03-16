@@ -232,10 +232,7 @@
         methods: {
             loadPage(page)
             {
-                console.log('loadPage:', page);
                 this.currentPageID = _.get(page, 'id');
-
-                console.log('pageID:', this.currentPageID);
             },
             reloadPage()
             {
