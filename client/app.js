@@ -89,8 +89,20 @@ const app = new App({
 const renderer = new marked.Renderer();
 renderer.table = function(header, body)
 {
-    return `<div class="table-responsive"><table class="table table-striped table-hover table-bordered"><thead>${header}</thead><tbody>${body}</tbody></table></div>`;
+    const tableBody = `<thead class="md-table-header">${ header }</thead><tbody class="md-table-body">${ body }</tbody>`;
+    const tableWrapper = `<div class="md-table md-theme-default"><table>${ tableBody }</table></div>`;
+    return `<div class="md-card md-table-card md-theme-default md-theme-default">${ tableWrapper }</div>`;
 }; // end table parsing
+
+renderer.tablerow = function(content)
+{
+    return `<tr class="md-table-row">${ content }</tr>`;
+}; // end table row parsing
+
+renderer.tablecell = function(content)
+{
+    return `<td class="md-table-cell"><div class="md-table-cell-container">${ content }</div></td>`;
+}; // end table cell parsing
 
 // Configure marked parser
 marked.setOptions({

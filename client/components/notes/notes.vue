@@ -223,12 +223,14 @@
                 {
                     note = { title: this.newNote.title, content: this.newNote.content };
                     this.notes.push(note);
-                    this.newNote.title = '';
-                    this.newNote.content = '';
 
                     // We don't care about waiting on the promise, we're done here.
                     savePromise = this.save();
                 } // end if
+
+                // Clear the new note
+                this.newNote.title = '';
+                this.newNote.content = '';
 
                 // Go ahead and close the modal
                 this.$refs.newNoteDialog.close();
