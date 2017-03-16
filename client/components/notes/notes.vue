@@ -7,9 +7,9 @@
         <md-toolbar>
             <h2 class="md-title" v-flex="1">Notes</h2>
             <md-button @click.native.prevent.stop="openNewDialog()">New</md-button>
-            <md-button v-if="currentPage" @click.native.prevent.stop="openEditDialog()">Edit</md-button>
+            <md-button v-if="currentPageID" @click.native.prevent.stop="openEditDialog()">Edit</md-button>
         </md-toolbar>
-        <md-card-content style="display: flex" v-if="currentPage">
+        <md-card-content style="display: flex" v-if="currentPageID">
             <md-list v-flex="'0 1 300px'" id="note-tabs">
                 <md-list-item @click.native="loadPage(page)" v-for="page in notes" :class="{ 'md-accent': page.title == currentPage.title }">
                     {{ page.title }}
@@ -227,7 +227,10 @@
         methods: {
             loadPage(page)
             {
+                console.log('loadPage:', page);
                 this.currentPageID = _.get(page, 'id');
+
+                console.log('pageID:', this.currentPageID);
             },
             reloadPage()
             {
@@ -247,13 +250,19 @@
                 let delPromise = Promise.resolve();
                 if(result == 'ok')
                 {
-                    this.loadPage(this.notes[0]);
                     _.remove(this.notes, { id: this.delNoteID });
+
                     delPromise = this.save();
                 } // end if
 
                 return delPromise.then(() =>
                 {
+                    // Load a new page.
+                    if(this.delNoteID == this.currentPageID)
+                    {
+                        this.loadPage(this.notes[0]);
+                    } // end if
+
                     this.delNoteID = undefined;
                     this.delNoteTitle = undefined;
                 });
