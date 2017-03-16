@@ -5,7 +5,9 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 const connect = require('thinky');
+
 const config = require('../../config');
+const { shortID } = require('../../server/utilities');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -23,76 +25,26 @@ db.Character = thinky.createModel('fate_characters', {
             refresh: type.number().integer().default(3),
             current: type.number().integer().default(0)
         }).default({}),
-    highConcept: type.string(),
-    trouble: type.string(),
-    aspects: type.array().schema(type.string()).default([]),
-    skills: type.object().schema({
-            superb: type.array().schema(type.string()).default([]),
-            great: type.array().schema(type.string()).default([]),
-            good: type.array().schema(type.string()).default([]),
-            fair: type.array().schema(type.string()).default([]),
-            average: type.array().schema(type.string()).default([])
-        }).default({}),
-    extras: type.string(),
+    aspects: type.array().schema({
+            id: type.string().default(shortID),
+            type: type.string().enum([ 'aspect', 'high concept', 'trouble', 'consequence' ]).default('aspect'),
+            detail: type.string().required(),
+            healing: type.boolean(),
+            value: type.number().integer().min(0),
+        }).default([]),
+    skills: type.array().schema({
+            id: type.string().default(shortID),
+            name: type.string().required(),
+            rank: type.number().integer().min(0).default(0)
+        }).default([]),
+    extras: type.string().default(''),
     stunts: type.array().schema({
+            id: type.string().default(shortID),
             title: type.string(),
             description: type.string()
         }).default([]),
-    physicalStress: type.object().schema({
-            oneBox: type.object().schema({
-                    enabled: type.boolean().default(true),
-                    filled: type.boolean().default(false)
-                }).default({}),
-            twoBox: type.object().schema({
-                    enabled: type.boolean().default(true),
-                    filled: type.boolean().default(false)
-                }).default({}),
-            threeBox: type.object().schema({
-                    enabled: type.boolean().default(true),
-                    filled: type.boolean().default(false)
-                }).default({}),
-            fourBox: type.object().schema({
-                    enabled: type.boolean().default(true),
-                    filled: type.boolean().default(false)
-                }).default({})
-        }).default({}),
-    mentalStress: type.object().schema({
-            oneBox: type.object().schema({
-                    enabled: type.boolean().default(true),
-                    filled: type.boolean().default(false)
-                }).default({}),
-            twoBox: type.object().schema({
-                    enabled: type.boolean().default(true),
-                    filled: type.boolean().default(false)
-                }).default({}),
-            threeBox: type.object().schema({
-                    enabled: type.boolean().default(true),
-                    filled: type.boolean().default(false)
-                }).default({}),
-            fourBox: type.object().schema({
-                    enabled: type.boolean().default(true),
-                    filled: type.boolean().default(false)
-                }).default({})
-        }).default({}),
-    consequences: type.object().schema({
-        twoBox: type.object().schema({
-                healing: type.boolean().default(false),
-                value: type.string()
-            }).default({}),
-        twoBoxExtra: type.object().schema({
-                healing: type.boolean().default(false),
-                enabled: type.boolean().default(false),
-                value: type.string()
-            }).default({}),
-        fourBox: type.object().schema({
-                healing: type.boolean().default(false),
-                value: type.string()
-            }).default({}),
-        sixBox: type.object().schema({
-                healing: type.boolean().default(false),
-                value: type.string()
-            }).default({})
-    }).default({})
+    physicalStress: type.array().schema(type.boolean()).default([false, false, false, false]),
+    mentalStress: type.array().schema(type.boolean()).default([false, false, false, false])
 }, { enforce_extra: "remove" });
 
 //----------------------------------------------------------------------------------------------------------------------

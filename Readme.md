@@ -47,7 +47,7 @@ The systems I'm initially building/supporting:
         * [X] Data model
         * [X] UI
     * [ ] FATE
-        * [ ] Data model
+        * [X] Data model
         * [ ] UI
     * [ ] Edge of the Empire
         * [X] Data Model
