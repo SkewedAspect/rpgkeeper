@@ -1,5 +1,5 @@
 <!--------------------------------------------------------------------------------------------------------------------->
-<!-- notes.vue                                                                                                         -->
+<!-- Notes Component                                                                                                 -->
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
@@ -7,14 +7,14 @@
         <md-toolbar>
             <h2 class="md-title" v-flex="1">Notes</h2>
             <md-button @click.native.prevent.stop="openNewDialog()">New</md-button>
-            <md-button v-if="currentPage.title">Edit</md-button>
+            <md-button v-if="currentPage" @click.native.prevent.stop="openEditDialog()">Edit</md-button>
         </md-toolbar>
-        <md-card-content style="display: flex" v-if="currentPage.content">
+        <md-card-content style="display: flex" v-if="currentPage">
             <md-list v-flex="'0 1 300px'" id="note-tabs">
                 <md-list-item @click.native="loadPage(page)" v-for="page in notes" :class="{ 'md-accent': page.title == currentPage.title }">
                     {{ page.title }}
                     <md-button v-if="!disabled" class="md-icon-button md-list-action md-warn"
-                               @click.native.prevent.stop="confirmDelete(page.title)">
+                               @click.native.prevent.stop="confirmDelete(page)">
                         <md-icon class="md-warn">delete</md-icon>
                     </md-button>
                 </md-list-item>
@@ -33,7 +33,9 @@
         </md-card-content>
 
         <!-- Dialogs -->
-        <md-dialog id="new-note-dialog"  ref="newNoteDialog">
+
+        <!-- New Dialog -->
+        <md-dialog id="new-note-dialog"  ref="newNoteDialog" @open="onNewDialogOpen">
             <md-dialog-title>New Character</md-dialog-title>
 
             <md-dialog-content>
@@ -43,9 +45,9 @@
                     <span class="md-error">Title is required</span>
                 </md-input-container>
 
-                <label>Content</label>
+                <label style="font-size: 12px;">Content</label>
                 <div id="code-mirror-input">
-                    <vue-code v-model="newNote.content" :options="codeMirror"></vue-code>
+                    <vue-code v-model="newNote.content" :options="codeMirror" ref="newCodeMirror"></vue-code>
                 </div>
             </md-dialog-content>
 
@@ -60,10 +62,38 @@
             </md-dialog-actions>
         </md-dialog>
 
+        <!-- Edit Dialog -->
+        <md-dialog id="edit-note-dialog"  ref="editNoteDialog" @open="onEditDialogOpen">
+            <md-dialog-title>Edit Character</md-dialog-title>
+
+            <md-dialog-content>
+                <md-input-container :class="{ 'md-input-invalid': !editNote.title }">
+                    <label>Title</label>
+                    <md-input v-model="editNote.title" required></md-input>
+                    <span class="md-error">Title is required</span>
+                </md-input-container>
+
+                <label style="font-size: 12px;">Content</label>
+                <div id="code-mirror-input">
+                    <vue-code v-model="editNote.content" :options="codeMirror" ref="editCodeMirror"></vue-code>
+                </div>
+            </md-dialog-content>
+
+            <md-dialog-actions>
+                <md-button class="md-primary" @click.native="closeEditDialog()">Cancel</md-button>
+                <md-button class="md-primary"
+                           :class="{ 'md-raised md-accent': editNoteValid }"
+                           @click.native="closeEditDialog(true)"
+                           :disabled="!editNoteValid">
+                    Save
+                </md-button>
+            </md-dialog-actions>
+        </md-dialog>
+
         <!-- Delete Note confirmation -->
         <md-dialog-confirm
             md-title="Delete Note"
-            :md-content="`Are your sure you want to delete this note: '${ delNote }'?`"
+            :md-content="`Are your sure you want to delete this note: '${ delNoteTitle }'?`"
             md-ok-text="Delete"
             md-cancel-text="Cancel"
             @close="onConfirmDeleteClosed"
@@ -131,6 +161,8 @@
     import _ from 'lodash';
     import Promise from 'bluebird';
 
+    import { shortID } from '../../../server/utilities';
+
     // Codemirror component
     import VueCode from 'vue-code';
     import 'codemirror/mode/markdown/markdown';
@@ -161,39 +193,53 @@
         data()
         {
             return {
-                currentPage: {
-                    content: '',
-                    title: ''
-                },
+                currentPageID: undefined,
+                delNoteTitle: '',
+                delNoteID: undefined,
                 newNote: {
                     content: '',
                     title: ''
                 },
-                delNote: '',
+                editNote: {
+                    id: undefined,
+                    content: '',
+                    title: ''
+                },
                 codeMirror: {
                     mode: 'markdown'
                 }
             };
         },
         computed: {
+            currentPage()
+            {
+                return _.find(this.notes, { id: this.currentPageID });
+            },
             newNoteValid()
             {
                 return !!this.newNote.title && !!this.newNote.content;
+            },
+            editNoteValid()
+            {
+                return !!this.editNote.title && !!this.editNote.content;
             }
         },
         methods: {
             loadPage(page)
             {
-                if(page)
-                {
-                    this.currentPage.title = page.title;
-                    this.currentPage.content = page.content;
-                } // end if
+                this.currentPageID = _.get(page, 'id');
+            },
+            reloadPage()
+            {
+                // We're tricking vue into thinking something changed.
+                const id = this.currentPageID;
+                this.currentPageID = id;
             },
 
-            confirmDelete(title)
+            confirmDelete(page)
             {
-                this.delNote = title;
+                this.delNoteID = page.id;
+                this.delNoteTitle = page.title;
                 this.$refs.deleteNoteDialog.open();
             },
             onConfirmDeleteClosed(result)
@@ -201,13 +247,15 @@
                 let delPromise = Promise.resolve();
                 if(result == 'ok')
                 {
-                    _.remove(this.notes, { title: this.delNote });
+                    this.loadPage(this.notes[0]);
+                    _.remove(this.notes, { id: this.delNoteID });
                     delPromise = this.save();
                 } // end if
 
                 return delPromise.then(() =>
                 {
-                    this.delNote = undefined;
+                    this.delNoteID = undefined;
+                    this.delNoteTitle = undefined;
                 });
             },
 
@@ -217,15 +265,13 @@
             },
             closeNewDialog(save)
             {
-                let savePromise = Promise.resolve();
-                let note;
                 if(save)
                 {
-                    note = { title: this.newNote.title, content: this.newNote.content };
+                    const note = { id: shortID(), title: this.newNote.title, content: this.newNote.content };
                     this.notes.push(note);
 
                     // We don't care about waiting on the promise, we're done here.
-                    savePromise = this.save();
+                    this.save().then(() => this.loadPage(note));
                 } // end if
 
                 // Clear the new note
@@ -234,15 +280,47 @@
 
                 // Go ahead and close the modal
                 this.$refs.newNoteDialog.close();
-
-                // And now we load the newly created note, if we created one.
-                savePromise.then(() =>
+            },
+            onNewDialogOpen()
+            {
+                setTimeout(() =>
                 {
-                    if(note)
-                    {
-                        this.loadPage(note);
-                    } // end if
-                });
+                    this.$refs.newCodeMirror.cm.refresh();
+                }, 500);
+            },
+
+            openEditDialog()
+            {
+                this.editNote.id = this.currentPage.id;
+                this.editNote.title = this.currentPage.title;
+                this.editNote.content = this.currentPage.content;
+                this.$refs.editNoteDialog.open();
+            },
+            closeEditDialog(save)
+            {
+                if(save)
+                {
+                    const noteIdx = _.findIndex(this.notes, { id: this.currentPage.id });
+                    this.notes.splice(noteIdx, 1, _.clone(this.editNote));
+
+                    // We don't care about waiting on the promise, we're done here.
+                    this.save().then(this.reloadPage);
+                } // end if
+
+                // Clear the edit note
+                this.editNote.id = undefined;
+                this.editNote.title = '';
+                this.editNote.content = '';
+
+                // Go ahead and close the modal
+                this.$refs.editNoteDialog.close();
+            },
+            onEditDialogOpen()
+            {
+                setTimeout(() =>
+                {
+                    this.$refs.editCodeMirror.cm.refresh();
+                }, 500);
             }
         },
         mounted()
