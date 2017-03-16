@@ -21,6 +21,8 @@ The systems I'm initially building/supporting:
     * This should be suitable for any system that doesn't use special dice. (Or, any system, if you don't mind rolling physical dice.)
 * Risus
     * Should be simple, and is great for one-shots.
+* FATE
+    * This is a middle-weight system, and has seen some uptake lately, there's no reason not to consider it.
 * Edge of the Empire
     * I run a lot of EotE content, and the system is simple enough it wasn't that hard.
 * Dungeons and Dragons 3.5 Edition
@@ -38,12 +40,15 @@ The systems I'm initially building/supporting:
     * [ ] Initial Design
 * [ ] Systems
     * [ ] Generic System
-        * [ ] Convert old system
+        * [ ] ~~Convert old system~~ _The whole thing should be redesigned._
         * [ ] Data model
         * [ ] UI
     * [X] Risus
         * [X] Data model
         * [X] UI
+    * [ ] FATE
+        * [ ] Data model
+        * [ ] UI
     * [ ] Edge of the Empire
         * [X] Data Model
         * [ ] UI
