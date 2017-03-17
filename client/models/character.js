@@ -17,7 +17,7 @@ class CharacterModel
     {
         this.$base = base;
         this.$system = {};
-        this.$save = _.debounce(() => this._save(), 25, { maxWait: 125 });
+        this.$save = _.debounce(() => this._save(), 250, { maxWait: 1000 });
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
