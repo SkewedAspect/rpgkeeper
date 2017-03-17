@@ -14,11 +14,11 @@
                         <md-card-content style="flex: 1">
                             <md-input-container>
                                 <label>Name</label>
-                                <md-input v-model="name" :disabled="!isAuthorized"></md-input>
+                                <md-input v-model="character.name" :disabled="!isAuthorized"></md-input>
                             </md-input-container>
                             <md-input-container>
                                 <label>Description</label>
-                                <md-textarea v-model="biography" :disabled="!isAuthorized"></md-textarea>
+                                <md-textarea v-model="character.biography" :disabled="!isAuthorized"></md-textarea>
                             </md-input-container>
                             <md-layout md-gutter="16">
                                 <md-layout md-flex="50">
@@ -232,14 +232,6 @@
         computed: {
             account(){ return this.state.account; },
             isAuthorized(){ return _.get(this.account, 'email', 'nope!') == this.character.owner; },
-            name: {
-                get: function(){ return this.character.name; },
-                set: function(val){ this._setName(val); }
-            },
-            biography: {
-                get: function(){ return this.character.biography; },
-                set: function(val){ this._setBiography(val); }
-            },
             cliches()
             {
                 return _.sortBy(this.character.cliches, 'value').reverse();
@@ -330,16 +322,12 @@
         },
         mounted()
         {
-            // FIXME: This is to work arounf a bug with textarea resizing!
+            // FIXME: This is to work around a bug with textarea resizing!
             setTimeout(() =>
             {
                 this.character.description = this.character.description + ' ';
                 this.character.description = this.character.description.trim();
             }, 250);
-
-            // Debounce functions
-            this._setBiography = _.debounce((desc) => { this.character.biography = desc; }, 1000, { maxWait: 2000 });
-            this._setName = _.debounce((name) => { this.character.name = name; }, 1000, { maxWait: 2000 });
         }
     }
 </script>
