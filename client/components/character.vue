@@ -1,17 +1,26 @@
 <!--------------------------------------------------------------------------------------------------------------------->
-<!-- Character Component                                                                                             -->
+<!-- System Character boilerplate                                                                                    -->
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div id="eote-character" class="container">
-        <character :character="character"></character>
+    <div id="system-character">
+        <md-tabs class="md-transparent" md-right>
+            <md-tab md-label="Sheet">
+                <slot>
+                    <pre>{{ JSON.stringify(character, null, 2) }}</pre>
+                </slot>
+            </md-tab>
+            <md-tab md-label="Notes">
+                <notes :notes="character.notes" :save="character.$save"></notes>
+            </md-tab>
+        </md-tabs>
     </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style rel="stylesheet/scss" lang="sass">
-    #eote-character {
+    #system-character {
     }
 </style>
 
@@ -20,16 +29,13 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    // Components
-    import CharComponent from '../../../client/components/character.vue';
-    import PortraitComponent from '../../../client/components/portrait.vue';
+    import NotesComponent from './notes/notes.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         components: {
-            character: CharComponent,
-            portrait: PortraitComponent,
+            notes: NotesComponent
         },
         props: {
             character: {
@@ -37,11 +43,11 @@
                 required: true
             }
         },
-        data()
-        {
-            return {
-                // Data goes here
-            };
+        watch: {
+            character: {
+                handler: function(){ this.character.$save(); },
+                deep: true
+            }
         }
     }
 </script>
