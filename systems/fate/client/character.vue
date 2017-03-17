@@ -4,78 +4,82 @@
 
 <template>
     <div id="fate-character" class="container">
-        <md-layout md-gutter="16">
-            <portrait :src="character.portrait"></portrait>
+        <character :character="character">
+
+            <!-- Sheet -->
+            <md-layout md-gutter="16">
+                <portrait :src="character.portrait"></portrait>
+                <md-layout md-flex-xsmall="100" style="min-width: 275px">
+                    <md-card style="flex: 1">
+                        <md-card-content style="flex: 1">
+                            <md-input-container>
+                                <label>Name</label>
+                                <md-input v-model="name" :disabled="!isAuthorized"></md-input>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Description</label>
+                                <md-textarea style="font-size: 14px;" v-model="biography" :disabled="!isAuthorized"></md-textarea>
+                            </md-input-container>
+                            <md-layout class="fate-points">
+                                <md-layout>
+                                    <md-input-container>
+                                        <label>Fate Points</label>
+                                        <md-input type="number" min="0" v-model="character.fatePoints.current" :disabled="!isAuthorized"></md-input>
+                                    </md-input-container>
+                                </md-layout>
+                                <md-layout v-flex="shrink">
+                                    <h3 style="padding-top: 10px">/ {{ character.fatePoints.refresh }}</h3>
+                                </md-layout>
+                                <md-layout v-flex="shrink">
+                                    <div>
+                                        <md-button class="refresh-btn md-raised" @click.native="refreshFatePoints">Refresh</md-button>
+                                    </div>
+                                </md-layout>
+                                <md-layout v-flex="shrink">
+                                    <md-button class="edit-btn md-icon-button md-dense">
+                                        <md-icon>edit</md-icon>
+                                    </md-button>
+                                </md-layout>
+                            </md-layout>
+                        </md-card-content>
+                    </md-card>
+                </md-layout>
+                <md-layout md-flex-xsmall="100" style="min-width: 275px">
+                    <md-card style="flex: 1">
+                        <md-card-content style="flex: 1; padding-bottom: 0">
+                            <md-input-container md-inline style="margin-bottom: 10px;">
+                                <md-select name="skills" id="skills" placeholder="Pick a skill to roll..." v-model="skills">
+                                    <md-option value="empathy">Empathy</md-option>
+                                </md-select>
+
+                            </md-input-container>
+                            <md-list class="md-double-line md-dense roll-list">
+                                <md-list-item v-for="item in rolls">
+                                    <div class="md-list-text-container">
+                                        <span>{{ item.display }}</span>
+                                        <span>{{ item.name }}</span>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
+                        </md-card-content>
+                        <md-card-actions>
+                            <md-button @click.native="roll()">Roll</md-button>
+                            <md-button @click.native="clearRolls()">Clear</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </md-layout>
+            </md-layout>
             <md-layout md-flex-xsmall="100" style="min-width: 275px">
                 <md-card style="flex: 1">
                     <md-card-content style="flex: 1">
-                        <md-input-container>
-                            <label>Name</label>
-                            <md-input v-model="name" :disabled="!isAuthorized"></md-input>
-                        </md-input-container>
-                        <md-input-container>
-                            <label>Description</label>
-                            <md-textarea style="font-size: 14px;" v-model="biography" :disabled="!isAuthorized"></md-textarea>
-                        </md-input-container>
-                        <md-layout class="fate-points">
-                            <md-layout>
-                                <md-input-container>
-                                    <label>Fate Points</label>
-                                    <md-input type="number" min="0" v-model="character.fatePoints.current" :disabled="!isAuthorized"></md-input>
-                                </md-input-container>
-                            </md-layout>
-                            <md-layout v-flex="shrink">
-                                <h3 style="padding-top: 10px">/ {{ character.fatePoints.refresh }}</h3>
-                            </md-layout>
-                            <md-layout v-flex="shrink">
-                                <div>
-                                    <md-button class="refresh-btn md-raised" @click.native="refreshFatePoints">Refresh</md-button>
-                                </div>
-                            </md-layout>
-                            <md-layout v-flex="shrink">
-                                <md-button class="edit-btn md-icon-button md-dense">
-                                    <md-icon>edit</md-icon>
-                                </md-button>
-                            </md-layout>
-                        </md-layout>
+                        <pre><code>{{ JSON.stringify(character.$system, null, 4) }}</code></pre>
                     </md-card-content>
                 </md-card>
             </md-layout>
-            <md-layout md-flex-xsmall="100" style="min-width: 275px">
-                <md-card style="flex: 1">
-                    <md-card-content style="flex: 1; padding-bottom: 0">
-                        <md-input-container md-inline style="margin-bottom: 10px;">
-                            <md-select name="skills" id="skills" placeholder="Pick a skill to roll..." v-model="skills">
-                                <md-option value="empathy">Empathy</md-option>
-                            </md-select>
 
-                        </md-input-container>
-                        <md-list class="md-double-line md-dense roll-list">
-                            <md-list-item v-for="item in rolls">
-                                <div class="md-list-text-container">
-                                    <span>{{ item.display }}</span>
-                                    <span>{{ item.name }}</span>
-                                </div>
-                            </md-list-item>
-                        </md-list>
-                    </md-card-content>
-                    <md-card-actions>
-                        <md-button @click.native="roll()">Roll</md-button>
-                        <md-button @click.native="clearRolls()">Clear</md-button>
-                    </md-card-actions>
-                </md-card>
-            </md-layout>
-        </md-layout>
-        <md-layout md-flex-xsmall="100" style="min-width: 275px">
-            <md-card style="flex: 1">
-                <md-card-content style="flex: 1">
-                    <pre><code>{{ JSON.stringify(character.$system, null, 4) }}</code></pre>
-                </md-card-content>
-            </md-card>
-        </md-layout>
+            <!-- Dialogs -->
 
-        <!-- Dialogs -->
-
+        </character>
     </div>
 </template>
 
@@ -132,12 +136,14 @@
     import diceSvc from '../../../client/services/dice';
 
     // Components
+    import CharComponent from '../../../client/components/character.vue';
     import PortraitComponent from '../../../client/components/portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         components: {
+            character: CharComponent,
             portrait: PortraitComponent,
         },
         props: {
@@ -168,12 +174,6 @@
             refreshFatePoints()
             {
                 this.character.fatePoints.current = Math.max(this.character.fatePoints.current, this.character.fatePoints.refresh);
-            }
-        },
-        watch: {
-            character: {
-                handler: function(){ this.character.$save(); },
-                deep: true
             }
         },
         mounted()

@@ -4,95 +4,92 @@
 
 <template>
     <div id="risus-character" class="container">
-        <md-tabs class="md-transparent" md-right>
-            <md-tab md-label="Sheet">
-                <md-layout md-gutter="16">
-                    <portrait :src="character.portrait"></portrait>
-                    <md-layout md-flex-xsmall="100" style="min-width: 275px">
-                        <md-card style="flex: 1">
-                            <md-card-content style="flex: 1">
-                                <md-input-container>
-                                    <label>Name</label>
-                                    <md-input v-model="name" :disabled="!isAuthorized"></md-input>
-                                </md-input-container>
-                                <md-input-container>
-                                    <label>Description</label>
-                                    <md-textarea v-model="biography" :disabled="!isAuthorized"></md-textarea>
-                                </md-input-container>
-                                <md-layout md-gutter="16">
-                                    <md-layout md-flex="50">
-                                        <md-input-container>
-                                            <label>Advancement Points</label>
-                                            <md-input type="number" v-model="character.advancementPoints" :disabled="!isAuthorized"></md-input>
-                                        </md-input-container>
-                                    </md-layout>
-                                    <md-layout md-flex="50">
-                                        <md-input-container>
-                                            <label>Fire and Forget Dice</label>
-                                            <md-input type="number" v-model="character.ffDice" :disabled="!isAuthorized"></md-input>
-                                        </md-input-container>
-                                    </md-layout>
+        <character :character="character">
+
+            <!-- Sheet -->
+            <md-layout md-gutter="16">
+                <portrait :src="character.portrait"></portrait>
+                <md-layout md-flex-xsmall="100" style="min-width: 275px">
+                    <md-card style="flex: 1">
+                        <md-card-content style="flex: 1">
+                            <md-input-container>
+                                <label>Name</label>
+                                <md-input v-model="name" :disabled="!isAuthorized"></md-input>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Description</label>
+                                <md-textarea v-model="biography" :disabled="!isAuthorized"></md-textarea>
+                            </md-input-container>
+                            <md-layout md-gutter="16">
+                                <md-layout md-flex="50">
+                                    <md-input-container>
+                                        <label>Advancement Points</label>
+                                        <md-input type="number" v-model="character.advancementPoints" :disabled="!isAuthorized"></md-input>
+                                    </md-input-container>
                                 </md-layout>
-                                <pool name="Lucky Shots" :pool="character.luckyShots" :edit-disabled="!isAuthorized"></pool>
-                            </md-card-content>
-                        </md-card>
-                    </md-layout>
-                    <md-layout md-flex-xsmall="100" id="rolls">
-                        <md-card style="flex: 1">
-                            <md-card-content style="flex: 1; padding-bottom: 0">
-                                <md-input-container style="margin-bottom: 10px;">
-                                    <label>Dice</label>
-                                    <md-input type="number" min="0" v-model="dice"></md-input>
-                                    <span style="margin-left: 10px; padding-top: 4px">D6</span>
-                                </md-input-container>
-                                <md-list class="md-double-line md-dense roll-list">
-                                    <md-list-item v-for="item in rolls">
-                                        <div class="md-list-text-container">
-                                            <span>{{ item.display }}</span>
-                                            <span>{{ item.name }}</span>
-                                        </div>
-                                    </md-list-item>
-                                </md-list>
-                            </md-card-content>
-                            <md-card-actions>
-                                <md-button @click.native="roll()">Roll</md-button>
-                                <md-button @click.native="clearRolls()">Clear</md-button>
-                            </md-card-actions>
-                        </md-card>
-                    </md-layout>
-                    <md-layout md-flex-small="100" style="min-width: 50%">
-                        <md-card style="flex: 1">
-                            <md-card-content style="flex: 1">
-                                <md-list class="md-double-line">
-                                    <cliche-item  v-for="(cliche, index) in cliches" :cliche="cliche"
-                                                  @click.native="rollCliche(cliche)"
-                                                  @deleted="onDeleteCliche(index)" :disabled="!isAuthorized"></cliche-item>
-                                </md-list>
-                            </md-card-content>
-                            <md-card-actions>
-                                <md-button @click.native="openNewCliche()" :disabled="!isAuthorized">Add Cliche</md-button>
-                            </md-card-actions>
-                        </md-card>
-                    </md-layout>
-                    <md-layout md-flex-small="100" style="min-width: 50%">
-                        <md-card style="flex: 1">
-                            <md-card-content style="flex: 1">
-                                <md-list>
-                                    <hook-item  v-for="(hook, index) in hooks" :hook="hook"
-                                                @deleted="onDeleteHook(index)" :disabled="!isAuthorized"></hook-item>
-                                </md-list>
-                            </md-card-content>
-                            <md-card-actions>
-                                <md-button @click.native="openNewHook()" :disabled="!isAuthorized">Add Hook</md-button>
-                            </md-card-actions>
-                        </md-card>
-                    </md-layout>
+                                <md-layout md-flex="50">
+                                    <md-input-container>
+                                        <label>Fire and Forget Dice</label>
+                                        <md-input type="number" v-model="character.ffDice" :disabled="!isAuthorized"></md-input>
+                                    </md-input-container>
+                                </md-layout>
+                            </md-layout>
+                            <pool name="Lucky Shots" :pool="character.luckyShots" :edit-disabled="!isAuthorized"></pool>
+                        </md-card-content>
+                    </md-card>
                 </md-layout>
-            </md-tab>
-            <md-tab md-label="Notes">
-                <notes :notes="character.notes" :save="character.$save"></notes>
-            </md-tab>
-        </md-tabs>
+                <md-layout md-flex-xsmall="100" id="rolls">
+                    <md-card style="flex: 1">
+                        <md-card-content style="flex: 1; padding-bottom: 0">
+                            <md-input-container style="margin-bottom: 10px;">
+                                <label>Dice</label>
+                                <md-input type="number" min="0" v-model="dice"></md-input>
+                                <span style="margin-left: 10px; padding-top: 4px">D6</span>
+                            </md-input-container>
+                            <md-list class="md-double-line md-dense roll-list">
+                                <md-list-item v-for="item in rolls">
+                                    <div class="md-list-text-container">
+                                        <span>{{ item.display }}</span>
+                                        <span>{{ item.name }}</span>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
+                        </md-card-content>
+                        <md-card-actions>
+                            <md-button @click.native="roll()">Roll</md-button>
+                            <md-button @click.native="clearRolls()">Clear</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </md-layout>
+                <md-layout md-flex-small="100" style="min-width: 50%">
+                    <md-card style="flex: 1">
+                        <md-card-content style="flex: 1">
+                            <md-list class="md-double-line">
+                                <cliche-item  v-for="(cliche, index) in cliches" :cliche="cliche"
+                                              @click.native="rollCliche(cliche)"
+                                              @deleted="onDeleteCliche(index)" :disabled="!isAuthorized"></cliche-item>
+                            </md-list>
+                        </md-card-content>
+                        <md-card-actions>
+                            <md-button @click.native="openNewCliche()" :disabled="!isAuthorized">Add Cliche</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </md-layout>
+                <md-layout md-flex-small="100" style="min-width: 50%">
+                    <md-card style="flex: 1">
+                        <md-card-content style="flex: 1">
+                            <md-list>
+                                <hook-item  v-for="(hook, index) in hooks" :hook="hook"
+                                            @deleted="onDeleteHook(index)" :disabled="!isAuthorized"></hook-item>
+                            </md-list>
+                        </md-card-content>
+                        <md-card-actions>
+                            <md-button @click.native="openNewHook()" :disabled="!isAuthorized">Add Hook</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </md-layout>
+            </md-layout>
+        </character>
 
         <!-- Dialogs -->
 
@@ -190,6 +187,7 @@
     import diceSvc from '../../../client/services/dice';
 
     // Components
+    import CharComponent from '../../../client/components/character.vue';
     import NotesComponent from '../../../client/components/notes/notes.vue';
     import PoolComponent from '../../../client/components/pool.vue';
     import PortraitComponent from '../../../client/components/portrait.vue';
@@ -200,7 +198,7 @@
 
     export default {
         components: {
-            notes: NotesComponent,
+            character: CharComponent,
             pool: PoolComponent,
             portrait: PortraitComponent,
             clicheItem: ClicheComponent,
@@ -328,12 +326,6 @@
                 this.character.hooks.push(_.cloneDeep(this.newHook));
                 this.clearNewHook();
                 this.$refs.newHook.close();
-            }
-        },
-        watch: {
-            character: {
-                handler: function(){ this.character.$save(); },
-                deep: true
             }
         },
         mounted()
