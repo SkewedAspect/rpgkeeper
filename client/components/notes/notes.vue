@@ -22,7 +22,6 @@
             <note-page
                 :title="currentPage.title"
                 :content="currentPage.content"
-                :save="save"
                 v-flex="max" style="padding-left: 16px; padding-right: 16px">
             </note-page>
         </md-card-content>
@@ -191,7 +190,7 @@
             },
             save: {
                 type: Function,
-                default: () => Promise.resolve()
+                required: true
             }
         },
         data()
@@ -249,25 +248,21 @@
             },
             onConfirmDeleteClosed(result)
             {
-                let delPromise = Promise.resolve();
                 if(result == 'ok')
                 {
                     _.remove(this.notes, { id: this.delNoteID });
 
-                    delPromise = this.save();
-                } // end if
-
-                return delPromise.then(() =>
-                {
                     // Load a new page.
                     if(this.delNoteID == this.currentPageID)
                     {
                         this.loadPage(this.notes[0]);
                     } // end if
 
-                    this.delNoteID = undefined;
-                    this.delNoteTitle = undefined;
-                });
+                    this.save();
+                } // end if
+
+                this.delNoteID = undefined;
+                this.delNoteTitle = undefined;
             },
 
             openNewDialog()
@@ -280,9 +275,8 @@
                 {
                     const note = { id: shortID(), title: this.newNote.title, content: this.newNote.content };
                     this.notes.push(note);
-
-                    // We don't care about waiting on the promise, we're done here.
-                    this.save().then(() => this.loadPage(note));
+                    this.loadPage(note);
+                    this.save();
                 } // end if
 
                 // Clear the new note
@@ -313,9 +307,8 @@
                 {
                     const noteIdx = _.findIndex(this.notes, { id: this.currentPage.id });
                     this.notes.splice(noteIdx, 1, _.clone(this.editNote));
-
-                    // We don't care about waiting on the promise, we're done here.
-                    this.save().then(this.reloadPage);
+                    this.reloadPage();
+                    this.save();
                 } // end if
 
                 // Clear the edit note

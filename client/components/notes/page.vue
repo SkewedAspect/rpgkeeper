@@ -39,26 +39,13 @@
             content: {
                 type: String,
                 default: ''
-            },
-            save: {
-                type: Function,
-                default: () => {}
             }
-        },
-        data()
-        {
-            return {
-                editing: false
-            };
         },
         computed: {
             pageContent()
             {
                 return marked(this.content);
             }
-        },
-        methods: {
-
         }
     }
 </script>
