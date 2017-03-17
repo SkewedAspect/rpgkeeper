@@ -14,11 +14,11 @@
                         <md-card-content style="flex: 1">
                             <md-input-container>
                                 <label>Name</label>
-                                <md-input v-model="name" :disabled="!isAuthorized"></md-input>
+                                <md-input v-model="character.name" :disabled="!isAuthorized"></md-input>
                             </md-input-container>
                             <md-input-container>
                                 <label>Description</label>
-                                <md-textarea style="font-size: 14px;" v-model="biography" :disabled="!isAuthorized"></md-textarea>
+                                <md-textarea style="font-size: 14px;" v-model="character.biography" :disabled="!isAuthorized"></md-textarea>
                             </md-input-container>
                             <md-layout class="fate-points">
                                 <md-layout>
@@ -160,27 +160,13 @@
         },
         computed: {
             account(){ return this.state.account; },
-            isAuthorized(){ return _.get(this.account, 'email', 'nope!') == this.character.owner; },
-            name: {
-                get: function(){ return this.character.name; },
-                set: function(val){ this._setName(val); }
-            },
-            biography: {
-                get: function(){ return this.character.biography; },
-                set: function(val){ this._setBiography(val); }
-            }
+            isAuthorized(){ return _.get(this.account, 'email', 'nope!') == this.character.owner; }
         },
         methods: {
             refreshFatePoints()
             {
                 this.character.fatePoints.current = Math.max(this.character.fatePoints.current, this.character.fatePoints.refresh);
             }
-        },
-        mounted()
-        {
-            // Debounce functions
-            this._setBiography = _.debounce((desc) => { this.character.biography = desc; }, 1000, { maxWait: 2000 });
-            this._setName = _.debounce((name) => { this.character.name = name; }, 1000, { maxWait: 2000 });
         }
     }
 </script>
