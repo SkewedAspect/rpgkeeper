@@ -9,7 +9,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #note-page {
         & > p:first-child {
             margin-top: 0;

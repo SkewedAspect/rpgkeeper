@@ -153,7 +153,7 @@
     </div>
 </template>
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #dnd35-char {
         header {
             display: flex;

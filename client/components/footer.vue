@@ -18,7 +18,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #site-footer {
         color: #aaa;
         font-size: 12px;

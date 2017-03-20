@@ -52,7 +52,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass" scoped>
+<style lang="scss" scoped>
     #pool {
         .pool-label {
             border-bottom: 1px solid rgba(0, 0, 0, 0.12);

@@ -137,7 +137,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #risus-character {
         padding: 8px 16px;
 
@@ -231,7 +231,7 @@
         },
         computed: {
             account(){ return this.state.account; },
-            isAuthorized(){ return _.get(this.account, 'email', 'nope!') == this.character.owner; },
+            isAuthorized(){ return _.get(this.account, 'email', 'nope!') === this.character.owner; },
             cliches()
             {
                 return _.sortBy(this.character.cliches, 'value').reverse();

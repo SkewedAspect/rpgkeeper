@@ -60,7 +60,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #cliche-item {
         padding: 0 !important;
 

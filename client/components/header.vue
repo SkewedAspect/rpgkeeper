@@ -26,7 +26,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
 	#site-header {
 		.md-title {
 			cursor: pointer;

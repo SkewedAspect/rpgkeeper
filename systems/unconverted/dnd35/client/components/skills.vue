@@ -49,7 +49,7 @@
     </div>
 </template>
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #skills {
         flex: 1 1 auto;
 

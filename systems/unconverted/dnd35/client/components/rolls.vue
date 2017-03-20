@@ -29,7 +29,7 @@
     </div>
 </template>
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #rolls {
         flex: 0 0 350px;
         min-height: 350px;

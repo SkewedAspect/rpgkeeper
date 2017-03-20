@@ -48,7 +48,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #hook-item {
         .md-list-text-container > * {
             white-space: normal;
