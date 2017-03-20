@@ -28,7 +28,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #character-page {
         .loading {
             margin: 16px;

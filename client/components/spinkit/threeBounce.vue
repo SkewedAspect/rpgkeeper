@@ -6,7 +6,7 @@
 	</div>
 </template>
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
 	.sk-three-bounce
 	{
 		.sk-child {

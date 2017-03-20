@@ -152,7 +152,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
     #new-character-modal {
         .md-dialog {
             min-width: 60%;

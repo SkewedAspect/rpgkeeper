@@ -10,7 +10,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style rel="stylesheet/scss" lang="sass" scoped>
+<style lang="scss" scoped>
     #portrait {
         flex: 0 1 auto;
         min-width: 100px;

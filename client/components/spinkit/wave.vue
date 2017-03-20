@@ -8,7 +8,7 @@
 	</div>
 </template>
 
-<style rel="stylesheet/scss" lang="sass">
+<style lang="scss">
 	.sk-wave
 	{
 		margin: 0 auto;

@@ -62,3 +62,45 @@ ul.list-group {
 }
 
 //----------------------------------------------------------------------------------------------------------------------
+// Static table, because `md-table` kinda sucks
+//----------------------------------------------------------------------------------------------------------------------
+
+table.md-static-table
+{
+    width: 100%;
+    border-collapse: collapse;
+
+	td {
+        &:first-child {
+            border-left: 0 solid transparent;
+        }
+
+        &:last-child {
+            border-right: 0 solid transparent;
+        }
+
+        &.no-sides {
+            border-left: 0 solid transparent;
+            border-right: 0 solid transparent;
+        }
+
+		border: 1px solid #e0e0e0;
+        padding: 8px 16px;
+	}
+
+    tr {
+        &:first-child {
+            td {
+                border-top: 0 solid transparent;
+            }
+        }
+
+        &:last-child {
+            td {
+                border-bottom: 0 solid transparent;
+            }
+        }
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
