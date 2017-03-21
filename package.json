@@ -4,7 +4,7 @@
   "description": "A site for managing your digital character sheets.",
   "main": "server.js",
   "scripts": {
-    "start": "node ./server.js | ./node_modules/.bin/bunyan"
+    "start": "node ./server.js | ./node_modules/.bin/bunyan --color"
   },
   "repository": "Morgul/rpgkkeper",
   "author": "Christopher S. Case <chris.case@g33xnexus.com>",
