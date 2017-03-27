@@ -72,16 +72,16 @@ table.md-static-table
 
 	td {
         &:first-child {
-            border-left: 0 solid transparent;
+            border-left-width: 0;
         }
 
         &:last-child {
-            border-right: 0 solid transparent;
+            border-right-width: 0;
         }
 
         &.no-sides {
-            border-left: 0 solid transparent;
-            border-right: 0 solid transparent;
+            border-left-width: 0;
+            border-right-width: 0;
         }
 
 		border: 1px solid #e0e0e0;
@@ -91,13 +91,13 @@ table.md-static-table
     tr {
         &:first-child {
             td {
-                border-top: 0 solid transparent;
+                border-top-width: 0;
             }
         }
 
         &:last-child {
             td {
-                border-bottom: 0 solid transparent;
+                border-bottom-width: 0;
             }
         }
     }
