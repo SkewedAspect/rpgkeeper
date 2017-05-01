@@ -5,6 +5,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
+import Promise from 'bluebird';
 import $http from 'axios';
 
 import systemSvc from '../services/system';
@@ -31,10 +32,22 @@ class CharacterModel
 
     _save()
     {
-        const verb = this.$base.id ? 'put' : 'post';
-        return Promise.join($http[verb](this.baseURL, this.$base), $http[verb](this.systemURL, this.$system))
+        return Promise.resolve(this.preSave())
+            .then(() =>
+            {
+                const verb = this.$base.id ? 'put' : 'post';
+                return Promise.join($http[verb](this.baseURL, this.$base), $http[verb](this.systemURL, this.$system));
+            })
+            .then(this.postSave)
             .then(() => this);
     } // end _save
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Hooks
+    //------------------------------------------------------------------------------------------------------------------
+
+    preSave(){}
+    postSave(){}
 
     //------------------------------------------------------------------------------------------------------------------
 
