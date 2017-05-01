@@ -11,6 +11,9 @@
                 <portrait :src="character.portrait"></portrait>
                 <md-layout md-flex-xsmall="100" style="min-width: 275px">
                     <md-card style="flex: 1">
+                        <md-toolbar class="md-dense">
+                            <h2 class="md-title">Bio</h2>
+                        </md-toolbar>
                         <md-card-content style="flex: 1">
                             <md-input-container>
                                 <label>Name</label>
@@ -23,14 +26,16 @@
                             <md-layout md-gutter="16">
                                 <md-layout md-flex="50">
                                     <md-input-container>
-                                        <label>Advancement Points</label>
-                                        <md-input type="number" v-model="character.advancementPoints" :disabled="!isAuthorized"></md-input>
+                                        <label class="hidden-sm-up">Adv. Points</label>
+                                        <label class="hidden-xs-down">Advancement Points</label>
+                                        <md-input type="number" v-model.number="advPoints" :disabled="!isAuthorized" min="0" @blur.native="onAdvBlur()"></md-input>
                                     </md-input-container>
                                 </md-layout>
                                 <md-layout md-flex="50">
                                     <md-input-container>
-                                        <label>Fire and Forget Dice</label>
-                                        <md-input type="number" v-model="character.ffDice" :disabled="!isAuthorized"></md-input>
+                                        <label class="hidden-sm-up">F & F Dice</label>
+                                        <label class="hidden-xs-down">Fire and Forget Dice</label>
+                                        <md-input type="number" v-model.number="ffDice" :disabled="!isAuthorized" min="0" @blur.native="onFFBlur()"></md-input>
                                     </md-input-container>
                                 </md-layout>
                             </md-layout>
@@ -40,6 +45,9 @@
                 </md-layout>
                 <md-layout md-flex-xsmall="100" id="rolls">
                     <md-card style="flex: 1">
+                        <md-toolbar class="md-dense">
+                            <h2 class="md-title">Rolls</h2>
+                        </md-toolbar>
                         <md-card-content style="flex: 1; padding-bottom: 0">
                             <md-input-container style="margin-bottom: 10px;">
                                 <label>Dice</label>
@@ -63,6 +71,9 @@
                 </md-layout>
                 <md-layout md-flex-small="100" style="min-width: 50%">
                     <md-card style="flex: 1">
+                        <md-toolbar class="md-dense">
+                            <h2 class="md-title">Clichés</h2>
+                        </md-toolbar>
                         <md-card-content style="flex: 1">
                             <md-list class="md-double-line">
                                 <cliche-item  v-for="(cliche, index) in cliches" :cliche="cliche"
@@ -77,6 +88,9 @@
                 </md-layout>
                 <md-layout md-flex-small="100" style="min-width: 50%">
                     <md-card style="flex: 1">
+                        <md-toolbar class="md-dense">
+                            <h2 class="md-title">Hooks</h2>
+                        </md-toolbar>
                         <md-card-content style="flex: 1">
                             <md-list>
                                 <hook-item  v-for="(hook, index) in hooks" :hook="hook"
@@ -218,6 +232,8 @@
                 dice: undefined,
                 rollName: undefined,
                 rolls: [],
+                advPoints: this.character.advancementPoints,
+                ffDice: this.character.ffDice,
                 newCliche: {
                     value: undefined,
                     current: undefined,
@@ -318,16 +334,33 @@
                 this.character.hooks.push(_.cloneDeep(this.newHook));
                 this.clearNewHook();
                 this.$refs.newHook.close();
+            },
+
+            onAdvBlur()
+            {
+                this.character.advancementPoints = this.advPoints;
+            },
+            onFFBlur()
+            {
+                this.character.ffDice = this.ffDice;
             }
         },
         mounted()
         {
-            // FIXME: This is to work around a bug with textarea resizing!
-            setTimeout(() =>
+            // PreSave hook
+            this.character.preSave = function()
             {
-                this.character.description = this.character.description + ' ';
-                this.character.description = this.character.description.trim();
-            }, 250);
+                // Data validation
+                if(!_.isFinite(this.$system.advancementPoints))
+                {
+                    this.$system.advancementPoints = 0;
+                } // end if
+
+                if(!_.isFinite(this.$system.ffDice))
+                {
+                    this.$system.ffDice = 0;
+                } // end if
+            } // end preSave
         }
     }
 </script>
