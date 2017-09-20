@@ -8,6 +8,7 @@ const _ = require('lodash');
 const express = require('express');
 const logging = require('trivial-logging');
 
+const permMan = require('../permissions');
 const systemMan = require('../../systems/manager');
 const routeUtils = require('./utils');
 
@@ -23,6 +24,11 @@ router.get('/', (request, response) =>
     routeUtils.interceptHTML(response, () =>
     {
         const systems = _(systemMan.systems)
+            .filter((system) =>
+            {
+                const user = _.get(request, 'user', { permissions: [], groups: [] });
+                return permMan.hasPerm(user, 'Systems/viewDev') || !system.dev;
+            })
             .map((system) => _.omit(system, ['models']));
 
         response.json(systems);

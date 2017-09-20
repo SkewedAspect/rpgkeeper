@@ -37,6 +37,6 @@ logger.info(`Loaded '${ name }' system.`);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = { id, name, router, description, init, models, disabled: true };
+module.exports = { id, name, router, description, init, models, disabled: true, dev: true };
 
 //----------------------------------------------------------------------------------------------------------------------
