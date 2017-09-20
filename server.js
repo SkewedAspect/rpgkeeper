@@ -4,6 +4,17 @@
 // @module server.js
 //----------------------------------------------------------------------------------------------------------------------
 
+// Config
+const config = require('./config');
+
+// Logging
+const logging = require('trivial-logging');
+logging.setRootLogger('rpgkeeper');
+logging.init(config);
+const logger = logging.loggerFor(module);
+
+//----------------------------------------------------------------------------------------------------------------------
+
 const path = require('path');
 
 const express = require('express');
@@ -24,17 +35,6 @@ const newsRouter = require('./server/routes/news');
 const charRouter = require('./server/routes/characters');
 const sysRouter = require('./server/routes/systems');
 const accountsRouter = require('./server/routes/accounts');
-
-// Logging
-const logging = require('trivial-logging');
-
-// Config
-const config = require('./config');
-
-//----------------------------------------------------------------------------------------------------------------------
-
-logging.setRootLogger('rpgkeeper');
-const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 

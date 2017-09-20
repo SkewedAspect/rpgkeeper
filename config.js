@@ -8,6 +8,7 @@
 
 module.exports = {
     debug: true,
+    debugStream: true,
     secret: process.env.SESSION_SECRET || "etched municipality unconscionably fribble *&^%$## 88",
     key: "rpgk-session",
     google: {
