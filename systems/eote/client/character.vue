@@ -1,20 +1,49 @@
+<!--------------------------------------------------------------------------------------------------------------------->
+<!-- Character Component                                                                                             -->
+<!--------------------------------------------------------------------------------------------------------------------->
+
 <template>
-    <h1>EotE System</h1>
-    <pre>{{ base | json }}</pre>
+    <div id="eote-character" class="container">
+        <character :character="character"></character>
+    </div>
 </template>
 
-<!--style lang="sass" src=""></style-->
+<!--------------------------------------------------------------------------------------------------------------------->
 
-<script type="text/babel">
+<style lang="scss">
+    #eote-character {
+    }
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<script>
+    //------------------------------------------------------------------------------------------------------------------
+
+    // Components
+    import CharComponent from '../../../client/components/character.vue';
+    import PortraitComponent from '../../../client/components/portrait.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+
     export default {
-        props: {
-            base: {
-                required: true
-            },
+        components: {
+            character: CharComponent,
+            portrait: PortraitComponent,
         },
-        data: function()
+        props: {
+            character: {
+                type: Object,
+                required: true
+            }
+        },
+        data()
         {
-            return {};
+            return {
+                // Data goes here
+            };
         }
     }
 </script>
+
+<!--------------------------------------------------------------------------------------------------------------------->

@@ -4,47 +4,41 @@
 // @module systems.js
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
-import express from 'express';
-import logging from 'omega-logger';
+const _ = require('lodash');
+const express = require('express');
+const logging = require('trivial-logging');
 
-import systemMan from '../../systems/manager';
-import routeUtils from './utils';
+const permMan = require('../permissions');
+const systemMan = require('../../systems/manager');
+const routeUtils = require('./utils');
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const logger = logging.loggerFor(module);
+const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var logger = logging.loggerFor(module);
-
-var router = express.Router();
-
-//----------------------------------------------------------------------------------------------------------------------
-// Middleware
-//----------------------------------------------------------------------------------------------------------------------
-
-// Basic request logging
-router.use(routeUtils.requestLogger(logger));
-
-// Basic error logging
-router.use(routeUtils.errorLogger(logger));
-
-//----------------------------------------------------------------------------------------------------------------------
-// REST Endpoints
-//----------------------------------------------------------------------------------------------------------------------
-
-router.get('/', function(req, resp)
+router.get('/', (request, response) =>
 {
-    routeUtils.interceptHTML(resp, function()
+    routeUtils.interceptHTML(response, () =>
     {
-        resp.json(systemMan.systems);
+        const systems = _(systemMan.systems)
+            .filter((system) =>
+            {
+                const user = _.get(request, 'user', { permissions: [], groups: [] });
+                return permMan.hasPerm(user, 'Systems/viewDev') || !system.dev;
+            })
+            .map((system) => _.omit(system, ['models']));
+
+        response.json(systems);
     });
 });
 
 // Mount the systems
 _.each(systemMan.systems, (system) =>
 {
-    //TODO: Figure out how to make this a `logger.debug` statement
-    console.log(`Building routes for "${system.name}" system.`);
-
+    logger.debug(`Building routes for "${ system.name }" system.`);
     router.use('/' + system.id, system.router);
 });
 

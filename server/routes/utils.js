@@ -1,11 +1,11 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Brief description for utils.js module.
+// Utilities to make express routes use less boilerplate.
 //
 // @module utils.js
 //----------------------------------------------------------------------------------------------------------------------
 
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ function buildBasicRequestLogger(logger)
 {
     return function(request, response, next)
     {
-        logger.info("%s %s '%s'", request.method, response.statusCode, request.url);
+        logger.debug(`${ request.method } '${ request.url }'`);
         next();
     }; // end loggerFunc
 } // end buildBasicRequestLogger
@@ -24,7 +24,16 @@ function buildBasicErrorLogger(logger)
 {
     return function(error, request, response, next)
     {
-        logger.error("%s '%s': Error encountered: \n%s", request.method, request.url, error.stack);
+        logger.child({
+            request: {
+                id: request.id,
+                method: request.method,
+                url: request.url,
+                body: request.body,
+                query: request.query
+            }
+        }).error(`${ request.method } ${ response.statusCode } '${ request.url }': Error encountered: \n${ error.stack }`, error);
+
         next(error);
     }; // end loggerFunc
 } // end buildBasicErrorLogger
@@ -33,25 +42,80 @@ function buildBasicErrorLogger(logger)
 function serveIndex(request, response)
 {
     response.setHeader("Content-Type", "text/html");
-    fs.createReadStream(path.resolve(__dirname + '/../../' + 'client/index.html')).pipe(response);
+    fs.createReadStream(path.resolve(__dirname + '/../../' + 'dist/index.html')).pipe(response);
 } // end serveIndex
 
 // Either serve 'index.html', or run json handler
-function interceptHTML(response, jsonHandler)
+function interceptHTML(response, jsonHandler, authenticated)
 {
     response.format({
         html: serveIndex,
-        json: jsonHandler
+        json: (request, response) => {
+
+            if(!authenticated || request.isAuthenticated())
+            {
+                jsonHandler(request, response);
+            }
+            else
+            {
+                response.status(401).json({
+                    name: 'NotAuthorized',
+                    message: `Not authorized.`
+                });
+            } // end if
+        }
     });
 } // end interceptHTML
+
+function ensureAuthenticated(request, response, next)
+{
+    if(request.isAuthenticated())
+    {
+        next();
+    }
+    else
+    {
+        response.status(401).json({
+            name: 'NotAuthorized',
+            message: `Not authorized.`
+        });
+    } // end if
+} // end ensureAuthenticated
+
+function promisify(handler)
+{
+    return (request, response) =>
+    {
+        handler(request, response)
+            .then((results) =>
+            {
+                if(!response.finished)
+                {
+                    response.json(results);
+                } // end if
+            })
+            .catch((error) =>
+            {
+                console.error(error.stack || error.message);
+
+                response.status(500).json({
+                    name: error.constructor.name,
+                    message: error.message,
+                    error: error
+                });
+            });
+    };
+} // end promisify
 
 //----------------------------------------------------------------------------------------------------------------------
 
 module.exports = {
-    requestLogger: buildBasicErrorLogger,
+    requestLogger: buildBasicRequestLogger,
     errorLogger: buildBasicErrorLogger,
-    interceptHTML: interceptHTML,
-    serveIndex: serveIndex
+    interceptHTML,
+    serveIndex,
+    ensureAuthenticated,
+    promisify
 }; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------

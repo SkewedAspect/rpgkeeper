@@ -1,41 +1,43 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// Edge of the Empire System
-///
-/// @module
+// Edge of the Empire System
+//
+// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import express from 'express';
-import logging from 'omega-logger';
+const express = require('express');
+const logging = require('trivial-logging');
 
-import systemMan from '../manager';
-import routeUtils from '../../server/routes/utils';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-var logger = logging.loggerFor(module);
-
-var router = express.Router();
-
-//----------------------------------------------------------------------------------------------------------------------
-// Middleware
-//----------------------------------------------------------------------------------------------------------------------
-
-// Basic request logging
-router.use(routeUtils.requestLogger(logger));
-
-// Basic error logging
-router.use(routeUtils.errorLogger(logger));
+const models = require('./models');
+const routeUtils = require('../../server/routes/utils');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-// Router Goes here!
+const logger = logging.loggerFor(module);
+const router = express.Router();
+
+//----------------------------------------------------------------------------------------------------------------------
+// System definition
+//----------------------------------------------------------------------------------------------------------------------
+
+const id = 'eote';
+const name = 'Edge of the Empire';
+const description = "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.";
+
+//----------------------------------------------------------------------------------------------------------------------
+// Initialization
+//----------------------------------------------------------------------------------------------------------------------
+
+function init(manager)
+{
+    manager.buildGeneralEndpoints(router, models);
+} // end init
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var id = 'eote';
-var name = 'Edge of the Empire';
-var description = "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.";
+logger.info(`Loaded '${ name }' system.`);
 
-systemMan.register(id, name, description, router);
+//----------------------------------------------------------------------------------------------------------------------
+
+module.exports = { id, name, router, description, init, models, disabled: true, dev: true };
 
 //----------------------------------------------------------------------------------------------------------------------

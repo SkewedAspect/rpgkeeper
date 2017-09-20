@@ -1,12 +1,11 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// A module for casting query parameters to something useful, and generating a filter out of them.
-///
-/// @module
+// A module for casting query parameters to something useful, and generating a filter out of them.
+//
+// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-var _ = require('lodash');
-
-var logger = require('omega-logger').loggerFor(module);
+const _ = require('lodash');
+const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Helpers
@@ -46,7 +45,7 @@ function detectParam(value)
     else
     {
         // Attempt converting to a number
-        var tmp = castParam(Number, value);
+        const tmp = castParam(Number, value);
 
         if(!_.isNaN(tmp))
         {
@@ -116,7 +115,7 @@ function containsFilter(queryVal)
 
 function parseQuery(queryObj)
 {
-    var parseTree = {};
+    const parseTree = {};
     _.forIn(queryObj, function(value, key)
     {
         // Check for greater than or less than
@@ -162,7 +161,7 @@ function parseQuery(queryObj)
 function filterByQuery(queryObj, list)
 {
     // Build filters
-    var filters = {};
+    const filters = {};
     _.forIn(parseQuery(queryObj), function(token, key)
     {
         switch(token.operation)
@@ -205,11 +204,11 @@ function filterByQuery(queryObj, list)
     // Filter the list
     return _.filter(list, function(item)
     {
-        var include = true;
+        let include = true;
 
         _.forIn(filters, function(filter, key)
         {
-            var value = item[key];
+            const value = item[key];
             if(filter)
             {
                 include = filter(value);

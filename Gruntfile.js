@@ -11,6 +11,10 @@ module.exports = function(grunt)
                 src: 'client/index.html',
                 dest: 'dist/index.html'
             },
+            manifest: {
+                src: 'client/manifest.json',
+                dest: 'dist/manifest.json'
+            },
             static: {
                 expand: true,
                 cwd: 'client',
@@ -23,18 +27,35 @@ module.exports = function(grunt)
                 src: '**/*.html',
                 dest: 'dist'
             },
+            materialize: {
+                expand: true,
+                cwd: 'node_modules/vue-material/dist',
+                src: '*.css*',
+                dest: 'dist/vendor/vue-material'
+            },
             vendor: {
                 expand: true,
-                src: ['vendor/**/*.css', 'vendor/**/*.js', 'vendor/font-awesome/**/*', 'vendor/rpg-awesome/**/*'],
-                dest: 'dist'
+                cwd: 'node_modules',
+                src: ['spinkit/**/*.css', 'codemirror/lib/codemirror.css'],
+                dest: 'dist/vendor'
             }
         },
         browserify: {
             options: {
-                transform: [ ["vueify"], ["babelify"] ]
+                browserifyOptions: {
+                    debug: true
+                },
+                transform: [
+                    ["vueify"],
+                    ["babelify"]
+                ]
             },
             debug: {
                 options: {
+                    watch: true,
+                    watchOptions: {
+                        ignoreWatch: true
+                    },
                     browserifyOptions: {
                         debug: true
                     }
@@ -47,7 +68,7 @@ module.exports = function(grunt)
         sass: {
             dist: {
                 options: {
-                    includePaths: ['vendor/bootstrap/scss', 'client/scss', 'client', 'systems/**/scss'],
+                    includePaths: ['client/scss', 'client'],
                     style: 'expanded'
                 },
                 files: {
@@ -75,18 +96,6 @@ module.exports = function(grunt)
             scss: {
                 files: ["client/scss/**/*.scss"],
                 tasks: ["sass", "postcss"]
-            },
-            scripts: {
-                files: [
-                    "client/**/*.js",
-                    "systems/**/*.js",
-                    'client/**/*.vue',
-                    'systems/**/*.vue',
-                    "client/components/**/*.scss",
-                    "client/pages/**/*.scss",
-                    "systems/**/*.scss"
-                ],
-                tasks: ["browserify"]
             }
         }
     });

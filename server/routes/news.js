@@ -4,83 +4,67 @@
 // @module news.js
 //----------------------------------------------------------------------------------------------------------------------
 
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
 
-var _ = require('lodash');
-var express = require('express');
-var Promise = require('bluebird');
-var fastmatter = require('fastmatter');
+const _ = require('lodash');
+const express = require('express');
+const Promise = require('bluebird');
+const fastmatter = require('fastmatter');
 
-var routeUtils = require('./utils');
-
-var logger = require('omega-logger').loggerFor(module);
+const routeUtils = require('./utils');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-Promise.promisifyAll(fs);
+const readDirAsync = Promise.promisify(fs.readdir);
+const readFileAsync = Promise.promisify(fs.readFile);
 
-var router = express.Router();
-
-//----------------------------------------------------------------------------------------------------------------------
-// Middleware
-//----------------------------------------------------------------------------------------------------------------------
-
-// Basic request logging
-router.use(routeUtils.requestLogger(logger));
-
-// Basic error logging
-router.use(routeUtils.errorLogger(logger));
+const router = express.Router();
+const promisify = routeUtils.promisify;
 
 //----------------------------------------------------------------------------------------------------------------------
-// Profiles Endpoint
-//----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', function(req, resp)
+//TODO: We need a better new system.
+
+router.get('/', (request, response) =>
 {
-    resp.format({
-        json: function()
-        {
-            var newsPath = path.resolve(__dirname + '/../news');
+    routeUtils.interceptHTML(response, promisify(() =>
+    {
+        const newsPath = path.resolve(__dirname + '/../news');
 
-            fs.readdirAsync(newsPath)
-                .then(function(files)
+        return readDirAsync(newsPath)
+            .then((files) =>
+            {
+                const filePromises = [];
+                _.each(files, (fileName) =>
                 {
-                    var filePromises = [];
-                    _.each(files, function(fileName)
-                    {
-                        var filePath = path.join(newsPath, fileName);
+                    const filePath = path.join(newsPath, fileName);
 
-                        filePromises.push(fs.readFileAsync(filePath, { encoding: 'utf8' })
-                                .then(function(file)
-                                {
-                                    var data = fastmatter(file);
-                                    
-                                    // Parse as a date
-                                    data.attributes.date = new Date(data.attributes.date);
-                                    
-                                    return data;
-                                })
-                        );
-                    });
+                    filePromises.push(readFileAsync(filePath, { encoding: 'utf8' })
+                            .then((file) =>
+                            {
+                                const data = fastmatter(file);
 
-                    Promise.all(filePromises)
-                        .then(function(news)
-                        {
-                            resp.json(_.sortBy(news, 'date').reverse());
-                        });
-                })
-                .catch(function(err)
-                {
-                    console.error('error:', err.stack);
-                    resp.status(500).json({ error: err.message, stack: err.stack });
+                                // Parse as a date
+                                data.attributes.date = new Date(data.attributes.date);
+                                data.attributes.filename = fileName;
+
+                                return data;
+                            }));
                 });
-        },
-        html: function()
-        {
-            routeUtils.serveIndex(req, resp);
-        }
-    });
+
+                return Promise.all(filePromises)
+                    .then((news) =>
+                    {
+                        response.json(_.sortBy(news, 'date').reverse());
+                    });
+            })
+            .catch((err) =>
+            {
+                console.error('error:', err.stack);
+                response.status(500).json({ error: err.message, stack: err.stack });
+            });
+    }));
 });
 
 //----------------------------------------------------------------------------------------------------------------------

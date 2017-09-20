@@ -1,17 +1,37 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// SystemManager
-///
-/// @module
+// SystemManager
+//
+// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
+const _ = require('lodash');
+
+const routeUtils = require('../server/routes/utils');
+const promisify = routeUtils.promisify;
+const ensureAuthenticated = routeUtils.ensureAuthenticated;
+
+const baseModels = require('../server/models');
+
+// Systems
+const Risus = require('./risus/system');
+const Fate = require('./fate/system');
+const Generic = require('./generic/system');
+const EdgeOfTheEmpire = require('./eote/system');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class SystemManager {
+class SystemManager
+{
     constructor()
     {
-        this.systems = [];
+        this.systems = [
+            Generic,
+            Risus,
+            Fate,
+            EdgeOfTheEmpire
+        ];
+
+        _.each(this.systems, (system) => system.init(this));
     } // end constructor
 
     get(id)
@@ -19,21 +39,11 @@ class SystemManager {
         return _.find(this.systems, { id });
     } // end get
 
-    register(id, name, description, router, models)
-    {
-        this.systems.push({ id, name, description, router, models });
-        this.systems = _.uniq(this.systems, 'id');
-    } // end registerSystem
-    
     buildGeneralEndpoints(router, models)
     {
-        router.get('/character/:charID', (req, resp) =>
+        router.get('/character/:charID', promisify((req, resp) =>
         {
-            models.Character.get(req.params.charID)
-                .then((character) =>
-                {
-                    resp.json(character);
-                })
+            return models.Character.get(req.params.charID)
                 .catch(models.errors.DocumentNotFound, (error) =>
                 {
                     resp.status(404).json({
@@ -42,45 +52,54 @@ class SystemManager {
                         stack: error.stack
                     });
                 });
-        });
+        }));
 
-        router.put('/character/:charID', (req, resp) =>
+        router.put('/character/:charID', ensureAuthenticated, promisify((request, response) =>
         {
-            if(req.isAuthenticated())
-            {
-                models.Character.get(req.params.charID)
-                    .then((character) =>
-                    {
-                        _.assign(character, req.body, { user: req.user.email });
-                        character.$save().then(() => { resp.json(character); });
-                    })
-                    .catch(models.errors.DocumentNotFound, (error) =>
-                    {
-                        resp.status(404).json({
-                            human: "Character not found.",
-                            message: error.message,
-                            stack: error.stack
-                        });
-                    })
-                    .catch((error) =>
-                    {
-                        resp.status(500).json({
-                            human: "Cannot save character.",
-                            message: error.message,
-                            stack: error.stack
-                        });
+            const update = _.merge({}, _.omit(request.body, 'id'), { owner: request.user.email });
+
+            return baseModels.BaseCharacter.get(request.params.charID)
+                .then((baseChar) =>
+                {
+                    return models.Character.get(request.params.charID)
+                        .then((character) =>
+                        {
+                            if(baseChar.owner == request.user.email)
+                            {
+                                _.assign(character, update);
+                                return character.save();
+                            }
+                            else
+                            {
+                                response.status(403).json({
+                                    type: 'NotAuthorized',
+                                    message: `You are not authorized to update system character '${ request.params.charID }'.`
+                                });
+                            } // end if
+                        })
+                })
+                .catch(models.errors.DocumentNotFound, (error) =>
+                {
+                    response.status(404).json({
+                        human: "Character not found.",
+                        message: error.message,
+                        stack: error.stack
                     });
-            }
-            else
-            {
-                resp.status(403).end();
-            } // end if
-        });
+                })
+                .catch((error) =>
+                {
+                    response.status(500).json({
+                        human: "Cannot save character.",
+                        message: error.message,
+                        stack: error.stack
+                    });
+                });
+        }));
     } // end buildGeneralEndpoints
 } // end SystemManager
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default new SystemManager();
+module.exports = new SystemManager();
 
 //----------------------------------------------------------------------------------------------------------------------

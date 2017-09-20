@@ -2,18 +2,105 @@
 // App Theme
 //----------------------------------------------------------------------------------------------------------------------
 
-@import "variables";
-@import "bootstrap";
+@import "utilities";
 @import "overrides";
 
 //----------------------------------------------------------------------------------------------------------------------
 
-body {
-    padding-top: 60px;
+html, body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
 }
 
-*:focus {
-    outline: 0;
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// List groups, because `md-list` has issues
+//----------------------------------------------------------------------------------------------------------------------
+
+ul.list-group {
+	display: block;
+	padding-left: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	list-style: none;
+
+	li {
+		position: relative;
+		display: block;
+	}
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Static table, because `md-table` kinda sucks
+//----------------------------------------------------------------------------------------------------------------------
+
+table.md-static-table
+{
+    width: 100%;
+    border-collapse: collapse;
+
+	td {
+        &:first-child {
+            border-left-width: 0;
+        }
+
+        &:last-child {
+            border-right-width: 0;
+        }
+
+        &.no-sides {
+            border-left-width: 0;
+            border-right-width: 0;
+        }
+
+		border: 1px solid #e0e0e0;
+        padding: 8px 16px;
+	}
+
+    tr {
+        &:first-child {
+            td {
+                border-top-width: 0;
+            }
+        }
+
+        &:last-child {
+            td {
+                border-bottom-width: 0;
+            }
+        }
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------

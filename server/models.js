@@ -1,77 +1,62 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// Models
-///
-/// @module
+// Database models for RPGKeeper
+//
+// @module models
 //----------------------------------------------------------------------------------------------------------------------
 
-import trivialModels from 'trivialmodels';
+const connect = require('thinky');
 
-var types = trivialModels.types;
-var db = { errors: trivialModels.errors };
-
-//----------------------------------------------------------------------------------------------------------------------
-
-db.User = trivialModels.define({
-    name: 'User',
-    driver: {
-        name: 'TrivialDB',
-        options: {
-            name: 'users',
-            namespace: 'base',
-            dbPath: 'server/db'
-        }
-    },
-    schema: {
-        name: types.String(),
-        email: types.String({ pk: true }),
-        created: types.Date({ auto: true }),
-        hash: types.Object({ default: { iterations: 0, salt: '', hash: '' } }),
-        permissions: types.Array({ default: [] }),
-        groups: types.Array({ default: [] })
-    }
-});
-
-db.Reset = trivialModels.define({
-    name: 'Reset',
-    driver: {
-        name: 'TrivialDB',
-        options: {
-            name: 'resets',
-            namespace: 'base',
-            dbPath: 'server/db'
-        }
-    },
-    schema: {
-        email: types.String({ pk: true }),
-        token: types.String({ required: true }),
-        created: types.Date({ auto: true })
-    }
-});
-
-db.BaseCharacter = trivialModels.define({
-    name: 'Character',
-    driver: {
-        name: 'TrivialDB',
-        options: {
-            name: 'characters',
-            namespace: 'base',
-            dbPath: 'server/db'
-        }
-    },
-    schema: {
-        id: types.String({ pk: true }),
-        name: types.String({ required: true }),
-        system: types.String({ required: true }),
-        description: types.String(),
-        portrait: types.String(),
-        thumbnail: types.String(),
-        biography: types.String(),
-        user: types.String({ required: true })
-    }
-});
+const { shortID } = require('./utilities');
+const config = require('../config');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default db;
+const thinky = connect(config.rethink);
+const type = thinky.type;
+const r = thinky.r;
+
+const db = { r, type, errors: thinky.Errors };
+
+//----------------------------------------------------------------------------------------------------------------------
+
+db.Account = thinky.createModel('accounts', {
+    id: type.string().default(shortID),
+    name: type.string(),
+    givenName: type.string(),
+    avatar: type.string(),
+    email: type.string(),
+    googleID: type.string(),
+    created: type.date().default(new Date()),
+    permissions: type.array().schema(type.string()).default([]),
+    groups: type.array().schema(type.string()).default([]),
+    settings: type.object().default({})
+}, { enforce_extra: "remove" });
+
+db.Account.ensureIndex('googleID');
+db.Account.ensureIndex('email');
+
+//----------------------------------------------------------------------------------------------------------------------
+
+db.BaseCharacter = thinky.createModel('base_characters', {
+    id: type.string().default(shortID),
+    name: type.string().required(),
+    system: type.string().required(),
+    description: type.string().default(''),
+    portrait: type.string(),
+    thumbnail: type.string().default('/static/images/thumbnailPlaceholder.png'),
+    biography: type.string().default(''),
+    notes: type.array().schema({
+            id: type.string().default(shortID),
+            title: type.string().required(),
+            contents: type.string().default('')
+        }).default([]),
+    owner: type.string().required()
+});
+
+db.BaseCharacter.ensureIndex('owner');
+
+//----------------------------------------------------------------------------------------------------------------------
+
+module.exports = db;
 
 //----------------------------------------------------------------------------------------------------------------------
