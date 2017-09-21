@@ -76,6 +76,8 @@
                                 <md-button class="md-icon-button md-list-action" @click.prevent.stop="confirmDeleteCharacter(char)">
                                     <md-icon class="md-warn">delete</md-icon>
                                 </md-button>
+
+                                <md-divider class="md-inset"></md-divider>
                             </md-list-item>
                         </md-list>
                     </md-card-content>
