@@ -9,7 +9,7 @@
             <spinner v-else :color="'#FF9800'"></spinner>
 		</span>
 		<div v-else>
-			<md-button class="settings" @click.native="goToSettings()">
+			<md-button class="settings" @click="goToSettings()">
 				<md-avatar>
 					<img :src="accountAvatar" alt="People">
 				</md-avatar>
