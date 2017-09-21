@@ -41,6 +41,7 @@
 	import LoginComponent from './login.vue';
 
     export default {
+        name: 'SiteHeader',
 		components: {
 			login: LoginComponent
 		},
