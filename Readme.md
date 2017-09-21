@@ -48,7 +48,7 @@ The systems I'm initially building/supporting:
         * [X] UI
     * [ ] FATE
         * [X] Data model
-        * [ ] UI
+        * [ ] UI (_Started_)
     * [ ] Edge of the Empire
         * [X] Data Model
         * [ ] UI
@@ -64,3 +64,16 @@ The systems I'm initially building/supporting:
     * [ ] Vampire the Masquerade
         * [ ] Data model
         * [ ] UI
+
+### Infrastructure Revamp
+
+I want to rework a lot of the infrastructure so that it's easier to add things to in the future. The basic idea is this:
+
+* Add a base model class that knows if it's dirty
+* Use RxJS to manage state; the current character becomes an observable
+* Move all resource access (like loading characters, systems, etc) into 'resource-access'
+* Move all state holding and application logic to 'managers'
+* Make components very, very dumb. They only have their own state, and logic relevant to their display.
+* Move to webpack.
+
+This should really set us up for more complex interactions and a much faster time to implementing Campaigns.
