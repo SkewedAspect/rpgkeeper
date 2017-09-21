@@ -6,7 +6,7 @@
     <md-card id="fate-consequences" style="flex: 1">
         <md-toolbar class="md-dense">
             <h2 style="flex: 1" class="md-title">Consequences</h2>
-            <md-button>Edit</md-button>
+            <md-button @click.native="openEdit()">Edit</md-button>
         </md-toolbar>
 
         <md-layout class="table-layout">
@@ -64,6 +64,19 @@
                 </table>
             </md-layout>
         </md-layout>
+
+        <!-- Edit Dialog -->
+        <md-dialog ref="editDialog">
+            <md-dialog-title>Edit Dialogs</md-dialog-title>
+            <md-dialog-content>
+                Nemo, nobis necessitatibus ut illo, ducimus ex.
+            </md-dialog-content>
+
+            <md-dialog-actions>
+                <md-button class="md-primary" @click.native="closeEdit()">Cancel</md-button>
+                <md-button class="md-accent" @click.native="closeEdit(true)">Save</md-button>
+            </md-dialog-actions>
+        </md-dialog>
     </md-card>
 </template>
 
@@ -170,6 +183,16 @@
                 {
                     return 'none';
                 } // end if
+            }
+        },
+        methods: {
+            openEdit()
+            {
+                this.$refs.editDialog.open();
+            },
+            closeEdit(save)
+            {
+                this.$refs.editDialog.close();
             }
         }
     }

@@ -58,7 +58,7 @@
 
                             <md-menu-content>
                                 <md-menu-item :class="{ 'md-accent': systemFilter == system.id }"
-                                              v-for="system in systems" @click.native="setSystemFilter(system.id)">
+                                              v-for="system in systems" @click="setSystemFilter(system.id)">
                                     {{ system.name }}
                                 </md-menu-item>
                             </md-menu-content>
@@ -67,7 +67,7 @@
 
                     <md-card-content v-flex="1">
                         <md-list class="md-triple-line">
-                            <md-list-item v-for="char in characters" @click.native="goTo(`/characters/${ char.id }`)">
+                            <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
                                 <md-avatar>
                                     <img :src="char.thumbnail">
                                 </md-avatar>
@@ -78,7 +78,7 @@
                                     <p>{{ char.description }}</p>
                                 </div>
 
-                                <md-button class="md-icon-button md-list-action" @click.native.prevent.stop="confirmDeleteCharacter(char)">
+                                <md-button class="md-icon-button md-list-action" @click.prevent.stop="confirmDeleteCharacter(char)">
                                     <md-icon class="md-warn">delete</md-icon>
                                 </md-button>
                             </md-list-item>
@@ -86,7 +86,7 @@
                     </md-card-content>
 
                     <md-card-actions>
-                        <md-button @click.native="openNewCharacter()">New Character</md-button>
+                        <md-button @click="openNewCharacter()">New Character</md-button>
                     </md-card-actions>
                 </md-card>
             </md-layout>
@@ -128,10 +128,10 @@
             </md-dialog-content>
 
             <md-dialog-actions>
-                <md-button class="md-primary" @click.native="closeNewCharacter()">Cancel</md-button>
+                <md-button class="md-primary" @click="closeNewCharacter()">Cancel</md-button>
                 <md-button class="md-primary"
                            :class="{ 'md-raised md-accent': newCharValid }"
-                           @click.native="closeNewCharacter(true)"
+                           @click="closeNewCharacter(true)"
                            :disabled="!newCharValid">
                     Save
                 </md-button>

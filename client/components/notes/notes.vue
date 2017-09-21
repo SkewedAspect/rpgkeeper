@@ -6,15 +6,15 @@
     <md-card id="notes">
         <md-toolbar>
             <h2 class="md-title" v-flex="1">Notes</h2>
-            <md-button @click.native.prevent.stop="openNewDialog()">New</md-button>
-            <md-button v-if="currentPageID" @click.native.prevent.stop="openEditDialog()">Edit</md-button>
+            <md-button @click.prevent.stop="openNewDialog()">New</md-button>
+            <md-button v-if="currentPageID" @click.prevent.stop="openEditDialog()">Edit</md-button>
         </md-toolbar>
         <md-card-content style="display: flex" v-if="currentPageID">
             <md-list v-flex="'0 1 300px'" id="note-tabs">
-                <md-list-item @click.native="loadPage(page)" v-for="page in notes" :class="{ 'md-accent': page.id == currentPage.id }">
+                <md-list-item @click="loadPage(page)" v-for="page in notes" :class="{ 'md-accent': page.id == currentPage.id }">
                     {{ page.title }}
                     <md-button v-if="!disabled" class="md-icon-button md-list-action md-warn"
-                               @click.native.prevent.stop="confirmDelete(page)">
+                               @click.prevent.stop="confirmDelete(page)">
                         <md-icon class="md-warn">delete</md-icon>
                     </md-button>
                 </md-list-item>
@@ -51,10 +51,10 @@
             </md-dialog-content>
 
             <md-dialog-actions>
-                <md-button class="md-primary" @click.native="closeNewDialog()">Cancel</md-button>
+                <md-button class="md-primary" @click="closeNewDialog()">Cancel</md-button>
                 <md-button class="md-primary"
                            :class="{ 'md-raised md-accent': newNoteValid }"
-                           @click.native="closeNewDialog(true)"
+                           @click="closeNewDialog(true)"
                            :disabled="!newNoteValid">
                     Save
                 </md-button>
@@ -79,10 +79,10 @@
             </md-dialog-content>
 
             <md-dialog-actions>
-                <md-button class="md-primary" @click.native="closeEditDialog()">Cancel</md-button>
+                <md-button class="md-primary" @click="closeEditDialog()">Cancel</md-button>
                 <md-button class="md-primary"
                            :class="{ 'md-raised md-accent': editNoteValid }"
-                           @click.native="closeEditDialog(true)"
+                           @click="closeEditDialog(true)"
                            :disabled="!editNoteValid">
                     Save
                 </md-button>

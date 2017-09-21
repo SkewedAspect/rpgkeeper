@@ -10,11 +10,11 @@
 		</h2>
 
 		<!-- Dashboard -->
-		<md-button v-if="!!account" class="md-icon-button hidden-sm-up" @click.native="goTo('/dashboard')">
+		<md-button v-if="!!account" class="md-icon-button hidden-sm-up" @click="goTo('/dashboard')">
 			<md-icon>dashboard</md-icon>
 		</md-button>
 
-		<md-button v-if="!!account" class="hidden-xs-down" @click.native="goTo('/dashboard')">
+		<md-button v-if="!!account" class="hidden-xs-down" @click="goTo('/dashboard')">
 			<md-icon>dashboard</md-icon>
             Dashboard
 		</md-button>
