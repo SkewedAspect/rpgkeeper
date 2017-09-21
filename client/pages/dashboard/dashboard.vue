@@ -48,21 +48,16 @@
 
                         <md-input-container md-inline v-flex="1">
                             <md-icon>search</md-icon>
-                            <md-input v-model="charFilter" placeholder="Search Characters"></md-input>
+                            <md-input v-flex="max" v-model="charFilter" placeholder="Search Characters"></md-input>
+                            <md-select v-flex="min" name="users" id="users" multiple v-model="systemsFilter" style="min-width: 48px">
+                                <md-button class="md-icon-button" md-menu-trigger slot="icon">
+                                    <md-icon>filter_list</md-icon>
+                                </md-button>
+
+                                <md-subheader>Only these systems:</md-subheader>
+                                <md-option :value="system.id" v-for="system in systems" :key="system.id">{{ system.name }}</md-option>
+                            </md-select>
                         </md-input-container>
-
-                        <md-menu md-direction="bottom left" md-size="7">
-                            <md-button class="md-icon-button" :class="{ 'md-accent': !!systemFilter }" md-menu-trigger>
-                                <md-icon>filter_list</md-icon>
-                            </md-button>
-
-                            <md-menu-content>
-                                <md-menu-item :class="{ 'md-accent': systemFilter == system.id }"
-                                              v-for="system in systems" @click="setSystemFilter(system.id)">
-                                    {{ system.name }}
-                                </md-menu-item>
-                            </md-menu-content>
-                        </md-menu>
                     </md-toolbar>
 
                     <md-card-content v-flex="1">
@@ -166,16 +161,6 @@
             margin-top: 8px;
             margin-bottom: 8px;
         }
-
-        .md-toolbar {
-            .md-input-container {
-                .md-icon {
-                    &:after {
-                        background-color: transparent;
-                    }
-                }
-            }
-        }
     }
 </style>
 
@@ -199,7 +184,7 @@
             return {
                 state: stateSvc.state,
                 charFilter: '',
-                systemFilter: undefined,
+                systemsFilter: [],
                 newChar: {
                     name: undefined,
                     system: '',
@@ -212,7 +197,7 @@
                     id: undefined,
                     name: undefined
                 },
-                characterList: []
+                characterList: [],
             };
         },
         computed: {
@@ -222,7 +207,8 @@
                 return _(this.characterList)
                     .filter((char) =>
                     {
-                        return !char.system.disabled && (!this.systemFilter || char.systemID == this.systemFilter);
+                        const systemValid = this.systemsFilter.length === 0 || _.includes(this.systemsFilter, char.systemID);
+                        return !char.system.disabled && systemValid;
                     })
                     .filter((char) =>
                     {
