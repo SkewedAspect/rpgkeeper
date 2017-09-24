@@ -39,6 +39,8 @@
 <style lang="scss" scoped>
     #fate-skills {
         table {
+            height: calc(100% - 48px);
+
             tr {
                 td:first-child {
                     width: 1%;

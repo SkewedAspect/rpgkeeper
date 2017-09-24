@@ -144,10 +144,15 @@
             #stress-layout,
             #aspects-layout {
                 display: flex;
-                flex: 1 1 0%;
+                flex: 0 1 auto;
                 width: auto;
                 min-width: 275px;
                 margin: 8px;
+
+                @media(max-width: 599px)
+                {
+                    flex: 1 1 auto;
+                }
             }
 
             #consequences-layout,
