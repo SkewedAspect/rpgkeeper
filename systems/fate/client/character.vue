@@ -85,7 +85,7 @@
             </md-layout>
             <md-layout md-gutter="16" style="margin-top: -8px">
                 <md-layout md-flex-small="100" style="min-width: 275px" md-flex="50">
-                    <extras :extras="character.extras"></extras>
+                    <extras v-model="character.extras"></extras>
                 </md-layout>
                 <md-layout md-flex-small="100" style="min-width: 275px" md-flex="50">
                     <stunts :stunts="character.stunts"></stunts>

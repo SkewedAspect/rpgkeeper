@@ -18,7 +18,9 @@
         <md-dialog ref="editDialog">
             <md-dialog-title>Edit Extras</md-dialog-title>
             <md-dialog-content>
-                Extras go here.
+                <div id="code-mirror-input">
+                    <vue-code v-model="extrasEdit" :options="codeMirror" ref="editCodeMirror"></vue-code>
+                </div>
             </md-dialog-content>
 
             <md-dialog-actions>
@@ -42,6 +44,39 @@
                 margin-bottom: 0;
             }
         }
+
+        #code-mirror-input {
+            border: 1px solid rgba(0, 0, 0, 0.17);
+
+            .CodeMirror {
+                height: 500px;
+            }
+
+            @media(min-width: 400px) {
+                width: 360px;
+                max-width: 100%;
+            }
+
+            @media(min-width: 600px) {
+                width: 560px;
+                max-width: 100%;
+            }
+
+            @media(min-width: 800px) {
+                width: 720px;
+                max-width: 100%;
+            }
+
+            @media(min-width: 1000px) {
+                width: 960px;
+                max-width: 100%;
+            }
+
+            @media(min-width: 1200px) {
+                width: 1140px;
+                max-width: 100%;
+            }
+        }
     }
 </style>
 
@@ -51,15 +86,26 @@
     //------------------------------------------------------------------------------------------------------------------
     
     import marked from 'marked';
-    
+
+    // Codemirror component
+    import VueCode from 'vue-code';
+    import 'codemirror/mode/markdown/markdown';
+
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        model: {
+            prop: 'extras',
+            event: 'change'
+        },
         props: {
             extras: {
                 type: String,
                 required: true
             }
+        },
+        components: {
+            VueCode
         },
         computed: {
             renderedContent()
@@ -70,6 +116,8 @@
         methods: {
             openEdit()
             {
+                this.extrasEdit = this.extras;
+
                 // Open the dialog
                 this.$refs.editDialog.open();
             },
@@ -77,12 +125,27 @@
             {
                 if(save)
                 {
-                    // Save here...
+                    console.log('saving:', this.extrasEdit);
+
+                    // Let v-model know we changed things
+                    this.$emit('change', this.extrasEdit);
                 } // end if
+
+                this.extrasEdit = this.extras;
 
                 // Close the dialog
                 this.$refs.editDialog.close();
             }
+        },
+        data()
+        {
+            return {
+                extrasEdit: "",
+                codeMirror: {
+                    lineWrapping: true,
+                    mode: 'markdown'
+                }
+            };
         }
     }
 </script>
