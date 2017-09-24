@@ -72,7 +72,7 @@
                 <md-layout>
                     <md-layout md-flex="75">
                         <md-input-container md-clearable>
-                            <label>2: Mild</label>
+                            <label>2 (Mild)</label>
                             <md-input v-model="mildConsequence1Edit.detail"></md-input>
                         </md-input-container>
                     </md-layout>
@@ -84,7 +84,7 @@
                     <md-layout md-flex="75">
                         <md-input-container md-clearable>
                             <label>
-                                2: Mild
+                                2 (Mild)
                                 <span v-if="extraMildType !== 'none'">({{ extraMildType }})</span>
                             </label>
                             <md-input v-model="mildConsequence2Edit.detail" :disabled="extraMildType === 'none'"></md-input>
@@ -97,7 +97,7 @@
                 <md-layout>
                     <md-layout md-flex="75">
                         <md-input-container md-clearable>
-                            <label>4: Moderate</label>
+                            <label>4 (Moderate)</label>
                             <md-input v-model="moderateConsequenceEdit.detail"></md-input>
                         </md-input-container>
                     </md-layout>
@@ -108,7 +108,7 @@
                 <md-layout>
                     <md-layout md-flex="75">
                         <md-input-container md-clearable>
-                            <label>6: Severe</label>
+                            <label>6 (Severe)</label>
                             <md-input v-model="severeConsequenceEdit.detail"></md-input>
                         </md-input-container>
                     </md-layout>
@@ -282,6 +282,7 @@
                 this.moderateConsequenceEdit = _.cloneDeep(this.moderateConsequence);
                 this.severeConsequenceEdit = _.cloneDeep(this.severeConsequence);
 
+                // Open the dialog
                 this.$refs.editDialog.open();
             },
             closeEdit(save)
