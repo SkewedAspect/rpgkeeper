@@ -125,8 +125,6 @@
             {
                 if(save)
                 {
-                    console.log('saving:', this.extrasEdit);
-
                     // Let v-model know we changed things
                     this.$emit('change', this.extrasEdit);
                 } // end if

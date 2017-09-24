@@ -111,7 +111,10 @@
             <md-dialog ref="editFatePointsDialog">
                 <md-dialog-title>Edit Fate Points</md-dialog-title>
                 <md-dialog-content>
-                    Fate Points go here.
+                    <md-input-container>
+                        <label>Refresh</label>
+                        <md-input type="number" v-model="fpEdit"></md-input>
+                    </md-input-container>
                 </md-dialog-content>
 
                 <md-dialog-actions>
@@ -241,6 +244,7 @@
         {
             return {
                 state: stateSvc.state,
+                fpEdit: undefined
             };
         },
         computed: {
@@ -254,6 +258,8 @@
             },
             openEditFatePoints()
             {
+                this.fpEdit = this.character.fatePoints.refresh;
+
                 // Open the dialog
                 this.$refs.editFatePointsDialog.open();
             },
@@ -261,8 +267,10 @@
             {
                 if(save)
                 {
-                    // Save here...
+                    this.character.fatePoints.refresh = this.fpEdit;
                 } // end if
+
+                this.fpEdit = this.character.fatePoints.refresh;
 
                 // Close the dialog
                 this.$refs.editFatePointsDialog.close();
