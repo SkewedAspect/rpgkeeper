@@ -39,7 +39,7 @@
                                     </div>
                                 </md-layout>
                                 <md-layout v-flex="shrink">
-                                    <md-button class="edit-btn md-icon-button md-dense">
+                                    <md-button class="edit-btn md-icon-button md-dense" @click="openEditFatePoints()">
                                         <md-icon>edit</md-icon>
                                     </md-button>
                                 </md-layout>
@@ -107,7 +107,18 @@
                 </md-card>
             </md-layout>
 
-            <!-- Dialogs -->
+            <!-- Edit Dialog -->
+            <md-dialog ref="editFatePointsDialog">
+                <md-dialog-title>Edit Fate Points</md-dialog-title>
+                <md-dialog-content>
+                    Fate Points go here.
+                </md-dialog-content>
+
+                <md-dialog-actions>
+                    <md-button class="md-primary" @click.native="closeEditFatePoints()">Cancel</md-button>
+                    <md-button class="md-accent" @click.native="closeEditFatePoints(true)">Save</md-button>
+                </md-dialog-actions>
+            </md-dialog>
 
         </character>
     </div>
@@ -240,6 +251,21 @@
             refreshFatePoints()
             {
                 this.character.fatePoints.current = Math.max(this.character.fatePoints.current, this.character.fatePoints.refresh);
+            },
+            openEditFatePoints()
+            {
+                // Open the dialog
+                this.$refs.editFatePointsDialog.open();
+            },
+            closeEditFatePoints(save)
+            {
+                if(save)
+                {
+                    // Save here...
+                } // end if
+
+                // Close the dialog
+                this.$refs.editFatePointsDialog.close();
             }
         }
     }
