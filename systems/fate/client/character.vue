@@ -144,7 +144,7 @@
             #stress-layout,
             #aspects-layout {
                 display: flex;
-                flex: 0 1 auto;
+                flex: 1 1 0%;
                 width: auto;
                 min-width: 275px;
                 margin: 8px;
