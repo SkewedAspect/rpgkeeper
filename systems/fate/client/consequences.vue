@@ -269,7 +269,7 @@
             removeAspect(aspect)
             {
                 const aspectIndex = _.findIndex(this.aspects, { id: aspect.id });
-                if(aspectIndex)
+                if(aspectIndex !== -1)
                 {
                     this.aspects.splice(aspectIndex, 1);
                 } // end if
