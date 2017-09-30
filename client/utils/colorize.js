@@ -7,6 +7,11 @@
 export default {
     colorize(str)
     {
+        if(!str)
+        {
+            return '#aaaaaa';
+        } // end if
+
         let hash = 0;
         for(let i = 0; i < str.length; i++)
         {
