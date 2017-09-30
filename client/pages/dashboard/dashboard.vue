@@ -131,19 +131,7 @@
                     </md-layout>
                 </md-layout>
                 <md-layout md-gutter="16">
-                    <md-layout id="thumbnail" v-flex="shrink">
-                        <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': newChar.color }">
-                            <img :src="newChar.thumbnail" :alt="(newChar.name || '?')[0].toUpperCase()">
-                        </md-avatar>
-                    </md-layout>
                     <md-layout v-flex="grow" md-gutter="16">
-                        <md-layout md-flex-xsmall="100" md-flex="50">
-                            <md-input-container>
-                                <md-icon>photo</md-icon>
-                                <label>Thumbnail</label>
-                                <md-input v-model="newChar.thumbnail"></md-input>
-                            </md-input-container>
-                        </md-layout>
                         <md-layout md-flex-xsmall="100" md-flex="50">
                             <md-input-container>
                                 <md-icon>palette</md-icon>
@@ -151,6 +139,18 @@
                                 <md-input type="color" v-model="newChar.color"></md-input>
                             </md-input-container>
                         </md-layout>
+                        <md-layout md-flex-xsmall="100" md-flex="50">
+                            <md-input-container>
+                                <md-icon>photo</md-icon>
+                                <label>Thumbnail</label>
+                                <md-input v-model="newChar.thumbnail"></md-input>
+                            </md-input-container>
+                        </md-layout>
+                    </md-layout>
+                    <md-layout id="thumbnail" v-flex="shrink">
+                        <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': newChar.color }">
+                            <img :src="newChar.thumbnail" :alt="(newChar.name || '?')[0].toUpperCase()">
+                        </md-avatar>
                     </md-layout>
                 </md-layout>
                 <md-input-container>
