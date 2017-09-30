@@ -90,7 +90,7 @@
         </md-layout>
 
         <!-- Modals -->
-        <md-dialog id="new-character-modal"  ref="newCharModal">
+        <md-dialog id="new-character-modal" ref="newCharModal">
             <md-dialog-title>New Character</md-dialog-title>
 
             <md-dialog-content>
