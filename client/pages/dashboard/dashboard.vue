@@ -114,10 +114,19 @@
                     <label>Biography</label>
                     <md-textarea v-model="newChar.biography"></md-textarea>
                 </md-input-container>
-                <md-input-container v-flex="grow">
-                    <label>Thumbnail</label>
-                    <md-input v-model="newChar.thumbnail"></md-input>
-                </md-input-container>
+                <md-layout md-gutter="16">
+                    <md-layout v-flex="shrink">
+                        <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': colorize(newChar.id) }">
+                            <img :src="newChar.thumbnail" :alt="(newChar.name || '?')[0].toUpperCase()">
+                        </md-avatar>
+                    </md-layout>
+                    <md-layout v-flex="grow">
+                        <md-input-container>
+                            <label>Thumbnail</label>
+                            <md-input v-model="newChar.thumbnail"></md-input>
+                        </md-input-container>
+                    </md-layout>
+                </md-layout>
                 <md-input-container>
                     <label>Portrait</label>
                     <md-input v-model="newChar.portrait"></md-input>
@@ -176,6 +185,7 @@
 
     // Utils
     import colorize from '../../utils/colorize';
+    import utilities from '../../../server/utilities';
 
     // Services
     import stateSvc from '../../services/state';
@@ -193,6 +203,7 @@
                 charFilter: '',
                 systemsFilter: [],
                 newChar: {
+                    id: utilities.shortID(),
                     name: undefined,
                     system: '',
                     description: '',
@@ -252,6 +263,7 @@
             openNewCharacter()
             {
                 this.clearNewCharacter();
+                this.newChar.id = utilities.shortID();
                 this.$refs.newCharModal.open();
             },
             closeNewCharacter(save)
