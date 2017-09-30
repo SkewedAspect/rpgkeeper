@@ -4,7 +4,7 @@
 
 <template>
     <md-card id="portrait">
-        <md-image :md-src="src"></md-image>
+        <md-image :md-src="url"></md-image>
     </md-card>
 </template>
 
@@ -31,6 +31,11 @@
         .md-image {
             margin: 4px;
         }
+
+        &.small {
+            min-width: 100px;
+            width: 80px;
+        }
     }
 </style>
 
@@ -45,6 +50,9 @@
                 type: String,
                 default: "http://placehold.it/800x1200"
             }
+        },
+        computed: {
+            url(){ return this.src || "http://placehold.it/800x1200"; }
         }
     }
 </script>
