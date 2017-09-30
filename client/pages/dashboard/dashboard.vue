@@ -63,8 +63,8 @@
                     <md-card-content v-flex="1">
                         <md-list class="md-triple-line">
                             <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
-                                <md-avatar>
-                                    <img :src="char.thumbnail">
+                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': colorize(char.id) }">
+                                    <img :src="char.thumbnail" :alt="char.name[0].toUpperCase()">
                                 </md-avatar>
 
                                 <div class="md-list-text-container">
@@ -174,6 +174,10 @@
     import _ from 'lodash';
     import Promise from 'bluebird';
 
+    // Utils
+    import colorize from '../../utils/colorize';
+
+    // Services
     import stateSvc from '../../services/state';
     import systemSvc from '../../services/system';
     import charSvc from '../../services/character';
@@ -204,7 +208,7 @@
             };
         },
         computed: {
-            systems(){ return _.filter(this.state.systems, (sys) => sys.disabled != true); },
+            systems(){ return _.filter(this.state.systems, (sys) => sys.disabled !== true); },
             characters()
             {
                 return _(this.characterList)
@@ -229,16 +233,9 @@
             {
                 this.$router.push(path);
             },
-            setSystemFilter(systemID)
+            colorize(text)
             {
-                if(this.systemFilter != systemID)
-                {
-                    this.systemFilter = systemID;
-                }
-                else
-                {
-                    this.systemFilter = undefined;
-                } // end if
+                return colorize.colorize(text);
             },
 
             clearNewCharacter()
