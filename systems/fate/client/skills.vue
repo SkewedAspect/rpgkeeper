@@ -82,7 +82,15 @@
             }
         },
         computed: {
-            average(){ return _.filter(this.skills, { rank: 1 }) },
+            average()
+            {
+                const skills = _.filter(this.skills, { rank: 1 });
+
+                // Ensure that we have a minimum length of 5, for display reasons
+                skills.length = Math.max(5, skills.length);
+
+                return skills;
+            },
             fair(){ return _.filter(this.skills, { rank: 2 }) },
             good(){ return _.filter(this.skills, { rank: 3 }) },
             great(){ return _.filter(this.skills, { rank: 4 }) },
