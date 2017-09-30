@@ -63,7 +63,7 @@
                     <md-card-content v-flex="1">
                         <md-list class="md-triple-line">
                             <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
-                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': colorize(char.id) }">
+                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.color }">
                                     <img :src="char.thumbnail" :alt="char.name[0].toUpperCase()">
                                 </md-avatar>
 
@@ -94,42 +94,74 @@
             <md-dialog-title>New Character</md-dialog-title>
 
             <md-dialog-content>
-                <md-input-container :class="{ 'md-input-invalid': !newChar.name }">
-                    <label>Name</label>
-                    <md-input v-model="newChar.name" required></md-input>
-                    <span class="md-error">Name is required</span>
-                </md-input-container>
-                <md-input-container  :class="{ 'md-input-invalid': !newChar.system }">
-                    <label>System</label>
-                    <md-select name="system" id="system" v-model="newChar.system" required>
-                        <md-option :value="system.id" v-for="system in systems">{{ system.name }}</md-option>
-                    </md-select>
-                    <span class="md-error">System is required</span>
-                </md-input-container>
+                <md-layout v-flex="grow" md-gutter="16">
+                    <md-layout md-flex-xsmall="100" md-flex-medium="50">
+                        <md-input-container :class="{ 'md-input-invalid': !newChar.name }">
+                            <md-icon>web</md-icon>
+                            <label>Name</label>
+                            <md-input v-model="newChar.name" required></md-input>
+                            <span class="md-error">Name is required</span>
+                        </md-input-container>
+                        <md-input-container  :class="{ 'md-input-invalid': !newChar.system }">
+                            <label>System</label>
+                            <md-select name="system" id="system" v-model="newChar.system" required>
+                                <md-option :value="system.id" v-for="system in systems">{{ system.name }}</md-option>
+                            </md-select>
+                            <span class="md-error">System is required</span>
+                        </md-input-container>
+                    </md-layout>
+                    <md-layout md-flex-xsmall="100" md-flex-medium="50">
+                        <md-layout md-gutter="16">
+                            <md-layout v-flex="grow" md-column>
+                                <md-layout v-flex="grow">
+
+                                </md-layout>
+                                <md-layout v-flex="shrink">
+                                    <md-input-container>
+                                        <md-icon>photo</md-icon>
+                                        <label>Portrait</label>
+                                        <md-input v-model="newChar.portrait"></md-input>
+                                    </md-input-container>
+                                </md-layout>
+                            </md-layout>
+                            <md-layout v-flex="shrink">
+                                <portrait class="small" :src="newChar.portrait"></portrait>
+                            </md-layout>
+                        </md-layout>
+                    </md-layout>
+                </md-layout>
+                <md-layout md-gutter="16">
+                    <md-layout id="thumbnail" v-flex="shrink">
+                        <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': newChar.color }">
+                            <img :src="newChar.thumbnail" :alt="(newChar.name || '?')[0].toUpperCase()">
+                        </md-avatar>
+                    </md-layout>
+                    <md-layout v-flex="grow" md-gutter="16">
+                        <md-layout md-flex-xsmall="100" md-flex="50">
+                            <md-input-container>
+                                <md-icon>photo</md-icon>
+                                <label>Thumbnail</label>
+                                <md-input v-model="newChar.thumbnail"></md-input>
+                            </md-input-container>
+                        </md-layout>
+                        <md-layout md-flex-xsmall="100" md-flex="50">
+                            <md-input-container>
+                                <md-icon>palette</md-icon>
+                                <label>Color</label>
+                                <md-input type="color" v-model="newChar.color"></md-input>
+                            </md-input-container>
+                        </md-layout>
+                    </md-layout>
+                </md-layout>
                 <md-input-container>
+                    <md-icon>description</md-icon>
                     <label>Description</label>
                     <md-input v-model="newChar.description"></md-input>
                 </md-input-container>
                 <md-input-container>
+                    <md-icon>subject</md-icon>
                     <label>Biography</label>
                     <md-textarea v-model="newChar.biography"></md-textarea>
-                </md-input-container>
-                <md-layout md-gutter="16">
-                    <md-layout v-flex="shrink">
-                        <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': colorize(newChar.id) }">
-                            <img :src="newChar.thumbnail" :alt="(newChar.name || '?')[0].toUpperCase()">
-                        </md-avatar>
-                    </md-layout>
-                    <md-layout v-flex="grow">
-                        <md-input-container>
-                            <label>Thumbnail</label>
-                            <md-input v-model="newChar.thumbnail"></md-input>
-                        </md-input-container>
-                    </md-layout>
-                </md-layout>
-                <md-input-container>
-                    <label>Portrait</label>
-                    <md-input v-model="newChar.portrait"></md-input>
                 </md-input-container>
             </md-dialog-content>
 
@@ -161,7 +193,15 @@
 <style lang="scss">
     #new-character-modal {
         .md-dialog {
-            min-width: 60%;
+            min-width: 80%;
+        }
+
+        #thumbnail,
+        #portrait {
+            @media(max-width: 600px)
+            {
+                display: none;
+            }
         }
     }
 
@@ -184,18 +224,23 @@
     import Promise from 'bluebird';
 
     // Utils
-    import colorize from '../../utils/colorize';
     import utilities from '../../../server/utilities';
 
     // Services
     import stateSvc from '../../services/state';
     import systemSvc from '../../services/system';
     import charSvc from '../../services/character';
+
+    // Components
+    import Portrait from '../../components/portrait.vue';
     
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'DashboardPage',
+        components: {
+            Portrait
+        },
         data()
         {
             return {
@@ -203,12 +248,12 @@
                 charFilter: '',
                 systemsFilter: [],
                 newChar: {
-                    id: utilities.shortID(),
                     name: undefined,
                     system: '',
                     description: '',
                     portrait: '',
                     thumbnail: '',
+                    color: '#aaaaaa',
                     biography: ''
                 },
                 delChar: {
@@ -244,10 +289,6 @@
             {
                 this.$router.push(path);
             },
-            colorize(text)
-            {
-                return colorize.colorize(text);
-            },
 
             clearNewCharacter()
             {
@@ -263,7 +304,7 @@
             openNewCharacter()
             {
                 this.clearNewCharacter();
-                this.newChar.id = utilities.shortID();
+                this.newChar.color = utilities.colorize(utilities.shortID());
                 this.$refs.newCharModal.open();
             },
             closeNewCharacter(save)
@@ -299,7 +340,7 @@
             {
                 let delPromise = Promise.resolve();
 
-                if(result == 'ok')
+                if(result === 'ok')
                 {
                     delPromise = charSvc.delete(this.delChar.id)
                         .then(() =>

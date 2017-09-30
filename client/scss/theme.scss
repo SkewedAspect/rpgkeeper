@@ -127,6 +127,23 @@ table.md-static-table
             font-size: 32px;
         }
     }
+
+    &.md-xlarge {
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        min-height: 80px;
+        border-radius: 80px;
+
+        img,
+        .md-avatar-text {
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 40px;
+        }
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------

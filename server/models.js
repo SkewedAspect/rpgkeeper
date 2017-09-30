@@ -6,7 +6,7 @@
 
 const connect = require('thinky');
 
-const { shortID } = require('./utilities');
+const { shortID, colorize } = require('./utilities');
 const config = require('../config');
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -44,6 +44,7 @@ db.BaseCharacter = thinky.createModel('base_characters', {
     description: type.string().default(''),
     portrait: type.string(),
     thumbnail: type.string().default(''),
+    color: type.string().default(function(){ return colorize(this.id); }),
     biography: type.string().default(''),
     notes: type.array().schema({
             id: type.string().default(shortID),
