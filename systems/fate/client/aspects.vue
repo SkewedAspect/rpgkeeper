@@ -43,6 +43,13 @@
 
 <style lang="scss">
     #fate-aspects {
+        table {
+            tr:last-child {
+                td {
+                    border-bottom-width: 1px;
+                }
+            }
+        }
     }
 </style>
 
@@ -63,8 +70,8 @@
             }
         },
         computed: {
-            highConcept(){ return _.find(this.aspects, { type: 'high concept' }); },
-            trouble(){ return _.find(this.aspects, { type: 'trouble' }); },
+            highConcept(){ return _.find(this.aspects, { type: 'high concept' }) || { detail: '' }; },
+            trouble(){ return _.find(this.aspects, { type: 'trouble' }) || { detail: '' }; },
             extraAspects(){ return _.filter(this.aspects, { type: 'aspect' }); }
         },
         methods: {
