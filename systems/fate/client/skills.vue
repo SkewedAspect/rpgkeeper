@@ -33,10 +33,26 @@
         </table>
 
         <!-- Edit Dialog -->
-        <md-dialog ref="editDialog">
+        <md-dialog id="fate-edit-skills" ref="editDialog">
             <md-dialog-title>Edit Skills</md-dialog-title>
             <md-dialog-content>
-                Skills go here.
+                <p>To remove a skill, simply set it's rank to <code>0</code>, and then save.</p>
+                <md-layout md-gutter="16">
+                    <md-layout md-flex="50" v-for="skill in skillsEdit" :key="skill.id">
+                        <md-layout md-flex="75">
+                            <md-input-container>
+                                <label>Name</label>
+                                <md-input v-model="skill.name"></md-input>
+                            </md-input-container>
+                        </md-layout>
+                        <md-layout md-flex="25">
+                            <md-input-container>
+                                <label>Ranks</label>
+                                <md-input type="number" v-model="skill.rank"></md-input>
+                            </md-input-container>
+                        </md-layout>
+                    </md-layout>
+                </md-layout>
             </md-dialog-content>
 
             <md-dialog-actions>
@@ -49,7 +65,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
+<style lang="scss">
     #fate-skills {
         table {
             height: calc(100% - 48px);
@@ -62,6 +78,10 @@
                 }
             }
         }
+    }
+
+    #fate-edit-skills .md-dialog {
+        min-width: 80%;
     }
 </style>
 
@@ -104,8 +124,31 @@
             {
                 return _.get(this, `${ list }[${ idx }].name`, '');
             },
+            addOrUpdateSkill(skill)
+            {
+                if(skill.id)
+                {
+                    const originalSkill = _.find(this.skills, { id: skill.id });
+                    originalSkill.name = skill.name;
+                    originalSkill.rank = skill.rank;
+                }
+                else
+                {
+                    this.skills.push({ id: shortID(), name: skill.name, rank: skill.rank });
+                } // end if
+            },
+            removeSkill(skill)
+            {
+                const skillIndex = _.findIndex(this.skills, { id: skill.id });
+                if(skillIndex !== -1)
+                {
+                    this.skills.splice(skillIndex, 1);
+                } // end if
+            },
             openEdit()
             {
+                this.skillsEdit = _.cloneDeep(this.skills);
+
                 // Open the dialog
                 this.$refs.editDialog.open();
             },
@@ -113,8 +156,20 @@
             {
                 if(save)
                 {
-                    // Save here...
+                    _.each(this.skillsEdit, (skill) =>
+                    {
+                        if(skill.rank > 0)
+                        {
+                            this.addOrUpdateSkill(skill);
+                        }
+                        else if(skill.id)
+                        {
+                            this.removeSkill(skill);
+                        } // end if
+                    });
                 } // end if
+
+                this.skillsEdit = _.cloneDeep(this.skills);
 
                 // Close the dialog
                 this.$refs.editDialog.close();
@@ -123,7 +178,7 @@
         data()
         {
             return {
-                // Data goes here
+                skillsEdit: []
             };
         }
     }
