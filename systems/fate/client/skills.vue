@@ -53,6 +53,33 @@
                         </md-layout>
                     </md-layout>
                 </md-layout>
+                <md-card v-flex="1" style="margin-top: 10px;">
+                    <md-card-content>
+                        <md-layout md-gutter="8">
+                            <md-layout>
+                                <md-layout md-flex="75">
+                                    <md-input-container>
+                                        <label>Name</label>
+                                        <md-input v-model="newSkill.name"></md-input>
+                                    </md-input-container>
+                                </md-layout>
+                                <md-layout md-flex="25">
+                                    <md-input-container>
+                                        <label>Ranks</label>
+                                        <md-input type="number" v-model="newSkill.rank"></md-input>
+                                    </md-input-container>
+                                </md-layout>
+                            </md-layout>
+                            <md-layout v-flex="shrink">
+                                <div style="padding-top: 10px;">
+                                    <md-button class="md-raised" @click="addNew()" :disabled="!newSkill.name || (newSkill.rank <= 0)">
+                                        Add
+                                    </md-button>
+                                </div>
+                            </md-layout>
+                        </md-layout>
+                    </md-card-content>
+                </md-card>
             </md-dialog-content>
 
             <md-dialog-actions>
@@ -91,7 +118,10 @@
     //------------------------------------------------------------------------------------------------------------------
     
     import _ from 'lodash';
-    
+
+    // Pull in the shortID utility
+    import { shortID } from '../../../server/utilities';
+
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
@@ -124,6 +154,12 @@
             {
                 return _.get(this, `${ list }[${ idx }].name`, '');
             },
+            addNew()
+            {
+                this.skillsEdit.push(_.cloneDeep(this.newSkill));
+                this.newSkill.name = '';
+                this.newSkill.rank = 0;
+            },
             addOrUpdateSkill(skill)
             {
                 if(skill.id)
@@ -148,6 +184,8 @@
             openEdit()
             {
                 this.skillsEdit = _.cloneDeep(this.skills);
+                this.newSkill.name = '';
+                this.newSkill.rank = 0;
 
                 // Open the dialog
                 this.$refs.editDialog.open();
@@ -170,6 +208,8 @@
                 } // end if
 
                 this.skillsEdit = _.cloneDeep(this.skills);
+                this.newSkill.name = '';
+                this.newSkill.rank = 0;
 
                 // Close the dialog
                 this.$refs.editDialog.close();
@@ -178,7 +218,11 @@
         data()
         {
             return {
-                skillsEdit: []
+                skillsEdit: [],
+                newSkill: {
+                    name: '',
+                    rank: 0
+                }
             };
         }
     }

@@ -69,6 +69,7 @@ The systems I'm initially building/supporting:
 
 I want to rework a lot of the infrastructure so that it's easier to add things to in the future. The basic idea is this:
 
+* Switch to Vuetify (I don't like it's API as much but it's worlds faster, with better components.)
 * Add a base model class that knows if it's dirty
 * Use RxJS to manage state; the current character becomes an observable
 * Move all resource access (like loading characters, systems, etc) into 'resource-access'
