@@ -73,6 +73,9 @@
                                     <p>{{ char.description }}</p>
                                 </div>
 
+                                <md-button class="md-icon-button md-list-action" @click.prevent.stop="editCharacter(char)">
+                                    <md-icon>edit</md-icon>
+                                </md-button>
                                 <md-button class="md-icon-button md-list-action" @click.prevent.stop="confirmDeleteCharacter(char)">
                                     <md-icon class="md-warn">delete</md-icon>
                                 </md-button>
@@ -176,6 +179,92 @@
             </md-dialog-actions>
         </md-dialog>
 
+        <md-dialog id="edit-character-modal" ref="editCharModal">
+            <md-dialog-title>Edit Character</md-dialog-title>
+
+            <md-dialog-content>
+                <md-layout v-flex="grow" md-gutter="16">
+                    <md-layout md-flex-xsmall="100" md-flex-medium="50">
+                        <md-input-container :class="{ 'md-input-invalid': !editChar.name }">
+                            <md-icon>web</md-icon>
+                            <label>Name</label>
+                            <md-input v-model="editChar.name" required></md-input>
+                            <span class="md-error">Name is required</span>
+                        </md-input-container>
+                        <md-input-container  :class="{ 'md-input-invalid': !editChar.system }">
+                            <label>System</label>
+                            <md-select name="system" id="system" v-model="editChar.system" required>
+                                <md-option :value="system.id" v-for="system in systems" disabled>{{ system.name }}</md-option>
+                            </md-select>
+                            <span class="md-error">System is required</span>
+                        </md-input-container>
+                    </md-layout>
+                    <md-layout md-flex-xsmall="100" md-flex-medium="50">
+                        <md-layout md-gutter="16">
+                            <md-layout v-flex="grow" md-column>
+                                <md-layout v-flex="grow">
+
+                                </md-layout>
+                                <md-layout v-flex="shrink">
+                                    <md-input-container>
+                                        <md-icon>photo</md-icon>
+                                        <label>Portrait</label>
+                                        <md-input v-model="editChar.portrait"></md-input>
+                                    </md-input-container>
+                                </md-layout>
+                            </md-layout>
+                            <md-layout v-flex="shrink">
+                                <portrait class="small" :src="editChar.portrait"></portrait>
+                            </md-layout>
+                        </md-layout>
+                    </md-layout>
+                </md-layout>
+                <md-layout md-gutter="16">
+                    <md-layout v-flex="grow" md-gutter="16">
+                        <md-layout md-flex-xsmall="100" md-flex="50">
+                            <md-input-container>
+                                <md-icon>palette</md-icon>
+                                <label>Color</label>
+                                <md-input type="color" v-model="editChar.color"></md-input>
+                            </md-input-container>
+                        </md-layout>
+                        <md-layout md-flex-xsmall="100" md-flex="50">
+                            <md-input-container>
+                                <md-icon>photo</md-icon>
+                                <label>Thumbnail</label>
+                                <md-input v-model="editChar.thumbnail"></md-input>
+                            </md-input-container>
+                        </md-layout>
+                    </md-layout>
+                    <md-layout id="thumbnail" v-flex="shrink">
+                        <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': editChar.color }">
+                            <img :src="editChar.thumbnail" :alt="(editChar.name || '?')[0].toUpperCase()">
+                        </md-avatar>
+                    </md-layout>
+                </md-layout>
+                <md-input-container>
+                    <md-icon>description</md-icon>
+                    <label>Description</label>
+                    <md-input v-model="editChar.description"></md-input>
+                </md-input-container>
+                <md-input-container>
+                    <md-icon>subject</md-icon>
+                    <label>Biography</label>
+                    <md-textarea v-model="editChar.biography"></md-textarea>
+                </md-input-container>
+            </md-dialog-content>
+
+            <md-dialog-actions>
+                <md-button class="md-primary" @click="closeEditCharacter()">Cancel</md-button>
+                <md-button class="md-primary"
+                           :class="{ 'md-raised md-accent': editCharValid }"
+                           @click="closeEditCharacter(true)"
+                           :disabled="!editCharValid">
+                    Save
+                </md-button>
+            </md-dialog-actions>
+        </md-dialog>
+
         <!-- Delete Character confirmation -->
         <md-dialog-confirm
             md-title="Delete Character"
@@ -191,6 +280,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
+    #edit-character-modal,
     #new-character-modal {
         .md-dialog {
             min-width: 80%;
@@ -247,6 +337,15 @@
                 state: stateSvc.state,
                 charFilter: '',
                 systemsFilter: [],
+                editChar: {
+                    name: undefined,
+                    system: '',
+                    description: '',
+                    portrait: '',
+                    thumbnail: '',
+                    color: '#aaaaaa',
+                    biography: ''
+                },
                 newChar: {
                     name: undefined,
                     system: '',
@@ -279,10 +378,8 @@
                     })
                     .value();
             },
-            newCharValid()
-            {
-                return !!this.newChar.name && !!this.newChar.system;
-            }
+            newCharValid(){ return !!this.newChar.name && !!this.newChar.system; },
+            editCharValid(){ return !!this.editChar.name && !!this.editChar.system; }
         },
         methods: {
             goTo(path)
@@ -320,6 +417,41 @@
                         this.goTo(`/characters/${ char.id }`);
                     } // end if
                 });
+            },
+            editCharacter(char)
+            {
+                _.assign(this.editChar, {
+                    id: char.id,
+                    name: char.name,
+                    system: char.system.id,
+                    description: char.description,
+                    color: char.color,
+                    portrait: char.portrait,
+                    thumbnail: char.thumbnail,
+                    biography: char.biography
+                });
+
+                this.$refs.editCharModal.open();
+            },
+            closeEditCharacter(save)
+            {
+                if(save)
+                {
+                    const char = _.find(this.characters, { id: this.editChar.id });
+
+                    _.assign(char, {
+                        name: this.editChar.name,
+                        description: this.editChar.description,
+                        color: this.editChar.color,
+                        portrait: this.editChar.portrait,
+                        thumbnail: this.editChar.thumbnail,
+                        biography: this.editChar.biography
+                    });
+
+                    char.$save();
+                } // end if
+
+                this.$refs.editCharModal.close();
             },
 
             clearDelCharacter()
