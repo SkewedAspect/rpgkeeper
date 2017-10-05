@@ -48,31 +48,7 @@
                     </md-card>
                 </md-layout>
                 <md-layout md-flex-xsmall="100" style="min-width: 275px">
-                    <md-card style="flex: 1">
-                        <md-toolbar class="md-dense">
-                            <h2 class="md-title">Rolls</h2>
-                        </md-toolbar>
-                        <md-card-content style="flex: 1; padding-bottom: 0">
-                            <md-input-container md-inline style="margin-bottom: 10px;">
-                                <md-select name="skills" id="skills" placeholder="Pick a skill to roll..." v-model="skills">
-                                    <md-option value="empathy">Empathy</md-option>
-                                </md-select>
-
-                            </md-input-container>
-                            <md-list class="md-double-line md-dense roll-list">
-                                <md-list-item v-for="item in rolls">
-                                    <div class="md-list-text-container">
-                                        <span>{{ item.display }}</span>
-                                        <span>{{ item.name }}</span>
-                                    </div>
-                                </md-list-item>
-                            </md-list>
-                        </md-card-content>
-                        <md-card-actions>
-                            <md-button @click.native="roll()">Roll</md-button>
-                            <md-button @click.native="clearRolls()">Clear</md-button>
-                        </md-card-actions>
-                    </md-card>
+                    <rolls :skills="character.skills"></rolls>
                 </md-layout>
             </md-layout>
             <md-layout id="aspects-skills-layout" md-gutter="16">
@@ -212,6 +188,7 @@
     import diceSvc from '../../../client/services/dice';
 
     // Components
+    import RollsComponent from './rolls.vue';
     import AspectsComponent from './aspects.vue';
     import SkillsComponent from './skills.vue';
     import ExtrasComponent from './extras.vue';
@@ -225,6 +202,7 @@
 
     export default {
         components: {
+            rolls: RollsComponent,
             character: CharComponent,
             portrait: PortraitComponent,
             aspects: AspectsComponent,
