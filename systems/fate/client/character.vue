@@ -75,13 +75,6 @@
                     <consequences :character="character"></consequences>
                 </div>
             </md-layout>
-            <md-layout md-flex-xsmall="100" style="min-width: 275px">
-                <md-card style="flex: 1">
-                    <md-card-content style="flex: 1">
-                        <pre>{{ JSON.stringify(character.$system, null, 4) }}</pre>
-                    </md-card-content>
-                </md-card>
-            </md-layout>
 
             <!-- Edit Dialog -->
             <md-dialog ref="editFatePointsDialog">
