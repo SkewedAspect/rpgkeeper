@@ -72,7 +72,6 @@ class CharacterService
 
     create(charDef)
     {
-        console.log('charDef:', charDef);
         return $http.post('/characters', charDef)
             .get('data')
             .then((baseState) =>

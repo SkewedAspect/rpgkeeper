@@ -345,7 +345,11 @@
                     delPromise = charSvc.delete(this.delChar.id)
                         .then(() =>
                         {
-                            _.remove(this.characterList, { id: this.delChar.id });
+                            const idx = _.findIndex(this.characterList, { id: this.delChar.id });
+                            if(idx !== -1)
+                            {
+                                this.characterList.splice(idx, 1);
+                            } // end if
                         });
                 } // end if
 
