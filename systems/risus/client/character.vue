@@ -49,7 +49,7 @@
                             <h2 class="md-title">Rolls</h2>
                         </md-toolbar>
                         <md-card-content style="flex: 1; padding-bottom: 0">
-                            <md-input-container style="margin-bottom: 10px;">
+                            <md-input-container style="margin-bottom: 10px;" :disabled="!isAuthorized">
                                 <label>Dice</label>
                                 <md-input type="number" min="0" v-model="dice"></md-input>
                                 <span style="margin-left: 10px; padding-top: 4px">D6</span>
@@ -64,8 +64,8 @@
                             </md-list>
                         </md-card-content>
                         <md-card-actions>
-                            <md-button @click.native="roll()">Roll</md-button>
-                            <md-button @click.native="clearRolls()">Clear</md-button>
+                            <md-button @click.native="roll()" :disabled="!isAuthorized">Roll</md-button>
+                            <md-button @click.native="clearRolls()" :disabled="!isAuthorized">Clear</md-button>
                         </md-card-actions>
                     </md-card>
                 </md-layout>

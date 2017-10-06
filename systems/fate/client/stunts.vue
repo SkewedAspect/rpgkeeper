@@ -6,7 +6,7 @@
     <md-card id="fate-stunts" style="flex: 1">
         <md-toolbar class="md-dense">
             <h2 style="flex: 1" class="md-title">Stunts</h2>
-            <md-button @click="openEdit()">Edit</md-button>
+            <md-button v-if="isAuthorized" @click="openEdit()">Edit</md-button>
         </md-toolbar>
 
         <md-card-content v-if="stunts">
@@ -128,6 +128,10 @@
             stunts: {
                 type: Array,
                 required: true
+            },
+            isAuthorized: {
+                type: Boolean,
+                default: false
             }
         },
         methods: {

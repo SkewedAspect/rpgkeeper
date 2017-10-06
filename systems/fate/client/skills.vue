@@ -6,7 +6,7 @@
     <md-card id="fate-skills" style="flex: 1">
         <md-toolbar class="md-dense">
             <h2 style="flex: 1" class="md-title">Skills</h2>
-            <md-button @click="openEdit()">Edit</md-button>
+            <md-button v-if="isAuthorized" @click="openEdit()">Edit</md-button>
         </md-toolbar>
 
         <table class="md-static-table">
@@ -129,6 +129,10 @@
             skills: {
                 type: Array,
                 required: true
+            },
+            isAuthorized: {
+                type: Boolean,
+                default: false
             }
         },
         computed: {

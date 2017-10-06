@@ -9,7 +9,7 @@
         </md-toolbar>
         <md-card-content style="flex: 1; padding-bottom: 0">
             <md-input-container md-inline style="margin-bottom: 10px;">
-                <md-select name="skills" id="skills" v-model="skillID">
+                <md-select name="skills" id="skills" v-model="skillID" :disabled="!isAuthorized">
                     <md-option value="noskill">No Skill</md-option>
                     <md-option :value="skill.id" v-for="skill in sortedSkills" :key="skill.id">{{ skill.name }} (+{{ skill.rank }})</md-option>
                 </md-select>
@@ -25,8 +25,8 @@
             </md-list>
         </md-card-content>
         <md-card-actions>
-            <md-button @click.native="roll()">Roll</md-button>
-            <md-button @click.native="clearRolls()">Clear</md-button>
+            <md-button @click.native="roll()" :disabled="!isAuthorized">Roll</md-button>
+            <md-button @click.native="clearRolls()" :disabled="!isAuthorized">Clear</md-button>
         </md-card-actions>
     </md-card>
 </template>
@@ -63,6 +63,10 @@
             skills: {
                 type: Array,
                 required: true
+            },
+            isAuthorized: {
+                type: Boolean,
+                default: false
             }
         },
         computed: {

@@ -35,11 +35,11 @@
                                 </md-layout>
                                 <md-layout v-flex="shrink">
                                     <div>
-                                        <md-button class="refresh-btn md-raised" @click.native="refreshFatePoints">Refresh</md-button>
+                                        <md-button class="refresh-btn md-raised" @click.native="refreshFatePoints" :disabled="!isAuthorized">Refresh</md-button>
                                     </div>
                                 </md-layout>
                                 <md-layout v-flex="shrink">
-                                    <md-button class="edit-btn md-icon-button md-dense" @click="openEditFatePoints()">
+                                    <md-button class="edit-btn md-icon-button md-dense" @click="openEditFatePoints()" :disabled="!isAuthorized">
                                         <md-icon>edit</md-icon>
                                     </md-button>
                                 </md-layout>
@@ -48,31 +48,31 @@
                     </md-card>
                 </md-layout>
                 <md-layout md-flex-xsmall="100" style="min-width: 275px">
-                    <rolls :skills="character.skills"></rolls>
+                    <rolls :skills="character.skills" :is-authorized="isAuthorized"></rolls>
                 </md-layout>
             </md-layout>
             <md-layout id="aspects-skills-layout" md-gutter="16">
                 <div id="aspects-layout">
-                    <aspects :aspects="character.aspects"></aspects>
+                    <aspects :aspects="character.aspects" :is-authorized="isAuthorized"></aspects>
                 </div>
                 <div id="skills-layout">
-                    <skills :skills="character.skills"></skills>
+                    <skills :skills="character.skills" :is-authorized="isAuthorized"></skills>
                 </div>
             </md-layout>
             <md-layout md-gutter="16" style="margin-top: -8px">
                 <md-layout md-flex-small="100" style="min-width: 275px" md-flex="50">
-                    <extras v-model="character.extras"></extras>
+                    <extras v-model="character.extras" :is-authorized="isAuthorized"></extras>
                 </md-layout>
                 <md-layout md-flex-small="100" style="min-width: 275px" md-flex="50">
-                    <stunts :stunts="character.stunts"></stunts>
+                    <stunts :stunts="character.stunts" :is-authorized="isAuthorized"></stunts>
                 </md-layout>
             </md-layout>
             <md-layout id="stress-consequences-layout" md-gutter="16">
                 <div id="stress-layout">
-                    <stress :character="character"></stress>
+                    <stress :character="character" :is-authorized="isAuthorized"></stress>
                 </div>
                 <div id="consequences-layout">
-                    <consequences :character="character"></consequences>
+                    <consequences :character="character" :is-authorized="isAuthorized"></consequences>
                 </div>
             </md-layout>
 

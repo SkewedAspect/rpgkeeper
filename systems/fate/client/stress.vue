@@ -11,7 +11,7 @@
         <table class="md-static-table">
             <tr>
                 <td v-for="(_, index) in physicalStress">
-                    <md-checkbox v-model="physicalStress[index]" :disabled="(index + 1) > totalPhysicalBoxes">
+                    <md-checkbox v-model="physicalStress[index]" :disabled="!isAuthorized || (index + 1) > totalPhysicalBoxes">
                         <b>{{ index + 1 }}</b>
                     </md-checkbox>
                 </td>
@@ -25,7 +25,7 @@
         <table class="md-static-table">
             <tr>
                 <td v-for="(_, index) in mentalStress">
-                    <md-checkbox v-model="mentalStress[index]" :disabled="(index + 1) > totalMentalBoxes">
+                    <md-checkbox v-model="mentalStress[index]" :disabled="!isAuthorized || (index + 1) > totalMentalBoxes">
                         <b>{{ index + 1 }}</b>
                     </md-checkbox>
                 </td>
@@ -61,6 +61,10 @@
             character: {
                 type: Object,
                 required: true
+            },
+            isAuthorized: {
+                type: Boolean,
+                default: false
             }
         },
         computed: {
