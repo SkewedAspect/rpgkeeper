@@ -6,7 +6,7 @@
     <md-card id="fate-consequences" style="flex: 1">
         <md-toolbar class="md-dense">
             <h2 style="flex: 1" class="md-title">Consequences</h2>
-            <md-button @click.native="openEdit()">Edit</md-button>
+            <md-button v-if="isAuthorized" @click.native="openEdit()">Edit</md-button>
         </md-toolbar>
 
         <md-layout class="table-layout">
@@ -221,6 +221,10 @@
             character: {
                 type: Object,
                 required: true
+            },
+            isAuthorized: {
+                type: Boolean,
+                default: false
             }
         },
         computed: {
