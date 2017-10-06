@@ -27,7 +27,22 @@ router.get('/', (request, response) =>
 {
     routeUtils.interceptHTML(response, promisify(() =>
     {
-        return models.BaseCharacter.filter(request.query);
+        const query = _.merge({}, request.query);
+
+        // By default, we limit authenticated users to just their characters
+        if(request.isAuthenticated())
+        {
+            query.owner = request.user.email;
+        } // end if
+
+        // However, if `all` is passed, we show all characters
+        if(query.all)
+        {
+            delete query.owner;
+            delete query.all;
+        } // end if
+
+        return models.BaseCharacter.filter(query);
     }));
 });
 
