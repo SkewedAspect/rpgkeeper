@@ -99,9 +99,13 @@
 
             tr {
                 td:first-child {
-                    width: 1%;
-                    white-space: nowrap;
                     text-align: right;
+                }
+
+                td {
+                    width: 16.666%;
+                    min-width: 90px;
+                    white-space: nowrap;
                 }
             }
         }

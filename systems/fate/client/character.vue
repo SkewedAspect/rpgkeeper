@@ -146,6 +146,10 @@
                 min-width: 275px;
                 margin: 8px;
             }
+
+            #skills-layout {
+                min-width: 600px;
+            }
         }
 
         .edit-btn {
