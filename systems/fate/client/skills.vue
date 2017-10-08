@@ -9,28 +9,30 @@
             <md-button v-if="isAuthorized" @click="openEdit()">Edit</md-button>
         </md-toolbar>
 
-        <table class="md-static-table">
-            <tr>
-                <td><b>Superb (+5)</b></td>
-                <td v-for="idx in columns">{{ getSkillName('superb', idx) }}</td>
-            </tr>
-            <tr>
-                <td><b>Great (+4)</b></td>
-                <td v-for="idx in columns">{{ getSkillName('great', idx) }}</td>
-            </tr>
-            <tr>
-                <td><b>Good (+3)</b></td>
-                <td v-for="idx in columns">{{ getSkillName('good', idx) }}</td>
-            </tr>
-            <tr>
-                <td><b>Fair (+2)</b></td>
-                <td v-for="idx in columns">{{ getSkillName('fair', idx) }}</td>
-            </tr>
-            <tr>
-                <td><b>Average (+1)</b></td>
-                <td v-for="idx in columns">{{ getSkillName('average', idx) }}</td>
-            </tr>
-        </table>
+        <div class="table-scroll-wrapper">
+            <table class="md-static-table">
+                <tr>
+                    <td><b>Superb (+5)</b></td>
+                    <td v-for="idx in columns">{{ getSkillName('superb', idx) }}</td>
+                </tr>
+                <tr>
+                    <td><b>Great (+4)</b></td>
+                    <td v-for="idx in columns">{{ getSkillName('great', idx) }}</td>
+                </tr>
+                <tr>
+                    <td><b>Good (+3)</b></td>
+                    <td v-for="idx in columns">{{ getSkillName('good', idx) }}</td>
+                </tr>
+                <tr>
+                    <td><b>Fair (+2)</b></td>
+                    <td v-for="idx in columns">{{ getSkillName('fair', idx) }}</td>
+                </tr>
+                <tr>
+                    <td><b>Average (+1)</b></td>
+                    <td v-for="idx in columns">{{ getSkillName('average', idx) }}</td>
+                </tr>
+            </table>
+        </div>
 
         <!-- Edit Dialog -->
         <md-dialog id="fate-edit-skills" ref="editDialog">
@@ -94,7 +96,13 @@
 
 <style lang="scss">
     #fate-skills {
+        .table-scroll-wrapper {
+            overflow: auto;
+            width: 100%;
+        }
+
         table {
+            min-width: 600px;
             height: calc(100% - 48px);
 
             tr {
