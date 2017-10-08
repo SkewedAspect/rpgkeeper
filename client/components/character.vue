@@ -11,7 +11,7 @@
                 </slot>
             </md-tab>
             <md-tab md-label="Notes">
-                <notes :notes="character.notes" :save="character.$save"></notes>
+                <notes :notes="character.notes" :save="character.$save" :disabled="!isAuthorized"></notes>
             </md-tab>
         </md-tabs>
     </div>
@@ -29,6 +29,12 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    import _ from 'lodash';
+
+    // Services
+    import stateSvc from '../services/state';
+
+    // Components
     import NotesComponent from './notes/notes.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -48,6 +54,16 @@
                 handler: function(){ this.character.$save(); },
                 deep: true
             }
+        },
+        computed: {
+            account(){ return this.state.account; },
+            isAuthorized(){ return _.get(this.account, 'email', 'nope!') === this.character.owner; }
+        },
+        data()
+        {
+            return {
+                state: stateSvc.state
+            };
         }
     }
 </script>

@@ -6,8 +6,8 @@
     <md-card id="notes">
         <md-toolbar>
             <h2 class="md-title" v-flex="1">Notes</h2>
-            <md-button @click.prevent.stop="openNewDialog()">New</md-button>
-            <md-button v-if="currentPageID" @click.prevent.stop="openEditDialog()">Edit</md-button>
+            <md-button v-if="!disabled" @click.prevent.stop="openNewDialog()">New</md-button>
+            <md-button v-if="!disabled && currentPageID" @click.prevent.stop="openEditDialog()">Edit</md-button>
         </md-toolbar>
         <md-card-content style="display: flex" v-if="currentPageID">
             <md-list v-flex="'0 1 300px'" id="note-tabs">
