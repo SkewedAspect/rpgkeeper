@@ -9,8 +9,15 @@
             <md-button v-if="!disabled" @click.prevent.stop="openNewDialog()">New</md-button>
             <md-button v-if="!disabled && currentPageID" @click.prevent.stop="openEditDialog()">Edit</md-button>
         </md-toolbar>
+        <md-card-content class="hidden-sm-up" style="padding-top: 0; padding-bottom: 0">
+            <md-input-container style="margin-bottom: 5px; padding-top: 0; min-height: 32px">
+                <md-select name="page" id="page" v-model="currentPageID">
+                    <md-option :value="page.id" v-for="page in notes">{{ page.title }}</md-option>
+                </md-select>
+            </md-input-container>
+        </md-card-content>
         <md-card-content style="display: flex" v-if="currentPageID">
-            <md-list v-flex="'0 1 300px'" id="note-tabs">
+            <md-list v-flex="'0 1 300px'" id="note-tabs" class="hidden-sm-down">
                 <md-list-item @click="loadPage(page)" v-for="page in notes" :class="{ 'md-accent': page.id == currentPage.id }">
                     {{ page.title }}
                     <md-button v-if="!disabled" class="md-icon-button md-list-action md-warn"
