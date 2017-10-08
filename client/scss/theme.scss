@@ -13,6 +13,14 @@ html, body {
 	margin: 0;
 }
 
+html {
+    overflow: hidden;
+}
+
+body {
+    overflow: auto;
+}
+
 .center {
 	margin-left: auto;
 	margin-right: auto;
