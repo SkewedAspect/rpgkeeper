@@ -50,15 +50,21 @@
                 <md-card v-flex="1" style="margin-top: 10px;">
                     <md-card-content>
                         <md-layout md-gutter="8">
-                            <md-layout>
+                            <md-layout md-flex="100">
                                 <md-input-container>
                                     <label>Name</label>
                                     <md-input v-model="newStuntName"></md-input>
                                 </md-input-container>
                             </md-layout>
+                            <md-layout>
+                                <md-input-container>
+                                    <label>Description</label>
+                                    <md-input v-model="newStuntDesc"></md-input>
+                                </md-input-container>
+                            </md-layout>
                             <md-layout v-flex="shrink">
                                 <div style="padding-top: 10px;">
-                                    <md-button class="md-raised" @click="addNew()">
+                                    <md-button class="md-raised" @click="addNew()" :disabled="!newStuntName || !newStuntDesc">
                                         Add
                                     </md-button>
                                 </div>
@@ -93,6 +99,13 @@
 
     .stunt-edit-list {
         padding: 0;
+
+        .md-list-text-container {
+            span:nth-child(2)
+            {
+                line-height: 0.4rem;
+            }
+        }
 
         .md-card-content > .md-input-container:last-child {
             margin-bottom: 0;
@@ -137,8 +150,9 @@
         methods: {
             addNew()
             {
-                this.stuntsEdit.push({ title: this.newStuntName, description: "" });
+                this.stuntsEdit.push({ title: this.newStuntName, description: this.newStuntDesc });
                 this.newStuntName = "";
+                this.newStuntDesc = "";
             },
             addOrUpdateStunt(stunt)
             {
@@ -219,7 +233,8 @@
         {
             return {
                 stuntsEdit: [],
-                newStuntName: ""
+                newStuntName: "",
+                newStuntDesc: ""
             }
         }
     }
