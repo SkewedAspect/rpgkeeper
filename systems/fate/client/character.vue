@@ -55,7 +55,7 @@
                 <div id="aspects-layout">
                     <aspects :aspects="character.aspects" :is-authorized="isAuthorized"></aspects>
                 </div>
-                <div id="skills-layout">
+                <div id="skills-layout" v-flex="grow">
                     <skills :skills="character.skills" :is-authorized="isAuthorized"></skills>
                 </div>
             </md-layout>
@@ -127,15 +127,19 @@
             #stress-layout,
             #aspects-layout {
                 display: flex;
-                flex: 0 1 auto;
+                flex: 0 0 0%;
                 width: auto;
-                min-width: 275px;
+                min-width: 300px;
                 margin: 8px;
 
                 @media(max-width: 599px)
                 {
                     flex: 1 1 auto;
                 }
+            }
+
+            #stress-layout {
+                flex: 0 1 auto;
             }
 
             #consequences-layout,
@@ -145,10 +149,6 @@
                 width: auto;
                 min-width: 275px;
                 margin: 8px;
-            }
-
-            #skills-layout {
-                min-width: 600px;
             }
         }
 
