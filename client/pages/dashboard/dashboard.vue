@@ -64,7 +64,8 @@
                         <md-list class="md-triple-line">
                             <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
                                 <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.color }">
-                                    <img :src="char.thumbnail" :alt="char.name[0].toUpperCase()">
+                                    <img :src="char.thumbnail" alt="">
+                                    <div class="md-avatar-text">{{ char.name[0].toUpperCase() }}</div>
                                 </md-avatar>
 
                                 <div class="md-list-text-container">
@@ -152,7 +153,8 @@
                     </md-layout>
                     <md-layout id="thumbnail" v-flex="shrink">
                         <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': newChar.color }">
-                            <img :src="newChar.thumbnail" :alt="(newChar.name || '?')[0].toUpperCase()">
+                            <img :src="newChar.thumbnail" alt="">
+                            <div class="md-avatar-text">{{ (newChar.name || '?')[0].toUpperCase() }}</div>
                         </md-avatar>
                     </md-layout>
                 </md-layout>
@@ -238,7 +240,8 @@
                     </md-layout>
                     <md-layout id="thumbnail" v-flex="shrink">
                         <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': editChar.color }">
-                            <img :src="editChar.thumbnail" :alt="(editChar.name || '?')[0].toUpperCase()">
+                            <img :src="editChar.thumbnail" alt="">
+                            <div class="md-avatar-text">{{ (editChar.name || '?')[0].toUpperCase() }}</div>
                         </md-avatar>
                     </md-layout>
                 </md-layout>

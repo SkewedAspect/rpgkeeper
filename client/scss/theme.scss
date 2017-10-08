@@ -116,6 +116,12 @@ table.md-static-table
 //----------------------------------------------------------------------------------------------------------------------
 
 .md-avatar {
+    position: relative;
+
+    img {
+        z-index: 1;
+    }
+
     img,
     .md-avatar-text {
         width: 40px;
@@ -123,6 +129,8 @@ table.md-static-table
         text-align: center;
         line-height: 40px;
         font-size: 20px;
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
     }
 
     &.md-large {
