@@ -319,9 +319,11 @@
     // Utils
     import utilities from '../../../server/utilities';
 
+    // Managers
+    import systemsMan from '../../api/managers/systems';
+
     // Services
     import stateSvc from '../../services/state';
-    import systemSvc from '../../services/system';
     import charSvc from '../../services/character';
 
     // Components
@@ -333,6 +335,10 @@
         name: 'DashboardPage',
         components: {
             Portrait
+        },
+        subscriptions: {
+            allSystems: systemsMan.systems$,
+            systemsStatus: systemsMan.status$
         },
         data()
         {
@@ -366,7 +372,7 @@
             };
         },
         computed: {
-            systems(){ return _.filter(this.state.systems, (sys) => sys.disabled !== true); },
+            systems(){ return _.filter(this.allSystems, (sys) => sys.disabled !== true); },
             characters()
             {
                 return _(this.characterList)
@@ -498,16 +504,12 @@
         {
             this.$nextTick(() =>
             {
-                // Get the list of systems
-                systemSvc.loading.then(() =>
-                {
-                    // Get a list of characters
-                    return charSvc.refresh()
-                        .then((characters) =>
-                        {
-                            this.characterList = characters;
-                        });
-                });
+                // Get a list of characters
+                return charSvc.refresh()
+                    .then((characters) =>
+                    {
+                        this.characterList = characters;
+                    });
             });
         }
     }

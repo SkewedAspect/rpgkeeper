@@ -48,7 +48,7 @@ The systems I'm initially building/supporting:
         * [X] UI
     * [ ] FATE
         * [X] Data model
-        * [ ] UI (_Started_)
+        * [X] UI
     * [ ] Edge of the Empire
         * [X] Data Model
         * [ ] UI
@@ -69,17 +69,18 @@ The systems I'm initially building/supporting:
 
 I want to rework a lot of the infrastructure so that it's easier to add things to in the future. The basic idea is this:
 
-* Switch to Vuetify (I don't like it's API as much but it's worlds faster, with better components.)
-* Add a base model class that knows if it's dirty
-* Use RxJS to manage state; the current character becomes an observable
-* Move all resource access (like loading characters, systems, etc) into 'resource-access'
-* Move all state holding and application logic to 'managers'
-* Make components very, very dumb. They only have their own state, and logic relevant to their display.
-* Move to webpack.
-* Move away from one table per system character to a single character record.
-    * The system specific data would be a `any()` blob of JSON.
-    * Each system would define an [ajv][] schema for it's specific data.
-    * Any additional data (classes, spells, etc) needed should be treated as static data, and loaded from json files on disk.
+* [ ] Switch to Vuetify (I don't like it's API as much but it's worlds faster, with better components.)
+* [ ] Add a base model class that knows if it's dirty
+* [ ] Use RxJS to manage state; the current character becomes an observable
+* [ ] Move all resource access (like loading characters, systems, etc) into 'resource-access'
+* [ ] Move all state holding and application logic to 'managers'
+* [ ] Make components very, very dumb. They only have their own state, and logic relevant to their display.
+* [ ] Move to webpack.
+* [ ] Switch back to socket.io so open pages stay in sync.
+* [ ] Move away from one table per system character to a single character record.
+    * [ ] The system specific data would be a `any()` blob of JSON.
+    * [ ] Each system would define an [ajv][] schema for it's specific data.
+    * [ ] Any additional data (classes, spells, etc) needed should be treated as static data, and loaded from json files on disk.
         * The real kicker here is handling the 'user generated content' aspect. Going to need to think on this.
 
 This should really set us up for more complex interactions and a much faster time to implementing Campaigns.

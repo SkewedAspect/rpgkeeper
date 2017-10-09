@@ -1,46 +1,25 @@
 //----------------------------------------------------------------------------------------------------------------------
-// SystemService
+// BaseCharacterModel
 //
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
-import $http from 'axios';
-
-import BaseService from './base';
+import BaseModel from './base';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class SystemService extends BaseService
+class BaseCharacterModel extends BaseModel
 {
-    constructor()
-    {
-        super();
-
-        // State properties
-        this.$defineProperty('systems', []);
-    } // end constructor
-
+    //------------------------------------------------------------------------------------------------------------------
+    // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get(id)
-    {
-        return _.find(this.systems, { id }) || id;
-    } // end get
+    get url(){ return `/characters/${ this.$state.id }`; }
 
-    refresh()
-    {
-        return this.loading = $http.get('/systems')
-            .get('data')
-            .then((systems) =>
-            {
-                return this.systems = (systems || []);
-            });
-    } // end refresh
-} // end SystemService
+} // end BaseCharacterModel
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default new SystemService();
+export default BaseCharacterModel;
 
 //----------------------------------------------------------------------------------------------------------------------
