@@ -61,7 +61,11 @@
                     </md-toolbar>
 
                     <md-card-content v-flex="1">
-                        <md-list class="md-triple-line">
+                        <div v-if="charsLoading">
+                            <h4 class="text-center">Loading...</h4>
+                            <md-progress v-if="systemsStatus !== 'loaded'" class="md-accent" md-indeterminate></md-progress>
+                        </div>
+                        <md-list v-else class="md-triple-line">
                             <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
                                 <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.color }">
                                     <img :src="char.thumbnail" alt="">
@@ -372,6 +376,7 @@
             };
         },
         computed: {
+            charsLoading(){ return this.systemsStatus !== 'loaded'; },
             systems(){ return _.filter(this.allSystems, (sys) => sys.disabled !== true); },
             characters()
             {
