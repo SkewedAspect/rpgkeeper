@@ -16,6 +16,12 @@ import Vue from 'vue';
 import VueMaterial from 'vue-material';
 import VueRouter from 'vue-router';
 
+// VueRX
+import VueRx from 'vue-rx'
+import { Observable } from 'rxjs/Observable'
+import { Subscription } from 'rxjs/Subscription'
+import { Subject } from 'rxjs/Subject'
+
 import pkg from '../package.json';
 
 // Views
@@ -27,9 +33,6 @@ import AboutPage from './pages/about/about.vue';
 import DashboardPage from './pages/dashboard/dashboard.vue';
 import CharacterPage from './pages/character/character.vue';
 
-// Services
-import systemSvc from './services/system';
-
 // ---------------------------------------------------------------------------------------------------------------------
 // Misc.
 // ---------------------------------------------------------------------------------------------------------------------
@@ -37,6 +40,16 @@ import systemSvc from './services/system';
 import FlexDirective from './directives/flex';
 
 Vue.directive('flex', FlexDirective);
+
+// ---------------------------------------------------------------------------------------------------------------------
+// VueRX
+// ---------------------------------------------------------------------------------------------------------------------
+
+Vue.use(VueRx, {
+    Observable,
+    Subscription,
+    Subject
+});
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Vue Material
@@ -84,7 +97,7 @@ const app = new App({
 });
 
 //----------------------------------------------------------------------------------------------------------------------
-// Service Setup
+// Marked Setup
 //----------------------------------------------------------------------------------------------------------------------
 
 // Configure the marked markdown parser
@@ -117,9 +130,6 @@ marked.setOptions({
     smartypants: false,
     renderer: renderer
 });
-
-// Pull a list of systems
-systemSvc.refresh();
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Version information
