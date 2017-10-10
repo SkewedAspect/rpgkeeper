@@ -8,7 +8,8 @@ import _ from 'lodash';
 import Promise from 'bluebird';
 import $http from 'axios';
 
-import systemSvc from '../services/system';
+// NEW Managers
+import systemsMan from '../api/managers/systems';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -19,6 +20,18 @@ class CharacterModel
         this.$base = base;
         this.$system = {};
         this.$save = _.debounce(() => this._save(), 250, { maxWait: 1000 });
+
+        this._system = {
+            id: 'unknown',
+            disabled: true
+        };
+
+        // Load up our system
+        this.loading = systemsMan.getSystem(this.$base.system)
+            .then((system) =>
+            {
+                this._system = system;
+            });
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
@@ -26,7 +39,7 @@ class CharacterModel
     get baseURL(){ return `/characters/${ this.$base.id || '' }`; }
     get systemURL(){ return `/systems/${ this.$base.system }/character/${ this.$base.id || '' }`; }
     get systemID(){ return this.$base.system; }
-    get system(){ return systemSvc.get(this.$base.system); }
+    get system(){ return this._system; }
 
     //------------------------------------------------------------------------------------------------------------------
 
