@@ -6,6 +6,9 @@
 
 import $http from 'axios';
 
+// Models
+import AccountModel from '../models/account';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 class AuthResourceAccess
@@ -13,7 +16,7 @@ class AuthResourceAccess
     completeSignIn(idToken)
     {
         return $http.post('/auth/google', { idToken })
-            .then(({ data }) => data);
+            .then(({ data }) => new AccountModel(data));
     } // end completeSignIn
 } // end AuthResourceAccess
 
