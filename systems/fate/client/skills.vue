@@ -13,23 +13,23 @@
             <table class="md-static-table">
                 <tr>
                     <td><b>Superb (+5)</b></td>
-                    <td v-for="idx in columns">{{ getSkillName('superb', idx) }}</td>
+                    <td v-for="idx in columns" :key="`superb-${ idx }`">{{ getSkillName('superb', idx) }}</td>
                 </tr>
                 <tr>
                     <td><b>Great (+4)</b></td>
-                    <td v-for="idx in columns">{{ getSkillName('great', idx) }}</td>
+                    <td v-for="idx in columns" :key="`great-${ idx }`">{{ getSkillName('great', idx) }}</td>
                 </tr>
                 <tr>
                     <td><b>Good (+3)</b></td>
-                    <td v-for="idx in columns">{{ getSkillName('good', idx) }}</td>
+                    <td v-for="idx in columns" :key="`good-${ idx }`">{{ getSkillName('good', idx) }}</td>
                 </tr>
                 <tr>
                     <td><b>Fair (+2)</b></td>
-                    <td v-for="idx in columns">{{ getSkillName('fair', idx) }}</td>
+                    <td v-for="idx in columns" :key="`fair-${ idx }`">{{ getSkillName('fair', idx) }}</td>
                 </tr>
                 <tr>
                     <td><b>Average (+1)</b></td>
-                    <td v-for="idx in columns">{{ getSkillName('average', idx) }}</td>
+                    <td v-for="idx in columns" :key="`average-${ idx }`">{{ getSkillName('average', idx) }}</td>
                 </tr>
             </table>
         </div>
@@ -50,7 +50,7 @@
                         <md-layout md-flex="25">
                             <md-input-container>
                                 <label>Ranks</label>
-                                <md-input type="number" v-model="skill.rank"></md-input>
+                                <md-input type="number" v-model.number="skill.rank" min="0" max="5"></md-input>
                             </md-input-container>
                         </md-layout>
                     </md-layout>
@@ -68,7 +68,7 @@
                                 <md-layout md-flex="25">
                                     <md-input-container>
                                         <label>Ranks</label>
-                                        <md-input type="number" v-model="newSkill.rank"></md-input>
+                                        <md-input type="number" v-model.number="newSkill.rank" min="0" max="5"></md-input>
                                     </md-input-container>
                                 </md-layout>
                             </md-layout>
@@ -151,16 +151,33 @@
             average()
             {
                 const skills = _.filter(this.skills, { rank: 1 });
-
-                // Ensure that we have a minimum length of 5, for display reasons
                 skills.length = Math.max(5, skills.length);
-
                 return skills;
             },
-            fair(){ return _.filter(this.skills, { rank: 2 }) },
-            good(){ return _.filter(this.skills, { rank: 3 }) },
-            great(){ return _.filter(this.skills, { rank: 4 }) },
-            superb(){ return _.filter(this.skills, { rank: 5 }) },
+            fair()
+            {
+                const skills = _.filter(this.skills, { rank: 2 });
+                skills.length = Math.max(5, skills.length);
+                return skills;
+            },
+            good()
+            {
+                const skills = _.filter(this.skills, { rank: 3 });
+                skills.length = Math.max(5, skills.length);
+                return skills;
+            },
+            great()
+            {
+                const skills = _.filter(this.skills, { rank: 4 });
+                skills.length = Math.max(5, skills.length);
+                return skills;
+            },
+            superb()
+            {
+                const skills = _.filter(this.skills, { rank: 5 });
+                skills.length = Math.max(5, skills.length);
+                return skills;
+            },
 
             // Should be a list of indexes for the other computed properties.
             columns(){ return _.range(this.average.length); }
