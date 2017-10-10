@@ -7,10 +7,10 @@
         <!-- User Button -->
         <md-button v-if="account" class="settings" @click="goToSettings()">
             <md-avatar>
-                <img :src="accountAvatar" alt="People">
+                <img :src="account.avatarUrl" alt="People">
             </md-avatar>
             <span class="hidden-xs-down">
-                    {{ accountName }}
+                    {{ account.displayName }}
                 </span>
         </md-button>
 
@@ -65,15 +65,6 @@
         },
 		computed: {
             loading(){ return this.authStatus === 'signing in'; },
-			accountName()
-			{
-				return this.account.displayName || this.account.email;
-			},
-			accountAvatar()
-			{
-				const id = this.account.id.replace(/-/g, '');
-				return this.account.avatar || `https://identicons.github.com/${ id }.png`;
-			}
 		},
 		methods: {
 			goToSettings()
