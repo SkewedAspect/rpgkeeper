@@ -48,11 +48,11 @@
         props: {
             src: {
                 type: String,
-                default: "http://placehold.it/800x1200"
+                default: "/static/images/portraitPlaceholder.png"
             }
         },
         computed: {
-            url(){ return this.src || "http://placehold.it/800x1200"; }
+            url(){ return this.src || "/static/images/portraitPlaceholder.png"; }
         }
     }
 </script>

@@ -4,7 +4,7 @@
 
 <template>
     <div id="dashboard" class="container">
-        <md-layout md-gutter="16">
+        <md-layout v-if="account" md-gutter="16">
 
             <!-- Campaigns -->
             <!--md-layout md-flex-small="100" md-flex-medium="50">
@@ -61,7 +61,11 @@
                     </md-toolbar>
 
                     <md-card-content v-flex="1">
-                        <md-list class="md-triple-line">
+                        <div v-if="charsLoading">
+                            <h4 class="text-center">Loading...</h4>
+                            <md-progress v-if="systemsStatus !== 'loaded'" class="md-accent" md-indeterminate></md-progress>
+                        </div>
+                        <md-list v-else class="md-triple-line">
                             <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
                                 <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.color }">
                                     <img :src="char.thumbnail" alt="">
@@ -319,9 +323,12 @@
     // Utils
     import utilities from '../../../server/utilities';
 
+    // Managers
+    import authMan from '../../api/managers/auth';
+    import systemsMan from '../../api/managers/systems';
+
     // Services
     import stateSvc from '../../services/state';
-    import systemSvc from '../../services/system';
     import charSvc from '../../services/character';
 
     // Components
@@ -333,6 +340,11 @@
         name: 'DashboardPage',
         components: {
             Portrait
+        },
+        subscriptions: {
+            account: authMan.account$,
+            allSystems: systemsMan.systems$,
+            systemsStatus: systemsMan.status$
         },
         data()
         {
@@ -366,7 +378,8 @@
             };
         },
         computed: {
-            systems(){ return _.filter(this.state.systems, (sys) => sys.disabled !== true); },
+            charsLoading(){ return this.systemsStatus !== 'loaded'; },
+            systems(){ return _.filter(this.allSystems, (sys) => sys.disabled !== true); },
             characters()
             {
                 return _(this.characterList)
@@ -496,18 +509,23 @@
         },
         mounted()
         {
+            this.$subscribeTo(authMan.status$, (status) =>
+            {
+                if(status === 'signed out')
+                {
+                    // We've finished loading, and we're not signed in
+                    this.$router.push('/');
+                } // end if
+            });
+
             this.$nextTick(() =>
             {
-                // Get the list of systems
-                systemSvc.loading.then(() =>
-                {
-                    // Get a list of characters
-                    return charSvc.refresh()
-                        .then((characters) =>
-                        {
-                            this.characterList = characters;
-                        });
-                });
+                // Get a list of characters
+                return charSvc.refresh()
+                    .then((characters) =>
+                    {
+                        this.characterList = characters;
+                    });
             });
         }
     }

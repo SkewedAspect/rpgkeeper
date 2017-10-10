@@ -44,6 +44,9 @@
     import moment from 'moment';
     import $http from 'axios';
 
+    // Managers
+    import authMan from '../../api/managers/auth';
+
     // Components
     import Article from './components/article.vue';
 
@@ -56,11 +59,29 @@
         data()
         {
             return {
+                signingIn: false,
                 articles: []
             };
         },
         mounted()
         {
+            this.$subscribeTo(authMan.status$, (status) =>
+            {
+                if(status === 'signing in')
+                {
+                    // We're in the sign in process
+                    this.signingIn = true;
+                } // end if
+
+                if(status === 'signed in' && this.signingIn)
+                {
+                    this.signingIn = false;
+
+                    // We've completed a sign in, redirect
+                    this.$router.push('/dashboard');
+                } // end if
+            });
+
             $http.get('/news')
                 .then((response) =>
                 {

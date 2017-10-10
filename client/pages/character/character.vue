@@ -6,7 +6,8 @@
     <div id="character-page">
         <component v-if="!error && loaded" :is="character.system.id" :character="character"></component>
         <div class="loading container text-center"v-else-if="!loaded">
-            <loader></loader>
+            <h4 class="text-center">Loading...</h4>
+            <md-progress class="md-accent" md-indeterminate></md-progress>
         </div>
         <div v-if="error" class="container" style="margin: 16px">
             <md-card class="md-warn" style="flex: 1">
@@ -31,7 +32,8 @@
 <style lang="scss">
     #character-page {
         .loading {
-            margin: 16px;
+            margin-top: 16px;
+            margin-bottom: 16px;
         }
     }
 </style>
@@ -42,7 +44,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import charSvc from '../../services/character';
-    import spinkit from '../../components/spinkit';
 
     // Systems
 //    import GenericCharacter from '../../../systems/generic/client/character.vue';
@@ -55,7 +56,6 @@
     export default {
         name: "character-page",
         components: {
-            loader: spinkit.wave,
 
             // Systems
 //            generic: GenericCharacter,

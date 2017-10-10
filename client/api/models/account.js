@@ -1,46 +1,29 @@
 //----------------------------------------------------------------------------------------------------------------------
-// SystemService
+// AccountModel
 //
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
-import $http from 'axios';
-
-import BaseService from './base';
+import BaseModel from './base';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class SystemService extends BaseService
+class AccountModel extends BaseModel
 {
-    constructor()
-    {
-        super();
-
-        // State properties
-        this.$defineProperty('systems', []);
-    } // end constructor
-
+    //------------------------------------------------------------------------------------------------------------------
+    // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get(id)
+    get displayName(){ return this.$state.displayName || this.$state.email; }
+    get avatarUrl()
     {
-        return _.find(this.systems, { id }) || id;
-    } // end get
-
-    refresh()
-    {
-        return this.loading = $http.get('/systems')
-            .get('data')
-            .then((systems) =>
-            {
-                return this.systems = (systems || []);
-            });
-    } // end refresh
-} // end SystemService
+        const id = this.$state.id.replace(/-/g, '');
+        return this.$state.avatar || `https://identicons.github.com/${ id }.png`;
+    }
+} // end AccountModel
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default new SystemService();
+export default AccountModel;
 
 //----------------------------------------------------------------------------------------------------------------------

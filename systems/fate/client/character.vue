@@ -184,6 +184,9 @@
     import stateSvc from '../../../client/services/state';
     import diceSvc from '../../../client/services/dice';
 
+    // Managers
+    import authMan from '../../../client/api/managers/auth';
+
     // Components
     import RollsComponent from './rolls.vue';
     import AspectsComponent from './aspects.vue';
@@ -215,6 +218,9 @@
                 required: true
             }
         },
+        subscriptions: {
+            account: authMan.account$
+        },
         data()
         {
             return {
@@ -223,7 +229,6 @@
             };
         },
         computed: {
-            account(){ return this.state.account; },
             isAuthorized(){ return _.get(this.account, 'email', 'nope!') === this.character.owner; },
         },
         methods: {
