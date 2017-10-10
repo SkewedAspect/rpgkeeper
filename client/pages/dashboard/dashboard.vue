@@ -4,7 +4,7 @@
 
 <template>
     <div id="dashboard" class="container">
-        <md-layout md-gutter="16">
+        <md-layout v-if="account" md-gutter="16">
 
             <!-- Campaigns -->
             <!--md-layout md-flex-small="100" md-flex-medium="50">
