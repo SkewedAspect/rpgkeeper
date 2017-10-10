@@ -200,6 +200,9 @@
     import stateSvc from '../../../client/services/state';
     import diceSvc from '../../../client/services/dice';
 
+    // Managers
+    import authMan from '../../../client/api/managers/auth';
+
     // Components
     import CharComponent from '../../../client/components/character.vue';
     import NotesComponent from '../../../client/components/notes/notes.vue';
@@ -224,6 +227,9 @@
                 required: true
             }
         },
+        subscriptions: {
+            account: authMan.account$
+        },
         data()
         {
             return {
@@ -246,7 +252,6 @@
             };
         },
         computed: {
-            account(){ return this.state.account; },
             isAuthorized(){ return _.get(this.account, 'email', 'nope!') === this.character.owner; },
             cliches()
             {

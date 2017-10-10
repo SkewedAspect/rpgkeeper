@@ -324,6 +324,7 @@
     import utilities from '../../../server/utilities';
 
     // Managers
+    import authMan from '../../api/managers/auth';
     import systemsMan from '../../api/managers/systems';
 
     // Services
@@ -341,6 +342,7 @@
             Portrait
         },
         subscriptions: {
+            account: authMan.account$,
             allSystems: systemsMan.systems$,
             systemsStatus: systemsMan.status$
         },
@@ -507,6 +509,15 @@
         },
         mounted()
         {
+            this.$subscribeTo(authMan.status$, (status) =>
+            {
+                if(status === 'signed out')
+                {
+                    // We've finished loading, and we're not signed in
+                    this.$router.push('/');
+                } // end if
+            });
+
             this.$nextTick(() =>
             {
                 // Get a list of characters
