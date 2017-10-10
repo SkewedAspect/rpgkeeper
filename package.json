@@ -52,7 +52,6 @@
     "grunt-sass": "^2.0.0",
     "rxjs": "^5.4.3",
     "socket.io-client": "^2.0.3",
-    "spinkit": "^1.2.5",
     "vue": "^2.4.4",
     "vue-code": "^1.2.3",
     "vue-material": "^0.7.5",

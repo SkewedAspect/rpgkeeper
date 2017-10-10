@@ -4359,10 +4359,6 @@ spdx-license-ids@^1.0.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
 
-spinkit@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/spinkit/-/spinkit-1.2.5.tgz#90f9f466a20e8e39ef24da959c1e611c2a30dd54"
-
 split@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/split/-/split-1.0.0.tgz#c4395ce683abcd254bc28fe1dabb6e5c27dcffae"
