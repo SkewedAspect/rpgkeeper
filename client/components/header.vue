@@ -37,22 +37,23 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script>
-	import stateSvc from '../services/state';
+    //------------------------------------------------------------------------------------------------------------------
+
+	// Managers
+	import authMan from '../api/managers/auth';
+
+    // Components
 	import LoginComponent from './login.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'SiteHeader',
 		components: {
 			login: LoginComponent
 		},
-        data()
-        {
-            return {
-				state: stateSvc.state
-			};
-        },
-		computed: {
-			account(){ return this.state.account; }
+		subscriptions: {
+            account: authMan.account$
 		},
 		methods: {
 			goTo(path)

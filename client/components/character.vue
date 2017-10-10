@@ -31,8 +31,8 @@
 
     import _ from 'lodash';
 
-    // Services
-    import stateSvc from '../services/state';
+    // Managers
+    import authMan from '../api/managers/auth';
 
     // Components
     import NotesComponent from './notes/notes.vue';
@@ -55,15 +55,11 @@
                 deep: true
             }
         },
-        computed: {
-            account(){ return this.state.account; },
-            isAuthorized(){ return _.get(this.account, 'email', 'nope!') === this.character.owner; }
+        subscriptions: {
+            account: authMan.account$
         },
-        data()
-        {
-            return {
-                state: stateSvc.state
-            };
+        computed: {
+            isAuthorized(){ return _.get(this.account, 'email', 'nope!') === this.character.owner; }
         }
     }
 </script>
