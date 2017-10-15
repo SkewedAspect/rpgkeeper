@@ -66,16 +66,17 @@
                             <md-progress v-if="systemsStatus !== 'loaded'" class="md-accent" md-indeterminate></md-progress>
                         </div>
                         <md-list v-else class="md-triple-line">
-                            <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
-                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.color }">
-                                    <img :src="char.thumbnail" alt="">
-                                    <div class="md-avatar-text">{{ char.name[0].toUpperCase() }}</div>
+                            <md-list-item v-for="char in characters" @click="goTo(char.url)">
+                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.ref.color }">
+                                    <img :src="char.ref.thumbnail" alt="">
+                                    <div class="md-avatar-text">{{ char.ref.initial }}</div>
                                 </md-avatar>
 
                                 <div class="md-list-text-container">
-                                    <span>{{ char.name }}</span>
-                                    <i>{{ char.campaign || char.system.name }}</i>
-                                    <p>{{ char.description }}</p>
+                                    <span>{{ char.ref.name }}</span>
+                                    <i v-if="char.ref.campaign">{{ char.ref.campaign }} ({{ getSystem(char.ref.system).name }})</i>
+                                    <i v-else>{{ getSystem(char.ref.system).name }}</i>
+                                    <p>{{ char.ref.description }}</p>
                                 </div>
 
                                 <md-button class="md-icon-button md-list-action" @click.prevent.stop="editCharacter(char)">
@@ -158,7 +159,7 @@
                     <md-layout id="thumbnail" v-flex="shrink">
                         <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': newChar.color }">
                             <img :src="newChar.thumbnail" alt="">
-                            <div class="md-avatar-text">{{ (newChar.name || '?')[0].toUpperCase() }}</div>
+                            <div class="md-avatar-text">{{ newChar.initial }}</div>
                         </md-avatar>
                     </md-layout>
                 </md-layout>
@@ -199,7 +200,7 @@
                         </md-input-container>
                         <md-input-container  :class="{ 'md-input-invalid': !editChar.system }">
                             <label>System</label>
-                            <md-select name="system" id="system" v-model="editChar.system" required>
+                            <md-select name="system" v-model="editChar.system" required>
                                 <md-option :value="system.id" v-for="system in systems" disabled>{{ system.name }}</md-option>
                             </md-select>
                             <span class="md-error">System is required</span>
@@ -245,7 +246,7 @@
                     <md-layout id="thumbnail" v-flex="shrink">
                         <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': editChar.color }">
                             <img :src="editChar.thumbnail" alt="">
-                            <div class="md-avatar-text">{{ (editChar.name || '?')[0].toUpperCase() }}</div>
+                            <div class="md-avatar-text">{{ editChar.initial }}</div>
                         </md-avatar>
                     </md-layout>
                 </md-layout>
@@ -326,6 +327,7 @@
     // Managers
     import authMan from '../../api/managers/auth';
     import systemsMan from '../../api/managers/systems';
+    import characterMan from '../../api/managers/character';
 
     // Services
     import stateSvc from '../../services/state';
@@ -344,6 +346,7 @@
         subscriptions: {
             account: authMan.account$,
             allSystems: systemsMan.systems$,
+            characterList: characterMan.characters$,
             systemsStatus: systemsMan.status$
         },
         data()
@@ -352,15 +355,6 @@
                 state: stateSvc.state,
                 charFilter: '',
                 systemsFilter: [],
-                editChar: {
-                    name: undefined,
-                    system: '',
-                    description: '',
-                    portrait: '',
-                    thumbnail: '',
-                    color: '#aaaaaa',
-                    biography: ''
-                },
                 newChar: {
                     name: undefined,
                     system: '',
@@ -368,13 +362,11 @@
                     portrait: '',
                     thumbnail: '',
                     color: '#aaaaaa',
-                    biography: ''
+                    biography: '',
+                    get initial(){ return (_.get(this.name, '0', '?')).toUpperCase(); }
                 },
-                delChar: {
-                    id: undefined,
-                    name: undefined
-                },
-                characterList: [],
+                editChar: {},
+                delChar: {},
             };
         },
         computed: {
@@ -383,6 +375,7 @@
             characters()
             {
                 return _(this.characterList)
+                    .filter({ owner: this.account.email })
                     .filter((char) =>
                     {
                         const systemValid = this.systemsFilter.length === 0 || _.includes(this.systemsFilter, char.systemID);
@@ -403,108 +396,74 @@
                 this.$router.push(path);
             },
 
-            clearNewCharacter()
+            getSystem(systemID)
+            {
+                return _.find(this.systems, { id: systemID });
+            },
+
+            // New Character modal
+            openNewCharacter()
             {
                 _.assign(this.newChar, {
                     name: undefined,
                     system: '',
+                    color: utilities.colorize(utilities.shortID()),
                     description: undefined,
                     portrait: undefined,
                     thumbnail: undefined,
                     biography: undefined
                 });
-            },
-            openNewCharacter()
-            {
-                this.clearNewCharacter();
-                this.newChar.color = utilities.colorize(utilities.shortID());
+
                 this.$refs.newCharModal.open();
             },
             closeNewCharacter(save)
             {
-                const savePromise = save ? charSvc.create(this.newChar) : Promise.resolve();
+                const savePromise = save ? characterMan.save(this.newChar) : Promise.resolve();
                 return savePromise.then((char) =>
                 {
-                    this.clearNewCharacter();
                     this.$refs.newCharModal.close();
 
                     if(char)
                     {
-                        this.goTo(`/characters/${ char.id }`);
+                        this.goTo(char.url);
                     } // end if
                 });
             },
+
+            // Edit Modal
             editCharacter(char)
             {
-                _.assign(this.editChar, {
-                    id: char.id,
-                    name: char.name,
-                    system: char.system.id,
-                    description: char.description,
-                    color: char.color,
-                    portrait: char.portrait,
-                    thumbnail: char.thumbnail,
-                    biography: char.biography
-                });
-
+                this.editChar = char;
                 this.$refs.editCharModal.open();
             },
             closeEditCharacter(save)
             {
                 if(save)
                 {
-                    const char = _.find(this.characters, { id: this.editChar.id });
-
-                    _.assign(char, {
-                        name: this.editChar.name,
-                        description: this.editChar.description,
-                        color: this.editChar.color,
-                        portrait: this.editChar.portrait,
-                        thumbnail: this.editChar.thumbnail,
-                        biography: this.editChar.biography
-                    });
-
-                    char.$save();
+                    characterMan.save(this.editChar);
+                }
+                else
+                {
+                    this.editChar.reset();
                 } // end if
 
                 this.$refs.editCharModal.close();
             },
 
-            clearDelCharacter()
-            {
-                _.assign(this.delChar, {
-                    name: undefined,
-                    id: undefined
-                });
-            },
+            // Delete Modal
             confirmDeleteCharacter(character)
             {
-                this.delChar.id = character.id;
-                this.delChar.name = character.name;
-
+                this.delChar = character;
                 this.$refs.deleteChar.open();
             },
             onConfirmDeleteClosed(result)
             {
-                let delPromise = Promise.resolve();
-
                 if(result === 'ok')
                 {
-                    delPromise = charSvc.delete(this.delChar.id)
-                        .then(() =>
-                        {
-                            const idx = _.findIndex(this.characterList, { id: this.delChar.id });
-                            if(idx !== -1)
-                            {
-                                this.characterList.splice(idx, 1);
-                            } // end if
-                        });
+                    return characterMan.delete(this.delChar);
                 } // end if
 
-                return delPromise.then(() =>
-                {
-                    this.clearDelCharacter();
-                });
+                this.delChar = {};
             }
         },
         mounted()
@@ -516,16 +475,6 @@
                     // We've finished loading, and we're not signed in
                     this.$router.push('/');
                 } // end if
-            });
-
-            this.$nextTick(() =>
-            {
-                // Get a list of characters
-                return charSvc.refresh()
-                    .then((characters) =>
-                    {
-                        this.characterList = characters;
-                    });
             });
         }
     }

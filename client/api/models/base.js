@@ -99,8 +99,13 @@ class BaseDataModel
 
         if(isRef)
         {
-            // We freeze the ref object to ensure it is never modified, except by explicit intention.
-            deepFreeze(this.$state);
+            // We freeze the ref object to ensure it is never modified, except by explicit intention. However, we only
+            // freeze the enumerable keys, to keep from messing with UI library frameworks that need to add their own
+            // keys or other modifications.
+            _.each(_.keys(this.$state), (key) =>
+            {
+                deepFreeze(this.$state[key]);
+            });
         } // end isRef
     } // end $buildState
 

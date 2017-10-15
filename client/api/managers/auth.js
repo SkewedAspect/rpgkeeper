@@ -63,7 +63,7 @@ class AuthManager
 
     _onGoogleSignIn(googleUser)
     {
-        this.$completeSignIn(googleUser.getAuthResponse().id_token);
+        return this.$completeSignIn(googleUser.getAuthResponse().id_token);
     } // end _onGoogleSignIn
 
     _onGoogleFailure(error)
