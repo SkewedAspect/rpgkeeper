@@ -101,10 +101,11 @@ router.put('/:charID', ensureAuthenticated, promisify((request, response) =>
     return models.BaseCharacter.get(request.params.charID)
         .then((character) =>
         {
-            if(character.owner == request.user.email)
+            if(character.owner === request.user.email)
             {
                 _.assign(character, update);
-                character.save();
+                return character.save()
+                    .then(() => character);
             }
             else
             {
