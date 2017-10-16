@@ -104,7 +104,11 @@ class BaseDataModel
             // keys or other modifications.
             _.each(_.keys(this.$state), (key) =>
             {
-                deepFreeze(this.$state[key]);
+                const value = this.$state[key];
+                if(value)
+                {
+                    deepFreeze(value);
+                } // end if
             });
         } // end isRef
     } // end $buildState
