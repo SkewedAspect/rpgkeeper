@@ -1,6 +1,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 // RPGKeeper Gruntfile.
 //----------------------------------------------------------------------------------------------------------------------
+const sass = require('node-sass');
 
 module.exports = function(grunt)
 {
@@ -68,6 +69,7 @@ module.exports = function(grunt)
         sass: {
             dist: {
                 options: {
+                    implementation: sass,
                     includePaths: ['client/scss', 'client'],
                     style: 'expanded'
                 },
