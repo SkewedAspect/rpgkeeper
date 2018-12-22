@@ -6,7 +6,7 @@
 
 import _ from 'lodash';
 import Promise from 'bluebird';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 // Managers
 import authMan from './auth';

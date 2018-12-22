@@ -1,4 +1,4 @@
-FROM node:7
+FROM node:dubnium
 EXPOSE 5678
 
 MAINTAINER Christopher S. Case <chris.case@g33xnexus.com>

@@ -4,7 +4,7 @@
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 // Resource Access
 import authRA from '../resource-access/auth';

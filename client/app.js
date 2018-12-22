@@ -18,11 +18,7 @@ import VueRouter from 'vue-router';
 
 // VueRX
 import VueRx from 'vue-rx'
-import { Observable } from 'rxjs/Observable'
-import { Subscription } from 'rxjs/Subscription'
-import { Subject } from 'rxjs/Subject'
 
-import pkg from '../package.json';
 
 // Views
 import AppComponent from './app.vue';
@@ -32,6 +28,8 @@ import HomePage from './pages/home/home.vue';
 import AboutPage from './pages/about/about.vue';
 import DashboardPage from './pages/dashboard/dashboard.vue';
 import CharacterPage from './pages/character/character.vue';
+
+import pkg from '../package.json';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Misc.
@@ -45,11 +43,7 @@ Vue.directive('flex', FlexDirective);
 // VueRX
 // ---------------------------------------------------------------------------------------------------------------------
 
-Vue.use(VueRx, {
-    Observable,
-    Subscription,
-    Subject
-});
+Vue.use(VueRx);
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Vue Material
