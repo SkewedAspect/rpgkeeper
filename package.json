@@ -8,7 +8,7 @@
     "dist-clean": "rimraf dist/*; rimraf .cache",
     "clean": "rimraf dist/*",
     "copy": "cpr client/static/ dist/static",
-    "build": "npm run clean && npm run copy && parcel build client/index.html",
+    "build": "npm run clean && npm run copy && parcel build client/index.html --detailed-report",
     "watch": "npm run clean && npm run copy && parcel watch client/index.html"
   },
   "repository": "Morgul/rpgkkeper",
