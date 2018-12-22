@@ -100,7 +100,7 @@
             // Watch for changes to the baseChar, and save.
             this.$watch('baseChar', (char, oldChar) =>
             {
-                if(!_.isUndefined(oldChar) && char)
+                if(!_.isUndefined(oldChar) && char && char.dirty)
                 {
                     charMan.save(char);
                 } // end char
