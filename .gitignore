@@ -4,6 +4,7 @@
 .idea
 
 # Build artifacts
+.cache
 dist
 
 # Node artifacts
