@@ -66,16 +66,17 @@
                             <md-progress v-if="systemsStatus !== 'loaded'" class="md-accent" md-indeterminate></md-progress>
                         </div>
                         <md-list v-else class="md-triple-line">
-                            <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
-                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.color }">
-                                    <img :src="char.thumbnail" alt="">
-                                    <div class="md-avatar-text">{{ char.name[0].toUpperCase() }}</div>
+                            <md-list-item v-for="char in characters" @click="goTo(char.url)">
+                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.ref.color }">
+                                    <img :src="char.ref.thumbnail" alt="">
+                                    <div class="md-avatar-text">{{ char.ref.initial }}</div>
                                 </md-avatar>
 
                                 <div class="md-list-text-container">
-                                    <span>{{ char.name }}</span>
-                                    <i>{{ char.campaign || char.system.name }}</i>
-                                    <p>{{ char.description }}</p>
+                                    <span>{{ char.ref.name }}</span>
+                                    <i v-if="char.ref.campaign">{{ char.ref.campaign }} ({{ getSystem(char.ref.system).name }})</i>
+                                    <i v-else>{{ getSystem(char.ref.system).name }}</i>
+                                    <p>{{ char.ref.description }}</p>
                                 </div>
 
                                 <md-button class="md-icon-button md-list-action" @click.prevent.stop="editCharacter(char)">
@@ -97,180 +98,11 @@
             </md-layout>
         </md-layout>
 
-        <!-- Modals -->
-        <md-dialog id="new-character-modal" ref="newCharModal">
-            <md-dialog-title>New Character</md-dialog-title>
+        <!-- New Char Modal -->
+        <add-modal ref="newCharModal" @saved="onNewCharSaved"></add-modal>
 
-            <md-dialog-content>
-                <md-layout v-flex="grow" md-gutter="16">
-                    <md-layout md-flex-xsmall="100" md-flex-medium="50">
-                        <md-input-container :class="{ 'md-input-invalid': !newChar.name }">
-                            <md-icon>web</md-icon>
-                            <label>Name</label>
-                            <md-input v-model="newChar.name" required></md-input>
-                            <span class="md-error">Name is required</span>
-                        </md-input-container>
-                        <md-input-container  :class="{ 'md-input-invalid': !newChar.system }">
-                            <label>System</label>
-                            <md-select name="system" id="system" v-model="newChar.system" required>
-                                <md-option :value="system.id" v-for="system in systems">{{ system.name }}</md-option>
-                            </md-select>
-                            <span class="md-error">System is required</span>
-                        </md-input-container>
-                    </md-layout>
-                    <md-layout md-flex-xsmall="100" md-flex-medium="50">
-                        <md-layout md-gutter="16">
-                            <md-layout v-flex="grow" md-column>
-                                <md-layout v-flex="grow">
-
-                                </md-layout>
-                                <md-layout v-flex="shrink">
-                                    <md-input-container>
-                                        <md-icon>photo</md-icon>
-                                        <label>Portrait</label>
-                                        <md-input v-model="newChar.portrait"></md-input>
-                                    </md-input-container>
-                                </md-layout>
-                            </md-layout>
-                            <md-layout v-flex="shrink">
-                                <portrait class="small" :src="newChar.portrait"></portrait>
-                            </md-layout>
-                        </md-layout>
-                    </md-layout>
-                </md-layout>
-                <md-layout md-gutter="16">
-                    <md-layout v-flex="grow" md-gutter="16">
-                        <md-layout md-flex-xsmall="100" md-flex="50">
-                            <md-input-container>
-                                <md-icon>palette</md-icon>
-                                <label>Color</label>
-                                <md-input type="color" v-model="newChar.color"></md-input>
-                            </md-input-container>
-                        </md-layout>
-                        <md-layout md-flex-xsmall="100" md-flex="50">
-                            <md-input-container>
-                                <md-icon>photo</md-icon>
-                                <label>Thumbnail</label>
-                                <md-input v-model="newChar.thumbnail"></md-input>
-                            </md-input-container>
-                        </md-layout>
-                    </md-layout>
-                    <md-layout id="thumbnail" v-flex="shrink">
-                        <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': newChar.color }">
-                            <img :src="newChar.thumbnail" alt="">
-                            <div class="md-avatar-text">{{ (newChar.name || '?')[0].toUpperCase() }}</div>
-                        </md-avatar>
-                    </md-layout>
-                </md-layout>
-                <md-input-container>
-                    <md-icon>description</md-icon>
-                    <label>Description</label>
-                    <md-input v-model="newChar.description"></md-input>
-                </md-input-container>
-                <md-input-container>
-                    <md-icon>subject</md-icon>
-                    <label>Biography</label>
-                    <md-textarea v-model="newChar.biography"></md-textarea>
-                </md-input-container>
-            </md-dialog-content>
-
-            <md-dialog-actions>
-                <md-button class="md-primary" @click="closeNewCharacter()">Cancel</md-button>
-                <md-button class="md-primary"
-                           :class="{ 'md-raised md-accent': newCharValid }"
-                           @click="closeNewCharacter(true)"
-                           :disabled="!newCharValid">
-                    Save
-                </md-button>
-            </md-dialog-actions>
-        </md-dialog>
-
-        <md-dialog id="edit-character-modal" ref="editCharModal">
-            <md-dialog-title>Edit Character</md-dialog-title>
-
-            <md-dialog-content>
-                <md-layout v-flex="grow" md-gutter="16">
-                    <md-layout md-flex-xsmall="100" md-flex-medium="50">
-                        <md-input-container :class="{ 'md-input-invalid': !editChar.name }">
-                            <md-icon>web</md-icon>
-                            <label>Name</label>
-                            <md-input v-model="editChar.name" required></md-input>
-                            <span class="md-error">Name is required</span>
-                        </md-input-container>
-                        <md-input-container  :class="{ 'md-input-invalid': !editChar.system }">
-                            <label>System</label>
-                            <md-select name="system" id="system" v-model="editChar.system" required>
-                                <md-option :value="system.id" v-for="system in systems" disabled>{{ system.name }}</md-option>
-                            </md-select>
-                            <span class="md-error">System is required</span>
-                        </md-input-container>
-                    </md-layout>
-                    <md-layout md-flex-xsmall="100" md-flex-medium="50">
-                        <md-layout md-gutter="16">
-                            <md-layout v-flex="grow" md-column>
-                                <md-layout v-flex="grow">
-
-                                </md-layout>
-                                <md-layout v-flex="shrink">
-                                    <md-input-container>
-                                        <md-icon>photo</md-icon>
-                                        <label>Portrait</label>
-                                        <md-input v-model="editChar.portrait"></md-input>
-                                    </md-input-container>
-                                </md-layout>
-                            </md-layout>
-                            <md-layout v-flex="shrink">
-                                <portrait class="small" :src="editChar.portrait"></portrait>
-                            </md-layout>
-                        </md-layout>
-                    </md-layout>
-                </md-layout>
-                <md-layout md-gutter="16">
-                    <md-layout v-flex="grow" md-gutter="16">
-                        <md-layout md-flex-xsmall="100" md-flex="50">
-                            <md-input-container>
-                                <md-icon>palette</md-icon>
-                                <label>Color</label>
-                                <md-input type="color" v-model="editChar.color"></md-input>
-                            </md-input-container>
-                        </md-layout>
-                        <md-layout md-flex-xsmall="100" md-flex="50">
-                            <md-input-container>
-                                <md-icon>photo</md-icon>
-                                <label>Thumbnail</label>
-                                <md-input v-model="editChar.thumbnail"></md-input>
-                            </md-input-container>
-                        </md-layout>
-                    </md-layout>
-                    <md-layout id="thumbnail" v-flex="shrink">
-                        <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': editChar.color }">
-                            <img :src="editChar.thumbnail" alt="">
-                            <div class="md-avatar-text">{{ (editChar.name || '?')[0].toUpperCase() }}</div>
-                        </md-avatar>
-                    </md-layout>
-                </md-layout>
-                <md-input-container>
-                    <md-icon>description</md-icon>
-                    <label>Description</label>
-                    <md-input v-model="editChar.description"></md-input>
-                </md-input-container>
-                <md-input-container>
-                    <md-icon>subject</md-icon>
-                    <label>Biography</label>
-                    <md-textarea v-model="editChar.biography"></md-textarea>
-                </md-input-container>
-            </md-dialog-content>
-
-            <md-dialog-actions>
-                <md-button class="md-primary" @click="closeEditCharacter()">Cancel</md-button>
-                <md-button class="md-primary"
-                           :class="{ 'md-raised md-accent': editCharValid }"
-                           @click="closeEditCharacter(true)"
-                           :disabled="!editCharValid">
-                    Save
-                </md-button>
-            </md-dialog-actions>
-        </md-dialog>
+        <!-- Edit Character Modal -->
+        <edit-modal :char="editChar" ref="editCharModal" @save="onEditSaved" @cancel="onEditCanceled"></edit-modal>
 
         <!-- Delete Character confirmation -->
         <md-dialog-confirm
@@ -287,21 +119,6 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    #edit-character-modal,
-    #new-character-modal {
-        .md-dialog {
-            min-width: 80%;
-        }
-
-        #thumbnail,
-        #portrait {
-            @media(max-width: 600px)
-            {
-                display: none;
-            }
-        }
-    }
-
     #dashboard {
         padding: 16px;
 
@@ -326,6 +143,7 @@
     // Managers
     import authMan from '../../api/managers/auth';
     import systemsMan from '../../api/managers/systems';
+    import characterMan from '../../api/managers/character';
 
     // Services
     import stateSvc from '../../services/state';
@@ -333,17 +151,22 @@
 
     // Components
     import Portrait from '../../components/portrait.vue';
+    import AddModal from './modals/add.vue';
+    import EditModal from './modals/edit.vue';
     
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'DashboardPage',
         components: {
+            AddModal,
+            EditModal,
             Portrait
         },
         subscriptions: {
             account: authMan.account$,
             allSystems: systemsMan.systems$,
+            characterList: characterMan.characters$,
             systemsStatus: systemsMan.status$
         },
         data()
@@ -352,29 +175,8 @@
                 state: stateSvc.state,
                 charFilter: '',
                 systemsFilter: [],
-                editChar: {
-                    name: undefined,
-                    system: '',
-                    description: '',
-                    portrait: '',
-                    thumbnail: '',
-                    color: '#aaaaaa',
-                    biography: ''
-                },
-                newChar: {
-                    name: undefined,
-                    system: '',
-                    description: '',
-                    portrait: '',
-                    thumbnail: '',
-                    color: '#aaaaaa',
-                    biography: ''
-                },
-                delChar: {
-                    id: undefined,
-                    name: undefined
-                },
-                characterList: [],
+                editChar: {},
+                delChar: {},
             };
         },
         computed: {
@@ -383,6 +185,7 @@
             characters()
             {
                 return _(this.characterList)
+                    .filter({ owner: this.account.email })
                     .filter((char) =>
                     {
                         const systemValid = this.systemsFilter.length === 0 || _.includes(this.systemsFilter, char.systemID);
@@ -393,9 +196,7 @@
                         return !this.charFilter || _.includes(char.name, this.charFilter);
                     })
                     .value();
-            },
-            newCharValid(){ return !!this.newChar.name && !!this.newChar.system; },
-            editCharValid(){ return !!this.editChar.name && !!this.editChar.system; }
+            }
         },
         methods: {
             goTo(path)
@@ -403,108 +204,50 @@
                 this.$router.push(path);
             },
 
-            clearNewCharacter()
+            getSystem(systemID)
             {
-                _.assign(this.newChar, {
-                    name: undefined,
-                    system: '',
-                    description: undefined,
-                    portrait: undefined,
-                    thumbnail: undefined,
-                    biography: undefined
-                });
+                return _.find(this.systems, { id: systemID });
             },
+
+            // New Character modal
             openNewCharacter()
             {
-                this.clearNewCharacter();
-                this.newChar.color = utilities.colorize(utilities.shortID());
                 this.$refs.newCharModal.open();
             },
-            closeNewCharacter(save)
+            onNewCharSaved(char)
             {
-                const savePromise = save ? charSvc.create(this.newChar) : Promise.resolve();
-                return savePromise.then((char) =>
-                {
-                    this.clearNewCharacter();
-                    this.$refs.newCharModal.close();
-
-                    if(char)
-                    {
-                        this.goTo(`/characters/${ char.id }`);
-                    } // end if
-                });
+                this.goTo(char.url);
             },
+
+            // Edit Modal
             editCharacter(char)
             {
-                _.assign(this.editChar, {
-                    id: char.id,
-                    name: char.name,
-                    system: char.system.id,
-                    description: char.description,
-                    color: char.color,
-                    portrait: char.portrait,
-                    thumbnail: char.thumbnail,
-                    biography: char.biography
-                });
-
+                this.editChar = char;
                 this.$refs.editCharModal.open();
             },
-            closeEditCharacter(save)
+            onEditSaved(char)
             {
-                if(save)
-                {
-                    const char = _.find(this.characters, { id: this.editChar.id });
-
-                    _.assign(char, {
-                        name: this.editChar.name,
-                        description: this.editChar.description,
-                        color: this.editChar.color,
-                        portrait: this.editChar.portrait,
-                        thumbnail: this.editChar.thumbnail,
-                        biography: this.editChar.biography
-                    });
-
-                    char.$save();
-                } // end if
-
-                this.$refs.editCharModal.close();
+                characterMan.save(char);
+            },
+            onEditCanceled(char)
+            {
+                char.reset();
             },
 
-            clearDelCharacter()
-            {
-                _.assign(this.delChar, {
-                    name: undefined,
-                    id: undefined
-                });
-            },
+            // Delete Modal
             confirmDeleteCharacter(character)
             {
-                this.delChar.id = character.id;
-                this.delChar.name = character.name;
-
+                this.delChar = character;
                 this.$refs.deleteChar.open();
             },
             onConfirmDeleteClosed(result)
             {
-                let delPromise = Promise.resolve();
-
                 if(result === 'ok')
                 {
-                    delPromise = charSvc.delete(this.delChar.id)
-                        .then(() =>
-                        {
-                            const idx = _.findIndex(this.characterList, { id: this.delChar.id });
-                            if(idx !== -1)
-                            {
-                                this.characterList.splice(idx, 1);
-                            } // end if
-                        });
+                    return characterMan.delete(this.delChar);
                 } // end if
 
-                return delPromise.then(() =>
-                {
-                    this.clearDelCharacter();
-                });
+                this.delChar = {};
             }
         },
         mounted()
@@ -516,16 +259,6 @@
                     // We've finished loading, and we're not signed in
                     this.$router.push('/');
                 } // end if
-            });
-
-            this.$nextTick(() =>
-            {
-                // Get a list of characters
-                return charSvc.refresh()
-                    .then((characters) =>
-                    {
-                        this.characterList = characters;
-                    });
             });
         }
     }

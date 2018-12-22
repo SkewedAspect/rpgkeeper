@@ -4,6 +4,7 @@
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
+import _ from 'lodash';
 import BaseModel from './base';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -14,7 +15,8 @@ class BaseCharacterModel extends BaseModel
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get url(){ return `/characters/${ this.$state.id }`; }
+    get url(){ return `/characters/${ _.get(this.$state, 'id', '') }`; }
+    get initial(){ return (_.get(this.name, '0', '?')).toUpperCase(); }
 
 } // end BaseCharacterModel
 

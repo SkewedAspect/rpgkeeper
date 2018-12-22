@@ -5,7 +5,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import deepFreeze from 'deep-freeze';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -96,12 +95,6 @@ class BaseDataModel
 
         // Build Properties
         this.$buildProps(isRef);
-
-        if(isRef)
-        {
-            // We freeze the ref object to ensure it is never modified, except by explicit intention.
-            deepFreeze(this.$state);
-        } // end isRef
     } // end $buildState
 
     //------------------------------------------------------------------------------------------------------------------
@@ -143,8 +136,6 @@ class BaseDataModel
 
         // Set our reference state to match
         inst._ref.$state = _.cloneDeep(this._ref.$state);
-
-        deepFreeze(inst._ref.$state);
 
         return inst;
     } // end clone

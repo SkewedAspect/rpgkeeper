@@ -4,7 +4,6 @@
 
 <template>
     <div id="eote-character" class="container">
-        <character :character="character"></character>
     </div>
 </template>
 
@@ -21,21 +20,13 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Components
-    import CharComponent from '../../../client/components/character.vue';
     import PortraitComponent from '../../../client/components/portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         components: {
-            character: CharComponent,
             portrait: PortraitComponent,
-        },
-        props: {
-            character: {
-                type: Object,
-                required: true
-            }
         },
         data()
         {

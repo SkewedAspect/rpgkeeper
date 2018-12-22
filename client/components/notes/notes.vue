@@ -173,10 +173,14 @@
 
     import { shortID } from '../../../server/utilities';
 
+    // Managers
+    import charMan from '../../api/managers/character';
+
     // Codemirror component
     import VueCode from 'vue-code';
     import 'codemirror/mode/markdown/markdown';
 
+    // Components
     import NotePage from './page.vue';
     
     //------------------------------------------------------------------------------------------------------------------
@@ -187,18 +191,13 @@
             vueCode: VueCode
         },
         props: {
-            notes: {
-                type: Array,
-                required: true
-            },
             disabled: {
                 type: Boolean,
                 default: false
-            },
-            save: {
-                type: Function,
-                required: true
             }
+        },
+        subscriptions: {
+            character: charMan.selected$
         },
         data()
         {
@@ -222,6 +221,7 @@
             };
         },
         computed: {
+            notes(){ return this.character.notes; },
             currentPage()
             {
                 return _.find(this.notes, { id: this.currentPageID });
@@ -255,17 +255,16 @@
             },
             onConfirmDeleteClosed(result)
             {
-                if(result == 'ok')
+                if(result === 'ok')
                 {
-                    _.remove(this.notes, { id: this.delNoteID });
+                    const idx = _.findIndex(this.notes, { id: this.delNoteID });
+                    this.notes.splice(idx, 1);
 
                     // Load a new page.
-                    if(this.delNoteID == this.currentPageID)
+                    if(this.delNoteID === this.currentPageID)
                     {
                         this.loadPage(this.notes[0]);
                     } // end if
-
-                    this.save();
                 } // end if
 
                 this.delNoteID = undefined;
@@ -283,7 +282,6 @@
                     const note = { id: shortID(), title: this.newNote.title, content: this.newNote.content };
                     this.notes.push(note);
                     this.loadPage(note);
-                    this.save();
                 } // end if
 
                 // Clear the new note
@@ -315,7 +313,6 @@
                     const noteIdx = _.findIndex(this.notes, { id: this.currentPage.id });
                     this.notes.splice(noteIdx, 1, _.clone(this.editNote));
                     this.reloadPage();
-                    this.save();
                 } // end if
 
                 // Clear the edit note
