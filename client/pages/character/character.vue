@@ -109,7 +109,7 @@
             // Watch for changes to the sysChar, and save.
             this.$watch('sysChar', (char, oldChar) =>
             {
-                if(!_.isUndefined(oldChar) && char)
+                if(!_.isUndefined(oldChar) && char && char.dirty)
                 {
                     sysCharMan.save(char);
                 } // end char
