@@ -15,7 +15,7 @@ class SystemCharacterModel extends BaseModel
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get url(){ return `/systems/${ this._systemID }/characters/${ _.get(this.$state, 'id', '') }`; }
+    get url(){ return `/systems/${ this._systemID }/character/${ _.get(this.$state, 'id', '') }`; }
 
 } // end SystemCharacterModel
 
