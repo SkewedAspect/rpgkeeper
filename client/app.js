@@ -16,9 +16,11 @@ import Vue from 'vue';
 import VueMaterial from 'vue-material';
 import VueRouter from 'vue-router';
 
+// Code Mirror
+import 'codemirror/lib/codemirror.css';
+
 // VueRX
 import VueRx from 'vue-rx'
-
 
 // Views
 import AppComponent from './app.vue';
@@ -48,6 +50,8 @@ Vue.use(VueRx);
 // ---------------------------------------------------------------------------------------------------------------------
 // Vue Material
 // ---------------------------------------------------------------------------------------------------------------------
+
+import 'vue-material/dist/vue-material.css';
 
 Vue.use(VueMaterial);
 
