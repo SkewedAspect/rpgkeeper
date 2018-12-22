@@ -9,5 +9,5 @@ node_modules
 tmp
 
 # Application artifacts
+.cache
 dist
-vendor
