@@ -20,7 +20,7 @@ function randomChoice(choices)
 class DiceService {
     constructor()
     {
-        this.cache = LRU(50);
+        this.cache = new LRU(50);
         this.fudgeChoices = ['-1', '-1', '0', '0', '+1', '+1'];
     } // end constructor
 

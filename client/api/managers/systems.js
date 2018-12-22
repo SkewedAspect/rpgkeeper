@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 // Resource Access
 import systemsRA from '../resource-access/systems';
