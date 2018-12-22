@@ -108,12 +108,16 @@ app.get('*', (request, response) => {
 });
 
 // Start the server
-const server = app.listen(config.http.port || 3000, function()
+const server = app.listen(config.http.port, () =>
 {
     const host = server.address().address;
     const port = server.address().port;
 
     logger.info('RPGKeeper v%s listening at http://%s:%s', require('./package').version, host, port);
+});
+
+process.on('uncaughtException', function(err) {
+    console.log('Caught exception: ' + err.stack);
 });
 
 //----------------------------------------------------------------------------------------------------------------------
