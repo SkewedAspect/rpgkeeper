@@ -9,3 +9,7 @@ dist
 
 # Node artifacts
 node_modules
+
+# Database
+db/*.sqlite
+db/*.db
