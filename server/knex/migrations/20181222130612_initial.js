@@ -12,10 +12,9 @@ exports.up = async function(knex)
         table.text('email').notNullable().unique().index();
         table.text('name');
         table.text('avatar');
-        table.string('google_id').unique().index();
         table.json('permissions').notNullable().defaultTo('[]');
         table.json('settings').notNullable().defaultTo('{}');
-        table.timestamp('created').defaultTo(knex.fn.now());
+        table.timestamp('created').notNullable().defaultTo(knex.fn.now());
     });
 
     // The `role` table
