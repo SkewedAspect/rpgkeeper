@@ -2,7 +2,7 @@
 // Initial Setup Migration
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.up = async function(knex)
+exports.up = async (knex) =>
 {
     // The `account` table
     await knex.schema.createTable('account', (table) =>
@@ -68,7 +68,7 @@ exports.up = async function(knex)
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.down = async function(knex)
+exports.down = async (knex) =>
 {
     await knex.schema.dropTable('account');
     await knex.schema.dropTable('role');
