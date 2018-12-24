@@ -113,7 +113,7 @@ class AccountResourceAccess
     async updateAccount(account)
     {
         const account_id = account.account_id;
-        account = _.omit(account, 'account_id', 'hash_id');
+        account = _.omit(account, 'account_id', 'hash_id', 'created');
         account.permissions = JSON.stringify(_.get(account, 'permissions'));
         account.settings = JSON.stringify(_.get(account, 'settings'));
 
