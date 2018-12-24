@@ -17,7 +17,6 @@ const logger = require('trivial-logging').loggerFor(module);
 
 passport.use(new GoogleStrategy(async (token, profile, done) =>
     {
-
         try
         {
             let account;
@@ -44,7 +43,7 @@ passport.use(new GoogleStrategy(async (token, profile, done) =>
             else
             {
                 account = await accountMan.createAccount({
-                    name: profile.email.split('@')[ 0 ],
+                    name: profile.email.split('@')[0],
                     avatar: `${profile.picture}?sz=512`,
                     email: profile.email
                 });
