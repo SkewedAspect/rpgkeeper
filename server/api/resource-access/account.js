@@ -18,8 +18,22 @@ class AccountResourceAccess
     _parseAccount(account)
     {
         account.created = Date.parse(account.created + ' GMT');
-        account.permissions = JSON.parse(_.get(account, 'permissions', []));
-        account.settings = JSON.parse(_.get(account, 'settings', {}));
+
+        // Parse permissions JSON
+        try { account.permissions = JSON.parse(account.permissions); }
+        catch(error)
+        {
+            account.permissions = [];
+            logger.warn(`Failed to parse permissions for account ${ account.account_id }:`, error.stack);
+        } // end try/catch
+
+        // Parse settings JSON
+        try { account.settings = JSON.parse(account.settings); }
+        catch(error)
+        {
+            account.permissions = [];
+            logger.warn(`Failed to parse settings for account ${ account.account_id }:`, error.stack);
+        } // end try/catch
 
         return account;
     } // end _parseAccount
