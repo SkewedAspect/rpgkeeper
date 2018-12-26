@@ -8,10 +8,10 @@ const accountRA = require('../resource-access/account');
 
 class AccountManager
 {
-    async getAllAccounts()
+    async getAccounts()
     {
         return await accountRA.getAccounts();
-    } // end getAllAccounts
+    } // end getAccounts
 
     async getAccountByID(account_id)
     {
