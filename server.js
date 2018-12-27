@@ -74,9 +74,6 @@ async function main()
     // Basic request logging
     app.use(routeUtils.requestLogger(logger));
 
-    // Basic error logging
-    app.use(routeUtils.errorLogger(logger));
-
     // Auth support
     app.use(cookieParser());
     app.use(bodyParser.json());
@@ -134,6 +131,9 @@ async function main()
             }
         })
     });
+
+    // Basic error logging
+    app.use(routeUtils.errorLogger(logger));
 
     //------------------------------------------------------------------------------------------------------------------
     // Server
