@@ -29,7 +29,7 @@
             <note-page
                 :title="currentPage.title"
                 :content="currentPage.content"
-                v-flex="max" style="padding-left: 16px; padding-right: 16px">
+                v-flex="'max'" style="padding-left: 16px; padding-right: 16px">
             </note-page>
         </md-card-content>
         <md-card-content v-else>
@@ -182,7 +182,7 @@
 
     // Components
     import NotePage from './page.vue';
-    
+
     //------------------------------------------------------------------------------------------------------------------
 
     export default {

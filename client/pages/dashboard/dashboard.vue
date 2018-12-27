@@ -48,8 +48,8 @@
 
                         <md-input-container md-inline v-flex="1">
                             <md-icon>search</md-icon>
-                            <md-input v-flex="max" v-model="charFilter" placeholder="Search Characters"></md-input>
-                            <md-select v-flex="min" name="users" id="users" multiple v-model="systemsFilter" style="min-width: 48px">
+                            <md-input v-flex="'max'" v-model="charFilter" placeholder="Search Characters"></md-input>
+                            <md-select v-flex="'min'" name="users" id="users" multiple v-model="systemsFilter" style="min-width: 48px">
                                 <md-button class="md-icon-button" md-menu-trigger slot="icon">
                                     <md-icon>filter_list</md-icon>
                                 </md-button>
@@ -153,7 +153,7 @@
     import Portrait from '../../components/portrait.vue';
     import AddModal from './modals/add.vue';
     import EditModal from './modals/edit.vue';
-    
+
     //------------------------------------------------------------------------------------------------------------------
 
     export default {

@@ -7,7 +7,7 @@
         <md-dialog-title>{{ title }}</md-dialog-title>
 
         <md-dialog-content>
-            <md-layout v-flex="grow" md-gutter="16">
+            <md-layout v-flex="'grow'" md-gutter="16">
                 <md-layout md-flex-xsmall="100" md-flex-medium="50">
                     <md-input-container :class="{ 'md-input-invalid': !char.name }">
                         <md-icon>web</md-icon>
@@ -25,11 +25,11 @@
                 </md-layout>
                 <md-layout md-flex-xsmall="100" md-flex-medium="50">
                     <md-layout md-gutter="16">
-                        <md-layout v-flex="grow" md-column>
-                            <md-layout v-flex="grow">
+                        <md-layout v-flex="'grow'" md-column>
+                            <md-layout v-flex="'grow'">
 
                             </md-layout>
-                            <md-layout v-flex="shrink">
+                            <md-layout v-flex="'shrink'">
                                 <md-input-container>
                                     <md-icon>photo</md-icon>
                                     <label>Portrait</label>
@@ -37,14 +37,14 @@
                                 </md-input-container>
                             </md-layout>
                         </md-layout>
-                        <md-layout v-flex="shrink">
+                        <md-layout v-flex="'shrink'">
                             <portrait class="small" :src="char.portrait"></portrait>
                         </md-layout>
                     </md-layout>
                 </md-layout>
             </md-layout>
             <md-layout md-gutter="16">
-                <md-layout v-flex="grow" md-gutter="16">
+                <md-layout v-flex="'grow'" md-gutter="16">
                     <md-layout md-flex-xsmall="100" md-flex="50">
                         <md-input-container>
                             <md-icon>palette</md-icon>
@@ -60,7 +60,7 @@
                         </md-input-container>
                     </md-layout>
                 </md-layout>
-                <md-layout id="thumbnail" v-flex="shrink">
+                <md-layout id="thumbnail" v-flex="'shrink'">
                     <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.color }">
                         <img :src="char.thumbnail" alt="">
                         <div class="md-avatar-text">{{ char.initial }}</div>
