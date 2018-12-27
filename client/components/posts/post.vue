@@ -42,7 +42,7 @@
 
     import _ from 'lodash';
     import marked from 'marked';
-    import moment from 'moment';
+    import { format } from 'date-fns';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@
             },
             date()
             {
-                return moment(this.post.created).format('MMM Do YYYY');
+                return format(this.post.created, 'MMM Do YYYY');
             },
             stinger()
             {
