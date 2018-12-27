@@ -1,16 +1,16 @@
-<!--------------------------------------------------------------------------------------------------------------------->
-<!-- New Article                                                                                                     -->
-<!--------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------
+  -- News Post
+  --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="news-article">
-        <md-card class="news-article" :id="id" style="height: 100%">
+    <div class="news-post">
+        <md-card class="news-post" :id="id" style="height: 100%">
             <md-card-header>
                 <div class="md-title">{{ title }}</div>
                 <div class="md-subhead text-right">{{ date }} by {{ author }}</div>
             </md-card-header>
 
-            <md-card-content style="flex: 1" v-html="truncatedBody"></md-card-content>
+            <md-card-content style="flex: 1" v-html="stinger"></md-card-content>
 
             <md-card-actions>
                 <md-button @click="openReadMore">Read More</md-button>
@@ -19,7 +19,7 @@
 
         <md-dialog-alert
             :md-title="title"
-            :md-content-html="`${ subhead }\n\n${ body }`"
+            :md-content-html="`${ subhead }\n\n${ content }`"
             :md-open-from="id"
             :md-close-to="id"
             ref="readMore">
@@ -30,7 +30,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    .news-article {
+    .news-post {
         margin: 8px 0;
     }
 </style>
@@ -48,7 +48,7 @@
 
     export default {
         props: {
-            article: {
+            post: {
                 type: Object,
                 required: true
             }
@@ -60,29 +60,27 @@
             },
             title()
             {
-                return _.get(this.article, 'attributes.title', 'Unknown Title');
+                return _.get(this.post, 'title', 'Unknown Title');
             },
             author()
             {
-                return _.get(this.article, 'attributes.author', 'Unknown Author');
+                return _.get(this.post, 'account.name', 'Unknown Author');
             },
             date()
             {
-                return moment(this.article.attributes.date).format('MMM Do YYYY');
+                return moment(this.post.created).format('MMM Do YYYY');
             },
-            truncatedBody()
+            stinger()
             {
-                const blurb = this.article.body.split('--- $READMORE')[0];
-                return marked(blurb);
+                return marked(this.post.stinger);
             },
             subhead()
             {
-                return `<div class="md-subhead">${ this.date } by ${ this.article.attributes.user }</div>`;
+                return `<div class="md-subhead">${ this.date } by ${ this.author }</div>`;
             },
-            body()
+            content()
             {
-                const body = this.article.body.replace('--- $READMORE', '');
-                return marked(body);
+                return marked(this.post.content);
             }
         },
         methods: {
