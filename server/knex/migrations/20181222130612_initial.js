@@ -33,6 +33,17 @@ exports.up = async (knex) =>
         table.unique(['account_id', 'role_id']);
     });
 
+    await knex.schema.createTable('post', (table) =>
+    {
+        table.integer('post_id').primary();
+        table.integer('account_id').references('account.account_id').notNullable();
+        table.text('title').notNullable();
+        table.string('stinger').notNullable();
+        table.string('content').notNullable();
+        table.timestamp('created').notNullable().defaultTo(knex.fn.now());
+        table.timestamp('edited').notNullable().defaultTo(knex.fn.now());
+    });
+
     // The `notes` table
     await knex.schema.createTable('note', (table) =>
     {
@@ -44,7 +55,7 @@ exports.up = async (knex) =>
     await knex.schema.createTable('note_page', (table) =>
     {
         table.integer('page_id').primary();
-        table.text('title');
+        table.text('title').notNullable();
         table.string('content');
         table.integer('note_id').references('note.note_id').notNullable();
     });

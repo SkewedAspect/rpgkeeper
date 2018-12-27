@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Utilities to make express routes use less boilerplate.
-//
-// @module utils.js
 //----------------------------------------------------------------------------------------------------------------------
 
 const fs = require('fs');
@@ -12,7 +10,7 @@ const path = require('path');
 // Basic request logging
 function buildBasicRequestLogger(logger)
 {
-    return function(request, response, next)
+    return (request, response, next) =>
     {
         logger.debug(`${ request.method } '${ request.url }'`);
         next();
@@ -22,7 +20,7 @@ function buildBasicRequestLogger(logger)
 // Basic error logging
 function buildBasicErrorLogger(logger)
 {
-    return function(error, request, response, next)
+    return (error, request, response, next) =>
     {
         logger.child({
             request: {
@@ -38,21 +36,59 @@ function buildBasicErrorLogger(logger)
     }; // end loggerFunc
 } // end buildBasicErrorLogger
 
+function buildErrorHandler(logger)
+{
+    function apiErrorHandler(error, request, response, next)
+    {
+        let errorJSON = {};
+        if(typeof error.toJSON == 'function')
+        {
+            errorJSON = error.toJSON();
+        }
+        else
+        {
+            errorJSON = {
+                name: error.constructor.name,
+                message: error.message,
+                code: error.code,
+                error: error
+            };
+        } // end if
+
+        response.status(500).json(errorJSON);
+    } // end apiErrorHandler
+
+    if(logger)
+    {
+        return (error, request, response, next) =>
+        {
+            buildBasicErrorLogger(logger)(error, request, response, () =>
+            {
+                apiErrorHandler(error, request, response, next);
+            });
+        };
+    }
+    else
+    {
+        return apiErrorHandler;
+    } // end if
+} // end buildErrorHandler
+
 // Serve index
 function serveIndex(request, response)
 {
     response.setHeader("Content-Type", "text/html");
-    fs.createReadStream(path.resolve(__dirname + '/../../' + 'dist/index.html')).pipe(response);
+    fs.createReadStream(path.resolve(__dirname, '..', '..', 'dist', 'index.html')).pipe(response);
 } // end serveIndex
 
 // Either serve 'index.html', or run json handler
-function interceptHTML(response, jsonHandler, authenticated)
+function interceptHTML(response, jsonHandler, skipAuthCheck)
 {
     response.format({
         html: serveIndex,
         json: (request, response) => {
 
-            if(!authenticated || request.isAuthenticated())
+            if(!skipAuthCheck || request.isAuthenticated())
             {
                 jsonHandler(request, response);
             }
@@ -82,6 +118,7 @@ function ensureAuthenticated(request, response, next)
     } // end if
 } // end ensureAuthenticated
 
+//TODO: Remove usages of this in favor of `wrapAsync` and `errorHandler`.
 function promisify(handler)
 {
     return (request, response) =>
@@ -107,15 +144,26 @@ function promisify(handler)
     };
 } // end promisify
 
+function wrapAsync(handler)
+{
+    return function(req, res, next)
+    {
+        // Make sure to `.catch()` any errors and pass them along to the `next()` middleware in the chain
+        handler(req, res, next).catch(next);
+    };
+} // ebd wrapAsync
+
 //----------------------------------------------------------------------------------------------------------------------
 
 module.exports = {
     requestLogger: buildBasicRequestLogger,
     errorLogger: buildBasicErrorLogger,
+    errorHandler: buildErrorHandler,
     interceptHTML,
     serveIndex,
     ensureAuthenticated,
-    promisify
+    promisify,
+    wrapAsync
 }; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------
