@@ -11,9 +11,11 @@
 				The one-stop shop for all your RPG needs.
 			</small>
 		</h1>
-        <md-layout class="news" :md-gutter="true">
-			<md-layout md-flex-small="100" v-for="article in articles">
-				<news-article :article="article"></news-article>
+        <md-progress v-if="postsLoading" class="md-accent" md-indeterminate></md-progress>
+        <h4 class="text-center" v-else-if="posts.length === 0">No News Posts</h4>
+        <md-layout class="news" :md-gutter="true" v-else>
+			<md-layout md-flex-small="100" v-for="post in sortedPosts" :key="post.post_id">
+				<news-post :post="post"></news-post>
 			</md-layout>
 		</md-layout>
 	</div>
@@ -39,28 +41,36 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-	import _ from 'lodash';
-    import marked from 'marked';
-    import moment from 'moment';
-    import $http from 'axios';
-
     // Managers
     import authMan from '../../api/managers/auth';
+    import postsMan from '../../api/managers/posts';
 
     // Components
-    import Article from './components/article.vue';
+    import NewsPost from '../../components/posts/post.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
 	export default {
 	    components: {
-	        newsArticle: Article
+	        NewsPost
 		},
+        computed: {
+	        sortedPosts()
+            {
+                // Since `.sort` manipulates it in place, we make a copy using `.concat` as a nice shortcut for that.
+                return this.posts
+                    .concat()
+                    .sort((post) => -post.created);
+            }
+        },
+        subscriptions: {
+	        postsLoading: postsMan.postsLoading$,
+            posts: postsMan.posts$
+        },
         data()
         {
             return {
-                signingIn: false,
-                articles: []
+                signingIn: false
             };
         },
         mounted()
@@ -81,12 +91,6 @@
                     this.$router.push('/dashboard');
                 } // end if
             });
-
-            $http.get('/news')
-                .then((response) =>
-                {
-                    this.articles = response.data || [];
-                });
         }
 	}
 </script>
