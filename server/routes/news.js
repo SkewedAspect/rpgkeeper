@@ -1,71 +1,48 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Routes for news
-//
-// @module news.js
 //----------------------------------------------------------------------------------------------------------------------
-
-const fs = require('fs');
-const path = require('path');
 
 const _ = require('lodash');
 const express = require('express');
-const Promise = require('bluebird');
-const fastmatter = require('fastmatter');
 
-const routeUtils = require('./utils');
+// Managers
+const postsMan = require('../api/managers/posts');
+
+// Utils
+const { errorHandler, wrapAsync } = require('./utils');
+
+// Logger
+logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
-
-const readDirAsync = Promise.promisify(fs.readdir);
-const readFileAsync = Promise.promisify(fs.readFile);
 
 const router = express.Router();
-const promisify = routeUtils.promisify;
 
 //----------------------------------------------------------------------------------------------------------------------
 
-//TODO: We need a better new system.
-
-router.get('/', (request, response) =>
+router.get('/', wrapAsync(async(req, resp) =>
 {
-    routeUtils.interceptHTML(response, promisify(() =>
-    {
-        const newsPath = path.resolve(__dirname + '/../news');
+    const posts = (await postsMan.getPosts())
+        .map((post) =>
+        {
+            delete post.account_id;
+            delete post.account.account_id;
+            delete post.account.settings;
+            delete post.account.permissions;
 
-        return readDirAsync(newsPath)
-            .then((files) =>
-            {
-                const filePromises = [];
-                _.each(files, (fileName) =>
-                {
-                    const filePath = path.join(newsPath, fileName);
+            return post;
+        });
 
-                    filePromises.push(readFileAsync(filePath, { encoding: 'utf8' })
-                            .then((file) =>
-                            {
-                                const data = fastmatter(file);
+    resp.json(posts);
+}));
 
-                                // Parse as a date
-                                data.attributes.date = new Date(data.attributes.date);
-                                data.attributes.filename = fileName;
+//TODO: Implement full CRUD for news posts
 
-                                return data;
-                            }));
-                });
+//----------------------------------------------------------------------------------------------------------------------
+// Error Handling
+//----------------------------------------------------------------------------------------------------------------------
 
-                return Promise.all(filePromises)
-                    .then((news) =>
-                    {
-                        response.json(_.sortBy(news, 'date').reverse());
-                    });
-            })
-            .catch((err) =>
-            {
-                console.error('error:', err.stack);
-                response.status(500).json({ error: err.message, stack: err.stack });
-            });
-    }));
-});
+router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
