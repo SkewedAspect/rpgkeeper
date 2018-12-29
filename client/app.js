@@ -4,12 +4,6 @@
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
-// Overwrite the global promise with Bluebird. This makes `axios` use Bluebird promises.
-import Promise from 'bluebird';
-window.Promise = Promise;
-
-//----------------------------------------------------------------------------------------------------------------------
-
 import pkg from '../package.json';
 import marked from 'marked';
 

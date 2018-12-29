@@ -6,7 +6,6 @@
 
 import Vue from 'vue';
 import $http from 'axios';
-import Promise from 'bluebird';
 
 import CharacterModel from '../models/character';
 

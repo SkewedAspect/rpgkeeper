@@ -5,7 +5,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import Promise from 'bluebird';
 import $http from 'axios';
 
 // NEW Managers
@@ -49,7 +48,7 @@ class CharacterModel
             .then(() =>
             {
                 const verb = this.$base.id ? 'put' : 'post';
-                return Promise.join($http[verb](this.baseURL, this.$base), $http[verb](this.systemURL, this.$system));
+                return Promise.all([$http[verb](this.baseURL, this.$base), $http[verb](this.systemURL, this.$system)]);
             })
             .then(this.postSave)
             .then(() => this);

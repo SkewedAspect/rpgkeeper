@@ -13,7 +13,7 @@
                 <notes :disabled="!isAuthorized"></notes>
             </md-tab>
         </md-tabs>
-        <div class="loading container text-center"v-else-if="!loaded">
+        <div class="loading container text-center" v-else-if="!sysChar">
             <h4 class="text-center">Loading...</h4>
             <md-progress class="md-accent" md-indeterminate></md-progress>
         </div>

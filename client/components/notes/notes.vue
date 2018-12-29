@@ -169,7 +169,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
-    import Promise from 'bluebird';
 
     import { shortID } from '../../../server/utilities';
 

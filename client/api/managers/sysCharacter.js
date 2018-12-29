@@ -4,8 +4,6 @@
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
-import Promise from 'bluebird';
 import { BehaviorSubject } from 'rxjs';
 
 // Managers
