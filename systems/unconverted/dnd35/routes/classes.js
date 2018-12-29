@@ -4,8 +4,6 @@
 /// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
-import Promise from 'bluebird';
 import express from 'express';
 import logging from 'omega-logger';
 
