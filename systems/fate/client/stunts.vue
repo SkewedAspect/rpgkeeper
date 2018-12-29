@@ -62,7 +62,7 @@
                                     <md-input v-model="newStuntDesc"></md-input>
                                 </md-input-container>
                             </md-layout>
-                            <md-layout v-flex="shrink">
+                            <md-layout v-flex="'shrink'">
                                 <div style="padding-top: 10px;">
                                     <md-button class="md-raised" @click="addNew()" :disabled="!newStuntName || !newStuntDesc">
                                         Add

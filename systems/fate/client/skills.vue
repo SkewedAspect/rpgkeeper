@@ -72,7 +72,7 @@
                                     </md-input-container>
                                 </md-layout>
                             </md-layout>
-                            <md-layout v-flex="shrink">
+                            <md-layout v-flex="'shrink'">
                                 <div style="padding-top: 10px;">
                                     <md-button class="md-raised" @click="addNew()" :disabled="!newSkill.name || (newSkill.rank <= 0)">
                                         Add
@@ -128,7 +128,7 @@
 
 <script>
     //------------------------------------------------------------------------------------------------------------------
-    
+
     import _ from 'lodash';
 
     // Pull in the shortID utility

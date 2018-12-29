@@ -27,15 +27,15 @@
                                     <md-input type="number" min="0" v-model="character.fatePoints.current" :disabled="!isAuthorized"></md-input>
                                 </md-input-container>
                             </md-layout>
-                            <md-layout v-flex="shrink">
+                            <md-layout v-flex="'shrink'">
                                 <h3 style="padding-top: 10px">/ {{ character.fatePoints.refresh }}</h3>
                             </md-layout>
-                            <md-layout v-flex="shrink">
+                            <md-layout v-flex="'shrink'">
                                 <div>
                                     <md-button class="refresh-btn md-raised" @click.native="refreshFatePoints" :disabled="!isAuthorized">Refresh</md-button>
                                 </div>
                             </md-layout>
-                            <md-layout v-flex="shrink">
+                            <md-layout v-flex="'shrink'">
                                 <md-button class="edit-btn md-icon-button md-dense" @click="openEditFatePoints()" :disabled="!isAuthorized">
                                     <md-icon>edit</md-icon>
                                 </md-button>
@@ -52,7 +52,7 @@
             <div id="aspects-layout">
                 <aspects :aspects="character.aspects" :is-authorized="isAuthorized"></aspects>
             </div>
-            <div id="skills-layout" v-flex="grow">
+            <div id="skills-layout" v-flex="'grow'">
                 <skills :skills="character.skills" :is-authorized="isAuthorized"></skills>
             </div>
         </md-layout>
