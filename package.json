@@ -35,7 +35,7 @@
     "node-sass": "^4.5.3",
     "passport": "^0.4.0",
     "passport-google-web": "^1.0.0",
-    "rpgdicejs": "^1.0.0",
+    "rpgdicejs": "^2.0.0-rc.2",
     "socket.io": "^2.0.3",
     "sqlite3": "^4.0.4",
     "thinky": "^2.3.9",
