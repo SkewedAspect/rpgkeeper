@@ -17,7 +17,7 @@ class SystemCharacterResourceAccess
     {
         return $http.get(`/systems/${ sysID }/character/${ charID }`)
             .then(({ data }) => new SystemCharacterModel(data))
-            .tap((model) => { model._systemID = sysID });
+            .then((model) => { model._systemID = sysID; return model; });
     } // end load
 
     save(character)

@@ -4,10 +4,6 @@
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import Promise from 'bluebird';
-
-//----------------------------------------------------------------------------------------------------------------------
-
 class DropboxService {
     chooseDropboxImage()
     {
@@ -15,7 +11,7 @@ class DropboxService {
         {
             Dropbox.choose({
                 extensions: ["images"],
-                success: function(files)
+                success(files)
                 {
                     // This is a little obnoxious. Dropbox does not support non-expiring direct links from their
                     // chooser api, however, any file in dropbox can be directly linked to. The solution? Rewrite

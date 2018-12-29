@@ -135,7 +135,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
-    import Promise from 'bluebird';
 
     // Utils
     import utilities from '../../../server/utilities';
