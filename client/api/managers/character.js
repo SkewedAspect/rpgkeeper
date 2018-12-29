@@ -45,17 +45,12 @@ class CharacterManager
     // Subscriptions
     //------------------------------------------------------------------------------------------------------------------
 
-    _onAccountChanged(account)
+    async _onAccountChanged(account)
     {
         if(account)
         {
-            // FIXME: This only exists like this to prevent a warning from bluebird, since it seems to throw a really
-            // weird fit about an non-returned promise, otherwise. There's no non-returned promise, but w/e.
-            setTimeout(() =>
-            {
-                return characterRA.loadCharacters(account.email)
-                    .then((characters) => this._charactersSubject.next(characters));
-            }, 0);
+            const characters = await characterRA.loadCharacters(account.email);
+            this._charactersSubject.next(characters);
         }
         else
         {

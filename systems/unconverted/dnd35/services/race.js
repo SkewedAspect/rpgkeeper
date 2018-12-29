@@ -4,7 +4,6 @@
 /// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import Promise from 'bluebird';
 import $http from 'axios';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -14,7 +13,7 @@ class RaceService {
     {
         this._races = {};
     } // end constructor
-    
+
     get(raceID, reload)
     {
         var race = this._races[raceID];
@@ -33,13 +32,13 @@ class RaceService {
                     {
                         console.error(`Race with id '${ raceID }' not found.`);
                     }
-                    else 
+                    else
                     {
                         console.error('Error getting race:', error);
                     } // end if
                 });
         }
-        else 
+        else
         {
             return Promise.resolve(race);
         } // end if

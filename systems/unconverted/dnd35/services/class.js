@@ -4,7 +4,6 @@
 /// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import Promise from 'bluebird';
 import $http from 'axios';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -14,7 +13,7 @@ class ClassService {
     {
         this._classes = {};
     } // end constructor
-    
+
     get(classID, reload)
     {
         var classObj = this._classes[classID];
@@ -33,13 +32,13 @@ class ClassService {
                     {
                         console.error(`Class with id '${ classID }' not found.`);
                     }
-                    else 
+                    else
                     {
                         console.error('Error getting class:', error);
                     } // end if
                 });
         }
-        else 
+        else
         {
             return Promise.resolve(classObj);
         } // end if
