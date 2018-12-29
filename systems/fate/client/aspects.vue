@@ -45,13 +45,13 @@
                 <md-card v-flex="1">
                     <md-card-content>
                         <md-layout md-gutter="16">
-                            <md-layout v-flex="grow">
+                            <md-layout v-flex="'grow'">
                                 <md-input-container md-clearable>
                                     <label>Aspect</label>
                                     <md-input v-model="newAspect.detail"></md-input>
                                 </md-input-container>
                             </md-layout>
-                            <md-layout v-flex="shrink">
+                            <md-layout v-flex="'shrink'">
                                 <div style="padding-top: 10px;">
                                     <md-button class="md-raised" @click="addNew()">
                                         Add
