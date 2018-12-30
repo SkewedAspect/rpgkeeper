@@ -17,6 +17,7 @@ class AccountResourceAccess
 
     _parseAccount(account)
     {
+        account.id = account.hash_id;
         account.created = Date.parse(account.created + ' GMT');
 
         // Parse permissions JSON
@@ -126,15 +127,36 @@ class AccountResourceAccess
 
     async updateAccount(account)
     {
-        const account_id = account.account_id;
-        account = _.omit(account, 'account_id', 'hash_id', 'created');
-        account.permissions = JSON.stringify(_.get(account, 'permissions'));
-        account.settings = JSON.stringify(_.get(account, 'settings'));
+        const { id, account_id, hash_id, created, ...safeAccount } = account;
 
+        if(account.permissions)
+        {
+            safeAccount.permissions = JSON.stringify(account.permissions);
+        } // end if
+
+        if(account.settings)
+        {
+            safeAccount.settings = JSON.stringify(account.settings);
+        } // end if
+
+        // Figure out how we're looking up the account to update.
+        const selector = {};
+        if(id || hash_id)
+        {
+            selector.hash_id = id || hash_id;
+        }
+        else if(account_id)
+        {
+            selector.account_id = account_id;
+        } // end if
+
+        // Update the account
         const db = await dbMan.getDB();
-        return await db('account')
-            .update(account)
-            .where({ account_id });
+        await db('account')
+            .update(safeAccount)
+            .where(selector);
+
+        return selector;
     } // end updateAccount
 
     async deleteAccount(account_id)
