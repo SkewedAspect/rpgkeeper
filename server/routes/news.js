@@ -12,7 +12,7 @@ const postsMan = require('../api/managers/posts');
 const { errorHandler, wrapAsync } = require('./utils');
 
 // Logger
-logger = require('trivial-logging').loggerFor(module);
+const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
