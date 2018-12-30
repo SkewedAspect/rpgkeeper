@@ -78,7 +78,7 @@ function buildErrorHandler(logger)
 function serveIndex(request, response)
 {
     response.setHeader("Content-Type", "text/html");
-    fs.createReadStream(path.resolve(__dirname, '..', '..', 'dist', 'index.html')).pipe(response);
+    fs.createReadStream(path.resolve(__dirname, '..', '..', '..', 'dist', 'index.html')).pipe(response);
 } // end serveIndex
 
 // Either serve 'index.html', or run json handler
