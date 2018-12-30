@@ -39,7 +39,7 @@ class AccountResourceAccess
         try { account.settings = JSON.parse(account.settings); }
         catch(error)
         {
-            account.permissions = [];
+            account.settings = {};
             logger.warn(`Failed to parse settings for account ${ account.account_id }:`, error.stack);
         } // end try/catch
 
