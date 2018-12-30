@@ -2,15 +2,25 @@
 // AccountManager
 //----------------------------------------------------------------------------------------------------------------------
 
+const _ = require('lodash');
 const accountRA = require('../resource-access/account');
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class AccountManager
 {
-    async getAccounts()
+    async getAccounts(filters)
     {
-        return await accountRA.getAccounts();
+        // Map `id` to `hash_id`
+        if(filters.id)
+        {
+            filters.hash_id = filters.id;
+        } // end if
+
+        // Limit filters to only those properties we want you to be able to search by.
+        filters = _.pick(filters, 'account_id', 'hash_id', 'email', 'name', 'avatar', 'created');
+
+        return await accountRA.getAccounts(filters);
     } // end getAccounts
 
     async getAccountByID(account_id)

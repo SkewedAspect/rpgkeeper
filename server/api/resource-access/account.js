@@ -3,8 +3,15 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 const _ = require('lodash');
+
+// Managers
 const dbMan = require('../../database');
+
+// Utilities
 const { shortID } = require('../../utilities');
+const { applyFilters } = require('../../knex/utils');
+
+// Errors
 const { AppError, MultipleResultsError, NotFoundError } = require('../errors');
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -66,11 +73,18 @@ class AccountResourceAccess
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async getAccounts()
+    async getAccounts(filters)
     {
         const db = await dbMan.getDB();
-        return await db('account')
-            .select()
+        let query = db('account')
+            .select();
+
+        if(filters && !_.isEmpty(filters))
+        {
+            query = applyFilters(query, filters);
+        } // end if
+
+        return await query
             .map(this._parseAccount);
     } // end getAccounts
 

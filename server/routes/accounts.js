@@ -5,10 +5,13 @@
 const _ = require('lodash');
 const express = require('express');
 
-const { errorHandler, ensureAuthenticated, wrapAsync } = require('./utils');
+const { errorHandler, ensureAuthenticated, wrapAsync, parseQuery } = require('./utils');
 
 // Managers
 const accountMan = require('../api/managers/account');
+
+// Logger
+const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -18,7 +21,8 @@ const router = express.Router();
 
 router.get('/', wrapAsync(async (req, resp) =>
 {
-    const accounts = (await accountMan.getAccounts())
+    const filters = parseQuery(req.query);
+    const accounts = (await accountMan.getAccounts(filters))
         .map((account) =>
         {
             const { account_id, hash_id, settings, permissions, ...safeAccount } = account;
