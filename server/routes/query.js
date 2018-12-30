@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 // A module for casting query parameters to something useful, and generating a filter out of them.
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 const _ = require('lodash');
@@ -17,15 +15,12 @@ function castParam(type, value)
     {
         case Array:
             return value.split(',');
-            break;
 
         case Boolean:
-            return value == "true";
-            break;
+            return value === "true";
 
         case Number:
             return Number(value);
-            break;
 
         default:
             return value;
@@ -34,11 +29,11 @@ function castParam(type, value)
 
 function detectParam(value)
 {
-    if(value == 'true' || value == 'false')
+    if(value === 'true' || value === 'false')
     {
         return castParam(Boolean, value);
     }
-    else if(_.contains(value, ','))
+    else if(_.includes(value, ','))
     {
         return castParam(Array, value);
     }
@@ -63,37 +58,37 @@ function detectParam(value)
 
 function eqFilter(queryVal)
 {
-    return function(modelVal){ return modelVal == queryVal; };
+    return (modelVal) => modelVal === queryVal;
 } // end eqFilter
 
 function gtFilter(queryVal)
 {
-    return function(modelVal){ return modelVal > queryVal; };
+    return (modelVal) => modelVal > queryVal;
 } // end gtFilter
 
 function gteFilter(queryVal)
 {
-    return function(modelVal){ return modelVal >= queryVal; };
+    return (modelVal) => modelVal >= queryVal;
 } // end gteFilter
 
 function ltFilter(queryVal)
 {
-    return function(modelVal){ return modelVal < queryVal; };
+    return (modelVal) => modelVal < queryVal;
 } // end ltFilter
 
 function lteFilter(queryVal)
 {
-    return function(modelVal){ return modelVal <= queryVal; };
+    return (modelVal) => modelVal <= queryVal;
 } // end lteFilter
 
 function arrayFilter(queryVal)
 {
-    return function(modelVal){ return !_.isEqual(modelVal, _.difference(modelVal, queryVal)); };
+    return (modelVal) => !_.isEqual(modelVal, _.difference(modelVal, queryVal));
 } // end arrayFilter
 
 function containsFilter(queryVal)
 {
-    return function(modelVal)
+    return (modelVal) =>
     {
         if(_.isString(modelVal) && _.isString(queryVal))
         {
@@ -107,7 +102,7 @@ function containsFilter(queryVal)
             return false;
         } // end if
 
-        return _.contains(modelVal, queryVal);
+        return _.includes(modelVal, queryVal);
     };
 } // end containsFilter
 
@@ -116,35 +111,35 @@ function containsFilter(queryVal)
 function parseQuery(queryObj)
 {
     const parseTree = {};
-    _.forIn(queryObj, function(value, key)
+    _.forIn(queryObj, (value, key) =>
     {
         // Check for greater than or less than
-        if(value.substr(0, 2) == '>=')
+        if(value.substr(0, 2) === '>=')
         {
             value = value.substr(2);
             parseTree[key] = { value: detectParam(value), operation: '>=' };
         }
-        else if(value.substr(0, 2) == '@>')
+        else if(value.substr(0, 2) === '@>')
         {
             value = value.substr(2);
             parseTree[key] = { value: detectParam(value), operation: '@>' };
         }
-        else if(value.substr(0, 1) == '>')
+        else if(value.substr(0, 1) === '>')
         {
             value = value.substr(1);
             parseTree[key] = { value: detectParam(value), operation: '>' };
         }
-        else if(value.substr(0, 2) == '<=')
+        else if(value.substr(0, 2) === '<=')
         {
             value = value.substr(2);
             parseTree[key] = { value: detectParam(value), operation: '<=' };
         }
-        else if(value.substr(0, 1) == '<')
+        else if(value.substr(0, 1) === '<')
         {
             value = value.substr(1);
             parseTree[key] = { value: detectParam(value), operation: '<' };
         }
-        else if(_.contains(value, ','))
+        else if(_.includes(value, ','))
         {
             parseTree[key] = arrayFilter(detectParam(value));
             parseTree[key] = { value: detectParam(value), operation: '=', isArray: true };
@@ -162,51 +157,40 @@ function filterByQuery(queryObj, list)
 {
     // Build filters
     const filters = {};
-    _.forIn(parseQuery(queryObj), function(token, key)
+    _.forIn(parseQuery(queryObj), (token, key) =>
     {
         switch(token.operation)
         {
             case '@>':
-                filters[key] = containsFilter(token.value);
-                break;
+                return filters[key] = containsFilter(token.value);
 
             case '>=':
-                filters[key] = gteFilter(token.value);
-                break;
+                return filters[key] = gteFilter(token.value);
 
             case '>':
-                filters[key] = gtFilter(token.value);
-                break;
+                return filters[key] = gtFilter(token.value);
 
             case '<=':
-                filters[key] = lteFilter(token.value);
-                break;
+                return filters[key] = lteFilter(token.value);
 
             case '<':
-                filters[key] = ltFilter(token.value);
-                break;
+                return filters[key] = ltFilter(token.value);
 
             case '=':
-                if(token.isArray)
-                {
-                    filters[key] = arrayFilter(token.value);
-                }
-                else
-                {
-                    filters[key] = eqFilter(token.value);
-                } // end if
-                break;
+                return filters[key] = token.isArray ? arrayFilter(token.value) : eqFilter(token.value);
+
             default:
                 logger.warn('Unknown query operation:', token.operation);
+                break;
         } // end switch
     });
 
     // Filter the list
-    return _.filter(list, function(item)
+    return _.filter(list, (item) =>
     {
         let include = true;
 
-        _.forIn(filters, function(filter, key)
+        _.forIn(filters, (filter, key) =>
         {
             const value = item[key];
             if(filter)
@@ -221,8 +205,8 @@ function filterByQuery(queryObj, list)
 //----------------------------------------------------------------------------------------------------------------------
 
 module.exports = {
-    parseQuery: parseQuery,
-    filterByQuery: filterByQuery
+    parseQuery,
+    filterByQuery
 }; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------
