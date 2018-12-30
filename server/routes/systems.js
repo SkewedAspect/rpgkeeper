@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Routes for system operations
-//
-// @module systems.js
 //----------------------------------------------------------------------------------------------------------------------
 
 const _ = require('lodash');
@@ -10,7 +8,7 @@ const logging = require('trivial-logging');
 
 const permMan = require('../permissions');
 const systemMan = require('../../systems/manager');
-const routeUtils = require('./utils');
+const { errorHandler, interceptHTML } = require('./utils');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -21,7 +19,7 @@ const router = express.Router();
 
 router.get('/', (request, response) =>
 {
-    routeUtils.interceptHTML(response, () =>
+    interceptHTML(response, () =>
     {
         const systems = _(systemMan.systems)
             .filter((system) =>
@@ -29,7 +27,11 @@ router.get('/', (request, response) =>
                 const user = _.get(request, 'user', { permissions: [], groups: [] });
                 return permMan.hasPerm(user, 'Systems/viewDev') || !system.dev;
             })
-            .map((system) => _.omit(system, ['models']));
+            .map((system) =>
+            {
+                const { models, ...safeSystem } = system;
+                return safeSystem;
+            });
 
         response.json(systems);
     });
@@ -41,6 +43,12 @@ _.each(systemMan.systems, (system) =>
     logger.debug(`Building routes for "${ system.name }" system.`);
     router.use('/' + system.id, system.router);
 });
+
+//----------------------------------------------------------------------------------------------------------------------
+// Error Handling
+//----------------------------------------------------------------------------------------------------------------------
+
+router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
