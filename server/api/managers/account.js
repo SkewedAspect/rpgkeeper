@@ -36,8 +36,8 @@ class AccountManager
 
     async updateAccount(account)
     {
-        await accountRA.updateAccount(account);
-        return await this.getAccountByID(account.account_id);
+        const selector = await accountRA.updateAccount(account);
+        return await accountRA.getAccount(selector);
     } // end updateAccount
 
     async deleteAccount(accountID)
