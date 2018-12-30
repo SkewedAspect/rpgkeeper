@@ -29,7 +29,9 @@ router.get('/', (request, response) =>
             })
             .map((system) =>
             {
-                const { models, ...safeSystem } = system;
+                const safeSystem = Object.assign({}, system);
+                delete safeSystem.models;
+
                 return safeSystem;
             });
 
