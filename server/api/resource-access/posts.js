@@ -75,7 +75,6 @@ class PostResourceAccess
         delete post.post_id;
         delete post.account_id;
         delete post.created;
-        delete post.created;
 
         const db = await dbMan.getDB();
         return await db('post')
