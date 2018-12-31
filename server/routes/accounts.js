@@ -60,10 +60,14 @@ router.get('/:accountID', wrapAsync(async (req, resp) =>
     resp.json(safeAccount);
 }));
 
-router.put('/:accountID', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.patch('/:accountID', ensureAuthenticated, wrapAsync(async (req, resp) =>
 {
+    const account = req.body;
+
     // We can't allow email to be updated, since we use it as the canonical id when singing in via google.
-    const { email, ...account } = req.body;
+    delete account.email;
+
+    // We also don't trust the client not to lie to us about the id of the account we're updating
     account.id = req.params.accountID;
 
     // Update the account
