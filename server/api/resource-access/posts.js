@@ -2,7 +2,10 @@
 // PostResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
+// Managers
 const dbMan = require('../../database');
+
+// Errors
 const { MultipleResultsError, NotFoundError } = require('../errors');
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -56,7 +59,7 @@ class PostResourceAccess
 
     async addPost(post)
     {
-        // We're adding an post, so we want to make sure we don't have an `post_id`, and we generate a `hash_id`.
+        // We're adding an post, so we want to make sure we don't have a `post_id`.
         delete post.post_id;
 
         // Insert post
