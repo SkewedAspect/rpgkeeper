@@ -28,15 +28,27 @@ exports.up = async (knex) =>
     // The `account_role` table
     await knex.schema.createTable('account_role', (table) =>
     {
-        table.integer('account_id').references('account.account_id').notNullable();
-        table.integer('role_id').references('role.role_id').notNullable();
+        table.integer('account_id')
+            .references('account.account_id')
+            .notNullable()
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');
+        table.integer('role_id')
+            .references('role.role_id')
+            .notNullable()
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');
         table.unique(['account_id', 'role_id']);
     });
 
     await knex.schema.createTable('post', (table) =>
     {
         table.integer('post_id').primary();
-        table.integer('account_id').references('account.account_id').notNullable();
+        table.integer('account_id')
+            .references('account.account_id')
+            .notNullable()
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');
         table.text('title').notNullable();
         table.string('stinger').notNullable();
         table.string('content').notNullable();
@@ -57,7 +69,11 @@ exports.up = async (knex) =>
         table.integer('page_id').primary();
         table.text('title').notNullable();
         table.string('content');
-        table.integer('note_id').references('note.note_id').notNullable();
+        table.integer('note_id')
+            .references('note.note_id')
+            .notNullable()
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');
     });
 
     // The `character` table
@@ -72,8 +88,16 @@ exports.up = async (knex) =>
         table.string('color');
         table.text('biography');
         table.json('details').notNullable().defaultTo('{}');
-        table.integer('note_id').references('note.note_id').notNullable();
-        table.integer('account_id').references('account.account_id').notNullable();
+        table.integer('note_id')
+            .references('note.note_id')
+            .notNullable()
+            .onUpdate('CASCADE')
+            .onDelete('RESTRICT');
+        table.integer('account_id')
+            .references('account.account_id')
+            .notNullable()
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');
     });
 };
 

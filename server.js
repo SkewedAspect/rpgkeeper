@@ -24,6 +24,7 @@ const passport = require('passport');
 
 // Managers
 const dbMan  = require('./server/database');
+const accountMan = require('./server/api/managers/account');
 
 // Session Store
 const KnexSessionStore = require('connect-session-knex')(session);
@@ -34,6 +35,7 @@ const GoogleAuth = require('./server/auth/google');
 // Routes
 const routeUtils = require('./server/routes/utils');
 const newsRouter = require('./server/routes/news');
+const noteRouter = require('./server/routes/notes');
 const charRouter = require('./server/routes/characters');
 const sysRouter = require('./server/routes/systems');
 const accountsRouter = require('./server/routes/accounts');
@@ -99,13 +101,24 @@ async function main()
     // Auth override
     if(config.overrideAuth)
     {
-        // Middleware to skip authentication, for unit testing. We only allow this if we're in debug mode /and/ we've
-        // set the user on `app`, something that can't be done externally.
-        app.use((req, resp, next) => {
-            const user = app.get('user');
-            req.user = _.isUndefined(user) ? req.user : user;
+        // Middleware to skip authentication, for testing with postman, or unit tests.
+        app.use(routeUtils.wrapAsync(async (req, resp, next) => {
+            let account = app.get('user');
+
+            // Check for an email header. Even if `app.user` is set, this overrides (this keeps the code simpler).
+            let email = req.get('auth-email');
+            if(email)
+            {
+                account = await accountMan.getAccountByEmail(email);
+            } // end if
+
+            if(account)
+            {
+                logger.warn(`Forcing auth to account: ${ account.email }`);
+                req.user = account;
+            } // end if
             next();
-        });
+        }));
     } // end if
 
     //------------------------------------------------------------------------------------------------------------------
@@ -119,6 +132,7 @@ async function main()
     app.use('/characters', charRouter);
     app.use('/systems', sysRouter);
     app.use('/accounts', accountsRouter);
+    app.use('/notes', noteRouter);
     app.use('/news', newsRouter);
 
     // Serve index.html for any html requests, but 404 everything else.
