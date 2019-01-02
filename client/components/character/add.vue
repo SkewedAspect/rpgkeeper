@@ -14,10 +14,10 @@
     import _ from 'lodash';
 
     // Utils
-    import utilities from '../../../../server/utilities';
+    import utilities from '../../../server/utilities';
 
     // Managers
-    import characterMan from '../../../api/managers/character';
+    import characterMan from '../../api/managers/character';
 
     // Components
     import EditModal from './edit.vue';

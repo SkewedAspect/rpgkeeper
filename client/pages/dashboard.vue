@@ -136,22 +136,15 @@
 
     import _ from 'lodash';
 
-    // Utils
-    import utilities from '../../../server/utilities';
-
     // Managers
-    import authMan from '../../api/managers/auth';
-    import systemsMan from '../../api/managers/systems';
-    import characterMan from '../../api/managers/character';
-
-    // Services
-    import stateSvc from '../../services/state';
-    import charSvc from '../../services/character';
+    import authMan from '../api/managers/auth';
+    import systemsMan from '../api/managers/systems';
+    import characterMan from '../api/managers/character';
 
     // Components
-    import Portrait from '../../components/portrait.vue';
-    import AddModal from './modals/add.vue';
-    import EditModal from './modals/edit.vue';
+    import Portrait from '../components/character/portrait.vue';
+    import AddModal from '../components/character/add.vue';
+    import EditModal from '../components/character/edit.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -171,7 +164,6 @@
         data()
         {
             return {
-                state: stateSvc.state,
                 charFilter: '',
                 systemsFilter: [],
                 editChar: {},

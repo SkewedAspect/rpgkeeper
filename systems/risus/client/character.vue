@@ -193,19 +193,18 @@
 
     import _ from 'lodash';
 
-    // Services
-    import stateSvc from '../../../client/services/state';
-    import diceSvc from '../../../client/services/dice';
-
     // Managers
     import authMan from '../../../client/api/managers/auth';
     import charMan from '../../../client/api/managers/character';
     import sysCharMan from '../../../client/api/managers/sysCharacter';
 
+    // Utils
+    import diceUtil from '../../../client/api/utils/dice';
+
     // Components
     import NotesComponent from '../../../client/components/notes/notes.vue';
-    import PoolComponent from '../../../client/components/pool.vue';
-    import PortraitComponent from '../../../client/components/portrait.vue';
+    import PoolComponent from '../../../client/components/character/pool.vue';
+    import PortraitComponent from '../../../client/components/character/portrait.vue';
     import ClicheComponent from './components/cliche.vue';
     import HookComponent from './components/hook.vue';
 
@@ -226,8 +225,6 @@
         data()
         {
             return {
-                state: stateSvc.state,
-
                 dice: undefined,
                 rollName: undefined,
                 rolls: [],
@@ -258,7 +255,7 @@
         methods: {
             roll()
             {
-                const roll = diceSvc.roll(`${ this.dice }d6`);
+                const roll = diceUtil.roll(`${ this.dice }d6`);
                 this.rolls.unshift({ roll, name: this.rollName, display: `${ roll.render() } = ${ roll.value }` });
                 this.rollName = undefined;
             },

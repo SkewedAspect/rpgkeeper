@@ -54,7 +54,7 @@
     import _ from 'lodash';
 
     // Services
-    import diceSvc from '../../../client/services/dice';
+    import diceSvc from '../../../client/api/utils/dice';
 
     //------------------------------------------------------------------------------------------------------------------
 

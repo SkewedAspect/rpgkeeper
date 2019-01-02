@@ -5,16 +5,15 @@
 <template>
     <div class="about-page">
         <h1 class="text-center">
-            <img src="/static/images/logo.png" width="40px" height="40px" style="margin-top: -10px; margin-right: -5px">
+            <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="40px" height="40px">
             About RPGKeeper
         </h1>
         <div class="container">
             <p>
-                I am an avid table-top RPG player. I have been playing various forms of RPGs for years (currently it's
-                mainly D&D, and Edge of the Empire). Frequently, I felt limited or frustrated by the paper character
-                sheets I had. And sometimes I'd lose them, or something would get spilled, or I'd want to look up
-                something about my character, but didn't have it on me. Any of you who've played table-top RPGs know
-                what I'm talking about.
+                I am an avid table-top RPG player. I have been playing various forms of RPGs for years. Frequently, I
+                felt limited or frustrated by the paper character sheets I had. And sometimes I'd lose them, or
+                something would get spilled, or I'd want to look up something about my character, but didn't have it on
+                me. Any of you who've played table-top RPGs know what I'm talking about.
             </p>
 
             <p>
@@ -38,14 +37,12 @@
                 project, I do take donations.
             </p>
 
-            <div class="text-center">
-                <md-button href="https://www.paypal.me/morgul/10" class="md-raised md-accent" style="margin: 0 auto;" target="_blank">
+            <div class="text-center donate-section">
+                <md-button href="https://www.paypal.me/morgul/10" class="md-raised md-accent donate-btn" target="_blank">
                     <i class="fa fa-gift"></i>
                     Buy me a Pizza
                 </md-button>
             </div>
-
-            <br>
         </div>
     </div>
 </template>
@@ -54,6 +51,18 @@
 
 <style lang="scss" scoped>
     .about-page {
+        .rpgk-logo {
+            margin-top: -10px;
+            margin-right: -5px;
+        }
+
+        .donate-section {
+            margin-bottom: 20px;
+        }
+
+        .donate-btn {
+            margin: 0 auto;
+        }
     }
 </style>
 
@@ -61,18 +70,9 @@
 
 <script>
     //------------------------------------------------------------------------------------------------------------------
-    
-    // Imports go here
-    
-    //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        data()
-        {
-            return {
-                // Data goes here
-            };
-        }
+        name: 'AboutPage'
     }
 </script>
 

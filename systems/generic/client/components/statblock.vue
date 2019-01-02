@@ -75,7 +75,7 @@
     import rpgdice from 'rpgdicejs';
 
     import AddEditModal from '../modals/statAddEdit.vue';
-    import DeleteModal from '../../../../client/modals/delete.vue';
+    import DeleteModal from '../../../../client/components/ui/deleteModal.vue';
 
     export default {
         components: {

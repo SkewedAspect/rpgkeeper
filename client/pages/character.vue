@@ -54,17 +54,17 @@
     import _ from 'lodash';
 
     // Managers
-    import authMan from '../../api/managers/auth';
-    import charMan from '../../api/managers/character';
-    import sysCharMan from '../../api/managers/sysCharacter';
+    import authMan from '../api/managers/auth';
+    import charMan from '../api/managers/character';
+    import sysCharMan from '../api/managers/sysCharacter';
 
     // Components
-    import NotesComponent from '../../components/notes/notes.vue';
+    import NotesComponent from '../components/notes/notes.vue';
 
     // Systems
-    import RisusCharacter from '../../../systems/risus/client/character.vue';
-    import FateCharacter from '../../../systems/fate/client/character.vue';
-    import EoteCharacter from '../../../systems/eote/client/character.vue';
+    import RisusCharacter from '../../systems/risus/client/character.vue';
+    import FateCharacter from '../../systems/fate/client/character.vue';
+    import EoteCharacter from '../../systems/eote/client/character.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

@@ -117,10 +117,10 @@
     import _ from 'lodash';
 
     // Managers
-    import systemsMan from '../../../api/managers/systems';
+    import systemsMan from '../../api/managers/systems';
 
     // Components
-    import Portrait from '../../../components/portrait.vue';
+    import Portrait from './portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

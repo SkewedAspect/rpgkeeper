@@ -24,8 +24,8 @@
 	//------------------------------------------------------------------------------------------------------------------
 
 	// Components
-	import SiteHeader from './components/header.vue';
-    import SiteFooter from './components/footer.vue';
+	import SiteHeader from './components/ui/header.vue';
+    import SiteFooter from './components/ui/footer.vue';
 
 	//------------------------------------------------------------------------------------------------------------------
 

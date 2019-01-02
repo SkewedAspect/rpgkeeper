@@ -20,7 +20,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Components
-    import PortraitComponent from '../../../client/components/portrait.vue';
+    import PortraitComponent from '../../../client/components/character/portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

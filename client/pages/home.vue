@@ -5,7 +5,8 @@
 <template>
 	<div id="main-page" class="container">
 		<h1 class="text-center">
-			<img src="/static/images/logo.png" width="40px" height="40px" style="margin-top: -10px; margin-right: -5px"> RPGKeeper
+            <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="40px" height="40px">
+            RPGKeeper
 			<br/>
 			<small>
 				The one-stop shop for all your RPG needs.
@@ -27,6 +28,11 @@
 	#main-page {
 		padding: 16px;
 
+        .rpgk-logo {
+            margin-top: -10px;
+            margin-right: -5px;
+        }
+
 		.news {
 			.md-card {
 				margin-top: 8px;
@@ -42,11 +48,11 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import authMan from '../../api/managers/auth';
-    import postsMan from '../../api/managers/posts';
+    import authMan from '../api/managers/auth';
+    import postsMan from '../api/managers/posts';
 
     // Components
-    import NewsPost from '../../components/posts/post.vue';
+    import NewsPost from '../components/posts/post.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
