@@ -22,7 +22,7 @@ function buildBasicErrorLogger(logger)
 {
     return (error, request, response, next) =>
     {
-        logger.child({
+        const childLogger = logger.child({
             request: {
                 id: request.id,
                 method: request.method,
@@ -30,7 +30,16 @@ function buildBasicErrorLogger(logger)
                 body: request.body,
                 query: request.query
             }
-        }).error(`${ request.method } ${ response.statusCode } '${ request.url }': Error encountered: \n${ error.stack }`, error);
+        });
+
+        if(response.statusCode < 500)
+        {
+            childLogger.warn(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
+        }
+        else
+        {
+            childLogger.error(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
+        } // end if
 
         next(error);
     }; // end loggerFunc
@@ -38,7 +47,7 @@ function buildBasicErrorLogger(logger)
 
 function buildErrorHandler(logger)
 {
-    function apiErrorHandler(error, request, response, next)
+    return (error, request, response, next) =>
     {
         let errorJSON = {};
         if(typeof error.toJSON == 'function')
@@ -55,23 +64,32 @@ function buildErrorHandler(logger)
             };
         } // end if
 
-        response.status(500).json(errorJSON);
-    } // end apiErrorHandler
+        response.status(error.statusCode || 500);
 
-    if(logger)
-    {
-        return (error, request, response, next) =>
+        if(logger)
         {
-            buildBasicErrorLogger(logger)(error, request, response, () =>
+            const childLogger = logger.child({
+                    request: {
+                        id: request.id,
+                        method: request.method,
+                        url: request.url,
+                        body: request.body,
+                        query: request.query
+                    }
+                });
+
+            if(response.statusCode < 500)
             {
-                apiErrorHandler(error, request, response, next);
-            });
-        };
-    }
-    else
-    {
-        return apiErrorHandler;
-    } // end if
+                childLogger.warn(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
+            }
+            else
+            {
+                childLogger.error(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
+            } // end if
+        } // end if
+
+        response.json(errorJSON);
+    } // end apiErrorHandler
 } // end buildErrorHandler
 
 // Serve index
@@ -86,11 +104,11 @@ function interceptHTML(response, jsonHandler, skipAuthCheck)
 {
     response.format({
         html: serveIndex,
-        json: (request, response) => {
-
+        json(request, response, next)
+        {
             if(!skipAuthCheck || request.isAuthenticated())
             {
-                jsonHandler(request, response);
+                Promise.resolve(jsonHandler(request, response)).catch(next);
             }
             else
             {
