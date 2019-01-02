@@ -138,6 +138,7 @@ async function main()
                 .insert({
                     hash_id: char.id,
                     system: char.system,
+                    name: char.name,
                     description: char.description,
                     portrait: char.portrait,
                     thumbnail: char.thumbnail,

@@ -82,6 +82,7 @@ exports.up = async (knex) =>
         table.integer('character_id').primary();
         table.string('hash_id').notNullable().unique().index();
         table.string('system').notNullable().index();
+        table.string('name').notNullable();
         table.text('description');
         table.string('portrait');
         table.string('thumbnail');
