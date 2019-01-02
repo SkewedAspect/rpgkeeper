@@ -40,7 +40,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
 	// Managers
-	import authMan from '../api/managers/auth';
+	import authMan from '../../api/managers/auth';
 
     // Components
 	import LoginComponent from './login.vue';

@@ -24,10 +24,10 @@ import postsMan from './api/managers/posts';
 import AppComponent from './app.vue';
 
 // Pages
-import HomePage from './pages/home/home.vue';
-import AboutPage from './pages/about/about.vue';
-import DashboardPage from './pages/dashboard/dashboard.vue';
-import CharacterPage from './pages/character/character.vue';
+import HomePage from './pages/home.vue';
+import AboutPage from './pages/about.vue';
+import DashboardPage from './pages/dashboard.vue';
+import CharacterPage from './pages/character.vue';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Misc.

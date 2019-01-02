@@ -175,10 +175,6 @@
 
     import _ from 'lodash';
 
-    // Services
-    import stateSvc from '../../../client/services/state';
-    import diceSvc from '../../../client/services/dice';
-
     // Managers
     import authMan from '../../../client/api/managers/auth';
     import charMan from '../../../client/api/managers/character';
@@ -192,7 +188,7 @@
     import StuntsComponent from './stunts.vue';
     import StressComponent from './stress.vue';
     import ConsequencesComponent from './consequences.vue';
-    import PortraitComponent from '../../../client/components/portrait.vue';
+    import PortraitComponent from '../../../client/components/character/portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -215,7 +211,6 @@
         data()
         {
             return {
-                state: stateSvc.state,
                 fpEdit: undefined
             };
         },
