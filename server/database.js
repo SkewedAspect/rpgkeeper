@@ -70,26 +70,31 @@ class DatabaseManager
 
             if(this.dbConfig.client === 'sqlite3')
             {
-                if(this.dbConfig.traceQueries)
-                {
-                    const afterCreate = _.get(this.dbConfig, 'pool.afterCreate');
-                    _.set(this.dbConfig, 'pool.afterCreate', function(db, done)
-                    {
-                        // Turn on tracing
-                        db.on('trace', (queryString) => {
-                            logger.debug('QUERY TRACE:', queryString);
-                        });
+                // We pull of any existing `afterCreate` hook.
+                const afterCreate = _.get(this.dbConfig, 'pool.afterCreate');
 
-                        if(_.isFunction(afterCreate))
+                // We set this to be our custom afterCreate to support foreign keys and query tracing.
+                _.set(this.dbConfig, 'pool.afterCreate', (db, done) =>
+                {
+                    db.run('PRAGMA foreign_keys = ON', (err) =>
+                    {
+                        if(!err && this.dbConfig.traceQueries)
                         {
-                            afterCreate(db, done);
-                        }
-                        else
-                        {
-                            done(null, db);
+                            // Turn on tracing
+                            db.on('trace', (queryString) =>
+                            {
+                                logger.debug('QUERY TRACE:', queryString);
+                            });
+
+                            if(_.isFunction(afterCreate))
+                            {
+                                return afterCreate(db, done);
+                            } // end if
                         } // end if
+
+                        done(err, db);
                     });
-                } // end if
+                });
             } // end if
 
             // Setup the database
