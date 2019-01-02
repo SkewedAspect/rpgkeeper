@@ -20,6 +20,9 @@ class AppError extends Error
 
         // Set a code property to allow the error to be easily identified. This is in keeping with current nodejs.
         this.code = !!code ? code : 'ERR_APPLICATION_ERROR';
+
+        // A status code for returning via rest.
+        this.statusCode = 500;
     } // end constructor
 
     static fromJSON({ name, message, code })
@@ -40,6 +43,8 @@ class NotFoundError extends AppError
     constructor(message)
     {
         super(message, 'ERR_NOT_FOUND');
+
+        this.statusCode = 404;
     } // end constructor
 } // end NotFoundError
 
@@ -50,6 +55,8 @@ class NotImplementedError extends AppError
     constructor(api)
     {
         super(`'${api}' is not implemented.`, 'ERR_NOT_IMPLEMENTED');
+
+        this.statusCode = 403;
     } // end constructor
 } // end NotImplemented Error
 
@@ -60,6 +67,8 @@ class MultipleResultsError extends AppError
     constructor(thing)
     {
         super(`More than one ${ thing } returned. This should not be possible.`, 'ERR_MULTIPLE_RESULTS');
+
+        this.statusCode = 422;
     } // end constructor
 } // end MultipleResultsError
 
@@ -70,6 +79,8 @@ class ValidationError extends AppError
     constructor(prop, reason)
     {
         super(`Validation failed for '${ prop }': ${ reason }.`, 'ERR_VALIDATION_FAILED');
+
+        this.statusCode = 422;
     } // end constructor
 } // end ValidationError
 
