@@ -138,6 +138,8 @@ class CharacterResourceAccess
         delete character.system;
         delete character.created;
         delete character.character_id;
+        delete character.account_id;
+        delete character.note_id;
 
         const { id, hash_id, ...safeCharacter } = character;
         const charID = id || hash_id;
