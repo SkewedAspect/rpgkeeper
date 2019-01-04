@@ -11,8 +11,6 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-
     // Utils
     import utilities from '../../../server/utilities';
 
@@ -32,22 +30,24 @@
         methods: {
             open()
             {
-                _.assign(this.newChar, {
-                    name: undefined,
+                Object.assign(this.newChar, {
+                    name: '',
                     system: '',
                     color: utilities.colorize(utilities.shortID()),
-                    description: undefined,
-                    portrait: undefined,
-                    thumbnail: undefined,
-                    biography: undefined
+                    description: '',
+                    portrait: '',
+                    thumbnail: '',
+                    biography: '',
                 });
 
                 this.$refs.addCharModal.open();
             },
-            onSave()
+            async onSave()
             {
-                characterMan.save(this.newChar)
-                    .then((char) => this.$emit('saved', char));
+                const { initial, ...charDef } = this.newChar;
+                const char = await characterMan.create(charDef);
+                await characterMan.save(char);
+                this.$emit('saved', char);
             }
         },
         data()
@@ -55,14 +55,14 @@
             return {
                 title: 'New Character',
                 newChar: {
-                    name: undefined,
+                    name: '',
                     system: '',
                     description: '',
                     portrait: '',
                     thumbnail: '',
                     color: '#aaaaaa',
                     biography: '',
-                    get initial(){ return (_.get(this.name, '0', '?')).toUpperCase(); }
+                    get initial(){ return (this.name[0] || '?').toUpperCase(); }
                 }
             };
         }

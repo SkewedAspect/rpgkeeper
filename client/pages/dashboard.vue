@@ -176,11 +176,11 @@
             characters()
             {
                 return _(this.characterList)
-                    .filter({ owner: this.account.email })
+                    .filter({ account_id: this.account.id })
                     .filter((char) =>
                     {
-                        const systemValid = this.systemsFilter.length === 0 || _.includes(this.systemsFilter, char.systemID);
-                        return !char.system.disabled && systemValid;
+                        const systemValid = this.systemsFilter.length === 0 || _.includes(this.systemsFilter, char.system);
+                        return !systemsMan.getSystem(char.system).disabled && systemValid;
                     })
                     .filter((char) =>
                     {

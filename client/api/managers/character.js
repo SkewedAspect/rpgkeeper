@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 // CharacterManager
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
@@ -49,7 +47,7 @@ class CharacterManager
     {
         if(account)
         {
-            const characters = await characterRA.loadCharacters(account.email);
+            const characters = await characterRA.getAllCharacters(account.email);
             this._charactersSubject.next(characters);
         }
         else
@@ -62,22 +60,14 @@ class CharacterManager
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    create(charDef)
+    async create(charDef)
     {
-        return characterRA.createCharacter(charDef)
-            .then((char) =>
-            {
-                // Add to our internal cache of characters
-                this.characters.push(char);
-                this._charactersSubject.next(this.characters);
-
-                return char;
-            });
+        return await characterRA.newCharacter(charDef);
     } // end create
 
-    select(charID)
+    async select(charID)
     {
-        const char = _.find(this.characters, { id: charID });
+        let char = _.find(this.characters, { id: charID });
         if(char)
         {
             this._selectedSubject.next(char);
@@ -85,46 +75,37 @@ class CharacterManager
         }
         else
         {
-            return characterRA.loadCharacter(charID)
-                .then((char) =>
-                {
-                    // Add to our internal cache of characters
-                    this.characters.push(char);
-                    this._charactersSubject.next(this.characters);
+            console.warning(`Unable to find character '${ charID }', looking up...`);
+            char = await characterRA.getCharacter(charID);
 
-                    // Select this character
-                    this._selectedSubject.next(char);
-                });
+            // Add to our internal cache of characters
+            this.characters.push(char);
+            this._charactersSubject.next(this.characters);
+
+            // Select this character
+            this._selectedSubject.next(char);
         } // end if
     } // end selected
 
-    save(character)
+    async save(character)
     {
-        const isNew = !character.id;
-        if(isNew)
+        await characterRA.saveCharacter(character);
+
+        if(!this.characters.includes(character))
         {
-            return this.create(character);
-        }
-        else
-        {
-            window.char = character;
-            return characterRA.saveCharacter(character);
+            this.characters.push(character);
+            this._charactersSubject.next(this.characters);
         } // end if
+
+        return character;
     } // end save
 
-    delete(character)
+    async delete(character)
     {
-        return characterRA.deleteCharacter(character)
-            .then(() =>
-            {
-                const idx = _.findIndex(this.characters, { id: character.id });
-                if(idx !== -1)
-                {
-                    // Delete from our cache
-                    this.characters.splice(idx, 1);
-                    this._charactersSubject.next(this.characters);
-                } // end if
-            });
+        await characterRA.deleteCharacter(character);
+        const characters = _.without(this.characters, character);
+
+        this._charactersSubject.next(characters);
     } // end delete
 } // end CharacterManager
 
