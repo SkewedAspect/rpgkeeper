@@ -178,7 +178,6 @@
     // Managers
     import authMan from '../../../client/api/managers/auth';
     import charMan from '../../../client/api/managers/character';
-    import sysCharMan from '../../../client/api/managers/sysCharacter';
 
     // Components
     import RollsComponent from './rolls.vue';
@@ -205,8 +204,7 @@
         },
         subscriptions: {
             account: authMan.account$,
-            baseChar: charMan.selected$,
-            character: sysCharMan.selected$
+            baseChar: charMan.selected$
         },
         data()
         {
@@ -215,7 +213,8 @@
             };
         },
         computed: {
-            isAuthorized(){ return _.get(this.account, 'email', 'nope!') === this.baseChar.owner; },
+            character(){ return this.baseChar.details; },
+            isAuthorized(){ return _.get(this.account, 'id', 'nope!') === this.baseChar.account_id; }
         },
         methods: {
             refreshFatePoints()

@@ -55,7 +55,7 @@ class CharacterManager
     async updateCharacter(character)
     {
         const characterID = await characterRA.updateCharacter(character);
-        return await characterRA.getCharacter(characterID);
+        return await characterRA.getCharacter(characterID, true);
     } // end updateCharacter
 
     async deleteCharacter(characterID)
