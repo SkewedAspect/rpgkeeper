@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 
 // Managers
 import authMan from './auth';
+import notesMan from './notes';
 
 // Resource Access
 import characterRA from '../resource-access/character';
@@ -68,23 +69,23 @@ class CharacterManager
     async select(charID)
     {
         let char = _.find(this.characters, { id: charID });
-        if(char)
+        if(!char)
         {
-            this._selectedSubject.next(char);
-            return Promise.resolve(char);
-        }
-        else
-        {
-            console.warning(`Unable to find character '${ charID }', looking up...`);
+            console.warn(`Unable to find character '${ charID }', looking up...`);
             char = await characterRA.getCharacter(charID);
 
             // Add to our internal cache of characters
             this.characters.push(char);
             this._charactersSubject.next(this.characters);
-
-            // Select this character
-            this._selectedSubject.next(char);
         } // end if
+
+        // Select this character
+        this._selectedSubject.next(char);
+
+        // Select the notes in the notes manager
+        notesMan.select(char.note_id);
+
+        return char;
     } // end selected
 
     async save(character)

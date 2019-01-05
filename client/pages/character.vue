@@ -84,7 +84,7 @@
             sysChar: sysCharMan.selected$
         },
         computed: {
-            isAuthorized(){ return _.get(this.account, 'email', 'nope!') === this.baseChar.owner; }
+            isAuthorized(){ return _.get(this.account, 'id', 'nope!') === this.baseChar.account_id; }
         },
         methods: {
             goTo(path){ this.$router.push(path); }
