@@ -7,7 +7,7 @@
 const express = require('express');
 const logging = require('trivial-logging');
 
-const models = require('./models');
+// const models = require('./models');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -30,7 +30,6 @@ const description = "For some, Risus is a handy “emergency” RPG for spur-of-
 
 function init(manager)
 {
-    manager.buildGeneralEndpoints(router, models);
 } // end init
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -39,6 +38,6 @@ logger.info(`Loaded '${ name }' system.`);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = { id, name, router, description, init, models };
+module.exports = { id, name, router, description, init/*, models*/ };
 
 //----------------------------------------------------------------------------------------------------------------------
