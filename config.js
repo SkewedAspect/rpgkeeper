@@ -24,11 +24,6 @@ module.exports = {
         domain: _.get(process.env, 'WEB_DOMAIN', 'http://localhost:4500'),
         port: _.get(process.env, 'SERVER_PORT', 5678)
     },
-    rethink: {
-        host: _.get(process.env, 'RETHINK_DB_HOST', 'localhost'),
-        port: _.get(process.env, 'RETHINK_DB_PORT', 28015),
-        db: 'rpgkeeper'
-    },
     database: {
         connection: {
             filename: './db/rpgk.db'

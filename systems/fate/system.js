@@ -7,7 +7,7 @@
 const express = require('express');
 const logging = require('trivial-logging');
 
-const models = require('./models');
+// const models = require('./models');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -28,7 +28,6 @@ const description = "To be determined...";
 
 function init(manager)
 {
-    manager.buildGeneralEndpoints(router, models);
 } // end init
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -37,6 +36,6 @@ logger.info(`Loaded '${ name }' system.`);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = { id, name, router, description, init, models };
+module.exports = { id, name, router, description, init/*, models*/ };
 
 //----------------------------------------------------------------------------------------------------------------------
