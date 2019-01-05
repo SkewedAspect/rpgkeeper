@@ -56,7 +56,7 @@ class CharacterResourceAccess
 
         if(!character.id)
         {
-            this.$characters[ data.id ] = character;
+            this.$characters[data.id] = character;
         } // end if
 
         return this._buildModel(data);
