@@ -196,13 +196,11 @@
     // Managers
     import authMan from '../../../client/api/managers/auth';
     import charMan from '../../../client/api/managers/character';
-    import sysCharMan from '../../../client/api/managers/sysCharacter';
 
     // Utils
     import diceUtil from '../../../client/api/utils/dice';
 
     // Components
-    import NotesComponent from '../../../client/components/notes/notes.vue';
     import PoolComponent from '../../../client/components/character/pool.vue';
     import PortraitComponent from '../../../client/components/character/portrait.vue';
     import ClicheComponent from './components/cliche.vue';
@@ -219,8 +217,7 @@
         },
         subscriptions: {
             account: authMan.account$,
-            baseChar: charMan.selected$,
-            character: sysCharMan.selected$
+            baseChar: charMan.selected$
         },
         data()
         {
@@ -242,7 +239,8 @@
             };
         },
         computed: {
-            isAuthorized(){ return _.get(this.account, 'email', 'nope!') === this.baseChar.owner; },
+            isAuthorized(){ return _.get(this.account, 'id', 'nope!') === this.baseChar.account_id; },
+            character(){ return this.baseChar.details; },
             cliches()
             {
                 return _.sortBy(this.character.cliches, 'value').reverse();

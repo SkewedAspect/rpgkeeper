@@ -7,13 +7,29 @@
         <md-tabs v-if="!error && baseChar" class="md-transparent" md-right>
             <!-- TODO: Add support for dynamic tabs. -->
             <md-tab md-label="Sheet">
-                <component :is="baseChar.system"></component>
+                <component :is="baseChar.system">
+                    <md-card class="md-warn" style="flex: 1">
+                        <md-card-header>
+                            <div class="md-title">Unknown System '{{ baseChar.system }}'.</div>
+                        </md-card-header>
+
+                        <md-card-content>
+                            This is an internal error, and you never be seen in normal operation. If you are a
+                            developer, you done messed up. If you're a user, then please report this as a bug.
+                        </md-card-content>
+
+                        <md-card-actions>
+                            <md-button @click="newTab('https://github.com/Morgul/rpgkeeper/issues/new')">Report Issue</md-button>
+                            <md-button @click="goTo('/dashboard')">Back to Dashboard</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </component>
             </md-tab>
             <md-tab md-label="Notes">
                 <notes :disabled="!isAuthorized"></notes>
             </md-tab>
         </md-tabs>
-        <div class="loading container text-center" v-else-if="!sysChar">
+        <div class="loading container text-center" v-else>
             <h4 class="text-center">Loading...</h4>
             <md-progress class="md-accent" md-indeterminate></md-progress>
         </div>
@@ -28,6 +44,7 @@
                 </md-card-content>
 
                 <md-card-actions>
+                    <md-button @click="newTab('https://github.com/Morgul/rpgkeeper/issues/new')">Report Issue</md-button>
                     <md-button @click="goTo('/dashboard')">Go to Dashboard</md-button>
                 </md-card-actions>
             </md-card>
@@ -56,7 +73,6 @@
     // Managers
     import authMan from '../api/managers/auth';
     import charMan from '../api/managers/character';
-    import sysCharMan from '../api/managers/sysCharacter';
 
     // Components
     import NotesComponent from '../components/notes/notes.vue';
@@ -80,14 +96,14 @@
         },
         subscriptions: {
             account: authMan.account$,
-            baseChar: charMan.selected$,
-            sysChar: sysCharMan.selected$
+            baseChar: charMan.selected$
         },
         computed: {
             isAuthorized(){ return _.get(this.account, 'id', 'nope!') === this.baseChar.account_id; }
         },
         methods: {
-            goTo(path){ this.$router.push(path); }
+            goTo(path){ this.$router.push(path); },
+            newTab(url){ window.open(url, '_blank'); }
         },
         data()
         {
@@ -105,16 +121,6 @@
                     charMan.save(char);
                 } // end char
             }, { deep: true });
-
-            // Watch for changes to the sysChar, and save.
-            this.$watch('sysChar', (char, oldChar) =>
-            {
-                if(!_.isUndefined(oldChar) && char && char.dirty)
-                {
-                    sysCharMan.save(char);
-                } // end char
-            }, { deep: true });
-
         },
         mounted()
         {
