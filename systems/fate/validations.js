@@ -20,14 +20,15 @@ module.exports = {
                 type: 'array',
                 items: {
                     type: 'object',
-                    required: [ 'type', 'detail', 'healing', 'value' ],
+                    required: [ 'type', 'detail' ],
                     properties: {
                         type: { type: 'string', enum: [ 'aspect', 'high concept', 'trouble', 'consequence' ] },
                         detail: { type: 'string', minLength: 1 },
                         healing: { type: 'boolean' },
                         value: { type: 'integer', min: 0 }
                     },
-                    additionalProperties: false
+                    // FIXME: The current code relies on having an 'id' property. Let's not.
+                    // additionalProperties: false
                 }
             },
             skills: {
@@ -39,7 +40,8 @@ module.exports = {
                         name: { type: 'string' },
                         rank: { type: 'integer', min: 0 }
                     },
-                    additionalProperties: false
+                    // FIXME: The current code relies on having an 'id' property. Let's not.
+                    // additionalProperties: false
                 }
             },
             extras: { type: 'string' },
@@ -52,7 +54,8 @@ module.exports = {
                         title: { type: 'string', minLength: 1 },
                         description: { type: 'string', minLength: 1 }
                     },
-                    additionalProperties: false
+                    // FIXME: The current code relies on having an 'id' property. Let's not.
+                    // additionalProperties: false
                 }
             },
             physicalStress: {

@@ -24,7 +24,7 @@
                             <md-layout>
                                 <md-input-container>
                                     <label>Fate Points</label>
-                                    <md-input type="number" min="0" v-model="character.fatePoints.current" :disabled="!isAuthorized"></md-input>
+                                    <md-input type="number" min="0" v-model.number="character.fatePoints.current" :disabled="!isAuthorized"></md-input>
                                 </md-input-container>
                             </md-layout>
                             <md-layout v-flex="'shrink'">
@@ -79,7 +79,7 @@
             <md-dialog-content>
                 <md-input-container>
                     <label>Refresh</label>
-                    <md-input type="number" v-model="fpEdit"></md-input>
+                    <md-input type="number" v-model.number="fpEdit"></md-input>
                 </md-input-container>
             </md-dialog-content>
 

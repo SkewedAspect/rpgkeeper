@@ -8,6 +8,9 @@ const BaseSystem = require('../base/base-system');
 // Validations
 const schemas = require('./validations');
 
+// Defaults
+const defaults = require('./defaults');
+
 // Logger
 const logger = require('trivial-logging').loggerFor(module);
 
@@ -25,7 +28,7 @@ class EOTESystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description, schemas.character);
+        super(id, name, description, schemas.character, defaults.character);
 
         // TODO: Remove once this system is ready
         this._disabled = true;
