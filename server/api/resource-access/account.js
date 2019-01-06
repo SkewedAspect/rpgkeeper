@@ -7,6 +7,9 @@ const _ = require('lodash');
 // Managers
 const dbMan = require('../../database');
 
+// Resource Access
+const rolesRA = require('./roles');
+
 // Utilities
 const { shortID } = require('../../utilities');
 const { applyFilters } = require('../../knex/utils');
@@ -22,7 +25,7 @@ class AccountResourceAccess
     // Utility Functions
     //------------------------------------------------------------------------------------------------------------------
 
-    _parseAccount(account)
+    async _parseAccount(account)
     {
         account.id = account.hash_id;
         account.created = Date.parse(account.created + ' GMT');
@@ -42,6 +45,8 @@ class AccountResourceAccess
             account.settings = {};
             logger.warn(`Failed to parse settings for account ${ account.account_id }:`, error.stack);
         } // end try/catch
+
+        account.groups = await rolesRA.getRolesForAccount(account.id);
 
         return account;
     } // end _parseAccount
@@ -141,8 +146,7 @@ class AccountResourceAccess
 
     async updateAccount(account)
     {
-        const { id, account_id, hash_id, created, ...safeAccount } = account;
-
+        const safeAccount = _.pick(account, 'email', 'name', 'avatar');
         if(account.permissions)
         {
             safeAccount.permissions = JSON.stringify(account.permissions);
@@ -155,13 +159,13 @@ class AccountResourceAccess
 
         // Figure out how we're looking up the account to update.
         const selector = {};
-        if(id || hash_id)
+        if(account.id || account.hash_id)
         {
-            selector.hash_id = id || hash_id;
+            selector.hash_id = account.id || account.hash_id;
         }
-        else if(account_id)
+        else if(account.account_id)
         {
-            selector.account_id = account_id;
+            selector.account_id = account.account_id;
         } // end if
 
         // Update the account
