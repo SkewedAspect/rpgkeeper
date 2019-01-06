@@ -23,7 +23,7 @@
         </md-card-content>
 
         <!-- If we have a current page id, show it -->
-        <md-card-content style="display: flex" v-if="notes">
+        <md-card-content style="display: flex" v-if="notes && notes.pages && notes.pages.length > 0">
             <md-list v-flex="'0 1 300px'" id="note-tabs" class="hidden-sm-down">
                 <md-list-item @click="loadPage(page)" v-for="page in notes.pages" :class="{ 'md-accent': page.id === currentPage.id }">
                     {{ page.title }}
