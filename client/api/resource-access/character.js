@@ -2,7 +2,11 @@
 // CharacterResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
+import _ from 'lodash';
 import $http from 'axios';
+
+// Managers
+import sysMan from '../managers/systems';
 
 // Models
 import CharacterModel from '../models/character';
@@ -25,7 +29,8 @@ class CharacterResourceAccess
         }
         else
         {
-            character = new CharacterModel(def);
+            const system = _.find(sysMan.systems, { id: def.system });
+            character = new CharacterModel(def, system.defaults);
             this.$characters[def.id] = character;
         } // end if
 

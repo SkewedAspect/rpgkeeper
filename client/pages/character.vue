@@ -118,6 +118,7 @@
             {
                 if(!_.isUndefined(oldChar) && char && char.dirty)
                 {
+                    // TODO: If this throws an error, we should pop a toast that tells the user, and revert the change.
                     charMan.save(char);
                 } // end char
             }, { deep: true });

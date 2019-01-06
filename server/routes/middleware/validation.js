@@ -21,8 +21,18 @@ function charValidation(skipRequired)
 {
     return wrapAsync(async (request, response, next) =>
     {
-        const char = await charMan.getCharacter(request.params.charID);
-        const system = sysMan.get(char.system);
+        let system;
+        if(request.params.charID)
+        {
+            const char = await charMan.getCharacter(request.params.charID);
+            system = sysMan.get(char.system);
+        }
+        else
+        {
+            // We have to use the passed in system to work it out
+            system = sysMan.get(request.body.system);
+        } // end if
+
         const data = request.body;
 
         try
@@ -30,8 +40,11 @@ function charValidation(skipRequired)
             // Copy the schema (since we're about to modify it), as well as handle skipping required
             const schema = Object.assign({}, charSchema, skipRequired ? { required: [] } : {});
 
-            // Add the system schema in as well.
-            Object.assign(schema.properties, { details: _.get(system, 'schema', {}) });
+            if(system)
+            {
+                // Add the system schema in as well.
+                Object.assign(schema.properties, { details: _.get(system, 'schema', {}) });
+            } // end if
 
             // Handle skipping required properties in the details
             Object.assign(schema.properties.details, skipRequired ? { required: [] } : {});

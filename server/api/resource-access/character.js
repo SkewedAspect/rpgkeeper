@@ -126,6 +126,9 @@ class CharacterResourceAccess
         delete character.character_id;
         character.hash_id = shortID();
 
+        // We have to stringify this to insert it into the table.
+        character.details = JSON.stringify(character.details);
+
         // Insert character
         const db = await dbMan.getDB();
         await db('character').insert(character);

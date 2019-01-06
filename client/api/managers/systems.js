@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 // SystemsManager
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
@@ -47,13 +45,10 @@ class SystemsManager
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    getSystem(systemID)
+    async getSystem(systemID)
     {
-        return this.loading
-            .then(() =>
-            {
-                return _.find(this.systems, { id: systemID });
-            });
+        await this.loading;
+        return _.find(this.systems, { id: systemID });
     } // end getSystem
 } // end SystemsManager
 
