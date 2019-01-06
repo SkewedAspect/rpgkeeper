@@ -1,18 +1,12 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Risus System
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-const express = require('express');
-const logging = require('trivial-logging');
+// BaseClass
+const BaseSystem = require('../base/base-system');
 
-// const models = require('./models');
-
-//----------------------------------------------------------------------------------------------------------------------
-
-const logger = logging.loggerFor(module);
-const router = express.Router();
+// Logger
+const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition
@@ -25,19 +19,19 @@ const description = "For some, Risus is a handy “emergency” RPG for spur-of-
     "little pamphlet with stick figures. No matter what it might become to you, you need this in your life!";
 
 //----------------------------------------------------------------------------------------------------------------------
-// Initialization
-//----------------------------------------------------------------------------------------------------------------------
 
-function init(manager)
+class RisusSystem extends BaseSystem
 {
-} // end init
+    constructor()
+    {
+        super(id, name, description);
+
+        logger.info(`Loaded '${ name }' system.`);
+    } // end constructor
+} // end RisusSystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-logger.info(`Loaded '${ name }' system.`);
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = { id, name, router, description, init/*, models*/ };
+module.exports = new RisusSystem();
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -6,7 +6,7 @@ const _ = require('lodash');
 const express = require('express');
 const logging = require('trivial-logging');
 
-const permMan = require('../permissions');
+const permMan = require('../api/managers/permissions');
 const systemMan = require('../../systems/manager');
 const { errorHandler, interceptHTML } = require('./utils');
 
@@ -19,31 +19,27 @@ const router = express.Router();
 
 router.get('/', (request, response) =>
 {
-    interceptHTML(response, () =>
+    interceptHTML(response, async () =>
     {
-        const systems = _(systemMan.systems)
+        const systems = systemMan.systems
             .filter((system) =>
             {
                 const user = _.get(request, 'user', { permissions: [], groups: [] });
-                return permMan.hasPerm(user, 'Systems/viewDev') || !system.dev;
-            })
-            .map((system) =>
-            {
-                const safeSystem = Object.assign({}, system);
-                delete safeSystem.models;
-
-                return safeSystem;
+                return permMan.hasPerm(user, 'Systems/viewDisabled') || !system.disabled;
             });
 
         response.json(systems);
     });
 });
 
-// Mount the systems
-_.each(systemMan.systems, (system) =>
+// Mount the systems' routers
+systemMan.systems.forEach((system) =>
 {
     logger.debug(`Building routes for "${ system.name }" system.`);
-    router.use('/' + system.id, system.router);
+    if(system.router)
+    {
+        router.use(`/${ system.id }`, system.router);
+    } // end if
 });
 
 //----------------------------------------------------------------------------------------------------------------------
