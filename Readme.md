@@ -71,7 +71,7 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
 
 * [X] ~~Switch to Vuetify (I don't like it's API as much but it's worlds faster, with better components.)~~
 * [ ] Switch to Bootstrap v4 (and Bootstrap-Vue)
-* [ ] Add a base model class that knows if it's dirty (Proxy-based)
+* [X] Add a base model class that knows if it's dirty (Proxy-based)
 * [X] Use RxJS to manage state; the current character becomes an observable
 * [X] Move all resource access (like loading characters, systems, etc) into 'resource-access'
 * [X] Move all state holding and application logic to 'managers'

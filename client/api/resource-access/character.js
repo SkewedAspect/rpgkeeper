@@ -52,7 +52,8 @@ class CharacterResourceAccess
     async saveCharacter(character)
     {
         const verb = character.id ? 'patch' : 'post';
-        const { data } = await $http[verb](character.url, character);
+        const charURL = character.id ? `/characters/${ character.id }` : `/characters`;
+        const { data } = await $http[verb](charURL, character);
 
         if(!character.id)
         {
@@ -64,7 +65,7 @@ class CharacterResourceAccess
 
     async deleteCharacter(character)
     {
-        $http.delete(character.url);
+        $http.delete(`/characters/${ character.id }`);
     } // end deleteCharacter
 } // end CharacterResourceAccess
 

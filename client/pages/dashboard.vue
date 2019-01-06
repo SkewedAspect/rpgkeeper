@@ -66,17 +66,17 @@
                             <md-progress v-if="systemsStatus !== 'loaded'" class="md-accent" md-indeterminate></md-progress>
                         </div>
                         <md-list v-else class="md-triple-line">
-                            <md-list-item v-for="char in characters" @click="goTo(char.url)">
-                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.ref.color }">
-                                    <img :src="char.ref.thumbnail" alt="">
-                                    <div class="md-avatar-text">{{ char.ref.initial }}</div>
+                            <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
+                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.original.color }">
+                                    <img :src="char.original.thumbnail" alt="">
+                                    <div class="md-avatar-text">{{ char.initial }}</div>
                                 </md-avatar>
 
                                 <div class="md-list-text-container">
-                                    <span>{{ char.ref.name }}</span>
-                                    <i v-if="char.ref.campaign">{{ char.ref.campaign }} ({{ getSystem(char.ref.system).name }})</i>
-                                    <i v-else>{{ getSystem(char.ref.system).name }}</i>
-                                    <p>{{ char.ref.description }}</p>
+                                    <span>{{ char.original.name }}</span>
+                                    <i v-if="char.original.campaign">{{ char.original.campaign }} ({{ getSystem(char.original.system).name }})</i>
+                                    <i v-else>{{ getSystem(char.original.system).name }}</i>
+                                    <p>{{ char.original.description }}</p>
                                 </div>
 
                                 <md-button class="md-icon-button md-list-action" @click.prevent.stop="editCharacter(char)">
@@ -207,7 +207,7 @@
             },
             onNewCharSaved(char)
             {
-                this.goTo(char.url);
+                this.goTo(`/characters/${ char.id }`);
             },
 
             // Edit Modal
@@ -222,7 +222,7 @@
             },
             onEditCanceled(char)
             {
-                char.reset();
+                char.revert();
             },
 
             // Delete Modal
