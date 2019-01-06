@@ -5,8 +5,11 @@
 module.exports = {
     character: {
         type: 'object',
-        required: [],
+        required: [ 'stats', 'counters', 'rolls' ],
         properties: {
+            stats: { type: 'array' },
+            counters: { type: 'array' },
+            rolls: { type: 'array' }
         }
     }
 }; // end exports
