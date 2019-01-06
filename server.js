@@ -86,7 +86,7 @@ async function main()
         store,
 
         // maxAge = 7 days
-        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: !config.debug },
+        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: config.http.secure },
         saveUninitialized: false
     }));
 
