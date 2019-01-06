@@ -8,6 +8,9 @@ const BaseSystem = require('../base/base-system');
 // Validations
 const schemas = require('./validations');
 
+// Defaults
+const defaults = require('./defaults');
+
 // Logger
 const logger = require('trivial-logging').loggerFor(module);
 
