@@ -21,7 +21,7 @@ module.exports = {
         clientSecret: _.get(process.env, 'CLIENT_SECRET', "hOsFjUL-f_yky8djy1OSuvmp")
     },
     http: {
-        domain: _.get(process.env, 'WEB_DOMAIN', 'http://localhost:4500'),
+        secure: false,
         port: _.get(process.env, 'SERVER_PORT', 5678)
     },
     database: {
