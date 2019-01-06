@@ -2,13 +2,17 @@
 // BaseSystem
 //----------------------------------------------------------------------------------------------------------------------
 
+
+//----------------------------------------------------------------------------------------------------------------------
+
 class BaseSystem
 {
-    constructor(id, name, description)
+    constructor(id, name, description, schema = { type: 'object' })
     {
         this._id = id;
         this._name = name;
         this._description = description;
+        this._schema = schema;
 
         this._router = undefined;
         this._disabled = false;
@@ -23,6 +27,7 @@ class BaseSystem
     get description(){ return this._description; }
     get router(){ return this._router; }
     get disabled(){ return this._disabled; }
+    get schema(){ return this._schema; }
 
     //------------------------------------------------------------------------------------------------------------------
     // API
@@ -32,16 +37,6 @@ class BaseSystem
     {
         /* No work to do here! */
     } // end init
-
-    async getSchema()
-    {
-        return {};
-    } // end getSchema
-
-    async validate(charDetails)
-    {
-        return true;
-    } // end validate
 
     toJSON()
     {

@@ -5,6 +5,9 @@
 // BaseClass
 const BaseSystem = require('../base/base-system');
 
+// Validations
+const schemas = require('./validations');
+
 // Logger
 const logger = require('trivial-logging').loggerFor(module);
 
@@ -20,7 +23,7 @@ class FATESystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description);
+        super(id, name, description, schemas.character);
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor

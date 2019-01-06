@@ -5,6 +5,9 @@
 // BaseClass
 const BaseSystem = require('../base/base-system');
 
+// Validations
+const schemas = require('./validations');
+
 // Logger
 const logger = require('trivial-logging').loggerFor(module);
 
@@ -22,7 +25,7 @@ class GenericSystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description);
+        super(id, name, description, schemas.character);
 
         // TODO: Remove once this system is ready
         this._disabled = true;

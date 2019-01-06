@@ -86,12 +86,42 @@ class ValidationError extends AppError
 
 //----------------------------------------------------------------------------------------------------------------------
 
+class AjvValidationError extends AppError
+{
+    constructor(errors)
+    {
+        let errorMessage = `ValidationError: ${ errors[0].error.trim() }.`;
+        if(errors[0].suggestion)
+        {
+            errorMessage += ` ${ errors[0].suggestion }`;
+        } // end of
+
+        super(errorMessage, 'ERR_VALIDATION_FAILED');
+
+        this.errors = errors;
+        this.statusCode = 422;
+    } // end constructor
+
+    toJSON()
+    {
+        return {
+            name: this.name,
+            message: this.message,
+            code: this.code,
+            validationErrors: this.errors
+        };
+    } // end toJSON
+} // end AjvValidationError
+
+//----------------------------------------------------------------------------------------------------------------------
+
 module.exports = {
     AppError,
     NotFoundError,
     NotImplementedError,
     MultipleResultsError,
-    ValidationError
+    ValidationError,
+    AjvValidationError
 };
 
 //----------------------------------------------------------------------------------------------------------------------
