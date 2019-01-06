@@ -16,14 +16,14 @@
                          :class="[checkHover(index), { 'read-only': editDisabled }]"
                          @mouseover.native="onMouseOver(index)"
                          @mouseout.native="onMouseOut(index)"
-                         @click.prevent.stop="setIndex(index)">
+                         @click.native.prevent.stop="setIndex(index)">
                     {{ checkedIcon }}
                 </md-icon>
                 <md-icon v-else
                          :class="[checkHover(index), { 'read-only': editDisabled }]"
                          @mouseover.native="onMouseOver(index)"
                          @mouseout.native="onMouseOut(index)"
-                         @click.prevent.stop="setIndex(index)">
+                         @click.native.prevent.stop="setIndex(index)">
                     {{ uncheckedIcon }}
                 </md-icon>
             </span>
@@ -38,7 +38,7 @@
             <md-dialog-content>
                 <md-input-container>
                     <label>Maximum</label>
-                    <md-input type="number" v-model="editMax"></md-input>
+                    <md-input type="number" v-model.number="editMax"></md-input>
                 </md-input-container>
             </md-dialog-content>
 
@@ -92,9 +92,9 @@
 
 <script>
     //------------------------------------------------------------------------------------------------------------------
-    
+
     import _ from 'lodash';
-    
+
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
@@ -174,7 +174,7 @@
             {
                 if(!this.editDisabled)
                 {
-                    if(index == this.currentIndex)
+                    if(index === this.currentIndex)
                     {
                         this.current -= 1;
                     }

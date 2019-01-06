@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-// BaseCharacterModel
+// CharacterModel
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
@@ -9,15 +9,18 @@ import { markNonConfigurable } from '../utils/nonreactive';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class BaseCharacterModel
+class CharacterModel
 {
-    constructor(def)
+    constructor(def, sysDefaults = {})
     {
+        // Save off the defaults for the system specific portion.
+        this._sysDefaults = sysDefaults;
+
         // Set our properties
-        this.$state = Object.assign({}, this.$defaults, def);
+        this.$state = _.merge({}, this.$defaults, _.cloneDeep(def));
 
         // Store our reference model to revert back to
-        this.$refState = Object.assign({}, this.$defaults, def);
+        this.$refState = _.merge({}, this.$defaults, _.cloneDeep(def));
 
         // Mark the ref state as non-configurable, so vue ignores it.
         markNonConfigurable(this, '$refState');
@@ -38,13 +41,13 @@ class BaseCharacterModel
             thumbnail: undefined,
             color: undefined,
             biography: undefined,
-            details: {},
+            details: this._sysDefaults,
             account_id: undefined,
             note_id: undefined
         };
     }
 
-    get dirty(){ return _.isEqual(this.$state, this.$refState); }
+    get dirty(){ return !_.isEqual(this.$state, this.$refState); }
     get original(){ return Object.assign({}, this.$refState); }
 
     get id(){ return this.$state.id; }
@@ -74,24 +77,23 @@ class BaseCharacterModel
 
     revert()
     {
-        this.$state = Object.assign(this.$state, this.$refState);
+        this.$state = _.cloneDeep(this.$refState);
     } // end revert
 
     update(def)
     {
-        this.$state = Object.assign(this.$state, this.$defaults, def);
-        this.$refState = Object.assign({}, this.$defaults, def);
+        this.$state = _.merge({}, this.$defaults, _.cloneDeep(def));
+        this.$refState = _.merge({}, this.$defaults, _.cloneDeep(def));
     } // end update
 
     toJSON()
     {
         return Object.assign({}, this.$state);
     } // end toJSON
-
-} // end BaseCharacterModel
+} // end CharacterModel
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default BaseCharacterModel;
+export default CharacterModel;
 
 //----------------------------------------------------------------------------------------------------------------------

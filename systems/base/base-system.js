@@ -2,17 +2,15 @@
 // BaseSystem
 //----------------------------------------------------------------------------------------------------------------------
 
-
-//----------------------------------------------------------------------------------------------------------------------
-
 class BaseSystem
 {
-    constructor(id, name, description, schema = { type: 'object' })
+    constructor(id, name, description, schema = { type: 'object' }, defaults = {})
     {
         this._id = id;
         this._name = name;
         this._description = description;
         this._schema = schema;
+        this._defaults = defaults;
 
         this._router = undefined;
         this._disabled = false;
@@ -28,6 +26,7 @@ class BaseSystem
     get router(){ return this._router; }
     get disabled(){ return this._disabled; }
     get schema(){ return this._schema; }
+    get defaults(){ return this._defaults; }
 
     //------------------------------------------------------------------------------------------------------------------
     // API
@@ -44,6 +43,7 @@ class BaseSystem
             id: this.id,
             name: this.name,
             description: this.description,
+            defaults: this.defaults,
             disabled: this.disabled
         };
     } // end toJSON

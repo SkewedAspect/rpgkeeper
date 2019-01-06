@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 // SystemsResourceAccess
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 import $http from 'axios';
@@ -10,10 +8,10 @@ import $http from 'axios';
 
 class SystemsResourceAccess
 {
-    loadSystems()
+    async loadSystems()
     {
-        return $http.get('/systems')
-            .then(({ data }) => data);
+        const { data } = await $http.get('/systems');
+        return data;
     } // end loadSystems
 } // end SystemsResourceAccess
 
