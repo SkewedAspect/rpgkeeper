@@ -1,22 +1,92 @@
 //----------------------------------------------------------------------------------------------------------------------
 // BaseCharacterModel
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import BaseModel from './base';
+
+// Utils
+import { markNonConfigurable } from '../utils/nonreactive';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class BaseCharacterModel extends BaseModel
+class BaseCharacterModel
 {
+    constructor(def)
+    {
+        // Set our properties
+        this.$state = Object.assign({}, this.$defaults, def);
+
+        // Store our reference model to revert back to
+        this.$refState = Object.assign({}, this.$defaults, def);
+
+        // Mark the ref state as non-configurable, so vue ignores it.
+        markNonConfigurable(this, '$refState');
+    } // end constructor
+
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get url(){ return `/characters/${ _.get(this.$state, 'id', '') }`; }
+    get $defaults()
+    {
+        return {
+            id: undefined,
+            system: undefined,
+            name: undefined,
+            description: undefined,
+            portrait: undefined,
+            thumbnail: undefined,
+            color: undefined,
+            biography: undefined,
+            details: {},
+            account_id: undefined,
+            note_id: undefined
+        };
+    }
+
+    get dirty(){ return _.isEqual(this.$state, this.$refState); }
+    get original(){ return Object.assign({}, this.$refState); }
+
+    get id(){ return this.$state.id; }
+    get details(){ return this.$state.details; }
+    get account_id(){ return this.$state.account_id; }
+    get note_id(){ return this.$state.note_id; }
     get initial(){ return (_.get(this.name, '0', '?')).toUpperCase(); }
+
+    get system(){ return this.$state.system; }
+    set system(val){ this.$state.system = val; }
+    get name(){ return this.$state.name; }
+    set name(val){ this.$state.name = val; }
+    get description(){ return this.$state.description; }
+    set description(val){ this.$state.description = val; }
+    get portrait(){ return this.$state.portrait; }
+    set portrait(val){ this.$state.portrait = val; }
+    get thumbnail(){ return this.$state.thumbnail; }
+    set thumbnail(val){ this.$state.thumbnail = val; }
+    get color(){ return this.$state.color; }
+    set color(val){ this.$state.color = val; }
+    get biography(){ return this.$state.biography; }
+    set biography(val){ this.$state.biography = val; }
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Model API
+    //------------------------------------------------------------------------------------------------------------------
+
+    revert()
+    {
+        this.$state = Object.assign(this.$state, this.$refState);
+    } // end revert
+
+    update(def)
+    {
+        this.$state = Object.assign(this.$state, this.$defaults, def);
+        this.$refState = Object.assign({}, this.$defaults, def);
+    } // end update
+
+    toJSON()
+    {
+        return Object.assign({}, this.$state);
+    } // end toJSON
 
 } // end BaseCharacterModel
 
