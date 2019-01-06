@@ -5,6 +5,9 @@
 const _ = require('lodash');
 const express = require('express');
 
+// Middleware
+const { charValidation } = require('./middleware/validation');
+
 // Managers
 const accountMan = require('../api/managers/account');
 const charMan = require('../api/managers/character');
@@ -41,8 +44,7 @@ router.get('/', async(req, resp) =>
     });
 });
 
-// TODO: add middleware to validate the `details` property for the system specific details.
-router.post('/', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async (req, resp) =>
 {
     const char = req.body;
 
@@ -61,8 +63,7 @@ router.get('/:charID', (req, resp) =>
     });
 });
 
-// TODO: add middleware to validate the `details` property for the system specific details.
-router.patch('/:charID', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(async (req, resp) =>
 {
     // First, retrieve the character
     const char = await charMan.getCharacter(req.params.charID);
