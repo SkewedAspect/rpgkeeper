@@ -8,7 +8,7 @@ const _ = require('lodash');
 const dbMan = require('../../database');
 
 // Utilities
-const { shortID } = require('../../utilities');
+const { shortID } = require('../../utils/misc');
 
 // Errors
 const { MultipleResultsError, NotFoundError } = require('../errors');

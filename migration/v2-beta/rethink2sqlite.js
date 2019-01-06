@@ -11,7 +11,7 @@ const logger = logging.loggerFor(module);
 const config = require('../../config');
 
 // Utils
-const { shortID } = require('../../server/utilities');
+const { shortID } = require('../../server/utils/misc');
 
 // Database junk
 const r = require('rethinkdbdash')(config.rethink);
