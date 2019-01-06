@@ -5,7 +5,7 @@
 module.exports = {
     character: {
         type: 'object',
-        required: [],
+        required: [ 'advancementPoints', 'ffDice', 'cliches', 'hooks', 'luckyShots' ],
         properties: {
             advancementPoints: { type: 'integer', min: 0 },
             ffDice: { type: 'integer', min: 0 },
