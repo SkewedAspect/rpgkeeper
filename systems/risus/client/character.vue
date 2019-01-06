@@ -49,7 +49,7 @@
                     <md-card-content style="flex: 1; padding-bottom: 0">
                         <md-input-container style="margin-bottom: 10px;" :disabled="!isAuthorized">
                             <label>Dice</label>
-                            <md-input type="number" min="0" v-model="dice"></md-input>
+                            <md-input type="number" min="0" v-model.number="dice"></md-input>
                             <span style="margin-left: 10px; padding-top: 4px">D6</span>
                         </md-input-container>
                         <md-list class="md-double-line md-dense roll-list">
@@ -114,7 +114,7 @@
                 </md-input-container>
                 <md-input-container>
                     <label>Value</label>
-                    <md-input type="number" v-model="newCliche.value"></md-input>
+                    <md-input type="number" v-model.number="newCliche.value"></md-input>
                 </md-input-container>
                 <md-input-container>
                     <label>Tools/Abilities</label>
