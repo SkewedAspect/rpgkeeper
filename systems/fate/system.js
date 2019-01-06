@@ -1,18 +1,12 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Fate System
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-const express = require('express');
-const logging = require('trivial-logging');
+// BaseClass
+const BaseSystem = require('../base/base-system');
 
-// const models = require('./models');
-
-//----------------------------------------------------------------------------------------------------------------------
-
-const logger = logging.loggerFor(module);
-const router = express.Router();
+// Logger
+const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition
@@ -22,20 +16,18 @@ const id = 'fate';
 const name = 'FATE: Core System';
 const description = "To be determined...";
 
-//----------------------------------------------------------------------------------------------------------------------
-// Initialization
-//----------------------------------------------------------------------------------------------------------------------
-
-function init(manager)
+class FATESystem extends BaseSystem
 {
-} // end init
+    constructor()
+    {
+        super(id, name, description);
+
+        logger.info(`Loaded '${ name }' system.`);
+    } // end constructor
+} // end FATESystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-logger.info(`Loaded '${ name }' system.`);
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = { id, name, router, description, init/*, models*/ };
+module.exports = new FATESystem();
 
 //----------------------------------------------------------------------------------------------------------------------
