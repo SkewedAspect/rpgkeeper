@@ -12,7 +12,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Utils
-    import utilities from '../../../server/utilities';
+    import utilities from '../../../server/utils/misc';
 
     // Managers
     import characterMan from '../../api/managers/character';

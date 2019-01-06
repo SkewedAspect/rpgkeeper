@@ -11,7 +11,7 @@ const dbMan = require('../../database');
 const rolesRA = require('./roles');
 
 // Utilities
-const { shortID } = require('../../utilities');
+const { shortID } = require('../../utils/misc');
 const { applyFilters } = require('../../knex/utils');
 
 // Errors
