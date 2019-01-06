@@ -1,10 +1,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 // CharacterResourceAccess
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
 import $http from 'axios';
 
 // Models
@@ -14,35 +11,60 @@ import CharacterModel from '../models/character';
 
 class CharacterResourceAccess
 {
-    createCharacter(charDef)
+    constructor()
     {
-        const character = new CharacterModel(charDef);
-        return this.saveCharacter(character);
-    } // end createCharacter
+        this.$characters = {};
+    } // end constructor
 
-    loadCharacters(owner)
+    _buildModel(def)
     {
-        return $http.get('/characters', { params: { owner } })
-            .then(({ data }) => _.map(data, (char) => new CharacterModel(char)));
-    } // end loadCharacters
+        let character = this.$characters[def.id];
+        if(character)
+        {
+            character.update(def);
+        }
+        else
+        {
+            character = new CharacterModel(def);
+            this.$characters[def.id] = character;
+        } // end if
 
-    loadCharacter(charID)
-    {
-        return $http.get(`/characters/${ charID }`)
-            .then(({ data }) => new CharacterModel(data));
-    } // end loadCharacter
+        return character;
+    } // end _buildModel
 
-    saveCharacter(character)
+    newCharacter(charDef)
     {
-        const verb = character.id ? 'put' : 'post';
-        return $http[verb](character.url, character)
-            .then(({ data }) => character.update(data))
-            .then(() => character);
+        return this._buildModel(charDef);
+    } // end newCharacter
+
+    async getCharacter(charID)
+    {
+        const { data } = await $http.get(`/characters/${ charID }`);
+        return this._buildModel(data);
+    } // end getCharacter
+
+    async getAllCharacters(owner)
+    {
+        const { data } = await $http.get('/characters', { params: { owner, details: true } });
+        return data.map((def) => this._buildModel(def));
+    } // end getAllCharacters
+
+    async saveCharacter(character)
+    {
+        const verb = character.id ? 'patch' : 'post';
+        const { data } = await $http[verb](character.url, character);
+
+        if(!character.id)
+        {
+            this.$characters[data.id] = character;
+        } // end if
+
+        return this._buildModel(data);
     } // end saveCharacter
 
-    deleteCharacter(character)
+    async deleteCharacter(character)
     {
-        return $http.delete(character.url);
+        $http.delete(character.url);
     } // end deleteCharacter
 } // end CharacterResourceAccess
 

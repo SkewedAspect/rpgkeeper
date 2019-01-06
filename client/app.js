@@ -4,12 +4,7 @@
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
-// Overwrite the global promise with Bluebird. This makes `axios` use Bluebird promises.
-import Promise from 'bluebird';
-window.Promise = Promise;
-
-//----------------------------------------------------------------------------------------------------------------------
-
+import pkg from '../package.json';
 import marked from 'marked';
 
 import Vue from 'vue';
@@ -22,16 +17,17 @@ import 'codemirror/lib/codemirror.css';
 // VueRX
 import VueRx from 'vue-rx'
 
+// Managers
+import postsMan from './api/managers/posts';
+
 // Views
 import AppComponent from './app.vue';
 
 // Pages
-import HomePage from './pages/home/home.vue';
-import AboutPage from './pages/about/about.vue';
-import DashboardPage from './pages/dashboard/dashboard.vue';
-import CharacterPage from './pages/character/character.vue';
-
-import pkg from '../package.json';
+import HomePage from './pages/home.vue';
+import AboutPage from './pages/about.vue';
+import DashboardPage from './pages/dashboard.vue';
+import CharacterPage from './pages/character.vue';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Misc.
@@ -83,13 +79,14 @@ const router = new VueRouter({
 });
 
 //----------------------------------------------------------------------------------------------------------------------
-// App Setup
+// Setup Vue App
 //----------------------------------------------------------------------------------------------------------------------
 
 Vue.config.debug = true;
 
+// Setup app component
 const App = Vue.component('app', AppComponent);
-const app = new App({
+new App({
     el: '#rpgkeeper',
     router,
 });
@@ -136,5 +133,19 @@ marked.setOptions({
 window.RPGMap = {
     version: pkg.version
 };
+
+//----------------------------------------------------------------------------------------------------------------------
+// App Initialization
+//----------------------------------------------------------------------------------------------------------------------
+
+async function init()
+{
+    // Setup Managers
+    await postsMan.loadPosts();
+} // end init
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+init();
 
 // ---------------------------------------------------------------------------------------------------------------------

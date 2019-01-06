@@ -4,8 +4,6 @@
 // @module
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
-import Promise from 'bluebird';
 import { BehaviorSubject } from 'rxjs';
 
 // Managers
@@ -24,7 +22,7 @@ class SystemCharacterManager
         this._selectedSubject = new BehaviorSubject();
 
         // Subscriptions
-        charMan.selected$.subscribe(this._onSelectedChanged.bind(this));
+        // charMan.selected$.subscribe(this._onSelectedChanged.bind(this));
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
@@ -43,17 +41,12 @@ class SystemCharacterManager
     // Subscriptions
     //------------------------------------------------------------------------------------------------------------------
 
-    _onSelectedChanged(character)
+    async _onSelectedChanged(character)
     {
         if(character)
         {
-            // FIXME: This only exists like this to prevent a warning from bluebird, since it seems to throw a really
-            // weird fit about an non-returned promise, otherwise. There's no non-returned promise, but w/e.
-            setTimeout(() =>
-            {
-                return sysCharRA.load(character.id, character.system)
-                    .then((character) => this._selectedSubject.next(character));
-            }, 0);
+            const character = await sysCharRA.load(character.id, character.system);
+            this._selectedSubject.next(character);
         }
         else
         {

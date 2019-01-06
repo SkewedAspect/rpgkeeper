@@ -1,194 +1,139 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Routes for character operations
-//
-// @module characters.js
+// Routes for Characters
 //----------------------------------------------------------------------------------------------------------------------
 
 const _ = require('lodash');
 const express = require('express');
-const logging = require('trivial-logging');
-
-const routeUtils = require('./utils');
-const models = require('../models');
 
 // Managers
-const systemMan = require('../../systems/manager');
+const accountMan = require('../api/managers/account');
+const charMan = require('../api/managers/character');
+
+// Utils
+const { errorHandler, ensureAuthenticated, interceptHTML, wrapAsync, parseQuery } = require('./utils');
+
+// Logger
+const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const logger = logging.loggerFor(module);
 const router = express.Router();
-const promisify = routeUtils.promisify;
-const ensureAuthenticated = routeUtils.ensureAuthenticated;
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', (request, response) =>
+router.get('/', async(req, resp) =>
 {
-    routeUtils.interceptHTML(response, promisify(() =>
+    interceptHTML(resp,async () =>
     {
-        const query = _.merge({}, request.query);
+        const includeDetails = req.isAuthenticated()
+            && _.get(req, 'query.details', 'false').toLowerCase() === 'true';
 
-        // By default, we limit authenticated users to just their characters
-        if(request.isAuthenticated())
+        if(req.query.owner)
         {
-            query.owner = request.user.email;
+            const email = req.query.owner.toLowerCase();
+            const account = await accountMan.getAccountByEmail(email);
+            req.query.account_id = `${ account.account_id }`;
         } // end if
 
-        // However, if `all` is passed, we show all characters
-        if(query.all)
-        {
-            delete query.owner;
-            delete query.all;
-        } // end if
-
-        return models.BaseCharacter.filter(query);
-    }));
+        const filters = parseQuery(req.query);
+        const characters = await charMan.getCharacters(filters, includeDetails);
+        resp.json(characters);
+    });
 });
 
-router.get('/:charID', (request, response) =>
+// TODO: add middleware to validate the `details` property for the system specific details.
+router.post('/', ensureAuthenticated, wrapAsync(async (req, resp) =>
 {
-    routeUtils.interceptHTML(response, promisify(() =>
+    const char = req.body;
+
+    // We force the account id to be set based on who we're logged in as.
+    char.account_id = req.user.account_id;
+
+    resp.json(await charMan.createCharacter(char));
+}));
+
+router.get('/:charID', (req, resp) =>
+{
+    interceptHTML(resp, async () =>
     {
-        return models.BaseCharacter.get(request.params.charID)
-            .catch(models.errors.DocumentNotFound, (error) =>
-            {
-                logger.warn('Character not found:\n', error.stack);
-                
-                response.status(404).json({
-                    human: "Character not found.",
-                    message: error.message,
-                    stack: error.stack
-                });
-            });
-    }));
+        const characters = await charMan.getCharacter(req.params.charID, req.isAuthenticated());
+        resp.json(characters);
+    });
 });
 
-router.post('/', ensureAuthenticated, promisify((request, response) =>
+// TODO: add middleware to validate the `details` property for the system specific details.
+router.patch('/:charID', ensureAuthenticated, wrapAsync(async (req, resp) =>
 {
-    const overrides = {
-        owner: request.user.email
-    };
+    // First, retrieve the character
+    const char = await charMan.getCharacter(req.params.charID);
 
-    const baseChar = _.assign({}, _.omit(request.body, 'id'), overrides);
+    // TODO: Add a permissions check to allow admins to delete characters they don't own.
+    if(char.account_id === req.user.id)
+    {
+        const update = req.body;
 
-    return (new models.BaseCharacter(baseChar)).save()
-        .then((char) =>
-        {
-            // Get the System specific Character Model
-            const SysCharacter = systemMan.get(char.system).models.Character;
+        // We force the id of the character to be what was in the route.
+        update.id = req.params.charID;
 
-            // Save a new system character
-            return (new SysCharacter({ id: char.id, user: char.user })).save()
-                .then(() => char);
-        })
-        .catch((error) =>
-        {
-            logger.error('Cannot save character:\n', error.stack);
-
-            response.status(500).json({
-                human: "Cannot save character.",
-                message: error.message,
-                stack: error.stack
+        // Update the character
+        resp.json(await charMan.updateCharacter(update));
+    }
+    else
+    {
+        resp.status(403)
+            .json({
+                type: 'NotAuthorized',
+                message: `You are not authorized to update character '${ req.params.charID }'.`
             });
-        });
+    } // end if
 }));
 
-router.put('/:charID', ensureAuthenticated, promisify((request, response) =>
+router.delete('/:charID', ensureAuthenticated, wrapAsync(async (req, resp) =>
 {
-    const update = _.assign({}, _.omit(request.body, 'id'), { owner: request.user.email });
-
-    return models.BaseCharacter.get(request.params.charID)
-        .then((character) =>
+    let char;
+    try
+    {
+        // First, retrieve the character
+        char = await charMan.getCharacter(req.params.charID);
+    }
+    catch(error)
+    {
+        // If we can't find the character, we need to emulate the behavior of the other delete endpoints, and return a
+        // 404 with no body. While this isn't technically necessary, I'd prefer the API to remain consistent.
+        if(error.code === 'ERR_NOT_FOUND')
         {
-            if(character.owner === request.user.email)
-            {
-                _.assign(character, update);
-                return character.save()
-                    .then(() => character);
-            }
-            else
-            {
-                response.status(403).json({
-                    type: 'NotAuthorized',
-                    message: `You are not authorized to update character '${ request.params.charID }'.`
-                });
-            } // end if
-        })
-        .catch(models.errors.DocumentNotFound, (error) =>
+            return resp.status(404).end();
+        }
+        else
         {
-            logger.warn('Character not found:\n', error.stack);
+            throw error;
+        } // end if
+    } // end try/catch
 
-            response.status(404).json({
-                human: "Character not found.",
-                message: error.message,
-                stack: error.stack
+    // TODO: Add a permissions check to allow admins to delete characters they don't own.
+    if(char.account_id === req.user.id)
+    {
+        // Delete the character
+        const deleted = await charMan.deleteCharacter(req.params.charID);
+
+        // If we actually deleted something, we simply return. If we didn't we respond with 404.
+        deleted > 0 ? resp.end() : resp.status(404).end();
+    }
+    else
+    {
+        resp.status(403)
+            .json({
+                type: 'NotAuthorized',
+                message: `You are not authorized to update character '${ req.params.charID }'.`
             });
-        })
-        .catch((error) =>
-        {
-            logger.error('Cannot save character:\n', error.stack);
-
-            response.status(500).json({
-                human: "Cannot save character.",
-                message: error.message,
-                stack: error.stack
-            });
-        });
+    } // end if
 }));
 
-router.delete('/:charID', ensureAuthenticated, promisify((request, response) =>
-{
-    return models.BaseCharacter.get(request.params.charID)
-        .then((character) =>
-        {
-            if(character.owner == request.user.email)
-            {
-                return character.delete();
-            }
-            else
-            {
-                response.status(403).json({
-                    type: 'NotAuthorized',
-                    message: `You are not authorized to update character '${ request.params.characterID }'.`
-                });
-            } // end if
-        })
-        .then((character) =>
-        {
-            // Get the System specific Character Model
-            return (systemMan.get(character.system).models.Character)
-                .get(request.params.charID)
-                .then((sysChar) =>
-                {
-                    return sysChar.delete();
-                })
-                .catch(models.errors.DocumentNotFound, (error) =>
-                {
-                    logger.warn(`System specific character not found: '${ request.params.charID }'.`);
-                });
-        })
-        .catch(models.errors.DocumentNotFound, (error) =>
-        {
-            logger.warn('Character not found:\n', error.stack);
+//----------------------------------------------------------------------------------------------------------------------
+// Error Handling
+//----------------------------------------------------------------------------------------------------------------------
 
-            response.status(404).json({
-                human: "Character not found.",
-                message: error.message,
-                stack: error.stack
-            });
-        })
-        .catch((error) =>
-        {
-            logger.error('Cannot delete character:\n', error.stack);
-
-            response.status(500).json({
-                human: "Cannot delete character.",
-                message: error.message,
-                stack: error.stack
-            });
-        });
-}));
+router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 

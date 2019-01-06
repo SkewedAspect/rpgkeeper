@@ -46,7 +46,7 @@ The systems I'm initially building/supporting:
     * [X] Risus
         * [X] Data model
         * [X] UI
-    * [ ] FATE
+    * [X] FATE
         * [X] Data model
         * [X] UI
     * [ ] Edge of the Empire
@@ -75,11 +75,11 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
 * [X] Use RxJS to manage state; the current character becomes an observable
 * [X] Move all resource access (like loading characters, systems, etc) into 'resource-access'
 * [X] Move all state holding and application logic to 'managers'
-* [ ] Make components very, very dumb. They only have their own state, and logic relevant to their display.
+* [X] Make components very, very dumb. They only have their own state, and logic relevant to their display.
 * [X] Move to ~~webpack~~ parcel.
 * [ ] Implement `socket.io` so open pages stay in sync as changes are made. (Think, GM opening character pages.)
-* [ ] Move to `knex` and sqlite (with the option for `postgres` for deployment)
-* [ ] Move away from one table per system character to a single character record.
+* [X] Move to `knex` and sqlite (with the option for `postgres` for deployment)
+* [X] Move away from one table per system character to a single character record.
     * [X] ~~The system specific data would be a `any()` blob of JSON.~~
     * [ ] Each system would define an [ajv][] schema for it's specific data.
     * [ ] Any additional data (classes, spells, etc) needed should be treated as static data, ~~and loaded from json files on disk.~~ and loaded as seeds into the database.

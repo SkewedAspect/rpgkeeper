@@ -1,15 +1,13 @@
 //----------------------------------------------------------------------------------------------------------------------
 // CharacterManager
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import Promise from 'bluebird';
 import { BehaviorSubject } from 'rxjs';
 
 // Managers
 import authMan from './auth';
+import notesMan from './notes';
 
 // Resource Access
 import characterRA from '../resource-access/character';
@@ -46,17 +44,12 @@ class CharacterManager
     // Subscriptions
     //------------------------------------------------------------------------------------------------------------------
 
-    _onAccountChanged(account)
+    async _onAccountChanged(account)
     {
         if(account)
         {
-            // FIXME: This only exists like this to prevent a warning from bluebird, since it seems to throw a really
-            // weird fit about an non-returned promise, otherwise. There's no non-returned promise, but w/e.
-            setTimeout(() =>
-            {
-                return characterRA.loadCharacters(account.email)
-                    .then((characters) => this._charactersSubject.next(characters));
-            }, 0);
+            const characters = await characterRA.getAllCharacters(account.email);
+            this._charactersSubject.next(characters);
         }
         else
         {
@@ -68,69 +61,52 @@ class CharacterManager
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    create(charDef)
+    async create(charDef)
     {
-        return characterRA.createCharacter(charDef)
-            .then((char) =>
-            {
-                // Add to our internal cache of characters
-                this.characters.push(char);
-                this._charactersSubject.next(this.characters);
-
-                return char;
-            });
+        return await characterRA.newCharacter(charDef);
     } // end create
 
-    select(charID)
+    async select(charID)
     {
-        const char = _.find(this.characters, { id: charID });
-        if(char)
+        let char = _.find(this.characters, { id: charID });
+        if(!char)
         {
-            this._selectedSubject.next(char);
-            return Promise.resolve(char);
-        }
-        else
-        {
-            return characterRA.loadCharacter(charID)
-                .then((char) =>
-                {
-                    // Add to our internal cache of characters
-                    this.characters.push(char);
-                    this._charactersSubject.next(this.characters);
+            console.warn(`Unable to find character '${ charID }', looking up...`);
+            char = await characterRA.getCharacter(charID);
 
-                    // Select this character
-                    this._selectedSubject.next(char);
-                });
+            // Add to our internal cache of characters
+            this.characters.push(char);
+            this._charactersSubject.next(this.characters);
         } // end if
+
+        // Select this character
+        this._selectedSubject.next(char);
+
+        // Select the notes in the notes manager
+        notesMan.select(char.note_id);
+
+        return char;
     } // end selected
 
-    save(character)
+    async save(character)
     {
-        const isNew = !character.id;
-        if(isNew)
+        await characterRA.saveCharacter(character);
+
+        if(!this.characters.includes(character))
         {
-            return this.create(character);
-        }
-        else
-        {
-            window.char = character;
-            return characterRA.saveCharacter(character);
+            this.characters.push(character);
+            this._charactersSubject.next(this.characters);
         } // end if
+
+        return character;
     } // end save
 
-    delete(character)
+    async delete(character)
     {
-        return characterRA.deleteCharacter(character)
-            .then(() =>
-            {
-                const idx = _.findIndex(this.characters, { id: character.id });
-                if(idx !== -1)
-                {
-                    // Delete from our cache
-                    this.characters.splice(idx, 1);
-                    this._charactersSubject.next(this.characters);
-                } // end if
-            });
+        await characterRA.deleteCharacter(character);
+        const characters = _.without(this.characters, character);
+
+        this._charactersSubject.next(characters);
     } // end delete
 } // end CharacterManager
 

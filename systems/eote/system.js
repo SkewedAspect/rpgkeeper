@@ -7,8 +7,7 @@
 const express = require('express');
 const logging = require('trivial-logging');
 
-const models = require('./models');
-const routeUtils = require('../../server/routes/utils');
+// const models = require('./models');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -29,7 +28,6 @@ const description = "A system designed for Fantasy Flight's Edge of the Empire (
 
 function init(manager)
 {
-    manager.buildGeneralEndpoints(router, models);
 } // end init
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -38,6 +36,6 @@ logger.info(`Loaded '${ name }' system.`);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = { id, name, router, description, init, models, disabled: true, dev: true };
+module.exports = { id, name, router, description, init/*, models*/, disabled: true, dev: true };
 
 //----------------------------------------------------------------------------------------------------------------------

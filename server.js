@@ -1,11 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Main server module for RPGKeeper.
-//
-// @module server.js
 //----------------------------------------------------------------------------------------------------------------------
 
 // Config
-const config = require('./config');
+const { config } = require('./server/api/managers/config');
 
 // Logging
 const logging = require('trivial-logging');
@@ -23,8 +21,12 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 
+// Managers
+const dbMan  = require('./server/database');
+const accountMan = require('./server/api/managers/account');
+
 // Session Store
-const RDBStore = require('express-session-rethinkdb')(session);
+const KnexSessionStore = require('connect-session-knex')(session);
 
 // Auth
 const GoogleAuth = require('./server/auth/google');
@@ -32,92 +34,145 @@ const GoogleAuth = require('./server/auth/google');
 // Routes
 const routeUtils = require('./server/routes/utils');
 const newsRouter = require('./server/routes/news');
+const noteRouter = require('./server/routes/notes');
 const charRouter = require('./server/routes/characters');
 const sysRouter = require('./server/routes/systems');
 const accountsRouter = require('./server/routes/accounts');
 
 //----------------------------------------------------------------------------------------------------------------------
+// Error Handler
+//----------------------------------------------------------------------------------------------------------------------
 
-const rdbStore = new RDBStore({
-    connectOptions: config.rethink,
-    table: 'sessions',
-
-    // If you do not set cookie.maxAge in session middleware, sessions will last until the user closes their browser.
-    // However we cannot keep the session data infinitely (for size and security reasons). In this case, this setting
-    // defines the maximum length of a session, even if the user does not close their browser. (2 days)
-    sessionTimeout: 2 * 24 * 60 * 60 * 1000,
-
-    // RethinkDB does not yet provide an expiration function ( like SETEX for Redis ), so we have to remove the old
-    // expired sessions from the database intermittently. This is the time interval in milliseconds between flushing of
-    // expired sessions. (1 hour)
-    flushInterval: 60 * 60 * 1000,
-    debug: config.debug
+process.on('uncaughtException', (err) =>
+{
+    logger.error(`Uncaught exception: ${ err.stack }`);
 });
 
 //----------------------------------------------------------------------------------------------------------------------
+// Main Function
+//----------------------------------------------------------------------------------------------------------------------
 
-// Build the express app
-const app = express();
-
-// Basic request logging
-app.use(routeUtils.requestLogger(logger));
-
-// Basic error logging
-app.use(routeUtils.errorLogger(logger));
-
-// Auth support
-app.use(cookieParser());
-app.use(bodyParser.json());
-
-app.use(session({
-    secret: config.secret || 'nosecret',
-    key: config.key || 'sid',
-    resave: false,
-    store: rdbStore,
-
-    // maxAge = 7 days
-    cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: !config.debug },
-    saveUninitialized: false
-}));
-
-// Passport support
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Set up our authentication support
-GoogleAuth.initialize(app);
-
-// Setup static serving
-app.use(express.static(path.resolve('./dist')));
-
-// Set up our application routes
-app.use('/characters', charRouter);
-app.use('/systems', sysRouter);
-app.use('/accounts', accountsRouter);
-app.use('/news', newsRouter);
-
-// Serve index.html for any html requests, but 404 everything else.
-app.get('*', (request, response) => {
-    response.format({
-        html: routeUtils.serveIndex,
-        json: (request, response) =>
-        {
-            response.status(404).end();
-        }
-    })
-});
-
-// Start the server
-const server = app.listen(config.http.port, () =>
+async function main()
 {
-    const host = server.address().address;
-    const port = server.address().port;
+    const db = await dbMan.getDB();
 
-    logger.info('RPGKeeper v%s listening at http://%s:%s', require('./package').version, host, port);
-});
+    //------------------------------------------------------------------------------------------------------------------
 
-process.on('uncaughtException', function(err) {
-    console.log('Caught exception: ' + err.stack);
-});
+    const store = new KnexSessionStore({
+        sidfieldname: config.key,
+        knex: db,
+        createTable: true,
+
+        // Clear expired sessions. (1 hour)
+        clearInterval: 60 * 60 * 1000
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    // Build the express app
+    const app = express();
+
+    // Basic request logging
+    app.use(routeUtils.requestLogger(logger));
+
+    // Auth support
+    app.use(cookieParser());
+    app.use(bodyParser.json());
+
+    app.use(session({
+        secret: config.secret,
+        key: config.key,
+        resave: false,
+        store,
+
+        // maxAge = 7 days
+        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: !config.debug },
+        saveUninitialized: false
+    }));
+
+    // Passport support
+    app.use(passport.initialize());
+    app.use(passport.session());
+
+    // Set up our authentication support
+    GoogleAuth.initialize(app);
+
+    // Auth override
+    if(config.overrideAuth)
+    {
+        // Middleware to skip authentication, for testing with postman, or unit tests.
+        app.use(routeUtils.wrapAsync(async (req, resp, next) => {
+            let account = app.get('user');
+
+            // Check for an email header. Even if `app.user` is set, this overrides (this keeps the code simpler).
+            let email = req.get('auth-email');
+            if(email)
+            {
+                account = await accountMan.getAccountByEmail(email);
+            } // end if
+
+            if(account)
+            {
+                logger.warn(`Forcing auth to account: ${ account.email }`);
+                req.user = account;
+            } // end if
+            next();
+        }));
+    } // end if
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Routing
+    //------------------------------------------------------------------------------------------------------------------
+
+    // Setup static serving
+    app.use(express.static(path.resolve('./dist')));
+
+    // Set up our application routes
+    app.use('/characters', charRouter);
+    app.use('/systems', sysRouter);
+    app.use('/accounts', accountsRouter);
+    app.use('/notes', noteRouter);
+    app.use('/news', newsRouter);
+
+    // Serve index.html for any html requests, but 404 everything else.
+    app.get('*', (request, response) => {
+        response.format({
+            html: routeUtils.serveIndex,
+            json: (request, response) =>
+            {
+                response.status(404).end();
+            }
+        })
+    });
+
+    // Basic error logging
+    app.use(routeUtils.errorLogger(logger));
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Server
+    //------------------------------------------------------------------------------------------------------------------
+
+    // Start the server
+    const server = app.listen(config.http.port, () =>
+    {
+        const { address, port } = server.address();
+        const version = require('./package').version;
+
+        const host = address === '::' ? 'localhost' : address;
+        logger.info(`RPGKeeper v${ version } listening at http://${ host }:${ port }.`);
+    });
+
+    // Return these, to make it easier for unit tests.
+    return { app, server };
+} // end main
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// Execute server
+const loading = main();
+
+//----------------------------------------------------------------------------------------------------------------------
+
+module.exports = { loading };
 
 //----------------------------------------------------------------------------------------------------------------------

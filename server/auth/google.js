@@ -1,78 +1,74 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Google+ Authentication Support
-//
-// @module google-plus.js
+// Google Authentication Support
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-web');
-const serialization = require('./serialization');
 
-const config = require('../../config');
-const models = require('../models');
+// We just need to import this somewhere; here makes sense.
+require('./serialization');
+
+// Managers
+const accountMan = require('../api/managers/account');
 
 const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-passport.use(new GoogleStrategy((token, profile, done) =>
+passport.use(new GoogleStrategy(async (token, profile, done) =>
     {
-        models.Account.getAll(profile.id, { index: 'googleID' })
-            .then(function(accounts)
+        try
+        {
+            let account;
+            try { account = await accountMan.getAccountByEmail(profile.email); }
+            catch(error)
             {
-                const account = accounts[0];
-                if(account)
+                if(error.code === 'ERR_NOT_FOUND')
                 {
-                    account.avatar = profile.picture;
-                    account.name = profile.name;
-                    account.givenName = profile.givenName;
-                    return account.save();
+                    account = null;
                 }
                 else
                 {
-                    // Create a new user
-                    return new models.Account({
-                        googleID: profile.id,
-                        avatar: profile.picture,
-                        email: profile.email,
-                        name: profile.name,
-                        givenName: profile.givenName
-                    }).save();
+                    logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
+                    done(error);
                 } // end if
-            })
-            .then(function(account)
-            {
-                if(!account.inactive)
-                {
-                    done(null, account);
-                }
-                else
-                {
-                    // For now, we have to deny the login, however, we might want some sort of account recovery
-                    // process in the future.
+            } // end try/catch
 
-                    //TODO: Use a custom error
-                    done(`Account '${ account.displayName || account.email || account.id }' is inactive! Please contact a site admin to have it reinstated.`);
-                } // end if
-            })
-            .catch(function(error)
+            if(account)
             {
-                logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
-                done(error);
-            });
-    }));
+                account.name = account.name || profile.email.split('@')[ 0 ];
+                account.avatar = `${profile.picture}?sz=512`;
+                account = await accountMan.updateAccount(account);
+            }
+            else
+            {
+                account = await accountMan.createAccount({
+                    name: profile.email.split('@')[0],
+                    avatar: `${profile.picture}?sz=512`,
+                    email: profile.email
+                });
+            } // end if
+
+            done(null, account);
+        }
+        catch(error)
+        {
+            logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
+            done(error);
+        } // end try/catch
+    })
+);
 
 //----------------------------------------------------------------------------------------------------------------------
 
 module.exports = {
-    initialize: function(app)
+    initialize(app)
     {
         // Authenticate
         app.post('/auth/google', passport.authenticate('google-signin'), (req, resp) =>
-            {
-                resp.json(req.user);
-            });
+        {
+            resp.json(req.user);
+        });
 
         // Logout endpoint
         app.post('/auth/logout', function(req, res)
