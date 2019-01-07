@@ -25,7 +25,6 @@ class AccountModel
 
     get id(){ return this.$state.id; }
     get email(){ return this.$state.email; }
-    get name(){ return this.$state.name; }
     get displayName(){ return this.$state.name || this.$state.email; }
     get avatar(){ return this.$state.avatar; }
     get avatarUrl()
@@ -35,6 +34,8 @@ class AccountModel
     }
     get groups(){ return this.$state.groups; }
 
+    get name(){ return this.$state.name; }
+    set name(val){ this.$state.name = val; }
     get permissions(){ return this.$state.permissions; }
     set permissions(val){ this.$state.permissions = val; }
     get settings(){ return this.$state.permissions; }

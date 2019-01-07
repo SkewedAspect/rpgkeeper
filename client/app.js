@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Main Client-side Application
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 import pkg from '../package.json';
@@ -28,6 +26,7 @@ import HomePage from './pages/home.vue';
 import AboutPage from './pages/about.vue';
 import DashboardPage from './pages/dashboard.vue';
 import CharacterPage from './pages/character.vue';
+import SettingsPage from './pages/settings.vue';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Misc.
@@ -74,7 +73,7 @@ const router = new VueRouter({
         { path: '/about', name: 'about', component: AboutPage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
         { path: '/characters/:id', name: 'character', component: CharacterPage },
-        // { path: '/settings', name: 'settings', component: SettingsPage },
+        { path: '/settings', name: 'settings', component: SettingsPage },
     ]
 });
 
