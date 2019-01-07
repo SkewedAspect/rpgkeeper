@@ -1,5 +1,5 @@
 <template>
-    <modal v-ref:modal :backdrop="'static'" :keyboard="false" :width="'900px'">
+    <modal v-ref="modal" :backdrop="'static'" :keyboard="false" :width="'900px'">
         <div class="modal-header" slot="header">
             <h4 class="modal-title">
                 <i class="fa fa-trash-o"></i>
@@ -28,7 +28,6 @@
 </template>
 
 <script type="text/babel">
-    import _ from 'lodash';
     import { modal } from 'vueboot';
 
     export default {
