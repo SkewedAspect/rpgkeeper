@@ -1,18 +1,18 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Edge of the Empire System
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-const express = require('express');
-const logging = require('trivial-logging');
+// BaseClass
+const BaseSystem = require('../base/base-system');
 
-// const models = require('./models');
+// Validations
+const schemas = require('./validations');
 
-//----------------------------------------------------------------------------------------------------------------------
+// Defaults
+const defaults = require('./defaults');
 
-const logger = logging.loggerFor(module);
-const router = express.Router();
+// Logger
+const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition
@@ -23,19 +23,22 @@ const name = 'Edge of the Empire';
 const description = "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.";
 
 //----------------------------------------------------------------------------------------------------------------------
-// Initialization
-//----------------------------------------------------------------------------------------------------------------------
 
-function init(manager)
+class EOTESystem extends BaseSystem
 {
-} // end init
+    constructor()
+    {
+        super(id, name, description, schemas.character, defaults.character);
+
+        // TODO: Remove once this system is ready
+        this._disabled = true;
+
+        logger.info(`Loaded '${ name }' system.`);
+    } // end constructor
+} // end EOTESystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-logger.info(`Loaded '${ name }' system.`);
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = { id, name, router, description, init/*, models*/, disabled: true, dev: true };
+module.exports = new EOTESystem();
 
 //----------------------------------------------------------------------------------------------------------------------

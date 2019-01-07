@@ -1,51 +1,55 @@
 //----------------------------------------------------------------------------------------------------------------------
-// NewsPostModel
+// BaseSystem
 //----------------------------------------------------------------------------------------------------------------------
 
-class NewsPostModel
+class BaseSystem
 {
-    constructor(def)
+    constructor(id, name, description, schema = { type: 'object' }, defaults = {})
     {
-        // Set our properties
-        this.$state = Object.assign({
-            post_id: undefined,
-            title: undefined,
-            stinger: undefined,
-            content: undefined,
-            created: Date.now(),
-            edited: Date.now()
-        }, def);
+        this._id = id;
+        this._name = name;
+        this._description = description;
+        this._schema = schema;
+        this._defaults = defaults;
+
+        this._router = undefined;
+        this._disabled = false;
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get id(){ return this.$state.post_id; }
-    get title(){ return this.$state.title; }
-    get stinger(){ return this.$state.stinger; }
-    get content(){ return this.$state.content; }
-    get created(){ return this.$state.created; }
-    get edited(){ return this.$state.edited; }
-    get account(){ return this.$state.account; }
+    get id(){ return this._id; }
+    get name(){ return this._name; }
+    get description(){ return this._description; }
+    get router(){ return this._router; }
+    get disabled(){ return this._disabled; }
+    get schema(){ return this._schema; }
+    get defaults(){ return this._defaults; }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Model API
+    // API
     //------------------------------------------------------------------------------------------------------------------
 
-    update(def)
+    async init()
     {
-        this.$state = Object.assign(this.$state, def);
-    } // end update
+        /* No work to do here! */
+    } // end init
 
     toJSON()
     {
-        return Object.assign({}, this.$state);
+        return {
+            id: this.id,
+            name: this.name,
+            description: this.description,
+            defaults: this.defaults,
+            disabled: this.disabled
+        };
     } // end toJSON
-} // end NewsPostModel
+} // end BaseSystem
 
 //----------------------------------------------------------------------------------------------------------------------
-
-export default NewsPostModel;
+module.exports = BaseSystem;
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -1,10 +1,11 @@
 //----------------------------------------------------------------------------------------------------------------------
 // PermissionsManager
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 const tp = require('trivialperms');
+
+// Resource Access
+const rolesRA = require('../resource-access/roles');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -12,10 +13,8 @@ class PermissionsManager
 {
     constructor()
     {
-        // TODO: Load groups from either the database, or a config file.
-
         // Load "Admins" group
-        tp.defineGroup({ name: 'Admins', permissions: [ '*/*' ] });
+        tp.loadGroups(rolesRA.getRoles())
     } // end constructor
 
     hasPerm(user, perm)

@@ -132,7 +132,7 @@
     import _ from 'lodash';
 
     // Pull in the shortID utility
-    import { shortID } from '../../../server/utilities';
+    import { shortID } from '../../../server/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
 

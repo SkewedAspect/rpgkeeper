@@ -6,7 +6,7 @@
 
 const connect = require('thinky');
 
-const { shortID } = require('../../server/utilities');
+const { shortID } = require('../../server/utils/misc');
 const config = require('../../config');
 
 //----------------------------------------------------------------------------------------------------------------------

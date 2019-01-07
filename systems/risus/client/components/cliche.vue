@@ -6,7 +6,7 @@
     <md-list-item id="cliche-item" class="md-button">
         <md-input-container class="cliche-current-input" style="" @click.native.prevent.stop="">
             <label>Current</label>
-            <md-input type="number" v-model="cliche.current" :disabled="disabled" min="0" :max="cliche.value"></md-input>
+            <md-input type="number" v-model.number="cliche.current" :disabled="disabled" min="0" :max="cliche.value"></md-input>
         </md-input-container>
         <div class="md-list-text-container">
             <span><b>{{ cliche.description }}</b> ({{ cliche.value }})</span>
@@ -42,7 +42,7 @@
                 </md-input-container>
                 <md-input-container>
                     <label>Value</label>
-                    <md-input type="number" v-model="editCliche.value"></md-input>
+                    <md-input type="number" v-model.number="editCliche.value"></md-input>
                 </md-input-container>
                 <md-input-container>
                     <label>Textarea</label>
@@ -152,7 +152,7 @@
             },
             onConfirmDeleteClosed(result)
             {
-                if(result == 'ok')
+                if(result === 'ok')
                 {
                     this.$emit('deleted');
                 } // end if

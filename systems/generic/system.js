@@ -1,18 +1,18 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Generic System
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
-const express = require('express');
-const logging = require('trivial-logging');
+// BaseClass
+const BaseSystem = require('../base/base-system');
 
-// const models = require('./models');
+// Validations
+const schemas = require('./validations');
 
-//----------------------------------------------------------------------------------------------------------------------
+// Defaults
+const defaults = require('./defaults');
 
-const logger = logging.loggerFor(module);
-const router = express.Router();
+// Logger
+const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition
@@ -23,19 +23,22 @@ const name = 'Generic';
 const description = 'A generic system designed to be usable with any pen and paper RPG.';
 
 //----------------------------------------------------------------------------------------------------------------------
-// Initialization
-//----------------------------------------------------------------------------------------------------------------------
 
-function init(manager)
+class GenericSystem extends BaseSystem
 {
-} // end init
+    constructor()
+    {
+        super(id, name, description, schemas.character);
+
+        // TODO: Remove once this system is ready
+        this._disabled = true;
+
+        logger.info(`Loaded '${ name }' system.`);
+    } // end constructor
+} // end GenericSystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-logger.info(`Loaded '${ name }' system.`);
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = { id, name, router, description, init/*, models*/, disabled: true, dev: true };
+module.exports = new GenericSystem();
 
 //----------------------------------------------------------------------------------------------------------------------

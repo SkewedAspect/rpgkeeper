@@ -2,7 +2,11 @@
 // CharacterResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
+import _ from 'lodash';
 import $http from 'axios';
+
+// Managers
+import sysMan from '../managers/systems';
 
 // Models
 import CharacterModel from '../models/character';
@@ -25,7 +29,8 @@ class CharacterResourceAccess
         }
         else
         {
-            character = new CharacterModel(def);
+            const system = _.find(sysMan.systems, { id: def.system });
+            character = new CharacterModel(def, system.defaults);
             this.$characters[def.id] = character;
         } // end if
 
@@ -52,7 +57,8 @@ class CharacterResourceAccess
     async saveCharacter(character)
     {
         const verb = character.id ? 'patch' : 'post';
-        const { data } = await $http[verb](character.url, character);
+        const charURL = character.id ? `/characters/${ character.id }` : `/characters`;
+        const { data } = await $http[verb](charURL, character);
 
         if(!character.id)
         {
@@ -64,7 +70,7 @@ class CharacterResourceAccess
 
     async deleteCharacter(character)
     {
-        $http.delete(character.url);
+        $http.delete(`/characters/${ character.id }`);
     } // end deleteCharacter
 } // end CharacterResourceAccess
 

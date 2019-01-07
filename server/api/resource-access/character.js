@@ -8,7 +8,7 @@ const _ = require('lodash');
 const dbMan = require('../../database');
 
 // Utilities
-const { shortID } = require('../../utilities');
+const { shortID } = require('../../utils/misc');
 const { applyFilters } = require('../../knex/utils');
 
 // Errors
@@ -125,6 +125,9 @@ class CharacterResourceAccess
         // `hash_id`.
         delete character.character_id;
         character.hash_id = shortID();
+
+        // We have to stringify this to insert it into the table.
+        character.details = JSON.stringify(character.details);
 
         // Insert character
         const db = await dbMan.getDB();

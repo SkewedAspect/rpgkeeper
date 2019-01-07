@@ -50,7 +50,7 @@ The systems I'm initially building/supporting:
         * [X] Data model
         * [X] UI
     * [ ] Edge of the Empire
-        * [X] Data Model
+        * [ ] Data Model
         * [ ] UI
     * [ ] Dungeons and Dragons 3.5
         * [ ] Data model
@@ -71,7 +71,7 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
 
 * [X] ~~Switch to Vuetify (I don't like it's API as much but it's worlds faster, with better components.)~~
 * [ ] Switch to Bootstrap v4 (and Bootstrap-Vue)
-* [ ] Add a base model class that knows if it's dirty (Proxy-based)
+* [X] Add a base model class that knows if it's dirty ~~(Proxy-based)~~
 * [X] Use RxJS to manage state; the current character becomes an observable
 * [X] Move all resource access (like loading characters, systems, etc) into 'resource-access'
 * [X] Move all state holding and application logic to 'managers'
@@ -81,7 +81,7 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
 * [X] Move to `knex` and sqlite (with the option for `postgres` for deployment)
 * [X] Move away from one table per system character to a single character record.
     * [X] ~~The system specific data would be a `any()` blob of JSON.~~
-    * [ ] Each system would define an [ajv][] schema for it's specific data.
+    * [X] Each system would define an [ajv][] schema for it's specific data.
     * [ ] Any additional data (classes, spells, etc) needed should be treated as static data, ~~and loaded from json files on disk.~~ and loaded as seeds into the database.
 
 This should really set us up for more complex interactions and a much faster time to implementing Campaigns.
