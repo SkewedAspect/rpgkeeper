@@ -18,6 +18,14 @@ class AuthResourceAccess
         return $http.post('/auth/google', { idToken })
             .then(({ data }) => new AccountModel(data));
     } // end completeSignIn
+
+    async save(account)
+    {
+        const { data } = await $http.patch(`/accounts/${ account.id }`, account);
+        account.update(data);
+
+        return account;
+    }
 } // end AuthResourceAccess
 
 //----------------------------------------------------------------------------------------------------------------------
