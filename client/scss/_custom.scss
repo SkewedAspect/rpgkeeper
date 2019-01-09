@@ -1,0 +1,117 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Custom Theme SCSS
+//
+// Note: Mixins and variable references are perfectly acceptable here.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+// Fix primary button color
+.btn-primary,
+.btn-primary.disabled,
+.btn-primary:disabled,
+.btn-outline-primary:hover,
+.badge-primary {
+    color: #fff;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// Dropshadow
+.drop-shadow {
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// Fix modals
+.modal-content {
+    overflow: hidden;
+}
+
+.modal-header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// Navbar
+@each $color, $value in $theme-colors {
+    .navbar.bg-#{$color} {
+		.navbar-nav {
+
+			// Nav-link hover style
+			.nav-link:hover {
+				border: 1px solid desaturate(lighten($value, 20%), 25%);
+			}
+
+			// Active nav-link style
+			.nav-link.active,
+			.nav-item.active .nav-link {
+				background-color: desaturate(lighten($value, 20%), 25%);
+
+				&:hover {
+					background-color: transparent;
+				}
+			}
+
+			// Special navlink buttons
+			.nav-link.nav-btn {
+				background-color: desaturate(lighten($value, 20%), 25%);
+
+				&:hover {
+					background-color: desaturate(lighten($value, 30%), 25%);
+				}
+			}
+
+			// Dropdowns are handled differently
+			.nav-item.dropdown.bordered {
+				.nav-link {
+					border: 1px solid desaturate(lighten($value, 20%), 25%);
+				}
+
+				.nav-link:hover {
+					background-color: desaturate(lighten($value, 20%), 25%);
+				}
+			}
+		}
+	}
+}
+
+.navbar-collapse.collapsing,
+.navbar-collapse.collapse.show {
+	margin-top: 10px;
+}
+
+.navbar-nav {
+	.nav-item.dropdown {
+		white-space: nowrap;
+	}
+
+	.nav-link {
+		padding-right: $navbar-nav-link-padding-x;
+		padding-left: $navbar-nav-link-padding-x;
+
+		margin-left: 0.125rem;
+		margin-right: 0.125rem;
+		border-radius: $border-radius;
+		border: 1px solid transparent;
+
+		&.disabled:hover {
+			border: 1px solid transparent !important;
+			cursor: not-allowed;
+		}
+
+		&.nav-btn {
+			margin-left: 0.25rem;
+			margin-right: 0.25rem;
+
+			padding-top: 0.3rem;
+			padding-bottom: 0.3rem;
+			margin-top: 0.2rem;
+			margin-bottom: 0.2rem;
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------------------------------------

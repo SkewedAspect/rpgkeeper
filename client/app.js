@@ -6,14 +6,35 @@ import pkg from '../package.json';
 import marked from 'marked';
 
 import Vue from 'vue';
-import VueMaterial from 'vue-material';
 import VueRouter from 'vue-router';
+import BootstrapVue from 'bootstrap-vue';
 
-// Code Mirror
-import 'codemirror/lib/codemirror.css';
+//TODO: Remove
+import VueMaterial from 'vue-material';
 
 // VueRX
 import VueRx from 'vue-rx'
+
+// Font Awesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/pro-solid-svg-icons';
+import { far } from '@fortawesome/pro-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
+
+// CodeMirror
+import "codemirror/lib/codemirror.css";
+import 'codemirror/addon/merge/merge.css';
+import 'codemirror/addon/mode/overlay';
+import 'codemirror/addon/merge/merge.js';
+import 'codemirror/mode/xml/xml';
+import 'codemirror/mode/markdown/markdown';
+import 'codemirror/mode/gfm/gfm';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/css/css';
+import 'codemirror/mode/htmlmixed/htmlmixed';
+import 'codemirror/mode/clike/clike';
+import 'codemirror/mode/meta';
 
 // Managers
 import postsMan from './api/managers/posts';
@@ -33,7 +54,6 @@ import SettingsPage from './pages/settings.vue';
 // ---------------------------------------------------------------------------------------------------------------------
 
 import FlexDirective from './directives/flex';
-
 Vue.directive('flex', FlexDirective);
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -41,6 +61,23 @@ Vue.directive('flex', FlexDirective);
 // ---------------------------------------------------------------------------------------------------------------------
 
 Vue.use(VueRx);
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Font Awesome
+// ---------------------------------------------------------------------------------------------------------------------
+
+library.add(fab, far, fas);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('font-awesome-layers', FontAwesomeLayers);
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Bootstrap Vue
+// ---------------------------------------------------------------------------------------------------------------------
+
+import './scss/theme.scss';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+Vue.use(BootstrapVue);
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Vue Material
