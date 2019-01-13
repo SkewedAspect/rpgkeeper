@@ -7,10 +7,10 @@
         <hr>
         <ul>
             <li>
-                <a href="/about">
+                <router-link to="/about">
                     <font-awesome-icon icon="question"></font-awesome-icon>
                     About
-                </a>
+                </router-link>
             </li>
             <li>|</li>
             <li>

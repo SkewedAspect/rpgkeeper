@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 // AuthManager
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 import { BehaviorSubject } from 'rxjs';
@@ -16,13 +14,25 @@ class AuthManager
     constructor()
     {
         // Subjects
-        this._accountSubject = new BehaviorSubject();
+        this._accountSubject = new BehaviorSubject(undefined);
         this._statusSubject = new BehaviorSubject('unknown');
 
         // We have to expose this to window for Google to pick it up.
         window.onGoogleInit = this._onGoogleInit.bind(this);
         window.onGoogleSignIn = this._onGoogleSignIn.bind(this);
         window.onGoogleFailure = this._onGoogleFailure.bind(this);
+
+        this.loading = new Promise((resolve) =>
+        {
+            const subscription = this.status$.subscribe((status) =>
+            {
+                if(status === 'gapi loaded')
+                {
+                    resolve();
+                    subscription.unsubscribe();
+                } // end if
+            });
+        });
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
@@ -45,19 +55,27 @@ class AuthManager
 
     _onGoogleInit()
     {
-        const auth2 = gapi.auth2.getAuthInstance();
-
-        // We listen for the current user to change
-        auth2.currentUser.listen((val) =>
+        window.gapi.load('auth2', () =>
         {
-            // Valid users will always have an id.
-            const signedIn = !!val.getId();
+            window.gapi.auth2.init();
+            this.auth2 = gapi.auth2.getAuthInstance();
 
-            if(!signedIn)
+            // Update our status
+            this._statusSubject.next('gapi loaded');
+
+            // We listen for the current user to change
+            this.auth2.currentUser.listen((googleUser) =>
             {
-                this._accountSubject.next();
-                this._statusSubject.next('signed out');
-            } // end if
+                if(googleUser.isSignedIn())
+                {
+                    this._onGoogleSignIn(googleUser);
+                }
+                else
+                {
+                    this._accountSubject.next();
+                    this._statusSubject.next('signed out');
+                } // end if
+            });
         });
     } // end _onGoogleInit
 
@@ -88,6 +106,25 @@ class AuthManager
     } // end $completeSignIn
 
     //------------------------------------------------------------------------------------------------------------------
+    // Public
+    //------------------------------------------------------------------------------------------------------------------
+
+    attachSignIn(elem)
+    {
+        return this.loading
+            .then(() =>
+            {
+                this.auth2.attachClickHandler(elem, {}, () => {}, this._onGoogleFailure.bind(this));
+            });
+    } // end attachSignIn
+
+    signOut()
+    {
+        this.auth2.signOut();
+        return authRA.signOut();
+    } // end signOut
+
+    //------------------------------------------------------------------------------------------------------------------
     // API
     //------------------------------------------------------------------------------------------------------------------
 
@@ -102,3 +139,4 @@ class AuthManager
 export default new AuthManager();
 
 //----------------------------------------------------------------------------------------------------------------------
+

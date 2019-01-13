@@ -3,117 +3,132 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div id="dashboard" class="container">
-        <md-layout v-if="account" md-gutter="16">
+    <b-container id="dashboard" class="pb-0">
+        <b-form-row>
+            <!--<b-col cols="12" lg="6" class="mb-3">-->
+                <!--<b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100">-->
+                    <!--<template slot="header">-->
+                        <!--<div class="d-flex">-->
+                            <!--<h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">-->
+                                <!--<font-awesome-icon class="mr-1" icon="books"></font-awesome-icon>-->
+                                <!--<span class="d-none d-md-inline">Campaigns</span>-->
+                            <!--</h5>-->
+                            <!--<b-input-group class="flex-fill ml-2">-->
+                                <!--<b-form-input placeholder="Search Campaigns..." disabled></b-form-input>-->
+                                <!--<b-input-group-append>-->
+                                    <!--<b-btn variant="primary" disabled>-->
+                                        <!--<font-awesome-icon icon="search"></font-awesome-icon>-->
+                                    <!--</b-btn>-->
+                                <!--</b-input-group-append>-->
+                            <!--</b-input-group>-->
+                            <!--<b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
+                                <!--<template slot="button-content">-->
+                                    <!--<font-awesome-icon icon="cog"></font-awesome-icon>-->
+                                <!--</template>-->
 
-            <!-- Campaigns -->
-            <!--md-layout md-flex-small="100" md-flex-medium="50">
-                <md-card v-flex="1">
-                    <md-toolbar class="md-dense">
-                        <h2 class="md-title" v-flex="1">Campaigns</h2>
+                                <!--<b-dropdown-item>Filter 1</b-dropdown-item>-->
+                            <!--</b-dropdown>-->
+                        <!--</div>-->
+                    <!--</template>-->
 
-                        <md-input-container md-inline v-flex="1">
-                            <md-icon>search</md-icon>
-                            <md-input placeholder="Search Campaigns"></md-input>
-                        </md-input-container>
+                    <!--<h4 class="text-center text-muted mb-0">Campaigns are not implemented.</h4>-->
+                <!--</b-card>-->
+            <!--</b-col>-->
+            <b-col cols="12" class="mb-3">
 
-                        <md-menu md-direction="bottom left">
-                            <md-button class="md-icon-button" md-menu-trigger>
-                                <md-icon>filter_list</md-icon>
-                            </md-button>
+                <!-- Characters Card -->
+                <b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
+                    <template slot="header">
+                        <div class="d-flex">
+                            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                                <font-awesome-icon class="mr-1" icon="users"></font-awesome-icon>
+                                <span class="d-none d-md-inline">Characters</span>
+                            </h5>
+                            <b-input-group class="flex-fill ml-auto" style="max-width: 400px">
+                                <b-form-input placeholder="Search Characters..."></b-form-input>
+                                <b-input-group-append>
+                                    <b-btn variant="primary">
+                                        <font-awesome-icon icon="search"></font-awesome-icon>
+                                    </b-btn>
+                                </b-input-group-append>
+                            </b-input-group>
+                            <b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right>
+                                <template slot="button-content">
+                                    <font-awesome-icon icon="cog"></font-awesome-icon>
+                                </template>
 
-                            <md-menu-content>
-                                <md-menu-item>Filters</md-menu-item>
-                                <md-menu-item>Go</md-menu-item>
-                                <md-menu-item>Here</md-menu-item>
-                            </md-menu-content>
-                        </md-menu>
-                    </md-toolbar>
-
-                    <md-card-content v-flex="1">
-                        Not implemented, yet.
-                    </md-card-content>
-
-                    <md-card-actions>
-                        <md-button :disabled="true">New Campaign</md-button>
-                    </md-card-actions>
-                </md-card>
-            </md-layout-->
-
-            <!-- Characters -->
-            <md-layout md-flex-small="100">
-                <md-card v-flex="1">
-                    <md-toolbar class="md-dense">
-                        <h2 class="md-title" v-flex="1">Characters</h2>
-
-                        <md-input-container md-inline v-flex="1">
-                            <md-icon>search</md-icon>
-                            <md-input v-flex="'max'" v-model="charFilter" placeholder="Search Characters"></md-input>
-                            <md-select v-flex="'min'" name="users" id="users" multiple v-model="systemsFilter" style="min-width: 48px">
-                                <md-button class="md-icon-button" md-menu-trigger slot="icon">
-                                    <md-icon>filter_list</md-icon>
-                                </md-button>
-
-                                <md-subheader>Only these systems:</md-subheader>
-                                <md-option :value="system.id" v-for="system in systems" :key="system.id">{{ system.name }}</md-option>
-                            </md-select>
-                        </md-input-container>
-                    </md-toolbar>
-
-                    <md-card-content v-flex="1">
-                        <div v-if="charsLoading">
-                            <h4 class="text-center">Loading...</h4>
-                            <md-progress v-if="systemsStatus !== 'loaded'" class="md-accent" md-indeterminate></md-progress>
+                                <b-dropdown-item v-for="(system, index) in systems" :key="system.id">
+                                    <b-form-checkbox :id="`checkbox-${ index }`"
+                                        v-model="systemsFilter[index]"
+                                        :value="system.id"
+                                        @click.native.stop>
+                                        {{ system.name }}
+                                    </b-form-checkbox>
+                                </b-dropdown-item>
+                                <b-dropdown-divider></b-dropdown-divider>
+                                <b-dropdown-item style="pointer-events: none">
+                                    <div @click.stop="selectAllSystems()" style="pointer-events: all">
+                                        <font-awesome-icon icon="check-square"></font-awesome-icon>
+                                        Select All
+                                    </div>
+                                </b-dropdown-item>
+                                <b-dropdown-item style="pointer-events: none">
+                                    <div @click.stop="selectNoneSystems()" style="pointer-events: all">
+                                        <font-awesome-icon :icon="['far', 'square']"></font-awesome-icon>
+                                        Select None
+                                    </div>
+                                </b-dropdown-item>
+                            </b-dropdown>
                         </div>
-                        <md-list v-else class="md-triple-line">
-                            <md-list-item v-for="char in characters" @click="goTo(`/characters/${ char.id }`)">
-                                <md-avatar class="md-avatar-icon md-large" :style="{ 'background-color': char.original.color }">
-                                    <img :src="char.original.thumbnail" alt="">
-                                    <div class="md-avatar-text">{{ char.initial }}</div>
-                                </md-avatar>
+                    </template>
 
-                                <div class="md-list-text-container">
-                                    <span>{{ char.original.name }}</span>
-                                    <i v-if="char.original.campaign">{{ char.original.campaign }} ({{ getSystem(char.original.system).name }})</i>
-                                    <i v-else>{{ getSystem(char.original.system).name }}</i>
-                                    <p>{{ char.original.description }}</p>
+                    <!-- List of Characters -->
+                    <div class="card-body" v-if="charsLoading">
+                        <loading></loading>
+                    </div>
+
+                    <b-list-group v-else-if="characters.length > 0" flush>
+                        <b-list-group-item :to="`/characters/${ char.id }`" v-for="char in characters" :key="char.id">
+                            <div class="d-flex">
+                                <thumbnail :src="char.thumbnail" :color="char.color" :text="char.initial"></thumbnail>
+                                <div class="ml-2 flex-column d-flex justify-content-center flex-fill">
+                                    <h5 class="mb-1">
+                                        {{ char.name }}
+                                    </h5>
+                                    <p class="text-muted m-0" v-if="char.description">{{ char.description }}</p>
                                 </div>
+                                <div class="mr-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
+                                    <b-button-close title="Edit User" @click.prevent.stop="openAddEditModal(char)">
+                                        <font-awesome-icon icon="user-edit"></font-awesome-icon>
+                                    </b-button-close>
+                                </div>
+                                <div class="ml-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
+                                    <b-button-close title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
+                                        <font-awesome-icon icon="trash-alt"></font-awesome-icon>
+                                    </b-button-close>
+                                </div>
+                            </div>
+                        </b-list-group-item>
+                    </b-list-group>
 
-                                <md-button class="md-icon-button md-list-action" @click.prevent.stop="editCharacter(char)">
-                                    <md-icon>edit</md-icon>
-                                </md-button>
-                                <md-button class="md-icon-button md-list-action" @click.prevent.stop="confirmDeleteCharacter(char)">
-                                    <md-icon class="md-warn">delete</md-icon>
-                                </md-button>
+                    <div class="card-body" v-else>
+                        <h6 class="text-center text-muted">No Characters found.</h6>
+                    </div>
 
-                                <md-divider class="md-inset"></md-divider>
-                            </md-list-item>
-                        </md-list>
-                    </md-card-content>
+                    <div class="card-body text-right">
+                        <b-btn variant="primary" @click="openAddEditModal()">
+                            <font-awesome-icon icon="user-plus"></font-awesome-icon>
+                            New Character
+                        </b-btn>
+                    </div>
+                </b-card>
+            </b-col>
+        </b-form-row>
 
-                    <md-card-actions>
-                        <md-button @click="openNewCharacter()">New Character</md-button>
-                    </md-card-actions>
-                </md-card>
-            </md-layout>
-        </md-layout>
-
-        <!-- New Char Modal -->
-        <add-modal ref="newCharModal" @saved="onNewCharSaved"></add-modal>
-
-        <!-- Edit Character Modal -->
-        <edit-modal :char="editChar" ref="editCharModal" @save="onEditSaved" @cancel="onEditCanceled"></edit-modal>
-
-        <!-- Delete Character confirmation -->
-        <md-dialog-confirm
-            md-title="Delete Character"
-            :md-content="`Are your sure you want to delete this character: '${ delChar.name }'?`"
-            md-ok-text="Delete"
-            md-cancel-text="Cancel"
-            @close="onConfirmDeleteClosed"
-            ref="deleteChar">
-        </md-dialog-confirm>
-    </div>
+        <!-- Modals -->
+        <add-edit-modal v-model="addEditChar" @hidden="onAddEditHidden"></add-edit-modal>
+        <delete-modal v-model="delChar" @hidden="onDeleteHidden"></delete-modal>
+    </b-container>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -142,18 +157,20 @@
     import characterMan from '../api/managers/character';
 
     // Components
-    import Portrait from '../components/character/portrait.vue';
-    import AddModal from '../components/character/add.vue';
-    import EditModal from '../components/character/edit.vue';
+    import Loading from '../components/ui/loading.vue';
+    import AddEditModal from '../components/character/addEditModal.vue';
+    import DeleteModal from '../components/character/deleteModal.vue';
+    import Thumbnail from '../components/character/thumbnail.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'DashboardPage',
         components: {
-            AddModal,
-            EditModal,
-            Portrait
+            AddEditModal,
+            DeleteModal,
+            Loading,
+            Thumbnail
         },
         subscriptions: {
             account: authMan.account$,
@@ -161,22 +178,13 @@
             characterList: characterMan.characters$,
             systemsStatus: systemsMan.status$
         },
-        data()
-        {
-            return {
-                charFilter: '',
-                systemsFilter: [],
-                editChar: {},
-                delChar: {},
-            };
-        },
         computed: {
             charsLoading(){ return this.systemsStatus !== 'loaded'; },
             systems(){ return _.filter(this.allSystems, (sys) => sys.disabled !== true); },
             characters()
             {
                 return _(this.characterList)
-                    .filter({ account_id: this.account.id })
+                    .filter({ account_id: (this.account || {}).id })
                     .filter((char) =>
                     {
                         const systemValid = this.systemsFilter.length === 0 || _.includes(this.systemsFilter, char.system);
@@ -190,56 +198,56 @@
             }
         },
         methods: {
-            goTo(path)
-            {
-                this.$router.push(path);
-            },
-
             getSystem(systemID)
             {
                 return _.find(this.systems, { id: systemID });
             },
 
-            // New Character modal
-            openNewCharacter()
+            selectAllSystems()
             {
-                this.$refs.newCharModal.open();
+                this.systemsFilter = [].concat(this.systems.map((s) => s.id));
             },
-            onNewCharSaved(char)
+            selectNoneSystems()
             {
-                this.goTo(`/characters/${ char.id }`);
+                this.systemsFilter = [];
             },
 
-            // Edit Modal
-            editCharacter(char)
+            // Add/Edit Modal
+            async openAddEditModal(char)
             {
-                this.editChar = char;
-                this.$refs.editCharModal.open();
+                // If we don't have a character, we build once from scratch.
+                if(!char)
+                {
+                    char = await characterMan.create({});
+                } // end if
+
+                this.addEditChar = char;
             },
-            onEditSaved(char)
+            onAddEditHidden()
             {
-                characterMan.save(char);
-            },
-            onEditCanceled(char)
-            {
-                char.revert();
+                // We just need to clear this when the modal is hidden.
+                this.addEditChar = undefined;
             },
 
             // Delete Modal
-            confirmDeleteCharacter(character)
+            openDelCharacter(char)
             {
-                this.delChar = character;
-                this.$refs.deleteChar.open();
+                this.delChar = char;
             },
-            onConfirmDeleteClosed(result)
+            onDeleteHidden()
             {
-                if(result === 'ok')
-                {
-                    return characterMan.delete(this.delChar);
-                } // end if
-
-                this.delChar = {};
+                // We just need to clear this when the modal is hidden.
+                this.delChar = undefined;
             }
+        },
+        data()
+        {
+            return {
+                charFilter: '',
+                systemsFilter: [],
+                addEditChar: undefined,
+                delChar: undefined
+            };
         },
         mounted()
         {
@@ -250,6 +258,8 @@
                     // We've finished loading, and we're not signed in
                     this.$router.push('/');
                 } // end if
+
+                this.selectAllSystems();
             });
         }
     }

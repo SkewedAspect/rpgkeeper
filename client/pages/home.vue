@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-	<div id="main-page" class="container p-3">
+	<div id="main-page" class="container-fluid p-3">
 		<h1 class="text-center">
             <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="40px" height="40px">
             RPGKeeper
@@ -24,7 +24,7 @@
                        Read More
                     </b-btn>
                     <div class="mt-2">
-                        <small class="text-muted">{{ fromNow(post.created) }}</small>
+                        <span class="text-muted">{{ fromNow(post.created) }}</span>
                     </div>
                 </div>
             </b-card>
@@ -73,14 +73,12 @@
 
     // Components
     import Loading from '../components/ui/loading.vue';
-    import NewsPost from '../components/posts/post.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
 	export default {
 	    components: {
-	        Loading,
-	        NewsPost
+	        Loading
 		},
         computed: {
 	        sortedPosts()
