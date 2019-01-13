@@ -76,7 +76,6 @@ class CharacterManager
         let char = _.find(this.characters, { id: charID });
         if(!char)
         {
-            console.warn(`Unable to find character '${ charID }', looking up...`);
             char = await characterRA.getCharacter(charID);
 
             // Add to our internal cache of characters
