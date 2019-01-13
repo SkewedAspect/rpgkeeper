@@ -4,7 +4,7 @@
 
 <template>
     <div class="about-page">
-        <h1 class="text-center">
+        <h1 class="text-center mt-4 mb-4">
             <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="40px" height="40px">
             About RPGKeeper
         </h1>
@@ -37,11 +37,11 @@
                 project, I do take donations.
             </p>
 
-            <div class="text-center donate-section">
-                <md-button href="https://www.paypal.me/morgul/10" class="md-raised md-accent donate-btn" target="_blank">
-                    <i class="fa fa-gift"></i>
+            <div class="text-center mb-3">
+                <b-btn variant="primary" href="https://www.paypal.me/morgul/10" target="_blank" class="m-auto">
+                    <font-awesome-icon icon="donate"></font-awesome-icon>
                     Buy me a Pizza
-                </md-button>
+                </b-btn>
             </div>
         </div>
     </div>
@@ -54,14 +54,6 @@
         .rpgk-logo {
             margin-top: -10px;
             margin-right: -5px;
-        }
-
-        .donate-section {
-            margin-bottom: 20px;
-        }
-
-        .donate-btn {
-            margin: 0 auto;
         }
     }
 </style>

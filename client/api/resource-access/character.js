@@ -29,7 +29,7 @@ class CharacterResourceAccess
         }
         else
         {
-            const system = _.find(sysMan.systems, { id: def.system });
+            const system = _.find(sysMan.systems, { id: def.system }) || { defaults: {} };
             character = new CharacterModel(def, system.defaults);
             this.$characters[def.id] = character;
         } // end if
@@ -37,10 +37,19 @@ class CharacterResourceAccess
         return character;
     } // end _buildModel
 
-    newCharacter(charDef)
+    async newCharacter(charDef)
     {
         return this._buildModel(charDef);
     } // end newCharacter
+
+    async updateSysDefaults(char)
+    {
+        const system = _.find(sysMan.systems, { id: char.system }) || { defaults: {} };
+        char._sysDefaults = system.defaults;
+        char.update(Object.assign(char.toJSON(), { details: undefined }));
+
+        return char;
+    } // end updateSysDefaults
 
     async getCharacter(charID)
     {

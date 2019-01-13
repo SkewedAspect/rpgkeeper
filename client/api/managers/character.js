@@ -66,6 +66,11 @@ class CharacterManager
         return await characterRA.newCharacter(charDef);
     } // end create
 
+    async updateSysDefaults(char)
+    {
+        return await characterRA.updateSysDefaults(char);
+    } // end updateSysDefaults
+
     async select(charID)
     {
         let char = _.find(this.characters, { id: charID });

@@ -5,6 +5,7 @@
 import _ from 'lodash';
 
 // Utils
+import { shortID, colorize } from '../../../server/utils/misc';
 import { markNonConfigurable } from '../utils/nonreactive';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -35,12 +36,12 @@ class CharacterModel
         return {
             id: undefined,
             system: undefined,
-            name: undefined,
-            description: undefined,
-            portrait: undefined,
-            thumbnail: undefined,
-            color: undefined,
-            biography: undefined,
+            name: "",
+            description: "",
+            portrait: "",
+            thumbnail: "",
+            color: colorize(shortID()),
+            biography: "",
             details: this._sysDefaults,
             account_id: undefined,
             note_id: undefined
