@@ -2,51 +2,50 @@
 // Main Client-side Application
 //----------------------------------------------------------------------------------------------------------------------
 
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import marked from 'marked';
+import { version } from '../package.json';
+
+// VueCodeMirror
+import VueCodemirror from 'vue-codemirror';
+
+// VueRX
+import VueRx from 'vue-rx';
+
+// Bootstrap Vue
+import BootstrapVue from 'bootstrap-vue';
+
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/pro-regular-svg-icons';
 import { fas } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
-import BootstrapVue from 'bootstrap-vue';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-import 'codemirror/addon/merge/merge.css';
-import 'codemirror/addon/merge/merge.js';
-import 'codemirror/addon/mode/overlay';
-// CodeMirror
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/mode/clike/clike';
-import 'codemirror/mode/css/css';
-import 'codemirror/mode/gfm/gfm';
-import 'codemirror/mode/htmlmixed/htmlmixed';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/markdown/markdown';
-import 'codemirror/mode/meta';
-import 'codemirror/mode/xml/xml';
-import marked from 'marked';
 
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-// VueRX
-import VueRx from 'vue-rx';
-import pkg from '../package.json';
+// CodeMirror
+import 'codemirror/addon/mode/overlay';
+import 'codemirror/mode/xml/xml';
+import 'codemirror/mode/markdown/markdown';
+import 'codemirror/mode/gfm/gfm';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/css/css';
+import 'codemirror/mode/htmlmixed/htmlmixed';
+import 'codemirror/mode/clike/clike';
+import 'codemirror/mode/meta';
+
 // Managers
 import postsMan from './api/managers/posts';
+
 // Views
 import AppComponent from './app.vue';
 import AboutPage from './pages/about.vue';
 import CharacterPage from './pages/character.vue';
 import DashboardPage from './pages/dashboard.vue';
+
 // Pages
 import HomePage from './pages/home.vue';
 import SettingsPage from './pages/settings.vue';
-import './scss/theme.scss';
-
-// ---------------------------------------------------------------------------------------------------------------------
-// VueRX
-// ---------------------------------------------------------------------------------------------------------------------
-
-Vue.use(VueRx);
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Font Awesome
@@ -57,8 +56,34 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('font-awesome-layers', FontAwesomeLayers);
 
 // ---------------------------------------------------------------------------------------------------------------------
+// VueCodeMirror
+// ---------------------------------------------------------------------------------------------------------------------
+
+import "codemirror/lib/codemirror.css";
+
+Vue.use(VueCodemirror, {
+    options: {
+        mode: {
+            name: "gfm",
+            gitHubSpice: false
+        },
+        lineNumbers: false,
+        lineWrapping: true,
+        theme: "default"
+    }
+});
+
+// ---------------------------------------------------------------------------------------------------------------------
+// VueRX
+// ---------------------------------------------------------------------------------------------------------------------
+
+Vue.use(VueRx);
+
+// ---------------------------------------------------------------------------------------------------------------------
 // Bootstrap Vue
 // ---------------------------------------------------------------------------------------------------------------------
+
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 Vue.use(BootstrapVue);
 
@@ -121,7 +146,7 @@ marked.setOptions({
 // ---------------------------------------------------------------------------------------------------------------------
 
 window.RPGMap = {
-    version: pkg.version
+    version
 };
 
 //----------------------------------------------------------------------------------------------------------------------
