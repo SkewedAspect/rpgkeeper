@@ -1,9 +1,9 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Delete Character Modal
+  -- Delete Page Modal
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="delete-char-modal" v-if="char">
+    <div class="delete-page-modal" v-if="page">
         <b-modal v-model="showModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,16 +14,17 @@
 
             <!-- Modal Header -->
             <template slot="modal-title">
-                <font-awesome-icon icon="trash-alt"></font-awesome-icon>
-                Delete Character
+                <font-awesome-icon icon="file-minus"></font-awesome-icon>
+                Delete Page
             </template>
 
+            <!-- Modal Content -->
             <h3>
                 <font-awesome-icon icon="exclamation-triangle"></font-awesome-icon>
-                Are you sure you want to delete "{{ char.name }}"?
+                Are you sure you want to delete "{{ page.title }}"?
             </h3>
             <p class="text-muted">
-                You will permanently lose this character. This cannot be undone.
+                This page will be removed permanently. This cannot be undone.
             </p>
 
             <!-- Modal Buttons -->
@@ -45,12 +46,12 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import charMan from '../../api/managers/character';
+    import notesMan from '../../api/managers/notes';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'DeleteCharModal',
+        name: 'DeletePageModal',
         props: {
             value: {
                 type: Object
@@ -61,7 +62,7 @@
                 get(){ return !!this.value; },
                 set(){ /* We ignore setting */ }
             },
-            char(){ return this.value; }
+            page(){ return this.value; }
         },
         methods: {
             onHidden()
@@ -70,7 +71,7 @@
             },
             async onDelete()
             {
-                await charMan.delete(this.char);
+                await notesMan.deletePage(notesMan.selected, this.page);
             }
         }
     }
