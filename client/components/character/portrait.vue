@@ -26,28 +26,33 @@
         // Auto-sizing
         @media(min-width: 960px)
         {
+            min-width: 200px;
             max-width: 200px;
             max-height: 300px;
         }
 
         @media(min-width: 1140px)
         {
+            min-width: 300px;
             max-width: 300px;
             max-height: 450px;
         }
 
         // Fixed Sizing
         &.portrait-sm {
+            min-width: 100px !important;
             max-width: 100px !important;
             max-height: 150px !important;
         }
 
         &.portrait-md {
+            min-width: 200px !important;
             max-width: 200px !important;
             max-height: 300px !important;
 
             @media(max-width: 959px)
             {
+                min-width: 100px !important;
                 max-width: 100px !important;
                 max-height: 150px !important;
             }

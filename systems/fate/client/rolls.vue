@@ -1,47 +1,47 @@
-<!--------------------------------------------------------------------------------------------------------------------->
-<!-- rolls.vue                                                                                                         -->
-<!--------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------
+  -- FATE Rolls
+  --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <md-card id="rolls" style="flex: 1">
-        <md-toolbar class="md-dense">
-            <h2 class="md-title">Rolls</h2>
-        </md-toolbar>
-        <md-card-content style="flex: 1; padding-bottom: 0">
-            <md-input-container md-inline style="margin-bottom: 10px;">
-                <md-select name="skills" id="skills" v-model="skillID" :disabled="!isAuthorized">
-                    <md-option value="noskill">No Skill</md-option>
-                    <md-option :value="skill.id" v-for="skill in sortedSkills" :key="skill.id">{{ skill.name }} (+{{ skill.rank }})</md-option>
-                </md-select>
+    <rpgk-card id="rolls" icon="dice" title="Rolls" fill>
 
-            </md-input-container>
-            <md-list class="md-double-line md-dense roll-list">
-                <md-list-item v-for="item in rolls">
-                    <div class="md-list-text-container">
-                        <span>{{ item.display }}</span>
-                        <span>{{ item.name }}</span>
-                    </div>
-                </md-list-item>
-            </md-list>
-        </md-card-content>
-        <md-card-actions>
-            <md-button @click.native="roll()" :disabled="!isAuthorized">Roll</md-button>
-            <md-button @click.native="clearRolls()" :disabled="!isAuthorized">Clear</md-button>
-        </md-card-actions>
-    </md-card>
+        <!-- Select a skill -->
+        <b-form-select v-model="skill" :options="sortedSkills" text-field="display" value-field="name" :disabled="readonly">
+            <template slot="first">
+                <option value="No Skill">No Skill</option>
+            </template>
+        </b-form-select>
+
+        <!-- Roll History -->
+        <div class="flex-fill mt-3 mb-3 overflow-auto h-0">
+            <ul class="list-unstyled">
+                <li v-for="(item, index) in rolls" :key="index">
+                    <div>{{ item.display }}</div>
+                    <div class="text-muted"><small>{{ item.name }}</small></div></li>
+            </ul>
+        </div>
+
+        <!-- Roll Buttons -->
+        <div class="text-right">
+            <b-btn @click="clearRolls()" :disabled="readonly">
+                <font-awesome-icon icon="times"></font-awesome-icon>
+                Clear
+            </b-btn>
+            <b-btn variant="primary" class="ml-1" @click="roll()" :disabled="readonly">
+                <font-awesome-icon icon="dice"></font-awesome-icon>
+                Roll
+            </b-btn>
+        </div>
+    </rpgk-card>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
     #rolls {
-        .roll-list {
-            overflow-y: auto;
-            max-height: 275px;
-
-            .md-list-item-container {
-                min-height: 35px !important;
-            }
+        .card-body {
+            display: flex;
+            flex-direction: column;
         }
     }
 </style>
@@ -53,44 +53,66 @@
 
     import _ from 'lodash';
 
-    // Services
-    import diceSvc from '../../../client/api/utils/dice';
+    // Utils
+    import diceUtil from '../../../client/api/utils/dice';
+
+    // Components
+    import RpgkCard from '../../../client/components/ui/card.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: 'FateRollsCard',
+        components: {
+            RpgkCard
+        },
         props: {
             skills: {
                 type: Array,
                 required: true
             },
-            isAuthorized: {
+            readonly: {
                 type: Boolean,
                 default: false
             }
         },
         computed: {
-            sortedSkills(){ return _.orderBy(this.skills, ['rank', 'name'], ['desc', 'asc']); },
-            skill(){ return _.find(this.skills.concat([{ id: 'noskill', name: 'No Skill', rank: 0 }]), { id: this.skillID }); }
+            sortedSkills()
+            {
+                return _(this.skills)
+                    .orderBy(['rank', 'name'], ['desc', 'asc'])
+                    .map((skill) =>
+                    {
+                        skill.display = `${ skill.name } (+${ skill.rank })`;
+                        return skill;
+                    })
+                    .value();
+            },
+            selectedSkill()
+            {
+                return _.find(this.sortedSkills, { name: this.skill });
+            }
         },
         methods: {
             roll()
             {
-                const roll = diceSvc.rollFudge(_.get(this.skill, 'rank', 0));
-                this.rolls.unshift({ roll, name: _.get(this.skill, 'name'), display: `${ roll.render() } = ${ roll.value }` });
-                this.rollName = undefined;
+                const roll = diceUtil.rollFudge(_.get(this.selectedSkill, 'rank', 0));
+                this.rolls.unshift({
+                    roll,
+                    name: _.get(this.selectedSkill, 'display', this.skill),
+                    display: `${ roll.render() } = ${ roll.value }`
+                });
             },
             clearRolls()
             {
                 this.rolls = [];
                 this.dice = null;
-                this.rollName = undefined;
-            },
+            }
         },
         data()
         {
             return {
-                skillID: 'noskill',
+                skill: 'No Skill',
                 rolls: [],
             };
         }
