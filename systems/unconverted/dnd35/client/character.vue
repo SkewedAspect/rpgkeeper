@@ -332,7 +332,7 @@
 <script type="text/babel">
     import DnD35Character from './model';
     import systemsSvc from '../../../client/components/systems/systemsService';
-    import diceSvc from '../../../client/components/dice/diceService';
+    import diceUtil from '../../../client/components/dice/diceService';
 
     // Components
     import rolls from './components/rolls.vue';

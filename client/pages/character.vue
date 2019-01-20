@@ -135,19 +135,19 @@
         {
             // Watch for changes to the char, and save.
             // FIXME: This mechanism seems really janky, and I'm not sure if I like the whole 'auto save' thing.
-            this.$watch('char', (char, oldChar) =>
-            {
-                if(!_.isUndefined(oldChar) && char && char.dirty)
-                {
-                    charMan.save(char)
-                        .catch((error) =>
-                        {
-                            // TODO: Pop a toast that tells the user something went wrong.
-                            console.error('Failed to save.', error);
-                            char.revert();
-                        });
-                } // end char
-            }, { deep: true });
+            // this.$watch('char', (char, oldChar) =>
+            // {
+            //     if(!_.isUndefined(oldChar) && char && char.dirty)
+            //     {
+            //         charMan.save(char)
+            //             .catch((error) =>
+            //             {
+            //                 // TODO: Pop a toast that tells the user something went wrong.
+            //                 console.error('Failed to save.', error);
+            //                 char.revert();
+            //             });
+            //     } // end char
+            // }, { deep: true });
         },
         mounted()
         {
