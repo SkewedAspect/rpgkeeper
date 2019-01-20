@@ -18,6 +18,8 @@ class CharacterManager
 {
     constructor()
     {
+        this._saving = false;
+
         // Subjects
         this._charactersSubject = new BehaviorSubject([]);
         this._selectedSubject = new BehaviorSubject();
@@ -92,10 +94,40 @@ class CharacterManager
         return char;
     } // end selected
 
+    /**
+     * Save the character. Attempts to debounce this; we will only have one active save at a time, and if the character
+     * is still dirty once we're done, we save again. (Because this is promised based, this shouldn't be able to
+     * overflow the stack.)
+     *
+     * @param {object} character - The character model instance
+     *
+     * @returns {Promise<object>} Returns the updated character model instance. This is the same object that was passed
+     * in, with internal changes only.
+     */
     async save(character)
     {
+        // If we're already saving, we just return.
+        if(this._saving || !character.dirty)
+        {
+            return character;
+        } // end if
+
+        // Otherwise, we set ourselves to saving
+        this._saving = true;
+
+        // Save Character
         await characterRA.saveCharacter(character);
 
+        // We're done saving
+        this._saving = false;
+
+        // Check to see if we need to save again, in case other changes have come in while saving.
+        if(character.dirty)
+        {
+            await this.save(character);
+        } // end if
+
+        // If we're saving someone new, let's add it to our list of characters.
         if(!this.characters.includes(character))
         {
             this.characters.push(character);
