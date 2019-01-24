@@ -4,6 +4,8 @@
 
 <template>
     <rpgk-card id="fate-identity-block" :class="{ readonly: readonly }" fill>
+
+        <!-- Header -->
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                 <font-awesome-icon class="mr-1" icon="address-card"></font-awesome-icon>
@@ -38,6 +40,7 @@
             <fate-points v-model="character.details.fatePoints.current" :refresh="character.details.fatePoints.refresh" :readonly="readonly"></fate-points>
         </b-form-group>
 
+        <!-- Edit Modal -->
         <edit-identity-modal v-model="showEdit" :character="character"></edit-identity-modal>
     </rpgk-card>
 </template>
