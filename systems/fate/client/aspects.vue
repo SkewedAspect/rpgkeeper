@@ -1,74 +1,56 @@
-<!--------------------------------------------------------------------------------------------------------------------->
-<!-- aspects                                                                                                         -->
-<!--------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------
+  -- Aspects
+  --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <md-card id="fate-aspects" style="flex: 1">
-        <md-toolbar class="md-dense">
-            <h2 style="flex: 1" class="md-title">Aspects</h2>
-            <md-button v-if="isAuthorized" @click="openEdit()">Edit</md-button>
-        </md-toolbar>
+    <rpgk-card id="fate-aspects" :class="{ readonly: readonly }" no-body shrink>
+        <div slot="header" class="d-flex">
+            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                <font-awesome-icon class="mr-1" icon="tasks"></font-awesome-icon>
+                <span class="d-none d-md-inline">Aspects</span>
+            </h5>
+            <div class="ml-auto" v-if="!readonly">
+                <b-btn @click="openEditModal()" size="sm" style="margin-bottom: 1px;">
+                    <font-awesome-icon icon="edit" fixed-width></font-awesome-icon>
+                    <span class="d-none d-md-inline">Edit</span>
+                </b-btn>
+            </div>
+        </div>
 
-        <table class="md-static-table">
+        <!-- Content -->
+        <table class="table table-bordered mb-0 font-sm">
+
+            <!-- High Concept -->
             <tr>
-                <td style="width: 1%"><b>HC:</b></td>
-                <td>{{ highConcept.detail }}</td>
+                <td class="text-nowrap">
+                    <b>High Concept:</b>
+                </td>
+                <td class="w-100">
+                    {{ highConcept.detail }}
+                </td>
             </tr>
+
+            <!-- Trouble Concept -->
             <tr>
-                <td style="width: 1%"><b>TR:</b></td>
-                <td>{{ trouble.detail }}</td>
+                <td class="text-nowrap">
+                    <b>Trouble:</b>
+                </td>
+                <td class="w-100">
+                    {{ trouble.detail }}
+                </td>
             </tr>
+
+            <!-- Extra Concepts -->
             <tr v-for="aspect in extraAspects">
-                <td style="width: 1%" class="no-sides"></td>
-                <td class="no-sides">{{ aspect.detail }}</td>
+                <td colspan="2">
+                    {{ aspect.detail }}
+                </td>
             </tr>
         </table>
 
-        <!-- Edit Dialog -->
-        <md-dialog ref="editDialog" id="edit-aspect-modal">
-            <md-dialog-title>Edit Aspects</md-dialog-title>
-            <md-dialog-content>
-                <md-input-container md-clearable>
-                    <label>High Concept</label>
-                    <md-input v-model="highConceptEdit.detail"></md-input>
-                </md-input-container>
-                <md-input-container md-clearable>
-                    <label>Trouble</label>
-                    <md-input v-model="troubleEdit.detail"></md-input>
-                </md-input-container>
-
-                <md-input-container md-clearable v-for="aspect in extraAspectsEdit" :key="aspect.id">
-                    <label>Aspect</label>
-                    <md-input v-model="aspect.detail"></md-input>
-                </md-input-container>
-
-                <md-card v-flex="1">
-                    <md-card-content>
-                        <md-layout md-gutter="16">
-                            <md-layout v-flex="'grow'">
-                                <md-input-container md-clearable>
-                                    <label>Aspect</label>
-                                    <md-input v-model="newAspect.detail"></md-input>
-                                </md-input-container>
-                            </md-layout>
-                            <md-layout v-flex="'shrink'">
-                                <div style="padding-top: 10px;">
-                                    <md-button class="md-raised" @click="addNew()">
-                                        Add
-                                    </md-button>
-                                </div>
-                            </md-layout>
-                        </md-layout>
-                    </md-card-content>
-                </md-card>
-            </md-dialog-content>
-
-            <md-dialog-actions>
-                <md-button class="md-primary" @click.native="closeEdit()">Cancel</md-button>
-                <md-button class="md-accent" @click.native="closeEdit(true)">Save</md-button>
-            </md-dialog-actions>
-        </md-dialog>
-    </md-card>
+        <!-- Modals -->
+        <edit-aspects-modal ref="editModal" v-model="aspects"></edit-aspects-modal>
+    </rpgk-card>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -98,106 +80,42 @@
 
     import _ from 'lodash';
 
-    // Pull in the shortID utility
-    import { shortID } from '../../../server/utils/misc';
+    // Components
+    import RpgkCard from '../../../client/components/ui/card.vue';
+    import EditAspectsModal from './editAspectsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: 'FateAspectsCard',
+        components: {
+            EditAspectsModal,
+            RpgkCard
+        },
         props: {
-            aspects: {
+            value: {
                 type: Array,
                 required: true
             },
-            isAuthorized: {
+            readonly: {
                 type: Boolean,
                 default: false
             }
         },
         computed: {
+            aspects: {
+                get(){ return this.value },
+                set(val){ this.$emit('input', val); }
+            },
             highConcept(){ return _.find(this.aspects, { type: 'high concept' }) || { detail: '' }; },
             trouble(){ return _.find(this.aspects, { type: 'trouble' }) || { detail: '' }; },
             extraAspects(){ return _.filter(this.aspects, { type: 'aspect' }); }
         },
         methods: {
-            addOrUpdateAspect(aspect, type='aspect')
+            openEditModal()
             {
-                if(aspect.id)
-                {
-                    const originalAspect = _.find(this.aspects, { id: aspect.id });
-                    originalAspect.detail = aspect.detail;
-                }
-                else
-                {
-                    this.aspects.push({ id: shortID(), detail: aspect.detail, type });
-                } // end if
-            },
-            removeAspect(aspect)
-            {
-                const aspectIndex = _.findIndex(this.aspects, { id: aspect.id });
-                if(aspectIndex !== -1)
-                {
-                    this.aspects.splice(aspectIndex, 1);
-                } // end if
-            },
-
-            addNew()
-            {
-                if(this.newAspect.detail)
-                {
-                    this.extraAspectsEdit.push({ detail: this.newAspect.detail, type: 'aspect' });
-                    this.newAspect.detail = '';
-                } // end if
-            },
-            openEdit()
-            {
-                this.highConceptEdit =_.cloneDeep( this.highConcept);
-                this.troubleEdit = _.cloneDeep(this.trouble);
-                this.extraAspectsEdit = _.cloneDeep(this.extraAspects);
-
-                // Open the dialog
-                this.$refs.editDialog.open();
-            },
-            closeEdit(save)
-            {
-                if(save)
-                {
-                    this.addOrUpdateAspect(this.highConceptEdit, 'high concept');
-                    this.addOrUpdateAspect(this.troubleEdit, 'trouble');
-
-                    _.each(this.extraAspectsEdit, (aspect) =>
-                    {
-                        if(aspect.detail)
-                        {
-                            this.addOrUpdateAspect(aspect);
-                        }
-                        else
-                        {
-                            this.removeAspect(aspect);
-                        } // end if
-                    });
-
-                } // end if
-
-                this.highConceptEdit =_.cloneDeep( this.highConcept);
-                this.troubleEdit = _.cloneDeep(this.trouble);
-                this.extraAspectsEdit = _.cloneDeep(this.extraAspects);
-
-                // Close the dialog
-                this.$refs.editDialog.close();
+                this.$refs.editModal.show();
             }
-        },
-        data()
-        {
-            return {
-                highConceptEdit: '',
-                troubleEdit: '',
-                extraAspectsEdit: [],
-                newAspect: {
-                    type: 'aspect',
-                    detail: ''
-                }
-            };
         }
     }
 </script>

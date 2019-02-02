@@ -3,11 +3,15 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container v-if="character" id="fate-character" fluid>
+    <b-container v-if="character" id="fate-character">
         <div class="d-flex">
             <portrait class="mr-1 d-none d-lg-block" :src="character.portrait" size="lg"></portrait>
             <identity class="mr-1 ml-1 w-50" :character="character" :readonly="!isAuthorized"></identity>
             <rolls class="ml-1 w-50" :skills="character.details.skills" :readonly="!isAuthorized"></rolls>
+        </div>
+        <div class="d-flex mt-2">
+            <aspects v-model="character.details.aspects" :readonly="!isAuthorized"></aspects>
+            <!--<skills v-model="character.details.skills" :readonly="!isAuthorized"></skills>-->
         </div>
     </b-container>
 </template>
@@ -31,12 +35,12 @@
     // Components
     import Identity from './identity.vue';
     import Rolls from './rolls.vue';
-    // import AspectsComponent from './aspects.vue';
-    // import SkillsComponent from './skills.vue';
-    // import ExtrasComponent from './extras.vue';
-    // import StuntsComponent from './stunts.vue';
-    // import StressComponent from './stress.vue';
-    // import ConsequencesComponent from './consequences.vue';
+    import Aspects from './aspects.vue';
+    // import Skills from './skills.vue';
+    // import Extras from './extras.vue';
+    // import Stunts from './stunts.vue';
+    // import Stress from './stress.vue';
+    // import Consequences from './consequences.vue';
     import RpgkCard from '../../../client/components/ui/card.vue';
     import Portrait from '../../../client/components/character/portrait.vue';
 
@@ -47,13 +51,13 @@
             RpgkCard,
             Portrait,
             Identity,
-            Rolls
-            // aspects: AspectsComponent,
-            // skills: SkillsComponent,
-            // extras: ExtrasComponent,
-            // stunts: StuntsComponent,
-            // stress: StressComponent,
-            // consequences: ConsequencesComponent
+            Rolls,
+            Aspects,
+            // Skills,
+            // Extras,
+            // Stunts,
+            // Stress,
+            // Consequences
         },
         computed: {
             isAuthorized()
