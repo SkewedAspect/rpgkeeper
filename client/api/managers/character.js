@@ -106,6 +106,9 @@ class CharacterManager
      */
     async save(character)
     {
+        // Default to the selected character, if none is passed in.
+        character = character || this.selected;
+
         // If we're already saving, we just return.
         if(this._saving || !character.dirty)
         {
