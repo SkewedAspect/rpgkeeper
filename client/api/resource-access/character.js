@@ -67,7 +67,16 @@ class CharacterResourceAccess
     {
         const verb = character.id ? 'patch' : 'post';
         const charURL = character.id ? `/characters/${ character.id }` : `/characters`;
-        const { data } = await $http[verb](charURL, character);
+        const { data } = await ($http[verb](charURL, character)
+            .catch((error) =>
+            {
+                // We always print the error, and revert.
+                console.error('Failed to save character:', error);
+                character.revert();
+
+                // Rethrow, so other logic can handle the failure correctly.
+                throw error;
+            }));
 
         if(!character.id)
         {
