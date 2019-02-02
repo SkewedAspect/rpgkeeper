@@ -4,7 +4,10 @@
 
 module.exports = {
     character: {
-        aspects: [],
+        aspects: [
+            { type: 'high concept', details: '' },
+            { type: 'trouble', details: '' }
+        ],
         extras: "",
         fatePoints: {
             current: 0,
