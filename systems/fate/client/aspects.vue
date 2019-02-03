@@ -58,7 +58,18 @@
 <style lang="scss">
     #fate-aspects {
         table {
+            border-left: none !important;
+            border-right: none !important;
+
+            td:first-child {
+                border-left: none !important;
+            }
+            td:last-child {
+                border-right: none !important;
+            }
+
             tr:last-child {
+
                 td {
                     border-bottom-width: 1px;
                 }
