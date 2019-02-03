@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="fate-identity-block" :class="{ readonly: readonly }" fill>
+    <rpgk-card id="fate-identity-block" :class="{ readonly: readonly }" style="max-width: 300px" fill>
 
         <!-- Header -->
         <div slot="header" class="d-flex">
@@ -24,7 +24,7 @@
             id="name-input-group"
             label="Name"
             label-class="font-weight-bold">
-            <h4>{{ character.name }}</h4>
+            <h5>{{ character.name }}</h5>
         </b-form-group>
         <b-form-group
             id="desc-input-group"
