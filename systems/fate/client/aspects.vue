@@ -6,7 +6,7 @@
     <rpgk-card id="fate-aspects" :class="{ readonly: readonly }" no-body shrink>
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <font-awesome-icon class="mr-1" icon="tasks"></font-awesome-icon>
+                <font-awesome-icon class="mr-1" icon="fist-raised"></font-awesome-icon>
                 <span class="d-none d-md-inline">Aspects</span>
             </h5>
             <div class="ml-auto" v-if="!readonly">
