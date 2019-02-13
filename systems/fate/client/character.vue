@@ -11,7 +11,7 @@
         </div>
         <div class="d-flex mt-2">
             <aspects v-model="character.details.aspects" :readonly="!isAuthorized"></aspects>
-            <!--<skills v-model="character.details.skills" :readonly="!isAuthorized"></skills>-->
+            <skills v-model="character.details.skills" :readonly="!isAuthorized"></skills>
         </div>
     </b-container>
 </template>
@@ -36,7 +36,7 @@
     import Identity from './identity.vue';
     import Rolls from './rolls.vue';
     import Aspects from './aspects.vue';
-    // import Skills from './skills.vue';
+    import Skills from './skills.vue';
     // import Extras from './extras.vue';
     // import Stunts from './stunts.vue';
     // import Stress from './stress.vue';
@@ -53,7 +53,7 @@
             Identity,
             Rolls,
             Aspects,
-            // Skills,
+            Skills,
             // Extras,
             // Stunts,
             // Stress,
