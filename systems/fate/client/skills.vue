@@ -6,7 +6,7 @@
     <rpgk-card id="fate-skills" class="ml-2" :class="{ readonly: readonly }" no-body fill>
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <font-awesome-icon class="mr-1" icon="tasks"></font-awesome-icon>
+                <font-awesome-icon class="mr-1" icon="scroll"></font-awesome-icon>
                 <span class="d-none d-md-inline">Skills</span>
             </h5>
             <div class="ml-auto" v-if="!readonly">
@@ -18,126 +18,38 @@
         </div>
 
         <!-- Content -->
+        <table class="table table-bordered mb-0 font-sm">
+            <tr v-for="{ name, skills } in rows">
+                <td class="text-right text-nowrap" style="width: 1%">
+                    <b>{{ name }}</b>
+                </td>
+                <td style="min-width: 80px" v-for="columnIdx in columns">
+                    {{ (skills[columnIdx] || {}).name }}
+                </td>
+            </tr>
+        </table>
+
+        <!-- Modals -->
+        <edit-skills-modal ref="editModal" v-model="skills" :readonly="readonly"></edit-skills-modal>
     </rpgk-card>
-    <!---->
-    <!--<md-card id="fate-skills" style="flex: 1">-->
-        <!--<md-toolbar class="md-dense">-->
-            <!--<h2 style="flex: 1" class="md-title">Skills</h2>-->
-            <!--<md-button v-if="isAuthorized" @click="openEdit()">Edit</md-button>-->
-        <!--</md-toolbar>-->
-
-        <!--<div class="table-scroll-wrapper">-->
-            <!--<table class="md-static-table">-->
-                <!--<tr>-->
-                    <!--<td><b>Superb (+5)</b></td>-->
-                    <!--<td v-for="idx in columns" :key="`superb-${ idx }`">{{ getSkillName('superb', idx) }}</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>Great (+4)</b></td>-->
-                    <!--<td v-for="idx in columns" :key="`great-${ idx }`">{{ getSkillName('great', idx) }}</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>Good (+3)</b></td>-->
-                    <!--<td v-for="idx in columns" :key="`good-${ idx }`">{{ getSkillName('good', idx) }}</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>Fair (+2)</b></td>-->
-                    <!--<td v-for="idx in columns" :key="`fair-${ idx }`">{{ getSkillName('fair', idx) }}</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>Average (+1)</b></td>-->
-                    <!--<td v-for="idx in columns" :key="`average-${ idx }`">{{ getSkillName('average', idx) }}</td>-->
-                <!--</tr>-->
-            <!--</table>-->
-        <!--</div>-->
-
-        <!--&lt;!&ndash; Edit Dialog &ndash;&gt;-->
-        <!--<md-dialog id="fate-edit-skills" ref="editDialog">-->
-            <!--<md-dialog-title>Edit Skills</md-dialog-title>-->
-            <!--<md-dialog-content>-->
-                <!--<p>To remove a skill, simply set it's rank to <code>0</code>, and then save.</p>-->
-                <!--<md-layout md-gutter="16">-->
-                    <!--<md-layout md-flex="50" v-for="skill in skillsEdit" :key="skill.id">-->
-                        <!--<md-layout md-flex="75">-->
-                            <!--<md-input-container>-->
-                                <!--<label>Name</label>-->
-                                <!--<md-input v-model="skill.name"></md-input>-->
-                            <!--</md-input-container>-->
-                        <!--</md-layout>-->
-                        <!--<md-layout md-flex="25">-->
-                            <!--<md-input-container>-->
-                                <!--<label>Ranks</label>-->
-                                <!--<md-input type="number" v-model.number="skill.rank" min="0" max="5"></md-input>-->
-                            <!--</md-input-container>-->
-                        <!--</md-layout>-->
-                    <!--</md-layout>-->
-                <!--</md-layout>-->
-                <!--<md-card v-flex="1" style="margin-top: 10px;">-->
-                    <!--<md-card-content>-->
-                        <!--<md-layout md-gutter="8">-->
-                            <!--<md-layout>-->
-                                <!--<md-layout md-flex="75">-->
-                                    <!--<md-input-container>-->
-                                        <!--<label>Name</label>-->
-                                        <!--<md-input v-model="newSkill.name"></md-input>-->
-                                    <!--</md-input-container>-->
-                                <!--</md-layout>-->
-                                <!--<md-layout md-flex="25">-->
-                                    <!--<md-input-container>-->
-                                        <!--<label>Ranks</label>-->
-                                        <!--<md-input type="number" v-model.number="newSkill.rank" min="0" max="5"></md-input>-->
-                                    <!--</md-input-container>-->
-                                <!--</md-layout>-->
-                            <!--</md-layout>-->
-                            <!--<md-layout v-flex="'shrink'">-->
-                                <!--<div style="padding-top: 10px;">-->
-                                    <!--<md-button class="md-raised" @click="addNew()" :disabled="!newSkill.name || (newSkill.rank <= 0)">-->
-                                        <!--Add-->
-                                    <!--</md-button>-->
-                                <!--</div>-->
-                            <!--</md-layout>-->
-                        <!--</md-layout>-->
-                    <!--</md-card-content>-->
-                <!--</md-card>-->
-            <!--</md-dialog-content>-->
-
-            <!--<md-dialog-actions>-->
-                <!--<md-button class="md-primary" @click.native="closeEdit()">Cancel</md-button>-->
-                <!--<md-button class="md-accent" @click.native="closeEdit(true)">Save</md-button>-->
-            <!--</md-dialog-actions>-->
-        <!--</md-dialog>-->
-    <!--</md-card>-->
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
+<style lang="scss" scoped>
     #fate-skills {
-        .table-scroll-wrapper {
-            overflow: auto;
-            width: 100%;
-        }
-
         table {
-            min-width: 600px;
-            height: calc(100% - 48px);
+            border-left: none !important;
+            border-right: none !important;
 
-            tr {
-                td:first-child {
-                    text-align: right;
-                }
+            td:first-child {
+                border-left: none !important;
+            }
 
-                td {
-                    width: 16.666%;
-                    min-width: 90px;
-                    white-space: nowrap;
-                }
+            td:last-child {
+                border-right: none !important;
             }
         }
-    }
-
-    #fate-edit-skills .md-dialog {
-        min-width: 80%;
     }
 </style>
 
@@ -150,12 +62,14 @@
 
     // Components
     import RpgkCard from '../../../client/components/ui/card.vue';
+    import EditSkillsModal from './editSkillsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'FateSkillsCard',
         components: {
+            EditSkillsModal,
             RpgkCard
         },
         props: {
@@ -169,41 +83,58 @@
             }
         },
         computed: {
-            // average()
-            // {
-            //     const skills = _.filter(this.skills, { rank: 1 });
-            //     skills.length = Math.max(5, skills.length);
-            //     return skills;
-            // },
-            // fair()
-            // {
-            //     const skills = _.filter(this.skills, { rank: 2 });
-            //     skills.length = Math.max(5, skills.length);
-            //     return skills;
-            // },
-            // good()
-            // {
-            //     const skills = _.filter(this.skills, { rank: 3 });
-            //     skills.length = Math.max(5, skills.length);
-            //     return skills;
-            // },
-            // great()
-            // {
-            //     const skills = _.filter(this.skills, { rank: 4 });
-            //     skills.length = Math.max(5, skills.length);
-            //     return skills;
-            // },
-            // superb()
-            // {
-            //     const skills = _.filter(this.skills, { rank: 5 });
-            //     skills.length = Math.max(5, skills.length);
-            //     return skills;
-            // },
-            //
-            // // Should be a list of indexes for the other computed properties.
-            // columns(){ return _.range(this.average.length); }
+            skills: {
+                get(){ return this.value },
+                set(val){ this.$emit('input', val); }
+            },
+            averageSkills(){ return _.filter(this.skills, { rank: 1 }); },
+            fairSkills(){ return _.filter(this.skills, { rank: 2 }); },
+            goodSkills(){ return _.filter(this.skills, { rank: 3 }); },
+            greatSkills(){ return _.filter(this.skills, { rank: 4 }); },
+            superbSkills(){ return _.filter(this.skills, { rank: 5 }); },
+
+            rows()
+            {
+                const skillList = [
+                    {
+                        name: 'Superb (+5)',
+                        skills: this.superbSkills
+                    },
+                    {
+                        name: 'Great (+4)',
+                        skills: this.greatSkills
+                    },
+                    {
+                        name: 'Good (+3)',
+                        skills: this.goodSkills
+                    },
+                    {
+                        name: 'Fair (+2)',
+                        skills: this.fairSkills
+                    },
+                    {
+                        name: 'Average (+1)',
+                        skills: this.averageSkills
+                    }
+                ];
+
+                return _.filter(skillList, ({ skills }) =>
+                {
+                    return skills.length > 0;
+                });
+            },
+            columns()
+            {
+                const maxLength = this.rows.reduce((max, { skills }) => Math.max(max, skills.length), 5);
+                return _.range(maxLength);
+            }
         },
         methods: {
+            openEditModal()
+            {
+                this.$refs.editModal.show();
+            }
+
             // getSkillName(list, idx)
             // {
             //     return _.get(this, `${ list }[${ idx }].name`, '');
