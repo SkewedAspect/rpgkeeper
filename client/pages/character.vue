@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container id="character-page" class="mt-2" fluid>
+    <b-container id="character-page" class="mt-2">
 
         <!-- Error Handling -->
         <b-container v-if="error">
@@ -131,29 +131,10 @@
                 error: undefined
             };
         },
-        created()
-        {
-            // Watch for changes to the char, and save.
-            // FIXME: This mechanism seems really janky, and I'm not sure if I like the whole 'auto save' thing.
-            // this.$watch('char', (char, oldChar) =>
-            // {
-            //     if(!_.isUndefined(oldChar) && char && char.dirty)
-            //     {
-            //         charMan.save(char)
-            //             .catch((error) =>
-            //             {
-            //                 // TODO: Pop a toast that tells the user something went wrong.
-            //                 console.error('Failed to save.', error);
-            //                 char.revert();
-            //             });
-            //     } // end char
-            // }, { deep: true });
-        },
         mounted()
         {
             // We always select the character that matches our route, so we handle navigation.
-            charMan.select(this.$route.params.id)
-                .catch((e) => this.error = e);
+            charMan.select(this.$route.params.id).catch((e) => this.error = e);
         }
     }
 </script>
