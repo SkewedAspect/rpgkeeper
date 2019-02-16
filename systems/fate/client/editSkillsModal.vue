@@ -20,13 +20,20 @@
 
             <!-- Modal Content -->
 
-            <div class="d-flex mb-2" v-for="skill in skillsSorted">
-                <b-form-input v-model="skill.name"></b-form-input>
-                <b-form-input class="ml-2" type="number" v-model="skill.rank" min="0" step="1" max="5" style="max-width: 65px"></b-form-input>
-                <b-btn variant="danger" class="ml-2" @click="removeSkill(skill)">
-                    <font-awesome-icon icon="trash-alt"></font-awesome-icon>
-                </b-btn>
-            </div>
+            <section class="skill-group mb-3" v-for="rank in ranks" v-if="filterRankSkills(rank.value).length > 0">
+                <h5 class="mb-0">{{ rank.text }}</h5>
+                <hr class="mt-1">
+                <div v-if="filterRankSkills(rank.value).length < 1">
+                    <h6 class="mb-0 text-center">No skills.</h6>
+                </div>
+                <div class="d-flex mb-2" v-for="skill in filterRankSkills(rank.value)" :key="skill.name">
+                    <b-form-input v-model="skill.name"></b-form-input>
+                    <b-form-select class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks" v-model="skill.rank"></b-form-select>
+                    <b-btn variant="danger" class="ml-2" @click="removeSkill(skill)">
+                        <font-awesome-icon icon="trash-alt"></font-awesome-icon>
+                    </b-btn>
+                </div>
+            </section>
 
             <hr>
 
@@ -35,7 +42,7 @@
                 header-text-variant="white">
                 <div class="d-flex">
                     <b-form-input id="name-input" v-model="newSkillName" placeholder="Skill name"></b-form-input>
-                    <b-form-input class="ml-2" id="rank-input" type="number" v-model.number="newSkillRank" min="0" step="1" max="5" style="max-width: 65px"></b-form-input>
+                    <b-form-select class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks" v-model="newSkillRank"></b-form-select>
                     <b-btn variant="primary" class="ml-2 text-nowrap" @click="addSkill">
                         <font-awesome-icon icon="plus"></font-awesome-icon>
                         Add
@@ -84,11 +91,7 @@
             }
         },
         computed: {
-            skillsSorted()
-            {
-                //return _.orderBy(this.skills, [ 'rank', 'name' ], [ 'desc', 'asc' ]);
-                return this.skills;
-            }
+            skillsSorted(){ return _.orderBy(this.skills, [ 'rank', 'name' ], [ 'desc', 'asc' ]); }
         },
         methods: {
             onShown()
@@ -124,7 +127,7 @@
             {
                 this.skills.push({ name: this.newSkillName, rank: this.newSkillRank });
                 this.newSkillName = '';
-                this.newSkillRank = 0;
+                this.newSkillRank = 1;
             },
             removeSkill(skill)
             {
@@ -135,6 +138,11 @@
                 {
                     this.skills.splice(idx, 1);
                 } // end if
+            },
+
+            filterRankSkills(rank)
+            {
+                return _.filter(this.skillsSorted, { rank });
             },
 
             show()
@@ -149,9 +157,31 @@
         data()
         {
             return {
+                ranks: [
+                    {
+                        text: "Superb (+5)",
+                        value: 5
+                    },
+                    {
+                        text: "Great (+4)",
+                        value: 4
+                    },
+                    {
+                        text: "Good (+3)",
+                        value: 3
+                    },
+                    {
+                        text: "Fair (+2)",
+                        value: 2
+                    },
+                    {
+                        text: "Average (+1)",
+                        value: 1
+                    },
+                ],
                 skills: _.cloneDeep(this.value),
                 newSkillName: '',
-                newSkillRank: 0
+                newSkillRank: 1
             };
         }
     }

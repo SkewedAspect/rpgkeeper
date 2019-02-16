@@ -84,7 +84,7 @@
         },
         computed: {
             skills: {
-                get(){ return this.value },
+                get(){ return _.orderBy(this.value, [ 'rank', 'name' ], [ 'desc', 'asc' ]); },
                 set(val){ this.$emit('input', val); }
             },
             averageSkills(){ return _.filter(this.skills, { rank: 1 }); },
