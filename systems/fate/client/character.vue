@@ -14,7 +14,8 @@
             <skills v-model="character.details.skills" :readonly="!isAuthorized"></skills>
         </div>
         <div class="d-flex mt-2">
-            <extras v-model="character.details.extras" :readonly="!isAuthorized"></extras>
+            <extras class="w-50" v-model="character.details.extras" :readonly="!isAuthorized"></extras>
+            <stunts class="w-50 ml-2" v-model="character.details.stunts" :readonly="!isAuthorized"></stunts>
         </div>
     </b-container>
 </template>
@@ -41,7 +42,7 @@
     import Aspects from './aspects.vue';
     import Skills from './skills.vue';
     import Extras from './extras.vue';
-    // import Stunts from './stunts.vue';
+    import Stunts from './stunts.vue';
     // import Stress from './stress.vue';
     // import Consequences from './consequences.vue';
     import RpgkCard from '../../../client/components/ui/card.vue';
@@ -58,7 +59,7 @@
             Aspects,
             Skills,
             Extras,
-            // Stunts,
+            Stunts,
             // Stress,
             // Consequences
         },
@@ -70,16 +71,9 @@
                     && (this.account.id || 'nope!') === this.character.account_id;
             }
         },
-        methods: {
-        },
         subscriptions: {
             account: authMan.account$,
             character: charMan.selected$
-        },
-        data()
-        {
-            return {
-            };
         }
     }
 </script>
