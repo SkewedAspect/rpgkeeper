@@ -23,7 +23,7 @@
                 <b>{{ stunt.title }}</b>
                 <div v-html="render(stunt.description)"></div>
             </div>
-            <div v-if="stuns.length === 0">
+            <div v-if="stunts.length === 0">
                 <h6 class="text-center">No stunts.</h6>
             </div>
         </div>
@@ -55,7 +55,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'FateSkillsCard',
+        name: 'FateStuntsCard',
         components: {
             RpgkCard,
             EditStuntsModal
