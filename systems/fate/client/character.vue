@@ -17,6 +17,10 @@
             <extras class="w-50" v-model="character.details.extras" :readonly="!isAuthorized"></extras>
             <stunts class="w-50 ml-2" v-model="character.details.stunts" :readonly="!isAuthorized"></stunts>
         </div>
+        <div class="d-flex mt-2">
+            <stress class="w-50" v-model="character" :readonly="!isAuthorized"></stress>
+            <!--<stunts class="w-50 ml-2" v-model="character.details.stunts" :readonly="!isAuthorized"></stunts>-->
+        </div>
     </b-container>
 </template>
 
@@ -43,7 +47,7 @@
     import Skills from './skills.vue';
     import Extras from './extras.vue';
     import Stunts from './stunts.vue';
-    // import Stress from './stress.vue';
+    import Stress from './stress.vue';
     // import Consequences from './consequences.vue';
     import RpgkCard from '../../../client/components/ui/card.vue';
     import Portrait from '../../../client/components/character/portrait.vue';
@@ -60,7 +64,7 @@
             Skills,
             Extras,
             Stunts,
-            // Stress,
+            Stress,
             // Consequences
         },
         computed: {
