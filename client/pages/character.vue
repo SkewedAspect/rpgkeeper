@@ -27,6 +27,11 @@
 
         <!-- Main Sheet Tabs -->
         <b-tabs v-else class="main-tabs" pills>
+            <template v-if="system" slot="tabs">
+                <li style="position: absolute; left: 18px; padding-top: 10px;">
+                    <h4 class="text-muted">{{ system.name }}</h4>
+                </li>
+            </template>
             <b-tab active>
                 <template slot="title">
                     <font-awesome-icon icon="file-user"></font-awesome-icon>
@@ -78,6 +83,8 @@
 <style lang="scss">
     #character-page {
         .main-tabs {
+            position: relative;
+
             .nav.nav-pills {
                 float: right;
             }
@@ -95,10 +102,9 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-
     // Managers
     import charMan from '../api/managers/character';
+    import sysMan from '../api/managers/systems';
 
     // Components
     import Loading from '../components/ui/loading.vue';
@@ -128,11 +134,24 @@
         data()
         {
             return {
-                error: undefined
+                error: undefined,
+                system: undefined
             };
         },
         mounted()
         {
+            this.$watch('char', async () =>
+            {
+                if(this.char)
+                {
+                    this.system = await sysMan.getSystem(this.char.system);
+                }
+                else
+                {
+                    this.system = undefined;
+                } // end if
+            });
+
             // We always select the character that matches our route, so we handle navigation.
             charMan.select(this.$route.params.id).catch((e) => this.error = e);
         }
