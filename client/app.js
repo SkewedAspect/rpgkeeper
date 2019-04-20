@@ -145,7 +145,7 @@ marked.setOptions({
 // Version information
 // ---------------------------------------------------------------------------------------------------------------------
 
-window.RPGMap = {
+window.RPGKeeper = {
     version
 };
 
