@@ -8,6 +8,8 @@
             header-bg-variant="dark"
             header-text-variant="white"
             size="lg"
+            no-close-on-esc
+            no-close-on-backdrop
             @ok="onSave"
             @cancel="onCancel"
             @shown="onShown">
