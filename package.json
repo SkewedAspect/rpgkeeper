@@ -5,12 +5,12 @@
   "main": "server.js",
   "scripts": {
     "start": "DEBUG=true node ./server.js",
-    "dist-clean": "rimraf dist/*; rimraf .cache",
-    "clean": "rimraf dist/*",
-    "copy": "cpr client/static/ dist/static",
-    "build": "npm run clean && npm run copy && parcel build client/index.html --detailed-report",
-    "watch": "npm run clean && npm run copy && parcel watch client/index.html",
-    "theme-dev": "parcel serve client/bootstrap-demo.html"
+    "build:cache-clean": "rimraf dist/* .cache",
+    "build:clean": "rimraf dist/*",
+    "build:copy": "cpr client/static/ dist/static",
+    "build:release": "npm run build:cache-clean && npm run build:copy && parcel build client/index.html --detailed-report",
+    "build:watch": "npm run build:clean && npm run build:copy && parcel watch client/index.html",
+    "dev:theme": "parcel serve client/bootstrap-demo.html"
   },
   "repository": "Morgul/rpgkkeper",
   "author": "Christopher S. Case <chris.case@g33xnexus.com>",
