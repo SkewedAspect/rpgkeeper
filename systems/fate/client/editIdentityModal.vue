@@ -7,6 +7,8 @@
         <b-modal v-model="showModal"
             header-bg-variant="dark"
             header-text-variant="white"
+            no-close-on-esc
+            no-close-on-backdrop
             size="lg"
             @ok="onSave"
             @shown="onShown">
