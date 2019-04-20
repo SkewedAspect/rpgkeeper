@@ -81,10 +81,13 @@
             {
                 return _(this.skills)
                     .orderBy(['rank', 'name'], ['desc', 'asc'])
-                    .map((skill) =>
+                    .map(({ name, rank }) =>
                     {
-                        skill.display = `${ skill.name } (+${ skill.rank })`;
-                        return skill;
+                        return {
+                            name,
+                            rank,
+                            display: `${ name } (+${ rank })`
+                        };
                     })
                     .value();
             },
