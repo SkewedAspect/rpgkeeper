@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="fate-identity-block" :class="{ readonly: readonly }" style="max-width: 300px" fill>
+    <rpgk-card id="fate-identity-block" :class="{ readonly: readonly }" fill>
 
         <!-- Header -->
         <div slot="header" class="d-flex">

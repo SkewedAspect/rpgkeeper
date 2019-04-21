@@ -16,7 +16,7 @@
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
                     <b-form-checkbox v-model="physicalStress[index]" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onInput">
-                        {{ stressBox }}
+                        <b>{{ stressBox }}</b>
                     </b-form-checkbox>
                 </td>
             </tr>
@@ -32,7 +32,7 @@
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
                     <b-form-checkbox v-model="mentalStress[index]" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onInput">
-                        {{ stressBox }}
+                        <b>{{ stressBox }}</b>
                     </b-form-checkbox>
                 </td>
             </tr>
