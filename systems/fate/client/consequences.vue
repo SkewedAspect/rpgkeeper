@@ -1,206 +1,154 @@
-<!--------------------------------------------------------------------------------------------------------------------->
-<!-- consequences                                                                                                    -->
-<!--------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------
+  -- FATE Consequences
+  --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <md-card id="fate-consequences" style="flex: 1">
-        <md-toolbar class="md-dense">
-            <h2 style="flex: 1" class="md-title">Consequences</h2>
-            <md-button v-if="isAuthorized" @click.native="openEdit()">Edit</md-button>
-        </md-toolbar>
+    <rpgk-card id="fate-consequences" :class="{ readonly: readonly }" fill>
+        <div slot="header" class="d-flex">
+            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                <font-awesome-icon class="mr-1" icon="hand-holding-magic"></font-awesome-icon>
+                <span class="d-none d-md-inline">Consequences</span>
+            </h5>
+            <div class="ml-auto" v-if="!readonly">
+                <b-btn @click="openEdit()" size="sm" style="margin-bottom: 1px;">
+                    <font-awesome-icon icon="edit" fixed-width></font-awesome-icon>
+                    <span class="d-none d-md-inline">Edit</span>
+                </b-btn>
+            </div>
+        </div>
 
-        <md-layout class="table-layout">
-            <md-layout md-flex-xsmall="100" md-flex="50">
-                <table class="md-static-table table-left">
-                    <tr>
-                        <td><b>2</b></td>
-                        <td>
-                            <span v-if="mildConsequence1.detail">
-                                {{ mildConsequence1.detail }}
-                                <small v-if="mildConsequence1.healing"><i>(Healing)</i></small>
-                            </span>
-                            <span class="placeholder" v-else>Mild</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>4</b></td>
-                        <td>
-                            <span v-if="moderateConsequence.detail">
-                                {{ moderateConsequence.detail }}
-                                <small v-if="moderateConsequence.healing"><i>(Healing)</i></small>
-                            </span>
-                            <span class="placeholder" v-else>Moderate</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>6</b></td>
-                        <td>
-                            <span v-if="severeConsequence.detail">
-                                {{ severeConsequence.detail }}
-                                <small v-if="severeConsequence.healing"><i>(Healing)</i></small>
-                            </span>
-                            <span class="placeholder" v-else>Severe</span>
-                        </td>
-                    </tr>
-                </table>
-            </md-layout>
-            <md-layout md-flex-xsmall="100" md-flex="50">
-                <table class="md-static-table table-right">
-                    <tr>
-                        <td :class="{ 'disabled': extraMildType === 'none' }">
-                            <b>2</b>
-                        </td>
-                        <td>
-                            <span v-if="mildConsequence2.detail && extraMildType !== 'none'">
-                                {{ mildConsequence2.detail }}
-                                <small v-if="mildConsequence2.healing"><i>(Healing)</i></small>
-                            </span>
-                            <span class="placeholder" v-else>
-                                Mild
-                                <span v-if="extraMildType !== 'none'">({{ extraMildType }})</span>
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-            </md-layout>
-        </md-layout>
+        <!-- Content -->
 
-        <!-- Edit Dialog -->
-        <md-dialog ref="editDialog">
-            <md-dialog-title>Edit Consequences</md-dialog-title>
-            <md-dialog-content>
-                <md-layout>
-                    <md-layout md-flex="75">
-                        <md-input-container md-clearable>
-                            <label>2 (Mild)</label>
-                            <md-input v-model="mildConsequence1Edit.detail"></md-input>
-                        </md-input-container>
-                    </md-layout>
-                    <md-layout md-flex="25" style="padding-right: 50px;">
-                        <md-checkbox v-model="mildConsequence1Edit.healing" :disabled="!mildConsequence1Edit.detail">Healing</md-checkbox>
-                    </md-layout>
-                </md-layout>
-                <md-layout>
-                    <md-layout md-flex="75">
-                        <md-input-container md-clearable>
-                            <label>
-                                2 (Mild)
-                                <span v-if="extraMildType !== 'none'">({{ extraMildType }})</span>
-                            </label>
-                            <md-input v-model="mildConsequence2Edit.detail" :disabled="extraMildType === 'none'"></md-input>
-                        </md-input-container>
-                    </md-layout>
-                    <md-layout md-flex="25" style="padding-right: 50px;">
-                        <md-checkbox v-model="mildConsequence2Edit.healing" :disabled="!mildConsequence2Edit.detail || extraMildType === 'none'">Healing</md-checkbox>
-                    </md-layout>
-                </md-layout>
-                <md-layout>
-                    <md-layout md-flex="75">
-                        <md-input-container md-clearable>
-                            <label>4 (Moderate)</label>
-                            <md-input v-model="moderateConsequenceEdit.detail"></md-input>
-                        </md-input-container>
-                    </md-layout>
-                    <md-layout md-flex="25" style="padding-right: 50px;">
-                        <md-checkbox v-model="moderateConsequenceEdit.healing" :disabled="!moderateConsequenceEdit.detail">Healing</md-checkbox>
-                    </md-layout>
-                </md-layout>
-                <md-layout>
-                    <md-layout md-flex="75">
-                        <md-input-container md-clearable>
-                            <label>6 (Severe)</label>
-                            <md-input v-model="severeConsequenceEdit.detail"></md-input>
-                        </md-input-container>
-                    </md-layout>
-                    <md-layout md-flex="25" style="padding-right: 50px;">
-                        <md-checkbox v-model="severeConsequenceEdit.healing" :disabled="!severeConsequenceEdit.detail">Healing</md-checkbox>
-                    </md-layout>
-                </md-layout>
-            </md-dialog-content>
+        <!-- Modals -->
+        <!--<edit-stunts-modal ref="editModal"></edit-stunts-modal>-->
+    </rpgk-card>
+    <!--<md-card id="fate-consequences" style="flex: 1">-->
+        <!--<md-toolbar class="md-dense">-->
+            <!--<h2 style="flex: 1" class="md-title">Consequences</h2>-->
+            <!--<md-button v-if="isAuthorized" @click.native="openEdit()">Edit</md-button>-->
+        <!--</md-toolbar>-->
 
-            <md-dialog-actions>
-                <md-button class="md-primary" @click.native="closeEdit()">Cancel</md-button>
-                <md-button class="md-accent" @click.native="closeEdit(true)">Save</md-button>
-            </md-dialog-actions>
-        </md-dialog>
-    </md-card>
+        <!--<md-layout class="table-layout">-->
+            <!--<md-layout md-flex-xsmall="100" md-flex="50">-->
+                <!--<table class="md-static-table table-left">-->
+                    <!--<tr>-->
+                        <!--<td><b>2</b></td>-->
+                        <!--<td>-->
+                            <!--<span v-if="mildConsequence1.detail">-->
+                                <!--{{ mildConsequence1.detail }}-->
+                                <!--<small v-if="mildConsequence1.healing"><i>(Healing)</i></small>-->
+                            <!--</span>-->
+                            <!--<span class="placeholder" v-else>Mild</span>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><b>4</b></td>-->
+                        <!--<td>-->
+                            <!--<span v-if="moderateConsequence.detail">-->
+                                <!--{{ moderateConsequence.detail }}-->
+                                <!--<small v-if="moderateConsequence.healing"><i>(Healing)</i></small>-->
+                            <!--</span>-->
+                            <!--<span class="placeholder" v-else>Moderate</span>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><b>6</b></td>-->
+                        <!--<td>-->
+                            <!--<span v-if="severeConsequence.detail">-->
+                                <!--{{ severeConsequence.detail }}-->
+                                <!--<small v-if="severeConsequence.healing"><i>(Healing)</i></small>-->
+                            <!--</span>-->
+                            <!--<span class="placeholder" v-else>Severe</span>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+            <!--</md-layout>-->
+            <!--<md-layout md-flex-xsmall="100" md-flex="50">-->
+                <!--<table class="md-static-table table-right">-->
+                    <!--<tr>-->
+                        <!--<td :class="{ 'disabled': extraMildType === 'none' }">-->
+                            <!--<b>2</b>-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--<span v-if="mildConsequence2.detail && extraMildType !== 'none'">-->
+                                <!--{{ mildConsequence2.detail }}-->
+                                <!--<small v-if="mildConsequence2.healing"><i>(Healing)</i></small>-->
+                            <!--</span>-->
+                            <!--<span class="placeholder" v-else>-->
+                                <!--Mild-->
+                                <!--<span v-if="extraMildType !== 'none'">({{ extraMildType }})</span>-->
+                            <!--</span>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+            <!--</md-layout>-->
+        <!--</md-layout>-->
+
+        <!--&lt;!&ndash; Edit Dialog &ndash;&gt;-->
+        <!--<md-dialog ref="editDialog">-->
+            <!--<md-dialog-title>Edit Consequences</md-dialog-title>-->
+            <!--<md-dialog-content>-->
+                <!--<md-layout>-->
+                    <!--<md-layout md-flex="75">-->
+                        <!--<md-input-container md-clearable>-->
+                            <!--<label>2 (Mild)</label>-->
+                            <!--<md-input v-model="mildConsequence1Edit.detail"></md-input>-->
+                        <!--</md-input-container>-->
+                    <!--</md-layout>-->
+                    <!--<md-layout md-flex="25" style="padding-right: 50px;">-->
+                        <!--<md-checkbox v-model="mildConsequence1Edit.healing" :disabled="!mildConsequence1Edit.detail">Healing</md-checkbox>-->
+                    <!--</md-layout>-->
+                <!--</md-layout>-->
+                <!--<md-layout>-->
+                    <!--<md-layout md-flex="75">-->
+                        <!--<md-input-container md-clearable>-->
+                            <!--<label>-->
+                                <!--2 (Mild)-->
+                                <!--<span v-if="extraMildType !== 'none'">({{ extraMildType }})</span>-->
+                            <!--</label>-->
+                            <!--<md-input v-model="mildConsequence2Edit.detail" :disabled="extraMildType === 'none'"></md-input>-->
+                        <!--</md-input-container>-->
+                    <!--</md-layout>-->
+                    <!--<md-layout md-flex="25" style="padding-right: 50px;">-->
+                        <!--<md-checkbox v-model="mildConsequence2Edit.healing" :disabled="!mildConsequence2Edit.detail || extraMildType === 'none'">Healing</md-checkbox>-->
+                    <!--</md-layout>-->
+                <!--</md-layout>-->
+                <!--<md-layout>-->
+                    <!--<md-layout md-flex="75">-->
+                        <!--<md-input-container md-clearable>-->
+                            <!--<label>4 (Moderate)</label>-->
+                            <!--<md-input v-model="moderateConsequenceEdit.detail"></md-input>-->
+                        <!--</md-input-container>-->
+                    <!--</md-layout>-->
+                    <!--<md-layout md-flex="25" style="padding-right: 50px;">-->
+                        <!--<md-checkbox v-model="moderateConsequenceEdit.healing" :disabled="!moderateConsequenceEdit.detail">Healing</md-checkbox>-->
+                    <!--</md-layout>-->
+                <!--</md-layout>-->
+                <!--<md-layout>-->
+                    <!--<md-layout md-flex="75">-->
+                        <!--<md-input-container md-clearable>-->
+                            <!--<label>6 (Severe)</label>-->
+                            <!--<md-input v-model="severeConsequenceEdit.detail"></md-input>-->
+                        <!--</md-input-container>-->
+                    <!--</md-layout>-->
+                    <!--<md-layout md-flex="25" style="padding-right: 50px;">-->
+                        <!--<md-checkbox v-model="severeConsequenceEdit.healing" :disabled="!severeConsequenceEdit.detail">Healing</md-checkbox>-->
+                    <!--</md-layout>-->
+                <!--</md-layout>-->
+            <!--</md-dialog-content>-->
+
+            <!--<md-dialog-actions>-->
+                <!--<md-button class="md-primary" @click.native="closeEdit()">Cancel</md-button>-->
+                <!--<md-button class="md-accent" @click.native="closeEdit(true)">Save</md-button>-->
+            <!--</md-dialog-actions>-->
+        <!--</md-dialog>-->
+    <!--</md-card>-->
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
     #fate-consequences {
-        .table-layout {
-            margin-top: 0;
-            margin-bottom: 0;
-
-            & > .md-layout {
-                margin-top: 0;
-                margin-bottom: 0;
-
-                &:first-child {
-                    @media(min-width: 600px) {
-                        padding-right: 8px;
-                    }
-                }
-
-                &:last-child {
-                    @media(min-width: 600px) {
-                        padding-left: 8px;
-                    }
-                }
-
-                & > .table-left {
-                    tr td:first-child {
-                        width: 24px;
-                        text-align: center;
-                    }
-
-                    tr td:last-child {
-                        @media(min-width: 600px) {
-                            border-right-width: 1px;
-                        }
-                    }
-                }
-
-                td {
-                    .placeholder {
-                        color: rgba(0, 0, 0, 0.26);
-                    }
-                }
-
-                & > .table-right {
-                    tr td:first-child {
-
-                        &.disabled {
-                            color: rgba(0, 0, 0, 0.26);
-                        }
-
-                        width: 24px;
-                        text-align: center;
-
-                        @media(min-width: 600px) {
-                            border-left-width: 1px;
-                            border-right-width: 0;
-                        }
-                    }
-                }
-
-                & > .md-static-table {
-                    tr:last-child td {
-                        border-bottom-width: 1px;
-                    }
-                }
-
-                & > .table-right {
-                    tr:last-child td {
-                        @media(max-width: 599px) {
-                            border-bottom-width: 0;
-                        }
-                    }
-                }
-            }
-        }
     }
 </style>
 
@@ -211,18 +159,24 @@
 
     import _ from 'lodash';
 
-    // Pull in the shortID utility
-    import { shortID } from '../../../server/utils/misc';
+    // Components
+    import RpgkCard from '../../../client/components/ui/card.vue';
+    import EditStuntsModal from './editStuntsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: 'FateConsequencesCard',
+        components: {
+            RpgkCard,
+            // EditStuntsModal
+        },
         props: {
-            character: {
-                type: Object,
+            value: {
+                type: Array,
                 required: true
             },
-            isAuthorized: {
+            readonly: {
                 type: Boolean,
                 default: false
             }
