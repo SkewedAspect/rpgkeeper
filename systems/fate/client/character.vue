@@ -19,7 +19,7 @@
         </div>
         <div class="d-flex mt-2">
             <stress class="w-50" v-model="character" :readonly="!isAuthorized"></stress>
-            <!--<stunts class="w-50 ml-2" v-model="character.details.stunts" :readonly="!isAuthorized"></stunts>-->
+            <consequences class="w-50 ml-2" v-model="character" :readonly="!isAuthorized"></consequences>
         </div>
     </b-container>
 </template>
@@ -48,7 +48,7 @@
     import Extras from './extras.vue';
     import Stunts from './stunts.vue';
     import Stress from './stress.vue';
-    // import Consequences from './consequences.vue';
+    import Consequences from './consequences.vue';
     import RpgkCard from '../../../client/components/ui/card.vue';
     import Portrait from '../../../client/components/character/portrait.vue';
 
@@ -65,7 +65,7 @@
             Extras,
             Stunts,
             Stress,
-            // Consequences
+            Consequences
         },
         computed: {
             isAuthorized()
