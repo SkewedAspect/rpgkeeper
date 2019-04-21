@@ -15,13 +15,10 @@ class CharacterModel
     constructor(def, sysDefaults = {})
     {
         // Save off the defaults for the system specific portion.
-        this._sysDefaults = sysDefaults;
+        this._sysDefaults = _.cloneDeep(sysDefaults);
 
         // Set our properties
-        this.$state = _.merge({}, this.$defaults, _.cloneDeep(def));
-
-        // Store our reference model to revert back to
-        this.$refState = _.merge({}, this.$defaults, _.cloneDeep(def));
+        this.update(def);
 
         // Mark the ref state as non-configurable, so vue ignores it.
         markNonConfigurable(this, '$refState');
@@ -83,8 +80,9 @@ class CharacterModel
 
     update(def)
     {
-        this.$state = _.merge({}, this.$defaults, _.cloneDeep(def));
-        this.$refState = _.merge({}, this.$defaults, _.cloneDeep(def));
+        const defaults = _.cloneDeep(this.$defaults);
+        this.$state = _.merge({}, defaults, _.cloneDeep(def));
+        this.$refState = _.merge({}, defaults, _.cloneDeep(def));
     } // end update
 
     toJSON()
