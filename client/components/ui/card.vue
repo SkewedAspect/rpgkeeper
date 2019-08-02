@@ -33,6 +33,8 @@
 
 <style lang="scss" scoped>
     .rpgkeeper-card {
+        overflow: hidden;
+
         &.fill {
             flex: 1 1 auto;
         }

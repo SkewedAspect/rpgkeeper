@@ -15,7 +15,7 @@
         <table class="table stress-table table-bordered mb-0">
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <b-form-checkbox v-model="physicalStress[index]" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onInput">
+                    <b-form-checkbox class="mr-1" v-model="physicalStress[index]" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onInput">
                         <b>{{ stressBox }}</b>
                     </b-form-checkbox>
                 </td>
@@ -31,7 +31,7 @@
         <table class="table stress-table table-bordered mb-0">
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <b-form-checkbox v-model="mentalStress[index]" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onInput">
+                    <b-form-checkbox class="mr-1" v-model="mentalStress[index]" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onInput">
                         <b>{{ stressBox }}</b>
                     </b-form-checkbox>
                 </td>
@@ -45,9 +45,10 @@
 
 <style lang="scss" scoped>
     #fate-stress {
+        min-width: 245px;
+
         .stress-table {
-            border-left: none;
-            border-right: none;
+            border: none;
 
             tr {
                 border-top: none;
@@ -59,6 +60,10 @@
 
                 td:last-child {
                     border-right: none;
+                }
+
+                td {
+                    border-bottom: none;
                 }
             }
         }
