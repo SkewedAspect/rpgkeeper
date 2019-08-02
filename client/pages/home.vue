@@ -102,10 +102,6 @@
             {
                 return formatDistance(date, new Date());
             },
-            date(date)
-            {
-                return format(date, 'MMM do yyyy');
-            },
             readMore(post)
             {
                 this.readMorePost = post;
