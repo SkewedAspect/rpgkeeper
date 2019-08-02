@@ -15,7 +15,7 @@
 
             <!-- Modal Header -->
             <template slot="modal-title">
-                <font-awesome-icon icon="file-edit"></font-awesome-icon>
+                <fa icon="file-edit"></fa>
                 Edit Stunts
             </template>
 
@@ -24,7 +24,7 @@
                 <b-form-input class="title-input" v-model="stunt.title" placeholder="Stunt title"></b-form-input>
                 <b-form-input class="ml-2" v-model="stunt.description" placeholder="Stunt description"></b-form-input>
                 <b-btn variant="danger" class="ml-2 text-nowrap" @click="removeStunt(stunt)">
-                    <font-awesome-icon icon="trash-alt"></font-awesome-icon>
+                    <fa icon="trash-alt"></fa>
                 </b-btn>
             </div>
             <div class="text-center" v-if="stunts.length === 0">
@@ -40,7 +40,7 @@
                     <b-form-input class="title-input" v-model="newStuntTitle" placeholder="Stunt title"></b-form-input>
                     <b-form-input class="ml-2" v-model="newStuntDesc" placeholder="Stunt description"></b-form-input>
                     <b-btn variant="primary" class="ml-2 text-nowrap" @click="addStunt">
-                        <font-awesome-icon icon="plus"></font-awesome-icon>
+                        <fa icon="plus"></fa>
                         Add
                     </b-btn>
                 </div>
@@ -48,11 +48,11 @@
 
             <!-- Modal Buttons -->
             <template slot="modal-ok">
-                <font-awesome-icon icon="save"></font-awesome-icon>
+                <fa icon="save"></fa>
                 Save
             </template>
             <template slot="modal-cancel">
-                <font-awesome-icon icon="times"></font-awesome-icon>
+                <fa icon="times"></fa>
                 Cancel
             </template>
         </b-modal>

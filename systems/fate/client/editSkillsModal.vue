@@ -16,7 +16,7 @@
 
             <!-- Modal Header -->
             <template slot="modal-title">
-                <font-awesome-icon icon="file-edit"></font-awesome-icon>
+                <fa icon="file-edit"></fa>
                 Edit Skills
             </template>
 
@@ -32,7 +32,7 @@
                     <b-form-input v-model="skill.name"></b-form-input>
                     <b-form-select class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks" v-model="skill.rank"></b-form-select>
                     <b-btn variant="danger" class="ml-2" @click="removeSkill(skill)">
-                        <font-awesome-icon icon="trash-alt"></font-awesome-icon>
+                        <fa icon="trash-alt"></fa>
                     </b-btn>
                 </div>
             </section>
@@ -46,7 +46,7 @@
                     <b-form-input id="name-input" v-model="newSkillName" placeholder="Skill name"></b-form-input>
                     <b-form-select class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks" v-model="newSkillRank"></b-form-select>
                     <b-btn variant="primary" class="ml-2 text-nowrap" @click="addSkill">
-                        <font-awesome-icon icon="plus"></font-awesome-icon>
+                        <fa icon="plus"></fa>
                         Add
                     </b-btn>
                 </div>
@@ -54,11 +54,11 @@
 
             <!-- Modal Buttons -->
             <template slot="modal-ok">
-                <font-awesome-icon icon="save"></font-awesome-icon>
+                <fa icon="save"></fa>
                 Save
             </template>
             <template slot="modal-cancel">
-                <font-awesome-icon icon="times"></font-awesome-icon>
+                <fa icon="times"></fa>
                 Cancel
             </template>
         </b-modal>

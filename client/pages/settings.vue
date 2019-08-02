@@ -25,7 +25,7 @@
 
                         <b-input-group-append>
                             <b-btn variant="primary" @click="save()">
-                                <font-awesome-icon icon="save"></font-awesome-icon>
+                                <fa icon="save"></fa>
                                 Set Name
                             </b-btn>
                         </b-input-group-append>
@@ -37,7 +37,7 @@
             <b-card header-bg-variant="dark" header-text-variant="white" class="drop-shadow">
                 <template slot="header">
                     <h5 class="align-middle mt-2">
-                        <font-awesome-icon icon="sliders-h"></font-awesome-icon>
+                        <fa icon="sliders-h"></fa>
                         Settings
                     </h5>
                 </template>

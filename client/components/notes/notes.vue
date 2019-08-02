@@ -9,7 +9,7 @@
         <template slot="header">
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <font-awesome-icon class="mr-1" icon="book"></font-awesome-icon>
+                    <fa class="mr-1" icon="book"></fa>
                     <span class="d-none d-md-inline">
                         Character Notes
                     </span>
@@ -18,15 +18,15 @@
                     <b-form-select class="mr-2 d-sm-none" v-model="currentID" :options="notes.pages" text-field="title" value-field="id"></b-form-select>
                     <b-button-toolbar class="flex-shrink-0 flex-grow-0 w-auto">
                         <b-btn @click="openAddEditModal()">
-                            <font-awesome-icon icon="file-plus" fixed-width></font-awesome-icon>
+                            <fa icon="file-plus" fixed-width></fa>
                             <span class="d-none d-md-inline">New</span>
                         </b-btn>
                         <b-btn class="ml-2" @click="openAddEditModal(currentPage)" :disabled="!currentPage">
-                            <font-awesome-icon icon="edit" fixed-width></font-awesome-icon>
+                            <fa icon="edit" fixed-width></fa>
                             <span class="d-none d-md-inline">Edit</span>
                         </b-btn>
                         <b-btn class="ml-2" @click="openDelModal(currentPage)" :disabled="!currentPage">
-                            <font-awesome-icon icon="trash-alt" fixed-widt></font-awesome-icon>
+                            <fa icon="trash-alt" fixed-widt></fa>
                             <span class="d-none d-md-inline">Delete</span>
                         </b-btn>
                     </b-button-toolbar>
@@ -37,14 +37,14 @@
         <!-- No Notes help text -->
         <div class="card-body text-center" v-if="notes.pages.length < 1">
             <h5>No pages found.</h5>
-            <i>To add a note, click the</i> <font-awesome-icon icon="file-plus"></font-awesome-icon> New <i>button above.</i>
+            <i>To add a note, click the</i> <fa icon="file-plus"></fa> New <i>button above.</i>
         </div>
 
         <!-- Notes tabs -->
         <b-tabs v-model="pageIndex" nav-wrapper-class="d-none d-md-block" v-else pills card vertical>
             <b-tab v-for="page in notes.pages" :key="page.id">
                 <template slot="title">
-                    <font-awesome-icon icon="file-alt"></font-awesome-icon>
+                    <fa icon="file-alt"></fa>
                     {{ page.title }}
                 </template>
                 <note-page :content="page.content"></note-page>

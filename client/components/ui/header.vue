@@ -10,7 +10,7 @@
         </b-navbar-brand>
         <b-navbar-nav>
             <b-nav-item to="/dashboard">
-                <font-awesome-icon icon="columns"></font-awesome-icon>
+                <fa icon="columns"></fa>
                 Dashboard
             </b-nav-item>
         </b-navbar-nav>

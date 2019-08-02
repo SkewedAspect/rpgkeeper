@@ -15,7 +15,7 @@
 
             <!-- Modal Header -->
             <template slot="modal-title">
-                <font-awesome-icon icon="file-edit"></font-awesome-icon>
+                <fa icon="file-edit"></fa>
                 Edit Identity
             </template>
 
@@ -43,11 +43,11 @@
 
             <!-- Modal Buttons -->
             <template slot="modal-ok">
-                <font-awesome-icon icon="save"></font-awesome-icon>
+                <fa icon="save"></fa>
                 Save
             </template>
             <template slot="modal-cancel">
-                <font-awesome-icon icon="times"></font-awesome-icon>
+                <fa icon="times"></fa>
                 Cancel
             </template>
         </b-modal>

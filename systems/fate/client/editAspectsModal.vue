@@ -16,7 +16,7 @@
 
             <!-- Modal Header -->
             <template slot="modal-title">
-                <font-awesome-icon icon="file-edit"></font-awesome-icon>
+                <fa icon="file-edit"></fa>
                 Edit Aspects
             </template>
 
@@ -49,7 +49,7 @@
             <div class="d-flex mb-2" v-for="aspect in extraAspects">
                 <b-form-input v-model="aspect.detail"></b-form-input>
                 <b-btn variant="danger" class="ml-2" @click="removeAspect(aspect)">
-                    <font-awesome-icon icon="trash-alt"></font-awesome-icon>
+                    <fa icon="trash-alt"></fa>
                 </b-btn>
             </div>
 
@@ -61,7 +61,7 @@
                 <div class="d-flex">
                     <b-form-input id="new-input" v-model="newAspect"></b-form-input>
                     <b-btn variant="primary" class="ml-2 text-nowrap" @click="addAspect">
-                        <font-awesome-icon icon="plus"></font-awesome-icon>
+                        <fa icon="plus"></fa>
                         Add
                     </b-btn>
                 </div>
@@ -69,11 +69,11 @@
 
             <!-- Modal Buttons -->
             <template slot="modal-ok">
-                <font-awesome-icon icon="save"></font-awesome-icon>
+                <fa icon="save"></fa>
                 Save
             </template>
             <template slot="modal-cancel">
-                <font-awesome-icon icon="times"></font-awesome-icon>
+                <fa icon="times"></fa>
                 Cancel
             </template>
         </b-modal>

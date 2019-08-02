@@ -52,8 +52,8 @@ import SettingsPage from './pages/settings.vue';
 // ---------------------------------------------------------------------------------------------------------------------
 
 library.add(fab, far, fas);
-Vue.component('font-awesome-icon', FontAwesomeIcon);
-Vue.component('font-awesome-layers', FontAwesomeLayers);
+Vue.component('fa', FontAwesomeIcon);
+Vue.component('fa-layers', FontAwesomeLayers);
 
 // ---------------------------------------------------------------------------------------------------------------------
 // VueCodeMirror
