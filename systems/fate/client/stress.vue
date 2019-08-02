@@ -6,7 +6,7 @@
     <rpgk-card id="fate-stress" :class="{ readonly: readonly }" no-body fill>
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <font-awesome-icon class="mr-1" icon="heart-circle"></font-awesome-icon>
+                <fa class="mr-1" icon="heart-circle"></fa>
                 <span class="d-none d-md-inline">Physical Stress</span>
             </h5>
         </div>
@@ -24,7 +24,7 @@
 
         <div class="card-header bg-dark text-white">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <font-awesome-icon class="mr-1" icon="head-side-brain"></font-awesome-icon>
+                <fa class="mr-1" icon="head-side-brain"></fa>
                 <span class="d-none d-md-inline">Mental Stress</span>
             </h5>
         </div>

@@ -20,7 +20,7 @@
                 <p class="card-text mt-4" v-html="markdown(post.stinger)"></p>
                 <div slot="footer">
                     <b-btn variant="primary" class="float-right" size="sm" @click="readMore(post)">
-                        <font-awesome-icon icon="book-open"></font-awesome-icon>
+                        <fa icon="book-open"></fa>
                        Read More
                     </b-btn>
                     <div class="mt-2">
@@ -41,7 +41,7 @@
             <div v-html="markdown(readMorePost.content)"></div>
 
             <template slot="modal-ok">
-                <font-awesome-icon icon="times"></font-awesome-icon>
+                <fa icon="times"></fa>
                 Close
             </template>
         </b-modal>

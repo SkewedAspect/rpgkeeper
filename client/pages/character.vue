@@ -9,13 +9,13 @@
         <b-container v-if="error">
             <b-alert variant="danger" show>
                 <h4>
-                    <font-awesome-icon icon="exclamation-triangle"></font-awesome-icon>
+                    <fa icon="exclamation-triangle"></fa>
                     Error loading character
                 </h4>
                 <div v-for="line in error.stack.split('\n')">{{ line }}</div>
                 <div class="text-right">
                     <b-btn to="/dashboard" variant="danger">
-                        <font-awesome-icon icon="arrow-left"></font-awesome-icon>
+                        <fa icon="arrow-left"></fa>
                         Back to Dashboard
                     </b-btn>
                 </div>
@@ -34,7 +34,7 @@
             </template>
             <b-tab active>
                 <template slot="title">
-                    <font-awesome-icon icon="file-user"></font-awesome-icon>
+                    <fa icon="file-user"></fa>
                     Sheet
                 </template>
 
@@ -45,7 +45,7 @@
                     <b-container>
                         <b-alert variant="warning" show>
                             <h4>
-                                <font-awesome-icon icon="exclamation-triangle"></font-awesome-icon>
+                                <fa icon="exclamation-triangle"></fa>
                                 Unknown system "{{ char.system }}"
                             </h4>
                             <div>
@@ -54,11 +54,11 @@
                             </div>
                             <div class="text-right">
                                 <b-btn :href="`https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system '${ char.system }'.&labels=bug`" target="_blank" variant="warning">
-                                    <font-awesome-icon icon="bug"></font-awesome-icon>
+                                    <fa icon="bug"></fa>
                                     Report Bug
                                 </b-btn>
                                 <b-btn to="/dashboard" variant="warning">
-                                    <font-awesome-icon icon="arrow-left"></font-awesome-icon>
+                                    <fa icon="arrow-left"></fa>
                                     Back to Dashboard
                                 </b-btn>
                             </div>
@@ -68,7 +68,7 @@
             </b-tab>
             <b-tab>
                 <template slot="title">
-                    <font-awesome-icon icon="book"></font-awesome-icon>
+                    <fa icon="book"></fa>
                     Notes
                 </template>
 

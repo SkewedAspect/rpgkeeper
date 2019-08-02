@@ -14,11 +14,11 @@
             <!-- Modal Header -->
             <template slot="modal-title">
                 <span v-if="isNew">
-                    <font-awesome-icon icon="user-plus"></font-awesome-icon>
+                    <fa icon="user-plus"></fa>
                     Add
                 </span>
                 <span v-else>
-                    <font-awesome-icon icon="user-edit"></font-awesome-icon>
+                    <fa icon="user-edit"></fa>
                     Edit
                 </span>
                 Character
@@ -78,7 +78,7 @@
                                         <b-form-input id="char-portrait" v-model="char.portrait"></b-form-input>
                                         <b-input-group-append>
                                             <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('portrait')">
-                                                <font-awesome-icon :icon="[ 'fab', 'dropbox' ]"></font-awesome-icon>
+                                                <fa :icon="[ 'fab', 'dropbox' ]"></fa>
                                             </b-btn>
                                         </b-input-group-append>
                                     </b-input-group>
@@ -97,7 +97,7 @@
                                         <b-form-input id="char-thumbnail" v-model="char.thumbnail"></b-form-input>
                                         <b-input-group-append>
                                             <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('thumbnail')">
-                                                <font-awesome-icon :icon="[ 'fab', 'dropbox' ]"></font-awesome-icon>
+                                                <fa :icon="[ 'fab', 'dropbox' ]"></fa>
                                             </b-btn>
                                         </b-input-group-append>
                                     </b-input-group>
@@ -134,11 +134,11 @@
 
             <!-- Modal Buttons -->
             <template slot="modal-ok">
-                <font-awesome-icon icon="save"></font-awesome-icon>
+                <fa icon="save"></fa>
                 Save
             </template>
             <template slot="modal-cancel">
-                <font-awesome-icon icon="times"></font-awesome-icon>
+                <fa icon="times"></fa>
                 Cancel
             </template>
 

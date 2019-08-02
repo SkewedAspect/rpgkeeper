@@ -12,7 +12,7 @@
             </b-input-group-text>
         </b-input-group>
         <b-btn variant="primary" class="text-nowrap" @click="refreshFatePoints()" :disabled="readonly">
-            <font-awesome-icon icon="redo"></font-awesome-icon>
+            <fa icon="redo"></fa>
             Refresh
         </b-btn>
     </div>

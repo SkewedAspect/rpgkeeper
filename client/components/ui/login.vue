@@ -8,16 +8,16 @@
         <b-nav-item-dropdown v-if="account" id="profile-dropdown" :title="account.username" right no-caret>
             <template slot="button-content">
                 <b-img v-if="account.avatar" rounded="circle" width="32" height="32" blank-color="#777" :src="account.avatar"></b-img>
-                <font-awesome-icon v-else icon="user-circle" size="2x"></font-awesome-icon>
+                <fa v-else icon="user-circle" size="2x"></fa>
                 {{ account.name }}
             </template>
             <b-dropdown-item to="/settings">
-				<font-awesome-icon icon="user-circle"></font-awesome-icon>
+				<fa icon="user-circle"></fa>
 				Profile
 			</b-dropdown-item>
 			<b-dropdown-divider></b-dropdown-divider>
             <b-dropdown-item @click="signOut()">
-				<font-awesome-icon icon="sign-out"></font-awesome-icon>
+				<fa icon="sign-out"></fa>
 				Sign Out
 			</b-dropdown-item>
         </b-nav-item-dropdown>
@@ -25,14 +25,14 @@
 		<!-- Spinner -->
 		<b-nav-text v-else-if="loading" class="p-0">
 			<span class="fa-layers fa-fw fa-2x">
-                <font-awesome-icon class="text-primary" icon="spinner-third" spin></font-awesome-icon>
-                <font-awesome-icon icon="user-circle"></font-awesome-icon>
+                <fa class="text-primary" icon="spinner-third" spin></fa>
+                <fa icon="user-circle"></fa>
 			</span>
 		</b-nav-text>
 
 		<!-- Sign In Button -->
 		<b-button v-else id="google-signin-btn" variant="dark">
-            <font-awesome-icon :icon="['fab', 'google']"></font-awesome-icon>
+            <fa :icon="['fab', 'google']"></fa>
 			Sign In
 		</b-button>
     </div>

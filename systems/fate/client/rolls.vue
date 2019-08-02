@@ -24,11 +24,11 @@
         <!-- Roll Buttons -->
         <div class="text-right">
             <b-btn @click="clearRolls()" :disabled="readonly">
-                <font-awesome-icon icon="times"></font-awesome-icon>
+                <fa icon="times"></fa>
                 Clear
             </b-btn>
             <b-btn variant="primary" class="ml-1" @click="roll()" :disabled="readonly">
-                <font-awesome-icon icon="dice"></font-awesome-icon>
+                <fa icon="dice"></fa>
                 Roll
             </b-btn>
         </div>

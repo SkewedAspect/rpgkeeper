@@ -10,20 +10,20 @@
                     <!--<template slot="header">-->
                         <!--<div class="d-flex">-->
                             <!--<h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">-->
-                                <!--<font-awesome-icon class="mr-1" icon="books"></font-awesome-icon>-->
+                                <!--<fa class="mr-1" icon="books"></fa>-->
                                 <!--<span class="d-none d-md-inline">Campaigns</span>-->
                             <!--</h5>-->
                             <!--<b-input-group class="flex-fill ml-2">-->
                                 <!--<b-form-input placeholder="Search Campaigns..." disabled></b-form-input>-->
                                 <!--<b-input-group-append>-->
                                     <!--<b-btn variant="primary" disabled>-->
-                                        <!--<font-awesome-icon icon="search"></font-awesome-icon>-->
+                                        <!--<fa icon="search"></fa>-->
                                     <!--</b-btn>-->
                                 <!--</b-input-group-append>-->
                             <!--</b-input-group>-->
                             <!--<b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
                                 <!--<template slot="button-content">-->
-                                    <!--<font-awesome-icon icon="cog"></font-awesome-icon>-->
+                                    <!--<fa icon="cog"></fa>-->
                                 <!--</template>-->
 
                                 <!--<b-dropdown-item>Filter 1</b-dropdown-item>-->
@@ -41,20 +41,20 @@
                     <template slot="header">
                         <div class="d-flex">
                             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                                <font-awesome-icon class="mr-1" icon="users"></font-awesome-icon>
+                                <fa class="mr-1" icon="users"></fa>
                                 <span class="d-none d-md-inline">Characters</span>
                             </h5>
                             <b-input-group class="flex-fill ml-auto" style="max-width: 400px">
                                 <b-form-input placeholder="Search Characters..."></b-form-input>
                                 <b-input-group-append>
                                     <b-btn variant="primary">
-                                        <font-awesome-icon icon="search"></font-awesome-icon>
+                                        <fa icon="search"></fa>
                                     </b-btn>
                                 </b-input-group-append>
                             </b-input-group>
                             <b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right>
                                 <template slot="button-content">
-                                    <font-awesome-icon icon="cog"></font-awesome-icon>
+                                    <fa icon="cog"></fa>
                                 </template>
 
                                 <b-dropdown-item v-for="(system, index) in systems" :key="system.id">
@@ -68,13 +68,13 @@
                                 <b-dropdown-divider></b-dropdown-divider>
                                 <b-dropdown-item style="pointer-events: none">
                                     <div @click.stop="selectAllSystems()" style="pointer-events: all">
-                                        <font-awesome-icon icon="check-square"></font-awesome-icon>
+                                        <fa icon="check-square"></fa>
                                         Select All
                                     </div>
                                 </b-dropdown-item>
                                 <b-dropdown-item style="pointer-events: none">
                                     <div @click.stop="selectNoneSystems()" style="pointer-events: all">
-                                        <font-awesome-icon :icon="['far', 'square']"></font-awesome-icon>
+                                        <fa :icon="['far', 'square']"></fa>
                                         Select None
                                     </div>
                                 </b-dropdown-item>
@@ -99,12 +99,12 @@
                                 </div>
                                 <div class="mr-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
                                     <b-button-close title="Edit User" @click.prevent.stop="openAddEditModal(char)">
-                                        <font-awesome-icon icon="user-edit"></font-awesome-icon>
+                                        <fa icon="user-edit"></fa>
                                     </b-button-close>
                                 </div>
                                 <div class="ml-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
                                     <b-button-close title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
-                                        <font-awesome-icon icon="trash-alt"></font-awesome-icon>
+                                        <fa icon="trash-alt"></fa>
                                     </b-button-close>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
 
                     <div class="card-body text-right">
                         <b-btn variant="primary" @click="openAddEditModal()">
-                            <font-awesome-icon icon="user-plus"></font-awesome-icon>
+                            <fa icon="user-plus"></fa>
                             New Character
                         </b-btn>
                     </div>

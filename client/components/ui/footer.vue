@@ -8,28 +8,28 @@
         <ul>
             <li>
                 <router-link to="/about">
-                    <font-awesome-icon icon="question"></font-awesome-icon>
+                    <fa icon="question"></fa>
                     About
                 </router-link>
             </li>
             <li>|</li>
             <li>
                 <a href="https://github.com/Morgul/rpgkeeper" target="_blank">
-                    <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
+                    <fa :icon="['fab', 'github']"></fa>
                     Github Project
                 </a>
             </li>
             <li>|</li>
             <li>
                 <a href="https://github.com/Morgul/rpgkeeper/issues/new?labels=bug,needs%20review&title=[Bug Report]%20" target="_blank">
-                    <font-awesome-icon icon="bug"></font-awesome-icon>
+                    <fa icon="bug"></fa>
                     Report a Bug
                 </a>
             </li>
             <li>|</li>
             <li>
                 <a href="https://github.com/Morgul/rpgkeeper/issues/new?labels=feedback&title=[Feedback]%20" target="_blank">
-                    <font-awesome-icon icon="comment-alt-lines"></font-awesome-icon>
+                    <fa icon="comment-alt-lines"></fa>
                     Leave Feedback
                 </a>
             </li>

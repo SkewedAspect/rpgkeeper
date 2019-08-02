@@ -14,12 +14,12 @@
 
             <!-- Modal Header -->
             <template slot="modal-title">
-                <font-awesome-icon icon="trash-alt"></font-awesome-icon>
+                <fa icon="trash-alt"></fa>
                 Delete Character
             </template>
 
             <h3>
-                <font-awesome-icon icon="exclamation-triangle"></font-awesome-icon>
+                <fa icon="exclamation-triangle"></fa>
                 Are you sure you want to delete "{{ char.name }}"?
             </h3>
             <p class="text-muted">
@@ -28,11 +28,11 @@
 
             <!-- Modal Buttons -->
             <template slot="modal-ok">
-                <font-awesome-icon icon="trash-alt"></font-awesome-icon>
+                <fa icon="trash-alt"></fa>
                 Delete
             </template>
             <template slot="modal-cancel">
-                <font-awesome-icon icon="times"></font-awesome-icon>
+                <fa icon="times"></fa>
                 Cancel
             </template>
         </b-modal>
