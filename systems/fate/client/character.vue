@@ -18,8 +18,8 @@
             <stunts class="w-50 ml-2" v-model="character.details.stunts" :readonly="!isAuthorized"></stunts>
         </div>
         <div class="d-flex mt-2">
-            <stress class="w-25" v-model="character" :readonly="!isAuthorized"></stress>
-            <consequences class="w-75 ml-2" :character="character" :readonly="!isAuthorized"></consequences>
+            <stress style="flex-basis: 40%" v-model="character" :readonly="!isAuthorized"></stress>
+            <consequences style="flex-basis: 60%" class="ml-2" :character="character" :readonly="!isAuthorized"></consequences>
         </div>
     </b-container>
 </template>
