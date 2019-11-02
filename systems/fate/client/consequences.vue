@@ -65,7 +65,7 @@
         </table>
 
         <!-- Modals -->
-        <!--<edit-stunts-modal ref="editModal"></edit-stunts-modal>-->
+        <edit-consequences-modal ref="editModal"></edit-consequences-modal>
     </rpgk-card>
 </template>
 
@@ -85,7 +85,7 @@
 
     // Components
     import RpgkCard from '../../../client/components/ui/card.vue';
-    import EditStuntsModal from './editStuntsModal.vue';
+    import EditConsequencesModal from './editConsequencesModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -93,7 +93,7 @@
         name: 'FateConsequencesCard',
         components: {
             RpgkCard,
-            // EditStuntsModal
+            EditConsequencesModal
         },
         props: {
             character: {
@@ -107,7 +107,7 @@
         },
         computed: {
             hasExtraMild(){ return this.extraMildType !== 'none'; },
-            consequences(){ return _.filter(this.character.details.aspects, { type: 'consequences' }); },
+            consequences(){ return _.filter(this.character.details.aspects, { type: 'consequence' }); },
             mildConsequence1(){ return _.filter(this.consequences, { value: 2 })[0] || { detail: "", healing: false, value: 2 }; },
             mildConsequence2(){ return _.filter(this.consequences, { value: 2 })[1] || { detail: "", healing: false, value: 2 }; },
             moderateConsequence(){ return _.filter(this.consequences, { value: 4 })[0] || { detail: "", healing: false, value: 4 }; },
@@ -138,14 +138,14 @@
         methods: {
             openEdit()
             {
-                // Reset the edit fields
-                this.mildConsequence1Edit = _.cloneDeep(this.mildConsequence1);
-                this.mildConsequence2Edit = _.cloneDeep(this.mildConsequence2);
-                this.moderateConsequenceEdit = _.cloneDeep(this.moderateConsequence);
-                this.severeConsequenceEdit = _.cloneDeep(this.severeConsequence);
+                // // Reset the edit fields
+                // this.mildConsequence1Edit = _.cloneDeep(this.mildConsequence1);
+                // this.mildConsequence2Edit = _.cloneDeep(this.mildConsequence2);
+                // this.moderateConsequenceEdit = _.cloneDeep(this.moderateConsequence);
+                // this.severeConsequenceEdit = _.cloneDeep(this.severeConsequence);
 
                 // Open the dialog
-                this.$refs.editDialog.open();
+                this.$refs.editModal.show();
             }
         }
     }
