@@ -15,7 +15,7 @@ module.exports = {
         system: { type: 'string', enum: sysMan.systems.map((s) => s.id) },
         name: { type: 'string', minLength: 1 },
         description: { type: 'string' },
-        portrait: { type: 'string' },
+        portrait: { type: [ 'string', 'null' ] },
         thumbnail: { type: 'string' },
         color: { type: 'string' },
         biography: { type: 'string' },

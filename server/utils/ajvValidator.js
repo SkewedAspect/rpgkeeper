@@ -19,7 +19,13 @@ class AjvValidator
     {
         if(schema)
         {
-            const ajv = new Ajv({ allErrors: true, $data: true, jsonPointers: true, cache: cacheUtil.schemaCache });
+            const ajv = new Ajv({
+                allErrors: true,
+                $data: true,
+                jsonPointers: true,
+                cache: cacheUtil.schemaCache,
+                removeAdditional: 'all'
+            });
             ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 
             // Setup extensions
