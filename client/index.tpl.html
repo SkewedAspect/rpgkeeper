@@ -12,6 +12,9 @@
         <meta name=apple-mobile-web-app-capable content=yes>
         <!--meta name=apple-mobile-web-app-status-bar-style content=black-->
 
+		<meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="712153107187-8e00g8d18nbk5esiffhkrbtr12vktlvq.apps.googleusercontent.com">
+
         <base href="/">
 
         <title>RPGKeeper</title>
@@ -50,7 +53,6 @@
         <script src="/vendor/angular-resource/angular-resource.min.js"></script>
 
         <!-- Angular Bower Components -->
-        <script src="/vendor/angular-directive.g-signin/google-plus-signin.js"></script>
         <script src="/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
         <script src="/vendor/angular-ui-codemirror/ui-codemirror.min.js"></script>
 
@@ -69,7 +71,6 @@
                 'rpgdice',
                 'ui.bootstrap',
                 'ui.codemirror',
-                'directive.g+signin',
 
                 'rpgkeeper.systems'
             ]);
@@ -117,5 +118,8 @@
         <site-header></site-header>
         <ng-view id="main-view"></ng-view>
         <site-footer></site-footer>
+
+        <!-- Google -->
+        <script src="https://apis.google.com/js/platform.js?onload=onGoogleInit" async defer></script>
     </body>
 </html>

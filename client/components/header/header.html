@@ -27,11 +27,7 @@
                 </li>
                 <li class="divider"></li>
                 <li ng-if="!authorized" class="button right">
-                    <google-plus-signin clientid="712153107187-8e00g8d18nbk5esiffhkrbtr12vktlvq" language="en">
-                        <button type="button" class="btn btn-google navbar-btn btn-block">
-                            <i class="fa fa-google-plus"></i> Sign in
-                        </button>
-                    </google-plus-signin>
+					<button type="button" class="btn btn-danger navbar-btn g-signin2"><i class="fa fa-google-plus"></i> Sign in</button>
                 </li>
                 <li ng-if="authorized" class="button right">
                     <button type="button" class="btn btn-google navbar-btn btn-block" ng-click="signOut()">

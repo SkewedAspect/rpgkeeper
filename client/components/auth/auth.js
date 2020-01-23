@@ -8,54 +8,12 @@ function AuthServiceFactory($rootScope, $http, $location, Promise)
 {
     function AuthService()
     {
-        var self = this;
-        var resolved = false;
         this.initDeferred = Promise.defer();
 
-        $rootScope.$on('event:google-plus-signin-success', function (event, authResult)
-        {
-            // Send login to server
-            $http.post('/auth/google/callback', { code: authResult.code })
-                .success(function(data)
-                {
-                    self.user = data;
-                    if(!resolved)
-                    {
-                        self.initDeferred.resolve();
-                        resolved = true;
-
-                        // If we are not on a character page, we redirect to the dashboard.
-                        if(!$location.path().match(/^\/characters.*/))
-                        {
-                            $location.path('/dashboard');
-                        } // end if
-                    } // end if
-                });
-        });
-
-        $rootScope.$on('event:google-plus-signin-failure', function (event, authResult)
-        {
-            if(authResult.error == 'user_signed_out')
-            {
-                self.user = undefined;
-            } // end if
-
-            switch(authResult.error)
-            {
-                case 'user_signed_out':
-                    self.user = undefined;
-                    break;
-
-                default:
-                    console.error('login failed:', authResult);
-                    if(!resolved)
-                    {
-                        self.initDeferred.reject();
-                        resolved = true;
-                    } // end if
-                    break;
-            } // end switch
-        });
+        // We have to expose this to window for Google to pick it up.
+        window.onGoogleInit = this._onGoogleInit.bind(this);
+        window.onGoogleSignIn = this._onGoogleSignIn.bind(this);
+        window.onGoogleFailure = this._onGoogleFailure.bind(this);
     } // end AuthService
 
     AuthService.prototype = {
@@ -74,6 +32,59 @@ function AuthServiceFactory($rootScope, $http, $location, Promise)
         },
         get initialized(){ return this.initDeferred.promise; }
     }; // end signOut
+
+	AuthService.prototype._onGoogleInit = function()
+    {
+        window.gapi.load('auth2', () =>
+        {
+            window.gapi.auth2.init();
+            this.auth2 = gapi.auth2.getAuthInstance();
+
+            // We listen for the current user to change
+            this.auth2.currentUser.listen((googleUser) =>
+            {
+                if(googleUser.isSignedIn())
+                {
+                    this._onGoogleSignIn(googleUser);
+                }
+                else
+                {
+                    this._user = undefined;
+                } // end if
+            });
+        });
+    }; // end _onGoogleInit
+
+    AuthService.prototype._onGoogleSignIn = function(googleUser)
+    {
+        return this.$completeSignIn(googleUser.getAuthResponse().id_token);
+    }; // end _onGoogleSignIn
+
+    AuthService.prototype._onGoogleFailure = function(error)
+    {
+        console.warn('Google Sign In failure:', error);
+    }; // end _onGoogleFailure
+
+    AuthService.prototype.$completeSignIn = function(idToken)
+    {
+        return $http.post('/auth/google', { idToken })
+            .success((data) =>
+            {
+                this._user = data;
+
+				this.initDeferred.resolve();
+
+				// If we are not on a character page, we redirect to the dashboard.
+				if(!$location.path().match(/^\/characters.*/))
+				{
+					$location.path('/dashboard');
+				} // end if
+			})
+            .error((error) =>
+            {
+                console.error('Failed to complete sign in:', error);
+            });
+    }; // end $completeSignIn
 
     AuthService.prototype.isAdmin = function()
     {
@@ -96,7 +107,7 @@ function AuthServiceFactory($rootScope, $http, $location, Promise)
             .success(function()
             {
                 // Sign the user out
-                window.gapi.auth.signOut();
+				window.gapi.auth.signOut();
             });
     }; // end signOut
 
