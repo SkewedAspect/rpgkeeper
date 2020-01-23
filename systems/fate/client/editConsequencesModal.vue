@@ -25,7 +25,15 @@
                 label="Mild Consequence (2)"
                 label-class="font-weight-bold"
                 label-for="mc-input-1">
-                <b-form-input id="mc-input-1" v-model="mildConsequence1Edit.detail"></b-form-input>
+                <b-input-group>
+                    <b-form-input id="mc-input-1" v-model="mildDetail1"></b-form-input>
+                    <b-input-group-append>
+                        <b-button :pressed.sync="mildHealing1">
+                            <fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]"></fa>
+                            Healing
+                        </b-button>
+                    </b-input-group-append>
+                </b-input-group>
             </b-form-group>
             <b-form-group
                 v-if="hasExtraMild"
@@ -33,21 +41,45 @@
                 :label="`Mild Consequence (2, ${ extraMildType })`"
                 label-class="font-weight-bold"
                 label-for="mc-input-2">
-                <b-form-input id="mc-input-2" v-model="mildConsequence2Edit.detail"></b-form-input>
+                <b-input-group>
+                <b-form-input id="mc-input-2" v-model="mildDetail2"></b-form-input>
+                    <b-input-group-append>
+                        <b-button :pressed.sync="mildHealing2">
+                            <fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]"></fa>
+                            Healing
+                        </b-button>
+                    </b-input-group-append>
+                </b-input-group>
             </b-form-group>
             <b-form-group
                 id="moderate-consequence"
                 label="Moderate Consequence (4)"
                 label-class="font-weight-bold"
                 label-for="mc-input">
-                <b-form-input id="mc-input" v-model="moderateConsequenceEdit.detail"></b-form-input>
+                <b-input-group>
+                <b-form-input id="mc-input" v-model="moderateDetail"></b-form-input>
+                    <b-input-group-append>
+                        <b-button :pressed.sync="moderateHealing">
+                            <fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
+                            Healing
+                        </b-button>
+                    </b-input-group-append>
+                </b-input-group>
             </b-form-group>
             <b-form-group
                 id="severe-consequence"
                 label="Severe Consequence (6)"
                 label-class="font-weight-bold"
                 label-for="sc-input">
-                <b-form-input id="sc-input" v-model="severeConsequenceEdit.detail"></b-form-input>
+                <b-input-group>
+                    <b-form-input id="sc-input" v-model="severeDetail"></b-form-input>
+                    <b-input-group-append>
+                        <b-button :pressed.sync="severeHealing">
+                            <fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
+                            Healing
+                        </b-button>
+                    </b-input-group-append>
+                </b-input-group>
             </b-form-group>
 
             <!-- Modal Buttons -->
@@ -86,7 +118,7 @@
     export default {
         name: 'EditConsequenceModal',
         subscriptions: {
-            character: charMan.selected$
+            character: charMan.selected$,
         },
         computed: {
             hasExtraMild(){ return this.extraMildType !== 'none'; },
@@ -121,18 +153,16 @@
         methods: {
             async onSave()
             {
-                console.log('saving...');
-
                 // Filter out any consequences that are now empty.
                 const consequences = [
-                    this.mildConsequence1Edit,
-                    this.mildConsequence2Edit,
-                    this.moderateConsequenceEdit,
-                    this.severeConsequenceEdit
-                ].filter((consequence) => !consequence.detail);
+                    { ...this.mildConsequence1, detail: this.mildDetail1, healing: this.mildHealing1 },
+                    { ...this.mildConsequence2, detail: this.mildDetail2, healing: this.mildHealing2 },
+                    { ...this.moderateConsequence, detail: this.moderateDetail, healing: this.moderateHealing },
+                    { ...this.severeConsequence, detail: this.severeDetail, healing: this.severeHealing }
+                ].filter((consequence) => !!consequence.detail);
 
                 // Pull out aspects, remove all consequences, and then re-add them.
-                let aspects = this.character.details.aspects.filter((aspect) => aspect.type !== 'consequences');
+                let aspects = this.character.details.aspects.filter((aspect) => aspect.type !== 'consequence');
                 aspects = aspects.concat(consequences);
 
                 // Add them back to the character
@@ -144,10 +174,14 @@
             onShown()
             {
                 // Reset the edit fields
-                Object.assign(this.mildConsequence1Edit, this.mildConsequence1);
-                Object.assign(this.mildConsequence2Edit, this.mildConsequence2);
-                Object.assign(this.moderateConsequenceEdit, this.moderateConsequence);
-                Object.assign(this.severeConsequenceEdit, this.severeConsequence);
+                this.mildDetail1 = this.mildConsequence1.detail;
+                this.mildDetail2 = this.mildConsequence2.detail;
+                this.moderateDetail = this.moderateConsequence.detail;
+                this.severeDetail = this.severeConsequence.detail;
+                this.mildHealing1 = this.mildConsequence1.healing;
+                this.mildHealing2 = this.mildConsequence2.healing;
+                this.moderateHealing = this.moderateConsequence.healing;
+                this.severeHealing = this.severeConsequence.healing;
             },
 
             show()
@@ -162,10 +196,14 @@
         data()
         {
             return {
-                mildConsequence1Edit: { type: 'consequence', detail: "", healing: false, value: 2 },
-                mildConsequence2Edit: { type: 'consequence', detail: "", healing: false, value: 2 },
-                moderateConsequenceEdit: { type: 'consequence', detail: "", healing: false, value: 4 },
-                severeConsequenceEdit: { type: 'consequence', detail: "", healing: false, value: 6 },
+                mildDetail1: "",
+                mildDetail2: "",
+                moderateDetail: "",
+                severeDetail: "",
+                mildHealing1: false,
+                mildHealing2: false,
+                moderateHealing: false,
+                severeHealing: false
             }
         }
     }
