@@ -6,7 +6,7 @@
 
 function SiteHeaderFactory(authSvc)
 {
-    function SiteHeaderController($scope, $location)
+    function SiteHeaderController($scope, $location, $timeout)
     {
         $scope.isCollapsed = true;
 
@@ -26,13 +26,21 @@ function SiteHeaderFactory(authSvc)
         {
             authSvc.signOut();
         }; // end signOut
+
+        // Wait for everything to be initialized, then grab the button from the dom. This isn't the most reliable way
+        // to do it, but at this point, fuck angular and everything it stands for. I hate working with this old shit.
+        $timeout(function()
+        {
+            const btnElm = document.getElementById('sign-in-btn');
+            authSvc.attachSignIn(btnElm);
+        });
     } // end SiteHeaderController
 
     return {
         restrict: 'E',
         scope: true,
         templateUrl: "/components/header/header.html",
-        controller: ['$scope', '$location', SiteHeaderController],
+        controller: ['$scope', '$location', '$timeout', SiteHeaderController],
         replace: true
     };
 } // end SiteHeaderFactory

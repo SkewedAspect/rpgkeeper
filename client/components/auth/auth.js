@@ -40,6 +40,8 @@ function AuthServiceFactory($rootScope, $http, $location, Promise)
             window.gapi.auth2.init();
             this.auth2 = gapi.auth2.getAuthInstance();
 
+            this.initDeferred.resolve();
+
             // We listen for the current user to change
             this.auth2.currentUser.listen((googleUser) =>
             {
@@ -72,8 +74,6 @@ function AuthServiceFactory($rootScope, $http, $location, Promise)
             {
                 this._user = data;
 
-				this.initDeferred.resolve();
-
 				// If we are not on a character page, we redirect to the dashboard.
 				if(!$location.path().match(/^\/characters.*/))
 				{
@@ -85,6 +85,16 @@ function AuthServiceFactory($rootScope, $http, $location, Promise)
                 console.error('Failed to complete sign in:', error);
             });
     }; // end $completeSignIn
+
+    AuthService.prototype.attachSignIn = function(elem)
+    {
+        this.initDeferred
+            .promise
+            .then(() =>
+            {
+                this.auth2.attachClickHandler(elem, {}, () => {}, this._onGoogleFailure.bind(this));
+            });
+    }; // end attachSignIng
 
     AuthService.prototype.isAdmin = function()
     {
