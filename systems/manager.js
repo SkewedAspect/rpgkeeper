@@ -7,7 +7,6 @@ const _ = require('lodash');
 // Systems
 const Risus = require('./risus/system');
 const Fate = require('./fate/system');
-const Generic = require('./generic/system');
 const EdgeOfTheEmpire = require('./eote/system');
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -17,7 +16,6 @@ class SystemManager
     constructor()
     {
         this.systems = [
-            Generic,
             Risus,
             Fate,
             EdgeOfTheEmpire
