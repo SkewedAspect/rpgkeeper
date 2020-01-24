@@ -131,7 +131,6 @@
 
     // Managers
     import charMan from '../../../client/api/managers/character';
-    import consequences from './consequences';
 
     //------------------------------------------------------------------------------------------------------------------
 
