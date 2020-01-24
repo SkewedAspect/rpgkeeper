@@ -25,15 +25,20 @@
                 label="Mild Consequence (2)"
                 label-class="font-weight-bold"
                 label-for="mc-input-1">
-                <b-input-group>
-                    <b-form-input id="mc-input-1" v-model="mildDetail1"></b-form-input>
-                    <b-input-group-append>
-                        <b-button :pressed.sync="mildHealing1">
-                            <fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]"></fa>
-                            Healing
-                        </b-button>
-                    </b-input-group-append>
-                </b-input-group>
+                <div class="d-flex">
+                    <b-input-group>
+                        <b-form-input id="mc-input-1" v-model="mildDetail1"></b-form-input>
+                        <b-input-group-append>
+                            <b-button @click="mildDetail1 = ''">
+                                <fa icon="times"></fa>
+                            </b-button>
+                        </b-input-group-append>
+                    </b-input-group>
+                    <b-button class="ml-2 text-nowrap" :pressed.sync="mildHealing1" :disabled="!mildDetail1">
+                        <fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]"></fa>
+                        Healing
+                    </b-button>
+                </div>
             </b-form-group>
             <b-form-group
                 v-if="hasExtraMild"
@@ -41,45 +46,60 @@
                 :label="`Mild Consequence (2, ${ extraMildType })`"
                 label-class="font-weight-bold"
                 label-for="mc-input-2">
-                <b-input-group>
-                <b-form-input id="mc-input-2" v-model="mildDetail2"></b-form-input>
-                    <b-input-group-append>
-                        <b-button :pressed.sync="mildHealing2">
-                            <fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]"></fa>
-                            Healing
-                        </b-button>
-                    </b-input-group-append>
-                </b-input-group>
+                <div class="d-flex">
+                    <b-input-group>
+                        <b-form-input id="mc-input-2" v-model="mildDetail2"></b-form-input>
+                        <b-input-group-append>
+                            <b-button @click="mildDetail2 = ''">
+                                <fa icon="times"></fa>
+                            </b-button>
+                        </b-input-group-append>
+                    </b-input-group>
+                    <b-button class="ml-2 text-nowrap" :pressed.sync="mildHealing2" :disabled="!mildDetail2">
+                        <fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]"></fa>
+                        Healing
+                    </b-button>
+                </div>
             </b-form-group>
             <b-form-group
                 id="moderate-consequence"
                 label="Moderate Consequence (4)"
                 label-class="font-weight-bold"
                 label-for="mc-input">
-                <b-input-group>
-                <b-form-input id="mc-input" v-model="moderateDetail"></b-form-input>
-                    <b-input-group-append>
-                        <b-button :pressed.sync="moderateHealing">
-                            <fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
-                            Healing
-                        </b-button>
-                    </b-input-group-append>
-                </b-input-group>
+                <div class="d-flex">
+                    <b-input-group>
+                        <b-form-input id="mc-input" v-model="moderateDetail"></b-form-input>
+                        <b-input-group-append>
+                            <b-button @click="moderateDetail = ''">
+                                <fa icon="times"></fa>
+                            </b-button>
+                        </b-input-group-append>
+                    </b-input-group>
+                    <b-button class="ml-2 text-nowrap" :pressed.sync="moderateHealing" :disabled="!moderateDetail">
+                        <fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
+                        Healing
+                    </b-button>
+                </div>
             </b-form-group>
             <b-form-group
                 id="severe-consequence"
                 label="Severe Consequence (6)"
                 label-class="font-weight-bold"
                 label-for="sc-input">
-                <b-input-group>
-                    <b-form-input id="sc-input" v-model="severeDetail"></b-form-input>
-                    <b-input-group-append>
-                        <b-button :pressed.sync="severeHealing">
-                            <fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
-                            Healing
-                        </b-button>
-                    </b-input-group-append>
-                </b-input-group>
+                <div class="d-flex">
+                    <b-input-group>
+                        <b-form-input id="sc-input" v-model="severeDetail"></b-form-input>
+                        <b-input-group-append>
+                            <b-button @click="severeDetail = ''">
+                                <fa icon="times"></fa>
+                            </b-button>
+                        </b-input-group-append>
+                    </b-input-group>
+                    <b-button class="ml-2 text-nowrap" :pressed.sync="severeHealing" :disabled="!severeDetail">
+                        <fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
+                        Healing
+                    </b-button>
+                </div>
             </b-form-group>
 
             <!-- Modal Buttons -->
