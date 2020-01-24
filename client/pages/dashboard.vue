@@ -136,11 +136,6 @@
 <style lang="scss">
     #dashboard {
         padding: 16px;
-
-        .md-card {
-            margin-top: 8px;
-            margin-bottom: 8px;
-        }
     }
 </style>
 
