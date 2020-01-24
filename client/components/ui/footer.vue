@@ -34,7 +34,7 @@
                 </a>
             </li>
         </ul>
-        <p>&copy; 2015 - 2019 Skewed Aspect Studios. All rights reserved.</p>
+        <p>&copy; 2015 - 2020 Skewed Aspect Studios. All rights reserved.</p>
     </footer>
 </template>
 
