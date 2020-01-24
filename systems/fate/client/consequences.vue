@@ -6,7 +6,7 @@
     <rpgk-card id="fate-consequences" :class="{ readonly: readonly }" fill no-body>
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <fa class="mr-1" icon="hand-holding-magic"></fa>
+                <fa class="mr-1" icon="skull-crossbones"></fa>
                 <span class="d-none d-md-inline">Consequences</span>
             </h5>
             <div class="ml-auto" v-if="!readonly">
