@@ -25,6 +25,8 @@ The systems I'm initially building/supporting:
     * This is a middle-weight system, and has seen some uptake lately, there's no reason not to consider it.
 * Edge of the Empire
     * I run a lot of EotE content, and the system is simple enough it wasn't that hard.
+* Genesys
+    * It's just a more generic EotE; likely EotE can be implemented as a variant of this system.
 * Dungeons and Dragons 3.5 Edition
     * Another nostalgic system that still has quite a following.
 * Dungeons and Dragons 4th Edition
@@ -73,6 +75,7 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
 * [ ] Switch to Bootstrap v4 (and Bootstrap-Vue)
 * [X] Add a base model class that knows if it's dirty ~~(Proxy-based)~~
 * [X] Use RxJS to manage state; the current character becomes an observable
+* [ ] Evaluate using `vuex` instead of RxJS, and the special models.
 * [X] Move all resource access (like loading characters, systems, etc) into 'resource-access'
 * [X] Move all state holding and application logic to 'managers'
 * [X] Make components very, very dumb. They only have their own state, and logic relevant to their display.
@@ -82,7 +85,11 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
 * [X] Move away from one table per system character to a single character record.
     * [X] ~~The system specific data would be a `any()` blob of JSON.~~
     * [X] Each system would define an [ajv][] schema for it's specific data.
+    * [ ] Evaluate and possibly implement Joi instead of AJV.
     * [ ] Any additional data (classes, spells, etc) needed should be treated as static data, ~~and loaded from json files on disk.~~ and loaded as seeds into the database.
+* [ ] Move and refactor systems; they should no longer be their own thing, they should be integrated as just run of the
+    mill routes/components, as part of the application. No need for shared units like current.
+* [ ] Convert to typescript
 
 This should really set us up for more complex interactions and a much faster time to implementing Campaigns.
 
