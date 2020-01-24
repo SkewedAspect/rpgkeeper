@@ -58,7 +58,7 @@ router.get('/:charID', (req, resp) =>
 {
     interceptHTML(resp, async () =>
     {
-        const characters = await charMan.getCharacter(req.params.charID, req.isAuthenticated());
+        const characters = await charMan.getCharacter(req.params.charID);
         resp.json(characters);
     });
 });
