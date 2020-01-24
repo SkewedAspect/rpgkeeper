@@ -144,7 +144,7 @@
                 const index = this.current - 1;
                 return index < 0 ? undefined : index;
             },
-            showEdit(){ return !this.forceMax && this.forceMax !== 0; }
+            showEdit(){ return !this.disabled && !this.forceMax && this.forceMax !== 0; }
         },
         methods: {
             onShown()
