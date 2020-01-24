@@ -4,49 +4,75 @@
 
 <template>
     <div id="pool">
-        <div class="clearfix">
-            <md-button class="md-icon-button md-dense edit-btn" @click="openEditMax()" v-if="!editDisabled">
-                <md-icon>edit</md-icon>
-            </md-button>
-            <div v-if="name" class="pool-label md-subheading">{{ name }}</div>
-        </div>
-        <div v-if="max > 0" class="pool-icons">
-            <span v-for="index in poolRange">
-                <md-icon v-if="isChecked(index)"
-                         :class="[checkHover(index), { 'read-only': editDisabled }]"
-                         @mouseover.native="onMouseOver(index)"
-                         @mouseout.native="onMouseOut(index)"
-                         @click.native.prevent.stop="setIndex(index)">
-                    {{ checkedIcon }}
-                </md-icon>
-                <md-icon v-else
-                         :class="[checkHover(index), { 'read-only': editDisabled }]"
-                         @mouseover.native="onMouseOver(index)"
-                         @mouseout.native="onMouseOut(index)"
-                         @click.native.prevent.stop="setIndex(index)">
-                    {{ uncheckedIcon }}
-                </md-icon>
+        <div v-if="max > 0" class="d-inline-block">
+            <span
+                class="ml-1"
+                @click.prevent.stop="setIndex(index)"
+                v-for="index in poolRange"
+            >
+                <fa
+                    :class="[checkHover(index), { 'read-only': disabled }]"
+                    :icon="isChecked(index) ? checkedIcon : uncheckedIcon"
+                    size="2x"
+                    @mouseover="onMouseOver(index)"
+                    @mouseout="onMouseOut(index)"
+                ></fa>
             </span>
         </div>
-        <h2 class="md-caption" v-else>No Pool.</h2>
+        <div class="d-inline-block" v-else>
+            <h5 class="mt-1 text-muted">No pool</h5>
+        </div>
+        <b-btn
+            v-if="showEdit"
+            class="ml-2 d-inline-block align-top"
+            variant="outline-secondary"
+            size="sm"
+            @click="openEditMax"
+        >
+            <fa icon="edit"></fa>
+            Edit
+        </b-btn>
 
-        <!-- Edit Dialog -->
+        <!-- Edit Modal -->
+        <b-modal ref="editPool"
+                 header-bg-variant="dark"
+                 header-text-variant="white"
+                 no-close-on-esc
+                 no-close-on-backdrop
+                 @ok="onSave"
+                 @shown="onShown">
 
-        <md-dialog ref="editPool">
-            <md-dialog-title>Edit Pool</md-dialog-title>
+            <!-- Modal Header -->
+            <template slot="modal-title">
+                <fa icon="file-edit"></fa>
+                Edit "{{ name }}" Pool
+            </template>
 
-            <md-dialog-content>
-                <md-input-container>
-                    <label>Maximum</label>
-                    <md-input type="number" v-model.number="editMax"></md-input>
-                </md-input-container>
-            </md-dialog-content>
+            <!-- Modal Content -->
+            <b-form-group
+                id="name-input-group"
+                label="Pool Maximum"
+                label-for="max-input">
+                <b-form-input
+                    id="max-input"
+                    type="number"
+                    min="0"
+                    max="9999999"
+                    step="1"
+                    v-model.number="editMax"
+                ></b-form-input>
+            </b-form-group>
 
-            <md-dialog-actions>
-                <md-button class="md-primary" @click="cancelEdit()">Cancel</md-button>
-                <md-button class="md-primary" @click="saveEdit()">Ok</md-button>
-            </md-dialog-actions>
-        </md-dialog>
+            <!-- Modal Buttons -->
+            <template slot="modal-ok">
+                <fa icon="save"></fa>
+                Save
+            </template>
+            <template slot="modal-cancel">
+                <fa icon="times"></fa>
+                Cancel
+            </template>
+        </b-modal>
     </div>
 </template>
 
@@ -54,37 +80,6 @@
 
 <style lang="scss" scoped>
     #pool {
-        .pool-label {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-            margin-bottom: 5px;
-        }
-
-        .pool-icons {
-            .md-icon {
-                cursor: pointer;
-
-                &.read-only {
-                    cursor: inherit;
-                }
-            }
-        }
-
-        .edit-btn {
-            float: right;
-            width: 24px;
-            height: 24px;
-            min-width: 24px;
-            min-height: 24px;
-            line-height: 24px;
-
-            .md-icon {
-                font-size: 16px;
-                width: 16px;
-                height: 16px;
-                min-width: 16px;
-                min-height: 16px;
-            }
-        }
     }
 </style>
 
@@ -94,6 +89,9 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
+
+    // Managers
+    import charMan from '../../api/managers/character';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -105,14 +103,17 @@
             },
             name: { type: String },
             checkedIcon: {
-                type: String,
-                default: 'check_box'
+                type: [ String, Array ],
+                default(){ return 'check-square'; }
             },
             uncheckedIcon: {
-                type: String,
-                default: 'check_box_outline_blank'
+                type: [ String, Array ],
+                default(){ return [ 'far', 'square' ]; }
             },
-            editDisabled: {
+            forceMax: {
+                type: Number
+            },
+            disabled: {
                 type: Boolean,
                 default: false
             }
@@ -128,51 +129,60 @@
         {
             poolRange(){ return _.range(this.max); },
             max: {
-                get: function(){ return this.pool.max; },
-                set: function(val)
+                get()
                 {
-                    this.pool.max = val < 0 ? undefined : val;
+                    return this.forceMax || this.pool.max;
                 },
+                set(val){ this.pool.max = val < 0 ? undefined : val; },
             },
             current: {
-                get: function(){ return this.pool.current; },
-                set: function(val)
-                {
-                    this.pool.current = val < 0 ? undefined : val;
-                },
+                get(){ return this.pool.current; },
+                set(val){ this.pool.current = val < 0 ? undefined : val; },
             },
             currentIndex()
             {
                 const index = this.current - 1;
                 return index < 0 ? undefined : index;
-            }
+            },
+            showEdit(){ return !this.forceMax && this.forceMax !== 0; }
         },
         methods: {
+            onShown()
+            {
+                this.editMax = this.pool.max || 0;
+            },
+            onSave()
+            {
+                this.pool.max = this.editMax;
+                this.pool.current = Math.min(this.pool.max, this.pool.current);
+                this.editMax = null;
+                charMan.save(charMan.selected);
+            },
             openEditMax()
             {
-                if(!this.editDisabled)
+                if(!this.disabled)
                 {
-                    this.editMax = this.pool.max;
-                    this.$refs.editPool.open();
+                    this.editMax = this.pool.max || 0;
+                    this.$refs.editPool.show();
                 } // end if
             },
             onMouseOver(index)
             {
-                if(!this.editDisabled)
+                if(!this.disabled)
                 {
                     this.hoveredIndex = index;
                 } // end if
             },
             onMouseOut()
             {
-                if(!this.editDisabled)
+                if(!this.disabled)
                 {
                     this.hoveredIndex = undefined;
                 } // end if
             },
             setIndex(index)
             {
-                if(!this.editDisabled)
+                if(!this.disabled)
                 {
                     if(index === this.currentIndex)
                     {
@@ -182,29 +192,20 @@
                     {
                         this.current = (index + 1);
                     } // end if
+
+                    charMan.save(charMan.selected);
                 } // end if
             },
             checkHover(index)
             {
                 if(index <= this.hoveredIndex)
                 {
-                    return "md-accent";
+                    return "text-primary";
                 } // end if
             },
             isChecked(index)
             {
                 return index <= this.currentIndex;
-            },
-            cancelEdit()
-            {
-                this.editMax = null;
-                this.$refs.editPool.close();
-            },
-            saveEdit()
-            {
-                this.pool.max = this.editMax;
-                this.editMax = null;
-                this.$refs.editPool.close();
             }
         }
     }
