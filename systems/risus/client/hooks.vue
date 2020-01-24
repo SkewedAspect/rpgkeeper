@@ -20,13 +20,15 @@
         </div>
 
         <!-- Card Body -->
-        <b-list-group v-if="hooks && hooks.length >= 0" flush>
+        <b-list-group v-if="hooks && hooks.length > 0" flush>
             <b-list-group-item v-for="hook in hooks" class="d-flex">
                 <fa class="mr-2" icon="bolt" style="margin-top: 5px;"></fa>
                 <markdown :text="hook.description" inline></markdown>
             </b-list-group-item>
         </b-list-group>
-        <h4 class="text-center text-muted m-0" v-else>No Hooks.</h4>
+        <div class="card-body" v-else>
+            <h4 class="text-center text-muted m-0">No Hooks.</h4>
+        </div>
 
         <!-- Edit Modal -->
         <edit-hooks-modal ref="editModal" v-model="character.details.hooks"></edit-hooks-modal>

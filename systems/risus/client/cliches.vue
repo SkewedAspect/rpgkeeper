@@ -20,7 +20,7 @@
         </div>
 
         <!-- Card Body -->
-        <b-list-group v-if="cliches && cliches.length >= 0" flush>
+        <b-list-group v-if="cliches && cliches.length > 0" flush>
             <b-list-group-item v-for="cliche in cliches" class="d-flex">
                 <div class="d-inline-block mr-2 mt-1" style="max-width: 60px; min-width: 60px;">
                     <b-form-input
@@ -50,7 +50,9 @@
                 </div>
             </b-list-group-item>
         </b-list-group>
-        <h4 class="text-center text-muted m-0" v-else>No Cliches.</h4>
+        <div class="card-body" v-else>
+            <h4 class="text-center text-muted m-0">No Cliches.</h4>
+        </div>
 
         <!-- Edit Modal -->
         <edit-cliches-modal ref="editModal" v-model="character.details.cliches"></edit-cliches-modal>
