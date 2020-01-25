@@ -26,10 +26,9 @@ const router = express.Router();
 
 router.get('/', async(req, resp) =>
 {
-    interceptHTML(resp,async () =>
+    interceptHTML(resp, async () =>
     {
-        const includeDetails = req.isAuthenticated()
-            && _.get(req, 'query.details', 'false').toLowerCase() === 'true';
+        const includeDetails = req.isAuthenticated() && _.get(req, 'query.details', 'false').toLowerCase() === 'true';
 
         if(req.query.owner)
         {

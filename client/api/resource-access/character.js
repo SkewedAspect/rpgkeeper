@@ -45,8 +45,7 @@ class CharacterResourceAccess
     async updateSysDefaults(char)
     {
         const system = _.find(sysMan.systems, { id: char.system }) || { defaults: {} };
-        char._sysDefaults = system.defaults;
-        char.update(Object.assign(char.toJSON(), { details: undefined }));
+        char.updateSysDefaults(system.defaults);
 
         return char;
     } // end updateSysDefaults
