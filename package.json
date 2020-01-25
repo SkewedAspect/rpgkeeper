@@ -17,7 +17,7 @@
     "discoverable": "^0.1.1",
     "express": "^4.11.1",
     "express-session": "^1.10.1",
-    "lodash": "^3.0.0",
+    "lodash": "^4.17.15",
     "node-uuid": "^1.4.2",
     "omega-logger": "^0.6.0",
     "passport": "^0.4.0",
