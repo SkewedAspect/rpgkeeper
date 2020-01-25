@@ -4,7 +4,7 @@
 
 <template>
     <footer id="site-footer" class="container text-center">
-        <hr class="fancy">
+        <hr class="mt-0 fancy">
         <ul>
             <li>
                 <router-link to="/about">
@@ -34,7 +34,8 @@
                 </a>
             </li>
         </ul>
-        <p>&copy; 2015 - 2020 Skewed Aspect Studios. All rights reserved.</p>
+        <p class="mt-2 mb-0">&copy; 2015 - {{ currentYear }} Skewed Aspect Studios. All rights reserved.</p>
+        <div class="mb-2">v{{ version }}</div>
     </footer>
 </template>
 
@@ -68,9 +69,28 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
+
 <script>
+    //------------------------------------------------------------------------------------------------------------------
+
+    import { version } from '../../../package.json';
+
+    //------------------------------------------------------------------------------------------------------------------
+
     export default {
-        name: 'SiteFooter'
+        name: 'SiteFooter',
+        computed:{
+            currentYear()
+            {
+                return (new Date()).getFullYear();
+            }
+        },
+        data()
+        {
+            return {
+                version
+            }
+        }
     }
 </script>
 

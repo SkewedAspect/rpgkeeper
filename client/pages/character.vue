@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container id="character-page" class="mt-2">
+    <b-container id="character-page" class="mt-2 mb-3">
 
         <!-- Error Handling -->
         <b-container v-if="error">
