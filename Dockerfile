@@ -9,9 +9,8 @@ WORKDIR /app
 
 ADD . /app/
 
-RUN yarn \
-	&& yarn run build \
-	&& rm -rf ./node_modules
+RUN yarn
+RUN yarn build:release
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Yarn Stage - Install production packages and clean cache
@@ -35,7 +34,6 @@ EXPOSE 5678
 MAINTAINER Christopher S. Case <chris.case@g33xnexus.com>
 
 # Only copy the files we actually need
-#COPY --from=yarn-builder /app/db /app/db
 COPY --from=yarn-builder /app/dist /app/dist
 COPY --from=yarn-builder /app/server /app/server
 COPY --from=yarn-builder /app/systems /app/systems
@@ -43,6 +41,8 @@ COPY --from=yarn-builder /app/node_modules /app/node_modules
 COPY --from=yarn-builder /app/server.js /app/
 COPY --from=yarn-builder /app/config.js /app/
 COPY --from=yarn-builder /app/package.json /app/
+
+RUN mkdir /app/db
 
 WORKDIR /app
 
