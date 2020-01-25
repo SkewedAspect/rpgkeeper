@@ -7,6 +7,8 @@
         <b-modal v-model="showModal"
             header-bg-variant="dark"
             header-text-variant="white"
+            no-close-on-esc
+            no-close-on-backdrop
             size="md"
             ok-variant="danger"
             @ok="onDelete"
