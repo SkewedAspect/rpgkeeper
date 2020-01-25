@@ -85,9 +85,22 @@ class CharacterModel
         this.$refState = _.merge({}, defaults, _.cloneDeep(def));
     } // end update
 
+    updateSysDefaults(sysDef)
+    {
+        this._sysDefaults = sysDef;
+
+        // We only update the details if this is a 'new' instance of a character, otherwise we would be overwriting
+        // user data, a bug that lead directly to this code.
+        if(!this.id)
+        {
+            this.$refState.details = _.cloneDeep(sysDef);
+            this.$state.details = _.cloneDeep(sysDef);
+        } // end if
+    } // end updateSysDefaults
+
     toJSON()
     {
-        return Object.assign({}, this.$state);
+        return _.cloneDeep(this.$state);
     } // end toJSON
 } // end CharacterModel
 
