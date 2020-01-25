@@ -9,8 +9,7 @@
     "build:clean": "rimraf dist/*",
     "build:copy": "cpr client/static/ dist/static",
     "build:release": "npm run build:cache-clean && npm run build:copy && parcel build client/index.html --detailed-report",
-    "build:watch": "npm run build:clean && npm run build:copy && parcel watch client/index.html",
-    "dev:theme": "parcel serve client/bootstrap-demo.html"
+    "build:watch": "npm run build:clean && npm run build:copy && parcel watch client/index.html"
   },
   "repository": "Morgul/rpgkkeper",
   "author": "Christopher S. Case <chris.case@g33xnexus.com>",
