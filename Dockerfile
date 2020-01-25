@@ -2,7 +2,7 @@
 # Bundle Stage - Do all our bundling of assets
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:dubnium as bundle-builder
+FROM node:12 as bundle-builder
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -17,7 +17,7 @@ RUN yarn \
 # Yarn Stage - Install production packages and clean cache
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:dubnium-alpine as yarn-builder
+FROM node:12-alpine as yarn-builder
 
 COPY --from=bundle-builder /app /app
 
@@ -29,7 +29,7 @@ RUN yarn install --production
 # Final Docker
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:dubnium-alpine
+FROM node:12-alpine
 EXPOSE 5678
 
 MAINTAINER Christopher S. Case <chris.case@g33xnexus.com>
