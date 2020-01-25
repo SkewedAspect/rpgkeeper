@@ -42,7 +42,6 @@ The systems I'm initially building/supporting:
     * [ ] Initial Design
 * [ ] Systems
     * [ ] Generic System
-        * [ ] ~~Convert old system~~ _The whole thing should be redesigned._
         * [ ] Data model
         * [ ] UI
     * [X] Risus
@@ -51,7 +50,7 @@ The systems I'm initially building/supporting:
     * [X] FATE
         * [X] Data model
         * [X] UI
-    * [ ] Edge of the Empire
+    * [ ] Genesys / EotE
         * [ ] Data Model
         * [ ] UI
     * [ ] Dungeons and Dragons 3.5
@@ -72,7 +71,7 @@ The systems I'm initially building/supporting:
 I want to rework a lot of the infrastructure so that it's easier to add things to in the future. The basic idea is this:
 
 * [X] ~~Switch to Vuetify (I don't like it's API as much but it's worlds faster, with better components.)~~
-* [ ] Switch to Bootstrap v4 (and Bootstrap-Vue)
+* [X] Switch to Bootstrap v4 (and Bootstrap-Vue)
 * [X] Add a base model class that knows if it's dirty ~~(Proxy-based)~~
 * [X] Use RxJS to manage state; the current character becomes an observable
 * [ ] Evaluate using `vuex` instead of RxJS, and the special models.
@@ -85,12 +84,15 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
 * [X] Move away from one table per system character to a single character record.
     * [X] ~~The system specific data would be a `any()` blob of JSON.~~
     * [X] Each system would define an [ajv][] schema for it's specific data.
-    * [ ] Evaluate and possibly implement Joi instead of AJV.
+    * [ ] Evaluate and possibly implement [Joi][joi] instead of [AJV][ajv].
     * [ ] Any additional data (classes, spells, etc) needed should be treated as static data, ~~and loaded from json files on disk.~~ and loaded as seeds into the database.
 * [ ] Move and refactor systems; they should no longer be their own thing, they should be integrated as just run of the
     mill routes/components, as part of the application. No need for shared units like current.
 * [ ] Convert to typescript
+* [ ] Setup a reasonable docker build/deploy pipeline in GitHub.
+* [ ] Setup eslint MR checking in GitHub.
 
 This should really set us up for more complex interactions and a much faster time to implementing Campaigns.
 
 [ajv]: http://epoberezkin.github.io/ajv/
+[joi]: https://github.com/hapijs/joi
