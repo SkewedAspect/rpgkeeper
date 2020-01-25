@@ -3,49 +3,141 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-	<div id="main-page" class="container-fluid p-3">
-		<h1 class="text-center">
-            <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="40px" height="40px">
-            RPGKeeper
-			<br/>
-			<small>
-				The one-stop shop for all your RPG needs.
-			</small>
-		</h1>
-
-        <loading class="mt-4 mb-4"v-if="postsLoading"></loading>
-
-        <b-card-group class="mt-4" v-else deck>
-            <b-card :title="post.title" :sub-title="`by ${ post.account.name }`" v-for="post in sortedPosts" :key="post.post_id">
-                <p class="card-text mt-4" v-html="markdown(post.stinger)"></p>
-                <div slot="footer">
-                    <b-btn variant="primary" class="float-right" size="sm" @click="readMore(post)">
-                        <fa icon="book-open"></fa>
-                       Read More
-                    </b-btn>
-                    <div class="mt-2">
-                        <span class="text-muted">{{ fromNow(post.created) }}</span>
+	<div id="main-page" class="container p-3">
+        <div class="d-flex">
+            <div class="d-flex m-auto">
+                <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="200">
+                <div class="d-flex flex-column align-self-center">
+                    <h1>
+                        RPGKeeper
+                        <br/>
+                        <small class="text-muted">
+                            The universal digital character manager
+                        </small>
+                    </h1>
+                    <p>
+                        Everything you need to create, store, share, and play table top RPG characters.
+                    </p>
+                    <div>
+                        <b-btn v-show="!isLoggedIn" id="create-account-btn" variant="primary">
+                            Create free account
+                            <fa icon="sign-in"></fa>
+                        </b-btn>
+                        <b-btn v-show="isLoggedIn" variant="primary" to="/dashboard">
+                            Go to Dashboard
+                            <fa icon="arrow-right"></fa>
+                        </b-btn>
                     </div>
                 </div>
-            </b-card>
-        </b-card-group>
+            </div>
+        </div>
 
-        <!-- Modal -->
-        <b-modal id="readMore" :title="readMorePost.title"
-            header-bg-variant="dark"
-            header-text-variant="white"
-            v-model="showModal"
-            v-if="readMorePost"
-            size="xl"
-            ok-only>
-            <div v-html="markdown(readMorePost.content)"></div>
+        <hr class="fancy mt-5">
 
-            <template slot="modal-ok">
-                <fa icon="times"></fa>
-                Close
-            </template>
-        </b-modal>
-	</div>
+        <b-row class="mt-5">
+            <b-col>
+                <h3 class="text-center">
+                    <fa icon="bullseye-pointer"></fa>
+                    Targeted Characters
+                </h3>
+
+                <p class="mt-4">
+                    Each system RPGKeeper supports is hand-coded to the needs of that system. This is not a generic
+                    character tracker; it's customized to the needs of each system, hand-tailored to the needs of each
+                    and every system we support.
+                </p>
+
+                <hr class="fancy">
+            </b-col>
+            <b-col>
+                <h3 class="text-center">
+                    <fa icon="users-crown"></fa>
+                    User Driven
+                </h3>
+
+                <p class="mt-4">
+                    All features and designs come from our user community. Which systems are added, what direction the
+                    site takes; it's all in the hands of the people using RPGKeeper! And, it's not exclusive; any user
+                    can make suggestions or request features.
+                </p>
+
+                <hr class="fancy">
+            </b-col>
+            <b-col>
+                <h3 class="text-center">
+                    <fa icon="chart-network"></fa>
+                    Interoperable
+                </h3>
+
+                <p class="mt-4">
+                    RPGKeeper is deigned to be able to integrate with any other system that wants to do so. Using
+                    standards like oAuth and REST, RPGKeeper exposes an API that allows other applications to authenticate and
+                    pull character data.
+                </p>
+
+                <hr class="fancy">
+            </b-col>
+        </b-row>
+        <b-row class="mt-5">
+            <b-col>
+                <h3 class="text-center">
+                    <fa icon="tachometer-alt-fastest"></fa>
+                    Optimized Code
+                </h3>
+
+                <p class="mt-4">
+                    Built by veteran developer with years of experience in scaling websites to hundreds of thousands of
+                    interactions per second, RPGKeeper is built on Enterprise grade technology, leveraging the same
+                    frameworks that power much larger sites.
+                </p>
+
+                <hr class="fancy">
+            </b-col>
+            <b-col>
+                <h3 class="text-center">
+                    <fa icon="code-branch"></fa>
+                    Open Source
+                </h3>
+
+                <p class="mt-4">
+                    RPGKeeper is 100% open source. Issues can be reported directly to the developers. Features, new
+                    systems, or improvements can be made by anyone and once approved will be made available to everyone,
+                    sometimes as quickly as in a few minutes.
+                </p>
+
+                <hr class="fancy">
+            </b-col>
+            <b-col>
+                <h3 class="text-center">
+                    <fa icon="sack-dollar"></fa>
+                    Totally Free
+                </h3>
+
+                <p class="mt-4">
+                    This is a passion project for the developers. There is no <i>(and never will be any)</i> plan to
+                    "monetize" RPGKeeper. It is and always will be made available to the public at no cost to them. The
+                    most we will ever do is ask for donations.
+                </p>
+
+                <hr class="fancy">
+            </b-col>
+        </b-row>
+
+        <h4 class="text-center mt-5">Now that you've read our marketing pitch, why don't you try out RPGKeeper?</h4>
+        <p class="text-center">After all, it's free. There's nothing to lose, and infinite worlds to gain.</p>
+
+        <div class="text-center">
+            <b-btn v-show="!isLoggedIn" id="create-account-btn2" variant="primary">
+                Create free account
+                <fa icon="sign-in"></fa>
+            </b-btn>
+            <b-btn v-show="isLoggedIn" variant="primary" to="/dashboard">
+                Go to Dashboard
+                <fa icon="arrow-right"></fa>
+            </b-btn>
+        </div>
+
+    </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -73,6 +165,7 @@
 
     // Components
     import Loading from '../components/ui/loading.vue';
+    import $ from 'jquery';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -81,6 +174,10 @@
 	        Loading
 		},
         computed: {
+	        isLoggedIn()
+            {
+                return !!this.account;
+            },
 	        sortedPosts()
             {
                 // Since `.sort` manipulates it in place, we make a copy using `.concat` as a nice shortcut for that.
@@ -108,6 +205,7 @@
             }
         },
         subscriptions: {
+            account: authMan.account$,
 	        postsLoading: postsMan.postsLoading$,
             posts: postsMan.posts$
         },
@@ -120,6 +218,12 @@
         },
         mounted()
         {
+            let btnElem = $(this.$el).find('#create-account-btn');
+            authMan.attachSignIn(btnElem[0]);
+
+            btnElem = $(this.$el).find('#create-account-btn2');
+            authMan.attachSignIn(btnElem[0]);
+
             this.$subscribeTo(authMan.status$, (status) =>
             {
                 if(status === 'signing in')
