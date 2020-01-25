@@ -4,16 +4,12 @@
 .idea
 
 # Build artifacts
-client/index.html
-
-# Bower artifacts
-client/vendor
-
-# LESS artifacts
-client/css
-
-# DB artifacts
-server/db/*.json
+.cache
+dist
 
 # Node artifacts
 node_modules
+
+# Database
+db/*.sqlite
+db/*.db*

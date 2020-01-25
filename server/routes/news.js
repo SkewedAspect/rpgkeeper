@@ -1,90 +1,48 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Routes for news
-//
-// @module news.js
 //----------------------------------------------------------------------------------------------------------------------
 
-var fs = require('fs');
-var path = require('path');
+const _ = require('lodash');
+const express = require('express');
 
-var _ = require('lodash');
-var express = require('express');
-var Promise = require('bluebird');
+// Managers
+const postsMan = require('../api/managers/posts');
 
-var routeUtils = require('./utils');
+// Utils
+const { errorHandler, wrapAsync } = require('./utils');
 
-var logger = require('omega-logger').loggerFor(module);
+// Logger
+const logger = require('trivial-logging').loggerFor(module);
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-Promise.promisifyAll(fs);
-
-var router = express.Router();
-
-//----------------------------------------------------------------------------------------------------------------------
-// Middleware
-//----------------------------------------------------------------------------------------------------------------------
-
-// Basic request logging
-router.use(routeUtils.requestLogger(logger));
-
-// Basic error logging
-router.use(routeUtils.errorLogger(logger));
-
-//----------------------------------------------------------------------------------------------------------------------
-// Profiles Endpoint
-//----------------------------------------------------------------------------------------------------------------------
-
-router.get('/', function(req, resp)
+router.get('/', wrapAsync(async(req, resp) =>
 {
-    resp.format({
-        json: function()
+    const posts = (await postsMan.getPosts())
+        .map((post) =>
         {
-            var newsPath = path.resolve(__dirname + '/../news');
-            fs.readdirAsync(newsPath)
-                .then(function(files)
-                {
-                    var filePromises = [];
-                    _.each(files, function(fileName)
-                    {
-                        var filePath = path.join(newsPath, fileName);
+            delete post.account_id;
+            delete post.account.account_id;
+            delete post.account.settings;
+            delete post.account.permissions;
 
-                        filePromises.push(fs.readFileAsync(filePath, { encoding: 'utf8' })
-                                .then(function(file)
-                                {
-                                    var titleRe = /^(?:#(.*)|(.*)\n=+)\n+/;
-                                    var match = titleRe.exec(file);
+            return post;
+        });
 
-                                    var body = file.slice(match.index + match[0].length);
+    resp.json(posts);
+}));
 
-                                    // Parse filename as date
-                                    var year = fileName.substr(0, 4);
-                                    var month = fileName.substr(4, 2);
-                                    var day = fileName.substr(6, 2);
+//TODO: Implement full CRUD for news posts
 
-                                    return { title: match[1] || match[2], body: body, date: new Date([month, day, year].join('/')) };
-                                })
-                        );
-                    });
+//----------------------------------------------------------------------------------------------------------------------
+// Error Handling
+//----------------------------------------------------------------------------------------------------------------------
 
-                    Promise.all(filePromises)
-                        .then(function(news)
-                        {
-                            resp.json(_.sortBy(news, 'date').reverse());
-                        });
-                })
-                .catch(function(err)
-                {
-                    console.error('error:', err.stack);
-                    resp.status(500).json({ error: err.message, stack: err.stack });
-                });
-        },
-        html: function()
-        {
-            routeUtils.serveIndex(req, resp);
-        }
-    });
-});
+router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 

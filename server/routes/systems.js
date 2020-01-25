@@ -1,68 +1,52 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Routes for system operations
-//
-// @module systems.js
 //----------------------------------------------------------------------------------------------------------------------
 
-var _ = require('lodash');
-var express = require('express');
-var discoverable = require('discoverable');
+const _ = require('lodash');
+const express = require('express');
+const logging = require('trivial-logging');
 
-var routeUtils = require('./utils');
+const permMan = require('../api/managers/permissions');
+const systemMan = require('../../systems/manager');
+const { errorHandler, interceptHTML } = require('./utils');
 
-var logger = require('omega-logger').loggerFor(module);
+//----------------------------------------------------------------------------------------------------------------------
+
+const logger = logging.loggerFor(module);
+const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var router = express.Router();
-var systems = [];
-
-//----------------------------------------------------------------------------------------------------------------------
-// Middleware
-//----------------------------------------------------------------------------------------------------------------------
-
-// Basic request logging
-router.use(routeUtils.requestLogger(logger));
-
-// Basic error logging
-router.use(routeUtils.errorLogger(logger));
-
-//----------------------------------------------------------------------------------------------------------------------
-// Load Systems
-//----------------------------------------------------------------------------------------------------------------------
-
-discoverable('rpgk-systems')
-    .then(function(systemModules)
-    {
-        systems = systemModules;
-
-        // Attach the routers from the systems.
-        _.each(systems, function(system)
-        {
-            router.use('/' + system.id, system.router);
-        });
-    });
-
-//----------------------------------------------------------------------------------------------------------------------
-// REST Endpoints
-//----------------------------------------------------------------------------------------------------------------------
-
-router.get('/', function(req, resp)
+router.get('/', (request, response) =>
 {
-    routeUtils.interceptHTML(resp, function()
+    interceptHTML(response, async () =>
     {
-        resp.json(_.reduce(systems, function(results, system)
-        {
-            results.push({
-                name: system.name,
-                id: system.id,
-                description: system.description,
-                scripts: system.scripts
+        const systems = systemMan.systems
+            .filter((system) =>
+            {
+                const user = _.get(request, 'user', { permissions: [], groups: [] });
+                return permMan.hasPerm(user, 'Systems/viewDisabled') || !system.disabled;
             });
-            return results;
-        }, []));
+
+        response.json(systems);
     });
 });
+
+// Mount the systems' routers
+systemMan.systems.forEach((system) =>
+{
+    logger.debug(`Building routes for "${ system.name }" system.`);
+    if(system.router)
+    {
+        router.use(`/${ system.id }`, system.router);
+    } // end if
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Error Handling
+//----------------------------------------------------------------------------------------------------------------------
+
+router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 

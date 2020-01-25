@@ -1,0 +1,140 @@
+{
+    "Cleric": {
+        "name": "Cleric",
+        "description": "Clerics are battle leaders who are invested with divine power. They blast foes with magical prayers, bolster and heal companions, and lead the way to victory with a mace in one hand and a holy symbol in the other. Clerics run the gamut from humble servants of the common folk to ruthless enforcers of evil gods.r\n\nAs a cleric, the deity (or deities) you choose to revere goes a long way toward defining you, or at least how other people in the world see you. You could be a platinum-garbed envoy of Bahamut seeking justice throughout the land, a shadowy follower of Sehanine with a roguish streak, a burly disciple of Kord who believes the virtue of strength is sufficient for all challenges, or a dwarf cleric of Moradin bringing honor to the denizens of your mountain home.\n\nWill you protect what is sacred to your god, quest for legendary holy artifacts, pursue a life of evangelical adventuring, or attempt all these deeds and more?",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Battlemind": {
+        "name": "Battlemind",
+        "description": "As wanderers. mercenaries. and adventurers. battle­ minds are carefree warriors who seek only to test their skill against the mightiest and most dangerous opponents. Battleminds possess a potent combination ofpsionic and physical skill. allowing them to use their magic to manipulate and deceive their foes even as their fighting skill lets them carve a swath through enemy ranks. Battleminds tend to be bold and some­ times arrogant, an attitude earned through bringing ruin to enemies over the course of many conflicts.\n\nYou might not share your fellow battleminds' arrogance, but you do have access to an array of combat abilities that let you manipulate, barne, and defeat your enemies. Your mind is as deadly as your weapon. and with the aid of your psionic magic. your body can turn aside attacks as effectively as a suit of plate armor can.\n\nLet those who would stand against your might quiver in terror when you approach. for you are a battlemind, and supremacy in combat is your birthright.",
+        "initialHP": 15,
+        "hpPerLevel": 6
+    },
+    "Barbarian": {
+        "name": "Barbarian",
+        "description": "Barbarians are savage warriors who deal out powerful blows from their mighty weapons. They charge from foe to foe and seldom feel the pain of an enemy’s strike. For barbarians’ foes, the moments of greatest terror come when barbarians call upon primal forces to lend power to their raging spirits. These rages, although temporary, give a barbarian incredible powers, a combination of skill, willpower, and a legacy of ancient tribal rituals.\nAs a barbarian, you have a link to powerful nature spirits and other primal forces bound to the warriors\nof your tribe by the songs and totems of your legacy. These spirits lend energy to your rages, transforming you into a devastating force on the battlefield. As you become more experienced, these rages transcend mortal limitations, manifesting directly as waves of elemental power or gifting you with supernatural recuperative powers.\nWhen the heat of battle is upon you, will you respond with a sudden charge that fells with one mighty swing of your weapon, or with a prolonged rage that leaves destroyed foes in your wake?",
+        "initialHP": 15,
+        "hpPerLevel": 6
+    },
+    "Druid": {
+        "name": "Druid",
+        "description": "Secretive and enigmatic, druids call the wilderness their home. They are capable of running with a wolf pack, speaking with the most ancient trees, and watching thunderstorms from atop the clouds themselves. They regard challenges as tests, both of their fitness and of their connection with the wild places of the world. And though many druids project an outward calm, they have the cunning of the beast and the fury of the storm.",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Ardent": {
+        "name": "Ardent",
+        "description": "Those who let their base emotions rule them invite madness and destruction . Prolonged feelings of fear, greed, lust, or hatred can weaken the mind's defenses against manipulation. Yielding psionic power, you excite such emotions in your enemies, creating gaps in their defenses and frustrating their attacks, all while filling your allies with encouraging thoughts and guarding them against despair and other negative emotions.\n\nArdents rarely learn their art through formal training. In many ways, they are incidental leaders, having stumbled onto psionic power at some point\nearlier in their lives. How you discovered your psionic talent can shape how you wield this power now.\nYou might have awakened to your talent in the heat of battle, experiencing a mental breakthrough that allowed you to augment your attacks by rending your enemies' minds. Or your friends might reflect your power when your mood bleeds into theirs, altering their emotional states to match your own. Regardless of the revelation, you learned to harness this power to support your fighting prowess and to guide your allies to victory.",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Sorcerer": {
+        "name": "Sorcerer",
+        "description": "The sorcerer is the arcane antithesis of the wizard. Wielding raw, barely contained magical power, sorcerers channel bursts and blasts of arcane energy through their bodies. They gain their power not through rigorous study of esoteric tomes, but by harnessing magic in their blood, waiting to be tapped and shaped. If wizards wield magic as fighters wield swords, a sorcerer’s magic is the arcing greataxe of a raging barbarian.\n\nYou might be a proud dragonborn scion of ancient Arkhosia, calling on the draconic power of your heritage, or perhaps you were bathed in dragon blood as an infant to fill you with that power. You might have been born in a place where planar forces converged in strange eddies, infusing you with chaos, or perhaps you survived implantation of a slaad embryo, which left the taint of chaos upon you.\n\nMagic pulses through your veins, calling on you to give it expression. As it grows ever stronger, will it consume you or transform you into magic incarnate?",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Rogue": {
+        "name": "Rogue",
+        "description": "Rogues are cunning and elusive adversaries. Rogues slip into and out of shadows on a whim, pass anywhere across the field of battle without fear of reprisal, and appear suddenly only to drive home a lethal blade.\n\nAs a rogue, you might face others’ preconceptions regarding your motivations, but your nature is your own to mold. You could be an agent fresh from the deposed king’s shattered intelligence network, an accused criminal on the lam seeking to clear your name, a wiry performer whose goals transcend the theatrical stage, a kid trying to turn around your hard- luck story, or a daredevil thrill-seeker who can’t get enough of the adrenaline rush of conflict. Or perhaps you are merely in it for the gold, after all.\n\nWith a blade up your sleeve and a concealing cloak across your shoulders, you stride forth, eyes alight with anticipation. What worldly wonders and rewards are yours for the taking?",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Wizard": {
+        "name": "Wizard",
+        "description": "Wizards are scions of arcane magic. Wizards tap the true power that permeates the cosmos, research esoteric rituals that can alter time and space, and hurl balls of fire that incinerate massed foes. Wizards wield spells the way warriors brandish swords.\nMagic lured you into its grasp, and now you seek to master it in turn. You could be a bespectacled sage searching for dusty tomes in forgotten sepulchers, a scarred war mage plying foes with fireballs and foul language in equal measure, a disgruntled apprentice who absconded with your master’s spellbooks, an eladrin upholding the magical tradition of your race, or even a power-hungry student of magic who might do anything to learn a new spell.\nA cloak of spells enfolds you, ancient rituals bolster your senses, and runed implements of your craft\nhang from your belt. Effervescing arcane lore pulses through your consciousness, a constant pressure\ncraving release. When will you know enough magic to storm the ramparts of reality itself?",
+        "initialHP": 10,
+        "hpPerLevel": 4
+    },
+    "Psion": {
+        "name": "Psion",
+        "description": "Controller",
+        "initialHP": 12,
+        "hpPerLevel": 4
+    },
+    "Avenger": {
+        "name": "Avenger",
+        "description": "In secret temples far from bustling cities and priestly hierarchies, orders of esoteric warriors train their initiates in ancient traditions now forgotten or forbidden by most religious organizations. The champions of these orders are avengers—deadly weapons in the hands of their gods, imbued with divine power through secret rites of initiation. In battle, avengers swear to execute divine vengeance, entering a mental state that gives them unerring focus on a single enemy.\n\nAs an avenger, you were trained in a monastery, initiated through secret rites, and imbued with the power to smite your god’s foes. You might be a disciple of Ioun, sworn to hunt and exterminate the minions of Vecna until you one day face the Maimed God. You could be an agent of the Raven Queen, bringing death to those who would defy your mistress. Or perhaps you serve Bahamut as an agent of justice, bringing ruin to tyrants and oppressors. The organizations devoted to your god might view you as a heretic or a hero, but you answer only to your god and to the vows you swore upon your initiation as an avenger.\n\nWhere will those vows lead you? One thing is certain: Doing the will of your god is never easy and never free of peril.",
+        "initialHP": 14,
+        "hpPerLevel": 6
+    },
+    "Warlord": {
+        "name": "Warlord",
+        "description": "Warlords are accomplished and competent battle leaders. Warlords stand on the front line issuing commands and bolstering their allies while leading the battle with weapon in hand. Warlords know how to rally a team to win a fight.\n\nYour ability to lead others to victory is a direct result of your history. You could be a minor warchief looking to make a name for yourself, a pious knight- commander on leave from your militant order, a youthful noble eager to apply years of training to life outside the castle walls, a calculating mercenary captain, or a courageous marshal of the borderlands who fights to protect the frontier. Regardless of your back- ground, you are a skillful warrior with an uncanny gift for leadership.\n\nThe weight of your armor is not a hindrance; it is a familiar comfort. The worn weapon grip molds to your hand as if it were a natural extension of your arm. It’s time to fight and to lead.",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Paladin": {
+        "name": "Paladin",
+        "description": "Paladins are indomitable warriors who’ve pledged their prowess to something greater than themselves. Paladins smite enemies with divine authority, bolster the courage of nearby companions, and radiate as if a beacon of inextinguishable hope. Paladins are trans- figured on the field of battle, exemplars of divine ethos in action.\n\nTo you is given the responsibility to unflinchingly stand before an enemy’s charge, smiting them with your sword while protecting your allies with your sacrifice. Where others waver and wonder, your motivation is pure and simple, and your devotion is your strength. Where others scheme and steal, you take the high road, refusing to allow the illusions of temptation to dissuade you from your obligations.\n\nTake up your blessed sword and sanctified shield, brave warrior, and charge forward to hallowed glory!",
+        "initialHP": 15,
+        "hpPerLevel": 6
+    },
+    "Ranger": {
+        "name": "Ranger",
+        "description": "Rangers are watchful warriors who roam past the horizon to safeguard a region, a principle, or a way of life. Masters of bow and blade, rangers excel at hit-and- run assaults and can quickly and silently eliminate foes. Rangers lay superb ambushes and excel at avoid- ing danger.\n\nAs a ranger, you possess almost supernaturally keen senses and a deep appreciation for untamed wilderness. With your knowledge of the natural world, you are able to track enemies through nearly any land- scape, using the smallest clue to set your course, even sometimes the calls and songs of beasts and birds. Your severe demeanor promises a deadly conclusion to any enemy you hunt.\n\nWhen you catch sight of your quarry, will the transgressor perish by swift bow shots from a distance, or by the twofold blades that glint and glitter in each of your battle-scarred hands?",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Bard": {
+        "name": "Bard",
+        "description": "Bards are artists first and foremost, and they practice magic just as they practice song, drama, or poetry. They have a clear sense of how people perceive reality, so they master charm magic and some illusions. Sagas of great heroes are part of a bard’s repertoire, and most bards follow the example of many fables and become skilled in a variety of fields. A bard’s artistic ability, knowledge of lore, and arcane might are widely respected, particularly among the world’s rulers.\nArt and magic share a sublime beauty, and, as a bard, you seek the place where the two meet. You might be a naturally talented wanderer who casts impressive spells almost instinctively, a student of a bardic college who learned ordered systems of magic and epic poetry, a warrior skald who mixes skill at arms with thundering music, a dashing performer known for putting on a good show even for your enemies, or a perfectionist who seeks the consummate formula that blends art and magic into a higher force.\nA steady rhythm beats in the back of your mind as you brandish your sword. Your eyes and ears pick\nup the motion of the villains that surround you, and one glance tells you everything you need to know to defeat them. You whistle three staccato notes, letting your allies know the symphony of battle is about to begin.",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Monk": {
+        "name": "Monk",
+        "description": "From high in forbidding mountains to deep in the alleys of a city's meanest district, the ascetic warriors known as monks practice their art. By focusing on their minds and bodies, honing both to near perfection, they master a psionic fighting art that allows them to deliver a punch with the force of a giant's club and to absorb attacks as easily as a heavily armored knight. Monks tap into the psionic potential that rests within themselves, turning that energy further inward to fortify their bodies and sharpen their minds.\n\nPerhaps you set out on this path to put a dark past behind you. Or your village was victimized one time too many by an evil lord or marauding beasts, and you now seek justice. No matter what your motivation, the path of the monk transforms you into a living weapon.\n\nThe road opens wide before you. With little more than a walking stick and perhaps a satchel of food , you are ready to take on whatever the world can throw at you. Your years of training taught you to turn your eye inward. Now it is time to look outward and test yourself against the world's dangers .",
+        "initialHP": 12,
+        "hpPerLevel": 7
+    },
+    "Warlock": {
+        "name": "Warlock",
+        "description": "Warlocks channel arcane might wrested from prime- val entities. They commune with infernal intelligences and fey spirits, scour enemies with potent blasts of eldritch power, and bedevil foes with hexing curses. Armed with esoteric secrets and dangerous lore, war- locks are clever and resourceful foes.\n\nHowever you came to your arcane knowledge, you need not accept the poor reputation warlocks sometimes endure. You could be a libram-toting scholar captivated by ominous lore, a foot-loose wanderer searching for elusive ultimate truths, a devil-touched hunter using infernal spells to eliminate evil, or even a black-clad mercenary who uses sinister trappings to discourage prying strangers and unwanted attention. On the other hand, you could be a true diabolist using your gifts to tyrannize the weak—some warlocks unfortunately are exactly that.\n\nThe pacts are complete. The rites have concluded. The signs are drawn in blood, and the seals are broken. Your destiny beckons.",
+        "initialHP": 15,
+        "hpPerLevel": 5
+    },
+    "Fighter": {
+        "name": "Fighter",
+        "description": "Fighters are determined combat adepts trained to protect the other members of their adventuring groups. Fighters define the front line by bashing and slicing foes into submission while reflecting enemy attacks through the use of heavy armor. Fighters draw weapons for gold, for glory, for duty, and for the mere joy of unrestrained martial exercise.\n\nRegardless of your level of skill and the specific weapons you eventually master, your motivations determine who you defend and who you slay. You could be a noble champion who pledges your blade to gallant causes, a calculating mercenary who cares more for the clink of gold than praise, a homeless prince on the run from assassins, or a blood-loving thug looking for the next good fight.\n\nYour future is yours. When you unsheathe your weapon, what battle cry flies from your lips?",
+        "initialHP": 15,
+        "hpPerLevel": 6
+    },
+    "Artificer": {
+        "name": "Artificer",
+        "description": "Artificer treat mastery of magic like a technical skill. They see patterns in energy and matter, and they understand how to manipulate the flow of magic in and around objects and creatures. Artificers channel energy into items using magical components, diagrams, and complex chains of sigils. Their skills let them assemble a magic device for any situation.\nAs an artificer, you might e a formal student of magic who became interested in artifacts and arcane items. Alternatively, you could be a tinkerer who devised magic tools in a musty basement. Or perhaps you are an explorer who found your knowledge in the forgotten places of the world. Whatever the source of your talents a passion for the technical components of magic drives you to perfect your art.\nWith a bandolier slung across your chest, you carry an arsenal of alchemical compounds, magic implements, mundane materials, and tools. Your weapons, implements and other gear are inscribe with runes and mystic patterns. You mix reagents, drink potions and craft items. You use you knowledge to infuse yourself and your allies with arcane power. And one day, your magical skills will carry you into legend.",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Swordmage": {
+        "name": "Swordmage",
+        "description": "Swordmages apply the arcane arts to melee combat. The combat skills they possess are enhanced by the magic they wield. The flourish of a swordmage’s blade not only bites with steel, but also with fire, lightning, or other powerful forces.\n\nYou studied and practiced for years to master your skills. You mastered the fundamentals of arcane magic and combined this academic study with end- less hours of physical training. You might be a young eladrin in search of your fortune, a stranger to the wider world outside the seclusion of your homeland; a self-trained genasi sellsword, gifted with an affinity for elemental magic; the scion of a disgraced noble human family, taught by the finest tutors in your youth but now a footloose expatriate; or a half-elf arcane champion, rigorously trained in a war magic academy to serve in the armies of your homeland.\n\nMagical barriers of force swirl around you, protecting you from harm. The blade you carry is an extension of your being, both body and mind. It pulses with eldritch energy as you prepare to defend your allies and unleash magical fury against your foes.",
+        "initialHP": 15,
+        "hpPerLevel": 6
+    },
+    "Shaman": {
+        "name": "Shaman",
+        "description": "Shamans are inspiring and dangerous battle leaders. They command powerful spirit guides, and through them lead their allies. These nature spirits bolster their allies’ attacks and offer protection and healing when needed.",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Warden": {
+        "name": "Warden",
+        "description": "As mountains stand fast against the buffeting wind and trees bend but do not break in the storm, wardens are stalwart protectors who draw on the primal spirits of nature to defend the natural world from those who would corrupt or destroy it. Some wardens use the power of earth and stone to shield their allies from harm, whereas others summon the primal strength within themselves to increase their ferocity and tenacity. As a warden, you might be the staunch defender of a tribe, chosen by the spirits to be your people’s champion. Perhaps you were visited by spirits at a sacred grove and charged with protecting it against a spreading corruption. You might have been raised by a bear or nurtured by dryads, chosen from infancy to stand fast against nature’s enemies. Primal power waits in the ground beneath your feet, surges with every beat of your heart, and flows through your lungs with every breath. The world cries out to you, calling for a champion to defend it. Will you heed its call?",
+        "initialHP": 17,
+        "hpPerLevel": 7
+    },
+    "Seeker": {
+        "name": "Seeker",
+        "description": "Seekers are primal champions who scour the wilder­ ness in search of those who would defile it. Versed in hunting techniques handed down through the generations, seekers combine thrown weapon and bow techniques with primal evocations. The combination allows seekers great range in which to deliver deadly attacks that confound and hamper their enemies. When a seeker looses a missile, the primal spirits bound to it through ancient evocations are freed , sometimes as terrifying beasts and sometimes as nature's raw destructive potential.\n\nAs a seeker, you are both a hunter and a mystic. You attune yourself to the wilderness you call your home, but you are equally tied to the spirits that dwell in the world around you. With your people's traditions and whispered advice from the spirits, you navigate the wilds with ease, at home in that environment as any beast. If an enemy appears, you have nothing to fear, both because you have mastered your weapons and because the spirits to whom you have bound yourself add their savage might to your attacks. Whether you use lightning strikes, grasping vines, or spectral beasts, your enemies cannot stand against your assault.",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    },
+    "Runepriest": {
+        "name": "Runepriest",
+        "description": "Isolated in sacred forges and holy libraries, runepriests seek to unlock the secrets of the runes of divine power. Legend holds that the gods crafted a set of powerful runes, each imbued with a core of divine power, to help create the world and give it order. During the long war against the primordials, many of these runes were lost. Even the gods only dimly recall the runes of power. Somewhere in the forgotten depths of a dungeon or the isolated corner of the planes, those ancient runes wait to be discovered. A runepriest can learn much in the peaceful halls of a temple. but sooner or later he or she must put on armor and go forth to find or create a new rune, and in so doing earn a name among the masters of rune magic.\nYou learned the art of rune smithing from your master. Perhaps you sweated over a forge deep within a dwarven stronghold , crafting weapons and armor for the faithful as part of your apprenticeship. Or you might have helped inscribe runes in the living wood of the forest. crafting signs to warn of approaching enemies. Along the way, you learned how to take inscribed runes and turn them into words and signs of power that you can incorporate into your prayers. But now, the time for learning is at an end. Now is the time for adventure.\nMerge the runes of power with your weapons and armor. Call to the gods and channel their might against your enemies. The runes are your weapons, and the gods' foes await your judgment.",
+        "initialHP": 12,
+        "hpPerLevel": 5
+    }
+}

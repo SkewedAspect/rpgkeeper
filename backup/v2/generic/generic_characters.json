@@ -1,0 +1,148 @@
+{
+    "19nGwU": {
+        "baseChar": "19nGwU",
+        "stats": [
+            {
+                "name": "Strength",
+                "value": 5,
+                "favorite": true
+            }
+        ],
+        "rolls": [
+            {
+                "name": "goobers",
+                "roll": "1d20",
+                "favorite": true
+            }
+        ],
+        "counters": [
+            {
+                "value": 3,
+                "name": "Superness",
+                "favorite": true
+            },
+            {
+                "name": "Strength",
+                "value": 7,
+                "favorite": true
+            },
+            {
+                "name": "Max HP",
+                "value": 100,
+                "favorite": true
+            },
+            {
+                "name": "Current HP",
+                "value": 67.3,
+                "favorite": true
+            }
+        ],
+        "notes": [
+            {
+                "name": "Backstory",
+                "content": "lorem ipsum",
+                "favorite": true
+            }
+        ],
+        "quickNotes": ""
+    },
+    "3I01LU": {
+        "baseChar": "3I01LU",
+        "stats": [
+            {
+                "name": "Strength",
+                "value": 15,
+                "favorite": true
+            },
+            {
+                "name": "Dexterity"
+            }
+        ],
+        "rolls": [],
+        "counters": [
+            {
+                "name": "HP",
+                "value": 50,
+                "favorite": true
+            }
+        ],
+        "notes": [
+            {
+                "name": "Bob's Page",
+                "content": "This is good.",
+                "favorite": true
+            },
+            {
+                "name": "Sekret page, no look!",
+                "content": "BOO!",
+                "favorite": true
+            }
+        ],
+        "quickNotes": "Adding some notes, quickly!"
+    },
+    "2VVB44": {
+        "baseChar": "2VVB44",
+        "stats": [
+            {
+                "name": "Will",
+                "value": 3
+            },
+            {
+                "name": "stamina",
+                "value": 3
+            }
+        ],
+        "rolls": [],
+        "counters": [],
+        "notes": [
+            {}
+        ]
+    },
+    "Jhg7c": {
+        "baseChar": "Jhg7c",
+        "stats": [],
+        "rolls": [],
+        "counters": [],
+        "notes": []
+    },
+    "4GtWHc": {
+        "baseChar": "4GtWHc"
+    },
+    "2VK6jt": {
+        "baseChar": "2VK6jt"
+    },
+    "3cryN4": {
+        "baseChar": "3cryN4",
+        "stats": [
+            {
+                "name": "Test",
+                "value": 12,
+                "favorite": true
+            }
+        ],
+        "rolls": [
+            {
+                "name": "Testt",
+                "roll": "6",
+                "favorite": true
+            },
+            {
+                "name": "Tstt",
+                "roll": "8"
+            }
+        ],
+        "counters": [
+            {
+                "name": "Tesst",
+                "value": 11
+            }
+        ],
+        "notes": [
+            {
+                "name": "Test",
+                "content": "test"
+            }
+        ],
+        "quickNotes": "test"
+    }
+}

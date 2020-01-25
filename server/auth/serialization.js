@@ -1,33 +1,30 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Handles user serialization/deserialization
-//
-// @module serialization.js
 //----------------------------------------------------------------------------------------------------------------------
 
-var passport = require('passport');
+const passport = require('passport');
 
-var models = require('../models');
+// Managers
+const accountMan = require('../api/managers/account');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
+passport.serializeUser(({ account_id }, done) =>
+{
+    done(null, account_id);
 });
 
-passport.deserializeUser(function(id, done) {
-    models.User.get(id)
-        .then(function(user)
-        {
-            done(null, user);
-        })
-        .catch(models.errors.DocumentNotFound, function()
-        {
-            done(new Error('User not found.'));
-        })
-        .catch(function(error)
-        {
-            done(error);
-        });
+passport.deserializeUser(async (account_id, done) =>
+{
+    try
+    {
+        const account = await accountMan.getAccountByID(account_id);
+        done(null, account);
+    }
+    catch(error)
+    {
+        done(error);
+    } // end try/catch
 });
 
 //----------------------------------------------------------------------------------------------------------------------

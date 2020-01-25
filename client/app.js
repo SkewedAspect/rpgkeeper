@@ -1,44 +1,166 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Main Client-side Application
+//----------------------------------------------------------------------------------------------------------------------
+
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import marked from 'marked';
+import { version } from '../package.json';
+
+// VueCodeMirror
+import VueCodemirror from 'vue-codemirror';
+
+// VueRX
+import VueRx from 'vue-rx';
+
+// Bootstrap Vue
+import BootstrapVue from 'bootstrap-vue';
+
+// Font Awesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { far } from '@fortawesome/pro-regular-svg-icons';
+import { fas } from '@fortawesome/pro-solid-svg-icons';
+import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
+
+// CodeMirror
+import 'codemirror/addon/mode/overlay';
+import 'codemirror/mode/xml/xml';
+import 'codemirror/mode/markdown/markdown';
+import 'codemirror/mode/gfm/gfm';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/css/css';
+import 'codemirror/mode/htmlmixed/htmlmixed';
+import 'codemirror/mode/clike/clike';
+import 'codemirror/mode/meta';
+
+// Managers
+import postsMan from './api/managers/posts';
+
+// Views
+import AppComponent from './app.vue';
+import AboutPage from './pages/about.vue';
+import CharacterPage from './pages/character.vue';
+import DashboardPage from './pages/dashboard.vue';
+
+// Pages
+import HomePage from './pages/home.vue';
+import SettingsPage from './pages/settings.vue';
+
 // ---------------------------------------------------------------------------------------------------------------------
-// Main Angular Application.
-//
-// @module app.js
+// Font Awesome
 // ---------------------------------------------------------------------------------------------------------------------
 
-angular.module('rpgkeeper')
-    .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider)
-    {
-        $locationProvider.html5Mode(true);
+library.add(fab, far, fas);
+Vue.component('fa', FontAwesomeIcon);
+Vue.component('fa-layers', FontAwesomeLayers);
 
-        $routeProvider
-            .when('/', { templateUrl: '/pages/home/home.html', controller: 'HomeController' })
-            .when('/dashboard', { templateUrl: '/pages/dash/dash.html', controller: 'DashController' })
-            .when('/characters/:charID', { templateUrl: '/pages/character/character.html', controller: 'CharacterController' })
-            .otherwise({redirectTo: '/'});
-    }])
-    .run(function()
-    {
-        //--------------------------------------------------------------------------------------------------------------
-        // Configure the marked markdown parser
-        //--------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+// VueCodeMirror
+// ---------------------------------------------------------------------------------------------------------------------
 
-        var renderer = new marked.Renderer();
+import "codemirror/lib/codemirror.css";
 
-        renderer.table = function(header, body)
-        {
-            return '<div class="table-responsive"><table class="table table-striped table-hover table-bordered"><thead>' + header + '</thead><tbody>' + body + '</tbody></table></div>';
-        }; // end table parsing
+Vue.use(VueCodemirror, {
+    options: {
+        mode: {
+            name: "gfm",
+            gitHubSpice: false
+        },
+        lineNumbers: false,
+        lineWrapping: true,
+        theme: "default"
+    }
+});
 
-        // Configure marked parser
-        marked.setOptions({
-            gfm: true,
-            tables: true,
-            breaks: false,
-            pedantic: false,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false,
-            renderer: renderer
-        });
-    });
+// ---------------------------------------------------------------------------------------------------------------------
+// VueRX
+// ---------------------------------------------------------------------------------------------------------------------
+
+Vue.use(VueRx);
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Bootstrap Vue
+// ---------------------------------------------------------------------------------------------------------------------
+
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+Vue.use(BootstrapVue);
+
+//----------------------------------------------------------------------------------------------------------------------
+// Vue Router
+//----------------------------------------------------------------------------------------------------------------------
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        { path: '/', name: 'home', component: HomePage },
+        { path: '/about', name: 'about', component: AboutPage },
+        { path: '/dashboard', name: 'dashboard', component: DashboardPage },
+        { path: '/characters/:id', name: 'character', component: CharacterPage },
+        { path: '/settings', name: 'settings', component: SettingsPage },
+    ]
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Setup Vue App
+//----------------------------------------------------------------------------------------------------------------------
+
+Vue.config.debug = true;
+
+// Setup app component
+const App = Vue.component('app', AppComponent);
+new App({
+    el: '#rpgkeeper',
+    router,
+});
+
+//----------------------------------------------------------------------------------------------------------------------
+// Marked Setup
+//----------------------------------------------------------------------------------------------------------------------
+
+// Configure the marked markdown parser
+const renderer = new marked.Renderer();
+renderer.table = function(header, body)
+{
+    const tableBody = `<thead>${ header }</thead><tbody>${ body }</tbody>`;
+    return `<div class="table-responsive"><table class="table table-striped table-hover table-sm">${ tableBody }</table></div>`;
+}; // end table parsing
+
+// Configure marked parser
+marked.setOptions({
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    renderer: renderer
+});
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Version information
+// ---------------------------------------------------------------------------------------------------------------------
+
+window.RPGKeeper = {
+    version
+};
+
+//----------------------------------------------------------------------------------------------------------------------
+// App Initialization
+//----------------------------------------------------------------------------------------------------------------------
+
+async function init()
+{
+    // Setup Managers
+    await postsMan.loadPosts();
+} // end init
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+init();
 
 // ---------------------------------------------------------------------------------------------------------------------
