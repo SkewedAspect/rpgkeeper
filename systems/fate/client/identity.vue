@@ -30,7 +30,7 @@
             id="desc-input-group"
             label="Description"
             label-class="font-weight-bold">
-            <markdown class="font-sm" :text="character.biography" inline></markdown>
+            <markdown class="font-sm" :text="character.description" inline></markdown>
         </b-form-group>
         <b-form-group
             id="fp-input-group"

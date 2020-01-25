@@ -31,7 +31,7 @@
                 label="Description"
                 label-for="desc-input">
                 <b-card class="overflow-hidden" no-body>
-                    <codemirror ref="editor" v-model="character.biography"></codemirror>
+                    <codemirror ref="editor" v-model="character.description"></codemirror>
                 </b-card>
             </b-form-group>
 

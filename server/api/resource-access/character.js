@@ -58,7 +58,7 @@ class CharacterResourceAccess
                 'char.portrait',
                 'char.thumbnail',
                 'char.color',
-                'char.biography',
+                'char.campaign',
                 'acc.hash_id as account_id',
                 'note.hash_id as note_id'
             )
@@ -91,7 +91,7 @@ class CharacterResourceAccess
                 'char.portrait',
                 'char.thumbnail',
                 'char.color',
-                'char.biography',
+                'char.campaign',
                 'acc.hash_id as account_id',
                 'note.hash_id as note_id'
             )

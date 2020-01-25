@@ -92,10 +92,11 @@
                             <div class="d-flex">
                                 <thumbnail :src="char.thumbnail" :color="char.color" :text="char.initial"></thumbnail>
                                 <div class="ml-2 flex-column d-flex justify-content-center flex-fill">
-                                    <h5 class="mb-1">
-                                        {{ char.name }}
-                                    </h5>
-                                    <p class="text-muted m-0" v-if="char.description">{{ char.description }}</p>
+                                    <h5 class="mb-1">{{ char.name }}</h5>
+                                    <p class="text-muted m-0">
+                                        <b-badge>{{ getSystem(char.system).name }}</b-badge>
+                                        <small>{{ char.campaign }}</small>
+                                    </p>
                                 </div>
                                 <div class="mr-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
                                     <b-button-close title="Edit User" @click.prevent.stop="openAddEditModal(char)">

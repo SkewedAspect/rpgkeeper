@@ -128,7 +128,7 @@
         computed: {
             description()
             {
-                return _.truncate(this.character.biography, { length: 160 });
+                return _.truncate(this.character.description, { length: 160 });
             }
         },
         methods: {

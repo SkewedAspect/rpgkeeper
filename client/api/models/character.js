@@ -38,7 +38,7 @@ class CharacterModel
             portrait: "",
             thumbnail: "",
             color: colorize(shortID()),
-            biography: "",
+            campaign: "",
             details: this._sysDefaults,
             account_id: undefined,
             note_id: undefined
@@ -66,8 +66,8 @@ class CharacterModel
     set thumbnail(val){ this.$state.thumbnail = val; }
     get color(){ return this.$state.color; }
     set color(val){ this.$state.color = val; }
-    get biography(){ return this.$state.biography; }
-    set biography(val){ this.$state.biography = val; }
+    get campaign(){ return this.$state.campaign; }
+    set campaign(val){ this.$state.campaign = val; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Model API
