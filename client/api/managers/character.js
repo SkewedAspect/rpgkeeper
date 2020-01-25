@@ -18,11 +18,11 @@ class CharacterManager
 {
     constructor()
     {
-        this._saving = false;
 
         // Subjects
         this._charactersSubject = new BehaviorSubject([]);
         this._selectedSubject = new BehaviorSubject();
+        this.savingSubject = new BehaviorSubject(false);
 
         // Subscriptions
         authMan.account$.subscribe(this._onAccountChanged.bind(this));
@@ -34,6 +34,7 @@ class CharacterManager
 
     get characters$(){ return this._charactersSubject.asObservable(); }
     get selected$(){ return this._selectedSubject.asObservable(); }
+    get saving$(){ return this.savingSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -41,6 +42,8 @@ class CharacterManager
 
     get characters(){ return this._charactersSubject.getValue(); }
     get selected(){ return this._selectedSubject.getValue(); }
+    get saving(){ return this.savingSubject.getValue(); }
+    set saving(val){ this.savingSubject.next(!!val); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Subscriptions
@@ -110,19 +113,19 @@ class CharacterManager
         character = character || this.selected;
 
         // If we're already saving, we just return.
-        if(this._saving || !character.dirty)
+        if(this.saving || !character.dirty)
         {
             return character;
         } // end if
 
         // Otherwise, we set ourselves to saving
-        this._saving = true;
+        this.saving = true;
 
         // Save Character
         await characterRA.saveCharacter(character);
 
         // We're done saving
-        this._saving = false;
+        this.saving = false;
 
         // Check to see if we need to save again, in case other changes have come in while saving.
         if(character.dirty)
