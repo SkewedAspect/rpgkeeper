@@ -1,9 +1,9 @@
-<!--------------------------------------------------------------------------------------------------------------------->
-<!-- Main Page                                                                                                       -->
-<!--------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------
+  -- Main Page
+  --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-	<div id="main-page" class="container">
+	<div id="main-page" class="container-fluid p-3">
 		<h1 class="text-center">
             <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="40px" height="40px">
             RPGKeeper
@@ -12,13 +12,39 @@
 				The one-stop shop for all your RPG needs.
 			</small>
 		</h1>
-        <md-progress v-if="postsLoading" class="md-accent" md-indeterminate></md-progress>
-        <h4 class="text-center" v-else-if="posts.length === 0">No News Posts</h4>
-        <md-layout class="news" :md-gutter="true" v-else>
-			<md-layout md-flex-small="100" v-for="post in sortedPosts" :key="post.post_id">
-				<news-post :post="post"></news-post>
-			</md-layout>
-		</md-layout>
+
+        <loading class="mt-4 mb-4"v-if="postsLoading"></loading>
+
+        <b-card-group class="mt-4" v-else deck>
+            <b-card :title="post.title" :sub-title="`by ${ post.account.name }`" v-for="post in sortedPosts" :key="post.post_id">
+                <p class="card-text mt-4" v-html="markdown(post.stinger)"></p>
+                <div slot="footer">
+                    <b-btn variant="primary" class="float-right" size="sm" @click="readMore(post)">
+                        <fa icon="book-open"></fa>
+                       Read More
+                    </b-btn>
+                    <div class="mt-2">
+                        <span class="text-muted">{{ fromNow(post.created) }}</span>
+                    </div>
+                </div>
+            </b-card>
+        </b-card-group>
+
+        <!-- Modal -->
+        <b-modal id="readMore" :title="readMorePost.title"
+            header-bg-variant="dark"
+            header-text-variant="white"
+            v-model="showModal"
+            v-if="readMorePost"
+            size="xl"
+            ok-only>
+            <div v-html="markdown(readMorePost.content)"></div>
+
+            <template slot="modal-ok">
+                <fa icon="times"></fa>
+                Close
+            </template>
+        </b-modal>
 	</div>
 </template>
 
@@ -26,19 +52,10 @@
 
 <style lang="scss">
 	#main-page {
-		padding: 16px;
-
         .rpgk-logo {
             margin-top: -10px;
             margin-right: -5px;
         }
-
-		.news {
-			.md-card {
-				margin-top: 8px;
-				margin-bottom: 8px;
-			}
-		}
 	}
 </style>
 
@@ -47,18 +64,21 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    import marked from 'marked';
+    import { format, formatDistance } from 'date-fns';
+
     // Managers
     import authMan from '../api/managers/auth';
     import postsMan from '../api/managers/posts';
 
     // Components
-    import NewsPost from '../components/posts/post.vue';
+    import Loading from '../components/ui/loading.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
 	export default {
 	    components: {
-	        NewsPost
+	        Loading
 		},
         computed: {
 	        sortedPosts()
@@ -67,6 +87,24 @@
                 return this.posts
                     .concat()
                     .sort((post) => -post.created);
+            },
+            showModal: {
+	            get(){ return !!this.readMorePost; },
+	            set(val){ !val ? this.readMorePost = undefined : false; }
+            }
+        },
+        methods: {
+	        markdown(text)
+            {
+                return marked(text);
+            },
+            fromNow(date)
+            {
+                return formatDistance(date, new Date());
+            },
+            readMore(post)
+            {
+                this.readMorePost = post;
             }
         },
         subscriptions: {
@@ -76,7 +114,8 @@
         data()
         {
             return {
-                signingIn: false
+                signingIn: false,
+                readMorePost: undefined
             };
         },
         mounted()

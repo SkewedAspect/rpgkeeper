@@ -1,48 +1,53 @@
 <!--------------------------------------------------------------------------------------------------------------------->
-<!-- Login Component                                                                                                 -->
+<!-- login                                                                                                         -->
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div id="login-comp">
-        <!-- User Button -->
-        <md-button v-if="account" class="settings" @click="goToSettings()">
-            <md-avatar>
-                <img :src="account.avatarUrl" alt="People">
-            </md-avatar>
-            <span class="hidden-xs-down">
-                    {{ account.displayName }}
-                </span>
-        </md-button>
+    <div id="login">
+		<!-- Profile dropdown -->
+        <b-nav-item-dropdown v-if="account" id="profile-dropdown" :title="account.username" right no-caret>
+            <template slot="button-content">
+                <b-img v-if="account.avatar" rounded="circle" width="32" height="32" blank-color="#777" :src="account.avatar"></b-img>
+                <fa v-else icon="user-circle" size="2x"></fa>
+                {{ account.name }}
+            </template>
+            <b-dropdown-item to="/settings">
+				<fa icon="user-circle"></fa>
+				Profile
+			</b-dropdown-item>
+			<b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item @click="signOut()">
+				<fa icon="sign-out"></fa>
+				Sign Out
+			</b-dropdown-item>
+        </b-nav-item-dropdown>
 
-        <!-- Loading Bar -->
-        <md-progress v-else-if="loading" class="md-accent" md-indeterminate></md-progress>
+		<!-- Spinner -->
+		<b-nav-text v-else-if="loading" class="p-0">
+			<span class="fa-layers fa-fw fa-2x">
+                <fa class="text-primary" icon="spinner-third" spin></fa>
+                <fa icon="user-circle"></fa>
+			</span>
+		</b-nav-text>
 
-        <!-- SignIn Button -->
-        <div v-else class="g-signin2" data-onsuccess="onGoogleSignIn" data-onfailure="onGoogleFailure" data-theme="dark"></div>
+		<!-- Sign In Button -->
+		<b-button v-else id="google-signin-btn" variant="dark">
+            <fa :icon="['fab', 'google']"></fa>
+			Sign In
+		</b-button>
     </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    #login-comp {
-		display: inline-block;
-        min-width: 150px;
-
-		.g-signin2 {
-			display: inline-block;
-			text-align: center;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.settings {
-			text-transform: none;
-
-			@media(max-width: 575px)
-			{
-				padding: 4px;
-				min-width: 50px;
+    #login {
+		#profile-dropdown {
+            margin-top: -2px;
+            margin-bottom: -2px;
+			a.nav-link {
+				padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
 			}
 		}
     }
@@ -53,24 +58,28 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-	// Managers
-    import authMan from '../../api/managers/auth';
+	import $ from 'jquery';
+
+    // Managers
+	import authMan from '../../api/managers/auth';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        subscriptions: {
-            account: authMan.account$,
-            authStatus: authMan.status$
-        },
+		subscriptions: {
+			account: authMan.account$,
+			authStatus: authMan.status$
+		},
 		computed: {
-            loading(){ return this.authStatus === 'signing in'; },
+			loading(){ return this.authStatus === 'signing in'; },
 		},
 		methods: {
-			goToSettings()
-			{
-				this.$router.push('/settings');
-			}
+			signOut(){ return authMan.signOut(); }
+		},
+		mounted()
+		{
+			const btnElem = $(this.$el).find('#google-signin-btn');
+			authMan.attachSignIn(btnElem[0])
 		}
     }
 </script>

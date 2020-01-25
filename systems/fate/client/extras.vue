@@ -1,82 +1,37 @@
-<!--------------------------------------------------------------------------------------------------------------------->
-<!-- extras                                                                                                         -->
-<!--------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------
+  -- FATE Extras
+  --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <md-card id="fate-extras" style="flex: 1">
-        <md-toolbar class="md-dense">
-            <h2 style="flex: 1" class="md-title">Extras</h2>
-            <md-button v-if="isAuthorized" @click="openEdit()">Edit</md-button>
-        </md-toolbar>
+    <rpgk-card id="fate-extras" :class="{ readonly: readonly }" fill>
+        <div slot="header" class="d-flex">
+            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                <fa class="mr-1" icon="magic"></fa>
+                <span class="d-none d-md-inline">Extras</span>
+            </h5>
+            <div class="ml-auto" v-if="!readonly">
+                <b-btn @click="openEdit()" size="sm" style="margin-bottom: 1px;">
+                    <fa icon="edit" fixed-width></fa>
+                    <span class="d-none d-md-inline">Edit</span>
+                </b-btn>
+            </div>
+        </div>
 
-        <md-card-content v-if="extras" v-html="renderedContent"></md-card-content>
-        <md-card-content class="text-center" v-else>
-            <h4>No extras...</h4>
-        </md-card-content>
+        <!-- Content -->
+        <div v-if="value" v-html="renderedContent"></div>
+        <div v-else>
+            <h6 class="text-center">No Extras</h6>
+        </div>
 
-        <!-- Edit Dialog -->
-        <md-dialog ref="editDialog">
-            <md-dialog-title>Edit Extras</md-dialog-title>
-            <md-dialog-content>
-                <div id="code-mirror-input">
-                    <vue-code v-model="extrasEdit" :options="codeMirror" ref="editCodeMirror"></vue-code>
-                </div>
-            </md-dialog-content>
-
-            <md-dialog-actions>
-                <md-button class="md-primary" @click.native="closeEdit()">Cancel</md-button>
-                <md-button class="md-accent" @click.native="closeEdit(true)">Save</md-button>
-            </md-dialog-actions>
-        </md-dialog>
-    </md-card>
+        <!-- Modals -->
+        <edit-extras-modal ref="editModal"></edit-extras-modal>
+    </rpgk-card>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
     #fate-extras {
-        .md-card-content {
-            & > p:first-child {
-                margin-top: 0;
-            }
-
-            & > p:last-child {
-                margin-bottom: 0;
-            }
-        }
-
-        #code-mirror-input {
-            border: 1px solid rgba(0, 0, 0, 0.17);
-
-            .CodeMirror {
-                height: 500px;
-            }
-
-            @media(min-width: 400px) {
-                width: 360px;
-                max-width: 100%;
-            }
-
-            @media(min-width: 600px) {
-                width: 560px;
-                max-width: 100%;
-            }
-
-            @media(min-width: 800px) {
-                width: 720px;
-                max-width: 100%;
-            }
-
-            @media(min-width: 1000px) {
-                width: 960px;
-                max-width: 100%;
-            }
-
-            @media(min-width: 1200px) {
-                width: 1140px;
-                max-width: 100%;
-            }
-        }
     }
 </style>
 
@@ -84,70 +39,42 @@
 
 <script>
     //------------------------------------------------------------------------------------------------------------------
-    
+
     import marked from 'marked';
 
-    // Codemirror component
-    import VueCode from 'vue-code';
-    import 'codemirror/mode/markdown/markdown';
+    // Components
+    import RpgkCard from '../../../client/components/ui/card.vue';
+    import EditExtrasModal from './editExtrasModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        model: {
-            prop: 'extras',
-            event: 'change'
+        name: 'FateExtrasCard',
+        components: {
+            RpgkCard,
+            EditExtrasModal
         },
         props: {
-            extras: {
+            value: {
                 type: String,
                 required: true
             },
-            isAuthorized: {
+            readonly: {
                 type: Boolean,
                 default: false
             }
         },
-        components: {
-            VueCode
-        },
         computed: {
             renderedContent()
             {
-                return marked(this.extras);
+                return marked(this.value);
             }
         },
         methods: {
             openEdit()
             {
-                this.extrasEdit = this.extras;
-
-                // Open the dialog
-                this.$refs.editDialog.open();
-            },
-            closeEdit(save)
-            {
-                if(save)
-                {
-                    // Let v-model know we changed things
-                    this.$emit('change', this.extrasEdit);
-                } // end if
-
-                this.extrasEdit = this.extras;
-
-                // Close the dialog
-                this.$refs.editDialog.close();
+                this.$refs.editModal.show();
             }
-        },
-        data()
-        {
-            return {
-                extrasEdit: "",
-                codeMirror: {
-                    lineWrapping: true,
-                    mode: 'markdown'
-                }
-            };
         }
     }
 </script>

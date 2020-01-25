@@ -1,47 +1,70 @@
-<!--------------------------------------------------------------------------------------------------------------------->
-<!-- stress                                                                                                          -->
-<!--------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------
+  -- FateStress
+  --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <md-card id="fate-stress" style="flex: 1">
-        <md-toolbar class="md-dense">
-            <h2 style="flex: 1" class="md-title">Physical Stress</h2>
-        </md-toolbar>
+    <rpgk-card id="fate-stress" :class="{ readonly: readonly }" no-body fill>
+        <div slot="header" class="d-flex">
+            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                <fa class="mr-1" icon="heart-circle"></fa>
+                <span class="d-none d-md-inline">Physical Stress</span>
+            </h5>
+        </div>
 
-        <table class="md-static-table">
+        <!-- Content -->
+        <table class="table stress-table table-bordered mb-0">
             <tr>
-                <td v-for="(_, index) in physicalStress">
-                    <md-checkbox v-model="physicalStress[index]" :disabled="!isAuthorized || (index + 1) > totalPhysicalBoxes">
-                        <b>{{ index + 1 }}</b>
-                    </md-checkbox>
+                <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
+                    <b-form-checkbox class="mr-1" v-model="physicalStress[index]" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onInput">
+                        <b>{{ stressBox }}</b>
+                    </b-form-checkbox>
                 </td>
             </tr>
         </table>
 
-        <md-toolbar class="md-dense">
-            <h2 style="flex: 1" class="md-title">Mental Stress</h2>
-        </md-toolbar>
-
-        <table class="md-static-table">
+        <div class="card-header bg-dark text-white">
+            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                <fa class="mr-1" icon="head-side-brain"></fa>
+                <span class="d-none d-md-inline">Mental Stress</span>
+            </h5>
+        </div>
+        <table class="table stress-table table-bordered mb-0">
             <tr>
-                <td v-for="(_, index) in mentalStress">
-                    <md-checkbox v-model="mentalStress[index]" :disabled="!isAuthorized || (index + 1) > totalMentalBoxes">
-                        <b>{{ index + 1 }}</b>
-                    </md-checkbox>
+                <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
+                    <b-form-checkbox class="mr-1" v-model="mentalStress[index]" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onInput">
+                        <b>{{ stressBox }}</b>
+                    </b-form-checkbox>
                 </td>
             </tr>
         </table>
-    </md-card>
+
+    </rpgk-card>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
     #fate-stress {
-        .md-static-table {
-            td {
-                padding-top: 0;
-                padding-bottom: 0;
+        min-width: 245px;
+
+        .stress-table {
+            border: none;
+
+            tr {
+                border-top: none;
+                border-bottom: none;
+
+                td:first-child {
+                    border-left: none;
+                }
+
+                td:last-child {
+                    border-right: none;
+                }
+
+                td {
+                    border-bottom: none;
+                }
             }
         }
     }
@@ -51,23 +74,34 @@
 
 <script>
     //------------------------------------------------------------------------------------------------------------------
-    
+
     import _ from 'lodash';
+
+    // Managers
+    import charMan from '../../../client/api/managers/character';
+
+    // Components
+    import RpgkCard from '../../../client/components/ui/card.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: 'FateSkillsCard',
+        components: {
+            RpgkCard
+        },
         props: {
-            character: {
+            value: {
                 type: Object,
                 required: true
             },
-            isAuthorized: {
+            readonly: {
                 type: Boolean,
                 default: false
             }
         },
         computed: {
+            character(){ return _.get(this.value, 'details'); },
             mentalStress(){ return this.character.mentalStress },
             physicalStress(){ return this.character.physicalStress },
             totalPhysicalBoxes()
@@ -101,6 +135,13 @@
                 {
                     return 2;
                 } // end if
+            }
+        },
+        methods: {
+            async onInput()
+            {
+                // Save the character
+                await charMan.save(charMan.selected);
             }
         }
     }

@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-const BaseSystem = require('../base/base-system');
+const BaseSystem = require('../../base/base-system');
 
 // Validations
 const schemas = require('./validations');

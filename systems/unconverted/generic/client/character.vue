@@ -177,19 +177,19 @@
     </div>
 </template>
 
-<style lang="sass" src="./character.scss"></style>
+<style lang="sass" src="character.scss"></style>
 
 <script type="text/babel">
     import { modal } from 'vueboot';
 
     import GenericCharacter from './components/model';
     import systemsSvc from '../../../client/components/systems/systemsService';
-    import diceSvc from '../../../client/components/dice/diceService';
+    import diceUtil from '../../../client/components/dice/diceService';
 
     import counter from './components/counter.vue';
     import roll from './components/roll.vue';
     import statblock from './components/statblock.vue';
-    import notes from '../../../client/components/notes/notes.vue';
+    import notes from '../../../../client/components/notes/notes.vue';
     import AddEditStatModal from './modals/statAddEdit.vue';
 
     export default {

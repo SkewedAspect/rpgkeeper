@@ -1,64 +1,98 @@
-<!--------------------------------------------------------------------------------------------------------------------->
-<!-- character.vue                                                                                                         -->
-<!--------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------
+  -- Character Page
+  --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div id="character-page">
-        <md-tabs v-if="!error && baseChar" class="md-transparent" md-right>
-            <!-- TODO: Add support for dynamic tabs. -->
-            <md-tab md-label="Sheet">
-                <component :is="baseChar.system">
-                    <md-card class="md-warn" style="flex: 1">
-                        <md-card-header>
-                            <div class="md-title">Unknown System '{{ baseChar.system }}'.</div>
-                        </md-card-header>
+    <b-container id="character-page" class="mt-2">
 
-                        <md-card-content>
-                            This is an internal error, and you never be seen in normal operation. If you are a
-                            developer, you done messed up. If you're a user, then please report this as a bug.
-                        </md-card-content>
+        <!-- Error Handling -->
+        <b-container v-if="error">
+            <b-alert variant="danger" show>
+                <h4>
+                    <fa icon="exclamation-triangle"></fa>
+                    Error loading character
+                </h4>
+                <div v-for="line in error.stack.split('\n')">{{ line }}</div>
+                <div class="text-right">
+                    <b-btn to="/dashboard" variant="danger">
+                        <fa icon="arrow-left"></fa>
+                        Back to Dashboard
+                    </b-btn>
+                </div>
+            </b-alert>
+        </b-container>
 
-                        <md-card-actions>
-                            <md-button @click="newTab('https://github.com/Morgul/rpgkeeper/issues/new')">Report Issue</md-button>
-                            <md-button @click="goTo('/dashboard')">Back to Dashboard</md-button>
-                        </md-card-actions>
-                    </md-card>
+        <!-- Loading -->
+        <loading v-else-if="!char"></loading>
+
+        <!-- Main Sheet Tabs -->
+        <b-tabs v-else class="main-tabs" pills>
+            <template v-if="system" slot="tabs">
+                <li style="position: absolute; left: 18px; padding-top: 10px;">
+                    <h4 class="text-muted">{{ system.name }}</h4>
+                </li>
+            </template>
+            <b-tab active>
+                <template slot="title">
+                    <fa icon="file-user"></fa>
+                    Sheet
+                </template>
+
+                <!-- Actual System Character Sheet -->
+                <component :is="char.system">
+
+                    <!-- We put a warning here, mostly for the developer. -->
+                    <b-container>
+                        <b-alert variant="warning" show>
+                            <h4>
+                                <fa icon="exclamation-triangle"></fa>
+                                Unknown system "{{ char.system }}"
+                            </h4>
+                            <div>
+                                This is an internal error, and you never be seen in normal operation. If you are a
+                                developer, you done messed up. If you're a user, then please report this as a bug.
+                            </div>
+                            <div class="text-right">
+                                <b-btn :href="`https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system '${ char.system }'.&labels=bug`" target="_blank" variant="warning">
+                                    <fa icon="bug"></fa>
+                                    Report Bug
+                                </b-btn>
+                                <b-btn to="/dashboard" variant="warning">
+                                    <fa icon="arrow-left"></fa>
+                                    Back to Dashboard
+                                </b-btn>
+                            </div>
+                        </b-alert>
+                    </b-container>
                 </component>
-            </md-tab>
-            <md-tab md-label="Notes">
-                <notes :disabled="!isAuthorized"></notes>
-            </md-tab>
-        </md-tabs>
-        <div class="loading container text-center" v-else>
-            <h4 class="text-center">Loading...</h4>
-            <md-progress class="md-accent" md-indeterminate></md-progress>
-        </div>
-        <div v-if="error" class="container" style="margin: 16px">
-            <md-card class="md-warn" style="flex: 1">
-                <md-card-header>
-                    <div class="md-title">Error loading character</div>
-                </md-card-header>
+            </b-tab>
+            <b-tab>
+                <template slot="title">
+                    <fa icon="book"></fa>
+                    Notes
+                </template>
 
-                <md-card-content>
-                    {{ error.stack }}
-                </md-card-content>
-
-                <md-card-actions>
-                    <md-button @click="newTab('https://github.com/Morgul/rpgkeeper/issues/new')">Report Issue</md-button>
-                    <md-button @click="goTo('/dashboard')">Go to Dashboard</md-button>
-                </md-card-actions>
-            </md-card>
-        </div>
-    </div>
+                <notes></notes>
+            </b-tab>
+        </b-tabs>
+    </b-container>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
     #character-page {
-        .loading {
-            margin-top: 16px;
-            margin-bottom: 16px;
+        .main-tabs {
+            position: relative;
+
+            .nav.nav-pills {
+                float: right;
+            }
+
+            .tab-content {
+                clear: both;
+                padding-top: 0.5rem;
+            }
         }
     }
 </style>
@@ -68,14 +102,13 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-
     // Managers
-    import authMan from '../api/managers/auth';
     import charMan from '../api/managers/character';
+    import sysMan from '../api/managers/systems';
 
     // Components
-    import NotesComponent from '../components/notes/notes.vue';
+    import Loading from '../components/ui/loading.vue';
+    import Notes from '../components/notes/notes.vue';
 
     // Systems
     import RisusCharacter from '../../systems/risus/client/character.vue';
@@ -87,7 +120,8 @@
     export default {
         name: "character-page",
         components: {
-            notes: NotesComponent,
+            Loading,
+            Notes,
 
             // Systems
             fate: FateCharacter,
@@ -95,39 +129,31 @@
             eote: EoteCharacter
         },
         subscriptions: {
-            account: authMan.account$,
-            baseChar: charMan.selected$
-        },
-        computed: {
-            isAuthorized(){ return _.get(this.account, 'id', 'nope!') === this.baseChar.account_id; }
-        },
-        methods: {
-            goTo(path){ this.$router.push(path); },
-            newTab(url){ window.open(url, '_blank'); }
+            char: charMan.selected$
         },
         data()
         {
             return {
-                error: undefined
+                error: undefined,
+                system: undefined
             };
-        },
-        created()
-        {
-            // Watch for changes to the baseChar, and save.
-            this.$watch('baseChar', (char, oldChar) =>
-            {
-                if(!_.isUndefined(oldChar) && char && char.dirty)
-                {
-                    // TODO: If this throws an error, we should pop a toast that tells the user, and revert the change.
-                    charMan.save(char);
-                } // end char
-            }, { deep: true });
         },
         mounted()
         {
+            this.$watch('char', async () =>
+            {
+                if(this.char)
+                {
+                    this.system = await sysMan.getSystem(this.char.system);
+                }
+                else
+                {
+                    this.system = undefined;
+                } // end if
+            });
+
             // We always select the character that matches our route, so we handle navigation.
-            charMan.select(this.$route.params.id)
-                .catch((e) => this.error = e);
+            charMan.select(this.$route.params.id).catch((e) => this.error = e);
         }
     }
 </script>

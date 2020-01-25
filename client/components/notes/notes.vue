@@ -3,176 +3,65 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <md-card id="notes">
-        <!-- Card Header / Toolbar -->
-        <md-toolbar>
-            <h2 class="md-title" v-flex="1">Notes</h2>
-            <md-button v-if="!disabled" @click.prevent.stop="openNewDialog()">New</md-button>
-            <md-button v-if="!disabled && currentPageID" @click.prevent.stop="openEditDialog()">Edit</md-button>
-        </md-toolbar>
+    <b-card v-if="notes" id="notes" header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
 
-        <!-- Card Content -->
+        <!-- Card Header -->
+        <template slot="header">
+            <div class="d-flex">
+                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="mr-1" icon="book"></fa>
+                    <span class="d-none d-md-inline">
+                        Character Notes
+                    </span>
+                </h5>
+                <div class="ml-auto d-flex flex-nowrap">
+                    <b-form-select class="mr-2 d-sm-none" v-model="currentID" :options="notes.pages" text-field="title" value-field="id"></b-form-select>
+                    <b-button-toolbar class="flex-shrink-0 flex-grow-0 w-auto">
+                        <b-btn @click="openAddEditModal()">
+                            <fa icon="file-plus" fixed-width></fa>
+                            <span class="d-none d-md-inline">New</span>
+                        </b-btn>
+                        <b-btn class="ml-2" @click="openAddEditModal(currentPage)" :disabled="!currentPage">
+                            <fa icon="edit" fixed-width></fa>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </b-btn>
+                        <b-btn class="ml-2" @click="openDelModal(currentPage)" :disabled="!currentPage">
+                            <fa icon="trash-alt" fixed-widt></fa>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </b-btn>
+                    </b-button-toolbar>
+                </div>
+            </div>
+        </template>
 
-        <!-- For mobile devices, we show a dropdown, instead of side tabs -->
-        <md-card-content v-if="notes" class="hidden-sm-up" style="padding-top: 0; padding-bottom: 0">
-            <md-input-container style="margin-bottom: 5px; padding-top: 0; min-height: 32px">
-                <md-select name="page" id="page" v-model="currentPageID">
-                    <md-option :value="page.id" v-for="page in notes.pages">{{ page.title }}</md-option>
-                </md-select>
-            </md-input-container>
-        </md-card-content>
+        <!-- No Notes help text -->
+        <div class="card-body text-center" v-if="notes.pages.length < 1">
+            <h5>No pages found.</h5>
+            <i>To add a note, click the</i> <fa icon="file-plus"></fa> New <i>button above.</i>
+        </div>
 
-        <!-- If we have a current page id, show it -->
-        <md-card-content style="display: flex" v-if="notes && notes.pages && notes.pages.length > 0">
-            <md-list v-flex="'0 1 300px'" id="note-tabs" class="hidden-sm-down">
-                <md-list-item @click="loadPage(page)" v-for="page in notes.pages" :class="{ 'md-accent': page.id === currentPage.id }">
+        <!-- Notes tabs -->
+        <b-tabs v-model="pageIndex" nav-wrapper-class="d-none d-md-block" v-else pills card vertical>
+            <b-tab v-for="page in notes.pages" :key="page.id">
+                <template slot="title">
+                    <fa icon="file-alt"></fa>
                     {{ page.title }}
-                    <md-button v-if="!disabled" class="md-icon-button md-list-action md-warn"
-                               @click.prevent.stop="confirmDelete(page)">
-                        <md-icon class="md-warn">delete</md-icon>
-                    </md-button>
-                </md-list-item>
-            </md-list>
-            <note-page
-                v-if="currentPage"
-                :title="currentPage.title"
-                :content="currentPage.content"
-                v-flex="'max'" style="padding-left: 16px; padding-right: 16px">
-            </note-page>
-            <div class="text-center" v-flex="'max'" style="padding-left: 16px; padding-right: 16px" v-else>
-                <i>Please select a note from the side.</i>
-            </div>
-        </md-card-content>
+                </template>
+                <note-page :content="page.content"></note-page>
+            </b-tab>
+        </b-tabs>
 
-        <!-- Otherwise, we give them helpful getting started text -->
-        <md-card-content v-else>
-            <div class="text-center">
-                <i>To add a note, click the 'new' button above.</i>
-            </div>
-        </md-card-content>
+        <!-- Modals -->
+        <add-edit-modal v-model="addEditPage" @hidden="onAddEditHidden"></add-edit-modal>
+        <delete-modal v-model="delPage" @hidden="onDelHidden"></delete-modal>
 
-        <!-- Dialogs -->
-
-        <!-- New Dialog -->
-        <md-dialog id="new-note-dialog"  ref="newPageDialog" @open="onNewDialogOpen">
-            <md-dialog-title>New Character</md-dialog-title>
-
-            <md-dialog-content>
-                <md-input-container :class="{ 'md-input-invalid': !newPage.title }">
-                    <label>Title</label>
-                    <md-input v-model="newPage.title" required></md-input>
-                    <span class="md-error">Title is required</span>
-                </md-input-container>
-
-                <label style="font-size: 12px;">Content</label>
-                <div id="code-mirror-input">
-                    <vue-code v-model="newPage.content" :options="codeMirror" ref="newCodeMirror"></vue-code>
-                </div>
-            </md-dialog-content>
-
-            <md-dialog-actions>
-                <md-button class="md-primary" @click="closeNewDialog()">Cancel</md-button>
-                <md-button class="md-primary"
-                           :class="{ 'md-raised md-accent': newPageValid }"
-                           @click="closeNewDialog(true)"
-                           :disabled="!newPageValid">
-                    Save
-                </md-button>
-            </md-dialog-actions>
-        </md-dialog>
-
-        <!-- Edit Dialog -->
-        <md-dialog id="edit-note-dialog"  ref="editPageDialog" @open="onEditDialogOpen">
-            <md-dialog-title>Edit Character</md-dialog-title>
-
-            <md-dialog-content>
-                <md-input-container :class="{ 'md-input-invalid': !editPage.title }">
-                    <label>Title</label>
-                    <md-input v-model="editPage.title" required></md-input>
-                    <span class="md-error">Title is required</span>
-                </md-input-container>
-
-                <label style="font-size: 12px;">Content</label>
-                <div id="code-mirror-input">
-                    <vue-code v-model="editPage.content" :options="codeMirror" ref="editCodeMirror"></vue-code>
-                </div>
-            </md-dialog-content>
-
-            <md-dialog-actions>
-                <md-button class="md-primary" @click="closeEditDialog()">Cancel</md-button>
-                <md-button class="md-primary"
-                           :class="{ 'md-raised md-accent': editPageValid }"
-                           @click="closeEditDialog(true)"
-                           :disabled="!editPageValid">
-                    Save
-                </md-button>
-            </md-dialog-actions>
-        </md-dialog>
-
-        <!-- Delete Note confirmation -->
-        <md-dialog-confirm
-            md-title="Delete Note"
-            :md-content="`Are your sure you want to delete this note: '${ delPageTitle }'?`"
-            md-ok-text="Delete"
-            md-cancel-text="Cancel"
-            @close="onConfirmDeleteClosed"
-            ref="deleteNoteDialog">
-        </md-dialog-confirm>
-
-    </md-card>
+    </b-card>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
     #notes {
-        #note-tabs {
-            margin-left: -16px;
-            margin-top: -16px;
-            margin-bottom: -24px;
-            box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
-
-            .md-list-action:first-child {
-                margin: 0;
-            }
-        }
-
-        ul:not(.md-list)>li+li {
-            margin-top: 0;
-        }
-    }
-
-    #code-mirror-input {
-        border: 1px solid rgba(0, 0, 0, 0.17);
-
-        .CodeMirror {
-            height: 500px;
-        }
-
-        @media(min-width: 400px) {
-            width: 360px;
-            max-width: 100%;
-        }
-
-        @media(min-width: 600px) {
-            width: 560px;
-            max-width: 100%;
-        }
-
-        @media(min-width: 800px) {
-            width: 720px;
-            max-width: 100%;
-        }
-
-        @media(min-width: 1000px) {
-            width: 960px;
-            max-width: 100%;
-        }
-
-        @media(min-width: 1200px) {
-            width: 1140px;
-            max-width: 100%;
-        }
     }
 </style>
 
@@ -186,19 +75,18 @@
     // Managers
     import noteMan from '../../api/managers/notes';
 
-    // Codemirror component
-    import VueCode from 'vue-code';
-    import 'codemirror/mode/markdown/markdown';
-
     // Components
     import NotePage from './page.vue';
+    import AddEditModal from './addEditModal.vue';
+    import DeleteModal from './deleteModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         components: {
             NotePage,
-            VueCode
+            AddEditModal,
+            DeleteModal
         },
         props: {
             disabled: {
@@ -206,149 +94,65 @@
                 default: false
             }
         },
+        computed: {
+            currentPage()
+            {
+                return this.notes.pages[this.pageIndex];
+            },
+            currentID: {
+                get(){ return (this.currentPage || {}).id; },
+                set(val)
+                {
+                    const idx = _.findIndex(this.notes.pages, { id: val });
+                    if(idx >= 0)
+                    {
+                        this.pageIndex = idx;
+                    } // end if
+                }
+            }
+        },
+        methods: {
+            openAddEditModal(page)
+            {
+                if(!page)
+                {
+                    // Yes, this is not a page model. But we don't need one.
+                    page = {
+                        title: "",
+                        content: ""
+                    };
+                } // end if
+
+                this.addEditPage = page;
+            },
+            onAddEditHidden()
+            {
+                if(!this.addEditPage.id)
+                {
+                    this.pageIndex = this.notes.pages.length - 1;
+                } // end if
+
+                this.addEditPage = undefined;
+            },
+            openDelModal(page)
+            {
+                this.delPage = page;
+            },
+            onDelHidden()
+            {
+                this.delPage = undefined;
+            }
+        },
         subscriptions: {
-            notes: noteMan.selected$,
+            notes: noteMan.selected$
         },
         data()
         {
             return {
-                currentPageID: undefined,
-                delPageTitle: '',
-                delPageID: undefined,
-                newPage: {
-                    content: '',
-                    title: ''
-                },
-                editPage: {
-                    id: undefined,
-                    content: '',
-                    title: ''
-                },
-                codeMirror: {
-                    lineWrapping: true,
-                    mode: 'markdown'
-                }
+                pageIndex: 0,
+                delPage: undefined,
+                addEditPage: undefined
             };
-        },
-        computed: {
-            currentPage()
-            {
-                let page = _.find(this.notes.pages, { id: this.currentPageID });
-                return page || this.notes.pages[0];
-            },
-            newPageValid()
-            {
-                return !!this.newPage.title && !!this.newPage.content;
-            },
-            editPageValid()
-            {
-                return !!this.editPage.title && !!this.editPage.content;
-            }
-        },
-        methods: {
-            loadPage(page)
-            {
-                this.currentPageID = _.get(page, 'id');
-            },
-            reloadPage()
-            {
-                // We're tricking vue into thinking something changed.
-                // const id = this.currentPageID;
-                // this.currentPageID = id;
-            },
-            confirmDelete(page)
-            {
-                this.delPageID = page.id;
-                this.delPageTitle = page.title;
-                this.$refs.deleteNoteDialog.open();
-            },
-            async onConfirmDeleteClosed(result)
-            {
-                if(result === 'ok')
-                {
-                    const page = _.find(this.notes.pages, { id: this.delPageID });
-                    await noteMan.deletePage(this.notes, page);
-
-                    // Load a new page.
-                    if(this.delPageID === this.currentPageID)
-                    {
-                        this.loadPage(this.notes[0]);
-                    } // end if
-                } // end if
-
-                this.delPageID = undefined;
-                this.delPageTitle = undefined;
-            },
-
-            openNewDialog()
-            {
-                this.$refs.newPageDialog.open();
-            },
-            async closeNewDialog(save)
-            {
-                if(save)
-                {
-                    let page = { title: this.newPage.title, content: this.newPage.content };
-                    page = await noteMan.addPage(this.notes, page);
-                    this.loadPage(page);
-                } // end if
-
-                // Clear the new note
-                this.newPage.title = '';
-                this.newPage.content = '';
-
-                // Go ahead and close the modal
-                this.$refs.newPageDialog.close();
-            },
-            onNewDialogOpen()
-            {
-                setTimeout(() =>
-                {
-                    this.$refs.newCodeMirror.cm.refresh();
-                }, 500);
-            },
-
-            openEditDialog()
-            {
-                this.editPage.id = this.currentPage.id;
-                this.editPage.title = this.currentPage.title;
-                this.editPage.content = this.currentPage.content;
-                this.$refs.editPageDialog.open();
-            },
-            async closeEditDialog(save)
-            {
-                if(save)
-                {
-                    this.currentPage.title = this.editPage.title;
-                    this.currentPage.content = this.editPage.content;
-                    await noteMan.updatePage(this.notes, this.currentPage);
-                } // end if
-
-                // Clear the edit note
-                this.editPage.id = undefined;
-                this.editPage.title = '';
-                this.editPage.content = '';
-
-                // Go ahead and close the modal
-                this.$refs.editPageDialog.close();
-            },
-            onEditDialogOpen()
-            {
-                setTimeout(() =>
-                {
-                    this.$refs.editCodeMirror.cm.refresh();
-                }, 500);
-            }
-        },
-        mounted()
-        {
-            this.$watch('notes', () =>
-            {
-                if(this.notes)
-                {
-                    this.loadPage(this.notes.pages[0]);
-                } // end if
-            });
         }
     }
 </script>

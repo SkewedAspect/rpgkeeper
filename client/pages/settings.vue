@@ -3,39 +3,47 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="settings-page container text-center">
+    <div class="settings-page container pt-3">
 
         <!-- Loading -->
-        <md-progress v-if="status === 'unknown'" class="md-accent" md-indeterminate></md-progress>
+        <loading text="Account Loading..." v-if="status === 'unknown'"></loading>
 
         <!-- Once loaded -->
-        <div class="centered" v-else-if="status === 'signed in'">
-            <md-avatar class="md-xlarge">
-                <img :src="account.avatarUrl" :alt="account.name">
-            </md-avatar>
-            <h4 class="text-center">{{ account.email }}</h4>
+        <div v-else-if="status === 'signed in'">
 
-            <md-layout class="name-edit">
-                <md-layout>
-                    <md-input-container>
-                        <label>Display Name</label>
-                        <md-input placeholder="Display Name" v-model="account.name"></md-input>
-                    </md-input-container>
-                </md-layout>
-                <md-layout v-flex="'shrink'">
-                    <div>
-                        <md-button class="refresh-btn md-raised md-primary" @click.native="save()">Save</md-button>
-                    </div>
-                </md-layout>
-            </md-layout>
-            <md-card id="settings" style="flex: 1">
-                <md-toolbar class="md-dense">
-                    <h2 class="md-title">Settings</h2>
-                </md-toolbar>
-                <md-card-content style="flex: 1; padding-bottom: 0">
-                    <h3 class="text-center text-muted" style="margin-top: 0">Settings are not implemented.</h3>
-                </md-card-content>
-            </md-card>
+            <!-- Giant Avatar Picture of Doom -->
+            <div class="avatar-holder">
+                <b-img rounded="circle" width="128" height="128" :src="account.avatarUrl" :alt="account.name" class="m-1" center></b-img>
+                <h4 class="text-center">{{ account.email }}</h4>
+            </div>
+
+            <!-- Display Name setting -->
+            <b-form-row class="mb-4">
+                <b-col offset="1" cols="10" offset-md="3" md="6" offset-lg="4" lg="4">
+                    <b-input-group>
+                        <b-form-input v-model="account.name" placeholder="Display Name"></b-form-input>
+
+                        <b-input-group-append>
+                            <b-btn variant="primary" @click="save()">
+                                <fa icon="save"></fa>
+                                Set Name
+                            </b-btn>
+                        </b-input-group-append>
+                    </b-input-group>
+                </b-col>
+            </b-form-row>
+
+            <!-- Settings -->
+            <b-card header-bg-variant="dark" header-text-variant="white" class="drop-shadow">
+                <template slot="header">
+                    <h5 class="align-middle mt-2">
+                        <fa icon="sliders-h"></fa>
+                        Settings
+                    </h5>
+                </template>
+
+                <h4 class="text-center text-muted mb-0">Settings are not implemented.</h4>
+            </b-card>
         </div>
     </div>
 </template>
@@ -44,37 +52,6 @@
 
 <style lang="scss" scoped>
     .settings-page {
-        padding: 16px;
-
-        .name-edit {
-            margin: 0 auto;
-            width: 400px;
-            max-width: 100%;
-        }
-
-        .centered {
-            margin: 0 auto;
-
-            .md-avatar.md-xlarge {
-                width: 128px;
-                min-width: 128px;
-                height: 128px;
-                min-height: 128px;
-                border-radius: 128px;
-            }
-
-            .md-avatar.md-xlarge img, .md-avatar.md-xlarge .md-avatar-text {
-                width: 128px;
-                height: 128px;
-                text-align: center;
-                line-height: 128px;
-                font-size: 64px;
-            }
-        }
-
-        .text-muted {
-            color: #999;
-        }
     }
 </style>
 
@@ -86,10 +63,16 @@
     // Managers
     import authMan from '../api/managers/auth';
 
+    // Components
+    import Loading from '../components/ui/loading.vue';
+
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'SettingsPage',
+        components: {
+            Loading
+        },
         subscriptions: {
             account: authMan.account$,
             status: authMan.status$

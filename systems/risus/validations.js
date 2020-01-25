@@ -18,7 +18,7 @@ module.exports = {
                         value: { type: 'integer', min: 1 },
                         current: { type: 'integer', min: 0 },
                         description: { type: 'string', minLength: 1 },
-                        tools: { type: 'string', minLength: 1 },
+                        tools: { type: 'string' },
                     },
                     additionalProperties: false
                 }
