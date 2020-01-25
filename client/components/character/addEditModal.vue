@@ -109,24 +109,18 @@
                             </b-col>
                         </b-form-row>
                         <b-form-group
+                            id="char-campaign-group"
+                            description="A brief description of the campaign or RP this character is associated with."
+                            label="Campaign"
+                            label-for="char-campaign">
+                            <b-form-input id="char-campaign" v-model="char.campaign"></b-form-input>
+                        </b-form-group>
+                        <b-form-group
                             id="char-desc-group"
                             description="A brief description of your character. Could be physical or personality."
                             label="Description"
                             label-for="char-desc">
                             <b-form-input id="char-desc" v-model="char.description"></b-form-input>
-                        </b-form-group>
-                        <b-form-group
-                            id="char-bio-group"
-                            label="Biography"
-                            label-for="char-bio">
-                            <b-form-textarea id="char-bio"
-                                v-model="char.biography"
-                                :rows="3"
-                                :max-rows="6">
-                            </b-form-textarea>
-                            <template slot="description">
-                                Your character's backstory. <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank">Markdown</a> is supported.
-                            </template>
                         </b-form-group>
                     </b-col>
                 </b-form-row>

@@ -18,7 +18,7 @@ module.exports = {
         portrait: { type: [ 'string', 'null' ] },
         thumbnail: { type: 'string' },
         color: { type: 'string' },
-        biography: { type: 'string' },
+        campaign: { type: 'string', maxLength: 255 },
         note_id: { type: 'string', minLength: 1 },
         account_id: { type: 'string', minLength: 1 }
     }

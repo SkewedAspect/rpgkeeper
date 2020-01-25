@@ -26,7 +26,7 @@ class CharacterManager
         } // end if
 
         // Limit filters to only those properties we want you to be able to search by.
-        filters = _.pick(filters, 'system', 'description', 'portrait', 'thumbnail', 'color', 'biography', 'account_id');
+        filters = _.pick(filters, 'system', 'description', 'portrait', 'thumbnail', 'color', 'campaign', 'account_id');
 
         // Prefix filters with the right table.
         filters = _.transform(filters, (result, value, key) =>
