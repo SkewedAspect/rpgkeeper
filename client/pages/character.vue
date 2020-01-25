@@ -27,9 +27,12 @@
 
         <!-- Main Sheet Tabs -->
         <b-tabs v-else class="main-tabs" pills>
-            <template v-if="system" slot="tabs">
+            <template v-if="system" slot="tabs-start">
                 <li style="position: absolute; left: 18px; padding-top: 10px;">
-                    <h4 class="text-muted">{{ system.name }}</h4>
+                    <h4 class="text-muted">
+                        {{ system.name }}
+                        <fa v-if="saving" icon="save" class="flash text-success ml-2"></fa>
+                    </h4>
                 </li>
             </template>
             <b-tab active>
@@ -129,7 +132,8 @@
             eote: EoteCharacter
         },
         subscriptions: {
-            char: charMan.selected$
+            char: charMan.selected$,
+            saving: charMan.saving$
         },
         data()
         {

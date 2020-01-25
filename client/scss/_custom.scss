@@ -46,6 +46,22 @@ hr.fancy {
 
 //----------------------------------------------------------------------------------------------------------------------
 
+.flash {
+    animation: flash linear 3s infinite;
+}
+@-webkit-keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0.1; }
+    100% { opacity: 1; }
+}
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0.1; }
+    100% { opacity: 1; }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
 // Fix modals
 .modal-content {
     overflow: hidden;
