@@ -4,7 +4,7 @@
 
 <template>
     <footer id="site-footer" class="container text-center">
-        <hr>
+        <hr class="fancy">
         <ul>
             <li>
                 <router-link to="/about">
@@ -44,12 +44,6 @@
     #site-footer {
         color: #aaa;
         font-size: 12px;
-
-        hr {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(180, 180, 180, 0.75), rgba(0, 0, 0, 0));
-        }
 
         ul {
             padding-left: 0;
