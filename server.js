@@ -79,10 +79,10 @@ async function main()
     app.use(routeUtils.requestLogger(logger));
 
     // Auth support
-    app.use(cookieParser());
+    app.use(cookieParser()); // lgtm [js/missing-token-validation]
     app.use(bodyParser.json());
 
-    app.use(session({
+    app.use(session({ // lgtm [js/missing-token-validation]
         secret: config.secret,
         key: config.key,
         resave: false,
