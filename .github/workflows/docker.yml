@@ -1,4 +1,4 @@
-name: Publish Docker
+name: docker
 
 on: [push]
 
@@ -23,16 +23,16 @@ jobs:
 
       - name: Build image
         if: success()
-        run: docker build -t ${IMAGE_NAME}:latest -t ${IMAGE_NAME}:${IMAGE_TAG} .
+        run: docker build -t ${{ github.repository }}:latest -t ${{ github.repository }}:${IMAGE_TAG} .
 
-      - name: Push to docker registry
+      - name: Push to docker registry (latest)
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: push ${GITHUB_REPOSITORY}:latest
+          args: push ${{ github.repository }}:latest
           
-      - name: Push to docker registry
+      - name: Push to docker registry (${IMAGE_TAG})
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: push ${GITHUB_REPOSITORY}:${IMAGE_TAG}
+          args: push ${{ github.repository }}:${IMAGE_TAG}
