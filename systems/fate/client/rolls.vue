@@ -4,11 +4,12 @@
 
 <template>
     <rpgk-card id="rolls" icon="dice" title="Rolls" fill>
-
         <!-- Select a skill -->
         <b-form-select v-model="skill" :options="sortedSkills" text-field="display" value-field="name" :disabled="readonly">
             <template slot="first">
-                <option value="No Skill">No Skill</option>
+                <option value="No Skill">
+                    No Skill
+                </option>
             </template>
         </b-form-select>
 
@@ -17,17 +18,20 @@
             <ul class="list-unstyled">
                 <li v-for="(item, index) in rolls" :key="index">
                     <div>{{ item.display }}</div>
-                    <div class="text-muted"><small>{{ item.name }}</small></div></li>
+                    <div class="text-muted">
+                        <small>{{ item.name }}</small>
+                    </div>
+                </li>
             </ul>
         </div>
 
         <!-- Roll Buttons -->
         <div class="text-right">
-            <b-btn @click="clearRolls()" :disabled="readonly">
+            <b-btn :disabled="readonly" @click="clearRolls()">
                 <fa icon="times"></fa>
                 Clear
             </b-btn>
-            <b-btn variant="primary" class="ml-1" @click="roll()" :disabled="readonly">
+            <b-btn variant="primary" class="ml-1" :disabled="readonly" @click="roll()">
                 <fa icon="dice"></fa>
                 Roll
             </b-btn>
@@ -76,11 +80,18 @@
                 default: false
             }
         },
+        data()
+        {
+            return {
+                skill: 'No Skill',
+                rolls: []
+            };
+        },
         computed: {
             sortedSkills()
             {
                 return _(this.skills)
-                    .orderBy(['rank', 'name'], ['desc', 'asc'])
+                    .orderBy([ 'rank', 'name' ], [ 'desc', 'asc' ])
                     .map(({ name, rank }) =>
                     {
                         return {
@@ -111,15 +122,8 @@
                 this.rolls = [];
                 this.dice = null;
             }
-        },
-        data()
-        {
-            return {
-                skill: 'No Skill',
-                rolls: [],
-            };
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

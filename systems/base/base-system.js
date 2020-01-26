@@ -20,13 +20,13 @@ class BaseSystem
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get id(){ return this._id; }
-    get name(){ return this._name; }
-    get description(){ return this._description; }
-    get router(){ return this._router; }
-    get disabled(){ return this._disabled; }
-    get schema(){ return this._schema; }
-    get defaults(){ return this._defaults; }
+    get id() { return this._id; }
+    get name() { return this._name; }
+    get description() { return this._description; }
+    get router() { return this._router; }
+    get disabled() { return this._disabled; }
+    get schema() { return this._schema; }
+    get defaults() { return this._defaults; }
 
     //------------------------------------------------------------------------------------------------------------------
     // API

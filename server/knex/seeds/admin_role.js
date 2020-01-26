@@ -6,7 +6,7 @@ const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.seed = async (knex) =>
+exports.seed = async(knex) =>
 {
     try
     {
@@ -37,7 +37,7 @@ exports.seed = async (knex) =>
                 role_id: 1
             });
     }
-    catch(error)
+    catch (error)
     {
         logger.warn('Error running seed:', error);
     } // end try/catch

@@ -3,16 +3,17 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="edit-extras-modal" v-if="character">
-        <b-modal ref="modal"
+    <div v-if="character" class="edit-extras-modal">
+        <b-modal
+            ref="modal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown">
-
+            @shown="onShown"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
@@ -23,7 +24,8 @@
             <b-form-group
                 id="extras-input-group"
                 label="Extras"
-                label-for="extras-input">
+                label-for="extras-input"
+            >
                 <b-card class="overflow-hidden" no-body>
                     <codemirror ref="editor" v-model="extras" :options="{ lineNumbers: true }"></codemirror>
                 </b-card>
@@ -67,6 +69,12 @@
         subscriptions: {
             character: charMan.selected$
         },
+        data()
+        {
+            return {
+                extras: ''
+            };
+        },
         methods: {
             async onSave()
             {
@@ -98,14 +106,8 @@
             {
                 this.$refs.modal.hide();
             }
-        },
-        data()
-        {
-            return {
-                extras: ''
-            }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -20,13 +20,13 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Components
-    import PortraitComponent from '../../../client/components/character/portrait.vue';
+    // import PortraitComponent from '../../../client/components/character/portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         components: {
-            portrait: PortraitComponent,
+            // portrait: PortraitComponent
         },
         data()
         {
@@ -34,7 +34,7 @@
                 // Data goes here
             };
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

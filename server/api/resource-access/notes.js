@@ -96,13 +96,13 @@ class NotesResourceAccess
         const [ note_id ] = await db('note').insert({ hash_id });
 
         // Add pages, if there are any
-        const pagePromises = pages.map(async (page) =>
+        const pagePromises = pages.map(async(page) =>
         {
             // We set the page to be the note we just created.
             page.note_id = note_id;
 
             // Add the page
-            return await this.addPage(page);
+            return this.addPage(page);
         });
 
         // Wait for the pages to be added

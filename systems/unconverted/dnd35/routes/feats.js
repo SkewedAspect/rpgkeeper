@@ -11,15 +11,15 @@ import models from '../models';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var logger = logging.loggerFor(module);
+const logger = logging.loggerFor(module);
 
-var router = express.Router();
+const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Feats Endpoint
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', function(req, resp)
+router.get('/', (req, resp) => 
 {
     return models.Feat.all()
         .then((feats) =>
@@ -31,18 +31,18 @@ router.get('/', function(req, resp)
             logger.warn('Feat not found:\n', error.stack);
 
             resp.status(404).json({
-                human: "Feat not found.",
+                human: 'Feat not found.',
                 message: error.message
             });
         })
-        .catch(function(err)
+        .catch((err) => 
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });
         });
 });
 
-router.get('/:featID', function(req, resp)
+router.get('/:featID', (req, resp) => 
 {
     return models.Feat.get(req.params.featID)
         .then((feat) =>
@@ -54,11 +54,11 @@ router.get('/:featID', function(req, resp)
             logger.warn('Feat not found:\n', error.stack);
 
             resp.status(404).json({
-                human: "Feat not found.",
+                human: 'Feat not found.',
                 message: error.message
             });
         })
-        .catch(function(err)
+        .catch((err) => 
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });

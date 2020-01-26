@@ -10,9 +10,6 @@ const notesMan = require('./notes');
 // Resource Access
 const characterRA = require('../resource-access/character');
 
-// Logger
-const logger = require('trivial-logging').loggerFor(module);
-
 //----------------------------------------------------------------------------------------------------------------------
 
 class CharacterManager
@@ -35,12 +32,12 @@ class CharacterManager
             return result;
         }, {});
 
-        return await characterRA.getCharacters(filters, includeDetails);
+        return characterRA.getCharacters(filters, includeDetails);
     } // end getCharacters
 
     async getCharacter(id, includeDetails = true)
     {
-        return await characterRA.getCharacter(id, includeDetails);
+        return characterRA.getCharacter(id, includeDetails);
     } // getCharacterByHash
 
     async createCharacter(character)
@@ -49,13 +46,13 @@ class CharacterManager
         const { note_id } = await notesMan.createNote();
         character.note_id = note_id;
 
-        return await this.getCharacter(await characterRA.addCharacter(character));
+        return this.getCharacter(await characterRA.addCharacter(character));
     } // end createCharacter
 
     async updateCharacter(character)
     {
         const characterID = await characterRA.updateCharacter(character);
-        return await characterRA.getCharacter(characterID, true);
+        return characterRA.getCharacter(characterID, true);
     } // end updateCharacter
 
     async deleteCharacter(characterID)

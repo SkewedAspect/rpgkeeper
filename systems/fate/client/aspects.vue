@@ -9,8 +9,8 @@
                 <fa class="mr-1" icon="fist-raised"></fa>
                 <span class="d-none d-md-inline">Aspects</span>
             </h5>
-            <div class="ml-auto" v-if="!readonly">
-                <b-btn @click="openEditModal()" size="sm" style="margin-bottom: 1px;">
+            <div v-if="!readonly" class="ml-auto">
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                     <fa icon="edit" fixed-width></fa>
                     <span class="d-none d-md-inline">Edit</span>
                 </b-btn>
@@ -19,7 +19,6 @@
 
         <!-- Content -->
         <table class="table table-bordered mb-0 font-sm">
-
             <!-- High Concept -->
             <tr>
                 <td class="text-nowrap">
@@ -41,7 +40,7 @@
             </tr>
 
             <!-- Extra Concepts -->
-            <tr v-for="aspect in extraAspects">
+            <tr v-for="(aspect, index) in extraAspects" :key="index">
                 <td colspan="2">
                     {{ aspect.detail }}
                 </td>
@@ -109,12 +108,12 @@
         },
         computed: {
             aspects: {
-                get(){ return this.value },
-                set(val){ this.$emit('input', val); }
+                get() { return this.value; },
+                set(val) { this.$emit('input', val); }
             },
-            highConcept(){ return _.find(this.aspects, { type: 'high concept' }) || { detail: '' }; },
-            trouble(){ return _.find(this.aspects, { type: 'trouble' }) || { detail: '' }; },
-            extraAspects(){ return _.filter(this.aspects, { type: 'aspect' }); }
+            highConcept() { return _.find(this.aspects, { type: 'high concept' }) || { detail: '' }; },
+            trouble() { return _.find(this.aspects, { type: 'trouble' }) || { detail: '' }; },
+            extraAspects() { return _.filter(this.aspects, { type: 'aspect' }); }
         },
         methods: {
             openEditModal()
@@ -122,7 +121,7 @@
                 this.$refs.editModal.show();
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

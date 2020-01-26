@@ -104,7 +104,7 @@ async function main()
     if(config.overrideAuth)
     {
         // Middleware to skip authentication, for testing with postman, or unit tests.
-        app.use(routeUtils.wrapAsync(async(req, resp, next) => 
+        app.use(routeUtils.wrapAsync(async(req, resp, next) =>
         {
             let account = app.get('user');
 
@@ -139,13 +139,13 @@ async function main()
     app.use('/news', newsRouter);
 
     // Serve index.html for any html requests, but 404 everything else.
-    app.get('*', (request, response) => 
+    app.get('*', (request, response) =>
     {
         response.format({
             html: routeUtils.serveIndex,
-            json: (request, response) =>
+            json: (req, resp) =>
             {
-                response.status(404).end();
+                resp.status(404).end();
             }
         });
     });

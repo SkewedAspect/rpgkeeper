@@ -2,7 +2,7 @@
 // Initial Setup Migration
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.up = async (knex) =>
+exports.up = async(knex) =>
 {
     // Add a new column to the table
     await knex.schema.table('character', (table) =>
@@ -13,13 +13,13 @@ exports.up = async (knex) =>
     // Copy from description to campaign
     await knex('character')
         .update({
-            campaign: knex.raw('??', ['description'])
+            campaign: knex.raw('??', [ 'description' ])
         });
 
     // Copy from biography to description
     await knex('character')
         .update({
-            description: knex.raw('??', ['biography'])
+            description: knex.raw('??', [ 'biography' ])
         });
 
     // Drop biography column
@@ -31,7 +31,7 @@ exports.up = async (knex) =>
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.down = async (knex) =>
+exports.down = async(knex) =>
 {
     // Add a new column to the table
     await knex.schema.table('character', (table) =>
@@ -42,13 +42,13 @@ exports.down = async (knex) =>
     // Copy from campaign to description
     await knex('character')
         .update({
-            description: knex.raw('??', ['campaign'])
+            description: knex.raw('??', [ 'campaign' ])
         });
 
     // Copy from description to biography
     await knex('character')
         .update({
-            biography: knex.raw('??', ['description'])
+            biography: knex.raw('??', [ 'description' ])
         });
 
     // Drop campaign column

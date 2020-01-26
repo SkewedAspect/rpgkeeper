@@ -4,9 +4,8 @@
 
 <template>
     <rpgk-card id="rolls" icon="dice" title="Rolls" fill>
-
         <b-input-group append="D6">
-            <b-form-input type="number" min="0" max="999" step="1" v-model.number="dice" :disabled="readonly"></b-form-input>
+            <b-form-input v-model.number="dice" type="number" min="0" max="999" step="1" :disabled="readonly"></b-form-input>
         </b-input-group>
 
         <!-- Roll History -->
@@ -23,11 +22,11 @@
 
         <!-- Roll Buttons -->
         <div v-if="!readonly" class="text-right">
-            <b-btn @click="clearRolls()" :disabled="readonly">
+            <b-btn :disabled="readonly" @click="clearRolls()">
                 <fa icon="times"></fa>
                 Clear
             </b-btn>
-            <b-btn variant="primary" class="ml-1" @click="roll(dice)" :disabled="readonly || !dice">
+            <b-btn variant="primary" class="ml-1" :disabled="readonly || !dice" @click="roll(dice)">
                 <fa icon="dice"></fa>
                 Roll
             </b-btn>
@@ -51,8 +50,6 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-
     // Utils
     import diceUtil from '../../../client/api/utils/dice';
 
@@ -72,6 +69,13 @@
                 default: false
             }
         },
+        data()
+        {
+            return {
+                dice: null,
+                rolls: []
+            };
+        },
         methods: {
             roll(dice, rollName)
             {
@@ -87,15 +91,8 @@
                 this.rolls = [];
                 this.dice = null;
             }
-        },
-        data()
-        {
-            return {
-                dice: null,
-                rolls: [],
-            };
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

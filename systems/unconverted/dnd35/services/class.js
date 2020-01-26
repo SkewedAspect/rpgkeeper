@@ -8,7 +8,8 @@ import $http from 'axios';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class ClassService {
+class ClassService 
+{
     constructor()
     {
         this._classes = {};
@@ -16,7 +17,7 @@ class ClassService {
 
     get(classID, reload)
     {
-        var classObj = this._classes[classID];
+        const classObj = this._classes[classID];
         if(reload || !classObj)
         {
             return $http.get(`/systems/dnd35/classes/${ classID }`)

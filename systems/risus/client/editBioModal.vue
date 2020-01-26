@@ -3,16 +3,17 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="edit-bio-modal" v-if="character">
-        <b-modal v-model="showModal"
+    <div v-if="character" class="edit-bio-modal">
+        <b-modal
+            v-model="showModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown">
-
+            @shown="onShown"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
@@ -23,13 +24,15 @@
             <b-form-group
                 id="name-input-group"
                 label="Name"
-                label-for="name-input">
+                label-for="name-input"
+            >
                 <b-form-input id="name-input" v-model="character.name"></b-form-input>
             </b-form-group>
             <b-form-group
                 id="desc-input-group"
                 label="Description"
-                label-for="desc-input">
+                label-for="desc-input"
+            >
                 <b-card class="overflow-hidden" no-body>
                     <codemirror ref="editor" v-model="character.description"></codemirror>
                 </b-card>
@@ -76,14 +79,15 @@
                 default: false
             },
             character: {
-                type: Object
+                type: Object,
+                default: undefined
             }
         },
         computed: {
             showModal: {
-                get(){ return this.value; },
-                set(val){ this.$emit('input', val); }
-            },
+                get() { return this.value; },
+                set(val) { this.$emit('input', val); }
+            }
         },
         methods: {
             onSave()
@@ -103,7 +107,7 @@
                 });
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

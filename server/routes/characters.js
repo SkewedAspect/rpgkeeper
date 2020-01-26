@@ -26,7 +26,7 @@ const router = express.Router();
 
 router.get('/', async(req, resp) =>
 {
-    interceptHTML(resp, async () =>
+    interceptHTML(resp, async() =>
     {
         const includeDetails = req.isAuthenticated() && _.get(req, 'query.details', 'false').toLowerCase() === 'true';
 
@@ -43,7 +43,7 @@ router.get('/', async(req, resp) =>
     });
 });
 
-router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async (req, resp) =>
+router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async(req, resp) =>
 {
     const char = req.body;
 
@@ -55,14 +55,14 @@ router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async (req, re
 
 router.get('/:charID', (req, resp) =>
 {
-    interceptHTML(resp, async () =>
+    interceptHTML(resp, async() =>
     {
         const characters = await charMan.getCharacter(req.params.charID);
         resp.json(characters);
     });
 });
 
-router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(async (req, resp) =>
+router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(async(req, resp) =>
 {
     // First, retrieve the character
     const char = await charMan.getCharacter(req.params.charID);
@@ -88,7 +88,7 @@ router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(as
     } // end if
 }));
 
-router.delete('/:charID', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     let char;
     try
@@ -96,7 +96,7 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async (req, resp) =>
         // First, retrieve the character
         char = await charMan.getCharacter(req.params.charID);
     }
-    catch(error)
+    catch (error)
     {
         // If we can't find the character, we need to emulate the behavior of the other delete endpoints, and return a
         // 404 with no body. While this isn't technically necessary, I'd prefer the API to remain consistent.

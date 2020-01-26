@@ -3,16 +3,17 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="edit-identity-modal" v-if="character">
-        <b-modal v-model="showModal"
+    <div v-if="character" class="edit-identity-modal">
+        <b-modal
+            v-model="showModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown">
-
+            @shown="onShown"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
@@ -23,13 +24,15 @@
             <b-form-group
                 id="name-input-group"
                 label="Name"
-                label-for="name-input">
+                label-for="name-input"
+            >
                 <b-form-input id="name-input" v-model="character.name"></b-form-input>
             </b-form-group>
             <b-form-group
                 id="desc-input-group"
                 label="Description"
-                label-for="desc-input">
+                label-for="desc-input"
+            >
                 <b-card class="overflow-hidden" no-body>
                     <codemirror ref="editor" v-model="character.description"></codemirror>
                 </b-card>
@@ -37,8 +40,9 @@
             <b-form-group
                 id="fp-input-group"
                 label="Fate Refresh"
-                label-for="fp-input">
-                <b-form-input id="fp-input" type="number" v-model.number="character.details.fatePoints.refresh" min="0" step="1"></b-form-input>
+                label-for="fp-input"
+            >
+                <b-form-input id="fp-input" v-model.number="character.details.fatePoints.refresh" type="number" min="0" step="1"></b-form-input>
             </b-form-group>
 
             <!-- Modal Buttons -->
@@ -82,14 +86,15 @@
                 default: false
             },
             character: {
-                type: Object
+                type: Object,
+                default: undefined
             }
         },
         computed: {
             showModal: {
-                get(){ return this.value; },
-                set(val){ this.$emit('input', val); }
-            },
+                get() { return this.value; },
+                set(val) { this.$emit('input', val); }
+            }
         },
         methods: {
             onSave()
@@ -109,7 +114,7 @@
                 });
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

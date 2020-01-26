@@ -3,16 +3,17 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="edit-consequences-modal" v-if="character">
-        <b-modal ref="modal"
+    <div v-if="character" class="edit-consequences-modal">
+        <b-modal
+            ref="modal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown">
-
+            @shown="onShown"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
@@ -24,7 +25,8 @@
                 id="mild-consequence-1"
                 label="Mild Consequence (2)"
                 label-class="font-weight-bold"
-                label-for="mc-input-1">
+                label-for="mc-input-1"
+            >
                 <div class="d-flex">
                     <b-input-group>
                         <b-form-input id="mc-input-1" v-model="mildDetail1"></b-form-input>
@@ -45,7 +47,8 @@
                 id="mild-consequence-2"
                 :label="`Mild Consequence (2, ${ extraMildType })`"
                 label-class="font-weight-bold"
-                label-for="mc-input-2">
+                label-for="mc-input-2"
+            >
                 <div class="d-flex">
                     <b-input-group>
                         <b-form-input id="mc-input-2" v-model="mildDetail2"></b-form-input>
@@ -65,7 +68,8 @@
                 id="moderate-consequence"
                 label="Moderate Consequence (4)"
                 label-class="font-weight-bold"
-                label-for="mc-input">
+                label-for="mc-input"
+            >
                 <div class="d-flex">
                     <b-input-group>
                         <b-form-input id="mc-input" v-model="moderateDetail"></b-form-input>
@@ -85,7 +89,8 @@
                 id="severe-consequence"
                 label="Severe Consequence (6)"
                 label-class="font-weight-bold"
-                label-for="sc-input">
+                label-for="sc-input"
+            >
                 <div class="d-flex">
                     <b-input-group>
                         <b-form-input id="sc-input" v-model="severeDetail"></b-form-input>
@@ -137,19 +142,32 @@
     export default {
         name: 'EditConsequenceModal',
         subscriptions: {
-            character: charMan.selected$,
+            character: charMan.selected$
+        },
+        data()
+        {
+            return {
+                mildDetail1: '',
+                mildDetail2: '',
+                moderateDetail: '',
+                severeDetail: '',
+                mildHealing1: false,
+                mildHealing2: false,
+                moderateHealing: false,
+                severeHealing: false
+            };
         },
         computed: {
-            hasExtraMild(){ return this.extraMildType !== 'none'; },
-            consequences(){ return _.filter(this.character.details.aspects, { type: 'consequence' }); },
-            mildConsequence1(){ return _.filter(this.consequences, { value: 2 })[0] || { type: 'consequence', detail: "", healing: false, value: 2 }; },
-            mildConsequence2(){ return _.filter(this.consequences, { value: 2 })[1] || { type: 'consequence', detail: "", healing: false, value: 2 }; },
-            moderateConsequence(){ return _.filter(this.consequences, { value: 4 })[0] || { type: 'consequence', detail: "", healing: false, value: 4 }; },
-            severeConsequence(){ return _.filter(this.consequences, { value: 6 })[0] || { type: 'consequence', detail: "", healing: false, value: 6 }; },
+            hasExtraMild() { return this.extraMildType !== 'none'; },
+            consequences() { return _.filter(this.character.details.aspects, { type: 'consequence' }); },
+            mildConsequence1() { return _.filter(this.consequences, { value: 2 })[0] || { type: 'consequence', detail: '', healing: false, value: 2 }; },
+            mildConsequence2() { return _.filter(this.consequences, { value: 2 })[1] || { type: 'consequence', detail: '', healing: false, value: 2 }; },
+            moderateConsequence() { return _.filter(this.consequences, { value: 4 })[0] || { type: 'consequence', detail: '', healing: false, value: 4 }; },
+            severeConsequence() { return _.filter(this.consequences, { value: 6 })[0] || { type: 'consequence', detail: '', healing: false, value: 6 }; },
             extraMildType()
             {
-                const will = _.find(this.character.details.skills, { name: "Will" });
-                const physique = _.find(this.character.details.skills, { name: "Physique" });
+                const will = _.find(this.character.details.skills, { name: 'Will' });
+                const physique = _.find(this.character.details.skills, { name: 'Physique' });
 
                 if((physique && physique.rank >= 5) && (will && will.rank >= 5))
                 {
@@ -211,21 +229,8 @@
             {
                 this.$refs.modal.hide();
             }
-        },
-        data()
-        {
-            return {
-                mildDetail1: "",
-                mildDetail2: "",
-                moderateDetail: "",
-                severeDetail: "",
-                mildHealing1: false,
-                mildHealing2: false,
-                moderateHealing: false,
-                severeHealing: false
-            }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

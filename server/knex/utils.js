@@ -7,16 +7,24 @@ const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ * Applies postgres-like filters to a query.
+ *
+ * @param {*} query - A knex query
+ * @param {Array<*>} filters - A list of filters.
+ *
+ * @returns {*} Returns the modified query.
+ */
 function applyFilters(query, filters)
 {
     if(filters && !_.isEmpty(filters))
     {
         _.forIn(filters, (token, key) =>
         {
-            switch(token.operation)
+            switch (token.operation)
             {
                 case '@>':
-                    return _.isArray(token.value) ? query.whereIn(key, token.value) : query.where(key, 'LIKE', `%${ token.value }%` );
+                    return _.isArray(token.value) ? query.whereIn(key, token.value) : query.where(key, 'LIKE', `%${ token.value }%`);
 
                 case '>=':
                 case '>':

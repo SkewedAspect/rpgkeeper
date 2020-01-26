@@ -4,15 +4,14 @@
 
 <template>
     <rpgk-card id="risus-bio-block" :class="{ readonly: readonly }" fill>
-
         <!-- Header -->
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                 <fa class="mr-1" icon="address-card"></fa>
                 <span class="d-none d-md-inline">Bio</span>
             </h5>
-            <div class="ml-auto" v-if="!readonly">
-                <b-btn @click="openEditModal()" size="sm" style="margin-bottom: 1px;">
+            <div v-if="!readonly" class="ml-auto">
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                     <fa icon="edit" fixed-width></fa>
                     <span class="d-none d-md-inline">Edit</span>
                 </b-btn>
@@ -23,13 +22,15 @@
         <b-form-group
             id="name-input-group"
             label="Name"
-            label-class="font-weight-bold">
+            label-class="font-weight-bold"
+        >
             <h5>{{ character.name }}</h5>
         </b-form-group>
         <b-form-group
             id="desc-input-group"
             label="Description"
-            label-class="font-weight-bold">
+            label-class="font-weight-bold"
+        >
             <markdown class="font-sm" :text="description" inline></markdown>
         </b-form-group>
         <b-form-row>
@@ -37,15 +38,17 @@
                 <b-form-group
                     id="adv-input-group"
                     label="Advancement Points"
-                    label-class="font-weight-bold">
+                    label-class="font-weight-bold"
+                >
                     <b-form-input
+                        v-model.number="character.details.advancementPoints"
                         type="number"
                         min="0"
                         max="9999"
                         step="1"
-                        v-model.number="character.details.advancementPoints"
                         :disabled="readonly"
-                        @change="onChange">
+                        @change="onChange"
+                    >
                     </b-form-input>
                 </b-form-group>
             </b-col>
@@ -53,15 +56,17 @@
                 <b-form-group
                     id="ffd-input-group"
                     label="Fire and Forget Dice"
-                    label-class="font-weight-bold">
+                    label-class="font-weight-bold"
+                >
                     <b-form-input
+                        v-model.number="character.details.ffDice"
                         type="number"
                         min="0"
                         max="9999"
                         step="1"
-                        v-model.number="character.details.ffDice"
                         :disabled="readonly"
-                        @change="onChange">
+                        @change="onChange"
+                    >
                     </b-form-input>
                 </b-form-group>
             </b-col>
@@ -69,7 +74,8 @@
         <b-form-group
             id="lucky-input-group"
             label="Lucky Shots"
-            label-class="font-weight-bold">
+            label-class="font-weight-bold"
+        >
             <pool name="Lucky Shots" :pool="character.details.luckyShots" :disabled="readonly"></pool>
         </b-form-group>
 
@@ -125,6 +131,12 @@
                 default: false
             }
         },
+        data()
+        {
+            return {
+                showEdit: false
+            };
+        },
         computed: {
             description()
             {
@@ -144,14 +156,8 @@
             {
                 this.showEdit = true;
             }
-        },
-        data()
-        {
-            return {
-                showEdit: false
-            };
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

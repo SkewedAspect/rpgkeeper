@@ -9,8 +9,8 @@
                 <fa class="mr-1" icon="skull-crossbones"></fa>
                 <span class="d-none d-md-inline">Consequences</span>
             </h5>
-            <div class="ml-auto" v-if="!readonly">
-                <b-btn @click="openEdit()" size="sm" style="margin-bottom: 1px;">
+            <div v-if="!readonly" class="ml-auto">
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEdit()">
                     <fa icon="edit" fixed-width></fa>
                     <span class="d-none d-md-inline">Edit</span>
                 </b-btn>
@@ -28,14 +28,14 @@
                         {{ mildConsequence1.detail }}
                         <small v-if="mildConsequence1.healing"><i>(Healing)</i></small>
                     </span>
-                    <span class="text-muted" v-else>Mild</span>
+                    <span v-else class="text-muted">Mild</span>
                 </td>
-                <td style="min-width: 80px" v-if="hasExtraMild">
+                <td v-if="hasExtraMild" style="min-width: 80px">
                     <span v-if="mildConsequence2.detail">
                         {{ mildConsequence2.detail }}
                         <small v-if="mildConsequence2.healing"><i>(Healing)</i></small>
                     </span>
-                    <span class="text-muted" v-else>Mild ({{ extraMildType }})</span>
+                    <span v-else class="text-muted">Mild ({{ extraMildType }})</span>
                 </td>
             </tr>
             <tr>
@@ -47,7 +47,7 @@
                         {{ moderateConsequence.detail }}
                         <small v-if="moderateConsequence.healing"><i>(Healing)</i></small>
                     </span>
-                    <span class="text-muted" v-else>Moderate</span>
+                    <span v-else class="text-muted">Moderate</span>
                 </td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@
                         {{ severeConsequence.detail }}
                         <small v-if="severeConsequence.healing"><i>(Healing)</i></small>
                     </span>
-                    <span class="text-muted" v-else>Severe</span>
+                    <span v-else class="text-muted">Severe</span>
                 </td>
             </tr>
         </table>
@@ -106,16 +106,16 @@
             }
         },
         computed: {
-            hasExtraMild(){ return this.extraMildType !== 'none'; },
-            consequences(){ return _.filter(this.character.details.aspects, { type: 'consequence' }); },
-            mildConsequence1(){ return _.filter(this.consequences, { value: 2 })[0] || { detail: "", healing: false, value: 2 }; },
-            mildConsequence2(){ return _.filter(this.consequences, { value: 2 })[1] || { detail: "", healing: false, value: 2 }; },
-            moderateConsequence(){ return _.filter(this.consequences, { value: 4 })[0] || { detail: "", healing: false, value: 4 }; },
-            severeConsequence(){ return _.filter(this.consequences, { value: 6 })[0] || { detail: "", healing: false, value: 6 }; },
+            hasExtraMild() { return this.extraMildType !== 'none'; },
+            consequences() { return _.filter(this.character.details.aspects, { type: 'consequence' }); },
+            mildConsequence1() { return _.filter(this.consequences, { value: 2 })[0] || { detail: '', healing: false, value: 2 }; },
+            mildConsequence2() { return _.filter(this.consequences, { value: 2 })[1] || { detail: '', healing: false, value: 2 }; },
+            moderateConsequence() { return _.filter(this.consequences, { value: 4 })[0] || { detail: '', healing: false, value: 4 }; },
+            severeConsequence() { return _.filter(this.consequences, { value: 6 })[0] || { detail: '', healing: false, value: 6 }; },
             extraMildType()
             {
-                const will = _.find(this.character.details.skills, { name: "Will" });
-                const physique = _.find(this.character.details.skills, { name: "Physique" });
+                const will = _.find(this.character.details.skills, { name: 'Will' });
+                const physique = _.find(this.character.details.skills, { name: 'Physique' });
 
                 if((physique && physique.rank >= 5) && (will && will.rank >= 5))
                 {
@@ -148,7 +148,7 @@
                 this.$refs.editModal.show();
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

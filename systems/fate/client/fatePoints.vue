@@ -5,13 +5,13 @@
 <template>
     <div class="d-flex flex-nowrap">
         <b-input-group class="fate-points mr-2">
-            <b-form-input type="number" min="0" step="1" v-model.number="current" @change="onChange" :readonly="readonly"></b-form-input>
+            <b-form-input v-model.number="current" type="number" min="0" step="1" :readonly="readonly" @change="onChange"></b-form-input>
             <b-input-group-text slot="append">
                 / &nbsp;
                 <b>{{ refresh }}</b>
             </b-input-group-text>
         </b-input-group>
-        <b-btn variant="primary" class="text-nowrap" @click="refreshFatePoints()" :disabled="readonly">
+        <b-btn variant="primary" class="text-nowrap" :disabled="readonly" @click="refreshFatePoints()">
             <fa icon="redo"></fa>
             Refresh
         </b-btn>
@@ -53,8 +53,8 @@
         },
         computed: {
             current: {
-                get(){ return this.value || 0; },
-                set(val){ this.$emit('input', val) }
+                get() { return this.value || 0; },
+                set(val) { this.$emit('input', val); }
             }
         },
         methods: {
@@ -71,7 +71,7 @@
                 return charMan.save(charMan.selected);
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

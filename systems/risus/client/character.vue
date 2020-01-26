@@ -37,7 +37,6 @@
     // Components
     import BioComponent from './bio.vue';
     import RollsComponent from './rolls.vue';
-    import PoolComponent from '../../../client/components/character/pool.vue';
     import PortraitComponent from '../../../client/components/character/portrait.vue';
     import ClichesComponent from './cliches.vue';
     import HooksComponent from './hooks.vue';
@@ -48,7 +47,6 @@
         components: {
             bio: BioComponent,
             rolls: RollsComponent,
-            pool: PoolComponent,
             portrait: PortraitComponent,
             cliches: ClichesComponent,
             hooks: HooksComponent
@@ -58,7 +56,7 @@
             character: charMan.selected$
         },
         computed: {
-            isAuthorized(){ return _.get(this.account, 'id', 'nope!') === this.character.account_id; },
+            isAuthorized() { return _.get(this.account, 'id', 'nope!') === this.character.account_id; },
             cliches()
             {
                 return _.sortBy(this.character.cliches, 'value').reverse();
@@ -74,7 +72,7 @@
                 this.$refs.roller.roll(dice, name);
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

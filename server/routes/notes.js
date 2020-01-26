@@ -2,7 +2,6 @@
 // Routes for Notes
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
 const express = require('express');
 
 const { errorHandler, ensureAuthenticated, wrapAsync } = require('./utils');
@@ -19,23 +18,23 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', wrapAsync(async (req, resp) =>
+router.get('/', wrapAsync(async(req, resp) =>
 {
     resp.json(await noteMan.getNotes());
 }));
 
-router.post('/', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.post('/', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     const pages = req.body.pages;
     resp.json(await noteMan.createNote(pages));
 }));
 
-router.get('/:noteID', wrapAsync(async (req, resp) =>
+router.get('/:noteID', wrapAsync(async(req, resp) =>
 {
     resp.json(await noteMan.getNote(req.params.noteID));
 }));
 
-router.post('/:noteID/pages', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.post('/:noteID/pages', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     const page = req.body;
 
@@ -50,7 +49,7 @@ router.post('/:noteID/pages', ensureAuthenticated, wrapAsync(async (req, resp) =
     resp.json(await noteMan.addPage(page));
 }));
 
-router.patch('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.patch('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     const page = req.body;
 
@@ -64,12 +63,12 @@ router.patch('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async (req
     resp.json(await noteMan.updatePage(page));
 }));
 
-router.delete('/:noteID', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.delete('/:noteID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     resp.json(await noteMan.deleteNote(req.params.noteID));
 }));
 
-router.delete('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.delete('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     // FIXME: We need to check that `pageID` is associated with `noteID`.
     resp.json(await noteMan.deletePage(req.params.pageID));

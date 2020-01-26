@@ -8,7 +8,8 @@ import $http from 'axios';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class RaceService {
+class RaceService 
+{
     constructor()
     {
         this._races = {};
@@ -16,7 +17,7 @@ class RaceService {
 
     get(raceID, reload)
     {
-        var race = this._races[raceID];
+        const race = this._races[raceID];
         if(reload || !race)
         {
             return $http.get(`/systems/dnd35/races/${ raceID }`)

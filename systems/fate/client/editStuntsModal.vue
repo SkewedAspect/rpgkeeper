@@ -3,16 +3,17 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="edit-stunts-modal" v-if="character">
-        <b-modal ref="modal"
+    <div v-if="character" class="edit-stunts-modal">
+        <b-modal
+            ref="modal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown">
-
+            @shown="onShown"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
@@ -20,25 +21,27 @@
             </template>
 
             <!-- Modal Content -->
-            <div class="d-flex mb-2" v-for="(stunt, index) in stunts">
-                <b-form-input class="title-input" v-model="stunt.title" placeholder="Stunt title"></b-form-input>
-                <b-form-input class="ml-2" v-model="stunt.description" placeholder="Stunt description"></b-form-input>
+            <div v-for="(stunt, index) in stunts" :key="index" class="d-flex mb-2">
+                <b-form-input v-model="stunt.title" class="title-input" placeholder="Stunt title"></b-form-input>
+                <b-form-input v-model="stunt.description" class="ml-2" placeholder="Stunt description"></b-form-input>
                 <b-btn variant="danger" class="ml-2 text-nowrap" @click="removeStunt(stunt)">
                     <fa icon="trash-alt"></fa>
                 </b-btn>
             </div>
-            <div class="text-center" v-if="stunts.length === 0">
+            <div v-if="stunts.length === 0" class="text-center">
                 <h6>No Stunts.</h6>
             </div>
 
-            <hr>
+            <hr />
 
-            <b-card header="New Stunt"
+            <b-card
+                header="New Stunt"
                 header-bg-variant="dark"
-                header-text-variant="white">
+                header-text-variant="white"
+            >
                 <div class="d-flex">
-                    <b-form-input class="title-input" v-model="newStuntTitle" placeholder="Stunt title"></b-form-input>
-                    <b-form-input class="ml-2" v-model="newStuntDesc" placeholder="Stunt description"></b-form-input>
+                    <b-form-input v-model="newStuntTitle" class="title-input" placeholder="Stunt title"></b-form-input>
+                    <b-form-input v-model="newStuntDesc" class="ml-2" placeholder="Stunt description"></b-form-input>
                     <b-btn variant="primary" class="ml-2 text-nowrap" @click="addStunt">
                         <fa icon="plus"></fa>
                         Add
@@ -86,6 +89,14 @@
         subscriptions: {
             character: charMan.selected$
         },
+        data()
+        {
+            return {
+                stunts: [],
+                newStuntTitle: '',
+                newStuntDesc: ''
+            };
+        },
         methods: {
             async onSave()
             {
@@ -127,16 +138,8 @@
             {
                 this.$refs.modal.hide();
             }
-        },
-        data()
-        {
-            return {
-                stunts: [],
-                newStuntTitle: '',
-                newStuntDesc: ''
-            }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

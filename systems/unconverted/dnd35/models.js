@@ -8,8 +8,8 @@ import trivialModels from 'trivialmodels';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var types = trivialModels.types;
-var db = { errors: trivialModels.errors };
+const types = trivialModels.types;
+const db = { errors: trivialModels.errors };
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ db.Character = trivialModels.define({
         
         // Class and level
         classes: types.Array({
-            schema:{
+            schema: {
                 classID: types.String({ required: true }),
                 level: types.Number({ integer: true })
             },
@@ -40,8 +40,8 @@ db.Character = trivialModels.define({
         raceID: types.String(),
         age: types.Number({ integer: true }),
         height: types.String(),
-        gender: types.Enum({ values: ['M', 'F', 'O'] }),
-        alignment: types.Enum({ values: ['LG', 'NG', 'CG', 'LN', 'N', 'CN', 'LE', 'NE', 'CE'] }),
+        gender: types.Enum({ values: [ 'M', 'F', 'O' ] }),
+        alignment: types.Enum({ values: [ 'LG', 'NG', 'CG', 'LN', 'N', 'CN', 'LE', 'NE', 'CE' ] }),
         speed: types.Number({ integer: true }),
         languages: types.Array({
             schema: types.String(),
@@ -97,7 +97,7 @@ db.Character = trivialModels.define({
             schema: {
                 name: types.String({ required: true }),
                 ability: types.Enum({
-                    values: ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']
+                    values: [ 'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma' ]
                 }),
                 ranks: types.Number({ integer: true, required: true }),
                 armorPenalty: types.Boolean({ default: false }),
@@ -256,7 +256,7 @@ db.Race = trivialModels.define({
     schema: {
         id: types.String({ pk: true }),
         name: types.String({ required: true }),
-        size: types.Enum({ values: ['T', 'S', 'M', 'L', 'H', 'G'] }),
+        size: types.Enum({ values: [ 'T', 'S', 'M', 'L', 'H', 'G' ] }),
         speed: types.Number({ integer: true }),
         description: types.String(),
         traits: types.Array({

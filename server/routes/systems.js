@@ -19,7 +19,7 @@ const router = express.Router();
 
 router.get('/', (request, response) =>
 {
-    interceptHTML(response, async () =>
+    interceptHTML(response, async() =>
     {
         const systems = systemMan.systems
             .filter((system) =>

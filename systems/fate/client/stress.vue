@@ -15,7 +15,7 @@
         <table class="table stress-table table-bordered mb-0">
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <b-form-checkbox class="mr-1" v-model="physicalStress[index]" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onInput">
+                    <b-form-checkbox v-model="physicalStress[index]" class="mr-1" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onInput">
                         <b>{{ stressBox }}</b>
                     </b-form-checkbox>
                 </td>
@@ -31,13 +31,12 @@
         <table class="table stress-table table-bordered mb-0">
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <b-form-checkbox class="mr-1" v-model="mentalStress[index]" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onInput">
+                    <b-form-checkbox v-model="mentalStress[index]" class="mr-1" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onInput">
                         <b>{{ stressBox }}</b>
                     </b-form-checkbox>
                 </td>
             </tr>
         </table>
-
     </rpgk-card>
 </template>
 
@@ -101,17 +100,17 @@
             }
         },
         computed: {
-            character(){ return _.get(this.value, 'details'); },
-            mentalStress(){ return this.character.mentalStress },
-            physicalStress(){ return this.character.physicalStress },
+            character() { return _.get(this.value, 'details'); },
+            mentalStress() { return this.character.mentalStress; },
+            physicalStress() { return this.character.physicalStress; },
             totalPhysicalBoxes()
             {
-                const physique = _.find(this.character.skills, { name: "Physique" });
-                if(physique && physique.rank >=1 && physique.rank < 3)
+                const physique = _.find(this.character.skills, { name: 'Physique' });
+                if(physique && physique.rank >= 1 && physique.rank < 3)
                 {
                     return 3;
                 }
-                else if(physique && physique.rank >=3)
+                else if(physique && physique.rank >= 3)
                 {
                     return 4;
                 }
@@ -122,12 +121,12 @@
             },
             totalMentalBoxes()
             {
-                const will = _.find(this.character.skills, { name: "Will" });
-                if(will && will.rank >=1 && will.rank < 3)
+                const will = _.find(this.character.skills, { name: 'Will' });
+                if(will && will.rank >= 1 && will.rank < 3)
                 {
                     return 3;
                 }
-                else if(will && will.rank >=3)
+                else if(will && will.rank >= 3)
                 {
                     return 4;
                 }
@@ -144,7 +143,7 @@
                 await charMan.save(charMan.selected);
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

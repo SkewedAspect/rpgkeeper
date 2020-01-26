@@ -11,33 +11,34 @@ import BaseSystemCharacterModel from '../../../../client/components/character/Ba
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class GenericCharacter extends BaseSystemCharacterModel {
+class GenericCharacter extends BaseSystemCharacterModel 
+{
     constructor(base, system)
     {
         super(base, system);
     } // end constructor
 
     // System Character
-    get counters(){ return this._system.counters; }
-    get rolls(){ return this._system.rolls; }
-    get stats(){ return this._system.stats; }
-    get notes(){ return this._system.notes; }
+    get counters() { return this._system.counters; }
+    get rolls() { return this._system.rolls; }
+    get stats() { return this._system.stats; }
+    get notes() { return this._system.notes; }
 
     get rollContext()
     {
-        var context = {};
+        const context = {};
 
         _.each(this._system.stats, (block) =>
         {
             context[block.name] = {};
             if(block.type == 'table')
             {
-                var pkIdx = _.findIndex(block.columns, { pk: true }) || 0;
+                const pkIdx = _.findIndex(block.columns, { pk: true }) || 0;
 
                 _.each(block.rows, (row) =>
                 {
-                    var pk = row[pkIdx];
-                    var subObj = {};
+                    const pk = row[pkIdx];
+                    const subObj = {};
                     _.each(block.columns, (col, index) =>
                     {
                         if(!col.pk)
@@ -46,7 +47,7 @@ class GenericCharacter extends BaseSystemCharacterModel {
                             if(col.type === 'computed')
                             {
                                 Object.defineProperty(subObj, col.name, {
-                                    get: function(){ return rpgdice.eval(row[index], context).value; }
+                                    get() { return rpgdice.eval(row[index], context).value; }
                                 });
                             }
                             else
@@ -68,7 +69,7 @@ class GenericCharacter extends BaseSystemCharacterModel {
                     if(item.type === 'computed')
                     {
                         Object.defineProperty(context[block.name], item.key, {
-                            get: function(){ return rpgdice.eval(item.value, context).value; }
+                            get() { return rpgdice.eval(item.value, context).value; }
                         });
                     }
                     else
@@ -104,12 +105,12 @@ class GenericCharacter extends BaseSystemCharacterModel {
 
     moveUp(listName, item)
     {
-        var list = this._system[listName];
+        const list = this._system[listName];
 
         if(_.isArray(list))
         {
-            var from = list.indexOf(item);
-            var to = Math.max(from - 1, 0);
+            const from = list.indexOf(item);
+            const to = Math.max(from - 1, 0);
 
             this._move(list, from, to);
             this.save();
@@ -118,12 +119,12 @@ class GenericCharacter extends BaseSystemCharacterModel {
 
     moveDown(listName, item)
     {
-        var list = this._system[listName];
+        const list = this._system[listName];
 
         if(_.isArray(list))
         {
-            var from = list.indexOf(item);
-            var to = Math.min(from + 1, (list.length - 1));
+            const from = list.indexOf(item);
+            const to = Math.min(from + 1, (list.length - 1));
 
             this._move(list, from, to);
             this.save();

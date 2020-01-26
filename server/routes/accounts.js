@@ -2,7 +2,6 @@
 // Routes for Accounts
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
 const express = require('express');
 
 const { errorHandler, ensureAuthenticated, wrapAsync, parseQuery } = require('./utils');
@@ -19,12 +18,13 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', wrapAsync(async (req, resp) =>
+router.get('/', wrapAsync(async(req, resp) =>
 {
     const filters = parseQuery(req.query);
     const accounts = (await accountMan.getAccounts(filters))
         .map((account) =>
         {
+            // eslint-disable-next-line no-unused-vars
             const { account_id, hash_id, settings, permissions, ...safeAccount } = account;
 
             if(req.isAuthenticated())
@@ -43,8 +43,9 @@ router.get('/', wrapAsync(async (req, resp) =>
     resp.json(accounts);
 }));
 
-router.get('/:accountID', wrapAsync(async (req, resp) =>
+router.get('/:accountID', wrapAsync(async(req, resp) =>
 {
+    // eslint-disable-next-line no-unused-vars
     const { account_id, hash_id, settings, permissions, ...safeAccount } = await accountMan.getAccountByHash(req.params.accountID);
 
     if(req.isAuthenticated())
@@ -60,7 +61,7 @@ router.get('/:accountID', wrapAsync(async (req, resp) =>
     resp.json(safeAccount);
 }));
 
-router.patch('/:accountID', ensureAuthenticated, wrapAsync(async (req, resp) =>
+router.patch('/:accountID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     const account = req.body;
 

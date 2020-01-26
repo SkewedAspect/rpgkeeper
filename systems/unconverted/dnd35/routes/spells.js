@@ -11,15 +11,15 @@ import models from '../models';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var logger = logging.loggerFor(module);
+const logger = logging.loggerFor(module);
 
-var router = express.Router();
+const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Spells Endpoint
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', function(req, resp)
+router.get('/', (req, resp) => 
 {
     return models.Spell.all()
         .then((spells) =>
@@ -31,18 +31,18 @@ router.get('/', function(req, resp)
             logger.warn('Spell not found:\n', error.stack);
 
             resp.status(404).json({
-                human: "Spell not found.",
+                human: 'Spell not found.',
                 message: error.message
             });
         })
-        .catch(function(err)
+        .catch((err) => 
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });
         });
 });
 
-router.get('/:spellID', function(req, resp)
+router.get('/:spellID', (req, resp) => 
 {
     return models.Spell.get(req.params.spellID)
         .then((spell) =>
@@ -54,11 +54,11 @@ router.get('/:spellID', function(req, resp)
             logger.warn('Spell not found:\n', error.stack);
 
             resp.status(404).json({
-                human: "Spell not found.",
+                human: 'Spell not found.',
                 message: error.message
             });
         })
-        .catch(function(err)
+        .catch((err) => 
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });

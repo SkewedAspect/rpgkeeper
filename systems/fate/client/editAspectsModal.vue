@@ -3,8 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="edit-aspects-modal" v-if="aspects">
-        <b-modal ref="modal"
+    <div v-if="aspects" class="edit-aspects-modal">
+        <b-modal
+            ref="modal"
             header-bg-variant="dark"
             header-text-variant="white"
             size="lg"
@@ -12,8 +13,8 @@
             no-close-on-backdrop
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown">
-
+            @shown="onShown"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
@@ -27,7 +28,8 @@
                         id="hc-input-group"
                         label="High Concept"
                         label-class="font-weight-bold"
-                        label-for="hc-input">
+                        label-for="hc-input"
+                    >
                         <b-form-input id="hc-input" v-model="highConcept.detail"></b-form-input>
                     </b-form-group>
                 </b-col>
@@ -36,28 +38,31 @@
                         id="tb-input-group"
                         label="Trouble"
                         label-class="font-weight-bold"
-                        label-for="tb-input">
+                        label-for="tb-input"
+                    >
                         <b-form-input id="tb-input" v-model="trouble.detail"></b-form-input>
                     </b-form-group>
                 </b-col>
             </b-form-row>
 
-            <hr class="mt-2">
+            <hr class="mt-2" />
 
             <h4>Extra Aspects</h4>
 
-            <div class="d-flex mb-2" v-for="aspect in extraAspects">
+            <div v-for="(aspect, index) in extraAspects" :key="index" class="d-flex mb-2">
                 <b-form-input v-model="aspect.detail"></b-form-input>
                 <b-btn variant="danger" class="ml-2" @click="removeAspect(aspect)">
                     <fa icon="trash-alt"></fa>
                 </b-btn>
             </div>
 
-            <hr>
+            <hr />
 
-            <b-card header="New Aspect"
+            <b-card
+                header="New Aspect"
                 header-bg-variant="dark"
-                header-text-variant="white">
+                header-text-variant="white"
+            >
                 <div class="d-flex">
                     <b-form-input id="new-input" v-model="newAspect"></b-form-input>
                     <b-btn variant="primary" class="ml-2 text-nowrap" @click="addAspect">
@@ -107,10 +112,17 @@
                 required: true
             }
         },
+        data()
+        {
+            return {
+                aspects: _.cloneDeep(this.value),
+                newAspect: ''
+            };
+        },
         computed: {
-            highConcept(){ return _.find(this.aspects, { type: 'high concept' }) || { details: '' }; },
-            trouble(){ return _.find(this.aspects, { type: 'trouble' }) || { details: '' }; },
-            extraAspects(){ return _.filter(this.aspects, { type: 'aspect' }); }
+            highConcept() { return _.find(this.aspects, { type: 'high concept' }) || { details: '' }; },
+            trouble() { return _.find(this.aspects, { type: 'trouble' }) || { details: '' }; },
+            extraAspects() { return _.filter(this.aspects, { type: 'aspect' }); }
         },
         methods: {
             onShown()
@@ -123,11 +135,11 @@
                 this.$emit('input', this.aspects);
 
                 // We have to wait for things to settle from updating the model
-                this.$nextTick(async () =>
+                this.$nextTick(async() =>
                 {
                     // Save the character
                     try { await charMan.save(); }
-                    catch(error)
+                    catch (error)
                     {
                         // TODO: Let the user know about this!
                     } // end if
@@ -163,15 +175,8 @@
             {
                 this.$refs.modal.hide();
             }
-        },
-        data()
-        {
-            return {
-                aspects: _.cloneDeep(this.value),
-                newAspect: ''
-            };
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

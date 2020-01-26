@@ -4,7 +4,7 @@
 
 <template>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="markdown d-inline-block" v-html="renderedContent"></div>
+    <div class="markdown" :class="block ? '' : 'd-inline-block'" v-html="renderedContent"></div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -29,6 +29,10 @@
             text: {
                 type: String,
                 required: true
+            },
+            block: {
+                type: Boolean,
+                default: false
             },
             inline: {
                 type: Boolean,

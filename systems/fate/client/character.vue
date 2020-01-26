@@ -14,11 +14,11 @@
             <skills v-model="character.details.skills" :readonly="!isAuthorized"></skills>
         </div>
         <div class="d-flex mt-2">
-            <extras class="w-50" v-model="character.details.extras" :readonly="!isAuthorized"></extras>
-            <stunts class="w-50 ml-2" v-model="character.details.stunts" :readonly="!isAuthorized"></stunts>
+            <extras v-model="character.details.extras" class="w-50" :readonly="!isAuthorized"></extras>
+            <stunts v-model="character.details.stunts" class="w-50 ml-2" :readonly="!isAuthorized"></stunts>
         </div>
         <div class="d-flex mt-2">
-            <stress style="flex-basis: 40%" v-model="character" :readonly="!isAuthorized"></stress>
+            <stress v-model="character" style="flex-basis: 40%" :readonly="!isAuthorized"></stress>
             <consequences style="flex-basis: 60%" class="ml-2" :character="character" :readonly="!isAuthorized"></consequences>
         </div>
     </b-container>
@@ -49,14 +49,12 @@
     import Stunts from './stunts.vue';
     import Stress from './stress.vue';
     import Consequences from './consequences.vue';
-    import RpgkCard from '../../../client/components/ui/card.vue';
     import Portrait from '../../../client/components/character/portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         components: {
-            RpgkCard,
             Portrait,
             Identity,
             Rolls,
@@ -79,7 +77,7 @@
             account: authMan.account$,
             character: charMan.selected$
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

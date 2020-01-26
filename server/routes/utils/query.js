@@ -2,6 +2,8 @@
 // A module for casting query parameters to something useful, and generating a filter out of them.
 //----------------------------------------------------------------------------------------------------------------------
 
+/* eslint-disable jsdoc/require-returns, jsdoc/require-param-description, jsdoc/require-param-type */
+
 const _ = require('lodash');
 const logger = require('trivial-logging').loggerFor(module);
 
@@ -9,15 +11,19 @@ const logger = require('trivial-logging').loggerFor(module);
 // Helpers
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ * @param type
+ * @param value
+ */
 function castParam(type, value)
 {
-    switch(type)
+    switch (type)
     {
         case Array:
             return value.split(',');
 
         case Boolean:
-            return value === "true";
+            return value === 'true';
 
         case Number:
             return Number(value);
@@ -27,6 +33,9 @@ function castParam(type, value)
     } // end switch
 } // end castParam
 
+/**
+ * @param value
+ */
 function detectParam(value)
 {
     if(value === 'true' || value === 'false')
@@ -56,36 +65,57 @@ function detectParam(value)
 // Filters
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ * @param queryVal
+ */
 function eqFilter(queryVal)
 {
     return (modelVal) => modelVal === queryVal;
 } // end eqFilter
 
+/**
+ * @param queryVal
+ */
 function gtFilter(queryVal)
 {
     return (modelVal) => modelVal > queryVal;
 } // end gtFilter
 
+/**
+ * @param queryVal
+ */
 function gteFilter(queryVal)
 {
     return (modelVal) => modelVal >= queryVal;
 } // end gteFilter
 
+/**
+ * @param queryVal
+ */
 function ltFilter(queryVal)
 {
     return (modelVal) => modelVal < queryVal;
 } // end ltFilter
 
+/**
+ * @param queryVal
+ */
 function lteFilter(queryVal)
 {
     return (modelVal) => modelVal <= queryVal;
 } // end lteFilter
 
+/**
+ * @param queryVal
+ */
 function arrayFilter(queryVal)
 {
     return (modelVal) => !_.isEqual(modelVal, _.difference(modelVal, queryVal));
 } // end arrayFilter
 
+/**
+ * @param queryVal
+ */
 function containsFilter(queryVal)
 {
     return (modelVal) =>
@@ -108,6 +138,9 @@ function containsFilter(queryVal)
 
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ * @param queryObj
+ */
 function parseQuery(queryObj)
 {
     const parseTree = {};
@@ -153,13 +186,17 @@ function parseQuery(queryObj)
     return parseTree;
 } // end parseQuery
 
+/**
+ * @param queryObj
+ * @param list
+ */
 function filterByQuery(queryObj, list)
 {
     // Build filters
     const filters = {};
     _.forIn(parseQuery(queryObj), (token, key) =>
     {
-        switch(token.operation)
+        switch (token.operation)
         {
             case '@>':
                 return filters[key] = containsFilter(token.value);
@@ -200,7 +237,8 @@ function filterByQuery(queryObj, list)
         });
 
         return include;
-    });} // end filterByQuery
+    });
+} // end filterByQuery
 
 //----------------------------------------------------------------------------------------------------------------------
 
