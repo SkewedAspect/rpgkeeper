@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
-import logging from 'omega-logger';
+// import logging from 'omega-logger';
 
 import models from './models';
 import systemMan from '../manager';
@@ -24,7 +24,7 @@ import systemMan from '../manager';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const logger = logging.loggerFor(module);
+// const logger = logging.loggerFor(module);
 
 const router = express.Router();
 

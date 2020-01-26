@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import rpgdice from 'rpgdicejs';
+// import rpgdice from 'rpgdicejs';
 import Vue from 'vue';
 
 // Services
@@ -17,7 +17,7 @@ import BaseSystemCharacterModel from '../../../client/components/character/BaseS
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class DnD35Character extends BaseSystemCharacterModel 
+class DnD35Character extends BaseSystemCharacterModel
 {
     constructor(base, system)
     {
