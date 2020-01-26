@@ -4,17 +4,17 @@
 
 <template>
     <div class="settings-page container pt-3">
-
         <!-- Loading -->
-        <loading text="Account Loading..." v-if="status === 'unknown'"></loading>
+        <loading v-if="status === 'unknown'" text="Account Loading..."></loading>
 
         <!-- Once loaded -->
         <div v-else-if="status === 'signed in'">
-
             <!-- Giant Avatar Picture of Doom -->
             <div class="avatar-holder">
                 <b-img rounded="circle" width="128" height="128" :src="account.avatarUrl" :alt="account.name" class="m-1" center></b-img>
-                <h4 class="text-center">{{ account.email }}</h4>
+                <h4 class="text-center">
+                    {{ account.email }}
+                </h4>
             </div>
 
             <!-- Display Name setting -->
@@ -42,7 +42,9 @@
                     </h5>
                 </template>
 
-                <h4 class="text-center text-muted mb-0">Settings are not implemented.</h4>
+                <h4 class="text-center text-muted mb-0">
+                    Settings are not implemented.
+                </h4>
             </b-card>
         </div>
     </div>
@@ -83,7 +85,7 @@
                 authMan.saveAccount(this.account);
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

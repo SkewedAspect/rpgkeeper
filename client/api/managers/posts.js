@@ -22,15 +22,15 @@ class NewsPostManager
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get posts$(){ return this._postsSubject.asObservable(); }
-    get postsLoading$(){ return this._postsLoadingSubject.asObservable(); }
+    get posts$() { return this._postsSubject.asObservable(); }
+    get postsLoading$() { return this._postsLoadingSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get posts(){ return this._postsSubject.getValue(); }
-    get postsLoading(){ return this._postsLoadingSubject.getValue(); }
+    get posts() { return this._postsSubject.getValue(); }
+    get postsLoading() { return this._postsLoadingSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API
@@ -44,7 +44,7 @@ class NewsPostManager
             const posts = await postsRA.loadPosts();
             this._postsSubject.next(posts);
         }
-        catch(error)
+        catch (error)
         {
             console.warn('Error loading posts:', error);
             this._postsSubject.next([]);

@@ -18,7 +18,6 @@ class CharacterManager
 {
     constructor()
     {
-
         // Subjects
         this._charactersSubject = new BehaviorSubject([]);
         this._selectedSubject = new BehaviorSubject();
@@ -32,18 +31,18 @@ class CharacterManager
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get characters$(){ return this._charactersSubject.asObservable(); }
-    get selected$(){ return this._selectedSubject.asObservable(); }
-    get saving$(){ return this.savingSubject.asObservable(); }
+    get characters$() { return this._charactersSubject.asObservable(); }
+    get selected$() { return this._selectedSubject.asObservable(); }
+    get saving$() { return this.savingSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get characters(){ return this._charactersSubject.getValue(); }
-    get selected(){ return this._selectedSubject.getValue(); }
-    get saving(){ return this.savingSubject.getValue(); }
-    set saving(val){ this.savingSubject.next(!!val); }
+    get characters() { return this._charactersSubject.getValue(); }
+    get selected() { return this._selectedSubject.getValue(); }
+    get saving() { return this.savingSubject.getValue(); }
+    set saving(val) { this.savingSubject.next(!!val); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Subscriptions
@@ -68,12 +67,12 @@ class CharacterManager
 
     async create(charDef)
     {
-        return await characterRA.newCharacter(charDef);
+        return characterRA.newCharacter(charDef);
     } // end create
 
     async updateSysDefaults(char)
     {
-        return await characterRA.updateSysDefaults(char);
+        return characterRA.updateSysDefaults(char);
     } // end updateSysDefaults
 
     async select(charID)

@@ -3,6 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="markdown d-inline-block" v-html="renderedContent"></div>
 </template>
 
@@ -41,13 +42,13 @@
 
                 if(this.inline !== false)
                 {
-                    rawMarkup = rawMarkup.trim().replace(/^(?:<p>)?(.*?)(?:<\/p>)?$/, "$1");
+                    rawMarkup = rawMarkup.trim().replace(/^(?:<p>)?(.*?)(?:<\/p>)?$/, '$1');
                 } // end if
 
                 return rawMarkup;
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

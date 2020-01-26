@@ -4,7 +4,9 @@
 
 <template>
     <div class="loading">
-        <h5 class="text-center">{{ text }}</h5>
+        <h5 class="text-center">
+            {{ text }}
+        </h5>
         <b-progress variant="primary" :value="100" animated></b-progress>
     </div>
 </template>
@@ -17,10 +19,10 @@
         props: {
             text: {
                 type: String,
-                default: "Loading..."
+                default: 'Loading...'
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

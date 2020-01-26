@@ -6,9 +6,10 @@
     <div id="pool">
         <div v-if="max > 0" class="d-inline-block">
             <span
+                v-for="index in poolRange"
+                :key="index"
                 class="ml-1"
                 @click.prevent.stop="setIndex(index)"
-                v-for="index in poolRange"
             >
                 <fa
                     :class="[checkHover(index), { 'read-only': disabled }]"
@@ -19,8 +20,10 @@
                 ></fa>
             </span>
         </div>
-        <div class="d-inline-block" v-else>
-            <h5 class="mt-1 text-muted">No pool</h5>
+        <div v-else class="d-inline-block">
+            <h5 class="mt-1 text-muted">
+                No pool
+            </h5>
         </div>
         <b-btn
             v-if="showEdit"
@@ -34,14 +37,15 @@
         </b-btn>
 
         <!-- Edit Modal -->
-        <b-modal ref="editPool"
-                 header-bg-variant="dark"
-                 header-text-variant="white"
-                 no-close-on-esc
-                 no-close-on-backdrop
-                 @ok="onSave"
-                 @shown="onShown">
-
+        <b-modal
+            ref="editPool"
+            header-bg-variant="dark"
+            header-text-variant="white"
+            no-close-on-esc
+            no-close-on-backdrop
+            @ok="onSave"
+            @shown="onShown"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
@@ -52,14 +56,15 @@
             <b-form-group
                 id="name-input-group"
                 label="Pool Maximum"
-                label-for="max-input">
+                label-for="max-input"
+            >
                 <b-form-input
                     id="max-input"
+                    v-model.number="editMax"
                     type="number"
                     min="0"
                     max="9999999"
                     step="1"
-                    v-model.number="editMax"
                 ></b-form-input>
             </b-form-group>
 
@@ -101,17 +106,21 @@
                 type: Object,
                 required: true
             },
-            name: { type: String },
+            name: {
+                type: String,
+                default: undefined
+            },
             checkedIcon: {
                 type: [ String, Array ],
-                default(){ return 'check-square'; }
+                default() { return 'check-square'; }
             },
             uncheckedIcon: {
                 type: [ String, Array ],
-                default(){ return [ 'far', 'square' ]; }
+                default() { return [ 'far', 'square' ]; }
             },
             forceMax: {
-                type: Number
+                type: Number,
+                default: undefined
             },
             disabled: {
                 type: Boolean,
@@ -126,26 +135,26 @@
             };
         },
         computed:
-        {
-            poolRange(){ return _.range(this.max); },
-            max: {
-                get()
-                {
-                    return this.forceMax || this.pool.max;
-                },
-                set(val){ this.pool.max = val < 0 ? undefined : val; },
-            },
-            current: {
-                get(){ return this.pool.current; },
-                set(val){ this.pool.current = val < 0 ? undefined : val; },
-            },
-            currentIndex()
             {
-                const index = this.current - 1;
-                return index < 0 ? undefined : index;
+                poolRange() { return _.range(this.max); },
+                max: {
+                    get()
+                    {
+                        return this.forceMax || this.pool.max;
+                    },
+                    set(val) { this.pool.max = val < 0 ? undefined : val; }
+                },
+                current: {
+                    get() { return this.pool.current; },
+                    set(val) { this.pool.current = val < 0 ? undefined : val; }
+                },
+                currentIndex()
+                {
+                    const index = this.current - 1;
+                    return index < 0 ? undefined : index;
+                },
+                showEdit() { return !this.disabled && !this.forceMax && this.forceMax !== 0; }
             },
-            showEdit(){ return !this.disabled && !this.forceMax && this.forceMax !== 0; }
-        },
         methods: {
             onShown()
             {
@@ -200,7 +209,7 @@
             {
                 if(index <= this.hoveredIndex)
                 {
-                    return "text-primary";
+                    return 'text-primary';
                 } // end if
             },
             isChecked(index)
@@ -208,7 +217,7 @@
                 return index <= this.currentIndex;
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -3,16 +3,17 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="add-edit-modal" v-if="char">
-        <b-modal v-model="showModal"
+    <div v-if="char" class="add-edit-modal">
+        <b-modal
+            v-model="showModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="xxl"
             @ok="onSave"
-            @hidden="onHidden">
-
+            @hidden="onHidden"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <span v-if="isNew">
@@ -48,7 +49,8 @@
                                     id="char-name-group"
                                     description="Your character's full name."
                                     label="Name"
-                                    label-for="char-name">
+                                    label-for="char-name"
+                                >
                                     <b-form-input id="char-name" v-model="char.name" placeholder="Gerald"></b-form-input>
                                 </b-form-group>
                             </b-col>
@@ -57,8 +59,9 @@
                                     id="char-sys-group"
                                     description="The rpg system this character is for. (Ex: 'FATE', 'D&D', etc.)"
                                     label="System"
-                                    label-for="char-sys">
-                                    <b-form-select id="char-sys" :options="systems" v-model="char.system" text-field="name" value-field="id" :disabled="!isNew" required></b-form-select>
+                                    label-for="char-sys"
+                                >
+                                    <b-form-select id="char-sys" v-model="char.system" :options="systems" text-field="name" value-field="id" :disabled="!isNew" required></b-form-select>
                                 </b-form-group>
                             </b-col>
                         </b-form-row>
@@ -67,7 +70,8 @@
                                 <b-form-group
                                     id="char-color-group"
                                     label="Color"
-                                    label-for="char-color">
+                                    label-for="char-color"
+                                >
                                     <color-picker v-model="char.color"></color-picker>
                                 </b-form-group>
                             </b-col>
@@ -75,7 +79,8 @@
                                 <b-form-group
                                     id="char-portrait-group"
                                     label="Portrait"
-                                    label-for="char-portrait">
+                                    label-for="char-portrait"
+                                >
                                     <b-input-group>
                                         <b-form-input id="char-portrait" v-model="char.portrait"></b-form-input>
                                         <b-input-group-append>
@@ -85,7 +90,7 @@
                                         </b-input-group-append>
                                     </b-input-group>
                                     <template slot="description">
-                                        Any urls are accepted. <br>
+                                        Any urls are accepted. <br />
                                         Recommend dimensions are <code>600x900px</code>.
                                     </template>
                                 </b-form-group>
@@ -94,7 +99,8 @@
                                 <b-form-group
                                     id="char-thumbnail-group"
                                     label="Thumbnail"
-                                    label-for="char-thumbnail">
+                                    label-for="char-thumbnail"
+                                >
                                     <b-input-group>
                                         <b-form-input id="char-thumbnail" v-model="char.thumbnail"></b-form-input>
                                         <b-input-group-append>
@@ -104,7 +110,7 @@
                                         </b-input-group-append>
                                     </b-input-group>
                                     <template slot="description">
-                                        Any urls are accepted. <br>
+                                        Any urls are accepted. <br />
                                         Recommend dimensions are <code>200x200px</code>.
                                     </template>
                                 </b-form-group>
@@ -114,14 +120,16 @@
                             id="char-campaign-group"
                             description="A brief description of the campaign or RP this character is associated with."
                             label="Campaign"
-                            label-for="char-campaign">
+                            label-for="char-campaign"
+                        >
                             <b-form-input id="char-campaign" v-model="char.campaign"></b-form-input>
                         </b-form-group>
                         <b-form-group
                             id="char-desc-group"
                             description="A brief description of your character. Could be physical or personality."
                             label="Description"
-                            label-for="char-desc">
+                            label-for="char-desc"
+                        >
                             <b-form-input id="char-desc" v-model="char.description"></b-form-input>
                         </b-form-group>
                     </b-col>
@@ -137,7 +145,6 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-
         </b-modal>
     </div>
 </template>
@@ -177,17 +184,33 @@
         },
         props: {
             value: {
-                type: Object
+                type: Object,
+                default: undefined
             }
         },
+        data()
+        {
+            return {
+                saving: false
+            };
+        },
         computed: {
-            isNew(){ return !this.value || !this.value.id; },
+            isNew() { return !this.value || !this.value.id; },
             showModal: {
-                get(){ return !!this.value; },
-                set(){ /* We ignore setting */ }
+                get() { return !!this.value; },
+                set() { /* We ignore setting */ }
             },
-            systems(){ return this.allSystems.filter((sys) => sys.disabled !== true); },
-            char(){ return this.value; }
+            systems() { return this.allSystems.filter((sys) => sys.disabled !== true); },
+            char() { return this.value; }
+        },
+        watch: {
+            'char.system'()
+            {
+                if(this.char)
+                {
+                    charMan.updateSysDefaults(this.char);
+                } // end if
+            }
         },
         methods: {
             onHidden()
@@ -212,24 +235,9 @@
             }
         },
         subscriptions: {
-            allSystems: systemsMan.systems$,
-        },
-        watch: {
-            'char.system'()
-            {
-                if(this.char)
-                {
-                    charMan.updateSysDefaults(this.char);
-                } // end if
-            }
-        },
-        data()
-        {
-            return {
-                saving: false
-            };
+            allSystems: systemsMan.systems$
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

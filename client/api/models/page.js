@@ -12,10 +12,10 @@ class NotePageModel
     constructor(def)
     {
         // Set our properties
-        this.$state = Object.assign({ page_id: undefined, title: undefined, content: undefined }, def);
+        this.$state = { page_id: undefined, title: undefined, content: undefined, ...def };
 
         // Store our reference model to revert back to
-        this.$refState = Object.assign({ page_id: undefined, title: undefined, content: undefined }, def);
+        this.$refState = { page_id: undefined, title: undefined, content: undefined, ...def };
 
         // Mark the ref state as non-configurable, so vue ignores it.
         markNonConfigurable(this, '$refState');
@@ -25,12 +25,12 @@ class NotePageModel
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get id(){ return this.$state.page_id; }
+    get id() { return this.$state.page_id; }
 
-    get title(){ return this.$state.title; }
-    set title(title){ return this.$state.title = title; }
-    get content(){ return this.$state.content; }
-    set content(content){ return this.$state.content = content; }
+    get title() { return this.$state.title; }
+    set title(title) { return this.$state.title = title; }
+    get content() { return this.$state.content; }
+    set content(content) { return this.$state.content = content; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Model API
@@ -44,7 +44,7 @@ class NotePageModel
     update(def)
     {
         this.$state = Object.assign(this.$state, def);
-        this.$refState = Object.assign({ page_id: undefined, title: undefined, content: undefined }, def);
+        this.$refState = { page_id: undefined, title: undefined, content: undefined, ...def };
     } // end update
 
     toJSON()

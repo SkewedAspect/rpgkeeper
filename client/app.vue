@@ -3,11 +3,11 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-	<div id="app">
-		<site-header></site-header>
-		<router-view></router-view>
-		<site-footer></site-footer>
-	</div>
+    <div id="app">
+        <site-header></site-header>
+        <router-view></router-view>
+        <site-footer></site-footer>
+    </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -24,17 +24,17 @@
 	//------------------------------------------------------------------------------------------------------------------
 
 	// Components
-	import SiteHeader from './components/ui/header.vue';
+    import SiteHeader from './components/ui/header.vue';
     import SiteFooter from './components/ui/footer.vue';
 
-	//------------------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------
 
-	export default {
-		components: {
-			siteHeader: SiteHeader,
+    export default {
+        components: {
+            siteHeader: SiteHeader,
             siteFooter: SiteFooter
-		}
-	}
+        }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

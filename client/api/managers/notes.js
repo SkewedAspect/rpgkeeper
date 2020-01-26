@@ -21,13 +21,13 @@ class NotesManager
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get selected$(){ return this._selectedSubject.asObservable(); }
+    get selected$() { return this._selectedSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get selected(){ return this._selectedSubject.getValue(); }
+    get selected() { return this._selectedSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API
@@ -35,7 +35,7 @@ class NotesManager
 
     async select(noteID)
     {
-        let note;
+        let note = undefined;
         if(noteID)
         {
             note = await noteRA.getNotes(noteID);
@@ -43,7 +43,6 @@ class NotesManager
         else
         {
             await noteRA.unloadNote(this.selected.id);
-            note = undefined;
         } // end if
 
         // Select this note
@@ -60,7 +59,7 @@ class NotesManager
 
     async updatePage(note, page)
     {
-        return await noteRA.updatePage(note.id, page);
+        return noteRA.updatePage(note.id, page);
     } // end updatePage
 
     async deletePage(note, page)

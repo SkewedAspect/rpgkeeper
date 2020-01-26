@@ -6,36 +6,35 @@
     <b-container id="dashboard" class="pb-0">
         <b-form-row>
             <!--<b-col cols="12" lg="6" class="mb-3">-->
-                <!--<b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100">-->
-                    <!--<template slot="header">-->
-                        <!--<div class="d-flex">-->
-                            <!--<h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">-->
-                                <!--<fa class="mr-1" icon="books"></fa>-->
-                                <!--<span class="d-none d-md-inline">Campaigns</span>-->
-                            <!--</h5>-->
-                            <!--<b-input-group class="flex-fill ml-2">-->
-                                <!--<b-form-input placeholder="Search Campaigns..." disabled></b-form-input>-->
-                                <!--<b-input-group-append>-->
-                                    <!--<b-btn variant="primary" disabled>-->
-                                        <!--<fa icon="search"></fa>-->
-                                    <!--</b-btn>-->
-                                <!--</b-input-group-append>-->
-                            <!--</b-input-group>-->
-                            <!--<b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
-                                <!--<template slot="button-content">-->
-                                    <!--<fa icon="cog"></fa>-->
-                                <!--</template>-->
+            <!--<b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100">-->
+            <!--<template slot="header">-->
+            <!--<div class="d-flex">-->
+            <!--<h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">-->
+            <!--<fa class="mr-1" icon="books"></fa>-->
+            <!--<span class="d-none d-md-inline">Campaigns</span>-->
+            <!--</h5>-->
+            <!--<b-input-group class="flex-fill ml-2">-->
+            <!--<b-form-input placeholder="Search Campaigns..." disabled></b-form-input>-->
+            <!--<b-input-group-append>-->
+            <!--<b-btn variant="primary" disabled>-->
+            <!--<fa icon="search"></fa>-->
+            <!--</b-btn>-->
+            <!--</b-input-group-append>-->
+            <!--</b-input-group>-->
+            <!--<b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
+            <!--<template slot="button-content">-->
+            <!--<fa icon="cog"></fa>-->
+            <!--</template>-->
 
-                                <!--<b-dropdown-item>Filter 1</b-dropdown-item>-->
-                            <!--</b-dropdown>-->
-                        <!--</div>-->
-                    <!--</template>-->
+            <!--<b-dropdown-item>Filter 1</b-dropdown-item>-->
+            <!--</b-dropdown>-->
+            <!--</div>-->
+            <!--</template>-->
 
-                    <!--<h4 class="text-center text-muted mb-0">Campaigns are not implemented.</h4>-->
-                <!--</b-card>-->
+            <!--<h4 class="text-center text-muted mb-0">Campaigns are not implemented.</h4>-->
+            <!--</b-card>-->
             <!--</b-col>-->
             <b-col cols="12" class="mb-3">
-
                 <!-- Characters Card -->
                 <b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
                     <template slot="header">
@@ -58,22 +57,24 @@
                                 </template>
 
                                 <b-dropdown-item v-for="(system, index) in systems" :key="system.id">
-                                    <b-form-checkbox :id="`checkbox-${ index }`"
+                                    <b-form-checkbox
+                                        :id="`checkbox-${ index }`"
                                         v-model="systemsFilter[index]"
                                         :value="system.id"
-                                        @click.native.stop>
+                                        @click.native.stop
+                                    >
                                         {{ system.name }}
                                     </b-form-checkbox>
                                 </b-dropdown-item>
                                 <b-dropdown-divider></b-dropdown-divider>
                                 <b-dropdown-item style="pointer-events: none">
-                                    <div @click.stop="selectAllSystems()" style="pointer-events: all">
+                                    <div style="pointer-events: all" @click.stop="selectAllSystems()">
                                         <fa icon="check-square"></fa>
                                         Select All
                                     </div>
                                 </b-dropdown-item>
                                 <b-dropdown-item style="pointer-events: none">
-                                    <div @click.stop="selectNoneSystems()" style="pointer-events: all">
+                                    <div style="pointer-events: all" @click.stop="selectNoneSystems()">
                                         <fa :icon="['far', 'square']"></fa>
                                         Select None
                                     </div>
@@ -83,16 +84,18 @@
                     </template>
 
                     <!-- List of Characters -->
-                    <div class="card-body" v-if="charsLoading">
+                    <div v-if="charsLoading" class="card-body">
                         <loading></loading>
                     </div>
 
                     <b-list-group v-else-if="characters.length > 0" flush>
-                        <b-list-group-item :to="`/characters/${ char.id }`" v-for="char in characters" :key="char.id">
+                        <b-list-group-item v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
                             <div class="d-flex">
                                 <thumbnail :src="char.thumbnail" :color="char.color" :text="char.initial"></thumbnail>
                                 <div class="ml-2 flex-column d-flex justify-content-center flex-fill">
-                                    <h5 class="mb-1">{{ char.name }}</h5>
+                                    <h5 class="mb-1">
+                                        {{ char.name }}
+                                    </h5>
                                     <p class="text-muted m-0">
                                         <b-badge>{{ getSystem(char.system).name }}</b-badge>
                                         <small>{{ char.campaign }}</small>
@@ -112,8 +115,10 @@
                         </b-list-group-item>
                     </b-list-group>
 
-                    <div class="card-body" v-else>
-                        <h6 class="text-center text-muted">No Characters found.</h6>
+                    <div v-else class="card-body">
+                        <h6 class="text-center text-muted">
+                            No Characters found.
+                        </h6>
                     </div>
 
                     <div class="card-body text-right">
@@ -174,12 +179,22 @@
             characterList: characterMan.characters$,
             systemsStatus: systemsMan.status$
         },
+        data()
+        {
+            return {
+                charFilter: '',
+                systemsFilter: [],
+                addEditChar: undefined,
+                delChar: undefined
+            };
+        },
         computed: {
-            charsLoading(){ return this.systemsStatus !== 'loaded'; },
-            systems(){ return _.filter(this.allSystems, (sys) => sys.disabled !== true); },
+            charsLoading() { return this.systemsStatus !== 'loaded'; },
+            systems() { return _.filter(this.allSystems, (sys) => sys.disabled !== true); },
             characters()
             {
                 return _(this.characterList)
+                    // eslint-disable-next-line camelcase
                     .filter({ account_id: (this.account || {}).id })
                     .filter((char) =>
                     {
@@ -193,6 +208,19 @@
                     .value();
             }
         },
+        mounted()
+        {
+            this.$subscribeTo(authMan.status$, (status) =>
+            {
+                if(status === 'signed out')
+                {
+                    // We've finished loading, and we're not signed in
+                    this.$router.push('/');
+                } // end if
+
+                this.selectAllSystems();
+            });
+        },
         methods: {
             getSystem(systemID)
             {
@@ -201,7 +229,7 @@
 
             selectAllSystems()
             {
-                this.systemsFilter = [].concat(this.systems.map((s) => s.id));
+                this.systemsFilter = [].concat(this.systems.map((sys) => sys.id));
             },
             selectNoneSystems()
             {
@@ -235,30 +263,8 @@
                 // We just need to clear this when the modal is hidden.
                 this.delChar = undefined;
             }
-        },
-        data()
-        {
-            return {
-                charFilter: '',
-                systemsFilter: [],
-                addEditChar: undefined,
-                delChar: undefined
-            };
-        },
-        mounted()
-        {
-            this.$subscribeTo(authMan.status$, (status) =>
-            {
-                if(status === 'signed out')
-                {
-                    // We've finished loading, and we're not signed in
-                    this.$router.push('/');
-                } // end if
-
-                this.selectAllSystems();
-            });
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

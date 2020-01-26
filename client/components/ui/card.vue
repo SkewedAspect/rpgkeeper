@@ -3,13 +3,14 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card class="rpgkeeper-card shadow-sm"
+    <b-card
+        class="rpgkeeper-card shadow-sm"
         :align="align"
         header-bg-variant="dark"
         header-text-variant="white"
         :class="classes"
-        :no-body="noBody">
-
+        :no-body="noBody"
+    >
         <template slot="header">
             <slot name="header">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
@@ -62,32 +63,35 @@
         name: 'RPGKCard',
         props: {
             icon: {
-                type: String
+                type: String,
+                default: undefined
             },
             title: {
-                type: String
+                type: String,
+                default: undefined
             },
             noBody: {
-                Boolean,
+                type: Boolean,
                 default: false
             },
             align: {
-                type: String
+                type: String,
+                default: undefined
             },
             fill: {
-                Boolean,
+                type: Boolean,
                 default: false
             },
             fixed: {
-                Boolean,
+                type: Boolean,
                 default: false
             },
             grow: {
-                Boolean,
+                type: Boolean,
                 default: false
             },
             shrink: {
-                Boolean,
+                type: Boolean,
                 default: false
             }
         },
@@ -117,7 +121,7 @@
                 return 'nothing';
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -8,12 +8,13 @@
             <span class="color-block" :style="{ 'background-color': color }">&nbsp;</span>
         </b-button>
 
-        <b-popover v-if="color"
+        <b-popover
+            v-if="color"
             :target="btnID"
             triggers="click blur"
             placement="auto"
-            class="cp-popover">
-
+            class="cp-popover"
+        >
             <div class="cp-popover-body">
                 <vue-color v-model="color" :disable-alpha="true"></vue-color>
             </div>
@@ -47,7 +48,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Components
-    import { Sketch } from 'vue-color'
+    import { Sketch } from 'vue-color';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -62,8 +63,14 @@
                 default: '#ffffff'
             }
         },
+        data()
+        {
+            return {
+                color: undefined
+            };
+        },
         computed: {
-            btnID(){ return `color-picker-${ this._uid }`; }
+            btnID() { return `color-picker-${ this._uid }`; }
         },
         watch: {
             value()
@@ -78,17 +85,11 @@
                 } // end if
             }
         },
-        data()
-        {
-            return {
-                color: undefined
-            };
-        },
         mounted()
         {
             this.color = this.value;
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

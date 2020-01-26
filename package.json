@@ -9,7 +9,8 @@
     "build:clean": "rimraf dist/*",
     "build:copy": "cpr client/static/ dist/static",
     "build:release": "npm run build:cache-clean && npm run build:copy && parcel build client/index.html --detailed-report",
-    "build:watch": "npm run build:clean && npm run build:copy && parcel watch client/index.html"
+    "build:watch": "npm run build:clean && npm run build:copy && parcel watch client/index.html",
+    "lint:fix": "eslint --ext .js,.vue --fix server.js config.js server/ systems/ client/"
   },
   "repository": "Morgul/rpgkkeper",
   "author": "Christopher S. Case <chris.case@g33xnexus.com>",
@@ -60,7 +61,12 @@
     "caniuse-lite": "^1.0.30000988",
     "cpr": "^3.0.1",
     "date-fns": "^2.0.0-beta.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jsdoc": "^21.0.0",
+    "eslint-plugin-vue": "^6.1.2",
+    "husky": "^4.2.1",
     "jquery": "^3.4.1",
+    "lint-staged": "^10.0.2",
     "marked": "^0.8.0",
     "parcel": "^1.11.0",
     "pino-pretty": "^3.2.0",
@@ -78,5 +84,16 @@
     "vue-router": "^3.1.5",
     "vue-rx": "6.0.1",
     "vue-template-compiler": "^2.6.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "yarn run lint:fix",
+      "git add"
+    ]
   }
 }

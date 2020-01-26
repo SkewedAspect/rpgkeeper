@@ -14,8 +14,8 @@ class NoteModel
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get id(){ return this._id; }
-    get pages(){ return this._pages; }
+    get id() { return this._id; }
+    get pages() { return this._pages; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Model API
@@ -36,7 +36,7 @@ class NoteModel
     {
         return {
             id: this._id,
-            pages: this.pages.map((p) => p.toJSON())
+            pages: this.pages.map((page) => page.toJSON())
         };
     } // end toJSON
 } // end NoteModel

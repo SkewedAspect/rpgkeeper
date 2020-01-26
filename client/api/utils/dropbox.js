@@ -2,13 +2,14 @@
 // DropboxUtil
 //----------------------------------------------------------------------------------------------------------------------
 
-class DropboxUtil {
+class DropboxUtil
+{
     chooseDropboxImage()
     {
         return new Promise((resolve) =>
         {
             Dropbox.choose({
-                extensions: ["images"],
+                extensions: [ 'images' ],
                 success(files)
                 {
                     // This is a little obnoxious. Dropbox does not support non-expiring direct links from their

@@ -31,15 +31,15 @@ class SystemsManager
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get systems$(){ return this._systemsSubject.asObservable(); }
-    get status$(){ return this._statusSubject.asObservable(); }
+    get systems$() { return this._systemsSubject.asObservable(); }
+    get status$() { return this._statusSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get systems(){ return this._systemsSubject.getValue(); }
-    get status(){ return this._statusSubject.getValue(); }
+    get systems() { return this._systemsSubject.getValue(); }
+    get status() { return this._statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API
