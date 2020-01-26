@@ -1,9 +1,11 @@
 name: Publish Docker
 
-on:
-  push:
-    tags: 
-      - /^v\d+\.\d+\.\d+.*/ # Only build docker images when we push a semver tag.
+on: [push]
+
+#on:
+#  push:
+#    tags: 
+#      - /^v\d+\.\d+\.\d+.*/ # Only build docker images when we push a semver tag.
 
 jobs:
   build:
