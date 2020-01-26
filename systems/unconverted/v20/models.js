@@ -8,8 +8,8 @@ import trivialModels from 'trivialmodels';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var types = trivialModels.types;
-var db = { errors: trivialModels.errors };
+const types = trivialModels.types;
+const db = { errors: trivialModels.errors };
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -45,8 +45,6 @@ db.Character = trivialModels.define({
         wits: types.Number({ integer: true }),
 
         // Abilities
-
-
 
         notes: types.Array({ default: [] }),
         user: types.String({ required: true })

@@ -25,9 +25,9 @@ import InitialSpells from './initial/spells.json';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var logger = logging.loggerFor(module);
+const logger = logging.loggerFor(module);
 
-var router = express.Router();
+const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Setup Router
@@ -42,9 +42,9 @@ router.use('/spells', spellRouter);
 // Register System
 //----------------------------------------------------------------------------------------------------------------------
 
-var id = 'dnd35';
-var name = 'Dungeons and Dragons v3.5';
-var description = 'A system that should work with D&D v3/3.5 and Pathfinder.';
+const id = 'dnd35';
+const name = 'Dungeons and Dragons v3.5';
+const description = 'A system that should work with D&D v3/3.5 and Pathfinder.';
 
 systemMan.register(id, name, description, router, models);
 systemMan.buildGeneralEndpoints(router, models);
@@ -53,6 +53,10 @@ systemMan.buildGeneralEndpoints(router, models);
 // Data Loading Helpers
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ * @param Model
+ * @param initialData
+ */
 function createOrUpdateModel(Model, initialData)
 {
     return Model.get(initialData.id)
@@ -65,11 +69,15 @@ function createOrUpdateModel(Model, initialData)
         .catch(models.errors.DocumentNotFound, () =>
         {
             // Add Class
-            var instance = new Model(initialData);
+            const instance = new Model(initialData);
             return instance.$save();
         });
 } // end createOrUpdateModel
 
+/**
+ * @param Model
+ * @param initialData
+ */
 function loadInitial(Model, initialData)
 {
     return Promise.each(_.values(initialData), (data) =>
@@ -87,6 +95,6 @@ module.exports = Promise.resolve()
     .then(() => { return loadInitial(models.Class, InitialClasses); })
     .then(() => { return loadInitial(models.Feat, InitialFeats); })
     .then(() => { return loadInitial(models.Spell, InitialSpells); })
-    .then(() => { logger.info('[dnd35] Loading initial data done.') });
+    .then(() => { logger.info('[dnd35] Loading initial data done.'); });
 
 //----------------------------------------------------------------------------------------------------------------------

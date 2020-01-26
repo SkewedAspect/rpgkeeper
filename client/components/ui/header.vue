@@ -5,7 +5,7 @@
 <template>
     <b-navbar toggleable="md" type="dark" variant="dark" sticky>
         <b-navbar-brand to="/">
-            <img src="/static/images/logo.png" width="30px" height="30px" style="display: inline-block; margin-top: -5px">
+            <img src="/static/images/logo.png" width="30px" height="30px" style="display: inline-block; margin-top: -5px" />
             RPGKeeper
         </b-navbar-brand>
         <b-navbar-nav>
@@ -33,22 +33,22 @@
     //------------------------------------------------------------------------------------------------------------------
 
 	// Managers
-	import authMan from '../../api/managers/auth';
+    import authMan from '../../api/managers/auth';
 
     // Components
-	import LoginComponent from './login.vue';
+    import LoginComponent from './login.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'SiteHeader',
-		components: {
-			login: LoginComponent
-		},
-		subscriptions: {
+        components: {
+            login: LoginComponent
+        },
+        subscriptions: {
             account: authMan.account$
-		}
-    }
+        }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

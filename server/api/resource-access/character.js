@@ -32,10 +32,10 @@ class CharacterResourceAccess
         {
             try
             { character.details = JSON.parse(character.details); }
-            catch(error)
+            catch (error)
             {
                 character.details = {};
-                logger.error(`Failed to parse details for character ${character.character_id}:`, error.stack);
+                logger.error(`Failed to parse details for character ${ character.character_id }:`, error.stack);
             } // end try/catch
         } // end if
 
@@ -75,7 +75,7 @@ class CharacterResourceAccess
             query = applyFilters(query, filters);
         } // end if
 
-        return await query
+        return query
             .map(this._parseCharacter);
     } // end getCharacters
 
@@ -164,7 +164,7 @@ class CharacterResourceAccess
     async deleteCharacter(hash_id)
     {
         const db = await dbMan.getDB();
-        return await db('character')
+        return db('character')
             .where({ hash_id })
             .delete();
     } // end deleteCharacter

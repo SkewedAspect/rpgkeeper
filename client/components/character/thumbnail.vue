@@ -4,7 +4,8 @@
 
 <template>
     <div class="char-thumbnail">
-        <b-img :src="src"
+        <b-img
+            :src="src"
             width="64px"
             height="64px"
             rounded="circle"
@@ -12,9 +13,10 @@
             :blank-color="color"
             thumbnail
             class="shadow-sm"
-            :style="{ 'background-color': color }">
+            :style="{ 'background-color': color }"
+        >
         </b-img>
-        <div class="char-text" v-if="!src">
+        <div v-if="!src" class="char-text">
             {{ text }}
         </div>
     </div>
@@ -58,14 +60,15 @@
                 default: '#ffffff'
             },
             src: {
-                type: String
+                type: String,
+                default: undefined
             },
             text: {
                 type: String,
                 required: true
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

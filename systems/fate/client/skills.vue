@@ -9,8 +9,8 @@
                 <fa class="mr-1" icon="scroll"></fa>
                 <span class="d-none d-md-inline">Skills</span>
             </h5>
-            <div class="ml-auto" v-if="!readonly">
-                <b-btn @click="openEditModal()" size="sm" style="margin-bottom: 1px;">
+            <div v-if="!readonly" class="ml-auto">
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                     <fa icon="edit" fixed-width></fa>
                     <span class="d-none d-md-inline">Edit</span>
                 </b-btn>
@@ -19,11 +19,12 @@
 
         <!-- Content -->
         <table class="table table-bordered mb-0 font-sm">
-            <tr v-for="{ name, skills } in rows">
+            <!-- eslint-disable-next-line vue/no-template-shadow -->
+            <tr v-for="{ name, skills } in rows" :key="name">
                 <td class="text-right text-nowrap" style="width: 1%">
                     <b>{{ name }}</b>
                 </td>
-                <td style="min-width: 80px" v-for="columnIdx in columns">
+                <td v-for="columnIdx in columns" :key="columnIdx" style="min-width: 80px">
                     {{ (skills[columnIdx] || {}).name }}
                 </td>
             </tr>
@@ -84,14 +85,14 @@
         },
         computed: {
             skills: {
-                get(){ return _.orderBy(this.value, [ 'rank', 'name' ], [ 'desc', 'asc' ]); },
-                set(val){ this.$emit('input', val); }
+                get() { return _.orderBy(this.value, [ 'rank', 'name' ], [ 'desc', 'asc' ]); },
+                set(val) { this.$emit('input', val); }
             },
-            averageSkills(){ return _.filter(this.skills, { rank: 1 }); },
-            fairSkills(){ return _.filter(this.skills, { rank: 2 }); },
-            goodSkills(){ return _.filter(this.skills, { rank: 3 }); },
-            greatSkills(){ return _.filter(this.skills, { rank: 4 }); },
-            superbSkills(){ return _.filter(this.skills, { rank: 5 }); },
+            averageSkills() { return _.filter(this.skills, { rank: 1 }); },
+            fairSkills() { return _.filter(this.skills, { rank: 2 }); },
+            goodSkills() { return _.filter(this.skills, { rank: 3 }); },
+            greatSkills() { return _.filter(this.skills, { rank: 4 }); },
+            superbSkills() { return _.filter(this.skills, { rank: 5 }); },
 
             rows()
             {
@@ -135,7 +136,7 @@
                 this.$refs.editModal.show();
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

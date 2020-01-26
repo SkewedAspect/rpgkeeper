@@ -9,8 +9,8 @@
                 <fa class="mr-1" icon="magic"></fa>
                 <span class="d-none d-md-inline">Extras</span>
             </h5>
-            <div class="ml-auto" v-if="!readonly">
-                <b-btn @click="openEdit()" size="sm" style="margin-bottom: 1px;">
+            <div v-if="!readonly" class="ml-auto">
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEdit()">
                     <fa icon="edit" fixed-width></fa>
                     <span class="d-none d-md-inline">Edit</span>
                 </b-btn>
@@ -18,9 +18,11 @@
         </div>
 
         <!-- Content -->
-        <div v-if="value" v-html="renderedContent"></div>
+        <markdown v-if="value" :text="value"></markdown>
         <div v-else>
-            <h6 class="text-center">No Extras</h6>
+            <h6 class="text-center">
+                No Extras
+            </h6>
         </div>
 
         <!-- Modals -->
@@ -40,10 +42,9 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import marked from 'marked';
-
     // Components
     import RpgkCard from '../../../client/components/ui/card.vue';
+    import markdown from '../../../client/components/ui/markdown.vue';
     import EditExtrasModal from './editExtrasModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -52,6 +53,7 @@
         name: 'FateExtrasCard',
         components: {
             RpgkCard,
+            markdown,
             EditExtrasModal
         },
         props: {
@@ -64,19 +66,13 @@
                 default: false
             }
         },
-        computed: {
-            renderedContent()
-            {
-                return marked(this.value);
-            }
-        },
         methods: {
             openEdit()
             {
                 this.$refs.editModal.show();
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

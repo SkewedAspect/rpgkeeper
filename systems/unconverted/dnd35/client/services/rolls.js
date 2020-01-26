@@ -9,7 +9,8 @@ import diceSvc from '../../../../client/components/dice/diceService';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class RollsService {
+class RollsService 
+{
     constructor()
     {
         this.state = {
@@ -24,7 +25,7 @@ class RollsService {
     
     roll(rollText, scope, title)
     {
-        var roll = diceSvc.roll(rollText, scope);
+        const roll = diceSvc.roll(rollText, scope);
         
         this.state.results.unshift({
             title,

@@ -3,8 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="delete-page-modal" v-if="page">
-        <b-modal v-model="showModal"
+    <div v-if="page" class="delete-page-modal">
+        <b-modal
+            v-model="showModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
@@ -12,8 +13,8 @@
             size="md"
             ok-variant="danger"
             @ok="onDelete"
-            @hidden="onHidden">
-
+            @hidden="onHidden"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-minus"></fa>
@@ -56,15 +57,16 @@
         name: 'DeletePageModal',
         props: {
             value: {
-                type: Object
+                type: Object,
+                default: undefined
             }
         },
         computed: {
             showModal: {
-                get(){ return !!this.value; },
-                set(){ /* We ignore setting */ }
+                get() { return !!this.value; },
+                set() { /* We ignore setting */ }
             },
-            page(){ return this.value; }
+            page() { return this.value; }
         },
         methods: {
             onHidden()
@@ -76,7 +78,7 @@
                 await notesMan.deletePage(notesMan.selected, this.page);
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

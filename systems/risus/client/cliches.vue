@@ -4,15 +4,14 @@
 
 <template>
     <rpgk-card id="risus-cliches-block" :class="{ readonly: readonly }" fill no-body>
-
         <!-- Header -->
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                 <fa class="mr-1" icon="flame"></fa>
                 <span class="d-none d-md-inline">Cliches</span>
             </h5>
-            <div class="ml-auto" v-if="!readonly">
-                <b-btn @click="openEditModal()" size="sm" style="margin-bottom: 1px;">
+            <div v-if="!readonly" class="ml-auto">
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                     <fa icon="edit" fixed-width></fa>
                     <span class="d-none d-md-inline">Edit</span>
                 </b-btn>
@@ -21,14 +20,14 @@
 
         <!-- Card Body -->
         <b-list-group v-if="cliches && cliches.length > 0" flush>
-            <b-list-group-item v-for="cliche in cliches" class="d-flex">
+            <b-list-group-item v-for="cliche in cliches" :key="cliche.description" class="d-flex">
                 <div class="d-inline-block mr-2 mt-1" style="max-width: 60px; min-width: 60px;">
                     <b-form-input
+                        v-model.number="cliche.current"
                         type="number"
                         min="0"
                         :max="cliche.value"
                         step="1"
-                        v-model.number="cliche.current"
                         :disabled="readonly"
                         @change="onChange()"
                     ></b-form-input>
@@ -50,8 +49,10 @@
                 </div>
             </b-list-group-item>
         </b-list-group>
-        <div class="card-body" v-else>
-            <h4 class="text-center text-muted m-0">No Cliches.</h4>
+        <div v-else class="card-body">
+            <h4 class="text-center text-muted m-0">
+                No Cliches.
+            </h4>
         </div>
 
         <!-- Edit Modal -->
@@ -79,7 +80,6 @@
 
     // Components
     import EditClichesModal from './editClichesModal.vue';
-    import Markdown from '../../../client/components/ui/markdown.vue';
     import RpgkCard from '../../../client/components/ui/card.vue';
     import charMan from '../../../client/api/managers/character';
 
@@ -89,7 +89,6 @@
         name: 'RisusClichesCard',
         components: {
             EditClichesModal,
-            Markdown,
             RpgkCard
         },
         props: {
@@ -103,7 +102,7 @@
             }
         },
         computed: {
-            cliches(){ return this.character.details.cliches; }
+            cliches() { return this.character.details.cliches; }
         },
         methods: {
             onChange()
@@ -122,7 +121,7 @@
             {
                 if(!this.readonly)
                 {
-                    cliche.current = cliche.value ;
+                    cliche.current = cliche.value;
 
                     // Save the character
                     return charMan.save(charMan.selected);
@@ -133,7 +132,7 @@
                 this.$emit('roll', dice, name);
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

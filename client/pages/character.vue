@@ -4,7 +4,6 @@
 
 <template>
     <b-container id="character-page" class="mt-2 mb-3">
-
         <!-- Error Handling -->
         <b-container v-if="error">
             <b-alert variant="danger" show>
@@ -12,7 +11,9 @@
                     <fa icon="exclamation-triangle"></fa>
                     Error loading character
                 </h4>
-                <div v-for="line in error.stack.split('\n')">{{ line }}</div>
+                <div v-for="(line, index) in error.stack.split('\n')" :key="index">
+                    {{ line }}
+                </div>
                 <div class="text-right">
                     <b-btn to="/dashboard" variant="danger">
                         <fa icon="arrow-left"></fa>
@@ -43,7 +44,6 @@
 
                 <!-- Actual System Character Sheet -->
                 <component :is="char.system">
-
                     <!-- We put a warning here, mostly for the developer. -->
                     <b-container>
                         <b-alert variant="warning" show>
@@ -121,7 +121,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: "character-page",
+        name: 'CharacterPage',
         components: {
             Loading,
             Notes,
@@ -144,7 +144,7 @@
         },
         mounted()
         {
-            this.$watch('char', async () =>
+            this.$watch('char', async() =>
             {
                 if(this.char)
                 {
@@ -157,9 +157,9 @@
             });
 
             // We always select the character that matches our route, so we handle navigation.
-            charMan.select(this.$route.params.id).catch((e) => this.error = e);
+            charMan.select(this.$route.params.id).catch((err) => this.error = err);
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

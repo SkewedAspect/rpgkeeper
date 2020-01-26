@@ -24,9 +24,9 @@ import systemMan from '../manager';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var logger = logging.loggerFor(module);
+const logger = logging.loggerFor(module);
 
-var router = express.Router();
+const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Setup Router
@@ -41,9 +41,9 @@ var router = express.Router();
 // Register System
 //----------------------------------------------------------------------------------------------------------------------
 
-var id = 'V20';
-var name = 'Vampire: The Masquerade (20th Anniversary Edition)';
-var description = 'This system was built for V20, but should work for original VtM as well.';
+const id = 'V20';
+const name = 'Vampire: The Masquerade (20th Anniversary Edition)';
+const description = 'This system was built for V20, but should work for original VtM as well.';
 
 systemMan.register(id, name, description, router, models);
 systemMan.buildGeneralEndpoints(router, models);

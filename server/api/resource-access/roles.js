@@ -7,7 +7,6 @@ const dbMan = require('../../database');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-
 class RolesResourceAccess
 {
     _buildRolesList(roles)
@@ -27,7 +26,7 @@ class RolesResourceAccess
     async getRoles()
     {
         const db = await dbMan.getDB();
-        return await db('role')
+        return db('role')
             .select()
             .map(this._parseRole);
     } // end getRoles
@@ -35,7 +34,7 @@ class RolesResourceAccess
     async getRolesForAccount(hash_id)
     {
         const db = await dbMan.getDB();
-        return await db('role as r')
+        return db('role as r')
             .select('r.name')
             .join('account_role as ar', 'r.role_id', '=', 'ar.role_id')
             .join('account as a', 'ar.account_id', '=', 'a.account_id')

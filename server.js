@@ -22,7 +22,7 @@ const session = require('express-session');
 const passport = require('passport');
 
 // Managers
-const dbMan  = require('./server/database');
+const dbMan = require('./server/database');
 const accountMan = require('./server/api/managers/account');
 
 // Session Store
@@ -52,6 +52,9 @@ process.on('uncaughtException', (err) =>
 // Main Function
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ *
+ */
 async function main()
 {
     const db = await dbMan.getDB();
@@ -101,11 +104,12 @@ async function main()
     if(config.overrideAuth)
     {
         // Middleware to skip authentication, for testing with postman, or unit tests.
-        app.use(routeUtils.wrapAsync(async (req, resp, next) => {
+        app.use(routeUtils.wrapAsync(async(req, resp, next) =>
+        {
             let account = app.get('user');
 
             // Check for an email header. Even if `app.user` is set, this overrides (this keeps the code simpler).
-            let email = req.get('auth-email');
+            const email = req.get('auth-email');
             if(email)
             {
                 account = await accountMan.getAccountByEmail(email);
@@ -135,14 +139,15 @@ async function main()
     app.use('/news', newsRouter);
 
     // Serve index.html for any html requests, but 404 everything else.
-    app.get('*', (request, response) => {
+    app.get('*', (request, response) =>
+    {
         response.format({
             html: routeUtils.serveIndex,
-            json: (request, response) =>
+            json: (req, resp) =>
             {
-                response.status(404).end();
+                resp.status(404).end();
             }
-        })
+        });
     });
 
     // Basic error logging

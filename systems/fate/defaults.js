@@ -8,7 +8,7 @@ module.exports = {
             { type: 'high concept', detail: '' },
             { type: 'trouble', detail: '' }
         ],
-        extras: "",
+        extras: '',
         fatePoints: {
             current: 0,
             refresh: 0

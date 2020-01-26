@@ -17,9 +17,16 @@ const { wrapAsync } = require('../utils');
 
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ * Validates a character, against an AJV schema.
+ *
+ * @param {boolean} skipRequired - Disable the 'required' portions. (Useful for PATCH functionality.)
+ *
+ * @returns {Function} Returns an express middleware function.
+ */
 function charValidation(skipRequired)
 {
-    return wrapAsync(async (request, response, next) =>
+    return wrapAsync(async(request, response, next) =>
     {
         let system;
         if(request.params.charID)
@@ -38,7 +45,7 @@ function charValidation(skipRequired)
         try
         {
             // Copy the schema (since we're about to modify it), as well as handle skipping required
-            const schema = Object.assign({}, charSchema, skipRequired ? { required: [] } : {});
+            const schema = { ...charSchema, ...(skipRequired ? { required: [] } : {}) };
 
             if(system)
             {
@@ -52,7 +59,7 @@ function charValidation(skipRequired)
             validate(schema, data);
             next();
         }
-        catch(error)
+        catch (error)
         {
             next(error);
         } // end try/catch

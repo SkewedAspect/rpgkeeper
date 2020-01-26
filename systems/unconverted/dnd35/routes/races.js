@@ -11,15 +11,15 @@ import models from '../models';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var logger = logging.loggerFor(module);
+const logger = logging.loggerFor(module);
 
-var router = express.Router();
+const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Races Endpoint
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', function(req, resp)
+router.get('/', (req, resp) => 
 {
     return models.Race.all()
         .then((races) =>
@@ -31,18 +31,18 @@ router.get('/', function(req, resp)
             logger.warn('Race not found:\n', error.stack);
 
             resp.status(404).json({
-                human: "Race not found.",
+                human: 'Race not found.',
                 message: error.message
             });
         })
-        .catch(function(err)
+        .catch((err) => 
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });
         });
 });
 
-router.get('/:raceID', function(req, resp)
+router.get('/:raceID', (req, resp) => 
 {
     return models.Race.get(req.params.raceID)
         .then((race) =>
@@ -54,11 +54,11 @@ router.get('/:raceID', function(req, resp)
             logger.warn('Race not found:\n', error.stack);
 
             resp.status(404).json({
-                human: "Race not found.",
+                human: 'Race not found.',
                 message: error.message
             });
         })
-        .catch(function(err)
+        .catch((err) => 
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });

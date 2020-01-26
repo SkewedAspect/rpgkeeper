@@ -15,49 +15,48 @@ const logger = require('trivial-logging').loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-passport.use(new GoogleStrategy(async (token, profile, done) =>
+passport.use(new GoogleStrategy(async(token, profile, done) =>
+{
+    try
     {
-        try
+        let account;
+        try { account = await accountMan.getAccountByEmail(profile.email); }
+        catch (error)
         {
-            let account;
-            try { account = await accountMan.getAccountByEmail(profile.email); }
-            catch(error)
+            if(error.code === 'ERR_NOT_FOUND')
             {
-                if(error.code === 'ERR_NOT_FOUND')
-                {
-                    account = null;
-                }
-                else
-                {
-                    logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
-                    done(error);
-                } // end if
-            } // end try/catch
-
-            if(account)
-            {
-                account.name = account.name || profile.email.split('@')[ 0 ];
-                account.avatar = `${profile.picture}?sz=512`;
-                account = await accountMan.updateAccount(account);
+                account = null;
             }
             else
             {
-                account = await accountMan.createAccount({
-                    name: profile.email.split('@')[0],
-                    avatar: `${profile.picture}?sz=512`,
-                    email: profile.email
-                });
+                logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
+                done(error);
             } // end if
-
-            done(null, account);
-        }
-        catch(error)
-        {
-            logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
-            done(error);
         } // end try/catch
-    })
-);
+
+        if(account)
+        {
+            account.name = account.name || profile.email.split('@')[0];
+            account.avatar = `${ profile.picture }?sz=512`;
+            account = await accountMan.updateAccount(account);
+        }
+        else
+        {
+            account = await accountMan.createAccount({
+                name: profile.email.split('@')[0],
+                avatar: `${ profile.picture }?sz=512`,
+                email: profile.email
+            });
+        } // end if
+
+        done(null, account);
+    }
+    catch (error)
+    {
+        logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
+        done(error);
+    } // end try/catch
+}));
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -71,7 +70,7 @@ module.exports = {
         });
 
         // Logout endpoint
-        app.post('/auth/logout', function(req, res)
+        app.post('/auth/logout', (req, res) => 
         {
             req.logout();
             res.end();

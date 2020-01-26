@@ -3,8 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="edit-hooks-modal" v-if="hooks">
-        <b-modal ref="modal"
+    <div v-if="hooks" class="edit-hooks-modal">
+        <b-modal
+            ref="modal"
             header-bg-variant="dark"
             header-text-variant="white"
             size="lg"
@@ -12,8 +13,8 @@
             no-close-on-backdrop
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown">
-
+            @shown="onShown"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
@@ -21,18 +22,20 @@
             </template>
 
             <!-- Modal Content -->
-            <div class="d-flex mb-2" v-for="hook in hooks">
+            <div v-for="(hook, index) in hooks" :key="index" class="d-flex mb-2">
                 <b-form-input v-model="hook.description"></b-form-input>
                 <b-btn variant="danger" class="ml-2" @click="removeHook(hook)">
                     <fa icon="trash-alt"></fa>
                 </b-btn>
             </div>
 
-            <hr>
+            <hr />
 
-            <b-card header="New Hook"
+            <b-card
+                header="New Hook"
                 header-bg-variant="dark"
-                header-text-variant="white">
+                header-text-variant="white"
+            >
                 <div class="d-flex">
                     <b-form-input id="new-input" v-model="newHook"></b-form-input>
                     <b-btn variant="primary" class="ml-2 text-nowrap" @click="addHook">
@@ -82,6 +85,13 @@
                 required: true
             }
         },
+        data()
+        {
+            return {
+                hooks: _.cloneDeep(this.value),
+                newHook: ''
+            };
+        },
         methods: {
             onShown()
             {
@@ -93,11 +103,11 @@
                 this.$emit('input', this.hooks);
 
                 // We have to wait for things to settle from updating the model
-                this.$nextTick(async () =>
+                this.$nextTick(async() =>
                 {
                     // Save the character
                     try { await charMan.save(); }
-                    catch(error)
+                    catch (error)
                     {
                         console.error('Error saving:', error);
                         // TODO: Let the user know about this!
@@ -134,15 +144,8 @@
             {
                 this.$refs.modal.hide();
             }
-        },
-        data()
-        {
-            return {
-                hooks: _.cloneDeep(this.value),
-                newHook: ''
-            };
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

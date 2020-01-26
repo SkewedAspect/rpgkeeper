@@ -33,41 +33,41 @@ class CharacterModel
         return {
             id: undefined,
             system: undefined,
-            name: "",
-            description: "",
-            portrait: "",
-            thumbnail: "",
+            name: '',
+            description: '',
+            portrait: '',
+            thumbnail: '',
             color: colorize(shortID()),
-            campaign: "",
+            campaign: '',
             details: this._sysDefaults,
             account_id: undefined,
             note_id: undefined
         };
     }
 
-    get dirty(){ return !_.isEqual(this.$state, this.$refState); }
-    get original(){ return Object.assign({}, this.$refState); }
+    get dirty() { return !_.isEqual(this.$state, this.$refState); }
+    get original() { return { ...this.$refState }; }
 
-    get id(){ return this.$state.id; }
-    get details(){ return this.$state.details; }
-    get account_id(){ return this.$state.account_id; }
-    get note_id(){ return this.$state.note_id; }
-    get initial(){ return (_.get(this.name, '0', '?')).toUpperCase(); }
+    get id() { return this.$state.id; }
+    get details() { return this.$state.details; }
+    get account_id() { return this.$state.account_id; }
+    get note_id() { return this.$state.note_id; }
+    get initial() { return (_.get(this.name, '0', '?')).toUpperCase(); }
 
-    get system(){ return this.$state.system; }
-    set system(val){ this.$state.system = val; }
-    get name(){ return this.$state.name; }
-    set name(val){ this.$state.name = val; }
-    get description(){ return this.$state.description; }
-    set description(val){ this.$state.description = val; }
-    get portrait(){ return this.$state.portrait; }
-    set portrait(val){ this.$state.portrait = val; }
-    get thumbnail(){ return this.$state.thumbnail; }
-    set thumbnail(val){ this.$state.thumbnail = val; }
-    get color(){ return this.$state.color; }
-    set color(val){ this.$state.color = val; }
-    get campaign(){ return this.$state.campaign; }
-    set campaign(val){ this.$state.campaign = val; }
+    get system() { return this.$state.system; }
+    set system(val) { this.$state.system = val; }
+    get name() { return this.$state.name; }
+    set name(val) { this.$state.name = val; }
+    get description() { return this.$state.description; }
+    set description(val) { this.$state.description = val; }
+    get portrait() { return this.$state.portrait; }
+    set portrait(val) { this.$state.portrait = val; }
+    get thumbnail() { return this.$state.thumbnail; }
+    set thumbnail(val) { this.$state.thumbnail = val; }
+    get color() { return this.$state.color; }
+    set color(val) { this.$state.color = val; }
+    get campaign() { return this.$state.campaign; }
+    set campaign(val) { this.$state.campaign = val; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Model API

@@ -7,12 +7,23 @@ const uuid = require('uuid');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-// This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid.
+/**
+ * This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid.
+ *
+ * @returns { string } Returns a unique string id.
+ */
 function shortID()
 {
     return base62.encode(Buffer.from(uuid.v4(null, [])).readUInt32LE(0));
 } // end shortID
 
+/**
+ * Generates a color based on a string.
+ *
+ * @param { string } str - String to colorize.
+ *
+ * @returns { string } Returns a color in hex code format.
+ */
 function colorize(str)
 {
     if(!str)
@@ -30,7 +41,7 @@ function colorize(str)
     for(let i = 0; i < 3; i++)
     {
         const value = (hash >> (i * 8)) & 0xFF;
-        color += ('00' + value.toString(16)).substr(-2);
+        color += (`00${ value.toString(16) }`).substr(-2);
     } // end for
 
     return color;

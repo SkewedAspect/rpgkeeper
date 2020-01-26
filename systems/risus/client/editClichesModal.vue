@@ -3,8 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="edit-cliches-modal" v-if="cliches">
-        <b-modal ref="modal"
+    <div v-if="cliches" class="edit-cliches-modal">
+        <b-modal
+            ref="modal"
             header-bg-variant="dark"
             header-text-variant="white"
             size="lg"
@@ -12,8 +13,8 @@
             no-close-on-backdrop
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown">
-
+            @shown="onShown"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
@@ -21,25 +22,27 @@
             </template>
 
             <!-- Modal Content -->
-            <div class="d-flex mb-2" v-for="cliche in cliches">
-                <b-form-input type="number" min="1" max="99" step="1" v-model.number="cliche.value" style="max-width: 60px; min-width: 60px;"></b-form-input>
-                <b-form-input class="ml-2" v-model="cliche.description" placeholder="Description"></b-form-input>
-                <b-form-input class="ml-2" v-model="cliche.tools" placeholder="Tools of the Trade"></b-form-input>
+            <div v-for="(cliche, index) in cliches" :key="index" class="d-flex mb-2">
+                <b-form-input v-model.number="cliche.value" type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                <b-form-input v-model="cliche.description" class="ml-2" placeholder="Description"></b-form-input>
+                <b-form-input v-model="cliche.tools" class="ml-2" placeholder="Tools of the Trade"></b-form-input>
                 <b-btn variant="danger" class="ml-2" @click="removeCliche(cliche)">
                     <fa icon="trash-alt"></fa>
                 </b-btn>
             </div>
 
-            <hr>
+            <hr />
 
-            <b-card header="New Cliche"
+            <b-card
+                header="New Cliche"
                 header-bg-variant="dark"
-                header-text-variant="white">
+                header-text-variant="white"
+            >
                 <div class="d-flex">
-                    <b-form-input type="number" min="1" max="99" step="1" v-model.number="newValue" style="max-width: 60px; min-width: 60px;"></b-form-input>
-                    <b-form-input id="new-desc" class="ml-2" v-model="newDesc" placeholder="Description"></b-form-input>
-                    <b-form-input id="new-tools" class="ml-2" v-model="newTools" placeholder="Tools of the Trade"></b-form-input>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" @click="addCliche" :disabled="!isAddValid">
+                    <b-form-input v-model.number="newValue" type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                    <b-form-input id="new-desc" v-model="newDesc" class="ml-2" placeholder="Description"></b-form-input>
+                    <b-form-input id="new-tools" v-model="newTools" class="ml-2" placeholder="Tools of the Trade"></b-form-input>
+                    <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addCliche">
                         <fa icon="plus"></fa>
                         Add
                     </b-btn>
@@ -86,6 +89,15 @@
                 required: true
             }
         },
+        data()
+        {
+            return {
+                cliches: _.cloneDeep(this.value),
+                newValue: 1,
+                newDesc: '',
+                newTools: ''
+            };
+        },
         computed: {
             isAddValid()
             {
@@ -101,16 +113,16 @@
             onSave()
             {
                 // Filter out invalid cliches.
-                this.cliches = this.cliches.filter((cliche) => _.isFinite(cliche.value) && !!cliche.description );
+                this.cliches = this.cliches.filter((cliche) => _.isFinite(cliche.value) && !!cliche.description);
 
                 this.$emit('input', this.cliches);
 
                 // We have to wait for things to settle from updating the model
-                this.$nextTick(async () =>
+                this.$nextTick(async() =>
                 {
                     // Save the character
                     try { await charMan.save(); }
-                    catch(error)
+                    catch (error)
                     {
                         console.error('Error saving:', error);
                         // TODO: Let the user know about this!
@@ -154,17 +166,8 @@
             {
                 this.$refs.modal.hide();
             }
-        },
-        data()
-        {
-            return {
-                cliches: _.cloneDeep(this.value),
-                newValue: 1,
-                newDesc: '',
-                newTools: ''
-            };
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

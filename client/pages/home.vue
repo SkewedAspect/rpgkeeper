@@ -3,14 +3,14 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-	<div id="main-page" class="container p-3">
+    <div id="main-page" class="container p-3">
         <div class="d-flex">
             <div class="d-flex m-auto">
-                <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="200">
+                <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="200" />
                 <div class="d-flex flex-column align-self-center">
                     <h1>
                         RPGKeeper
-                        <br/>
+                        <br />
                         <small class="text-muted">
                             The universal digital character manager
                         </small>
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <hr class="fancy mt-5">
+        <hr class="fancy mt-5" />
 
         <b-row class="mt-5">
             <b-col>
@@ -47,7 +47,7 @@
                     and every system we support.
                 </p>
 
-                <hr class="fancy">
+                <hr class="fancy" />
             </b-col>
             <b-col>
                 <h3 class="text-center">
@@ -61,7 +61,7 @@
                     can make suggestions or request features.
                 </p>
 
-                <hr class="fancy">
+                <hr class="fancy" />
             </b-col>
             <b-col>
                 <h3 class="text-center">
@@ -75,7 +75,7 @@
                     pull character data.
                 </p>
 
-                <hr class="fancy">
+                <hr class="fancy" />
             </b-col>
         </b-row>
         <b-row class="mt-5">
@@ -91,7 +91,7 @@
                     frameworks that power much larger sites.
                 </p>
 
-                <hr class="fancy">
+                <hr class="fancy" />
             </b-col>
             <b-col>
                 <h3 class="text-center">
@@ -105,7 +105,7 @@
                     sometimes as quickly as in a few minutes.
                 </p>
 
-                <hr class="fancy">
+                <hr class="fancy" />
             </b-col>
             <b-col>
                 <h3 class="text-center">
@@ -119,12 +119,16 @@
                     most we will ever do is ask for donations.
                 </p>
 
-                <hr class="fancy">
+                <hr class="fancy" />
             </b-col>
         </b-row>
 
-        <h4 class="text-center mt-5">Now that you've read our marketing pitch, why don't you try out RPGKeeper?</h4>
-        <p class="text-center">After all, it's free. There's nothing to lose, and infinite worlds to gain.</p>
+        <h4 class="text-center mt-5">
+            Now that you've read our marketing pitch, why don't you try out RPGKeeper?
+        </h4>
+        <p class="text-center">
+            After all, it's free. There's nothing to lose, and infinite worlds to gain.
+        </p>
 
         <div class="text-center">
             <b-btn v-show="!isLoggedIn" id="create-account-btn2" variant="primary">
@@ -136,7 +140,6 @@
                 <fa icon="arrow-right"></fa>
             </b-btn>
         </div>
-
     </div>
 </template>
 
@@ -156,29 +159,30 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    import $ from 'jquery';
     import marked from 'marked';
-    import { format, formatDistance } from 'date-fns';
+    import { formatDistance } from 'date-fns';
 
     // Managers
     import authMan from '../api/managers/auth';
     import postsMan from '../api/managers/posts';
 
-    // Components
-    import Loading from '../components/ui/loading.vue';
-    import $ from 'jquery';
-
     //------------------------------------------------------------------------------------------------------------------
 
-	export default {
-	    components: {
-	        Loading
-		},
+    export default {
+        data()
+        {
+            return {
+                signingIn: false,
+                readMorePost: undefined
+            };
+        },
         computed: {
-	        isLoggedIn()
+            isLoggedIn()
             {
                 return !!this.account;
             },
-	        sortedPosts()
+            sortedPosts()
             {
                 // Since `.sort` manipulates it in place, we make a copy using `.concat` as a nice shortcut for that.
                 return this.posts
@@ -186,35 +190,9 @@
                     .sort((post) => -post.created);
             },
             showModal: {
-	            get(){ return !!this.readMorePost; },
-	            set(val){ !val ? this.readMorePost = undefined : false; }
+                get() { return !!this.readMorePost; },
+                set(val) { !val ? this.readMorePost = undefined : false; }
             }
-        },
-        methods: {
-	        markdown(text)
-            {
-                return marked(text);
-            },
-            fromNow(date)
-            {
-                return formatDistance(date, new Date());
-            },
-            readMore(post)
-            {
-                this.readMorePost = post;
-            }
-        },
-        subscriptions: {
-            account: authMan.account$,
-	        postsLoading: postsMan.postsLoading$,
-            posts: postsMan.posts$
-        },
-        data()
-        {
-            return {
-                signingIn: false,
-                readMorePost: undefined
-            };
         },
         mounted()
         {
@@ -240,8 +218,27 @@
                     this.$router.push('/dashboard');
                 } // end if
             });
+        },
+        methods: {
+            markdown(text)
+            {
+                return marked(text);
+            },
+            fromNow(date)
+            {
+                return formatDistance(date, new Date());
+            },
+            readMore(post)
+            {
+                this.readMorePost = post;
+            }
+        },
+        subscriptions: {
+            account: authMan.account$,
+            postsLoading: postsMan.postsLoading$,
+            posts: postsMan.posts$
         }
-	}
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

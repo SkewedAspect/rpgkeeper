@@ -9,8 +9,8 @@
                 <fa class="mr-1" icon="hand-holding-magic"></fa>
                 <span class="d-none d-md-inline">Stunts</span>
             </h5>
-            <div class="ml-auto" v-if="!readonly">
-                <b-btn @click="openEdit()" size="sm" style="margin-bottom: 1px;">
+            <div v-if="!readonly" class="ml-auto">
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEdit()">
                     <fa icon="edit" fixed-width></fa>
                     <span class="d-none d-md-inline">Edit</span>
                 </b-btn>
@@ -19,12 +19,14 @@
 
         <!-- Content -->
         <div class="stunts-content">
-            <div v-for="stunt in stunts">
-                <b>{{ stunt.title }}</b>
-                <div v-html="render(stunt.description)"></div>
+            <div v-for="(stunt, index) in stunts" :key="index">
+                <div><b>{{ stunt.title }}</b></div>
+                <markdown :text="stunt.description"></markdown>
             </div>
             <div v-if="stunts.length === 0">
-                <h6 class="text-center">No stunts.</h6>
+                <h6 class="text-center">
+                    No stunts.
+                </h6>
             </div>
         </div>
 
@@ -46,10 +48,10 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
-    import marked from 'marked';
 
     // Components
     import RpgkCard from '../../../client/components/ui/card.vue';
+    import markdown from '../../../client/components/ui/markdown.vue';
     import EditStuntsModal from './editStuntsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -58,6 +60,7 @@
         name: 'FateStuntsCard',
         components: {
             RpgkCard,
+            markdown,
             EditStuntsModal
         },
         props: {
@@ -72,22 +75,18 @@
         },
         computed: {
             stunts: {
-                get(){ return _.orderBy(this.value, [ 'title' ], [ 'asc' ]); },
-                set(val){ this.$emit('input', val); }
-            },
+                get() { return _.orderBy(this.value, [ 'title' ], [ 'asc' ]); },
+                set(val) { this.$emit('input', val); }
+            }
         },
         methods: {
-            render(text)
-            {
-                return marked(text);
-            },
             openEdit()
             {
                 // Open the dialog
                 this.$refs.editModal.show();
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

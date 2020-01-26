@@ -3,7 +3,8 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="markdown d-inline-block" v-html="renderedContent"></div>
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div class="markdown" :class="block ? '' : 'd-inline-block'" v-html="renderedContent"></div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -29,6 +30,10 @@
                 type: String,
                 required: true
             },
+            block: {
+                type: Boolean,
+                default: false
+            },
             inline: {
                 type: Boolean,
                 default: false
@@ -41,13 +46,13 @@
 
                 if(this.inline !== false)
                 {
-                    rawMarkup = rawMarkup.trim().replace(/^(?:<p>)?(.*?)(?:<\/p>)?$/, "$1");
+                    rawMarkup = rawMarkup.trim().replace(/^(?:<p>)?(.*?)(?:<\/p>)?$/, '$1');
                 } // end if
 
                 return rawMarkup;
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

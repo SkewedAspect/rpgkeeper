@@ -59,17 +59,17 @@ Vue.component('fa-layers', FontAwesomeLayers);
 // VueCodeMirror
 // ---------------------------------------------------------------------------------------------------------------------
 
-import "codemirror/lib/codemirror.css";
+import 'codemirror/lib/codemirror.css';
 
 Vue.use(VueCodemirror, {
     options: {
         mode: {
-            name: "gfm",
+            name: 'gfm',
             gitHubSpice: false
         },
         lineNumbers: false,
         lineWrapping: true,
-        theme: "default"
+        theme: 'default'
     }
 });
 
@@ -100,7 +100,7 @@ const router = new VueRouter({
         { path: '/about', name: 'about', component: AboutPage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
         { path: '/characters/:id', name: 'character', component: CharacterPage },
-        { path: '/settings', name: 'settings', component: SettingsPage },
+        { path: '/settings', name: 'settings', component: SettingsPage }
     ]
 });
 
@@ -114,7 +114,7 @@ Vue.config.debug = true;
 const App = Vue.component('app', AppComponent);
 new App({
     el: '#rpgkeeper',
-    router,
+    router
 });
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -138,7 +138,7 @@ marked.setOptions({
     sanitize: false,
     smartLists: true,
     smartypants: false,
-    renderer: renderer
+    renderer
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -153,6 +153,9 @@ window.RPGKeeper = {
 // App Initialization
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ *
+ */
 async function init()
 {
     // Setup Managers

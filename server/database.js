@@ -46,9 +46,9 @@ class DatabaseManager
                         return db;
                     });
             })
-            .catch({ code: 'SQLITE_ERROR' }, (error) =>
+            .catch({ code: 'SQLITE_ERROR' }, () =>
             {
-                logger.warn("No existing database, creating one. Options:", options);
+                logger.warn('No existing database, creating one. Options:', options);
 
                 return db.migrate.latest(options.migrate)
                     .then(() => db.seed.run(options.seed))
@@ -130,7 +130,7 @@ class DatabaseManager
                 }
             });
 
-            return this.loadingTest = this._setupDB(this.testDB, { migrate: { directory: './server/knex/migrations' },  seed: { directory: './tests/seeds' } });
+            return this.loadingTest = this._setupDB(this.testDB, { migrate: { directory: './server/knex/migrations' }, seed: { directory: './tests/seeds' } });
         }
         else
         {

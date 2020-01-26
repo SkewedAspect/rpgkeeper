@@ -3,8 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="delete-char-modal" v-if="char">
-        <b-modal v-model="showModal"
+    <div v-if="char" class="delete-char-modal">
+        <b-modal
+            v-model="showModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
@@ -12,8 +13,8 @@
             size="md"
             ok-variant="danger"
             @ok="onDelete"
-            @hidden="onHidden">
-
+            @hidden="onHidden"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="trash-alt"></fa>
@@ -55,15 +56,16 @@
         name: 'DeleteCharModal',
         props: {
             value: {
-                type: Object
+                type: Object,
+                default: undefined
             }
         },
         computed: {
             showModal: {
-                get(){ return !!this.value; },
-                set(){ /* We ignore setting */ }
+                get() { return !!this.value; },
+                set() { /* We ignore setting */ }
             },
-            char(){ return this.value; }
+            char() { return this.value; }
         },
         methods: {
             onHidden()
@@ -75,7 +77,7 @@
                 await charMan.delete(this.char);
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

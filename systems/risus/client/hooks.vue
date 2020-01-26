@@ -4,15 +4,14 @@
 
 <template>
     <rpgk-card id="risus-hooks-block" :class="{ readonly: readonly }" fill no-body>
-
         <!-- Header -->
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                 <fa class="mr-1" icon="fist-raised"></fa>
                 <span class="d-none d-md-inline">Hooks</span>
             </h5>
-            <div class="ml-auto" v-if="!readonly">
-                <b-btn @click="openEditModal()" size="sm" style="margin-bottom: 1px;">
+            <div v-if="!readonly" class="ml-auto">
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                     <fa icon="edit" fixed-width></fa>
                     <span class="d-none d-md-inline">Edit</span>
                 </b-btn>
@@ -21,13 +20,15 @@
 
         <!-- Card Body -->
         <b-list-group v-if="hooks && hooks.length > 0" flush>
-            <b-list-group-item v-for="hook in hooks" class="d-flex">
+            <b-list-group-item v-for="hook in hooks" :key="hook.description" class="d-flex">
                 <fa class="mr-2" icon="bolt" style="margin-top: 5px;"></fa>
                 <markdown :text="hook.description" inline></markdown>
             </b-list-group-item>
         </b-list-group>
-        <div class="card-body" v-else>
-            <h4 class="text-center text-muted m-0">No Hooks.</h4>
+        <div v-else class="card-body">
+            <h4 class="text-center text-muted m-0">
+                No Hooks.
+            </h4>
         </div>
 
         <!-- Edit Modal -->
@@ -79,7 +80,7 @@
             }
         },
         computed: {
-            hooks(){ return this.character.details.hooks; }
+            hooks() { return this.character.details.hooks; }
         },
         methods: {
             onChange()
@@ -95,7 +96,7 @@
                 this.$refs.editModal.show();
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

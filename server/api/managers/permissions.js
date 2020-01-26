@@ -14,7 +14,7 @@ class PermissionsManager
     constructor()
     {
         // Load "Admins" group
-        tp.loadGroups(rolesRA.getRoles())
+        tp.loadGroups(rolesRA.getRoles());
     } // end constructor
 
     hasPerm(user, perm)

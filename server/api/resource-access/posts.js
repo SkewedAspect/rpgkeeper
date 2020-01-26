@@ -18,8 +18,8 @@ class PostResourceAccess
 
     _parsePost(post)
     {
-        post.created = Date.parse(post.created + ' GMT');
-        post.edited = Date.parse(post.edited + ' GMT');
+        post.created = Date.parse(`${ post.created } GMT`);
+        post.edited = Date.parse(`${ post.edited } GMT`);
 
         return post;
     } // end _parsePost
@@ -31,7 +31,7 @@ class PostResourceAccess
     async getPosts()
     {
         const db = await dbMan.getDB();
-        return await db('post')
+        return db('post')
             .select()
             .map(this._parsePost);
     } // end getPosts
@@ -49,7 +49,7 @@ class PostResourceAccess
         }
         else if(posts.length === 0)
         {
-            throw new NotFoundError(`No post found. Filter: ${ JSON.stringify(filter) }`);
+            throw new NotFoundError(`No post found.`);
         }
         else
         {
@@ -64,7 +64,7 @@ class PostResourceAccess
 
         // Insert post
         const db = await dbMan.getDB();
-        return await db('post')
+        return db('post')
             .insert(post)
             .then(([ id ]) => ({ id }));
     } // end addPost
@@ -80,7 +80,7 @@ class PostResourceAccess
         delete post.created;
 
         const db = await dbMan.getDB();
-        return await db('post')
+        return db('post')
             .update({ ...post, edited: db.fn.now() })
             .where({ post_id });
     } // end updatePost
@@ -88,7 +88,7 @@ class PostResourceAccess
     async deletePost(post_id)
     {
         const db = await dbMan.getDB();
-        return await db('post')
+        return db('post')
             .where({ post_id })
             .delete();
     } // end deletePost

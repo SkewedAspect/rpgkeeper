@@ -3,8 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="add-edit-page" v-if="page">
-        <b-modal v-model="showModal"
+    <div v-if="page" class="add-edit-page">
+        <b-modal
+            v-model="showModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
@@ -12,8 +13,8 @@
             size="xl"
             @ok="onSave"
             @shown="onShown"
-            @hidden="onHidden">
-
+            @hidden="onHidden"
+        >
             <!-- Modal Header -->
             <template slot="modal-title">
                 <span v-if="isNew">
@@ -31,13 +32,15 @@
             <b-form-group
                 id="page-title-group"
                 label="Title"
-                label-for="page-title">
+                label-for="page-title"
+            >
                 <b-form-input id="page-title" v-model="page.title"></b-form-input>
             </b-form-group>
             <b-form-group
                 id="page-content-group"
                 label="Content"
-                label-for="page-content">
+                label-for="page-content"
+            >
                 <b-card class="overflow-hidden" no-body>
                     <codemirror ref="editor" v-model="page.content"></codemirror>
                 </b-card>
@@ -80,16 +83,17 @@
         name: 'AddEditPageModal',
         props: {
             value: {
-                type: Object
+                type: Object,
+                default: undefined
             }
         },
         computed: {
             showModal: {
-                get(){ return !!this.value; },
-                set(){ /* We ignore setting */ }
+                get() { return !!this.value; },
+                set() { /* We ignore setting */ }
             },
-            isNew(){ return !this.value || !this.value.id; },
-            page(){ return this.value; }
+            isNew() { return !this.value || !this.value.id; },
+            page() { return this.value; }
         },
         methods: {
             onHidden()
@@ -119,7 +123,7 @@
                 });
             }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

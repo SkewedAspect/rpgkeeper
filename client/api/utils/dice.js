@@ -8,6 +8,13 @@ import LRU from 'lru-cache';
 
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ * Chooses an item form a list at random.
+ *
+ * @param {Array<*>} choices - The list to choose an item out of.
+ *
+ * @returns {*} Returns an item from the list, randomly chosen.
+ */
 function randomChoice(choices)
 {
     return choices[Math.floor(Math.random() * choices.length)];
@@ -15,11 +22,12 @@ function randomChoice(choices)
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class DiceUtil {
+class DiceUtil
+{
     constructor()
     {
         this.cache = new LRU(50);
-        this.fudgeChoices = ['-1', '-1', '0', '0', '+1', '+1'];
+        this.fudgeChoices = [ '-1', '-1', '0', '0', '+1', '+1' ];
     } // end constructor
 
     roll(rollTxt, scope)
@@ -35,7 +43,7 @@ class DiceUtil {
         return expr.eval(scope);
     } // end roll
 
-    rollFudge(bonus=0)
+    rollFudge(bonus = 0)
     {
         const results = _.map(_.range(4), () =>
         {
@@ -44,7 +52,7 @@ class DiceUtil {
 
         const rollTotal = _.reduce(results, (total, rollResult) =>
         {
-            return total += parseInt(rollResult);
+            return total + parseInt(rollResult);
         }, 0);
 
         return {
@@ -53,7 +61,7 @@ class DiceUtil {
                 return `[ ${ results.join(', ') } ] + ${ bonus }`;
             },
             value: rollTotal + bonus
-        }
+        };
     } // end rollFudge
 } // end DiceUtil
 

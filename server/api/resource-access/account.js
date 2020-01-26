@@ -17,6 +17,9 @@ const { applyFilters } = require('../../knex/utils');
 // Errors
 const { AppError, MultipleResultsError, NotFoundError } = require('../errors');
 
+// Logger
+const logger = require('trivial-logging').loggerFor(module);
+
 //----------------------------------------------------------------------------------------------------------------------
 
 class AccountResourceAccess
@@ -28,11 +31,11 @@ class AccountResourceAccess
     async _parseAccount(account)
     {
         account.id = account.hash_id;
-        account.created = Date.parse(account.created + ' GMT');
+        account.created = Date.parse(`${ account.created } GMT`);
 
         // Parse permissions JSON
         try { account.permissions = JSON.parse(account.permissions); }
-        catch(error)
+        catch (error)
         {
             account.permissions = [];
             logger.warn(`Failed to parse permissions for account ${ account.account_id }:`, error.stack);
@@ -40,7 +43,7 @@ class AccountResourceAccess
 
         // Parse settings JSON
         try { account.settings = JSON.parse(account.settings); }
-        catch(error)
+        catch (error)
         {
             account.settings = {};
             logger.warn(`Failed to parse settings for account ${ account.account_id }:`, error.stack);
@@ -58,7 +61,8 @@ class AccountResourceAccess
     async $getAccount(filter)
     {
         const db = await dbMan.getDB();
-        const accounts = await db('account').select().where(filter);
+        const accounts = await db('account').select()
+            .where(filter);
 
         if(accounts.length > 1)
         {
@@ -89,7 +93,7 @@ class AccountResourceAccess
             query = applyFilters(query, filters);
         } // end if
 
-        return await query
+        return query
             .map(this._parseAccount);
     } // end getAccounts
 
@@ -101,7 +105,7 @@ class AccountResourceAccess
             if(!account)
             {
                 // If we don't have one with this `account_id`, fall back to the other options.
-                return await this.getAccount({ hash_id, email });
+                return this.getAccount({ hash_id, email });
             }
             else
             {
@@ -114,7 +118,7 @@ class AccountResourceAccess
             if(!account)
             {
                 // If we don't have one with this `email`, fall back to the other option.
-                return await this.getAccount({ hash_id });
+                return this.getAccount({ hash_id });
             }
             else
             {
@@ -123,11 +127,11 @@ class AccountResourceAccess
         }
         else if(!_.isUndefined(hash_id))
         {
-            return await this.$getAccount({ hash_id });
+            return this.$getAccount({ hash_id });
         }
         else
         {
-            throw new AppError("You may only look up an account by `account_id`, `hash_id`, or `email`.");
+            throw new AppError('You may only look up an account by `account_id`, `hash_id`, or `email`.');
         } // end if
     } // end getAccount
 
@@ -139,7 +143,7 @@ class AccountResourceAccess
 
         // Insert account
         const db = await dbMan.getDB();
-        return await db('account')
+        return db('account')
             .insert(account)
             .then(([ id ]) => ({ id }));
     } // end addAccount
@@ -180,7 +184,7 @@ class AccountResourceAccess
     async deleteAccount(account_id)
     {
         const db = await dbMan.getDB();
-        return await db('account')
+        return db('account')
             .where({ account_id })
             .delete();
     } // end deleteAccount

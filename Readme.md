@@ -90,7 +90,7 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
     mill routes/components, as part of the application. No need for shared units like current.
 * [ ] Convert to typescript
 * [ ] Setup a reasonable docker build/deploy pipeline in GitHub.
-* [ ] Setup eslint MR checking in GitHub.
+* [X] Setup eslint MR checking in GitHub.
 
 This should really set us up for more complex interactions and a much faster time to implementing Campaigns.
 

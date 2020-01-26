@@ -3,12 +3,14 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-img id="portrait"
+    <b-img
+        id="portrait"
         class="shadow-sm"
         :class="portraitClass"
         :src="url"
         :style="{ 'background-color': color }"
-        thumbnail>
+        thumbnail
+    >
     </b-img>
 </template>
 
@@ -66,15 +68,15 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: "CharacterPortrait",
+        name: 'CharacterPortrait',
         props: {
             src: {
                 type: String,
-                default: "/static/images/portraitPlaceholder.png"
+                default: '/static/images/portraitPlaceholder.png'
             },
             color: {
                 type: String,
-                default: "#ffffff"
+                default: '#ffffff'
             },
             size: {
                 type: String,
@@ -82,10 +84,10 @@
             }
         },
         computed: {
-            portraitClass(){ return `portrait-${ this.size }` },
-            url(){ return this.src || "/static/images/portraitPlaceholder.png"; }
+            portraitClass() { return `portrait-${ this.size }`; },
+            url() { return this.src || '/static/images/portraitPlaceholder.png'; }
         }
-    }
+    };
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

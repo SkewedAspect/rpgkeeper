@@ -39,15 +39,15 @@ class AuthManager
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get account$(){ return this._accountSubject.asObservable(); }
-    get status$(){ return this._statusSubject.asObservable(); }
+    get account$() { return this._accountSubject.asObservable(); }
+    get status$() { return this._statusSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get account(){ return this._accountSubject.getValue(); }
-    get status(){ return this._statusSubject.getValue(); }
+    get account() { return this._accountSubject.getValue(); }
+    get status() { return this._statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Events
@@ -130,7 +130,7 @@ class AuthManager
 
     async saveAccount(account)
     {
-        return await authRA.save(account);
+        return authRA.save(account);
     } // end saveAccount
 } // end AuthManager
 

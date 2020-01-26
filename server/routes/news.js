@@ -2,7 +2,6 @@
 // Routes for news
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
 const express = require('express');
 
 // Managers
@@ -36,7 +35,7 @@ router.get('/', wrapAsync(async(req, resp) =>
     resp.json(posts);
 }));
 
-//TODO: Implement full CRUD for news posts
+// TODO: Implement full CRUD for news posts
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handling
