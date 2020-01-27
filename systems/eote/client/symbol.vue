@@ -39,6 +39,10 @@
             &.challenge {
                 color: #bb312e;
             }
+
+            &.force {
+                color: #ffffff;
+            }
         }
     }
 </style>
@@ -74,6 +78,8 @@
                         'difficulty',
                         'proficiency',
                         'challenge',
+                        'force',
+                        'forcepoint',
                         'lightside',
                         'darkside'
                     ];
@@ -140,7 +146,11 @@
 
                     case 'proficiency':
                     case 'challenge':
+                    case 'force':
                         return 'c';
+
+                    case 'forcepoint':
+                        return 'F';
 
                     case 'lightside':
                         return 'Z';
