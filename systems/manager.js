@@ -7,7 +7,7 @@ const _ = require('lodash');
 // Systems
 const Risus = require('./risus/system');
 const Fate = require('./fate/system');
-const EdgeOfTheEmpire = require('./eote/system');
+const { Genesys, EdgeOfTheEmpire } = require('./eote/system');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -18,6 +18,7 @@ class SystemManager
         this.systems = [
             Risus,
             Fate,
+            Genesys,
             EdgeOfTheEmpire
         ];
 

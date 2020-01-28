@@ -129,6 +129,7 @@
             // Systems
             fate: FateCharacter,
             risus: RisusCharacter,
+            genesys: EoteCharacter, // This is actually correct. We use the same component for both.
             eote: EoteCharacter
         },
         subscriptions: {
