@@ -66,7 +66,9 @@ function buildBasicErrorLogger(logger)
  */
 function buildErrorHandler(logger)
 {
-    return (error, request, response) =>
+    // If we don't have 4 parameters, this function literally doesn't work.
+    // eslint-disable-next-line no-unused-vars
+    return (error, request, response, next) =>
     {
         let errorJSON = {};
         if(typeof error.toJSON == 'function')
@@ -82,6 +84,8 @@ function buildErrorHandler(logger)
                 error
             };
         } // end if
+
+        console.log('??', response, response.status);
 
         response.status(error.statusCode || 500);
 

@@ -177,6 +177,8 @@
             account: authMan.account$,
             allSystems: systemsMan.systems$,
             characterList: characterMan.characters$,
+            accountStatus: authMan.status$,
+            charsStatus: characterMan.status$,
             systemsStatus: systemsMan.status$
         },
         data()
@@ -189,7 +191,12 @@
             };
         },
         computed: {
-            charsLoading() { return this.systemsStatus !== 'loaded'; },
+            charsLoading()
+            {
+                return ![ 'signed in', 'signed out' ].includes(this.accountStatus)
+                    || this.systemsStatus !== 'loaded'
+                    || this.charsStatus !== 'loaded';
+            },
             systems() { return _.filter(this.allSystems, (sys) => sys.disabled !== true); },
             characters()
             {

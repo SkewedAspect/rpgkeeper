@@ -10,7 +10,7 @@ const charSchema = require('../../api/validations/character');
 
 // Managers
 const charMan = require('../../api/managers/character');
-const sysMan = require('../../../systems/manager');
+const sysMan = require('../../api/managers/system');
 
 // Utils
 const { wrapAsync } = require('../utils');

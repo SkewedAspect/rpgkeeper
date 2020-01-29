@@ -22,6 +22,7 @@ class CharacterManager
         this._charactersSubject = new BehaviorSubject([]);
         this._selectedSubject = new BehaviorSubject();
         this.savingSubject = new BehaviorSubject(false);
+        this._statusSubject = new BehaviorSubject('loading');
 
         // Subscriptions
         authMan.account$.subscribe(this._onAccountChanged.bind(this));
@@ -34,6 +35,8 @@ class CharacterManager
     get characters$() { return this._charactersSubject.asObservable(); }
     get selected$() { return this._selectedSubject.asObservable(); }
     get saving$() { return this.savingSubject.asObservable(); }
+    get status$() { return this._statusSubject.asObservable(); }
+    get status() { return this._statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -54,6 +57,7 @@ class CharacterManager
         {
             const characters = await characterRA.getAllCharacters(account.email);
             this._charactersSubject.next(characters);
+            this._statusSubject.next('loaded');
         }
         else
         {

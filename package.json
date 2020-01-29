@@ -5,12 +5,12 @@
   "main": "server.js",
   "scripts": {
     "start": "DEBUG=true node ./server.js",
-    "build:cache-clean": "rimraf dist/* .cache",
+    "build:distclean": "rimraf dist/* .cache",
     "build:clean": "rimraf dist/*",
     "build:copy": "cpr client/static/ dist/static",
     "build:release": "npm run build:cache-clean && npm run build:copy && parcel build client/index.html --detailed-report",
     "build:watch": "npm run build:clean && npm run build:copy && parcel watch client/index.html",
-    "lint:fix": "eslint --ext .js,.vue --fix server.js config.js server/ systems/ client/"
+    "lint:fix": "eslint --ext .js,.vue --fix server.js config.js server/ client/"
   },
   "repository": "Morgul/rpgkkeper",
   "author": "Christopher S. Case <chris.case@g33xnexus.com>",
