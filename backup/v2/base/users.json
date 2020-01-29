@@ -1,18 +1,14 @@
 {
     "chris.case@g33xnexus.com": {
         "gPlusID": "106667894022362212239",
-        "nickname": "Morgul",
-        "tagline": "Godlike Fuzzydice",
         "email": "chris.case@g33xnexus.com",
-        "displayName": "Christopher Case",
-        "avatar": "https://lh3.googleusercontent.com/-r8fmbWdlFvg/AAAAAAAAAAI/AAAAAAAAA9g/oWyh8pnmDSY/photo.jpg",
+        "avatar": "https://lh3.googleusercontent.com/a-/AAuE7mBIFZfNDaDfaK-jWMsVSNQaYWQ8IKSQeCH95Dx19g=s96-c",
         "id": "chris.case@g33xnexus.com"
     },
     "travis.a.odom@gmail.com": {
         "gPlusID": "108828253528731936030",
         "email": "travis.a.odom@gmail.com",
-        "displayName": "Travis Odom",
-        "avatar": "https://lh6.googleusercontent.com/-Cm7eBAJV2gQ/AAAAAAAAAAI/AAAAAAAAAXE/KLFM6YmcWm8/photo.jpg",
+        "avatar": "https://lh3.googleusercontent.com/a-/AAuE7mCLTIUk4uH_kMp-ovzJgRpc3UJvil_050EXSsbbvA=s96-c",
         "id": "travis.a.odom@gmail.com"
     },
     "null23544@gmail.com": {
@@ -99,5 +95,52 @@
         "email": "stephen.kruc@gmail.com",
         "displayName": "Steve K",
         "avatar": "https://lh3.googleusercontent.com/-ajcYW3YnMeA/AAAAAAAAAAI/AAAAAAAAAMc/F7HRT3eSggk/photo.jpg"
+    },
+    "nathanrhuff@gmail.com": {
+        "gPlusID": "116365460698028032702",
+        "email": "nathanrhuff@gmail.com",
+        "displayName": "Nathaniel Huff",
+        "avatar": "https://lh3.googleusercontent.com/-428BEzbt38Y/AAAAAAAAAAI/AAAAAAAAF_c/dMUGmn0LR8w/photo.jpg"
+    },
+    "thomaskendall@gmail.com": {
+        "gPlusID": "112947788661566572537",
+        "email": "thomaskendall@gmail.com",
+        "displayName": "Thomas Kendall",
+        "avatar": "https://lh5.googleusercontent.com/-9cvARnTs8OA/AAAAAAAAAAI/AAAAAAAAAdQ/1NbxjHAB2nk/photo.jpg"
+    },
+    "sebastiank17@googlemail.com": {
+        "gPlusID": "115342825447377707006",
+        "email": "sebastiank17@googlemail.com",
+        "displayName": "Sebastian Khan",
+        "avatar": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg",
+        "id": "sebastiank17@googlemail.com"
+    },
+    "krik_otrech@bk.ru": {
+        "gPlusID": "110780526591113510710",
+        "email": "krik_otrech@bk.ru",
+        "displayName": "Antal' Rrotarr",
+        "avatar": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+    },
+    "torinsnow@sandiego.edu": {
+        "gPlusID": "102012321786214599300",
+        "email": "torinsnow@sandiego.edu",
+        "displayName": "Lawrence Snow",
+        "avatar": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg",
+        "id": "torinsnow@sandiego.edu"
+    },
+    "rmvgaines@gmail.com": {
+        "gPlusID": "112874556141394356292",
+        "email": "rmvgaines@gmail.com",
+        "displayName": "Robert Gaines",
+        "avatar": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg",
+        "id": "rmvgaines@gmail.com"
+    },
+    "dreemechanique@gmail.com": {
+        "gPlusID": "113496437941971147207",
+        "nickname": "Dree Mechanique",
+        "email": "dreemechanique@gmail.com",
+        "displayName": "Dree Mage (Dree Mechanique)",
+        "avatar": "https://lh6.googleusercontent.com/-kTC4QACFPUc/AAAAAAAAAAI/AAAAAAAABNE/ffwmxHBn1yc/photo.jpg",
+        "id": "dreemechanique@gmail.com"
     }
 }

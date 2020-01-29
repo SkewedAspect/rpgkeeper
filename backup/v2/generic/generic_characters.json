@@ -144,5 +144,106 @@
             }
         ],
         "quickNotes": "test"
+    },
+    "3tJs3t": {
+        "baseChar": "3tJs3t"
+    },
+    "j6TSm": {
+        "baseChar": "j6TSm"
+    },
+    "4cFlhc": {
+        "baseChar": "4cFlhc",
+        "stats": [
+            {
+                "name": "Badassery",
+                "value": 6
+            },
+            {
+                "name": "Sexiness",
+                "value": 100
+            },
+            {
+                "name": "Goggle-wearer",
+                "value": 20
+            }
+        ],
+        "rolls": [
+            {
+                "name": "i dunno",
+                "roll": "2"
+            }
+        ],
+        "counters": [
+            {
+                "name": "Counter",
+                "value": 1
+            }
+        ],
+        "notes": [
+            {
+                "name": "Note",
+                "content": "Note"
+            }
+        ]
+    },
+    "3hjxZA": {
+        "baseChar": "3hjxZA",
+        "stats": [
+            {
+                "name": "Awesome",
+                "value": 999,
+                "favorite": true
+            },
+            {
+                "name": "MOAR Awesome",
+                "value": 6969,
+                "favorite": true
+            },
+            {
+                "name": "Power Level",
+                "value": 9001,
+                "favorite": true
+            },
+            {
+                "name": "Problems",
+                "value": 99,
+                "favorite": true
+            },
+            {
+                "name": "Bitches",
+                "value": 0,
+                "favorite": true
+            }
+        ],
+        "rolls": [
+            {
+                "name": "Roll for Awesome",
+                "roll": "2d100",
+                "favorite": true
+            }
+        ],
+        "counters": [
+            {
+                "name": "HP",
+                "value": 9999,
+                "favorite": true
+            },
+            {
+                "name": "Mana",
+                "value": 10,
+                "favorite": true
+            },
+            {
+                "name": "Bass Ass Points",
+                "value": 100,
+                "favorite": true
+            }
+        ],
+        "notes": [
+            {
+                "name": "Foobar",
+                "content": "# The Foo Notes\n\nAlso, some text..."
+            }
+        ]
     }
 }

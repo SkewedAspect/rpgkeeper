@@ -4444,5 +4444,631 @@
         "baseChar": "4mkoy",
         "talents": [],
         "forcePowers": []
+    },
+    "3i7i9N": {
+        "baseChar": "3i7i9N",
+        "talents": [],
+        "forcePowers": [],
+        "specializations": [
+            "Pilot"
+        ],
+        "armor": {
+            "defense": 0,
+            "soak": 0,
+            "hardPoints": 0,
+            "encumbrance": 0
+        },
+        "weapons": [],
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 2
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 2
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 2
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 2
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 2
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 2
+            }
+        ],
+        "soak": 0,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 0,
+        "rangedDefense": 0,
+        "wounds": 0,
+        "woundThreshold": 0,
+        "strain": 0,
+        "strainThreshold": 0,
+        "skills": [
+            {
+                "name": "Astrogation",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 3,
+                "career": true
+            },
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coordination",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Piloting - Space",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Piloting - Planetary",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Core Worlds",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Education",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lore",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Outer Rim",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Underworld",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Xenology",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Warfare",
+                "type": "knowledge",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Lightsaber",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            }
+        ],
+        "abilities": [],
+        "equipment": [],
+        "criticals": [],
+        "notes": [],
+        "totalXP": 0,
+        "availableXP": 0,
+        "career": "Sumggler"
+    },
+    "1sJArK": {
+        "baseChar": "1sJArK",
+        "talents": [],
+        "forcePowers": []
+    },
+    "Ir26P": {
+        "baseChar": "Ir26P",
+        "talents": [
+            {
+                "name": "Durable",
+                "ranks": 1,
+                "notes": "Tier 1"
+            },
+            {
+                "name": "Hamstring Shot",
+                "notes": "Tier 1"
+            },
+            {
+                "name": "Toughened",
+                "ranks": 1,
+                "notes": "Tier 1"
+            },
+            {
+                "name": "Unremarkable",
+                "notes": "Tier 1"
+            },
+            {
+                "name": "Defensive Stance",
+                "ranks": 1,
+                "notes": "Tier 2"
+            },
+            {
+                "name": "Heightened Awareness",
+                "notes": "Tier 2"
+            },
+            {
+                "name": "Side step",
+                "notes": "Tier 2"
+            }
+        ],
+        "forcePowers": [],
+        "specializations": [],
+        "armor": {
+            "defense": 0,
+            "soak": 0,
+            "hardPoints": 0,
+            "encumbrance": 0
+        },
+        "weapons": [],
+        "characteristics": [
+            {
+                "name": "Brawn",
+                "abbrev": "Br",
+                "ranks": 2
+            },
+            {
+                "name": "Agility",
+                "abbrev": "Ag",
+                "ranks": 3
+            },
+            {
+                "name": "Intellect",
+                "abbrev": "Int",
+                "ranks": 2
+            },
+            {
+                "name": "Cunning",
+                "abbrev": "Cun",
+                "ranks": 2
+            },
+            {
+                "name": "Willpower",
+                "abbrev": "Will",
+                "ranks": 3
+            },
+            {
+                "name": "Presence",
+                "abbrev": "Pr",
+                "ranks": 2
+            }
+        ],
+        "soak": 0,
+        "forceRank": 0,
+        "forcePool": 0,
+        "forceCommitted": 0,
+        "meleeDefense": 0,
+        "rangedDefense": 0,
+        "wounds": null,
+        "woundThreshold": 14,
+        "strain": 0,
+        "strainThreshold": 13,
+        "skills": [
+            {
+                "name": "Athletics",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "type": "general",
+                "name": "Acrobatics",
+                "characteristic": "Agility"
+            },
+            {
+                "name": "Charm",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Coercion",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Computers",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Cool",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Deception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Discipline",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "type": "general",
+                "name": "Driving",
+                "characteristic": "Agility"
+            },
+            {
+                "name": "Leadership",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 1,
+                "career": false
+            },
+            {
+                "name": "Mechanics",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Medicine",
+                "type": "general",
+                "characteristic": "Intellect",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Negotiation",
+                "type": "general",
+                "characteristic": "Presence",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "type": "general",
+                "name": "Operating",
+                "characteristic": "Intellect"
+            },
+            {
+                "name": "Perception",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "type": "general",
+                "name": "Piloting",
+                "characteristic": "Agility"
+            },
+            {
+                "name": "Resilience",
+                "type": "general",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Skulduggery",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Stealth",
+                "type": "general",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Streetwise",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Survival",
+                "type": "general",
+                "characteristic": "Cunning",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Vigilance",
+                "type": "general",
+                "characteristic": "Willpower",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Brawl",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "name": "Gunnery",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 0,
+                "career": false
+            },
+            {
+                "name": "Melee",
+                "type": "combat",
+                "characteristic": "Brawn",
+                "ranks": 0,
+                "career": true
+            },
+            {
+                "name": "Ranged - Light",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 2,
+                "career": true
+            },
+            {
+                "name": "Ranged - Heavy",
+                "type": "combat",
+                "characteristic": "Agility",
+                "ranks": 1,
+                "career": true
+            },
+            {
+                "type": "knowledge",
+                "name": "Life Sciences",
+                "characteristic": "Intellect"
+            },
+            {
+                "type": "knowledge",
+                "name": "Memetics",
+                "characteristic": "Intellect"
+            },
+            {
+                "type": "knowledge",
+                "name": "Physical Sciences",
+                "characteristic": "Intellect"
+            },
+            {
+                "type": "knowledge",
+                "name": "Thaumaturgy",
+                "characteristic": "Intellect"
+            }
+        ],
+        "abilities": [
+            "Ready for Anything"
+        ],
+        "equipment": [],
+        "criticals": [],
+        "notes": [
+            {
+                "name": "Motivations and Concept",
+                "content": "<h2 class=\"text-center\"><b>High Concept</b>: \"Veteran SCP Soldier\"</h2>\n\n---\n\n\n| Strength: _Patient_ | Flaw: _Intolerance_ |\n|:---------------------:|:---------------------:|\n| Your character is always willing to wait and knows the power of being calm. By waiting for the right opportunity, your character avoids all manner of unpleasant and dangerous situations. However, when such an opportunity presents itself, your character acts swiftly and decisively. | For whatever reason, your character harbors some prejudices toward a group of people. These may be relatively “minor” biases, or they may give rise to an intense emotion of hatred or revulsion. Whatever form it takes, remember that intolerance is based more in emotion than rationality. |\n\n| Desire: _Protector_ | Fear: _Isolation_ |\n|:---------------------:|:---------------------:|\n| Your character tries to protect those around her. Your character goes out of their way to try to protect or save others, without a second throught for their safety. | Your character fears being isolated from other people and being doomed to live and die alone.Maybe this drives them to seek out relationships with anyone and everyone, even when a relationship is unpleasant or unhealthy. |",
+                "active": true,
+                "favorite": true
+            }
+        ],
+        "totalXP": 160,
+        "availableXP": 0,
+        "career": "Soldier",
+        "gender": "Female",
+        "species": "Average Human",
+        "age": 33,
+        "height": "5'6\""
     }
 }

@@ -61,6 +61,11 @@
     },
     "": {
         "name": "",
-        "description": "Humans start the game with one rank each in two different non-career skills of their choice. They still may not train these skills above rank 2 at character creation  (computer and mechanics)."
+        "description": "Humans start the game with one rank each in two different non-career skills of their choice. They still may not train these skills above rank 2 at character creation  (computer and mechanics).",
+        "id": ""
+    },
+    "Ready for Anything": {
+        "name": "Ready for Anything",
+        "description": "Once per session, as an out-of-turn incident, you may move two threat from the GM's threat pool to the player's momentum pool."
     }
 }

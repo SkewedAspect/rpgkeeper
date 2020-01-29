@@ -671,6 +671,31 @@
         "trees": [
             "Niman Disciple"
         ],
-        "description": "Spend <triumph></triumph> or <advantage></advantage><advantage></advantage><advantage></advantage> on a missed Lightsaber (Willpower) combat check to immediately perform Move Force power action as a maneuver."
+        "description": "Spend <triumph></triumph> or <advantage></advantage><advantage></advantage><advantage></advantage> on a missed Lightsaber (Willpower) combat check to immediately perform Move Force power action as a maneuver.",
+        "id": "Force Assault"
+    },
+    "Hamstring Shot": {
+        "name": "Hamstring Shot",
+        "activation": "Active (Action)",
+        "description": "Once per round, your character may use this talent to perform a ranged combat check against one non-vehicle target within range of the weapon used. If the check is successful, halve the damage inflicted by the attack (before reducing damage by the target’s soak). The target is immobilized until the end of its next turn.",
+        "id": "Hamstring Shot"
+    },
+    "Unremarkable": {
+        "name": "Unremarkable",
+        "activation": "Passive",
+        "description": "Other characters add <failure></failure> to any checks made to find or identify your character in a crowd.",
+        "id": "Unremarkable"
+    },
+    "Defensive Stance": {
+        "name": "Defensive Stance",
+        "ranked": true,
+        "activation": "Active (Maneuver)",
+        "description": "Once per round, your character may suffer a number of strain no greater than their ranks in Defensive Stance to use this talent. Then, until the end of your character’s next turn, upgrade the difficulty of all melee combat checks targeting your character a number of times equal to the strain suffered.",
+        "id": "Defensive Stance"
+    },
+    "Heightened Awareness": {
+        "name": "Heightened Awareness",
+        "activation": "Passive",
+        "description": "Allies within short range of your character add <boost></boost> to their Perception and Vigilance checks. Allies engaged with your character add <boost></boost> <boost></boost> instead."
     }
 }

@@ -3,10 +3,11 @@
         "name": "Kass Kallos",
         "system": "eote",
         "description": "Mirror Darkly NPC",
-        "thumbnail": "https://googledrive.com/host/0B62WhXSIQXFyflRvc2lySXFKV2ZJY0JWYnlyNTNfUGNPcUtKVUs1ODhBVUNONkF1T0VSY2M/Icons/kass-icon.png",
-        "portrait": "https://googledrive.com/host/0B62WhXSIQXFyflRvc2lySXFKV2ZJY0JWYnlyNTNfUGNPcUtKVUs1ODhBVUNONkF1T0VSY2M/kass-sheet-por.png",
+        "thumbnail": "https://gdurl.com/xYJ5",
+        "portrait": "https://gdurl.com/9r_6",
         "user": "chris.case@g33xnexus.com",
-        "id": "36HUFh"
+        "id": "36HUFh",
+        "biography": ""
     },
     "2Wo61U": {
         "name": "Varl (Avatar)",
@@ -156,5 +157,60 @@
         "name": "Test 'Test' Test",
         "user": "chery.jerome@gmail.com",
         "id": "3cryN4"
+    },
+    "3i7i9N": {
+        "system": "eote",
+        "name": "Jimmy Scrambles",
+        "description": "Twi'lek Pilot",
+        "user": "nathanrhuff@gmail.com",
+        "id": "3i7i9N"
+    },
+    "3tJs3t": {
+        "name": "Kron",
+        "system": "generic",
+        "description": "Level 4 Knight",
+        "user": "thomaskendall@gmail.com",
+        "id": "3tJs3t"
+    },
+    "j6TSm": {
+        "name": "Bastion",
+        "system": "generic",
+        "description": "Level 1 Rouge, west-marches-anno",
+        "user": "sebastiank17@googlemail.com",
+        "id": "j6TSm"
+    },
+    "1sJArK": {
+        "name": "test",
+        "system": "eote",
+        "user": "sebastiank17@googlemail.com",
+        "id": "1sJArK"
+    },
+    "4cFlhc": {
+        "name": "Dree Mechanique",
+        "system": "generic",
+        "description": "Mage",
+        "thumbnail": "https://dl.dropbox.com/s/njjm1y85m7n3l24/dree_portrait.png?dl=0",
+        "portrait": "https://dl.dropbox.com/s/njjm1y85m7n3l24/dree_portrait.png?dl=0",
+        "biography": "This is the story of Dree",
+        "user": "dreemechanique@gmail.com",
+        "id": "4cFlhc"
+    },
+    "3hjxZA": {
+        "name": "Test Character",
+        "system": "generic",
+        "description": "Generic Test Character...",
+        "user": "chris.case@g33xnexus.com",
+        "id": "3hjxZA",
+        "thumbnail": "https://dl.dropbox.com/s/qzzpiao96hu2hf8/aerden-icon.png?dl=0",
+        "portrait": "https://dl.dropbox.com/s/2x2evh32ezkjt44/Aragorn3.jpg?dl=0"
+    },
+    "Ir26P": {
+        "name": "Helena \"Helen\" Collins",
+        "system": "eote",
+        "description": "SCP: Season 2",
+        "user": "chris.case@g33xnexus.com",
+        "id": "Ir26P",
+        "thumbnail": "https://dl.dropbox.com/s/z36w76cc5edv100/helen3-icon.jpg?dl=0",
+        "portrait": "https://dl.dropbox.com/s/7ss3eh7r95kunn8/helen3-por.jpg?dl=0"
     }
 }
