@@ -4,15 +4,20 @@
 
 exports.up = async(knex) =>
 {
-    // The `eote_ability` table
-    await knex.schema.createTable('eote_ability', (table) =>
+    //------------------------------------------------------------------------------------------------------------------
+    // Genesys Tables
+    //------------------------------------------------------------------------------------------------------------------
+
+    // The `genesys_ability` table
+    await knex.schema.createTable('genesys_ability', (table) =>
     {
         table.string('name').primary();
         table.text('description').notNullable()
             .unique()
             .index();
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
     });
 
     // The `genesys_motivation` table
@@ -22,8 +27,9 @@ exports.up = async(knex) =>
         table.text('description').notNullable()
             .unique()
             .index();
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
     });
 
     // The `genesys_talent` table
@@ -37,27 +43,13 @@ exports.up = async(knex) =>
         table.boolean('ranked').notNullable()
             .defaultTo(false);
         table.integer('tier').notNullable();
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
-    });
-
-    // The `eote_talent` table
-    await knex.schema.createTable('eote_talent', (table) =>
-    {
-        table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
-        table.string('activation').notNullable();
-        table.boolean('ranked').notNullable()
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
             .defaultTo(false);
-        table.text('trees').notNullable();
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
     });
 
-    // The `eote_gear` table
-    await knex.schema.createTable('eote_gear', (table) =>
+    // The `genesys_gear` table
+    await knex.schema.createTable('genesys_gear', (table) =>
     {
         table.string('name').primary();
         table.text('description').notNullable()
@@ -67,8 +59,9 @@ exports.up = async(knex) =>
             .defaultTo(0);
         table.integer('rarity').notNullable()
             .defaultTo(0);
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
     });
 
     // The `genesys_attachment` table
@@ -82,8 +75,128 @@ exports.up = async(knex) =>
         table.text('modifiers').notNullable();
         table.integer('hp_required').notNullable()
             .defaultTo(1);
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
+    });
+
+    // The `genesys_quality` table
+    await knex.schema.createTable('genesys_quality', (table) =>
+    {
+        table.string('name').primary();
+        table.text('description').notNullable()
+            .unique()
+            .index();
+        table.boolean('passive').notNullable()
+            .defaultTo(false);
+        table.boolean('ranked').notNullable()
+            .defaultTo(false);
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
+    });
+
+    // The `genesys_armor` table
+    await knex.schema.createTable('genesys_armor', (table) =>
+    {
+        table.string('name').primary();
+        table.text('description').notNullable()
+            .unique()
+            .index();
+        table.integer('defense').notNullable()
+            .defaultTo(0);
+        table.integer('soak').notNullable()
+            .defaultTo(0);
+        table.integer('hardpoints').notNullable()
+            .defaultTo(0);
+        table.integer('encumbrance').notNullable()
+            .defaultTo(0);
+        table.integer('rarity').notNullable()
+            .defaultTo(0);
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
+    });
+
+    // The `genesys_weapon` table
+    await knex.schema.createTable('genesys_weapon', (table) =>
+    {
+        table.string('name').primary();
+        table.text('description').notNullable()
+            .unique()
+            .index();
+        table.string('skill').notNullable();
+        table.string('damage').notNullable();
+        table.integer('critical_rating').notNullable()
+            .defaultTo(0);
+        table.string('range').notNullable();
+        table.integer('encumbrance').notNullable()
+            .defaultTo(0);
+        table.integer('rarity').notNullable()
+            .defaultTo(0);
+        table.json('qualities').notNullable()
+            .defaultTo('[]');
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
+    });
+
+    // The `genesys_reference` table
+    await knex.schema.createTable('genesys_reference', (table) =>
+    {
+        table.string('name').primary();
+        table.string('abbr').notNullable()
+            .unique()
+            .index();
+        table.string('product_code');
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Edge of the Empire Tables
+    //------------------------------------------------------------------------------------------------------------------
+
+    // The `eote_ability` table
+    await knex.schema.createTable('eote_ability', (table) =>
+    {
+        table.string('name').primary();
+        table.text('description').notNullable()
+            .unique()
+            .index();
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
+    });
+
+    // The `eote_talent` table
+    await knex.schema.createTable('eote_talent', (table) =>
+    {
+        table.string('name').primary();
+        table.text('description').notNullable()
+            .unique()
+            .index();
+        table.string('activation').notNullable();
+        table.boolean('ranked').notNullable()
+            .defaultTo(false);
+        table.text('trees').notNullable();
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
+    });
+
+    // The `eote_gear` table
+    await knex.schema.createTable('eote_gear', (table) =>
+    {
+        table.string('name').primary();
+        table.text('description').notNullable()
+            .unique()
+            .index();
+        table.integer('encumbrance').notNullable()
+            .defaultTo(0);
+        table.integer('rarity').notNullable()
+            .defaultTo(0);
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
     });
 
     // The `eote_attachment` table
@@ -98,8 +211,9 @@ exports.up = async(knex) =>
         table.text('mod_options').notNullable();
         table.integer('hp_required').notNullable()
             .defaultTo(1);
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
     });
 
     // The `eote_quality` table
@@ -111,8 +225,11 @@ exports.up = async(knex) =>
             .index();
         table.boolean('passive').notNullable()
             .defaultTo(false);
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
+        table.boolean('ranked').notNullable()
+            .defaultTo(false);
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
     });
 
     // The `eote_armor` table
@@ -132,8 +249,9 @@ exports.up = async(knex) =>
             .defaultTo(0);
         table.integer('rarity').notNullable()
             .defaultTo(0);
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
     });
 
     // The `eote_weapon` table
@@ -154,8 +272,19 @@ exports.up = async(knex) =>
             .defaultTo(0);
         table.json('qualities').notNullable()
             .defaultTo('[]');
-        table.text('reference_source').notNullable();
-        table.integer('reference_page');
+        table.text('reference').notNullable();
+        table.boolean('official').notNullable()
+            .defaultTo(false);
+    });
+
+    // The `eote_reference` table
+    await knex.schema.createTable('eote_reference', (table) =>
+    {
+        table.string('name').primary();
+        table.string('abbr').notNullable()
+            .unique()
+            .index();
+        table.string('product_code');
     });
 };
 
@@ -164,9 +293,15 @@ exports.up = async(knex) =>
 exports.down = async(knex) =>
 {
     // Genesys Tables
-    await knex.schema.dropTable('genesys_talent');
     await knex.schema.dropTable('genesys_motivation');
+    await knex.schema.dropTable('genesys_ability');
+    await knex.schema.dropTable('genesys_talent');
+    await knex.schema.dropTable('genesys_gear');
     await knex.schema.dropTable('genesys_attachment');
+    await knex.schema.dropTable('genesys_quality');
+    await knex.schema.dropTable('genesys_armor');
+    await knex.schema.dropTable('genesys_weapon');
+    await knex.schema.dropTable('genesys_reference');
 
     // EotE Tables
     await knex.schema.dropTable('eote_ability');
@@ -175,7 +310,8 @@ exports.down = async(knex) =>
     await knex.schema.dropTable('eote_attachment');
     await knex.schema.dropTable('eote_quality');
     await knex.schema.dropTable('eote_armor');
-    await knex.schema.dropTable('eote_weapons');
+    await knex.schema.dropTable('eote_weapon');
+    await knex.schema.dropTable('eote_reference');
 };
 
 //----------------------------------------------------------------------------------------------------------------------

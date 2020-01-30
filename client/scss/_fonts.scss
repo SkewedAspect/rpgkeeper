@@ -18,7 +18,7 @@
  *
  */
 @font-face {
-    font-family: 'Genesys';
+    font-family: 'Genesys Symbol';
     src: url('../static/fonts/genesys-font.woff');
 }
 
@@ -43,19 +43,21 @@
  *
  */
 @font-face {
-    font-family: 'EOTE';
+    font-family: 'EotE Symbol';
     src: url('../static/fonts/eote-font.otf');
 }
 
 //----------------------------------------------------------------------------------------------------------------------
 
 .genesys-symbol {
-    font-family: Genesys;
+    //noinspection CssNoGenericFontName
+    font-family: 'Genesys Symbol';
     font-style: normal !important;
 }
 
 .eote-symbol {
-    font-family: EOTE;
+    //noinspection CssNoGenericFontName
+    font-family: 'EotE Symbol';
     font-style: normal !important;
 }
 

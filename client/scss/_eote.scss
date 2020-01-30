@@ -1,0 +1,132 @@
+//----------------------------------------------------------------------------------------------------------------------
+// EotE Dice
+//----------------------------------------------------------------------------------------------------------------------
+
+$proficiency-color: #ece44d;
+$ability-color: #5fb576;
+$boost-color: #95caeb;
+$challenge-color: #bb312e;
+$difficulty-color: #706497;
+$setback-color: #000;
+$force-color: #ffffff;
+
+//----------------------------------------------------------------------------------------------------------------------
+
+@mixin makeSymbol($symbolName, $beforeContent, $system)
+{
+    .#{$system}-system
+    {
+        .#{$symbolName},
+        #{$symbolName}
+        {
+            @if $system == 'genesys' {
+                //noinspection CssNoGenericFontName
+                font-family: "Genesys Symbol";
+            } @else {
+                //noinspection CssNoGenericFontName
+                font-family: "EotE Symbol";
+            }
+            font-style: normal !important;
+
+            &:before {
+                content: $beforeContent;
+            }
+        }
+    }
+} // end makeSymbol
+
+@mixin makeDie($dieName, $color, $beforeContent)
+{
+    #eote-character {
+        .#{$dieName},
+        #{$dieName}
+        {
+            //noinspection CssNoGenericFontName
+            font-family: "EotE Symbol";
+            font-style: normal !important;
+
+            color: $color;
+
+            // This works in 96% of browsers. I'm ok with that.
+            text-stroke: 1px black;
+            -moz-text-stroke: 1px black;
+            -webkit-text-stroke: 1px black;
+
+            &:before {
+                content: $beforeContent;
+            }
+        }
+    }
+} // end makeDie
+
+//----------------------------------------------------------------------------------------------------------------------
+// Positive Dice
+//----------------------------------------------------------------------------------------------------------------------
+
+// Proficiency Die
+@include makeDie('proficiency', $proficiency-color, 'c');
+
+// Ability Die
+@include makeDie('ability', $ability-color, 'd');
+
+// Boost Die
+@include makeDie('boost', $boost-color, 'b');
+
+// Force Die
+@include makeDie('force', $force-color, 'c');
+
+//----------------------------------------------------------------------------------------------------------------------
+// Negative Dice
+//----------------------------------------------------------------------------------------------------------------------
+
+// Challenge Die
+@include makeDie('challenge', $challenge-color, 'c');
+
+// Difficulty Die
+@include makeDie('difficulty', $difficulty-color, 'd');
+
+// Setback Die
+@include makeDie('setback', $setback-color, 'b');
+
+//----------------------------------------------------------------------------------------------------------------------
+// Positive Symbols
+//----------------------------------------------------------------------------------------------------------------------
+
+// Success
+@include makeSymbol('success', 's', 'eote');
+@include makeSymbol('success', 's', 'genesys');
+
+// Advantage
+@include makeSymbol('advantage', 'a', 'eote');
+@include makeSymbol('advantage', 'a', 'genesys');
+
+// Triumph
+@include makeSymbol('triumph', 'x', 'eote');
+@include makeSymbol('triumph', 'x', 'genesys');
+
+// Light Side
+@include makeSymbol('light-side', 'Z', 'eote');
+
+// Light or Dark Side
+@include makeSymbol('force-point', 'F', 'eote');
+
+//----------------------------------------------------------------------------------------------------------------------
+// Negative Symbols
+//----------------------------------------------------------------------------------------------------------------------
+
+// Failure
+@include makeSymbol('failure', 'f', 'eote');
+@include makeSymbol('failure', 'f', 'genesys');
+
+// Threat
+@include makeSymbol('threat', 't', 'eote');
+@include makeSymbol('threat', 't', 'genesys');
+
+// Despair
+@include makeSymbol('despair', 'o', 'eote');
+@include makeSymbol('despair', 'o', 'genesys');
+
+// Dark Side
+@include makeSymbol('dark-side', 'z', 'eote');
+
+//----------------------------------------------------------------------------------------------------------------------

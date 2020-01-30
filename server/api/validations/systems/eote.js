@@ -13,7 +13,7 @@ const referenceSchema = {
     required: [ 'source' ],
     properties: {
         source: { type: 'string', minLength: 1, maxLength: 255 },
-        page: { type: 'integer', minimum: 1 }
+        details: { type: 'string', minLength: 1, maxLength: 255 }
     },
     additionalProperties: false
 };
@@ -182,6 +182,7 @@ const qualitySchema = {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         passive: { type: 'boolean' },
+        ranked: { type: 'boolean' },
         reference: referenceSchema
     },
     additionalProperties: false

@@ -3,7 +3,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div id="eote-character" class="container">
+    <div id="eote-character" class="container" :class="isEotE ? 'eote-system' : 'genesys-system'">
         <span v-if="isEotE">
             EDGE OF THE EMPIRE, BABY!!!!!oneoneone
         </span>
@@ -12,6 +12,10 @@
         </span>
 
         <sy icon="force"></sy>
+
+        <hr />
+
+        <difficulty></difficulty> <difficulty></difficulty> <threat></threat> <boost></boost>
     </div>
 </template>
 

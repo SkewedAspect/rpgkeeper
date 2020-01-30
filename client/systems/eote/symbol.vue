@@ -12,37 +12,35 @@
 
 <style lang="scss" scoped>
     .eote-system-symbol {
-        &.dice {
-            -webkit-text-stroke: 1px black;
-            text-stroke: 1px black;
+        -webkit-text-stroke: 1px black;
+        text-stroke: 1px black;
 
-            &.boost {
-                color: #95caeb;
-            }
+        &.dice-boost {
+            color: #95caeb;
+        }
 
-            &.setback {
-                color: black;
-            }
+        &.dice-setback {
+            color: black;
+        }
 
-            &.ability {
-                color: #5fb576;
-            }
+        &.dice-ability {
+            color: #5fb576;
+        }
 
-            &.difficulty {
-                color: #706497;
-            }
+        &.dice-difficulty {
+            color: #706497;
+        }
 
-            &.proficiency {
-                color: #ece44d;
-            }
+        &.dice-proficiency {
+            color: #ece44d;
+        }
 
-            &.challenge {
-                color: #bb312e;
-            }
+        &.dice-challenge {
+            color: #bb312e;
+        }
 
-            &.force {
-                color: #ffffff;
-            }
+        &.dice-force {
+            color: #ffffff;
         }
     }
 </style>
@@ -164,7 +162,7 @@
             symbolClass()
             {
                 // If we're a dice symbol we've gotta include more classes so we can color ourselves correctly.
-                return `${ this.system }-symbol ${ this.isDiceSymbol ? `dice ${ this.icon.toLowerCase() }` : '' }`;
+                return `${ this.system }-symbol ${ this.isDiceSymbol ? `dice-${ this.icon.toLowerCase() }` : '' }`;
             }
         }
     };
