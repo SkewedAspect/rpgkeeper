@@ -9,13 +9,9 @@
 //     page: 207
 // };
 const referenceSchema = {
-    type: 'object',
-    required: [ 'source' ],
-    properties: {
-        source: { type: 'string', minLength: 1, maxLength: 255 },
-        details: { type: 'string', minLength: 1, maxLength: 255 }
-    },
-    additionalProperties: false
+    type: 'string',
+    minLength: 1,
+    maxLength: 255
 };
 
 // Example:
@@ -34,7 +30,7 @@ const rangeSchema = { type: 'string', enum: [ 'en', 's', 'm', 'l', 'ex' ] };
 // };
 const motivationSchema = {
     type: 'object',
-    required: [ 'name', 'description' ],
+    required: [ 'name', 'description', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -58,7 +54,7 @@ const motivationSchema = {
 // };
 const abilitySchema = {
     type: 'object',
-    required: [ 'name', 'description' ],
+    required: [ 'name', 'description', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -82,7 +78,7 @@ const abilitySchema = {
 // };
 const talentSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'activation', 'ranked' ],
+    required: [ 'name', 'description', 'activation', 'ranked', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -105,7 +101,7 @@ const talentSchema = {
 // };
 const skillSchema = {
     type: 'object',
-    required: [ 'name', 'ranks', 'career' ],
+    required: [ 'name', 'ranks', 'career', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         characteristic: { type: 'string', enum: [ 'brawn', 'agility', 'intellect', 'cunning', 'willpower', 'presence' ] },
@@ -130,7 +126,7 @@ const skillSchema = {
 // };
 const gearSchema = {
     type: 'object',
-    required: [ 'name', 'useWith', 'modifiers', 'hardpoints' ],
+    required: [ 'name', 'useWith', 'modifiers', 'hardpoints', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -156,7 +152,7 @@ const gearSchema = {
 // };
 const attachmentSchema = {
     type: 'object',
-    required: [ 'name', 'useWith', 'modifiers', 'hardpoints' ],
+    required: [ 'name', 'useWith', 'modifiers', 'hardpoints', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -177,7 +173,7 @@ const attachmentSchema = {
 // };
 const qualitySchema = {
     type: 'object',
-    required: [ 'name', 'description', 'passive' ],
+    required: [ 'name', 'description', 'passive', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -204,7 +200,7 @@ const qualitySchema = {
 // };
 const armorSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'defense', 'soak', 'encumbrance', 'hardpoints', 'rarity' ],
+    required: [ 'name', 'description', 'defense', 'soak', 'encumbrance', 'hardpoints', 'rarity', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -236,7 +232,7 @@ const armorSchema = {
 // };
 const weaponSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'skill', 'criticalRating', 'range', 'encumbrance', 'rarity', 'qualities' ],
+    required: [ 'name', 'description', 'skill', 'criticalRating', 'range', 'encumbrance', 'rarity', 'qualities', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -459,7 +455,7 @@ const genesysChar = {
 // };
 const eoteTalentSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'activation', 'ranked' ],
+    required: [ 'name', 'description', 'activation', 'ranked', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -486,7 +482,7 @@ const eoteTalentSchema = {
 // };
 const eoteAttachmentSchema = {
     type: 'object',
-    required: [ 'name', 'useWith', 'baseModifier', 'modOptions', 'hardpoints' ],
+    required: [ 'name', 'useWith', 'baseModifier', 'modOptions', 'hardpoints', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -537,7 +533,7 @@ const eoteAttachmentSchema = {
 // };
 const forcePowerSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'minRating', 'upgrades', 'reference' ],
+    required: [ 'name', 'description', 'minRating', 'upgrades', 'reference', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },

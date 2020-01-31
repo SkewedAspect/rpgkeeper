@@ -12,9 +12,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('genesys_ability', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
@@ -24,9 +22,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('genesys_motivation', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
@@ -36,9 +32,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('genesys_talent', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.string('activation').notNullable();
         table.boolean('ranked').notNullable()
             .defaultTo(false);
@@ -52,9 +46,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('genesys_gear', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.integer('encumbrance').notNullable()
             .defaultTo(0);
         table.integer('rarity').notNullable()
@@ -68,9 +60,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('genesys_attachment', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.string('use_with').notNullable();
         table.text('modifiers').notNullable();
         table.integer('hp_required').notNullable()
@@ -84,9 +74,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('genesys_quality', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.boolean('passive').notNullable()
             .defaultTo(false);
         table.boolean('ranked').notNullable()
@@ -100,9 +88,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('genesys_armor', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.integer('defense').notNullable()
             .defaultTo(0);
         table.integer('soak').notNullable()
@@ -122,9 +108,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('genesys_weapon', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.string('skill').notNullable();
         table.string('damage').notNullable();
         table.integer('critical_rating').notNullable()
@@ -159,9 +143,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('eote_ability', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
@@ -171,9 +153,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('eote_talent', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.string('activation').notNullable();
         table.boolean('ranked').notNullable()
             .defaultTo(false);
@@ -187,9 +167,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('eote_gear', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.integer('encumbrance').notNullable()
             .defaultTo(0);
         table.integer('rarity').notNullable()
@@ -203,9 +181,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('eote_attachment', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.string('use_with').notNullable();
         table.text('base_modifier').notNullable();
         table.text('mod_options').notNullable();
@@ -220,9 +196,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('eote_quality', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.boolean('passive').notNullable()
             .defaultTo(false);
         table.boolean('ranked').notNullable()
@@ -236,9 +210,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('eote_armor', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.integer('defense').notNullable()
             .defaultTo(0);
         table.integer('soak').notNullable()
@@ -258,9 +230,7 @@ exports.up = async(knex) =>
     await knex.schema.createTable('eote_weapon', (table) =>
     {
         table.string('name').primary();
-        table.text('description').notNullable()
-            .unique()
-            .index();
+        table.text('description').notNullable();
         table.string('skill').notNullable();
         table.string('damage').notNullable();
         table.integer('critical_rating').notNullable()
