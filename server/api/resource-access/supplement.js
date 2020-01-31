@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-// EotEResourceAccess
+// SupplementResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
 const _ = require('lodash');
@@ -8,6 +8,7 @@ const _ = require('lodash');
 const dbMan = require('../../database');
 
 // Utilities
+const { camelCaseKeys, snakeCaseKeys } = require('../../utils/misc');
 const { applyFilters } = require('../../knex/utils');
 
 // Errors
@@ -15,8 +16,23 @@ const { MultipleResultsError, NotFoundError } = require('../errors');
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class EotEResourceAccess
+class SupplementResourceAccess
 {
+    //------------------------------------------------------------------------------------------------------------------
+    // Utility API
+    //------------------------------------------------------------------------------------------------------------------
+
+    _fromDB(supplement)
+    {
+        supplement.official = !!supplement.official;
+        return camelCaseKeys(supplement);
+    } // end _fromDB
+
+    _toDB(supplement)
+    {
+        return snakeCaseKeys(supplement);
+    } // end _toDB
+
     //------------------------------------------------------------------------------------------------------------------
     // Public API
     //------------------------------------------------------------------------------------------------------------------
@@ -39,9 +55,7 @@ class EotEResourceAccess
                 }
                 else
                 {
-                    const supplement = supplements[0];
-                    supplement.official = !!supplement.official;
-                    return supplement;
+                    return this._fromDB(supplements[0]);
                 } // end if
             });
     } // end get
@@ -58,15 +72,13 @@ class EotEResourceAccess
         } // end if
 
         return query
-            .map((supplement) =>
-            {
-                supplement.official = !!supplement.official;
-                return supplement;
-            });
+            .map(this._fromDB);
     } // end getFiltered
 
     async addSupplement(supplement, type, tableName)
     {
+        supplement = this._toDB(supplement);
+
         // Insert abilities
         const db = await dbMan.getDB();
         return db(tableName)
@@ -78,9 +90,11 @@ class EotEResourceAccess
     {
         const name = supplement.name;
         delete supplement.name;
+        supplement = this._toDB(supplement);
 
         const db = await dbMan.getDB();
         return db(tableName)
+            .where({ name })
             .update(supplement)
             .then(() => this.get(name, type, tableName));
     } // end updateSupplement
@@ -90,12 +104,13 @@ class EotEResourceAccess
         const db = await dbMan.getDB();
         return db(tableName)
             .where({ name })
-            .delete();
+            .delete()
+            .then(() => undefined);
     } // end deleteSupplement
-} // end EotEResourceAccess
+} // end SupplementResourceAccess
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new EotEResourceAccess();
+module.exports = new SupplementResourceAccess();
 
 //----------------------------------------------------------------------------------------------------------------------
