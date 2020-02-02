@@ -102,13 +102,13 @@ $force-color: #ffffff;
 
 // Triumph
 @include makeSymbol('triumph', 'x', 'eote');
-@include makeSymbol('triumph', 'x', 'genesys');
+@include makeSymbol('triumph', 't', 'genesys');
 
 // Light Side
-@include makeSymbol('light-side', 'Z', 'eote');
+@include makeSymbol('lightside', 'Z', 'eote');
 
 // Light or Dark Side
-@include makeSymbol('force-point', 'F', 'eote');
+@include makeSymbol('forcepoint', 'F', 'eote');
 
 //----------------------------------------------------------------------------------------------------------------------
 // Negative Symbols
@@ -120,13 +120,13 @@ $force-color: #ffffff;
 
 // Threat
 @include makeSymbol('threat', 't', 'eote');
-@include makeSymbol('threat', 't', 'genesys');
+@include makeSymbol('threat', 'h', 'genesys');
 
 // Despair
 @include makeSymbol('despair', 'o', 'eote');
-@include makeSymbol('despair', 'o', 'genesys');
+@include makeSymbol('despair', 'd', 'genesys');
 
 // Dark Side
-@include makeSymbol('dark-side', 'z', 'eote');
+@include makeSymbol('darkside', 'z', 'eote');
 
 //----------------------------------------------------------------------------------------------------------------------
