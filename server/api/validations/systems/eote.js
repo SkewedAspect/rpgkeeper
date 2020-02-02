@@ -30,10 +30,10 @@ const rangeSchema = { type: 'string', enum: [ 'en', 's', 'm', 'l', 'ex' ] };
 // };
 const motivationSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'reference' ],
+    required: [ 'name', 'description' ],
     properties: {
-        name: { type: 'string', minLength: 1, maxLength: 255 },
-        description: { type: 'string', minLength: 1 },
+        name: { type: 'string', maxLength: 255 },
+        description: { type: 'string' },
         reference: referenceSchema
     },
     additionalProperties: false
@@ -101,13 +101,13 @@ const talentSchema = {
 // };
 const skillSchema = {
     type: 'object',
-    required: [ 'name', 'ranks', 'career', 'reference' ],
+    required: [ 'name', 'characteristic', 'ranks', 'career', 'type' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         characteristic: { type: 'string', enum: [ 'brawn', 'agility', 'intellect', 'cunning', 'willpower', 'presence' ] },
         ranks: { type: 'integer', minimum: 0, maximum: 5 },
         career: { type: 'boolean' },
-        type: { type: 'string', enum: [ 'general', 'combat', 'social', 'knowledge' ] }
+        type: { type: 'string', enum: [ 'general', 'combat', 'magic', 'social', 'knowledge' ] }
     },
     additionalProperties: false
 };
@@ -260,7 +260,7 @@ const genesysChar = {
     required: [ 'career', 'species', 'motivations', 'characteristics', 'experience', 'defenses', 'health', 'skills', 'talents', 'abilities', 'gear', 'armor', 'weapons' ],
     properties: {
         career: { type: 'string', maxLength: 255 },
-        species: { type: 'string', minLength: 1, maxLength: 255 },
+        species: { type: 'string', maxLength: 255 },
         motivations: {
             type: 'object',
             required: [ 'strength', 'flaw', 'desire', 'fear' ],
@@ -276,12 +276,12 @@ const genesysChar = {
             type: 'object',
             required: [ 'brawn', 'agility', 'intellect', 'cunning', 'willpower', 'presence' ],
             properties: {
-                brawn: { type: 'integer', minimum: 1, maximum: 10 },
-                agility: { type: 'integer', minimum: 1, maximum: 10 },
-                intellect: { type: 'integer', minimum: 1, maximum: 10 },
-                cunning: { type: 'integer', minimum: 1, maximum: 10 },
-                willpower: { type: 'integer', minimum: 1, maximum: 10 },
-                presence: { type: 'integer', minimum: 1, maximum: 10 }
+                brawn: { type: 'integer', minimum: 0, maximum: 10 },
+                agility: { type: 'integer', minimum: 0, maximum: 10 },
+                intellect: { type: 'integer', minimum: 0, maximum: 10 },
+                cunning: { type: 'integer', minimum: 0, maximum: 10 },
+                willpower: { type: 'integer', minimum: 0, maximum: 10 },
+                presence: { type: 'integer', minimum: 0, maximum: 10 }
             },
             additionalProperties: false
         },
@@ -377,7 +377,7 @@ const genesysChar = {
             type: 'object',
             required: [ 'armorID' ],
             properties: {
-                armorID: { type: 'string', minLength: 1, maxLength: 255 }, // id of a base armor
+                armorID: { type: 'string', maxLength: 255 }, // id of a base armor
                 defense: { type: 'integer', minimum: 0 },
                 soak: { type: 'integer', minimum: 0 },
                 hardpoints: { type: 'integer', minimum: 0 },
@@ -390,7 +390,7 @@ const genesysChar = {
                     uniqueItems: true,
                     additionalItems: false
                 },
-                notes: { type: 'string', minLength: 1 }
+                notes: { type: 'string' }
             },
             additionalProperties: false
         },
@@ -425,7 +425,8 @@ const genesysChar = {
                         items: { type: 'string', minLength: 1, maxLength: 255 },
                         uniqueItems: true,
                         additionalItems: false
-                    }
+                    },
+                    notes: { type: 'string' }
                 },
                 additionalProperties: false
             },
@@ -617,7 +618,6 @@ const eoteChar = {
     properties: {
         ...genesysChar.properties,
         specialization: { type: 'string', maxLength: 255 },
-        motivations: undefined,
         force: {
             type: 'object',
             required: [ 'rating', 'committed', 'powers' ],
@@ -653,6 +653,9 @@ const eoteChar = {
         }
     }
 };
+
+// Delete an unwanted property.
+delete eoteChar.properties.motivations;
 
 //----------------------------------------------------------------------------------------------------------------------
 

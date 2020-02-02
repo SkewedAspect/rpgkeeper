@@ -310,8 +310,11 @@ const eoteChar = {
     ...genesysChar,
     species: '',
     specialization: '',
-    motivations: undefined
+    skills: _.cloneDeep(eoteSkills)
 };
+
+// Delete unwanted properties
+delete eoteChar.motivations;
 
 //----------------------------------------------------------------------------------------------------------------------
 
