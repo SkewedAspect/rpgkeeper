@@ -323,7 +323,8 @@ const genesysChar = {
                         },
                         additionalProperties: false
                     }
-                }
+                },
+                stimsUsed: { type: 'integer', minimum: 0 }
             },
             additionalProperties: false
         },

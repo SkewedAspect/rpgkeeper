@@ -13,8 +13,13 @@
             <rolls ref="roller" class="ml-1 w-50" :skills="character.details.skills" :readonly="!isAuthorized"></rolls>
         </div>
         <div class="d-flex mt-2">
-            <!--            <cliches class="w-50 mr-1" :character="character" :readonly="!isAuthorized" @roll="onRoll"></cliches>-->
-            <!--            <hooks class="w-50 ml-1" :character="character" :readonly="!isAuthorized"></hooks>-->
+            <div class="d-flex flex-fill mr-1">
+                <skills :readonly="!isAuthorized" @roll="onRoll"></skills>
+            </div>
+            <div class="d-flex flex-column" style="min-width: 300px; max-width: 300px;">
+                <defenses class="flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></defenses>
+                <wounds class=" mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></wounds>
+            </div>
         </div>
     </div>
 </template>
@@ -44,6 +49,9 @@
     import Biography from './biography.vue';
     import Characteristics from './characteristics.vue';
     import Rolls from './rolls.vue';
+    import Skills from './skills';
+    import Defenses from './defenses.vue';
+    import Wounds from './wounds.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -53,21 +61,25 @@
             Biography,
             Characteristics,
             Portrait,
-            Rolls
+            Rolls,
+            Skills,
+            Defenses,
+            Wounds
         },
         subscriptions: {
             account: authMan.account$,
             character: charMan.selected$,
             mode: eoteMan.mode$
         },
-        data()
-        {
-            return {
-                // Data goes here
-            };
-        },
         computed: {
             isAuthorized() { return _.get(this.account, 'id', 'nope!') === this.character.account_id; }
+        },
+        methods: {
+            onRoll(dice, name)
+            {
+                window.scrollTo(0, 0);
+                this.$refs.roller.setDice(dice, name);
+            }
         }
     };
 </script>

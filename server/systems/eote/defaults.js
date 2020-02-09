@@ -182,7 +182,8 @@ const genesysChar = {
         woundThreshold: 0,
         strain: 0,
         strainThreshold: 0,
-        criticalInjuries: []
+        criticalInjuries: [],
+        stimsUsed: 0
     },
     skills: _.cloneDeep(genesysSkills),
     talents: [],
