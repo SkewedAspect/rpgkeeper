@@ -324,7 +324,10 @@ const genesysChar = {
                         additionalProperties: false
                     }
                 },
-                stimsUsed: { type: 'integer', minimum: 0 }
+                stimsUsed: { type: 'integer', minimum: 0 },
+                staggered: { type: 'boolean' },
+                immobilized: { type: 'boolean' },
+                disoriented: { type: 'boolean' }
             },
             additionalProperties: false
         },

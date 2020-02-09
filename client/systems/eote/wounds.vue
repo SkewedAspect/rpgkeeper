@@ -37,7 +37,9 @@
         </div>
         <b-btn-group class="mt-1 w-100">
             <b-btn variant="outline-secondary" title="Use a stimpack" @click="useStim">
-                Stimpacks ({{ stims }})
+                <span v-if="mode === 'eote'">Stimpacks</span>
+                <span v-else>Painkillers</span>
+                ({{ stims }})
             </b-btn>
             <b-btn variant="outline-secondary" style="max-width: 48px" title="Reset Usages" @click="resetStims">
                 <fa icon="sync"></fa>
@@ -68,6 +70,35 @@
                 </b-btn>
             </b-input-group-append>
         </b-input-group>
+
+        <hr class="mt-2 mb-2" />
+
+        <b-btn-group class="w-100">
+            <b-btn
+                :variant="health.staggered ? 'warning' : 'outline-secondary'"
+                size="sm"
+                :pressed.sync="health.staggered"
+                @click="saveChar"
+            >
+                Stagg.
+            </b-btn>
+            <b-btn
+                :variant="health.immobilized ? 'warning' : 'outline-secondary'"
+                size="sm"
+                :pressed.sync="health.immobilized"
+                @click="saveChar"
+            >
+                Immob.
+            </b-btn>
+            <b-btn
+                :variant="health.disoriented ? 'warning' : 'outline-secondary'"
+                size="sm"
+                :pressed.sync="health.disoriented"
+                @click="saveChar"
+            >
+                Disor.
+            </b-btn>
+        </b-btn-group>
 
         <!-- Edit Modal -->
         <edit-modal ref="editModal"></edit-modal>
@@ -222,6 +253,9 @@
                     // You can only get to 2 x woundThreshold before we stop tracking.
                     this.health.wounds = Math.min(this.health.woundThreshold * 2, this.health.wounds);
 
+                    // Clear woundsInput
+                    this.woundsInput = undefined;
+
                     // Save the character
                     return charMan.save(this.character);
                 } // end if
@@ -234,6 +268,9 @@
                 {
                     this.health.wounds -= wounds;
                     this.health.wounds = Math.max(0, this.health.wounds);
+
+                    // Clear woundsInput
+                    this.woundsInput = undefined;
 
                     // Save the character
                     return charMan.save(this.character);
@@ -250,6 +287,9 @@
                     // You can only get to strainThreshold before we stop tracking.
                     this.health.strain = Math.min(this.health.strainThreshold, this.health.strain);
 
+                    // Clear woundsInput
+                    this.strainInput = undefined;
+
                     // Save the character
                     return charMan.save(this.character);
                 } // end if
@@ -263,9 +303,17 @@
                     this.health.strain -= strain;
                     this.health.strain = Math.max(0, this.health.strain);
 
+                    // Clear woundsInput
+                    this.strainInput = undefined;
+
                     // Save the character
                     return charMan.save(this.character);
                 } // end if
+            },
+            saveChar()
+            {
+                // Save the character
+                return charMan.save(this.character);
             }
         }
     };
