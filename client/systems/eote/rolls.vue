@@ -115,6 +115,7 @@
         data()
         {
             return {
+                pendingRollname: '',
                 rollResult: {
                     full: [],
                     uncancelled: [],
@@ -167,7 +168,7 @@
             {
                 this.dice[die] = Math.max(this.dice[die] - 1, 0);
             },
-            setDice(dice = {})
+            setDice(dice = {}, rollName = '')
             {
                 // Set our dice counts to what was specified.
                 Object.assign(this.dice, {
@@ -180,18 +181,21 @@
                     force: 0,
                     ...dice
                 });
+
+                // Set the rollname
+                this.pendingRollname = rollName;
             },
             roll(rollName)
             {
+                rollName = rollName || this.pendingRollname;
+
                 this.rollResult = {
                     ...diceUtil.rollEotE(this.dice),
                     name: rollName
                 };
-            },
-            setAndRoll(dice, rollName)
-            {
-                this.setDice(dice);
-                this.roll(rollName);
+
+                // Clear pending roll name
+                this.pendingRollname = '';
             },
             clearRoll()
             {
