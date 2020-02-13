@@ -316,7 +316,7 @@ const genesysChar = {
                     type: 'array',
                     items: {
                         type: 'object',
-                        required: [ 'name', 'value' ],
+                        required: [ 'name' ],
                         properties: {
                             name: { type: 'string', minLength: 1, maxLength: 255 },
                             value: { type: 'integer', minimum: 0 }

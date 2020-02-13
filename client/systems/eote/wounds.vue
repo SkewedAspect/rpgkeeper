@@ -8,7 +8,7 @@
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                 <fa class="mr-1" icon="heartbeat"></fa>
-                <span class="d-none d-md-inline">Health</span>
+                <span class="d-none d-md-inline">Heart</span>
             </h5>
             <div v-if="!readonly" class="ml-auto">
                 <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">

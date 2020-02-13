@@ -19,6 +19,7 @@
             <div class="d-flex flex-column" style="min-width: 300px; max-width: 300px;">
                 <defenses class="flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></defenses>
                 <wounds class=" mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></wounds>
+                <criticals class=" mt-1" :readonly="!isAuthorized"></criticals>
             </div>
         </div>
     </div>
@@ -52,6 +53,7 @@
     import Skills from './skills';
     import Defenses from './defenses.vue';
     import Wounds from './wounds.vue';
+    import Criticals from './criticals.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -64,7 +66,8 @@
             Rolls,
             Skills,
             Defenses,
-            Wounds
+            Wounds,
+            Criticals
         },
         subscriptions: {
             account: authMan.account$,

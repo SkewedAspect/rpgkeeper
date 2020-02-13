@@ -8,9 +8,21 @@ import LRU from 'lru-cache';
 
 // Dice Systems
 import { fudgeChoices } from './dice-systems/fudge';
-import { eoteChoices, eoteDiceSortOrder, eoteResultsSortOrder, cancelEotEResults } from './dice-systems/eote';
+import { eoteChoices, eoteDiceSortOrder, eoteResultsSortOrder, criticals, cancelEotEResults, findCritical } from './dice-systems/eote';
 
 //----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Rolls a random die, of the given sides.
+ *
+ * @param {number} [sides=1] - The number of sides of the die to roll.
+ *
+ * @returns {number} Returns a random number.
+ */
+function randomDieRoll(sides = 1)
+{
+    return Math.floor(Math.random() * sides);
+} // end randomDieRoll
 
 /**
  * Chooses an item form a list at random.
@@ -21,7 +33,7 @@ import { eoteChoices, eoteDiceSortOrder, eoteResultsSortOrder, cancelEotEResults
  */
 function randomChoice(choices)
 {
-    return choices[Math.floor(Math.random() * choices.length)];
+    return choices[randomDieRoll(choices.length)];
 } // end randomChoice
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -34,6 +46,7 @@ class DiceUtil
 
         // Useful properties
         this.eoteDiceSortOrder = eoteDiceSortOrder;
+        this.eoteCriticals = criticals;
     } // end constructor
 
     roll(rollTxt, scope)
@@ -93,6 +106,12 @@ class DiceUtil
             uncancelled: cancelEotEResults(results)
         };
     } // end rollEotE
+
+    rollEotECritical(bonus = 0)
+    {
+        const roll = randomDieRoll(100) + bonus;
+        return findCritical(roll);
+    } // end rollEotECritical
 } // end DiceUtil
 
 //----------------------------------------------------------------------------------------------------------------------
