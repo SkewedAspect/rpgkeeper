@@ -20,6 +20,7 @@
                 <defenses class="flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></defenses>
                 <wounds class=" mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></wounds>
                 <criticals class=" mt-1" :readonly="!isAuthorized"></criticals>
+                <experience class="mt-1" :readonly="!isAuthorized"></experience>
             </div>
         </div>
     </div>
@@ -52,6 +53,7 @@
     import Rolls from './rolls.vue';
     import Skills from './skills';
     import Defenses from './defenses.vue';
+    import Experience from './experience.vue';
     import Wounds from './wounds.vue';
     import Criticals from './criticals.vue';
 
@@ -66,6 +68,7 @@
             Rolls,
             Skills,
             Defenses,
+            Experience,
             Wounds,
             Criticals
         },
