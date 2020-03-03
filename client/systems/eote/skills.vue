@@ -150,7 +150,7 @@
                 <div class="skill-group">
                     <b>Knowledge</b>
                     <b-table
-                        class="font-sm"
+                        class="font-sm mb-0"
                         :items="knowledge"
                         :fields="fields"
                         small
