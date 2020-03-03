@@ -18,6 +18,16 @@ class EotEManager
         this._modeSubject = new BehaviorSubject('eote');
         this._referencesSubject = new BehaviorSubject([]);
 
+        /* eslint-disable id-length */
+        this.rangeEnum = {
+            en: 'Engaged',
+            s: 'Short',
+            m: 'Medium',
+            l: 'Long',
+            ex: 'Extreme'
+        };
+        /* eslint-enable id-length */
+
         // Subscriptions
         charMan.selected$.subscribe(this._onCharacterChanged.bind(this));
     } // end constructor
