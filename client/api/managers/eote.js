@@ -17,6 +17,8 @@ class EotEManager
         // Subjects
         this._modeSubject = new BehaviorSubject('eote');
         this._referencesSubject = new BehaviorSubject([]);
+        this._weaponsSubject = new BehaviorSubject([]);
+        this._qualitiesSubject = new BehaviorSubject([]);
 
         /* eslint-disable id-length */
         this.rangeEnum = {
@@ -38,6 +40,8 @@ class EotEManager
 
     get mode$() { return this._modeSubject.asObservable(); }
     get references$() { return this._referencesSubject.asObservable(); }
+    get weapons$() { return this._weaponsSubject.asObservable(); }
+    get qualities$() { return this._qualitiesSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -45,6 +49,8 @@ class EotEManager
 
     get mode() { return this._modeSubject.getValue(); }
     get references() { return this._referencesSubject.getValue(); }
+    get weapons() { return this._weaponsSubject.getValue(); }
+    get qualities() { return this._qualitiesSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Subscriptions
@@ -56,11 +62,15 @@ class EotEManager
         {
             this._modeSubject.next(character.system);
             this._referencesSubject.next(await suppMan.list('references'));
+            this._weaponsSubject.next(await suppMan.list('weapons'));
+            this._qualitiesSubject.next(await suppMan.list('qualities'));
         }
         else
         {
             this._modeSubject.next('eote');
             this._referencesSubject.next([]);
+            this._weaponsSubject.next([]);
+            this._qualitiesSubject.next([]);
         } // end if
     } // end _onCharacterChanged
 

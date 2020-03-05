@@ -225,7 +225,7 @@ const armorSchema = {
 //     range: 'en',
 //     encumbrance: 1,
 //     rarity: 1,
-//     qualities: [ 'Razor Edge', 'Sunder' ],
+//     qualities: [ { name: 'Razor Edge' }, { name: 'Sunder', rank: 2 } ],
 //     reference: {
 //         source: 'Homebrew'
 //     }
@@ -237,7 +237,7 @@ const weaponSchema = {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         skill: { type: 'string', minLength: 1, maxLength: 255 },
-        damage: { type: 'string', minLength: 1 },
+        damage: { type: 'integer', minimum: 0 },
         criticalRating: { type: 'integer', minimum: 0 },
         range: rangeSchema,
         encumbrance: { type: 'integer', minimum: 0 },
@@ -246,7 +246,14 @@ const weaponSchema = {
         // List of quality names
         qualities: {
             type: 'array',
-            items: { type: 'string', minLength: 1, maxLength: 255 },
+            items: {
+                type: 'object',
+                required: [ 'name' ],
+                properties: {
+                    name: { type: 'string', minLength: 1, maxLength: 255 },
+                    rank: { type: 'integer', minimum: 1 }
+                }
+            },
             uniqueItems: true,
             additionalItems: false
         },
@@ -410,6 +417,7 @@ const genesysChar = {
                     weaponID: { type: 'string', minLength: 1, maxLength: 255 },
                     name: { type: 'string', minLength: 1, maxLength: 255 },
                     skill: { type: 'string', minLength: 1, maxLength: 255 },
+                    damage: { type: 'integer', minimum: 0 },
                     criticalRating: { type: 'integer', minimum: 0 },
                     range: rangeSchema,
                     encumbrance: { type: 'integer', minimum: 0 },
@@ -426,7 +434,14 @@ const genesysChar = {
                     // List of quality names
                     qualities: {
                         type: 'array',
-                        items: { type: 'string', minLength: 1, maxLength: 255 },
+                        items: {
+                            type: 'object',
+                            required: [ 'name' ],
+                            properties: {
+                                name: { type: 'string', minLength: 1, maxLength: 255 },
+                                rank: { type: 'integer', minimum: 1 }
+                            }
+                        },
                         uniqueItems: true,
                         additionalItems: false
                     },
