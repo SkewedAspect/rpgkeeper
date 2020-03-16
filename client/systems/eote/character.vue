@@ -12,7 +12,7 @@
             </div>
             <rolls ref="roller" class="ml-1 w-50" :skills="character.details.skills" :readonly="!isAuthorized"></rolls>
         </div>
-        <div class="d-flex mt-2">
+        <div class="d-flex mt-1">
             <div class="d-flex flex-column flex-fill mr-1">
                 <skills :readonly="!isAuthorized" @roll="onRoll"></skills>
                 <weapons class="mt-1" :readonly="!isAuthorized"></weapons>

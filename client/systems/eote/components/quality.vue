@@ -7,8 +7,9 @@
         <b-badge :id="`quality-${ name }`">
             {{ qualityName }}
         </b-badge>
-        <b-popover :target="`quality-${ name }`" triggers="hover" placement="top">
-            <markdown-block :text="qualityText"></markdown-block>
+        <b-popover title="Summary" :target="`quality-${ name }`" triggers="hover" placement="top">
+            <markdown-block :text="qualityText" inline></markdown-block>
+            <reference class="float-right mt-2 mb-2" :reference="qualityReference"></reference>
         </b-popover>
     </span>
 </template>
@@ -30,14 +31,18 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    // Managers
     import eoteMan from '../../../api/managers/eote';
+
+    // Components
+    import Reference from './reference.vue';
     import MarkdownBlock from '../../../components/ui/markdown';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'EoteQuality',
-        components: { MarkdownBlock },
+        components: { MarkdownBlock, Reference },
         props: {
             name: {
                 type: String,
@@ -87,6 +92,15 @@
                 } // end if
 
                 return text;
+            },
+            qualityReference()
+            {
+                if(this.quality && this.quality.reference)
+                {
+                    return this.quality.reference;
+                } // end if
+
+                return '';
             }
         }
     };
