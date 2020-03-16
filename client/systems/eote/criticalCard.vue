@@ -3,23 +3,21 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card class="eote-critical-card" :class="visible ? '' : 'collapsed'" no-body>
+    <b-card :id="id" class="eote-critical-card" no-body>
         <template v-slot:header>
-            <div class="crit-header" @click="toggle">
-                <b-btn-close v-if="!readonly" style="margin-top: -2px;" @click.stop.prevent="remove"></b-btn-close>
-                <small>
-                    {{ critical.title }}
-                    <span v-if="critical.severity">
-                        (<difficulty v-for="index in severityRange" :key="index"></difficulty>)
-                    </span>
-                </small>
-            </div>
+            <b-btn-close v-if="!readonly" style="margin-top: -2px;" @click.stop.prevent="remove"></b-btn-close>
+            <small>
+                {{ critical.title }}
+                <span v-if="critical.severity">
+                    (<difficulty v-for="index in severityRange" :key="index"></difficulty>)
+                </span>
+            </small>
+
+            <b-popover title="Summary" :target="id" triggers="hover" placement="top">
+                <markdown-block :text="critical.description" inline></markdown-block>
+                <reference class="float-right mt-2 mb-2" :reference="ref"></reference>
+            </b-popover>
         </template>
-        <b-collapse v-model="visible">
-            <div class="p-2">
-                <small>{{ critical.description }}</small>
-            </div>
-        </b-collapse>
     </b-card>
 </template>
 
@@ -27,18 +25,10 @@
 
 <style lang="scss" scoped>
     .eote-critical-card {
-        &.collapsed {
-            .card-header {
-                border-bottom: none;
-            }
-        }
         .card-header {
-            padding: 0;
-
-            .crit-header {
-                cursor: pointer;
-                padding: 0.25rem 0.5rem;
-            }
+            border-bottom: none;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
         }
     }
 </style>
@@ -48,8 +38,23 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    import v4 from 'uuid';
+
+    // Managers
+    import eoteMan from '../../api/managers/eote';
+
+    // Components
+    import MarkdownBlock from '../../components/ui/markdown';
+    import Reference from './components/reference.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+
     export default {
         name: 'EotECriticalCard',
+        components: {
+            MarkdownBlock,
+            Reference
+        },
         props: {
             critical: {
                 type: Object,
@@ -60,20 +65,21 @@
                 default: false
             }
         },
+        subscriptions: {
+            mode: eoteMan.mode$
+        },
         data()
         {
             return {
-                visible: false
+                uuid: v4()
             };
         },
         computed: {
+            id() { return `critical-${ this.uuid }`; },
+            ref() { return this.mode === 'eote' ? 'E-CRB:217' : 'G-CRB:115'; },
             severityRange() { return Array(this.critical.severity); }
         },
         methods: {
-            toggle()
-            {
-                this.visible = !this.visible;
-            },
             remove()
             {
                 if(!this.readonly)
