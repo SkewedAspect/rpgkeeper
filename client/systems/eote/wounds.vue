@@ -62,6 +62,9 @@
         <b-input-group class="mt-1">
             <b-input v-model.number="strainInput" type="number" min="0" step="1" placeholder="Strain" autocomplete="off"></b-input>
             <b-input-group-append>
+                <b-btn variant="outline-secondary" title="Soak" @click="soakStrain()">
+                    <fa icon="shield-alt"></fa>
+                </b-btn>
                 <b-btn variant="outline-secondary" title="Deal" @click="dealStrain()">
                     <fa :icon="mode === 'eote' ? 'swords-laser' : 'swords'"></fa>
                 </b-btn>
@@ -274,6 +277,18 @@
 
                     // Save the character
                     return charMan.save(this.character);
+                } // end if
+            },
+            soakStrain()
+            {
+                const soak = this.defenses.soak || 0;
+                if(this.strainInput > soak)
+                {
+                    // Safety check; can never be less than 0.
+                    const strainRemaining = Math.max(0, this.strainInput - soak);
+
+                    // Apply the rest as normal strain
+                    this.dealStrain(strainRemaining);
                 } // end if
             },
             dealStrain(strain)
