@@ -95,7 +95,7 @@
                     },
                     { key: 'encumbrance', label: 'Encumb.' },
                     { key: 'rarity' },
-                    { key: 'qualities' }
+                    { key: 'qualities', label: 'Special' }
                 ]
             };
         },
