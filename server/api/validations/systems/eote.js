@@ -412,9 +412,8 @@ const genesysChar = {
             type: 'array',
             items: {
                 type: 'object',
-                required: [ 'weaponID', 'name' ],
+                required: [ 'name' ],
                 properties: {
-                    weaponID: { type: 'string', minLength: 1, maxLength: 255 },
                     name: { type: 'string', minLength: 1, maxLength: 255 },
                     skill: { type: 'string', minLength: 1, maxLength: 255 },
                     damage: { type: 'integer', minimum: 0 },

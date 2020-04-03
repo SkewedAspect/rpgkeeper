@@ -34,7 +34,7 @@ buildSupplementRoute(router, '/weapons', 'weapon', 'eote', eote);
 router.get('/references', wrapAsync(async(req, resp) =>
 {
     const filters = parseQuery(req.query);
-    resp.json(await suppMan.getFiltered(filters, 'eote_reference'));
+    resp.json(await suppMan.getFiltered(filters, 'reference', 'eote_reference'));
 }));
 
 //----------------------------------------------------------------------------------------------------------------------

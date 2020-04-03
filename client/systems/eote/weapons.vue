@@ -11,9 +11,9 @@
                 <span class="d-none d-md-inline">Weapons</span>
             </h5>
             <div v-if="!readonly" class="ml-auto">
-                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                    <fa icon="edit" fixed-width></fa>
-                    <span class="d-none d-md-inline">Edit</span>
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openAddEditModal()">
+                    <fa icon="plus" fixed-width></fa>
+                    <span class="d-none d-md-inline">Add</span>
                 </b-btn>
             </div>
         </div>
@@ -29,19 +29,42 @@
 
             <!-- Qualities Slot -->
             <template v-slot:cell(qualities)="data">
-                <quality v-for="quality in data.value" :key="quality.name" :name="quality.name" :rank="quality.rank"></quality>
+                <quality v-for="(quality, index) in data.value" :key="index" :name="quality.name" :rank="quality.rank"></quality>
+            </template>
+
+            <!-- Buttons Slot -->
+            <template v-slot:cell(buttons)="data">
+                <b-btn size="sm" @click="openAddEditModal(data.item)">
+                    <fa icon="edit"></fa>
+                </b-btn>
+                <b-btn variant="danger" size="sm" @click="openDeleteModal(data.item)">
+                    <fa icon="trash-alt"></fa>
+                </b-btn>
             </template>
         </b-table>
 
         <!-- Edit Modal -->
         <edit-modal ref="editModal"></edit-modal>
+
+        <!-- Delete Modal -->
+        <delete-modal
+            v-if="delWeapon"
+            ref="delModal"
+            :name="delWeapon.name"
+            type="weapon"
+            @hidden="onDelModalHidden"
+            @delete="onDelWeaponDelete"
+        ></delete-modal>
     </rpgk-card>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
+<style lang="scss">
     #eote-weapons-block {
+        .table tr td {
+            vertical-align: middle !important;
+        }
     }
 </style>
 
@@ -56,7 +79,8 @@
 
     // Components
     import RpgkCard from '../../components/ui/card.vue';
-    import EditModal from './modals/editDefensesModal.vue';
+    import DeleteModal from '../../components/ui/deleteModal.vue';
+    import EditModal from './modals/editWeaponsModal.vue';
     import Quality from './components/quality.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -65,6 +89,7 @@
         name: 'EotEWeaponsBlock',
         components: {
             RpgkCard,
+            DeleteModal,
             EditModal,
             Quality
         },
@@ -81,6 +106,7 @@
         data()
         {
             return {
+                delWeapon: undefined,
                 fields: [
                     { key: 'name' },
                     { key: 'skill' },
@@ -95,7 +121,8 @@
                     },
                     { key: 'encumbrance', label: 'Encumb.' },
                     { key: 'rarity' },
-                    { key: 'qualities', label: 'Special' }
+                    { key: 'qualities', label: 'Special' },
+                    { key: 'buttons', label: '', thStyle: 'min-width: 80px' }
                 ]
             };
         },
@@ -103,9 +130,37 @@
             weapons() { return this.character.details.weapons; }
         },
         methods: {
-            openEditModal()
+            onDelModalHidden()
             {
-                this.$refs.editModal.show();
+                this.delWeapon = undefined;
+            },
+            onDelWeaponDelete()
+            {
+                this.removeWeapon(this.delWeapon);
+            },
+            openAddEditModal(weapon)
+            {
+                this.$refs.editModal.show(weapon);
+            },
+            openDeleteModal(weapon)
+            {
+                this.delWeapon = weapon;
+                this.$nextTick(() =>
+                {
+                    this.$refs.delModal.show();
+                });
+            },
+            async removeWeapon(weapon)
+            {
+                const index = this.character.details.weapons.indexOf(weapon);
+                if(index !== -1)
+                {
+                    // Remove the weapon
+                    this.character.details.weapons.splice(index, 1);
+
+                    // Save
+                    await charMan.save(this.character);
+                } // end if
             }
         }
     };

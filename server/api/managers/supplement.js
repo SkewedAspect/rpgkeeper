@@ -14,9 +14,9 @@ class SupplementManager
         return suppRA.get(name, type, tableName);
     } // end getAbility
 
-    async getFiltered(filters, tableName)
+    async getFiltered(filters, type, tableName)
     {
-        return suppRA.getFiltered(filters, tableName);
+        return suppRA.getFiltered(filters, type, tableName);
     } // end getAbilities
 
     async addSupplement(supplement, type, tableName)

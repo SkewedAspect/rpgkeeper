@@ -37,7 +37,8 @@ $force-color: #ffffff;
 
 @mixin makeDie($dieName, $color, $beforeContent)
 {
-    #eote-character {
+    .genesys-system,
+    .eote-system {
         .#{$dieName},
         #{$dieName}
         {

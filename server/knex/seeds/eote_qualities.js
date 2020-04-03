@@ -36,7 +36,7 @@ exports.seed = async function(knex)
     };
 
     const qualities = [
-        { name: 'Accurate', description: 'For each level of this quality, the attacker adds <boost></boost> to their combat checks while using this weapon.', passive: true, ranked: false, reference: 'E-CRB:154', official: true },
+        { name: 'Accurate', description: 'For each level of this quality, the attacker adds <boost></boost> to their combat checks while using this weapon.', passive: true, ranked: true, reference: 'E-CRB:154', official: true },
         { name: 'Auto-Fire', description: 'Upgrade the difficulty of the check (<difficulty></difficulty>). If the attack hits, you may trigger an additional weapon hit (<advantage></advantage><advantage></advantage>). This may be triggered multiple times.', passive: false, ranked: false, reference: 'E-CRB:155', official: true },
         { name: 'Blast', description: 'If the attack is successful, each character engaged with the original target suffers damage equal to the Blast rating plus the number of <success></success> on the check. If the attack misses, you may trigger Blast (<advantage></advantage><advantage></advantage><advantage></advantage>). The original target and all characters engaged suffer damage equal to the Blast rating.', passive: false, ranked: true, reference: 'E-CRB:155', official: true },
         { name: 'Breach', description: 'Hits ignore one point of vehicle armor for every rating of Breach.', passive: true, ranked: true, reference: 'E-CRB:155', official: true },

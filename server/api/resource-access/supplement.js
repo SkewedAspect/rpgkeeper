@@ -7,8 +7,10 @@ const _ = require('lodash');
 // Managers
 const dbMan = require('../../database');
 
+// Engines
+const suppEng = require('../engines/supplement');
+
 // Utilities
-const { camelCaseKeys, snakeCaseKeys } = require('../../utils/misc');
 const { applyFilters } = require('../../knex/utils');
 
 // Errors
@@ -18,21 +20,6 @@ const { MultipleResultsError, NotFoundError } = require('../errors');
 
 class SupplementResourceAccess
 {
-    //------------------------------------------------------------------------------------------------------------------
-    // Utility API
-    //------------------------------------------------------------------------------------------------------------------
-
-    _fromDB(supplement)
-    {
-        supplement.official = !!supplement.official;
-        return camelCaseKeys(supplement);
-    } // end _fromDB
-
-    _toDB(supplement)
-    {
-        return snakeCaseKeys(supplement);
-    } // end _toDB
-
     //------------------------------------------------------------------------------------------------------------------
     // Public API
     //------------------------------------------------------------------------------------------------------------------
@@ -55,12 +42,12 @@ class SupplementResourceAccess
                 }
                 else
                 {
-                    return this._fromDB(supplements[0]);
+                    return suppEng.fromDatabase(supplements[0], type);
                 } // end if
             });
     } // end get
 
-    async getFiltered(filters, tableName)
+    async getFiltered(filters, type, tableName)
     {
         const db = await dbMan.getDB();
         let query = db(tableName)
@@ -71,13 +58,13 @@ class SupplementResourceAccess
             query = applyFilters(query, filters);
         } // end if
 
-        return query
-            .map(this._fromDB);
+        return (await query)
+            .map((supp) => suppEng.fromDatabase(supp, type));
     } // end getFiltered
 
     async addSupplement(supplement, type, tableName)
     {
-        supplement = this._toDB(supplement);
+        supplement = suppEng.toDatabase(supplement, type);
 
         // Insert abilities
         const db = await dbMan.getDB();
@@ -90,7 +77,7 @@ class SupplementResourceAccess
     {
         const name = supplement.name;
         delete supplement.name;
-        supplement = this._toDB(supplement);
+        supplement = suppEng.toDatabase(supplement, type);
 
         const db = await dbMan.getDB();
         return db(tableName)

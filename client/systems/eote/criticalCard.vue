@@ -38,7 +38,7 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import v4 from 'uuid';
+    import { v4 } from 'uuid';
 
     // Managers
     import eoteMan from '../../api/managers/eote';

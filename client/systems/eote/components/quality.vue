@@ -4,12 +4,14 @@
 
 <template>
     <span class="eote-quality">
-        <b-badge :id="`quality-${ name }`">
+        <b-badge :id="id">
             {{ qualityName }}
         </b-badge>
-        <b-popover title="Summary" :target="`quality-${ name }`" triggers="hover" placement="top">
-            <markdown-block :text="qualityText" inline></markdown-block>
-            <reference class="float-right mt-2 mb-2" :reference="qualityReference"></reference>
+        <b-popover :title="qualityName" :target="id" triggers="hover" placement="top">
+            <div :class="`${ mode }-system`">
+                <markdown-block :text="qualityText" inline></markdown-block>
+                <reference class="float-right mt-2 mb-2" :reference="qualityReference"></reference>
+            </div>
         </b-popover>
     </span>
 </template>
@@ -30,6 +32,8 @@
 
 <script>
     //------------------------------------------------------------------------------------------------------------------
+
+    import { v4 } from 'uuid';
 
     // Managers
     import eoteMan from '../../../api/managers/eote';
@@ -56,8 +60,13 @@
         subscriptions()
         {
             return {
+                mode: eoteMan.mode$,
                 qualities: eoteMan.qualities$
             };
+        },
+        data()
+        {
+            return { id: v4() };
         },
         computed: {
             passive()

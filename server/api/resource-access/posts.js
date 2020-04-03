@@ -31,8 +31,8 @@ class PostResourceAccess
     async getPosts()
     {
         const db = await dbMan.getDB();
-        return db('post')
-            .select()
+        return (await db('post')
+            .select())
             .map(this._parsePost);
     } // end getPosts
 

@@ -27,7 +27,7 @@ class SupplementUtils
         router.get(path, wrapAsync(async(req, resp) =>
         {
             const filters = parseQuery(req.query);
-            resp.json(await suppMan.getFiltered(filters, tableName));
+            resp.json(await suppMan.getFiltered(filters, type, tableName));
         }));
 
         router.post(path, ensureAuthenticated, validation(schemas[type]), wrapAsync(async(req, resp) =>
