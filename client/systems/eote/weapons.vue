@@ -108,21 +108,24 @@
             return {
                 delWeapon: undefined,
                 fields: [
-                    { key: 'name' },
-                    { key: 'skill' },
-                    { key: 'damage' },
-                    { key: 'criticalRating', label: 'Critical' },
+                    { key: 'name', headerTitle: 'Weapon name' },
+                    { key: 'skill', headerTitle: 'Required Skill', tdClass: 'text-nowrap' },
+                    { key: 'damage', label: 'Dmg.', headerTitle: 'Weapon Damage', tdClass: 'text-center' },
+                    { key: 'criticalRating', label: 'Crit.', headerTitle: 'Weapon Critical rating', tdClass: 'text-center' },
                     {
                         key: 'range',
                         formatter(range)
                         {
                             return eoteMan.rangeEnum[range];
-                        }
+                        },
+                        tdClass: 'text-center'
                     },
-                    { key: 'encumbrance', label: 'Encumb.' },
-                    { key: 'rarity' },
-                    { key: 'qualities', label: 'Special' },
+                    { key: 'encumbrance', label: 'Enc.', headerTitle: 'Weapon Encumbrance', tdClass: 'text-center' },
+                    { key: 'rarity', label: 'Rar.', headerTitle: 'Weapon Rarity', tdClass: 'text-center' },
+                    { key: 'qualities', label: 'Special', headerTitle: 'Weapon Qualities' },
                     { key: 'buttons', label: '', thStyle: 'min-width: 80px' }
+
+                    /* TODO: Add in weapon modification support. */
                 ]
             };
         },
