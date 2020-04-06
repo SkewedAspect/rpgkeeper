@@ -13,9 +13,19 @@
                 </span>
             </small>
 
-            <b-popover title="Summary" :target="id" triggers="hover" placement="top">
-                <markdown-block :text="critical.description" inline></markdown-block>
-                <reference class="float-right mt-2 mb-2" :reference="ref"></reference>
+            <b-popover :target="id" triggers="hover" placement="top">
+                <template v-slot:title>
+                    <div :class="`${ mode }-system`">
+                        {{ critical.title }}
+                        <span v-if="critical.severity">
+                            (<difficulty v-for="index in severityRange" :key="index"></difficulty>)
+                        </span>
+                    </div>
+                </template>
+                <div :class="`${ mode }-system`">
+                    <markdown-block :text="critical.description" inline></markdown-block>
+                    <reference class="float-right mt-2 mb-2" :reference="ref"></reference>
+                </div>
             </b-popover>
         </template>
     </b-card>
