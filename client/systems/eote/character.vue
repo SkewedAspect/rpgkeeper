@@ -15,7 +15,7 @@
         <div class="d-flex mt-1">
             <div class="d-flex flex-column flex-fill mr-1">
                 <skills :readonly="!isAuthorized" @roll="onRoll"></skills>
-                <weapons class="mt-1" :readonly="!isAuthorized"></weapons>
+                <weapons class="mt-1" :readonly="!isAuthorized" @roll="onRoll"></weapons>
             </div>
             <div class="d-flex flex-column" style="min-width: 300px; max-width: 300px;">
                 <defenses class="flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></defenses>

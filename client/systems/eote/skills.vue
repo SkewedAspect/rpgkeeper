@@ -188,8 +188,12 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
+<style lang="scss">
     #eote-skills-block {
+        .table tr {
+            cursor: pointer;
+        }
+
         .skill-column {
             flex: 1 1 auto;
         }

@@ -19,7 +19,15 @@
         </div>
 
         <!-- Card Body -->
-        <b-table class="font-sm mb-0" :items="weapons" :fields="fields" small hover show-empty>
+        <b-table
+            class="font-sm mb-0"
+            :items="weapons"
+            :fields="fields"
+            small
+            hover
+            show-empty
+            @row-clicked="onRowClicked"
+        >
             <!-- Empty Slot -->
             <template v-slot:empty>
                 <h5 class="mt-2 text-center">
@@ -62,6 +70,10 @@
 
 <style lang="scss">
     #eote-weapons-block {
+        .table tr {
+            cursor: pointer;
+        }
+
         .table tr td {
             vertical-align: middle !important;
         }
@@ -72,6 +84,8 @@
 
 <script>
     //------------------------------------------------------------------------------------------------------------------
+
+    import _ from 'lodash';
 
     // Managers
     import charMan from '../../api/managers/character';
@@ -133,6 +147,33 @@
             weapons() { return this.character.details.weapons; }
         },
         methods: {
+            onRowClicked(item)
+            {
+                const skill = _.find(this.character.details.skills, { name: item.skill });
+                if(skill)
+                {
+                    const dice = { ability: 0, proficiency: 0 };
+                    const charCount = this.character.details.characteristics[skill.characteristic];
+                    const rankCount = skill.ranks;
+
+                    if(charCount > rankCount)
+                    {
+                        dice.ability = charCount - rankCount;
+                        dice.proficiency = rankCount;
+                    }
+                    else
+                    {
+                        dice.ability = rankCount - charCount;
+                        dice.proficiency = charCount;
+                    } // end if
+
+                    this.$emit('roll', dice, item.name);
+                }
+                else
+                {
+                    console.warn('Failed to find weapon skill:', item.skill);
+                } // end if
+            },
             onDelModalHidden()
             {
                 this.delWeapon = undefined;
