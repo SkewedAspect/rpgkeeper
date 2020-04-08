@@ -20,21 +20,14 @@
 
         <!-- Card Body -->
         <b-table
+            v-if="weapons.length > 0"
             class="font-sm mb-0"
             :items="weapons"
             :fields="fields"
             small
             hover
-            show-empty
             @row-clicked="onRowClicked"
         >
-            <!-- Empty Slot -->
-            <template v-slot:empty>
-                <h5 class="mt-2 text-center">
-                    No weapons
-                </h5>
-            </template>
-
             <!-- Qualities Slot -->
             <template v-slot:cell(qualities)="data">
                 <quality v-for="(quality, index) in data.value" :key="index" :name="quality.name" :rank="quality.rank"></quality>
@@ -50,6 +43,11 @@
                 </b-btn>
             </template>
         </b-table>
+
+        <!-- Empty -->
+        <h5 v-else class="mt-2 text-center">
+            No weapons
+        </h5>
 
         <!-- Edit Modal -->
         <edit-modal ref="editModal"></edit-modal>
