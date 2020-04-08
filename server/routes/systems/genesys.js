@@ -34,7 +34,7 @@ buildSupplementRoute(router, '/weapons', 'weapon', 'genesys', genesys);
 router.get('/references', wrapAsync(async(req, resp) =>
 {
     const filters = parseQuery(req.query);
-    resp.json(await suppMan.getFiltered(filters, 'genesys_reference'));
+    resp.json(await suppMan.getFiltered(filters, 'reference', 'genesys_reference'));
 }));
 
 //----------------------------------------------------------------------------------------------------------------------
