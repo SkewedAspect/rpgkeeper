@@ -16,6 +16,7 @@
             <div class="d-flex flex-column flex-fill mr-1">
                 <skills :readonly="!isAuthorized" @roll="onRoll"></skills>
                 <weapons class="mt-1" :readonly="!isAuthorized" @roll="onRoll"></weapons>
+                <armor class="mt-1" :readonly="!isAuthorized"></armor>
             </div>
             <div class="d-flex flex-column" style="min-width: 300px; max-width: 300px;">
                 <experience class="flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></experience>
@@ -58,6 +59,7 @@
     import Wounds from './wounds.vue';
     import Criticals from './criticals.vue';
     import Weapons from './weapons.vue';
+    import Armor from './armor.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -73,7 +75,8 @@
             Experience,
             Wounds,
             Criticals,
-            Weapons
+            Weapons,
+            Armor
         },
         subscriptions: {
             account: authMan.account$,

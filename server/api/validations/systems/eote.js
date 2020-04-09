@@ -382,22 +382,38 @@ const genesysChar = {
             additionalItems: false
         },
 
-        // The idea, here, is that we'll have an id of the base armor, and use it's stats, with the ability to override
-        // as things are upgraded/modified. This keeps it flexible, with the minimum viable repetition of data.
+        // This is simply a complete list of armor stats. While we may, at some point, provide a list of armors to pick
+        // from, those stats will simply copy over to this structure, which the user can then modify.
         armor: {
             type: 'object',
-            required: [ 'armorID' ],
+            required: [ 'name' ],
             properties: {
-                armorID: { type: 'string', maxLength: 255 }, // id of a base armor
+                name: { type: 'string', maxLength: 255 },
                 defense: { type: 'integer', minimum: 0 },
                 soak: { type: 'integer', minimum: 0 },
                 hardpoints: { type: 'integer', minimum: 0 },
                 encumbrance: { type: 'integer', minimum: 0 },
+                rarity: { type: 'integer', minimum: 0 },
 
-                // List of attachment names
+                // List of attachments
                 attachments: {
                     type: 'array',
                     items: { type: 'string', minLength: 1, maxLength: 255 },
+                    uniqueItems: true,
+                    additionalItems: false
+                },
+
+                // List of qualities
+                qualities: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        required: [ 'name' ],
+                        properties: {
+                            name: { type: 'string', minLength: 1, maxLength: 255 },
+                            rank: { type: 'integer', minimum: 1 }
+                        }
+                    },
                     uniqueItems: true,
                     additionalItems: false
                 },
@@ -406,8 +422,8 @@ const genesysChar = {
             additionalProperties: false
         },
 
-        // Same as with armor, each weapon will be a base weapon that can have it's states overridden by an individual
-        // instance of the weapon. This should be flexible enough to allow for any custom tweaking a campaign requires.
+        // Same as with armor, this holds unique instances of weapons. Again, while there may eventually be a list of
+        // weapons, they'd be templates we copy, and modify.
         weapons: {
             type: 'array',
             items: {
@@ -422,7 +438,7 @@ const genesysChar = {
                     encumbrance: { type: 'integer', minimum: 0 },
                     rarity: { type: 'integer', minimum: 0 },
 
-                    // List of attachment names
+                    // List of attachments
                     attachments: {
                         type: 'array',
                         items: { type: 'string', minLength: 1, maxLength: 255 },
@@ -430,7 +446,7 @@ const genesysChar = {
                         additionalItems: false
                     },
 
-                    // List of quality names
+                    // List of qualities
                     qualities: {
                         type: 'array',
                         items: {

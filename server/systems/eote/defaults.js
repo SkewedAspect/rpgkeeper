@@ -193,12 +193,14 @@ const genesysChar = {
     abilities: [],
     gear: [],
     armor: {
-        armorID: '',
+        name: '',
         defense: 0,
         soak: 0,
         hardpoints: 0,
         encumbrance: 0,
+        rarity: 0,
         attachments: [],
+        qualities: [],
         notes: ''
     },
     weapons: []
