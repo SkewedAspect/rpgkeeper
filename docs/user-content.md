@@ -20,8 +20,8 @@ UGC.
 ## The Problem
 
 RPGKeeper operates in a rather difficult to navigate grey area. It's intended to be a _companion_ for players, not a
-_replacement_ for source books. If we were being a replacement, we'd need to license the systems (and, to be honest,
-that's tricky at best, impossible at worst.) Instead, we have to try to be useful to users, without letting them play
+_replacement_ for source books. If we were being a replacement, we'd need to license the systems and, to be honest,
+that's tricky at best, impossible at worst. Instead, we have to try to be useful to users, without letting them play
 with nothing but RPGKeeper. The problem is, RPGKeeper's interests (keep the user in the app and engaged as much as
 possible) and the various system's copyright holder's interests (drive licensed sales of the books) are diametrically
 opposed. Every feature we add to make the player's lives easier has to be weighed against crossing the line into law
@@ -35,12 +35,16 @@ having our cake and eating it, too.
 ## UGC Policy
 
 > All content not marked 'official' (i.e. committed in the source code of RPGKeeper) is considered UGC, and is input
-> directly by users. Users are allowed to enter whatever UGC they wish (even of copyrighted works), and it will be
-> available to them, exclusively. No sharing of UGC is allowed without going through a moderation process that enforces
-> our Public UGC policy. This moderation process, while machine-assisted, will always end with a human being make the
-> decision to allow the UGC to be publicly available.
+> directly by users. Users are allowed to enter whatever UGC they wish (even content that doesn't meet our public
+> guidelines), and it will be available to them, exclusively. No sharing of UGC is allowed without going through a
+> moderation process that enforces our Public UGC policy. This moderation process, while machine-assisted, will always
+> end with a human being make the decision to allow the UGC to be publicly available.
+> 
+> Public UGC will be controlled (edited, added, or removed) by RPGKeeper moderators, and is made available at the sole
+> discretion of RPGKeeper. Users will have the ability to request changed to public UGC, however, they will not be able
+> to edit them.
 
-RPGKeeper, while not a wiki, operated much like one, except every "page" is unique to the users, and moderators are
+RPGKeeper, while not a wiki, operates much like one, except every "page" is unique to the users, and moderators are
 required to make them publicly visible. In actual fact, it's worse than just being a handful of pages, it's every power,
 feat, ability, talent, etc. across every supported system.
 
@@ -52,6 +56,9 @@ _Note: It's technologically impossible to prevent sufficiently skilled users fro
 impossible to fully prevent sufficiently skilled users from taking one of those dumps and 'replaying' it through the
 website. All we can do is use tools like rate-limiting and response delays to make it frustrating to attempt to do so.
 **Players attempting to do this will violate the Terms of Use, and will have their accounts (and email) banned.**_
+
+Users do need the ability to suggest edits to public UGC, as typos or mistakes may happen. The current intention is to
+handle this via the public GitHub, with an issue template that can be opened via a link in the RPGKeeper application.
 
 ### Guidelines for Public UGC
 
@@ -99,10 +106,20 @@ the bounds of US law, and moderate our content as such.
 When a user creates a campaign, they have the ability to create UGC that _is_ shared amongst everyone in a campaign.
 However, to prevent usage of campaigns as a way to circumvent moderation, we only allow UGC in characters added to the
 originating campaign, and we don't allow the characters to be moved or copied. There is a limit on the number of players
-in a campaign, which means the effort required for wide-scale piracy would be every difficult.
+in a campaign, which means the effort required for wide-scale piracy would be very difficult.
 
-Additionally, only the GM has the ability to add UGC to a campaign, meaning the effort to create large amounts of UGC
-cannot be shared among groups of people, also reducing the likelihood.
+Additionally, only the GM has the ability to add UGC to a campaign, meaning a concerted effort by a group of people to  
+create infringing UGC should not be possible.
+
+## Promoting Private UGC to Public
+
+> UGC can be submitted for promotion to public content via the originating user. Once determined to meet the UGC Public
+> Guidelines, the UGC will be flagged as public, and the user's ability to modify it will be removed.
+
+Any UGC can be submitted for approval. As long as it meets the guidelines above, it will be accepted. Once accepted, we
+remove the ability for the user to edit it. Once it's become public UGC, it must be edited via a moderator, just like
+all other public UGC, or 'official' content. This limitation is intended to prevent editing UGC to violate the Public
+Guidelines after moderator approval.
 
 ---
 
