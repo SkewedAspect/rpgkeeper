@@ -114,9 +114,9 @@
     import Notes from '../components/notes/notes.vue';
 
     // Systems
-    import RisusCharacter from '../systems/risus/character.vue';
-    import FateCharacter from '../systems/fate/character.vue';
-    import EoteCharacter from '../systems/eote/character.vue';
+    import RisusCharacter from '../components/systems/risus/character.vue';
+    import FateCharacter from '../components/systems/fate/character.vue';
+    import EoteCharacter from '../components/systems/eote/character.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
