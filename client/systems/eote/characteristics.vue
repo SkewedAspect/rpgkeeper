@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-chars-block" :class="{ readonly: readonly }" fill>
+    <rpgk-card id="eote-chars-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
@@ -19,11 +19,11 @@
         </div>
 
         <!-- Card Body -->
-        <div class="d-flex flex-wrap align-content-stretch justify-content-start">
+        <div class="d-flex flex-wrap align-content-stretch justify-content-start mt-auto mb-auto ml-2 mr-2 pt-1 pb-1">
             <b-card
                 v-for="char in characteristics"
                 :key="char"
-                class="flex-fill mr-2 mt-1 mb-1 text-nowrap"
+                class="flex-fill ml-1 mr-1 mt-1 mb-1 text-nowrap"
                 style="min-width: 50px; width: 90px"
                 no-body
             >

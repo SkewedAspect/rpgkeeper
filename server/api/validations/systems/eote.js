@@ -361,15 +361,7 @@ const genesysChar = {
         },
         abilities: {
             type: 'array',
-            items: {
-                type: 'object',
-                required: [ 'abilityID' ],
-                properties: {
-                    abilityID: { type: 'string', minLength: 1, maxLength: 255 },
-                    notes: { type: 'string', minLength: 1 }
-                },
-                additionalProperties: false
-            },
+            items: { type: 'string', minLength: 1, maxLength: 255 },
             uniqueItems: true,
             additionalItems: false
         },

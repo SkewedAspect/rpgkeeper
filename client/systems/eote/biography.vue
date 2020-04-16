@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-bio-block" :class="{ readonly: readonly }" fill>
+    <rpgk-card id="eote-bio-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
@@ -19,19 +19,26 @@
         </div>
 
         <!-- Card Body -->
-        <div :class="{ 'd-flex': mode === 'eote' }">
-            <div class="bio-line" :class="{ 'w-50': mode === 'eote' }">
-                <b>Species<span v-if="mode === 'genesys'">/Archetype</span>:</b>
-                <span class="m-0">{{ species }}</span>
+        <div class="p-2">
+            <div :class="{ 'd-flex': mode === 'eote' }">
+                <div class="bio-line" :class="{ 'w-50': mode === 'eote' }">
+                    <b>Species<span v-if="mode === 'genesys'">/Archetype</span>:</b>
+                    <span class="m-0">{{ species }}</span>
+                </div>
+                <div class="bio-line" :class="{ 'w-50': mode === 'eote' }">
+                    <b>Career:</b>
+                    <span class="m-0">{{ career }}</span>
+                </div>
             </div>
-            <div class="bio-line" :class="{ 'w-50': mode === 'eote' }">
-                <b>Career:</b>
-                <span class="m-0">{{ career }}</span>
+            <div v-if="mode === 'eote'" class="bio-line">
+                <b>Specializations:</b>
+                <span class="m-0">{{ specialization }}</span>
             </div>
-        </div>
-        <div v-if="mode === 'eote'" class="bio-line">
-            <b>Specializations:</b>
-            <span class="m-0">{{ specialization }}</span>
+            <div class="bio-line">
+                <b>Abilities:</b>
+                <ability v-for="name in abilities" :key="name" :name="name"></ability>
+                <span v-if="abilities.length === 0">None</span>
+            </div>
         </div>
 
         <!-- Edit Modal -->
@@ -58,12 +65,14 @@
     // Components
     import RpgkCard from '../../components/ui/card.vue';
     import EditModal from './modals/editBiographyModal.vue';
+    import Ability from './components/ability.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'EotEBiographyBlock',
         components: {
+            Ability,
             RpgkCard,
             EditModal
         },
@@ -78,6 +87,7 @@
             mode: eoteMan.mode$
         },
         computed: {
+            abilities() { return this.character.details.abilities || []; },
             species() { return this.character.details.species || 'Unknown'; },
             career() { return this.character.details.career || 'Unknown'; },
             specialization() { return this.character.details.specialization || 'Unknown'; }
