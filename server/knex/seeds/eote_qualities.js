@@ -88,9 +88,13 @@ exports.seed = async function(knex)
     // Run the seed
     //------------------------------------------------------------------------------------------------------------------
 
-    // Deletes ALL existing entries
-    await knex('eote_quality').del();
-    await knex('genesys_quality').del();
+    // Deletes all official entries
+    await knex('eote_quality')
+        .del()
+        .where({ official: true });
+    await knex('genesys_quality')
+        .del()
+        .where({ official: true });
 
     // Inserts seed entries
     await Promise.all(eoteQualities.map((quality) => knex('eote_quality').insert(quality)));
