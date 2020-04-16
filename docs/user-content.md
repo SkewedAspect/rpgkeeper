@@ -24,8 +24,8 @@ _replacement_ for source books. If we were being a replacement, we'd need to lic
 that's tricky at best, impossible at worst. Instead, we have to try to be useful to users, without letting them play
 with nothing but RPGKeeper. The problem is, RPGKeeper's interests (keep the user in the app and engaged as much as
 possible) and the various system's copyright holder's interests (drive licensed sales of the books) are diametrically
-opposed. Every feature we add to make the player's lives easier has to be weighed against crossing the line into law
-suit territory from the copyright holders.
+opposed. Every feature we add to make the player's lives easier has to be weighed against crossing the line into lawsuit
+territory from the copyright holders.
 
 In order to help draw this line, we've created RPGKeeper's UGC Policy to try and strike a balance. It's not just a
 policy for development, it's actually baked into the architecture of the application and the way users interact with it
@@ -38,10 +38,10 @@ having our cake and eating it, too.
 > directly by users. Users are allowed to enter whatever UGC they wish (even content that doesn't meet our public
 > guidelines), and it will be available to them, exclusively. No sharing of UGC is allowed without going through a
 > moderation process that enforces our Public UGC policy. This moderation process, while machine-assisted, will always
-> end with a human being make the decision to allow the UGC to be publicly available.
+> end with a human being making the decision to allow the UGC to be publicly available.
 > 
 > Public UGC will be controlled (edited, added, or removed) by RPGKeeper moderators, and is made available at the sole
-> discretion of RPGKeeper. Users will have the ability to request changed to public UGC, however, they will not be able
+> discretion of RPGKeeper. Users will have the ability to request changes to public UGC, however, they will not be able
 > to edit them.
 
 RPGKeeper, while not a wiki, operates much like one, except every "page" is unique to the users, and moderators are
@@ -128,6 +128,62 @@ Guidelines after moderator approval.
 What follows is a technical discussion on the design and implementation of the above policies. This content is intended
 for contributors to the project. Feel free to follow along, but it is not written for the laymen.
 
-### Finish this.
+### Database Structure
 
-...later.
+Each supplement table (where UGC is stored) will have the following columns:
+
+* `id (integer)` - an auto-increment id is being added to these tables, since `name` is no longer unique.
+* `official (Boolean)` - indicates if this is 'official' content. Official content is removed and re-added every deploy
+  of the application, and therefore is considered 'provided by' the project.
+* `reference (String)` - a reference in the form of `BookAbbreviation:PageNumber` or `Homebrew`.
+* `owner (String | Null)` - who owns this supplement; either a Campaign, or an Account.
+* `scope ('user' | 'campaign' | 'public')` - the scope of the power, indicating the visibility level to other users.
+
+A `unique` constraint will be added to the combination of `name`, `scope`, and `owner`.
+
+In addition, there will be a `moderation` table:
+
+* `id (auto-increment number)` - id of the record. Just to keep things unique.
+* `table_name (String)` - the table name of the supplement this moderation record is for.
+* `supplement_id (String)` the id of the supplement this moderation is for.
+* `status ('pending' | 'approved' | 'rejected')`
+* `comments (JSON)` - a json array of `{ accountID, message }` to store communication between the moderator and user.
+
+### Querying Supplements
+
+The supplements code applies permissions checks; the user will need to have permission to be able to view private
+supplements in order to be able to query them from the rest api. Users, obviously, have permission to view supplements
+they own (i.e. their `accountID` is in the `owner` field.) or for campaigns they're in. (However, this is restricted on
+a per-character basis.
+
+It is expected that, when querying for supplements, the following are returned:
+
+* Supplements in the `'user'` scope where they are the owners.
+* Supplements in the `'campaign'` scope for all campaigns of which you are an owner, or player. (Once campaign support
+  is added)
+* Supplements in the `'public'` scope.
+
+The expectation is that the UI will display what's relevant, and the prevent the user for adding something they're not
+supposed to. The server will block anything invalid, even if the UI fails.
+
+### Saving Supplements
+
+A permission check will now be performed when saving a supplement. The following will be enforced:
+
+* If the scope is `'public'`, you must have the permission `${systemPrefix}/isModerator`.
+* If the scope is `'user'`, you must either be the owner, or have `${systemPrefix}/canModify`.
+
+All other supplement modifications will be rejected.
+
+### Saving Characters
+
+On character save, a validation step is performed where all supplements are looked up, and any that the user does not
+have access to are removed from the character. (This is considered best, because simply failing the save would be
+difficult for the user to understand what's wrong, if this was not malicious.) In the event this happens, the response
+to the save is sent with HTTP Status Code `205 - RESET CONTENT` to indicate that some values of the character were not
+valid and have been removed, so the client should reload the character in it's entirety.
+
+When this happens the UI will display a notice to the user that says something along the lines of, "Your character has
+been modified to remove some inaccessible content. Please review your sheet to make sure you aren't missing anything."
+(Final wording isn't relevant, and may change with time.)
+
