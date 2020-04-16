@@ -86,10 +86,10 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
     * [X] Each system would define an [ajv][] schema for it's specific data.
     * [ ] Evaluate and possibly implement [Joi][joi] instead of [AJV][ajv].
     * [ ] Any additional data (classes, spells, etc) needed should be treated as static data, ~~and loaded from json files on disk.~~ and loaded as seeds into the database.
-* [ ] Move and refactor systems; they should no longer be their own thing, they should be integrated as just run of the
+* [X] Move and refactor systems; they should no longer be their own thing, they should be integrated as just run of the
     mill routes/components, as part of the application. No need for shared units like current.
 * [ ] Convert to typescript
-* [ ] Setup a reasonable docker build/deploy pipeline in GitHub.
+* [ ] Setup a reasonable ~~docker build~~/deploy pipeline in GitHub. (PARTIAL)
 * [X] Setup eslint MR checking in GitHub.
 
 This should really set us up for more complex interactions and a much faster time to implementing Campaigns.
