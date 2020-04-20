@@ -5,10 +5,14 @@
 const express = require('express');
 
 // Managers
-// const genMan = require('../api/managers/genesys');
+const suppMan = require('../../api/managers/supplement');
 
 // Utils
-const { errorHandler, wrapAsync } = require('../utils');
+const { buildSupplementRoute } = require('./utils/supplement');
+const { errorHandler, wrapAsync, parseQuery } = require('../utils');
+
+// Validations
+const { genesys } = require('../../api/validations/systems/eote');
 
 // Logger
 const logger = require('trivial-logging').loggerFor(module);
@@ -19,9 +23,18 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/abilities', wrapAsync(async(req, resp) =>
+buildSupplementRoute(router, '/abilities', 'ability', 'genesys', genesys);
+buildSupplementRoute(router, '/armor', 'armor', 'genesys', genesys);
+buildSupplementRoute(router, '/attachments', 'attachment', 'genesys', genesys);
+buildSupplementRoute(router, '/gear', 'gear', 'genesys', genesys);
+buildSupplementRoute(router, '/qualities', 'quality', 'genesys', genesys);
+buildSupplementRoute(router, '/talents', 'talent', 'genesys', genesys);
+buildSupplementRoute(router, '/weapons', 'weapon', 'genesys', genesys);
+
+router.get('/references', wrapAsync(async(req, resp) =>
 {
-    resp.end();
+    const filters = parseQuery(req.query);
+    resp.json(await suppMan.getFiltered(filters, 'reference', 'genesys_reference'));
 }));
 
 //----------------------------------------------------------------------------------------------------------------------

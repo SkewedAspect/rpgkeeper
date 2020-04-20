@@ -341,7 +341,7 @@
         "species": "Human",
         "age": 28,
         "height": "5'10\"",
-        "specializations": [
+        "specialization": [
             "Scout",
             "Infiltrator"
         ],
@@ -709,7 +709,7 @@
         "species": "Droid",
         "age": null,
         "height": "5'6\"",
-        "specializations": [],
+        "specialization": [],
         "weapons": [
             {
                 "name": "Blaster Pistol",
@@ -1478,7 +1478,7 @@
         "totalXP": 445,
         "availableXP": 30,
         "quickNotes": "8,500 credits",
-        "specializations": [
+        "specialization": [
             "Archaeologist",
             "Assassin"
         ],
@@ -1884,7 +1884,7 @@
         "availableXP": 0,
         "gender": "Male",
         "species": "Droid",
-        "specializations": [],
+        "specialization": [],
         "armor": {
             "name": "Integrated Armor",
             "defense": 1,
@@ -2279,7 +2279,7 @@
         ],
         "totalXP": 170,
         "availableXP": 42,
-        "specializations": [
+        "specialization": [
             "Squadron Leader",
             "Commodore"
         ],
@@ -2379,7 +2379,7 @@
                 "upgrades": []
             }
         ],
-        "specializations": [
+        "specialization": [
             "Marauder",
             "Force Sensitive Emergent"
         ],
@@ -2794,7 +2794,7 @@
                 ]
             }
         ],
-        "specializations": [
+        "specialization": [
             "Seer (Career)",
             "Niman Disciple"
         ],
@@ -3326,7 +3326,7 @@
                 ]
             }
         ],
-        "specializations": [
+        "specialization": [
             "PeaceKeeper",
             "Soresu Defender"
         ],
@@ -3779,7 +3779,7 @@
                 ]
             }
         ],
-        "specializations": [
+        "specialization": [
             "Aggressor",
             "Shien Expert"
         ],
@@ -4119,7 +4119,7 @@
         "baseChar": "byX3I",
         "talents": [],
         "forcePowers": [],
-        "specializations": [],
+        "specialization": [],
         "armor": {
             "defense": 0,
             "soak": 0,
@@ -4449,7 +4449,7 @@
         "baseChar": "3i7i9N",
         "talents": [],
         "forcePowers": [],
-        "specializations": [
+        "specialization": [
             "Pilot"
         ],
         "armor": {
@@ -4797,7 +4797,7 @@
             }
         ],
         "forcePowers": [],
-        "specializations": [],
+        "specialization": [],
         "armor": {
             "defense": 0,
             "soak": 0,

@@ -5,10 +5,14 @@
 const express = require('express');
 
 // Managers
-// const eoteMan = require('../api/managers/eote');
+const suppMan = require('../../api/managers/supplement');
 
 // Utils
-const { errorHandler, wrapAsync } = require('../utils');
+const { buildSupplementRoute } = require('./utils/supplement');
+const { errorHandler, wrapAsync, parseQuery } = require('../utils');
+
+// Validations
+const { eote } = require('../../api/validations/systems/eote');
 
 // Logger
 const logger = require('trivial-logging').loggerFor(module);
@@ -19,9 +23,18 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/abilities', wrapAsync(async(req, resp) =>
+buildSupplementRoute(router, '/abilities', 'ability', 'eote', eote);
+buildSupplementRoute(router, '/armor', 'armor', 'eote', eote);
+buildSupplementRoute(router, '/attachments', 'attachment', 'eote', eote);
+buildSupplementRoute(router, '/gear', 'gear', 'eote', eote);
+buildSupplementRoute(router, '/qualities', 'quality', 'eote', eote);
+buildSupplementRoute(router, '/talents', 'talent', 'eote', eote);
+buildSupplementRoute(router, '/weapons', 'weapon', 'eote', eote);
+
+router.get('/references', wrapAsync(async(req, resp) =>
 {
-    resp.end('cool.');
+    const filters = parseQuery(req.query);
+    resp.json(await suppMan.getFiltered(filters, 'reference', 'eote_reference'));
 }));
 
 //----------------------------------------------------------------------------------------------------------------------

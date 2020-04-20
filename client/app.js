@@ -110,6 +110,25 @@ const router = new VueRouter({
 
 Vue.config.debug = true;
 
+Vue.config.ignoredElements = [
+    'proficiency',
+    'ability',
+    'boost',
+    'force',
+    'challenge',
+    'difficulty',
+    'setback',
+    'success',
+    'advantage',
+    'triumph',
+    'light-side',
+    'force-point',
+    'failure',
+    'threat',
+    'despair',
+    'dark-side'
+];
+
 // Setup app component
 const App = Vue.component('app', AppComponent);
 new App({

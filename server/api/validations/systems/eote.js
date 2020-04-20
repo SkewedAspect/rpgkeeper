@@ -9,13 +9,9 @@
 //     page: 207
 // };
 const referenceSchema = {
-    type: 'object',
-    required: [ 'source' ],
-    properties: {
-        source: { type: 'string', minLength: 1, maxLength: 255 },
-        page: { type: 'integer', minimum: 1 }
-    },
-    additionalProperties: false
+    type: 'string',
+    minLength: 1,
+    maxLength: 255
 };
 
 // Example:
@@ -36,8 +32,8 @@ const motivationSchema = {
     type: 'object',
     required: [ 'name', 'description' ],
     properties: {
-        name: { type: 'string', minLength: 1, maxLength: 255 },
-        description: { type: 'string', minLength: 1 },
+        name: { type: 'string', maxLength: 255 },
+        description: { type: 'string' },
         reference: referenceSchema
     },
     additionalProperties: false
@@ -58,7 +54,7 @@ const motivationSchema = {
 // };
 const abilitySchema = {
     type: 'object',
-    required: [ 'name', 'description' ],
+    required: [ 'name', 'description', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -82,7 +78,7 @@ const abilitySchema = {
 // };
 const talentSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'activation', 'ranked' ],
+    required: [ 'name', 'description', 'activation', 'ranked', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -105,13 +101,13 @@ const talentSchema = {
 // };
 const skillSchema = {
     type: 'object',
-    required: [ 'name', 'ranks', 'career' ],
+    required: [ 'name', 'characteristic', 'ranks', 'career', 'type' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         characteristic: { type: 'string', enum: [ 'brawn', 'agility', 'intellect', 'cunning', 'willpower', 'presence' ] },
         ranks: { type: 'integer', minimum: 0, maximum: 5 },
         career: { type: 'boolean' },
-        type: { type: 'string', enum: [ 'general', 'combat', 'social', 'knowledge' ] }
+        type: { type: 'string', enum: [ 'general', 'combat', 'magic', 'social', 'knowledge' ] }
     },
     additionalProperties: false
 };
@@ -130,7 +126,7 @@ const skillSchema = {
 // };
 const gearSchema = {
     type: 'object',
-    required: [ 'name', 'useWith', 'modifiers', 'hardpoints' ],
+    required: [ 'name', 'useWith', 'modifiers', 'hardpoints', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -156,7 +152,7 @@ const gearSchema = {
 // };
 const attachmentSchema = {
     type: 'object',
-    required: [ 'name', 'useWith', 'modifiers', 'hardpoints' ],
+    required: [ 'name', 'useWith', 'modifiers', 'hardpoints', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -177,11 +173,12 @@ const attachmentSchema = {
 // };
 const qualitySchema = {
     type: 'object',
-    required: [ 'name', 'description', 'passive' ],
+    required: [ 'name', 'description', 'passive', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         passive: { type: 'boolean' },
+        ranked: { type: 'boolean' },
         reference: referenceSchema
     },
     additionalProperties: false
@@ -203,7 +200,7 @@ const qualitySchema = {
 // };
 const armorSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'defense', 'soak', 'encumbrance', 'hardpoints', 'rarity' ],
+    required: [ 'name', 'description', 'defense', 'soak', 'encumbrance', 'hardpoints', 'rarity', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -228,19 +225,19 @@ const armorSchema = {
 //     range: 'en',
 //     encumbrance: 1,
 //     rarity: 1,
-//     qualities: [ 'Razor Edge', 'Sunder' ],
+//     qualities: [ { name: 'Razor Edge' }, { name: 'Sunder', rank: 2 } ],
 //     reference: {
 //         source: 'Homebrew'
 //     }
 // };
 const weaponSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'skill', 'criticalRating', 'range', 'encumbrance', 'rarity', 'qualities' ],
+    required: [ 'name', 'description', 'skill', 'criticalRating', 'range', 'encumbrance', 'rarity', 'qualities', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         skill: { type: 'string', minLength: 1, maxLength: 255 },
-        damage: { type: 'string', minLength: 1 },
+        damage: { type: 'integer', minimum: 0 },
         criticalRating: { type: 'integer', minimum: 0 },
         range: rangeSchema,
         encumbrance: { type: 'integer', minimum: 0 },
@@ -249,7 +246,14 @@ const weaponSchema = {
         // List of quality names
         qualities: {
             type: 'array',
-            items: { type: 'string', minLength: 1, maxLength: 255 },
+            items: {
+                type: 'object',
+                required: [ 'name' ],
+                properties: {
+                    name: { type: 'string', minLength: 1, maxLength: 255 },
+                    rank: { type: 'integer', minimum: 1 }
+                }
+            },
             uniqueItems: true,
             additionalItems: false
         },
@@ -263,7 +267,7 @@ const genesysChar = {
     required: [ 'career', 'species', 'motivations', 'characteristics', 'experience', 'defenses', 'health', 'skills', 'talents', 'abilities', 'gear', 'armor', 'weapons' ],
     properties: {
         career: { type: 'string', maxLength: 255 },
-        species: { type: 'string', minLength: 1, maxLength: 255 },
+        species: { type: 'string', maxLength: 255 },
         motivations: {
             type: 'object',
             required: [ 'strength', 'flaw', 'desire', 'fear' ],
@@ -279,12 +283,12 @@ const genesysChar = {
             type: 'object',
             required: [ 'brawn', 'agility', 'intellect', 'cunning', 'willpower', 'presence' ],
             properties: {
-                brawn: { type: 'integer', minimum: 1, maximum: 10 },
-                agility: { type: 'integer', minimum: 1, maximum: 10 },
-                intellect: { type: 'integer', minimum: 1, maximum: 10 },
-                cunning: { type: 'integer', minimum: 1, maximum: 10 },
-                willpower: { type: 'integer', minimum: 1, maximum: 10 },
-                presence: { type: 'integer', minimum: 1, maximum: 10 }
+                brawn: { type: 'integer', minimum: 0, maximum: 10 },
+                agility: { type: 'integer', minimum: 0, maximum: 10 },
+                intellect: { type: 'integer', minimum: 0, maximum: 10 },
+                cunning: { type: 'integer', minimum: 0, maximum: 10 },
+                willpower: { type: 'integer', minimum: 0, maximum: 10 },
+                presence: { type: 'integer', minimum: 0, maximum: 10 }
             },
             additionalProperties: false
         },
@@ -319,14 +323,18 @@ const genesysChar = {
                     type: 'array',
                     items: {
                         type: 'object',
-                        required: [ 'name', 'value' ],
+                        required: [ 'name' ],
                         properties: {
                             name: { type: 'string', minLength: 1, maxLength: 255 },
                             value: { type: 'integer', minimum: 0 }
                         },
                         additionalProperties: false
                     }
-                }
+                },
+                stimsUsed: { type: 'integer', minimum: 0 },
+                staggered: { type: 'boolean' },
+                immobilized: { type: 'boolean' },
+                disoriented: { type: 'boolean' }
             },
             additionalProperties: false
         },
@@ -340,9 +348,9 @@ const genesysChar = {
             type: 'array',
             items: {
                 type: 'object',
-                required: [ 'talentID' ],
+                required: [ 'name' ],
                 properties: {
-                    talentID: { type: 'string', minLength: 1, maxLength: 255 },
+                    name: { type: 'string', minLength: 1, maxLength: 255 },
                     ranks: { type: 'integer', minimum: 1 },
                     notes: { type: 'string', minLength: 1 }
                 },
@@ -353,15 +361,7 @@ const genesysChar = {
         },
         abilities: {
             type: 'array',
-            items: {
-                type: 'object',
-                required: [ 'abilityID' ],
-                properties: {
-                    abilityID: { type: 'string', minLength: 1, maxLength: 255 },
-                    notes: { type: 'string', minLength: 1 }
-                },
-                additionalProperties: false
-            },
+            items: { type: 'string', minLength: 1, maxLength: 255 },
             uniqueItems: true,
             additionalItems: false
         },
@@ -374,47 +374,63 @@ const genesysChar = {
             additionalItems: false
         },
 
-        // The idea, here, is that we'll have an id of the base armor, and use it's stats, with the ability to override
-        // as things are upgraded/modified. This keeps it flexible, with the minimum viable repetition of data.
+        // This is simply a complete list of armor stats. While we may, at some point, provide a list of armors to pick
+        // from, those stats will simply copy over to this structure, which the user can then modify.
         armor: {
             type: 'object',
-            required: [ 'armorID' ],
+            required: [ 'name' ],
             properties: {
-                armorID: { type: 'string', minLength: 1, maxLength: 255 }, // id of a base armor
+                name: { type: 'string', maxLength: 255 },
                 defense: { type: 'integer', minimum: 0 },
                 soak: { type: 'integer', minimum: 0 },
                 hardpoints: { type: 'integer', minimum: 0 },
                 encumbrance: { type: 'integer', minimum: 0 },
+                rarity: { type: 'integer', minimum: 0 },
 
-                // List of attachment names
+                // List of attachments
                 attachments: {
                     type: 'array',
                     items: { type: 'string', minLength: 1, maxLength: 255 },
                     uniqueItems: true,
                     additionalItems: false
                 },
-                notes: { type: 'string', minLength: 1 }
+
+                // List of qualities
+                qualities: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        required: [ 'name' ],
+                        properties: {
+                            name: { type: 'string', minLength: 1, maxLength: 255 },
+                            rank: { type: 'integer', minimum: 1 }
+                        }
+                    },
+                    uniqueItems: true,
+                    additionalItems: false
+                },
+                notes: { type: 'string' }
             },
             additionalProperties: false
         },
 
-        // Same as with armor, each weapon will be a base weapon that can have it's states overridden by an individual
-        // instance of the weapon. This should be flexible enough to allow for any custom tweaking a campaign requires.
+        // Same as with armor, this holds unique instances of weapons. Again, while there may eventually be a list of
+        // weapons, they'd be templates we copy, and modify.
         weapons: {
             type: 'array',
             items: {
                 type: 'object',
-                required: [ 'weaponID', 'name' ],
+                required: [ 'name' ],
                 properties: {
-                    weaponID: { type: 'string', minLength: 1, maxLength: 255 },
                     name: { type: 'string', minLength: 1, maxLength: 255 },
                     skill: { type: 'string', minLength: 1, maxLength: 255 },
+                    damage: { type: 'integer', minimum: 0 },
                     criticalRating: { type: 'integer', minimum: 0 },
                     range: rangeSchema,
                     encumbrance: { type: 'integer', minimum: 0 },
                     rarity: { type: 'integer', minimum: 0 },
 
-                    // List of attachment names
+                    // List of attachments
                     attachments: {
                         type: 'array',
                         items: { type: 'string', minLength: 1, maxLength: 255 },
@@ -422,13 +438,21 @@ const genesysChar = {
                         additionalItems: false
                     },
 
-                    // List of quality names
+                    // List of qualities
                     qualities: {
                         type: 'array',
-                        items: { type: 'string', minLength: 1, maxLength: 255 },
+                        items: {
+                            type: 'object',
+                            required: [ 'name' ],
+                            properties: {
+                                name: { type: 'string', minLength: 1, maxLength: 255 },
+                                rank: { type: 'integer', minimum: 1 }
+                            }
+                        },
                         uniqueItems: true,
                         additionalItems: false
-                    }
+                    },
+                    notes: { type: 'string' }
                 },
                 additionalProperties: false
             },
@@ -458,7 +482,7 @@ const genesysChar = {
 // };
 const eoteTalentSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'activation', 'ranked' ],
+    required: [ 'name', 'description', 'activation', 'ranked', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -485,7 +509,7 @@ const eoteTalentSchema = {
 // };
 const eoteAttachmentSchema = {
     type: 'object',
-    required: [ 'name', 'useWith', 'baseModifier', 'modOptions', 'hardpoints' ],
+    required: [ 'name', 'useWith', 'baseModifier', 'modOptions', 'hardpoints', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -536,7 +560,7 @@ const eoteAttachmentSchema = {
 // };
 const forcePowerSchema = {
     type: 'object',
-    required: [ 'name', 'description', 'minRating', 'upgrades', 'reference' ],
+    required: [ 'name', 'description', 'minRating', 'upgrades', 'reference', 'reference' ],
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
@@ -620,7 +644,6 @@ const eoteChar = {
     properties: {
         ...genesysChar.properties,
         specialization: { type: 'string', maxLength: 255 },
-        motivations: undefined,
         force: {
             type: 'object',
             required: [ 'rating', 'committed', 'powers' ],
@@ -656,6 +679,9 @@ const eoteChar = {
         }
     }
 };
+
+// Delete an unwanted property.
+delete eoteChar.properties.motivations;
 
 //----------------------------------------------------------------------------------------------------------------------
 

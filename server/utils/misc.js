@@ -2,6 +2,7 @@
 // Simple utility functions
 //----------------------------------------------------------------------------------------------------------------------
 
+const _ = require('lodash');
 const base62 = require('base62');
 const uuid = require('uuid');
 
@@ -47,8 +48,52 @@ function colorize(str)
     return color;
 } // end colorize
 
+/**
+ * Camel case all the keys in an object.
+ *
+ * @param { object } obj - The object whose keys we are camel casing.
+ *
+ * @returns { object }  Returns a new object with the keys camel cased.
+ */
+function camelCaseKeys(obj)
+{
+    return _.mapKeys(obj, (val, key) =>
+    {
+        if(_.includes(key, '_id'))
+        {
+            return key.replace(/_id/g, 'ID');
+        }
+        else
+        {
+            return _.camelCase(key);
+        } // end if
+    });
+} // end camelCaseKeys
+
+/**
+ * Snake case all the keys in an object.
+ *
+ * @param { object } obj - The object whose keys we are snake casing.
+ *
+ * @returns { object }  Returns a new object with the keys snake cased.
+ */
+function snakeCaseKeys(obj)
+{
+    return _.mapKeys(obj, (val, key) =>
+    {
+        if(_.endsWith(key, 'ID'))
+        {
+            return key.replace(/ID$/, '_id');
+        }
+        else
+        {
+            return _.snakeCase(key);
+        } // end if
+    });
+} // end snakeCaseKeys
+
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = { shortID, colorize };
+module.exports = { shortID, colorize, snakeCaseKeys, camelCaseKeys };
 
 //----------------------------------------------------------------------------------------------------------------------

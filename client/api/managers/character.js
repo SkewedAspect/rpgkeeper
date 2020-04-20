@@ -21,7 +21,7 @@ class CharacterManager
         // Subjects
         this._charactersSubject = new BehaviorSubject([]);
         this._selectedSubject = new BehaviorSubject();
-        this.savingSubject = new BehaviorSubject(false);
+        this._savingSubject = new BehaviorSubject(false);
         this._statusSubject = new BehaviorSubject('loading');
 
         // Subscriptions
@@ -34,9 +34,8 @@ class CharacterManager
 
     get characters$() { return this._charactersSubject.asObservable(); }
     get selected$() { return this._selectedSubject.asObservable(); }
-    get saving$() { return this.savingSubject.asObservable(); }
+    get saving$() { return this._savingSubject.asObservable(); }
     get status$() { return this._statusSubject.asObservable(); }
-    get status() { return this._statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -44,8 +43,9 @@ class CharacterManager
 
     get characters() { return this._charactersSubject.getValue(); }
     get selected() { return this._selectedSubject.getValue(); }
-    get saving() { return this.savingSubject.getValue(); }
-    set saving(val) { this.savingSubject.next(!!val); }
+    get saving() { return this._savingSubject.getValue(); }
+    set saving(val) { this._savingSubject.next(!!val); }
+    get status() { return this._statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Subscriptions

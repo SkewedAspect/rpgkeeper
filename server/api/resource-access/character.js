@@ -75,7 +75,7 @@ class CharacterResourceAccess
             query = applyFilters(query, filters);
         } // end if
 
-        return query
+        return (await query)
             .map(this._parseCharacter);
     } // end getCharacters
 

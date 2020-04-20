@@ -66,10 +66,38 @@ function charValidation(skipRequired)
     });
 } // end charValidation
 
+/**
+ * Validates an AJV schema.
+ *
+ * @param {object} schema - The AJV schema to validate against.
+ * @param {boolean} skipRequired - Disable the 'required' portions. (Useful for PATCH functionality.)
+ *
+ * @returns {Function} Returns an express middleware function.
+ */
+function validation(schema, skipRequired)
+{
+    return wrapAsync(async(request, response, next) =>
+    {
+        const data = request.body;
+        try
+        {
+            // Copy the schema (since we're about to modify it), as well as handle skipping required
+            schema = { ...schema, ...(skipRequired ? { required: [] } : {}) };
+            validate(schema, data);
+            next();
+        }
+        catch (error)
+        {
+            next(error);
+        } // end try/catch
+    });
+} // end validation
+
 //----------------------------------------------------------------------------------------------------------------------
 
 module.exports = {
-    charValidation
+    charValidation,
+    validation
 }; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -85,8 +85,6 @@ function buildErrorHandler(logger)
             };
         } // end if
 
-        console.log('??', response, response.status);
-
         response.status(error.statusCode || 500);
 
         if(logger)

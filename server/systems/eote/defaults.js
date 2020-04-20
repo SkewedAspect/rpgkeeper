@@ -182,19 +182,25 @@ const genesysChar = {
         woundThreshold: 0,
         strain: 0,
         strainThreshold: 0,
-        criticalInjuries: []
+        criticalInjuries: [],
+        stimsUsed: 0,
+        staggered: false,
+        immobilized: false,
+        disoriented: false
     },
     skills: _.cloneDeep(genesysSkills),
     talents: [],
     abilities: [],
     gear: [],
     armor: {
-        armorID: '',
+        name: '',
         defense: 0,
         soak: 0,
         hardpoints: 0,
         encumbrance: 0,
+        rarity: 0,
         attachments: [],
+        qualities: [],
         notes: ''
     },
     weapons: []
@@ -273,8 +279,8 @@ const eoteSkills = [
     { name: 'Medicine', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
     { name: 'Operating', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
     { name: 'Perception', characteristic: 'cunning', ranks: 0, career: false, type: 'general' },
-    { name: 'Piloting - Planetary', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
-    { name: 'Piloting - Space', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
+    { name: 'Piloting-Planetary', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
+    { name: 'Piloting-Space', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
     { name: 'Resilience', characteristic: 'brawn', ranks: 0, career: false, type: 'general' },
     { name: 'Skulduggery', characteristic: 'cunning', ranks: 0, career: false, type: 'general' },
     { name: 'Stealth', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
@@ -310,8 +316,11 @@ const eoteChar = {
     ...genesysChar,
     species: '',
     specialization: '',
-    motivations: undefined
+    skills: _.cloneDeep(eoteSkills)
 };
+
+// Delete unwanted properties
+delete eoteChar.motivations;
 
 //----------------------------------------------------------------------------------------------------------------------
 

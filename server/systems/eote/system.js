@@ -26,7 +26,7 @@ class GenesysSystem extends BaseSystem
         const name = 'Genesys';
         const description = 'Genesys is a role playing system designed for flexibility and adaptability, specifically tooled to work with any setting imaginable.';
 
-        super(id, name, description, schemas.genesys.character, defaults.genesys.character, true);
+        super(id, name, description, schemas.genesys.character, defaults.genesys.character);
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor
@@ -40,7 +40,7 @@ class EOTESystem extends BaseSystem
         const name = 'Edge of the Empire';
         const description = "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.";
 
-        super(id, name, description, schemas.eote.character, defaults.eote.character, true);
+        super(id, name, description, schemas.eote.character, defaults.eote.character);
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor

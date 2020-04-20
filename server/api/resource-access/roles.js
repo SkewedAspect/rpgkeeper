@@ -26,8 +26,8 @@ class RolesResourceAccess
     async getRoles()
     {
         const db = await dbMan.getDB();
-        return db('role')
-            .select()
+        return (await db('role')
+            .select())
             .map(this._parseRole);
     } // end getRoles
 
