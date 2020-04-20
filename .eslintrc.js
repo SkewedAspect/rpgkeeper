@@ -110,7 +110,7 @@ module.exports = {
         ],
         'lines-between-class-members': [ 'warn', 'always', { exceptAfterSingleLine: true } ],
         'new-parens': 'warn',
-        'newline-per-chained-call': [ 'warn', { 'ignoreChainWithDepth': 2 } ],
+        'newline-per-chained-call': [ 'warn', { 'ignoreChainWithDepth': 3 } ],
         'no-confusing-arrow': [ 'warn', { 'allowParens': false } ],
         'no-duplicate-imports': 'warn',
         'no-lonely-if': 'warn',
