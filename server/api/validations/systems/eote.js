@@ -348,9 +348,9 @@ const genesysChar = {
             type: 'array',
             items: {
                 type: 'object',
-                required: [ 'talentID' ],
+                required: [ 'name' ],
                 properties: {
-                    talentID: { type: 'string', minLength: 1, maxLength: 255 },
+                    name: { type: 'string', minLength: 1, maxLength: 255 },
                     ranks: { type: 'integer', minimum: 1 },
                     notes: { type: 'string', minLength: 1 }
                 },

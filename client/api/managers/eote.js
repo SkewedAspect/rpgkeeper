@@ -18,6 +18,7 @@ class EotEManager
         this._modeSubject = new BehaviorSubject('eote');
         this._abilitiesSubject = new BehaviorSubject([]);
         this._referencesSubject = new BehaviorSubject([]);
+        this._talentsSubject = new BehaviorSubject([]);
         this._weaponsSubject = new BehaviorSubject([]);
         this._qualitiesSubject = new BehaviorSubject([]);
 
@@ -28,6 +29,14 @@ class EotEManager
             m: 'Medium',
             l: 'Long',
             ex: 'Extreme'
+        };
+
+        this.activationEnum = {
+            p: 'Passive',
+            ai: 'Active (Incidental)',
+            aio: 'Active (Incidental, Out of Turn)',
+            am: 'Active (Maneuver)',
+            aa: 'Active (Action)'
         };
         /* eslint-enable id-length */
 
@@ -42,6 +51,7 @@ class EotEManager
     get mode$() { return this._modeSubject.asObservable(); }
     get abilities$() { return this._abilitiesSubject.asObservable(); }
     get references$() { return this._referencesSubject.asObservable(); }
+    get talents$() { return this._talentsSubject.asObservable(); }
     get weapons$() { return this._weaponsSubject.asObservable(); }
     get qualities$() { return this._qualitiesSubject.asObservable(); }
 
@@ -52,6 +62,7 @@ class EotEManager
     get mode() { return this._modeSubject.getValue(); }
     get abilities() { return this._abilitiesSubject.getValue(); }
     get references() { return this._referencesSubject.getValue(); }
+    get talents() { return this._talentsSubject.getValue(); }
     get weapons() { return this._weaponsSubject.getValue(); }
     get qualities() { return this._qualitiesSubject.getValue(); }
 
@@ -66,6 +77,7 @@ class EotEManager
             this._modeSubject.next(character.system);
             this._abilitiesSubject.next(await suppMan.list('abilities'));
             this._referencesSubject.next(await suppMan.list('references'));
+            this._talentsSubject.next(await suppMan.list('talents'));
             this._weaponsSubject.next(await suppMan.list('weapons'));
             this._qualitiesSubject.next(await suppMan.list('qualities'));
         }
@@ -74,6 +86,7 @@ class EotEManager
             this._modeSubject.next('eote');
             this._abilitiesSubject.next([]);
             this._referencesSubject.next([]);
+            this._talentsSubject.next([]);
             this._weaponsSubject.next([]);
             this._qualitiesSubject.next([]);
         } // end if

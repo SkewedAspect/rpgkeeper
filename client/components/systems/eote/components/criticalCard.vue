@@ -51,11 +51,11 @@
     import { v4 } from 'uuid';
 
     // Managers
-    import eoteMan from '../../../api/managers/eote';
+    import eoteMan from '../../../../api/managers/eote';
 
     // Components
-    import MarkdownBlock from '../../ui/markdown';
-    import Reference from './components/reference.vue';
+    import MarkdownBlock from '../../../ui/markdown';
+    import Reference from './reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

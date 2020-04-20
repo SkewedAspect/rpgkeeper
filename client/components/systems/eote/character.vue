@@ -15,6 +15,7 @@
         <div class="d-flex mt-1">
             <div class="d-flex flex-column flex-fill mr-1">
                 <skills :readonly="!isAuthorized" @roll="onRoll"></skills>
+                <talents class="mt-1" :readonly="!isAuthorized"></talents>
                 <weapons class="mt-1" :readonly="!isAuthorized" @roll="onRoll"></weapons>
                 <armor class="mt-1" :readonly="!isAuthorized"></armor>
             </div>
@@ -48,7 +49,6 @@
     import eoteMan from '../../../api/managers/eote';
 
     // Components
-    // import EoteSymbol from './symbol.vue';
     import Portrait from '../../character/portrait.vue';
     import Biography from './biography.vue';
     import Characteristics from './characteristics.vue';
@@ -60,12 +60,12 @@
     import Criticals from './criticals.vue';
     import Weapons from './weapons.vue';
     import Armor from './armor.vue';
+    import Talents from './talents.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         components: {
-            // sy: EoteSymbol,
             Biography,
             Characteristics,
             Portrait,
@@ -76,7 +76,8 @@
             Wounds,
             Criticals,
             Weapons,
-            Armor
+            Armor,
+            Talents
         },
         subscriptions: {
             account: authMan.account$,

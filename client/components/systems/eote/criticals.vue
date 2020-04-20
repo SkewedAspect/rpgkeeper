@@ -80,7 +80,7 @@
 
     // Components
     import RpgkCard from '../../ui/card.vue';
-    import CriticalCard from './criticalCard.vue';
+    import CriticalCard from './components/criticalCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
