@@ -27,18 +27,18 @@ class SupplementUtils
         router.get(path, wrapAsync(async(req, resp) =>
         {
             const filters = parseQuery(req.query);
-            resp.json(await suppMan.getFiltered(filters, type, tableName));
+            resp.json(await suppMan.getFiltered(filters, type, tableName, req.user));
         }));
 
         router.post(path, ensureAuthenticated, validation(schemas[type]), wrapAsync(async(req, resp) =>
         {
             const body = req.body;
-            resp.json(await suppMan.addSupplement(body, type, tableName));
+            resp.json(await suppMan.addSupplement(body, type, tableName, req.user));
         }));
 
         router.patch(`${ path }/:name`, ensureAuthenticated, validation(schemas[type], true), wrapAsync(async(req, resp) =>
         {
-            const ability = await suppMan.get(req.params.name, type, tableName);
+            const ability = await suppMan.get(req.params.name, type, tableName, req.user);
             if(ability)
             {
                 let hasPerm;
@@ -58,7 +58,7 @@ class SupplementUtils
                     // Force name to match
                     body.name = req.params.name;
 
-                    resp.json(await suppMan.updateSupplement(body, type, tableName));
+                    resp.json(await suppMan.updateSupplement(body, type, tableName, req.user));
                 }
                 else
                 {
@@ -81,7 +81,7 @@ class SupplementUtils
 
         router.delete(`${ path }/:name`, ensureAuthenticated, wrapAsync(async(req, resp) =>
         {
-            const ability = await suppMan.get(req.params.name, type, tableName);
+            const ability = await suppMan.get(req.params.name, type, tableName, req.user);
             if(ability)
             {
                 let hasPerm;
@@ -96,7 +96,7 @@ class SupplementUtils
 
                 if(hasPerm)
                 {
-                    resp.json(await suppMan.deleteSupplement(req.params.name, tableName));
+                    resp.json(await suppMan.deleteSupplement(req.params.name, tableName, req.user));
                 }
                 else
                 {

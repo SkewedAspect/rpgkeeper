@@ -5,7 +5,7 @@
 const express = require('express');
 
 // Managers
-const suppMan = require('../../api/managers/supplement');
+const refMan = require('../../api/managers/references');
 
 // Utils
 const { buildSupplementRoute } = require('./utils/supplement');
@@ -34,7 +34,7 @@ buildSupplementRoute(router, '/weapons', 'weapon', 'genesys', genesys);
 router.get('/references', wrapAsync(async(req, resp) =>
 {
     const filters = parseQuery(req.query);
-    resp.json(await suppMan.getFiltered(filters, 'reference', 'genesys_reference'));
+    resp.json(await refMan.getFiltered(filters, 'genesys_reference'));
 }));
 
 //----------------------------------------------------------------------------------------------------------------------

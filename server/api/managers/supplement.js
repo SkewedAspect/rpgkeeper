@@ -9,29 +9,29 @@ const suppRA = require('../resource-access/supplement');
 
 class SupplementManager
 {
-    async get(name, type, tableName)
+    async get(name, type, tableName, account)
     {
-        return suppRA.get(name, type, tableName);
+        return suppRA.get(name, type, tableName, account);
     } // end getAbility
 
-    async getFiltered(filters, type, tableName)
+    async getFiltered(filters, type, tableName, account)
     {
-        return suppRA.getFiltered(filters, type, tableName);
+        return suppRA.getFiltered(filters, type, tableName, account);
     } // end getAbilities
 
-    async addSupplement(supplement, type, tableName)
+    async addSupplement(supplement, type, tableName, account)
     {
-        return suppRA.addSupplement(supplement, type, tableName);
+        return suppRA.addSupplement(supplement, type, tableName, account);
     } // end addSupplement
 
-    async updateSupplement(supplement, type, tableName)
+    async updateSupplement(supplement, type, tableName, account)
     {
-        return suppRA.updateSupplement(supplement, type, tableName);
+        return suppRA.updateSupplement(supplement, type, tableName, account);
     } // end updateSupplement
 
-    async deleteSupplement(name, tableName)
+    async deleteSupplement(name, tableName, account)
     {
-        return suppRA.deleteSupplement(name, tableName);
+        return suppRA.deleteSupplement(name, tableName, account);
     } // end deleteSupplement
 } // end SupplementManager
 

@@ -43,7 +43,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -59,7 +59,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -79,7 +79,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -99,7 +99,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -119,7 +119,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -139,7 +139,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -165,7 +165,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -192,7 +192,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -209,7 +209,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -229,7 +229,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -249,7 +249,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -270,7 +270,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -290,7 +290,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -316,7 +316,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
@@ -343,7 +343,7 @@ exports.up = async(knex) =>
         table.text('reference').notNullable();
         table.boolean('official').notNullable()
             .defaultTo(false);
-        table.string('owner');
+        table.integer('owner');
         table.string('scope')
             .notNullable()
             .defaultTo('user');
