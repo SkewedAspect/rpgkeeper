@@ -13,6 +13,33 @@ Players to love it, using it for big campaigns, and as a central clearinghouse f
 moment, most of these features are missing, but I will be working on adding them just as soon as I get my core target 
 systems built and working.
 
+## Development
+
+Before getting started you will need the following installed:
+
+* NodeJS >= 10 (v12+ recommended)
+* Yarn package manager (`npm install -g yarn`)
+
+### Running
+
+The first thing you will want to do is to install dependencies:  
+
+* `yarn`
+
+Next, build the client assets:
+
+* `yarn build:watch` (for development)
+* `yarn build:release` (for release)
+
+_Note: In a future version this will also build the server._
+
+Finally, you will need to start the server:
+
+* `yarn start`
+
+It should create a new database file: `<project_root>/db/rpgk.db`. You should now be able to access the running client
+at http://localhost:5678/.
+
 ## Targets Systems
 
 The systems I'm initially building/supporting:

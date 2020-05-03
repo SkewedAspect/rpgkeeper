@@ -30,33 +30,38 @@ class DatabaseManager
     // Utils
     //------------------------------------------------------------------------------------------------------------------
 
-    _setupDB(db, options = { migrate: { directory: './server/knex/migrations' }, seed: { directory: './server/knex/seeds' } })
+    async _setupDB(db, options = { migrate: { directory: './server/knex/migrations' }, seed: { directory: './server/knex/seeds' } })
     {
-        return db('knex_migrations')
+        await db('knex_migrations')
             .select()
             .limit(1)
-            .then(() =>
+            .catch(async(error) =>
             {
-                logger.info('Running any needed migrations...');
+                if(error.code === 'SQLITE_ERROR')
+                {
+                    logger.warn('No existing database, creating one. Options:', options);
 
-                return db.migrate.latest(options.migrate)
-                    .then(() =>
-                    {
-                        logger.info('Migrations complete.');
-                        return db;
-                    });
-            })
-            .catch({ code: 'SQLITE_ERROR' }, () =>
-            {
-                logger.warn('No existing database, creating one. Options:', options);
+                    await db.migrate.latest(options.migrate);
+                    await db.seed.run(options.seed);
 
-                return db.migrate.latest(options.migrate)
-                    .then(() => db.seed.run(options.seed))
-                    .then(() => db);
+                    return db;
+                }
+                else
+                {
+                    throw error;
+                } // end if
             });
+
+        logger.info('Running any needed migrations...');
+
+        await db.migrate.latest(options.migrate);
+
+        logger.info('Migrations complete.');
+
+        return db;
     } // end _setupDB
 
-    _getDB()
+    async _getDB()
     {
         if(!this.loading)
         {
@@ -109,7 +114,7 @@ class DatabaseManager
         } // end if
     } // end _getDB
 
-    _getTestDB()
+    async _getTestDB()
     {
         if(!this.loadingTest)
         {
@@ -142,17 +147,18 @@ class DatabaseManager
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    getDB()
+    async getDB()
     {
         return this.testing ? this._getTestDB() : this._getDB();
     } // end getDB
 
-    runSeeds()
+    async runSeeds()
     {
         const options = this.testing ? { seed: { directory: './tests/seeds' } } : {};
 
         logger.info('Running seeds...', options);
-        return this.getDB().then((db) => { return db.seed.run(options.seed); });
+        const db = await this.getDB();
+        return db.seed.run(options.seed);
     } // end runSeeds
 
     getConnObj()
