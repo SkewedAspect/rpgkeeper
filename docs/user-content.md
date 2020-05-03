@@ -170,8 +170,19 @@ supposed to. The server will block anything invalid, even if the UI fails.
 
 A permission check will now be performed when saving a supplement. The following will be enforced:
 
-* If the scope is `'public'`, you must have the permission `${systemPrefix}/isModerator`.
-* If the scope is `'user'`, you must either be the owner, or have `${systemPrefix}/canModify`.
+* You must have the permission `${systemPrefix}/canModifyContent`, or
+* The scope must be `'campaign'`, and you must be the owner, or
+* The scope must be `'user'`, and you must be the owner.
+
+All other supplement modifications will be rejected.
+
+### Deleting Supplements
+
+A permission check will now be performed when deleting a supplement. The following will be enforced:
+
+* You must have the permission `${systemPrefix}/canDeleteContent`, or
+* The scope must be `'campaign'`, and you must be the owner, or
+* The scope must be `'user'`, and you must be the owner.
 
 All other supplement modifications will be rejected.
 
