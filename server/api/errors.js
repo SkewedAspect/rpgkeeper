@@ -62,6 +62,27 @@ class NotImplementedError extends AppError
 
 //----------------------------------------------------------------------------------------------------------------------
 
+class DuplicateSupplementError extends AppError
+{
+    constructor(supplement)
+    {
+        super(`A supplement with the same name, scope, and owner already exists.`, 'ERR_DUPLICATE_SUPPLEMENT');
+
+        this.statusCode = 422;
+        this.supplement = supplement;
+    } // end constructor
+
+    toJSON()
+    {
+        return {
+            ...super.toJSON(),
+            supplement: this.supplement
+        };
+    }
+} // end DuplicateSupplementError
+
+//----------------------------------------------------------------------------------------------------------------------
+
 class MultipleResultsError extends AppError
 {
     constructor(thing)
@@ -119,6 +140,7 @@ module.exports = {
     AppError,
     NotFoundError,
     NotImplementedError,
+    DuplicateSupplementError,
     MultipleResultsError,
     ValidationError,
     AjvValidationError

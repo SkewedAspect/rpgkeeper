@@ -2,6 +2,10 @@
 // Schema Validations
 //----------------------------------------------------------------------------------------------------------------------
 
+const { supplementPartial } = require('../supplement');
+
+//----------------------------------------------------------------------------------------------------------------------
+
 // Example:
 //
 // const reference = {
@@ -58,7 +62,8 @@ const abilitySchema = {
     properties: {
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };
@@ -85,7 +90,8 @@ const talentSchema = {
         activation: { type: 'string', enum: [ 'p', 'ai', 'aio', 'am', 'aa' ] },
         ranked: { type: 'boolean' },
         tier: { type: 'integer', minimum: 1, maximum: 5 },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };
@@ -132,7 +138,8 @@ const gearSchema = {
         description: { type: 'string', minLength: 1 },
         encumbrance: { type: 'integer', minimum: 0 },
         rarity: { type: 'integer', minimum: 0 },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };
@@ -159,7 +166,8 @@ const attachmentSchema = {
         useWith: { type: 'string', minLength: 1, maxLength: 255 },
         modifiers: { type: 'string', minLength: 1 },
         hpRequired: { type: 'integer', minimum: 0, maximum: 50 },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };
@@ -179,7 +187,8 @@ const qualitySchema = {
         description: { type: 'string', minLength: 1 },
         passive: { type: 'boolean' },
         ranked: { type: 'boolean' },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };
@@ -209,7 +218,8 @@ const armorSchema = {
         hardpoints: { type: 'integer', minimum: 0 },
         encumbrance: { type: 'integer', minimum: 0 },
         rarity: { type: 'integer', minimum: 0 },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };
@@ -257,7 +267,8 @@ const weaponSchema = {
             uniqueItems: true,
             additionalItems: false
         },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };
@@ -489,7 +500,8 @@ const eoteTalentSchema = {
         activation: { type: 'string', enum: [ 'p', 'ai', 'aio', 'am', 'aa' ] },
         ranked: { type: 'boolean' },
         trees: { type: 'string', minLength: 1 },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };
@@ -516,7 +528,8 @@ const eoteAttachmentSchema = {
         baseModifier: { type: 'string', minLength: 1 },
         modOptions: { type: 'string', minLength: 1 },
         hpRequired: { type: 'integer', minimum: 0, maximum: 50 },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };
@@ -633,7 +646,8 @@ const forcePowerSchema = {
             },
             additionalProperties: false
         },
-        reference: referenceSchema
+        reference: referenceSchema,
+        ...supplementPartial
     },
     additionalProperties: false
 };

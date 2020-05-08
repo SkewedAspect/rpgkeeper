@@ -14,6 +14,11 @@ class SupplementManager
         return suppRA.get(name, type, tableName, account);
     } // end getAbility
 
+    async getByID(id, type, tableName, account)
+    {
+        return suppRA.getByID(id, type, tableName, account);
+    } // end getByID
+
     async getFiltered(filters, type, tableName, account)
     {
         return suppRA.getFiltered(filters, type, tableName, account);
@@ -29,9 +34,9 @@ class SupplementManager
         return suppRA.updateSupplement(supplement, type, tableName, account);
     } // end updateSupplement
 
-    async deleteSupplement(name, tableName, account)
+    async deleteSupplement(id, tableName, account)
     {
-        return suppRA.deleteSupplement(name, tableName, account);
+        return suppRA.deleteSupplement(id, tableName, account);
     } // end deleteSupplement
 } // end SupplementManager
 
