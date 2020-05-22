@@ -60,6 +60,7 @@ const abilitySchema = {
     type: 'object',
     required: [ 'name', 'description', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         reference: referenceSchema,
@@ -85,6 +86,7 @@ const talentSchema = {
     type: 'object',
     required: [ 'name', 'description', 'activation', 'ranked', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         activation: { type: 'string', enum: [ 'p', 'ai', 'aio', 'am', 'aa' ] },
@@ -134,6 +136,7 @@ const gearSchema = {
     type: 'object',
     required: [ 'name', 'useWith', 'modifiers', 'hardpoints', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         encumbrance: { type: 'integer', minimum: 0 },
@@ -161,6 +164,7 @@ const attachmentSchema = {
     type: 'object',
     required: [ 'name', 'useWith', 'modifiers', 'hardpoints', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         useWith: { type: 'string', minLength: 1, maxLength: 255 },
@@ -183,6 +187,7 @@ const qualitySchema = {
     type: 'object',
     required: [ 'name', 'description', 'passive', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         passive: { type: 'boolean' },
@@ -211,6 +216,7 @@ const armorSchema = {
     type: 'object',
     required: [ 'name', 'description', 'defense', 'soak', 'encumbrance', 'hardpoints', 'rarity', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         defense: { type: 'integer', minimum: 0 },
@@ -244,6 +250,7 @@ const weaponSchema = {
     type: 'object',
     required: [ 'name', 'description', 'skill', 'criticalRating', 'range', 'encumbrance', 'rarity', 'qualities', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         skill: { type: 'string', minLength: 1, maxLength: 255 },
@@ -258,9 +265,9 @@ const weaponSchema = {
             type: 'array',
             items: {
                 type: 'object',
-                required: [ 'name' ],
+                required: [ 'id' ],
                 properties: {
-                    name: { type: 'string', minLength: 1, maxLength: 255 },
+                    id: { type: 'integer', minimum: 0 },
                     rank: { type: 'integer', minimum: 1 }
                 }
             },
@@ -359,9 +366,9 @@ const genesysChar = {
             type: 'array',
             items: {
                 type: 'object',
-                required: [ 'name' ],
+                required: [ 'id' ],
                 properties: {
-                    name: { type: 'string', minLength: 1, maxLength: 255 },
+                    id: { type: 'integer', minimum: 0 },
                     ranks: { type: 'integer', minimum: 1 },
                     notes: { type: 'string', minLength: 1 }
                 },
@@ -372,7 +379,7 @@ const genesysChar = {
         },
         abilities: {
             type: 'array',
-            items: { type: 'string', minLength: 1, maxLength: 255 },
+            items: { type: 'integer', minimum: 0 },
             uniqueItems: true,
             additionalItems: false
         },
@@ -380,7 +387,7 @@ const genesysChar = {
         // List of gear names
         gear: {
             type: 'array',
-            items: { type: 'string', minLength: 1, maxLength: 255 },
+            items: { type: 'integer', minimum: 0 },
             uniqueItems: true,
             additionalItems: false
         },
@@ -401,7 +408,7 @@ const genesysChar = {
                 // List of attachments
                 attachments: {
                     type: 'array',
-                    items: { type: 'string', minLength: 1, maxLength: 255 },
+                    items: { type: 'integer', minimum: 0 },
                     uniqueItems: true,
                     additionalItems: false
                 },
@@ -411,9 +418,9 @@ const genesysChar = {
                     type: 'array',
                     items: {
                         type: 'object',
-                        required: [ 'name' ],
+                        required: [ 'id' ],
                         properties: {
-                            name: { type: 'string', minLength: 1, maxLength: 255 },
+                            id: { type: 'integer', minimum: 0 },
                             rank: { type: 'integer', minimum: 1 }
                         }
                     },
@@ -444,7 +451,7 @@ const genesysChar = {
                     // List of attachments
                     attachments: {
                         type: 'array',
-                        items: { type: 'string', minLength: 1, maxLength: 255 },
+                        items: { type: 'integer', minimum: 0 },
                         uniqueItems: true,
                         additionalItems: false
                     },
@@ -454,9 +461,9 @@ const genesysChar = {
                         type: 'array',
                         items: {
                             type: 'object',
-                            required: [ 'name' ],
+                            required: [ 'id' ],
                             properties: {
-                                name: { type: 'string', minLength: 1, maxLength: 255 },
+                                id: { type: 'integer', minimum: 0 },
                                 rank: { type: 'integer', minimum: 1 }
                             }
                         },
@@ -495,6 +502,7 @@ const eoteTalentSchema = {
     type: 'object',
     required: [ 'name', 'description', 'activation', 'ranked', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         activation: { type: 'string', enum: [ 'p', 'ai', 'aio', 'am', 'aa' ] },
@@ -523,6 +531,7 @@ const eoteAttachmentSchema = {
     type: 'object',
     required: [ 'name', 'useWith', 'baseModifier', 'modOptions', 'hardpoints', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         baseModifier: { type: 'string', minLength: 1 },
@@ -575,6 +584,7 @@ const forcePowerSchema = {
     type: 'object',
     required: [ 'name', 'description', 'minRating', 'upgrades', 'reference', 'reference' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string', minLength: 1 },
         minRating: { type: 'integer', minimum: 0 },

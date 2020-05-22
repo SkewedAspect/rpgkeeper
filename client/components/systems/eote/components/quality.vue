@@ -1,23 +1,24 @@
 <!----------------------------------------------------------------------------------------------------------------------
   -- quality.vue
   --------------------------------------------------------------------------------------------------------------------->
-
 <template>
     <span class="eote-quality">
-        <b-badge :id="id">
+        <b-badge :id="uniqueID">
             {{ qualityName }}
         </b-badge>
-        <b-popover :title="qualityName" :target="id" triggers="hover" placement="top">
+        <b-popover :title="qualityName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
                 <markdown-block :text="qualityText" inline></markdown-block>
-                <reference class="float-right mt-2 mb-2" :reference="qualityReference"></reference>
+                <reference
+                    v-if="qualityReference"
+                    class="float-right mt-2 mb-2"
+                    :reference="qualityReference"
+                ></reference>
             </div>
         </b-popover>
     </span>
 </template>
-
 <!--------------------------------------------------------------------------------------------------------------------->
-
 <style lang="scss" scoped>
     .eote-quality {
         cursor: pointer;
@@ -27,9 +28,7 @@
         }
     }
 </style>
-
 <!--------------------------------------------------------------------------------------------------------------------->
-
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
@@ -48,8 +47,8 @@
         name: 'EoteQuality',
         components: { MarkdownBlock, Reference },
         props: {
-            name: {
-                type: String,
+            id: {
+                type: Number,
                 required: true
             },
             rank: {
@@ -66,7 +65,9 @@
         },
         data()
         {
-            return { id: v4() };
+            return {
+                uniqueID: v4()
+            };
         },
         computed: {
             passive()
@@ -75,15 +76,19 @@
             },
             quality()
             {
-                return this.qualities.filter((quality) => quality.name === this.name)[0];
+                return this.qualities.filter((quality) => quality.id === this.id)[0];
             },
             qualityName()
             {
-                let text = `${ this.name }`;
+                let text = 'Unknown';
 
-                if(this.quality && this.quality.ranked)
+                if(this.quality)
                 {
-                    text += ` ${ this.rank }`;
+                    text = `${ this.quality.name }`;
+                    if(this.quality.ranked)
+                    {
+                        text += ` ${ this.rank }`;
+                    } // end if
                 } // end if
 
                 return text;
@@ -114,5 +119,4 @@
         }
     };
 </script>
-
 <!--------------------------------------------------------------------------------------------------------------------->

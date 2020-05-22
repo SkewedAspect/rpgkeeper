@@ -1,76 +1,76 @@
 module.exports = {
-    "globals": {
-        "gapi": "writable",
-        "Dropbox": "readonly"
+    globals: {
+        gapi: 'writable',
+        Dropbox: 'readonly'
     },
-    "extends": [
+    extends: [
         'plugin:vue/recommended'
     ],
-    "parserOptions": {
-        "sourceType": "module"
+    parserOptions: {
+        sourceType: 'module'
     },
-    "rules": {
+    rules: {
         // Bad Practices
-        "no-console": [
-            "error",
-            { allow: [ "debug", "info", "warn", "error" ] }
+        'no-console': [
+            'error',
+            { allow: [ 'debug', 'info', 'warn', 'error' ] }
         ],
 
         // Style
-        "vue/valid-v-on" : [
-            "warn",
+        'vue/valid-v-on': [
+            'warn',
             {
-                "modifiers": [ 'slash', 'dash' ]
+                modifiers: [ 'slash', 'dash' ]
             }
         ],
-        "vue/max-attributes-per-line": [
-            "error", {
-                "singleline": 20,
-                "multiline": {
-                    "max": 1,
-                    "allowFirstLine": false
+        'vue/max-attributes-per-line': [
+            'error', {
+                singleline: 20,
+                multiline: {
+                    max: 1,
+                    allowFirstLine: false
                 }
             }
         ],
-        "vue/html-self-closing": [
-            "error",
+        'vue/html-self-closing': [
+            'error',
             {
                 // Due to a parcel bug, we must never have self-closing tags.
                 // See: https://github.com/parcel-bundler/parcel/issues/1103
-                "html": {
-                    "void": "always",
-                    "normal": "never",
-                    "component": "never"
+                html: {
+                    void: 'always',
+                    normal: 'never',
+                    component: 'never'
                 },
-                "svg": "always",
-                "math": "always"
+                svg: 'always',
+                math: 'always'
             }
         ],
-        "vue/html-indent": [
-            "warn",
+        'vue/html-indent': [
+            'warn',
             4,
             {
-                "attribute": 1,
-                "baseIndent": 1,
-                "closeBracket": 0,
-                "alignAttributesVertically": true
+                attribute: 1,
+                baseIndent: 1,
+                closeBracket: 0,
+                alignAttributesVertically: true
             }
         ],
-        "vue/script-indent": [
-            "warn",
+        'vue/script-indent': [
+            'warn',
             4,
             {
-                "baseIndent": 1,
-                "switchCase": 1,
-                "ignores": []
+                baseIndent: 1,
+                switchCase: 1,
+                ignores: []
             }
         ]
     },
-    "overrides": [
+    overrides: [
         {
-            "files": [ "*.vue" ],
-            "rules": {
-                "indent": "off"
+            files: [ '*.vue' ],
+            rules: {
+                indent: 'off'
             }
         }
     ]

@@ -9,7 +9,7 @@
             <b-btn-close v-if="!readonly" class="mr-1" style="margin-top: 5px; font-size: 0.9rem" @click.stop.prevent="edit">
                 <fa icon="edit"></fa>
             </b-btn-close>
-            {{ talent.name }}
+            {{ talentBase.name }}
             <span v-if="talentBase.ranked">{{ talent.rank }}</span>
             <span v-if="mode === 'genesys'">
                 (Tier {{ talent.tier }})
@@ -18,7 +18,7 @@
             <b-popover :target="id" triggers="hover" placement="top">
                 <template v-slot:title>
                     <div :class="`${ mode }-system`">
-                        {{ talent.name }}
+                        {{ talentBase.name }}
                         <span v-if="talentBase.ranked">{{ talent.rank }}</span>
                         <span v-if="mode === 'genesys'">
                             (Tier {{ talent.tier }})
@@ -101,9 +101,9 @@
             id() { return `talent-${ this.uuid }`; },
             talentBase()
             {
-                if(this.talent && this.talent.name)
+                if(this.talent && this.talent.id)
                 {
-                    return this.talents.find((talent) => talent.name === this.talent.name);
+                    return this.talents.find((talent) => talent.id === this.talent.id);
                 } // end if
 
                 return {};
