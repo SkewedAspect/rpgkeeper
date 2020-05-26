@@ -76,6 +76,9 @@ class SupplementEngine
 
             // Set the path to the now filtered results
             _.set(data, suppDef.path, supplements);
+
+            // Return true if we filtered something out.
+            return ids.length !== filtered.length;
         } // end if
     } // end $validateSupplementPath
 
@@ -84,7 +87,7 @@ class SupplementEngine
     async validateCharacter(character, supplementPaths, account)
     {
         // Validate all supplement paths
-        await Promise.all(supplementPaths
+        let results = await Promise.all(supplementPaths
             .map((suppDef) =>
             {
                 const errLog = (err) => logger.warn(`Error validating supplement path '${ JSON.stringify(suppDef) }':`, err.stack);
@@ -103,8 +106,12 @@ class SupplementEngine
                 } // end if
             }));
 
+        // Filter results to just truthy values
+        results = _.flatten(results);
+        results = _.compact(results);
+
         // We return the character
-        return character;
+        return { character, filtered: results.length > 0 };
     } // end validateCharacter
 
     toDatabase(supp, type)

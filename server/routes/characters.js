@@ -50,16 +50,18 @@ router.get('/', async(req, resp) =>
 
 router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async(req, resp) =>
 {
-    let char = { ...req.body };
+    const char = { ...req.body };
     const system = sysMan.get(char.system);
 
     // We force the account id to be set based on who we're logged in as.
     char.account_id = req.user.account_id;
 
-    // Filter invalid supplements
-    char = await suppEng.validateCharacter(char, system.supplementPaths, req.user);
+    // Filter invalid supplements (Note: We ignore the `filtered` property, since this is a new character and the
+    // client doesn't actually care what manipulations we've done to it. (This helps work around a bug where chrome
+    // ignores the body of a 205 response, for really stupid reasons.)
+    const { character } = await suppEng.validateCharacter(char, system.supplementPaths, req.user);
 
-    resp.json(await charMan.createCharacter(char));
+    resp.json(await charMan.createCharacter(character));
 }));
 
 router.get('/:charID', (req, resp) =>
@@ -74,7 +76,7 @@ router.get('/:charID', (req, resp) =>
 router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(async(req, resp) =>
 {
     // First, retrieve the character
-    let char = await charMan.getCharacter(req.params.charID);
+    const char = await charMan.getCharacter(req.params.charID);
 
     // Next, get the system
     const system = sysMan.get(char.system);
@@ -88,10 +90,16 @@ router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(as
         update.id = req.params.charID;
 
         // Filter invalid supplements
-        char = await suppEng.validateCharacter({ ...char, ...update }, system.supplementPaths, req.user);
+        const { character, filtered } = await suppEng.validateCharacter({ ...char, ...update }, system.supplementPaths, req.user);
+
+        if(filtered)
+        {
+            // If we did filter something out, we set the status code to 205 - RESET CONTENT.
+            resp.status(205);
+        } // end if
 
         // Update the character
-        resp.json(await charMan.updateCharacter(char));
+        resp.json(await charMan.updateCharacter(character));
     }
     else
     {
