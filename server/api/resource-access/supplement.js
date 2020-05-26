@@ -107,6 +107,18 @@ class SupplementResourceAccess
             .map((supp) => suppEng.fromDatabase(supp, type));
     } // end getFiltered
 
+    async batchGetByID(ids, type, tableName)
+    {
+        const db = await dbMan.getDB();
+
+        const query = db(tableName)
+            .select()
+            .whereIn('id', ids);
+
+        return (await query)
+            .map((res) => suppEng.fromDatabase(res, type));
+    } // end batchGetByIDs
+
     async addSupplement(supplement, type, tableName, account)
     {
         supplement = suppEng.toDatabase(supplement, type);

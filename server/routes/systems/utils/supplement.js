@@ -18,8 +18,6 @@ class SupplementUtils
 {
     buildSupplementRoute(router, path, type, systemPrefix, schemas)
     {
-        const tableName = `${ systemPrefix }_${ type }`;
-
         //--------------------------------------------------------------------------------------------------------------
         // Build Basic CRUD Routes for supplements
         //--------------------------------------------------------------------------------------------------------------
@@ -27,7 +25,7 @@ class SupplementUtils
         router.get(path, wrapAsync(async(req, resp) =>
         {
             const filters = parseQuery(req.query);
-            resp.json(await suppMan.getFiltered(filters, type, tableName, req.user));
+            resp.json(await suppMan.getFiltered(filters, type, systemPrefix, req.user));
         }));
 
         router.post(path, ensureAuthenticated, validation(schemas[type]), wrapAsync(async(req, resp) =>
@@ -54,12 +52,12 @@ class SupplementUtils
                 body.owner = req.user.account_id;
             } // end if
 
-            resp.json(await suppMan.addSupplement(body, type, tableName, req.user));
+            resp.json(await suppMan.addSupplement(body, type, systemPrefix, req.user));
         }));
 
         router.patch(`${ path }/:suppID`, ensureAuthenticated, validation(schemas[type], true), wrapAsync(async(req, resp) =>
         {
-            const supplement = await suppMan.getByID(req.params.suppID, type, tableName, req.user);
+            const supplement = await suppMan.getByID(req.params.suppID, type, systemPrefix, req.user);
             if(supplement)
             {
                 // Either you have the correct user permission, or you're the owner and it's user-scoped.
@@ -79,7 +77,7 @@ class SupplementUtils
                         body.owner = null;
                     } // end if
 
-                    resp.json(await suppMan.updateSupplement(body, type, tableName, req.user));
+                    resp.json(await suppMan.updateSupplement(body, type, systemPrefix, req.user));
                 }
                 else
                 {
@@ -102,7 +100,7 @@ class SupplementUtils
 
         router.delete(`${ path }/:suppID`, ensureAuthenticated, wrapAsync(async(req, resp) =>
         {
-            const supplement = await suppMan.getByID(req.params.suppID, type, tableName, req.user);
+            const supplement = await suppMan.getByID(req.params.suppID, type, systemPrefix, req.user);
             if(supplement)
             {
                 // Either you have the correct user permission, or you're the owner and it's user-scoped.
@@ -111,7 +109,7 @@ class SupplementUtils
 
                 if(hasPerm)
                 {
-                    resp.json(await suppMan.deleteSupplement(req.params.suppID, tableName, req.user));
+                    resp.json(await suppMan.deleteSupplement(req.params.suppID, type, systemPrefix, req.user));
                 }
                 else
                 {

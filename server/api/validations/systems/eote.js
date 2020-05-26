@@ -36,6 +36,7 @@ const motivationSchema = {
     type: 'object',
     required: [ 'name', 'description' ],
     properties: {
+        id: { type: 'integer', minimum: 0 },
         name: { type: 'string', maxLength: 255 },
         description: { type: 'string' },
         reference: referenceSchema
@@ -678,9 +679,9 @@ const eoteChar = {
                     type: 'array',
                     items: {
                         type: 'object',
-                        required: [ 'powerID', 'upgrades' ],
+                        required: [ 'id', 'upgrades' ],
                         properties: {
-                            powerID: { type: 'string', minLength: 1 },
+                            id: { type: 'string', minLength: 1 },
                             upgrades: {
                                 type: 'object',
                                 required: [],

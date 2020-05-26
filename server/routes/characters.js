@@ -11,6 +11,11 @@ const { charValidation } = require('./middleware/validation');
 // Managers
 const accountMan = require('../api/managers/account');
 const charMan = require('../api/managers/character');
+const permsMan = require('../api/managers/permissions');
+const sysMan = require('../api/managers/system');
+
+// Engines
+const suppEng = require('../api/engines/supplement');
 
 // Utils
 const { errorHandler, ensureAuthenticated, interceptHTML, wrapAsync, parseQuery } = require('./utils');
@@ -45,10 +50,14 @@ router.get('/', async(req, resp) =>
 
 router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async(req, resp) =>
 {
-    const char = req.body;
+    let char = { ...req.body };
+    const system = sysMan.get(char.system);
 
     // We force the account id to be set based on who we're logged in as.
     char.account_id = req.user.account_id;
+
+    // Filter invalid supplements
+    char = await suppEng.validateCharacter(char, system.supplementPaths, req.user);
 
     resp.json(await charMan.createCharacter(char));
 }));
@@ -65,18 +74,24 @@ router.get('/:charID', (req, resp) =>
 router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(async(req, resp) =>
 {
     // First, retrieve the character
-    const char = await charMan.getCharacter(req.params.charID);
+    let char = await charMan.getCharacter(req.params.charID);
 
-    // TODO: Add a permissions check to allow admins to delete characters they don't own.
-    if(char.account_id === req.user.id)
+    // Next, get the system
+    const system = sysMan.get(char.system);
+
+    // Allow either the owner, or moderators/admins to modify the character
+    if(char.account_id === req.user.id || permsMan.hasPerm(req.account, `${ char.system }/canModifyChar`))
     {
         const update = req.body;
 
         // We force the id of the character to be what was in the route.
         update.id = req.params.charID;
 
+        // Filter invalid supplements
+        char = await suppEng.validateCharacter({ ...char, ...update }, system.supplementPaths, req.user);
+
         // Update the character
-        resp.json(await charMan.updateCharacter(update));
+        resp.json(await charMan.updateCharacter(char));
     }
     else
     {
@@ -110,8 +125,8 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
         } // end if
     } // end try/catch
 
-    // TODO: Add a permissions check to allow admins to delete characters they don't own.
-    if(char.account_id === req.user.id)
+    // Allow either the owner, or moderators/admins to delete the character
+    if(char.account_id === req.user.id || permsMan.hasPerm(req.account, `${ char.system }/canDeleteChar`))
     {
         // Delete the character
         const deleted = await charMan.deleteCharacter(req.params.charID);
