@@ -11,6 +11,9 @@ import sysMan from '../managers/systems';
 // Models
 import CharacterModel from '../models/character';
 
+// Utils
+import toastUtil from '../utils/toast';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 class CharacterResourceAccess
@@ -79,8 +82,11 @@ class CharacterResourceAccess
 
         if(status === 205)
         {
-            // TODO: We need to pop a notification for the user here.
-            console.warn('Some content may have been filtered.');
+            toastUtil.warning('Changes have been made to remove inaccessible content.', {
+                autoHideDelay: 8000
+            });
+
+            console.warn('Disallowed content was filtered from character on save.');
 
             return this.getCharacter(character.id);
         }
