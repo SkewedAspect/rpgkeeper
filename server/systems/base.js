@@ -4,13 +4,14 @@
 
 class BaseSystem
 {
-    constructor(id, name, description, schema = { type: 'object' }, defaults = {}, disabled)
+    constructor(id, name, description, schema = { type: 'object' }, defaults = {}, suppPaths = [], disabled = false)
     {
         this._id = id;
         this._name = name;
         this._description = description;
         this._schema = schema;
         this._defaults = defaults;
+        this._supplementPaths = suppPaths;
 
         this._disabled = disabled;
     } // end constructor
@@ -25,6 +26,7 @@ class BaseSystem
     get disabled() { return this._disabled; }
     get schema() { return this._schema; }
     get defaults() { return this._defaults; }
+    get supplementPaths() { return this._supplementPaths; }
 
     //------------------------------------------------------------------------------------------------------------------
     // API
@@ -42,6 +44,7 @@ class BaseSystem
             name: this.name,
             description: this.description,
             defaults: this.defaults,
+            supplementPaths: this.supplementPaths,
             disabled: this.disabled
         };
     } // end toJSON

@@ -28,9 +28,9 @@ class NotePageModel
     get id() { return this.$state.page_id; }
 
     get title() { return this.$state.title; }
-    set title(title) { return this.$state.title = title; }
+    set title(title) { this.$state.title = title; }
     get content() { return this.$state.content; }
-    set content(content) { return this.$state.content = content; }
+    set content(content) { this.$state.content = content; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Model API

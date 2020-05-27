@@ -4,13 +4,13 @@
 
 <template>
     <span class="eote-ability">
-        <b-badge :id="id">
+        <b-badge :id="`ability-${ id }`">
             {{ abilityName }}
         </b-badge>
-        <b-popover :title="abilityName" :target="id" triggers="hover" placement="top">
+        <b-popover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
                 <markdown-block :text="abilityText" inline></markdown-block>
-                <reference class="float-right mt-2 mb-2" :reference="abilityReference"></reference>
+                <reference v-if="abilityReference" class="float-right mt-2 mb-2" :reference="abilityReference"></reference>
             </div>
         </b-popover>
     </span>
@@ -33,8 +33,6 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { v4 } from 'uuid';
-
     // Managers
     import eoteMan from '../../../../api/managers/eote';
 
@@ -48,8 +46,8 @@
         name: 'EoteAbility',
         components: { MarkdownBlock, Reference },
         props: {
-            name: {
-                type: String,
+            id: {
+                type: Number,
                 required: true
             }
         },
@@ -60,10 +58,6 @@
                 abilities: eoteMan.abilities$
             };
         },
-        data()
-        {
-            return { id: v4() };
-        },
         computed: {
             passive()
             {
@@ -71,11 +65,18 @@
             },
             ability()
             {
-                return this.abilities.filter((ability) => ability.name === this.name)[0];
+                return this.abilities.filter((ability) => ability.id === this.id)[0];
             },
             abilityName()
             {
-                return `${ this.name }`;
+                if(this.ability)
+                {
+                    return `${ this.ability.name }`;
+                }
+                else
+                {
+                    return 'Unknown';
+                } // end if
             },
             abilityText()
             {

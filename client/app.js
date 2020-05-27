@@ -37,6 +37,9 @@ import 'codemirror/mode/meta';
 // Managers
 import postsMan from './api/managers/posts';
 
+// Utils
+import toastUtil from './api/utils/toast';
+
 // Views
 import AppComponent from './app.vue';
 import AboutPage from './pages/about.vue';
@@ -131,7 +134,7 @@ Vue.config.ignoredElements = [
 
 // Setup app component
 const App = Vue.component('app', AppComponent);
-new App({
+const root = new App({
     el: '#rpgkeeper',
     router
 });
@@ -179,6 +182,9 @@ async function init()
 {
     // Setup Managers
     await postsMan.loadPosts();
+
+    // Setup Utils
+    toastUtil.setVueRoot(root);
 } // end init
 
 // ---------------------------------------------------------------------------------------------------------------------

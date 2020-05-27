@@ -30,7 +30,7 @@
         >
             <!-- Qualities Slot -->
             <template v-slot:cell(qualities)="data">
-                <quality v-for="(quality, index) in data.value" :key="index" :name="quality.name" :rank="quality.rank"></quality>
+                <quality v-for="quality in data.value" :id="quality.id" :key="quality.id" :rank="quality.rank"></quality>
             </template>
 
             <!-- Buttons Slot -->

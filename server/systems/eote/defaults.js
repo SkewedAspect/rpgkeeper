@@ -7,6 +7,7 @@ const _ = require('lodash');
 //----------------------------------------------------------------------------------------------------------------------
 
 const ability = {
+    id: undefined,
     name: '',
     description: '',
     reference: {
@@ -16,6 +17,7 @@ const ability = {
 };
 
 const genesysTalent = {
+    id: undefined,
     name: '',
     description: '',
     activation: 'p',
@@ -28,6 +30,7 @@ const genesysTalent = {
 };
 
 const gear = {
+    id: undefined,
     name: '',
     description: '',
     encumbrance: 1,
@@ -39,6 +42,7 @@ const gear = {
 };
 
 const genesysAttachment = {
+    id: undefined,
     name: '',
     description: '',
     useWith: '',
@@ -51,6 +55,7 @@ const genesysAttachment = {
 };
 
 const quality = {
+    id: undefined,
     name: '',
     description: '',
     passive: true,
@@ -61,6 +66,7 @@ const quality = {
 };
 
 const armor = {
+    id: undefined,
     name: '',
     description: '',
     defense: 0,
@@ -75,6 +81,7 @@ const armor = {
 };
 
 const weapon = {
+    id: undefined,
     name: '',
     description: '',
     skill: '',
@@ -211,6 +218,7 @@ const genesysChar = {
 //----------------------------------------------------------------------------------------------------------------------
 
 const eoteTalent = {
+    id: undefined,
     name: '',
     description: '',
     activation: 'p',
@@ -223,6 +231,7 @@ const eoteTalent = {
 };
 
 const eoteAttachment = {
+    id: undefined,
     name: '',
     description: '',
     baseModifier: '',
@@ -235,6 +244,7 @@ const eoteAttachment = {
 };
 
 const forcePower = {
+    id: undefined,
     name: '',
     description: '',
     minRating: 0,

@@ -36,7 +36,7 @@
             </div>
             <div class="bio-line">
                 <b>Abilities:</b>
-                <ability v-for="name in abilities" :key="name" :name="name"></ability>
+                <ability v-for="id in abilities" :id="id" :key="id"></ability>
                 <span v-if="abilities.length === 0">None</span>
             </div>
         </div>

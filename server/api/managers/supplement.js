@@ -9,30 +9,51 @@ const suppRA = require('../resource-access/supplement');
 
 class SupplementManager
 {
-    async get(name, type, tableName)
+    async get(name, type, systemPrefix, account)
     {
-        return suppRA.get(name, type, tableName);
+        const tableName = `${ systemPrefix }_${ type }`;
+        return suppRA.get(name, type, tableName, account);
     } // end getAbility
 
-    async getFiltered(filters, type, tableName)
+    async getByID(id, type, systemPrefix, account)
     {
-        return suppRA.getFiltered(filters, type, tableName);
+        const tableName = `${ systemPrefix }_${ type }`;
+        return suppRA.getByID(id, type, tableName, account);
+    } // end getByID
+
+    async getFiltered(filters, type, systemPrefix, account)
+    {
+        const tableName = `${ systemPrefix }_${ type }`;
+        return suppRA.getFiltered(filters, type, tableName, account);
     } // end getAbilities
 
-    async addSupplement(supplement, type, tableName)
+    async addSupplement(supplement, type, systemPrefix, account)
     {
-        return suppRA.addSupplement(supplement, type, tableName);
+        const tableName = `${ systemPrefix }_${ type }`;
+        return suppRA.addSupplement(supplement, type, tableName, account);
     } // end addSupplement
 
-    async updateSupplement(supplement, type, tableName)
+    async updateSupplement(supplement, type, systemPrefix, account)
     {
-        return suppRA.updateSupplement(supplement, type, tableName);
+        const tableName = `${ systemPrefix }_${ type }`;
+        return suppRA.updateSupplement(supplement, type, tableName, account);
     } // end updateSupplement
 
-    async deleteSupplement(name, tableName)
+    async deleteSupplement(id, type, systemPrefix, account)
     {
-        return suppRA.deleteSupplement(name, tableName);
+        const tableName = `${ systemPrefix }_${ type }`;
+        return suppRA.deleteSupplement(id, tableName, account);
     } // end deleteSupplement
+
+    async filterSupplementsByPermissions(ids, type, systemPrefix, account)
+    {
+        const tableName = `${ systemPrefix }_${ type }`;
+        const supplements = await suppRA.batchGetByID(ids, type, tableName);
+
+        // Either the supplement is public, or it's a user supplement and the account own it.
+        return supplements
+            .filter((supp) => supp.scope === 'public' || (supp.scope === 'user' && supp.owner === account.account_id));
+    } // end filterSupplementsByPermissions
 } // end SupplementManager
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -11,6 +11,9 @@ import sysMan from '../managers/systems';
 // Models
 import CharacterModel from '../models/character';
 
+// Utils
+import toastUtil from '../utils/toast';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 class CharacterResourceAccess
@@ -20,7 +23,7 @@ class CharacterResourceAccess
         this.$characters = {};
     } // end constructor
 
-    _buildModel(def)
+    _buildOrUpdateModel(def)
     {
         let character = this.$characters[def.id];
         if(character)
@@ -39,7 +42,7 @@ class CharacterResourceAccess
 
     async newCharacter(charDef)
     {
-        return this._buildModel(charDef);
+        return this._buildOrUpdateModel(charDef);
     } // end newCharacter
 
     async updateSysDefaults(char)
@@ -53,20 +56,20 @@ class CharacterResourceAccess
     async getCharacter(charID)
     {
         const { data } = await $http.get(`/characters/${ charID }`);
-        return this._buildModel(data);
+        return this._buildOrUpdateModel(data);
     } // end getCharacter
 
     async getAllCharacters(owner)
     {
         const { data } = await $http.get('/characters', { params: { owner, details: true } });
-        return data.map((def) => this._buildModel(def));
+        return data.map((def) => this._buildOrUpdateModel(def));
     } // end getAllCharacters
 
     async saveCharacter(character)
     {
         const verb = character.id ? 'patch' : 'post';
         const charURL = character.id ? `/characters/${ character.id }` : `/characters`;
-        const { data } = await ($http[verb](charURL, character)
+        const { data, status } = await ($http[verb](charURL, character)
             .catch((error) =>
             {
                 // We always print the error, and revert.
@@ -77,12 +80,26 @@ class CharacterResourceAccess
                 throw error;
             }));
 
-        if(!character.id)
+        if(status === 205)
         {
-            this.$characters[data.id] = character;
-        } // end if
+            toastUtil.warning('Changes have been made to remove inaccessible content.', {
+                autoHideDelay: 8000
+            });
 
-        return this._buildModel(data);
+            console.warn('Disallowed content was filtered from character on save.');
+
+            return this.getCharacter(character.id);
+        }
+        else
+        {
+            // We have to make sure the model is in the list of characters before we call `_buildOrUpdateModel`.
+            if(!character.id)
+            {
+                this.$characters[data.id] = character;
+            } // end if
+
+            return this._buildOrUpdateModel(data);
+        } // end if
     } // end saveCharacter
 
     async deleteCharacter(character)

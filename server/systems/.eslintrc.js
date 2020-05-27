@@ -1,3 +1,3 @@
 module.exports = {
-    ignorePatterns: ['unconverted/'],
+    ignorePatterns: [ 'unconverted/' ]
 };

@@ -92,8 +92,20 @@ function snakeCaseKeys(obj)
     });
 } // end snakeCaseKeys
 
+/**
+ * A comparator function for sorting by the key of an object.
+ *
+ * @param {string} key - The key to sort by.
+ *
+ * @returns {function(*, *) : number} Returns`1`, `-1`, or `0`, depending on how the object sorts.
+ */
+function sortBy(key)
+{
+    return (aObj, bObj) => { return (aObj[key] > bObj[key]) ? 1 : ((bObj[key] > aObj[key]) ? -1 : 0); };
+} // end sortBy
+
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = { shortID, colorize, snakeCaseKeys, camelCaseKeys };
+module.exports = { sortBy, shortID, colorize, snakeCaseKeys, camelCaseKeys };
 
 //----------------------------------------------------------------------------------------------------------------------
