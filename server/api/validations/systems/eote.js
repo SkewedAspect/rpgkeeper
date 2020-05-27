@@ -698,7 +698,8 @@ const eoteChar = {
                         },
                         additionalProperties: false
                     }
-                }
+                },
+                sensitive: { type: 'boolean' }
             },
             additionalProperties: false
         }

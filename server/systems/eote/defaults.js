@@ -324,7 +324,12 @@ const eoteSkills = [
 
 const eoteChar = {
     ...genesysChar,
-    species: '',
+    force: {
+        rating: 0,
+        committed: 0,
+        powers: [],
+        sensitive: false
+    },
     specialization: '',
     skills: _.cloneDeep(eoteSkills)
 };

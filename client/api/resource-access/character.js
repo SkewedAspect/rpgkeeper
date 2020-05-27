@@ -72,33 +72,57 @@ class CharacterResourceAccess
         const { data, status } = await ($http[verb](charURL, character)
             .catch((error) =>
             {
-                // We always print the error, and revert.
-                console.error('Failed to save character:', error);
-                character.revert();
+                if(error.response.status === 422)
+                {
+                    console.warn('Invalid character:', error.response.data);
+                    toastUtil.warning(`${ error.response.data.message } Resetting character.`, {
+                        autoHideDelay: 8000
+                    });
 
-                // Rethrow, so other logic can handle the failure correctly.
-                throw error;
+                    // Reset the character
+                    character.revert();
+
+                    // Needed, or the destructure fails.
+                    return {};
+                }
+                else
+                {
+                    console.error('Failed to save character:', error);
+                    toastUtil.error(`${ error.message }. Resetting character.`, {
+                        autoHideDelay: 8000
+                    });
+
+                    // Reset the character
+                    character.revert();
+
+                    // Rethrow, so other logic can handle the failure correctly.
+                    throw error;
+                } // end if
             }));
 
-        if(status === 205)
+        // Handle the case where we got an error, and therefore have no data.
+        if(data)
         {
-            toastUtil.warning('Changes have been made to remove inaccessible content.', {
-                autoHideDelay: 8000
-            });
-
-            console.warn('Disallowed content was filtered from character on save.');
-
-            return this.getCharacter(character.id);
-        }
-        else
-        {
-            // We have to make sure the model is in the list of characters before we call `_buildOrUpdateModel`.
-            if(!character.id)
+            if(status === 205)
             {
-                this.$characters[data.id] = character;
-            } // end if
+                toastUtil.warning('Changes have been made to remove inaccessible content.', {
+                    autoHideDelay: 8000
+                });
 
-            return this._buildOrUpdateModel(data);
+                console.warn('Disallowed content was filtered from character on save.');
+
+                return this.getCharacter(character.id);
+            }
+            else
+            {
+                // We have to make sure the model is in the list of characters before we call `_buildOrUpdateModel`.
+                if(!character.id)
+                {
+                    this.$characters[data.id] = character;
+                } // end if
+
+                return this._buildOrUpdateModel(data);
+            } // end if
         } // end if
     } // end saveCharacter
 
