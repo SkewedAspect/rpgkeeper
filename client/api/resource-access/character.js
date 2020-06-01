@@ -100,29 +100,25 @@ class CharacterResourceAccess
                 } // end if
             }));
 
-        // Handle the case where we got an error, and therefore have no data.
-        if(data)
+        if(status === 205)
         {
-            if(status === 205)
+            toastUtil.warning('Changes have been made to remove inaccessible content.', {
+                autoHideDelay: 8000
+            });
+
+            console.warn('Disallowed content was filtered from character on save.');
+
+            return this.getCharacter(character.id);
+        }
+        else if(data)
+        {
+            // We have to make sure the model is in the list of characters before we call `_buildOrUpdateModel`.
+            if(!character.id)
             {
-                toastUtil.warning('Changes have been made to remove inaccessible content.', {
-                    autoHideDelay: 8000
-                });
-
-                console.warn('Disallowed content was filtered from character on save.');
-
-                return this.getCharacter(character.id);
-            }
-            else
-            {
-                // We have to make sure the model is in the list of characters before we call `_buildOrUpdateModel`.
-                if(!character.id)
-                {
-                    this.$characters[data.id] = character;
-                } // end if
-
-                return this._buildOrUpdateModel(data);
+                this.$characters[data.id] = character;
             } // end if
+
+            return this._buildOrUpdateModel(data);
         } // end if
     } // end saveCharacter
 

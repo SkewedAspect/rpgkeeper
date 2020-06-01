@@ -10,7 +10,7 @@
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
-            size="lg"
+            size="xl"
             @ok="onSave"
             @shown="onShown"
         >
@@ -93,6 +93,17 @@
                 </b-col>
             </b-form-row>
 
+            <supplement-select
+                label="Abilities"
+                label-class="font-weight-bold"
+                :available="abilities"
+                :selected="selectedAbilities"
+                @add="onAbilityAdd"
+                @remove="onAbilityRemove"
+                @new="onAbilityNew"
+            >
+            </supplement-select>
+
             <!-- Modal Buttons -->
             <template slot="modal-ok">
                 <fa icon="save"></fa>
@@ -118,17 +129,26 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    import _ from 'lodash';
+
     // Managers
     import charMan from '../../../../api/managers/character';
     import eoteMan from '../../../../api/managers/eote';
+
+    // Components
+    import SupplementSelect from '../../../character/supplementSelect.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'EditBiographyModal',
+        components: {
+            SupplementSelect
+        },
         subscriptions: {
             character: charMan.selected$,
-            mode: eoteMan.mode$
+            mode: eoteMan.mode$,
+            abilities: eoteMan.abilities$
         },
         data()
         {
@@ -136,7 +156,8 @@
                 career: '',
                 species: '',
                 specialization: '',
-                forceSensitive: false
+                forceSensitive: false,
+                selectedAbilities: []
             };
         },
         methods: {
@@ -152,6 +173,7 @@
                 this.character.details.species = this.species;
                 this.character.details.specialization = this.specialization;
                 this.character.details.force.sensitive = this.forceSensitive;
+                this.character.details.abilities = this.selectedAbilities;
 
                 // Save the character
                 await charMan.save(this.character);
@@ -169,6 +191,20 @@
                 this.species = this.character.details.species;
                 this.specialization = this.character.details.specialization;
                 this.forceSensitive = !!this.character.details.force.sensitive;
+                this.selectedAbilities = this.character.details.abilities.concat();
+            },
+            onAbilityAdd(ability)
+            {
+                this.selectedAbilities.push(ability.id);
+                this.selectedAbilities = _.uniq(this.selectedAbilities);
+            },
+            onAbilityRemove(ability)
+            {
+                this.selectedAbilities = _.without(this.selectedAbilities, ability.id);
+            },
+            onAbilityNew()
+            {
+                console.warn('would launch new ability modal.');
             },
 
             show()

@@ -55,7 +55,7 @@
 
     // Components
     import MarkdownBlock from '../../../ui/markdown';
-    import Reference from './reference.vue';
+    import Reference from '../../../character/reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
