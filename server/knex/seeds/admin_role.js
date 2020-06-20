@@ -22,7 +22,7 @@ exports.seed = async(knex) =>
             email: 'chris.case@g33xnexus.com',
             name: 'Morgul',
             avatar: 'https://lh3.googleusercontent.com/-r8fmbWdlFvg/AAAAAAAAAAI/AAAAAAAAA9g/oWyh8pnmDSY/s96-c/photo.jpg?sz=512',
-            permissions: '[*/*]',
+            permissions: '["*/*"]',
             settings: '{}',
             created: knex.fn.now()
         },
