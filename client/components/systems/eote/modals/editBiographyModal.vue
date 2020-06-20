@@ -114,6 +114,8 @@
                 Cancel
             </template>
         </b-modal>
+
+        <add-ability-modal ref="addAbilityModal" @add="onAbilityModalAdd"></add-ability-modal>
     </div>
 </template>
 
@@ -137,12 +139,14 @@
 
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
+    import AddAbilityModal from '../modals/addAbilityModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
         name: 'EditBiographyModal',
         components: {
+            AddAbilityModal,
             SupplementSelect
         },
         subscriptions: {
@@ -204,7 +208,11 @@
             },
             onAbilityNew()
             {
-                console.warn('would launch new ability modal.');
+                this.$refs.addAbilityModal.show();
+            },
+            onAbilityModalAdd(ability)
+            {
+                this.selectedAbilities.push(ability.id);
             },
 
             show()

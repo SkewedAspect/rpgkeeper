@@ -95,6 +95,17 @@ class EotEManager
     //------------------------------------------------------------------------------------------------------------------
     // Public API
     //------------------------------------------------------------------------------------------------------------------
+
+    async addSup(type, supp)
+    {
+        const newSupp = await suppMan.add(type, supp);
+
+        // Update subject, and compact falsey values
+        const supplements = [ newSupp ].concat(this[type]).filter((item) => !!item);
+        this[`_${ type }Subject`].next(supplements);
+
+        return newSupp;
+    } // end addSup
 } // end EotEManager
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -66,7 +66,7 @@
                                     <span v-else-if="getSupp(supp.id).scope === 'public'">Public</span>
                                 </b-badge>
                                 <b-button class="ml-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
-                                    <fa icon="trash-alt"></fa>
+                                    <fa icon="times"></fa>
                                 </b-button>
                             </div>
                         </b-list-group-item>
@@ -82,6 +82,16 @@
                 <b-card>
                     <template v-if="currentSelection" v-slot:header>
                         <slot name="header">
+                            <div v-if="currentSupplement.scope === 'user'" class="float-right">
+                                <b-btn size="sm">
+                                    <fa icon="edit"></fa>
+                                    Edit
+                                </b-btn>
+                                <b-btn variant="danger" size="sm">
+                                    <fa icon="trash-alt"></fa>
+                                    Delete
+                                </b-btn>
+                            </div>
                             <b>{{ currentSupplement.name }}</b>
                         </slot>
                     </template>
@@ -166,8 +176,10 @@
             availableFiltered()
             {
                 // Filter out an already selected supplements, and ones that match the search filter
-                return this.available.filter((supp) => supp.name.toLowerCase().includes(this.search.toLowerCase())
-                    && !this.selected.includes(supp.id));
+                return this.available
+                    .filter((supp) => supp.name.toLowerCase().includes(this.search.toLowerCase())
+                        && !this.selected.includes(supp.id))
+                    .sort((suppA, suppB) => suppA.name.localeCompare(suppB.name));
             },
             selectedSupplements()
             {
