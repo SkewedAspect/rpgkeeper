@@ -117,6 +117,7 @@
     import RisusCharacter from '../components/systems/risus/character.vue';
     import FateCharacter from '../components/systems/fate/character.vue';
     import EoteCharacter from '../components/systems/eote/character.vue';
+    import WfrpCharacter from '../components/systems/wfrp/character.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -130,7 +131,8 @@
             fate: FateCharacter,
             risus: RisusCharacter,
             genesys: EoteCharacter, // This is actually correct. We use the same component for both.
-            eote: EoteCharacter
+            eote: EoteCharacter,
+            wfrp: WfrpCharacter
         },
         subscriptions: {
             char: charMan.selected$,
