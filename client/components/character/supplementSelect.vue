@@ -83,11 +83,11 @@
                     <template v-if="currentSelection" v-slot:header>
                         <slot name="header">
                             <div v-if="currentSupplement.scope === 'user'" class="float-right">
-                                <b-btn size="sm">
+                                <b-btn size="sm" @click="editSupp(currentSupplement)">
                                     <fa icon="edit"></fa>
                                     Edit
                                 </b-btn>
-                                <b-btn variant="danger" size="sm">
+                                <b-btn variant="danger" size="sm" @click="deleteSupp(currentSupplement)">
                                     <fa icon="trash-alt"></fa>
                                     Delete
                                 </b-btn>
@@ -237,6 +237,14 @@
                     this.currentSelection = undefined;
                 } // end if
             },
+            editSupp(supp)
+            {
+                this.$emit('edit', supp);
+            },
+            deleteSupp(supp)
+            {
+                this.$emit('delete', supp);
+            },
             addNew()
             {
                 this.$emit('new');
@@ -247,9 +255,13 @@
             },
             removeSupp(supp)
             {
+                this.clearSelection();
+                this.$emit('remove', { id: supp.id });
+            },
+            clearSelection()
+            {
                 this.suppToAdd = undefined;
                 this.currentSelection = undefined;
-                this.$emit('remove', { id: supp.id });
             }
         }
     };

@@ -106,6 +106,15 @@ class EotEManager
 
         return newSupp;
     } // end addSup
+
+    async delSup(type, supp)
+    {
+        await suppMan.delete(type, supp.id);
+
+        // Update subject, and compact falsey values
+        const supplements = this[type].filter((item) => item.id !== supp.id);
+        this[`_${ type }Subject`].next(supplements);
+    } // end delSup
 } // end EotEManager
 
 //----------------------------------------------------------------------------------------------------------------------

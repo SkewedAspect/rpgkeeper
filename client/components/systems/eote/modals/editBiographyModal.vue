@@ -94,6 +94,7 @@
             </b-form-row>
 
             <supplement-select
+                ref="suppSelect"
                 label="Abilities"
                 label-class="font-weight-bold"
                 :available="abilities"
@@ -101,6 +102,8 @@
                 @add="onAbilityAdd"
                 @remove="onAbilityRemove"
                 @new="onAbilityNew"
+                @edit="onAbilityEdit"
+                @delete="onAbilityDelete"
             >
             </supplement-select>
 
@@ -115,7 +118,15 @@
             </template>
         </b-modal>
 
+        <!-- Modals -->
         <add-ability-modal ref="addAbilityModal" @add="onAbilityModalAdd"></add-ability-modal>
+        <delete-modal
+            ref="delAbilityModal"
+            :name="delAbility.name"
+            type="ability"
+            @hidden="onDelAbilityHidden"
+            @delete="onDelAbilityDelete"
+        ></delete-modal>
     </div>
 </template>
 
@@ -140,6 +151,7 @@
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import AddAbilityModal from '../modals/addAbilityModal.vue';
+    import DeleteModal from '../../../ui/deleteModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -147,6 +159,7 @@
         name: 'EditBiographyModal',
         components: {
             AddAbilityModal,
+            DeleteModal,
             SupplementSelect
         },
         subscriptions: {
@@ -161,7 +174,11 @@
                 species: '',
                 specialization: '',
                 forceSensitive: false,
-                selectedAbilities: []
+                selectedAbilities: [],
+                delAbility: {
+                    id: undefined,
+                    name: undefined
+                }
             };
         },
         methods: {
@@ -213,6 +230,33 @@
             onAbilityModalAdd(ability)
             {
                 this.selectedAbilities.push(ability.id);
+            },
+            onAbilityEdit(ability)
+            {
+                console.warn('would edit...', ability.id);
+            },
+            onAbilityDelete(ability)
+            {
+                this.delAbility.id = ability.id;
+                this.delAbility.name = ability.name;
+
+                this.$refs.delAbilityModal.show();
+            },
+            onDelAbilityHidden()
+            {
+                this.delAbility.id = '';
+                this.delAbility.name = '';
+            },
+            async onDelAbilityDelete()
+            {
+                this.$refs.suppSelect.clearSelection();
+                this.selectedAbilities = _.without(this.selectedAbilities, this.delAbility.id);
+                this.character.details.abilities = this.selectedAbilities;
+
+                return Promise.all([
+                    await charMan.save(this.character),
+                    await eoteMan.delSup('abilities', this.delAbility)
+                ]);
             },
 
             show()
