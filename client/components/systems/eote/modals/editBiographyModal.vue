@@ -119,7 +119,7 @@
         </b-modal>
 
         <!-- Modals -->
-        <add-ability-modal ref="addAbilityModal" @add="onAbilityModalAdd"></add-ability-modal>
+        <add-edit-ability-modal ref="addEditAbilityModal" @add="onAbilityModalAdd"></add-edit-ability-modal>
         <delete-modal
             ref="delAbilityModal"
             :name="delAbility.name"
@@ -150,7 +150,7 @@
 
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
-    import AddAbilityModal from '../modals/addAbilityModal.vue';
+    import AddEditAbilityModal from '../modals/addEditAbilityModal.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -158,7 +158,7 @@
     export default {
         name: 'EditBiographyModal',
         components: {
-            AddAbilityModal,
+            AddEditAbilityModal,
             DeleteModal,
             SupplementSelect
         },
@@ -225,7 +225,7 @@
             },
             onAbilityNew()
             {
-                this.$refs.addAbilityModal.show();
+                this.$refs.addEditAbilityModal.show();
             },
             onAbilityModalAdd(ability)
             {
@@ -233,7 +233,7 @@
             },
             onAbilityEdit(ability)
             {
-                console.warn('would edit...', ability.id);
+                this.$refs.addEditAbilityModal.show(ability);
             },
             onAbilityDelete(ability)
             {

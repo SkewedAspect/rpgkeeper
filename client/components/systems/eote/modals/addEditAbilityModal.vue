@@ -1,5 +1,5 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- AddAbilityModal
+  -- AddEditAbilityModal
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
@@ -17,7 +17,13 @@
             <!-- Modal Header -->
             <template slot="modal-title">
                 <fa icon="file-edit"></fa>
-                Edit Ability
+                <span v-if="isEdit">
+                    Edit
+                </span>
+                <span v-else>
+                    Add
+                </span>
+                Ability
             </template>
 
             <!-- Modal Content -->
@@ -65,8 +71,6 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    // import _ from 'lodash';
-
     // Managers
     import charMan from '../../../../api/managers/character';
     import eoteMan from '../../../../api/managers/eote';
@@ -88,22 +92,39 @@
         data()
         {
             return {
+                id: undefined,
                 name: '',
                 description: '',
                 reference: ''
             };
         },
+        computed: {
+            isEdit() { return this.id !== undefined; }
+        },
         methods: {
             async onSave()
             {
-                // Save supplement.
-                const ability = await eoteMan.addSup('abilities', {
-                    name: this.name,
-                    description: this.description,
-                    reference: this.reference
-                });
+                if(this.isEdit)
+                {
+                    const ability = await eoteMan.editSup('abilities', {
+                        id: this.id,
+                        name: this.name,
+                        description: this.description,
+                        reference: this.reference
+                    });
 
-                this.$emit('add', ability);
+                    this.$emit('edit', ability);
+                }
+                else
+                {
+                    const ability = await eoteMan.addSup('abilities', {
+                        name: this.name,
+                        description: this.description,
+                        reference: this.reference
+                    });
+
+                    this.$emit('add', ability);
+                } // end if
             },
             onShown()
             {
@@ -118,8 +139,20 @@
                 });
             },
 
-            show()
+            show(ability)
             {
+                if(ability)
+                {
+                    this.id = ability.id;
+                    this.name = ability.name;
+                    this.description = ability.description;
+                    this.reference = ability.reference;
+                }
+                else
+                {
+                    this.id = undefined;
+                } // end if
+
                 this.$refs.modal.show();
             },
             hide()

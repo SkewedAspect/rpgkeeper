@@ -75,6 +75,11 @@ class SupplementUtils
                     if(body.scope === 'public')
                     {
                         body.owner = null;
+                    }
+                    else
+                    {
+                        body.scope = 'user';
+                        body.owner = req.user.account_id;
                     } // end if
 
                     resp.json(await suppMan.updateSupplement(body, type, systemPrefix, req.user));

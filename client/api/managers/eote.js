@@ -107,6 +107,17 @@ class EotEManager
         return newSupp;
     } // end addSup
 
+    async editSup(type, supp)
+    {
+        const newSupp = await suppMan.update(type, supp);
+
+        // Update subject
+        const supplements = this[type].filter((item) => item.id !== supp.id).concat([ newSupp ]);
+        this[`_${ type }Subject`].next(supplements);
+
+        return newSupp;
+    } // end editSup
+
     async delSup(type, supp)
     {
         await suppMan.delete(type, supp.id);

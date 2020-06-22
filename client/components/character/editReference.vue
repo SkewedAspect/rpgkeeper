@@ -107,6 +107,11 @@
             {
                 this.$emit('input', this.refString);
             }
+        },
+        mounted()
+        {
+            this.source = this.valParts[0];
+            this.page = this.valParts[1];
         }
     };
 </script>

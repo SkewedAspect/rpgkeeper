@@ -42,9 +42,9 @@ class SupplementManager
         return suppRA.update(this.system, type, supplement);
     } // end update
 
-    async delete(type, name)
+    async delete(type, id)
     {
-        return suppRA.delete(this.system, type, name);
+        return suppRA.delete(this.system, type, id);
     } // end delete
 } // end SupplementManager
 
