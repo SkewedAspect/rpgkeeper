@@ -31,7 +31,7 @@ class GenericSystem extends BaseSystem
         super(id, name, description, schemas.character);
 
         // TODO: Remove once this system is ready
-        this._disabled = true;
+        this._status = 'disabled';
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor

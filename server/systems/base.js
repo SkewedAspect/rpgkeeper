@@ -4,7 +4,7 @@
 
 class BaseSystem
 {
-    constructor(id, name, description, schema = { type: 'object' }, defaults = {}, suppPaths = [], disabled = false)
+    constructor(id, name, description, schema = { type: 'object' }, defaults = {}, suppPaths = [], status = undefined)
     {
         this._id = id;
         this._name = name;
@@ -13,7 +13,8 @@ class BaseSystem
         this._defaults = defaults;
         this._supplementPaths = suppPaths;
 
-        this._disabled = disabled;
+        // Enum: 'dev', 'beta', 'disabled', or undefined.
+        this._status = status;
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
@@ -23,7 +24,7 @@ class BaseSystem
     get id() { return this._id; }
     get name() { return this._name; }
     get description() { return this._description; }
-    get disabled() { return this._disabled; }
+    get status() { return this._status; }
     get schema() { return this._schema; }
     get defaults() { return this._defaults; }
     get supplementPaths() { return this._supplementPaths; }
@@ -45,7 +46,7 @@ class BaseSystem
             description: this.description,
             defaults: this.defaults,
             supplementPaths: this.supplementPaths,
-            disabled: this.disabled
+            status: this.status
         };
     } // end toJSON
 } // end BaseSystem

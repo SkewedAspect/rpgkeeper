@@ -57,7 +57,7 @@
                             <b-col>
                                 <b-form-group
                                     id="char-sys-group"
-                                    description="The rpg system this character is for. (Ex: 'FATE', 'D&D', etc.)"
+                                    description="The rpg system this character is for."
                                     label="System"
                                     label-for="char-sys"
                                 >
@@ -200,7 +200,17 @@
                 get() { return !!this.value; },
                 set() { /* We ignore setting */ }
             },
-            systems() { return this.allSystems.filter((sys) => sys.disabled !== true); },
+            systems()
+            {
+                return this.allSystems
+                    .map((sys) =>
+                    {
+                        return {
+                            ...sys,
+                            name: sys.status ? `${ sys.name } (${ systemsMan.getStatusDisplay(sys.status) })` : sys.name
+                        };
+                    });
+            },
             char() { return this.value; }
         },
         watch: {

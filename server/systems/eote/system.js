@@ -39,7 +39,7 @@ class GenesysSystem extends BaseSystem
             { list: 'weapons', path: 'qualities', type: 'quality' }
         ];
 
-        super(id, name, description, schemas.genesys.character, defaults.genesys.character, suppPaths);
+        super(id, name, description, schemas.genesys.character, defaults.genesys.character, suppPaths, 'beta');
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor
@@ -63,7 +63,7 @@ class EOTESystem extends BaseSystem
             { list: 'weapons', path: 'qualities', type: 'quality' }
         ];
 
-        super(id, name, description, schemas.eote.character, defaults.eote.character, suppPaths);
+        super(id, name, description, schemas.eote.character, defaults.eote.character, suppPaths, 'beta');
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor
