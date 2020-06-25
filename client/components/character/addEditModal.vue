@@ -203,7 +203,6 @@
             systems()
             {
                 return this.allSystems
-                    .filter((sys) => sys.disabled !== true)
                     .map((sys) =>
                     {
                         return {
