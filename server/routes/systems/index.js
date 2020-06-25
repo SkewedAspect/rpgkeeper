@@ -32,7 +32,7 @@ router.get('/', (request, response) =>
             .filter((system) =>
             {
                 const user = _.get(request, 'user', { permissions: [], groups: [] });
-                return permMan.hasPerm(user, 'Systems/viewDisabled') || !system.disabled;
+                return permMan.hasPerm(user, 'Systems/viewDisabled') || system.status !== 'disabled';
             });
 
         response.json(systems);

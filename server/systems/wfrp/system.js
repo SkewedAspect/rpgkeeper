@@ -31,7 +31,7 @@ class WfrpSystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description, schemas.character, defaults.character);
+        super(id, name, description, schemas.character, defaults.character, [], 'dev');
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor

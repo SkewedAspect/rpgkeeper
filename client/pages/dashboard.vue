@@ -64,6 +64,15 @@
                                         @click.native.stop
                                     >
                                         {{ system.name }}
+                                        <b-badge
+                                            v-if="system.status"
+                                            :variant="getStatusVariant(system.status)"
+                                            class="ml-2"
+                                            :title="getStatusDescription(system.status)"
+                                        >
+                                            <fa :icon="getStatusIcon(system.status)"></fa>
+                                            {{ getStatusDisplay(system.status) }}
+                                        </b-badge>
                                     </b-form-checkbox>
                                 </b-dropdown-item>
                                 <b-dropdown-divider></b-dropdown-divider>
@@ -197,7 +206,7 @@
                     || this.systemsStatus !== 'loaded'
                     || this.charsStatus !== 'loaded';
             },
-            systems() { return _.filter(this.allSystems, (sys) => sys.disabled !== true); },
+            systems() { return this.allSystems; },
             characters()
             {
                 return _(this.characterList)
@@ -205,8 +214,7 @@
                     .filter({ account_id: (this.account || {}).id })
                     .filter((char) =>
                     {
-                        const systemValid = _.includes(this.systemsFilter, char.system);
-                        return !systemsMan.getSystem(char.system).disabled && systemValid;
+                        return _.includes(this.systemsFilter, char.system);
                     })
                     .filter((char) =>
                     {
@@ -232,6 +240,48 @@
             getSystem(systemID)
             {
                 return _.find(this.systems, { id: systemID });
+            },
+            getStatusDisplay(desc)
+            {
+                return systemsMan.getStatusDisplay(desc);
+            },
+            getStatusDescription(desc)
+            {
+                return systemsMan.getStatusDescription(desc);
+            },
+            getStatusIcon(desc)
+            {
+                switch (desc)
+                {
+                    case 'dev':
+                        return 'exclamation-triangle';
+
+                    case 'beta':
+                        return 'info-circle';
+
+                    case 'disabled':
+                        return 'exclamation-triangle';
+
+                    default:
+                        return undefined;
+                } // end switch
+            },
+            getStatusVariant(desc)
+            {
+                switch (desc)
+                {
+                    case 'dev':
+                        return 'warning';
+
+                    case 'beta':
+                        return 'info';
+
+                    case 'disabled':
+                        return 'danger';
+
+                    default:
+                        return undefined;
+                } // end switch
             },
 
             selectAllSystems()
