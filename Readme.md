@@ -21,10 +21,6 @@ Don't get us wrong, Roll20 certainly has a lot of features, and a dedicated fanb
 
 Currently there are no limits on number of characters.
 
-### How much does RPGKeeper cost?
-
-Currently, RPGKeeper is free. In the future, there is a plan to monetize the project, but there will always be a free tier, and you will not lose access to any existing characters once we implement that plan.
-
 ### I have a game I want to add a system for!
 
 Well, are you a developer? RPGKeeper is written in [VueJS][vue], [TypeScript][ts], and [NodeJS][node]. If you know (or are willing to learn) those technologies, then fork the code, and start adding a system. If, instead, you're just a gamer and want us to do the work, then [Request a System](https://github.com/Morgul/rpgkeeper/issues/new?labels=system%20request&title=[Request]%20).
