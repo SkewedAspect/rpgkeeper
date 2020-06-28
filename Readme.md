@@ -9,7 +9,7 @@
 * Production: https://rpgkeeper.com
 * Beta: https://beta.rpgkeeper.com
 
-RPGKeeper is a digital chracter manager. While there are many others out there that are targeted to one or two systems, RPGKeeper aims to be a _universal_ character management system. It can support any TTRPG system ever created, as long as that system is added into it's codebase. Building a system is a time-consuming process, but it's possible to get the basics going in just a few hours. And with support for a 'generic' system, RPGKeeper allows you to get down to playing quickly even if it doesn't support your game with a dedicated system.
+RPGKeeper is a digital chracter manager. While there are many others out there that are targeted to one or two systems, RPGKeeper aims to be a _universal_ character management system. It can support any TTRPG system ever created, as long as that system is added into it's codebase. Building a system is a time-consuming process, but it's possible to get the basics going in just a few hours. With support for a 'generic' system, RPGKeeper allows you to get down to playing quickly even if it doesn't support your game with a dedicated system.
 
 ## FAQ
 
