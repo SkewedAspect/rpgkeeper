@@ -128,6 +128,8 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    import _ from 'lodash';
+
     // Components
     import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
     import MarkdownBlock from '../ui/markdown.vue';
@@ -177,8 +179,15 @@
             {
                 // Filter out an already selected supplements, and ones that match the search filter
                 return this.available
-                    .filter((supp) => supp.name.toLowerCase().includes(this.search.toLowerCase())
-                        && !this.selected.includes(supp.id))
+                    .filter((supp) =>
+                    {
+                        let alreadyAdded = this.selected.includes(supp.id);
+                        if(_.get(this.selected[0], 'id') !== undefined)
+                        {
+                            alreadyAdded = !!(this.selected.filter((item) => item.id === supp.id)[0]);
+                        } // end if
+                        return supp.name.toLowerCase().includes(this.search.toLowerCase()) && !alreadyAdded;
+                    })
                     .sort((suppA, suppB) => suppA.name.localeCompare(suppB.name));
             },
             selectedSupplements()
@@ -252,6 +261,8 @@
             addSupp()
             {
                 this.$emit('add', { id: this.suppToAdd.id });
+                this.suppToAdd = undefined;
+                this.search = '';
             },
             removeSupp(supp)
             {
