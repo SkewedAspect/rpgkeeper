@@ -68,7 +68,7 @@
                             </div>
                             <div class="pt-2">
                                 {{ getSupp(supp.id).name }}
-                                <span v-if="getSupp(supp.id).ranked">{{ supp.rank }}</span>
+                                <span v-if="getSupp(supp.id).ranked">{{ supp.ranks }}</span>
                             </div>
                         </b-list-group-item>
                     </b-list-group>
@@ -95,7 +95,7 @@
                             </div>
                             <b>
                                 {{ currentSupplement.name }}
-                                <span v-if="currentSupplement.ranked">{{ supplementInstance.rank }}</span>
+                                <span v-if="currentSupplement.ranked">{{ supplementInstance.ranks }}</span>
                             </b>
                         </slot>
                     </template>
@@ -107,9 +107,9 @@
                     <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
                         <div v-if="currentSupplement.ranked" class="mb-2">
                             <label for="sb-inline">Ranks</label>
-                            <b-form-spinbutton id="sb-inline" v-model="supplementInstance.rank" inline></b-form-spinbutton>
+                            <b-form-spinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></b-form-spinbutton>
                         </div>
-                        <markdown-block class="font-italic" :text="currentSupplement.description" inline></markdown-block>
+                        <markdown-block :text="currentSupplement.description" inline></markdown-block>
                         <reference
                             class="float-right mt-2"
                             :reference="currentSupplement.reference"

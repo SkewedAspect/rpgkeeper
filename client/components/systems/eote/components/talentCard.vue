@@ -5,12 +5,8 @@
 <template>
     <b-card v-if="talent && talentBase" :id="id" class="eote-talent-card" no-body>
         <template v-slot:header>
-            <b-btn-close v-if="!readonly" style="margin-top: -2px;" @click.stop.prevent="remove"></b-btn-close>
-            <b-btn-close v-if="!readonly" class="mr-1" style="margin-top: 5px; font-size: 0.9rem" @click.stop.prevent="edit">
-                <fa icon="edit"></fa>
-            </b-btn-close>
             {{ talentBase.name }}
-            <span v-if="talentBase.ranked">{{ talent.rank }}</span>
+            <span v-if="talentBase.ranked">{{ talent.ranks }}</span>
             <span v-if="mode === 'genesys'">
                 (Tier {{ talent.tier }})
             </span>
@@ -19,7 +15,7 @@
                 <template v-slot:title>
                     <div :class="`${ mode }-system`">
                         {{ talentBase.name }}
-                        <span v-if="talentBase.ranked">{{ talent.rank }}</span>
+                        <span v-if="talentBase.ranked">{{ talent.ranks }}</span>
                         <span v-if="mode === 'genesys'">
                             (Tier {{ talent.tier }})
                         </span>

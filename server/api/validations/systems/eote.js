@@ -242,7 +242,7 @@ const armorSchema = {
 //     range: 'en',
 //     encumbrance: 1,
 //     rarity: 1,
-//     qualities: [ { name: 'Razor Edge' }, { name: 'Sunder', rank: 2 } ],
+//     qualities: [ { name: 'Razor Edge' }, { name: 'Sunder', ranks: 2 } ],
 //     reference: {
 //         source: 'Homebrew'
 //     }
@@ -269,7 +269,7 @@ const weaponSchema = {
                 required: [ 'id' ],
                 properties: {
                     id: { type: 'integer', minimum: 0 },
-                    rank: { type: 'integer', minimum: 1 }
+                    ranks: { type: 'integer', minimum: 1 }
                 }
             },
             uniqueItems: true,
@@ -422,7 +422,7 @@ const genesysChar = {
                         required: [ 'id' ],
                         properties: {
                             id: { type: 'integer', minimum: 0 },
-                            rank: { type: 'integer', minimum: 1 }
+                            ranks: { type: 'integer', minimum: 1 }
                         }
                     },
                     uniqueItems: true,
@@ -465,7 +465,7 @@ const genesysChar = {
                             required: [ 'id' ],
                             properties: {
                                 id: { type: 'integer', minimum: 0 },
-                                rank: { type: 'integer', minimum: 1 }
+                                ranks: { type: 'integer', minimum: 1 }
                             }
                         },
                         uniqueItems: true,

@@ -11,15 +11,18 @@
                 <span class="d-none d-md-inline">Talents</span>
             </h5>
             <div v-if="!readonly" class="ml-auto">
-                <b-btn size="sm" style="margin-bottom: 1px;" @click="openAddModal()">
-                    <fa icon="plus" fixed-width></fa>
-                    <span class="d-none d-md-inline">Add</span>
+                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                    <fa icon="edit" fixed-width></fa>
+                    <span class="d-none d-md-inline">Edit</span>
                 </b-btn>
             </div>
         </div>
 
         <!-- Card Body -->
         <component :is="mode" ref="subTalent"></component>
+
+        <!-- Modals -->
+        <edit-talents-modal ref="editTalentsModal"></edit-talents-modal>
     </rpgk-card>
 </template>
 
@@ -42,6 +45,7 @@
     import RpgkCard from '../../ui/card.vue';
     import EotETalents from './sub/eoteTalents.vue';
     import GenesysTalents from './sub/genesysTalents.vue';
+    import EditTalentsModal from './modals/editTalentsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -50,7 +54,8 @@
         components: {
             RpgkCard,
             eote: EotETalents,
-            genesys: GenesysTalents
+            genesys: GenesysTalents,
+            EditTalentsModal
         },
         props: {
             readonly: {
@@ -62,9 +67,9 @@
             mode: eoteMan.mode$
         },
         methods: {
-            openAddModal(talent)
+            openEditModal()
             {
-                this.$refs.subTalent.openAddEditModal(talent);
+                this.$refs.editTalentsModal.show();
             }
         }
     };

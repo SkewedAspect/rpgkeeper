@@ -51,7 +51,7 @@
                 type: Number,
                 required: true
             },
-            rank: {
+            ranks: {
                 type: Number,
                 default: 1
             }
@@ -87,7 +87,7 @@
                     text = `${ this.quality.name }`;
                     if(this.quality.ranked)
                     {
-                        text += ` ${ this.rank }`;
+                        text += ` ${ this.ranks }`;
                     } // end if
                 } // end if
 

@@ -18,14 +18,14 @@
         >
             <template v-slot:preview="{ instance, supplement }">
                 <div v-if="supplement.ranked" class="mb-2 float-right">
-                    <label for="sb-inline"><b>Ranks</b></label>
-                    <b-form-spinbutton id="sb-inline" v-model="instance.rank" inline></b-form-spinbutton>
+                    <label for="sb-inline">Ranks</label>
+                    <b-form-spinbutton id="sb-inline" v-model="instance.ranks" inline></b-form-spinbutton>
                 </div>
                 <div class="mb-2">
-                    <b v-if="supplement.passive">Passive</b>
-                    <b v-else>Active</b>
+                    <i v-if="supplement.passive">Passive</i>
+                    <i v-else>Active</i>
                 </div>
-                <markdown-block class="font-italic" :text="supplement.description" inline></markdown-block>
+                <markdown-block :text="supplement.description" inline></markdown-block>
                 <reference
                     class="float-right mt-2"
                     :reference="supplement.reference"
@@ -124,7 +124,7 @@
 
                 if(this.getQual(quality).ranked)
                 {
-                    newQual.rank = 1;
+                    newQual.ranks = 1;
                 } // end if
 
                 this.selectedQualities.push(newQual);
