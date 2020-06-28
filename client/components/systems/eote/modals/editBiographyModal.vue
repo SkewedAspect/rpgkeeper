@@ -119,7 +119,7 @@
         </b-modal>
 
         <!-- Modals -->
-        <add-edit-ability-modal ref="addEditAbilityModal" @add="onAbilityModalAdd"></add-edit-ability-modal>
+        <add-edit-ability-modal ref="addEditAbilityModal" @add="onAbilityAdd"></add-edit-ability-modal>
         <delete-modal
             ref="delAbilityModal"
             :name="delAbility.name"
@@ -226,10 +226,6 @@
             onAbilityNew()
             {
                 this.$refs.addEditAbilityModal.show();
-            },
-            onAbilityModalAdd(ability)
-            {
-                this.selectedAbilities.push(ability.id);
             },
             onAbilityEdit(ability)
             {

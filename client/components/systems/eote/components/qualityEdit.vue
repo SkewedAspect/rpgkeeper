@@ -16,10 +16,25 @@
             @edit="onQualityEdit"
             @delete="onQualityDelete"
         >
+            <template v-slot:preview="{ instance, supplement }">
+                <div v-if="supplement.ranked" class="mb-2 float-right">
+                    <label for="sb-inline"><b>Ranks</b></label>
+                    <b-form-spinbutton id="sb-inline" v-model="instance.rank" inline></b-form-spinbutton>
+                </div>
+                <div class="mb-2">
+                    <b v-if="supplement.passive">Passive</b>
+                    <b v-else>Active</b>
+                </div>
+                <markdown-block class="font-italic" :text="supplement.description" inline></markdown-block>
+                <reference
+                    class="float-right mt-2"
+                    :reference="supplement.reference"
+                ></reference>
+            </template>
         </supplement-select>
 
         <!-- Modals -->
-        <!--        <add-edit-ability-modal ref="addEditAbilityModal" @add="onAbilityModalAdd"></add-edit-ability-modal>-->
+        <add-edit-quality-modal ref="addEditQualityModal" @add="onQualityAdd"></add-edit-quality-modal>
         <delete-modal
             ref="delQualityModal"
             :name="delQuality.name"
@@ -51,6 +66,9 @@
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import DeleteModal from '../../../ui/deleteModal';
+    import AddEditQualityModal from '../modals/addEditQualityModal.vue';
+    import MarkdownBlock from '../../../ui/markdown.vue';
+    import Reference from '../../../character/reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -58,7 +76,10 @@
         name: 'EoteQualityEdit',
         components: {
             DeleteModal,
-            SupplementSelect
+            SupplementSelect,
+            AddEditQualityModal,
+            MarkdownBlock,
+            Reference
         },
         props: {
             value: {
@@ -119,10 +140,6 @@
             {
                 this.$refs.addEditQualityModal.show();
             },
-            onQualityModalAdd(quality)
-            {
-                this.selectedQualities.push(quality.id);
-            },
             onQualityEdit(quality)
             {
                 this.$refs.addEditQualityModal.show(quality);
@@ -142,7 +159,7 @@
             async onDelQualityDelete()
             {
                 this.$refs.suppSelect.clearSelection();
-                this.selectedQualities = _.without(this.selectedQualities, this.delQuality.id);
+                this.selectedQualities = this.selectedQualities.filter((item) => item.id !== this.delQuality.id);
                 this.character.details.qualities = this.selectedQualities;
 
                 return Promise.all([
