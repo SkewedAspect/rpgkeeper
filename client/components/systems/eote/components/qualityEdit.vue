@@ -93,11 +93,15 @@
             }
         },
         methods: {
+            getQual(qualityInstance)
+            {
+                return this.qualities.find((qual) => qual.id === qualityInstance.id);
+            },
             onQualityAdd(quality)
             {
                 const newQual = { id: quality.id };
 
-                if(quality.ranked)
+                if(this.getQual(quality).ranked)
                 {
                     newQual.rank = 1;
                 } // end if

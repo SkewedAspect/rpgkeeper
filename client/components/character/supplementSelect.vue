@@ -57,9 +57,6 @@
                     <!-- Supplement Selection -->
                     <b-list-group v-if="selectedSupplements.length > 0" flush class="overflow-auto">
                         <b-list-group-item v-for="supp in selectedSupplements" :key="supp.id" :variant=" supp.id === currentSelection ? 'primary' : ''" @click="selectSupp(supp)">
-                            <span>
-                                {{ getSupp(supp.id).name }}
-                            </span>
                             <div class="float-right">
                                 <b-badge :variant="getSupp(supp.id).scope === 'user' ? 'success' : ''">
                                     <span v-if="getSupp(supp.id).scope === 'user'">User</span>
@@ -68,6 +65,10 @@
                                 <b-button class="ml-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
                                     <fa icon="times"></fa>
                                 </b-button>
+                            </div>
+                            <div class="pt-2">
+                                {{ getSupp(supp.id).name }}
+                                <span v-if="getSupp(supp.id).ranked">{{ supp.rank }}</span>
                             </div>
                         </b-list-group-item>
                     </b-list-group>
@@ -81,7 +82,7 @@
             <b-col>
                 <b-card>
                     <template v-if="currentSelection" v-slot:header>
-                        <slot name="header">
+                        <slot :instance="supplementInstance" :supplement="currentSupplement" name="header">
                             <div v-if="currentSupplement.scope === 'user'" class="float-right">
                                 <b-btn size="sm" @click="editSupp(currentSupplement)">
                                     <fa icon="edit"></fa>
@@ -92,7 +93,10 @@
                                     Delete
                                 </b-btn>
                             </div>
-                            <b>{{ currentSupplement.name }}</b>
+                            <b>
+                                {{ currentSupplement.name }}
+                                <span v-if="currentSupplement.ranked">{{ supplementInstance.rank }}</span>
+                            </b>
                         </slot>
                     </template>
                     <slot v-if="!currentSelection" name="noSelection">
@@ -100,7 +104,11 @@
                             <i>Please select an option to view/edit it.</i>
                         </div>
                     </slot>
-                    <slot v-else :data="supplementInstance" :supplement="currentSupplement" name="preview">
+                    <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
+                        <div v-if="currentSupplement.ranked" class="mb-2">
+                            <label for="sb-inline">Ranks</label>
+                            <b-form-spinbutton id="sb-inline" v-model="supplementInstance.rank" inline></b-form-spinbutton>
+                        </div>
                         <markdown-block class="font-italic" :text="currentSupplement.description" inline></markdown-block>
                         <reference
                             class="float-right mt-2"
