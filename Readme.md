@@ -1,19 +1,41 @@
-# RPGKeeper
+<h1>
+    <img width="32" height="32" src="client/static/images/logo.png">
+    RPGKeeper
+</h1>
 
-I am an avid table-top RPG player. I have been playing various forms of RPGs for years (currently it's mainly D&D, and 
-Edge of the Empire). Frequently, I felt limited or frustrated by the paper character sheets I had. And sometimes I'd
-lose them, or something would get spilled, or I'd want to look up something about my character, but didn't have it on me.
-Any of you who've played table-top RPGs know what I'm talking about.
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/Morgul/rpgkeeper.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Morgul/rpgkeeper/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Morgul/rpgkeeper.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Morgul/rpgkeeper/context:javascript)
 
-That's why I've decided to make a website for storing your characters. It's a daunting task, and I've been working on
-various versions of it for years; this is only the latest iteration. And yes, it does keep getting better.
+* Production: https://rpgkeeper.com
+* Beta: https://beta.rpgkeeper.com
 
-My vision for RPGKeeper is that it become a site useful for groups of players as well as individuals. I want GMs and 
-Players to love it, using it for big campaigns, and as a central clearinghouse for campaign related things. At the 
-moment, most of these features are missing, but I will be working on adding them just as soon as I get my core target 
-systems built and working.
+RPGKeeper is a digital chracter manager. While there are many others out there that are targeted to one or two systems, RPGKeeper aims to be a _universal_ character management system. It can support any TTRPG system ever created, as long as that system is added into it's codebase. Building a system is a time-consuming process, but it's possible to get the basics going in just a few hours. With support for a 'generic' system, RPGKeeper allows you to get down to playing quickly even if it doesn't support your game with a dedicated system.
+
+## FAQ
+
+### But what about Roll20?
+
+Don't get us wrong, Roll20 certainly has a lot of features, and a dedicated fanbase. But Role20 is a map first, and a character/campaign manager second. Often, character sheets are built based off the official paper sheets from games; which often don't translate well to a digital format. RPGKeeper takes a different approach: we focus on building user experiences centered around playing your character, without worrying about keeping the sheet the same as the paper version. Characters are a first class citizen.
+
+### How many Characters can I have?
+
+Currently there are no limits on number of characters.
+
+### I have a game I want to add a system for!
+
+Well, are you a developer? RPGKeeper is written in [VueJS][vue], [TypeScript][ts], and [NodeJS][node]. If you know (or are willing to learn) those technologies, then fork the code, and start adding a system. If, instead, you're just a gamer and want us to do the work, then [Request a System](https://github.com/Morgul/rpgkeeper/issues/new?labels=system%20request&title=[Request]%20).
+
+### Can I share a link to my character?
+
+You can! Simply copy the url from your browser, and send that link to someone else. They will see a read-only version of your character. (_Note:_ currently, the character they see is not update when you make changes, they will need to refresh. See #59 to track our progress on fixing this.)
+
+---
 
 ## Development
+
+RPGKeeper is, and always will be an open source project. We want to encourage developers to help improve it, and add new features that we haven't even considered before. As such, we want to keep how to contribute front and center in this readme. All contributions are welcome!
+
+### Getting started
 
 Before getting started you will need the following installed:
 
@@ -40,86 +62,8 @@ Finally, you will need to start the server:
 It should create a new database file: `<project_root>/db/rpgk.db`. You should now be able to access the running client
 at http://localhost:5678/.
 
-## Targets Systems
+#### Checking your work
 
-The systems I'm initially building/supporting:
+Before you are allowed to push, the project will force you to run through the linter. If the linter doesn't pass, you don't get to push. To check on your own, I recommend you run: `yarn run lint:fix`. If this passes then you know you're good to go.
 
-* Generic System
-    * This should be suitable for any system that doesn't use special dice. (Or, any system, if you don't mind rolling physical dice.)
-* Risus
-    * Should be simple, and is great for one-shots.
-* FATE
-    * This is a middle-weight system, and has seen some uptake lately, there's no reason not to consider it.
-* Edge of the Empire
-    * I run a lot of EotE content, and the system is simple enough it wasn't that hard.
-* Genesys
-    * It's just a more generic EotE; likely EotE can be implemented as a variant of this system.
-* Dungeons and Dragons 3.5 Edition
-    * Another nostalgic system that still has quite a following.
-* Dungeons and Dragons 4th Edition
-    * I still run/play in several of these campaigns, so I plan on supporting this for a while to come.
-* Dungeons and Dragons 5th Edition
-    * While I'm not a fan, I know it's the next version of D&D, and I'd like to support it.
-* Vampire the Masquerade
-    * This is nostalgic for me, and I have a lot of old characters I'd like to digitize.
-
-## Current Progress
-
-* [ ] Campaign Support
-    * [ ] Initial Design
-* [ ] Systems
-    * [ ] Generic System
-        * [ ] Data model
-        * [ ] UI
-    * [X] Risus
-        * [X] Data model
-        * [X] UI
-    * [X] FATE
-        * [X] Data model
-        * [X] UI
-    * [ ] Genesys / EotE
-        * [ ] Data Model
-        * [ ] UI
-    * [ ] Dungeons and Dragons 3.5
-        * [ ] Data model
-        * [ ] UI
-    * [ ] Dungeons and Dragons 4
-        * [ ] Data model
-        * [ ] UI
-    * [ ] Dungeons and Dragons 5
-        * [ ] Data model
-        * [ ] UI
-    * [ ] Vampire the Masquerade
-        * [ ] Data model
-        * [ ] UI
-
-### Infrastructure Revamp
-
-I want to rework a lot of the infrastructure so that it's easier to add things to in the future. The basic idea is this:
-
-* [X] ~~Switch to Vuetify (I don't like it's API as much but it's worlds faster, with better components.)~~
-* [X] Switch to Bootstrap v4 (and Bootstrap-Vue)
-* [X] Add a base model class that knows if it's dirty ~~(Proxy-based)~~
-* [X] Use RxJS to manage state; the current character becomes an observable
-* [ ] Evaluate using `vuex` instead of RxJS, and the special models.
-* [X] Move all resource access (like loading characters, systems, etc) into 'resource-access'
-* [X] Move all state holding and application logic to 'managers'
-* [X] Make components very, very dumb. They only have their own state, and logic relevant to their display.
-* [X] Move to ~~webpack~~ parcel.
-* [ ] Implement `socket.io` so open pages stay in sync as changes are made. (Think, GM opening character pages.)
-* [X] Move to `knex` and sqlite (with the option for `postgres` for deployment)
-* [X] Move away from one table per system character to a single character record.
-    * [X] ~~The system specific data would be a `any()` blob of JSON.~~
-    * [X] Each system would define an [ajv][] schema for it's specific data.
-    * [ ] Evaluate and possibly implement [Joi][joi] instead of [AJV][ajv].
-    * [ ] Any additional data (classes, spells, etc) needed should be treated as static data, ~~and loaded from json files on disk.~~ and loaded as seeds into the database.
-* [X] Move and refactor systems; they should no longer be their own thing, they should be integrated as just run of the
-    mill routes/components, as part of the application. No need for shared units like current.
-* [ ] Convert to typescript
-* [ ] Setup a reasonable ~~docker build~~/deploy pipeline in GitHub. (PARTIAL)
-* [X] Setup eslint MR checking in GitHub.
-
-This should really set us up for more complex interactions and a much faster time to implementing Campaigns.
-
-[ajv]: http://epoberezkin.github.io/ajv/
-[joi]: https://github.com/hapijs/joi
+_Note: Merge requests will not be accepted without passing linting._
