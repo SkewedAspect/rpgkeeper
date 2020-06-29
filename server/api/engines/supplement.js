@@ -128,6 +128,7 @@ class SupplementEngine
 
         // Common processing
         supp.official = !!supp.official;
+        supp.owner = supp.owner ? parseInt(supp.owner) : undefined;
 
         return camelCaseKeys(supp);
     } // end fromDatabase

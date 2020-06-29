@@ -110,13 +110,13 @@
             <b-col>
                 <h3 class="text-center">
                     <fa icon="sack-dollar"></fa>
-                    Totally Free
+                    Usefully Free
                 </h3>
 
                 <p class="mt-4">
-                    This is a passion project for the developers. There is no <i>(and never will be any)</i> plan to
-                    "monetize" RPGKeeper. It is and always will be made available to the public at no cost to them. The
-                    most we will ever do is ask for donations.
+                    As RPGKeeper evolves from a passion project to a full-fledged platform, it's needs have to evolve as
+                    well. Regardless, we are dedicated to always having the core functionality be free. RPGKeeper will
+                    always be useful, even if you don't pay for it.
                 </p>
 
                 <hr class="fancy" />

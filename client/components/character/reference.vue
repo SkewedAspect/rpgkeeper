@@ -4,7 +4,8 @@
 
 <template>
     <div class="eote-reference" :class="{ inline: isInline }">
-        <span class="name">{{ name }}</span>, p{{ page }}
+        <span class="name">{{ name }}</span>
+        <span v-if="page">, p{{ page }}</span>
     </div>
 </template>
 
@@ -27,7 +28,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import eoteManager from '../../../../api/managers/eote';
+    import eoteManager from '../../api/managers/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 

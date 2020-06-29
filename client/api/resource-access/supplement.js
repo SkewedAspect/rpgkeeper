@@ -31,13 +31,13 @@ class SupplementResourceAccess
 
     async update(system, path, supplement)
     {
-        return axios.patch(`/systems/${ system }/${ path }/${ supplement.name }`, supplement)
+        return axios.patch(`/systems/${ system }/${ path }/${ supplement.id }`, supplement)
             .then(({ data }) => data);
     } // end update
 
-    async delete(system, path, name)
+    async delete(system, path, id)
     {
-        return axios.delete(`/systems/${ system }/${ path }/${ name }`)
+        return axios.delete(`/systems/${ system }/${ path }/${ id }`)
             .then(() => undefined);
     } // end delete
 } // end SupplementResourceAccess

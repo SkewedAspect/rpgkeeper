@@ -162,7 +162,7 @@ class SupplementResourceAccess
         return db(tableName)
             .where({ id })
             .update(supplement)
-            .then(() => this.get(supplement.name, supplement.scope, supplement.owner, type, tableName));
+            .then(() => this.get(supplement.name, supplement.scope, supplement.owner, type, tableName, account));
     } // end updateSupplement
 
     async deleteSupplement(id, tableName)

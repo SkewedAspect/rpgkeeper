@@ -95,6 +95,37 @@ class EotEManager
     //------------------------------------------------------------------------------------------------------------------
     // Public API
     //------------------------------------------------------------------------------------------------------------------
+
+    async addSup(type, supp)
+    {
+        const newSupp = await suppMan.add(type, supp);
+
+        // Update subject, and compact falsey values
+        const supplements = [ newSupp ].concat(this[type]).filter((item) => !!item);
+        this[`_${ type }Subject`].next(supplements);
+
+        return newSupp;
+    } // end addSup
+
+    async editSup(type, supp)
+    {
+        const newSupp = await suppMan.update(type, supp);
+
+        // Update subject
+        const supplements = this[type].filter((item) => item.id !== supp.id).concat([ newSupp ]);
+        this[`_${ type }Subject`].next(supplements);
+
+        return newSupp;
+    } // end editSup
+
+    async delSup(type, supp)
+    {
+        await suppMan.delete(type, supp.id);
+
+        // Update subject, and compact falsey values
+        const supplements = this[type].filter((item) => item.id !== supp.id);
+        this[`_${ type }Subject`].next(supplements);
+    } // end delSup
 } // end EotEManager
 
 //----------------------------------------------------------------------------------------------------------------------

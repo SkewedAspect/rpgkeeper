@@ -83,7 +83,8 @@
     "vue-hot-reload-api": "^2.3.1",
     "vue-router": "^3.1.5",
     "vue-rx": "6.0.1",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vue-typeahead-bootstrap": "^2.1.2"
   },
   "husky": {
     "hooks": {

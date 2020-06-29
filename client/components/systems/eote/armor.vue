@@ -65,8 +65,8 @@
                     <b-td class="text-center">
                         {{ armor.rarity }}
                     </b-td>
-                    <b-td>
-                        <quality v-for="quality in armor.qualities" :id="quality.id" :key="quality.id" :rank="quality.rank"></quality>
+                    <b-td class="text-nowrap w-25">
+                        <quality v-for="quality in armor.qualities" :id="quality.id" :key="quality.id" :ranks="quality.ranks"></quality>
                         <h5 v-if="armor.qualities === 0" class="mt-2 text-center">
                             No Upgrades.
                         </h5>

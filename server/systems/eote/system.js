@@ -26,10 +26,11 @@ class GenesysSystem extends BaseSystem
         const name = 'Genesys';
         const description = 'Genesys is a role playing system designed for flexibility and adaptability, specifically tooled to work with any setting imaginable.';
         const suppPaths = [
-            { path: 'motivations.strength', type: 'motivation' },
-            { path: 'motivations.flaw', type: 'motivation' },
-            { path: 'motivations.desire', type: 'motivation' },
-            { path: 'motivations.fear', type: 'motivation' },
+            // FIXME: Currently does not support single objects, only arrays of them!
+            // { path: 'motivations.strength', type: 'motivation' },
+            // { path: 'motivations.flaw', type: 'motivation' },
+            // { path: 'motivations.desire', type: 'motivation' },
+            // { path: 'motivations.fear', type: 'motivation' },
             { path: 'talents', type: 'talent' },
             { path: 'abilities', type: 'ability' },
             { path: 'gear', type: 'gear' },

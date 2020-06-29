@@ -72,12 +72,32 @@ class CharacterResourceAccess
         const { data, status } = await ($http[verb](charURL, character)
             .catch((error) =>
             {
-                // We always print the error, and revert.
-                console.error('Failed to save character:', error);
-                character.revert();
+                if(error.response.status === 422)
+                {
+                    console.warn('Invalid character:', error.response.data);
+                    toastUtil.warning(`${ error.response.data.message } Resetting character.`, {
+                        autoHideDelay: 8000
+                    });
 
-                // Rethrow, so other logic can handle the failure correctly.
-                throw error;
+                    // Reset the character
+                    character.revert();
+
+                    // Needed, or the destructure fails.
+                    return {};
+                }
+                else
+                {
+                    console.error('Failed to save character:', error);
+                    toastUtil.error(`${ error.message }. Resetting character.`, {
+                        autoHideDelay: 8000
+                    });
+
+                    // Reset the character
+                    character.revert();
+
+                    // Rethrow, so other logic can handle the failure correctly.
+                    throw error;
+                } // end if
             }));
 
         if(status === 205)
@@ -90,7 +110,7 @@ class CharacterResourceAccess
 
             return this.getCharacter(character.id);
         }
-        else
+        else if(data)
         {
             // We have to make sure the model is in the list of characters before we call `_buildOrUpdateModel`.
             if(!character.id)
