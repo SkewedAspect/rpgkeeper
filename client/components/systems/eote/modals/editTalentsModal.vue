@@ -33,6 +33,26 @@
                 @edit="onTalentEdit"
                 @delete="onTalentDelete"
             >
+                <template v-slot:preview="{ instance, supplement }">
+                    <div class="clearfix">
+                        <div v-if="supplement.ranked" class="mb-2 float-right">
+                            <label for="sb-inline">Ranks</label>
+                            <b-form-spinbutton id="sb-inline" v-model="instance.ranks" inline></b-form-spinbutton>
+                        </div>
+                        <div class="mb-2">
+                            <i>{{ getActivation(supplement) }}</i>
+                        </div>
+                        <markdown-block :text="supplement.description" inline></markdown-block>
+                        <reference
+                            class="float-right mt-2"
+                            :reference="supplement.reference"
+                        ></reference>
+                    </div>
+                    <div v-if="instance.notes" class="font-sm">
+                        <hr />
+                        <markdown-block :text="instance.notes" inline></markdown-block>
+                    </div>
+                </template>
             </supplement-select>
 
             <!-- Modal Buttons -->
@@ -79,6 +99,8 @@
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
+    import MarkdownBlock from '../../../ui/markdown.vue';
+    import Reference from '../../../character/reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -86,7 +108,9 @@
         name: 'EditTalentModal',
         components: {
             DeleteModal,
-            SupplementSelect
+            SupplementSelect,
+            MarkdownBlock,
+            Reference
         },
         subscriptions: {
             character: charMan.selected$,
@@ -104,6 +128,10 @@
             };
         },
         methods: {
+            getActivation(talent)
+            {
+                return eoteMan.activationEnum[talent.activation] || 'Unknown';
+            },
             async onSave()
             {
                 this.character.details.talents = this.selectedTalents;

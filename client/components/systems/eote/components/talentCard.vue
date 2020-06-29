@@ -5,8 +5,8 @@
 <template>
     <b-card v-if="talent && talentBase" :id="id" class="eote-talent-card" no-body>
         <template v-slot:header>
-            {{ talentBase.name }}
-            <span v-if="talentBase.ranked">{{ talent.ranks }}</span>
+            <b>{{ talentBase.name }}</b>
+            <span v-if="talentBase.ranked" class="font-weight-bold">{{ talent.ranks }}</span>
             <span v-if="mode === 'genesys'">
                 (Tier {{ talent.tier }})
             </span>
