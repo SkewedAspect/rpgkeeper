@@ -67,7 +67,7 @@
         </b-modal>
 
         <!-- Modals -->
-        <!--        <add-edit-talent-modal ref="addEditTalentModal" @add="onTalentAdd"></add-edit-talent-modal>-->
+        <add-edit-talent-modal ref="addEditTalentModal" @add="onTalentAdd"></add-edit-talent-modal>
         <delete-modal
             ref="delTalentModal"
             :name="delTalent.name"
@@ -101,6 +101,7 @@
     import DeleteModal from '../../../ui/deleteModal.vue';
     import MarkdownBlock from '../../../ui/markdown.vue';
     import Reference from '../../../character/reference.vue';
+    import AddEditTalentModal from './addEditTalentModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -110,7 +111,8 @@
             DeleteModal,
             SupplementSelect,
             MarkdownBlock,
-            Reference
+            Reference,
+            AddEditTalentModal
         },
         subscriptions: {
             character: charMan.selected$,

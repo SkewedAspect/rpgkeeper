@@ -1,9 +1,9 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- AddEditQualityModal
+  -- AddEditTalentModal
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="add-quality-modal">
+    <div v-if="character" class="add-talent-modal">
         <b-modal
             ref="modal"
             header-bg-variant="dark"
@@ -23,7 +23,7 @@
                 <span v-else>
                     Add
                 </span>
-                Quality
+                Talent
             </template>
 
             <!-- Modal Content -->
@@ -38,14 +38,49 @@
                     </b-form-group>
                 </b-col>
                 <b-col cols="2" class="pt-4">
-                    <b-form-checkbox v-model="passive" name="passive-check" switch>
-                        <b>Passive</b>
-                    </b-form-checkbox>
-                    <b-form-checkbox v-model="ranked" name="ranked-check" switch>
+                    <b-form-checkbox v-model="ranked" class="mt-3" name="ranked-check" switch>
                         <b>Ranked</b>
                     </b-form-checkbox>
                 </b-col>
             </b-form-row>
+            <b-form-row>
+                <b-col>
+                    <b-form-group
+                        label="Activation"
+                        label-class="font-weight-bold"
+                        label-for="activation-input"
+                    >
+                        <b-form-select id="activation-input" v-model="activation" :options="activations"></b-form-select>
+                    </b-form-group>
+                </b-col>
+                <b-col>
+                    <b-form-group
+                        v-if="mode === 'eote'"
+                        label="Trees"
+                        label-class="font-weight-bold"
+                        label-for="trees-input"
+                    >
+                        <b-form-input id="trees-input" v-model="trees" autocomplete="off"></b-form-input>
+                    </b-form-group>
+                    <b-form-group
+                        v-else
+                        label="Tiers"
+                        label-class="font-weight-bold"
+                        label-for="tiers-input"
+                    >
+                        <b-form-input
+                            id="tiers-input"
+                            v-model.number="tier"
+                            type="number"
+                            step="1"
+                            min="1"
+                            max="5"
+                            autocomplete="off"
+                        ></b-form-input>
+                    </b-form-group>
+                </b-col>
+            </b-form-row>
+
             <b-form-group
                 id="extras-input-group"
                 label="Description"
@@ -75,7 +110,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    .add-quality-modal {
+    .add-talent-modal {
     }
 </style>
 
@@ -94,7 +129,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'AddQualityModal',
+        name: 'AddTalentModal',
         components: {
             EditReference
         },
@@ -108,41 +143,59 @@
                 id: undefined,
                 name: '',
                 description: '',
+                activation: '',
+                trees: '',
+                tier: 1,
                 reference: '',
-                passive: false,
                 ranked: false
             };
         },
         computed: {
-            isEdit() { return this.id !== undefined; }
+            isEdit() { return this.id !== undefined; },
+            activations()
+            {
+                return Object.keys(eoteMan.activationEnum)
+                    .map((value) =>
+                    {
+                        const text = eoteMan.activationEnum[value];
+                        return {
+                            text,
+                            value
+                        };
+                    });
+            }
         },
         methods: {
             async onSave()
             {
                 if(this.isEdit)
                 {
-                    const quality = await eoteMan.editSup('qualities', {
+                    const talent = await eoteMan.editSup('talents', {
                         id: this.id,
                         name: this.name,
                         description: this.description,
-                        passive: this.passive,
+                        activation: this.activation,
+                        trees: this.trees,
+                        tier: this.tier,
                         ranked: this.ranked,
                         reference: this.reference
                     });
 
-                    this.$emit('edit', quality);
+                    this.$emit('edit', talent);
                 }
                 else
                 {
-                    const quality = await eoteMan.addSup('qualities', {
+                    const talent = await eoteMan.addSup('talents', {
                         name: this.name,
                         description: this.description,
-                        passive: this.passive,
+                        activation: this.activation,
+                        trees: this.trees,
+                        tier: this.tier,
                         ranked: this.ranked,
                         reference: this.reference
                     });
 
-                    this.$emit('add', quality);
+                    this.$emit('add', talent);
                 } // end if
             },
             onShown()
@@ -158,24 +211,28 @@
                 });
             },
 
-            show(quality)
+            show(talent)
             {
-                if(quality)
+                if(talent)
                 {
-                    this.id = quality.id;
-                    this.name = quality.name;
-                    this.description = quality.description;
-                    this.passive = !!quality.passive;
-                    this.ranked = !!quality.ranked;
-                    this.reference = quality.reference;
+                    this.id = talent.id;
+                    this.name = talent.name;
+                    this.description = talent.description;
+                    this.ranked = !!talent.ranked;
+                    this.trees = talent.trees;
+                    this.tier = talent.tier;
+                    this.activation = talent.activation;
+                    this.reference = talent.reference;
                 }
                 else
                 {
                     this.id = undefined;
                     this.name = '';
                     this.description = '';
+                    this.activation = '';
+                    this.trees = '';
+                    this.tier = 1;
                     this.reference = '';
-                    this.passive = false;
                     this.ranked = false;
                 } // end if
 

@@ -8,7 +8,7 @@
             <b>{{ talentBase.name }}</b>
             <span v-if="talentBase.ranked" class="font-weight-bold">{{ talent.ranks }}</span>
             <span v-if="mode === 'genesys'">
-                (Tier {{ talent.tier }})
+                (Tier {{ talentBase.tier }})
             </span>
 
             <b-popover :target="id" triggers="hover" placement="top">
