@@ -31,7 +31,6 @@
     import _ from 'lodash';
 
     // Managers
-    import authMan from '../../../api/managers/auth';
     import charMan from '../../../api/managers/character';
 
     // Components
@@ -51,12 +50,16 @@
             cliches: ClichesComponent,
             hooks: HooksComponent
         },
+        props: {
+            isAuthorized: {
+                type: Boolean,
+                default: false
+            }
+        },
         subscriptions: {
-            account: authMan.account$,
             character: charMan.selected$
         },
         computed: {
-            isAuthorized() { return _.get(this.account, 'id', 'nope!') === this.character.account_id; },
             cliches()
             {
                 return _.sortBy(this.character.cliches, 'value').reverse();

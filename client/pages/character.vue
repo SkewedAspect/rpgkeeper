@@ -43,7 +43,7 @@
                 </template>
 
                 <!-- Actual System Character Sheet -->
-                <component :is="char.system">
+                <component :is="char.system" :is-authorized="isAuthorized">
                     <!-- We put a warning here, mostly for the developer. -->
                     <b-container>
                         <b-alert variant="warning" show>
@@ -106,6 +106,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
+    import authMan from '../api/managers/auth';
     import charMan from '../api/managers/character';
     import sysMan from '../api/managers/systems';
 
@@ -134,16 +135,25 @@
             eote: EoteCharacter,
             wfrp: WfrpCharacter
         },
-        subscriptions: {
-            char: charMan.selected$,
-            saving: charMan.saving$
-        },
         data()
         {
             return {
                 error: undefined,
                 system: undefined
             };
+        },
+        computed: {
+            isAuthorized()
+            {
+                return !!this.account
+                    && !!this.character
+                    && (this.account.id || 'nope!') === this.character.account_id;
+            }
+        },
+        subscriptions: {
+            account: authMan.account$,
+            char: charMan.selected$,
+            saving: charMan.saving$
         },
         mounted()
         {
