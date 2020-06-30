@@ -27,10 +27,7 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-
     // Managers
-    import authMan from '../../../api/managers/auth';
     import charMan from '../../../api/managers/character';
 
     // Components
@@ -48,12 +45,16 @@
             stats: StatsComponent,
             skills: SkillsComponent
         },
+        props: {
+            isAuthorized: {
+                type: Boolean,
+                default: false
+            }
+        },
         subscriptions: {
-            account: authMan.account$,
             character: charMan.selected$
         },
         computed: {
-            isAuthorized() { return _.get(this.account, 'id', 'nope!') === this.character.account_id; },
             stats()
             {
                 return this.character.stats;

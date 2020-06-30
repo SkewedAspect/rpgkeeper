@@ -37,7 +37,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import authMan from '../../../api/managers/auth';
     import charMan from '../../../api/managers/character';
 
     // Components
@@ -65,16 +64,13 @@
             Stress,
             Consequences
         },
-        computed: {
-            isAuthorized()
-            {
-                return !!this.account
-                    && !!this.character
-                    && (this.account.id || 'nope!') === this.character.account_id;
+        props: {
+            isAuthorized: {
+                type: Boolean,
+                default: false
             }
         },
         subscriptions: {
-            account: authMan.account$,
             character: charMan.selected$
         }
     };
