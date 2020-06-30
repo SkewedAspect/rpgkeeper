@@ -52,7 +52,7 @@
                         </template>
                     </b-table>
                 </div>
-                <div v-if="mode === 'genesys'" class="skill-group">
+                <div v-if="mode === 'genesys' && magic.length" class="skill-group">
                     <b>Magic</b>
                     <b-table
                         class="font-sm"
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="skill-column">
-                <div class="skill-group">
+                <div v-if="combat.length" class="skill-group">
                     <b>Combat</b>
                     <b-table
                         class="font-sm"
@@ -116,7 +116,7 @@
                         </template>
                     </b-table>
                 </div>
-                <div class="skill-group">
+                <div v-if="social.length" class="skill-group">
                     <b>Social</b>
                     <b-table
                         class="font-sm"
@@ -147,7 +147,7 @@
                         </template>
                     </b-table>
                 </div>
-                <div class="skill-group">
+                <div v-if="knowledge.length" class="skill-group">
                     <b>Knowledge</b>
                     <b-table
                         class="font-sm mb-0"

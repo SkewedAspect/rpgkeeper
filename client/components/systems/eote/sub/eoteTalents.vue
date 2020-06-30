@@ -62,7 +62,7 @@
                     (talentInst) =>
                     {
                         const talentBase = _.find(eoteMan.talents, { id: talentInst.id });
-                        return talentBase.name;
+                        return (talentBase || {}).name;
                     }
                 );
             }
