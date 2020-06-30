@@ -80,9 +80,11 @@ class CharacterModel
 
     update(def)
     {
+        // TODO: Decide if this is even worth it, as it's caused bugs in the past. It basically means that if a user
+        // deletes something, it reverts back to the default, instead of staying removed. I don't think that's right.
         const defaults = _.cloneDeep(this.$defaults);
-        this.$state = _.merge({}, defaults, _.cloneDeep(def));
-        this.$refState = _.merge({}, defaults, _.cloneDeep(def));
+        this.$state = _.assign({}, defaults, _.cloneDeep(def));
+        this.$refState = _.assign({}, defaults, _.cloneDeep(def));
     } // end update
 
     updateSysDefaults(sysDef)
