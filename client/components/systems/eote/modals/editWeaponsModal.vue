@@ -30,69 +30,71 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-form-group
-                    class="flex-fill pr-1 w-50"
-                    label="Name"
-                    label-class="font-weight-bold"
-                    label-for="name-input"
-                >
-                    <b-form-input id="name-input" v-model="editWeapon.name" type="text"></b-form-input>
-                </b-form-group>
-                <b-form-group
-                    class="flex-fill pl-1 pr-1 w-25"
-                    label="Skill"
-                    label-class="font-weight-bold"
-                    label-for="skill-input"
-                >
-                    <b-form-select id="skill-input" v-model="editWeapon.skill" :options="skillNames"></b-form-select>
-                </b-form-group>
-                <b-form-group
-                    class="flex-fill pl-1 w-25"
-                    label="Range"
-                    label-class="font-weight-bold"
-                    label-for="range-input"
-                >
-                    <b-form-select id="range-input" v-model="editWeapon.range" :options="rangeOptions"></b-form-select>
-                </b-form-group>
-            </b-form-row>
+            <div :class="`${ mode }-system`">
+                <b-form-row>
+                    <b-form-group
+                        class="flex-fill pr-1 w-50"
+                        label="Name"
+                        label-class="font-weight-bold"
+                        label-for="name-input"
+                    >
+                        <b-form-input id="name-input" v-model="editWeapon.name" type="text"></b-form-input>
+                    </b-form-group>
+                    <b-form-group
+                        class="flex-fill pl-1 pr-1 w-25"
+                        label="Skill"
+                        label-class="font-weight-bold"
+                        label-for="skill-input"
+                    >
+                        <b-form-select id="skill-input" v-model="editWeapon.skill" :options="skillNames"></b-form-select>
+                    </b-form-group>
+                    <b-form-group
+                        class="flex-fill pl-1 w-25"
+                        label="Range"
+                        label-class="font-weight-bold"
+                        label-for="range-input"
+                    >
+                        <b-form-select id="range-input" v-model="editWeapon.range" :options="rangeOptions"></b-form-select>
+                    </b-form-group>
+                </b-form-row>
 
-            <b-form-row>
-                <b-form-group
-                    class="flex-fill pr-1 w-25"
-                    label="Damage"
-                    label-class="font-weight-bold"
-                    label-for="skill-damage"
-                >
-                    <b-form-input id="skill-damage" v-model.number="editWeapon.damage" type="number" min="0" step="0"></b-form-input>
-                </b-form-group>
-                <b-form-group
-                    class="flex-fill pl-1 pr-1 w-25"
-                    label="Critical"
-                    label-class="font-weight-bold"
-                    label-for="skill-critical"
-                >
-                    <b-form-input id="skill-critical" v-model.number="editWeapon.criticalRating" type="number" min="0" step="0"></b-form-input>
-                </b-form-group>
-                <b-form-group
-                    class="flex-fill pl-1 pr-1 w-25"
-                    label="Encumb."
-                    label-class="font-weight-bold"
-                    label-for="skill-encumbrance"
-                >
-                    <b-form-input id="skill-encumbrance" v-model.number="editWeapon.encumbrance" type="number" min="0" step="0"></b-form-input>
-                </b-form-group>
-                <b-form-group
-                    class="flex-fill pl-1 w-25"
-                    label="Rarity"
-                    label-class="font-weight-bold"
-                    label-for="skill-rarity"
-                >
-                    <b-form-input id="skill-rarity" v-model.number="editWeapon.rarity" type="number" min="0" step="0"></b-form-input>
-                </b-form-group>
-            </b-form-row>
+                <b-form-row>
+                    <b-form-group
+                        class="flex-fill pr-1 w-25"
+                        label="Damage"
+                        label-class="font-weight-bold"
+                        label-for="skill-damage"
+                    >
+                        <b-form-input id="skill-damage" v-model.number="editWeapon.damage" type="number" min="0" step="0"></b-form-input>
+                    </b-form-group>
+                    <b-form-group
+                        class="flex-fill pl-1 pr-1 w-25"
+                        label="Critical"
+                        label-class="font-weight-bold"
+                        label-for="skill-critical"
+                    >
+                        <b-form-input id="skill-critical" v-model.number="editWeapon.criticalRating" type="number" min="0" step="0"></b-form-input>
+                    </b-form-group>
+                    <b-form-group
+                        class="flex-fill pl-1 pr-1 w-25"
+                        label="Encumb."
+                        label-class="font-weight-bold"
+                        label-for="skill-encumbrance"
+                    >
+                        <b-form-input id="skill-encumbrance" v-model.number="editWeapon.encumbrance" type="number" min="0" step="0"></b-form-input>
+                    </b-form-group>
+                    <b-form-group
+                        class="flex-fill pl-1 w-25"
+                        label="Rarity"
+                        label-class="font-weight-bold"
+                        label-for="skill-rarity"
+                    >
+                        <b-form-input id="skill-rarity" v-model.number="editWeapon.rarity" type="number" min="0" step="0"></b-form-input>
+                    </b-form-group>
+                </b-form-row>
 
-            <quality-edit v-model="editWeapon.qualities"></quality-edit>
+                <quality-edit v-model="editWeapon.qualities"></quality-edit>
+            </div>
 
             <!-- Modal Buttons -->
             <template slot="modal-ok">

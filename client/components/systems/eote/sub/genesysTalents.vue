@@ -4,8 +4,8 @@
 
 <template>
     <div id="genesys-sub-talents">
-        <b-form-row>
-            <b-col v-for="talent in talents" :key="talent.name" cols="4">
+        <b-form-row style="margin-top: -0.5rem">
+            <b-col v-for="talent in talents" :key="talent.name" cols="4" class="mt-2">
                 <talent-card :talent="talent"></talent-card>
             </b-col>
         </b-form-row>
@@ -66,7 +66,7 @@
                     (talentInst) =>
                     {
                         const talentBase = _.find(eoteMan.talents, { id: talentInst.id });
-                        return talentBase.name;
+                        return (talentBase || {}).name;
                     }
                 ]);
             }

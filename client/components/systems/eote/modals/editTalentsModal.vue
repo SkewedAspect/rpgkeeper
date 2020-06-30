@@ -21,39 +21,41 @@
             </template>
 
             <!-- Modal Content -->
-            <supplement-select
-                ref="suppSelect"
-                label="Talents"
-                label-class="font-weight-bold"
-                :available="talents"
-                :selected="selectedTalents"
-                @add="onTalentAdd"
-                @remove="onTalentRemove"
-                @new="onTalentNew"
-                @edit="onTalentEdit"
-                @delete="onTalentDelete"
-            >
-                <template v-slot:preview="{ instance, supplement }">
-                    <div class="clearfix">
-                        <div v-if="supplement.ranked" class="mb-2 float-right">
-                            <label for="sb-inline">Ranks</label>
-                            <b-form-spinbutton id="sb-inline" v-model="instance.ranks" inline></b-form-spinbutton>
+            <div :class="`${ mode }-system`">
+                <supplement-select
+                    ref="suppSelect"
+                    label="Talents"
+                    label-class="font-weight-bold"
+                    :available="talents"
+                    :selected="selectedTalents"
+                    @add="onTalentAdd"
+                    @remove="onTalentRemove"
+                    @new="onTalentNew"
+                    @edit="onTalentEdit"
+                    @delete="onTalentDelete"
+                >
+                    <template v-slot:preview="{ instance, supplement }">
+                        <div class="clearfix">
+                            <div v-if="supplement.ranked" class="mb-2 float-right">
+                                <label for="sb-inline">Ranks</label>
+                                <b-form-spinbutton id="sb-inline" v-model="instance.ranks" inline></b-form-spinbutton>
+                            </div>
+                            <div class="mb-2">
+                                <i>{{ getActivation(supplement) }}</i>
+                            </div>
+                            <markdown-block :text="supplement.description" inline></markdown-block>
+                            <reference
+                                class="float-right mt-2"
+                                :reference="supplement.reference"
+                            ></reference>
                         </div>
-                        <div class="mb-2">
-                            <i>{{ getActivation(supplement) }}</i>
+                        <div v-if="instance.notes" class="font-sm">
+                            <hr />
+                            <markdown-block :text="instance.notes" inline></markdown-block>
                         </div>
-                        <markdown-block :text="supplement.description" inline></markdown-block>
-                        <reference
-                            class="float-right mt-2"
-                            :reference="supplement.reference"
-                        ></reference>
-                    </div>
-                    <div v-if="instance.notes" class="font-sm">
-                        <hr />
-                        <markdown-block :text="instance.notes" inline></markdown-block>
-                    </div>
-                </template>
-            </supplement-select>
+                    </template>
+                </supplement-select>
+            </div>
 
             <!-- Modal Buttons -->
             <template slot="modal-ok">

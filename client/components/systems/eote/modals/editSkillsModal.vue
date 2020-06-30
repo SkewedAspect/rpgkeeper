@@ -281,7 +281,20 @@
 
             addSkill()
             {
-                this.skills.splice(this.skills.length - 1, 0, this.newSkill);
+                // Split skills list into each section
+                const skills = {
+                    general: this.skills.filter((skill) => skill.type === 'general'),
+                    magic: this.skills.filter((skill) => skill.type === 'magic'),
+                    combat: this.skills.filter((skill) => skill.type === 'combat'),
+                    social: this.skills.filter((skill) => skill.type === 'social'),
+                    knowledge: this.skills.filter((skill) => skill.type === 'knowledge')
+                };
+
+                // Add new skill to the right type list
+                skills[this.newSkill.type].push(this.newSkill);
+
+                // Rebuild skills list in proper order
+                this.skills = [].concat(skills.general, skills.magic, skills.combat, skills.social, skills.knowledge);
 
                 // Reset new skill
                 this.newSkill = { name: '', career: false, ranks: 0 };

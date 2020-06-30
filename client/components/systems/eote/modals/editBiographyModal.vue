@@ -21,91 +21,93 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col>
-                    <b-form-group
-                        label="Species"
-                        label-class="font-weight-bold"
-                        label-for="species-input"
-                    >
-                        <div class="d-flex">
-                            <b-input-group>
-                                <b-form-input id="species-input" v-model="species"></b-form-input>
-                                <b-input-group-append>
-                                    <b-button @click="species = ''">
-                                        <fa icon="times"></fa>
-                                    </b-button>
-                                </b-input-group-append>
-                            </b-input-group>
-                        </div>
-                    </b-form-group>
-                </b-col>
-                <b-col v-if="mode === 'eote'" cols="auto">
-                    <b-form-group
-                        label="Force Sensitive"
-                        label-class="font-weight-bold"
-                        label-for="species-input"
-                        label-sr-only
-                    >
-                        <b-form-checkbox v-model="forceSensitive" style="margin-top: 2.4rem" name="force-sensitive" switch>
-                            Force Sensitive
-                        </b-form-checkbox>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
+            <div :class="`${ mode }-system`">
+                <b-form-row>
+                    <b-col>
+                        <b-form-group
+                            label="Species"
+                            label-class="font-weight-bold"
+                            label-for="species-input"
+                        >
+                            <div class="d-flex">
+                                <b-input-group>
+                                    <b-form-input id="species-input" v-model="species"></b-form-input>
+                                    <b-input-group-append>
+                                        <b-button @click="species = ''">
+                                            <fa icon="times"></fa>
+                                        </b-button>
+                                    </b-input-group-append>
+                                </b-input-group>
+                            </div>
+                        </b-form-group>
+                    </b-col>
+                    <b-col v-if="mode === 'eote'" cols="auto">
+                        <b-form-group
+                            label="Force Sensitive"
+                            label-class="font-weight-bold"
+                            label-for="species-input"
+                            label-sr-only
+                        >
+                            <b-form-checkbox v-model="forceSensitive" style="margin-top: 2.4rem" name="force-sensitive" switch>
+                                Force Sensitive
+                            </b-form-checkbox>
+                        </b-form-group>
+                    </b-col>
+                </b-form-row>
 
-            <b-form-row>
-                <b-col xs="12">
-                    <b-form-group
-                        label="Career"
-                        label-class="font-weight-bold"
-                        label-for="career-input"
-                    >
-                        <div class="d-flex">
-                            <b-input-group>
-                                <b-form-input id="career-input" v-model="career"></b-form-input>
-                                <b-input-group-append>
-                                    <b-button @click="career = ''">
-                                        <fa icon="times"></fa>
-                                    </b-button>
-                                </b-input-group-append>
-                            </b-input-group>
-                        </div>
-                    </b-form-group>
-                </b-col>
-                <b-col v-if="mode === 'eote'" xs="12">
-                    <b-form-group
-                        label="Specializations"
-                        label-class="font-weight-bold"
-                        label-for="special-input"
-                    >
-                        <div class="d-flex">
-                            <b-input-group>
-                                <b-form-input id="special-input" v-model="specialization"></b-form-input>
-                                <b-input-group-append>
-                                    <b-button @click="specialization = ''">
-                                        <fa icon="times"></fa>
-                                    </b-button>
-                                </b-input-group-append>
-                            </b-input-group>
-                        </div>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
+                <b-form-row>
+                    <b-col xs="12">
+                        <b-form-group
+                            label="Career"
+                            label-class="font-weight-bold"
+                            label-for="career-input"
+                        >
+                            <div class="d-flex">
+                                <b-input-group>
+                                    <b-form-input id="career-input" v-model="career"></b-form-input>
+                                    <b-input-group-append>
+                                        <b-button @click="career = ''">
+                                            <fa icon="times"></fa>
+                                        </b-button>
+                                    </b-input-group-append>
+                                </b-input-group>
+                            </div>
+                        </b-form-group>
+                    </b-col>
+                    <b-col v-if="mode === 'eote'" xs="12">
+                        <b-form-group
+                            label="Specializations"
+                            label-class="font-weight-bold"
+                            label-for="special-input"
+                        >
+                            <div class="d-flex">
+                                <b-input-group>
+                                    <b-form-input id="special-input" v-model="specialization"></b-form-input>
+                                    <b-input-group-append>
+                                        <b-button @click="specialization = ''">
+                                            <fa icon="times"></fa>
+                                        </b-button>
+                                    </b-input-group-append>
+                                </b-input-group>
+                            </div>
+                        </b-form-group>
+                    </b-col>
+                </b-form-row>
 
-            <supplement-select
-                ref="suppSelect"
-                label="Abilities"
-                label-class="font-weight-bold"
-                :available="abilities"
-                :selected="selectedAbilities"
-                @add="onAbilityAdd"
-                @remove="onAbilityRemove"
-                @new="onAbilityNew"
-                @edit="onAbilityEdit"
-                @delete="onAbilityDelete"
-            >
-            </supplement-select>
+                <supplement-select
+                    ref="suppSelect"
+                    label="Abilities"
+                    label-class="font-weight-bold"
+                    :available="abilities"
+                    :selected="selectedAbilities"
+                    @add="onAbilityAdd"
+                    @remove="onAbilityRemove"
+                    @new="onAbilityNew"
+                    @edit="onAbilityEdit"
+                    @delete="onAbilityDelete"
+                >
+                </supplement-select>
+            </div>
 
             <!-- Modal Buttons -->
             <template slot="modal-ok">
