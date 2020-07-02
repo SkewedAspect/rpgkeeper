@@ -114,6 +114,7 @@ class AuthManager
         return this.loading
             .then(() =>
             {
+                // eslint-disable-next-line @typescript-eslint/no-empty-function
                 this.auth2.attachClickHandler(elem, {}, () => {}, this._onGoogleFailure.bind(this));
             });
     } // end attachSignIn

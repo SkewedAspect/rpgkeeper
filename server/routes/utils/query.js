@@ -2,8 +2,6 @@
 // A module for casting query parameters to something useful, and generating a filter out of them.
 //----------------------------------------------------------------------------------------------------------------------
 
-/* eslint-disable jsdoc/require-returns, jsdoc/require-param-description, jsdoc/require-param-type */
-
 const _ = require('lodash');
 const logger = require('trivial-logging').loggerFor(module);
 

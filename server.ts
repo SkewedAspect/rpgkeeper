@@ -3,41 +3,46 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Config
-const { config } = require('./server/api/managers/config');
+import { config } from './server/api/managers/config';
 
 // Logging
-const logging = require('trivial-logging');
+import logging from 'trivial-logging';
 logging.setRootLogger('rpgkeeper');
 logging.init(config);
+
 const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const path = require('path');
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const passport = require('passport');
+import path from 'path';
+import express, { Express, RequestHandler } from 'express';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import session from 'express-session';
+import passport from 'passport';
 
 // Managers
-const dbMan = require('./server/database');
-const accountMan = require('./server/api/managers/account');
+import dbMan from './server/database';
+import accountMan from './server/api/managers/account';
 
 // Session Store
-const KnexSessionStore = require('connect-session-knex')(session);
+import connectSessionKnex from 'connect-session-knex';
+const KnexSessionStore = connectSessionKnex(session);
 
 // Auth
-const GoogleAuth = require('./server/auth/google');
+import GoogleAuth from './server/auth/google';
 
 // Routes
-const routeUtils = require('./server/routes/utils');
-const newsRouter = require('./server/routes/news');
-const noteRouter = require('./server/routes/notes');
-const charRouter = require('./server/routes/characters');
-const sysRouter = require('./server/routes/systems');
-const accountsRouter = require('./server/routes/accounts');
+import routeUtils from './server/routes/utils';
+import newsRouter from './server/routes/news';
+import noteRouter from './server/routes/notes';
+import charRouter from './server/routes/characters';
+import sysRouter from './server/routes/systems';
+import accountsRouter from './server/routes/accounts';
+
+// Version information
+import { version } from './package.json';
+import { AddressInfo } from 'net';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handler
@@ -53,9 +58,9 @@ process.on('uncaughtException', (err) =>
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
- *
+ * Main function
  */
-async function main()
+async function main() : Promise<{ app : Express, server : any }>
 {
     const db = await dbMan.getDB();
 
@@ -76,7 +81,7 @@ async function main()
     const app = express();
 
     // Basic request logging
-    app.use(routeUtils.requestLogger(logger));
+    app.use(routeUtils.requestLogger(logger) as RequestHandler);
 
     // Auth support
     app.use(cookieParser()); // lgtm [js/missing-token-validation]
@@ -104,7 +109,7 @@ async function main()
     if(config.overrideAuth)
     {
         // Middleware to skip authentication, for testing with postman, or unit tests.
-        app.use(routeUtils.wrapAsync(async(req, resp, next) =>
+        app.use(routeUtils.wrapAsync(async(req, _resp, next) =>
         {
             let account = app.get('user');
 
@@ -121,7 +126,7 @@ async function main()
                 req.user = account;
             } // end if
             next();
-        }));
+        }) as RequestHandler);
     } // end if
 
     //------------------------------------------------------------------------------------------------------------------
@@ -129,7 +134,7 @@ async function main()
     //------------------------------------------------------------------------------------------------------------------
 
     // Setup static serving
-    app.use(express.static(path.resolve('./dist')));
+    app.use(express.static(path.resolve(__dirname, '..', 'dist', 'client')));
 
     // Set up our application routes
     app.use('/characters', charRouter);
@@ -139,11 +144,11 @@ async function main()
     app.use('/news', newsRouter);
 
     // Serve index.html for any html requests, but 404 everything else.
-    app.get('*', (request, response) =>
+    app.get('*', (_request, response) =>
     {
         response.format({
             html: routeUtils.serveIndex,
-            json: (req, resp) =>
+            json: (_req, resp) =>
             {
                 resp.status(404).end();
             }
@@ -151,7 +156,7 @@ async function main()
     });
 
     // Basic error logging
-    app.use(routeUtils.errorLogger(logger));
+    app.use(routeUtils.errorLogger(logger) as RequestHandler);
 
     //------------------------------------------------------------------------------------------------------------------
     // Server
@@ -160,8 +165,7 @@ async function main()
     // Start the server
     const server = app.listen(config.http.port, () =>
     {
-        const { address, port } = server.address();
-        const version = require('./package').version;
+        const { address, port } = server.address() as AddressInfo;
 
         const host = address === '::' ? 'localhost' : address;
         logger.info(`RPGKeeper v${ version } listening at http://${ host }:${ port }.`);

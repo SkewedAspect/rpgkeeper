@@ -68,7 +68,7 @@ function buildErrorHandler(logger)
 {
     // If we don't have 4 parameters, this function literally doesn't work.
     // eslint-disable-next-line no-unused-vars
-    return (error, request, response, next) =>
+    return (error, request, response, _next) =>
     {
         let errorJSON = {};
         if(typeof error.toJSON == 'function')
@@ -122,7 +122,7 @@ function buildErrorHandler(logger)
 function serveIndex(request, response)
 {
     response.setHeader('Content-Type', 'text/html');
-    fs.createReadStream(path.resolve(__dirname, '..', '..', '..', 'dist', 'index.html')).pipe(response);
+    fs.createReadStream(path.resolve(__dirname, '..', '..', '..', 'client', 'index.html')).pipe(response);
 } // end serveIndex
 
 /**

@@ -5,7 +5,8 @@
 exports.seed = async(knex) =>
 {
     // Delete automatic roles
-    await knex('role').del().whereIn('role_id', [ 1, 2 ]);
+    await knex('role').del()
+        .whereIn('role_id', [ 1, 2 ]);
 
     // Add Automatic Roles
     await knex('role')
@@ -57,13 +58,15 @@ exports.seed = async(knex) =>
     // Do a `mapSeries` over admins, and add them and their `account_role entry`, if needed.
     for(const account of admins)
     {
-        const exists = (await knex('account').select().where({ account_id: account.account_id })).length > 0;
+        const exists = (await knex('account').select()
+            .where({ account_id: account.account_id })).length > 0;
         if(!exists)
         {
             await knex('account').insert(account);
         } // end if
 
-        const linkExists = (await knex('account_role').select().where({ account_id: account.account_id, role_id: 1 })).length > 0;
+        const linkExists = (await knex('account_role').select()
+            .where({ account_id: account.account_id, role_id: 1 })).length > 0;
         if(!linkExists)
         {
             await knex('account_role').insert({ account_id: account.account_id, role_id: 1 });
@@ -73,13 +76,15 @@ exports.seed = async(knex) =>
     // Do a `mapSeries` over mods, and add them and their `account_role entry`, if needed.
     for(const account of mods)
     {
-        const exists = (await knex('account').select().where({ account_id: account.account_id })).length > 0;
+        const exists = (await knex('account').select()
+            .where({ account_id: account.account_id })).length > 0;
         if(!exists)
         {
             await knex('account').insert(account);
         } // end if
 
-        const linkExists = (await knex('account_role').select().where({ account_id: account.account_id, role_id: 2 })).length > 0;
+        const linkExists = (await knex('account_role').select()
+            .where({ account_id: account.account_id, role_id: 2 })).length > 0;
         if(!linkExists)
         {
             await knex('account_role').insert({ account_id: account.account_id, role_id: 2 });

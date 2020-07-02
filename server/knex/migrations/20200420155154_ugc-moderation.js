@@ -20,7 +20,8 @@ exports.up = async(knex) =>
             .onDelete('CASCADE');
         table.timestamp('created').notNullable()
             .defaultTo(knex.fn.now());
-        table.json('metadata').notNullable().defaultTo('{}');
+        table.json('metadata').notNullable()
+            .defaultTo('{}');
     });
 
     await knex.schema.createTable('ugc_moderation', (table) =>

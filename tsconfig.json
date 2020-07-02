@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "incremental": true,
+        "allowJs": true,
+        "tsBuildInfoFile": "dist/tsbuildinfo",
+        "target": "es2019",
+        "module": "commonjs",
+        "outDir": "./dist",
+        "rootDir": ".",
+        "strict": false,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "forceConsistentCasingInFileNames" : true,
+        "removeComments": true,
+        "noImplicitAny": false,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "preserveSymlinks": true
+    },
+    "files": [
+        "package.json",
+        "server.ts",
+        "knexfile.ts",
+        "config.ts"
+    ],
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/types"
+    ]
+}

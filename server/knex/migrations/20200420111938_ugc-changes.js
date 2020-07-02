@@ -411,21 +411,36 @@ exports.up = async(knex) =>
     // Step 4: Update scopes
     //------------------------------------------------------------------------------------------------------------------
 
-    await knex('genesys_motivation').update({ scope: 'public' }).where({ official: true });
-    await knex('genesys_ability').update({ scope: 'public' }).where({ official: true });
-    await knex('genesys_talent').update({ scope: 'public' }).where({ official: true });
-    await knex('genesys_gear').update({ scope: 'public' }).where({ official: true });
-    await knex('genesys_attachment').update({ scope: 'public' }).where({ official: true });
-    await knex('genesys_quality').update({ scope: 'public' }).where({ official: true });
-    await knex('genesys_armor').update({ scope: 'public' }).where({ official: true });
-    await knex('genesys_weapon').update({ scope: 'public' }).where({ official: true });
-    await knex('eote_ability').update({ scope: 'public' }).where({ official: true });
-    await knex('eote_talent').update({ scope: 'public' }).where({ official: true });
-    await knex('eote_gear').update({ scope: 'public' }).where({ official: true });
-    await knex('eote_attachment').update({ scope: 'public' }).where({ official: true });
-    await knex('eote_quality').update({ scope: 'public' }).where({ official: true });
-    await knex('eote_armor').update({ scope: 'public' }).where({ official: true });
-    await knex('eote_weapon').update({ scope: 'public' }).where({ official: true });
+    await knex('genesys_motivation').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('genesys_ability').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('genesys_talent').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('genesys_gear').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('genesys_attachment').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('genesys_quality').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('genesys_armor').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('genesys_weapon').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('eote_ability').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('eote_talent').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('eote_gear').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('eote_attachment').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('eote_quality').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('eote_armor').update({ scope: 'public' })
+        .where({ official: true });
+    await knex('eote_weapon').update({ scope: 'public' })
+        .where({ official: true });
 };
 
 //----------------------------------------------------------------------------------------------------------------------
