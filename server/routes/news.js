@@ -2,16 +2,17 @@
 // Routes for news
 //----------------------------------------------------------------------------------------------------------------------
 
-const express = require('express');
+import express from 'express';
 
 // Managers
-const postsMan = require('../api/managers/posts');
+import postsMan from '../api/managers/posts';
 
 // Utils
-const { errorHandler, wrapAsync } = require('./utils');
+import { errorHandler, wrapAsync } from './utils';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -19,7 +20,7 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', wrapAsync(async(req, resp) =>
+router.get('/', wrapAsync(async(_req, resp) =>
 {
     const posts = (await postsMan.getPosts())
         .map((post) =>
@@ -45,6 +46,6 @@ router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = router;
+export default router;
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -2,13 +2,13 @@
 // CharacterManager
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
+import _ from 'lodash';
 
 // Managers
-const notesMan = require('./notes');
+import notesMan from './notes';
 
 // Resource Access
-const characterRA = require('../resource-access/character');
+import characterRA from '../resource-access/character';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -75,6 +75,6 @@ class CharacterManager
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new CharacterManager();
+export default new CharacterManager();
 
 //----------------------------------------------------------------------------------------------------------------------

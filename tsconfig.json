@@ -2,6 +2,7 @@
     "compilerOptions": {
         "incremental": true,
         "allowJs": true,
+        "checkJs": true,
         "tsBuildInfoFile": "dist/tsbuildinfo",
         "target": "es2019",
         "module": "commonjs",

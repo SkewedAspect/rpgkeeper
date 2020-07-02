@@ -2,15 +2,16 @@
 // Routes for Notes
 //----------------------------------------------------------------------------------------------------------------------
 
-const express = require('express');
+import express from 'express';
 
-const { errorHandler, ensureAuthenticated, wrapAsync } = require('./utils');
+import { ensureAuthenticated, errorHandler, wrapAsync } from './utils';
 
 // Managers
-const noteMan = require('../api/managers/notes');
+import noteMan from '../api/managers/notes';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -18,7 +19,7 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', wrapAsync(async(req, resp) =>
+router.get('/', wrapAsync(async(_req, resp) =>
 {
     resp.json(await noteMan.getNotes());
 }));
@@ -82,6 +83,6 @@ router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = router;
+export default router;
 
 //----------------------------------------------------------------------------------------------------------------------

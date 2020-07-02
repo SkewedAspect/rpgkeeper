@@ -2,14 +2,14 @@
 // AjvValidator
 //----------------------------------------------------------------------------------------------------------------------
 
-const Ajv = require('ajv');
-const ajvKeywords = require('ajv-keywords');
-const ajvErrors = require('ajv-errors');
-const betterAjvErrors = require('better-ajv-errors');
+import Ajv from 'ajv';
+import ajvKeywords from 'ajv-keywords';
+import ajvErrors from 'ajv-errors';
+import betterAjvErrors from 'better-ajv-errors';
 
-const cacheUtil = require('./ajvCache');
+import cacheUtil from './ajvCache';
 
-const { AjvValidationError } = require('../api/errors');
+import { AjvValidationError } from '../api/errors';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -52,6 +52,6 @@ class AjvValidator
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new AjvValidator();
+export default new AjvValidator();
 
 //----------------------------------------------------------------------------------------------------------------------

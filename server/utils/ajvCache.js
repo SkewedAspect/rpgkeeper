@@ -2,7 +2,7 @@
 // AJV Cache Utility
 //----------------------------------------------------------------------------------------------------------------------
 
-const SACache = require('sacjs');
+import SACache from 'sacjs';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -39,13 +39,12 @@ class AJVCacheUtil
     /**
      * The AJV Schema cache. *Failure to use this will cause performance issues!*
      *
-     * @type {external:SACache}
      */
     get schemaCache() { return this._schemaCache; }
 } // end AJVCacheUtil
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new AJVCacheUtil();
+export default new AJVCacheUtil();
 
 //----------------------------------------------------------------------------------------------------------------------

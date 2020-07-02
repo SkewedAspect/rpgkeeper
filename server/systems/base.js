@@ -2,7 +2,7 @@
 // BaseSystem
 //----------------------------------------------------------------------------------------------------------------------
 
-class BaseSystem
+export class BaseSystem
 {
     constructor(id, name, description, schema = { type: 'object' }, defaults = {}, suppPaths = [], status = undefined)
     {
@@ -52,6 +52,7 @@ class BaseSystem
 } // end BaseSystem
 
 //----------------------------------------------------------------------------------------------------------------------
-module.exports = BaseSystem;
+
+export default BaseSystem;
 
 //----------------------------------------------------------------------------------------------------------------------

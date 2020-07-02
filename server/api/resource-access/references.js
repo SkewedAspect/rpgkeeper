@@ -2,16 +2,16 @@
 // ReferenceResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
+import _ from 'lodash';
 
 // Managers
-const dbMan = require('../../database');
+import dbMan from '../../database';
 
 // Engines
-const suppEng = require('../engines/supplement');
+import suppEng from '../engines/supplement';
 
 // Utilities
-const { applyFilters } = require('../../knex/utils');
+import { applyFilters } from '../../knex/utils';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -39,6 +39,6 @@ class ReferenceResourceAccess
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new ReferenceResourceAccess();
+export default new ReferenceResourceAccess();
 
 //----------------------------------------------------------------------------------------------------------------------

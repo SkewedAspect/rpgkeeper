@@ -2,23 +2,24 @@
 // AccountResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
+import _ from 'lodash';
 
 // Managers
-const dbMan = require('../../database');
+import dbMan from '../../database';
 
 // Resource Access
-const rolesRA = require('./roles');
+import rolesRA from './roles';
 
 // Utilities
-const { shortID } = require('../../utils/misc');
-const { applyFilters } = require('../../knex/utils');
+import { shortID } from '../../utils/misc';
+import { applyFilters } from '../../knex/utils';
 
 // Errors
-const { AppError, MultipleResultsError, NotFoundError } = require('../errors');
+import { AppError, MultipleResultsError, NotFoundError } from '../errors';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -93,11 +94,11 @@ class AccountResourceAccess
             query = applyFilters(query, filters);
         } // end if
 
-        return query
+        return (await query)
             .map(this._parseAccount);
     } // end getAccounts
 
-    async getAccount({ account_id, hash_id, email })
+    async getAccount({ account_id = undefined, hash_id = undefined, email = undefined })
     {
         if(!_.isUndefined(account_id))
         {
@@ -192,6 +193,6 @@ class AccountResourceAccess
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new AccountResourceAccess();
+export default new AccountResourceAccess();
 
 //----------------------------------------------------------------------------------------------------------------------

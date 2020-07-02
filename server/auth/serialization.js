@@ -2,10 +2,10 @@
 // Handles user serialization/deserialization
 //----------------------------------------------------------------------------------------------------------------------
 
-const passport = require('passport');
+import passport from 'passport';
 
 // Managers
-const accountMan = require('../api/managers/account');
+import accountMan from '../api/managers/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 

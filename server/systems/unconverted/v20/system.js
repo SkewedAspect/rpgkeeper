@@ -81,7 +81,7 @@ systemMan.buildGeneralEndpoints(router, models);
 // System Setup
 //----------------------------------------------------------------------------------------------------------------------
 
-// module.exports = Promise.resolve()
+// export default Promise.resolve()
 //     .then(() => { return loadInitial(models.Race, InitialRaces); })
 //     .then(() => { return loadInitial(models.Class, InitialClasses); })
 //     .then(() => { return loadInitial(models.Feat, InitialFeats); })

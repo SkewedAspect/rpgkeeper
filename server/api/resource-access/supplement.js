@@ -2,19 +2,19 @@
 // SupplementResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
+import _ from 'lodash';
 
 // Managers
-const dbMan = require('../../database');
+import dbMan from '../../database';
 
 // Engines
-const suppEng = require('../engines/supplement');
+import suppEng from '../engines/supplement';
 
 // Utilities
-const { applyFilters } = require('../../knex/utils');
+import { applyFilters } from '../../knex/utils';
 
 // Errors
-const { MultipleResultsError, DuplicateSupplementError, NotFoundError } = require('../errors');
+import { MultipleResultsError, DuplicateSupplementError, NotFoundError } from '../errors';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -177,6 +177,6 @@ class SupplementResourceAccess
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new SupplementResourceAccess();
+export default new SupplementResourceAccess();
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -3,16 +3,17 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-const BaseSystem = require('../base');
-
-// Validations
-const schemas = require('../../api/validations/systems/risus');
+import BaseSystem from '../base';
 
 // Defaults
-const defaults = require('./defaults');
+import defaults from './defaults';
+
+// Validations
+import schemas from '../../api/validations/systems/risus';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition
@@ -38,6 +39,6 @@ class RisusSystem extends BaseSystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new RisusSystem();
+export default new RisusSystem();
 
 //----------------------------------------------------------------------------------------------------------------------

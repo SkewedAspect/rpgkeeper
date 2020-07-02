@@ -2,18 +2,18 @@
 // Validation Middleware
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
-const { validate } = require('../../utils/ajvValidator');
+import _ from 'lodash';
+import validator from '../../utils/ajvValidator';
 
 // Validations
-const charSchema = require('../../api/validations/character');
+import charSchema from '../../api/validations/character';
 
 // Managers
-const charMan = require('../../api/managers/character');
-const sysMan = require('../../api/managers/system');
+import charMan from '../../api/managers/character';
+import sysMan from '../../api/managers/system';
 
 // Utils
-const { wrapAsync } = require('../utils');
+import { wrapAsync } from '../utils';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -22,11 +22,11 @@ const { wrapAsync } = require('../utils');
  *
  * @param {boolean} skipRequired - Disable the 'required' portions. (Useful for PATCH functionality.)
  *
- * @returns {Function} Returns an express middleware function.
+ * @returns {any} Returns an express middleware function.
  */
-function charValidation(skipRequired)
+export function charValidation(skipRequired = false)
 {
-    return wrapAsync(async(request, response, next) =>
+    return wrapAsync(async(request, _response, next) =>
     {
         let system;
         if(request.params.charID)
@@ -56,7 +56,7 @@ function charValidation(skipRequired)
             // Handle skipping required properties in the details
             Object.assign(schema.properties.details, skipRequired ? { required: [] } : {});
 
-            validate(schema, data);
+            validator.validate(schema, data);
             next();
         }
         catch (error)
@@ -74,16 +74,16 @@ function charValidation(skipRequired)
  *
  * @returns {Function} Returns an express middleware function.
  */
-function validation(schema, skipRequired)
+export function validation(schema, skipRequired = false)
 {
-    return wrapAsync(async(request, response, next) =>
+    return wrapAsync(async(request, _response, next) =>
     {
         const data = request.body;
         try
         {
             // Copy the schema (since we're about to modify it), as well as handle skipping required
             schema = { ...schema, ...(skipRequired ? { required: [] } : {}) };
-            validate(schema, data);
+            validator.validate(schema, data);
             next();
         }
         catch (error)
@@ -92,12 +92,5 @@ function validation(schema, skipRequired)
         } // end try/catch
     });
 } // end validation
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = {
-    charValidation,
-    validation
-}; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -3,12 +3,12 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Config
-import { config } from './server/api/managers/config';
+import configMan from './server/api/managers/config';
 
 // Logging
 import logging from 'trivial-logging';
 logging.setRootLogger('rpgkeeper');
-logging.init(config);
+logging.init(configMan.config);
 
 const logger = logging.loggerFor(module);
 
@@ -33,7 +33,7 @@ const KnexSessionStore = connectSessionKnex(session);
 import GoogleAuth from './server/auth/google';
 
 // Routes
-import routeUtils from './server/routes/utils';
+import { requestLogger, wrapAsync, serveIndex, errorLogger } from './server/routes/utils';
 import newsRouter from './server/routes/news';
 import noteRouter from './server/routes/notes';
 import charRouter from './server/routes/characters';
@@ -67,7 +67,7 @@ async function main() : Promise<{ app : Express, server : any }>
     //------------------------------------------------------------------------------------------------------------------
 
     const store = new KnexSessionStore({
-        sidfieldname: config.key,
+        sidfieldname: configMan.config.key,
         knex: db,
         createTable: true,
 
@@ -81,20 +81,20 @@ async function main() : Promise<{ app : Express, server : any }>
     const app = express();
 
     // Basic request logging
-    app.use(routeUtils.requestLogger(logger) as RequestHandler);
+    app.use(requestLogger(logger) as RequestHandler);
 
     // Auth support
     app.use(cookieParser()); // lgtm [js/missing-token-validation]
     app.use(bodyParser.json());
 
     app.use(session({ // lgtm [js/missing-token-validation]
-        secret: config.secret,
-        key: config.key,
+        secret: configMan.config.secret,
+        key: configMan.config.key,
         resave: false,
         store,
 
         // maxAge = 7 days
-        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: config.http.secure },
+        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: configMan.config.http.secure },
         saveUninitialized: false
     }));
 
@@ -106,10 +106,10 @@ async function main() : Promise<{ app : Express, server : any }>
     GoogleAuth.initialize(app);
 
     // Auth override
-    if(config.overrideAuth)
+    if(configMan.config.overrideAuth)
     {
         // Middleware to skip authentication, for testing with postman, or unit tests.
-        app.use(routeUtils.wrapAsync(async(req, _resp, next) =>
+        app.use(wrapAsync(async(req, _resp, next) =>
         {
             let account = app.get('user');
 
@@ -147,7 +147,7 @@ async function main() : Promise<{ app : Express, server : any }>
     app.get('*', (_request, response) =>
     {
         response.format({
-            html: routeUtils.serveIndex,
+            html: serveIndex,
             json: (_req, resp) =>
             {
                 resp.status(404).end();
@@ -156,14 +156,14 @@ async function main() : Promise<{ app : Express, server : any }>
     });
 
     // Basic error logging
-    app.use(routeUtils.errorLogger(logger) as RequestHandler);
+    app.use(errorLogger(logger) as RequestHandler);
 
     //------------------------------------------------------------------------------------------------------------------
     // Server
     //------------------------------------------------------------------------------------------------------------------
 
     // Start the server
-    const server = app.listen(config.http.port, () =>
+    const server = app.listen(configMan.config.http.port, () =>
     {
         const { address, port } = server.address() as AddressInfo;
 

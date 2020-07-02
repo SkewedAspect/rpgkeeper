@@ -2,7 +2,7 @@
 // Schema Validations
 //----------------------------------------------------------------------------------------------------------------------
 
-const { supplementPartial } = require('../supplement');
+import { supplementPartial } from '../supplement';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -711,7 +711,7 @@ delete eoteChar.properties.motivations;
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     genesys: {
         ability: abilitySchema,
         talent: talentSchema,

@@ -3,10 +3,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Managers
-const dbMan = require('../../database');
+import dbMan from '../../database';
 
 // Errors
-const { MultipleResultsError, NotFoundError } = require('../errors');
+import { MultipleResultsError, NotFoundError } from '../errors';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -96,6 +96,6 @@ class PostResourceAccess
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new PostResourceAccess();
+export default new PostResourceAccess();
 
 //----------------------------------------------------------------------------------------------------------------------

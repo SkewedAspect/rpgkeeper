@@ -2,26 +2,27 @@
 // Routes for Characters
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
-const express = require('express');
+import _ from 'lodash';
+import express from 'express';
 
 // Middleware
-const { charValidation } = require('./middleware/validation');
+import { charValidation } from './middleware/validation';
 
 // Managers
-const accountMan = require('../api/managers/account');
-const charMan = require('../api/managers/character');
-const permsMan = require('../api/managers/permissions');
-const sysMan = require('../api/managers/system');
+import accountMan from '../api/managers/account';
+import charMan from '../api/managers/character';
+import permsMan from '../api/managers/permissions';
+import sysMan from '../api/managers/system';
 
 // Engines
-const suppEng = require('../api/engines/supplement');
+import suppEng from '../api/engines/supplement';
 
 // Utils
-const { errorHandler, ensureAuthenticated, interceptHTML, wrapAsync, parseQuery } = require('./utils');
+import { ensureAuthenticated, errorHandler, interceptHTML, parseQuery, wrapAsync } from './utils';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -33,10 +34,14 @@ router.get('/', async(req, resp) =>
 {
     interceptHTML(resp, async() =>
     {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         const includeDetails = req.isAuthenticated() && _.get(req, 'query.details', 'false').toLowerCase() === 'true';
 
         if(req.query.owner)
         {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             const email = req.query.owner.toLowerCase();
             const account = await accountMan.getAccountByEmail(email);
             req.query.account_id = `${ account.account_id }`;
@@ -160,6 +165,6 @@ router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = router;
+export default router;
 
 //----------------------------------------------------------------------------------------------------------------------

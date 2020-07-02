@@ -2,7 +2,7 @@
 // Risus Model Defaults
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     character: {
         advancementPoints: 0,
         ffDice: 0,

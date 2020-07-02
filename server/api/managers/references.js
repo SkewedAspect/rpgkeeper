@@ -3,20 +3,20 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Resource Access
-const refRA = require('../resource-access/references');
+import refRA from '../resource-access/references';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class ReferenceManager
 {
-    async getFiltered(name, type, tableName, account)
+    async getFiltered(filters, tableName)
     {
-        return refRA.getFiltered(name, type, tableName, account);
+        return refRA.getFiltered(filters, tableName);
     } // end getAbility
 } // end ReferenceManager
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new ReferenceManager();
+export default new ReferenceManager();
 
 //----------------------------------------------------------------------------------------------------------------------

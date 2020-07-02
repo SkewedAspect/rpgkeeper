@@ -2,15 +2,16 @@
 // Routes for Accounts
 //----------------------------------------------------------------------------------------------------------------------
 
-const express = require('express');
+import express from 'express';
 
-const { errorHandler, ensureAuthenticated, wrapAsync, parseQuery } = require('./utils');
+import { ensureAuthenticated, errorHandler, parseQuery, wrapAsync } from './utils';
 
 // Managers
-const accountMan = require('../api/managers/account');
+import accountMan from '../api/managers/account';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -25,14 +26,32 @@ router.get('/', wrapAsync(async(req, resp) =>
         .map((account) =>
         {
             // eslint-disable-next-line no-unused-vars
-            const { account_id, hash_id, settings, permissions, ...safeAccount } = account;
+            const {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                account_id,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                hash_id,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                settings,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                permissions,
+                ...safeAccount
+            } = account;
 
             if(req.isAuthenticated())
             {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 safeAccount.permissions = permissions;
 
                 if(req.user.id === hash_id)
                 {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     safeAccount.settings = settings;
                 } // end if
             } // end if
@@ -84,6 +103,6 @@ router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = router;
+export default router;
 
 //----------------------------------------------------------------------------------------------------------------------

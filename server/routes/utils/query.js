@@ -2,8 +2,9 @@
 // A module for casting query parameters to something useful, and generating a filter out of them.
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
-const logger = require('trivial-logging').loggerFor(module);
+import _ from 'lodash';
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Helpers
@@ -135,11 +136,13 @@ function containsFilter(queryVal)
 } // end containsFilter
 
 //----------------------------------------------------------------------------------------------------------------------
+// Public API
+//----------------------------------------------------------------------------------------------------------------------
 
 /**
  * @param queryObj
  */
-function parseQuery(queryObj)
+export function parseQuery(queryObj)
 {
     const parseTree = {};
     _.forIn(queryObj, (value, key) =>
@@ -188,7 +191,7 @@ function parseQuery(queryObj)
  * @param queryObj
  * @param list
  */
-function filterByQuery(queryObj, list)
+export function filterByQuery(queryObj, list)
 {
     // Build filters
     const filters = {};
@@ -237,12 +240,5 @@ function filterByQuery(queryObj, list)
         return include;
     });
 } // end filterByQuery
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = {
-    parseQuery,
-    filterByQuery
-}; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------

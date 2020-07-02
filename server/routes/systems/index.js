@@ -2,23 +2,23 @@
 // Routes for system operations
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
-const express = require('express');
-const logging = require('trivial-logging');
+import _ from 'lodash';
+import express from 'express';
 
 // Managers
-const permMan = require('../../api/managers/permissions');
-const systemMan = require('../../api/managers/system');
+import permMan from '../../api/managers/permissions';
+import systemMan from '../../api/managers/system';
 
 // Utils
-const { errorHandler, interceptHTML } = require('../utils');
+import { errorHandler, interceptHTML } from '../utils';
 
 // Sub-routes
-const eoteRouter = require('./eote');
-const genRouter = require('./genesys');
+import eoteRouter from './eote';
+import genRouter from './genesys';
 
 //----------------------------------------------------------------------------------------------------------------------
 
+import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);
 const router = express.Router();
 
@@ -54,6 +54,6 @@ router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = router;
+export default router;
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 // NoteManager
 //----------------------------------------------------------------------------------------------------------------------
 
-const noteRA = require('../resource-access/notes');
+import noteRA from '../resource-access/notes';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ class NoteManager
         return noteRA.getNote(id);
     } // getNoteByHash
 
-    async createNote(pages)
+    async createNote(pages = undefined)
     {
         const id = await noteRA.createNote(pages);
         return this.getNote(id);
@@ -47,6 +47,6 @@ class NoteManager
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new NoteManager();
+export default new NoteManager();
 
 //----------------------------------------------------------------------------------------------------------------------

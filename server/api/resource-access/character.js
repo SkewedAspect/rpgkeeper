@@ -2,20 +2,21 @@
 // CharacterResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
+import _ from 'lodash';
 
 // Managers
-const dbMan = require('../../database');
+import dbMan from '../../database';
 
 // Utilities
-const { shortID } = require('../../utils/misc');
-const { applyFilters } = require('../../knex/utils');
+import { shortID } from '../../utils/misc';
+import { applyFilters } from '../../knex/utils';
 
 // Errors
-const { MultipleResultsError, NotFoundError } = require('../errors');
+import { MultipleResultsError, NotFoundError } from '../errors';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -172,6 +173,6 @@ class CharacterResourceAccess
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new CharacterResourceAccess();
+export default new CharacterResourceAccess();
 
 //----------------------------------------------------------------------------------------------------------------------

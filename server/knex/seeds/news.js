@@ -2,7 +2,8 @@
 // Default News Articles
 //----------------------------------------------------------------------------------------------------------------------
 
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 

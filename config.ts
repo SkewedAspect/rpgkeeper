@@ -7,7 +7,7 @@ const UNIT_TESTS = (process.env.UNIT_TESTS?.toLowerCase() === 'true') ?? false;
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     debug: DEBUG,
     debugStream: DEBUG,
     overrideAuth: DEBUG,

@@ -3,16 +3,17 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-const BaseSystem = require('../base');
-
-// Validations
-const schemas = require('../../api/validations/systems/fate');
+import BaseSystem from '../base';
 
 // Defaults
-const defaults = require('./defaults');
+import defaults from './defaults';
+
+// Validations
+import schemas from '../../api/validations/systems/fate';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition
@@ -34,6 +35,6 @@ class FATESystem extends BaseSystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new FATESystem();
+export default new FATESystem();
 
 //----------------------------------------------------------------------------------------------------------------------

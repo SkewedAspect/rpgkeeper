@@ -2,11 +2,11 @@
 // Character AJV Schema
 //----------------------------------------------------------------------------------------------------------------------
 
-const sysMan = require('../managers/system');
+import sysMan from '../managers/system';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     type: 'object',
     required: [ 'system', 'name' ],
     properties: {

@@ -2,20 +2,21 @@
 // Routes for Genesys
 //----------------------------------------------------------------------------------------------------------------------
 
-const express = require('express');
+import express from 'express';
 
 // Managers
-const refMan = require('../../api/managers/references');
+import refMan from '../../api/managers/references';
 
 // Utils
-const { buildSupplementRoute } = require('./utils/supplement');
-const { errorHandler, wrapAsync, parseQuery } = require('../utils');
+import { buildSupplementRoute } from './utils/supplement';
+import { errorHandler, parseQuery, wrapAsync } from '../utils';
 
 // Validations
-const { genesys } = require('../../api/validations/systems/eote');
+import validations from '../../api/validations/systems/eote';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -23,13 +24,13 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-buildSupplementRoute(router, '/abilities', 'ability', 'genesys', genesys);
-buildSupplementRoute(router, '/armor', 'armor', 'genesys', genesys);
-buildSupplementRoute(router, '/attachments', 'attachment', 'genesys', genesys);
-buildSupplementRoute(router, '/gear', 'gear', 'genesys', genesys);
-buildSupplementRoute(router, '/qualities', 'quality', 'genesys', genesys);
-buildSupplementRoute(router, '/talents', 'talent', 'genesys', genesys);
-buildSupplementRoute(router, '/weapons', 'weapon', 'genesys', genesys);
+buildSupplementRoute(router, '/abilities', 'ability', 'genesys', validations.genesys);
+buildSupplementRoute(router, '/armor', 'armor', 'genesys', validations.genesys);
+buildSupplementRoute(router, '/attachments', 'attachment', 'genesys', validations.genesys);
+buildSupplementRoute(router, '/gear', 'gear', 'genesys', validations.genesys);
+buildSupplementRoute(router, '/qualities', 'quality', 'genesys', validations.genesys);
+buildSupplementRoute(router, '/talents', 'talent', 'genesys', validations.genesys);
+buildSupplementRoute(router, '/weapons', 'weapon', 'genesys', validations.genesys);
 
 router.get('/references', wrapAsync(async(req, resp) =>
 {
@@ -45,6 +46,6 @@ router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = router;
+export default router;
 
 //----------------------------------------------------------------------------------------------------------------------

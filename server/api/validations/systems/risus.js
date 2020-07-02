@@ -2,7 +2,7 @@
 // Risus Schema Validations
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     character: {
         type: 'object',
         required: [ 'advancementPoints', 'ffDice', 'cliches', 'hooks', 'luckyShots' ],

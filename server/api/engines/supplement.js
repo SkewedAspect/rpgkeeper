@@ -2,13 +2,14 @@
 // SupplementEngine
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
+import _ from 'lodash';
 
 // Utilities
-const { camelCaseKeys, snakeCaseKeys } = require('../../utils/misc');
+import { camelCaseKeys, snakeCaseKeys } from '../../utils/misc';
 
 // Logging
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -37,7 +38,7 @@ class SupplementEngine
     async $validateSupplementPath(data, suppDef, systemPrefix, account)
     {
         // FIXME: This is a circular dependency, and I hate it.
-        const suppMan = require('../managers/supplement');
+        const suppMan = (await import('../managers/supplement')).default;
 
         let supplements = _.get(data, suppDef.path, []);
 
@@ -136,6 +137,6 @@ class SupplementEngine
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new SupplementEngine();
+export default new SupplementEngine();
 
 //----------------------------------------------------------------------------------------------------------------------

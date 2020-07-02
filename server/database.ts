@@ -2,12 +2,19 @@
 // DatabaseManager
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
-const knex = require('knex');
+import _ from 'lodash';
+import knex from 'knex';
 
-const configMan = require('./api/managers/config');
+import configMan from './api/managers/config';
 
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
+
+//----------------------------------------------------------------------------------------------------------------------
+
+interface DBConfig extends knex.Config<any> {
+    traceQueries : boolean
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -18,19 +25,24 @@ class DatabaseManager
         // If true, we load the in-memory test DB.
         this.testing = configMan.get('unitTests');
 
-        // Loading promises for both the testing DB and the actual DB.
-        this.loading = undefined;
-        this.loadingTest = undefined;
-
         // Check to see if we need to initialize the db
         this.getDB();
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
+
+    public testing : boolean;
+    public loading ?: Promise<knex>;
+    public loadingTest ?: Promise<knex>;
+    public dbConfig ?: DBConfig
+    public db ?: knex;
+    public testDB ?: knex;
+
+    //------------------------------------------------------------------------------------------------------------------
     // Utils
     //------------------------------------------------------------------------------------------------------------------
 
-    async _setupDB(db, options = { migrate: { directory: './server/knex/migrations' }, seed: { directory: './server/knex/seeds' } })
+    async _setupDB(db : knex, options = { migrate: { directory: './server/knex/migrations' }, seed: { directory: './server/knex/seeds' } }) : Promise<knex>
     {
         await db('knex_migrations')
             .select()
@@ -61,19 +73,20 @@ class DatabaseManager
         return db;
     } // end _setupDB
 
-    async _getDB()
+    async _getDB() : Promise<knex>
     {
         if(!this.loading)
         {
-            this.dbConfig = _.defaults({
+            this.dbConfig = {
+                ...configMan.get('database'),
                 client: 'sqlite3',
                 connection: {
                     filename: './db/rpgk.db'
                 },
                 useNullAsDefault: true
-            }, configMan.get('database'));
+            };
 
-            if(this.dbConfig.client === 'sqlite3')
+            if(this.dbConfig?.client === 'sqlite3')
             {
                 // We pull of any existing `afterCreate` hook.
                 const afterCreate = _.get(this.dbConfig, 'pool.afterCreate');
@@ -83,7 +96,7 @@ class DatabaseManager
                 {
                     db.run('PRAGMA foreign_keys = ON', (err) =>
                     {
-                        if(!err && this.dbConfig.traceQueries)
+                        if(!err && this.dbConfig?.traceQueries)
                         {
                             // Turn on tracing
                             db.on('trace', (queryString) =>
@@ -103,7 +116,7 @@ class DatabaseManager
             } // end if
 
             // Setup the database
-            this.db = knex(this.dbConfig);
+            this.db = knex(this.dbConfig ?? {});
 
             // Check to see if we need to initialize the db
             return this.loading = this._setupDB(this.db);
@@ -114,7 +127,7 @@ class DatabaseManager
         } // end if
     } // end _getDB
 
-    async _getTestDB()
+    async _getTestDB() : Promise<knex>
     {
         if(!this.loadingTest)
         {
@@ -130,7 +143,6 @@ class DatabaseManager
                 pool: {
                     min: 1,
                     max: 1,
-                    disposeTimeout: 1000 * 60 * 60 * 100, // 100 hours
                     idleTimeoutMillis: 1000 * 60 * 60 * 100 // 100 hours
                 }
             });
@@ -147,21 +159,21 @@ class DatabaseManager
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async getDB()
+    async getDB() : Promise<knex>
     {
         return this.testing ? this._getTestDB() : this._getDB();
     } // end getDB
 
-    async runSeeds()
+    async runSeeds() : Promise<void>
     {
         const options = this.testing ? { seed: { directory: './tests/seeds' } } : {};
 
         logger.info('Running seeds...', options);
         const db = await this.getDB();
-        return db.seed.run(options.seed);
+        await db.seed.run(options.seed);
     } // end runSeeds
 
-    getConnObj()
+    getConnObj() : knex.Config<any> | undefined
     {
         return this.dbConfig;
     } // end getConnObj
@@ -169,6 +181,6 @@ class DatabaseManager
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new DatabaseManager();
+export default new DatabaseManager();
 
 //----------------------------------------------------------------------------------------------------------------------

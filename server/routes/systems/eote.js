@@ -2,20 +2,21 @@
 // Routes for Edge of the Empire system
 //----------------------------------------------------------------------------------------------------------------------
 
-const express = require('express');
+import express from 'express';
 
 // Managers
-const refMan = require('../../api/managers/references');
+import refMan from '../../api/managers/references';
 
 // Utils
-const { buildSupplementRoute } = require('./utils/supplement');
-const { errorHandler, wrapAsync, parseQuery } = require('../utils');
+import { buildSupplementRoute } from './utils/supplement';
+import { errorHandler, wrapAsync, parseQuery } from '../utils';
 
 // Validations
-const { eote } = require('../../api/validations/systems/eote');
+import validations from '../../api/validations/systems/eote';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -23,13 +24,13 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-buildSupplementRoute(router, '/abilities', 'ability', 'eote', eote);
-buildSupplementRoute(router, '/armor', 'armor', 'eote', eote);
-buildSupplementRoute(router, '/attachments', 'attachment', 'eote', eote);
-buildSupplementRoute(router, '/gear', 'gear', 'eote', eote);
-buildSupplementRoute(router, '/qualities', 'quality', 'eote', eote);
-buildSupplementRoute(router, '/talents', 'talent', 'eote', eote);
-buildSupplementRoute(router, '/weapons', 'weapon', 'eote', eote);
+buildSupplementRoute(router, '/abilities', 'ability', 'eote', validations.eote);
+buildSupplementRoute(router, '/armor', 'armor', 'eote', validations.eote);
+buildSupplementRoute(router, '/attachments', 'attachment', 'eote', validations.eote);
+buildSupplementRoute(router, '/gear', 'gear', 'eote', validations.eote);
+buildSupplementRoute(router, '/qualities', 'quality', 'eote', validations.eote);
+buildSupplementRoute(router, '/talents', 'talent', 'eote', validations.eote);
+buildSupplementRoute(router, '/weapons', 'weapon', 'eote', validations.eote);
 
 router.get('/references', wrapAsync(async(req, resp) =>
 {
@@ -45,6 +46,6 @@ router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = router;
+export default router;
 
 //----------------------------------------------------------------------------------------------------------------------

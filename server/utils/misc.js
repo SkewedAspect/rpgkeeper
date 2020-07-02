@@ -2,9 +2,9 @@
 // Simple utility functions
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
-const base62 = require('base62');
-const uuid = require('uuid');
+import _ from 'lodash';
+import base62 from 'base62';
+import { v4 } from 'uuid';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -13,9 +13,9 @@ const uuid = require('uuid');
  *
  * @returns { string } Returns a unique string id.
  */
-function shortID()
+export function shortID()
 {
-    return base62.encode(Buffer.from(uuid.v4(null, [])).readUInt32LE(0));
+    return base62.encode(Buffer.from(v4(null, [])).readUInt32LE(0));
 } // end shortID
 
 /**
@@ -25,7 +25,7 @@ function shortID()
  *
  * @returns { string } Returns a color in hex code format.
  */
-function colorize(str)
+export function colorize(str)
 {
     if(!str)
     {
@@ -55,9 +55,9 @@ function colorize(str)
  *
  * @returns { object }  Returns a new object with the keys camel cased.
  */
-function camelCaseKeys(obj)
+export function camelCaseKeys(obj)
 {
-    return _.mapKeys(obj, (val, key) =>
+    return _.mapKeys(obj, (_val, key) =>
     {
         if(_.includes(key, '_id'))
         {
@@ -77,9 +77,9 @@ function camelCaseKeys(obj)
  *
  * @returns { object }  Returns a new object with the keys snake cased.
  */
-function snakeCaseKeys(obj)
+export function snakeCaseKeys(obj)
 {
-    return _.mapKeys(obj, (val, key) =>
+    return _.mapKeys(obj, (_val, key) =>
     {
         if(_.endsWith(key, 'ID'))
         {
@@ -99,13 +99,9 @@ function snakeCaseKeys(obj)
  *
  * @returns {function(*, *) : number} Returns`1`, `-1`, or `0`, depending on how the object sorts.
  */
-function sortBy(key)
+export function sortBy(key)
 {
     return (aObj, bObj) => { return (aObj[key] > bObj[key]) ? 1 : ((bObj[key] > aObj[key]) ? -1 : 0); };
 } // end sortBy
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = { sortBy, shortID, colorize, snakeCaseKeys, camelCaseKeys };
 
 //----------------------------------------------------------------------------------------------------------------------

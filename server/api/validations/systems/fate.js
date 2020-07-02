@@ -2,7 +2,7 @@
 // FATE Schema Validations
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     character: {
         type: 'object',
         required: [ 'fatePoints', 'aspects', 'skills', 'extras', 'stunts', 'physicalStress', 'mentalStress' ],

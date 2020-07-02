@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Resource Access
-const suppRA = require('../resource-access/supplement');
+import suppRA from '../resource-access/supplement';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -12,13 +12,13 @@ class SupplementManager
     async get(name, type, systemPrefix, account)
     {
         const tableName = `${ systemPrefix }_${ type }`;
-        return suppRA.get(name, type, tableName, account);
+        return suppRA.get(name, undefined, undefined, type, tableName, account);
     } // end getAbility
 
-    async getByID(id, type, systemPrefix, account)
+    async getByID(id, type, systemPrefix, _account)
     {
         const tableName = `${ systemPrefix }_${ type }`;
-        return suppRA.getByID(id, type, tableName, account);
+        return suppRA.getByID(id, type, tableName);
     } // end getByID
 
     async getFiltered(filters, type, systemPrefix, account)
@@ -39,10 +39,10 @@ class SupplementManager
         return suppRA.updateSupplement(supplement, type, tableName, account);
     } // end updateSupplement
 
-    async deleteSupplement(id, type, systemPrefix, account)
+    async deleteSupplement(id, type, systemPrefix, _account)
     {
         const tableName = `${ systemPrefix }_${ type }`;
-        return suppRA.deleteSupplement(id, tableName, account);
+        return suppRA.deleteSupplement(id, tableName);
     } // end deleteSupplement
 
     async filterSupplementsByPermissions(ids, type, systemPrefix, account)
@@ -58,6 +58,6 @@ class SupplementManager
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new SupplementManager();
+export default new SupplementManager();
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 // Fate Model Defaults
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     character: {
         aspects: [
             { type: 'high concept', detail: '' },

@@ -2,20 +2,21 @@
 // Google Authentication Support
 //----------------------------------------------------------------------------------------------------------------------
 
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-web');
+import passport from 'passport';
+import GoogleStrategy from 'passport-google-web';
 
 // We just need to import this somewhere; here makes sense.
 require('./serialization');
 
 // Managers
-const accountMan = require('../api/managers/account');
+import accountMan from '../api/managers/account';
 
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-passport.use(new GoogleStrategy(async(token, profile, done) =>
+passport.use(new GoogleStrategy(async(_token, profile, done) =>
 {
     try
     {
@@ -60,7 +61,7 @@ passport.use(new GoogleStrategy(async(token, profile, done) =>
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     initialize(app)
     {
         // Authenticate
@@ -70,7 +71,7 @@ module.exports = {
         });
 
         // Logout endpoint
-        app.post('/auth/logout', (req, res) => 
+        app.post('/auth/logout', (req, res) =>
         {
             req.logout();
             res.end();

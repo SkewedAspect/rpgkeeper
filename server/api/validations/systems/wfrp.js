@@ -2,7 +2,7 @@
 // Wfrp Schema Validations
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     character: {
         type: 'object',
         required: [ 'stats', 'skills' ],

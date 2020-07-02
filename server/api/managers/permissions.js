@@ -2,10 +2,10 @@
 // PermissionsManager
 //----------------------------------------------------------------------------------------------------------------------
 
-const tp = require('trivialperms');
+import tp from 'trivialperms';
 
 // Resource Access
-const rolesRA = require('../resource-access/roles');
+import rolesRA from '../resource-access/roles';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -30,6 +30,6 @@ class PermissionsManager
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new PermissionsManager();
+export default new PermissionsManager();
 
 //----------------------------------------------------------------------------------------------------------------------

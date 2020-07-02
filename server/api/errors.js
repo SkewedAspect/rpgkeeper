@@ -2,7 +2,7 @@
 // Custom errors
 //----------------------------------------------------------------------------------------------------------------------
 
-class AppError extends Error
+export class AppError extends Error
 {
     constructor(message, code, name)
     {
@@ -38,7 +38,7 @@ class AppError extends Error
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class NotFoundError extends AppError
+export class NotFoundError extends AppError
 {
     constructor(message)
     {
@@ -50,7 +50,7 @@ class NotFoundError extends AppError
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class NotImplementedError extends AppError
+export class NotImplementedError extends AppError
 {
     constructor(api)
     {
@@ -62,7 +62,7 @@ class NotImplementedError extends AppError
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class DuplicateSupplementError extends AppError
+export class DuplicateSupplementError extends AppError
 {
     constructor(supplement)
     {
@@ -83,7 +83,7 @@ class DuplicateSupplementError extends AppError
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class MultipleResultsError extends AppError
+export class MultipleResultsError extends AppError
 {
     constructor(thing)
     {
@@ -95,7 +95,7 @@ class MultipleResultsError extends AppError
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class ValidationError extends AppError
+export class ValidationError extends AppError
 {
     constructor(prop, reason)
     {
@@ -107,7 +107,7 @@ class ValidationError extends AppError
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class AjvValidationError extends AppError
+export class AjvValidationError extends AppError
 {
     constructor(errors)
     {
@@ -133,17 +133,5 @@ class AjvValidationError extends AppError
         };
     } // end toJSON
 } // end AjvValidationError
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = {
-    AppError,
-    NotFoundError,
-    NotImplementedError,
-    DuplicateSupplementError,
-    MultipleResultsError,
-    ValidationError,
-    AjvValidationError
-};
 
 //----------------------------------------------------------------------------------------------------------------------

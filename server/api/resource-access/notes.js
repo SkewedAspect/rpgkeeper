@@ -2,16 +2,16 @@
 // NotesResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
+import _ from 'lodash';
 
 // Managers
-const dbMan = require('../../database');
+import dbMan from '../../database';
 
 // Utilities
-const { shortID } = require('../../utils/misc');
+import { shortID } from '../../utils/misc';
 
 // Errors
-const { MultipleResultsError, NotFoundError } = require('../errors');
+import { MultipleResultsError, NotFoundError } from '../errors';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -163,6 +163,6 @@ class NotesResourceAccess
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new NotesResourceAccess();
+export default new NotesResourceAccess();
 
 //----------------------------------------------------------------------------------------------------------------------

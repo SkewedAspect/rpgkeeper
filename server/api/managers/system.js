@@ -2,13 +2,13 @@
 // SystemManager
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
+import _ from 'lodash';
 
 // Systems
-const Risus = require('../../systems/risus/system');
-const Fate = require('../../systems/fate/system');
-const Wfrp = require('../../systems/wfrp/system');
-const { Genesys, EdgeOfTheEmpire } = require('../../systems/eote/system');
+import Risus from '../../systems/risus/system';
+import Fate from '../../systems/fate/system';
+import Wfrp from '../../systems/wfrp/system';
+import { Genesys, EdgeOfTheEmpire } from '../../systems/eote/system';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -35,6 +35,6 @@ class SystemManager
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new SystemManager();
+export default new SystemManager();
 
 //----------------------------------------------------------------------------------------------------------------------

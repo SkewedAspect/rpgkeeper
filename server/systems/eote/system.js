@@ -3,16 +3,18 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-const BaseSystem = require('../base');
-
-// Validations
-const schemas = require('../../api/validations/systems/eote');
+// BaseClass
+import BaseSystem from '../base';
 
 // Defaults
-const defaults = require('./defaults');
+import defaults from './defaults';
+
+// Validations
+import schemas from '../../api/validations/systems/eote';
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition
@@ -72,9 +74,7 @@ class EOTESystem extends BaseSystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
-    Genesys: new GenesysSystem(),
-    EdgeOfTheEmpire: new EOTESystem()
-};
+export const Genesys = new GenesysSystem();
+export const EdgeOfTheEmpire = new EOTESystem();
 
 //----------------------------------------------------------------------------------------------------------------------

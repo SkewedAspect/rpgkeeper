@@ -2,8 +2,8 @@
 // Utilities to make express routes use less boilerplate.
 //----------------------------------------------------------------------------------------------------------------------
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -14,14 +14,14 @@ const path = require('path');
  *
  * @returns {Function} Returns a middleware function to perform logging.
  */
-function buildBasicRequestLogger(logger)
+export function requestLogger(logger)
 {
-    return (request, response, next) =>
+    return (request, _response, next) =>
     {
         logger.debug(`${ request.method } '${ request.url }'`);
         next();
     }; // end loggerFunc
-} // end buildBasicRequestLogger
+} // end requestLogger
 
 /**
  * Basic error logging
@@ -30,7 +30,7 @@ function buildBasicRequestLogger(logger)
  *
  * @returns {Function} Returns a middleware function to perform logging.
  */
-function buildBasicErrorLogger(logger)
+export function errorLogger(logger)
 {
     return (error, request, response, next) =>
     {
@@ -55,16 +55,16 @@ function buildBasicErrorLogger(logger)
 
         next(error);
     }; // end loggerFunc
-} // end buildBasicErrorLogger
+} // end errorLogger
 
 /**
  * Build a custom error logger
  *
  * @param {*} logger - The logger to use.
  *
- * @returns {Function} Returns a middleware function to perform logging.
+ * @returns {any} Returns a middleware function to perform logging.
  */
-function buildErrorHandler(logger)
+export function errorHandler(logger)
 {
     // If we don't have 4 parameters, this function literally doesn't work.
     // eslint-disable-next-line no-unused-vars
@@ -111,15 +111,15 @@ function buildErrorHandler(logger)
 
         response.json(errorJSON);
     }; // end apiErrorHandler
-} // end buildErrorHandler
+} // end errorHandler
 
 /**
  * Serves index page.
  *
- * @param {*} request - Express request.
+ * @param {*} _request - Express request.
  * @param {*} response - Express response.
  */
-function serveIndex(request, response)
+export function serveIndex(_request, response)
 {
     response.setHeader('Content-Type', 'text/html');
     fs.createReadStream(path.resolve(__dirname, '..', '..', '..', 'client', 'index.html')).pipe(response);
@@ -132,7 +132,7 @@ function serveIndex(request, response)
  * @param {Function} jsonHandler - Handler function for the json portion of the request.
  * @param {boolean} skipAuthCheck - Should we skip checking authentication?
  */
-function interceptHTML(response, jsonHandler, skipAuthCheck)
+export function interceptHTML(response, jsonHandler, skipAuthCheck = false)
 {
     response.format({
         html: serveIndex,
@@ -160,7 +160,7 @@ function interceptHTML(response, jsonHandler, skipAuthCheck)
  * @param {*} response - Express response.
  * @param {Function} next - Express next function.
  */
-function ensureAuthenticated(request, response, next)
+export function ensureAuthenticated(request, response, next)
 {
     if(request.isAuthenticated())
     {
@@ -182,7 +182,7 @@ function ensureAuthenticated(request, response, next)
  *
  * @returns {Function} - Express router function.
  */
-function promisify(handler)
+export function promisify(handler)
 {
     return (request, response) =>
     {
@@ -210,11 +210,11 @@ function promisify(handler)
 /**
  * Wraps a router function in an async handler.
  *
- * @param {Function} handler - Express router function.
+ * @param {any} handler - Express router function.
  *
- * @returns {Function} - Express router function.
+ * @returns {any} - Express router function.
  */
-function wrapAsync(handler)
+export function wrapAsync(handler)
 {
     return function(req, res, next)
     {
@@ -222,18 +222,5 @@ function wrapAsync(handler)
         handler(req, res, next).catch(next);
     };
 } // ebd wrapAsync
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = {
-    requestLogger: buildBasicRequestLogger,
-    errorLogger: buildBasicErrorLogger,
-    errorHandler: buildErrorHandler,
-    interceptHTML,
-    serveIndex,
-    ensureAuthenticated,
-    promisify,
-    wrapAsync
-}; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------

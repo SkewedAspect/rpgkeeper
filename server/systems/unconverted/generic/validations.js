@@ -2,7 +2,7 @@
 // Generic Schema Validations
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     character: {
         type: 'object',
         required: [ 'stats', 'counters', 'rolls' ],

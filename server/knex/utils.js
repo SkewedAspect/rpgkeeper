@@ -2,8 +2,9 @@
 // Knex Utils
 //----------------------------------------------------------------------------------------------------------------------
 
-const _ = require('lodash');
-const logger = require('trivial-logging').loggerFor(module);
+import _ from 'lodash';
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -15,7 +16,7 @@ const logger = require('trivial-logging').loggerFor(module);
  *
  * @returns {*} Returns the modified query.
  */
-function applyFilters(query, filters)
+export function applyFilters(query, filters)
 {
     if(filters && !_.isEmpty(filters))
     {
@@ -42,11 +43,5 @@ function applyFilters(query, filters)
 
     return query;
 } // end applyFilters
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = {
-    applyFilters
-}; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------
