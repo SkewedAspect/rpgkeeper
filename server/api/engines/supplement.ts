@@ -8,7 +8,7 @@ import _ from 'lodash';
 import { camelCaseKeys, snakeCaseKeys } from '../../utils/misc';
 import { Character, CharacterDetails } from '../../types/character';
 import { Supplement, SupplementValidationPath } from '../../types/supplements';
-import { Account } from '../../types/account';
+import { Account } from '../../models/account';
 
 // Logging
 import logging from 'trivial-logging';

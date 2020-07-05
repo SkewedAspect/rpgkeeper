@@ -19,7 +19,7 @@ import suppEng from '../api/engines/supplement';
 
 // Utils
 import { ensureAuthenticated, errorHandler, interceptHTML, parseQuery, wrapAsync } from './utils';
-import { Account } from '../types/account';
+import { Account } from '../models/account';
 
 // Logger
 import logging from 'trivial-logging';

@@ -5,22 +5,23 @@
 import passport from 'passport';
 
 // Managers
-import accountMan from '../api/managers/account';
+import * as accountMan from '../managers/account';
+
+// Models
+import { AccountDefinition } from '../models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-// eslint-disable-next-line camelcase
-passport.serializeUser(({ account_id }, done) =>
+passport.serializeUser(({ id } : AccountDefinition, done) =>
 {
-    done(null, account_id);
+    done(null, id);
 });
 
-// eslint-disable-next-line camelcase
-passport.deserializeUser(async(account_id, done) =>
+passport.deserializeUser(async(id : string, done) =>
 {
     try
     {
-        const account = await accountMan.getAccountByID(account_id);
+        const account = await accountMan.get(id);
         done(null, account);
     }
     catch (error)

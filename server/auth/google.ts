@@ -10,8 +10,12 @@ import { Express } from 'express';
 import './serialization';
 
 // Managers
-import accountMan from '../api/managers/account';
+import * as accountMan from '../managers/account';
 
+// Models
+import { Account } from '../models/account';
+
+// Logging
 import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);
 
@@ -22,7 +26,7 @@ passport.use(new GoogleStrategy(async(_token, profile, done) =>
     try
     {
         let account;
-        try { account = await accountMan.getAccountByEmail(profile.email); }
+        try { account = await accountMan.getByEmail(profile.email); }
         catch (error)
         {
             if(error.code === 'ERR_NOT_FOUND')
@@ -38,17 +42,20 @@ passport.use(new GoogleStrategy(async(_token, profile, done) =>
 
         if(account)
         {
-            account.name = account.name || profile.email.split('@')[0];
-            account.avatar = `${ profile.picture }?sz=512`;
-            account = await accountMan.updateAccount(account);
+            account = await accountMan.update(account.id, {
+                name: account.name ?? profile.email.split('@')[0],
+                avatar: `${ profile.picture }?sz=512`
+            });
         }
         else
         {
-            account = await accountMan.createAccount({
+            account = new Account({
                 name: profile.email.split('@')[0],
                 avatar: `${ profile.picture }?sz=512`,
                 email: profile.email
             });
+
+            account = await accountMan.add(account);
         } // end if
 
         done(null, account);
