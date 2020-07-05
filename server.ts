@@ -23,7 +23,7 @@ import passport from 'passport';
 
 // Managers
 import dbMan from './server/database';
-import accountMan from './server/api/managers/account';
+import * as accountMan from './server/managers/account';
 
 // Session Store
 import connectSessionKnex from 'connect-session-knex';
@@ -119,7 +119,7 @@ async function main() : Promise<{ app : Express, server : any }>
             const email = req.get('auth-email');
             if(email)
             {
-                account = await accountMan.getAccountByEmail(email);
+                account = await accountMan.getByEmail(email);
             } // end if
 
             if(account)

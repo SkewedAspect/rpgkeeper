@@ -8,11 +8,11 @@ import passport from 'passport';
 import * as accountMan from '../managers/account';
 
 // Models
-import { AccountDefinition } from '../models/account';
+import { AccountLike } from '../models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-passport.serializeUser(({ id } : AccountDefinition, done) =>
+passport.serializeUser(({ id } : AccountLike, done) =>
 {
     done(null, id);
 });

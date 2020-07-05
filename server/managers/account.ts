@@ -6,7 +6,7 @@
 import dbMan from '../database';
 
 // Models
-import { Account, AccountDefinition, AccountSettings } from '../models/account';
+import { Account, AccountLike, AccountSettings } from '../models/account';
 
 // Errors
 import { AppError, MultipleResultsError, NotFoundError } from '../api/errors';
@@ -201,7 +201,7 @@ export async function add(newAccount : Account) : Promise<Account>
     return this.get(newAccount.id);
 } // end add
 
-export async function update(accountID : string, accountUpdate : Partial<AccountDefinition>) : Promise<Account>
+export async function update(accountID : string, accountUpdate : Partial<AccountLike>) : Promise<Account>
 {
     // Only allow updates to the following properties.
     const allowedUpdate = {
@@ -226,7 +226,7 @@ export async function update(accountID : string, accountUpdate : Partial<Account
     return this.get(accountID);
 } // end update
 
-export async function remove(account : AccountDefinition) : Promise<void>
+export async function remove(account : AccountLike) : Promise<void>
 {
     const db = await dbMan.getDB();
     await db('account')

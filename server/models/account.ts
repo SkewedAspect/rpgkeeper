@@ -11,7 +11,7 @@ const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface AccountDefinition {
+export interface AccountLike {
     id ?: string;
     email : string;
     name : string;
@@ -22,7 +22,7 @@ export interface AccountDefinition {
     created ?: number;
 }
 
-export interface AccountDBRecord extends Omit<Omit<AccountDefinition, 'permissions'>, 'settings'>
+export interface AccountDBRecord extends Omit<Omit<AccountLike, 'permissions'>, 'settings'>
 {
     hash_id ?: string,
     permissions : string;
@@ -36,7 +36,7 @@ export interface AccountSettings {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export class Account implements AccountDefinition
+export class Account implements AccountLike
 {
     #id ?: string;
     #created ?: number;
@@ -49,7 +49,7 @@ export class Account implements AccountDefinition
     public name = '';
     public avatar = '';
 
-    constructor(definition ?: AccountDefinition)
+    constructor(definition ?: AccountLike)
     {
         if(definition)
         {
@@ -97,7 +97,7 @@ export class Account implements AccountDefinition
     // Serialization
     //------------------------------------------------------------------------------------------------------------------
 
-    public toJSON() : AccountDefinition
+    public toJSON() : AccountLike
     {
         return {
             id: this.id,
@@ -150,7 +150,7 @@ export class Account implements AccountDefinition
         return new Account({ ...accountRecord, permissions, settings });
     } // end fromDB
 
-    static fromJSON(jsonObj : AccountDefinition) : Account
+    static fromJSON(jsonObj : AccountLike) : Account
     {
         return new Account(jsonObj);
     } // end fromJSON
