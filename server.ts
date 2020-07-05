@@ -77,6 +77,8 @@ async function main() : Promise<{ app : Express, server : any }>
 
     //------------------------------------------------------------------------------------------------------------------
 
+    const http : Record<string, any> = configMan.config.http as Record<string, any>;
+
     // Build the express app
     const app = express();
 
@@ -94,7 +96,7 @@ async function main() : Promise<{ app : Express, server : any }>
         store,
 
         // maxAge = 7 days
-        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: configMan.config.http.secure },
+        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: http.secure },
         saveUninitialized: false
     }));
 
@@ -125,7 +127,7 @@ async function main() : Promise<{ app : Express, server : any }>
                 logger.warn(`Forcing auth to account: ${ account.email }`);
                 req.user = account;
             } // end if
-            next();
+            next?.();
         }) as RequestHandler);
     } // end if
 
@@ -156,14 +158,14 @@ async function main() : Promise<{ app : Express, server : any }>
     });
 
     // Basic error logging
-    app.use(errorLogger(logger) as RequestHandler);
+    app.use(errorLogger(logger));
 
     //------------------------------------------------------------------------------------------------------------------
     // Server
     //------------------------------------------------------------------------------------------------------------------
 
     // Start the server
-    const server = app.listen(configMan.config.http.port, () =>
+    const server = app.listen(http.port, () =>
     {
         const { address, port } = server.address() as AddressInfo;
 

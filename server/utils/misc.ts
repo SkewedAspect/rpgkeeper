@@ -11,9 +11,9 @@ import { v4 } from 'uuid';
 /**
  * This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid.
  *
- * @returns { string } Returns a unique string id.
+ * @returns Returns a unique string id.
  */
-export function shortID()
+export function shortID() : string
 {
     return base62.encode(Buffer.from(v4(null, [])).readUInt32LE(0));
 } // end shortID
@@ -21,11 +21,11 @@ export function shortID()
 /**
  * Generates a color based on a string.
  *
- * @param { string } str - String to colorize.
+ * @param str - String to colorize.
  *
- * @returns { string } Returns a color in hex code format.
+ * @returns Returns a color in hex code format.
  */
-export function colorize(str)
+export function colorize(str : string) : string
 {
     if(!str)
     {
@@ -51,11 +51,11 @@ export function colorize(str)
 /**
  * Camel case all the keys in an object.
  *
- * @param { object } obj - The object whose keys we are camel casing.
+ * @param obj - The object whose keys we are camel casing.
  *
- * @returns { object }  Returns a new object with the keys camel cased.
+ * @returns Returns a new object with the keys camel cased.
  */
-export function camelCaseKeys(obj)
+export function camelCaseKeys(obj : Record<string, unknown>) : Record<string, unknown>
 {
     return _.mapKeys(obj, (_val, key) =>
     {
@@ -73,11 +73,11 @@ export function camelCaseKeys(obj)
 /**
  * Snake case all the keys in an object.
  *
- * @param { object } obj - The object whose keys we are snake casing.
+ * @param obj - The object whose keys we are snake casing.
  *
- * @returns { object }  Returns a new object with the keys snake cased.
+ * @returns Returns a new object with the keys snake cased.
  */
-export function snakeCaseKeys(obj)
+export function snakeCaseKeys(obj : Record<string, unknown>) : Record<string, unknown>
 {
     return _.mapKeys(obj, (_val, key) =>
     {
@@ -95,13 +95,16 @@ export function snakeCaseKeys(obj)
 /**
  * A comparator function for sorting by the key of an object.
  *
- * @param {string} key - The key to sort by.
+ * @param key - The key to sort by.
  *
- * @returns {function(*, *) : number} Returns`1`, `-1`, or `0`, depending on how the object sorts.
+ * @returns Returns`1`, `-1`, or `0`, depending on how the object sorts.
  */
-export function sortBy(key)
+export function sortBy(key : string) : (a : Record<string, any>, b : Record<string, any>) => number
 {
-    return (aObj, bObj) => { return (aObj[key] > bObj[key]) ? 1 : ((bObj[key] > aObj[key]) ? -1 : 0); };
+    return (aObj : Record<string, any>, bObj : Record<string, any>) =>
+    {
+        return (aObj[key] > bObj[key]) ? 1 : ((bObj[key] > aObj[key]) ? -1 : 0);
+    };
 } // end sortBy
 
 //----------------------------------------------------------------------------------------------------------------------

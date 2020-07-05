@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Routes for Genesys
+// Routes for Edge of the Empire system
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
@@ -9,7 +9,7 @@ import refMan from '../../api/managers/references';
 
 // Utils
 import { buildSupplementRoute } from './utils/supplement';
-import { errorHandler, parseQuery, wrapAsync } from '../utils';
+import { errorHandler, wrapAsync, parseQuery } from '../utils';
 
 // Validations
 import validations from '../../api/validations/systems/eote';
@@ -24,18 +24,18 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-buildSupplementRoute(router, '/abilities', 'ability', 'genesys', validations.genesys);
-buildSupplementRoute(router, '/armor', 'armor', 'genesys', validations.genesys);
-buildSupplementRoute(router, '/attachments', 'attachment', 'genesys', validations.genesys);
-buildSupplementRoute(router, '/gear', 'gear', 'genesys', validations.genesys);
-buildSupplementRoute(router, '/qualities', 'quality', 'genesys', validations.genesys);
-buildSupplementRoute(router, '/talents', 'talent', 'genesys', validations.genesys);
-buildSupplementRoute(router, '/weapons', 'weapon', 'genesys', validations.genesys);
+buildSupplementRoute(router, '/abilities', 'ability', 'eote', validations.eote);
+buildSupplementRoute(router, '/armor', 'armor', 'eote', validations.eote);
+buildSupplementRoute(router, '/attachments', 'attachment', 'eote', validations.eote);
+buildSupplementRoute(router, '/gear', 'gear', 'eote', validations.eote);
+buildSupplementRoute(router, '/qualities', 'quality', 'eote', validations.eote);
+buildSupplementRoute(router, '/talents', 'talent', 'eote', validations.eote);
+buildSupplementRoute(router, '/weapons', 'weapon', 'eote', validations.eote);
 
 router.get('/references', wrapAsync(async(req, resp) =>
 {
-    const filters = parseQuery(req.query);
-    resp.json(await refMan.getFiltered(filters, 'genesys_reference'));
+    const filters = parseQuery(req.query as Record<string, string>);
+    resp.json(await refMan.getFiltered(filters, 'eote_reference'));
 }));
 
 //----------------------------------------------------------------------------------------------------------------------

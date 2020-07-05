@@ -23,7 +23,7 @@ class DatabaseManager
     constructor()
     {
         // If true, we load the in-memory test DB.
-        this.testing = configMan.get('unitTests');
+        this.testing = !!configMan.get('unitTests');
 
         // Check to see if we need to initialize the db
         this.getDB();
@@ -78,7 +78,7 @@ class DatabaseManager
         if(!this.loading)
         {
             this.dbConfig = {
-                ...configMan.get('database'),
+                ...configMan.get('database') as DBConfig,
                 client: 'sqlite3',
                 connection: {
                     filename: './db/rpgk.db'

@@ -6,6 +6,9 @@ import _ from 'lodash';
 
 // Utilities
 import { camelCaseKeys, snakeCaseKeys } from '../../utils/misc';
+import { Character, CharacterDetails } from '../../types/character';
+import { Supplement, SupplementValidationPath } from '../../types/supplements';
+import { Account } from '../../types/account';
 
 // Logging
 import logging from 'trivial-logging';
@@ -13,13 +16,19 @@ const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
+export interface DataMungingFunction {
+    (data : Record<string, unknown>) : Record<string, unknown>
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
 class SupplementEngine
 {
+    private $toDatabaseFuncs : Record<string, DataMungingFunction> = {};
+    private $fromDatabaseFuncs : Record<string, DataMungingFunction> = {};
+
     constructor()
     {
-        // Processing functions for going from a Model to the database
-        this.$toDatabaseFuncs = {};
-
         // Processing functions for going from the database to a Model
         this.$fromDatabaseFuncs = {
             quality(quality)
@@ -35,12 +44,12 @@ class SupplementEngine
 
     //------------------------------------------------------------------------------------------------------------------
 
-    async $validateSupplementPath(data, suppDef, systemPrefix, account)
+    async $validateSupplementPath(data : CharacterDetails, suppDef : SupplementValidationPath, systemPrefix : string, account : Account) : Promise<boolean>
     {
         // FIXME: This is a circular dependency, and I hate it.
         const suppMan = (await import('../managers/supplement')).default;
 
-        let supplements = _.get(data, suppDef.path, []);
+        let supplements = _.get(data, suppDef.path, []) as Supplement | Supplement[] | number[];
 
         // Handle the case of the path pointing to a single supplement.
         if(supplements && !Array.isArray(supplements))
@@ -56,14 +65,14 @@ class SupplementEngine
             // Handle the supplements being arrays of objects with property `id`
             if(_.get(supplements[0], 'id') !== undefined)
             {
-                ids = supplements.map((supp) => supp.id);
+                ids = (supplements as Supplement[]).map((supp) => supp.id) as number[];
             } // end if
 
             // Filter the supplements
             const filtered = (await suppMan.filterSupplementsByPermissions(ids, suppDef.type, systemPrefix, account))
                 .map((obj) => obj.id);
 
-            supplements = supplements.filter((supp) =>
+            supplements = (supplements as Supplement[]).filter((supp) =>
             {
                 if(_.isObject(supp))
                 {
@@ -81,11 +90,13 @@ class SupplementEngine
             // Return true if we filtered something out.
             return ids.length !== filtered.length;
         } // end if
+
+        return false;
     } // end $validateSupplementPath
 
     //------------------------------------------------------------------------------------------------------------------
 
-    async validateCharacter(character, supplementPaths, account)
+    async validateCharacter(character : Character, supplementPaths : SupplementValidationPath[], account : Account) : Promise<{ character : Character, filtered : boolean }>
     {
         // Validate all supplement paths
         let results = await Promise.all(supplementPaths
@@ -96,7 +107,7 @@ class SupplementEngine
                 {
                     // If we have a list of objects that contain supplements, we have to get the list of those objects,
                     // and then iterate over that list, passing in that object instead of the full character.
-                    const suppParents = _.get(character.details, suppDef.list, []);
+                    const suppParents = _.get(character.details, suppDef.list, []) as Record<string, unknown>[];
                     return Promise.all(suppParents
                         .map((parent) => this.$validateSupplementPath(parent, suppDef, character.system, account)
                             .catch(errLog)));
@@ -115,21 +126,29 @@ class SupplementEngine
         return { character, filtered: results.length > 0 };
     } // end validateCharacter
 
-    toDatabase(supp, type)
+    toDatabase(supp : Supplement, type : string) : Record<string, unknown>
     {
         const processFunc = this.$toDatabaseFuncs[type] || (() => supp);
-        supp = processFunc(supp);
+        supp = processFunc(supp) as Supplement;
         return snakeCaseKeys(supp);
     } // end toDatabase
 
-    fromDatabase(supp, type)
+    fromDatabase(supp : Supplement, type : string) : Record<string, unknown>
     {
         const processFunc = this.$fromDatabaseFuncs[type] || (() => supp);
-        supp = processFunc(supp);
+        supp = processFunc(supp) as Supplement;
 
         // Common processing
-        supp.official = !!supp.official;
-        supp.owner = supp.owner ? parseInt(supp.owner) : undefined;
+        // FIXME: sqlite often returns booleans as ints. We need to clean that up, and that's what this does.
+        if(typeof supp.official !== 'boolean')
+        {
+            supp.official = !!supp.official;
+        } // end if
+
+        if(typeof supp.owner !== 'number')
+        {
+            supp.owner = supp.owner ? parseInt(supp.owner) : undefined;
+        } // end if
 
         return camelCaseKeys(supp);
     } // end fromDatabase

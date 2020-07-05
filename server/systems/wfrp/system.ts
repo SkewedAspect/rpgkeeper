@@ -1,15 +1,15 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Risus System
+// Wfrp System
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-import BaseSystem from '../base';
+import { BaseSystem, SupportStatus } from '../base';
 
 // Defaults
 import defaults from './defaults';
 
 // Validations
-import schemas from '../../api/validations/systems/risus';
+import schemas from '../../api/validations/systems/wfrp';
 
 // Logger
 import logging from 'trivial-logging';
@@ -19,26 +19,27 @@ const logger = logging.loggerFor(module);
 // System definition
 //----------------------------------------------------------------------------------------------------------------------
 
-const id = 'risus';
-const name = 'Risus: The Anything RPG';
-const description = 'For some, Risus is a handy “emergency” RPG for spur-of-the-moment one-shots and rapid character '
-    + 'creation. For others, it’s a reliable campaign system supporting years of play. For others still, it’s a strange '
-    + 'little pamphlet with stick figures. No matter what it might become to you, you need this in your life!';
+const id = 'wfrp';
+const name = 'Warhammer 4th edition';
+const description = 'The fourth edition of the original dark fantasy roleplaying game,'
++ ' Warhammer Fantasy Roleplay takes you back to the world where Chaos never sleeps.'
++ ' Drawing inspiration from the legendary early publications of the grimdark RPG,'
++ ' WFRP brings innovative twists to build on the beloved classic.';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class RisusSystem extends BaseSystem
+class WfrpSystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description, schemas.character, defaults.character);
+        super(id, name, description, schemas.character, defaults.character, [], SupportStatus.InDevelopment);
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor
-} // end RisusSystem
+} // end WfrpSystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default new RisusSystem();
+export default new WfrpSystem();
 
 //----------------------------------------------------------------------------------------------------------------------

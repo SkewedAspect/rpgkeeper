@@ -21,37 +21,27 @@ const router = express.Router();
 
 router.get('/', wrapAsync(async(req, resp) =>
 {
-    const filters = parseQuery(req.query);
+    const filters = parseQuery(req.query as Record<string, string>);
     const accounts = (await accountMan.getAccounts(filters))
         .map((account) =>
         {
             // eslint-disable-next-line no-unused-vars
             const {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 account_id,
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 hash_id,
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 settings,
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 permissions,
                 ...safeAccount
-            } = account;
+            } = account as unknown as Record<string, unknown>;
 
             if(req.isAuthenticated())
             {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 safeAccount.permissions = permissions;
 
-                if(req.user.id === hash_id)
+                // FIXME: express defines user as an empty object, because they suck! So, do a dance.
+                const user : Record<string, unknown> | undefined = req.user as unknown as Record<string, unknown>;
+                if(user?.id === hash_id)
                 {
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
                     safeAccount.settings = settings;
                 } // end if
             } // end if
@@ -65,13 +55,15 @@ router.get('/', wrapAsync(async(req, resp) =>
 router.get('/:accountID', wrapAsync(async(req, resp) =>
 {
     // eslint-disable-next-line no-unused-vars
-    const { account_id, hash_id, settings, permissions, ...safeAccount } = await accountMan.getAccountByHash(req.params.accountID);
+    const { account_id, hash_id, settings, permissions, ...safeAccount } = await accountMan.getAccountByHash(req.params.accountID) as any;
 
     if(req.isAuthenticated())
     {
         safeAccount.permissions = permissions;
 
-        if(req.user.id === hash_id)
+        // FIXME: express defines user as an empty object, because they suck! So, do a dance.
+        const user : Record<string, unknown> | undefined = req.user as unknown as Record<string, unknown>;
+        if(user?.id === hash_id)
         {
             safeAccount.settings = settings;
         } // end if

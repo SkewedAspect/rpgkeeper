@@ -19,6 +19,7 @@ import suppEng from '../api/engines/supplement';
 
 // Utils
 import { ensureAuthenticated, errorHandler, interceptHTML, parseQuery, wrapAsync } from './utils';
+import { Account } from '../types/account';
 
 // Logger
 import logging from 'trivial-logging';
@@ -43,11 +44,12 @@ router.get('/', async(req, resp) =>
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             const email = req.query.owner.toLowerCase();
-            const account = await accountMan.getAccountByEmail(email);
+            const account = await accountMan.getAccountByEmail(email) as any;
             req.query.account_id = `${ account.account_id }`;
         } // end if
 
-        const filters = parseQuery(req.query);
+        // So, look, I'm lying to typescript because I know this converts, but really? It can't do this on it's own?
+        const filters = parseQuery(req.query as Record<string, string>);
         const characters = await charMan.getCharacters(filters, includeDetails);
         resp.json(characters);
     });
@@ -58,15 +60,26 @@ router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async(req, res
     const char = { ...req.body };
     const system = sysMan.get(char.system);
 
-    // We force the account id to be set based on who we're logged in as.
-    char.account_id = req.user.account_id;
+    if(system)
+    {
+        // We force the account id to be set based on who we're logged in as.
+        char.account_id = (req.user as unknown as Record<string, unknown>).account_id;
 
-    // Filter invalid supplements (Note: We ignore the `filtered` property, since this is a new character and the
-    // client doesn't actually care what manipulations we've done to it. (This helps work around a bug where chrome
-    // ignores the body of a 205 response, for really stupid reasons.)
-    const { character } = await suppEng.validateCharacter(char, system.supplementPaths, req.user);
+        // Filter invalid supplements (Note: We ignore the `filtered` property, since this is a new character and the
+        // client doesn't actually care what manipulations we've done to it. (This helps work around a bug where chrome
+        // ignores the body of a 205 response, for really stupid reasons.)
+        const { character } = await suppEng.validateCharacter(char, system.supplementPaths, req.user as Account);
 
-    resp.json(await charMan.createCharacter(character));
+        resp.json(await charMan.createCharacter(character));
+    }
+    else
+    {
+        resp.status(422)
+            .json({
+                type: 'InvalidCharacter',
+                message: `The character with id '${ char.hash_id }' has an invalid or unknown system '${ char.system }'.`
+            });
+    } // end if
 }));
 
 router.get('/:charID', (req, resp) =>
@@ -86,25 +99,36 @@ router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(as
     // Next, get the system
     const system = sysMan.get(char.system);
 
-    // Allow either the owner, or moderators/admins to modify the character
-    if(char.account_id === req.user.id || permsMan.hasPerm(req.account, `${ char.system }/canModifyChar`))
+    if(system)
     {
-        const update = req.body;
-
-        // We force the id of the character to be what was in the route.
-        update.id = req.params.charID;
-
-        // Filter invalid supplements
-        const { character, filtered } = await suppEng.validateCharacter({ ...char, ...update }, system.supplementPaths, req.user);
-
-        if(filtered)
+        // Allow either the owner, or moderators/admins to modify the character
+        if(char.account_id === (req.user as unknown as Record<string, unknown>).id || permsMan.hasPerm(req.user, `${ char.system }/canModifyChar`))
         {
-            // If we did filter something out, we set the status code to 205 - RESET CONTENT.
-            resp.status(205);
-        } // end if
+            const update = req.body;
 
-        // Update the character
-        resp.json(await charMan.updateCharacter(character));
+            // We force the id of the character to be what was in the route.
+            update.id = req.params.charID;
+
+            // Filter invalid supplements
+            const { character, filtered } = await suppEng.validateCharacter({ ...char, ...update }, system.supplementPaths, req.user as Account);
+
+            if(filtered)
+            {
+            // If we did filter something out, we set the status code to 205 - RESET CONTENT.
+                resp.status(205);
+            } // end if
+
+            // Update the character
+            resp.json(await charMan.updateCharacter(character));
+        }
+        else
+        {
+            resp.status(422)
+                .json({
+                    type: 'InvalidCharacter',
+                    message: `The character with id '${ char.id }' has an invalid or unknown system '${ char.system }'.`
+                });
+        } // end if
     }
     else
     {
@@ -139,7 +163,7 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
     } // end try/catch
 
     // Allow either the owner, or moderators/admins to delete the character
-    if(char.account_id === req.user.id || permsMan.hasPerm(req.account, `${ char.system }/canDeleteChar`))
+    if(char.account_id === (req.user as unknown as Record<string, unknown>).id || permsMan.hasPerm(req.user, `${ char.system }/canDeleteChar`))
     {
         // Delete the character
         const deleted = await charMan.deleteCharacter(req.params.charID);

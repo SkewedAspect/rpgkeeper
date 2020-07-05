@@ -1,15 +1,15 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Fate System
+// Risus System
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-import BaseSystem from '../base';
+import { BaseSystem } from '../base';
 
 // Defaults
 import defaults from './defaults';
 
 // Validations
-import schemas from '../../api/validations/systems/fate';
+import schemas from '../../api/validations/systems/risus';
 
 // Logger
 import logging from 'trivial-logging';
@@ -19,11 +19,15 @@ const logger = logging.loggerFor(module);
 // System definition
 //----------------------------------------------------------------------------------------------------------------------
 
-const id = 'fate';
-const name = 'FATE: Core System';
-const description = 'Fate is a generic role-playing game system based on the Fudge gaming system. It has no fixed setting, traits, or genre and is customizable. It is designed to offer minimal obstruction to role-playing by assuming players want to make fewer dice rolls.';
+const id = 'risus';
+const name = 'Risus: The Anything RPG';
+const description = 'For some, Risus is a handy “emergency” RPG for spur-of-the-moment one-shots and rapid character '
+    + 'creation. For others, it’s a reliable campaign system supporting years of play. For others still, it’s a strange '
+    + 'little pamphlet with stick figures. No matter what it might become to you, you need this in your life!';
 
-class FATESystem extends BaseSystem
+//----------------------------------------------------------------------------------------------------------------------
+
+class RisusSystem extends BaseSystem
 {
     constructor()
     {
@@ -31,10 +35,10 @@ class FATESystem extends BaseSystem
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor
-} // end FATESystem
+} // end RisusSystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default new FATESystem();
+export default new RisusSystem();
 
 //----------------------------------------------------------------------------------------------------------------------

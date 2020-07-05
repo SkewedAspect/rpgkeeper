@@ -9,10 +9,12 @@ export {
     errorHandler,
     errorLogger,
     interceptHTML,
-    promisify,
     requestLogger,
     serveIndex,
-    wrapAsync
+    wrapAsync,
+    MiddlewareFunction,
+    ErrorMiddlewareFunction,
+    JsonHandlerFunction
 } from './router';
 
 //----------------------------------------------------------------------------------------------------------------------

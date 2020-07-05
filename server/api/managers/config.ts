@@ -9,29 +9,26 @@ import config from '../../../config';
 
 class ConfigManager
 {
-    constructor()
-    {
-        this._config = config;
-    } // end constructor
+    private readonly _config : Record<string, unknown> = config;
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get config() { return this._config; }
+    get config() : Record<string, unknown> { return this._config; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public
     //------------------------------------------------------------------------------------------------------------------
 
-    get(...args)
+    get(path : string, defaultVal ?: unknown) : unknown
     {
-        return _.get(this._config, ...args);
+        return _.get(this._config, path, defaultVal);
     } // end get
 
-    set(...args)
+    set(path : string, val : unknown) : void
     {
-        _.set(this._config, ...args);
+        _.set(this._config, path, val);
     } // end set
 } // end ConfigManager
 

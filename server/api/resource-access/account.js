@@ -154,11 +154,15 @@ class AccountResourceAccess
         const safeAccount = _.pick(account, 'email', 'name', 'avatar');
         if(account.permissions)
         {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             safeAccount.permissions = JSON.stringify(account.permissions);
         } // end if
 
         if(account.settings)
         {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             safeAccount.settings = JSON.stringify(account.settings);
         } // end if
 

@@ -5,16 +5,26 @@
 import fs from 'fs';
 import path from 'path';
 
+import { TrivialLogger } from 'trivial-logging';
+import { NextFunction, Request, Response } from 'express';
+import { AppError } from '../../api/errors';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export type MiddlewareFunction = (request : Request, response : Response, next : NextFunction) => void;
+export type ErrorMiddlewareFunction = (error : AppError, request : Request, response : Response, next : NextFunction) => void;
+export type JsonHandlerFunction = (request : Request, response : Response, next ?: NextFunction) => Promise<unknown>;
+
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
  * Basic request logging
  *
- * @param {*} logger - The logger to use.
+ * @param logger - The logger to use.
  *
- * @returns {Function} Returns a middleware function to perform logging.
+ * @returns Returns a middleware function to perform logging.
  */
-export function requestLogger(logger)
+export function requestLogger(logger : TrivialLogger) : MiddlewareFunction
 {
     return (request, _response, next) =>
     {
@@ -26,17 +36,16 @@ export function requestLogger(logger)
 /**
  * Basic error logging
  *
- * @param {*} logger - The logger to use.
+ * @param logger - The logger to use.
  *
- * @returns {Function} Returns a middleware function to perform logging.
+ * @returns Returns a middleware function to perform logging.
  */
-export function errorLogger(logger)
+export function errorLogger(logger : TrivialLogger) : ErrorMiddlewareFunction
 {
     return (error, request, response, next) =>
     {
         const childLogger = logger.child({
             request: {
-                id: request.id,
                 method: request.method,
                 url: request.url,
                 body: request.body,
@@ -60,11 +69,11 @@ export function errorLogger(logger)
 /**
  * Build a custom error logger
  *
- * @param {*} logger - The logger to use.
+ * @param logger - The logger to use.
  *
- * @returns {any} Returns a middleware function to perform logging.
+ * @returns Returns a middleware function to perform logging.
  */
-export function errorHandler(logger)
+export function errorHandler(logger : TrivialLogger) : ErrorMiddlewareFunction
 {
     // If we don't have 4 parameters, this function literally doesn't work.
     // eslint-disable-next-line no-unused-vars
@@ -91,7 +100,6 @@ export function errorHandler(logger)
         {
             const childLogger = logger.child({
                 request: {
-                    id: request.id,
                     method: request.method,
                     url: request.url,
                     body: request.body,
@@ -116,10 +124,10 @@ export function errorHandler(logger)
 /**
  * Serves index page.
  *
- * @param {*} _request - Express request.
- * @param {*} response - Express response.
+ * @param _request - Express request.
+ * @param response - Express response.
  */
-export function serveIndex(_request, response)
+export function serveIndex(_request : Request, response : Response) : void
 {
     response.setHeader('Content-Type', 'text/html');
     fs.createReadStream(path.resolve(__dirname, '..', '..', '..', 'client', 'index.html')).pipe(response);
@@ -128,11 +136,11 @@ export function serveIndex(_request, response)
 /**
  * Either serve 'index.html', or run json handler
  *
- * @param {*} response - Express response.
- * @param {Function} jsonHandler - Handler function for the json portion of the request.
- * @param {boolean} skipAuthCheck - Should we skip checking authentication?
+ * @param response - Express response.
+ * @param jsonHandler - Handler function for the json portion of the request.
+ * @param skipAuthCheck - Should we skip checking authentication?
  */
-export function interceptHTML(response, jsonHandler, skipAuthCheck = false)
+export function interceptHTML(response : Response, jsonHandler : JsonHandlerFunction, skipAuthCheck = false) : void
 {
     response.format({
         html: serveIndex,
@@ -156,11 +164,11 @@ export function interceptHTML(response, jsonHandler, skipAuthCheck = false)
 /**
  * Ensures that the user is authenticated, or it returns a 401.
  *
- * @param {*} request - Express request.
- * @param {*} response - Express response.
- * @param {Function} next - Express next function.
+ * @param request - Express request.
+ * @param response - Express response.
+ * @param next - Express next function.
  */
-export function ensureAuthenticated(request, response, next)
+export function ensureAuthenticated(request : Request, response : Response, next : NextFunction) : void
 {
     if(request.isAuthenticated())
     {
@@ -176,45 +184,13 @@ export function ensureAuthenticated(request, response, next)
 } // end ensureAuthenticated
 
 /**
- * TODO: Remove usages of this in favor of `wrapAsync` and `errorHandler`.
- *
- * @param {Function} handler - Express router function.
- *
- * @returns {Function} - Express router function.
- */
-export function promisify(handler)
-{
-    return (request, response) =>
-    {
-        handler(request, response)
-            .then((results) =>
-            {
-                if(!response.finished)
-                {
-                    response.json(results);
-                } // end if
-            })
-            .catch((error) =>
-            {
-                console.error(error.stack || error.message);
-
-                response.status(500).json({
-                    name: error.constructor.name,
-                    message: error.message,
-                    error
-                });
-            });
-    };
-} // end promisify
-
-/**
  * Wraps a router function in an async handler.
  *
- * @param {any} handler - Express router function.
+ * @param handler - Express router function.
  *
- * @returns {any} - Express router function.
+ * @returns Express router function.
  */
-export function wrapAsync(handler)
+export function wrapAsync(handler : JsonHandlerFunction) : MiddlewareFunction
 {
     return function(req, res, next)
     {

@@ -33,6 +33,10 @@ class AJVCacheUtil
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
+
+    private _schemaCache : SACache;
+
+    //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
@@ -40,7 +44,10 @@ class AJVCacheUtil
      * The AJV Schema cache. *Failure to use this will cause performance issues!*
      *
      */
-    get schemaCache() { return this._schemaCache; }
+    get schemaCache() : SACache
+    {
+        return this._schemaCache;
+    }
 } // end AJVCacheUtil
 
 //----------------------------------------------------------------------------------------------------------------------

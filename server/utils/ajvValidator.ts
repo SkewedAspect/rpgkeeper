@@ -6,6 +6,7 @@ import Ajv from 'ajv';
 import ajvKeywords from 'ajv-keywords';
 import ajvErrors from 'ajv-errors';
 import betterAjvErrors from 'better-ajv-errors';
+import jsonSchema from 'ajv/lib/refs/json-schema-draft-06.json';
 
 import cacheUtil from './ajvCache';
 
@@ -15,7 +16,7 @@ import { AjvValidationError } from '../api/errors';
 
 class AjvValidator
 {
-    validate(schema, data)
+    validate(schema : Record<string, unknown>, data : Record<string, unknown>) : boolean
     {
         if(schema)
         {
@@ -26,7 +27,8 @@ class AjvValidator
                 cache: cacheUtil.schemaCache,
                 removeAdditional: 'all'
             });
-            ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
+
+            ajv.addMetaSchema(jsonSchema);
 
             // Setup extensions
             ajvKeywords(ajv);

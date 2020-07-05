@@ -4,9 +4,10 @@
 
 import passport from 'passport';
 import GoogleStrategy from 'passport-google-web';
+import { Express } from 'express';
 
 // We just need to import this somewhere; here makes sense.
-require('./serialization');
+import './serialization';
 
 // Managers
 import accountMan from '../api/managers/account';
@@ -62,7 +63,7 @@ passport.use(new GoogleStrategy(async(_token, profile, done) =>
 //----------------------------------------------------------------------------------------------------------------------
 
 export default {
-    initialize(app)
+    initialize(app : Express) : void
     {
         // Authenticate
         app.post('/auth/google', passport.authenticate('google-signin'), (req, resp) =>

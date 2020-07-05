@@ -15,6 +15,7 @@ export default {
         system: { type: 'string', enum: sysMan.systems.map((sys) => sys.id) },
         name: { type: 'string', minLength: 1 },
         description: { type: 'string' },
+        details: { type: 'object' },
         portrait: { type: [ 'string', 'null' ] },
         thumbnail: { type: 'string' },
         color: { type: 'string' },

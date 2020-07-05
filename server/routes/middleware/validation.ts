@@ -14,17 +14,18 @@ import sysMan from '../../api/managers/system';
 
 // Utils
 import { wrapAsync } from '../utils';
+import { MiddlewareFunction } from '../utils/router';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
  * Validates a character, against an AJV schema.
  *
- * @param {boolean} skipRequired - Disable the 'required' portions. (Useful for PATCH functionality.)
+ * @param skipRequired - Disable the 'required' portions. (Useful for PATCH functionality.)
  *
- * @returns {any} Returns an express middleware function.
+ * @returns Returns an express middleware function.
  */
-export function charValidation(skipRequired = false)
+export function charValidation(skipRequired = false) : MiddlewareFunction
 {
     return wrapAsync(async(request, _response, next) =>
     {
@@ -57,11 +58,11 @@ export function charValidation(skipRequired = false)
             Object.assign(schema.properties.details, skipRequired ? { required: [] } : {});
 
             validator.validate(schema, data);
-            next();
+            next?.();
         }
         catch (error)
         {
-            next(error);
+            next?.(error);
         } // end try/catch
     });
 } // end charValidation
@@ -69,12 +70,12 @@ export function charValidation(skipRequired = false)
 /**
  * Validates an AJV schema.
  *
- * @param {object} schema - The AJV schema to validate against.
- * @param {boolean} skipRequired - Disable the 'required' portions. (Useful for PATCH functionality.)
+ * @param schema - The AJV schema to validate against.
+ * @param skipRequired - Disable the 'required' portions. (Useful for PATCH functionality.)
  *
  * @returns {Function} Returns an express middleware function.
  */
-export function validation(schema, skipRequired = false)
+export function validation(schema : Record<string, unknown>, skipRequired = false) : MiddlewareFunction
 {
     return wrapAsync(async(request, _response, next) =>
     {
@@ -84,11 +85,11 @@ export function validation(schema, skipRequired = false)
             // Copy the schema (since we're about to modify it), as well as handle skipping required
             schema = { ...schema, ...(skipRequired ? { required: [] } : {}) };
             validator.validate(schema, data);
-            next();
+            next?.();
         }
         catch (error)
         {
-            next(error);
+            next?.(error);
         } // end try/catch
     });
 } // end validation
