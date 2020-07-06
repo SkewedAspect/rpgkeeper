@@ -5,7 +5,7 @@
 import _ from 'lodash';
 import knex from 'knex';
 
-import configMan from './api/managers/config';
+import configMan from './managers/config';
 
 import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);

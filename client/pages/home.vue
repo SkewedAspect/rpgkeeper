@@ -165,7 +165,6 @@
 
     // Managers
     import authMan from '../api/managers/auth';
-    import postsMan from '../api/managers/posts';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -173,21 +172,13 @@
         data()
         {
             return {
-                signingIn: false,
-                readMorePost: undefined
+                signingIn: false
             };
         },
         computed: {
             isLoggedIn()
             {
                 return !!this.account;
-            },
-            sortedPosts()
-            {
-                // Since `.sort` manipulates it in place, we make a copy using `.concat` as a nice shortcut for that.
-                return this.posts
-                    .concat()
-                    .sort((post) => -post.created);
             },
             showModal: {
                 get() { return !!this.readMorePost; },
@@ -219,24 +210,8 @@
                 } // end if
             });
         },
-        methods: {
-            markdown(text)
-            {
-                return marked(text);
-            },
-            fromNow(date)
-            {
-                return formatDistance(date, new Date());
-            },
-            readMore(post)
-            {
-                this.readMorePost = post;
-            }
-        },
         subscriptions: {
-            account: authMan.account$,
-            postsLoading: postsMan.postsLoading$,
-            posts: postsMan.posts$
+            account: authMan.account$
         }
     };
 </script>

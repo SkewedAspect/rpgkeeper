@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Config
-import configMan from './server/api/managers/config';
+import configMan from './server/managers/config';
 
 // Logging
 import logging from 'trivial-logging';
