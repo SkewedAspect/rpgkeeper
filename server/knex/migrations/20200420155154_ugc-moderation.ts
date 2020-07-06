@@ -2,7 +2,11 @@
 // UGC Moderation Tables Migration
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.up = async(knex) =>
+import * as Knex from 'knex';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     await knex.schema.createTable('ugc_mod_comment', (table) =>
     {
@@ -31,14 +35,14 @@ exports.up = async(knex) =>
         table.string('supplement_id').notNullable();
         table.string('status').notNullable(); // 'pending', 'approved', 'rejected'
     });
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.down = async(knex) =>
+export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     await knex.schema.dropTable('ugc_mod_comment');
     await knex.schema.dropTable('ugc_moderation');
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

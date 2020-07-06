@@ -2,7 +2,11 @@
 // Modify description column
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.up = async(knex) =>
+import * as Knex from 'knex';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     // Add a new column to the table
     await knex.schema.table('character', (table) =>
@@ -27,11 +31,11 @@ exports.up = async(knex) =>
     {
         table.dropColumn('biography');
     });
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.down = async(knex) =>
+export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     // Add a new column to the table
     await knex.schema.table('character', (table) =>
@@ -56,6 +60,6 @@ exports.down = async(knex) =>
     {
         table.dropColumn('campaign');
     });
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -2,7 +2,11 @@
 // Add tables for EotE/Genesys
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.up = async(knex) =>
+import * as Knex from 'knex';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     //------------------------------------------------------------------------------------------------------------------
     // Genesys Tables
@@ -256,11 +260,11 @@ exports.up = async(knex) =>
             .index();
         table.string('product_code');
     });
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.down = async(knex) =>
+export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     // Genesys Tables
     await knex.schema.dropTable('genesys_motivation');
@@ -282,6 +286,6 @@ exports.down = async(knex) =>
     await knex.schema.dropTable('eote_armor');
     await knex.schema.dropTable('eote_weapon');
     await knex.schema.dropTable('eote_reference');
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

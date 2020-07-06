@@ -2,7 +2,11 @@
 // Initial Setup Migration
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.up = async(knex) =>
+import * as Knex from 'knex';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     // The `account` table
     await knex.schema.createTable('account', (table) =>
@@ -117,11 +121,11 @@ exports.up = async(knex) =>
             .onUpdate('CASCADE')
             .onDelete('CASCADE');
     });
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.down = async(knex) =>
+export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     await knex.schema.dropTable('account');
     await knex.schema.dropTable('role');
@@ -129,6 +133,6 @@ exports.down = async(knex) =>
     await knex.schema.dropTable('note');
     await knex.schema.dropTable('note_page');
     await knex.schema.dropTable('character');
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

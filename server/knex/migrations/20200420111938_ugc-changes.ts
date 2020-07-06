@@ -2,11 +2,15 @@
 // UGC Tables Migration
 //----------------------------------------------------------------------------------------------------------------------
 
-import eoteMigration from './20200126231139_eote_system';
+import * as Knex from 'knex';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.up = async(knex) =>
+import * as eoteMigration from './20200126231139_eote_system';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     //------------------------------------------------------------------------------------------------------------------
     // Step 1: Rename tables.
@@ -441,11 +445,11 @@ exports.up = async(knex) =>
         .where({ official: true });
     await knex('eote_weapon').update({ scope: 'public' })
         .where({ official: true });
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.down = async(knex) =>
+export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     //------------------------------------------------------------------------------------------------------------------
     // Step 1: Rename tables.
@@ -547,6 +551,6 @@ exports.down = async(knex) =>
     await knex.schema.dropTable('bk_eote_quality');
     await knex.schema.dropTable('bk_eote_armor');
     await knex.schema.dropTable('bk_eote_weapon');
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------
