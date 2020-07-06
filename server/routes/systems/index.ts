@@ -7,7 +7,7 @@ import express from 'express';
 
 // Managers
 import * as permMan from '../../managers/permissions';
-import systemMan from '../../api/managers/system';
+import systemMan from '../../managers/system';
 
 // Utils
 import { errorHandler, interceptHTML } from '../utils';

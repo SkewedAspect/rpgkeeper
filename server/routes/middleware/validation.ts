@@ -10,7 +10,7 @@ import charSchema from '../../api/validations/character';
 
 // Managers
 import charMan from '../../api/managers/character';
-import sysMan from '../../api/managers/system';
+import sysMan from '../../managers/system';
 
 // Utils
 import { wrapAsync } from '../utils';

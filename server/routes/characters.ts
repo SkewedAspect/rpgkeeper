@@ -12,7 +12,7 @@ import { charValidation } from './middleware/validation';
 import * as accountMan from '../managers/account';
 import charMan from '../api/managers/character';
 import * as permsMan from '../managers/permissions';
-import sysMan from '../api/managers/system';
+import sysMan from '../managers/system';
 
 // Engines
 import suppEng from '../api/engines/supplement';

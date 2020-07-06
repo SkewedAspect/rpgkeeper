@@ -3,11 +3,11 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Systems
-import Risus from '../../systems/risus/system';
-import Fate from '../../systems/fate/system';
-import Wfrp from '../../systems/wfrp/system';
-import { Genesys, EdgeOfTheEmpire } from '../../systems/eote/system';
-import { BaseSystem } from '../../systems/base';
+import Risus from '../systems/risus/system';
+import Fate from '../systems/fate/system';
+import Wfrp from '../systems/wfrp/system';
+import { Genesys, EdgeOfTheEmpire } from '../systems/eote/system';
+import { BaseSystem } from '../systems/base';
 
 //----------------------------------------------------------------------------------------------------------------------
 
