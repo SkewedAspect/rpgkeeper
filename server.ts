@@ -34,7 +34,6 @@ import GoogleAuth from './server/auth/google';
 
 // Routes
 import { requestLogger, wrapAsync, serveIndex, errorLogger } from './server/routes/utils';
-import newsRouter from './server/routes/news';
 import noteRouter from './server/routes/notes';
 import charRouter from './server/routes/characters';
 import sysRouter from './server/routes/systems';
@@ -143,7 +142,6 @@ async function main() : Promise<{ app : Express, server : any }>
     app.use('/systems', sysRouter);
     app.use('/accounts', accountsRouter);
     app.use('/notes', noteRouter);
-    app.use('/news', newsRouter);
 
     // Serve index.html for any html requests, but 404 everything else.
     app.get('*', (_request, response) =>

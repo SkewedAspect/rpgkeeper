@@ -9,7 +9,7 @@ import express from 'express';
 import { charValidation } from './middleware/validation';
 
 // Managers
-import accountMan from '../api/managers/account';
+import * as accountMan from '../managers/account';
 import charMan from '../api/managers/character';
 import permsMan from '../api/managers/permissions';
 import sysMan from '../api/managers/system';
@@ -44,8 +44,8 @@ router.get('/', async(req, resp) =>
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             const email = req.query.owner.toLowerCase();
-            const account = await accountMan.getAccountByEmail(email) as any;
-            req.query.account_id = `${ account.account_id }`;
+            const account = await accountMan.getByEmail(email);
+            req.query.hash_id = `${ account.id }`;
         } // end if
 
         // So, look, I'm lying to typescript because I know this converts, but really? It can't do this on it's own?
