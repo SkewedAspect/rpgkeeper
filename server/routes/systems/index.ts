@@ -6,11 +6,12 @@ import _ from 'lodash';
 import express from 'express';
 
 // Managers
-import permMan from '../../api/managers/permissions';
+import * as permMan from '../../managers/permissions';
 import systemMan from '../../api/managers/system';
 
 // Utils
 import { errorHandler, interceptHTML } from '../utils';
+import { AccountLike } from '../../models/account';
 
 // Sub-routes
 import eoteRouter from './eote';
@@ -20,6 +21,7 @@ import genRouter from './genesys';
 
 import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);
+
 const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -32,7 +34,7 @@ router.get('/', (request, response) =>
             .filter((system) =>
             {
                 const user = _.get(request, 'user', { permissions: [], groups: [] });
-                return permMan.hasPerm(user, 'Systems/viewDisabled') || system.status !== 'disabled';
+                return permMan.hasPerm(user as AccountLike, 'Systems/viewDisabled') || system.status !== 'disabled';
             });
 
         response.json(systems);

@@ -7,6 +7,7 @@ import dbMan from '../database';
 
 // Models
 import { Account, AccountLike, AccountSettings } from '../models/account';
+import { RoleLike } from '../models/role';
 
 // Errors
 import { AppError, MultipleResultsError, NotFoundError } from '../api/errors';
@@ -178,7 +179,7 @@ export async function getSettings(accountID : string) : Promise<AccountSettings>
 export async function getGroups(accountID : string) : Promise<string[]>
 {
     const db = await dbMan.getDB();
-    const roles = await db('account as ac')
+    const roles : RoleLike[] = await db('account as ac')
         .select('r.name as name')
         .join('account_role as ar', 'ac.account_id', '=', 'ar.account_id')
         .join('role as r', 'ar.role_id', '=', 'r.role_id')

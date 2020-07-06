@@ -11,7 +11,7 @@ import { charValidation } from './middleware/validation';
 // Managers
 import * as accountMan from '../managers/account';
 import charMan from '../api/managers/character';
-import permsMan from '../api/managers/permissions';
+import * as permsMan from '../managers/permissions';
 import sysMan from '../api/managers/system';
 
 // Engines
@@ -19,7 +19,7 @@ import suppEng from '../api/engines/supplement';
 
 // Utils
 import { ensureAuthenticated, errorHandler, interceptHTML, parseQuery, wrapAsync } from './utils';
-import { Account } from '../models/account';
+import { Account, AccountLike } from '../models/account';
 
 // Logger
 import logging from 'trivial-logging';
@@ -102,7 +102,7 @@ router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(as
     if(system)
     {
         // Allow either the owner, or moderators/admins to modify the character
-        if(char.account_id === (req.user as unknown as Record<string, unknown>).id || permsMan.hasPerm(req.user, `${ char.system }/canModifyChar`))
+        if(char.account_id === (req.user as AccountLike).id || permsMan.hasPerm(req.user as AccountLike, `${ char.system }/canModifyChar`))
         {
             const update = req.body;
 
@@ -163,7 +163,7 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
     } // end try/catch
 
     // Allow either the owner, or moderators/admins to delete the character
-    if(char.account_id === (req.user as unknown as Record<string, unknown>).id || permsMan.hasPerm(req.user, `${ char.system }/canDeleteChar`))
+    if(char.account_id === (req.user as unknown as Record<string, unknown>).id || permsMan.hasPerm(req.user as AccountLike, `${ char.system }/canDeleteChar`))
     {
         // Delete the character
         const deleted = await charMan.deleteCharacter(req.params.charID);

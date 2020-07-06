@@ -24,6 +24,7 @@ import passport from 'passport';
 // Managers
 import dbMan from './server/database';
 import * as accountMan from './server/managers/account';
+import * as permsMan from './server/managers/permissions';
 
 // Session Store
 import connectSessionKnex from 'connect-session-knex';
@@ -62,6 +63,12 @@ process.on('uncaughtException', (err) =>
 async function main() : Promise<{ app : Express, server : any }>
 {
     const db = await dbMan.getDB();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Initialize managers
+    //------------------------------------------------------------------------------------------------------------------
+
+    await permsMan.init();
 
     //------------------------------------------------------------------------------------------------------------------
 

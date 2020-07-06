@@ -18,7 +18,7 @@ export interface Character {
     // eslint-disable-next-line camelcase
     note_id : number;
     // eslint-disable-next-line camelcase
-    account_id : number;
+    account_id : string;
     campaign : string;
     created : Date;
 }
