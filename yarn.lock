@@ -8409,7 +8409,7 @@ trivial-logging@^2.0.0-rc.1:
   optionalDependencies:
     pino-pretty "^3.2.0"
 
-trivialperms@^1.0.0-rc.3:
+trivialperms@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/trivialperms/-/trivialperms-1.0.0.tgz#797f22e6a5ba4fe1dbbfde5a390c14f84ba87f4b"
   integrity sha512-BcM/K+JEV2p6Fxu0+iDCcRsL3OpzN7a38q3tNuVz9op5aC/H5BNLwbqqnaoqhg7Qe6Q4VBsdJJcWxQjgcgiyhw==

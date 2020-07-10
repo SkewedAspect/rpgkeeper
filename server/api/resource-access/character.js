@@ -5,7 +5,7 @@
 import _ from 'lodash';
 
 // Managers
-import dbMan from '../../database';
+import * as dbMan from '../../managers/database';
 
 // Utilities
 import { shortID } from '../../utils/misc';

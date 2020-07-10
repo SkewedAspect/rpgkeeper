@@ -4,12 +4,12 @@
 
 require('ts-node/register');
 
-import dbMan from './server/database';
+import { getConfig } from './server/managers/database';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 module.exports = {
-    ...dbMan.getConnObj(),
+    ...getConfig(),
     migrations: {
         directory: './server/knex/migrations'
     },

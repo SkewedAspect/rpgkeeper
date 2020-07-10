@@ -44,7 +44,7 @@
     "socket.io": "^2.0.3",
     "sqlite3": "^4.2.0",
     "trivial-logging": "^2.0.0-rc.1",
-    "trivialperms": "^1.0.0-rc.3",
+    "trivialperms": "^1.0.0",
     "uuid": "^8.0.0"
   },
   "devDependencies": {

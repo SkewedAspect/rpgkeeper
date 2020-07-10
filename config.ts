@@ -23,9 +23,11 @@ export default {
         port: process.env.SERVER_PORT ?? 5678
     },
     database: {
+        client: 'sqlite3',
         connection: {
             filename: './db/rpgk.db'
-        }
+        },
+        useNullAsDefault: true
     },
     mail: {
         api: process.env.MAILGUN_KEY ?? 'key-7ff79b53f0f751441fc07d2a325cedb3'

@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Managers
-import dbMan from '../database';
+import { table } from './database';
 
 // Models
 import { Role } from '../models/role';
@@ -12,8 +12,7 @@ import { Role } from '../models/role';
 
 export async function list() : Promise<unknown>
 {
-    const db = await dbMan.getDB();
-    return (await db('role')
+    return (await table('role')
         .select())
         .map(Role.fromDB);
 } // end list

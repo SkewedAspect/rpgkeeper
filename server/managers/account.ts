@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Managers
-import dbMan from '../database';
+import { table, raw } from './database';
 
 // Models
 import { Account, AccountLike, AccountSettings } from '../models/account';
@@ -28,8 +28,7 @@ export interface AccountFilters {
 
 export async function list(filters : AccountFilters) : Promise<Account[]>
 {
-    const db = await dbMan.getDB();
-    const accounts = await db('account')
+    const accounts = await table('account')
         .select(
             'hash_id as id',
             'email',
@@ -37,7 +36,7 @@ export async function list(filters : AccountFilters) : Promise<Account[]>
             'avatar',
             'permissions',
             'settings',
-            db.raw("strftime('%s', ?)", 'created')
+            raw("strftime('%s', ?)", 'created')
         )
         .where({
             hash_id: filters.id,
@@ -50,8 +49,7 @@ export async function list(filters : AccountFilters) : Promise<Account[]>
 
 export async function get(accountID : string) : Promise<Account>
 {
-    const db = await dbMan.getDB();
-    const accounts = await db('account')
+    const accounts = await table('account')
         .select(
             'hash_id as id',
             'email',
@@ -59,7 +57,7 @@ export async function get(accountID : string) : Promise<Account>
             'avatar',
             'permissions',
             'settings',
-            db.raw("strftime('%s', ?)", 'created')
+            raw("strftime('%s', ?)", 'created')
         )
         .where({
             hash_id: accountID
@@ -81,8 +79,7 @@ export async function get(accountID : string) : Promise<Account>
 
 export async function getByEmail(email : string) : Promise<Account>
 {
-    const db = await dbMan.getDB();
-    const accounts = await db('account')
+    const accounts = await table('account')
         .select(
             'hash_id as id',
             'email',
@@ -90,7 +87,7 @@ export async function getByEmail(email : string) : Promise<Account>
             'avatar',
             'permissions',
             'settings',
-            db.raw("strftime('%s', ?)", 'created')
+            raw("strftime('%s', ?)", 'created')
         )
         .where({ email });
 
@@ -110,8 +107,7 @@ export async function getByEmail(email : string) : Promise<Account>
 
 export async function getPermissions(accountID : string) : Promise<string[]>
 {
-    const db = await dbMan.getDB();
-    const accounts = await db('account')
+    const accounts = await table('account')
         .select(
             'hash_id as id',
             'permissions'
@@ -144,8 +140,7 @@ export async function getPermissions(accountID : string) : Promise<string[]>
 
 export async function getSettings(accountID : string) : Promise<AccountSettings>
 {
-    const db = await dbMan.getDB();
-    const accounts = await db('account')
+    const accounts = await table('account')
         .select(
             'hash_id as id',
             'settings'
@@ -178,8 +173,7 @@ export async function getSettings(accountID : string) : Promise<AccountSettings>
 
 export async function getGroups(accountID : string) : Promise<string[]>
 {
-    const db = await dbMan.getDB();
-    const roles : RoleLike[] = await db('account as ac')
+    const roles : RoleLike[] = await table('account as ac')
         .select('r.name as name')
         .join('account_role as ar', 'ac.account_id', '=', 'ar.account_id')
         .join('role as r', 'ar.role_id', '=', 'r.role_id')
@@ -195,8 +189,7 @@ export async function add(newAccount : Account) : Promise<Account>
     // We always generate a new account id.
     newAccount.generateID();
 
-    const db = await dbMan.getDB();
-    await db('account')
+    await table('account')
         .insert(newAccount.toDB());
 
     return this.get(newAccount.id);
@@ -218,8 +211,7 @@ export async function update(accountID : string, accountUpdate : Partial<Account
     } // end if
 
     // Update the database
-    const db = await dbMan.getDB();
-    await db('account')
+    await table('account')
         .update(allowedUpdate)
         .where({ hash_id: accountID });
 
@@ -229,8 +221,7 @@ export async function update(accountID : string, accountUpdate : Partial<Account
 
 export async function remove(account : AccountLike) : Promise<void>
 {
-    const db = await dbMan.getDB();
-    await db('account')
+    await table('account')
         .where({ hash_id: account.id })
         .delete();
 } // end delete

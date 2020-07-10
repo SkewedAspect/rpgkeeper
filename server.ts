@@ -22,7 +22,7 @@ import session from 'express-session';
 import passport from 'passport';
 
 // Managers
-import dbMan from './server/database';
+import * as dbMan from './server/managers/database';
 import * as accountMan from './server/managers/account';
 import * as permsMan from './server/managers/permissions';
 
@@ -62,19 +62,18 @@ process.on('uncaughtException', (err) =>
  */
 async function main() : Promise<{ app : Express, server : any }>
 {
-    const db = await dbMan.getDB();
-
     //------------------------------------------------------------------------------------------------------------------
     // Initialize managers
     //------------------------------------------------------------------------------------------------------------------
 
+    await dbMan.init();
     await permsMan.init();
 
     //------------------------------------------------------------------------------------------------------------------
 
     const store = new KnexSessionStore({
         sidfieldname: configMan.config.key,
-        knex: db,
+        knex: await dbMan.getDB(),
         createTable: true,
 
         // Clear expired sessions. (1 hour)
