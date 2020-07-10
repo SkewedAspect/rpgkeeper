@@ -663,11 +663,15 @@ const forcePowerSchema = {
     additionalProperties: false
 };
 
+// Strip unneeded props
+const { motivations, ...sharedProps } = genesysChar.properties;
+
+// Build EotEChar from existing pieces
 const eoteChar = {
     ...genesysChar,
     required: (genesysChar.required.filter((prop) => ![ 'motivations' ].includes(prop))).concat('force'),
     properties: {
-        ...genesysChar.properties,
+        ...sharedProps,
         specialization: { type: 'string', maxLength: 255 },
         force: {
             type: 'object',
@@ -705,9 +709,6 @@ const eoteChar = {
         }
     }
 };
-
-// Delete an unwanted property.
-delete eoteChar.properties.motivations;
 
 //----------------------------------------------------------------------------------------------------------------------
 

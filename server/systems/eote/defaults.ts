@@ -322,8 +322,12 @@ const eoteSkills = [
     { name: 'Xenology', characteristic: 'intellect', ranks: 0, career: false, type: 'knowledge' }
 ];
 
+// Strip unneeded props
+const { motivations, ...restGenesysChar } = genesysChar;
+
+// Build EotEChar from existing pieces
 const eoteChar = {
-    ...genesysChar,
+    ...restGenesysChar,
     force: {
         rating: 0,
         committed: 0,
@@ -333,9 +337,6 @@ const eoteChar = {
     specialization: '',
     skills: _.cloneDeep(eoteSkills)
 };
-
-// Delete unwanted properties
-delete eoteChar.motivations;
 
 //----------------------------------------------------------------------------------------------------------------------
 
