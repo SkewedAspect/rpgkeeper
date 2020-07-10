@@ -111,6 +111,11 @@ export class Role implements RoleLike
 
     static fromJSON(jsonObj : RoleLike) : Role
     {
+        if(jsonObj instanceof Role)
+        {
+            return jsonObj;
+        } // end if
+
         return new Role(jsonObj);
     } // end fromJSON
 } // end Role

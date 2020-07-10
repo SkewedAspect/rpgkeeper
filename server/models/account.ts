@@ -152,6 +152,11 @@ export class Account implements AccountLike
 
     static fromJSON(jsonObj : AccountLike) : Account
     {
+        if(jsonObj instanceof Account)
+        {
+            return jsonObj;
+        } // end if
+
         return new Account(jsonObj);
     } // end fromJSON
 } // end Account
