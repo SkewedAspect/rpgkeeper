@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "experimentalDecorators": true,
         "incremental": true,
         "allowJs": true,
         "checkJs": true,

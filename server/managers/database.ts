@@ -5,8 +5,9 @@
 import configMan from './config';
 import knex, { QueryBuilder, RawBinding } from 'knex';
 
-import logging from 'trivial-logging';
 import { AppError } from '../api/errors';
+
+import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
