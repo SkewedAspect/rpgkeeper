@@ -22,12 +22,17 @@ const router = express.Router();
 router.get('/', wrapAsync(async(req, resp) =>
 {
     const filters = { id: req.query.id, email: req.query.email, name: req.query.name };
-    resp.json(await accountMan.list(filters));
+    resp.json((await accountMan.list(filters)).map((accountObj) =>
+    {
+        const { permissions, settings, ...restAccount } = accountObj;
+        return restAccount;
+    }));
 }));
 
 router.get('/:accountID', wrapAsync(async(req, resp) =>
 {
-    resp.json(await accountMan.get(req.params.accountID));
+    const { permissions, settings, ...restAccount } = await accountMan.get(req.params.accountID);
+    resp.json(restAccount);
 }));
 
 router.patch('/:accountID', ensureAuthenticated, wrapAsync(async(req, resp) =>

@@ -104,6 +104,18 @@ export class MultipleResultsError extends AppError
 
 //----------------------------------------------------------------------------------------------------------------------
 
+export class DecoderError extends AppError
+{
+    constructor(reason : string)
+    {
+        super(reason, 'ERR_DECODE_FAILED');
+
+        this.statusCode = 422;
+    } // end constructor
+} // end ValidationError
+
+//----------------------------------------------------------------------------------------------------------------------
+
 export class ValidationError extends AppError
 {
     constructor(prop : string, reason : string)

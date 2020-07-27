@@ -6,7 +6,7 @@
 import { table, raw } from './database';
 
 // Models
-import { Account, AccountLike, AccountSettings } from '../models/account';
+import { Account, AccountSettings } from '../models/account';
 import { RoleLike } from '../models/role';
 
 // Errors
@@ -14,6 +14,7 @@ import { AppError, MultipleResultsError, NotFoundError } from '../api/errors';
 
 // Logger
 import logging from 'trivial-logging';
+import { shortID } from '../utils/misc';
 const logger = logging.loggerFor(module);
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -184,45 +185,44 @@ export async function getGroups(accountID : string) : Promise<string[]>
     return roles.map((role) => role.name);
 } // end getGroups
 
-export async function add(newAccount : Account) : Promise<Account>
+export async function add(newAccount : Record<string, unknown>) : Promise<Account>
 {
-    // We always generate a new account id.
-    newAccount.generateID();
-
+    const account = Account.fromJSON({ ...newAccount, id: shortID(), created: Date.now() });
     await table('account')
-        .insert(newAccount.toDB());
+        .insert(account.toDB());
 
-    return this.get(newAccount.id);
+    return this.get(account.id);
 } // end add
 
-export async function update(accountID : string, accountUpdate : Partial<AccountLike>) : Promise<Account>
+export async function update(accountID : string, accountUpdate : Record<string, unknown>) : Promise<Account>
 {
-    // Only allow updates to the following properties.
+    // Get the current account
+    const account = this.get(accountID);
+
+    // Mix the current account with the allowed updates.
     const allowedUpdate = {
+        ...account.toJSON(),
         name: accountUpdate.name,
         avatar: accountUpdate.avatar,
         settings: accountUpdate.settings
     };
 
-    // If settings have changed, we need to serialize those
-    if(allowedUpdate.settings)
-    {
-        allowedUpdate.settings = JSON.stringify(allowedUpdate.settings);
-    } // end if
+    // Make a new account object
+    const newAccount = Account.fromJSON(allowedUpdate);
 
     // Update the database
     await table('account')
-        .update(allowedUpdate)
+        .update(newAccount.toDB())
         .where({ hash_id: accountID });
 
     // Return the updated record
     return this.get(accountID);
 } // end update
 
-export async function remove(account : AccountLike) : Promise<void>
+export async function remove(accountID : string) : Promise<void>
 {
     await table('account')
-        .where({ hash_id: account.id })
+        .where({ hash_id: accountID })
         .delete();
 } // end delete
 

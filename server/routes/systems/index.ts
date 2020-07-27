@@ -11,7 +11,7 @@ import systemMan from '../../managers/system';
 
 // Utils
 import { errorHandler, interceptHTML } from '../utils';
-import { AccountLike } from '../../models/account';
+import { Account } from '../../models/account';
 
 // Sub-routes
 import eoteRouter from './eote';
@@ -34,7 +34,7 @@ router.get('/', (request, response) =>
             .filter((system) =>
             {
                 const user = _.get(request, 'user', { permissions: [], groups: [] });
-                return permMan.hasPerm(user as AccountLike, 'Systems/viewDisabled') || system.status !== 'disabled';
+                return permMan.hasPerm(user as Account, 'Systems/viewDisabled') || system.status !== 'disabled';
             });
 
         response.json(systems);

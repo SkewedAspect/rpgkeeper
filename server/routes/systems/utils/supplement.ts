@@ -12,7 +12,7 @@ import * as permMan from '../../../managers/permissions';
 // Utils
 import { ensureAuthenticated, wrapAsync, parseQuery } from '../../utils';
 import { IRouter } from 'express';
-import { AccountLike } from '../../../models/account';
+import { Account } from '../../../models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
 
         if(body.scope === 'public')
         {
-            if(!permMan.hasPerm(req.user as AccountLike, `${ systemPrefix }/canModifyContent`))
+            if(!permMan.hasPerm(req.user as Account, `${ systemPrefix }/canModifyContent`))
             {
                 resp.status(403)
                     .json({
@@ -63,7 +63,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
             const account_id = (req.user as unknown as Record<string, unknown>).account_id;
 
             // Either you have the correct user permission, or you're the owner and it's user-scoped.
-            const hasPerm = permMan.hasPerm(req.user as AccountLike, `${ systemPrefix }/canModifyContent`)
+            const hasPerm = permMan.hasPerm(req.user as Account, `${ systemPrefix }/canModifyContent`)
                     || (supplement.scope === 'user' && supplement.owner === account_id);
 
             if(hasPerm)
@@ -113,7 +113,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
             const account_id = (req.user as unknown as Record<string, unknown>).account_id;
 
             // Either you have the correct user permission, or you're the owner and it's user-scoped.
-            const hasPerm = permMan.hasPerm(req.user as AccountLike, `${ systemPrefix }/canDeleteContent`)
+            const hasPerm = permMan.hasPerm(req.user as Account, `${ systemPrefix }/canDeleteContent`)
                     || (supplement.scope === 'user' && supplement.owner === account_id);
 
             if(hasPerm)

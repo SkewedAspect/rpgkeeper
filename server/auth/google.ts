@@ -12,9 +12,6 @@ import './serialization';
 // Managers
 import * as accountMan from '../managers/account';
 
-// Models
-import { Account } from '../models/account';
-
 // Logging
 import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);
@@ -49,13 +46,11 @@ passport.use(new GoogleStrategy(async(_token, profile, done) =>
         }
         else
         {
-            account = new Account({
+            account = await accountMan.add({
                 name: profile.email.split('@')[0],
                 avatar: `${ profile.picture }?sz=512`,
                 email: profile.email
             });
-
-            account = await accountMan.add(account);
         } // end if
 
         done(null, account);

@@ -2,31 +2,22 @@
 // Account
 //----------------------------------------------------------------------------------------------------------------------
 
-import { shortID } from '../utils/misc';
-import { AppError } from '../api/errors';
+import * as JsonDecoder from 'decoders';
 
-// Logger
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
+// Decoders
+import { accountJsonDecoder, accountRecDecoder } from '../decoders/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface AccountLike {
-    id ?: string;
+interface AccountOptions {
+    id : string;
     email : string;
-    name : string;
-    avatar : string;
+    name ?: string;
+    avatar ?: string;
     permissions ?: string[];
     groups ?: string[];
     settings ?: AccountSettings;
-    created ?: number;
-}
-
-export interface AccountDBRecord extends Omit<Omit<AccountLike, 'permissions'>, 'settings'>
-{
-    hash_id ?: string,
-    permissions : string;
-    settings : string;
+    created : number;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -36,79 +27,48 @@ export interface AccountSettings {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export class Account implements AccountLike
+export class Account
 {
-    #id ?: string;
-    #created ?: number;
-
+    public readonly id : string;
+    public readonly created : number;
     public readonly email : string = '';
-    public readonly permissions : string[] = [];
-    public readonly groups : string[] = [];
-    public readonly settings : AccountSettings = {};
 
     public name = '';
     public avatar = '';
+    public permissions : string[] = [];
+    public groups : string[] = [];
+    public settings : AccountSettings = {};
 
-    constructor(definition ?: AccountLike)
+    constructor(options : AccountOptions)
     {
-        if(definition)
-        {
-            this.#id = definition.id;
-            this.email = definition.email;
-            this.name = definition.name;
-            this.avatar = definition.avatar;
-            this.permissions = definition.permissions ?? [];
-            this.groups = definition.groups ?? [];
-            this.settings = definition.settings ?? {};
-            this.#created = definition.created;
-        } // end if
+        this.id = options.id;
+        this.email = options.email;
+        this.name = options.name ?? options.email.split('@')[0];
+        this.avatar = options.avatar || '';
+        this.permissions = options.permissions ?? [];
+        this.groups = options.groups ?? [];
+        this.settings = options.settings ?? {};
+        this.created = options.created;
     } // end constructor
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Properties
-    //------------------------------------------------------------------------------------------------------------------
-
-    get id() : string | undefined
-    {
-        return this.#id;
-    }
-
-    get created() : number | undefined
-    {
-        return this.#created;
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-
-    public generateID() : string
-    {
-        if(!this.#id)
-        {
-            this.#created = Date.now();
-            return this.#id = shortID();
-        }
-        else
-        {
-            throw new AppError('Unable to change the ID of an existing account.', 'CannotChangeAccountID');
-        } // end if
-    } // end generateID
 
     //------------------------------------------------------------------------------------------------------------------
     // Serialization
     //------------------------------------------------------------------------------------------------------------------
 
-    public toJSON() : AccountLike
+    public toJSON() : Record<string, unknown>
     {
         return {
             id: this.id,
             email: this.email,
             name: this.name,
             avatar: this.avatar,
+            permissions: this.permissions,
+            settings: this.settings,
             created: this.created
         };
     } // end
 
-    public toDB() : AccountDBRecord
+    public toDB() : Record<string, unknown>
     {
         const { id, ...jsonObj } = this.toJSON();
         return {
@@ -123,41 +83,16 @@ export class Account implements AccountLike
     // Deserialization
     //------------------------------------------------------------------------------------------------------------------
 
-    static fromDB(accountRecord : AccountDBRecord) : Account
+    static fromDB(accountRecord : Record<string, unknown>) : Account
     {
-        let permissions;
-        try
-        {
-            permissions = JSON.parse(accountRecord.permissions);
-        }
-        catch (error)
-        {
-            permissions = [];
-            logger.warn(`Failed to parse account permissions on account ${ accountRecord.id }:`, error.stack);
-        } // end if
-
-        let settings;
-        try
-        {
-            settings = JSON.parse(accountRecord.settings);
-        }
-        catch (error)
-        {
-            settings = [];
-            logger.warn(`Failed to parse account settings on account ${ accountRecord.id }:`, error.stack);
-        } // end if
-
-        return new Account({ ...accountRecord, permissions, settings });
+        const decoder = JsonDecoder.guard(accountRecDecoder);
+        return new Account(decoder(accountRecord));
     } // end fromDB
 
-    static fromJSON(jsonObj : AccountLike) : Account
+    static fromJSON(jsonObj : Record<string, unknown>) : Account
     {
-        if(jsonObj instanceof Account)
-        {
-            return jsonObj;
-        } // end if
-
-        return new Account(jsonObj);
+        const decoder = JsonDecoder.guard(accountJsonDecoder);
+        return new Account(decoder(jsonObj));
     } // end fromJSON
 } // end Account
 
