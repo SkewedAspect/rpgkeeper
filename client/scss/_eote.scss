@@ -35,7 +35,7 @@ $force-color: #ffffff;
     }
 } // end makeSymbol
 
-@mixin makeDie($dieName, $color, $beforeContent)
+@mixin makeDie($dieName, $color, $beforeContent, $tooltip-color: $color)
 {
     .genesys-system,
     .eote-system {
@@ -56,6 +56,14 @@ $force-color: #ffffff;
             &:before {
                 content: $beforeContent;
             }
+        }
+    }
+
+    .tooltip-inner {
+        .#{$dieName},
+        #{$dieName}
+        {
+            color: $tooltip-color;
         }
     }
 } // end makeDie
@@ -87,7 +95,7 @@ $force-color: #ffffff;
 @include makeDie('difficulty', $difficulty-color, 'd');
 
 // Setback Die
-@include makeDie('setback', $setback-color, 'b');
+@include makeDie('setback', $setback-color, 'b', invert($setback-color));
 
 //----------------------------------------------------------------------------------------------------------------------
 // Positive Symbols

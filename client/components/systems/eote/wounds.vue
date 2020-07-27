@@ -36,25 +36,25 @@
             </b-card>
         </div>
         <b-btn-group class="mt-1 w-100">
-            <b-btn variant="outline-secondary" title="Use a stimpack" @click="useStim">
+            <b-btn v-b-tooltip.hover variant="outline-secondary" title="Use a stimpack" @click="useStim">
                 <span v-if="mode === 'eote'">Stimpacks</span>
                 <span v-else>Painkillers</span>
                 ({{ stims }})
             </b-btn>
-            <b-btn variant="outline-secondary" style="max-width: 48px" title="Reset Usages" @click="resetStims">
+            <b-btn v-b-tooltip.hover variant="outline-secondary" style="max-width: 48px" title="Reset Usages" @click="resetStims">
                 <fa icon="sync"></fa>
             </b-btn>
         </b-btn-group>
         <b-input-group class="mt-1 text-nowrap flex-nowrap">
             <b-input v-model.number="woundsInput" type="number" min="0" step="1" placeholder="Wounds" autocomplete="off"></b-input>
             <b-input-group-append>
-                <b-btn variant="outline-secondary" title="Soak" @click="soakWounds()">
+                <b-btn v-b-tooltip.hover variant="outline-secondary" title="Deal damage, applying soak" @click="soakWounds()">
                     <fa icon="shield-alt"></fa>
                 </b-btn>
-                <b-btn variant="outline-secondary" title="Deal" @click="dealWounds()">
+                <b-btn v-b-tooltip.hover variant="outline-secondary" title="Deal damage directly" @click="dealWounds()">
                     <fa :icon="mode === 'eote' ? 'swords-laser' : 'swords'"></fa>
                 </b-btn>
-                <b-btn variant="outline-secondary" title="Heal" @click="healWounds()">
+                <b-btn v-b-tooltip.hover variant="outline-secondary" title="Heal wounds" @click="healWounds()">
                     <fa icon="first-aid"></fa>
                 </b-btn>
             </b-input-group-append>
@@ -62,13 +62,13 @@
         <b-input-group class="mt-1">
             <b-input v-model.number="strainInput" type="number" min="0" step="1" placeholder="Strain" autocomplete="off"></b-input>
             <b-input-group-append>
-                <b-btn variant="outline-secondary" title="Soak" @click="soakStrain()">
+                <b-btn v-b-tooltip.hover variant="outline-secondary" title="Deal damage, applying soak" @click="soakStrain()">
                     <fa icon="shield-alt"></fa>
                 </b-btn>
-                <b-btn variant="outline-secondary" title="Deal" @click="dealStrain()">
+                <b-btn v-b-tooltip.hover variant="outline-secondary" title="Deal damage directly" @click="dealStrain()">
                     <fa :icon="mode === 'eote' ? 'swords-laser' : 'swords'"></fa>
                 </b-btn>
-                <b-btn variant="outline-secondary" title="Heal" @click="healStrain()">
+                <b-btn v-b-tooltip.hover variant="outline-secondary" title="Heal strain" @click="healStrain()">
                     <fa icon="first-aid"></fa>
                 </b-btn>
             </b-input-group-append>
@@ -78,24 +78,30 @@
 
         <b-btn-group class="w-100">
             <b-btn
+                v-b-tooltip.hover.html
                 :variant="health.staggered ? 'warning' : 'outline-secondary'"
                 size="sm"
+                :title="staggeredText"
                 :pressed.sync="health.staggered"
                 @click="saveChar"
             >
                 Stagg.
             </b-btn>
             <b-btn
+                v-b-tooltip.hover.html
                 :variant="health.immobilized ? 'warning' : 'outline-secondary'"
                 size="sm"
+                :title="immobilizedText"
                 :pressed.sync="health.immobilized"
                 @click="saveChar"
             >
                 Immob.
             </b-btn>
             <b-btn
+                v-b-tooltip.hover.html
                 :variant="health.disoriented ? 'warning' : 'outline-secondary'"
                 size="sm"
+                :title="disorientedText"
                 :pressed.sync="health.disoriented"
                 @click="saveChar"
             >
@@ -201,6 +207,18 @@
                 } // end if
 
                 return undefined;
+            },
+            staggeredText()
+            {
+                return `A <b>staggered</b> character cannot perform actions (including downgrading actions to maneuvers).`;
+            },
+            immobilizedText()
+            {
+                return `<span class="${ this.mode }-system">An <b>immobilized</b> character cannot perform maneuvers (including maneuvers purchased via strain or by spending <advantage></advantage>)</span>`;
+            },
+            disorientedText()
+            {
+                return `<span class="${ this.mode }-system">A <b>disoriented</b> character adds <setback></setback> (setback) to all checks they make.</span>`;
             },
             stims()
             {
