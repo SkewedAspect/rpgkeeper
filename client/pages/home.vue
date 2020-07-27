@@ -160,8 +160,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import $ from 'jquery';
-    import marked from 'marked';
-    import { formatDistance } from 'date-fns';
 
     // Managers
     import authMan from '../api/managers/auth';
