@@ -33,16 +33,17 @@
         </b-input-group>
 
         <b-input-group class="mt-2">
-            <b-form-input v-model.number="rollBonus" type="number" min="0" step="1" placeholder="Roll bonus"></b-form-input>
+            <b-form-input v-model.number="rollBonus" type="number" min="0" step="1" placeholder="Crit. bonus"></b-form-input>
             <b-input-group-append>
                 <b-btn
                     variant="primary"
-                    style="max-width: 48px; min-width: 48px;"
+                    style="min-width: 48px;"
                     title="Roll for a random Critical"
                     :disabled="readonly"
                     @click="rollCritical()"
                 >
                     <fa icon="dice"></fa>
+                    Roll Crit.
                 </b-btn>
             </b-input-group-append>
         </b-input-group>

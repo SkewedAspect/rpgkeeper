@@ -146,8 +146,8 @@
             isAuthorized()
             {
                 return !!this.account
-                    && !!this.character
-                    && (this.account.id || 'nope!') === this.character.account_id;
+                    && !!this.char
+                    && (this.account.id || 'nope!') === this.char.account_id;
             }
         },
         subscriptions: {
