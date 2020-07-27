@@ -110,8 +110,8 @@ async function _setupDB() : Promise<knex>
 
                 logger.warn('No existing database, creating one.');
 
-                await db.migrate.latest({ directory: './server/knex/migrations' });
-                await db.seed.run({ directory: './server/knex/seeds' });
+                await db.migrate.latest({ directory: './dist/server/knex/migrations' });
+                await db.seed.run({ directory: './dist/server/knex/seeds' });
 
                 return db;
             }
@@ -123,7 +123,7 @@ async function _setupDB() : Promise<knex>
 
     logger.info('Running any needed migrations...');
 
-    await db.migrate.latest({ directory: './server/knex/migrations' });
+    await db.migrate.latest({ directory: './dist/server/knex/migrations' });
 
     logger.info('Migrations complete.');
 

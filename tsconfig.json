@@ -33,7 +33,8 @@
         "config.ts"
     ],
     "include": [
-        "src"
+        "server/knex/migrations",
+        "server/knex/seeds"
     ],
     "exclude": [
         "node_modules",
