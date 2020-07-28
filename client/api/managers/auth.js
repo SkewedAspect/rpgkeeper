@@ -122,7 +122,6 @@ class AuthManager
     signOut()
     {
         this.auth2.signOut();
-        return authRA.signOut();
     } // end signOut
 
     //------------------------------------------------------------------------------------------------------------------
