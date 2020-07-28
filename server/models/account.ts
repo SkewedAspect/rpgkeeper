@@ -17,7 +17,6 @@ interface AccountOptions {
     permissions ?: string[];
     groups ?: string[];
     settings ?: AccountSettings;
-    created : number;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -30,7 +29,6 @@ export interface AccountSettings {
 export class Account
 {
     public readonly id : string;
-    public readonly created : number;
     public readonly email : string = '';
 
     public name = '';
@@ -48,7 +46,6 @@ export class Account
         this.permissions = options.permissions ?? [];
         this.groups = options.groups ?? [];
         this.settings = options.settings ?? {};
-        this.created = options.created;
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
@@ -63,14 +60,14 @@ export class Account
             name: this.name,
             avatar: this.avatar,
             permissions: this.permissions,
-            settings: this.settings,
-            created: this.created
+            groups: this.groups,
+            settings: this.settings
         };
     } // end
 
     public toDB() : Record<string, unknown>
     {
-        const { id, ...jsonObj } = this.toJSON();
+        const { id, groups, ...jsonObj } = this.toJSON();
         return {
             ...jsonObj,
             hash_id: id,

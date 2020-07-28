@@ -3,19 +3,17 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Managers
-import { table, raw } from './database';
+import { table } from './database';
 
 // Models
-import { Account, AccountSettings } from '../models/account';
+import { Account } from '../models/account';
 import { RoleLike } from '../models/role';
 
 // Errors
-import { AppError, MultipleResultsError, NotFoundError } from '../api/errors';
+import { MultipleResultsError, NotFoundError } from '../api/errors';
 
-// Logger
-import logging from 'trivial-logging';
+// Utils
 import { shortID } from '../utils/misc';
-const logger = logging.loggerFor(module);
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -29,121 +27,57 @@ export interface AccountFilters {
 
 export async function list(filters : AccountFilters) : Promise<Account[]>
 {
-    const accounts = await table('account')
+    const query = table('account')
         .select(
             'hash_id as id',
             'email',
             'name',
             'avatar',
             'permissions',
-            'settings',
-            raw("strftime('%s', ?)", 'created')
-        )
-        .where({
-            hash_id: filters.id,
-            email: filters.email,
-            name: filters.name
-        });
+            'settings'
+        );
 
-    return accounts.map(Account.fromDB);
+    if(filters.id)
+    {
+        query.where({ hash_id: filters.id });
+    } // end if
+
+    if(filters.email)
+    {
+        query.where({ email: filters.email });
+    } // end if
+
+    if(filters.name)
+    {
+        query.where({ name: filters.name });
+    } // end if
+
+    return (await query).map(Account.fromDB);
 } // end list
 
-export async function get(accountID : string) : Promise<Account>
+export async function getGroups(accountID : string) : Promise<string[]>
+{
+    const roles : RoleLike[] = await table('account as ac')
+        .select('r.name as name')
+        .join('account_role as ar', 'ac.account_id', '=', 'ar.account_id')
+        .join('role as r', 'ar.role_id', '=', 'r.role_id')
+        .where({
+            'ac.hash_id': accountID
+        });
+
+    return roles.map((role) => role.name);
+} // end getGroups
+
+export async function getRaw(accountID : string) : Promise<Record<string, unknown>>
 {
     const accounts = await table('account')
         .select(
+            'account_id',
             'hash_id as id',
             'email',
             'name',
             'avatar',
             'permissions',
-            'settings',
-            raw("strftime('%s', ?)", 'created')
-        )
-        .where({
-            hash_id: accountID
-        });
-
-    if(accounts.length > 1)
-    {
-        throw new MultipleResultsError('account');
-    }
-    else if(accounts.length === 0)
-    {
-        throw new NotFoundError(`No account record found for account '${ accountID }'.`);
-    }
-    else
-    {
-        return Account.fromDB(accounts[0]);
-    } // end if
-} // end get
-
-export async function getByEmail(email : string) : Promise<Account>
-{
-    const accounts = await table('account')
-        .select(
-            'hash_id as id',
-            'email',
-            'name',
-            'avatar',
-            'permissions',
-            'settings',
-            raw("strftime('%s', ?)", 'created')
-        )
-        .where({ email });
-
-    if(accounts.length > 1)
-    {
-        throw new MultipleResultsError('account');
-    }
-    else if(accounts.length === 0)
-    {
-        throw new NotFoundError(`No account record found with email '${ email }'.`);
-    }
-    else
-    {
-        return Account.fromDB(accounts[0]);
-    } // end if
-} // end getByEmail
-
-export async function getPermissions(accountID : string) : Promise<string[]>
-{
-    const accounts = await table('account')
-        .select(
-            'hash_id as id',
-            'permissions'
-        )
-        .where({
-            hash_id: accountID
-        });
-
-    if(accounts.length > 1)
-    {
-        throw new MultipleResultsError('account');
-    }
-    else if(accounts.length === 0)
-    {
-        throw new NotFoundError(`No account record found for account '${ accountID }'.`);
-    }
-    else
-    {
-        try
-        {
-            return JSON.parse(accounts[0].permissions);
-        }
-        catch (error)
-        {
-            logger.error(`Failed to parse permissions for account '${ accountID }':`, error.stack);
-            throw new AppError(`Failed to parse permissions for account '${ accountID }'.`, 'PermissionsParseError');
-        } // end try/catch
-    } // end if
-} // end getPermissions
-
-export async function getSettings(accountID : string) : Promise<AccountSettings>
-{
-    const accounts = await table('account')
-        .select(
-            'hash_id as id',
             'settings'
         )
         .where({
@@ -160,30 +94,44 @@ export async function getSettings(accountID : string) : Promise<AccountSettings>
     }
     else
     {
-        try
-        {
-            return JSON.parse(accounts[0].settings);
-        }
-        catch (error)
-        {
-            logger.error(`Failed to parse settings for account '${ accountID }':`, error.stack);
-            throw new AppError(`Failed to parse settings for account '${ accountID }'.`, 'SettingsParseError');
-        } // end try/catch
+        const groups = await getGroups(accountID);
+        return { ...accounts[0], groups };
     } // end if
-} // end getPermissions
+}
 
-export async function getGroups(accountID : string) : Promise<string[]>
+export async function get(accountID : string) : Promise<Account>
 {
-    const roles : RoleLike[] = await table('account as ac')
-        .select('r.name as name')
-        .join('account_role as ar', 'ac.account_id', '=', 'ar.account_id')
-        .join('role as r', 'ar.role_id', '=', 'r.role_id')
-        .where({
-            'ac.hash_id': accountID
-        });
+    const { account_id, ...restAccount } = await getRaw(accountID);
+    return Account.fromDB(restAccount);
+} // end get
 
-    return roles.map((role) => role.name);
-} // end getGroups
+export async function getByEmail(email : string) : Promise<Account>
+{
+    const accounts = await table('account')
+        .select(
+            'hash_id as id',
+            'email',
+            'name',
+            'avatar',
+            'permissions',
+            'settings'
+        )
+        .where({ email });
+
+    if(accounts.length > 1)
+    {
+        throw new MultipleResultsError('account');
+    }
+    else if(accounts.length === 0)
+    {
+        throw new NotFoundError(`No account record found with email '${ email }'.`);
+    }
+    else
+    {
+        const groups = await getGroups(accounts[0].id);
+        return Account.fromDB({ ...accounts[0], groups });
+    } // end if
+} // end getByEmail
 
 export async function add(newAccount : Record<string, unknown>) : Promise<Account>
 {
@@ -191,20 +139,20 @@ export async function add(newAccount : Record<string, unknown>) : Promise<Accoun
     await table('account')
         .insert(account.toDB());
 
-    return this.get(account.id);
+    return get(account.id);
 } // end add
 
 export async function update(accountID : string, accountUpdate : Record<string, unknown>) : Promise<Account>
 {
     // Get the current account
-    const account = this.get(accountID);
+    const account = await get(accountID);
 
     // Mix the current account with the allowed updates.
     const allowedUpdate = {
         ...account.toJSON(),
-        name: accountUpdate.name,
-        avatar: accountUpdate.avatar,
-        settings: accountUpdate.settings
+        name: accountUpdate.name ?? account.name,
+        avatar: accountUpdate.avatar ?? account.avatar,
+        settings: accountUpdate.settings ?? account.settings
     };
 
     // Make a new account object
@@ -216,7 +164,7 @@ export async function update(accountID : string, accountUpdate : Record<string, 
         .where({ hash_id: accountID });
 
     // Return the updated record
-    return this.get(accountID);
+    return get(accountID);
 } // end update
 
 export async function remove(accountID : string) : Promise<void>

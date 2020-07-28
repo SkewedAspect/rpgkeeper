@@ -4,6 +4,7 @@
 
 // Resource Access
 import suppRA from '../resource-access/supplement';
+import * as accountMan from '../../managers/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -11,6 +12,9 @@ class SupplementManager
 {
     async get(name, type, systemPrefix, account)
     {
+        // FIXME: The hash id should be the foreign key. Instead, get the raw account
+        account = await accountMan.getRaw(account.id);
+
         const tableName = `${ systemPrefix }_${ type }`;
         return suppRA.get(name, undefined, undefined, type, tableName, account);
     } // end getAbility
@@ -23,18 +27,27 @@ class SupplementManager
 
     async getFiltered(filters, type, systemPrefix, account)
     {
+        // FIXME: The hash id should be the foreign key. Instead, get the raw account
+        account = await accountMan.getRaw(account.id);
+
         const tableName = `${ systemPrefix }_${ type }`;
         return suppRA.getFiltered(filters, type, tableName, account);
     } // end getAbilities
 
     async addSupplement(supplement, type, systemPrefix, account)
     {
+        // FIXME: The hash id should be the foreign key. Instead, get the raw account
+        account = await accountMan.getRaw(account.id);
+
         const tableName = `${ systemPrefix }_${ type }`;
         return suppRA.addSupplement(supplement, type, tableName, account);
     } // end addSupplement
 
     async updateSupplement(supplement, type, systemPrefix, account)
     {
+        // FIXME: The hash id should be the foreign key. Instead, get the raw account
+        account = await accountMan.getRaw(account.id);
+
         const tableName = `${ systemPrefix }_${ type }`;
         return suppRA.updateSupplement(supplement, type, tableName, account);
     } // end updateSupplement
@@ -47,6 +60,9 @@ class SupplementManager
 
     async filterSupplementsByPermissions(ids, type, systemPrefix, account)
     {
+        // FIXME: The hash id should be the foreign key. Instead, get the raw account
+        account = await accountMan.getRaw(account.id);
+
         const tableName = `${ systemPrefix }_${ type }`;
         const supplements = await suppRA.batchGetByID(ids, type, tableName);
 

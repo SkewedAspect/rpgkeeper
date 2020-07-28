@@ -63,7 +63,7 @@ router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async(req, res
     if(system)
     {
         // We force the account id to be set based on who we're logged in as.
-        char.account_id = (req.user as unknown as Record<string, unknown>).account_id;
+        char.account_id = (req.user as Account).id;
 
         // Filter invalid supplements (Note: We ignore the `filtered` property, since this is a new character and the
         // client doesn't actually care what manipulations we've done to it. (This helps work around a bug where chrome
@@ -93,6 +93,9 @@ router.get('/:charID', (req, resp) =>
 
 router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(async(req, resp) =>
 {
+    // FIXME: The hash id should be the foreign key. Instead, get the raw account
+    const account = await accountMan.getRaw((req.user as Account).id);
+
     // First, retrieve the character
     const char = await charMan.getCharacter(req.params.charID);
 
@@ -102,7 +105,7 @@ router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(as
     if(system)
     {
         // Allow either the owner, or moderators/admins to modify the character
-        if(char.account_id === (req.user as Account).id || permsMan.hasPerm(req.user as Account, `${ char.system }/canModifyChar`))
+        if(char.account_id === account.account_id || permsMan.hasPerm(req.user as Account, `${ char.system }/canModifyChar`))
         {
             const update = req.body;
 
@@ -142,6 +145,9 @@ router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(as
 
 router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
+    // FIXME: The hash id should be the foreign key. Instead, get the raw account
+    const account = await accountMan.getRaw((req.user as Account).id);
+
     let char;
     try
     {
@@ -163,7 +169,7 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
     } // end try/catch
 
     // Allow either the owner, or moderators/admins to delete the character
-    if(char.account_id === (req.user as unknown as Record<string, unknown>).id || permsMan.hasPerm(req.user as Account, `${ char.system }/canDeleteChar`))
+    if(char.account_id === account.account_id || permsMan.hasPerm(req.user as Account, `${ char.system }/canDeleteChar`))
     {
         // Delete the character
         const deleted = await charMan.deleteCharacter(req.params.charID);

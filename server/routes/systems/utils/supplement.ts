@@ -13,6 +13,7 @@ import * as permMan from '../../../managers/permissions';
 import { ensureAuthenticated, wrapAsync, parseQuery } from '../../utils';
 import { IRouter } from 'express';
 import { Account } from '../../../models/account';
+import * as accountMan from '../../../managers/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -30,6 +31,9 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
 
     router.post(path, ensureAuthenticated, validation(schemas[type]), wrapAsync(async(req, resp) =>
     {
+        // FIXME: The hash id should be the foreign key. Instead, get the raw account
+        const account = await accountMan.getRaw((req.user as Account).id);
+
         const body = req.body;
 
         if(body.scope === 'public')
@@ -49,7 +53,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         else
         {
             body.scope = 'user';
-            body.owner = (req.user as unknown as Record<string, unknown>).account_id;
+            body.owner = account.account_id;
         } // end if
 
         resp.json(await suppMan.addSupplement(body, type, systemPrefix, req.user));
@@ -60,7 +64,9 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         const supplement = await suppMan.getByID(req.params.suppID, type, systemPrefix, req.user);
         if(supplement)
         {
-            const account_id = (req.user as unknown as Record<string, unknown>).account_id;
+            // FIXME: The hash id should be the foreign key. Instead, get the raw account
+            const account = await accountMan.getRaw((req.user as Account).id);
+            const account_id = account.account_id;
 
             // Either you have the correct user permission, or you're the owner and it's user-scoped.
             const hasPerm = permMan.hasPerm(req.user as Account, `${ systemPrefix }/canModifyContent`)
@@ -110,7 +116,9 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         const supplement = await suppMan.getByID(req.params.suppID, type, systemPrefix, req.user);
         if(supplement)
         {
-            const account_id = (req.user as unknown as Record<string, unknown>).account_id;
+            // FIXME: The hash id should be the foreign key. Instead, get the raw account
+            const account = await accountMan.getRaw((req.user as Account).id);
+            const account_id = account.account_id;
 
             // Either you have the correct user permission, or you're the owner and it's user-scoped.
             const hasPerm = permMan.hasPerm(req.user as Account, `${ systemPrefix }/canDeleteContent`)
