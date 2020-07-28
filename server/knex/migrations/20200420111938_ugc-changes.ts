@@ -412,7 +412,7 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
     await knex.schema.dropTable('bk_eote_weapon');
 
     //------------------------------------------------------------------------------------------------------------------
-    // Step 4: Update scopes
+    // Step 5: Update scopes
     //------------------------------------------------------------------------------------------------------------------
 
     await knex('genesys_motivation').update({ scope: 'public' })
