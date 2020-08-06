@@ -7,9 +7,8 @@ import express from 'express';
 import { ensureAuthenticated, errorHandler, wrapAsync } from './utils';
 
 // Managers
-import * as noteMan from '../managers/notes';
+import * as noteMan from '../managers/notebook';
 import { hasPerm } from '../managers/permissions';
-import oldNoteMan from '../api/managers/notes';
 
 // Models
 import { Account } from '../models/account';
@@ -28,7 +27,8 @@ router.get('/', wrapAsync(async(req, resp) =>
 {
     if(req.isAuthenticated() && await hasPerm(req.user as Account, 'Notes/canViewAll'))
     {
-        resp.json(await noteMan.get());
+        const filters = { id: req.query.id, email: req.query.email, title: req.query.title };
+        resp.json(await noteMan.list(filters));
     }
     else
     {
@@ -56,40 +56,45 @@ router.post('/:noteID/pages', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     const page = req.body;
 
-    // We're creating a new page, so we don't allow page_id.
-    delete page.page_id;
+    // We're creating a new page, so we don't allow page id.
+    delete page.id;
 
     // We have to look up the note from the hash.
-    const note = await oldNoteMan.getNote(req.params.noteID);
-    page.note_id = note.note_id;
+    const note = await noteMan.get(req.params.noteID);
+    page.notebookID = note.id;
 
     // Update the note
-    resp.json(await oldNoteMan.addPage(page));
+    resp.json(await noteMan.addPage(note.id, page));
 }));
 
 router.patch('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
-    const page = req.body;
-
-    // We don't trust the client not to lie to us about the id of the page we're updating.
-    page.page_id = req.params.pageID;
-
-    // We also don't let you move notes
-    delete page.note_id;
-
     // Update the note
-    resp.json(await oldNoteMan.updatePage(page));
+    const newPage = await noteMan.updatePage(req.params.pageID, req.body);
+    resp.json(newPage);
 }));
 
 router.delete('/:noteID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
-    resp.json(await oldNoteMan.deleteNote(req.params.noteID));
+    // We don't check for existence, so we can be idempotent
+    resp.json(await noteMan.remove(req.params.noteID));
 }));
 
 router.delete('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
-    // FIXME: We need to check that `pageID` is associated with `noteID`.
-    resp.json(await oldNoteMan.deletePage(req.params.pageID));
+    const notebook = await noteMan.get(req.params.noteID);
+    const page = (notebook.pages.filter((pageInst) => pageInst.id == req.params.pageID))[0];
+
+    if(page)
+    {
+        resp.json(await noteMan.removePage(req.params.pageID));
+    }
+    else
+    {
+        console.warn('notebook not found.');
+        // We don't throw an error, so we can be idempotent
+        resp.json({ status: 'ok' });
+    } // end if
 }));
 
 //----------------------------------------------------------------------------------------------------------------------

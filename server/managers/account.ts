@@ -97,7 +97,7 @@ export async function getRaw(accountID : string) : Promise<Record<string, unknow
         const groups = await getGroups(accountID);
         return { ...accounts[0], groups };
     } // end if
-}
+} // end getRaw
 
 export async function get(accountID : string) : Promise<Account>
 {

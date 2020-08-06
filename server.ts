@@ -35,7 +35,7 @@ import GoogleAuth from './server/auth/google';
 
 // Routes
 import { requestLogger, wrapAsync, serveIndex, errorLogger } from './server/routes/utils';
-import noteRouter from './server/routes/notes';
+import noteRouter from './server/routes/notebook';
 import charRouter from './server/routes/characters';
 import sysRouter from './server/routes/systems';
 import accountsRouter from './server/routes/accounts';
