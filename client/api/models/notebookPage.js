@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-// NotePageModel
+// NotebookPageModel
 //----------------------------------------------------------------------------------------------------------------------
 
 // Utils
@@ -7,15 +7,15 @@ import { markNonConfigurable } from '../utils/nonreactive';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class NotePageModel
+class NotebookPageModel
 {
     constructor(def)
     {
         // Set our properties
-        this.$state = { page_id: undefined, title: undefined, content: undefined, ...def };
+        this.$state = { id: undefined, title: undefined, content: undefined, ...def };
 
         // Store our reference model to revert back to
-        this.$refState = { page_id: undefined, title: undefined, content: undefined, ...def };
+        this.$refState = { id: undefined, title: undefined, content: undefined, ...def };
 
         // Mark the ref state as non-configurable, so vue ignores it.
         markNonConfigurable(this, '$refState');
@@ -25,7 +25,7 @@ class NotePageModel
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get id() { return this.$state.page_id; }
+    get id() { return this.$state.id; }
 
     get title() { return this.$state.title; }
     set title(title) { this.$state.title = title; }
@@ -44,21 +44,21 @@ class NotePageModel
     update(def)
     {
         this.$state = Object.assign(this.$state, def);
-        this.$refState = { page_id: undefined, title: undefined, content: undefined, ...def };
+        this.$refState = { id: undefined, title: undefined, content: undefined, ...def };
     } // end update
 
     toJSON()
     {
         return {
-            page_id: this.$state.page_id,
+            id: this.$state.id,
             title: this.$state.title,
             content: this.$state.content
         };
     } // end toJSON
-} // end NotePageModel
+} // end NotebookPageModel
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default NotePageModel;
+export default NotebookPageModel;
 
 //----------------------------------------------------------------------------------------------------------------------

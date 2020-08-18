@@ -5,8 +5,8 @@
 import $http from 'axios';
 
 // Models
-import NotesModel from '../models/note';
-import PageModel from '../models/page';
+import NotesModel from '../models/notebook';
+import PageModel from '../models/notebookPage';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ class NotesResourceAccess
 
     _buildPage(def)
     {
-        let page = this.$pages[def.page_id];
+        let page = this.$pages[def.id];
         if(page)
         {
             page.update(def);
@@ -30,7 +30,7 @@ class NotesResourceAccess
         else
         {
             page = new PageModel(def);
-            this.$pages[def.page_id] = page;
+            this.$pages[def.id] = page;
         } // end if
 
         return page;
@@ -60,25 +60,25 @@ class NotesResourceAccess
 
     async getNotes(noteID)
     {
-        const { data } = await $http.get(`/notes/${ noteID }`);
+        const { data } = await $http.get(`/notebook/${ noteID }`);
         return this._buildModel(data);
     } // end getNotes
 
     async addPage(noteID, page)
     {
-        const { data } = await $http.post(`/notes/${ noteID }/pages`, page);
+        const { data } = await $http.post(`/notebook/${ noteID }/pages`, page);
         return this._buildPage(data);
     } // end addPage
 
     async updatePage(noteID, page)
     {
-        const { data } = await $http.patch(`/notes/${ noteID }/pages/${ page.id }`, page);
+        const { data } = await $http.patch(`/notebook/${ noteID }/pages/${ page.id }`, page);
         return this._buildPage(data);
     } // end updatePage
 
     async deletePage(noteID, page)
     {
-        await $http.delete(`/notes/${ noteID }/pages/${ page.id }`);
+        await $http.delete(`/notebook/${ noteID }/pages/${ page.id }`);
         delete this.$pages[page.id];
     } // end deletePage
 

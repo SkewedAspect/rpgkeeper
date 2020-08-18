@@ -5,7 +5,7 @@
 import { BehaviorSubject } from 'rxjs';
 
 // Resource Access
-import noteRA from '../resource-access/notes';
+import noteRA from '../resource-access/notebook';
 
 //----------------------------------------------------------------------------------------------------------------------
 

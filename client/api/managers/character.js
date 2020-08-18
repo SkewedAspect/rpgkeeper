@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 
 // Managers
 import authMan from './auth';
-import notesMan from './notes';
+import notesMan from './notebook';
 
 // Resource Access
 import characterRA from '../resource-access/character';

@@ -1,12 +1,12 @@
 //----------------------------------------------------------------------------------------------------------------------
-// NoteModel
+// NotebookModel
 //----------------------------------------------------------------------------------------------------------------------
 
-class NoteModel
+class NotebookModel
 {
     constructor(def)
     {
-        this._id = def.hash_id;
+        this._id = def.id;
         this._pages = def.pages || [];
     } // end constructor
 
@@ -28,7 +28,7 @@ class NoteModel
 
     update(def)
     {
-        this._id = def.hash_id;
+        this._id = def.id;
         this._pages = def.pages || [];
     } // end update
 
@@ -39,10 +39,10 @@ class NoteModel
             pages: this.pages.map((page) => page.toJSON())
         };
     } // end toJSON
-} // end NoteModel
+} // end NotebookModel
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default NoteModel;
+export default NotebookModel;
 
 //----------------------------------------------------------------------------------------------------------------------

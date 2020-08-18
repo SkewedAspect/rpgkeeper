@@ -147,7 +147,7 @@ async function main() : Promise<{ app : Express, server : any }>
     app.use('/characters', charRouter);
     app.use('/systems', sysRouter);
     app.use('/accounts', accountsRouter);
-    app.use('/notes', noteRouter);
+    app.use('/notebook', noteRouter);
 
     // Serve index.html for any html requests, but 404 everything else.
     app.get('*', (_request, response) =>

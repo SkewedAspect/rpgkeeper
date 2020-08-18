@@ -63,7 +63,9 @@ router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async(req, res
     if(system)
     {
         // We force the account id to be set based on who we're logged in as.
-        char.account_id = (req.user as Account).id;
+        // FIXME: The hash id should be the foreign key. Instead, get the raw account
+        const account = await accountMan.getRaw((req.user as Account).id);
+        char.account_id = account.account_id;
 
         // Filter invalid supplements (Note: We ignore the `filtered` property, since this is a new character and the
         // client doesn't actually care what manipulations we've done to it. (This helps work around a bug where chrome
