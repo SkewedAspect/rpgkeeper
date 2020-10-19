@@ -5,10 +5,10 @@
 import _ from 'lodash';
 
 // Utilities
-import { camelCaseKeys, snakeCaseKeys } from '../../utils/misc';
-import { Character, CharacterDetails } from '../../types/character';
-import { Supplement, SupplementValidationPath } from '../../types/supplements';
-import { Account } from '../../models/account';
+import { camelCaseKeys, snakeCaseKeys } from '../utils/misc';
+import { Character, CharacterDetails } from '../types/character';
+import { Supplement, SupplementValidationPath } from '../types/supplements';
+import { Account } from '../models/account';
 
 // Logging
 import logging from 'trivial-logging';
@@ -47,7 +47,7 @@ class SupplementEngine
     async $validateSupplementPath(data : CharacterDetails, suppDef : SupplementValidationPath, systemPrefix : string, account : Account) : Promise<boolean>
     {
         // FIXME: This is a circular dependency, and I hate it.
-        const suppMan = (await import('../managers/supplement')).default;
+        const suppMan = (await import('../api/managers/supplement')).default;
 
         let supplements = _.get(data, suppDef.path, []) as Supplement | Supplement[] | number[];
 

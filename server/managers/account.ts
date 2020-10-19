@@ -10,7 +10,7 @@ import { Account } from '../models/account';
 import { RoleLike } from '../models/role';
 
 // Errors
-import { MultipleResultsError, NotFoundError } from '../api/errors';
+import { MultipleResultsError, NotFoundError } from '../errors';
 
 // Utils
 import { shortID } from '../utils/misc';

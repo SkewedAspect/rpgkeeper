@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { shortID } from '../utils/misc';
-import { AppError } from '../api/errors';
+import { AppError } from '../errors';
 
 // Logger
 import logging from 'trivial-logging';

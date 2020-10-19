@@ -7,7 +7,7 @@ import path from 'path';
 
 import { TrivialLogger } from 'trivial-logging';
 import { NextFunction, Request, Response } from 'express';
-import { AppError } from '../../api/errors';
+import { AppError } from '../../errors';
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -11,7 +11,7 @@ import * as dbMan from '../../managers/database';
 import { shortID } from '../../utils/misc';
 
 // Errors
-import { MultipleResultsError, NotFoundError } from '../errors';
+import { MultipleResultsError, NotFoundError } from '../../errors';
 
 //----------------------------------------------------------------------------------------------------------------------
 

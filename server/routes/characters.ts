@@ -15,7 +15,7 @@ import * as permsMan from '../managers/permissions';
 import sysMan from '../managers/system';
 
 // Engines
-import suppEng from '../api/engines/supplement';
+import suppEng from '../engines/supplement';
 
 // Utils
 import { ensureAuthenticated, errorHandler, interceptHTML, parseQuery, wrapAsync } from './utils';

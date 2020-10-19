@@ -12,7 +12,7 @@ import { shortID } from '../../utils/misc';
 import { applyFilters } from '../../knex/utils';
 
 // Errors
-import { MultipleResultsError, NotFoundError } from '../errors';
+import { MultipleResultsError, NotFoundError } from '../../errors';
 
 // Logger
 import logging from 'trivial-logging';

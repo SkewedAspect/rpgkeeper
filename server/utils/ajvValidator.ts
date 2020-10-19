@@ -10,7 +10,7 @@ import jsonSchema from 'ajv/lib/refs/json-schema-draft-06.json';
 
 import cacheUtil from './ajvCache';
 
-import { AjvValidationError } from '../api/errors';
+import { AjvValidationError } from '../errors';
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -72,9 +72,9 @@ async function main() : Promise<{ app : Express, server : any }>
     //------------------------------------------------------------------------------------------------------------------
 
     const store = new KnexSessionStore({
-        sidfieldname: configMan.config.key,
+        sidfieldname: configMan.config.key as string | undefined,
         knex: await dbMan.getDB(),
-        createTable: true,
+        createtable: true,
 
         // Clear expired sessions. (1 hour)
         clearInterval: 60 * 60 * 1000

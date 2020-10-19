@@ -10,7 +10,7 @@ import { Notebook, NotebookPage } from '../models/notebook';
 
 // Utils
 import { shortID } from '../utils/misc';
-import { MultipleResultsError, NotFoundError } from '../api/errors';
+import { MultipleResultsError, NotFoundError } from '../errors';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

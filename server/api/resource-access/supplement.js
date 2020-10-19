@@ -8,13 +8,13 @@ import _ from 'lodash';
 import * as dbMan from '../../managers/database';
 
 // Engines
-import suppEng from '../engines/supplement';
+import suppEng from '../../engines/supplement';
 
 // Utilities
 import { applyFilters } from '../../knex/utils';
 
 // Errors
-import { MultipleResultsError, DuplicateSupplementError, NotFoundError } from '../errors';
+import { MultipleResultsError, DuplicateSupplementError, NotFoundError } from '../../errors';
 
 //----------------------------------------------------------------------------------------------------------------------
 
