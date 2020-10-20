@@ -5,7 +5,7 @@
 import express from 'express';
 
 // Managers
-import refMan from '../../api/managers/references';
+import refMan from '../../managers/references';
 
 // Utils
 import { buildSupplementRoute } from './utils/supplement';
