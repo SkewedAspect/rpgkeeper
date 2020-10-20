@@ -2,9 +2,11 @@
 // Utility Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Decoder, array, compose, predicate, map, string } from 'decoders';
+import { Decoder, array, compose, predicate, map, string, regex } from 'decoders';
 
 // ---------------------------------------------------------------------------------------------------------------------
+
+export const hexColor = regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Must be a valid hex color code.');
 
 export function jsonArrayString<T>(itemDecoder : Decoder<T>) : Decoder<Array<T>>
 {
