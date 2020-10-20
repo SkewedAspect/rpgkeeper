@@ -7,7 +7,6 @@ import { table } from './database';
 
 // Models
 import { Account } from '../models/account';
-import { RoleLike } from '../models/role';
 
 // Errors
 import { MultipleResultsError, NotFoundError } from '../errors';
@@ -57,8 +56,8 @@ export async function list(filters : AccountFilters) : Promise<Account[]>
 
 export async function getGroups(accountID : string) : Promise<string[]>
 {
-    const roles : RoleLike[] = await table('account as ac')
-        .select('r.name as name')
+    const roles = await table('account as ac')
+        .select('r.name as name', 'r.role_id as id')
         .join('account_role as ar', 'ac.account_id', '=', 'ar.account_id')
         .join('role as r', 'ar.role_id', '=', 'r.role_id')
         .where({

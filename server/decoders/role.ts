@@ -1,19 +1,22 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// Roles Manager
+// Role Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-// Managers
-import { table } from './database';
-
-// Models
-import { Role } from '../models/role';
+import * as JsonDecoder from 'decoders';
+import { jsonArrayString, stringWithLength } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export async function list() : Promise<unknown>
-{
-    return (await table('role as r').select('r.role_id as id', 'r.name', 'r.permissions'))
-        .map(Role.fromDB);
-} // end list
+export const roleRecDecoder = JsonDecoder.object({
+    id: JsonDecoder.integer,
+    name: stringWithLength(3, 255),
+    permissions: jsonArrayString(JsonDecoder.string)
+});
+
+export const roleJsonDecoder = JsonDecoder.object({
+    id: JsonDecoder.integer,
+    name: stringWithLength(3, 255),
+    permissions: JsonDecoder.array(JsonDecoder.string)
+});
 
 // ---------------------------------------------------------------------------------------------------------------------

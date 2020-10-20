@@ -2,75 +2,39 @@
 // Role
 //----------------------------------------------------------------------------------------------------------------------
 
-import { shortID } from '../utils/misc';
-import { AppError } from '../errors';
+import * as JsonDecoder from 'decoders';
 
-// Logger
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
+// Decoders
+import { roleJsonDecoder, roleRecDecoder } from '../decoders/role';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface RoleLike {
-    id ?: string;
+export interface RoleOptions {
+    id : number;
     name : string;
     permissions ?: string[];
 }
 
-export interface RoleDBRecord extends Omit<RoleLike, 'permissions'>
-{
-    role_id ?: string,
-    permissions : string;
-}
-
 //----------------------------------------------------------------------------------------------------------------------
 
-export class Role implements RoleLike
+export class Role
 {
-    #id ?: string;
+    public readonly id : number;
+    public readonly name : string;
+    public permissions : string[] = [];
 
-    public readonly permissions : string[] = [];
-
-    public name = '';
-
-    constructor(definition ?: RoleLike)
+    constructor(options : RoleOptions)
     {
-        if(definition)
-        {
-            this.#id = definition.id;
-            this.name = definition.name;
-            this.permissions = definition.permissions ?? [];
-        } // end if
+        this.id = options.id;
+        this.name = options.name;
+        this.permissions = options.permissions ?? [];
     } // end constructor
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Properties
-    //------------------------------------------------------------------------------------------------------------------
-
-    get id() : string | undefined
-    {
-        return this.#id;
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-
-    public generateID() : string
-    {
-        if(!this.#id)
-        {
-            return this.#id = shortID();
-        }
-        else
-        {
-            throw new AppError('Unable to change the ID of an existing role.', 'CannotChangeRoleID');
-        } // end if
-    } // end generateID
 
     //------------------------------------------------------------------------------------------------------------------
     // Serialization
     //------------------------------------------------------------------------------------------------------------------
 
-    public toJSON() : RoleLike
+    public toJSON() : Record<string, unknown>
     {
         return {
             id: this.id,
@@ -79,7 +43,7 @@ export class Role implements RoleLike
         };
     } // end
 
-    public toDB() : RoleDBRecord
+    public toDB() : Record<string, unknown>
     {
         const { id, ...jsonObj } = this.toJSON();
         return {
@@ -93,30 +57,16 @@ export class Role implements RoleLike
     // Deserialization
     //------------------------------------------------------------------------------------------------------------------
 
-    static fromDB(roleRecord : RoleDBRecord) : Role
+    static fromDB(roleRecord : Record<string, unknown>) : Role
     {
-        let permissions;
-        try
-        {
-            permissions = JSON.parse(roleRecord.permissions);
-        }
-        catch (error)
-        {
-            permissions = [];
-            logger.warn(`Failed to parse role permissions on role ${ roleRecord.id }:`, error.stack);
-        } // end if
-
-        return new Role({ ...roleRecord, permissions });
+        const decoder = JsonDecoder.guard(roleRecDecoder);
+        return new Role(decoder(roleRecord));
     } // end fromDB
 
-    static fromJSON(jsonObj : RoleLike) : Role
+    static fromJSON(jsonObj : Record<string, unknown>) : Role
     {
-        if(jsonObj instanceof Role)
-        {
-            return jsonObj;
-        } // end if
-
-        return new Role(jsonObj);
+        const decoder = JsonDecoder.guard(roleJsonDecoder);
+        return new Role(decoder(jsonObj));
     } // end fromJSON
 } // end Role
 
