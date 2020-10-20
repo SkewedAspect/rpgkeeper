@@ -61,7 +61,7 @@ module.exports = {
         'arrow-spacing': 'warn',
         'block-spacing': 'warn',
         'brace-style': [ 'warn', 'allman', { allowSingleLine: true } ],
-        'camelcase': 'warn',
+        'camelcase': 'off',
         'comma-dangle': [ 'warn', 'never' ],
         'comma-spacing': [ 'warn', { before: false, after: true } ],
         'comma-style': [ 'warn', 'last' ],
