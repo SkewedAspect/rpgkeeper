@@ -5,15 +5,18 @@
 import * as JsonDecoder from 'decoders';
 import { nonEmptyString } from 'decoders/string';
 
+// Utils
+import { boundedInteger } from '../utils';
+
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const wfrpStatsDecoder = JsonDecoder.object({
-    value: JsonDecoder.positiveInteger,
+    value: boundedInteger(1),
     description: nonEmptyString
 });
 
 export const wfrpSkillsDecoder = JsonDecoder.object({
-    value: JsonDecoder.positiveInteger,
+    value: boundedInteger(1),
     description: nonEmptyString
 });
 

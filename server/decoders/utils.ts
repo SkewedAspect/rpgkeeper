@@ -2,7 +2,7 @@
 // Utility Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Decoder, array, compose, predicate, map, string, regex } from 'decoders';
+import { Decoder, array, compose, predicate, map, string, regex, integer } from 'decoders';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -63,5 +63,23 @@ export function stringWithLength(min : number, max = Infinity) : Decoder<string>
 
     return decoder;
 } // end stringWithLength
+
+export function boundedInteger(min : number, max = Infinity) : Decoder<number>
+{
+    let decoder = compose(
+        integer,
+        predicate((int) => int >= min, `Must be greater than or equal to ${ min }.`)
+    );
+
+    if(max && max >= min)
+    {
+        decoder = compose(
+            decoder,
+            predicate((int) => int < max, `Must be less than ${ max }.`)
+        );
+    } // end if
+
+    return decoder;
+} // end boundedInteger
 
 // ---------------------------------------------------------------------------------------------------------------------
