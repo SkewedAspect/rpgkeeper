@@ -82,4 +82,12 @@ export function boundedInteger(min : number, max = Infinity) : Decoder<number>
     return decoder;
 } // end boundedInteger
 
+export function enumStr<T extends string>(options : string[]) : Decoder<T>
+{
+    return compose(
+        string,
+        predicate((str) => options.includes(str), `Must be a one of: ${ options.join(', ') }.`)
+    ) as Decoder<T>;
+} // end enumStr
+
 // ---------------------------------------------------------------------------------------------------------------------
