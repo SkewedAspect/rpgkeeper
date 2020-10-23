@@ -5,13 +5,18 @@
 import * as JsonDecoder from 'decoders';
 
 // Other Decoders
-import { referenceRecDecoder } from "../reference";
-import { boundedInteger, enumStr, stringWithLength } from "../utils";
-import { supplementalDecoderPartial } from "../supplement";
+import { referenceRecDecoder } from '../reference';
+import { boundedInteger, enumStr, stringWithLength } from '../utils';
+import { supplementalDecoderPartial } from '../supplement';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const eoteRangeDecoder = enumStr([ 'en', 's', 'm', 'l', 'ex' ]);
+
+export const eoteCriticalInjury = JsonDecoder.object({
+    name: stringWithLength(1, 255),
+    value: JsonDecoder.positiveInteger
+});
 
 export const motivationDecoder = JsonDecoder.object({
     id: JsonDecoder.positiveInteger,
@@ -162,10 +167,97 @@ export const forcePowerDecoder = JsonDecoder.object({
 // Characters
 // ---------------------------------------------------------------------------------------------------------------------
 
+const baseSysDetailsPartial = {
+    career: stringWithLength(0, 255),
+    species: stringWithLength(0, 255),
+    characteristics: JsonDecoder.object({
+        brawn: boundedInteger(0, 10),
+        agility: boundedInteger(0, 10),
+        intellect: boundedInteger(0, 10),
+        cunning: boundedInteger(0, 10),
+        willpower: boundedInteger(0, 10),
+        presence: boundedInteger(0, 10)
+    }),
+    experience: JsonDecoder.object({
+        total: JsonDecoder.positiveInteger,
+        available: JsonDecoder.positiveInteger
+    }),
+    defenses: JsonDecoder.object({
+        soak: JsonDecoder.positiveInteger,
+        melee: JsonDecoder.positiveInteger,
+        defense: JsonDecoder.positiveInteger
+    }),
+    health: JsonDecoder.object({
+        wounds: JsonDecoder.positiveInteger,
+        woundThreshold: JsonDecoder.positiveInteger,
+        strain: JsonDecoder.positiveInteger,
+        strainThreshold: JsonDecoder.positiveInteger,
+        criticalInjuries: JsonDecoder.array(eoteCriticalInjury),
+        stimsUsed: JsonDecoder.positiveInteger,
+        staggered: JsonDecoder.boolean,
+        immobilized: JsonDecoder.boolean,
+        disoriented: JsonDecoder.boolean
+    }),
+    skills: JsonDecoder.array(skillDecoder),
+    talents: JsonDecoder.array(talentDecoder),
+    abilities: JsonDecoder.array(abilityDecoder),
+    gear: JsonDecoder.array(gearDecoder),
+    armor: JsonDecoder.object({
+        name: stringWithLength(1, 255),
+        description: stringWithLength(1),
+        defense: JsonDecoder.positiveInteger,
+        soak: JsonDecoder.positiveInteger,
+        hardpoints: JsonDecoder.positiveInteger,
+        encumbrance: JsonDecoder.positiveInteger,
+        rarity: JsonDecoder.positiveInteger,
+        attachments: JsonDecoder.array(attachmentDecoder),
+        qualities: JsonDecoder.array(JsonDecoder.object({ id: JsonDecoder.positiveInteger, ranks: boundedInteger(1) }))
+    }),
+    weapons: JsonDecoder.object({
+        name: stringWithLength(1, 255),
+        description: stringWithLength(1),
+        skill: stringWithLength(1, 255),
+        damage: JsonDecoder.positiveInteger,
+        criticalRating: JsonDecoder.positiveInteger,
+        range: eoteRangeDecoder,
+        encumbrance: JsonDecoder.positiveInteger,
+        rarity: JsonDecoder.positiveInteger,
+        attachments: JsonDecoder.array(attachmentDecoder),
+        qualities: JsonDecoder.array(JsonDecoder.object({ id: JsonDecoder.positiveInteger, ranks: boundedInteger(1) })),
+        notes: JsonDecoder.optional(JsonDecoder.string)
+    })
+};
 export const genesysSysDetailsDecoder = JsonDecoder.object({
+    ...baseSysDetailsPartial,
+    motivations: JsonDecoder.object({
+        strength: motivationDecoder,
+        flaw: motivationDecoder,
+        desire: motivationDecoder,
+        fear: motivationDecoder
+    })
 });
 
 export const eoteSysDetailsDecoder = JsonDecoder.object({
+    ...baseSysDetailsPartial,
+    specialization: JsonDecoder.optional(stringWithLength(0, 255)),
+    force: JsonDecoder.object({
+        rating: JsonDecoder.positiveInteger,
+        committed: JsonDecoder.positiveInteger, // TODO: The upper limit is really `rating`.
+        powers: JsonDecoder.array(
+            JsonDecoder.object({
+                id: stringWithLength(1),
+                upgrades: JsonDecoder.object({
+                    strength: JsonDecoder.positiveInteger,
+                    magnitude: JsonDecoder.positiveInteger,
+                    duration: JsonDecoder.positiveInteger,
+                    range: JsonDecoder.positiveInteger,
+                    control: JsonDecoder.positiveInteger,
+                    mastery: JsonDecoder.positiveInteger
+                })
+            })
+        ),
+        sensitive: JsonDecoder.boolean
+    })
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
