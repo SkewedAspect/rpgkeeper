@@ -6,7 +6,6 @@ import * as JsonDecoder from 'decoders';
 
 // Decoders
 import { characterJsonDecoder, characterRecDecoder } from '../decoders/character';
-import { sysDetailsDecoder } from '../decoders/systems';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -95,25 +94,13 @@ export class Character<SystemDetails extends Record<string, unknown> = Record<st
     static fromDB(characterRecord : Record<string, unknown>) : Character
     {
         const decoder = JsonDecoder.guard(characterRecDecoder);
-        const charOpts = decoder(characterRecord);
-
-        // Handle system specific details
-        const detailsDecoder = JsonDecoder.guard(sysDetailsDecoder(charOpts.system));
-        charOpts.details = detailsDecoder(charOpts.details) as Record<string, unknown>;
-
-        return new Character(charOpts);
+        return new Character(decoder(characterRecord));
     } // end fromDB
 
     static fromJSON(jsonObj : Record<string, unknown>) : Character
     {
         const decoder = JsonDecoder.guard(characterJsonDecoder);
-        const charOpts = decoder(jsonObj);
-
-        // Handle system specific details
-        const detailsDecoder = JsonDecoder.guard(sysDetailsDecoder(charOpts.system));
-        charOpts.details = detailsDecoder(charOpts.details) as Record<string, unknown>;
-
-        return new Character(charOpts);
+        return new Character(decoder(jsonObj));
     } // end fromJSON
 } // end Character
 
