@@ -2,39 +2,39 @@
 // FATE Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import * as JsonDecoder from 'decoders';
+import { array, boolean, object, optional, positiveInteger, string } from 'decoders';
 import { arrayWithLength, enumStr, stringWithLength } from '../utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const fateAspectDecoder = JsonDecoder.object({
+export const fateAspectDecoder = object({
     type: enumStr([ 'aspect', 'high concept', 'trouble', 'consequence' ]),
-    detail: JsonDecoder.optional(JsonDecoder.string),
-    healing: JsonDecoder.optional(JsonDecoder.boolean),
-    value: JsonDecoder.optional(JsonDecoder.positiveInteger)
+    detail: optional(string),
+    healing: optional(boolean),
+    value: optional(positiveInteger)
 });
 
-export const fateSkillsDecoder = JsonDecoder.object({
-    name: JsonDecoder.string,
-    rank: JsonDecoder.positiveInteger
+export const fateSkillsDecoder = object({
+    name: string,
+    rank: positiveInteger
 });
 
-export const fateStuntsDecoder = JsonDecoder.object({
+export const fateStuntsDecoder = object({
     title: stringWithLength(1),
     description: stringWithLength(1)
 });
 
-export const fateSysDetailsDecoder = JsonDecoder.object({
-    fatePoints: JsonDecoder.object({
-        refresh: JsonDecoder.positiveInteger,
-        current: JsonDecoder.positiveInteger
+export const fateSysDetailsDecoder = object({
+    fatePoints: object({
+        refresh: positiveInteger,
+        current: positiveInteger
     }),
-    aspects: JsonDecoder.array(fateAspectDecoder),
-    skills: JsonDecoder.array(fateSkillsDecoder),
-    extras: JsonDecoder.string,
-    stunts: JsonDecoder.array(fateStuntsDecoder),
-    physicalStress: arrayWithLength(JsonDecoder.boolean, 4, 5),
-    mentalStress: arrayWithLength(JsonDecoder.boolean, 4, 5)
+    aspects: array(fateAspectDecoder),
+    skills: array(fateSkillsDecoder),
+    extras: string,
+    stunts: array(fateStuntsDecoder),
+    physicalStress: arrayWithLength(boolean, 4, 5),
+    mentalStress: arrayWithLength(boolean, 4, 5)
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

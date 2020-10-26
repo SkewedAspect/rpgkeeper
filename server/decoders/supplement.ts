@@ -2,15 +2,15 @@
 // Supplements
 // ---------------------------------------------------------------------------------------------------------------------
 
-import * as JsonDecoder from 'decoders';
-import { enumStr } from "./utils";
+import { boolean, string, optional } from 'decoders';
+import { enumStr } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const supplementalDecoderPartial = {
-    owner: JsonDecoder.optional(JsonDecoder.string),
+    owner: optional(string),
     scope: enumStr([ 'public', 'user' ]),
-    official: JsonDecoder.boolean
+    official: boolean
 };
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -2,27 +2,27 @@
 // Account Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import * as JsonDecoder from 'decoders';
+import { array, email, inexact, string, object } from 'decoders';
 import { jsonArrayString, jsonObjectString, stringWithLength } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const accountRecDecoder = JsonDecoder.object({
-    id: JsonDecoder.string,
-    email: JsonDecoder.email,
+export const accountRecDecoder = object({
+    id: string,
+    email,
     name: stringWithLength(3, 255),
     avatar: stringWithLength(3, 255),
-    permissions: jsonArrayString(JsonDecoder.string),
-    settings: jsonObjectString(JsonDecoder.inexact({}))
+    permissions: jsonArrayString(string),
+    settings: jsonObjectString(inexact({}))
 });
 
-export const accountJsonDecoder = JsonDecoder.object({
-    id: JsonDecoder.string,
-    email: JsonDecoder.email,
+export const accountJsonDecoder = object({
+    id: string,
+    email,
     name: stringWithLength(3, 255),
     avatar: stringWithLength(3, 255),
-    permissions: JsonDecoder.array(JsonDecoder.string),
-    settings: JsonDecoder.inexact({})
+    permissions: array(string),
+    settings: inexact({})
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

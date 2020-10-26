@@ -2,31 +2,31 @@
 // Risus Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import * as JsonDecoder from 'decoders';
+import { array, object, optional, positiveInteger, string } from 'decoders';
 import { boundedInteger } from '../utils';
 import { nonEmptyString } from 'decoders/string';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const risusClicheDecoder = JsonDecoder.object({
+export const risusClicheDecoder = object({
     value: boundedInteger(1),
-    current: JsonDecoder.positiveInteger,
+    current: positiveInteger,
     description: nonEmptyString,
-    tools: JsonDecoder.optional(JsonDecoder.string)
+    tools: optional(string)
 });
 
-export const risusHooksDecoder = JsonDecoder.object({
+export const risusHooksDecoder = object({
     description: nonEmptyString
 });
 
-export const risusSysDetailsDecoder = JsonDecoder.object({
-    advancementPoints: JsonDecoder.positiveInteger,
-    ffDice: JsonDecoder.positiveInteger,
-    cliches: JsonDecoder.array(risusClicheDecoder),
-    hooks: JsonDecoder.array(risusHooksDecoder),
-    luckyShots: JsonDecoder.object({
-        current: JsonDecoder.positiveInteger,
-        max: JsonDecoder.positiveInteger
+export const risusSysDetailsDecoder = object({
+    advancementPoints: positiveInteger,
+    ffDice: positiveInteger,
+    cliches: array(risusClicheDecoder),
+    hooks: array(risusHooksDecoder),
+    luckyShots: object({
+        current: positiveInteger,
+        max: positiveInteger
     })
 });
 

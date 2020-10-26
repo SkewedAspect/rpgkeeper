@@ -2,7 +2,7 @@
 // WFRP Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import * as JsonDecoder from 'decoders';
+import { array, object } from 'decoders';
 import { nonEmptyString } from 'decoders/string';
 
 // Utils
@@ -10,19 +10,19 @@ import { boundedInteger } from '../utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const wfrpStatsDecoder = JsonDecoder.object({
+export const wfrpStatsDecoder = object({
     value: boundedInteger(1),
     description: nonEmptyString
 });
 
-export const wfrpSkillsDecoder = JsonDecoder.object({
+export const wfrpSkillsDecoder = object({
     value: boundedInteger(1),
     description: nonEmptyString
 });
 
-export const wfrpSysDetailsDecoder = JsonDecoder.object({
-    stats: JsonDecoder.array(wfrpStatsDecoder),
-    skills: JsonDecoder.array(wfrpSkillsDecoder)
+export const wfrpSysDetailsDecoder = object({
+    stats: array(wfrpStatsDecoder),
+    skills: array(wfrpSkillsDecoder)
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

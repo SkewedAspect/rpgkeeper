@@ -2,37 +2,37 @@
 // Character Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import * as JsonDecoder from 'decoders';
+import { inexact, object, optional, string } from 'decoders';
 import { hexColor, jsonObjectString, nullToUndefined, stringWithLength } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const characterRecDecoder = JsonDecoder.object({
-    id: JsonDecoder.string,
+export const characterRecDecoder = object({
+    id: string,
     system: stringWithLength(3, 255),
     accountID: stringWithLength(3, 255),
     noteID: stringWithLength(3, 255),
     name: stringWithLength(1, 255),
-    description: JsonDecoder.optional(JsonDecoder.string),
-    portrait: JsonDecoder.optional(nullToUndefined(JsonDecoder.string)),
-    thumbnail: JsonDecoder.optional(JsonDecoder.string),
-    color: JsonDecoder.optional(hexColor),
-    campaign: JsonDecoder.optional(stringWithLength(0, 255)),
-    details: jsonObjectString(JsonDecoder.inexact({}))
+    description: optional(string),
+    portrait: optional(nullToUndefined(string)),
+    thumbnail: optional(string),
+    color: optional(hexColor),
+    campaign: optional(stringWithLength(0, 255)),
+    details: jsonObjectString(inexact({}))
 });
 
-export const characterJsonDecoder = JsonDecoder.object({
-    id: JsonDecoder.string,
+export const characterJsonDecoder = object({
+    id: string,
     system: stringWithLength(3, 255),
     accountID: stringWithLength(3, 255),
     noteID: stringWithLength(3, 255),
     name: stringWithLength(1, 255),
-    description: JsonDecoder.optional(JsonDecoder.string),
-    portrait: JsonDecoder.optional(JsonDecoder.string),
-    thumbnail: JsonDecoder.optional(JsonDecoder.string),
-    color: JsonDecoder.optional(hexColor),
-    campaign: JsonDecoder.optional(stringWithLength(0, 255)),
-    details: JsonDecoder.inexact({})
+    description: optional(string),
+    portrait: optional(string),
+    thumbnail: optional(string),
+    color: optional(hexColor),
+    campaign: optional(stringWithLength(0, 255)),
+    details: inexact({})
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
