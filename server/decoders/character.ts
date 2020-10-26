@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { inexact, object, optional, string } from 'decoders';
-import { hexColor, jsonObjectString, nullToUndefined, stringWithLength } from './utils';
+import { hexColor, jsonObjectString, nullToUndefined, stringWithLength, withDefault } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -32,7 +32,7 @@ export const characterJsonDecoder = object({
     thumbnail: optional(string),
     color: optional(hexColor),
     campaign: optional(stringWithLength(0, 255)),
-    details: inexact({})
+    details: withDefault(inexact({}), {})
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

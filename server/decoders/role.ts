@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { array, integer, string, object } from 'decoders';
-import { jsonArrayString, stringWithLength } from './utils';
+import { jsonArrayString, stringWithLength, withDefault } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -16,7 +16,7 @@ export const roleRecDecoder = object({
 export const roleJsonDecoder = object({
     id: integer,
     name: stringWithLength(3, 255),
-    permissions: array(string)
+    permissions: withDefault(array(string), [])
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

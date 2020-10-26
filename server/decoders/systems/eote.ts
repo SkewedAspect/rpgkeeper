@@ -2,16 +2,37 @@
 // EotE Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { array, boolean, object, optional, positiveInteger, string } from 'decoders';
+import { array, boolean, nullable, object, optional, positiveInteger, regex, string } from 'decoders';
 
-// Other Decoders
-import { referenceRecDecoder } from '../reference';
-import { boundedInteger, enumStr, stringWithLength } from '../utils';
+// Defaults
+import defaults from '../../systems/eote/defaults';
+
+// Utils
+import { boundedInteger, enumStr, stringWithLength, withDefault } from '../utils';
 import { supplementalDecoderPartial } from '../supplement';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
+const { genesys, eote } = defaults;
+
+const {
+    motivations,
+    characteristics,
+    experience,
+    defenses,
+    health,
+    abilities,
+    gear,
+    armor,
+    weapons
+} = genesys.character;
+
+const { force } = eote.character;
+
+// ---------------------------------------------------------------------------------------------------------------------
+
 export const eoteRangeDecoder = enumStr([ 'en', 's', 'm', 'l', 'ex' ]);
+export const referenceDecoder = withDefault(regex(/^[a-zA-z-]+:?\d*$/, 'Must be a valid reference string.'), 'HB');
 
 export const eoteCriticalInjury = object({
     name: stringWithLength(1, 255),
@@ -19,10 +40,10 @@ export const eoteCriticalInjury = object({
 });
 
 export const motivationDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(0, 255),
     description: string,
-    reference: referenceRecDecoder
+    reference: referenceDecoder
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -30,65 +51,65 @@ export const motivationDecoder = object({
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const abilityDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
     description: stringWithLength(1),
-    reference: referenceRecDecoder,
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
 export const talentDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
     description: stringWithLength(1),
     activation: enumStr([ 'p', 'ai', 'aio', 'am', 'aa' ]),
     ranked: boolean,
     tier: boundedInteger(1, 5),
-    reference: referenceRecDecoder,
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
 export const skillDecoder = object({
     name: stringWithLength(1, 255),
     characteristic: enumStr([ 'brawn', 'agility', 'intellect', 'cunning', 'willpower', 'presence' ]),
-    ranks: boundedInteger(1, 5),
+    ranks: boundedInteger(0, 5),
     career: boolean,
     type: enumStr([ 'general', 'combat', 'magic', 'social', 'knowledge' ])
 });
 
 export const gearDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
     description: stringWithLength(1),
     encumbrance: positiveInteger,
     rarity: positiveInteger,
-    reference: referenceRecDecoder,
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
 export const attachmentDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
-    description: stringWithLength(1),
+    description: optional(stringWithLength(1)),
     useWith: stringWithLength(1, 255),
     modifiers: stringWithLength(1),
     hpRequired: boundedInteger(0, 50),
-    reference: referenceRecDecoder,
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
 export const qualityDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
     description: stringWithLength(1),
     passive: boolean,
     ranked: boolean,
-    reference: referenceRecDecoder,
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
 export const armorDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
     description: stringWithLength(1),
     defense: positiveInteger,
@@ -96,12 +117,12 @@ export const armorDecoder = object({
     hardpoints: positiveInteger,
     encumbrance: positiveInteger,
     rarity: positiveInteger,
-    reference: referenceRecDecoder,
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
 export const weaponDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
     description: stringWithLength(1),
     skill: stringWithLength(1, 255),
@@ -110,30 +131,30 @@ export const weaponDecoder = object({
     range: eoteRangeDecoder,
     encumbrance: positiveInteger,
     rarity: positiveInteger,
-    qualities: array(object({ id: positiveInteger, ranks: boundedInteger(1) })),
-    reference: referenceRecDecoder,
+    qualities: withDefault(array(object({ id: positiveInteger, ranks: boundedInteger(1) })), []),
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
 export const eoteTalentDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
     description: stringWithLength(1),
     activation: enumStr([ 'p', 'ai', 'aio', 'am', 'aa' ]),
     ranked: boolean,
     trees: stringWithLength(1),
-    reference: referenceRecDecoder,
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
 export const eoteAttachmentDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
     description: stringWithLength(1),
     baseModifier: stringWithLength(1),
     modOptions: stringWithLength(1),
     hpRequired: boundedInteger(0, 50),
-    reference: referenceRecDecoder,
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
@@ -143,19 +164,19 @@ export const forcePowerUpgradeDecoder = object({
 });
 
 export const forcePowerDecoder = object({
-    id: positiveInteger,
+    id: optional(positiveInteger),
     name: stringWithLength(1, 255),
     description: stringWithLength(1),
     minRating: positiveInteger,
-    upgrades: object({
-        strength: forcePowerUpgradeDecoder,
-        magnitude: forcePowerUpgradeDecoder,
-        duration: forcePowerUpgradeDecoder,
-        range: forcePowerUpgradeDecoder,
-        control: array(object({ description: stringWithLength(1) })),
-        mastery: forcePowerUpgradeDecoder
-    }),
-    reference: referenceRecDecoder,
+    upgrades: withDefault(object({
+        strength: optional(forcePowerUpgradeDecoder),
+        magnitude: optional(forcePowerUpgradeDecoder),
+        duration: optional(forcePowerUpgradeDecoder),
+        range: optional(forcePowerUpgradeDecoder),
+        control: optional(array(object({ description: stringWithLength(1) }))),
+        mastery: optional(forcePowerUpgradeDecoder)
+    }), {}),
+    reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
 
@@ -166,24 +187,24 @@ export const forcePowerDecoder = object({
 const baseSysDetailsPartial = {
     career: stringWithLength(0, 255),
     species: stringWithLength(0, 255),
-    characteristics: object({
+    characteristics: withDefault(object({
         brawn: boundedInteger(0, 10),
         agility: boundedInteger(0, 10),
         intellect: boundedInteger(0, 10),
         cunning: boundedInteger(0, 10),
         willpower: boundedInteger(0, 10),
         presence: boundedInteger(0, 10)
-    }),
-    experience: object({
+    }), characteristics),
+    experience: withDefault(object({
         total: positiveInteger,
         available: positiveInteger
-    }),
-    defenses: object({
+    }), experience),
+    defenses: withDefault(object({
         soak: positiveInteger,
         melee: positiveInteger,
-        defense: positiveInteger
-    }),
-    health: object({
+        ranged: positiveInteger
+    }), defenses),
+    health: withDefault(object({
         wounds: positiveInteger,
         woundThreshold: positiveInteger,
         strain: positiveInteger,
@@ -193,50 +214,62 @@ const baseSysDetailsPartial = {
         staggered: boolean,
         immobilized: boolean,
         disoriented: boolean
-    }),
-    skills: array(skillDecoder),
-    talents: array(talentDecoder),
-    abilities: array(abilityDecoder),
-    gear: array(gearDecoder),
-    armor: object({
-        name: stringWithLength(1, 255),
-        description: stringWithLength(1),
+    }), health),
+    abilities: withDefault(array(positiveInteger), abilities),
+    gear: withDefault(array(gearDecoder), gear),
+    armor: withDefault(object({
+        name: stringWithLength(0, 255),
+        description: optional(stringWithLength(1)),
         defense: positiveInteger,
         soak: positiveInteger,
         hardpoints: positiveInteger,
         encumbrance: positiveInteger,
         rarity: positiveInteger,
-        attachments: array(attachmentDecoder),
-        qualities: array(object({ id: positiveInteger, ranks: boundedInteger(1) }))
-    }),
-    weapons: object({
+        attachments: withDefault(array(positiveInteger), []),
+        qualities: array(object({ id: positiveInteger, ranks: boundedInteger(1) })),
+        notes: optional(string)
+    }), armor),
+    weapons: withDefault(array(object({
         name: stringWithLength(1, 255),
-        description: stringWithLength(1),
+        description: optional(stringWithLength(1)),
         skill: stringWithLength(1, 255),
         damage: positiveInteger,
         criticalRating: positiveInteger,
         range: eoteRangeDecoder,
         encumbrance: positiveInteger,
         rarity: positiveInteger,
-        attachments: array(attachmentDecoder),
-        qualities: array(object({ id: positiveInteger, ranks: boundedInteger(1) })),
+        attachments: withDefault(array(positiveInteger), []),
+        qualities: array(object({ id: positiveInteger, ranks: optional(boundedInteger(1)) })),
         notes: optional(string)
-    })
+    })), weapons)
 };
+
 export const genesysSysDetailsDecoder = object({
     ...baseSysDetailsPartial,
-    motivations: object({
-        strength: motivationDecoder,
-        flaw: motivationDecoder,
-        desire: motivationDecoder,
-        fear: motivationDecoder
-    })
+    motivations: withDefault(object({
+        strength: nullable(positiveInteger),
+        flaw: nullable(positiveInteger),
+        desire: nullable(positiveInteger),
+        fear: nullable(positiveInteger)
+    }), motivations),
+    skills: withDefault(array(skillDecoder), genesys.skills),
+    talents: withDefault(array(object({
+        id: positiveInteger,
+        ranks: optional(boundedInteger(1)),
+        notes: optional(string)
+    })), eote.character.talents)
 });
 
 export const eoteSysDetailsDecoder = object({
     ...baseSysDetailsPartial,
     specialization: optional(stringWithLength(0, 255)),
-    force: object({
+    skills: withDefault(array(skillDecoder), eote.skills),
+    talents: withDefault(array(object({
+        id: positiveInteger,
+        ranks: optional(boundedInteger(1)),
+        notes: optional(string)
+    })), eote.character.talents),
+    force: withDefault(object({
         rating: positiveInteger,
         committed: positiveInteger, // TODO: The upper limit is really `rating`.
         powers: array(object({
@@ -251,7 +284,7 @@ export const eoteSysDetailsDecoder = object({
             })
         })),
         sensitive: boolean
-    })
+    }), force)
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

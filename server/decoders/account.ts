@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { array, email, inexact, string, object } from 'decoders';
-import { jsonArrayString, jsonObjectString, stringWithLength } from './utils';
+import { jsonArrayString, jsonObjectString, stringWithLength, withDefault } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -21,8 +21,8 @@ export const accountJsonDecoder = object({
     email,
     name: stringWithLength(3, 255),
     avatar: stringWithLength(3, 255),
-    permissions: array(string),
-    settings: inexact({})
+    permissions: withDefault(array(string), []),
+    settings: withDefault(inexact({}), {})
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

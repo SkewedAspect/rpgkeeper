@@ -3,13 +3,14 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { array, either, number, string, object, optional } from 'decoders';
+import { withDefault } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const notebookPageDecoder = object({
     id: optional(either(string, number)),
     title: string,
-    content: string,
+    content: optional(string),
     notebookID: string
 });
 
@@ -17,7 +18,7 @@ export const notebookPageDecoder = object({
 
 export const notebookDecoder = object({
     id: string,
-    pages: optional(array(notebookPageDecoder))
+    pages: withDefault(array(notebookPageDecoder), [])
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -3,8 +3,17 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { array, object, optional, positiveInteger, string } from 'decoders';
-import { boundedInteger } from '../utils';
 import { nonEmptyString } from 'decoders/string';
+
+// Defaults
+import defaults from '../../systems/risus/defaults';
+
+// Utils
+import { boundedInteger, withDefault } from '../utils';
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+const { cliches, hooks, luckyShots } = defaults.character;
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -22,12 +31,12 @@ export const risusHooksDecoder = object({
 export const risusSysDetailsDecoder = object({
     advancementPoints: positiveInteger,
     ffDice: positiveInteger,
-    cliches: array(risusClicheDecoder),
-    hooks: array(risusHooksDecoder),
-    luckyShots: object({
+    cliches: withDefault(array(risusClicheDecoder), cliches),
+    hooks: withDefault(array(risusHooksDecoder), hooks),
+    luckyShots: withDefault(object({
         current: positiveInteger,
         max: positiveInteger
-    })
+    }), luckyShots)
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

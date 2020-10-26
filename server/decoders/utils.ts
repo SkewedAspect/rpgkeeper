@@ -2,7 +2,7 @@
 // Utility Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Decoder, array, compose, predicate, map, string, regex, integer, nullable } from 'decoders';
+import { Decoder, array, compose, integer, predicate, map, nullable, optional, regex, string } from 'decoders';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -14,7 +14,15 @@ export function nullToUndefined<T>(itemDecoder : Decoder<T>) : Decoder<T | undef
         nullable(itemDecoder),
         (val) => val ?? undefined
     );
-}
+} // end nullToUndefined
+
+export function withDefault<T>(itemDecoder : Decoder<T>, defaultVal : T) : Decoder<T>
+{
+    return map(
+        optional(itemDecoder),
+        (val) => val ?? defaultVal
+    );
+} // withDefault
 
 export function jsonArrayString<T>(itemDecoder : Decoder<T>) : Decoder<Array<T>>
 {

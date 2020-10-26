@@ -3,7 +3,16 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { array, boolean, object, optional, positiveInteger, string } from 'decoders';
-import { arrayWithLength, enumStr, stringWithLength } from '../utils';
+
+// Defaults
+import defaults from '../../systems/fate/defaults';
+
+// Utils
+import { arrayWithLength, enumStr, stringWithLength, withDefault } from '../utils';
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+const { aspects, fatePoints, mentalStress, physicalStress, skills, stunts } = defaults.character;
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -25,16 +34,16 @@ export const fateStuntsDecoder = object({
 });
 
 export const fateSysDetailsDecoder = object({
-    fatePoints: object({
+    fatePoints: withDefault(object({
         refresh: positiveInteger,
         current: positiveInteger
-    }),
-    aspects: array(fateAspectDecoder),
-    skills: array(fateSkillsDecoder),
+    }), fatePoints),
+    aspects: withDefault(array(fateAspectDecoder), aspects as Record<string, unknown>[]),
+    skills: withDefault(array(fateSkillsDecoder), skills),
     extras: string,
-    stunts: array(fateStuntsDecoder),
-    physicalStress: arrayWithLength(boolean, 4, 5),
-    mentalStress: arrayWithLength(boolean, 4, 5)
+    stunts: withDefault(array(fateStuntsDecoder), stunts),
+    physicalStress: withDefault(arrayWithLength(boolean, 4, 5), physicalStress),
+    mentalStress: withDefault(arrayWithLength(boolean, 4, 5), mentalStress)
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

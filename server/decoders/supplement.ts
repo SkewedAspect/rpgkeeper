@@ -3,14 +3,14 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { boolean, string, optional } from 'decoders';
-import { enumStr } from './utils';
+import { enumStr, withDefault } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const supplementalDecoderPartial = {
     owner: optional(string),
-    scope: enumStr([ 'public', 'user' ]),
-    official: boolean
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(boolean, false)
 };
 
 // ---------------------------------------------------------------------------------------------------------------------

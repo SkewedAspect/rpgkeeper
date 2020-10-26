@@ -150,22 +150,10 @@ const genesysChar = {
     career: '',
     species: '',
     motivations: {
-        strength: {
-            name: '',
-            description: ''
-        },
-        flaw: {
-            name: '',
-            description: ''
-        },
-        desire: {
-            name: '',
-            description: ''
-        },
-        fear: {
-            name: '',
-            description: ''
-        }
+        strength: null,
+        flaw: null,
+        desire: null,
+        fear: null
     },
     characteristics: {
         brawn: 0,
@@ -206,9 +194,8 @@ const genesysChar = {
         hardpoints: 0,
         encumbrance: 0,
         rarity: 0,
-        attachments: [],
-        qualities: [],
-        notes: ''
+        attachments: [] as any[],
+        qualities: [] as any[]
     },
     weapons: []
 };
