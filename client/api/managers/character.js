@@ -95,7 +95,7 @@ class CharacterManager
         this._selectedSubject.next(char);
 
         // Select the notes in the notes manager
-        notesMan.select(char.note_id);
+        notesMan.select(char.noteID);
 
         return char;
     } // end selected

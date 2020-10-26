@@ -40,8 +40,8 @@ class CharacterModel
             color: colorize(shortID()),
             campaign: '',
             details: this._sysDefaults,
-            account_id: undefined,
-            note_id: undefined
+            accountID: undefined,
+            noteID: undefined
         };
     }
 
@@ -50,8 +50,8 @@ class CharacterModel
 
     get id() { return this.$state.id; }
     get details() { return this.$state.details; }
-    get account_id() { return this.$state.account_id; }
-    get note_id() { return this.$state.note_id; }
+    get accountID() { return this.$state.accountID; }
+    get noteID() { return this.$state.noteID; }
     get initial() { return (_.get(this.name, '0', '?')).toUpperCase(); }
 
     get system() { return this.$state.system; }
