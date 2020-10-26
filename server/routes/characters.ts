@@ -5,12 +5,9 @@
 import _ from 'lodash';
 import express from 'express';
 
-// Middleware
-import { charValidation } from './middleware/validation';
-
 // Managers
 import * as accountMan from '../managers/account';
-import charMan from '../api/managers/character';
+import charMan from '../managers/character';
 import * as permsMan from '../managers/permissions';
 import sysMan from '../managers/system';
 
@@ -35,27 +32,32 @@ router.get('/', async(req, resp) =>
 {
     interceptHTML(resp, async() =>
     {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        const includeDetails = req.isAuthenticated() && _.get(req, 'query.details', 'false').toLowerCase() === 'true';
-
-        if(req.query.owner)
+        // If we pass in `owner`, it'll be an email address, so we need to look that up first, and shove the correct
+        // account id into the filters as if that was passed in.
+        let owner = req.query.owner;
+        if(owner)
         {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            const email = req.query.owner.toLowerCase();
-            const account = await accountMan.getByEmail(email);
-            req.query.hash_id = `${ account.id }`;
+            delete req.query.owner;
+
+            if(Array.isArray(owner))
+            {
+                owner = owner[0];
+            } // end if
+
+            if(typeof owner === 'string')
+            {
+                owner = owner.toLowerCase();
+                const account = await accountMan.getByEmail(owner);
+                req.query.accountID = `${ account.id }`;
+            } // end if
         } // end if
 
-        // So, look, I'm lying to typescript because I know this converts, but really? It can't do this on it's own?
         const filters = parseQuery(req.query as Record<string, string>);
-        const characters = await charMan.getCharacters(filters, includeDetails);
-        resp.json(characters);
+        resp.json(await charMan.list(filters));
     });
 });
 
-router.post('/', ensureAuthenticated, charValidation(), wrapAsync(async(req, resp) =>
+router.post('/', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     const char = { ...req.body };
     const system = sysMan.get(char.system);
@@ -88,18 +90,17 @@ router.get('/:charID', (req, resp) =>
 {
     interceptHTML(resp, async() =>
     {
-        const characters = await charMan.getCharacter(req.params.charID);
-        resp.json(characters);
+        resp.json(await charMan.get(req.params.charID));
     });
 });
 
-router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(async(req, resp) =>
+router.patch('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
     // FIXME: The hash id should be the foreign key. Instead, get the raw account
     const account = await accountMan.getRaw((req.user as Account).id);
 
     // First, retrieve the character
-    const char = await charMan.getCharacter(req.params.charID);
+    const char = await charMan.get(req.params.charID);
 
     // Next, get the system
     const system = sysMan.get(char.system);
@@ -107,7 +108,7 @@ router.patch('/:charID', ensureAuthenticated, charValidation(true), wrapAsync(as
     if(system)
     {
         // Allow either the owner, or moderators/admins to modify the character
-        if(char.account_id === account.account_id || permsMan.hasPerm(req.user as Account, `${ char.system }/canModifyChar`))
+        if(char.accountID === account.account_id || permsMan.hasPerm(req.user as Account, `${ char.system }/canModifyChar`))
         {
             const update = req.body;
 
@@ -154,7 +155,7 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
     try
     {
         // First, retrieve the character
-        char = await charMan.getCharacter(req.params.charID);
+        char = await charMan.get(req.params.charID);
     }
     catch (error)
     {
