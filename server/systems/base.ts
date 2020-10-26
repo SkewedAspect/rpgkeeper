@@ -20,7 +20,6 @@ export class BaseSystem
     public readonly id : string;
     public readonly name : string;
     public readonly description : string;
-    public readonly schema : Record<string, unknown>;
     public readonly defaults : Record<string, unknown>;
     public readonly supplementPaths : SupplementValidationPath[];
     public readonly status ?: SupportStatus;
@@ -29,7 +28,6 @@ export class BaseSystem
         id : string,
         name : string,
         description : string,
-        schema : Record<string, unknown> = { type: 'object' },
         defaults : Record<string, unknown> = {},
         suppPaths : SupplementValidationPath[] = [],
         status ?: SupportStatus
@@ -38,7 +36,6 @@ export class BaseSystem
         this.id = id;
         this.name = name;
         this.description = description;
-        this.schema = schema;
         this.defaults = defaults;
         this.supplementPaths = suppPaths;
         this.status = status;

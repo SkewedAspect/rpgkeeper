@@ -2,9 +2,6 @@
 // SupplementUtils
 //----------------------------------------------------------------------------------------------------------------------
 
-// Middleware
-import { validation } from '../../middleware/validation';
-
 // Managers
 import suppMan from '../../../api/managers/supplement';
 import * as permMan from '../../../managers/permissions';
@@ -17,7 +14,7 @@ import * as accountMan from '../../../managers/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export function buildSupplementRoute(router : IRouter, path : string, type : string, systemPrefix : string, schemas : Record<string, Record<string, unknown>>) : void
+export function buildSupplementRoute(router : IRouter, path : string, type : string, systemPrefix : string) : void
 {
     //------------------------------------------------------------------------------------------------------------------
     // Build Basic CRUD Routes for supplements
@@ -29,7 +26,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         resp.json(await suppMan.getFiltered(filters, type, systemPrefix, req.user));
     }));
 
-    router.post(path, ensureAuthenticated, validation(schemas[type]), wrapAsync(async(req, resp) =>
+    router.post(path, ensureAuthenticated, wrapAsync(async(req, resp) =>
     {
         // FIXME: The hash id should be the foreign key. Instead, get the raw account
         const account = await accountMan.getRaw((req.user as Account).id);
@@ -59,7 +56,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         resp.json(await suppMan.addSupplement(body, type, systemPrefix, req.user));
     }));
 
-    router.patch(`${ path }/:suppID`, ensureAuthenticated, validation(schemas[type], true), wrapAsync(async(req, resp) =>
+    router.patch(`${ path }/:suppID`, ensureAuthenticated, wrapAsync(async(req, resp) =>
     {
         const supplement = await suppMan.getByID(req.params.suppID, type, systemPrefix, req.user);
         if(supplement)

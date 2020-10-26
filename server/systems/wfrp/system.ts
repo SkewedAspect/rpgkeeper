@@ -8,9 +8,6 @@ import { BaseSystem, SupportStatus } from '../base';
 // Defaults
 import defaults from './defaults';
 
-// Validations
-import schemas from '../../api/validations/systems/wfrp';
-
 // Logger
 import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);
@@ -32,7 +29,7 @@ class WfrpSystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description, schemas.character, defaults.character, [], SupportStatus.InDevelopment);
+        super(id, name, description, defaults.character, [], SupportStatus.InDevelopment);
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor

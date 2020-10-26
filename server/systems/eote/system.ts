@@ -4,13 +4,12 @@
 
 // BaseClass
 import { BaseSystem, SupportStatus } from '../base';
+
 // Defaults
 import defaults from './defaults';
-// Validations
-import schemas from '../../api/validations/systems/eote';
+
 // Logger
 import logging from 'trivial-logging';
-
 const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -39,7 +38,7 @@ class GenesysSystem extends BaseSystem
             { list: 'weapons', path: 'qualities', type: 'quality' }
         ];
 
-        super(id, name, description, schemas.genesys.character, defaults.genesys.character, suppPaths, SupportStatus.PublicBeta);
+        super(id, name, description, defaults.genesys.character, suppPaths, SupportStatus.PublicBeta);
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor
@@ -63,7 +62,7 @@ class EOTESystem extends BaseSystem
             { list: 'weapons', path: 'qualities', type: 'quality' }
         ];
 
-        super(id, name, description, schemas.eote.character, defaults.eote.character, suppPaths, SupportStatus.PublicBeta);
+        super(id, name, description, defaults.eote.character, suppPaths, SupportStatus.PublicBeta);
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor

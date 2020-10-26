@@ -2,10 +2,6 @@
 // Custom errors
 //----------------------------------------------------------------------------------------------------------------------
 
-import { IOutputError } from 'better-ajv-errors';
-
-//----------------------------------------------------------------------------------------------------------------------
-
 export class AppError extends Error
 {
     public code : string;
@@ -125,36 +121,5 @@ export class ValidationError extends AppError
         this.statusCode = 422;
     } // end constructor
 } // end ValidationError
-
-//----------------------------------------------------------------------------------------------------------------------
-
-export class AjvValidationError extends AppError
-{
-    public errors : IOutputError[];
-
-    constructor(errors : IOutputError[] | void)
-    {
-        let errorMessage = `ValidationError: ${ errors[0].error.trim() }.`;
-        if(errors[0].suggestion)
-        {
-            errorMessage += ` ${ errors[0].suggestion }`;
-        } // end of
-
-        super(errorMessage, 'ERR_VALIDATION_FAILED');
-
-        this.errors = errors || [];
-        this.statusCode = 422;
-    } // end constructor
-
-    toJSON() : Record<string, unknown>
-    {
-        return {
-            name: this.name,
-            message: this.message,
-            code: this.code,
-            validationErrors: this.errors
-        };
-    } // end toJSON
-} // end AjvValidationError
 
 //----------------------------------------------------------------------------------------------------------------------

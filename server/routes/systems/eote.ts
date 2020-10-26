@@ -11,9 +11,6 @@ import refMan from '../../managers/references';
 import { buildSupplementRoute } from './utils/supplement';
 import { errorHandler, wrapAsync, parseQuery } from '../utils';
 
-// Validations
-import validations from '../../api/validations/systems/eote';
-
 // Logger
 import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);
@@ -24,13 +21,13 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-buildSupplementRoute(router, '/abilities', 'ability', 'eote', validations.eote);
-buildSupplementRoute(router, '/armor', 'armor', 'eote', validations.eote);
-buildSupplementRoute(router, '/attachments', 'attachment', 'eote', validations.eote);
-buildSupplementRoute(router, '/gear', 'gear', 'eote', validations.eote);
-buildSupplementRoute(router, '/qualities', 'quality', 'eote', validations.eote);
-buildSupplementRoute(router, '/talents', 'talent', 'eote', validations.eote);
-buildSupplementRoute(router, '/weapons', 'weapon', 'eote', validations.eote);
+buildSupplementRoute(router, '/abilities', 'ability', 'eote');
+buildSupplementRoute(router, '/armor', 'armor', 'eote');
+buildSupplementRoute(router, '/attachments', 'attachment', 'eote');
+buildSupplementRoute(router, '/gear', 'gear', 'eote');
+buildSupplementRoute(router, '/qualities', 'quality', 'eote');
+buildSupplementRoute(router, '/talents', 'talent', 'eote');
+buildSupplementRoute(router, '/weapons', 'weapon', 'eote');
 
 router.get('/references', wrapAsync(async(req, resp) =>
 {

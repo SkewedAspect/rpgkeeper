@@ -8,9 +8,6 @@ import { BaseSystem } from '../base';
 // Defaults
 import defaults from './defaults';
 
-// Validations
-import schemas from '../../api/validations/systems/fate';
-
 // Logger
 import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);
@@ -27,7 +24,7 @@ class FATESystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description, schemas.character, defaults.character);
+        super(id, name, description, defaults.character);
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor
