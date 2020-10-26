@@ -2,11 +2,19 @@
 // Utility Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Decoder, array, compose, predicate, map, string, regex, integer } from 'decoders';
+import { Decoder, array, compose, predicate, map, string, regex, integer, nullable } from 'decoders';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const hexColor = regex(/^#(?:[0-9a-f]{3}){1,2}$/i, 'Must be a valid hex color code.');
+
+export function nullToUndefined<T>(itemDecoder : Decoder<T>) : Decoder<T | undefined>
+{
+    return map(
+        nullable(itemDecoder),
+        (val) => val ?? undefined
+    );
+}
 
 export function jsonArrayString<T>(itemDecoder : Decoder<T>) : Decoder<Array<T>>
 {

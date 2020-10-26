@@ -3,15 +3,15 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import * as JsonDecoder from 'decoders';
-import { arrayWithLength, enumStr, stringWithLength } from "../utils";
+import { arrayWithLength, enumStr, stringWithLength } from '../utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const fateAspectDecoder = JsonDecoder.object({
     type: enumStr([ 'aspect', 'high concept', 'trouble', 'consequence' ]),
-    detail: JsonDecoder.string,
-    healing: JsonDecoder.boolean,
-    value: JsonDecoder.positiveInteger
+    detail: JsonDecoder.optional(JsonDecoder.string),
+    healing: JsonDecoder.optional(JsonDecoder.boolean),
+    value: JsonDecoder.optional(JsonDecoder.positiveInteger)
 });
 
 export const fateSkillsDecoder = JsonDecoder.object({
@@ -33,8 +33,8 @@ export const fateSysDetailsDecoder = JsonDecoder.object({
     skills: JsonDecoder.array(fateSkillsDecoder),
     extras: JsonDecoder.string,
     stunts: JsonDecoder.array(fateStuntsDecoder),
-    physicalStress: arrayWithLength(JsonDecoder.boolean, 4, 4),
-    mentalStress: arrayWithLength(JsonDecoder.boolean, 4, 4)
+    physicalStress: arrayWithLength(JsonDecoder.boolean, 4, 5),
+    mentalStress: arrayWithLength(JsonDecoder.boolean, 4, 5)
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

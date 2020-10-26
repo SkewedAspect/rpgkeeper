@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import * as JsonDecoder from 'decoders';
-import { hexColor, jsonObjectString, stringWithLength } from './utils';
+import { hexColor, jsonObjectString, nullToUndefined, stringWithLength } from './utils';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -12,9 +12,9 @@ export const characterRecDecoder = JsonDecoder.object({
     system: stringWithLength(3, 255),
     accountID: stringWithLength(3, 255),
     noteID: stringWithLength(3, 255),
-    name: stringWithLength(3, 255),
+    name: stringWithLength(1, 255),
     description: JsonDecoder.optional(JsonDecoder.string),
-    portrait: JsonDecoder.optional(JsonDecoder.string),
+    portrait: JsonDecoder.optional(nullToUndefined(JsonDecoder.string)),
     thumbnail: JsonDecoder.optional(JsonDecoder.string),
     color: JsonDecoder.optional(hexColor),
     campaign: JsonDecoder.optional(stringWithLength(0, 255)),
@@ -26,7 +26,7 @@ export const characterJsonDecoder = JsonDecoder.object({
     system: stringWithLength(3, 255),
     accountID: stringWithLength(3, 255),
     noteID: stringWithLength(3, 255),
-    name: stringWithLength(3, 255),
+    name: stringWithLength(1, 255),
     description: JsonDecoder.optional(JsonDecoder.string),
     portrait: JsonDecoder.optional(JsonDecoder.string),
     thumbnail: JsonDecoder.optional(JsonDecoder.string),

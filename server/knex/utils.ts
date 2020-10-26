@@ -35,9 +35,6 @@ export function applyFilters(query : QueryBuilder, filters : Record<string, Filt
                 case '<=':
                 case '<':
                 case '=':
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    //TODO: WHY THE FUCK ARE THE KNEX TYPES BROKEN??
                     return query.where(key, token.operation, token.value as RawBinding);
 
                 default:
