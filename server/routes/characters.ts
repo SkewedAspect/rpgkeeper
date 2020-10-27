@@ -2,17 +2,13 @@
 // Routes for Characters
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
 import express from 'express';
 
 // Managers
 import * as accountMan from '../managers/account';
-import charMan from '../managers/character';
+import * as charMan from '../managers/character';
 import * as permsMan from '../managers/permissions';
 import sysMan from '../managers/system';
-
-// Engines
-import suppEng from '../engines/supplement';
 
 // Utils
 import { ensureAuthenticated, errorHandler, interceptHTML, parseQuery, wrapAsync } from './utils';
@@ -64,24 +60,14 @@ router.post('/', ensureAuthenticated, wrapAsync(async(req, resp) =>
 
     if(system)
     {
-        // We force the account id to be set based on who we're logged in as.
-        // FIXME: The hash id should be the foreign key. Instead, get the raw account
-        const account = await accountMan.getRaw((req.user as Account).id);
-        char.account_id = account.account_id;
-
-        // Filter invalid supplements (Note: We ignore the `filtered` property, since this is a new character and the
-        // client doesn't actually care what manipulations we've done to it. (This helps work around a bug where chrome
-        // ignores the body of a 205 response, for really stupid reasons.)
-        const { character } = await suppEng.validateCharacter(char, system.supplementPaths, req.user as Account);
-
-        resp.json(await charMan.createCharacter(character));
+        resp.json(await charMan.add((req.user as Account).id, char));
     }
     else
     {
         resp.status(422)
             .json({
                 type: 'InvalidCharacter',
-                message: `The character with id '${ char.hash_id }' has an invalid or unknown system '${ char.system }'.`
+                message: `The character with id '${ char.id }' has an invalid or unknown system '${ char.system }'.`
             });
     } // end if
 }));
@@ -96,9 +82,6 @@ router.get('/:charID', (req, resp) =>
 
 router.patch('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
-    // FIXME: The hash id should be the foreign key. Instead, get the raw account
-    const account = await accountMan.getRaw((req.user as Account).id);
-
     // First, retrieve the character
     const char = await charMan.get(req.params.charID);
 
@@ -108,24 +91,10 @@ router.patch('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
     if(system)
     {
         // Allow either the owner, or moderators/admins to modify the character
-        if(char.accountID === account.account_id || permsMan.hasPerm(req.user as Account, `${ char.system }/canModifyChar`))
+        if(char.accountID === (req.user as Account).id || permsMan.hasPerm(req.user as Account, `${ char.system }/canModifyChar`))
         {
-            const update = req.body;
-
-            // We force the id of the character to be what was in the route.
-            update.id = req.params.charID;
-
-            // Filter invalid supplements
-            const { character, filtered } = await suppEng.validateCharacter({ ...char, ...update }, system.supplementPaths, req.user as Account);
-
-            if(filtered)
-            {
-            // If we did filter something out, we set the status code to 205 - RESET CONTENT.
-                resp.status(205);
-            } // end if
-
             // Update the character
-            resp.json(await charMan.updateCharacter(character));
+            resp.json(await charMan.update(req.params.charID, req.body));
         }
         else
         {
@@ -148,9 +117,6 @@ router.patch('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 
 router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
 {
-    // FIXME: The hash id should be the foreign key. Instead, get the raw account
-    const account = await accountMan.getRaw((req.user as Account).id);
-
     let char;
     try
     {
@@ -172,13 +138,10 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
     } // end try/catch
 
     // Allow either the owner, or moderators/admins to delete the character
-    if(char.account_id === account.account_id || permsMan.hasPerm(req.user as Account, `${ char.system }/canDeleteChar`))
+    if(char.accountID === (req.user as Account).id || permsMan.hasPerm(req.user as Account, `${ char.system }/canDeleteChar`))
     {
         // Delete the character
-        const deleted = await charMan.deleteCharacter(req.params.charID);
-
-        // If we actually deleted something, we simply return. If we didn't we respond with 404.
-        deleted > 0 ? resp.end() : resp.status(404).end();
+        resp.json(await charMan.remove(req.params.charID));
     }
     else
     {

@@ -4,7 +4,8 @@
 
 // Managers
 import { table } from './database';
-// import * as notebookMan from './notebook';
+import * as accountMan from './account';
+import * as notebookMan from './notebook';
 
 // Models
 import { Character } from '../models/character';
@@ -13,110 +14,125 @@ import { Character } from '../models/character';
 import { MultipleResultsError, NotFoundError } from '../errors';
 import { FilterToken } from '../routes/utils/query';
 import { applyFilters } from '../knex/utils';
+import { shortID } from '../utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class CharacterManager
+export async function get(id : string) : Promise<Character>
 {
-    async get(id : string) : Promise<Character>
+    const characters = await table('character as char')
+        .select(
+            'char.hash_id as id',
+            'char.system',
+            'char.name',
+            'char.description',
+            'char.portrait',
+            'char.thumbnail',
+            'char.color',
+            'char.campaign',
+            'char.details',
+            'acc.hash_id as accountID',
+            'note.hash_id as noteID'
+        )
+        .join('note', 'note.note_id', '=', 'char.note_id')
+        .join('account as acc', 'acc.account_id', '=', 'char.account_id')
+        .where({ 'char.hash_id': id });
+
+    if(characters.length > 1)
     {
-        const characters = await table('character as char')
-            .select(
-                'char.hash_id as id',
-                'char.system',
-                'char.name',
-                'char.description',
-                'char.portrait',
-                'char.thumbnail',
-                'char.color',
-                'char.campaign',
-                'char.details',
-                'acc.hash_id as accountID',
-                'note.hash_id as noteID'
-            )
-            .join('note', 'note.note_id', '=', 'char.note_id')
-            .join('account as acc', 'acc.account_id', '=', 'char.account_id')
-            .where({ 'char.hash_id': id });
-
-        if(characters.length > 1)
-        {
-            throw new MultipleResultsError('character');
-        }
-        else if(characters.length === 0)
-        {
-            throw new NotFoundError(`No character with id '${ id }' found.`);
-        }
-        else
-        {
-            return Character.fromDB(characters[0]);
-        } // end if
-    } // get
-
-    async list(filters : Record<string, FilterToken> = {}) : Promise<Character>
+        throw new MultipleResultsError('character');
+    }
+    else if(characters.length === 0)
     {
-        let query = table('character as char')
-            .select(
-                'char.hash_id as id',
-                'char.system',
-                'char.name',
-                'char.description',
-                'char.portrait',
-                'char.thumbnail',
-                'char.color',
-                'char.campaign',
-                'char.details',
-                'acc.hash_id as accountID',
-                'note.hash_id as noteID'
-            )
-            .join('note', 'note.note_id', '=', 'char.note_id')
-            .join('account as acc', 'acc.account_id', '=', 'char.account_id');
-
-        // Apply any filters
-        query = applyFilters(query, filters);
-
-        return (await query)
-            .map(Character.fromDB);
-    } // end list
-
-    async createCharacter(character)
+        throw new NotFoundError(`No character with id '${ id }' found.`);
+    }
+    else
     {
-        console.log('create got: ', character);
-        // // We have to create a note for this character.
-        // const notebook = await notebookMan.add();
-        // character.note_id = notebook.id;
-        //
-        // return this.getCharacter(await characterRA.addCharacter(character));
-    } // end createCharacter
+        return Character.fromDB(characters[0]);
+    } // end if
+} // get
 
-    async updateCharacter(character)
-    {
-        console.log('update got: ', character);
-        // const characterID = await characterRA.updateCharacter(character);
-        // return characterRA.getCharacter(characterID, true);
-    } // end updateCharacter
+export async function list(filters : Record<string, FilterToken> = {}) : Promise<Character>
+{
+    let query = table('character as char')
+        .select(
+            'char.hash_id as id',
+            'char.system',
+            'char.name',
+            'char.description',
+            'char.portrait',
+            'char.thumbnail',
+            'char.color',
+            'char.campaign',
+            'char.details',
+            'acc.hash_id as accountID',
+            'note.hash_id as noteID'
+        )
+        .join('note', 'note.note_id', '=', 'char.note_id')
+        .join('account as acc', 'acc.account_id', '=', 'char.account_id');
 
-    async deleteCharacter(characterID)
-    {
-        console.log('delete got: ', characterID);
-        return 0;
-        // // First, retrieve the character
-        // const char = await this.getCharacter(characterID);
-        //
-        // // Next we must delete the character before any other cleanup.
-        // const deleted = await characterRA.deleteCharacter(characterID);
-        //
-        // if(deleted > 0)
-        // {
-        //     // Then, we have to delete the notes
-        //     await notebookMan.remove(char.note_id);
-        // } // end if
-        //
-        // return deleted;
-    } // end deleteCharacter
-} // end CharacterManager
+    // Apply any filters
+    query = applyFilters(query, filters);
 
-//----------------------------------------------------------------------------------------------------------------------
+    return (await query)
+        .map(Character.fromDB);
+} // end list
 
-export default new CharacterManager();
+export async function add(accountID : string, newCharacter : Record<string, unknown>) : Promise<Character>
+{
+    const notebook = await notebookMan.add();
+
+    const char = Character.fromJSON({ ...newCharacter, id: shortID(), noteID: notebook.id, accountID });
+
+    // FIXME: These hacks should be removed, and `hash_id` should be the foreign_key
+    const { account_id } = await accountMan.getRaw(char.accountID);
+    const { note_id } = await notebookMan.getRaw(char.noteID);
+
+    await table('character')
+        .insert({ ...char.toDB(), account_id, note_id });
+
+    return this.get(char.id);
+} // end add
+
+export async function update(charID : string, updateChar : Record<string, unknown>) : Promise<Character>
+{
+    const char = await this.get(charID);
+
+    // Mix the current character with the allowed updates.
+    const allowedUpdate = {
+        ...char.toJSON(),
+        name: updateChar.name,
+        description: updateChar.description,
+        portrait: updateChar.portrait,
+        thumbnail: updateChar.thumbnail,
+        color: updateChar.colot,
+        campaign: updateChar.campaign,
+        details: updateChar.details
+    };
+
+    // Make a new character object
+    const newCharacter = Character.fromJSON(allowedUpdate);
+
+    // FIXME: These hacks should be removed, and `hash_id` should be the foreign_key
+    const { account_id } = await accountMan.getRaw(char.accountID);
+    const { note_id } = await notebookMan.getRaw(char.noteID);
+
+    // Update the database
+    await table('character')
+        .update({ ...newCharacter.toDB(), account_id, note_id })
+        .where({ hash_id: charID });
+
+    // Return the updated record
+    return get(charID);
+} // end update
+
+export async function remove(charID : string) : Promise<{ status : 'ok' }>
+{
+    await table('character')
+        .where({ hash_id: charID })
+        .delete();
+
+    return { status: 'ok' };
+} // end remove
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -69,6 +69,26 @@ export async function list(filters : NoteFilters) : Promise<Notebook[]>
         }));
 } // end list
 
+export async function getRaw(notebookID : string) : Promise<Record<string, unknown>>
+{
+    const notebooks = await table('note')
+        .select()
+        .where({ hash_id: notebookID });
+
+    if(notebooks.length > 1)
+    {
+        throw new MultipleResultsError('notebook');
+    }
+    else if(notebooks.length === 0)
+    {
+        throw new NotFoundError(`No notebook record found for notebook '${ notebookID }'.`);
+    }
+    else
+    {
+        return notebooks[0];
+    } // end if
+} // end getRaw
+
 export async function getPage(pageID : string | number) : Promise<NotebookPage>
 {
     const pages = await table('note_page as np')

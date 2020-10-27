@@ -166,11 +166,13 @@ export async function update(accountID : string, accountUpdate : Record<string, 
     return get(accountID);
 } // end update
 
-export async function remove(accountID : string) : Promise<void>
+export async function remove(accountID : string) : Promise<{ status : 'ok' }>
 {
     await table('account')
         .where({ hash_id: accountID })
         .delete();
+
+    return { status: 'ok' };
 } // end delete
 
 // ---------------------------------------------------------------------------------------------------------------------

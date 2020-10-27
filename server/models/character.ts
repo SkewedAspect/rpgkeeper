@@ -79,9 +79,10 @@ export class Character<SystemDetails extends Record<string, unknown> = Record<st
 
     public toDB() : Record<string, unknown>
     {
-        const { id, accountID, noteID, ...jsonObj } = this.toJSON();
+        const { id, accountID, noteID, details, ...jsonObj } = this.toJSON();
         return {
             ...jsonObj,
+            details: JSON.stringify(details),
             hash_id: id,
             account_id: accountID,
             note_id: noteID
