@@ -2,7 +2,7 @@
 // EotE Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { array, boolean, nullable, object, optional, positiveInteger, regex, string } from 'decoders';
+import { array, boolean, Decoder, nullable, object, optional, positiveInteger, regex, string } from 'decoders';
 
 // Defaults
 import defaults from '../../systems/eote/defaults';
@@ -10,6 +10,7 @@ import defaults from '../../systems/eote/defaults';
 // Utils
 import { boundedInteger, enumStr, stringWithLength, withDefault } from '../utils';
 import { supplementalDecoderPartial } from '../supplement';
+import { MissingDecoderError } from '../../errors';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -52,7 +53,6 @@ export const motivationDecoder = object({
 
 export const abilityDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: stringWithLength(1),
     reference: referenceDecoder,
     ...supplementalDecoderPartial
@@ -60,7 +60,6 @@ export const abilityDecoder = object({
 
 export const talentDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: stringWithLength(1),
     activation: enumStr([ 'p', 'ai', 'aio', 'am', 'aa' ]),
     ranked: boolean,
@@ -79,7 +78,6 @@ export const skillDecoder = object({
 
 export const gearDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: stringWithLength(1),
     encumbrance: positiveInteger,
     rarity: positiveInteger,
@@ -89,7 +87,6 @@ export const gearDecoder = object({
 
 export const attachmentDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: optional(stringWithLength(1)),
     useWith: stringWithLength(1, 255),
     modifiers: stringWithLength(1),
@@ -100,7 +97,6 @@ export const attachmentDecoder = object({
 
 export const qualityDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: stringWithLength(1),
     passive: boolean,
     ranked: boolean,
@@ -110,7 +106,6 @@ export const qualityDecoder = object({
 
 export const armorDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: stringWithLength(1),
     defense: positiveInteger,
     soak: positiveInteger,
@@ -123,7 +118,6 @@ export const armorDecoder = object({
 
 export const weaponDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: stringWithLength(1),
     skill: stringWithLength(1, 255),
     damage: positiveInteger,
@@ -138,7 +132,6 @@ export const weaponDecoder = object({
 
 export const eoteTalentDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: stringWithLength(1),
     activation: enumStr([ 'p', 'ai', 'aio', 'am', 'aa' ]),
     ranked: boolean,
@@ -149,7 +142,6 @@ export const eoteTalentDecoder = object({
 
 export const eoteAttachmentDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: stringWithLength(1),
     baseModifier: stringWithLength(1),
     modOptions: stringWithLength(1),
@@ -165,7 +157,6 @@ export const forcePowerUpgradeDecoder = object({
 
 export const forcePowerDecoder = object({
     id: optional(positiveInteger),
-    name: stringWithLength(1, 255),
     description: stringWithLength(1),
     minRating: positiveInteger,
     upgrades: withDefault(object({
@@ -286,5 +277,36 @@ export const eoteSysDetailsDecoder = object({
         sensitive: boolean
     }), force)
 });
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Functions
+// ---------------------------------------------------------------------------------------------------------------------
+
+export function getGenesysSupplementDecoder(type : string, system = 'genesys') : Decoder<unknown>
+{
+    switch (type)
+    {
+        default:
+            throw new MissingDecoderError(`${ system }/${ type }`);
+    } // end switch
+} // end getGenesysSupplementDecoder
+
+export function getEotESupplementDecoder(type : string) : Decoder<unknown>
+{
+    switch (type)
+    {
+        case 'attachment':
+            return eoteAttachmentDecoder;
+
+        case 'talent':
+            return eoteTalentDecoder;
+
+        case 'forcepower':
+            return forcePowerDecoder;
+
+        default:
+            return getGenesysSupplementDecoder(type, 'eote');
+    } // end switch
+} // end getEotESupplementDecoder
 
 // ---------------------------------------------------------------------------------------------------------------------

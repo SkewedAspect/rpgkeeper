@@ -112,14 +112,40 @@ export class DecoderError extends AppError
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export class ValidationError extends AppError
+export class MissingDecoderError extends AppError
 {
-    constructor(prop : string, reason : string)
+    constructor(thing : string)
     {
-        super(`Validation failed for '${ prop }': ${ reason }.`, 'ERR_VALIDATION_FAILED');
+        super(`Missing decoder for '${ thing }.`, 'ERR_MISSING_DECODER');
 
-        this.statusCode = 422;
+        this.statusCode = 501;
     } // end constructor
-} // end ValidationError
+} // end MissingDecoderError
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export class NotAuthorizedError extends AppError
+{
+    public operation : string;
+    public thing : string;
+
+    constructor(operation : string, thing : string)
+    {
+        super(`You are not authorized to ${ operation } '${ thing }.`, 'ERR_NOT_AUTHORIZED');
+
+        this.statusCode = 403;
+        this.operation = operation;
+        this.thing = thing;
+    } // end constructor
+
+    toJSON() : Record<string, unknown>
+    {
+        return {
+            ...super.toJSON(),
+            operation: this.operation,
+            thing: this.thing
+        };
+    } // end toJSON
+} // end NotAuthorizedError
 
 //----------------------------------------------------------------------------------------------------------------------
