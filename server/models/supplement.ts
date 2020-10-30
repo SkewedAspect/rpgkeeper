@@ -7,6 +7,9 @@ import * as JsonDecoder from 'decoders';
 // Decoders
 import { getSupplementDecoder } from '../decoders/supplement';
 
+// Utils
+import { snakeCaseKeys } from '../utils/misc';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 interface SupplementOptions {
@@ -63,7 +66,11 @@ export class Supplement
 
     public toDB() : Record<string, unknown>
     {
-        return this.toJSON();
+        const { id, ...obj } = snakeCaseKeys(this.toJSON());
+        return {
+            ...obj,
+            owner: this.owner ?? null
+        };
     } // end toDB
 
     //------------------------------------------------------------------------------------------------------------------

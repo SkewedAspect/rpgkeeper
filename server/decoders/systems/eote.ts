@@ -2,13 +2,25 @@
 // EotE Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { array, boolean, Decoder, nullable, object, optional, positiveInteger, regex, string } from 'decoders';
+import {
+    array,
+    boolean,
+    Decoder,
+    either,
+    nullable,
+    object,
+    optional,
+    positiveInteger,
+    regex,
+    string,
+    truthy
+} from 'decoders';
 
 // Defaults
 import defaults from '../../systems/eote/defaults';
 
 // Utils
-import { boundedInteger, enumStr, stringWithLength, withDefault } from '../utils';
+import { boundedInteger, enumStr, jsonArrayString, stringWithLength, withDefault } from '../utils';
 import { supplementalDecoderPartial } from '../supplement';
 import { MissingDecoderError } from '../../errors';
 
@@ -62,7 +74,7 @@ export const talentDecoder = object({
     id: optional(positiveInteger),
     description: stringWithLength(1),
     activation: enumStr([ 'p', 'ai', 'aio', 'am', 'aa' ]),
-    ranked: boolean,
+    ranked: truthy,
     tier: boundedInteger(1, 5),
     reference: referenceDecoder,
     ...supplementalDecoderPartial
@@ -72,7 +84,7 @@ export const skillDecoder = object({
     name: stringWithLength(1, 255),
     characteristic: enumStr([ 'brawn', 'agility', 'intellect', 'cunning', 'willpower', 'presence' ]),
     ranks: boundedInteger(0, 5),
-    career: boolean,
+    career: truthy,
     type: enumStr([ 'general', 'combat', 'magic', 'social', 'knowledge' ])
 });
 
@@ -98,8 +110,8 @@ export const attachmentDecoder = object({
 export const qualityDecoder = object({
     id: optional(positiveInteger),
     description: stringWithLength(1),
-    passive: boolean,
-    ranked: boolean,
+    passive: truthy,
+    ranked: truthy,
     reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
@@ -125,7 +137,10 @@ export const weaponDecoder = object({
     range: eoteRangeDecoder,
     encumbrance: positiveInteger,
     rarity: positiveInteger,
-    qualities: withDefault(array(object({ id: positiveInteger, ranks: boundedInteger(1) })), []),
+    qualities: withDefault(either(
+        jsonArrayString(object({ id: positiveInteger, ranks: optional(boundedInteger(1)) })),
+        array(object({ id: positiveInteger, ranks: optional(boundedInteger(1)) }))
+    ), []),
     reference: referenceDecoder,
     ...supplementalDecoderPartial
 });
@@ -134,7 +149,7 @@ export const eoteTalentDecoder = object({
     id: optional(positiveInteger),
     description: stringWithLength(1),
     activation: enumStr([ 'p', 'ai', 'aio', 'am', 'aa' ]),
-    ranked: boolean,
+    ranked: truthy,
     trees: stringWithLength(1),
     reference: referenceDecoder,
     ...supplementalDecoderPartial
@@ -286,6 +301,30 @@ export function getGenesysSupplementDecoder(type : string, system = 'genesys') :
 {
     switch (type)
     {
+        case 'ability':
+            return abilityDecoder;
+
+        case 'armor':
+            return armorDecoder;
+
+        case 'attachment':
+            return attachmentDecoder;
+
+        case 'gear':
+            return gearDecoder;
+
+        case 'quality':
+            return qualityDecoder;
+
+        case 'talent':
+            return talentDecoder;
+
+        case 'weapon':
+            return weaponDecoder;
+
+        case 'motivation':
+            return motivationDecoder;
+
         default:
             throw new MissingDecoderError(`${ system }/${ type }`);
     } // end switch

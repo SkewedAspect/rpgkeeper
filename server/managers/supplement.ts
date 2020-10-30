@@ -17,6 +17,7 @@ import { Supplement } from '../models/supplement';
 // Utilities
 import { applyFilters } from '../knex/utils';
 import { FilterToken } from '../routes/utils/query';
+import { camelCaseKeys } from '../utils/misc';
 
 // Errors
 import { MultipleResultsError, DuplicateSupplementError, NotFoundError, NotAuthorizedError } from '../errors';
@@ -65,7 +66,7 @@ async function $ensureCorrectOwner(supplement : Supplement, systemPrefix ?: stri
     {
         // If we're not an admin user, and therefore allowed to add/edit content for other people, we have to make sure
         // that the owner is set to the account making this call. (Assuming one was passed in, of course.)
-        if(supplement.scope === 'user' && !permMan.hasPerm(account, `${ systemPrefix }/canModifyContent`))
+        if(supplement.scope === 'user' && (!supplement.owner || !permMan.hasPerm(account, `${ systemPrefix }/canModifyContent`)))
         {
             supplement.owner = account.id;
         } // end if
@@ -84,8 +85,9 @@ async function $ensureCorrectOwner(supplement : Supplement, systemPrefix ?: stri
 export async function get(id : number, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
 {
     const tableName = `${ systemPrefix }_${ type }`;
-    let query = table(tableName)
-        .select()
+    let query = table(`${ tableName } as t`)
+        .select('t.*', 'a.hash_id as ownerHash')
+        .join('account as a', 'a.account_id', '=', 't.owner')
         .where({ id });
 
     // Add filters for only what we have access to
@@ -103,15 +105,17 @@ export async function get(id : number, type : string, systemPrefix : string, acc
     }
     else
     {
-        return Supplement.fromDB(systemPrefix, type, supplements[0]);
+        const { ownerHash, ...restSupp } = supplements[0];
+        return Supplement.fromDB(systemPrefix, type, { ...camelCaseKeys(restSupp), owner: ownerHash });
     } // end if
 } // end get
 
 export async function list(filters : Record<string, FilterToken>, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement[]>
 {
     const tableName = `${ systemPrefix }_${ type }`;
-    let query = table(tableName)
-        .select();
+    let query = table(`${ tableName } as t`)
+        .select('t.*', 'a.hash_id as ownerHash')
+        .leftJoin('account as a', 'a.account_id', '=', 't.owner');
 
     // Add filters for only what we have access to
     query = await $checkViewAccess(query, systemPrefix, account);
@@ -119,7 +123,11 @@ export async function list(filters : Record<string, FilterToken>, type : string,
     // Apply any filters
     query = applyFilters(query, filters);
 
-    return (await query).map((sup) => Supplement.fromDB(systemPrefix, type, sup));
+    return (await query).map((supp) =>
+    {
+        const { ownerHash, ...restSupp } = supp;
+        return Supplement.fromDB(systemPrefix, type, { ...camelCaseKeys(restSupp), owner: ownerHash });
+    });
 } // end list
 
 export async function add(newSupplement : Record<string, unknown>, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
@@ -200,7 +208,9 @@ export async function update(id : number, updateSup : Record<string, unknown>, t
     // =====================================================================================
 
     // Now, we update the supplement
-    await table(tableName).update({ ...newSupplement.toDB(), owner });
+    await table(tableName)
+        .update({ ...newSupplement.toDB(), owner })
+        .where({ id });
 
     // Return the updated supplement
     return get(id, type, systemPrefix, account);

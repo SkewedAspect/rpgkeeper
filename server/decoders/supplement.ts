@@ -2,22 +2,22 @@
 // Supplements
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { boolean, string, optional, Decoder } from 'decoders';
+import { string, truthy, Decoder, optional } from 'decoders';
 
 // System Decoders
 import { getEotESupplementDecoder, getGenesysSupplementDecoder } from './systems/eote';
 
 // Utils
-import { enumStr, stringWithLength, withDefault } from './utils';
+import { enumStr, nullToUndefined, stringWithLength, withDefault } from './utils';
 import { MissingDecoderError } from '../errors';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const supplementalDecoderPartial = {
     name: stringWithLength(1, 255),
-    owner: optional(string),
+    owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(boolean, false)
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 };
 
 // ---------------------------------------------------------------------------------------------------------------------
