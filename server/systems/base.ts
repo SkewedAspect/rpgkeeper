@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { SupplementValidationPath } from '../types/supplements';
+import { Character } from '../models/character';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -49,6 +50,12 @@ export class BaseSystem
     {
         /* No work to do here! */
     } // end init
+
+    async validateCharacterDetails(character : Character) : Promise<Character>
+    {
+        // By default, there's no work to do.
+        return character;
+    } // end validateCharacterDetails
 
     toJSON() : Record<string, unknown>
     {
