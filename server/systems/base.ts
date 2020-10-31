@@ -2,7 +2,6 @@
 // BaseSystem
 //----------------------------------------------------------------------------------------------------------------------
 
-import { SupplementValidationPath } from '../types/supplements';
 import { Character } from '../models/character';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -22,7 +21,6 @@ export class BaseSystem
     public readonly name : string;
     public readonly description : string;
     public readonly defaults : Record<string, unknown>;
-    public readonly supplementPaths : SupplementValidationPath[];
     public readonly status ?: SupportStatus;
 
     constructor(
@@ -30,7 +28,6 @@ export class BaseSystem
         name : string,
         description : string,
         defaults : Record<string, unknown> = {},
-        suppPaths : SupplementValidationPath[] = [],
         status ?: SupportStatus
     )
     {
@@ -38,7 +35,6 @@ export class BaseSystem
         this.name = name;
         this.description = description;
         this.defaults = defaults;
-        this.supplementPaths = suppPaths;
         this.status = status;
     } // end constructor
 
@@ -64,7 +60,6 @@ export class BaseSystem
             name: this.name,
             description: this.description,
             defaults: this.defaults,
-            supplementPaths: this.supplementPaths,
             status: this.status
         };
     } // end toJSON
