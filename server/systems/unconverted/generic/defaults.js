@@ -2,7 +2,7 @@
 // Generic Model Defaults
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     character: {
     }
 }; // end exports

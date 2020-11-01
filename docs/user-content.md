@@ -180,7 +180,7 @@ All other supplement modifications will be rejected.
 
 A permission check will now be performed when deleting a supplement. The following will be enforced:
 
-* You must have the permission `${systemPrefix}/canDeleteContent`, or
+* You must have the permission `${systemPrefix}/canModifyContent`, or
 * The scope must be `'campaign'`, and you must be the owner, or
 * The scope must be `'user'`, and you must be the owner.
 

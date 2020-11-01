@@ -211,7 +211,7 @@
             {
                 return _(this.characterList)
                     // eslint-disable-next-line camelcase
-                    .filter({ account_id: (this.account || {}).id })
+                    .filter({ accountID: (this.account || {}).id })
                     .filter((char) =>
                     {
                         return _.includes(this.systemsFilter, char.system);

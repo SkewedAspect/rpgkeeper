@@ -26,7 +26,7 @@ db.Character = trivialModels.define({
     schema: {
         // The base character
         id: types.String({ pk: true }),
-        
+
         // Class and level
         classes: types.Array({
             schema: {
@@ -237,7 +237,7 @@ db.Character = trivialModels.define({
             },
             default: []
         }),
-        
+
         // The owner of the character
         user: types.String({ required: true })
     }
@@ -367,6 +367,6 @@ db.Spell = trivialModels.define({
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = db;
+export default db;
 
 //----------------------------------------------------------------------------------------------------------------------

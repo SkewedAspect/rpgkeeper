@@ -34,9 +34,6 @@ import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'codemirror/mode/clike/clike';
 import 'codemirror/mode/meta';
 
-// Managers
-import postsMan from './api/managers/posts';
-
 // Utils
 import toastUtil from './api/utils/toast';
 
@@ -180,9 +177,6 @@ window.RPGKeeper = {
  */
 async function init()
 {
-    // Setup Managers
-    await postsMan.loadPosts();
-
     // Setup Utils
     toastUtil.setVueRoot(root);
 } // end init

@@ -3,16 +3,17 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-const BaseSystem = require('../../base');
+import BaseSystem from '../../base';
 
 // Validations
-const schemas = require('./validations');
+import schemas from './validations';
 
 // Defaults
 require('./defaults');
 
 // Logger
-const logger = require('trivial-logging').loggerFor(module);
+import logging from 'trivial-logging';
+const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition
@@ -39,6 +40,6 @@ class GenericSystem extends BaseSystem
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = new GenericSystem();
+export default new GenericSystem();
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -61,7 +61,7 @@ class CharacterResourceAccess
 
     async getAllCharacters(owner)
     {
-        const { data } = await $http.get('/characters', { params: { owner, details: true } });
+        const { data } = await $http.get('/characters', { params: { owner } });
         return data.map((def) => this._buildOrUpdateModel(def));
     } // end getAllCharacters
 

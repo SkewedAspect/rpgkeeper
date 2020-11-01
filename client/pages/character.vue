@@ -147,7 +147,7 @@
             {
                 return !!this.account
                     && !!this.char
-                    && (this.account.id || 'nope!') === this.char.account_id;
+                    && (this.account.id || 'nope!') === this.char.accountID;
             }
         },
         subscriptions: {
