@@ -6,6 +6,7 @@
 import { table } from './database';
 import * as accountMan from './account';
 import * as notebookMan from './notebook';
+import systemMan from './system';
 
 // Models
 import { Character } from '../models/character';
@@ -48,11 +49,12 @@ export async function get(id : string) : Promise<Character>
     }
     else
     {
-        return Character.fromDB(characters[0]);
+        const char = Character.fromDB(characters[0]);
+        return systemMan.validateCharacterDetails(char);
     } // end if
 } // get
 
-export async function list(filters : Record<string, FilterToken> = {}) : Promise<Character>
+export async function list(filters : Record<string, FilterToken> = {}) : Promise<Character[]>
 {
     let query = table('character as char')
         .select(
@@ -74,8 +76,9 @@ export async function list(filters : Record<string, FilterToken> = {}) : Promise
     // Apply any filters
     query = applyFilters(query, filters);
 
-    return (await query)
-        .map(Character.fromDB);
+    return Promise.all((await query)
+        .map(Character.fromDB)
+        .map(async(char) => systemMan.validateCharacterDetails(char)));
 } // end list
 
 export async function add(accountID : string, newCharacter : Record<string, unknown>) : Promise<Character>

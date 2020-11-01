@@ -29,7 +29,7 @@ class WfrpSystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description, defaults.character, [], SupportStatus.InDevelopment);
+        super(id, name, description, defaults.character, SupportStatus.InDevelopment);
 
         logger.info(`Loaded '${ name }' system.`);
     } // end constructor
