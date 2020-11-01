@@ -20,8 +20,7 @@ import {
 import defaults from '../../systems/eote/defaults';
 
 // Utils
-import { boundedInteger, enumStr, jsonArrayString, stringWithLength, withDefault } from '../utils';
-import { supplementalDecoderPartial } from '../supplement';
+import { boundedInteger, enumStr, jsonArrayString, nullToUndefined, stringWithLength, withDefault } from '../utils';
 import { MissingDecoderError } from '../../errors';
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -67,7 +66,10 @@ export const abilityDecoder = object({
     id: optional(positiveInteger),
     description: stringWithLength(1),
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const talentDecoder = object({
@@ -77,7 +79,10 @@ export const talentDecoder = object({
     ranked: truthy,
     tier: boundedInteger(1, 5),
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const skillDecoder = object({
@@ -94,7 +99,10 @@ export const gearDecoder = object({
     encumbrance: positiveInteger,
     rarity: positiveInteger,
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const attachmentDecoder = object({
@@ -104,7 +112,10 @@ export const attachmentDecoder = object({
     modifiers: stringWithLength(1),
     hpRequired: boundedInteger(0, 50),
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const qualityDecoder = object({
@@ -113,7 +124,10 @@ export const qualityDecoder = object({
     passive: truthy,
     ranked: truthy,
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const armorDecoder = object({
@@ -125,7 +139,10 @@ export const armorDecoder = object({
     encumbrance: positiveInteger,
     rarity: positiveInteger,
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const weaponDecoder = object({
@@ -142,7 +159,10 @@ export const weaponDecoder = object({
         array(object({ id: positiveInteger, ranks: optional(boundedInteger(1)) }))
     ), []),
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const eoteTalentDecoder = object({
@@ -152,7 +172,10 @@ export const eoteTalentDecoder = object({
     ranked: truthy,
     trees: stringWithLength(1),
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const eoteAttachmentDecoder = object({
@@ -162,7 +185,10 @@ export const eoteAttachmentDecoder = object({
     modOptions: stringWithLength(1),
     hpRequired: boundedInteger(0, 50),
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const forcePowerUpgradeDecoder = object({
@@ -183,7 +209,10 @@ export const forcePowerDecoder = object({
         mastery: optional(forcePowerUpgradeDecoder)
     }), {}),
     reference: referenceDecoder,
-    ...supplementalDecoderPartial
+    name: stringWithLength(1, 255),
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -5,12 +5,17 @@
 // BaseClass
 import { BaseSystem, SupportStatus } from '../base';
 
+// Models
+import { Character } from "../../models/character";
+
+// Validations
+
 // Defaults
 import defaults from './defaults';
+import { validateEoteDetails, validateGenesysDetails } from "./validations";
 
 // Logger
 import logging from 'trivial-logging';
-import {Character} from "../../models/character";
 const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -25,11 +30,6 @@ class GenesysSystem extends BaseSystem
         const name = 'Genesys';
         const description = 'Genesys is a role playing system designed for flexibility and adaptability, specifically tooled to work with any setting imaginable.';
         // const suppPaths = [
-        //     // FIXME: Currently does not support single objects, only arrays of them!
-        //     // { path: 'motivations.strength', type: 'motivation' },
-        //     // { path: 'motivations.flaw', type: 'motivation' },
-        //     // { path: 'motivations.desire', type: 'motivation' },
-        //     // { path: 'motivations.fear', type: 'motivation' },
         //     { path: 'talents', type: 'talent' },
         //     { path: 'abilities', type: 'ability' },
         //     { path: 'gear', type: 'gear' },
@@ -46,9 +46,7 @@ class GenesysSystem extends BaseSystem
 
     async validateCharacterDetails(character : Character) : Promise<Character>
     {
-        // TODO: Add validation
-        console.log('eote validation...');
-        return character;
+        return validateGenesysDetails(character);
     } // end validateCharacterDetails
 } // end GenesysSystem
 
@@ -77,9 +75,7 @@ class EOTESystem extends BaseSystem
 
     async validateCharacterDetails(character : Character) : Promise<Character>
     {
-        // TODO: Add validation
-        console.log('eote validation...');
-        return character;
+        return validateEoteDetails(character);
     } // end validateCharacterDetails
 } // end EOTESystem
 

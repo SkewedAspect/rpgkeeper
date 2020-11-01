@@ -130,6 +130,17 @@ export async function list(filters : Record<string, FilterToken>, type : string,
     });
 } // end list
 
+export async function exists(id : number, type : string, systemPrefix : string, account ?: Account) : Promise<boolean>
+{
+    // If you're paying attention, you'll realize we also return 'undefined' (and hence false for existence) if there's
+    // a duplicate. This is fine, it means the DB is somehow screwed, so all bets are off, better to err on the side of
+    // saying this doesn't exist, rather than allowing for it to be referenced.
+    const supp = await get(id, type, systemPrefix, account).catch(() => undefined);
+
+    // We only need a boolean.
+    return !!supp;
+} // end exists
+
 export async function add(newSupplement : Record<string, unknown>, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
 {
     const tableName = `${ systemPrefix }_${ type }`;
