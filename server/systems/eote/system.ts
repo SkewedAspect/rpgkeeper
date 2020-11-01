@@ -6,13 +6,13 @@
 import { BaseSystem, SupportStatus } from '../base';
 
 // Models
-import { Character } from "../../models/character";
+import { Character } from '../../models/character';
 
 // Validations
 
 // Defaults
 import defaults from './defaults';
-import { validateEoteDetails, validateGenesysDetails } from "./validations";
+import { validateEoteDetails, validateGenesysDetails } from './validations';
 
 // Logger
 import logging from 'trivial-logging';
@@ -29,15 +29,6 @@ class GenesysSystem extends BaseSystem
         const id = 'genesys';
         const name = 'Genesys';
         const description = 'Genesys is a role playing system designed for flexibility and adaptability, specifically tooled to work with any setting imaginable.';
-        // const suppPaths = [
-        //     { path: 'talents', type: 'talent' },
-        //     { path: 'abilities', type: 'ability' },
-        //     { path: 'gear', type: 'gear' },
-        //     { path: 'armor.attachments', type: 'attachment' },
-        //     { path: 'armor.qualities', type: 'quality' },
-        //     { list: 'weapons', path: 'attachments', type: 'attachment' },
-        //     { list: 'weapons', path: 'qualities', type: 'quality' }
-        // ];
 
         super(id, name, description, defaults.genesys.character, SupportStatus.PublicBeta);
 
@@ -57,16 +48,6 @@ class EOTESystem extends BaseSystem
         const id = 'eote';
         const name = 'Edge of the Empire';
         const description = "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.";
-        // const suppPaths = [
-        //     { path: 'force.powers', type: 'force_power' },
-        //     { path: 'talents', type: 'talent' },
-        //     { path: 'abilities', type: 'ability' },
-        //     { path: 'gear', type: 'gear' },
-        //     { path: 'armor.attachments', type: 'attachment' },
-        //     { path: 'armor.qualities', type: 'quality' },
-        //     { list: 'weapons', path: 'attachments', type: 'attachment' },
-        //     { list: 'weapons', path: 'qualities', type: 'quality' }
-        // ];
 
         super(id, name, description, defaults.eote.character, SupportStatus.PublicBeta);
 
