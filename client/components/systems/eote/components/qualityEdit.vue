@@ -16,7 +16,7 @@
             @edit="onQualityEdit"
             @delete="onQualityDelete"
         >
-            <template v-slot:preview="{ instance, supplement }">
+            <template #preview="{ instance, supplement }">
                 <div v-if="supplement.ranked" class="mb-2 float-right">
                     <label for="sb-inline">Ranks</label>
                     <b-form-spinbutton id="sb-inline" v-model="instance.ranks" inline></b-form-spinbutton>

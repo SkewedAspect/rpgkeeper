@@ -31,16 +31,16 @@
                         hover
                         @row-clicked="onRowClicked"
                     >
-                        <template v-slot:cell(name)="data">
+                        <template #cell(name)="data">
                             <b>{{ data.value }}</b>
                             <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
                         </template>
-                        <template v-slot:cell(career)="data">
+                        <template #cell(career)="data">
                             <div class="text-center">
                                 <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
                             </div>
                         </template>
-                        <template v-slot:cell(ranks)="data">
+                        <template #cell(ranks)="data">
                             <div class="text-nowrap">
                                 <fa
                                     v-for="index in range(5)"
@@ -62,16 +62,16 @@
                         hover
                         @row-clicked="onRowClicked"
                     >
-                        <template v-slot:cell(name)="data">
+                        <template #cell(name)="data">
                             <b>{{ data.value }}</b>
                             <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
                         </template>
-                        <template v-slot:cell(career)="data">
+                        <template #cell(career)="data">
                             <div class="text-center">
                                 <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
                             </div>
                         </template>
-                        <template v-slot:cell(ranks)="data">
+                        <template #cell(ranks)="data">
                             <div class="text-nowrap">
                                 <fa
                                     v-for="index in range(5)"
@@ -95,16 +95,16 @@
                         hover
                         @row-clicked="onRowClicked"
                     >
-                        <template v-slot:cell(name)="data">
+                        <template #cell(name)="data">
                             <b>{{ data.value }}</b>
                             <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
                         </template>
-                        <template v-slot:cell(career)="data">
+                        <template #cell(career)="data">
                             <div class="text-center">
                                 <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
                             </div>
                         </template>
-                        <template v-slot:cell(ranks)="data">
+                        <template #cell(ranks)="data">
                             <div class="text-nowrap">
                                 <fa
                                     v-for="index in range(5)"
@@ -126,16 +126,16 @@
                         hover
                         @row-clicked="onRowClicked"
                     >
-                        <template v-slot:cell(name)="data">
+                        <template #cell(name)="data">
                             <b>{{ data.value }}</b>
                             <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
                         </template>
-                        <template v-slot:cell(career)="data">
+                        <template #cell(career)="data">
                             <div class="text-center">
                                 <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
                             </div>
                         </template>
-                        <template v-slot:cell(ranks)="data">
+                        <template #cell(ranks)="data">
                             <div class="text-nowrap">
                                 <fa
                                     v-for="index in range(5)"
@@ -157,16 +157,16 @@
                         hover
                         @row-clicked="onRowClicked"
                     >
-                        <template v-slot:cell(name)="data">
+                        <template #cell(name)="data">
                             <b>{{ data.value }}</b>
                             <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
                         </template>
-                        <template v-slot:cell(career)="data">
+                        <template #cell(career)="data">
                             <div class="text-center">
                                 <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
                             </div>
                         </template>
-                        <template v-slot:cell(ranks)="data">
+                        <template #cell(ranks)="data">
                             <div class="text-nowrap">
                                 <fa
                                     v-for="index in range(5)"

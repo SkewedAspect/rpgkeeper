@@ -4,7 +4,7 @@
 
 <template>
     <b-card :id="id" class="eote-critical-card" no-body>
-        <template v-slot:header>
+        <template #header>
             <b-btn-close v-if="!readonly" style="margin-top: -2px;" @click.stop.prevent="remove"></b-btn-close>
             <small>
                 {{ critical.title }}
@@ -14,7 +14,7 @@
             </small>
 
             <b-popover :target="id" triggers="hover" placement="top">
-                <template v-slot:title>
+                <template #title>
                     <div :class="`${ mode }-system`">
                         {{ critical.title }}
                         <span v-if="critical.severity">

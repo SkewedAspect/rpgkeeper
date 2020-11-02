@@ -11,7 +11,7 @@
         <b-form-row>
             <b-col>
                 <b-card class="h-100 overflow-hidden" no-body :style="{ maxHeight, minHeight: maxHeight }">
-                    <template v-slot:header>
+                    <template #header>
                         <div class="d-flex">
                             <vue-typeahead-bootstrap
                                 v-model="search"
@@ -24,18 +24,18 @@
                                 show-on-focus
                                 @hit="suppToAdd = $event"
                             >
-                                <template v-slot:prepend>
+                                <template #prepend>
                                     <b-input-group-text>
                                         <fa icon="search"></fa>
                                     </b-input-group-text>
                                 </template>
-                                <template v-slot:append>
+                                <template #append>
                                     <b-button class="text-nowrap" variant="primary" title="Add..." @click="addSupp()">
                                         <fa icon="plus"></fa>
                                         Add
                                     </b-button>
                                 </template>
-                                <template v-slot:suggestion="{ data, htmlText }">
+                                <template #suggestion="{ data, htmlText }">
                                     <b-badge class="float-right" :variant="data.scope === 'user' ? 'success' : ''">
                                         <span v-if="data.scope === 'user'">User</span>
                                         <span v-else-if="data.scope === 'public'">Public</span>
@@ -81,7 +81,7 @@
             </b-col>
             <b-col>
                 <b-card>
-                    <template v-if="currentSelection" v-slot:header>
+                    <template v-if="currentSelection" #header>
                         <slot :instance="supplementInstance" :supplement="currentSupplement" name="header">
                             <div v-if="currentSupplement.scope === 'user'" class="float-right">
                                 <b-btn size="sm" @click="editSupp(currentSupplement)">

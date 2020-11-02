@@ -29,12 +29,12 @@
             @row-clicked="onRowClicked"
         >
             <!-- Qualities Slot -->
-            <template v-slot:cell(qualities)="data">
+            <template #cell(qualities)="data">
                 <quality v-for="quality in data.value" :id="quality.id" :key="quality.id" :ranks="quality.ranks"></quality>
             </template>
 
             <!-- Buttons Slot -->
-            <template v-slot:cell(buttons)="data">
+            <template #cell(buttons)="data">
                 <b-btn size="sm" @click="openAddEditModal(data.item)">
                     <fa icon="edit"></fa>
                 </b-btn>

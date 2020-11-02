@@ -4,7 +4,7 @@
 
 <template>
     <b-card v-if="talent && talentBase" :id="id" class="eote-talent-card" no-body>
-        <template v-slot:header>
+        <template #header>
             <b>{{ talentBase.name }}</b>
             <span v-if="talentBase.ranked" class="font-weight-bold">{{ talent.ranks }}</span>
             <span v-if="mode === 'genesys'">
@@ -12,7 +12,7 @@
             </span>
 
             <b-popover :target="id" triggers="hover" placement="top">
-                <template v-slot:title>
+                <template #title>
                     <div :class="`${ mode }-system`">
                         {{ talentBase.name }}
                         <span v-if="talentBase.ranked">{{ talent.ranks }}</span>
