@@ -6,7 +6,7 @@
     <b-container v-if="character" id="fate-character">
         <div class="d-flex">
             <portrait class="mr-1 d-none d-lg-block" :src="character.portrait" size="lg"></portrait>
-            <identity class="mr-1 ml-1 w-50" :character="character" :readonly="!isAuthorized"></identity>
+            <identity class="mr-1 ml-1 w-50" :readonly="!isAuthorized"></identity>
             <rolls class="ml-1 w-50" :skills="character.details.skills" :readonly="!isAuthorized"></rolls>
         </div>
         <div class="d-flex mt-2">
@@ -19,7 +19,7 @@
         </div>
         <div class="d-flex mt-2">
             <stress v-model="character" style="flex-basis: 40%" :readonly="!isAuthorized"></stress>
-            <consequences style="flex-basis: 60%" class="ml-2" :character="character" :readonly="!isAuthorized"></consequences>
+            <consequences style="flex-basis: 60%" class="ml-2" :readonly="!isAuthorized"></consequences>
         </div>
     </b-container>
 </template>

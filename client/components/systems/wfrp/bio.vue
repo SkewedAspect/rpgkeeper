@@ -59,11 +59,13 @@
 
     import _ from 'lodash';
 
+    // Managers
+    import charMan from '../../../api/managers/character';
+
     // Components
     import EditBioModal from './editBioModal.vue';
     import Markdown from '../../ui/markdown.vue';
     import RpgkCard from '../../ui/card.vue';
-    import charMan from '../../../api/managers/character';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -75,10 +77,6 @@
             RpgkCard
         },
         props: {
-            character: {
-                type: Object,
-                required: true
-            },
             readonly: {
                 type: Boolean,
                 default: false
@@ -89,6 +87,9 @@
             return {
                 showEdit: false
             };
+        },
+        subscriptions: {
+            character: charMan.selected$
         },
         computed: {
             description()

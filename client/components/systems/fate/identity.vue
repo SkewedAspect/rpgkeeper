@@ -43,7 +43,7 @@
         </b-form-group>
 
         <!-- Edit Modal -->
-        <edit-identity-modal v-model="showEdit" :character="character"></edit-identity-modal>
+        <edit-identity-modal v-model="showEdit"></edit-identity-modal>
     </rpgk-card>
 </template>
 
@@ -65,6 +65,9 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    // Manager
+    import charMan from '../../../api/managers/character';
+
     // Components
     import EditIdentityModal from './editIdentityModal.vue';
     import FatePoints from './fatePoints.vue';
@@ -82,14 +85,13 @@
             RpgkCard
         },
         props: {
-            character: {
-                type: Object,
-                required: true
-            },
             readonly: {
                 type: Boolean,
                 default: false
             }
+        },
+        subscriptions: {
+            character: charMan.selected$
         },
         data()
         {

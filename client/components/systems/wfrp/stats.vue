@@ -57,10 +57,12 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    // Managers
+    import charMan from '../../../api/managers/character';
+
     // Components
     import EditStatsModal from './editStatsModal.vue';
     import RpgkCard from '../../ui/card.vue';
-    import charMan from '../../../api/managers/character';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -71,14 +73,13 @@
             RpgkCard
         },
         props: {
-            character: {
-                type: Object,
-                required: true
-            },
             readonly: {
                 type: Boolean,
                 default: false
             }
+        },
+        subscriptions: {
+            character: charMan.selected$
         },
         computed: {
             stats() { return this.character.details.stats; }

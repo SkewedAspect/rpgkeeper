@@ -77,11 +77,10 @@
             value: {
                 type: Boolean,
                 default: false
-            },
-            character: {
-                type: Object,
-                default: undefined
             }
+        },
+        subscriptions: {
+            character: charMan.selected$
         },
         computed: {
             showModal: {

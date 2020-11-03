@@ -78,10 +78,12 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    // Managers
+    import charMan from '../../../api/managers/character';
+
     // Components
     import EditClichesModal from './editClichesModal.vue';
     import RpgkCard from '../../ui/card.vue';
-    import charMan from '../../../api/managers/character';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -92,14 +94,13 @@
             RpgkCard
         },
         props: {
-            character: {
-                type: Object,
-                required: true
-            },
             readonly: {
                 type: Boolean,
                 default: false
             }
+        },
+        subscriptions: {
+            character: charMan.selected$
         },
         computed: {
             cliches() { return this.character.details.cliches; }
