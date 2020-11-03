@@ -77,7 +77,7 @@
             label-class="font-weight-bold"
             class="mb-0"
         >
-            <pool name="Lucky Shots" :pool="character.details.luckyShots" :disabled="readonly"></pool>
+            <pool v-model="character.details.luckyShots" name="Lucky Shots" :disabled="readonly"></pool>
         </b-form-group>
 
         <!-- Edit Modal -->
