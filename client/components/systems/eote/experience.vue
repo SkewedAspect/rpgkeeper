@@ -24,14 +24,18 @@
                 <div class="p-2 text-center">
                     <b>Total</b>
                     <hr class="m-1" />
-                    <h5>{{ experience.total }}</h5>
+                    <h5 class="m-0">
+                        {{ experience.total }}
+                    </h5>
                 </div>
             </b-card>
             <b-card class="flex-fill" no-body>
                 <div class="p-2 text-center">
                     <b>Available / Spent</b>
                     <hr class="m-1" />
-                    <h5>{{ experience.available }} / {{ experience.total - experience.available }}</h5>
+                    <h5 class="m-0">
+                        {{ experience.available }} / {{ experience.total - experience.available }}
+                    </h5>
                 </div>
             </b-card>
         </div>

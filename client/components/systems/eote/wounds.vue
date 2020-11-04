@@ -24,14 +24,18 @@
                 <div class="p-2 text-center">
                     <b>Wounds</b>
                     <hr class="m-1" />
-                    <h5><span :class="woundTextClass">{{ health.wounds }}</span> / <small class="text-muted">{{ health.woundThreshold }}</small></h5>
+                    <h5 class="m-0">
+                        <span :class="woundTextClass">{{ health.wounds }}</span> / <small class="text-muted">{{ health.woundThreshold }}</small>
+                    </h5>
                 </div>
             </b-card>
             <b-card class="flex-fill" no-body>
                 <div class="p-2 text-center">
                     <b>Strain</b>
                     <hr class="m-1" />
-                    <h5><span :class="strainTextClass">{{ health.strain }}</span> / <small class="text-muted">{{ health.strainThreshold }}</small></h5>
+                    <h5 class="m-0">
+                        <span :class="strainTextClass">{{ health.strain }}</span> / <small class="text-muted">{{ health.strainThreshold }}</small>
+                    </h5>
                 </div>
             </b-card>
         </div>
