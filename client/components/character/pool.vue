@@ -101,6 +101,10 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        model: {
+            prop: 'pool',
+            event: 'pool-changed'
+        },
         props: {
             pool: {
                 type: Object,
@@ -130,6 +134,8 @@
         data()
         {
             return {
+                poolMax: 0,
+                poolCurrent: 0,
                 hoveredIndex: undefined,
                 editMax: null
             };
@@ -140,13 +146,13 @@
                 max: {
                     get()
                     {
-                        return this.forceMax || this.pool.max;
+                        return this.forceMax || this.poolMax;
                     },
-                    set(val) { this.pool.max = val < 0 ? undefined : val; }
+                    set(val) { this.poolMax = val < 0 ? undefined : val; }
                 },
                 current: {
-                    get() { return this.pool.current; },
-                    set(val) { this.pool.current = val < 0 ? undefined : val; }
+                    get() { return this.poolCurrent; },
+                    set(val) { this.poolCurrent = val < 0 ? undefined : val; }
                 },
                 currentIndex()
                 {
@@ -155,6 +161,16 @@
                 },
                 showEdit() { return !this.disabled && !this.forceMax && this.forceMax !== 0; }
             },
+        mounted()
+        {
+            this.poolMax = this.pool.max;
+            this.poolCurrent = this.pool.current;
+        },
+        updated()
+        {
+            this.poolMax = this.pool.max;
+            this.poolCurrent = this.pool.current;
+        },
         methods: {
             onShown()
             {
@@ -162,10 +178,12 @@
             },
             onSave()
             {
-                this.pool.max = this.editMax;
-                this.pool.current = Math.min(this.pool.max, this.pool.current);
+                this.poolMax = this.editMax;
+                this.poolCurrent = Math.min(this.poolMax, this.poolCurrent);
                 this.editMax = null;
-                charMan.save(charMan.selected);
+
+                this.$emit('pool-changed', { max: this.poolMax, current: this.poolCurrent });
+                charMan.save();
             },
             openEditMax()
             {
@@ -202,7 +220,8 @@
                         this.current = (index + 1);
                     } // end if
 
-                    charMan.save(charMan.selected);
+                    this.$emit('pool-changed', { max: this.poolMax, current: this.poolCurrent });
+                    charMan.save();
                 } // end if
             },
             checkHover(index)

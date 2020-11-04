@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import configMan from './config';
-import knex, { QueryBuilder, RawBinding } from 'knex';
+import Knex, { QueryBuilder, RawBinding } from 'knex';
 
 import { AppError } from '../errors';
 
@@ -12,7 +12,7 @@ const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-interface DBConfig extends knex.Config<any> {
+interface DBConfig extends Knex.Config<any> {
     traceQueries : boolean
 }
 
@@ -22,7 +22,7 @@ const useTestDB = configMan.get('useTestDB', false);
 
 // eslint-disable-next-line no-use-before-define
 const dbConfig : DBConfig = _buildConfig();
-let db : knex | undefined;
+let db : Knex | undefined;
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ function _buildConfig() : DBConfig
     return config;
 } // end _buildConfig
 
-async function _setupDB() : Promise<knex>
+async function _setupDB() : Promise<Knex>
 {
     if(!db)
     {
@@ -136,7 +136,7 @@ export async function init() : Promise<void>
 {
     if(!db)
     {
-        db = knex(dbConfig);
+        db = Knex(dbConfig);
         await _setupDB();
     } // end if
 } // end init
@@ -146,7 +146,7 @@ export function getConfig() : DBConfig
     return dbConfig;
 } // end getConfig
 
-export function getDB() : knex
+export function getDB() : Knex
 {
     if(!db)
     {
@@ -166,7 +166,7 @@ export function table(tableName : string) : QueryBuilder
     return db(tableName);
 } // end table
 
-export function raw(sql : string, bindings : RawBinding) : Promise<knex>
+export function raw(sql : string, bindings : RawBinding) : Promise<Knex>
 {
     if(!db)
     {

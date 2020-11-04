@@ -17,6 +17,9 @@ module.exports = {
         ],
 
         // Style
+        'vue/component-tags-order': [ 'error', {
+            order: [ 'template', 'style', 'script' ]
+        } ],
         'vue/valid-v-on': [
             'warn',
             {

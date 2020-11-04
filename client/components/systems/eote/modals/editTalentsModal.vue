@@ -34,7 +34,7 @@
                     @edit="onTalentEdit"
                     @delete="onTalentDelete"
                 >
-                    <template v-slot:preview="{ instance, supplement }">
+                    <template #preview="{ instance, supplement }">
                         <div class="clearfix">
                             <div v-if="supplement.ranked" class="mb-2 float-right">
                                 <label for="sb-inline">Ranks</label>

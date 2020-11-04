@@ -6,11 +6,11 @@
     <b-container v-if="character" id="wfrp-character">
         <div class="d-flex">
             <portrait class="mr-1 d-none d-lg-block" :src="character.portrait" size="lg"></portrait>
-            <bio class="mr-1 ml-1 w-50" :character="character" :readonly="!isAuthorized"></bio>
+            <bio class="mr-1 ml-1 w-50" :readonly="!isAuthorized"></bio>
         </div>
         <div class="d-flex mt-2">
-            <stats class="w-50 mr-1" :character="character" :readonly="!isAuthorized"></stats>
-            <skills class="w-50 mr-1" :character="character" :readonly="!isAuthorized"></skills>
+            <stats class="w-50 mr-1" :readonly="!isAuthorized"></stats>
+            <skills class="w-50 mr-1" :readonly="!isAuthorized"></skills>
         </div>
     </b-container>
 </template>

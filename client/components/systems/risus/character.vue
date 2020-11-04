@@ -6,12 +6,12 @@
     <b-container v-if="character" id="risus-character">
         <div class="d-flex">
             <portrait class="mr-1 d-none d-lg-block" :src="character.portrait" size="lg"></portrait>
-            <bio class="mr-1 ml-1 w-50" :character="character" :readonly="!isAuthorized"></bio>
+            <bio class="mr-1 ml-1 w-50" :readonly="!isAuthorized"></bio>
             <rolls ref="roller" class="ml-1 w-50" :skills="character.details.skills" :readonly="!isAuthorized"></rolls>
         </div>
         <div class="d-flex mt-2">
-            <cliches class="w-50 mr-1" :character="character" :readonly="!isAuthorized" @roll="onRoll"></cliches>
-            <hooks class="w-50 ml-1" :character="character" :readonly="!isAuthorized"></hooks>
+            <cliches class="w-50 mr-1" :readonly="!isAuthorized" @roll="onRoll"></cliches>
+            <hooks class="w-50 ml-1" :readonly="!isAuthorized"></hooks>
         </div>
     </b-container>
 </template>

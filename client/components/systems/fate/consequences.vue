@@ -83,6 +83,9 @@
 
     import _ from 'lodash';
 
+    // Managers
+    import charMan from '../../../api/managers/character';
+
     // Components
     import RpgkCard from '../../ui/card.vue';
     import EditConsequencesModal from './editConsequencesModal.vue';
@@ -96,14 +99,13 @@
             EditConsequencesModal
         },
         props: {
-            character: {
-                type: Object,
-                required: true
-            },
             readonly: {
                 type: Boolean,
                 default: false
             }
+        },
+        subscriptions: {
+            character: charMan.selected$
         },
         computed: {
             hasExtraMild() { return this.extraMildType !== 'none'; },
@@ -138,12 +140,6 @@
         methods: {
             openEdit()
             {
-                // // Reset the edit fields
-                // this.mildConsequence1Edit = _.cloneDeep(this.mildConsequence1);
-                // this.mildConsequence2Edit = _.cloneDeep(this.mildConsequence2);
-                // this.moderateConsequenceEdit = _.cloneDeep(this.moderateConsequence);
-                // this.severeConsequenceEdit = _.cloneDeep(this.severeConsequence);
-
                 // Open the dialog
                 this.$refs.editModal.show();
             }

@@ -77,11 +77,11 @@
             label-class="font-weight-bold"
             class="mb-0"
         >
-            <pool name="Lucky Shots" :pool="character.details.luckyShots" :disabled="readonly"></pool>
+            <pool v-model="character.details.luckyShots" name="Lucky Shots" :disabled="readonly"></pool>
         </b-form-group>
 
         <!-- Edit Modal -->
-        <edit-bio-modal v-model="showEdit" :character="character"></edit-bio-modal>
+        <edit-bio-modal v-model="showEdit"></edit-bio-modal>
     </rpgk-card>
 </template>
 
@@ -105,12 +105,14 @@
 
     import _ from 'lodash';
 
+    // Managers
+    import charMan from '../../../api/managers/character';
+
     // Components
     import EditBioModal from './editBioModal.vue';
     import Pool from '../../character/pool.vue';
     import Markdown from '../../ui/markdown.vue';
     import RpgkCard from '../../ui/card.vue';
-    import charMan from '../../../api/managers/character';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -123,14 +125,13 @@
             RpgkCard
         },
         props: {
-            character: {
-                type: Object,
-                required: true
-            },
             readonly: {
                 type: Boolean,
                 default: false
             }
+        },
+        subscriptions: {
+            character: charMan.selected$
         },
         data()
         {

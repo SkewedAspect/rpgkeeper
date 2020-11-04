@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import { QueryBuilder, RawBinding } from 'knex';
+import { QueryBuilder } from 'knex';
 import { FilterToken } from '../routes/utils/query';
 
 import logging from 'trivial-logging';
@@ -35,7 +35,7 @@ export function applyFilters(query : QueryBuilder, filters : Record<string, Filt
                 case '<=':
                 case '<':
                 case '=':
-                    return query.where(key, token.operation, token.value as RawBinding);
+                    return query.where(key, token.operation, token.value as any);
 
                 default:
                     logger.warn('Unknown query operation:', token.operation);

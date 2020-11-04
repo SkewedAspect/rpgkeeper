@@ -73,7 +73,7 @@ async function main() : Promise<{ app : Express, server : any }>
 
     const store = new KnexSessionStore({
         sidfieldname: configMan.config.key as string | undefined,
-        knex: await dbMan.getDB(),
+        knex: dbMan.getDB() as any, // This is because this library's typing is foobar'd.
         createtable: true,
 
         // Clear expired sessions. (1 hour)

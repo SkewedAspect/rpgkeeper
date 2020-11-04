@@ -52,8 +52,8 @@ import SettingsPage from './pages/settings.vue';
 // ---------------------------------------------------------------------------------------------------------------------
 
 library.add(fab, far, fas);
-Vue.component('fa', FontAwesomeIcon);
-Vue.component('fa-layers', FontAwesomeLayers);
+Vue.component('Fa', FontAwesomeIcon);
+Vue.component('FaLayers', FontAwesomeLayers);
 
 // ---------------------------------------------------------------------------------------------------------------------
 // VueCodeMirror
@@ -130,7 +130,7 @@ Vue.config.ignoredElements = [
 ];
 
 // Setup app component
-const App = Vue.component('app', AppComponent);
+const App = Vue.component('App', AppComponent);
 const root = new App({
     el: '#rpgkeeper',
     router
