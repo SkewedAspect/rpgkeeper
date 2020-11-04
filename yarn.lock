@@ -8508,9 +8508,9 @@ tr46@^1.0.1:
     punycode "^2.1.0"
 
 trivial-logging@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/trivial-logging/-/trivial-logging-2.0.1.tgz#bd28a773ca9b84fc0e9269489a908fdb9d151d01"
-  integrity sha512-sa2gyt29Mw1zDtqPbHx3LEEhaUmmHYexP4CbTGonY0HG7qWE4BJfUX9rhmj1H17qHC/jqZQz1lbTYuvyMCbYhg==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/trivial-logging/-/trivial-logging-2.0.2.tgz#0882deb72c3cb73cbcce40a1e35229807671d619"
+  integrity sha512-m2vMYM+zFRuF+k8zKDvqSbROyHqKnM7woZLmYZ01usgiF3BF14qjS4gWDNPC1I3ME8T+VF3RC4fwphF0sGjxOw==
   dependencies:
     pino "^5.13.1"
   optionalDependencies:
