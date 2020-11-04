@@ -17,7 +17,11 @@
             },
             {
                 "name": "Control",
-                "description": "The Force user can hurl objects to damage targets by making a Discipline check combined with a Move power check, dealing damage equal to 10 times silhouette.\n\n---\n\nThe Force user can pull objects out of secure mountings or out of an opponent's grasp."
+                "description": "The Force user can hurl objects to damage targets by making a Discipline check combined with a Move power check, dealing damage equal to 10 times silhouette."
+            },
+            {
+                "name": "Control",
+                "description": "The Force user can pull objects out of secure mountings or out of an opponent's grasp."
             }
         ],
         "official": true,
