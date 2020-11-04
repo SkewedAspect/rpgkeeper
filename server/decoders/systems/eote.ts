@@ -20,7 +20,15 @@ import {
 import defaults from '../../systems/eote/defaults';
 
 // Utils
-import { boundedInteger, enumStr, jsonArrayString, nullToUndefined, stringWithLength, withDefault } from '../utils';
+import {
+    boundedInteger,
+    enumStr,
+    jsonArrayString,
+    jsonObjectString,
+    nullToUndefined,
+    stringWithLength,
+    withDefault
+} from '../utils';
 import { MissingDecoderError } from '../../errors';
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -200,14 +208,14 @@ export const forcePowerDecoder = object({
     id: optional(positiveInteger),
     description: stringWithLength(1),
     minRating: positiveInteger,
-    upgrades: withDefault(object({
+    upgrades: withDefault(jsonObjectString(object({
         strength: optional(forcePowerUpgradeDecoder),
         magnitude: optional(forcePowerUpgradeDecoder),
         duration: optional(forcePowerUpgradeDecoder),
         range: optional(forcePowerUpgradeDecoder),
         control: optional(array(object({ description: stringWithLength(1) }))),
         mastery: optional(forcePowerUpgradeDecoder)
-    }), {}),
+    })), {}),
     reference: referenceDecoder,
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
