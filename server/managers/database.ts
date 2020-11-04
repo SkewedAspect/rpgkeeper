@@ -108,24 +108,14 @@ async function _setupDB() : Promise<Knex>
                     throw new AppError('Database not initialized!', 'DB_NOT_INITIALIZED');
                 } // end if
 
-                logger.warn('No existing database, creating one.');
-
-                await db.migrate.latest({ directory: './dist/server/knex/migrations' });
-                await db.seed.run({ directory: './dist/server/knex/seeds' });
-
-                return db;
+                logger.error('No existing database. Please run `npm db:migrate` to create an empty db.');
+                process.exit(1);
             }
             else
             {
                 throw error;
             } // end if
         });
-
-    logger.info('Running any needed migrations...');
-
-    await db.migrate.latest({ directory: './dist/server/knex/migrations' });
-
-    logger.info('Migrations complete.');
 
     return db;
 } // _setupDB

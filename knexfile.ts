@@ -20,10 +20,10 @@ import { getConfig } from './server/managers/database';
 module.exports = {
     ...getConfig(),
     migrations: {
-        directory: './dist/server/knex/migrations'
+        directory: './server/knex/migrations'
     },
     seeds: {
-        directory: './dist/server/knex/seeds'
+        directory: './server/knex/seeds'
     }
 };
 
