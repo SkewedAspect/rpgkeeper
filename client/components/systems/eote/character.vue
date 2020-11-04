@@ -23,6 +23,7 @@
                 <experience class="flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></experience>
                 <defenses class="mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></defenses>
                 <wounds class=" mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></wounds>
+                <force-pool v-if="mode === 'eote'" class=" mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></force-pool>
                 <criticals class="mt-1" :readonly="!isAuthorized"></criticals>
             </div>
         </div>
@@ -58,6 +59,7 @@
     import Weapons from './weapons.vue';
     import Armor from './armor.vue';
     import Talents from './talents.vue';
+    import ForcePool from './forcePool.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -74,7 +76,8 @@
             Criticals,
             Weapons,
             Armor,
-            Talents
+            Talents,
+            ForcePool
         },
         props: {
             isAuthorized: {
