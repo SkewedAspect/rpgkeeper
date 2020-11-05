@@ -24,13 +24,6 @@
                 <label class="d-block text-center mt-2"><b>Committed</b></label>
                 <b-form-spinbutton v-model="forcePool.committed" min="0" :max="forcePool.rating" step="1" class="mt-2"></b-form-spinbutton>
             </div>
-            <!--            <b-card class="flex-fill mr-2" no-body>-->
-            <!--                <div class="p-2 text-center">-->
-            <!--                    <b>Committed</b>-->
-            <!--                    <hr class="m-1" />-->
-            <!--                    <h5>{{ forcePool.committed }}</h5>-->
-            <!--                </div>-->
-            <!--            </b-card>-->
             <b-card class="flex-fill" no-body>
                 <div class="p-2 text-center">
                     <b>Rating</b>
