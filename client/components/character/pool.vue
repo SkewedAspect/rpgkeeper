@@ -14,7 +14,7 @@
                 <fa
                     :class="[checkHover(index), { 'read-only': disabled }]"
                     :icon="isChecked(index) ? checkedIcon : uncheckedIcon"
-                    size="2x"
+                    :size="size"
                     @mouseover="onMouseOver(index)"
                     @mouseout="onMouseOut(index)"
                 ></fa>
@@ -102,13 +102,17 @@
 
     export default {
         model: {
-            prop: 'pool',
-            event: 'pool-changed'
+            prop: 'current',
+            event: 'update'
         },
         props: {
-            pool: {
-                type: Object,
+            current: {
+                type: Number,
                 required: true
+            },
+            max: {
+                type: Number,
+                default: 0
             },
             name: {
                 type: String,
@@ -122,9 +126,17 @@
                 type: [ String, Array ],
                 default() { return [ 'far', 'square' ]; }
             },
-            forceMax: {
-                type: Number,
-                default: undefined
+            noEdit: {
+                type: Boolean,
+                default: false
+            },
+            noAutoSave: {
+                type: Boolean,
+                default: false
+            },
+            size: {
+                type: String,
+                default: '2x'
             },
             disabled: {
                 type: Boolean,
@@ -143,38 +155,27 @@
         computed:
             {
                 poolRange() { return _.range(this.max); },
-                max: {
-                    get()
-                    {
-                        return this.forceMax || this.poolMax;
-                    },
-                    set(val) { this.poolMax = val < 0 ? undefined : val; }
-                },
-                current: {
-                    get() { return this.poolCurrent; },
-                    set(val) { this.poolCurrent = val < 0 ? undefined : val; }
-                },
                 currentIndex()
                 {
-                    const index = this.current - 1;
+                    const index = this.poolCurrent - 1;
                     return index < 0 ? undefined : index;
                 },
-                showEdit() { return !this.disabled && !this.forceMax && this.forceMax !== 0; }
+                showEdit() { return !this.disabled && !this.noEdit; }
             },
         mounted()
         {
-            this.poolMax = this.pool.max;
-            this.poolCurrent = this.pool.current;
+            this.poolMax = this.max;
+            this.poolCurrent = this.current;
         },
         updated()
         {
-            this.poolMax = this.pool.max;
-            this.poolCurrent = this.pool.current;
+            this.poolMax = this.max;
+            this.poolCurrent = this.current;
         },
         methods: {
             onShown()
             {
-                this.editMax = this.pool.max || 0;
+                this.editMax = this.poolMax || 0;
             },
             onSave()
             {
@@ -182,14 +183,15 @@
                 this.poolCurrent = Math.min(this.poolMax, this.poolCurrent);
                 this.editMax = null;
 
-                this.$emit('pool-changed', { max: this.poolMax, current: this.poolCurrent });
+                this.$emit('update', this.poolCurrent);
+                this.$emit('update:max', this.poolMax);
                 charMan.save();
             },
             openEditMax()
             {
                 if(!this.disabled)
                 {
-                    this.editMax = this.pool.max || 0;
+                    this.editMax = this.poolMax || 0;
                     this.$refs.editPool.show();
                 } // end if
             },
@@ -213,15 +215,19 @@
                 {
                     if(index === this.currentIndex)
                     {
-                        this.current -= 1;
+                        this.poolCurrent -= 1;
                     }
                     else
                     {
-                        this.current = (index + 1);
+                        this.poolCurrent = (index + 1);
                     } // end if
 
-                    this.$emit('pool-changed', { max: this.poolMax, current: this.poolCurrent });
-                    charMan.save();
+                    this.$emit('update', this.poolCurrent);
+
+                    if(!this.noAutoSave)
+                    {
+                        charMan.save();
+                    } // end if
                 } // end if
             },
             checkHover(index)
