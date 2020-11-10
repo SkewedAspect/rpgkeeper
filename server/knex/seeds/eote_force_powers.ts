@@ -23,7 +23,7 @@ exports.seed = function(knex)
                     upgrades: JSON.stringify({
                         strength: {
                             available: 1,
-                            description: 'Spend <forcepoint></force-point><forcepoint></forcepoint> to add one additional '
+                            description: 'Spend <forcepoint></forcepoint><forcepoint></forcepoint> to add one additional '
                                 + 'automatic <success></success> to affected character\'s checks.'
                         },
                         magnitude: {
@@ -78,7 +78,7 @@ exports.seed = function(knex)
                     upgrades: JSON.stringify({
                         strength: {
                             available: 3,
-                            description: 'Spend <forcepoint></force-point><forcepoint></forcepoint> to disorient the '
+                            description: 'Spend <forcepoint></forcepoint><forcepoint></forcepoint> to disorient the '
                                 + 'target for a number of rounds equal to the Strength upgrades purchased.'
                         },
                         magnitude: {
