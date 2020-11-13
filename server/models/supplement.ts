@@ -66,9 +66,21 @@ export class Supplement
 
     public toDB() : Record<string, unknown>
     {
-        const { id, ...obj } = snakeCaseKeys(this.toJSON());
+        const { id, ...suppDef } = snakeCaseKeys(this.toJSON());
+
+        // And nested keys need to become json strings
+        for(const key in suppDef)
+        {
+            const value = suppDef[key];
+
+            if(typeof value === 'object' && value !== null)
+            {
+                suppDef[key] = JSON.stringify(value);
+            } // end if
+        } // end for
+
         return {
-            ...obj,
+            ...suppDef,
             owner: this.owner ?? null
         };
     } // end toDB

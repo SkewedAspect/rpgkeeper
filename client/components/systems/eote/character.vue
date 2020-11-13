@@ -16,6 +16,7 @@
             <div class="d-flex flex-column flex-fill mr-1">
                 <skills :readonly="!isAuthorized" @roll="onRoll"></skills>
                 <talents class="mt-1" :readonly="!isAuthorized"></talents>
+                <force-powers v-if="showForcePowers" class="mt-1" :readonly="!isAuthorized"></force-powers>
                 <weapons class="mt-1" :readonly="!isAuthorized" @roll="onRoll"></weapons>
                 <armor class="mt-1" :readonly="!isAuthorized"></armor>
             </div>
@@ -60,6 +61,7 @@
     import Armor from './armor.vue';
     import Talents from './talents.vue';
     import ForcePool from './forcePool.vue';
+    import ForcePowers from './forcePowers.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -77,7 +79,8 @@
             Weapons,
             Armor,
             Talents,
-            ForcePool
+            ForcePool,
+            ForcePowers
         },
         props: {
             isAuthorized: {
@@ -88,6 +91,12 @@
         subscriptions: {
             character: charMan.selected$,
             mode: eoteMan.mode$
+        },
+        computed: {
+            showForcePowers()
+            {
+                return this.mode === 'eote' && this.character.details.force.sensitive;
+            }
         },
         methods: {
             onRoll(dice, name)

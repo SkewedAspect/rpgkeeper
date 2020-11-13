@@ -9,6 +9,11 @@ import { accountJsonDecoder, accountRecDecoder } from '../decoders/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface AccountSettings {
+    // TODO: Figure out some settings...
+}
+
 interface AccountOptions {
     id : string;
     email : string;
@@ -17,11 +22,6 @@ interface AccountOptions {
     permissions ?: string[];
     groups ?: string[];
     settings ?: AccountSettings;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface AccountSettings {
-    // TODO: Figure out some settings...
 }
 
 //----------------------------------------------------------------------------------------------------------------------

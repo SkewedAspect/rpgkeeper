@@ -316,15 +316,15 @@ export const eoteSysDetailsDecoder = object({
         rating: positiveInteger,
         committed: positiveInteger, // TODO: The upper limit is really `rating`.
         powers: array(object({
-            id: stringWithLength(1),
-            upgrades: object({
+            id: either(positiveInteger, stringWithLength(1)),
+            upgrades: withDefault(object({
                 strength: positiveInteger,
                 magnitude: positiveInteger,
                 duration: positiveInteger,
                 range: positiveInteger,
-                control: positiveInteger,
+                control: array(positiveInteger),
                 mastery: positiveInteger
-            })
+            }), { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 })
         })),
         sensitive: boolean
     }), force)
