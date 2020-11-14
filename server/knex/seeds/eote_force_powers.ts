@@ -117,7 +117,7 @@ exports.seed = function(knex)
                 },
                 {
                     id: 3,
-                    name: 'Control',
+                    name: 'Enhance',
                     description: 'When making an Athletics check, the Force user may roll an <b>Enhance power check</b> '
                         + 'as part of the pool.\n\n The user may spend <forcepoint></forcepoint> to gain '
                         + '<success></success> or <advantage></advantage> (user\'s choice) on the check.',
