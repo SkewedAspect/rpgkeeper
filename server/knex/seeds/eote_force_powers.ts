@@ -438,124 +438,174 @@ exports.seed = function(knex)
                     reference: 'F-CRB:298',
                     official: true,
                     scope: 'public'
+                },
+                {
+                    id: 9,
+                    name: 'Protect/Unleash',
+                    description: 'The Force user guides the flow of energy, protecting himself and others or '
+                        + 'unleashing blasts of power upon his foes.\n\n<b>Protect:</b> The usr makes a <b>Protect '
+                        + 'power check</b> and rolls an <b>Average (<difficulty></difficulty><difficulty></difficulty>) '
+                        + 'Discipline check</b> as part of the pool. Spend <forcepoint></forcepoint>'
+                        + '<forcepoint></forcepoint> to reduce damage from an energy-based weapon that hits himself or '
+                        + 'an engaged character by amount equal to Willpower plus one per <success></success>. Dark '
+                        + 'Side Force users may only protect themselves.\n\n<b>Unleash:</b> The user makes an '
+                        + '<b>Unleash power check</b> as ranged attack and rolls an <b>Average ('
+                        + '<difficulty></difficulty><difficulty></difficulty>) Discipline check</b> for difficulty. If '
+                        + 'check succeeds and spends <forcepoint></forcepoint><forcepoint></forcepoint>, the attack '
+                        + 'hits. It has a range of short, a base damage equal to Willpower, and a critical rating of '
+                        + '4. The user gains 1 Conflict.',
+                    min_rating: 3,
+                    upgrades: JSON.stringify({
+                        strength: {
+                            available: 4,
+                            description: 'Spend <forcepoint></forcepoint> to decrease damage or add damage equal to '
+                                + 'ranks of Strength purchased.'
+                        },
+                        magnitude: {
+                            available: 2,
+                            description: 'Spend <forcepoint></forcepoint> to affect 1 additional target within range '
+                                + 'per rank of Magnitude purchased.'
+                        },
+                        duration: {
+                            available: 1,
+                            description: '<b>Protect:</b> If not <darkside></darkside> generated '
+                                + '<forcepoint></forcepoint> that power reduces damage of all attacks hitting the '
+                                + 'target.\n\n<b>Unleash:</b> Spend <forcepoint></forcepoint> to give the attack '
+                                + 'Burn 2.'
+                        },
+                        range: {
+                            available: 2,
+                            description: 'Spend <forcepoint></forcepoint><forcepoint></forcepoint> to increase '
+                                + 'power\'s range by a number of range bands equal to Range upgrades purchased.'
+                        },
+                        mastery: {
+                            available: 1,
+                            description: '<b>Protect:</b> Light side Force users may spend <forcepoint></forcepoint>'
+                                + '<forcepoint></forcepoint> to reflect all attacks they reduce to 0 damage, deal '
+                                + 'damage equal to the initial attack to attacker.\n\n<b>Unleash:</b> Dark side Force '
+                                + 'users may spend <forcepoint></forcepoint> to reduce critical rating of attacks to 1.'
+                        },
+                        control: [
+                            {
+                                description: '<b>Protect:</b> Spend <advantage></advantage> to gain defense equal '
+                                    + 'to <advantage></advantage> spent.\n\n<b>Unleash:</b> Spend '
+                                    + '<advantage></advantage> to inflict 1 strain on target.'
+                            },
+                            {
+                                description: '<b>Protect:</b> Spend <forcepoint></forcepoint> to allow power to '
+                                    + 'protect against all types of attack.\n\n<b>Unleash:</b> Spend '
+                                    + '<forcepoint></forcepoint> to give the attack Ensnare 2.'
+                            },
+                            {
+                                description: '<b>Protect:</b> Light side Force users may spend 1 Destiny Point to '
+                                    + 'use Protect as an out-of-turn incidental once per session.\n\n<b>Unleash:</b> '
+                                    + 'Dark side Force users may spend 1 Destiny Point to use Unleash as a maneuver '
+                                    + 'once per session.'
+                            }
+                        ]
+                    }),
+                    reference: 'F-CRB:300',
+                    official: true,
+                    scope: 'public'
+                },
+                {
+                    id: 10,
+                    name: 'Seek',
+                    description: 'The Force user allows the will of the Force to lead the way to something lost or '
+                        + 'forgotten.\n\nThe user map spend <forcepoint></forcepoint><forcepoint></forcepoint> to gain '
+                        + 'insight into the general location or direction of a person or object that he knows about, '
+                        + 'regardless of current distance.\n\nThe user may spend <forcepoint></forcepoint> and '
+                        + 'succeed at an <b>Average (<difficulty></difficulty><difficulty></difficulty>) Vigilance '
+                        + 'check</b> (or <b>opposed Vigilance vs. Discipline check</b>) to see through illusions.',
+                    min_rating: 1,
+                    upgrades: JSON.stringify({
+                        strength: {
+                            available: 2,
+                            description: 'Spend <forcepoint></forcepoint> to eliminate 1 Force-based illusion per '
+                                + 'Strength upgrade purchased.'
+                        },
+                        magnitude: {
+                            available: 3,
+                            description: 'Spend <forcepoint></forcepoint> to gain one additional detail per Magnitude '
+                                + 'upgrade purchased.'
+                        },
+                        duration: {
+                            available: 1,
+                            description: 'Commit <force></force> to continue tracking target even when it moves.'
+                        },
+                        mastery: {
+                            available: 1,
+                            description: 'Make <b>Seek power check</b> and spend <forcepoint></forcepoint>'
+                                + '<forcepoint></forcepoint><forcepoint></forcepoint> to add <triumph></triumph> to '
+                                + 'combat checks against one target for remainder of encounter.'
+                        },
+                        control: [
+                            {
+                                description: 'Ongoing effect: Commit <force></force>. Upgrade the ability of your '
+                                    + 'Vigilance and Perception checks once.'
+                            },
+                            {
+                                description: 'Spend <forcepoint></forcepoint> to track one additional target.'
+                            },
+                            {
+                                description: 'Ongoing effect: Commit <force></force><force></force><force></force>. '
+                                    + 'The user\'s attacks gain Pierce with rating equal to Cunning plus ranks in '
+                                    + 'Perception.'
+                            }
+                        ]
+                    }),
+                    reference: 'F-CRB:302',
+                    official: true,
+                    scope: 'public'
+                },
+                {
+                    id: 11,
+                    name: 'Sense',
+                    description: 'The Force user can sense the Force interacting with the world around him.\n\nThe '
+                        + 'user may spend <forcepoint></forcepoint> to sense all living things within short range '
+                        + '(including sentient and non-sentient beings.)\n\nThe user may spend '
+                        + '<forcepoint></forcepoint> to sense the current emotional state of one living target with '
+                        + 'whom he is engaged.',
+                    min_rating: 1,
+                    upgrades: JSON.stringify({
+                        strength: {
+                            available: 1,
+                            description: 'When using Sense\'s ongoing effects, upgrading the pool twice, instead of '
+                                + 'once.'
+                        },
+                        magnitude: {
+                            available: 3,
+                            description: 'Spend <forcepoint></forcepoint> to increase number of targets affected by '
+                                + 'power equal to Magnitude upgrades purchased.'
+                        },
+                        duration: {
+                            available: 1,
+                            description: 'Sense\'s ongoing effects make be triggered one additional time per round.'
+                        },
+                        range: {
+                            available: 3,
+                            description: 'Spend <forcepoint></forcepoint> to increase power\'s range by a number of '
+                                + 'range bands equal to Range upgrades purchased.'
+                        },
+                        control: [
+                            {
+                                description: 'Ongoing effect: Commit <force></force>. Once per round, when an attack '
+                                    + 'targets the Force user, he upgrades the difficulty of the pool once.'
+                            },
+                            {
+                                description: 'Ongoing effect: Commit <force></force>. Once per round, when the Force '
+                                    + 'user makes a combat check, he upgrades the ability of that check once.'
+                            },
+                            {
+                                description: 'Effect: Spend <forcepoint></forcepoint>. The Force user senses the '
+                                    + 'current thoughts of one living target with whom he is engaged.'
+                            }
+                        ]
+                    }),
+                    reference: 'F-CRB:304',
+                    official: true,
+                    scope: 'public'
                 }
-                // {
-                //     id: 9,
-                //     name: 'Protect/Unleash',
-                //     description: '',
-                //     min_rating: 3,
-                //     upgrades: JSON.stringify({
-                //         strength: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         magnitude: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         duration: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         range: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         mastery: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         control: [
-                //             {
-                //                 description: ''
-                //             },
-                //             {
-                //                 description: ''
-                //             }
-                //         ]
-                //     }),
-                //     reference: 'F-CRB:300',
-                //     official: true,
-                //     scope: 'public'
-                // },
-                // {
-                //     id: 10,
-                //     name: 'Seek',
-                //     description: '',
-                //     min_rating: 1,
-                //     upgrades: JSON.stringify({
-                //         strength: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         magnitude: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         duration: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         range: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         mastery: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         control: [
-                //             {
-                //                 description: ''
-                //             },
-                //             {
-                //                 description: ''
-                //             }
-                //         ]
-                //     }),
-                //     reference: 'F-CRB:302',
-                //     official: true,
-                //     scope: 'public'
-                // },
-                // {
-                //     id: 11,
-                //     name: 'Sense',
-                //     description: '',
-                //     min_rating: 1,
-                //     upgrades: JSON.stringify({
-                //         strength: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         magnitude: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         duration: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         range: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         mastery: {
-                //             available: 0,
-                //             description: ''
-                //         },
-                //         control: [
-                //             {
-                //                 description: ''
-                //             },
-                //             {
-                //                 description: ''
-                //             }
-                //         ]
-                //     }),
-                //     reference: 'F-CRB:304',
-                //     official: true,
-                //     scope: 'public'
-                // }
             ]);
         });
 };
