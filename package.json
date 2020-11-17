@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "npm run build:server && DEBUG=true node ./dist/server.js",
+    "db:migrate": "knex migrate:latest && knex seed:run",
+    "db:seeds": "knex seed:run",
     "build:server": "tsc",
     "build:distclean": "rimraf dist/* .cache",
     "build:clean": "rimraf dist/*",

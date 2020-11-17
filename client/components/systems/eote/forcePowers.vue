@@ -1,14 +1,14 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- experience.vue
+  -- forcePowers.vue
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-bio-block" :class="{ readonly: readonly }" fill>
+    <rpgk-card id="eote-force-powers-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <fa class="mr-1" icon="user-hard-hat"></fa>
-                <span class="d-none d-md-inline">Experience</span>
+                <fa class="mr-1" icon="journal-whills"></fa>
+                <span class="d-none d-md-inline">ForcePowers</span>
             </h5>
             <div v-if="!readonly" class="ml-auto">
                 <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
@@ -19,36 +19,27 @@
         </div>
 
         <!-- Card Body -->
-        <div class="d-flex">
-            <b-card class="flex-fill mr-2" no-body>
-                <div class="p-2 text-center">
-                    <b>Total</b>
-                    <hr class="m-1" />
-                    <h5 class="m-0">
-                        {{ experience.total }}
-                    </h5>
-                </div>
-            </b-card>
-            <b-card class="flex-fill" no-body>
-                <div class="p-2 text-center">
-                    <b>Available / Spent</b>
-                    <hr class="m-1" />
-                    <h5 class="m-0">
-                        {{ experience.available }} / {{ experience.total - experience.available }}
-                    </h5>
-                </div>
-            </b-card>
+        <div>
+            <b-form-row>
+                <b-col v-for="forcePower in forcePowers" :key="forcePower.name" cols="12">
+                    <force-power-card class="mb-2" :power="forcePower"></force-power-card>
+                </b-col>
+            </b-form-row>
+
+            <h5 v-if="forcePowers.length === 0" class="m-0 text-center">
+                No Force Powers
+            </h5>
         </div>
 
-        <!-- Edit Modal -->
-        <edit-modal ref="editModal"></edit-modal>
+        <!-- Modals -->
+        <edit-force-powers-modal ref="editForcePowersModal"></edit-force-powers-modal>
     </rpgk-card>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-    #eote-bio-block {
+<style lang="scss">
+    #eote-force-powers-block {
     }
 </style>
 
@@ -57,20 +48,25 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    import _ from 'lodash';
+
     // Managers
+    import eoteMan from '../../../api/managers/eote';
     import charMan from '../../../api/managers/character';
 
     // Components
     import RpgkCard from '../../ui/card.vue';
-    import EditModal from './modals/editExperienceModal.vue';
+    import EditForcePowersModal from './modals/editForcePowersModal.vue';
+    import ForcePowerCard from './components/forcePowerCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'EotEDefensesBlock',
+        name: 'EotEForcePowersBlock',
         components: {
             RpgkCard,
-            EditModal
+            ForcePowerCard,
+            EditForcePowersModal
         },
         props: {
             readonly: {
@@ -79,15 +75,26 @@
             }
         },
         subscriptions: {
+            mode: eoteMan.mode$,
             character: charMan.selected$
         },
         computed: {
-            experience() { return this.character.details.experience; }
+            forcePowers()
+            {
+                return _.sortBy(
+                    this?.character?.details?.force?.powers ?? [],
+                    (powerInst) =>
+                    {
+                        const powerBase = _.find(eoteMan.forcePowers, { id: powerInst.id });
+                        return (powerBase || {}).name;
+                    }
+                );
+            }
         },
         methods: {
             openEditModal()
             {
-                this.$refs.editModal.show();
+                this.$refs.editForcePowersModal.show();
             }
         }
     };

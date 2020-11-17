@@ -2,7 +2,19 @@
 // Utility Decoders
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Decoder, array, compose, integer, predicate, map, nullable, optional, regex, string } from 'decoders';
+import {
+    Decoder,
+    array,
+    compose,
+    integer,
+    predicate,
+    map,
+    nullable,
+    optional,
+    regex,
+    string,
+    either, inexact
+} from 'decoders';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -26,7 +38,13 @@ export function withDefault<T>(itemDecoder : Decoder<T>, defaultVal : T) : Decod
 
 export function jsonArrayString<T>(itemDecoder : Decoder<T>) : Decoder<Array<T>>
 {
-    const decodeJsonStr = map(string, (str) => JSON.parse(str));
+    const decodeJsonStr = map(
+        either(string, array(itemDecoder)),
+        (item) =>
+        {
+            return typeof item === 'string' ? JSON.parse(item) : item;
+        }
+    );
 
     return compose(
         decodeJsonStr,
@@ -36,7 +54,13 @@ export function jsonArrayString<T>(itemDecoder : Decoder<T>) : Decoder<Array<T>>
 
 export function jsonObjectString<T>(objectDecoder : Decoder<T>) : Decoder<T>
 {
-    const decodeJsonStr = map(string, (str) => JSON.parse(str));
+    const decodeJsonStr = map(
+        either(string, inexact({})),
+        (item) =>
+        {
+            return typeof item === 'string' ? JSON.parse(item) : item;
+        }
+    );
 
     return compose(
         decodeJsonStr,

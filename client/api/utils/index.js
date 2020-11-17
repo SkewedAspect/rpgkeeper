@@ -1,31 +1,16 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Knex Migration configuration
+// Utilities
 //----------------------------------------------------------------------------------------------------------------------
 
-require('ts-node/register');
-
-// Config
-import configMan from './server/managers/config';
-
-// Logging
-import logging from 'trivial-logging';
-logging.setRootLogger('rpgkeeper');
-logging.init(configMan.config);
-
-// Managers
-import { getConfig } from './server/managers/database';
+function deepClone(item)
+{
+    return JSON.parse(JSON.stringify(item));
+} // end deepClone
 
 //----------------------------------------------------------------------------------------------------------------------
 
 module.exports = {
-    ...getConfig(),
-    migrations: {
-        directory: './server/knex/migrations'
-    },
-    seeds: {
-        directory: './server/knex/seeds'
-    }
-};
+    deepClone
+}; // end exports
 
 //----------------------------------------------------------------------------------------------------------------------
-

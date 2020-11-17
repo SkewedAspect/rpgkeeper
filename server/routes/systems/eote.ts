@@ -28,6 +28,7 @@ buildSupplementRoute(router, '/gear', 'gear', 'eote');
 buildSupplementRoute(router, '/qualities', 'quality', 'eote');
 buildSupplementRoute(router, '/talents', 'talent', 'eote');
 buildSupplementRoute(router, '/weapons', 'weapon', 'eote');
+buildSupplementRoute(router, '/forcepowers', 'forcepower', 'eote');
 
 router.get('/references', wrapAsync(async(req, resp) =>
 {

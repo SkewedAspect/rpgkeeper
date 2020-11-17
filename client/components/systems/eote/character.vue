@@ -16,6 +16,7 @@
             <div class="d-flex flex-column flex-fill mr-1">
                 <skills :readonly="!isAuthorized" @roll="onRoll"></skills>
                 <talents class="mt-1" :readonly="!isAuthorized"></talents>
+                <force-powers v-if="showForcePowers" class="mt-1" :readonly="!isAuthorized"></force-powers>
                 <weapons class="mt-1" :readonly="!isAuthorized" @roll="onRoll"></weapons>
                 <armor class="mt-1" :readonly="!isAuthorized"></armor>
             </div>
@@ -23,6 +24,7 @@
                 <experience class="flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></experience>
                 <defenses class="mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></defenses>
                 <wounds class=" mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></wounds>
+                <force-pool v-if="mode === 'eote'" class=" mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></force-pool>
                 <criticals class="mt-1" :readonly="!isAuthorized"></criticals>
             </div>
         </div>
@@ -58,6 +60,8 @@
     import Weapons from './weapons.vue';
     import Armor from './armor.vue';
     import Talents from './talents.vue';
+    import ForcePool from './forcePool.vue';
+    import ForcePowers from './forcePowers.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -74,7 +78,9 @@
             Criticals,
             Weapons,
             Armor,
-            Talents
+            Talents,
+            ForcePool,
+            ForcePowers
         },
         props: {
             isAuthorized: {
@@ -85,6 +91,12 @@
         subscriptions: {
             character: charMan.selected$,
             mode: eoteMan.mode$
+        },
+        computed: {
+            showForcePowers()
+            {
+                return this.mode === 'eote' && this.character.details.force.sensitive;
+            }
         },
         methods: {
             onRoll(dice, name)

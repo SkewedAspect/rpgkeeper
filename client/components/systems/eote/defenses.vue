@@ -24,14 +24,18 @@
                 <div class="p-2 text-center">
                     <b>Soak</b>
                     <hr class="m-1" />
-                    <h5>{{ defenses.soak }}</h5>
+                    <h5 class="m-0">
+                        {{ defenses.soak }}
+                    </h5>
                 </div>
             </b-card>
             <b-card class="flex-fill" no-body>
                 <div class="p-2 text-center">
                     <b>Melee / Ranged</b>
                     <hr class="m-1" />
-                    <h5>{{ defenses.melee }} / {{ defenses.ranged }}</h5>
+                    <h5 class="m-0">
+                        {{ defenses.melee }} / {{ defenses.ranged }}
+                    </h5>
                 </div>
             </b-card>
         </div>

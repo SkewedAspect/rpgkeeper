@@ -28,6 +28,7 @@ buildSupplementRoute(router, '/gear', 'gear', 'genesys');
 buildSupplementRoute(router, '/qualities', 'quality', 'genesys');
 buildSupplementRoute(router, '/talents', 'talent', 'genesys');
 buildSupplementRoute(router, '/weapons', 'weapon', 'genesys');
+buildSupplementRoute(router, '/motivations', 'motivation', 'genesys');
 
 router.get('/references', wrapAsync(async(req, resp) =>
 {
