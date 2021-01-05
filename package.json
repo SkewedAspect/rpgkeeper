@@ -19,7 +19,7 @@
   "author": "Christopher S. Case <chris.case@g33xnexus.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "base62": "^2.0.0",
     "body-parser": "^1.19.0",
     "browserslist": "4.14.6",
