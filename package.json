@@ -36,7 +36,7 @@
     "passport": "^0.4.0",
     "passport-google-web": "^1.0.0",
     "rpgdicejs": "^2.0.0-rc.2",
-    "socket.io": "^2.0.3",
+    "socket.io": "^2.4.0",
     "sqlite3": "^5.0.0",
     "trivial-logging": "^2.0.0",
     "trivialperms": "^1.0.0",
