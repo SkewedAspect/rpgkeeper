@@ -835,6 +835,17 @@ exports.seed = async function(knex)
                     reference: 'E-CRB:136',
                     official: true,
                     scope: 'public'
+                },
+                {
+                    id: 76,
+                    name: 'Well Rounded',
+                    description: 'The character chooses any two skills. They permanently become career skills.',
+                    activation: 'p',
+                    ranked: true,
+                    trees: 'Politico, Scholar',
+                    reference: 'E-CRB:145',
+                    official: true,
+                    scope: 'public'
                 }
             ]);
         });
