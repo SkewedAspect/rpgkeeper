@@ -326,17 +326,17 @@ function $getCriticalValue(critName)
     return critObj.range[0];
 } // end $getCriticalValue
 
-async function $buildTalents(talentList, db)
+async function $buildTalents(talentList, db, system = 'eote')
 {
     return Promise.all(talentList.map(async(talentInst) =>
     {
-        const results = await db('eote_talent')
+        const results = await db(`${ system }_talent`)
             .select()
             .where({ name: talentInst.name });
 
         if(results.length === 0)
         {
-            console.log('WTF?', talentInst.name);
+            throw new Error(`Failed to find talent '${ talentInst.name }'`);
         } // end if
 
         return {
@@ -347,7 +347,7 @@ async function $buildTalents(talentList, db)
     }));
 } // end $buildTalents
 
-async function $buildAbilities(abilities, db)
+async function $buildAbilities(abilities, db, system = 'eote')
 {
     return [];
 } // end $buildAbilities
@@ -464,26 +464,30 @@ async function convertTalents(db)
 async function convertCharacters(db)
 {
     // We only convert EotE character, and we skip the one non-eote character that was shoved in the eote system.
-    const eoteCharRecords = Object.values(baseChars).filter((char) => char.system === 'eote' && ![ 'Ir26P' ].includes(char.id));
+    const eoteCharRecords = Object.values(baseChars).filter((char) => char.system === 'eote');
 
     await Promise.all(eoteCharRecords.map(async(oldChar) =>
     {
+        console.log(`Converting ${ oldChar.id }: ${ oldChar.name }...`);
+
+        const system = [ 'Ir26P' ].includes(oldChar.id) ? 'genesys' : 'eote';
+
         // Get char details
         const oldCharDetails = eoteChars[oldChar.id];
 
         // Always create a notebook
-        // const [ note_id ] = db('note').insert({ hash_id: shortID() }, [ 'note_id' ]);
-        const note_id = -1;
+        const [ note_id ] = await db('note').insert({ hash_id: shortID() });
 
         // Build char record
         const char = {
             hash_id: oldChar.id,
-            system: 'eote',
+            system,
             name: oldChar.name,
-            description: oldChar.description,
-            portrait: oldChar.portrait,
-            thumbnail: oldChar.thumbnail,
+            description: oldChar.description ?? '',
+            portrait: oldChar.portrait ?? '',
+            thumbnail: oldChar.thumbnail ?? '',
             color: colorize(oldChar.name),
+            campaign: '',
             details: '{}',
             note_id,
             account_id: await $getAccountID(oldChar.user, db)
@@ -519,80 +523,95 @@ async function convertCharacters(db)
 
         if(notePages.length > 0)
         {
-            // await db('note_page').insert(notePages);
+            await db('note_page').insert(notePages);
         } // end if
 
         //--------------------------------------------------------------------------------------------------------------
         // Handle char details
         //--------------------------------------------------------------------------------------------------------------
 
-        const details = {
-            career: oldCharDetails.career,
-            species: oldCharDetails.species,
-            specialization: (oldCharDetails.specialization || []).join(', '),
-            characteristics: {
-                brawn: oldCharDetails.characteristics?.find((charac) => charac.name = 'Brawn')?.ranks || 0,
-                agility: oldCharDetails.characteristics?.find((charac) => charac.name = 'Agility')?.ranks || 0,
-                intellect: oldCharDetails.characteristics?.find((charac) => charac.name = 'Intellect')?.ranks || 0,
-                cunning: oldCharDetails.characteristics?.find((charac) => charac.name = 'Cunning')?.ranks || 0,
-                willpower: oldCharDetails.characteristics?.find((charac) => charac.name = 'Willpower')?.ranks || 0,
-                presence: oldCharDetails.characteristics?.find((charac) => charac.name = 'Presence')?.ranks || 0
-            },
-            experience: {
-                total: oldCharDetails.totalXP,
-                available: oldCharDetails.availableXP
-            },
-            defenses: {
-                soak: oldCharDetails.soak,
-                melee: oldCharDetails.meleeDefense,
-                ranged: oldCharDetails.rangedDefense
-            },
-            health: {
-                wounds: oldCharDetails.wounds,
-                woundThreshold: oldCharDetails.woundThreshold,
-                strain: oldCharDetails.strain,
-                strainThreshold: oldCharDetails.strainThreshold,
-                criticalInjuries: (oldCharDetails.criticals || []).map((critName) => ({ name: critName, value: $getCriticalValue(critName) || 0 })),
-                stimsUsed: 0,
-                staggered: false,
-                immobilized: false,
-                disoriented: false
-            },
-            skills: oldCharDetails.skills?.map((skill) =>
-            {
-                return {
-                    ...skill,
-                    characteristic: skill.characteristic.toLowerCase()
-                };
-            }) ?? eote.character.skills,
-            force: {
-                rating: oldCharDetails.forceRank,
-                committed: oldCharDetails.forceCommitted,
-                powers: await $buildForcePowers(oldCharDetails.forcePowers, db),
-                sensitive: oldCharDetails.forceRank > 0
-            },
-            gear: [],
-            talents: await $buildTalents(oldCharDetails.talents, db),
-            abilities: await $buildAbilities(oldCharDetails.abilities, db),
+        try
+        {
+            const details = {
+                career: oldCharDetails.career ?? 'unknown',
+                species: oldCharDetails.species ?? 'unknown',
+                specialization: (oldCharDetails.specialization || []).join(', '),
+                characteristics: {
+                    brawn: oldCharDetails.characteristics?.find((charac) => charac.name === 'Brawn')?.ranks || 0,
+                    agility: oldCharDetails.characteristics?.find((charac) => charac.name === 'Agility')?.ranks || 0,
+                    intellect: oldCharDetails.characteristics?.find((charac) => charac.name === 'Intellect')?.ranks || 0,
+                    cunning: oldCharDetails.characteristics?.find((charac) => charac.name === 'Cunning')?.ranks || 0,
+                    willpower: oldCharDetails.characteristics?.find((charac) => charac.name === 'Willpower')?.ranks || 0,
+                    presence: oldCharDetails.characteristics?.find((charac) => charac.name === 'Presence')?.ranks || 0
+                },
+                experience: {
+                    total: oldCharDetails.totalXP,
+                    available: oldCharDetails.availableXP
+                },
+                defenses: {
+                    soak: oldCharDetails.soak,
+                    melee: oldCharDetails.meleeDefense,
+                    ranged: oldCharDetails.rangedDefense
+                },
+                health: {
+                    wounds: oldCharDetails.wounds ?? 0,
+                    woundThreshold: oldCharDetails.woundThreshold ?? 0,
+                    strain: oldCharDetails.strain ?? 0,
+                    strainThreshold: oldCharDetails.strainThreshold ?? 0,
+                    criticalInjuries: (oldCharDetails.criticals || []).map((critName) => ({
+                        name: critName,
+                        value: $getCriticalValue(critName) ?? 0
+                    })),
+                    stimsUsed: 0,
+                    staggered: false,
+                    immobilized: false,
+                    disoriented: false
+                },
+                skills: oldCharDetails.skills?.map((skill) => 
+                {
+                    return {
+                        ...skill,
+                        ranks: skill.ranks ?? 0,
+                        characteristic: skill.characteristic.toLowerCase()
+                    };
+                }) ?? eote.character.skills,
+                force: {
+                    rating: oldCharDetails.forceRank,
+                    committed: oldCharDetails.forceCommitted,
+                    powers: await $buildForcePowers(oldCharDetails.forcePowers, db, system),
+                    sensitive: oldCharDetails.forceRank > 0
+                },
+                gear: [],
+                talents: await $buildTalents(oldCharDetails.talents, db, system),
+                abilities: await $buildAbilities(oldCharDetails.abilities, db, system),
 
-            // TODO: Finish filling these out!
-            armor: {
-                name: '',
-                defense: 0,
-                soak: 0,
-                hardpoints: 0,
-                encumbrance: 0,
-                rarity: 0,
-                attachments: [],
-                qualities: []
-            },
-            weapons: []
-        };
+                // TODO: Finish filling these out!
+                armor: {
+                    name: '',
+                    defense: 0,
+                    soak: 0,
+                    hardpoints: 0,
+                    encumbrance: 0,
+                    rarity: 0,
+                    attachments: [],
+                    qualities: []
+                },
+                weapons: []
+            };
 
-        console.log('details:', JSON.stringify(details.talents, null, 2));
+            // Update our details
+            char.details = JSON.stringify(details);
 
-        // Update our details
-        char.details = JSON.stringify(details);
+            // Save to the db
+            await db('character').insert(char);
+
+            console.log(`  ...finished ${ char.hash_id }: ${ char.name }`);
+        }
+        catch (error)
+        {
+            console.error(`Failed to build ${ char.hash_id }: ${ char.name }. Error:`, error.stack);
+            process.exit(1);
+        }
     }));
 } // end convertCharacters
 
