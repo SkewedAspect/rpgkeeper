@@ -97,7 +97,7 @@ export function stringWithLength(min : number, max = Infinity) : Decoder<string>
     {
         decoder = compose(
             decoder,
-            predicate((str) => str.length < max, `Must be less than ${ max } characters.`)
+            predicate((str) => str.length <= max, `Must be less than ${ max } characters.`)
         );
     } // end if
 
@@ -115,7 +115,7 @@ export function boundedInteger(min : number, max = Infinity) : Decoder<number>
     {
         decoder = compose(
             decoder,
-            predicate((int) => int < max, `Must be less than ${ max }.`)
+            predicate((int) => int <= max, `Must be less than ${ max }.`)
         );
     } // end if
 
