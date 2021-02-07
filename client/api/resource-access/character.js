@@ -34,7 +34,12 @@ class CharacterResourceAccess
         {
             const system = _.find(sysMan.systems, { id: def.system }) || { defaults: {} };
             character = new CharacterModel(def, system.defaults);
-            this.$characters[def.id] = character;
+
+            // We don't have an id if the character is new.
+            if(def.id)
+            {
+                this.$characters[def.id] = character;
+            } // end if
         } // end if
 
         return character;
