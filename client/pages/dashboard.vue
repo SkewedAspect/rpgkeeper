@@ -44,7 +44,7 @@
                                 <span class="d-none d-md-inline">Characters</span>
                             </h5>
                             <b-input-group class="flex-fill ml-auto" style="max-width: 400px">
-                                <b-form-input placeholder="Search Characters..."></b-form-input>
+                                <b-form-input v-model="charFilter" placeholder="Search Characters..."></b-form-input>
                                 <b-input-group-append>
                                     <b-btn variant="primary">
                                         <fa icon="search"></fa>
@@ -218,7 +218,7 @@
                     })
                     .filter((char) =>
                     {
-                        return !this.charFilter || _.includes(char.name, this.charFilter);
+                        return !this.charFilter || char.name.toLowerCase().includes(this.charFilter.toLocaleLowerCase());
                     })
                     .value();
             }
