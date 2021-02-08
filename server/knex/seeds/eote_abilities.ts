@@ -27,9 +27,6 @@ exports.seed = async function(knex)
 
     const eoteAbilities = abilities
         .concat([
-
-
-
             {
                 id: -1,
                 name: 'Bothan',

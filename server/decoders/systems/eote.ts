@@ -269,7 +269,7 @@ const baseSysDetailsPartial = {
         encumbrance: positiveInteger,
         rarity: positiveInteger,
         attachments: withDefault(array(positiveInteger), []),
-        qualities: array(object({ id: positiveInteger, ranks: boundedInteger(1) })),
+        qualities: array(object({ id: positiveInteger, ranks: optional(boundedInteger(1)) })),
         notes: optional(string)
     }), armor),
     weapons: withDefault(array(object({
