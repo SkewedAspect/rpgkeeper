@@ -347,9 +347,28 @@ async function $buildTalents(talentList, db, system = 'eote')
     }));
 } // end $buildTalents
 
-async function $buildAbilities(abilities, db, system = 'eote')
+async function $buildAbilities(abilityList, db, system = 'eote')
 {
-    return [];
+    return Promise.all(abilityList.map(async(abilityName) =>
+    {
+        // Handle the rename of 'Species Special Ability' to 'Species'.
+        let name = abilityName ?? '';
+        if([ 'Bothan', 'Human', 'Droid', 'Chiss', 'Kaleesh' ].includes(name.split(' ')[0]))
+        {
+            name = name.split(' ')[0];
+        }
+
+        const results = await db(`${ system }_ability`)
+            .select()
+            .where({ name });
+
+        if(results.length === 0)
+        {
+            throw new Error(`Failed to find ability '${ name }'.`);
+        } // end if
+
+        return results[0].id;
+    }));
 } // end $buildAbilities
 
 async function $buildForcePowers(powers, db)
@@ -567,7 +586,7 @@ async function convertCharacters(db)
                     immobilized: false,
                     disoriented: false
                 },
-                skills: oldCharDetails.skills?.map((skill) => 
+                skills: oldCharDetails.skills?.map((skill) =>
                 {
                     return {
                         ...skill,
@@ -582,8 +601,8 @@ async function convertCharacters(db)
                     sensitive: oldCharDetails.forceRank > 0
                 },
                 gear: [],
-                talents: await $buildTalents(oldCharDetails.talents, db, system),
-                abilities: await $buildAbilities(oldCharDetails.abilities, db, system),
+                talents: await $buildTalents(oldCharDetails.talents ?? [], db, system),
+                abilities: await $buildAbilities(oldCharDetails.abilities ?? [], db, system),
 
                 // TODO: Finish filling these out!
                 armor: {
