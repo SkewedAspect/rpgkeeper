@@ -10,7 +10,7 @@ const fs = require('fs/promises');
 const configMan = require('../../dist/server/managers/config').default;
 
 // Utils
-const { shortID, colorize } = require('../../dist/server/utils/misc');
+const { shortID, colorize, sortBy } = require('../../dist/server/utils/misc');
 
 // Defaults
 const { eote } = require('../../dist/server/systems/eote/defaults').default;
@@ -414,6 +414,54 @@ async function $buildForcePowers(powers, db)
     }));
 } // end $buildForcePowers
 
+async function $buildArmorAttachments(armor, db, system = 'eote')
+{
+    const upgrades = armor?.upgrades ?? '';
+    const armorAttachments = [];
+
+    // Get all possible attachments
+    const attachments = await db(`${ system }_attachment`)
+        .select('id', 'name');
+
+    // Loop through all possible, and see if the name is contained in the text field. This is problematic, but the best
+    // we can do against a free form entry field.
+    attachments.forEach(({ id, name }) =>
+    {
+        if(upgrades.includes(name))
+        {
+            armorAttachments.push(id);
+        }
+    });
+
+    return armorAttachments;
+}
+
+async function $buildArmorQualities(armor, db, system = 'eote')
+{
+    const upgrades = armor?.upgrades ?? '';
+    const armorQualities = [];
+
+    // Get all possible qualities (that are armor related)
+    const qualities = await db(`${ system }_quality`)
+        .select('id', 'name', 'ranked')
+        .whereNotIn('name', [
+            'Breach',
+            'Pierce'
+        ]);
+
+    // Loop through all possible, and see if the name is contained in the text field. This is problematic, but the best
+    // we can do against a free form entry field.
+    qualities.forEach(({ id, name, ranked }) =>
+    {
+        if(upgrades.includes(name))
+        {
+            armorQualities.push({ id, ranks: ranked ? 1 : undefined, name });
+        }
+    });
+
+    return armorQualities.sort(sortBy('name')).map(({ name, ...qual }) => qual);
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 
 async function init()
@@ -609,17 +657,18 @@ async function convertCharacters(db)
                 talents: await $buildTalents(oldCharDetails.talents ?? [], db, system),
                 abilities: await $buildAbilities(oldCharDetails.abilities ?? [], db, system),
 
-                // TODO: Finish filling these out!
                 armor: {
-                    name: '',
-                    defense: 0,
-                    soak: 0,
-                    hardpoints: 0,
-                    encumbrance: 0,
+                    name: oldCharDetails.armor?.name ?? '',
+                    defense: oldCharDetails.armor?.defense ?? 0,
+                    soak: oldCharDetails.armor?.soak ?? 0,
+                    hardpoints: oldCharDetails.armor?.hardPoints ?? 0,
+                    encumbrance: oldCharDetails.armor?.encumbrance ?? 0,
                     rarity: 0,
-                    attachments: [],
-                    qualities: []
+                    attachments: await $buildArmorAttachments(oldCharDetails.armor, db, system),
+                    qualities: await $buildArmorQualities(oldCharDetails.armor, db, system)
                 },
+
+                // TODO: Work weapons out; this will be a bit of a nightmare, thanks to the mod system.
                 weapons: []
             };
 
