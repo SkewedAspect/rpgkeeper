@@ -70,7 +70,7 @@
     "husky": "^4.2.5",
     "jquery": "^3.5.1",
     "lint-staged": "^10.2.2",
-    "marked": "^1.0.0",
+    "marked": "^2.0.0",
     "parcel": "^1.11.0",
     "pino-pretty": "^4.0.0",
     "popper.js": "^1.14.6",
