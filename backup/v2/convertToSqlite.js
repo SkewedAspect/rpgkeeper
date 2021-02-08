@@ -427,6 +427,11 @@ async function init()
     await db.migrate.latest({ directory: '../../dist/server/knex/migrations' });
     await db.seed.run({ directory: '../../dist/server/knex/seeds' });
 
+    // Cleanup the migration references
+    await db.update({
+        name: db.raw('replace(name, \'.js\', \'.ts\')')
+    }).from('knex_migrations');
+
     return db;
 } // end init
 
