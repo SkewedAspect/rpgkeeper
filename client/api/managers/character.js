@@ -4,6 +4,7 @@
 
 import _ from 'lodash';
 import { BehaviorSubject } from 'rxjs';
+import { io } from 'socket.io-client';
 
 // Managers
 import authMan from './auth';
@@ -23,6 +24,10 @@ class CharacterManager
         this._selectedSubject = new BehaviorSubject();
         this._savingSubject = new BehaviorSubject(false);
         this._statusSubject = new BehaviorSubject('loading');
+
+        // Listen for messages on the socket.
+        this._socket = io('/characters');
+        this._socket.on('message', this._onMessage.bind(this));
 
         // Subscriptions
         authMan.account$.subscribe(this._onAccountChanged.bind(this));
@@ -64,6 +69,22 @@ class CharacterManager
             this._charactersSubject.next([]);
         } // end if
     } // end _onAccountChanged
+
+    _onMessage(envelope)
+    {
+        if(envelope.type === 'update')
+        {
+            characterRA.$update(envelope.payload);
+        }
+        else if(envelope.type === 'remove')
+        {
+            characterRA.$remove(envelope.resource);
+            const characters = this.characters.filter((char) => char.id !== envelope.resource);
+            this._charactersSubject.next(characters);
+
+            // TODO: We need to pop some kind of warning that the character was deleted.
+        }
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API

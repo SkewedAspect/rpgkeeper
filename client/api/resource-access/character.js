@@ -45,6 +45,19 @@ class CharacterResourceAccess
         return character;
     } // end _buildModel
 
+    $update(def)
+    {
+        if(this.$characters[def.id])
+        {
+            this._buildOrUpdateModel(def);
+        }
+    }
+
+    $remove(charID)
+    {
+        delete this.$characters[charID];
+    }
+
     async newCharacter(charDef)
     {
         return this._buildOrUpdateModel(charDef);

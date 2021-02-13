@@ -16,6 +16,7 @@ import { MultipleResultsError, NotFoundError } from '../errors';
 import { FilterToken } from '../routes/utils/query';
 import { applyFilters } from '../knex/utils';
 import { shortID } from '../utils/misc';
+import { broadcast } from '../utils/sio';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -125,8 +126,17 @@ export async function update(charID : string, updateChar : Record<string, unknow
         .update({ ...newCharacter.toDB(), account_id, note_id })
         .where({ hash_id: charID });
 
+    const newChar = await get(charID);
+
+    // Broadcast the update
+    await broadcast('/characters', {
+        type: 'update',
+        resource: charID,
+        payload: newChar.toJSON()
+    });
+
     // Return the updated record
-    return get(charID);
+    return newChar;
 } // end update
 
 export async function remove(charID : string) : Promise<{ status : 'ok' }>
@@ -134,6 +144,12 @@ export async function remove(charID : string) : Promise<{ status : 'ok' }>
     await table('character')
         .where({ hash_id: charID })
         .delete();
+
+    // Broadcast the update
+    await broadcast('/characters', {
+        type: 'remove',
+        resource: charID
+    });
 
     return { status: 'ok' };
 } // end remove
