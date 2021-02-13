@@ -27,7 +27,7 @@ Well, are you a developer? RPGKeeper is written in [VueJS][vue], [TypeScript][ts
 
 ### Can I share a link to my character?
 
-You can! Simply copy the url from your browser, and send that link to someone else. They will see a read-only version of your character. (_Note:_ currently, the character they see is not update when you make changes, they will need to refresh. See #59 to track our progress on fixing this.)
+You can! Simply copy the url from your browser, and send that link to someone else. They will see a read-only version of your character.
 
 ---
 
@@ -39,7 +39,7 @@ RPGKeeper is, and always will be an open source project. We want to encourage de
 
 Before getting started you will need the following installed:
 
-* NodeJS >= 10 (v12+ recommended)
+* NodeJS >= v14
 * Yarn package manager (`npm install -g yarn`)
 
 ### Running

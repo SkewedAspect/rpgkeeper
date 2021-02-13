@@ -21,6 +21,9 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from 'passport';
 
+import http from 'http';
+import { Server as SIOServer } from 'socket.io';
+
 // Managers
 import * as dbMan from './server/managers/database';
 import * as accountMan from './server/managers/account';
@@ -44,6 +47,9 @@ import accountsRouter from './server/routes/accounts';
 import { version } from './package.json';
 import { AddressInfo } from 'net';
 
+// Utils
+import { setSIOInstance } from './server/utils/sio';
+
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handler
 //----------------------------------------------------------------------------------------------------------------------
@@ -60,7 +66,7 @@ process.on('uncaughtException', (err) =>
 /**
  * Main function
  */
-async function main() : Promise<{ app : Express, server : any }>
+async function main() : Promise<{ app : Express, sio : any, server : any }>
 {
     //------------------------------------------------------------------------------------------------------------------
     // Initialize managers
@@ -82,7 +88,7 @@ async function main() : Promise<{ app : Express, server : any }>
 
     //------------------------------------------------------------------------------------------------------------------
 
-    const http : Record<string, any> = configMan.config.http as Record<string, any>;
+    const httpConfig : Record<string, any> = configMan.config.http as Record<string, any>;
 
     // Build the express app
     const app = express();
@@ -101,7 +107,7 @@ async function main() : Promise<{ app : Express, server : any }>
         store,
 
         // maxAge = 7 days
-        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: http.secure },
+        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: httpConfig.secure },
         saveUninitialized: false
     }));
 
@@ -168,8 +174,15 @@ async function main() : Promise<{ app : Express, server : any }>
     // Server
     //------------------------------------------------------------------------------------------------------------------
 
+    const server = http.createServer(app);
+
+    const sio = new SIOServer(server);
+
+    // Send the sio server to the sio utility
+    setSIOInstance(sio);
+
     // Start the server
-    const server = app.listen(http.port, () =>
+    server.listen(httpConfig.port, () =>
     {
         const { address, port } = server.address() as AddressInfo;
 
@@ -178,7 +191,7 @@ async function main() : Promise<{ app : Express, server : any }>
     });
 
     // Return these, to make it easier for unit tests.
-    return { app, server };
+    return { app, sio, server };
 } // end main
 
 //----------------------------------------------------------------------------------------------------------------------
