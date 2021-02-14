@@ -11,5 +11,5 @@ dist
 node_modules
 
 # Database
-db/*.sqlite
-db/*.db*
+*.sqlite
+*.db*

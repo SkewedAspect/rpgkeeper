@@ -422,7 +422,8 @@ exports.seed = function(knex)
                         control: [
                             {
                                 description: 'The Force user can hurl objects to damage targets, by making a '
-                                    + '<b>ranged combat check</b>'
+                                    + '<b>ranged combat check</b> combined with a <b>Move power check</b>, dealing '
+                                    + 'damage equal to 10 times silhouette.'
                             },
                             {
                                 description: 'The Force user can pull objects out of secure mountings or out of an '

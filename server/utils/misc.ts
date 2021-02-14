@@ -9,13 +9,19 @@ import { v4 } from 'uuid';
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
- * This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid.
+ * This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid. Supports passing in a string to
+ * generate a id from, though when doing this, the string must be unique, or the uniqueness promise of this function is
+ * broken.
+ *
+ * @param uniqueSeed - A unique string seed to generate the id from. This seed must either be undefined, or as unique
+ * as a UUID.
  *
  * @returns Returns a unique string id.
  */
-export function shortID() : string
+export function shortID(uniqueSeed ?: string | string[]) : string
 {
-    return base62.encode(Buffer.from(v4(null, [])).readUInt32LE(0));
+    uniqueSeed = uniqueSeed ?? v4(null, []);
+    return base62.encode(Buffer.from(uniqueSeed).readUInt32LE(0));
 } // end shortID
 
 /**

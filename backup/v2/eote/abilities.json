@@ -39,11 +39,6 @@
         "description": "Droids cannot become Force sensitive, nor acquire a Force Rating by any means. Droids cannot use Force powers, and also cannot be affected by mind-altering Force powers.",
         "id": "Mechanical Being"
     },
-    "Foobar": {
-        "name": "Foobar",
-        "description": "This is my **new**, _special_ ability! It's cool!",
-        "id": "Foobar"
-    },
     "Chiss Skill Training": {
         "name": "Chiss Skill Training",
         "description": "Chiss begin the game with one rank in Cool. Thy still may not train Cool above rank 2 during character creation.",
@@ -58,11 +53,6 @@
         "name": "Kaleesh Special Ability",
         "description": "Kaleesh have adapted to see very well in low-light conditions. This allows Kaleesh to remove up to <setback></setback> added to checks added to lighting conditions.",
         "id": "Kaleesh Special Ability"
-    },
-    "": {
-        "name": "",
-        "description": "Humans start the game with one rank each in two different non-career skills of their choice. They still may not train these skills above rank 2 at character creation  (computer and mechanics).",
-        "id": ""
     },
     "Ready for Anything": {
         "name": "Ready for Anything",
