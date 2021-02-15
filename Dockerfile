@@ -11,6 +11,7 @@ ADD . /app/
 
 RUN yarn
 RUN yarn build:release
+RUN yarn build:server
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Yarn Stage - Install production packages and clean cache
@@ -22,7 +23,7 @@ COPY --from=bundle-builder /app /app
 
 WORKDIR /app
 
-RUN yarn install --production
+RUN yarn install --production --ignore-scripts
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Final Docker
@@ -34,9 +35,9 @@ EXPOSE 5678
 MAINTAINER Christopher S. Case <chris.case@g33xnexus.com>
 
 # Only copy the files we actually need
-COPY --from=yarn-builder /app/dist /app/dist
+COPY --from=bundle-builder /app/dist /app/dist
 COPY --from=yarn-builder /app/node_modules /app/node_modules
-COPY --from=yarn-builder /app/package.json /app/
+COPY --from=bundle-builder /app/package.json /app/
 
 RUN mkdir /app/db
 
