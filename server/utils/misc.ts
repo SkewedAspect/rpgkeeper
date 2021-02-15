@@ -18,9 +18,9 @@ import { v4 } from 'uuid';
  *
  * @returns Returns a unique string id.
  */
-export function shortID(uniqueSeed ?: string | string[]) : string
+export function shortID(uniqueSeed ?: string) : string
 {
-    uniqueSeed = uniqueSeed ?? v4(null, []);
+    uniqueSeed = uniqueSeed ?? v4(null, []).toString();
     return base62.encode(Buffer.from(uniqueSeed).readUInt32LE(0));
 } // end shortID
 

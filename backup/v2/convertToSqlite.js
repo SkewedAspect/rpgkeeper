@@ -561,7 +561,7 @@ async function $buildWeapon(charID, weapIdx, weapon, db, system = 'eote')
 {
     return {
         ...weapon,
-        skill: weapon.skill.replaceAll(' ', ''),
+        skill: weapon.skill.replace(/ /g, ''),
         range: rangeMap[weapon.range.toLowerCase()],
         criticalRating: weapon.critical,
         encumbrance: 0,
