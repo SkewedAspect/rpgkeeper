@@ -11,7 +11,7 @@
     "build:distclean": "rimraf dist/* .cache",
     "build:clean": "rimraf dist/*",
     "build:copy": "cpr client/static/ dist/client/static",
-    "build:release": "npm run build:distclean && npm run build:copy && parcel build client/index.html --out-dir dist/client --detailed-report",
+    "build:release": "npm run build:distclean && npm run build:copy && parcel build client/index.html --out-dir dist/client --detailed-report --no-minify",
     "build:watch": "npm run build:clean && npm run build:copy && parcel watch client/index.html --out-dir dist/client",
     "lint:fix": "eslint --ext *.ts,.js,.vue --fix server.ts config.ts server/ client/",
     "pre-commit": "lint-staged",
