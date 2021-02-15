@@ -38,6 +38,14 @@ const activationMap = {
     'Active (Action)': 'aa'
 };
 
+const rangeMap = {
+    engaged: 'en',
+    short: 's',
+    medium: 'm',
+    long: 'l',
+    extreme: 'ex'
+};
+
 const criticals = [
     {
         range: [ 1, 5 ],
@@ -214,6 +222,34 @@ const criticals = [
         description: 'Complete, obliterated death.'
     }
 ]; // end criticals
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// It's too hard to parse the attachment string, so I'm hard-coding a hand-built list.
+const oldCharWeaponAttachments = {
+    '3jsDFU': [
+        [],
+        [ 'Superior Weapon Customization', 'Serrated Edge' ],
+        [],
+        [ 'Superior Weapon Customization', 'Serrated Edge', 'Stun Pulse' ]
+    ],
+    '4zt2Hf': [
+        [ 'Superior Weapon Customization', 'Shadowsheath' ],
+        [ 'Serrated Edge', 'Mono-Molecular Edge' ]
+    ],
+    '4DtGAM': [
+        [],
+        [],
+        [],
+        [ 'Dantari Crystal' ]
+    ],
+    '2gmFVI': [
+        [ 'Superior Weapon Customization', 'Extended Hilt', 'Dantari Crystal' ]
+    ],
+    '2BkAY6': [
+        [ 'Ilum Crystal', 'Superior Hilt' ]
+    ]
+};
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -462,6 +498,89 @@ async function $buildArmorQualities(armor, db, system = 'eote')
     return armorQualities.sort(sortBy('name')).map(({ name, ...qual }) => qual);
 }
 
+async function $buildWeaponAttachments(charID, weaponIdx, db, system = 'eote')
+{
+    const charAttachments = oldCharWeaponAttachments[charID]?.[weaponIdx] ?? [];
+
+    // Get all possible attachments
+    const attachments = await db(`${ system }_attachment`)
+        .select('id', 'name');
+
+    return charAttachments.map((name) =>
+    {
+        const attachment = attachments.find((attach) => attach.name.toLowerCase() === name.toLowerCase());
+        if(attachment)
+        {
+            return attachment.id;
+        }
+        else
+        {
+            console.error(`Failed to find attachment '${ name }'.`);
+        }
+    });
+}
+
+async function $buildWeaponQualities(specials, db, system = 'eote')
+{
+    const weapQualities = [];
+    const parser = /^([a-zA-z ]+)(\d+)?$/;
+
+    // Get all possible qualities (that are armor related)
+    const qualities = await db(`${ system }_quality`)
+        .select('id', 'name', 'ranked');
+
+    specials.forEach((special) =>
+    {
+        let [ _full, name, ranks ] = special.match(parser);
+
+        name = name.trim();
+        if(name.toLowerCase() === 'stun setting')
+        {
+            name = 'Stun';
+        }
+
+        const qual = qualities.find((item) => item.name.toLowerCase() === name.toLowerCase());
+        if(qual)
+        {
+            weapQualities.push({
+                id: qual.id,
+                ranks: qual.ranked ? parseInt(ranks) : undefined,
+                name: qual.name
+            });
+        }
+        else
+        {
+            console.error('Failed to find quality:', special);
+        }
+    });
+
+    return weapQualities.sort(sortBy('name')).map(({ name, ...qual }) => qual);
+}
+
+async function $buildWeapon(charID, weapIdx, weapon, db, system = 'eote')
+{
+    return {
+        ...weapon,
+        skill: weapon.skill.replaceAll(' ', ''),
+        range: rangeMap[weapon.range.toLowerCase()],
+        criticalRating: weapon.critical,
+        encumbrance: 0,
+        rarity: 0,
+        attachments: await $buildWeaponAttachments(charID, weapIdx, db, system),
+        qualities: await $buildWeaponQualities(weapon.special, db, system)
+    };
+}
+
+async function $buildWeapons(charID, weapons, db, system = 'eote')
+{
+    if(weapons)
+    {
+        return Promise.all(weapons.map((weap, idx) => $buildWeapon(charID, idx, weap, db, system)));
+    }
+
+    return [];
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 
 async function init()
@@ -667,9 +786,7 @@ async function convertCharacters(db)
                     attachments: await $buildArmorAttachments(oldCharDetails.armor, db, system),
                     qualities: await $buildArmorQualities(oldCharDetails.armor, db, system)
                 },
-
-                // TODO: Work weapons out; this will be a bit of a nightmare, thanks to the mod system.
-                weapons: []
+                weapons: await $buildWeapons(oldChar.id, oldCharDetails.weapons, db, system)
             };
 
             // Update our details
