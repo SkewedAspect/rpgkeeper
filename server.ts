@@ -20,6 +20,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from 'passport';
+import helmet from 'helmet';
 
 import http from 'http';
 import { Server as SIOServer } from 'socket.io';
@@ -92,6 +93,11 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
 
     // Build the express app
     const app = express();
+
+    // Basic security fixes
+    app.use(helmet({
+        contentSecurityPolicy: false
+    }));
 
     // Basic request logging
     app.use(requestLogger(logger) as RequestHandler);
