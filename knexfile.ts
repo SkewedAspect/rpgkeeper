@@ -4,6 +4,8 @@
 
 require('ts-node/register');
 
+import knex from 'knex';
+
 // Config
 import configMan from './server/managers/config';
 
@@ -17,14 +19,24 @@ import { getConfig } from './server/managers/database';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
-    ...getConfig(),
-    migrations: {
-        directory: './server/knex/migrations'
-    },
-    seeds: {
-        directory: './server/knex/seeds'
-    }
+module.exports = async () =>
+{
+    const db = knex(getConfig());
+
+    // When this file is run, it expects the migrations to end in .ts, so accommodate that.
+    await db.update({ name: db.raw('replace(name, \'.js\', \'.ts\')') })
+        .from('knex_migrations');
+
+    return {
+        ...getConfig(),
+        migrations: {
+            directory: './server/knex/migrations',
+            extension: 'ts'
+        },
+        seeds: {
+            directory: './server/knex/seeds'
+        }
+    };
 };
 
 //----------------------------------------------------------------------------------------------------------------------
