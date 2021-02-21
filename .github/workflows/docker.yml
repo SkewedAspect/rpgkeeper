@@ -1,36 +1,120 @@
-name: docker
+# ----------------------------------------------------------------------------------------------------------------------
+# Build and Deploy docker images
+#
+# This action requires the following secrets to be set:
+#   * RANCHER_ACCESS_KEY - API Access key created in Rancher.
+#   * RANCHER_SECRET_KEY - API Secret key created in Rancher.
+# ----------------------------------------------------------------------------------------------------------------------
+
+name: Docker
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - master
+
+  release:
+    types: [published]
+
+env:
+  IMAGE_NAME: battlemap
 
 jobs:
-  build:
+  push:
+
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
 
     steps:
-      - uses: actions/checkout@master
-
-      - name: Login to docker hub
-        if: success()
-        uses: actions-hub/docker/login@master
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - uses: actions/checkout@v2
 
       - name: Build image
-        if: success()
-        run: docker build -t morgul/rpgkeeper:latest -t morgul/rpgkeeper:v${IMAGE_TAG} .
+        run: docker build . --file Dockerfile --tag image
 
-      - name: Push to docker registry (latest)
-        if: success()
-        uses: actions-hub/docker@master
-        with:
-          args: push morgul/rpgkeeper:latest
+      - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
-      - name: Push to docker registry (version)
-        if: success()
-        uses: actions-hub/docker@master
-        with:
-          args: push morgul/rpgkeeper:v${IMAGE_TAG}
+      - name: Push image
+        run: |
+          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "master" ] && VERSION=latest
+
+          echo IMAGE_ID=$IMAGE_ID >> $GITHUB_ENV
+          echo VERSION=$VERSION >> $GITHUB_ENV
+
+          docker tag image $IMAGE_ID:$VERSION
+
+          docker push $IMAGE_ID:$VERSION
+
+  # Deploys Beta docker
+  deploy-beta:
+    needs: push
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set ENV Variables.
+        run: |
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "master" ] && VERSION=latest
+
+          echo VERSION=$VERSION >> $GITHUB_ENV
+
+      - name: Deploy Beta Site
+        uses: yantadeu/rancher-deploy-action@v0.0.3
+        env:
+          RANCHER_ACCESS_KEY: ${{ secrets.RANCHER_ACCESS_KEY }}
+          RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
+          RANCHER_URL_API: 'https://rancher.skewedaspect.com/v3'
+          SERVICE_NAME: 'rpgkeeper-beta'
+          DOCKER_IMAGE: 'docker.pkg.github.com/SkewedAspect/rpgkeeper/rpgkeeper:${{ env.VERSION }}'
+
+  # Deploys prod docker
+  deploy-prod:
+    needs: push
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set ENV Variables.
+        run: |
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "master" ] && VERSION=latest
+
+          echo VERSION=$VERSION >> $GITHUB_ENV
+
+      - name: Deploy WWW Site
+        uses: yantadeu/rancher-deploy-action@v0.0.3
+        env:
+          RANCHER_ACCESS_KEY: ${{ secrets.RANCHER_ACCESS_KEY }}
+          RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
+          RANCHER_URL_API: 'https://rancher.skewedaspect.com/v3'
+          SERVICE_NAME: 'rpgkeeper-beta'
+          DOCKER_IMAGE: 'docker.pkg.github.com/SkewedAspect/rpgkeeper/rpgkeeper:${{ env.VERSION }}'

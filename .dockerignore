@@ -11,3 +11,7 @@ tmp
 # Application artifacts
 .cache
 dist
+
+# Misc. artifacts
+.github
+.husky
