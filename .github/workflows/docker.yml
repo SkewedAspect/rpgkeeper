@@ -87,8 +87,8 @@ jobs:
           RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
           RANCHER_URL_API: 'https://rancher.skewedaspect.com/v3'
           SERVICE_NAME: 'rpgkeeper-beta'
-          DOCKER_IMAGE: 'docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME:${{ env.VERSION }}'
-          DOCKER_IMAGE_LATEST: 'docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME:latest'
+          DOCKER_IMAGE: 'morgul/rpgkeeper:v${VERSION}'
+          DOCKER_IMAGE_LATEST: 'morgul/rpgkeeper:latest'
 
   # Deploys prod docker
   deploy-prod:
@@ -119,5 +119,5 @@ jobs:
           RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
           RANCHER_URL_API: 'https://rancher.skewedaspect.com/v3'
           SERVICE_NAME: 'rpgkeeper'
-          DOCKER_IMAGE: 'docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME:${{ env.VERSION }}'
-          DOCKER_IMAGE_LATEST: 'docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME:latest'
+          DOCKER_IMAGE: 'morgul/rpgkeeper:v${VERSION}'
+          DOCKER_IMAGE_LATEST: 'morgul/rpgkeeper:latest'
