@@ -17,7 +17,7 @@ on:
     types: [published]
 
 env:
-  IMAGE_NAME: battlemap
+  IMAGE_NAME: rpgkeeper
 
 jobs:
   push:
@@ -50,8 +50,8 @@ jobs:
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
 
-          echo IMAGE_ID=$IMAGE_ID >> $GITHUB_ENV
-          echo VERSION=$VERSION >> $GITHUB_ENV
+          echo IMAGE_ID=$IMAGE_ID
+          echo VERSION=$VERSION
 
           docker tag image $IMAGE_ID:$VERSION
 
@@ -86,7 +86,8 @@ jobs:
           RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
           RANCHER_URL_API: 'https://rancher.skewedaspect.com/v3'
           SERVICE_NAME: 'rpgkeeper-beta'
-          DOCKER_IMAGE: 'docker.pkg.github.com/SkewedAspect/rpgkeeper/rpgkeeper:${{ env.VERSION }}'
+          DOCKER_IMAGE: 'docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME:${{ env.VERSION }}',
+          DOCKER_IMAGE_LATEST: 'docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME:latest'
 
   # Deploys prod docker
   deploy-prod:
@@ -110,11 +111,12 @@ jobs:
 
           echo VERSION=$VERSION >> $GITHUB_ENV
 
-      - name: Deploy WWW Site
+      - name: Deploy Production Site
         uses: yantadeu/rancher-deploy-action@v0.0.3
         env:
           RANCHER_ACCESS_KEY: ${{ secrets.RANCHER_ACCESS_KEY }}
           RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
           RANCHER_URL_API: 'https://rancher.skewedaspect.com/v3'
-          SERVICE_NAME: 'rpgkeeper-beta'
-          DOCKER_IMAGE: 'docker.pkg.github.com/SkewedAspect/rpgkeeper/rpgkeeper:${{ env.VERSION }}'
+          SERVICE_NAME: 'rpgkeeper'
+          DOCKER_IMAGE: 'docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME:${{ env.VERSION }}',
+          DOCKER_IMAGE_LATEST: 'docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME:latest'
