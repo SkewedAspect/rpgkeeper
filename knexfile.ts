@@ -24,8 +24,22 @@ module.exports = async () =>
     const db = knex(getConfig());
 
     // When this file is run, it expects the migrations to end in .ts, so accommodate that.
-    await db.update({ name: db.raw('replace(name, \'.js\', \'.ts\')') })
-        .from('knex_migrations');
+    await db('knex_migrations')
+        .select()
+        .limit(1)
+        .then(async() =>
+        {
+            await db.update({ name: db.raw('replace(name, \'.js\', \'.ts\')') })
+                .from('knex_migrations');
+        })
+        .catch(async(error) =>
+        {
+            if(error.code !== 'SQLITE_ERROR')
+            {
+                throw error;
+            } // end if
+        });
+
 
     return {
         ...getConfig(),
