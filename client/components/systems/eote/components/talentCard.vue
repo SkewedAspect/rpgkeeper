@@ -5,11 +5,13 @@
 <template>
     <b-card v-if="talent && talentBase" :id="id" class="eote-talent-card" no-body>
         <template #header>
-            <b>{{ talentBase.name }}</b>
-            <span v-if="talentBase.ranked" class="font-weight-bold">{{ talent.ranks }}</span>
-            <span v-if="mode === 'genesys'">
-                (Tier {{ talentBase.tier }})
-            </span>
+            <div class="text-nowrap text-center">
+                <b>{{ talentBase.name }}</b>
+                <span v-if="talentBase.ranked" class="font-weight-bold">{{ talent.ranks }}</span>
+                <span v-if="mode === 'genesys'">
+                    (Tier {{ talentBase.tier }})
+                </span>
+            </div>
 
             <b-popover :target="id" triggers="hover" placement="top">
                 <template #title>
@@ -42,19 +44,19 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-    .eote-talent-card {
-        .card-header {
-            border-bottom: none;
-            cursor: pointer;
-            padding: 0.25rem 0.5rem;
-        }
+.eote-talent-card {
+    .card-header {
+        border-bottom: none;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
     }
+}
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script>
-    //------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
 
     import { v4 } from 'uuid';
 
@@ -94,7 +96,10 @@
             };
         },
         computed: {
-            id() { return `talent-${ this.uuid }`; },
+            id()
+            {
+                return `talent-${ this.uuid }`;
+            },
             talentBase()
             {
                 if(this.talent && this.talent.id)

@@ -1,27 +1,25 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Genesys Talents
+  -- Talent Placeholder
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div id="genesys-sub-talents">
-        <tier-row :tier="1"></tier-row>
-        <tier-row class="mt-3" :tier="2"></tier-row>
-        <tier-row class="mt-3" :tier="3"></tier-row>
-        <tier-row class="mt-3" :tier="4"></tier-row>
-        <tier-row class="mt-3" :tier="5"></tier-row>
-
-        <h5 v-if="talents.length === 0" class="m-0 text-center">
-            No Talents
-        </h5>
-    </div>
+    <b-card :id="id" class="eote-talent-placeholder" no-body>
+        <template #header>
+            <div class="text-muted text-nowrap text-center">Open Talent Slot</div>
+        </template>
+    </b-card>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-    #genesys-sub-talents {
-        .talent-row {
-            margin-top: -0.5rem;
+    .eote-talent-placeholder {
+        border-style: dashed;
+
+        .card-header {
+            border-bottom: none;
+            //cursor: pointer;
+            padding: 0.25rem 0.5rem;
         }
     }
 </style>
@@ -31,27 +29,20 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    // Managers
-    import charMan from '../../../../api/managers/character';
-
-    // Components
-    import TierRow from './tierRow.vue';
+    import { v4 } from 'uuid';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'GenesysSubTalents',
-        components: {
-            TierRow
-        },
-        subscriptions: {
-            character: charMan.selected$,
+        name: 'EotETalentPlaceholder',
+        data()
+        {
+            return {
+                uuid: v4()
+            };
         },
         computed: {
-            talents()
-            {
-                return this.character.details.talents;
-            }
+            id() { return `talent-${ this.uuid }`; },
         }
     };
 </script>

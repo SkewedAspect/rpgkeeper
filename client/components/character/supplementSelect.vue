@@ -36,10 +36,13 @@
                                     </b-button>
                                 </template>
                                 <template #suggestion="{ data, htmlText }">
-                                    <b-badge class="float-right" :variant="data.scope === 'user' ? 'success' : ''">
-                                        <span v-if="data.scope === 'user'">User</span>
-                                        <span v-else-if="data.scope === 'public'">Public</span>
-                                    </b-badge>
+                                    <div class="float-right">
+                                        <slot :supplement="data" name="suggestion-extra"></slot>
+                                        <b-badge :variant="data.scope === 'user' ? 'success' : ''">
+                                            <span v-if="data.scope === 'user'">User</span>
+                                            <span v-else-if="data.scope === 'public'">Public</span>
+                                        </b-badge>
+                                    </div>
 
                                     <!-- Note: the v-html binding is used, as htmlText contains
                                          the suggestion text highlighted with <strong> tags -->
@@ -58,6 +61,7 @@
                     <b-list-group v-if="selectedSupplements.length > 0" flush class="overflow-auto">
                         <b-list-group-item v-for="supp in selectedSupplements" :key="supp.id" :variant=" supp.id === currentSelection ? 'primary' : ''" @click="selectSupp(supp)">
                             <div class="float-right">
+                                <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra"></slot>
                                 <b-badge :variant="getSupp(supp.id).scope === 'user' ? 'success' : ''">
                                     <span v-if="getSupp(supp.id).scope === 'user'">User</span>
                                     <span v-else-if="getSupp(supp.id).scope === 'public'">Public</span>
@@ -94,8 +98,10 @@
                                 </b-btn>
                             </div>
                             <b>
-                                {{ currentSupplement.name }}
-                                <span v-if="currentSupplement.ranked">{{ supplementInstance.ranks }}</span>
+                                <slot :instance="supplementInstance" :supplement="currentSupplement" name="preview-title">
+                                    {{ currentSupplement.name }}
+                                    <span v-if="currentSupplement.ranked">{{ supplementInstance.ranks }}</span>
+                                </slot>
                             </b>
                         </slot>
                     </template>
@@ -172,6 +178,10 @@
             maxHeight: {
                 type: String,
                 default: '300px'
+            },
+            sortFn: {
+                type: Function,
+                default: (suppA, suppB) => suppA.name.localeCompare(suppB.name)
             }
         },
         data()
@@ -196,7 +206,7 @@
                         } // end if
                         return supp.name.toLowerCase().includes(this.search.toLowerCase()) && !alreadyAdded;
                     })
-                    .sort((suppA, suppB) => suppA.name.localeCompare(suppB.name));
+                    .sort(this.sortFn);
             },
             selectedSupplements()
             {

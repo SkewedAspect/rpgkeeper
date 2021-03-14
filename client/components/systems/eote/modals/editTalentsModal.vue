@@ -26,8 +26,9 @@
                     ref="suppSelect"
                     label="Talents"
                     label-class="font-weight-bold"
-                    :available="talents"
-                    :selected="selectedTalents"
+                    :available="sortedTalents"
+                    :selected="sortedSelected"
+                    :sort-fn="() => 0"
                     @add="onTalentAdd"
                     @remove="onTalentRemove"
                     @new="onTalentNew"
@@ -38,7 +39,7 @@
                         <div class="clearfix">
                             <div v-if="supplement.ranked" class="mb-2 float-right">
                                 <label for="sb-inline">Ranks</label>
-                                <b-form-spinbutton id="sb-inline" v-model="instance.ranks" inline></b-form-spinbutton>
+                                <b-form-spinbutton id="sb-inline" v-model="getInst(instance.id).ranks" inline></b-form-spinbutton>
                             </div>
                             <div class="mb-2">
                                 <i>{{ getActivation(supplement) }}</i>
@@ -49,10 +50,49 @@
                                 :reference="supplement.reference"
                             ></reference>
                         </div>
-                        <div v-if="instance.notes" class="font-sm">
+                        <div class="font-sm">
                             <hr />
-                            <markdown-block :text="instance.notes" inline></markdown-block>
+                            <div class="float-right">
+                                <b-btn v-if="!editInstance" size="sm" @click="editInstanceNotes(instance)">
+                                    <fa icon="edit"></fa>
+                                    Edit Notes
+                                </b-btn>
+                            </div>
+                            <b-card v-if="editInstance" class="overflow-hidden" no-body>
+                                <codemirror ref="editor" v-model="editInstance.notes" :options="{ lineNumbers: true }"></codemirror>
+                                <template #footer>
+                                    <div class="text-right">
+                                        <b-btn v-if="editInstance" class="mr-2" size="sm" @click="saveInstanceNotes(instance, true)">
+                                            <fa icon="times"></fa>
+                                            Cancel Notes
+                                        </b-btn>
+                                        <b-btn v-if="editInstance" variant="success" size="sm" @click="saveInstanceNotes(instance)">
+                                            <fa icon="save"></fa>
+                                            Save Notes
+                                        </b-btn>
+                                    </div>
+                                </template>
+                            </b-card>
+                            <markdown-block v-else-if="instance.notes" :text="instance.notes" inline></markdown-block>
+                            <i v-else>No notes.</i>
                         </div>
+                    </template>
+                    <template #preview-title="{ instance, supplement }">
+                        <div v-if="mode === 'genesys'" class="float-right">
+                            <span class="text-muted">Tier {{ supplement.tier }}</span>
+                        </div>
+                        {{ supplement.name }}
+                        <span v-if="supplement.ranked">{{ instance.ranks }}</span>
+                    </template>
+                    <template #selection-extra="{ supplement }">
+                        <b-badge v-if="mode === 'genesys'">
+                            Tier {{ supplement.tier }}
+                        </b-badge>
+                    </template>
+                    <template #suggestion-extra="{ supplement }">
+                        <b-badge v-if="mode === 'genesys'">
+                            Tier {{ supplement.tier }}
+                        </b-badge>
                     </template>
                 </supplement-select>
             </div>
@@ -128,10 +168,42 @@
                 delTalent: {
                     id: undefined,
                     name: undefined
-                }
+                },
+                editInstance: undefined
             };
         },
+        computed: {
+            sortedTalents()
+            {
+                return _.sortBy(this.talents, [ 'tier', 'name' ], [ 'asc', 'desc' ]);
+            },
+            sortedSelected()
+            {
+                return _.sortBy(
+                    this.selectedTalents
+                        .map((talentInst) =>
+                        {
+                            const talentBase = this.talents.find(({ id }) => id === talentInst.id);
+                            return {
+                                ...talentInst,
+                                base: talentBase
+                            };
+                        }),
+                    [
+                        'base.tier',
+                        'base.name'
+                    ]
+                );
+            }
+        },
         methods: {
+            cmRefresh()
+            {
+                this.$nextTick(() =>
+                {
+                    this.$refs.editor.codemirror.refresh();
+                });
+            },
             getActivation(talent)
             {
                 return eoteMan.activationEnum[talent.activation] || 'Unknown';
@@ -146,6 +218,14 @@
             onShown()
             {
                 this.selectedTalents = this.character.details.talents.concat();
+            },
+            getInst(instID)
+            {
+                return this.character.details.talents
+                    .find((talentInst) =>
+                    {
+                        return talentInst.id === instID;
+                    });
             },
             getTalent(talentInstance)
             {
@@ -197,6 +277,24 @@
                     await charMan.save(this.character),
                     await eoteMan.delSup('talents', this.delTalent)
                 ]);
+            },
+
+            editInstanceNotes(instance)
+            {
+                this.editInstance = instance;
+                this.$nextTick(() =>
+                {
+                    this.cmRefresh();
+                });
+            },
+            saveInstanceNotes(instance, cancel = false)
+            {
+                if(!cancel)
+                {
+                    this.$set(this.getInst(instance.id), 'notes', this.editInstance.notes);
+                }
+
+                this.editInstance = undefined;
             },
 
             show()

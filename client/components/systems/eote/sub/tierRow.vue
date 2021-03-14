@@ -1,23 +1,26 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- EotE Talents
+  -- tierRow.vue
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div id="eote-sub-talents">
-        <div class="d-flex flex-wrap" style="margin-top: -0.5rem">
+    <div class="tier-row">
+        <h6>
+            Tier {{ tier }} ({{ talents.length }} / {{ maxTalents }})
+        </h6>
+        <div v-if="(talents.length > 0) || (talentPlaceholders.length > 0)" class="d-flex flex-wrap" style="margin-top: -0.5rem">
             <talent-card v-for="talentInst in talents" :key="talentInst.id" class="mr-2 mt-2 flex-fill" :talent="talentInst"></talent-card>
+            <talent-placeholder v-for="(_, index) in talentPlaceholders" :key="index" class="mr-2 mt-2 flex-fill"></talent-placeholder>
         </div>
-
-        <h5 v-if="talents.length === 0" class="m-0 text-center">
-            No Talents
-        </h5>
+        <div v-else class="text-muted">
+            No tier {{ tier }} talents.
+        </div>
     </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-    #eote-sub-talents {
+    .tier-row {
     }
 </style>
 
@@ -32,6 +35,7 @@
 
     // Components
     import TalentCard from '../components/talentCard.vue';
+    import TalentPlaceholder from '../components/talentPlaceholder.vue';
 
     // Utils
     import { sortBy } from '../../../../../server/utils/misc';
@@ -39,22 +43,26 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'EoteSubTalents',
+        name: 'TalentTierRow',
         components: {
-            TalentCard
+            TalentCard,
+            TalentPlaceholder
         },
         props: {
-            readonly: {
-                type: Boolean,
-                default: false
+            tier: {
+                type: Number,
+                required: true
             }
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$
+            };
         },
         computed: {
-            talents()
+            allTalents()
             {
                 return this.character.details.talents
                     .map((talentInst) =>
@@ -62,10 +70,36 @@
                         const talentBase = eoteMan.talents.find(({ id }) => id === talentInst.id);
                         return {
                             ...talentInst,
-                            name: talentBase?.name
+                            name: talentBase?.name,
+                            base: talentBase
                         };
                     })
                     .sort(sortBy('name'));
+            },
+            talents()
+            {
+                return this.allTalents
+                    .filter((talentInst) => talentInst?.base?.tier === this.tier);
+            },
+            talentPlaceholders()
+            {
+                const placeholders = [];
+                placeholders.length = Math.max(this.maxTalents - this.talents.length, 0);
+                return placeholders;
+            },
+            maxTalents()
+            {
+                if(this.tier === 1)
+                {
+                    return this.talents.length + 1;
+                }
+                else
+                {
+                    const priorTalents = this.allTalents
+                        .filter((talentInst) => talentInst?.base?.tier === (this.tier - 1));
+
+                    return Math.max(priorTalents.length - 1, 0);
+                }
             }
         }
     };
