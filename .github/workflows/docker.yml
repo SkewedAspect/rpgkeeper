@@ -50,13 +50,13 @@ jobs:
 
       - name: Build docker
         if: success()
-        run: docker build -t morgul/rpgkeeper:v${VERSION} .
+        run: docker build -t morgul/rpgkeeper:${VERSION} .
 
       - name: Push docker
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: push morgul/rpgkeeper:v${VERSION}
+          args: push morgul/rpgkeeper:${VERSION}
 
   # Deploys Beta docker
   deploy-beta:
