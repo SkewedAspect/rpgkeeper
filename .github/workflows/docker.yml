@@ -20,34 +20,34 @@ env:
   IMAGE_NAME: rpgkeeper
 
 jobs:
-#  push:
-#
-#    runs-on: ubuntu-latest
-#    if: github.event_name == 'push'
-#
-#    steps:
-#      - uses: actions/checkout@v2
-#
-#      - name: Login to docker hub
-#        if: success()
-#        uses: actions-hub/docker/login@master
-#        env:
-#          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-#          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-#
-#      - name: Set ENV Variables.
-#        run: |
-#          # Strip git ref prefix from version
-#          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-#
-#          # Strip "v" prefix from tag name
-#          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-#
-#          # Use Docker `latest` tag convention
-#          [ "$VERSION" == "master" ] && VERSION=latest
-#
-#          echo VERSION=$VERSION >> $GITHUB_ENV
-#
+  push:
+
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to docker hub
+        if: success()
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Set ENV Variables.
+        run: |
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "master" ] && VERSION=latest
+
+          echo VERSION=$VERSION >> $GITHUB_ENV
+
 #      - name: Build docker
 #        if: success()
 #        run: docker build -t morgul/rpgkeeper:${VERSION} .
@@ -60,7 +60,7 @@ jobs:
 
   # Deploys Beta docker
   deploy-beta:
-#    needs: push
+    needs: push
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
