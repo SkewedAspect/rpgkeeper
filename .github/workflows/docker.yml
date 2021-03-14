@@ -84,7 +84,7 @@ jobs:
         uses: wei/curl@master
         with:
           args:
-            "-u \"token:${{ RANCHER_SECRET_KEY }}\" -X PATCH -H 'Content-Type: application/json-patch+json' https://ranker.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:latest\" } ]'"
+            "-u \"token:${{ secrets.RANCHER_SECRET_KEY }}\" -X PATCH -H 'Content-Type: application/json-patch+json' https://ranker.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:latest\" } ]'"
 
 #      - name: Deploy Beta Site
 #        uses: yantadeu/rancher-deploy-action@v0.0.3
@@ -122,7 +122,7 @@ jobs:
         uses: wei/curl@master
         with:
           args:
-            "-u \"token:${{ RANCHER_SECRET_KEY }}\" -X PATCH -H 'Content-Type: application/json-patch+json' https://ranker.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:${VERSION}\" } ]'"
+            "-u \"token:${{ secrets.RANCHER_SECRET_KEY }}\" -X PATCH -H 'Content-Type: application/json-patch+json' https://ranker.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:${VERSION}\" } ]'"
 #        uses: yantadeu/rancher-deploy-action@v0.0.3
 #        env:
 #          RANCHER_ACCESS_KEY: ${{ secrets.RANCHER_ACCESS_KEY }}
