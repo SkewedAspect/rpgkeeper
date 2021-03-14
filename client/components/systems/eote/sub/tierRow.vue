@@ -70,7 +70,7 @@
                         const talentBase = eoteMan.talents.find(({ id }) => id === talentInst.id);
                         return {
                             ...talentInst,
-                            name: talentBase.name,
+                            name: talentBase?.name,
                             base: talentBase
                         };
                     })

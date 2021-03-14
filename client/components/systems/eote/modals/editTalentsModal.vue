@@ -26,8 +26,9 @@
                     ref="suppSelect"
                     label="Talents"
                     label-class="font-weight-bold"
-                    :available="talents"
-                    :selected="selectedTalents"
+                    :available="sortedTalents"
+                    :selected="sortedSelected"
+                    :sort-fn="() => 0"
                     @add="onTalentAdd"
                     @remove="onTalentRemove"
                     @new="onTalentNew"
@@ -53,6 +54,23 @@
                             <hr />
                             <markdown-block :text="instance.notes" inline></markdown-block>
                         </div>
+                    </template>
+                    <template #preview-title="{ instance, supplement }">
+                        <div v-if="mode === 'genesys'" class="float-right">
+                            <span class="text-muted">Tier {{ supplement.tier }}</span>
+                        </div>
+                        {{ supplement.name }}
+                        <span v-if="supplement.ranked">{{ instance.ranks }}</span>
+                    </template>
+                    <template #selection-extra="{ supplement }">
+                        <b-badge v-if="mode === 'genesys'">
+                            Tier {{ supplement.tier }}
+                        </b-badge>
+                    </template>
+                    <template #suggestion-extra="{ supplement }">
+                        <b-badge v-if="mode === 'genesys'">
+                            Tier {{ supplement.tier }}
+                        </b-badge>
                     </template>
                 </supplement-select>
             </div>
@@ -130,6 +148,30 @@
                     name: undefined
                 }
             };
+        },
+        computed: {
+            sortedTalents()
+            {
+                return _.sortBy(this.talents, [ 'tier', 'name' ], [ 'asc', 'desc' ]);
+            },
+            sortedSelected()
+            {
+                return _.sortBy(
+                    this.selectedTalents
+                        .map((talentInst) =>
+                        {
+                            const talentBase = this.talents.find(({ id }) => id === talentInst.id);
+                            return {
+                                ...talentInst,
+                                base: talentBase
+                            };
+                        }),
+                    [
+                        'base.tier',
+                        'base.name'
+                    ]
+                );
+            }
         },
         methods: {
             getActivation(talent)

@@ -1,5 +1,5 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- genesysTalents.vue
+  -- Genesys Talents
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
@@ -31,11 +31,8 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-
     // Managers
     import charMan from '../../../../api/managers/character';
-    import eoteMan from '../../../../api/managers/eote';
 
     // Components
     import TierRow from './tierRow.vue';
@@ -47,31 +44,13 @@
         components: {
             TierRow
         },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
         subscriptions: {
             character: charMan.selected$,
-            mode: eoteMan.mode$
         },
         computed: {
             talents()
             {
-                return _.sortBy(this.character.details.talents, [
-                    (talentInst) =>
-                    {
-                        const talentBase = _.find(eoteMan.talents, { id: talentInst.id });
-                        return (talentBase || {}).tier || 0;
-                    },
-                    (talentInst) =>
-                    {
-                        const talentBase = _.find(eoteMan.talents, { id: talentInst.id });
-                        return (talentBase || {}).name;
-                    }
-                ]);
+                return this.character.details.talents;
             }
         }
     };
