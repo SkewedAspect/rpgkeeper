@@ -20,47 +20,47 @@ env:
   IMAGE_NAME: rpgkeeper
 
 jobs:
-  push:
-
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Login to docker hub
-        if: success()
-        uses: actions-hub/docker/login@master
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Set ENV Variables.
-        run: |
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-
-          # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
-
-          echo VERSION=$VERSION >> $GITHUB_ENV
-
-      - name: Build docker
-        if: success()
-        run: docker build -t morgul/rpgkeeper:${VERSION} .
-
-      - name: Push docker
-        if: success()
-        uses: actions-hub/docker@master
-        with:
-          args: push morgul/rpgkeeper:${VERSION}
+#  push:
+#
+#    runs-on: ubuntu-latest
+#    if: github.event_name == 'push'
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Login to docker hub
+#        if: success()
+#        uses: actions-hub/docker/login@master
+#        env:
+#          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+#          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+#
+#      - name: Set ENV Variables.
+#        run: |
+#          # Strip git ref prefix from version
+#          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+#
+#          # Strip "v" prefix from tag name
+#          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+#
+#          # Use Docker `latest` tag convention
+#          [ "$VERSION" == "master" ] && VERSION=latest
+#
+#          echo VERSION=$VERSION >> $GITHUB_ENV
+#
+#      - name: Build docker
+#        if: success()
+#        run: docker build -t morgul/rpgkeeper:${VERSION} .
+#
+#      - name: Push docker
+#        if: success()
+#        uses: actions-hub/docker@master
+#        with:
+#          args: push morgul/rpgkeeper:${VERSION}
 
   # Deploys Beta docker
   deploy-beta:
-    needs: push
+#    needs: push
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
@@ -84,7 +84,7 @@ jobs:
         uses: wei/curl@master
         with:
           args:
-            "-u \"token:${ RANCHER_SECRET_KEY }\" -X PATCH -H 'Content-Type: application/json-patch+json' https://ranker.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:latest\" } ]'"
+            "-u \"token:${{ RANCHER_SECRET_KEY }}\" -X PATCH -H 'Content-Type: application/json-patch+json' https://ranker.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:latest\" } ]'"
 
 #      - name: Deploy Beta Site
 #        uses: yantadeu/rancher-deploy-action@v0.0.3
@@ -122,7 +122,7 @@ jobs:
         uses: wei/curl@master
         with:
           args:
-            "-u \"token:${ RANCHER_SECRET_KEY }\" -X PATCH -H 'Content-Type: application/json-patch+json' https://ranker.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:${VERSION}\" } ]'"
+            "-u \"token:${{ RANCHER_SECRET_KEY }}\" -X PATCH -H 'Content-Type: application/json-patch+json' https://ranker.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:${VERSION}\" } ]'"
 #        uses: yantadeu/rancher-deploy-action@v0.0.3
 #        env:
 #          RANCHER_ACCESS_KEY: ${{ secrets.RANCHER_ACCESS_KEY }}
