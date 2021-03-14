@@ -87,7 +87,7 @@ jobs:
           RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
           RANCHER_URL_API: 'https://rancher.skewedaspect.com/v3'
           SERVICE_NAME: 'rpgkeeper-beta'
-          DOCKER_IMAGE: 'morgul/rpgkeeper:v${VERSION}'
+          DOCKER_IMAGE: 'morgul/rpgkeeper:${VERSION}'
           DOCKER_IMAGE_LATEST: 'morgul/rpgkeeper:latest'
 
   # Deploys prod docker
