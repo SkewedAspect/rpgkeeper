@@ -70,10 +70,11 @@
                         const talentBase = eoteMan.talents.find(({ id }) => id === talentInst.id);
                         return {
                             ...talentInst,
+                            name: talentBase.name,
                             base: talentBase
                         };
                     })
-                    .sort(sortBy('base.name'));
+                    .sort(sortBy('name'));
             },
             talents()
             {

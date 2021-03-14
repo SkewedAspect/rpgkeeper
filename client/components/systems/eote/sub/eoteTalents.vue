@@ -4,11 +4,9 @@
 
 <template>
     <div id="eote-sub-talents">
-        <b-form-row>
-            <b-col v-for="talent in talents" :key="talent.name" cols="4">
-                <talent-card :talent="talent"></talent-card>
-            </b-col>
-        </b-form-row>
+        <div class="d-flex flex-wrap" style="margin-top: -0.5rem">
+            <talent-card v-for="talentInst in talents" :key="talentInst.id" class="mr-2 mt-2 flex-fill" :talent="talentInst"></talent-card>
+        </div>
 
         <h5 v-if="talents.length === 0" class="m-0 text-center">
             No Talents
@@ -28,14 +26,15 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-
     // Managers
     import charMan from '../../../../api/managers/character';
     import eoteMan from '../../../../api/managers/eote';
 
     // Components
     import TalentCard from '../components/talentCard.vue';
+
+    // Utils
+    import { sortBy } from '../../../../../server/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -57,14 +56,16 @@
         computed: {
             talents()
             {
-                return _.sortBy(
-                    this.character.details.talents,
-                    (talentInst) =>
+                return this.character.details.talents
+                    .map((talentInst) =>
                     {
-                        const talentBase = _.find(eoteMan.talents, { id: talentInst.id });
-                        return (talentBase || {}).name;
-                    }
-                );
+                        const talentBase = eoteMan.talents.find(({ id }) => id === talentInst.id);
+                        return {
+                            ...talentInst,
+                            name: talentBase?.name
+                        };
+                    })
+                    .sort(sortBy('name'));
             }
         }
     };
