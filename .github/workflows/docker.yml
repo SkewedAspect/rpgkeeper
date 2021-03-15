@@ -89,20 +89,6 @@ jobs:
           RANCHER_PROJECT_ID: 'p-7wdzf'
           RANCHER_URL: 'https://rancher.skewedaspect.com/'
           RANCHER_WORKLOADS: 'rpgkeeper-beta'
-#        uses: wei/curl@master
-#        with:
-#          args:
-#            "-u \"${{ secrets.RANCHER_API_KEY }}\" -X PATCH -H 'Content-Type: application/json-patch+json' https://rancher.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:latest\" } ]'"
-
-#      - name: Deploy Beta Site
-#        uses: yantadeu/rancher-deploy-action@v0.0.3
-#        env:
-#          RANCHER_ACCESS_KEY: ${{ secrets.RANCHER_ACCESS_KEY }}
-#          RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
-#          RANCHER_URL_API: 'https://rancher.skewedaspect.com/v3'
-#          SERVICE_NAME: 'rpgkeeper-beta'
-#          DOCKER_IMAGE: 'morgul/rpgkeeper:${VERSION}'
-#          DOCKER_IMAGE_LATEST: 'morgul/rpgkeeper:latest'
 
   # Deploys prod docker
   deploy-prod:
@@ -127,15 +113,11 @@ jobs:
           echo VERSION=$VERSION >> $GITHUB_ENV
 
       - name: Deploy Production Site
-        uses: wei/curl@master
-        with:
-          args:
-            "-u \"${{ secrets.RANCHER_API_KEY }}\" -X PATCH -H 'Content-Type: application/json-patch+json' https://rancher.skewedaspect.com/k8s/clusters/c-g65ld/apis/apps/v1/namespaces/rpgkeeper/deployments/rpgkeeper-beta -d '[{\"op\": \"replace\", \"path\": \"/spec/template/spec/containers/0/image\", \"value\": \"morgul/rpgkeeper:${VERSION}\" } ]'"
-#        uses: yantadeu/rancher-deploy-action@v0.0.3
-#        env:
-#          RANCHER_ACCESS_KEY: ${{ secrets.RANCHER_ACCESS_KEY }}
-#          RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
-#          RANCHER_URL_API: 'https://rancher.skewedaspect.com/v3'
-#          SERVICE_NAME: 'rpgkeeper'
-#          DOCKER_IMAGE: 'morgul/rpgkeeper:v${VERSION}'
-#          DOCKER_IMAGE_LATEST: 'morgul/rpgkeeper:latest'
+        uses: th0th/rancher-redeploy-workload@v0.82
+        env:
+          RANCHER_BEARER_TOKEN: ${{ secrets.RANCHER_API_KEY }}
+          RANCHER_CLUSTER_ID: 'c-g65ld'
+          RANCHER_NAMESPACE: 'rpgkeeper'
+          RANCHER_PROJECT_ID: 'p-7wdzf'
+          RANCHER_URL: 'https://rancher.skewedaspect.com/'
+          RANCHER_WORKLOADS: 'rpgkeeper-beta'
