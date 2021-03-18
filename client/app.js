@@ -16,6 +16,9 @@ import VueRx from 'vue-rx';
 // Bootstrap Vue
 import BootstrapVue from 'bootstrap-vue';
 
+// Vuelidate
+import Vuelidate from 'vuelidate';
+
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -78,6 +81,12 @@ Vue.use(VueCodemirror, {
 // ---------------------------------------------------------------------------------------------------------------------
 
 Vue.use(VueRx);
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Vuelidate
+// ---------------------------------------------------------------------------------------------------------------------
+
+Vue.use(Vuelidate);
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Bootstrap Vue
