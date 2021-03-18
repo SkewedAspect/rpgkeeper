@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <markdown id="note-page" :text="pageContent"></markdown>
+    <markdown id="note-page" :text="pageContent" :class="`${ mode }-system`"></markdown>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -27,6 +27,9 @@
 
     import marked from 'marked';
 
+    // Managers
+    import eoteMan from '../../api/managers/eote';
+
     // Components
     import markdown from '../ui/markdown.vue';
 
@@ -41,6 +44,12 @@
                 type: String,
                 default: ''
             }
+        },
+        subscriptions()
+        {
+            return {
+                mode: eoteMan.mode$
+            };
         },
         computed: {
             pageContent()
