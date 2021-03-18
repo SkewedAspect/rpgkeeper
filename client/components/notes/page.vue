@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <markdown id="note-page" :text="pageContent"></markdown>
+    <markdown id="note-page" :text="pageContent" :class="`${ system }-system`"></markdown>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -27,6 +27,9 @@
 
     import marked from 'marked';
 
+    // Managers
+    import charMan from '../../api/managers/character';
+
     // Components
     import markdown from '../ui/markdown.vue';
 
@@ -42,7 +45,17 @@
                 default: ''
             }
         },
+        subscriptions()
+        {
+            return {
+                char: charMan.selected$
+            };
+        },
         computed: {
+            system()
+            {
+                return this.char.system;
+            },
             pageContent()
             {
                 return marked(this.content);
