@@ -11,6 +11,7 @@
             no-close-on-esc
             no-close-on-backdrop
             size="xxl"
+            :ok-disabled="$v.char.$anyError"
             @ok="onSave"
             @hidden="onHidden"
         >
@@ -51,7 +52,12 @@
                                     label="Name"
                                     label-for="char-name"
                                 >
-                                    <b-form-input id="char-name" v-model="char.name" placeholder="Gerald"></b-form-input>
+                                    <b-form-input
+                                        id="char-name"
+                                        v-model="char.name"
+                                        :state="validateState('name')"
+                                        @input="$v.char.name.$touch()"
+                                    ></b-form-input>
                                 </b-form-group>
                             </b-col>
                             <b-col>
@@ -61,7 +67,16 @@
                                     label="System"
                                     label-for="char-sys"
                                 >
-                                    <b-form-select id="char-sys" v-model="char.system" :options="systems" text-field="name" value-field="id" :disabled="!isNew" required></b-form-select>
+                                    <b-form-select
+                                        id="char-sys"
+                                        v-model="char.system"
+                                        :options="systems"
+                                        text-field="name"
+                                        value-field="id"
+                                        :disabled="!isNew"
+                                        :state="validateState('system')"
+                                        @input="$v.char.system.$touch()"
+                                    ></b-form-select>
                                 </b-form-group>
                             </b-col>
                         </b-form-row>
@@ -82,7 +97,12 @@
                                     label-for="char-portrait"
                                 >
                                     <b-input-group>
-                                        <b-form-input id="char-portrait" v-model="char.portrait"></b-form-input>
+                                        <b-form-input
+                                            id="char-portrait"
+                                            v-model="char.portrait"
+                                            :state="validateState('portrait')"
+                                            @input="$v.char.portrait.$touch()"
+                                        ></b-form-input>
                                         <b-input-group-append>
                                             <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('portrait')">
                                                 <fa :icon="[ 'fab', 'dropbox' ]"></fa>
@@ -102,7 +122,12 @@
                                     label-for="char-thumbnail"
                                 >
                                     <b-input-group>
-                                        <b-form-input id="char-thumbnail" v-model="char.thumbnail"></b-form-input>
+                                        <b-form-input
+                                            id="char-thumbnail"
+                                            v-model="char.thumbnail"
+                                            :state="validateState('thumbnail')"
+                                            @input="$v.char.thumbnail.$touch()"
+                                        ></b-form-input>
                                         <b-input-group-append>
                                             <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('thumbnail')">
                                                 <fa :icon="[ 'fab', 'dropbox' ]"></fa>
@@ -122,7 +147,12 @@
                             label="Campaign"
                             label-for="char-campaign"
                         >
-                            <b-form-input id="char-campaign" v-model="char.campaign"></b-form-input>
+                            <b-form-input
+                                id="char-campaign"
+                                v-model="char.campaign"
+                                :state="validateState('campaign')"
+                                @input="$v.char.campaign.$touch()"
+                            ></b-form-input>
                         </b-form-group>
                         <b-form-group
                             id="char-desc-group"
@@ -130,7 +160,12 @@
                             label="Description"
                             label-for="char-desc"
                         >
-                            <b-form-input id="char-desc" v-model="char.description"></b-form-input>
+                            <b-form-input
+                                id="char-desc"
+                                v-model="char.description"
+                                :state="validateState('description')"
+                                @input="$v.char.description.$touch()"
+                            ></b-form-input>
                         </b-form-group>
                     </b-col>
                 </b-form-row>
@@ -160,6 +195,8 @@
 
 <script>
     //------------------------------------------------------------------------------------------------------------------
+
+    import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
     // Managers
     import charMan from '../../api/managers/character';
@@ -231,21 +268,64 @@
                     this.char.revert();
                 } // end if
 
+                this.$v.$reset();
                 this.$emit('hidden');
             },
-            async onSave()
+            async onSave(bvModalEvent)
             {
-                this.saving = true;
-                await charMan.save(this.char);
-                this.saving = false;
+                this.$v.char.$touch();
+
+                if(!this.$v.char.$anyError)
+                {
+                    this.saving = true;
+                    await charMan.save(this.char);
+                    this.saving = false;
+                }
+                else
+                {
+                    bvModalEvent.preventDefault();
+                } // end if
             },
             async pickImageDropBox(prop)
             {
                 this.char[prop] = await dropboxUtil.chooseDropboxImage();
+            },
+            validateState(name)
+            {
+                const { $dirty, $error } = this.$v.char[name];
+                return $dirty ? !$error : null;
             }
         },
         subscriptions: {
             allSystems: systemsMan.systems$
+        },
+        validations: {
+            char: {
+                name: {
+                    required,
+                    minLength: minLength(1),
+                    maxLength: maxLength(255)
+                },
+                system: {
+                    required
+                },
+                portrait: {
+                    minLength: minLength(1),
+                    maxLength: maxLength(255)
+                },
+                thumbnail: {
+                    minLength: minLength(1),
+                    maxLength: maxLength(255)
+                },
+                campaign: {
+                    minLength: minLength(1),
+                    maxLength: maxLength(255)
+                },
+                description: {
+                    minLength: minLength(1),
+                    maxLength: maxLength(255)
+                }
+            }
         }
     };
 </script>
