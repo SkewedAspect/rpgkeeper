@@ -11,7 +11,7 @@
         </div>
 
         <div class="dice-input d-flex flex-wrap align-content-stretch justify-content-center">
-            <b-input-group v-for="die in Object.keys(dice)" :key="die" size="sm" class="text-nowrap flex-nowrap w-auto m-1">
+            <b-input-group v-for="die in diceList" :key="die" size="sm" class="text-nowrap flex-nowrap w-auto m-1">
                 <b-input-group-prepend is-text>
                     <!-- eslint-disable-next-line vue/no-v-html -->
                     <span v-html="makeDieHTML(die)"></span>
@@ -93,6 +93,9 @@
 
     import _ from 'lodash';
 
+    // Managers
+    import eoteMan from '../../../api/managers/eote';
+
     // Utils
     import diceUtil from '../../../api/utils/dice';
 
@@ -111,6 +114,9 @@
                 type: Boolean,
                 default: false
             }
+        },
+        subscriptions: {
+            mode: eoteMan.mode$
         },
         data()
         {
@@ -133,6 +139,14 @@
             };
         },
         computed: {
+            diceList()
+            {
+                return Object.keys(this.dice)
+                    .filter((die) =>
+                    {
+                        return this.mode !== 'genesys' || die !== 'force';
+                    });
+            },
             diceDisplay()
             {
                 return _.chain(diceUtil.eoteDiceSortOrder)
