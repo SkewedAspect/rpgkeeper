@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-bio-block" :class="{ readonly: readonly }" fill>
+    <rpgk-card id="eote-experience-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <div slot="header" class="d-flex">
             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
@@ -48,7 +48,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-    #eote-bio-block {
+    #eote-experience-block {
     }
 </style>
 
@@ -67,7 +67,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'EotEDefensesBlock',
+        name: 'EotEExperienceBlock',
         components: {
             RpgkCard,
             EditModal

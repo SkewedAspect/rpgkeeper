@@ -70,7 +70,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'EotEChracteristicsBlock',
+        name: 'EotECharacteristicsBlock',
         components: {
             RpgkCard,
             EditModal

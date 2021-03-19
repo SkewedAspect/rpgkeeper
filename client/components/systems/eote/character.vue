@@ -66,6 +66,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: eoteMan.mode === 'genesys' ? 'GenesysCharacter' : 'EotECharacter',
         components: {
             Biography,
             Characteristics,

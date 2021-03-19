@@ -102,7 +102,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'RisusRollsCard',
+        name: 'EotERollsBlock',
         components: {
             RpgkCard
         },
