@@ -85,16 +85,13 @@ async function $ensureCorrectOwner(supplement : Supplement, systemPrefix ?: stri
 export async function get(id : number, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
 {
     const tableName = `${ systemPrefix }_${ type }`;
-    let query = table(`${ tableName } as t`)
+    const query = table(`${ tableName } as t`)
         .select('t.*', 'a.hash_id as ownerHash')
-        .join('account as a', 'a.account_id', '=', 't.owner')
+        .leftJoin('account as a', 'a.account_id', '=', 't.owner')
         .where({ id });
 
-    // Add filters for only what we have access to
-    query = await $checkViewAccess(query, systemPrefix, account);
-
     // Handle retrieval
-    const supplements = await query;
+    const supplements = await $checkViewAccess(query, systemPrefix, account);
     if(supplements.length > 1)
     {
         throw new MultipleResultsError(type);
