@@ -30,43 +30,6 @@
                                     </b-button>
                                 </template>
                             </supplement-search>
-                            <!--                            <vue-typeahead-bootstrap-->
-                            <!--                                v-model="search"-->
-                            <!--                                class="w-100"-->
-                            <!--                                :data="availableFiltered"-->
-                            <!--                                placeholder="Search..."-->
-                            <!--                                autocomplete="off"-->
-                            <!--                                :max-matches="1000"-->
-                            <!--                                :serializer="(s) => s.name"-->
-                            <!--                                show-on-focus-->
-                            <!--                                @hit="suppToAdd = $event"-->
-                            <!--                            >-->
-                            <!--                                <template #prepend>-->
-                            <!--                                    <b-input-group-text>-->
-                            <!--                                        <fa icon="search"></fa>-->
-                            <!--                                    </b-input-group-text>-->
-                            <!--                                </template>-->
-                            <!--                                <template #append>-->
-                            <!--                                    <b-button class="text-nowrap" variant="primary" title="Add..." @click="addSupp()">-->
-                            <!--                                        <fa icon="plus"></fa>-->
-                            <!--                                        Add-->
-                            <!--                                    </b-button>-->
-                            <!--                                </template>-->
-                            <!--                                <template #suggestion="{ data, htmlText }">-->
-                            <!--                                    <div class="float-right">-->
-                            <!--                                        <slot :supplement="data" name="suggestion-extra"></slot>-->
-                            <!--                                        <b-badge :variant="data.scope === 'user' ? 'success' : ''">-->
-                            <!--                                            <span v-if="data.scope === 'user'">User</span>-->
-                            <!--                                            <span v-else-if="data.scope === 'public'">Public</span>-->
-                            <!--                                        </b-badge>-->
-                            <!--                                    </div>-->
-
-                            <!--                                    &lt;!&ndash; Note: the v-html binding is used, as htmlText contains-->
-                            <!--                                         the suggestion text highlighted with <strong> tags &ndash;&gt;-->
-                            <!--                                    &lt;!&ndash; eslint-disable-next-line vue/no-v-html &ndash;&gt;-->
-                            <!--                                    <span v-html="htmlText"></span>-->
-                            <!--                                </template>-->
-                            <!--                            </vue-typeahead-bootstrap>-->
                         </div>
                     </template>
 
