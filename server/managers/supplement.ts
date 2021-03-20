@@ -39,7 +39,10 @@ async function $checkViewAccess(query : QueryBuilder, systemPrefix ?: string, ac
             const { account_id } = await accountMan.getRaw(account.id);
 
             // Add scoping in
-            query = query.andWhere({ scope: 'public' }).orWhere({ scope: 'user', owner: account_id });
+            query = query.where(function()
+            {
+                this.where({ scope: 'public' }).orWhere({ scope: 'user', owner: account_id });
+            });
         } // end if
     } // end if
 
@@ -151,11 +154,11 @@ export async function add(newSupplement : Record<string, unknown>, type : string
 
     // First, we check to see if we already have one that matches the unique constraint. We do this manually, because
     // it's very hard to catch specific sqlite errors reliably, so we do the check explicitly.
-    const exists = (await table(tableName)
+    const suppExists = (await table(tableName)
         .select()
         .where({ scope: supplement.scope, owner: supplement.owner, name: supplement.name })).length > 0;
 
-    if(exists)
+    if(suppExists)
     {
         logger.warn('Attempted to add supplement with the same name, scope and owner as an existing one:', logger.dump(supplement.toJSON()));
         throw new DuplicateSupplementError(`${ systemPrefix }/${ type }/${ supplement.name }`);
