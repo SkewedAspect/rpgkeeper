@@ -47,8 +47,12 @@
 
 <style lang="scss" scoped>
     #eote-chars-block {
+        h3 {
+            font-size: 1.50rem;
+        }
         .card-footer {
-            padding: 0.5rem 1rem;
+            padding: 0.3rem 1rem;
+            font-size: 0.90rem;
         }
     }
 </style>
