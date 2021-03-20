@@ -22,7 +22,10 @@
 
             <!-- Modal Content -->
             <div class="d-flex">
-                <b-card class="flex-fill w-50 mr-1">
+                <b-card
+                    class="flex-fill w-50 mr-1"
+                    :border-variant="isStrengthDirty ? 'success' : undefined"
+                >
                     <template #header>
                         <div class="d-flex">
                             <h6 class="mt-2 mr-3">
@@ -64,7 +67,10 @@
                         No Strength selected.
                     </h6>
                 </b-card>
-                <b-card class="flex-fill w-50 ml-1">
+                <b-card
+                    class="flex-fill w-50 ml-1"
+                    :border-variant="isFlawDirty ? 'success' : undefined"
+                >
                     <template #header>
                         <div class="d-flex">
                             <h6 class="mt-2 mr-3">
@@ -108,7 +114,10 @@
                 </b-card>
             </div>
             <div class="d-flex mt-2">
-                <b-card class="flex-fill w-50 mr-1">
+                <b-card
+                    class="flex-fill w-50 mr-1"
+                    :border-variant="isDesireDirty ? 'success' : undefined"
+                >
                     <template #header>
                         <div class="d-flex">
                             <h6 class="mt-2 mr-3">
@@ -150,7 +159,10 @@
                         No Desire selected.
                     </h6>
                 </b-card>
-                <b-card class="flex-fill w-50 ml-1">
+                <b-card
+                    class="flex-fill w-50 ml-1"
+                    :border-variant="isFearDirty ? 'success' : undefined"
+                >
                     <template #header>
                         <div class="d-flex">
                             <h6 class="mt-2 mr-3">
@@ -279,7 +291,11 @@
             availableStrength() { return this.motivationsList.filter((mot) => mot.type === 'strength'); },
             availableFlaw() { return this.motivationsList.filter((mot) => mot.type === 'flaw'); },
             availableDesire() { return this.motivationsList.filter((mot) => mot.type === 'desire'); },
-            availableFear() { return this.motivationsList.filter((mot) => mot.type === 'fear'); }
+            availableFear() { return this.motivationsList.filter((mot) => mot.type === 'fear'); },
+            isStrengthDirty() { return this.motivations.strength !== this.character.details.motivations.strength; },
+            isFlawDirty() { return this.motivations.flaw !== this.character.details.motivations.flaw; },
+            isDesireDirty() { return this.motivations.desire !== this.character.details.motivations.desire; },
+            isFearDirty() { return this.motivations.fear !== this.character.details.motivations.fear; }
         },
         methods: {
             async onSave()
