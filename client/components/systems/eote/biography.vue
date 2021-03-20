@@ -6,9 +6,11 @@
     <rpgk-card id="eote-bio-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
         <div slot="header" class="d-flex">
-            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+            <h5 class="align-items-center d-flex m-0 mr-2 flex-grow-0 flex-shrink-0 w-75">
                 <fa class="mr-1" icon="address-card"></fa>
-                <span class="d-none d-md-inline">Biography</span>
+                <span class="d-none d-md-block">
+                    {{ character.name }}
+                </span>
             </h5>
             <div v-if="!readonly" class="ml-auto">
                 <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
@@ -20,6 +22,9 @@
 
         <!-- Card Body -->
         <div class="p-2">
+            <div class="bio-line mb-1">
+                <i>{{ character.description }}</i>
+            </div>
             <div :class="{ 'd-flex': mode === 'eote' }">
                 <div class="bio-line" :class="{ 'w-50': mode === 'eote' }">
                     <b>Species<span v-if="mode === 'genesys'">/Archetype</span>:</b>

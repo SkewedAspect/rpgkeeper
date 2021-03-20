@@ -25,6 +25,26 @@
                 <b-form-row>
                     <b-col>
                         <b-form-group
+                            label="Name"
+                            label-class="font-weight-bold"
+                            label-for="name-input"
+                        >
+                            <b-form-input id="name-input" v-model="name"></b-form-input>
+                        </b-form-group>
+                    </b-col>
+                    <b-col>
+                        <b-form-group
+                            label="Description"
+                            label-class="font-weight-bold"
+                            label-for="description-input"
+                        >
+                            <b-form-input id="description-input" v-model="description"></b-form-input>
+                        </b-form-group>
+                    </b-col>
+                </b-form-row>
+                <b-form-row>
+                    <b-col>
+                        <b-form-group
                             label="Species"
                             label-class="font-weight-bold"
                             label-for="species-input"
@@ -172,6 +192,8 @@
         data()
         {
             return {
+                name: '',
+                description: '',
                 career: '',
                 species: '',
                 specialization: '',
@@ -198,6 +220,9 @@
                 this.character.details.force.sensitive = this.forceSensitive;
                 this.character.details.abilities = this.selectedAbilities;
 
+                this.character.name = this.name;
+                this.character.description = this.description;
+
                 // Save the character
                 await charMan.save(this.character);
             },
@@ -210,6 +235,8 @@
                 } // end if
 
                 // Reset the edit fields
+                this.name = this.character.name;
+                this.description = this.character.description;
                 this.career = this.character.details.career;
                 this.species = this.character.details.species;
                 this.specialization = this.character.details.specialization;
