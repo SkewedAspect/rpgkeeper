@@ -221,7 +221,7 @@
             },
             getInst(instID)
             {
-                return this.character.details.talents
+                return this.selectedTalents
                     .find((talentInst) =>
                     {
                         return talentInst.id === instID;

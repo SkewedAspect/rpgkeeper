@@ -13,47 +13,60 @@
                 <b-card class="h-100 overflow-hidden" no-body :style="{ maxHeight, minHeight: maxHeight }">
                     <template #header>
                         <div class="d-flex">
-                            <vue-typeahead-bootstrap
-                                v-model="search"
+                            <supplement-search
                                 class="w-100"
-                                :data="availableFiltered"
-                                placeholder="Search..."
-                                autocomplete="off"
-                                :max-matches="1000"
-                                :serializer="(s) => s.name"
-                                show-on-focus
-                                @hit="suppToAdd = $event"
+                                :available="available"
+                                :selected="selected"
+                                :sort-fn="sortFn"
+                                @add="onAdd"
                             >
-                                <template #prepend>
-                                    <b-input-group-text>
-                                        <fa icon="search"></fa>
-                                    </b-input-group-text>
+                                <template #suggestion-extra="{ supplement }">
+                                    <slot :supplement="supplement" name="suggestion-extra"></slot>
                                 </template>
-                                <template #append>
-                                    <b-button class="text-nowrap" variant="primary" title="Add..." @click="addSupp()">
+                                <template #append-extra>
+                                    <b-button class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew()">
                                         <fa icon="plus"></fa>
-                                        Add
+                                        New
                                     </b-button>
                                 </template>
-                                <template #suggestion="{ data, htmlText }">
-                                    <div class="float-right">
-                                        <slot :supplement="data" name="suggestion-extra"></slot>
-                                        <b-badge :variant="data.scope === 'user' ? 'success' : ''">
-                                            <span v-if="data.scope === 'user'">User</span>
-                                            <span v-else-if="data.scope === 'public'">Public</span>
-                                        </b-badge>
-                                    </div>
+                            </supplement-search>
+                            <!--                            <vue-typeahead-bootstrap-->
+                            <!--                                v-model="search"-->
+                            <!--                                class="w-100"-->
+                            <!--                                :data="availableFiltered"-->
+                            <!--                                placeholder="Search..."-->
+                            <!--                                autocomplete="off"-->
+                            <!--                                :max-matches="1000"-->
+                            <!--                                :serializer="(s) => s.name"-->
+                            <!--                                show-on-focus-->
+                            <!--                                @hit="suppToAdd = $event"-->
+                            <!--                            >-->
+                            <!--                                <template #prepend>-->
+                            <!--                                    <b-input-group-text>-->
+                            <!--                                        <fa icon="search"></fa>-->
+                            <!--                                    </b-input-group-text>-->
+                            <!--                                </template>-->
+                            <!--                                <template #append>-->
+                            <!--                                    <b-button class="text-nowrap" variant="primary" title="Add..." @click="addSupp()">-->
+                            <!--                                        <fa icon="plus"></fa>-->
+                            <!--                                        Add-->
+                            <!--                                    </b-button>-->
+                            <!--                                </template>-->
+                            <!--                                <template #suggestion="{ data, htmlText }">-->
+                            <!--                                    <div class="float-right">-->
+                            <!--                                        <slot :supplement="data" name="suggestion-extra"></slot>-->
+                            <!--                                        <b-badge :variant="data.scope === 'user' ? 'success' : ''">-->
+                            <!--                                            <span v-if="data.scope === 'user'">User</span>-->
+                            <!--                                            <span v-else-if="data.scope === 'public'">Public</span>-->
+                            <!--                                        </b-badge>-->
+                            <!--                                    </div>-->
 
-                                    <!-- Note: the v-html binding is used, as htmlText contains
-                                         the suggestion text highlighted with <strong> tags -->
-                                    <!-- eslint-disable-next-line vue/no-v-html -->
-                                    <span v-html="htmlText"></span>
-                                </template>
-                            </vue-typeahead-bootstrap>
-                            <b-button class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew()">
-                                <fa icon="plus"></fa>
-                                New
-                            </b-button>
+                            <!--                                    &lt;!&ndash; Note: the v-html binding is used, as htmlText contains-->
+                            <!--                                         the suggestion text highlighted with <strong> tags &ndash;&gt;-->
+                            <!--                                    &lt;!&ndash; eslint-disable-next-line vue/no-v-html &ndash;&gt;-->
+                            <!--                                    <span v-html="htmlText"></span>-->
+                            <!--                                </template>-->
+                            <!--                            </vue-typeahead-bootstrap>-->
                         </div>
                     </template>
 
@@ -145,7 +158,7 @@
     import _ from 'lodash';
 
     // Components
-    import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
+    import SupplementSearch from './supplementSearch.vue';
     import MarkdownBlock from '../ui/markdown.vue';
     import Reference from './reference.vue';
 
@@ -156,7 +169,7 @@
         components: {
             MarkdownBlock,
             Reference,
-            VueTypeaheadBootstrap
+            SupplementSearch
         },
         props: {
             label: {
@@ -187,27 +200,10 @@
         data()
         {
             return {
-                search: '',
-                suppToAdd: undefined,
                 currentSelection: undefined
             };
         },
         computed: {
-            availableFiltered()
-            {
-                // Filter out an already selected supplements, and ones that match the search filter
-                return this.available
-                    .filter((supp) =>
-                    {
-                        let alreadyAdded = this.selected.includes(supp.id);
-                        if(_.get(this.selected[0], 'id') !== undefined)
-                        {
-                            alreadyAdded = !!(this.selected.filter((item) => item.id === supp.id)[0]);
-                        } // end if
-                        return supp.name.toLowerCase().includes(this.search.toLowerCase()) && !alreadyAdded;
-                    })
-                    .sort(this.sortFn);
-            },
             selectedSupplements()
             {
                 // Normalize the selected supplements to an array of objects with `id`.
@@ -235,6 +231,10 @@
             }
         },
         methods: {
+            onAdd(supp)
+            {
+                this.$emit('add', supp);
+            },
             getSupp(id)
             {
                 if(id)
@@ -276,12 +276,6 @@
             {
                 this.$emit('new');
             },
-            addSupp()
-            {
-                this.$emit('add', { id: this.suppToAdd.id });
-                this.suppToAdd = undefined;
-                this.search = '';
-            },
             removeSupp(supp)
             {
                 this.clearSelection();
@@ -289,7 +283,6 @@
             },
             clearSelection()
             {
-                this.suppToAdd = undefined;
                 this.currentSelection = undefined;
             }
         }
