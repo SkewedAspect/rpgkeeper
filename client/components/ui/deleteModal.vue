@@ -52,7 +52,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
-        name: 'DeleteCharModal',
+        name: 'DeleteThingModal',
         props: {
             type: {
                 type: String,

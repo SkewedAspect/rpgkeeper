@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from "../../models/account";
-import { Character } from "../../models/character";
+import { Account } from '../../models/account';
+import { Character } from '../../models/character';
 
 // Managers
 import * as accountMan from '../../managers/account';
@@ -16,15 +16,20 @@ type Motivations = { strength : number | null, flaw : number | null, desire : nu
 type SupplementRef = { id : number, [ key : string ] : unknown };
 
 interface CharDetails {
-    abilities : SupplementRef[],
+    abilities : number[],
     talents : SupplementRef[],
-    gear: SupplementRef[],
+    gear : SupplementRef[],
     force : { powers : SupplementRef[] },
     armor : {
         attachments : SupplementRef[],
         qualities : SupplementRef[]
     },
     weapons : Array<{ attachments : SupplementRef[], qualities : SupplementRef[] }>
+}
+
+function isNumbers(array : number[] | SupplementRef[]) : array is number[]
+{
+    return typeof array[0] === 'number';
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -62,21 +67,39 @@ async function validateMotivations(character : Character, account : Account) : P
     } // end if
 } // end validateMotivations
 
+async function validateSuppRef(suppRefs : number[], type : string, systemPrefix : string, account : Account) : Promise<number[]>
 async function validateSuppRef(suppRefs : SupplementRef[], type : string, systemPrefix : string, account : Account) : Promise<SupplementRef[]>
+async function validateSuppRef(suppRefs : SupplementRef[] | number[], type : string, systemPrefix : string, account : Account) : Promise<SupplementRef[] | number[]>
 {
+    let wasNums = false;
+    if(isNumbers(suppRefs))
+    {
+        wasNums = true;
+        suppRefs = suppRefs.map((id) => ({ id }));
+    }
+
     const toRemove : number[] = [];
 
-    await Promise.all(suppRefs.map(async(power) =>
+    await Promise.all(suppRefs.map(async(supp) =>
     {
-        if(!(await suppMan.exists(power.id, type, systemPrefix, account)))
+        if(!(await suppMan.exists(supp.id, type, systemPrefix, account)))
         {
-            toRemove.push(power.id);
+            toRemove.push(supp.id);
         } // end if
     }));
 
-    // Set the powers to the filtered ones.
-    return suppRefs.filter((power) => toRemove.includes(power.id));
-} // end validateForcePowers
+    // Set the supps to the filtered ones.
+    suppRefs = suppRefs.filter((supp) => !toRemove.includes(supp.id));
+
+    if(wasNums)
+    {
+        return suppRefs.map(({ id }) => id);
+    }
+    else
+    {
+        return suppRefs;
+    }
+} // end validateSuppRef
 
 //----------------------------------------------------------------------------------------------------------------------
 // Top-level Validation Functions
@@ -120,8 +143,7 @@ export async function validateEoteDetails(character : Character) : Promise<Chara
     const details = character.details as unknown as CharDetails;
 
     // Specific validations
-    // FIXME: Need to add the force powers table.
-    // details.force.powers = await validateSuppRef(details.force.powers, 'forcepower', 'eote', account);
+    details.force.powers = await validateSuppRef(details.force.powers, 'forcepower', 'eote', account);
 
     // General validations
     details.abilities = await validateSuppRef(details.abilities, 'ability', 'eote', account);

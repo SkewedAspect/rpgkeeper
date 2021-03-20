@@ -2,25 +2,27 @@
 // Populate a default set of EotE/Genesys Abilities
 //----------------------------------------------------------------------------------------------------------------------
 
+import * as Knex from 'knex';
+
 import { sortBy } from '../../utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 interface Ability {
     id : number;
-    name: string;
-    description: string;
-    reference: string;
-    official: boolean;
-    scope: 'public' | 'user' | 'campaign';
+    name : string;
+    description : string;
+    reference : string;
+    official : boolean;
+    scope : 'public' | 'user' | 'campaign';
 }
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const genesysRefs :  Record<string, string> = {
+const genesysRefs : Record<string, string> = {
 };
 
-exports.seed = async function(knex)
+export async function seed(knex : Knex) : Promise<void>
 {
     const abilities : Ability[] = [
     ];
@@ -52,7 +54,8 @@ exports.seed = async function(knex)
                 scope: 'public'
             },
             {
-                id: -1, name: 'Gand',
+                id: -1,
+                name: 'Gand',
                 description: 'Gands begin the game with one rank in Discipline.',
                 reference: 'E-CRB:48',
                 official: true,
@@ -84,7 +87,8 @@ exports.seed = async function(knex)
             },
             {
                 id: -1,
-                name: 'Trandoshans', description: 'Trandoshans begin the game with one rank in Perception. They still may not train Perception about rank 2 during character creation.',
+                name: 'Trandoshans',
+                description: 'Trandoshans begin the game with one rank in Perception. They still may not train Perception about rank 2 during character creation.',
                 reference: 'E-CRB:51',
                 official: true,
                 scope: 'public'
@@ -176,7 +180,7 @@ exports.seed = async function(knex)
                 reference: 'E-CRB:53',
                 official: true,
                 scope: 'public'
-            },
+            }
         ])
         .map((ability, index) =>
         {
@@ -194,7 +198,7 @@ exports.seed = async function(knex)
                 reference: 'G-CRB:36',
                 official: true,
                 scope: 'public'
-            },
+            }
         ])
         .map((ability, index) =>
         {
@@ -211,8 +215,10 @@ exports.seed = async function(knex)
         .sort(sortBy('id'));
 
     // Deletes ALL existing entries
-    await knex('eote_ability').del().where({ official: true });
-    await knex('genesys_ability').del().where({ official: true });
+    await knex('eote_ability').del()
+        .where({ official: true });
+    await knex('genesys_ability').del()
+        .where({ official: true });
 
     // Inserts seed entries
     await Promise.all(eoteAbilities.map((ability) => knex('eote_ability').insert(ability)));

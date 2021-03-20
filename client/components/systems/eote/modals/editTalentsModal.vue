@@ -78,7 +78,7 @@
                         </div>
                     </template>
                     <template #preview-title="{ instance, supplement }">
-                        <div v-if="mode === 'genesys'" class="float-right">
+                        <div v-if="mode === 'genesys'" class="float-right mr-2">
                             <span class="text-muted">Tier {{ supplement.tier }}</span>
                         </div>
                         {{ supplement.name }}
@@ -221,7 +221,7 @@
             },
             getInst(instID)
             {
-                return this.character.details.talents
+                return this.selectedTalents
                     .find((talentInst) =>
                     {
                         return talentInst.id === instID;

@@ -21,6 +21,7 @@
                 <armor class="mt-1" :readonly="!isAuthorized"></armor>
             </div>
             <div class="d-flex flex-column" style="min-width: 300px; max-width: 300px;">
+                <motivations v-if="mode === 'genesys'" class="mb-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></motivations>
                 <experience class="flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></experience>
                 <defenses class="mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></defenses>
                 <wounds class=" mt-1 flex-shrink-1 flex-grow-0" :readonly="!isAuthorized"></wounds>
@@ -62,10 +63,12 @@
     import Talents from './talents.vue';
     import ForcePool from './forcePool.vue';
     import ForcePowers from './forcePowers.vue';
+    import Motivations from './motivations.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: eoteMan.mode === 'genesys' ? 'GenesysCharacter' : 'EotECharacter',
         components: {
             Biography,
             Characteristics,
@@ -80,7 +83,8 @@
             Armor,
             Talents,
             ForcePool,
-            ForcePowers
+            ForcePowers,
+            Motivations
         },
         props: {
             isAuthorized: {
