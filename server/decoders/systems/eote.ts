@@ -62,8 +62,12 @@ export const eoteCriticalInjury = object({
 export const motivationDecoder = object({
     id: optional(positiveInteger),
     name: stringWithLength(0, 255),
+    type: enumStr([ 'strength', 'flaw', 'desire', 'fear' ]),
     description: string,
-    reference: referenceDecoder
+    reference: referenceDecoder,
+    owner: nullToUndefined(optional(string)),
+    scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
+    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
