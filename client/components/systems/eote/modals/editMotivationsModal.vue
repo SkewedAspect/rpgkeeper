@@ -48,6 +48,12 @@
                     </template>
 
                     <div v-if="strength">
+                        <div v-if="isStrengthDirty" class="float-right">
+                            <b-btn size="sm" @click="revert('strength')">
+                                <fa icon="undo"></fa>
+                                Undo
+                            </b-btn>
+                        </div>
                         <div v-if="isEditable(strength)" class="float-right">
                             <b-btn size="sm" @click="editMotivation(strength)">
                                 <fa icon="edit"></fa>
@@ -93,6 +99,12 @@
                     </template>
 
                     <div v-if="flaw">
+                        <div v-if="isFlawDirty" class="float-right">
+                            <b-btn size="sm" @click="revert('flaw')">
+                                <fa icon="undo"></fa>
+                                Undo
+                            </b-btn>
+                        </div>
                         <div v-if="isEditable(flaw)" class="float-right">
                             <b-btn size="sm" @click="editMotivation(flaw)">
                                 <fa icon="edit"></fa>
@@ -140,6 +152,12 @@
                     </template>
 
                     <div v-if="desire">
+                        <div v-if="isDesireDirty" class="float-right">
+                            <b-btn size="sm" @click="revert('desire')">
+                                <fa icon="undo"></fa>
+                                Undo
+                            </b-btn>
+                        </div>
                         <div v-if="isEditable(desire)" class="float-right">
                             <b-btn size="sm" @click="editMotivation(desire)">
                                 <fa icon="edit"></fa>
@@ -185,6 +203,12 @@
                     </template>
 
                     <div v-if="fear">
+                        <div v-if="isFearDirty" class="float-right">
+                            <b-btn size="sm" @click="revert('fear')">
+                                <fa icon="undo"></fa>
+                                Undo
+                            </b-btn>
+                        </div>
                         <div v-if="isEditable(fear)" class="float-right">
                             <b-btn size="sm" @click="editMotivation(fear)">
                                 <fa icon="edit"></fa>
@@ -357,6 +381,10 @@
                 this.delMotiv.type = motiv.type;
 
                 this.$refs.delMotivModal.show();
+            },
+            revert(type)
+            {
+                this.motivations[type] = this.character.details.motivations[type];
             },
 
             show()
