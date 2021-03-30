@@ -5,7 +5,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import marked from 'marked';
-import { version } from '../package.json';
+import { version } from '../../package.json';
 
 // VueCodeMirror
 import VueCodemirror from 'vue-codemirror';

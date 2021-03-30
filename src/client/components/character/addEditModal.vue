@@ -206,9 +206,9 @@
     import dropboxUtil from '../../api/utils/dropbox';
 
     // Components
-    import ColorPicker from '../../components/ui/colorPicker.vue';
-    import Thumbnail from '../../components/character/thumbnail.vue';
-    import Portrait from '../../components/character/portrait.vue';
+    import ColorPicker from '../ui/colorPicker.vue';
+    import Thumbnail from './thumbnail.vue';
+    import Portrait from './portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
