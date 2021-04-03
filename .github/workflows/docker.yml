@@ -81,15 +81,15 @@ jobs:
           echo VERSION=$VERSION >> $GITHUB_ENV
 
       - name: Deploy Beta Site
-        uses: SkewedAspect/rancher-redeploy@latest
+        uses: SkewedAspect/rancher-redeploy@v0.5.0
         env:
           RANCHER_BEARER_TOKEN: ${{ secrets.RANCHER_API_KEY }}
           RANCHER_CLUSTER_ID: 'c-g65ld'
           RANCHER_NAMESPACE: 'rpgkeeper'
           RANCHER_PROJECT_ID: 'p-7wdzf'
           RANCHER_URL: 'https://rancher.skewedaspect.com/'
-          RANCHER_WORKLOADS: 'rpgkeeper-beta'
-          IMAGE_TAG: $VERSION
+          RANCHER_WORKLOAD: 'rpgkeeper-beta'
+          IMAGE_TAG: ${ VERSION }
 
   # Deploys prod docker
   deploy-prod:
@@ -114,12 +114,12 @@ jobs:
           echo VERSION=$VERSION >> $GITHUB_ENV
 
       - name: Deploy Production Site
-        uses: SkewedAspect/rancher-redeploy@latest
+        uses: SkewedAspect/rancher-redeploy@v0.5.0
         env:
           RANCHER_BEARER_TOKEN: ${{ secrets.RANCHER_API_KEY }}
           RANCHER_CLUSTER_ID: 'c-g65ld'
           RANCHER_NAMESPACE: 'rpgkeeper'
           RANCHER_PROJECT_ID: 'p-7wdzf'
           RANCHER_URL: 'https://rancher.skewedaspect.com/'
-          RANCHER_WORKLOADS: 'rpgkeeper-beta'
-          IMAGE_TAG: $VERSION
+          RANCHER_WORKLOAD: 'rpgkeeper-beta'
+          IMAGE_TAG: ${ VERSION }
