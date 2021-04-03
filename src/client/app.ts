@@ -117,8 +117,6 @@ const router = new VueRouter({
 // Setup Vue App
 //----------------------------------------------------------------------------------------------------------------------
 
-Vue.config.debug = true;
-
 Vue.config.ignoredElements = [
     'proficiency',
     'ability',
@@ -173,7 +171,7 @@ marked.setOptions({
 // Version information
 // ---------------------------------------------------------------------------------------------------------------------
 
-window.RPGKeeper = {
+(window as any).RPGKeeper = {
     version
 };
 

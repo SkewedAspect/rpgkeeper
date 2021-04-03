@@ -18,27 +18,30 @@ import toastUtil from '../utils/toast';
 
 class CharacterResourceAccess
 {
+    #characters : Record<string, CharacterModel>;
+
     constructor()
     {
-        this.$characters = {};
+        this.#characters = {};
     } // end constructor
 
     _buildOrUpdateModel(def)
     {
-        let character = this.$characters[def.id];
+        let character = this.#characters[def.id];
         if(character)
         {
             character.update(def);
         }
         else
         {
-            const system = _.find(sysMan.systems, { id: def.system }) || { defaults: {} };
+            //TODO: Better type casting needed
+            const system : { defaults : Record<string, unknown> } = (_.find(sysMan.systems, { id: def.system }) as { defaults : Record<string, unknown> } | undefined) || { defaults: {} };
             character = new CharacterModel(def, system.defaults);
 
             // We don't have an id if the character is new.
             if(def.id)
             {
-                this.$characters[def.id] = character;
+                this.#characters[def.id] = character;
             } // end if
         } // end if
 
@@ -47,7 +50,7 @@ class CharacterResourceAccess
 
     $update(def)
     {
-        if(this.$characters[def.id])
+        if(this.#characters[def.id])
         {
             this._buildOrUpdateModel(def);
         }
@@ -55,7 +58,7 @@ class CharacterResourceAccess
 
     $remove(charID)
     {
-        delete this.$characters[charID];
+        delete this.#characters[charID];
     }
 
     async newCharacter(charDef)
@@ -65,7 +68,8 @@ class CharacterResourceAccess
 
     async updateSysDefaults(char)
     {
-        const system = _.find(sysMan.systems, { id: char.system }) || { defaults: {} };
+        //TODO: Better type casting needed
+        const system : { defaults : Record<string, unknown> } = (_.find(sysMan.systems, { id: char.system }) as { defaults : Record<string, unknown> } | undefined) || { defaults: {} };
         char.updateSysDefaults(system.defaults);
 
         return char;
@@ -101,7 +105,7 @@ class CharacterResourceAccess
                     character.revert();
 
                     // Needed, or the destructure fails.
-                    return {};
+                    return { data: undefined, status: undefined };
                 }
                 else
                 {
@@ -133,7 +137,7 @@ class CharacterResourceAccess
             // We have to make sure the model is in the list of characters before we call `_buildOrUpdateModel`.
             if(!character.id)
             {
-                this.$characters[data.id] = character;
+                this.#characters[data.id] = character;
             } // end if
 
             return this._buildOrUpdateModel(data);

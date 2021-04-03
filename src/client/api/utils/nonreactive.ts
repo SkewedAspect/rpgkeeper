@@ -8,7 +8,7 @@
  * @param {object} object - The object on which we are defining the property.
  * @param {string} propName - The name of the property
  */
-export function markNonConfigurable(object, propName)
+export function markNonConfigurable(object : any, propName : string) : void
 {
     const propertyDesc = Object.getOwnPropertyDescriptor(object, propName);
 

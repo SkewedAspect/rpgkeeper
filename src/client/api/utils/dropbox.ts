@@ -8,7 +8,7 @@ class DropboxUtil
     {
         return new Promise((resolve) =>
         {
-            Dropbox.choose({
+            (window as any).Dropbox.choose({
                 extensions: [ 'images' ],
                 success(files)
                 {

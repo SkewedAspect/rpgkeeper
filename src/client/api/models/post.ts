@@ -4,10 +4,20 @@
 
 class NewsPostModel
 {
+    #state : {
+        post_id ?: number;
+        title ?: string;
+        stinger ?: string;
+        content ?: string;
+        created ?: number;
+        edited ?: number;
+        account ?: unknown;
+    }
+
     constructor(def)
     {
         // Set our properties
-        this.$state = { post_id: undefined,
+        this.#state = { post_id: undefined,
             title: undefined,
             stinger: undefined,
             content: undefined,
@@ -20,13 +30,13 @@ class NewsPostModel
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get id() { return this.$state.post_id; }
-    get title() { return this.$state.title; }
-    get stinger() { return this.$state.stinger; }
-    get content() { return this.$state.content; }
-    get created() { return this.$state.created; }
-    get edited() { return this.$state.edited; }
-    get account() { return this.$state.account; }
+    get id() { return this.#state.post_id; }
+    get title() { return this.#state.title; }
+    get stinger() { return this.#state.stinger; }
+    get content() { return this.#state.content; }
+    get created() { return this.#state.created; }
+    get edited() { return this.#state.edited; }
+    get account() { return this.#state.account; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Model API
@@ -34,12 +44,12 @@ class NewsPostModel
 
     update(def)
     {
-        this.$state = Object.assign(this.$state, def);
+        this.#state = Object.assign(this.#state, def);
     } // end update
 
     toJSON()
     {
-        return { ...this.$state };
+        return { ...this.#state };
     } // end toJSON
 } // end NewsPostModel
 

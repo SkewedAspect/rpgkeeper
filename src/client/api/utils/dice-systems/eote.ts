@@ -300,7 +300,7 @@ export const criticals = [
  */
 export function cancelEotEResults(results)
 {
-    const uncancelled = [];
+    const uncancelled : string[] = [];
     const counts = _.countBy(results);
 
     // Default the count results

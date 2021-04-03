@@ -12,17 +12,20 @@ import PageModel from '../models/notebookPage';
 
 class NotesResourceAccess
 {
+    #notes : Record<string, NotesModel>;
+    #pages : Record<string, PageModel>;
+
     constructor()
     {
-        this.$notes = {};
-        this.$pages = {};
+        this.#notes = {};
+        this.#pages = {};
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
 
     _buildPage(def)
     {
-        let page = this.$pages[def.id];
+        let page = this.#pages[def.id];
         if(page)
         {
             page.update(def);
@@ -30,7 +33,7 @@ class NotesResourceAccess
         else
         {
             page = new PageModel(def);
-            this.$pages[def.id] = page;
+            this.#pages[def.id] = page;
         } // end if
 
         return page;
@@ -42,7 +45,7 @@ class NotesResourceAccess
         def.pages = def.pages.map((page) => this._buildPage(page));
 
         // Build note second
-        let note = this.$notes[def.id];
+        let note = this.#notes[def.id];
         if(note)
         {
             note.update(def);
@@ -50,7 +53,7 @@ class NotesResourceAccess
         else
         {
             note = new NotesModel(def);
-            this.$notes[def.id] = note;
+            this.#notes[def.id] = note;
         } // end if
 
         return note;
@@ -79,21 +82,21 @@ class NotesResourceAccess
     async deletePage(noteID, page)
     {
         await $http.delete(`/notebook/${ noteID }/pages/${ page.id }`);
-        delete this.$pages[page.id];
+        delete this.#pages[page.id];
     } // end deletePage
 
     async unloadNote(noteID)
     {
-        const note = this.$notes[noteID];
+        const note = this.#notes[noteID];
 
         // Remove the note's pages from our cache
         note.pages.forEach((page) =>
         {
-            delete this.$pages[page.id];
+            delete this.#pages[page.id];
         });
 
         // Remove the cache note.
-        delete this.$notes[noteID];
+        delete this.#notes[noteID];
     } // end unloadNote
 } // end NotesResourceAccess
 
