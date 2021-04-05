@@ -2,40 +2,47 @@
 // NotebookModel
 //----------------------------------------------------------------------------------------------------------------------
 
+import NotebookPageModel from './notebookPage';
+
+//----------------------------------------------------------------------------------------------------------------------
+
 class NotebookModel
 {
-    constructor(def)
+    #id : string;
+    #pages : NotebookPageModel[];
+
+    constructor(def : { id : string, pages : NotebookPageModel[] })
     {
-        this._id = def.id;
-        this._pages = def.pages || [];
+        this.#id = def.id;
+        this.#pages = def.pages || [];
     } // end constructor
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get id() { return this._id; }
-    get pages() { return this._pages; }
+    get id() : string { return this.#id; }
+    get pages() : NotebookPageModel[] { return this.#pages; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Model API
     //------------------------------------------------------------------------------------------------------------------
 
-    revert()
+    revert() : void
     {
         this.pages.forEach((page) => page.revert());
     } // end revert
 
-    update(def)
+    update(def : { id : string, pages : NotebookPageModel[] }) : void
     {
-        this._id = def.id;
-        this._pages = def.pages || [];
+        this.#id = def.id;
+        this.#pages = def.pages || [];
     } // end update
 
-    toJSON()
+    toJSON() : { id : string, pages : { id ?: string, title ?: string, content ?: string }[] }
     {
         return {
-            id: this._id,
+            id: this.#id,
             pages: this.pages.map((page) => page.toJSON())
         };
     } // end toJSON

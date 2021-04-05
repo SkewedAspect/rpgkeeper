@@ -12,9 +12,9 @@ import { Account } from '../models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-passport.serializeUser(({ id } : Account, done) =>
+passport.serializeUser((user, done) =>
 {
-    done(null, id);
+    done(null, (user as unknown as Account).id);
 });
 
 passport.deserializeUser(async(id : string, done) =>

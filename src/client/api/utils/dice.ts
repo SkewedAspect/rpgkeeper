@@ -3,21 +3,31 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import rpgdice from 'rpgdicejs';
 import LRU from 'lru-cache';
+import rpgdice, { Expression } from 'rpgdicejs';
 
 // Dice Systems
 import { fudgeChoices } from './dice-systems/fudge';
-import { eoteChoices, eoteDiceSortOrder, eoteResultsSortOrder, criticals, cancelEotEResults, findCritical } from './dice-systems/eote';
+import {
+    eoteChoices,
+    eoteDiceSortOrder,
+    eoteResultsSortOrder,
+    criticals,
+    cancelEotEResults,
+    findCritical
+} from './dice-systems/eote';
+
+// Interfaces
+import { EoteCritical } from '../../../common/interfaces/systems/eote';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
  * Rolls a random die, of the given sides.
  *
- * @param {number} [sides=1] - The number of sides of the die to roll.
+ * @param [sides=1] - The number of sides of the die to roll.
  *
- * @returns {number} Returns a random number.
+ * @returns Returns a random number.
  */
 function randomDieRoll(sides = 1) : number
 {
@@ -27,9 +37,9 @@ function randomDieRoll(sides = 1) : number
 /**
  * Chooses an item form a list at random.
  *
- * @param {Array<*>} choices - The list to choose an item out of.
+ * @param choices - The list to choose an item out of.
  *
- * @returns {*} Returns an item from the list, randomly chosen.
+ * @returns Returns an item from the list, randomly chosen.
  */
 function randomChoice<T>(choices : T[]) : T
 {
@@ -43,7 +53,7 @@ class DiceUtil
     #cache : LRU;
 
     public eoteDiceSortOrder : typeof eoteDiceSortOrder;
-    public eoteCriticals : typeof criticals;
+    public eoteCriticals : EoteCritical[];
 
     constructor()
     {
@@ -54,7 +64,7 @@ class DiceUtil
         this.eoteCriticals = criticals;
     } // end constructor
 
-    roll(rollTxt : string, scope : Record<string, unknown>)
+    roll(rollTxt : string, scope : Record<string, unknown>) : string
     {
         // We cache the expression objects, since they're costly to create, and can be evaluated multiple times.
         let expr = this.#cache.get(rollTxt);
@@ -67,7 +77,7 @@ class DiceUtil
         return expr.eval(scope);
     } // end roll
 
-    rollFudge(bonus = 0)
+    rollFudge(bonus = 0) : Expression
     {
         const results = _.map(_.range(4), () =>
         {
@@ -112,7 +122,7 @@ class DiceUtil
         };
     } // end rollEotE
 
-    rollEotECritical(bonus = 0)
+    rollEotECritical(bonus = 0) : EoteCritical | undefined
     {
         const roll = randomDieRoll(100) + bonus;
         return findCritical(roll);

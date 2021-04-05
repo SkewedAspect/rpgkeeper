@@ -1,13 +1,10 @@
 module.exports = {
-    globals: {
-        gapi: 'writable',
-        Dropbox: 'readonly'
-    },
     extends: [
         'plugin:vue/recommended'
     ],
+    parser: 'vue-eslint-parser',
     parserOptions: {
-        sourceType: 'module'
+        parser: '@typescript-eslint/parser'
     },
     rules: {
         // Bad Practices

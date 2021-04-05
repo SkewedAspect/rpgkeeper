@@ -2,11 +2,11 @@
 // Toast Utility
 // ---------------------------------------------------------------------------------------------------------------------
 
-import Vue from "vue";
+import Vue, { VNode } from 'vue';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-type bvToastMixin = { $bvToast: { toast: (m : string, o : Record<string, unknown>) => void } };
+type bvToastMixin = { $bvToast : { toast : (m : string | VNode[], o : Record<string, unknown>) => void } };
 type VueRoot = Vue & bvToastMixin;
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -22,12 +22,12 @@ class ToastUtil
 
     // -----------------------------------------------------------------------------------------------------------------
 
-    setVueRoot(vueRoot)
+    setVueRoot(vueRoot : VueRoot) : void
     {
         this.#vueRoot = vueRoot;
     } // end setVueRoot
 
-    toast(message, options)
+    toast(message : string | VNode[], options : Record<string, unknown>) : void
     {
         if(!this.#vueRoot)
         {
@@ -44,7 +44,7 @@ class ToastUtil
     // Convenience Functions
     // -----------------------------------------------------------------------------------------------------------------
 
-    info(message, options = {})
+    info(message : string, options : Record<string, unknown> = {}) : void
     {
         options = {
             ...options,
@@ -56,7 +56,7 @@ class ToastUtil
         this.toast(message, options);
     } // end info
 
-    success(message, options = {})
+    success(message : string, options : Record<string, unknown> = {}) : void
     {
         if(this.#vueRoot)
         {
@@ -65,8 +65,8 @@ class ToastUtil
                 'div',
                 {},
                 [
-                    html('b', {}, [' Success! ']),
-                    ` ${message}`
+                    html('b', {}, [ ' Success! ' ]),
+                    ` ${ message }`
                 ]
             );
 
@@ -77,11 +77,11 @@ class ToastUtil
                 appendToast: true
             };
 
-            this.toast([msgVNodes], options);
+            this.toast([ msgVNodes ], options);
         }
     } // end success
 
-    warning(message, options = {})
+    warning(message : string, options : Record<string, unknown> = {}) : void
     {
         if(this.#vueRoot)
         {
@@ -90,8 +90,8 @@ class ToastUtil
                 'div',
                 {},
                 [
-                    html('b', {}, [' Warning! ']),
-                    ` ${message}`
+                    html('b', {}, [ ' Warning! ' ]),
+                    ` ${ message }`
                 ]
             );
 
@@ -102,11 +102,11 @@ class ToastUtil
                 appendToast: true
             };
 
-            this.toast([msgVNodes], options);
+            this.toast([ msgVNodes ], options);
         }
     } // end warning
 
-    error(message, options = {})
+    error(message : string, options : Record<string, unknown> = {}) : void
     {
         if(this.#vueRoot)
         {
@@ -115,8 +115,8 @@ class ToastUtil
                 'div',
                 {},
                 [
-                    html('b', {}, [' Error! ']),
-                    ` ${message}`
+                    html('b', {}, [ ' Error! ' ]),
+                    ` ${ message }`
                 ]
             );
 
@@ -127,7 +127,7 @@ class ToastUtil
                 appendToast: true
             };
 
-            this.toast([msgVNodes], options);
+            this.toast([ msgVNodes ], options);
         }
     } // end error
 } // end ToastUtil

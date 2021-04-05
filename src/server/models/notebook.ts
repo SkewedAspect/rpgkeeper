@@ -7,16 +7,16 @@ import { notebookDecoder, notebookPageDecoder } from '../decoders/notebook';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-interface NotebookOptions {
-    id : string;
-    pages ?: NotebookPage[]
-}
-
-interface NotebookPageOptions {
+export interface NotebookPageOptions {
     id : string;
     title : string;
     content : string;
     notebookID : string;
+}
+
+export interface NotebookOptions {
+    id : string;
+    pages ?: NotebookPageOptions[]
 }
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -4,11 +4,14 @@
 
 import $http from 'axios';
 
+// Interfaces
+import { System } from '../../../common/interfaces/common';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 class SystemsResourceAccess
 {
-    async loadSystems()
+    async loadSystems() : Promise<System<Record<string, unknown>>>
     {
         const { data } = await $http.get('/systems');
         return data;

@@ -4,17 +4,20 @@
 
 import axios from 'axios';
 
+// Interfaces
+import { Supplement } from '../../../common/interfaces/common';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 class SupplementResourceAccess
 {
-    async list(system, path)
+    async list(system : string, path : string) : Promise<Supplement>
     {
         return axios.get(`/systems/${ system }/${ path }`)
             .then(({ data }) => data);
     } // end list
 
-    async search(system, path, query, key = 'name')
+    async search(system : string, path : string, query : string, key = 'name') : Promise<Supplement>
     {
         const params = {};
         params[key] = `@>${ query }`;
@@ -23,19 +26,19 @@ class SupplementResourceAccess
             .then(({ data }) => data);
     } // end search
 
-    async add(system, path, supplement)
+    async add(system : string, path : string, supplement : Supplement) : Promise<Supplement>
     {
         return axios.post(`/systems/${ system }/${ path }`, supplement)
             .then(({ data }) => data);
     } // end add
 
-    async update(system, path, supplement)
+    async update(system : string, path : string, supplement : Supplement) : Promise<Supplement>
     {
         return axios.patch(`/systems/${ system }/${ path }/${ supplement.id }`, supplement)
             .then(({ data }) => data);
     } // end update
 
-    async delete(system, path, id)
+    async delete(system : string, path : string, id : string) : Promise<void>
     {
         return axios.delete(`/systems/${ system }/${ path }/${ id }`)
             .then(() => undefined);

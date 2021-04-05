@@ -4,6 +4,9 @@
 
 import _ from 'lodash';
 
+// Interfaces
+import { EoteCritical } from '../../../../common/interfaces/systems/eote';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 export const eoteChoices = {
@@ -112,7 +115,7 @@ export const eoteResultsSortOrder = [
     'darkside'
 ];
 
-export const criticals = [
+export const criticals : EoteCritical[] = [
     {
         range: [ 1, 5 ],
         severity: 1,
@@ -294,11 +297,11 @@ export const criticals = [
 /**
  * Takes the results of an Edge of the Empire style dice roll, and cancels the results correctly.
  *
- * @param {string[]} results - The results of the dice roll.
+ * @param results - The results of the dice roll.
  *
- * @returns {string[]} The uncancelled results.
+ * @returns The uncancelled results.
  */
-export function cancelEotEResults(results)
+export function cancelEotEResults(results : string[]) : string[]
 {
     const uncancelled : string[] = [];
     const counts = _.countBy(results);
@@ -351,13 +354,13 @@ export function cancelEotEResults(results)
 /**
  * Find the critical injury that is in the
  *
- * @param {number} result - The result to find in the criticals list.
+ * @param result - The result to find in the criticals list.
  *
- * @returns {object} Returns the critical object whose range we're in.
+ * @returns Returns the critical object whose range we're in.
  */
-export function findCritical(result)
+export function findCritical(result : number) : EoteCritical | undefined
 {
-    return _.find(criticals, (critical) =>
+    return criticals.find((critical) =>
     {
         if(result >= critical.range[0] && result <= critical.range[1])
         {

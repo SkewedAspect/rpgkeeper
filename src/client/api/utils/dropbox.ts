@@ -4,7 +4,7 @@
 
 class DropboxUtil
 {
-    chooseDropboxImage()
+    chooseDropboxImage() : Promise<Record<string, unknown>>
     {
         return new Promise((resolve) =>
         {
