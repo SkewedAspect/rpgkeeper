@@ -89,7 +89,7 @@ jobs:
           RANCHER_PROJECT_ID: 'p-7wdzf'
           RANCHER_URL: 'https://rancher.skewedaspect.com/'
           RANCHER_WORKLOAD: 'rpgkeeper-beta'
-          IMAGE_TAG: $VERSION
+          IMAGE_TAG: ${{ env.VERSION }}
 
   # Deploys prod docker
   deploy-prod:
@@ -122,4 +122,4 @@ jobs:
           RANCHER_PROJECT_ID: 'p-7wdzf'
           RANCHER_URL: 'https://rancher.skewedaspect.com/'
           RANCHER_WORKLOAD: 'rpgkeeper-beta'
-          IMAGE_TAG: $VERSION
+          IMAGE_TAG: ${{ env.VERSION }}
