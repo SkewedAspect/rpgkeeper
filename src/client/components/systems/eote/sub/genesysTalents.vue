@@ -45,7 +45,7 @@
             TierRow
         },
         subscriptions: {
-            character: charMan.selected$,
+            character: charMan.selected$
         },
         computed: {
             talents()

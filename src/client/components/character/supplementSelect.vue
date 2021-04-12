@@ -118,8 +118,6 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-
     // Components
     import SupplementSearch from './supplementSearch.vue';
     import MarkdownBlock from '../ui/markdown.vue';

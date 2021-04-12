@@ -2,20 +2,40 @@
 // AuthManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+// Models
+import AccountModel from '../models/account';
 
 // Resource Access
 import authRA from '../resource-access/auth';
 
 //----------------------------------------------------------------------------------------------------------------------
 
+declare global {
+    interface Window {
+        gapi : any;
+        onGoogleInit : () => void;
+        onGoogleSignIn : (googleUser : any) => void;
+        onGoogleFailure : (error : Error) => void;
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
 class AuthManager
 {
+    #accountSubject : BehaviorSubject<AccountModel | undefined>;
+    #statusSubject : BehaviorSubject<string>;
+
+    auth2 : any;
+    loading : Promise<void>;
+
     constructor()
     {
         // Subjects
-        this._accountSubject = new BehaviorSubject(undefined);
-        this._statusSubject = new BehaviorSubject('unknown');
+        this.#accountSubject = new BehaviorSubject<AccountModel | undefined>(undefined);
+        this.#statusSubject = new BehaviorSubject('unknown');
 
         // We have to expose this to window for Google to pick it up.
         window.onGoogleInit = this._onGoogleInit.bind(this);
@@ -39,29 +59,29 @@ class AuthManager
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get account$() { return this._accountSubject.asObservable(); }
-    get status$() { return this._statusSubject.asObservable(); }
+    get account$() : Observable<AccountModel | undefined> { return this.#accountSubject.asObservable(); }
+    get status$() : Observable<string> { return this.#statusSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get account() { return this._accountSubject.getValue(); }
-    get status() { return this._statusSubject.getValue(); }
+    get account() : AccountModel | undefined { return this.#accountSubject.getValue(); }
+    get status() : string { return this.#statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Events
     //------------------------------------------------------------------------------------------------------------------
 
-    _onGoogleInit()
+    _onGoogleInit() : void
     {
         window.gapi.load('auth2', () =>
         {
             window.gapi.auth2.init();
-            this.auth2 = gapi.auth2.getAuthInstance();
+            this.auth2 = window.gapi.auth2.getAuthInstance();
 
             // Update our status
-            this._statusSubject.next('gapi loaded');
+            this.#statusSubject.next('gapi loaded');
 
             // We listen for the current user to change
             this.auth2.currentUser.listen((googleUser) =>
@@ -72,36 +92,36 @@ class AuthManager
                 }
                 else
                 {
-                    this._accountSubject.next();
-                    this._statusSubject.next('signed out');
+                    this.#accountSubject.next(undefined);
+                    this.#statusSubject.next('signed out');
                 } // end if
             });
         });
     } // end _onGoogleInit
 
-    _onGoogleSignIn(googleUser)
+    _onGoogleSignIn(googleUser) : void
     {
-        return this.$completeSignIn(googleUser.getAuthResponse().id_token);
+        this.$completeSignIn(googleUser.getAuthResponse().id_token);
     } // end _onGoogleSignIn
 
-    _onGoogleFailure(error)
+    _onGoogleFailure(error : Error) : void
     {
         console.warn('Google Sign In failure:', error);
     } // end _onGoogleFailure
 
-    $completeSignIn(idToken)
+    $completeSignIn(idToken : string) : Promise<void>
     {
-        this._statusSubject.next('signing in');
+        this.#statusSubject.next('signing in');
         return authRA.completeSignIn(idToken)
             .then((account) =>
             {
-                this._accountSubject.next(account);
-                this._statusSubject.next('signed in');
+                this.#accountSubject.next(account);
+                this.#statusSubject.next('signed in');
             })
             .catch((error) =>
             {
                 console.error('Failed to complete sign in:', error);
-                this._statusSubject.next('signed out');
+                this.#statusSubject.next('signed out');
             });
     } // end $completeSignIn
 
@@ -109,7 +129,7 @@ class AuthManager
     // Public
     //------------------------------------------------------------------------------------------------------------------
 
-    attachSignIn(elem)
+    attachSignIn(elem : HTMLElement) : Promise<void>
     {
         return this.loading
             .then(() =>
@@ -119,7 +139,7 @@ class AuthManager
             });
     } // end attachSignIn
 
-    signOut()
+    signOut() : void
     {
         this.auth2.signOut();
     } // end signOut
@@ -128,7 +148,7 @@ class AuthManager
     // API
     //------------------------------------------------------------------------------------------------------------------
 
-    async saveAccount(account)
+    async saveAccount(account) : Promise<AccountModel>
     {
         return authRA.save(account);
     } // end saveAccount
@@ -139,4 +159,3 @@ class AuthManager
 export default new AuthManager();
 
 //----------------------------------------------------------------------------------------------------------------------
-

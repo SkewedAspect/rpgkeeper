@@ -2,8 +2,10 @@
 // SystemsManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+// Interfaces
+import { System } from '../../../common/interfaces/common';
 
 // Resource Access
 import systemsRA from '../resource-access/systems';
@@ -12,18 +14,23 @@ import systemsRA from '../resource-access/systems';
 
 class SystemsManager
 {
+    #systemsSubject : BehaviorSubject<System<any>[]>;
+    #statusSubject : BehaviorSubject<string>;
+
+    loading : Promise<void>;
+
     constructor()
     {
         // Subjects
-        this._systemsSubject = new BehaviorSubject([]);
-        this._statusSubject = new BehaviorSubject('loading');
+        this.#systemsSubject = new BehaviorSubject([] as System<any>[]);
+        this.#statusSubject = new BehaviorSubject('loading');
 
         // Load up our systems
         this.loading = systemsRA.loadSystems()
             .then((systems) =>
             {
-                this._systemsSubject.next(systems);
-                this._statusSubject.next('loaded');
+                this.#systemsSubject.next(systems);
+                this.#statusSubject.next('loaded');
             });
     } // end constructor
 
@@ -31,27 +38,27 @@ class SystemsManager
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get systems$() { return this._systemsSubject.asObservable(); }
-    get status$() { return this._statusSubject.asObservable(); }
+    get systems$() : Observable<System<any>[]> { return this.#systemsSubject.asObservable(); }
+    get status$() : Observable<string> { return this.#statusSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get systems() { return this._systemsSubject.getValue(); }
-    get status() { return this._statusSubject.getValue(); }
+    get systems() : System<any>[] { return this.#systemsSubject.getValue(); }
+    get status() : string { return this.#statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async getSystem(systemID)
+    async getSystem(systemID) : Promise<System<any> | undefined>
     {
         await this.loading;
-        return _.find(this.systems, { id: systemID });
+        return this.systems.find((system) => system.id === systemID);
     } // end getSystem
 
-    getStatusDisplay(desc)
+    getStatusDisplay(desc : string) : string
     {
         switch (desc)
         {
@@ -69,7 +76,7 @@ class SystemsManager
         } // end switch
     } // end getStatusDisplay
 
-    getStatusDescription(desc)
+    getStatusDescription(desc : string) : string
     {
         switch (desc)
         {

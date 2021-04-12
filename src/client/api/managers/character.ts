@@ -3,8 +3,15 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import { BehaviorSubject } from 'rxjs';
-import { io } from 'socket.io-client';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { io, Socket } from 'socket.io-client';
+
+// Interfaces
+import { Character } from '../../../common/interfaces/common';
+
+// Models
+import AccountModel from '../models/account';
+import CharacterModel from '../models/character';
 
 // Managers
 import authMan from './auth';
@@ -17,17 +24,23 @@ import characterRA from '../resource-access/character';
 
 class CharacterManager
 {
+    #charactersSubject : BehaviorSubject<CharacterModel[]>;
+    #selectedSubject : BehaviorSubject<CharacterModel | undefined>;
+    #savingSubject : BehaviorSubject<boolean>;
+    #statusSubject : BehaviorSubject<string>;
+    #socket : Socket;
+
     constructor()
     {
         // Subjects
-        this._charactersSubject = new BehaviorSubject([]);
-        this._selectedSubject = new BehaviorSubject();
-        this._savingSubject = new BehaviorSubject(false);
-        this._statusSubject = new BehaviorSubject('loading');
+        this.#charactersSubject = new BehaviorSubject([] as CharacterModel[]);
+        this.#selectedSubject = new BehaviorSubject<CharacterModel | undefined>(undefined);
+        this.#savingSubject = new BehaviorSubject<boolean>(false);
+        this.#statusSubject = new BehaviorSubject('loading');
 
         // Listen for messages on the socket.
-        this._socket = io('/characters');
-        this._socket.on('message', this._onMessage.bind(this));
+        this.#socket = io('/characters');
+        this.#socket.on('message', this._onMessage.bind(this));
 
         // Subscriptions
         authMan.account$.subscribe(this._onAccountChanged.bind(this));
@@ -37,40 +50,40 @@ class CharacterManager
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get characters$() { return this._charactersSubject.asObservable(); }
-    get selected$() { return this._selectedSubject.asObservable(); }
-    get saving$() { return this._savingSubject.asObservable(); }
-    get status$() { return this._statusSubject.asObservable(); }
+    get characters$() : Observable<CharacterModel[]> { return this.#charactersSubject.asObservable(); }
+    get selected$() : Observable<CharacterModel | undefined> { return this.#selectedSubject.asObservable(); }
+    get saving$() : Observable<boolean> { return this.#savingSubject.asObservable(); }
+    get status$() : Observable<string> { return this.#statusSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get characters() { return this._charactersSubject.getValue(); }
-    get selected() { return this._selectedSubject.getValue(); }
-    get saving() { return this._savingSubject.getValue(); }
-    set saving(val) { this._savingSubject.next(!!val); }
-    get status() { return this._statusSubject.getValue(); }
+    get characters() : CharacterModel[] { return this.#charactersSubject.getValue(); }
+    get selected() : CharacterModel | undefined { return this.#selectedSubject.getValue(); }
+    get saving() : boolean { return this.#savingSubject.getValue(); }
+    set saving(val : boolean) { this.#savingSubject.next(!!val); }
+    get status() : string { return this.#statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Subscriptions
     //------------------------------------------------------------------------------------------------------------------
 
-    async _onAccountChanged(account)
+    async _onAccountChanged(account : AccountModel | undefined) : Promise<void>
     {
-        if(account)
+        if(account && account.email)
         {
             const characters = await characterRA.getAllCharacters(account.email);
-            this._charactersSubject.next(characters);
-            this._statusSubject.next('loaded');
+            this.#charactersSubject.next(characters);
+            this.#statusSubject.next('loaded');
         }
         else
         {
-            this._charactersSubject.next([]);
+            this.#charactersSubject.next([]);
         } // end if
     } // end _onAccountChanged
 
-    _onMessage(envelope)
+    _onMessage(envelope) : void
     {
         if(envelope.type === 'update')
         {
@@ -80,7 +93,7 @@ class CharacterManager
         {
             characterRA.$remove(envelope.resource);
             const characters = this.characters.filter((char) => char.id !== envelope.resource);
-            this._charactersSubject.next(characters);
+            this.#charactersSubject.next(characters);
 
             // TODO: We need to pop some kind of warning that the character was deleted.
         }
@@ -90,17 +103,17 @@ class CharacterManager
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async create(charDef)
+    async create(charDef : Character) : Promise<CharacterModel>
     {
         return characterRA.newCharacter(charDef);
     } // end create
 
-    async updateSysDefaults(char)
+    async updateSysDefaults(char) : Promise<CharacterModel>
     {
         return characterRA.updateSysDefaults(char);
     } // end updateSysDefaults
 
-    async select(charID)
+    async select(charID) : Promise<CharacterModel>
     {
         let char = _.find(this.characters, { id: charID });
         if(!char)
@@ -109,11 +122,11 @@ class CharacterManager
 
             // Add to our internal cache of characters
             this.characters.push(char);
-            this._charactersSubject.next(this.characters);
+            this.#charactersSubject.next(this.characters);
         } // end if
 
         // Select this character
-        this._selectedSubject.next(char);
+        this.#selectedSubject.next(char);
 
         // Select the notes in the notes manager
         notesMan.select(char.noteID);
@@ -126,12 +139,12 @@ class CharacterManager
      * is still dirty once we're done, we save again. (Because this is promised based, this shouldn't be able to
      * overflow the stack.)
      *
-     * @param {object} character - The character model instance
+     * @param character - The character model instance
      *
-     * @returns {Promise<object>} Returns the updated character model instance. This is the same object that was passed
-     * in, with internal changes only.
+     * @returns Returns the updated character model instance. This is the same object that was passed in, with internal
+     * changes only.
      */
-    async save(character)
+    async save(character : CharacterModel) : Promise<CharacterModel>
     {
         // Default to the selected character, if none is passed in.
         character = character || this.selected;
@@ -161,18 +174,20 @@ class CharacterManager
         if(!this.characters.includes(character))
         {
             this.characters.push(character);
-            this._charactersSubject.next(this.characters);
+            this.#charactersSubject.next(this.characters);
         } // end if
 
         return character;
     } // end save
 
-    async delete(character)
+    async delete(character : CharacterModel) : Promise<void>
     {
-        await characterRA.deleteCharacter(character);
-        const characters = _.without(this.characters, character);
-
-        this._charactersSubject.next(characters);
+        if(character.id)
+        {
+            await characterRA.deleteCharacter({ id: character.id });
+            const characters = _.without(this.characters, character);
+            this.#charactersSubject.next(characters);
+        }
     } // end delete
 } // end CharacterManager
 

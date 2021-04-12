@@ -11,7 +11,7 @@ import { System } from '../../../common/interfaces/common';
 
 class SystemsResourceAccess
 {
-    async loadSystems() : Promise<System<Record<string, unknown>>>
+    async loadSystems() : Promise<System<Record<string, unknown>>[]>
     {
         const { data } = await $http.get('/systems');
         return data;

@@ -2,7 +2,11 @@
 // NotesManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+// Model
+import NotebookModel from '../models/notebook';
+import NotebookPageModel from '../models/notebookPage';
 
 // Resource Access
 import noteRA from '../resource-access/notebook';
@@ -11,45 +15,41 @@ import noteRA from '../resource-access/notebook';
 
 class NotesManager
 {
-    constructor()
-    {
-        // Subjects
-        this._selectedSubject = new BehaviorSubject();
-    } // end constructor
+    #selectedSubject : BehaviorSubject<NotebookModel | undefined> = new BehaviorSubject<NotebookModel | undefined>(undefined);
 
     //------------------------------------------------------------------------------------------------------------------
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get selected$() { return this._selectedSubject.asObservable(); }
+    get selected$() : Observable<NotebookModel | undefined> { return this.#selectedSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get selected() { return this._selectedSubject.getValue(); }
+    get selected() : NotebookModel | undefined { return this.#selectedSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async select(noteID)
+    async select(noteID : string) : Promise<void>
     {
-        let note = undefined;
+        let note : NotebookModel | undefined = undefined;
         if(noteID)
         {
             note = await noteRA.getNotes(noteID);
         }
-        else
+        else if(this.selected)
         {
             await noteRA.unloadNote(this.selected.id);
         } // end if
 
         // Select this note
-        this._selectedSubject.next(note);
+        this.#selectedSubject.next(note);
     } // end selected
 
-    async addPage(note, page)
+    async addPage(note : NotebookModel, page : NotebookPageModel) : Promise<NotebookPageModel>
     {
         page = await noteRA.addPage(note.id, page);
         note.pages.push(page);
@@ -57,12 +57,12 @@ class NotesManager
         return page;
     } // end addPage
 
-    async updatePage(note, page)
+    async updatePage(note : NotebookModel, page : NotebookPageModel) : Promise<NotebookPageModel>
     {
         return noteRA.updatePage(note.id, page);
     } // end updatePage
 
-    async deletePage(note, page)
+    async deletePage(note : NotebookModel, page : NotebookPageModel) : Promise<void>
     {
         await noteRA.deletePage(note.id, page);
 

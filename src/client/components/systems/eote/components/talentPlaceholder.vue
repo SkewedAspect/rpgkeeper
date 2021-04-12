@@ -5,7 +5,9 @@
 <template>
     <b-card :id="id" class="eote-talent-placeholder" no-body>
         <template #header>
-            <div class="text-muted text-nowrap text-center">Open Talent Slot</div>
+            <div class="text-muted text-nowrap text-center">
+                Open Talent Slot
+            </div>
         </template>
     </b-card>
 </template>
@@ -42,7 +44,7 @@
             };
         },
         computed: {
-            id() { return `talent-${ this.uuid }`; },
+            id() { return `talent-${ this.uuid }`; }
         }
     };
 </script>

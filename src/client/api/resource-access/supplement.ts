@@ -11,7 +11,7 @@ import { Supplement } from '../../../common/interfaces/common';
 
 class SupplementResourceAccess
 {
-    async list(system : string, path : string) : Promise<Supplement>
+    async list(system : string, path : string) : Promise<Supplement[]>
     {
         return axios.get(`/systems/${ system }/${ path }`)
             .then(({ data }) => data);
