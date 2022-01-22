@@ -2,6 +2,8 @@
 // vue-shims.d.ts
 // ---------------------------------------------------------------------------------------------------------------------
 
+import 'vue-rx/types/index.d.ts';
+
 declare module '*.vue' {
     import Vue from 'vue';
     export default Vue;

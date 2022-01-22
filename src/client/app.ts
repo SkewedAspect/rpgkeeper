@@ -158,7 +158,6 @@ renderer.table = function(header, body)
 // Configure marked parser
 marked.setOptions({
     gfm: true,
-    tables: true,
     breaks: false,
     pedantic: false,
     sanitize: false,
@@ -182,7 +181,7 @@ marked.setOptions({
 /**
  *
  */
-async function init()
+async function init() : Promise<void>
 {
     // Setup Utils
     toastUtil.setVueRoot(root);

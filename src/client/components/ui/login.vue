@@ -55,9 +55,10 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script>
+<script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import $ from 'jquery';
 
     // Managers
@@ -65,7 +66,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         subscriptions: {
             account: authMan.account$,
             authStatus: authMan.status$
@@ -75,13 +76,14 @@
         },
         mounted()
         {
-            const btnElem = $(this.$el).find('#google-signin-btn');
+            // FIXME: Why do I need the 'any' cast?
+            const btnElem = $(this.$el).find('#google-signin-btn' as any);
             authMan.attachSignIn(btnElem[0]);
         },
         methods: {
             signOut() { return authMan.signOut(); }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

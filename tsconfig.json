@@ -38,7 +38,7 @@
         "src/server/knex/seeds"
     ],
     "exclude": [
-        "node_modules",
-        "src/types"
+//        "node_modules",
+//        "src/types"
     ]
 }

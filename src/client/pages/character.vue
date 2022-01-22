@@ -102,8 +102,10 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script>
+<script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
+
+    import Vue from 'vue';
 
     // Managers
     import authMan from '../api/managers/auth';
@@ -122,7 +124,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'CharacterPage',
         components: {
             Loading,
@@ -159,6 +161,8 @@
         {
             this.$watch('char', async() =>
             {
+                // console.log('change detected...');
+
                 if(this.char)
                 {
                     this.system = await sysMan.getSystem(this.char.system);
@@ -172,7 +176,7 @@
             // We always select the character that matches our route, so we handle navigation.
             charMan.select(this.$route.params.id).catch((err) => this.error = err);
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
