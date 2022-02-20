@@ -121,5 +121,5 @@ jobs:
           RANCHER_NAMESPACE: 'rpgkeeper'
           RANCHER_PROJECT_ID: 'p-7wdzf'
           RANCHER_URL: 'https://rancher.skewedaspect.com/'
-          RANCHER_WORKLOAD: 'rpgkeeper-beta'
+          RANCHER_WORKLOAD: 'rpgkeeper'
           IMAGE_TAG: ${{ env.VERSION }}
