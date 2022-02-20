@@ -297,8 +297,11 @@
                 return $dirty ? !$error : null;
             }
         },
-        subscriptions: {
-            allSystems: systemsMan.systems$
+        subscriptions()
+        {
+            return {
+                allSystems: systemsMan.systems$
+            };
         },
         validations: {
             char: {
