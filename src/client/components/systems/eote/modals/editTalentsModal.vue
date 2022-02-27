@@ -38,8 +38,8 @@
                     <template #preview="{ instance, supplement }">
                         <div class="clearfix">
                             <div v-if="supplement.ranked" class="mb-2 float-right">
-                                <label for="sb-inline">Ranks</label>
-                                <b-form-spinbutton id="sb-inline" v-model="getInst(instance.id).ranks" inline></b-form-spinbutton>
+                                <label>Ranks</label>
+                                <b-form-spinbutton v-model="getInst(instance.id).ranks" inline></b-form-spinbutton>
                             </div>
                             <div class="mb-2">
                                 <i>{{ getActivation(supplement) }}</i>

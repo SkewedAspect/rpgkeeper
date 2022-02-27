@@ -63,7 +63,7 @@
     <delete-modal v-ref:delete-modal :title="'Roll'" :text="'this roll'" :on-delete="remove"></delete-modal>
 </template>
 
-<style lang="sass">
+<style lang="scss">
     .roll-component {
         margin-bottom: 10px;
 
