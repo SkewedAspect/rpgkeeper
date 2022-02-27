@@ -40,24 +40,23 @@ RPGKeeper is, and always will be an open source project. We want to encourage de
 Before getting started you will need the following installed:
 
 * NodeJS >= v14
-* Yarn package manager (`npm install -g yarn`)
 
 ### Running
 
 The first thing you will want to do is to install dependencies:  
 
-* `yarn`
+* `npm`
 
 Next, build the client assets:
 
-* `yarn build:watch` (for development)
-* `yarn build:release` (for release)
+* `npm run build:watch` (for development)
+* `npm run build:release` (for release)
 
 _Note: In a future version this will also build the server._
 
 Finally, you will need to start the server:
 
-* `yarn start`
+* `npm start`
 
 It should create a new database file: `<project_root>/db/rpgk.db`. You should now be able to access the running client
 at http://localhost:5678/.
