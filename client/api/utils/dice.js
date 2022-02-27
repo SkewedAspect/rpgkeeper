@@ -4,7 +4,7 @@
 
 import _ from 'lodash';
 import rpgdice from 'rpgdicejs';
-import LRU from 'lru-cache';
+import { LRU } from './lru';
 
 // Dice Systems
 import { fudgeChoices } from './dice-systems/fudge';

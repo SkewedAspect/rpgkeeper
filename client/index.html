@@ -21,8 +21,8 @@
         <title>RPGKeeper</title>
 
         <!-- Icons -->
-        <link rel="apple-touch-icon" sizes="192x192" href="assets/images/icons/icon-192x192.png">
-        <link rel="icon" sizes="192x192" href="assets/images/icons/icon-192x192.png">
+        <link rel="apple-touch-icon" sizes="192x192" href="/images/icons/icon-192x192.png">
+        <link rel="icon" sizes="192x192" href="/images/icons/icon-192x192.png">
 
         <!-- Google Sign in -->
         <meta name="google-signin-scope" content="profile email">
@@ -41,12 +41,14 @@
             {
                 if(window.onGoogleInit2)
                 {
+                    console.log('called it.')
                     window.onGoogleInit2();
                 }
                 else
                 {
                     setTimeout(() =>
                     {
+                        console.log('sup.bitch?')
                         window.onGoogleInit2();
                     }, 1000);
                 }

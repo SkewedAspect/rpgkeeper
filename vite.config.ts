@@ -17,15 +17,15 @@ export default defineConfig({
         createVuePlugin()
     ],
     server: {
-        port: 8089,
-        // TODO: Setup the proxy correctly...
+        port: 5679,
         proxy: {
-            '/api': 'http://localhost:8090',
-            '/config': 'http://localhost:8090',
-            '/session': 'http://localhost:8090',
-            '/version': 'http://localhost:8090',
+            '/auth': 'http://localhost:5678',
+            '/characters': 'http://localhost:5678',
+            '/systems': 'http://localhost:5678',
+            '/accounts': 'http://localhost:5678',
+            '/notebook': 'http://localhost:5678',
             '/socket.io': {
-                target: 'http://localhost:8090',
+                target: 'http://localhost:5678',
                 ws: true
             }
         },
@@ -45,6 +45,18 @@ export default defineConfig({
             {
                 find: 'vue',
                 replacement: 'vue/dist/vue.esm.js'
+            },
+            {
+                find: 'vue-typeahead-bootstrap',
+                replacement: 'vue-typeahead-bootstrap/dist/VueTypeaheadBootstrap.umd.js'
+            },
+            {
+                find: 'vuelidate/lib/validators',
+                replacement: 'vuelidate/dist/validators.min.js'
+            },
+            {
+                find: 'vuelidate',
+                replacement: 'vuelidate/dist/vuelidate.min.js'
             }
         ]
     },
