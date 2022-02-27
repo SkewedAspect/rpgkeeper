@@ -18,7 +18,7 @@
         >
             <template #preview="{ instance, supplement }">
                 <div v-if="supplement.ranked" class="mb-2 float-right">
-                    <label for="sb-inline">Ranks</label>
+                    <label>Ranks</label>
                     <b-form-spinbutton id="sb-inline" v-model="instance.ranks" inline></b-form-spinbutton>
                 </div>
                 <div class="mb-2">
@@ -65,7 +65,7 @@
 
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
-    import DeleteModal from '../../../ui/deleteModal';
+    import DeleteModal from '../../../ui/deleteModal.vue';
     import AddEditQualityModal from '../modals/addEditQualityModal.vue';
     import MarkdownBlock from '../../../ui/markdown.vue';
     import Reference from '../../../character/reference.vue';

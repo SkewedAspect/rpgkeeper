@@ -43,17 +43,25 @@
                         label="Type"
                         label-class="font-weight-bold"
                     >
-                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="strength" inline>Strength</b-form-radio>
-                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="flaw" inline>Flaw</b-form-radio>
-                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="desire" inline>Desire</b-form-radio>
-                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="fear" inline>Fear</b-form-radio>
+                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="strength" inline>
+                            Strength
+                        </b-form-radio>
+                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="flaw" inline>
+                            Flaw
+                        </b-form-radio>
+                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="desire" inline>
+                            Desire
+                        </b-form-radio>
+                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="fear" inline>
+                            Fear
+                        </b-form-radio>
                     </b-form-group>
-<!--                    <b-form-checkbox v-model="passive" name="passive-check" switch>-->
-<!--                        <b>Passive</b>-->
-<!--                    </b-form-checkbox>-->
-<!--                    <b-form-checkbox v-model="ranked" name="ranked-check" switch>-->
-<!--                        <b>Ranked</b>-->
-<!--                    </b-form-checkbox>-->
+                    <!--                    <b-form-checkbox v-model="passive" name="passive-check" switch>-->
+                    <!--                        <b>Passive</b>-->
+                    <!--                    </b-form-checkbox>-->
+                    <!--                    <b-form-checkbox v-model="ranked" name="ranked-check" switch>-->
+                    <!--                        <b>Ranked</b>-->
+                    <!--                    </b-form-checkbox>-->
                 </b-col>
             </b-form-row>
             <b-form-group
@@ -119,7 +127,7 @@
                 name: '',
                 type: '',
                 description: '',
-                reference: '',
+                reference: ''
             };
         },
         computed: {
@@ -135,7 +143,7 @@
                         name: this.name,
                         type: this.type,
                         description: this.description,
-                        reference: this.reference,
+                        reference: this.reference
                     });
 
                     this.$emit('edit', motivation);

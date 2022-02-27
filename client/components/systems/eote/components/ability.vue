@@ -38,7 +38,7 @@
 
     // Components
     import Reference from '../../../character/reference.vue';
-    import MarkdownBlock from '../../../ui/markdown';
+    import MarkdownBlock from '../../../ui/markdown.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

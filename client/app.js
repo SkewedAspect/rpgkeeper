@@ -2,6 +2,12 @@
 // Main Client-side Application
 //----------------------------------------------------------------------------------------------------------------------
 
+// Buffer Polyfill
+import { Buffer } from 'buffer';
+window.Buffer = Buffer;
+
+//----------------------------------------------------------------------------------------------------------------------
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import marked from 'marked';
@@ -49,6 +55,9 @@ import DashboardPage from './pages/dashboard.vue';
 // Pages
 import HomePage from './pages/home.vue';
 import SettingsPage from './pages/settings.vue';
+
+// Site Theme
+import './scss/theme.scss';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Font Awesome

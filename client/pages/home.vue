@@ -6,7 +6,7 @@
     <div id="main-page" class="container p-3">
         <div class="d-flex">
             <div class="d-flex m-auto">
-                <img class="rpgk-logo" src="/static/images/logo.png" alt="RPGKeeper Logo" width="200" />
+                <img class="rpgk-logo" src="../assets/images/logo.png" alt="RPGKeeper Logo" width="200" />
                 <div class="d-flex flex-column align-self-center">
                     <h1>
                         RPGKeeper

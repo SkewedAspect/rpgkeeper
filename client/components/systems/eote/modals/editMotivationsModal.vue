@@ -272,8 +272,8 @@
     import eoteMan from '../../../../api/managers/eote';
 
     // Components
-    import SupplementSearch from '../../../character/supplementSearch';
-    import MarkdownBlock from '../../../ui/markdown';
+    import SupplementSearch from '../../../character/supplementSearch.vue';
+    import MarkdownBlock from '../../../ui/markdown.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
     import AddEditMotivationModal from './addEditMotivationModal.vue';
 

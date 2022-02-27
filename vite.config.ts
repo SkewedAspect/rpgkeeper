@@ -12,12 +12,13 @@ import { createVuePlugin } from 'vite-plugin-vue2';
 
 export default defineConfig({
     root: 'client',
-    publicDir: 'static',
+    publicDir: 'assets',
     plugins: [
         createVuePlugin()
     ],
     server: {
         port: 8089,
+        // TODO: Setup the proxy correctly...
         proxy: {
             '/api': 'http://localhost:8090',
             '/config': 'http://localhost:8090',
@@ -48,7 +49,7 @@ export default defineConfig({
         ]
     },
     build: {
-        outDir: '../../dist/client',
+        outDir: '../dist/client',
         emptyOutDir: true,
         cssCodeSplit: true,
         chunkSizeWarningLimit: 650,
@@ -56,7 +57,7 @@ export default defineConfig({
             output: {
                 manualChunks: {
                     bootstrap: [ 'popper.js', 'jquery', 'bootstrap' ],
-                    bootstrapVue: [ 'bootstrap-vue' ],
+                    bootstrapVue: [ 'bootstrap-vue' ]
                 }
             }
         }

@@ -67,12 +67,16 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
+    import portraitPlaceholder from '../../assets/images/portraitPlaceholder.png';
+
+    //------------------------------------------------------------------------------------------------------------------
+
     export default {
         name: 'CharacterPortrait',
         props: {
             src: {
                 type: String,
-                default: '/static/images/portraitPlaceholder.png'
+                default: portraitPlaceholder
             },
             color: {
                 type: String,
@@ -85,7 +89,7 @@
         },
         computed: {
             portraitClass() { return `portrait-${ this.size }`; },
-            url() { return this.src || '/static/images/portraitPlaceholder.png'; }
+            url() { return this.src || portraitPlaceholder; }
         }
     };
 </script>

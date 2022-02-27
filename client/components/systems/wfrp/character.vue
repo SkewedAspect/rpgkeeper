@@ -34,7 +34,7 @@
     import BioComponent from './bio.vue';
     import PortraitComponent from '../../character/portrait.vue';
     import StatsComponent from './stats.vue';
-    import SkillsComponent from './skills';
+    import SkillsComponent from './skills.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

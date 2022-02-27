@@ -67,7 +67,7 @@
     import eoteMan from '../../../../api/managers/eote';
 
     // Components
-    import MarkdownBlock from '../../../ui/markdown';
+    import MarkdownBlock from '../../../ui/markdown.vue';
     import Reference from '../../../character/reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------

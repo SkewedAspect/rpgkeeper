@@ -53,7 +53,7 @@
     import Biography from './biography.vue';
     import Characteristics from './characteristics.vue';
     import Rolls from './rolls.vue';
-    import Skills from './skills';
+    import Skills from './skills.vue';
     import Defenses from './defenses.vue';
     import Experience from './experience.vue';
     import Wounds from './wounds.vue';

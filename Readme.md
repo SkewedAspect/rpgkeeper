@@ -1,5 +1,5 @@
 <h1>
-    <img width="32" height="32" src="client/static/images/logo.png">
+    <img width="32" height="32" src="client/assets/images/logo.png">
     RPGKeeper
 </h1>
 

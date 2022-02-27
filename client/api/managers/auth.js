@@ -22,6 +22,9 @@ class AuthManager
         window.onGoogleSignIn = this._onGoogleSignIn.bind(this);
         window.onGoogleFailure = this._onGoogleFailure.bind(this);
 
+        // FIXME: We need to do this so that we can call this with a timeout... it's fucking stupid.
+        window.onGoogleInit2 = this._onGoogleInit.bind(this);
+
         this.loading = new Promise((resolve) =>
         {
             const subscription = this.status$.subscribe((status) =>

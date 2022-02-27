@@ -124,7 +124,7 @@
     import MarkdownBlock from '../../../ui/markdown.vue';
     import Reference from '../../../character/reference.vue';
     import AddEditForcePowersModal from './addEditForcePowersModal.vue';
-    import Pool from '../../../character/pool';
+    import Pool from '../../../character/pool.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
