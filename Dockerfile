@@ -9,21 +9,20 @@ WORKDIR /app
 
 ADD . /app/
 
-RUN yarn
-RUN yarn build:release
-RUN yarn build:server
+RUN npm
+RUN npm build
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Yarn Stage - Install production packages and clean cache
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:14-alpine as yarn-builder
+FROM node:14-alpine as npm-builder
 
 COPY --from=bundle-builder /app /app
 
 WORKDIR /app
 
-RUN yarn install --production --ignore-scripts
+RUN npm install --production --ignore-scripts
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Final Docker
@@ -36,7 +35,7 @@ MAINTAINER Christopher S. Case <chris.case@g33xnexus.com>
 
 # Only copy the files we actually need
 COPY --from=bundle-builder /app/dist /app/dist
-COPY --from=yarn-builder /app/node_modules /app/node_modules
+COPY --from=npm-builder /app/node_modules /app/node_modules
 COPY --from=bundle-builder /app/package.json /app/
 
 RUN mkdir /app/db
@@ -45,7 +44,7 @@ WORKDIR /app
 
 VOLUME /app/db
 
-CMD [ "node", "dist/server.js" ]
+CMD [ "node", "dist/server.js",  "# rpgkeeper" ]
 
 #-----------------------------------------------------------------------------------------------------------------------
 

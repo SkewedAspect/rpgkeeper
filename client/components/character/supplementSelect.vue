@@ -88,7 +88,7 @@
                     </slot>
                     <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
                         <div v-if="currentSupplement.ranked" class="mb-2">
-                            <label for="sb-inline">Ranks</label>
+                            <label>Ranks</label>
                             <b-form-spinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></b-form-spinbutton>
                         </div>
                         <markdown-block :text="currentSupplement.description" inline></markdown-block>
@@ -117,8 +117,6 @@
 
 <script>
     //------------------------------------------------------------------------------------------------------------------
-
-    import _ from 'lodash';
 
     // Components
     import SupplementSearch from './supplementSearch.vue';
