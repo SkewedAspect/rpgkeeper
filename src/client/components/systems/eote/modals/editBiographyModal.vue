@@ -172,7 +172,7 @@
 
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
-    import AddEditAbilityModal from '../modals/addEditAbilityModal.vue';
+    import AddEditAbilityModal from './addEditAbilityModal.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------

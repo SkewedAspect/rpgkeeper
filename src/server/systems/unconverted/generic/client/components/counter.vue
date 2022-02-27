@@ -146,7 +146,7 @@
     </div>
 </template>
 
-<style lang="sass">
+<style lang="scss">
     .card.counter {
         margin-bottom: 10px !important;
 

@@ -49,7 +49,7 @@ import sysRouter from './routes/systems';
 import accountsRouter from './routes/accounts';
 
 // Version information
-import { version } from '../package.json';
+import { version } from '../../package.json';
 import { AddressInfo } from 'net';
 
 // Utils
@@ -157,7 +157,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     //------------------------------------------------------------------------------------------------------------------
 
     // Setup static serving
-    app.use(express.static(path.resolve(__dirname, '..', '..', 'dist', 'client')));
+    app.use(express.static(path.resolve(__dirname, '..', '..', 'dist', 'src', 'client')));
 
     // Set up our application routes
     app.use('/api/characters', charRouter);

@@ -99,8 +99,8 @@
             <div class="modal-body" slot="body">
                 <form>
                     <fieldset class="form-group">
-                        <label for="name">Name</label>
-                        <input id="name" type="text" class="form-control" v-model="newRoll.name">
+                        <label for="roll-name">Name</label>
+                        <input id="roll-name" type="text" class="form-control" v-model="newRoll.name">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="expr">Expression</label>
@@ -135,8 +135,8 @@
             <div class="modal-body" slot="body">
                 <form>
                     <fieldset class="form-group">
-                        <label for="name">Name</label>
-                        <input id="name" type="text" class="form-control" v-model="newCounter.name">
+                        <label for="counter-name">Name</label>
+                        <input id="counter-name" type="text" class="form-control" v-model="newCounter.name">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="value">Value</label>
@@ -177,7 +177,7 @@
     </div>
 </template>
 
-<style lang="sass" src="character.scss"></style>
+<style lang="scss" src="character.scss"></style>
 
 <script type="text/babel">
     import { modal } from 'vueboot';

@@ -929,8 +929,10 @@ exports.seed = async function(knex)
         .sort(sortBy('id'));
 
     // Deletes ALL existing entries
-    await knex('eote_talent').del().where({ official: true });
-    await knex('genesys_talent').del().where({ official: true });
+    await knex('eote_talent').del()
+        .where({ official: true });
+    await knex('genesys_talent').del()
+        .where({ official: true });
 
     // Inserts seed entries
     await Promise.all(eoteTalents.map((talent) => knex('eote_talent').insert(talent)));

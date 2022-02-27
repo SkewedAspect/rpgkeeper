@@ -11,7 +11,7 @@ import { createVuePlugin } from 'vite-plugin-vue2';
 //----------------------------------------------------------------------------------------------------------------------
 
 export default defineConfig({
-    root: 'client',
+    root: 'src/client',
     publicDir: 'assets',
     plugins: [
         createVuePlugin()
@@ -58,7 +58,7 @@ export default defineConfig({
         ]
     },
     build: {
-        outDir: '../dist/client',
+        outDir: '../dist/src/client',
         emptyOutDir: true,
         cssCodeSplit: true,
         chunkSizeWarningLimit: 650,

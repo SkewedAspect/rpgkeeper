@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "vite",
-    "start:server": "tsc && DEBUG=true node ./dist/server/server.js",
+    "start:server": "tsc && DEBUG=true node ./dist/src/server/server.js",
     "build": "tsc && vite build",
-    "lint:fix": "eslint --ext *.ts,.js,.vue --fix server/server.ts config.ts server/ client/",
+    "lint:fix": "eslint --ext *.ts,.js,.vue --fix config.ts src/",
     "prepare": "husky install"
   },
   "repository": "Morgul/rpgkkeper",

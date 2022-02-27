@@ -27,12 +27,12 @@
             </button>
             {{ statblock.name }}
         </div>
-        <table v-if="statblock.type == 'table'" class="table table-sm text-center">
+        <table v-if="statblock.type === 'table'" class="table table-sm text-center">
             <tr>
                 <th v-for="column in statblock.columns" class="text-center">{{ column.name }}</th>
             </tr>
             <tr v-for="row in statblock.rows">
-                <td v-for="cell in row">{{{ renderCell(cell, $index) }}}</td>
+                <td v-for="cell in row">{{ renderCell(cell, $index) }}</td>
             </tr>
         </table>
         <table class="table table-sm" v-else>
@@ -40,7 +40,7 @@
                 <td><b>{{ item.key }}</b></td>
 
                 <!-- Value -->
-                <td>{{{ renderValue(item) }}}</td>
+                <td>{{ renderValue(item) }}</td>
             </tr>
         </table>
     </div>
@@ -52,7 +52,7 @@
     <delete-modal v-ref:delete-modal :title="deleteTitle" :text="'this statblock'" :on-delete="remove"></delete-modal>
 </template>
 
-<style lang="sass">
+<style lang="scss">
     .card.statblock {
         .card-header {
             font-size: .85rem;
