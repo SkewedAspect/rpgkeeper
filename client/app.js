@@ -10,7 +10,7 @@ window.Buffer = Buffer;
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import marked from 'marked';
+import { marked } from 'marked';
 import { version } from '../package.json';
 
 // VueCodeMirror
@@ -64,6 +64,8 @@ import './scss/theme.scss';
 // ---------------------------------------------------------------------------------------------------------------------
 
 library.add(fab, far, fas);
+
+// eslint-disable-next-line vue/multi-word-component-names
 Vue.component('Fa', FontAwesomeIcon);
 Vue.component('FaLayers', FontAwesomeLayers);
 

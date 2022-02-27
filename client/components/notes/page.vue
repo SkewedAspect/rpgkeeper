@@ -25,7 +25,7 @@
 <script>
     //------------------------------------------------------------------------------------------------------------------
 
-    import marked from 'marked';
+    import { marked } from 'marked';
 
     // Managers
     import charMan from '../../api/managers/character';
@@ -36,6 +36,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: 'NotePage',
         components: {
             markdown
         },

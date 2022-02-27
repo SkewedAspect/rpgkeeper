@@ -29,12 +29,13 @@ module.exports = {
         'vue/max-attributes-per-line': [
             'error', {
                 singleline: 20,
-                multiline: {
-                    max: 1,
-                    allowFirstLine: false
-                }
+                multiline: 1
             }
         ],
+        'vue/first-attribute-linebreak': [ 'error', {
+            singleline: 'ignore',
+            multiline: 'below'
+        } ],
         'vue/html-self-closing': [
             'error',
             {

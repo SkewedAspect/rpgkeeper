@@ -66,6 +66,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: 'LoginButton',
         subscriptions: {
             account: authMan.account$,
             authStatus: authMan.status$

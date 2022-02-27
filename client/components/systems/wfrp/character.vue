@@ -39,6 +39,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: 'WFRPCharacter',
         components: {
             bio: BioComponent,
             portrait: PortraitComponent,

@@ -43,6 +43,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default {
+        name: 'RisusCharacter',
         components: {
             bio: BioComponent,
             rolls: RollsComponent,
