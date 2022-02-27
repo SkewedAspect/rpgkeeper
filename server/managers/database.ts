@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import configMan from './config';
-import Knex, { QueryBuilder, RawBinding } from 'knex';
+import knex, { Knex } from 'knex';
 
 import { AppError } from '../errors';
 
@@ -156,7 +156,7 @@ export async function init() : Promise<void>
 {
     if(!db)
     {
-        db = Knex(dbConfig);
+        db = knex(dbConfig);
         await _setupDB();
     } // end if
 } // end init
@@ -176,7 +176,7 @@ export function getDB() : Knex
     return db;
 } // end getDB
 
-export function table(tableName : string) : QueryBuilder
+export function table(tableName : string) : Knex.QueryBuilder
 {
     if(!db)
     {
@@ -186,7 +186,7 @@ export function table(tableName : string) : QueryBuilder
     return db(tableName);
 } // end table
 
-export function raw(sql : string, bindings : RawBinding) : Promise<Knex>
+export function raw(sql : string, bindings : Knex.RawBinding) : Promise<Knex>
 {
     if(!db)
     {

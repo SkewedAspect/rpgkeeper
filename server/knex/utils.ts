@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import { QueryBuilder } from 'knex';
+import { Knex } from 'knex';
 import { FilterToken } from '../routes/utils/query';
 
 import logging from 'trivial-logging';
@@ -19,7 +19,7 @@ const logger = logging.loggerFor(module);
  *
  * @returns Returns the modified query.
  */
-export function applyFilters(query : QueryBuilder, filters : Record<string, FilterToken>) : QueryBuilder
+export function applyFilters(query : Knex.QueryBuilder, filters : Record<string, FilterToken>) : Knex.QueryBuilder
 {
     if(filters && !_.isEmpty(filters))
     {

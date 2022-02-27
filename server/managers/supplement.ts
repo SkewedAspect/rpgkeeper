@@ -2,7 +2,7 @@
 // SupplementManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import { QueryBuilder } from 'knex';
+import { Knex } from 'knex';
 import logging from 'trivial-logging';
 
 // Managers
@@ -28,7 +28,7 @@ const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-async function $checkViewAccess(query : QueryBuilder, systemPrefix ?: string, account ?: Account) : Promise<QueryBuilder>
+async function $checkViewAccess(query : Knex.QueryBuilder, systemPrefix ?: string, account ?: Account) : Promise<Knex.QueryBuilder>
 {
     if(account && systemPrefix)
     {

@@ -31,7 +31,11 @@ import * as accountMan from './server/managers/account';
 import * as permsMan from './server/managers/permissions';
 
 // Session Store
-import connectSessionKnex from 'connect-session-knex';
+// FIXME: This is broken by this project.
+//  @see https://github.com/gx0r/connect-session-knex/issues/97
+// import connectSessionKnex from 'connect-session-knex';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const connectSessionKnex = require('connect-session-knex');
 const KnexSessionStore = connectSessionKnex(session);
 
 // Auth

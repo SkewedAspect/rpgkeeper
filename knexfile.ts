@@ -4,6 +4,8 @@
 
 require('ts-node/register');
 
+//----------------------------------------------------------------------------------------------------------------------
+
 import knex from 'knex';
 
 // Config
@@ -19,7 +21,7 @@ import { getConfig } from './server/managers/database';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = async () =>
+module.exports = async() =>
 {
     const db = knex(getConfig());
 
@@ -39,7 +41,6 @@ module.exports = async () =>
                 throw error;
             } // end if
         });
-
 
     return {
         ...getConfig(),

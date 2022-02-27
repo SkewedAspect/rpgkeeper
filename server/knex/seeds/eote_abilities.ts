@@ -2,7 +2,7 @@
 // Populate a default set of EotE/Genesys Abilities
 //----------------------------------------------------------------------------------------------------------------------
 
-import * as Knex from 'knex';
+import { Knex } from 'knex';
 
 import { sortBy } from '../../utils/misc';
 
@@ -223,6 +223,6 @@ export async function seed(knex : Knex) : Promise<void>
     // Inserts seed entries
     await Promise.all(eoteAbilities.map((ability) => knex('eote_ability').insert(ability)));
     await Promise.all(genesysAbilities.map((ability) => knex('genesys_ability').insert(ability)));
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------
