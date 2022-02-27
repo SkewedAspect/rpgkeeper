@@ -73,20 +73,20 @@ class CharacterResourceAccess
 
     async getCharacter(charID)
     {
-        const { data } = await $http.get(`/characters/${ charID }`);
+        const { data } = await $http.get(`/api/characters/${ charID }`);
         return this._buildOrUpdateModel(data);
     } // end getCharacter
 
     async getAllCharacters(owner)
     {
-        const { data } = await $http.get('/characters', { params: { owner } });
+        const { data } = await $http.get('/api/characters', { params: { owner } });
         return data.map((def) => this._buildOrUpdateModel(def));
     } // end getAllCharacters
 
     async saveCharacter(character)
     {
         const verb = character.id ? 'patch' : 'post';
-        const charURL = character.id ? `/characters/${ character.id }` : `/characters`;
+        const charURL = character.id ? `/api/characters/${ character.id }` : `/characters`;
         const { data, status } = await ($http[verb](charURL, character)
             .catch((error) =>
             {
@@ -142,7 +142,7 @@ class CharacterResourceAccess
 
     async deleteCharacter(character)
     {
-        $http.delete(`/characters/${ character.id }`);
+        $http.delete(`/api/characters/${ character.id }`);
     } // end deleteCharacter
 } // end CharacterResourceAccess
 

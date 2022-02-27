@@ -58,7 +58,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import charMan from '../../../api/managers/character';
+    import charMan from '../../../lib/managers/character';
 
     // Components
     import EditSkillsModal from './editSkillsModal.vue';

@@ -10,10 +10,10 @@ class SystemsResourceAccess
 {
     async loadSystems()
     {
-        const { data } = await $http.get('/systems');
+        const { data } = await $http.get('/api/systems');
         return data;
-    } // end loadSystems
-} // end SystemsResourceAccess
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

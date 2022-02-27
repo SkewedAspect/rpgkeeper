@@ -44,7 +44,7 @@ import 'codemirror/mode/clike/clike';
 import 'codemirror/mode/meta';
 
 // Utils
-import toastUtil from './api/utils/toast';
+import toastUtil from './lib/utils/toast';
 
 // Views
 import AppComponent from './app.vue';

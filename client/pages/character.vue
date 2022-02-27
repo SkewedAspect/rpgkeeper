@@ -106,9 +106,9 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import authMan from '../api/managers/auth';
-    import charMan from '../api/managers/character';
-    import sysMan from '../api/managers/systems';
+    import authMan from '../lib/managers/auth';
+    import charMan from '../lib/managers/character';
+    import sysMan from '../lib/managers/systems';
 
     // Components
     import Loading from '../components/ui/loading.vue';

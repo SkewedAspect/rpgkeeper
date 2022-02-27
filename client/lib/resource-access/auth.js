@@ -21,7 +21,7 @@ class AuthResourceAccess
 
     async save(account)
     {
-        const { data } = await $http.patch(`/accounts/${ account.id }`, account);
+        const { data } = await $http.patch(`/api/accounts/${ account.id }`, account);
         account.update(data);
 
         return account;

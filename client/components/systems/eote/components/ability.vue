@@ -34,7 +34,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import eoteMan from '../../../../api/managers/eote';
+    import eoteMan from '../../../../lib/managers/eote';
 
     // Components
     import Reference from '../../../character/reference.vue';

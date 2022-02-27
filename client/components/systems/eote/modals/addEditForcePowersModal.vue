@@ -202,14 +202,14 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import eoteMan from '../../../../api/managers/eote';
-    import charMan from '../../../../api/managers/character';
+    import eoteMan from '../../../../lib/managers/eote';
+    import charMan from '../../../../lib/managers/character';
 
     // Components
     import EditReference from '../../../character/editReference.vue';
 
     // Utils
-    import { deepClone } from '../../../../api/utils';
+    import { deepClone } from '../../../../lib/utils';
 
     //------------------------------------------------------------------------------------------------------------------
 

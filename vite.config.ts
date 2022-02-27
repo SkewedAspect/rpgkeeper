@@ -20,10 +20,7 @@ export default defineConfig({
         port: 5679,
         proxy: {
             '/auth': 'http://localhost:5678',
-            '/characters': 'http://localhost:5678',
-            '/systems': 'http://localhost:5678',
-            '/accounts': 'http://localhost:5678',
-            '/notebook': 'http://localhost:5678',
+            '/api': 'http://localhost:5678',
             '/socket.io': {
                 target: 'http://localhost:5678',
                 ws: true

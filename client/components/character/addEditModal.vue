@@ -199,11 +199,11 @@
     import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
     // Managers
-    import charMan from '../../api/managers/character';
-    import systemsMan from '../../api/managers/systems';
+    import charMan from '../../lib/managers/character';
+    import systemsMan from '../../lib/managers/systems';
 
     // Utils
-    import dropboxUtil from '../../api/utils/dropbox';
+    import dropboxUtil from '../../lib/utils/dropbox';
 
     // Components
     import ColorPicker from '../../components/ui/colorPicker.vue';

@@ -28,7 +28,7 @@
     import { marked } from 'marked';
 
     // Managers
-    import charMan from '../../api/managers/character';
+    import charMan from '../../lib/managers/character';
 
     // Components
     import markdown from '../ui/markdown.vue';

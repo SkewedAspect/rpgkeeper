@@ -61,7 +61,7 @@
     import $ from 'jquery';
 
     // Managers
-    import authMan from '../../api/managers/auth';
+    import authMan from '../../lib/managers/auth';
 
     //------------------------------------------------------------------------------------------------------------------
 

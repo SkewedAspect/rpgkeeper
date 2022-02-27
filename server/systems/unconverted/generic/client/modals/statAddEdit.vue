@@ -227,7 +227,7 @@
             },
             showModal: function()
             {
-                // This is compatibility for the modal api.
+                // This is compatibility for the modal lib.
                 this.show();
             },
             hide: function()
@@ -237,7 +237,7 @@
             },
             hideModal: function()
             {
-                // This is compatibility for the modal api.
+                // This is compatibility for the modal lib.
                 this.hide();
             },
             makeColumnPrimary: function(columnName)

@@ -39,7 +39,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import eoteMan from '../../../api/managers/eote';
+    import eoteMan from '../../../lib/managers/eote';
 
     // Components
     import RpgkCard from '../../ui/card.vue';

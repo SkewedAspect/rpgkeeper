@@ -10,37 +10,37 @@ class SupplementResourceAccess
 {
     async list(system, path)
     {
-        return axios.get(`/systems/${ system }/${ path }`)
+        return axios.get(`/api/systems/${ system }/${ path }`)
             .then(({ data }) => data);
-    } // end list
+    }
 
     async search(system, path, query, key = 'name')
     {
         const params = {};
         params[key] = `@>${ query }`;
 
-        return axios.get(`/systems/${ system }/${ path }`, { params })
+        return axios.get(`/api/systems/${ system }/${ path }`, { params })
             .then(({ data }) => data);
-    } // end search
+    }
 
     async add(system, path, supplement)
     {
-        return axios.post(`/systems/${ system }/${ path }`, supplement)
+        return axios.post(`/api/systems/${ system }/${ path }`, supplement)
             .then(({ data }) => data);
-    } // end add
+    }
 
     async update(system, path, supplement)
     {
-        return axios.patch(`/systems/${ system }/${ path }/${ supplement.id }`, supplement)
+        return axios.patch(`/api/systems/${ system }/${ path }/${ supplement.id }`, supplement)
             .then(({ data }) => data);
-    } // end update
+    }
 
     async delete(system, path, id)
     {
-        return axios.delete(`/systems/${ system }/${ path }/${ id }`)
+        return axios.delete(`/api/systems/${ system }/${ path }/${ id }`)
             .then(() => undefined);
-    } // end delete
-} // end SupplementResourceAccess
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

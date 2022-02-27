@@ -76,8 +76,8 @@
     import _ from 'lodash';
 
     // Managers
-    import charMan from '../../../api/managers/character';
-    import diceMan from '../../../api/utils/dice';
+    import charMan from '../../../lib/managers/character';
+    import diceMan from '../../../lib/utils/dice';
 
     // Components
     import RpgkCard from '../../ui/card.vue';

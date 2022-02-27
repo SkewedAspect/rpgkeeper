@@ -162,9 +162,9 @@
     import _ from 'lodash';
 
     // Managers
-    import authMan from '../api/managers/auth';
-    import systemsMan from '../api/managers/systems';
-    import characterMan from '../api/managers/character';
+    import authMan from '../lib/managers/auth';
+    import systemsMan from '../lib/managers/systems';
+    import characterMan from '../lib/managers/character';
 
     // Components
     import Loading from '../components/ui/loading.vue';

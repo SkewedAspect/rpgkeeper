@@ -71,7 +71,7 @@
     import _ from 'lodash';
 
     // Managers
-    import noteMan from '../../api/managers/notebook';
+    import noteMan from '../../lib/managers/notebook';
 
     // Components
     import NotePage from './page.vue';

@@ -45,8 +45,8 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import charMan from '../../../api/managers/character';
-    import eoteMan from '../../../api/managers/eote';
+    import charMan from '../../../lib/managers/character';
+    import eoteMan from '../../../lib/managers/eote';
 
     // Components
     import Portrait from '../../character/portrait.vue';

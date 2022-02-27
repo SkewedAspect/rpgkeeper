@@ -60,25 +60,25 @@ class NotesResourceAccess
 
     async getNotes(noteID)
     {
-        const { data } = await $http.get(`/notebook/${ noteID }`);
+        const { data } = await $http.get(`/api/notebook/${ noteID }`);
         return this._buildModel(data);
     } // end getNotes
 
     async addPage(noteID, page)
     {
-        const { data } = await $http.post(`/notebook/${ noteID }/pages`, page);
+        const { data } = await $http.post(`/api/notebook/${ noteID }/pages`, page);
         return this._buildPage(data);
     } // end addPage
 
     async updatePage(noteID, page)
     {
-        const { data } = await $http.patch(`/notebook/${ noteID }/pages/${ page.id }`, page);
+        const { data } = await $http.patch(`/api/notebook/${ noteID }/pages/${ page.id }`, page);
         return this._buildPage(data);
     } // end updatePage
 
     async deletePage(noteID, page)
     {
-        await $http.delete(`/notebook/${ noteID }/pages/${ page.id }`);
+        await $http.delete(`/api/notebook/${ noteID }/pages/${ page.id }`);
         delete this.$pages[page.id];
     } // end deletePage
 

@@ -58,7 +58,7 @@
     import _ from 'lodash';
 
     // Utils
-    import diceUtil from '../../../api/utils/dice';
+    import diceUtil from '../../../lib/utils/dice';
 
     // Components
     import RpgkCard from '../../ui/card.vue';

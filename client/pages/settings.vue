@@ -63,7 +63,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Managers
-    import authMan from '../api/managers/auth';
+    import authMan from '../lib/managers/auth';
 
     // Components
     import Loading from '../components/ui/loading.vue';

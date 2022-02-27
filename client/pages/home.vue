@@ -81,7 +81,7 @@
         <b-row class="mt-5">
             <b-col>
                 <h3 class="text-center">
-                    <fa icon="tachometer-alt-fastest"></fa>
+                    <fa icon="tachometer-alt"></fa>
                     Optimized Code
                 </h3>
 
@@ -162,7 +162,7 @@
     import $ from 'jquery';
 
     // Managers
-    import authMan from '../api/managers/auth';
+    import authMan from '../lib/managers/auth';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -209,8 +209,9 @@
                 } // end if
             });
         },
-        subscriptions: {
-            account: authMan.account$
+        subscriptions()
+        {
+            return { account: authMan.account$ };
         }
     };
 </script>

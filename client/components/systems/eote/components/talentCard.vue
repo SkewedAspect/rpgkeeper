@@ -61,7 +61,7 @@
     import { v4 } from 'uuid';
 
     // Managers
-    import eoteMan from '../../../../api/managers/eote';
+    import eoteMan from '../../../../lib/managers/eote';
 
     // Components
     import MarkdownBlock from '../../../ui/markdown.vue';

@@ -29,9 +29,9 @@
     "files": [
         "server/express-shim.d.ts",
         "package.json",
-        "server.ts",
+        "server/server.ts",
         "knexfile.ts",
-        "config.ts",
+        "config.ts"
     ],
     "include": [
         "server/knex/migrations",

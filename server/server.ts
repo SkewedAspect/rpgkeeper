@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Config
-import configMan from './server/managers/config';
+import configMan from './managers/config';
 
 // Logging
 import logging from 'trivial-logging';
@@ -26,9 +26,9 @@ import http from 'http';
 import { Server as SIOServer } from 'socket.io';
 
 // Managers
-import * as dbMan from './server/managers/database';
-import * as accountMan from './server/managers/account';
-import * as permsMan from './server/managers/permissions';
+import * as dbMan from './managers/database';
+import * as accountMan from './managers/account';
+import * as permsMan from './managers/permissions';
 
 // Session Store
 // FIXME: This is broken by this project.
@@ -39,21 +39,21 @@ const connectSessionKnex = require('connect-session-knex');
 const KnexSessionStore = connectSessionKnex(session);
 
 // Auth
-import GoogleAuth from './server/auth/google';
+import GoogleAuth from './auth/google';
 
 // Routes
-import { requestLogger, wrapAsync, serveIndex, errorLogger } from './server/routes/utils';
-import noteRouter from './server/routes/notebook';
-import charRouter from './server/routes/characters';
-import sysRouter from './server/routes/systems';
-import accountsRouter from './server/routes/accounts';
+import { requestLogger, wrapAsync, serveIndex, errorLogger } from './routes/utils';
+import noteRouter from './routes/notebook';
+import charRouter from './routes/characters';
+import sysRouter from './routes/systems';
+import accountsRouter from './routes/accounts';
 
 // Version information
-import { version } from './package.json';
+import { version } from '../package.json';
 import { AddressInfo } from 'net';
 
 // Utils
-import { setSIOInstance } from './server/utils/sio';
+import { setSIOInstance } from './utils/sio';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handler
@@ -157,13 +157,13 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     //------------------------------------------------------------------------------------------------------------------
 
     // Setup static serving
-    app.use(express.static(path.resolve(__dirname, '..', 'dist', 'client')));
+    app.use(express.static(path.resolve(__dirname, '..', '..', 'dist', 'client')));
 
     // Set up our application routes
-    app.use('/characters', charRouter);
-    app.use('/systems', sysRouter);
-    app.use('/accounts', accountsRouter);
-    app.use('/notebook', noteRouter);
+    app.use('/api/characters', charRouter);
+    app.use('/api/systems', sysRouter);
+    app.use('/api/accounts', accountsRouter);
+    app.use('/api/notebook', noteRouter);
 
     // Serve index.html for any html requests, but 404 everything else.
     app.get('*', (_request, response) =>
