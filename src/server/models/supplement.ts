@@ -8,7 +8,7 @@ import * as JsonDecoder from 'decoders';
 import { getSupplementDecoder } from '../decoders/supplement';
 
 // Utils
-import { snakeCaseKeys } from '../utils/misc';
+import { snakeCaseKeys } from '../../common/utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 

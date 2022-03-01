@@ -9,7 +9,7 @@ import { table } from './database';
 import { Notebook, NotebookPage } from '../models/notebook';
 
 // Utils
-import { shortID } from '../utils/misc';
+import { shortID } from '../../common/utils/misc';
 import { MultipleResultsError, NotFoundError } from '../errors';
 
 // ---------------------------------------------------------------------------------------------------------------------

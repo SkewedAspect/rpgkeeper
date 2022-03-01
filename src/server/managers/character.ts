@@ -15,7 +15,7 @@ import { Character } from '../models/character';
 import { MultipleResultsError, NotFoundError } from '../errors';
 import { FilterToken } from '../routes/utils/query';
 import { applyFilters } from '../knex/utils';
-import { shortID } from '../utils/misc';
+import { shortID } from '../../common/utils/misc';
 import { broadcast } from '../utils/sio';
 
 //----------------------------------------------------------------------------------------------------------------------

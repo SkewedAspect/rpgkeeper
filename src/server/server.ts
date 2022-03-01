@@ -2,6 +2,9 @@
 // Main server module for RPGKeeper.
 //----------------------------------------------------------------------------------------------------------------------
 
+// Program Argument Parsing
+import program from './utils/args';
+
 // Config
 import configMan from './managers/config';
 
@@ -157,7 +160,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     //------------------------------------------------------------------------------------------------------------------
 
     // Setup static serving
-    app.use(express.static(path.resolve(__dirname, '..', '..', 'dist', 'src', 'client')));
+    app.use(express.static(path.resolve(__dirname, '..', 'client')));
 
     // Set up our application routes
     app.use('/api/characters', charRouter);
@@ -195,14 +198,29 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     server.listen(httpConfig.port, () =>
     {
         const { address, port } = server.address() as AddressInfo;
-
         const host = address === '::' ? 'localhost' : address;
-        logger.info(`RPGKeeper v${ version } listening at http://${ host }:${ port }.`);
+        let actualPort = port;
+
+        if(program.args.includes('--dev'))
+        {
+            logger.warn('Should launch vite...');
+            actualPort += 1;
+
+            // Start Vite Dev Server
+            (async() =>
+            {
+                const { createServer } = await import('vite');
+                const viteServer = await createServer();
+                await viteServer.listen();
+            })();
+        }
+
+        logger.info(`RPGKeeper v${ version } listening at http://${ host }:${ actualPort }.`);
     });
 
     // Return these, to make it easier for unit tests.
     return { app, sio, server };
-} // end main
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

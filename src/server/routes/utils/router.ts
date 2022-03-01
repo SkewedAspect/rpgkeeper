@@ -130,7 +130,7 @@ export function errorHandler(logger : TrivialLogger) : ErrorMiddlewareFunction
 export function serveIndex(_request : Request, response : Response) : void
 {
     response.setHeader('Content-Type', 'text/html');
-    fs.createReadStream(path.resolve(__dirname, '..', '..', '..', 'client', 'index.html')).pipe(response);
+    fs.createReadStream(path.resolve(__dirname, '..', 'client', 'index.html')).pipe(response);
 } // end serveIndex
 
 /**

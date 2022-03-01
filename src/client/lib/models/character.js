@@ -5,7 +5,7 @@
 import _ from 'lodash';
 
 // Utils
-import { shortID, colorize } from '../../../server/utils/misc';
+import { shortID, colorize } from '../../../common/utils/misc';
 import { markNonConfigurable } from '../utils/nonreactive';
 
 //----------------------------------------------------------------------------------------------------------------------

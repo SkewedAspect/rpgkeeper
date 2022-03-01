@@ -17,7 +17,7 @@ import { Supplement } from '../models/supplement';
 // Utilities
 import { applyFilters } from '../knex/utils';
 import { FilterToken } from '../routes/utils/query';
-import { camelCaseKeys } from '../utils/misc';
+import { camelCaseKeys } from '../../common/utils/misc';
 
 // Errors
 import { MultipleResultsError, DuplicateSupplementError, NotFoundError, NotAuthorizedError } from '../errors';

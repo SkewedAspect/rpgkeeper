@@ -12,7 +12,7 @@ import { Account } from '../models/account';
 import { MultipleResultsError, NotFoundError } from '../errors';
 
 // Utils
-import { shortID } from '../utils/misc';
+import { shortID } from '../../common/utils/misc';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

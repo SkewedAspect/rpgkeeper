@@ -47,16 +47,9 @@ The first thing you will want to do is to install dependencies:
 
 * `npm`
 
-Next, build the client assets:
+Finally, you will need to start the dev server:
 
-* `npm run build:watch` (for development)
-* `npm run build:release` (for release)
-
-_Note: In a future version this will also build the server._
-
-Finally, you will need to start the server:
-
-* `npm start`
+* `npm run dev`
 
 It should create a new database file: `<project_root>/db/rpgk.db`. You should now be able to access the running client
 at http://localhost:5678/.
