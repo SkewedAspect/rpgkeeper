@@ -223,7 +223,7 @@
                 if(this.rollResults)
                 {
                     return this.rollResults.render();
-                } // end if
+                }
 
                 return "";
             },

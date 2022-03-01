@@ -47,7 +47,7 @@ router.get('/:accountID', wrapAsync(async(req, resp) =>
     {
         const { permissions, groups, settings, ...restAccount } = account;
         resp.json(restAccount);
-    } // end if
+    }
 }));
 
 router.patch('/:accountID', ensureAuthenticated, wrapAsync(async(req, resp) =>

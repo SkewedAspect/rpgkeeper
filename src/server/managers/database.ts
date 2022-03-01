@@ -49,7 +49,7 @@ function _buildConfig() : DBConfig
             max: 1,
             idleTimeoutMillis: 1000 * 60 * 60 * 100 // 100 hours
         };
-    } // end if
+    }
 
     // We have some special sqlite configuration we need to do
     if(config.client === 'sqlite3')
@@ -73,8 +73,8 @@ function _buildConfig() : DBConfig
                     if(afterCreate)
                     {
                         return afterCreate(dbConn, done);
-                    } // end if
-                } // end if
+                    }
+                }
 
                 done(err, dbConn);
             });
@@ -82,19 +82,19 @@ function _buildConfig() : DBConfig
 
         config.pool = config.pool ?? {};
         config.pool.afterCreate = newAfterCreate;
-    } // end if
+    }
 
     logger.debug('Database config:', config);
 
     return config;
-} // end _buildConfig
+}
 
 async function _setupDB() : Promise<Knex>
 {
     if(!db)
     {
         throw new AppError('Database not initialized!', 'DB_NOT_INITIALIZED');
-    } // end if
+    }
 
     await db('knex_migrations')
         .select()
@@ -106,7 +106,7 @@ async function _setupDB() : Promise<Knex>
                 if(!db)
                 {
                     throw new AppError('Database not initialized!', 'DB_NOT_INITIALIZED');
-                } // end if
+                }
 
                 logger.warn('No existing database, creating one.');
 
@@ -118,7 +118,7 @@ async function _setupDB() : Promise<Knex>
             else
             {
                 throw error;
-            } // end if
+            }
         });
 
     // Cleanup the migration references; ensure we keep the extensions as `.js`;
@@ -158,42 +158,42 @@ export async function init() : Promise<void>
     {
         db = knex(dbConfig);
         await _setupDB();
-    } // end if
-} // end init
+    }
+}
 
 export function getConfig() : DBConfig
 {
     return dbConfig;
-} // end getConfig
+}
 
 export function getDB() : Knex
 {
     if(!db)
     {
         throw new AppError('Database not initialized!', 'DB_NOT_INITIALIZED');
-    } // end if
+    }
 
     return db;
-} // end getDB
+}
 
 export function table(tableName : string) : Knex.QueryBuilder
 {
     if(!db)
     {
         throw new AppError('Database not initialized!', 'DB_NOT_INITIALIZED');
-    } // end if
+    }
 
     return db(tableName);
-} // end table
+}
 
 export function raw(sql : string, bindings : Knex.RawBinding) : Promise<Knex>
 {
     if(!db)
     {
         throw new AppError('Database not initialized!', 'DB_NOT_INITIALIZED');
-    } // end if
+    }
 
     return db.raw(sql, bindings);
-} // end raw
+}
 
 // ---------------------------------------------------------------------------------------------------------------------

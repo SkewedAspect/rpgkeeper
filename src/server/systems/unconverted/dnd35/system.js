@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// Generic System
-///
-/// @module
+// Generic System
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
@@ -72,7 +70,7 @@ function createOrUpdateModel(Model, initialData)
             const instance = new Model(initialData);
             return instance.$save();
         });
-} // end createOrUpdateModel
+}
 
 /**
  * @param Model
@@ -84,7 +82,7 @@ function loadInitial(Model, initialData)
     {
         return createOrUpdateModel(Model, data);
     });
-} // end loadInitial
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // System Setup

@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// GenericCharacter
-///
-/// @module
+// GenericCharacter
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
@@ -27,7 +25,7 @@ class DnD35Character extends BaseSystemCharacterModel
         window.char = this;
 
         this.refresh();
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Static Data
@@ -155,7 +153,7 @@ class DnD35Character extends BaseSystemCharacterModel
         if(this.race)
         {
             return (_.find(this.sizeOptions, { value: this.race.size }) || {}).display;
-        } // end if
+        }
     }
 
     // Abilities
@@ -202,7 +200,7 @@ class DnD35Character extends BaseSystemCharacterModel
         {
             this._system.skills = _.cloneDeep(this.defaultSkills);
             this.save();
-        } // end if
+        }
 
         return this._system.skills;
     }
@@ -242,7 +240,7 @@ class DnD35Character extends BaseSystemCharacterModel
     _ensureValidity()
     {
         super._ensureValidity();
-    } // end _ensureValidity
+    }
 
     _loadSystemChar()
     {
@@ -256,7 +254,7 @@ class DnD35Character extends BaseSystemCharacterModel
                         {
                             this._race = race;
                         });
-                } // end if
+                }
             })
             .then(() =>
             {
@@ -269,7 +267,7 @@ class DnD35Character extends BaseSystemCharacterModel
                         });
                 });
             });
-    } // end _loadSystemChar
+    }
 
     _cleanForSave()
     {
@@ -295,7 +293,7 @@ class DnD35Character extends BaseSystemCharacterModel
         });
 
         return Promise.resolve(char);
-    } // end _cleanForSave
+    }
 
     toJSON()
     {
@@ -308,7 +306,7 @@ class DnD35Character extends BaseSystemCharacterModel
             chaMod: this.chaMod
         });
     }
-} // end DnD35Character
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

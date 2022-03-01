@@ -28,7 +28,7 @@ export class Reference
         this.abbr = options.abbr;
         this.name = options.name;
         this.productCode = options.productCode;
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Serialization
@@ -46,7 +46,7 @@ export class Reference
     public toDB() : Record<string, unknown>
     {
         return this.toJSON();
-    } // end toDB
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Deserialization
@@ -56,13 +56,13 @@ export class Reference
     {
         const decoder = JsonDecoder.guard(referenceRecDecoder);
         return new Reference(decoder(referenceRecord));
-    } // end fromDB
+    }
 
     static fromJSON(jsonObj : Record<string, unknown>) : Reference
     {
         const decoder = JsonDecoder.guard(referenceJsonDecoder);
         return new Reference(decoder(jsonObj));
-    } // end fromJSON
-} // end Reference
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------

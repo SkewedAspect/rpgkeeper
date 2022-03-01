@@ -30,8 +30,8 @@ export function requestLogger(logger : TrivialLogger) : MiddlewareFunction
     {
         logger.debug(`${ request.method } '${ request.url }'`);
         next();
-    }; // end loggerFunc
-} // end requestLogger
+    };
+}
 
 /**
  * Basic error logging
@@ -60,11 +60,11 @@ export function errorLogger(logger : TrivialLogger) : ErrorMiddlewareFunction
         else
         {
             childLogger.error(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
-        } // end if
+        }
 
         next(error);
-    }; // end loggerFunc
-} // end errorLogger
+    };
+}
 
 /**
  * Build a custom error logger
@@ -92,7 +92,7 @@ export function errorHandler(logger : TrivialLogger) : ErrorMiddlewareFunction
                 code: error.code,
                 error
             };
-        } // end if
+        }
 
         response.status(error.statusCode || 500);
 
@@ -114,12 +114,12 @@ export function errorHandler(logger : TrivialLogger) : ErrorMiddlewareFunction
             else
             {
                 childLogger.error(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
-            } // end if
-        } // end if
+            }
+        }
 
         response.json(errorJSON);
-    }; // end apiErrorHandler
-} // end errorHandler
+    };
+}
 
 /**
  * Serves index page.
@@ -131,7 +131,7 @@ export function serveIndex(_request : Request, response : Response) : void
 {
     response.setHeader('Content-Type', 'text/html');
     fs.createReadStream(path.resolve(__dirname, '..', '..', '..', 'client', 'index.html')).pipe(response);
-} // end serveIndex
+}
 
 /**
  * Either serve 'index.html', or run json handler
@@ -156,10 +156,10 @@ export function interceptHTML(response : Response, jsonHandler : JsonHandlerFunc
                     name: 'NotAuthorized',
                     message: `Not authorized.`
                 });
-            } // end if
+            }
         }
     });
-} // end interceptHTML
+}
 
 /**
  * Ensures that the user is authenticated, or it returns a 401.
@@ -180,8 +180,8 @@ export function ensureAuthenticated(request : Request, response : Response, next
             name: 'NotAuthorized',
             message: `Not authorized.`
         });
-    } // end if
-} // end ensureAuthenticated
+    }
+}
 
 /**
  * Wraps a router function in an async handler.

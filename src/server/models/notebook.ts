@@ -36,7 +36,7 @@ export class NotebookPage
         this.notebookID = options.notebookID;
         this.title = options.title;
         this.content = options.content;
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Serialization
@@ -60,7 +60,7 @@ export class NotebookPage
             page_id: id,
             note_id: notebookID
         };
-    } // end toDB
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Deserialization
@@ -70,14 +70,14 @@ export class NotebookPage
     {
         const decoder = JsonDecoder.guard(notebookPageDecoder);
         return new NotebookPage(decoder(noteRecord) as NotebookPageOptions);
-    } // end fromDB
+    }
 
     static fromJSON(jsonObj : Record<string, unknown>) : NotebookPage
     {
         const decoder = JsonDecoder.guard(notebookPageDecoder);
         return new NotebookPage(decoder(jsonObj) as NotebookPageOptions);
-    } // end fromJSON
-} // end NotebookPage
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -93,8 +93,8 @@ export class Notebook
         if(options.pages)
         {
             this.pages = options.pages.map((page) => new NotebookPage(page));
-        } // end if
-    } // end constructor
+        }
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Serialization
@@ -113,7 +113,7 @@ export class Notebook
         return {
             hash_id: this.id
         };
-    } // end toDB
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Deserialization
@@ -123,14 +123,14 @@ export class Notebook
     {
         const decoder = JsonDecoder.guard(notebookDecoder);
         return new Notebook(decoder(noteRecord) as NotebookOptions);
-    } // end fromDB
+    }
 
     static fromJSON(jsonObj : Record<string, unknown>) : Notebook
     {
         const decoder = JsonDecoder.guard(notebookDecoder);
         return new Notebook(decoder(jsonObj) as NotebookOptions);
-    } // end fromJSON
-} // end Notebook
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

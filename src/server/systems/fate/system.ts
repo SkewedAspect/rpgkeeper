@@ -27,8 +27,8 @@ class FATESystem extends BaseSystem
         super(id, name, description, defaults.character);
 
         logger.info(`Loaded '${ name }' system.`);
-    } // end constructor
-} // end FATESystem
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

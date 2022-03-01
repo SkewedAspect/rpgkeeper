@@ -368,8 +368,8 @@ export function getGenesysSupplementDecoder(type : string, system = 'genesys') :
 
         default:
             throw new MissingDecoderError(`${ system }/${ type }`);
-    } // end switch
-} // end getGenesysSupplementDecoder
+    }
+}
 
 export function getEotESupplementDecoder(type : string) : Decoder<unknown>
 {
@@ -386,7 +386,7 @@ export function getEotESupplementDecoder(type : string) : Decoder<unknown>
 
         default:
             return getGenesysSupplementDecoder(type, 'eote');
-    } // end switch
-} // end getEotESupplementDecoder
+    }
+}
 
 // ---------------------------------------------------------------------------------------------------------------------

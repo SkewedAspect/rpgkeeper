@@ -54,7 +54,7 @@ export class Character<SystemDetails extends Record<string, unknown> = Record<st
         this.color = options.color;
         this.campaign = options.campaign;
         this.details = options.details;
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Serialization
@@ -87,7 +87,7 @@ export class Character<SystemDetails extends Record<string, unknown> = Record<st
             account_id: accountID,
             note_id: noteID
         };
-    } // end toDB
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Deserialization
@@ -103,7 +103,7 @@ export class Character<SystemDetails extends Record<string, unknown> = Record<st
         charOpts.details = detailsDecoder(charOpts.details) as Record<string, unknown>;
 
         return new Character(charOpts);
-    } // end fromDB
+    }
 
     static fromJSON(jsonObj : Record<string, unknown>) : Character
     {
@@ -115,7 +115,7 @@ export class Character<SystemDetails extends Record<string, unknown> = Record<st
         charOpts.details = detailsDecoder(charOpts.details) as Record<string, unknown>;
 
         return new Character(charOpts);
-    } // end fromJSON
-} // end Character
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------

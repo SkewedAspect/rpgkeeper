@@ -36,7 +36,7 @@ export class BaseSystem
         this.description = description;
         this.defaults = defaults;
         this.status = status;
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // API
@@ -45,13 +45,13 @@ export class BaseSystem
     async init() : Promise<void>
     {
         /* No work to do here! */
-    } // end init
+    }
 
     async validateCharacterDetails(character : Character) : Promise<Character>
     {
         // By default, there's no work to do.
         return character;
-    } // end validateCharacterDetails
+    }
 
     toJSON() : Record<string, unknown>
     {
@@ -62,7 +62,7 @@ export class BaseSystem
             defaults: this.defaults,
             status: this.status
         };
-    } // end toJSON
-} // end BaseSystem
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -52,7 +52,7 @@ export async function get(id : string) : Promise<Character>
     {
         const char = Character.fromDB(characters[0]);
         return systemMan.validateCharacterDetails(char);
-    } // end if
+    }
 } // get
 
 export async function list(filters : Record<string, FilterToken> = {}) : Promise<Character[]>
@@ -80,7 +80,7 @@ export async function list(filters : Record<string, FilterToken> = {}) : Promise
     return Promise.all((await query)
         .map(Character.fromDB)
         .map(async(char) => systemMan.validateCharacterDetails(char)));
-} // end list
+}
 
 export async function add(accountID : string, newCharacter : Record<string, unknown>) : Promise<Character>
 {
@@ -96,7 +96,7 @@ export async function add(accountID : string, newCharacter : Record<string, unkn
         .insert({ ...char.toDB(), account_id, note_id });
 
     return this.get(char.id);
-} // end add
+}
 
 export async function update(charID : string, updateChar : Record<string, unknown>) : Promise<Character>
 {
@@ -137,7 +137,7 @@ export async function update(charID : string, updateChar : Record<string, unknow
 
     // Return the updated record
     return newChar;
-} // end update
+}
 
 export async function remove(charID : string) : Promise<{ status : 'ok' }>
 {
@@ -152,6 +152,6 @@ export async function remove(charID : string) : Promise<{ status : 'ok' }>
     });
 
     return { status: 'ok' };
-} // end remove
+}
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -135,7 +135,7 @@
 
                     default:
                         return cell;
-                } // end switch
+                }
             },
             renderValue: function(item)
             {
@@ -149,7 +149,7 @@
 
                     default:
                         return item.value;
-                } // end switch
+                }
             },
             evalComputed: function(evalStr)
             {

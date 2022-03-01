@@ -19,25 +19,25 @@ export class AppError extends Error
         if(Error.captureStackTrace)
         {
             Error.captureStackTrace(this, this.constructor);
-        } // end if
+        }
 
         // Set a code property to allow the error to be easily identified. This is in keeping with current nodejs.
         this.code = code ? code : 'ERR_APPLICATION_ERROR';
 
         // A status code for returning via rest.
         this.statusCode = 500;
-    } // end constructor
+    }
 
     static fromJSON({ name, message, code } : { name : string, message : string, code : string }) : AppError
     {
         return new AppError(message, code, name);
-    } // end fromJSON
+    }
 
     toJSON() : Record<string, unknown>
     {
         return { name: this.name, message: this.message, code: this.code };
-    } // end toJSON
-} // end AppError
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -48,8 +48,8 @@ export class NotFoundError extends AppError
         super(message, 'ERR_NOT_FOUND');
 
         this.statusCode = 404;
-    } // end constructor
-} // end NotFoundError
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -60,8 +60,8 @@ export class NotImplementedError extends AppError
         super(`'${ api }' is not implemented.`, 'ERR_NOT_IMPLEMENTED');
 
         this.statusCode = 403;
-    } // end constructor
-} // end NotImplemented Error
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ export class DuplicateSupplementError extends AppError
 
         this.statusCode = 422;
         this.supplement = supplement;
-    } // end constructor
+    }
 
     toJSON() : Record<string, unknown>
     {
@@ -84,7 +84,7 @@ export class DuplicateSupplementError extends AppError
             supplement: this.supplement
         };
     }
-} // end DuplicateSupplementError
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -95,8 +95,8 @@ export class MultipleResultsError extends AppError
         super(`More than one ${ thing } returned. This should not be possible.`, 'ERR_MULTIPLE_RESULTS');
 
         this.statusCode = 422;
-    } // end constructor
-} // end MultipleResultsError
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -107,8 +107,8 @@ export class DecoderError extends AppError
         super(reason, 'ERR_DECODE_FAILED');
 
         this.statusCode = 422;
-    } // end constructor
-} // end ValidationError
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -119,8 +119,8 @@ export class MissingDecoderError extends AppError
         super(`Missing decoder for '${ thing }.`, 'ERR_MISSING_DECODER');
 
         this.statusCode = 501;
-    } // end constructor
-} // end MissingDecoderError
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -136,7 +136,7 @@ export class NotAuthorizedError extends AppError
         this.statusCode = 403;
         this.operation = operation;
         this.thing = thing;
-    } // end constructor
+    }
 
     toJSON() : Record<string, unknown>
     {
@@ -145,7 +145,7 @@ export class NotAuthorizedError extends AppError
             operation: this.operation,
             thing: this.thing
         };
-    } // end toJSON
-} // end NotAuthorizedError
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------

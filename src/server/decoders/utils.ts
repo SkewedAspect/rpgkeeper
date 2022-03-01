@@ -26,7 +26,7 @@ export function nullToUndefined<T>(itemDecoder : Decoder<T>) : Decoder<T | undef
         nullable(itemDecoder),
         (val) => val ?? undefined
     );
-} // end nullToUndefined
+}
 
 export function withDefault<T>(itemDecoder : Decoder<T>, defaultVal : T) : Decoder<T>
 {
@@ -50,7 +50,7 @@ export function jsonArrayString<T>(itemDecoder : Decoder<T>) : Decoder<Array<T>>
         decodeJsonStr,
         array(itemDecoder)
     );
-} // end jsonArrayString
+}
 
 export function jsonObjectString<T>(objectDecoder : Decoder<T>) : Decoder<T>
 {
@@ -66,7 +66,7 @@ export function jsonObjectString<T>(objectDecoder : Decoder<T>) : Decoder<T>
         decodeJsonStr,
         objectDecoder
     );
-} // end jsonObjectString
+}
 
 export function arrayWithLength<T>(itemDecoder : Decoder<T>, min : number, max = Infinity) : Decoder<Array<T>>
 {
@@ -81,10 +81,10 @@ export function arrayWithLength<T>(itemDecoder : Decoder<T>, min : number, max =
             decoder,
             predicate((arr) => arr.length < max, `Must have length less than ${ max }.`)
         );
-    } // end if
+    }
 
     return decoder;
-} // end arrayWithLength
+}
 
 export function stringWithLength(min : number, max = Infinity) : Decoder<string>
 {
@@ -99,10 +99,10 @@ export function stringWithLength(min : number, max = Infinity) : Decoder<string>
             decoder,
             predicate((str) => str.length <= max, `Must be less than ${ max } characters.`)
         );
-    } // end if
+    }
 
     return decoder;
-} // end stringWithLength
+}
 
 export function boundedInteger(min : number, max = Infinity) : Decoder<number>
 {
@@ -117,10 +117,10 @@ export function boundedInteger(min : number, max = Infinity) : Decoder<number>
             decoder,
             predicate((int) => int <= max, `Must be less than ${ max }.`)
         );
-    } // end if
+    }
 
     return decoder;
-} // end boundedInteger
+}
 
 export function enumStr<T extends string>(options : string[]) : Decoder<T>
 {
@@ -128,6 +128,6 @@ export function enumStr<T extends string>(options : string[]) : Decoder<T>
         string,
         predicate((str) => options.includes(str), `Must be a one of: ${ options.join(', ') }.`)
     ) as Decoder<T>;
-} // end enumStr
+}
 
 // ---------------------------------------------------------------------------------------------------------------------

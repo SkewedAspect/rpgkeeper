@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// Classes Router
-///
-/// @module
+// Classes Router
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
@@ -19,7 +17,7 @@ const router = express.Router();
 // Classes Endpoint
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', (req, resp) => 
+router.get('/', (req, resp) =>
 {
     return models.Class.all()
         .then((dndClasses) =>
@@ -35,14 +33,14 @@ router.get('/', (req, resp) =>
                 message: error.message
             });
         })
-        .catch((err) => 
+        .catch((err) =>
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });
         });
 });
 
-router.get('/:dndClassID', (req, resp) => 
+router.get('/:dndClassID', (req, resp) =>
 {
     return models.Class.get(req.params.dndClassID)
         .then((dndClass) =>
@@ -58,7 +56,7 @@ router.get('/:dndClassID', (req, resp) =>
                 message: error.message
             });
         })
-        .catch((err) => 
+        .catch((err) =>
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });

@@ -94,7 +94,7 @@ router.delete('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async(req
         console.warn('notebook not found.');
         // We don't throw an error, so we can be idempotent
         resp.json({ status: 'ok' });
-    } // end if
+    }
 }));
 
 //----------------------------------------------------------------------------------------------------------------------

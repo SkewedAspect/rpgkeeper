@@ -28,7 +28,7 @@ export class Role
         this.id = options.id;
         this.name = options.name;
         this.permissions = options.permissions ?? [];
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Serialization
@@ -51,7 +51,7 @@ export class Role
             role_id: id,
             permissions: JSON.stringify(this.permissions)
         };
-    } // end toDB
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Deserialization
@@ -61,13 +61,13 @@ export class Role
     {
         const decoder = JsonDecoder.guard(roleRecDecoder);
         return new Role(decoder(roleRecord));
-    } // end fromDB
+    }
 
     static fromJSON(jsonObj : Record<string, unknown>) : Role
     {
         const decoder = JsonDecoder.guard(roleJsonDecoder);
         return new Role(decoder(jsonObj));
-    } // end fromJSON
-} // end Role
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------

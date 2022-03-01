@@ -27,12 +27,12 @@ class SystemManager
         ];
 
         this.systems.forEach((system) => system.init());
-    } // end constructor
+    }
 
     get(id : string) : BaseSystem | undefined
     {
         return this.systems.find((sys) => sys.id === id);
-    } // end get
+    }
 
     async validateCharacterDetails(character : Character) : Promise<Character>
     {
@@ -44,9 +44,9 @@ class SystemManager
         else
         {
             return character;
-        } // end if
-    } // end validateCharacterDetails
-} // end SystemManager
+        }
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

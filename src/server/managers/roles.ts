@@ -14,6 +14,6 @@ export async function list() : Promise<unknown>
 {
     return (await table('role as r').select('r.role_id as id', 'r.name', 'r.permissions'))
         .map(Role.fromDB);
-} // end list
+}
 
 // ---------------------------------------------------------------------------------------------------------------------

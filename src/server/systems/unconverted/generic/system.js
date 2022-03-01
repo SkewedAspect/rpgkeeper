@@ -35,8 +35,8 @@ class GenericSystem extends BaseSystem
         this._status = 'disabled';
 
         logger.info(`Loaded '${ name }' system.`);
-    } // end constructor
-} // end GenericSystem
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

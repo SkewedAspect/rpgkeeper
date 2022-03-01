@@ -34,8 +34,8 @@ passport.use(new GoogleStrategy(async(_token, profile, done) =>
             {
                 logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
                 done(error);
-            } // end if
-        } // end try/catch
+            }
+        }
 
         if(account)
         {
@@ -51,7 +51,7 @@ passport.use(new GoogleStrategy(async(_token, profile, done) =>
                 avatar: `${ profile.picture }?sz=512`,
                 email: profile.email
             });
-        } // end if
+        }
 
         done(null, account);
     }
@@ -59,7 +59,7 @@ passport.use(new GoogleStrategy(async(_token, profile, done) =>
     {
         logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
         done(error);
-    } // end try/catch
+    }
 }));
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -80,7 +80,7 @@ export default {
             res.end();
         });
     }
-}; // end exports
+};
 
 //----------------------------------------------------------------------------------------------------------------------
 

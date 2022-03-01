@@ -43,11 +43,11 @@ async function $checkViewAccess(query : Knex.QueryBuilder, systemPrefix ?: strin
             {
                 this.where({ scope: 'public' }).orWhere({ scope: 'user', owner: account_id });
             });
-        } // end if
-    } // end if
+        }
+    }
 
     return query;
-} // end $checkViewAccess
+}
 
 async function $checkModAccess(supplement : Supplement, systemPrefix : string, type : string, account ?: Account) : Promise<void>
 {
@@ -59,9 +59,9 @@ async function $checkModAccess(supplement : Supplement, systemPrefix : string, t
         if(!hasRight && !isOwner)
         {
             throw new NotAuthorizedError('modify', `${ systemPrefix }/${ type }/${ supplement.name }/${ supplement.id }`);
-        } // end if
-    } // end if
-} // end $checkModAccess
+        }
+    }
+}
 
 async function $ensureCorrectOwner(supplement : Supplement, systemPrefix ?: string, account ?: Account) : Promise<Supplement>
 {
@@ -72,16 +72,16 @@ async function $ensureCorrectOwner(supplement : Supplement, systemPrefix ?: stri
         if(supplement.scope === 'user' && (!supplement.owner || !permMan.hasPerm(account, `${ systemPrefix }/canModifyContent`)))
         {
             supplement.owner = account.id;
-        } // end if
+        }
 
         if(supplement.scope === 'public')
         {
             supplement.owner = undefined;
-        } // end if
-    } // end if
+        }
+    }
 
     return supplement;
-} // end $ensureCorrectOwner
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -107,8 +107,8 @@ export async function get(id : number, type : string, systemPrefix : string, acc
     {
         const { ownerHash, ...restSupp } = supplements[0];
         return Supplement.fromDB(systemPrefix, type, { ...camelCaseKeys(restSupp), owner: ownerHash });
-    } // end if
-} // end get
+    }
+}
 
 export async function list(filters : Record<string, FilterToken>, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement[]>
 {
@@ -128,7 +128,7 @@ export async function list(filters : Record<string, FilterToken>, type : string,
         const { ownerHash, ...restSupp } = supp;
         return Supplement.fromDB(systemPrefix, type, { ...camelCaseKeys(restSupp), owner: ownerHash });
     });
-} // end list
+}
 
 export async function exists(id : number, type : string, systemPrefix : string, account ?: Account) : Promise<boolean>
 {
@@ -139,7 +139,7 @@ export async function exists(id : number, type : string, systemPrefix : string, 
 
     // We only need a boolean.
     return !!supp;
-} // end exists
+}
 
 export async function add(newSupplement : Record<string, unknown>, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
 {
@@ -162,7 +162,7 @@ export async function add(newSupplement : Record<string, unknown>, type : string
     {
         logger.warn('Attempted to add supplement with the same name, scope and owner as an existing one:', logger.dump(supplement.toJSON()));
         throw new DuplicateSupplementError(`${ systemPrefix }/${ type }/${ supplement.name }`);
-    } // end if
+    }
 
     // =====================================================================================
     // FIXME: This hack should be removed, and `hash_id` should be the foreign_key
@@ -172,7 +172,7 @@ export async function add(newSupplement : Record<string, unknown>, type : string
     {
         const { account_id } = await accountMan.getRaw(supplement.owner);
         owner = account_id;
-    } // end if
+    }
 
     // =====================================================================================
 
@@ -181,7 +181,7 @@ export async function add(newSupplement : Record<string, unknown>, type : string
 
     // Return the inserted supplement
     return get(id, type, systemPrefix, account);
-} // end add
+}
 
 export async function update(id : number, updateSup : Record<string, unknown>, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
 {
@@ -214,7 +214,7 @@ export async function update(id : number, updateSup : Record<string, unknown>, t
     {
         const { account_id } = await accountMan.getRaw(newSupplement.owner);
         owner = account_id;
-    } // end if
+    }
 
     // =====================================================================================
 
@@ -225,7 +225,7 @@ export async function update(id : number, updateSup : Record<string, unknown>, t
 
     // Return the updated supplement
     return get(id, type, systemPrefix, account);
-} // end update
+}
 
 export async function remove(id : number, type : string, systemPrefix : string, account ?: Account) : Promise<{ status : 'ok' }>
 {
@@ -241,9 +241,9 @@ export async function remove(id : number, type : string, systemPrefix : string, 
         await table(tableName)
             .delete()
             .where({ id });
-    } // end if
+    }
 
     return { status: 'ok' };
-} // end remove
+}
 
 //----------------------------------------------------------------------------------------------------------------------

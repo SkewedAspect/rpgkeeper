@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 // V20 System
-//
-// @module
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
@@ -67,7 +65,7 @@ systemMan.buildGeneralEndpoints(router, models);
 //             var instance = new Model(initialData);
 //             return instance.$save();
 //         });
-// } // end createOrUpdateModel
+// }
 //
 // function loadInitial(Model, initialData)
 // {
@@ -75,7 +73,7 @@ systemMan.buildGeneralEndpoints(router, models);
 //     {
 //         return createOrUpdateModel(Model, data);
 //     });
-// } // end loadInitial
+// }
 
 //----------------------------------------------------------------------------------------------------------------------
 // System Setup

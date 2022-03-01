@@ -38,15 +38,15 @@ router.get('/', async(req, resp) =>
             if(Array.isArray(owner))
             {
                 owner = owner[0];
-            } // end if
+            }
 
             if(typeof owner === 'string')
             {
                 owner = owner.toLowerCase();
                 const account = await accountMan.getByEmail(owner);
                 req.query.accountID = `${ account.id }`;
-            } // end if
-        } // end if
+            }
+        }
 
         const filters = parseQuery(req.query as Record<string, string>);
         resp.json(await charMan.list(filters));
@@ -69,7 +69,7 @@ router.post('/', ensureAuthenticated, wrapAsync(async(req, resp) =>
                 type: 'InvalidCharacter',
                 message: `The character with id '${ char.id }' has an invalid or unknown system '${ char.system }'.`
             });
-    } // end if
+    }
 }));
 
 router.get('/:charID', (req, resp) =>
@@ -103,7 +103,7 @@ router.patch('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
                     type: 'InvalidCharacter',
                     message: `The character with id '${ char.id }' has an invalid or unknown system '${ char.system }'.`
                 });
-        } // end if
+        }
     }
     else
     {
@@ -112,7 +112,7 @@ router.patch('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
                 type: 'NotAuthorized',
                 message: `You are not authorized to update character '${ req.params.charID }'.`
             });
-    } // end if
+    }
 }));
 
 router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
@@ -134,8 +134,8 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
         else
         {
             throw error;
-        } // end if
-    } // end try/catch
+        }
+    }
 
     // Allow either the owner, or moderators/admins to delete the character
     if(char.accountID === (req.user as Account).id || permsMan.hasPerm(req.user as Account, `${ char.system }/canDeleteChar`))
@@ -150,7 +150,7 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
                 type: 'NotAuthorized',
                 message: `You are not authorized to update character '${ req.params.charID }'.`
             });
-    } // end if
+    }
 }));
 
 //----------------------------------------------------------------------------------------------------------------------

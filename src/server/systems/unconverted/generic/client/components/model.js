@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// GenericCharacter
-///
-/// @module
+// GenericCharacter
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
@@ -11,12 +9,12 @@ import BaseSystemCharacterModel from '../../../../client/components/character/Ba
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class GenericCharacter extends BaseSystemCharacterModel 
+class GenericCharacter extends BaseSystemCharacterModel
 {
     constructor(base, system)
     {
         super(base, system);
-    } // end constructor
+    }
 
     // System Character
     get counters() { return this._system.counters; }
@@ -53,13 +51,13 @@ class GenericCharacter extends BaseSystemCharacterModel
                             else
                             {
                                 subObj[col.name] = row[index];
-                            } // end if
-                        } // end if
+                            }
+                        }
                     });
 
                     context[block.name][pk] = subObj;
                 });
-            } // end if
+            }
 
             if(block.type == 'list')
             {
@@ -75,33 +73,33 @@ class GenericCharacter extends BaseSystemCharacterModel
                     else
                     {
                         context[block.name][item.key] = item.value;
-                    } // end if
+                    }
                 });
-            } // end if
+            }
         });
 
         return context;
-    } // end rollContext
+    }
 
     _ensureValidity()
     {
         super._ensureValidity();
-        
+
         if(!_.isArray(this._system.counters))
         {
             this._system.counters = [];
-        } // end if
+        }
 
         if(!_.isArray(this._system.rolls))
         {
             this._system.rolls = [];
-        } // end if
-    } // end _ensureValidity
+        }
+    }
 
     _move(array, from, to)
     {
         array.splice(to, 0, array.splice(from, 1)[0]);
-    } // end _move
+    }
 
     moveUp(listName, item)
     {
@@ -114,8 +112,8 @@ class GenericCharacter extends BaseSystemCharacterModel
 
             this._move(list, from, to);
             this.save();
-        } // end if
-    } // end moveUp
+        }
+    }
 
     moveDown(listName, item)
     {
@@ -128,9 +126,9 @@ class GenericCharacter extends BaseSystemCharacterModel
 
             this._move(list, from, to);
             this.save();
-        } // end if
-    } // end moveDown
-} // end GenericCharacter
+        }
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

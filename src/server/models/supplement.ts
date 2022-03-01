@@ -46,7 +46,7 @@ export class Supplement
         this.owner = options.owner;
         this.scope = options.scope;
         this.official = options.official;
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Serialization
@@ -76,14 +76,14 @@ export class Supplement
             if(typeof value === 'object' && value !== null)
             {
                 suppDef[key] = JSON.stringify(value);
-            } // end if
-        } // end for
+            }
+        }
 
         return {
             ...suppDef,
             owner: this.owner ?? null
         };
-    } // end toDB
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Deserialization
@@ -93,13 +93,13 @@ export class Supplement
     {
         const decoder = JsonDecoder.guard(getSupplementDecoder(system, type) as JsonDecoder.Decoder<SupplementOptions>);
         return new Supplement(decoder(supplementRecord));
-    } // end fromDB
+    }
 
     static fromJSON(system : string, type : string, jsonObj : Record<string, unknown>) : Supplement
     {
         const decoder = JsonDecoder.guard(getSupplementDecoder(system, type) as JsonDecoder.Decoder<SupplementOptions>);
         return new Supplement(decoder(jsonObj));
-    } // end fromJSON
-} // end Supplement
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------

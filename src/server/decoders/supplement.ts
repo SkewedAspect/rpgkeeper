@@ -34,7 +34,7 @@ export function getSupplementDecoder(system : string, type : string) : Decoder<u
 
         default:
             throw new MissingDecoderError(`${ system }/${ type }`);
-    } // end switch
-} // end getSupplementDecoder
+    }
+}
 
 // ---------------------------------------------------------------------------------------------------------------------

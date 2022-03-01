@@ -41,7 +41,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
                     type: 'NotFound',
                     message: `No ${ type } with id '${ suppID }' found.`
                 });
-        } // end if
+        }
     }));
 
     router.post(path, ensureAuthenticated, wrapAsync(async(req, resp) =>
@@ -63,7 +63,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
                     type: 'NotFound',
                     message: `No ${ type } with id '${ suppID }' found.`
                 });
-        } // end if
+        }
     }));
 
     router.delete(`${ path }/:suppID`, ensureAuthenticated, wrapAsync(async(req, resp) =>
@@ -80,8 +80,8 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
                     type: 'NotFound',
                     message: `No ${ type } with id '${ suppID }' found.`
                 });
-        } // end if
+        }
     }));
-} // end buildSupplementRoute
+}
 
 //----------------------------------------------------------------------------------------------------------------------

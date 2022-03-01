@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// Races Router
-///
-/// @module
+// Races Router
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
@@ -19,7 +17,7 @@ const router = express.Router();
 // Races Endpoint
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', (req, resp) => 
+router.get('/', (req, resp) =>
 {
     return models.Race.all()
         .then((races) =>
@@ -35,14 +33,14 @@ router.get('/', (req, resp) =>
                 message: error.message
             });
         })
-        .catch((err) => 
+        .catch((err) =>
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });
         });
 });
 
-router.get('/:raceID', (req, resp) => 
+router.get('/:raceID', (req, resp) =>
 {
     return models.Race.get(req.params.raceID)
         .then((race) =>
@@ -58,7 +56,7 @@ router.get('/:raceID', (req, resp) =>
                 message: error.message
             });
         })
-        .catch((err) => 
+        .catch((err) =>
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });

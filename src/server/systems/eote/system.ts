@@ -33,13 +33,13 @@ class GenesysSystem extends BaseSystem
         super(id, name, description, defaults.genesys.character, SupportStatus.PublicBeta);
 
         logger.info(`Loaded '${ name }' system.`);
-    } // end constructor
+    }
 
     async validateCharacterDetails(character : Character) : Promise<Character>
     {
         return validateGenesysDetails(character);
-    } // end validateCharacterDetails
-} // end GenesysSystem
+    }
+}
 
 class EOTESystem extends BaseSystem
 {
@@ -52,13 +52,13 @@ class EOTESystem extends BaseSystem
         super(id, name, description, defaults.eote.character, SupportStatus.PublicBeta);
 
         logger.info(`Loaded '${ name }' system.`);
-    } // end constructor
+    }
 
     async validateCharacterDetails(character : Character) : Promise<Character>
     {
         return validateEoteDetails(character);
-    } // end validateCharacterDetails
-} // end EOTESystem
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

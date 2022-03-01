@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// Spells Router
-///
-/// @module
+// Spells Router
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
@@ -19,7 +17,7 @@ const router = express.Router();
 // Spells Endpoint
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', (req, resp) => 
+router.get('/', (req, resp) =>
 {
     return models.Spell.all()
         .then((spells) =>
@@ -35,14 +33,14 @@ router.get('/', (req, resp) =>
                 message: error.message
             });
         })
-        .catch((err) => 
+        .catch((err) =>
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });
         });
 });
 
-router.get('/:spellID', (req, resp) => 
+router.get('/:spellID', (req, resp) =>
 {
     return models.Spell.get(req.params.spellID)
         .then((spell) =>
@@ -58,7 +56,7 @@ router.get('/:spellID', (req, resp) =>
                 message: error.message
             });
         })
-        .catch((err) => 
+        .catch((err) =>
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });

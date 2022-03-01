@@ -36,7 +36,7 @@ export async function get(notebookID : string) : Promise<Notebook>
         .map(NotebookPage.fromDB);
 
     return Notebook.fromDB({ id: notebookID, pages });
-} // end get
+}
 
 export async function list(filters : NoteFilters) : Promise<Notebook[]>
 {
@@ -50,24 +50,24 @@ export async function list(filters : NoteFilters) : Promise<Notebook[]>
     if(filters.id)
     {
         query.where({ 'n.hash_id': filters.id });
-    } // end if
+    }
 
     if(filters.email)
     {
         query.where({ 'a.email': filters.email });
-    } // end if
+    }
 
     if(filters.title)
     {
         query.where({ 'np.title': filters.title });
-    } // end if
+    }
 
     return Promise.all((await query)
         .map(({ notebookID }) =>
         {
             return get(notebookID);
         }));
-} // end list
+}
 
 export async function getRaw(notebookID : string) : Promise<Record<string, unknown>>
 {
@@ -86,8 +86,8 @@ export async function getRaw(notebookID : string) : Promise<Record<string, unkno
     else
     {
         return notebooks[0];
-    } // end if
-} // end getRaw
+    }
+}
 
 export async function getPage(pageID : string | number) : Promise<NotebookPage>
 {
@@ -112,8 +112,8 @@ export async function getPage(pageID : string | number) : Promise<NotebookPage>
     else
     {
         return NotebookPage.fromDB(pages[0]);
-    } // end if
-} // end addPage
+    }
+}
 
 export async function addPage(notebookID : string, page : Record<string, unknown>) : Promise<NotebookPage>
 {
@@ -132,7 +132,7 @@ export async function addPage(notebookID : string, page : Record<string, unknown
 
     // Return the notebook page
     return getPage(pageID);
-} // end addPage
+}
 
 export async function add(pages : Record<string, unknown>[] = []) : Promise<Notebook>
 {
@@ -149,7 +149,7 @@ export async function add(pages : Record<string, unknown>[] = []) : Promise<Note
 
     // Return the note
     return get(newNoteID);
-} // end add
+}
 
 export async function updatePage(pageID : string | number, pageUpdate : Record<string, unknown>) : Promise<NotebookPage>
 {
@@ -177,7 +177,7 @@ export async function updatePage(pageID : string | number, pageUpdate : Record<s
 
     // Return the updated record
     return getPage(pageID);
-} // end updatePage
+}
 
 export async function removePage(pageID : string) : Promise<{ status : 'ok' }>
 {
@@ -186,7 +186,7 @@ export async function removePage(pageID : string) : Promise<{ status : 'ok' }>
         .delete();
 
     return { status: 'ok' };
-} // end removePage
+}
 
 export async function remove(notebookID : string) : Promise<{ status : 'ok' }>
 {
@@ -195,6 +195,6 @@ export async function remove(notebookID : string) : Promise<{ status : 'ok' }>
         .delete();
 
     return { status: 'ok' };
-} // end remove
+}
 
 // ---------------------------------------------------------------------------------------------------------------------

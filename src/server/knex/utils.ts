@@ -40,11 +40,11 @@ export function applyFilters(query : Knex.QueryBuilder, filters : Record<string,
                 default:
                     logger.warn('Unknown query operation:', token.operation);
                     break;
-            } // end switch
+            }
         });
-    } // end if
+    }
 
     return query;
-} // end applyFilters
+}
 
 //----------------------------------------------------------------------------------------------------------------------

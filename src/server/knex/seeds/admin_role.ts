@@ -63,15 +63,15 @@ exports.seed = async(knex) =>
         if(!exists)
         {
             await knex('account').insert(account);
-        } // end if
+        }
 
         const linkExists = (await knex('account_role').select()
             .where({ account_id: account.account_id, role_id: 1 })).length > 0;
         if(!linkExists)
         {
             await knex('account_role').insert({ account_id: account.account_id, role_id: 1 });
-        } // end if
-    } // end for
+        }
+    }
 
     // Do a `mapSeries` over mods, and add them and their `account_role entry`, if needed.
     for(const account of mods)
@@ -81,15 +81,15 @@ exports.seed = async(knex) =>
         if(!exists)
         {
             await knex('account').insert(account);
-        } // end if
+        }
 
         const linkExists = (await knex('account_role').select()
             .where({ account_id: account.account_id, role_id: 2 })).length > 0;
         if(!linkExists)
         {
             await knex('account_role').insert({ account_id: account.account_id, role_id: 2 });
-        } // end if
-    } // end for
+        }
+    }
 
     /* eslint-enable no-await-in-loop */
 };

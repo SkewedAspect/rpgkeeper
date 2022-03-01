@@ -136,7 +136,7 @@
                 if(this.currentResults)
                 {
                     return this.currentResults.render();
-                } // end if
+                }
 
                 return "";
             },

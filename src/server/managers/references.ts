@@ -27,11 +27,11 @@ class ReferenceManager
         if(filters && !_.isEmpty(filters))
         {
             query = applyFilters(query, filters);
-        } // end if
+        }
 
         return (await query).map(Reference.fromDB);
-    } // end getAbility
-} // end ReferenceManager
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

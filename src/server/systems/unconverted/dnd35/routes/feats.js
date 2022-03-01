@@ -1,7 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-/// Feats Router
-///
-/// @module
+// Feats Router
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
@@ -19,7 +17,7 @@ const router = express.Router();
 // Feats Endpoint
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', (req, resp) => 
+router.get('/', (req, resp) =>
 {
     return models.Feat.all()
         .then((feats) =>
@@ -35,14 +33,14 @@ router.get('/', (req, resp) =>
                 message: error.message
             });
         })
-        .catch((err) => 
+        .catch((err) =>
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });
         });
 });
 
-router.get('/:featID', (req, resp) => 
+router.get('/:featID', (req, resp) =>
 {
     return models.Feat.get(req.params.featID)
         .then((feat) =>
@@ -58,7 +56,7 @@ router.get('/:featID', (req, resp) =>
                 message: error.message
             });
         })
-        .catch((err) => 
+        .catch((err) =>
         {
             console.error('error:', err.stack);
             resp.status(500).json({ error: err.message, stack: err.stack });

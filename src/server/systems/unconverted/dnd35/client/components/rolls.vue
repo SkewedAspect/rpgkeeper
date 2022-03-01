@@ -90,7 +90,7 @@
                 {
                     rollsSvc.roll(this.rollInput, this.char.toJSON());
                     this.rollInput = "";
-                } // end if
+                }
             }
         }
     }

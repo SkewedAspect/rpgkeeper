@@ -24,13 +24,13 @@ class ConfigManager
     get(path : string, defaultVal ?: unknown) : unknown
     {
         return _.get(this._config, path, defaultVal);
-    } // end get
+    }
 
     set(path : string, val : unknown) : void
     {
         _.set(this._config, path, val);
-    } // end set
-} // end ConfigManager
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

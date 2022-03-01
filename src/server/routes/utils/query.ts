@@ -58,7 +58,7 @@ function castParam(type : any, value : string) : QueryFilterVal
             else
             {
                 throw new TypeError('Only strings can be cast to arrays!');
-            } // end if
+            }
 
         case Boolean:
             return value === 'true';
@@ -68,8 +68,8 @@ function castParam(type : any, value : string) : QueryFilterVal
 
         default:
             return value;
-    } // end switch
-} // end castParam
+    }
+}
 
 /**
  * Detect the type and attempt to cast it.
@@ -94,12 +94,12 @@ function detectParam(value : string) : QueryFilterVal
         if(!_.isNaN(tmp))
         {
             return tmp;
-        } // end if
+        }
 
         // Otherwise, we give up
         return value;
-    } // end if
-} // end detectParam
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // Filters
@@ -113,7 +113,7 @@ function detectParam(value : string) : QueryFilterVal
 function eqFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) => boolean
 {
     return (modelVal) => modelVal === queryVal;
-} // end eqFilter
+}
 
 /**
  * Return a function that returns true if the model value is greater than the query value.
@@ -123,7 +123,7 @@ function eqFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) => bo
 function gtFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) => boolean
 {
     return (modelVal) => modelVal > queryVal;
-} // end gtFilter
+}
 
 /**
  * Return a function that returns true if the model value is greater than or equal to the query value.
@@ -133,7 +133,7 @@ function gtFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) => bo
 function gteFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) => boolean
 {
     return (modelVal) => modelVal >= queryVal;
-} // end gteFilter
+}
 
 /**
  * Return a function that returns true if the model value is less than the query value.
@@ -143,7 +143,7 @@ function gteFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) => b
 function ltFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) => boolean
 {
     return (modelVal) => modelVal < queryVal;
-} // end ltFilter
+}
 
 /**
  * Return a function that returns true if the model value is less than or equal to the query value.
@@ -153,7 +153,7 @@ function ltFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) => bo
 function lteFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) => boolean
 {
     return (modelVal) => modelVal <= queryVal;
-} // end lteFilter
+}
 
 /**
  * Return a function that returns true if the model value is not equal to the difference of the model and query values.
@@ -171,9 +171,9 @@ function arrayFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) =>
         else
         {
             throw new TypeError('Both the model value and the query value must be arrays');
-        } // end if
+        }
     };
-} // end arrayFilter
+}
 
 /**
  * Return a function that returns true if the model value contains the query value.
@@ -188,17 +188,17 @@ function containsFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal)
         {
             modelVal = modelVal.toLowerCase();
             queryVal = queryVal.toLowerCase();
-        } // end if
+        }
 
         if(Array.isArray(modelVal))
         {
             return modelVal.includes(queryVal);
-        } // end if
+        }
 
         // Only Strings and Arrays are supported
         return false;
     };
-} // end containsFilter
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // Public API
@@ -250,11 +250,11 @@ export function parseQuery(queryObj : Record<string, string>) : Record<string, F
         else
         {
             parseTree[key] = { value: detectParam(value), operation: '=' };
-        } // end if
+        }
     });
 
     return parseTree;
-} // end parseQuery
+}
 
 /**
  * @param queryObj
@@ -289,7 +289,7 @@ export function filterByQuery(queryObj : Record<string, string>, list : QueryFil
             default:
                 logger.warn('Unknown query operation:', token.operation);
                 break;
-        } // end switch
+        }
     });
 
     // Filter the list
@@ -308,6 +308,6 @@ export function filterByQuery(queryObj : Record<string, string>, list : QueryFil
 
         return include;
     });
-} // end filterByQuery
+}
 
 //----------------------------------------------------------------------------------------------------------------------

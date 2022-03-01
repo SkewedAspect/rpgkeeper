@@ -29,7 +29,7 @@ export function sysDetailsDecoder<T extends Record<string, unknown>>(system : st
             return wfrpSysDetailsDecoder as Decoder<T>;
         default:
             return fail(`Unknown system '${ system }'.`);
-    } // end switch
-} // end sysDetailsDecoder
+    }
+}
 
 // ---------------------------------------------------------------------------------------------------------------------

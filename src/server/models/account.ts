@@ -46,7 +46,7 @@ export class Account
         this.permissions = options.permissions ?? [];
         this.groups = options.groups ?? [];
         this.settings = options.settings ?? {};
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Serialization
@@ -74,7 +74,7 @@ export class Account
             permissions: JSON.stringify(this.permissions),
             settings: JSON.stringify(this.settings)
         };
-    } // end toDB
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Deserialization
@@ -84,13 +84,13 @@ export class Account
     {
         const decoder = JsonDecoder.guard(accountRecDecoder);
         return new Account(decoder(accountRecord));
-    } // end fromDB
+    }
 
     static fromJSON(jsonObj : Record<string, unknown>) : Account
     {
         const decoder = JsonDecoder.guard(accountJsonDecoder);
         return new Account(decoder(jsonObj));
-    } // end fromJSON
-} // end Account
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------

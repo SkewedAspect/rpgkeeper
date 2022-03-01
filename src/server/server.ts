@@ -144,16 +144,16 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
             if(email)
             {
                 account = await accountMan.getByEmail(email);
-            } // end if
+            }
 
             if(account)
             {
                 logger.warn(`Forcing auth to account: ${ account.email }`);
                 req.user = account;
-            } // end if
+            }
             next?.();
         }) as RequestHandler);
-    } // end if
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Routing

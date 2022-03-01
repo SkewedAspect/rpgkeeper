@@ -39,20 +39,20 @@ export async function list(filters : AccountFilters) : Promise<Account[]>
     if(filters.id)
     {
         query.where({ hash_id: filters.id });
-    } // end if
+    }
 
     if(filters.email)
     {
         query.where({ email: filters.email });
-    } // end if
+    }
 
     if(filters.name)
     {
         query.where({ name: filters.name });
-    } // end if
+    }
 
     return (await query).map(Account.fromDB);
-} // end list
+}
 
 export async function getGroups(accountID : string) : Promise<string[]>
 {
@@ -65,7 +65,7 @@ export async function getGroups(accountID : string) : Promise<string[]>
         });
 
     return roles.map((role) => role.name);
-} // end getGroups
+}
 
 export async function getRaw(accountID : string) : Promise<Record<string, unknown>>
 {
@@ -95,14 +95,14 @@ export async function getRaw(accountID : string) : Promise<Record<string, unknow
     {
         const groups = await getGroups(accountID);
         return { ...accounts[0], groups };
-    } // end if
-} // end getRaw
+    }
+}
 
 export async function get(accountID : string) : Promise<Account>
 {
     const { account_id, ...restAccount } = await getRaw(accountID);
     return Account.fromDB(restAccount);
-} // end get
+}
 
 export async function getByEmail(email : string) : Promise<Account>
 {
@@ -129,8 +129,8 @@ export async function getByEmail(email : string) : Promise<Account>
     {
         const groups = await getGroups(accounts[0].id);
         return Account.fromDB({ ...accounts[0], groups });
-    } // end if
-} // end getByEmail
+    }
+}
 
 export async function add(newAccount : Record<string, unknown>) : Promise<Account>
 {
@@ -139,7 +139,7 @@ export async function add(newAccount : Record<string, unknown>) : Promise<Accoun
         .insert(account.toDB());
 
     return get(account.id);
-} // end add
+}
 
 export async function update(accountID : string, accountUpdate : Record<string, unknown>) : Promise<Account>
 {
@@ -164,7 +164,7 @@ export async function update(accountID : string, accountUpdate : Record<string, 
 
     // Return the updated record
     return get(accountID);
-} // end update
+}
 
 export async function remove(accountID : string) : Promise<{ status : 'ok' }>
 {
@@ -173,6 +173,6 @@ export async function remove(accountID : string) : Promise<{ status : 'ok' }>
         .delete();
 
     return { status: 'ok' };
-} // end delete
+}
 
 // ---------------------------------------------------------------------------------------------------------------------

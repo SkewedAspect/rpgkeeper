@@ -32,8 +32,8 @@ class WfrpSystem extends BaseSystem
         super(id, name, description, defaults.character, SupportStatus.InDevelopment);
 
         logger.info(`Loaded '${ name }' system.`);
-    } // end constructor
-} // end WfrpSystem
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

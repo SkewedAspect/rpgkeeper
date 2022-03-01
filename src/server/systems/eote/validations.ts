@@ -43,29 +43,29 @@ async function validateMotivations(character : Character, account : Account) : P
     {
         motivations.strength = (await suppMan.exists(motivations.strength, 'motivation', 'genesys', account))
             ? motivations.strength : null;
-    } // end if
+    }
 
     // Check flaw
     if(motivations.flaw !== null)
     {
         motivations.flaw = (await suppMan.exists(motivations.flaw, 'motivation', 'genesys', account))
             ? motivations.flaw : null;
-    } // end if
+    }
 
     // Check desire
     if(motivations.desire !== null)
     {
         motivations.desire = (await suppMan.exists(motivations.desire, 'motivation', 'genesys', account))
             ? motivations.desire : null;
-    } // end if
+    }
 
     // Check fear
     if(motivations.fear !== null)
     {
         motivations.fear = (await suppMan.exists(motivations.fear, 'motivation', 'genesys', account))
             ? motivations.fear : null;
-    } // end if
-} // end validateMotivations
+    }
+}
 
 async function validateSuppRef(suppRefs : number[], type : string, systemPrefix : string, account : Account) : Promise<number[]>
 async function validateSuppRef(suppRefs : SupplementRef[], type : string, systemPrefix : string, account : Account) : Promise<SupplementRef[]>
@@ -85,7 +85,7 @@ async function validateSuppRef(suppRefs : SupplementRef[] | number[], type : str
         if(!(await suppMan.exists(supp.id, type, systemPrefix, account)))
         {
             toRemove.push(supp.id);
-        } // end if
+        }
     }));
 
     // Set the supps to the filtered ones.
@@ -99,7 +99,7 @@ async function validateSuppRef(suppRefs : SupplementRef[] | number[], type : str
     {
         return suppRefs;
     }
-} // end validateSuppRef
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // Top-level Validation Functions
@@ -131,7 +131,7 @@ export async function validateGenesysDetails(character : Character) : Promise<Ch
     }));
 
     return character;
-} // end validateGenesysDetails
+}
 
 export async function validateEoteDetails(character : Character) : Promise<Character>
 {
@@ -159,6 +159,6 @@ export async function validateEoteDetails(character : Character) : Promise<Chara
     }));
 
     return character;
-} // end validateEoteDetails
+}
 
 //----------------------------------------------------------------------------------------------------------------------
