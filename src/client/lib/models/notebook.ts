@@ -1,50 +1,55 @@
 //----------------------------------------------------------------------------------------------------------------------
-// NewsPostModel
+// NotebookModel
 //----------------------------------------------------------------------------------------------------------------------
 
-class NewsPostModel
+import NotebookPageModel from './notebookPage';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+class NotebookModel
 {
-    constructor(def)
+    #id : string;
+    #pages : NotebookPageModel[];
+
+    constructor(def : { id : string, pages : NotebookPageModel[] })
     {
-        // Set our properties
-        this.$state = { post_id: undefined,
-            title: undefined,
-            stinger: undefined,
-            content: undefined,
-            created: Date.now(),
-            edited: Date.now(),
-            ...def };
-    }
+        this.#id = def.id;
+        this.#pages = def.pages || [];
+    }//
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get id() { return this.$state.post_id; }
-    get title() { return this.$state.title; }
-    get stinger() { return this.$state.stinger; }
-    get content() { return this.$state.content; }
-    get created() { return this.$state.created; }
-    get edited() { return this.$state.edited; }
-    get account() { return this.$state.account; }
+    get id() : string { return this.#id; }
+    get pages() : NotebookPageModel[] { return this.#pages; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Model API
     //------------------------------------------------------------------------------------------------------------------
 
-    update(def)
+    revert() : void
     {
-        this.$state = Object.assign(this.$state, def);
-    }
+        this.pages.forEach((page) => page.revert());
+    }//
 
-    toJSON()
+    update(def : { id : string, pages : NotebookPageModel[] }) : void
     {
-        return { ...this.$state };
-    }
-}
+        this.#id = def.id;
+        this.#pages = def.pages || [];
+    }//
+
+    toJSON() : { id : string, pages : { id ?: string, title ?: string, content ?: string }[] }
+    {
+        return {
+            id: this.#id,
+            pages: this.pages.map((page) => page.toJSON())
+        };
+    }//
+}//
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default NewsPostModel;
+export default NotebookModel;
 
 //----------------------------------------------------------------------------------------------------------------------
