@@ -12,7 +12,7 @@ import { snakeCaseKeys } from '../../common/utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-interface SupplementOptions {
+export interface SupplementOptions {
     id : number;
     name : string;
     owner ?: string;

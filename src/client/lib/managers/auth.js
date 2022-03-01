@@ -61,7 +61,7 @@ class AuthManager
         window.gapi.load('auth2', () =>
         {
             window.gapi.auth2.init();
-            this.auth2 = gapi.auth2.getAuthInstance();
+            this.auth2 = window.gapi.auth2.getAuthInstance();
 
             // Update our status
             this._statusSubject.next('gapi loaded');

@@ -2,8 +2,10 @@
 // CharacterResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
 import $http from 'axios';
+
+// Interfaces
+import { Character, System } from '../../../common/interfaces/common';
 
 // Managers
 import sysMan from '../managers/systems';
@@ -18,72 +20,76 @@ import toastUtil from '../utils/toast';
 
 class CharacterResourceAccess
 {
+    #characters : Map<string, CharacterModel>;
+
     constructor()
     {
-        this.$characters = {};
-    } // end constructor
+        this.#characters = new Map();
+    }
 
-    _buildOrUpdateModel(def)
+    _buildOrUpdateModel(def : Character) : CharacterModel
     {
-        let character = this.$characters[def.id];
+        let character = this.#characters.get(def.id);
         if(character)
         {
             character.update(def);
         }
         else
         {
-            const system = _.find(sysMan.systems, { id: def.system }) || { defaults: {} };
+            const system = (sysMan.systems as System<Record<string, unknown>>[])
+                .find((sys) => sys.id === def.system) ?? { defaults: {} };
             character = new CharacterModel(def, system.defaults);
 
             // We don't have an id if the character is new.
             if(def.id)
             {
-                this.$characters[def.id] = character;
-            } // end if
-        } // end if
+                this.#characters.set(def.id, character);
+            }
+        }
 
         return character;
-    } // end _buildModel
+    }
 
-    $update(def)
+    $update(def : Character) : void
     {
-        if(this.$characters[def.id])
+        if(this.#characters.has(def.id))
         {
             this._buildOrUpdateModel(def);
         }
     }
 
-    $remove(charID)
+    $remove(charID : string) : void
     {
-        delete this.$characters[charID];
+        this.#characters.delete(charID);
     }
 
-    async newCharacter(charDef)
+    async newCharacter(charDef : Character) : Promise<CharacterModel>
     {
         return this._buildOrUpdateModel(charDef);
-    } // end newCharacter
+    }
 
-    async updateSysDefaults(char)
+    async updateSysDefaults(char : CharacterModel) : Promise<CharacterModel>
     {
-        const system = _.find(sysMan.systems, { id: char.system }) || { defaults: {} };
+        const system = (sysMan.systems as System<Record<string, unknown>>[])
+            .find((sys) => sys.id === char.system) ?? { defaults: {} };
         char.updateSysDefaults(system.defaults);
 
         return char;
-    } // end updateSysDefaults
+    }
 
-    async getCharacter(charID)
+    async getCharacter(charID : string) : Promise<CharacterModel>
     {
         const { data } = await $http.get(`/api/characters/${ charID }`);
         return this._buildOrUpdateModel(data);
-    } // end getCharacter
+    }
 
-    async getAllCharacters(owner)
+    async getAllCharacters(owner : string) : Promise<CharacterModel[]>
     {
         const { data } = await $http.get('/api/characters', { params: { owner } });
         return data.map((def) => this._buildOrUpdateModel(def));
     } // end getAllCharacters
 
-    async saveCharacter(character)
+    async saveCharacter(character : CharacterModel) : Promise<CharacterModel>
     {
         const verb = character.id ? 'patch' : 'post';
         const charURL = character.id ? `/api/characters/${ character.id }` : `/characters`;
@@ -101,7 +107,7 @@ class CharacterResourceAccess
                     character.revert();
 
                     // Needed, or the destructure fails.
-                    return {};
+                    return { data: undefined, status: undefined };
                 }
                 else
                 {
@@ -115,7 +121,7 @@ class CharacterResourceAccess
 
                     // Rethrow, so other logic can handle the failure correctly.
                     throw error;
-                } // end if
+                }
             }));
 
         if(status === 205)
@@ -125,26 +131,36 @@ class CharacterResourceAccess
             });
 
             console.warn('Disallowed content was filtered from character on save.');
-
-            return this.getCharacter(character.id);
+            if(character.id)
+            {
+                return this.getCharacter(character.id);
+            }
+            else
+            {
+                return character;
+            }
         }
         else if(data)
         {
             // We have to make sure the model is in the list of characters before we call `_buildOrUpdateModel`.
             if(!character.id)
             {
-                this.$characters[data.id] = character;
-            } // end if
+                this.#characters.set(data.id, character);
+            }
 
             return this._buildOrUpdateModel(data);
-        } // end if
-    } // end saveCharacter
+        }
+        else
+        {
+            return character;
+        }
+    }
 
-    async deleteCharacter(character)
+    async deleteCharacter(character : { id : string }) : Promise<void>
     {
         $http.delete(`/api/characters/${ character.id }`);
-    } // end deleteCharacter
-} // end CharacterResourceAccess
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

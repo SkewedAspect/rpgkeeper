@@ -7,13 +7,13 @@ import { notebookDecoder, notebookPageDecoder } from '../decoders/notebook';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-interface NotebookOptions {
+export interface NotebookOptions {
     id : string;
     // eslint-disable-next-line no-use-before-define
     pages ?: NotebookPage[]
 }
 
-interface NotebookPageOptions {
+export interface NotebookPageOptions {
     id : string;
     title : string;
     content : string;

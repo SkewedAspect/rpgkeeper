@@ -3,66 +3,82 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
-import rpgdice from 'rpgdicejs';
 import { LRU } from './lru';
+import rpgdice from 'rpgdicejs';
+import Expression from 'rpgdicejs/lib/Expression';
 
 // Dice Systems
 import { fudgeChoices } from './dice-systems/fudge';
-import { eoteChoices, eoteDiceSortOrder, eoteResultsSortOrder, criticals, cancelEotEResults, findCritical } from './dice-systems/eote';
+import {
+    eoteChoices,
+    eoteDiceSortOrder,
+    eoteResultsSortOrder,
+    criticals,
+    cancelEotEResults,
+    findCritical
+} from './dice-systems/eote';
+
+// Interfaces
+import { EoteCritical } from '../../../common/interfaces/systems/eote';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
  * Rolls a random die, of the given sides.
  *
- * @param {number} [sides=1] - The number of sides of the die to roll.
+ * @param [sides=1] - The number of sides of the die to roll.
  *
- * @returns {number} Returns a random number.
+ * @returns Returns a random number.
  */
-function randomDieRoll(sides = 1)
+function randomDieRoll(sides = 1) : number
 {
     return Math.floor(Math.random() * sides);
-} // end randomDieRoll
+}
 
 /**
  * Chooses an item form a list at random.
  *
- * @param {Array<*>} choices - The list to choose an item out of.
+ * @param choices - The list to choose an item out of.
  *
- * @returns {*} Returns an item from the list, randomly chosen.
+ * @returns Returns an item from the list, randomly chosen.
  */
-function randomChoice(choices)
+function randomChoice<T>(choices : T[]) : T
 {
     return choices[randomDieRoll(choices.length)];
-} // end randomChoice
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class DiceUtil
 {
+    #cache : LRU;
+
+    public eoteDiceSortOrder : typeof eoteDiceSortOrder;
+    public eoteCriticals : EoteCritical[];
+
     constructor()
     {
-        this.cache = new LRU(50);
+        this.#cache = new LRU(50);
 
         // Useful properties
         this.eoteDiceSortOrder = eoteDiceSortOrder;
         this.eoteCriticals = criticals;
-    } // end constructor
+    }
 
-    roll(rollTxt, scope)
+    roll(rollTxt : string, scope : Record<string, unknown>) : string
     {
         // We cache the expression objects, since they're costly to create, and can be evaluated multiple times.
-        let expr = this.cache.get(rollTxt);
+        let expr = this.#cache.get(rollTxt);
         if(!expr)
         {
             expr = rpgdice.parse(rollTxt);
-            this.cache.set(rollTxt, expr);
-        } // end if
+            this.#cache.set(rollTxt, expr);
+        }
 
         return expr.eval(scope);
-    } // end roll
+    }
 
-    rollFudge(bonus = 0)
+    rollFudge(bonus = 0) : Expression
     {
         const results = _.map(_.range(4), () =>
         {
@@ -71,7 +87,7 @@ class DiceUtil
 
         const rollTotal = _.reduce(results, (total, rollResult) =>
         {
-            return total + parseInt(rollResult);
+            return total + parseInt(rollResult as string);
         }, 0);
 
         return {
@@ -81,12 +97,12 @@ class DiceUtil
             },
             value: rollTotal + bonus
         };
-    } // end rollFudge
+    }
 
     // We assume dice is in the form of `{ ability: 3, difficulty: 1, setback: 0, ... }`.
-    rollEotE(dice)
+    rollEotE(dice : Record<string, number>) : { full : string[], uncancelled : string[] }
     {
-        let results = _.mapValues(dice, (count, die) =>
+        const results = _.mapValues(dice, (count : number, die : string) =>
         {
             return _.reduce(_.range(count), (dieResults) =>
             {
@@ -95,24 +111,24 @@ class DiceUtil
         });
 
         // We concat all the sub results together, and sort them.
-        results = _.chain(eoteDiceSortOrder)
+        const sorted = _.chain(eoteDiceSortOrder)
             .reduce((accum, die) => accum.concat(results[die]), [])
             .compact()
             .sortBy((dieResult) => eoteResultsSortOrder.indexOf(dieResult))
             .value();
 
         return {
-            full: results,
-            uncancelled: cancelEotEResults(results)
+            full: sorted,
+            uncancelled: cancelEotEResults(sorted)
         };
-    } // end rollEotE
+    }
 
-    rollEotECritical(bonus = 0)
+    rollEotECritical(bonus = 0) : EoteCritical | undefined
     {
         const roll = randomDieRoll(100) + bonus;
         return findCritical(roll);
-    } // end rollEotECritical
-} // end DiceUtil
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

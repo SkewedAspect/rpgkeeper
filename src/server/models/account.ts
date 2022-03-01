@@ -14,7 +14,7 @@ export interface AccountSettings {
     // TODO: Figure out some settings...
 }
 
-interface AccountOptions {
+export interface AccountOptions {
     id : string;
     email : string;
     name ?: string;

@@ -2,12 +2,6 @@
 // Main Client-side Application
 //----------------------------------------------------------------------------------------------------------------------
 
-// Buffer Polyfill
-import { Buffer } from 'buffer';
-window.Buffer = Buffer;
-
-//----------------------------------------------------------------------------------------------------------------------
-
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import { marked } from 'marked';
@@ -63,7 +57,8 @@ import './scss/theme.scss';
 // Font Awesome
 // ---------------------------------------------------------------------------------------------------------------------
 
-library.add(fab, far, fas);
+// FIXME: Why the any cast? Whomst fuckith'd the types, praytell?
+library.add(fab as any, far as any, fas as any);
 
 // eslint-disable-next-line vue/multi-word-component-names
 Vue.component('Fa', FontAwesomeIcon);
@@ -128,8 +123,6 @@ const router = new VueRouter({
 // Setup Vue App
 //----------------------------------------------------------------------------------------------------------------------
 
-Vue.config.debug = true;
-
 Vue.config.ignoredElements = [
     'proficiency',
     'ability',
@@ -171,7 +164,6 @@ renderer.table = function(header, body)
 // Configure marked parser
 marked.setOptions({
     gfm: true,
-    tables: true,
     breaks: false,
     pedantic: false,
     sanitize: false,
@@ -184,7 +176,7 @@ marked.setOptions({
 // Version information
 // ---------------------------------------------------------------------------------------------------------------------
 
-window.RPGKeeper = {
+(window as any).RPGKeeper = {
     version
 };
 
@@ -195,11 +187,11 @@ window.RPGKeeper = {
 /**
  *
  */
-async function init()
+async function init() : Promise<void>
 {
     // Setup Utils
     toastUtil.setVueRoot(root);
-} // end init
+}
 
 // ---------------------------------------------------------------------------------------------------------------------
 
