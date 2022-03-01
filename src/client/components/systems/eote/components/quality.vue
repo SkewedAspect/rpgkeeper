@@ -88,8 +88,8 @@
                     if(this.quality.ranked)
                     {
                         text += ` ${ this.ranks }`;
-                    } // end if
-                } // end if
+                    }
+                }
 
                 return text;
             },
@@ -103,7 +103,7 @@
                 else
                 {
                     text += 'Unknown quality.';
-                } // end if
+                }
 
                 return text;
             },
@@ -112,7 +112,7 @@
                 if(this.quality && this.quality.reference)
                 {
                     return this.quality.reference;
-                } // end if
+                }
 
                 return '';
             }

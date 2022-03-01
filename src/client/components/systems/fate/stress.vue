@@ -117,7 +117,7 @@
                 else
                 {
                     return 2;
-                } // end if
+                }
             },
             totalMentalBoxes()
             {
@@ -133,7 +133,7 @@
                 else
                 {
                     return 2;
-                } // end if
+                }
             }
         },
         methods: {

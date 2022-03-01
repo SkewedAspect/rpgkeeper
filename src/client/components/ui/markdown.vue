@@ -50,7 +50,7 @@
                 if(this.inline !== false)
                 {
                     rawMarkup = rawMarkup.trim().replace(/^(?:<p>)?(.*?)(?:<\/p>)?$/, '$1');
-                } // end if
+                }
 
                 return rawMarkup;
             }

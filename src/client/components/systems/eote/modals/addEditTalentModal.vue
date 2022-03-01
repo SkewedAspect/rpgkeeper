@@ -196,7 +196,7 @@
                     });
 
                     this.$emit('add', talent);
-                } // end if
+                }
             },
             onShown()
             {
@@ -234,7 +234,7 @@
                     this.tier = 1;
                     this.reference = '';
                     this.ranked = false;
-                } // end if
+                }
 
                 this.$refs.modal.show();
             },

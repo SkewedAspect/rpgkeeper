@@ -188,7 +188,7 @@
                 else
                 {
                     this.character.details.weapons.push(this.editWeapon);
-                } // end if
+                }
 
                 // Save the character
                 await charMan.save(this.character);
@@ -217,7 +217,7 @@
                         rarity: 0,
                         qualities: []
                     });
-                } // end if
+                }
             },
 
             show(weapon)

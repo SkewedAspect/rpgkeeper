@@ -125,7 +125,7 @@
                 if(this.getQual(quality).ranked)
                 {
                     newQual.ranks = 1;
-                } // end if
+                }
 
                 this.selectedQualities.push(newQual);
                 this.selectedQualities = _.uniqBy(this.selectedQualities, 'id');

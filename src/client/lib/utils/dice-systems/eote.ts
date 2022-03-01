@@ -365,7 +365,7 @@ export function findCritical(result : number) : EoteCritical | undefined
         if(result >= critical.range[0] && result <= critical.range[1])
         {
             return critical;
-        } // end if
+        }
     });
 }
 

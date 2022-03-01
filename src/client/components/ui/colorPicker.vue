@@ -82,7 +82,7 @@
                 if(this.value && this.color.hex && this.color.hex !== this.value)
                 {
                     this.$emit('input', this.color.hex);
-                } // end if
+                }
             }
         },
         mounted()

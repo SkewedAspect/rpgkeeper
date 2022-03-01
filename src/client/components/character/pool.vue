@@ -194,21 +194,21 @@
                 {
                     this.editMax = this.poolMax || 0;
                     this.$refs.editPool.show();
-                } // end if
+                }
             },
             onMouseOver(index)
             {
                 if(!this.disabled)
                 {
                     this.hoveredIndex = index;
-                } // end if
+                }
             },
             onMouseOut()
             {
                 if(!this.disabled)
                 {
                     this.hoveredIndex = undefined;
-                } // end if
+                }
             },
             setIndex(index)
             {
@@ -221,22 +221,22 @@
                     else
                     {
                         this.poolCurrent = (index + 1);
-                    } // end if
+                    }
 
                     this.$emit('update', this.poolCurrent);
 
                     if(!this.noAutoSave)
                     {
                         charMan.save();
-                    } // end if
-                } // end if
+                    }
+                }
             },
             checkHover(index)
             {
                 if(index <= this.hoveredIndex)
                 {
                     return 'text-primary';
-                } // end if
+                }
             },
             isChecked(index)
             {

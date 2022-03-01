@@ -290,7 +290,7 @@
                 {
                     dice.ability = rankCount - charCount;
                     dice.proficiency = charCount;
-                } // end if
+                }
 
                 this.$emit('roll', dice, item.name);
             },

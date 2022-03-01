@@ -22,7 +22,7 @@ class CharacterModel
 
         // Mark the ref state as non-configurable, so vue ignores it.
         markNonConfigurable(this, '$refState');
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -76,7 +76,7 @@ class CharacterModel
     revert()
     {
         this.$state = _.cloneDeep(this.$refState);
-    } // end revert
+    }
 
     update(def)
     {
@@ -85,7 +85,7 @@ class CharacterModel
         const defaults = _.cloneDeep(this.$defaults);
         this.$state = _.assign({}, defaults, _.cloneDeep(def));
         this.$refState = _.assign({}, defaults, _.cloneDeep(def));
-    } // end update
+    }
 
     updateSysDefaults(sysDef)
     {
@@ -97,14 +97,14 @@ class CharacterModel
         {
             this.$refState.details = _.cloneDeep(sysDef);
             this.$state.details = _.cloneDeep(sysDef);
-        } // end if
-    } // end updateSysDefaults
+        }
+    }
 
     toJSON()
     {
         return _.cloneDeep(this.$state);
-    } // end toJSON
-} // end CharacterModel
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

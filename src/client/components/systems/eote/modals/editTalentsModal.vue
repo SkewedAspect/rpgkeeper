@@ -238,7 +238,7 @@
                 if(this.getTalent(talent).ranked)
                 {
                     newTalent.ranks = 1;
-                } // end if
+                }
 
                 this.selectedTalents.push(newTalent);
                 this.selectedTalents = _.uniqBy(this.selectedTalents, 'id');

@@ -33,7 +33,7 @@ $force-color: #ffffff;
             }
         }
     }
-} // end makeSymbol
+}
 
 @mixin makeDie($dieName, $color, $beforeContent, $tooltip-color: $color)
 {
@@ -66,7 +66,7 @@ $force-color: #ffffff;
             color: $tooltip-color;
         }
     }
-} // end makeDie
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // Positive Dice

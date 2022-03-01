@@ -109,7 +109,7 @@
                 else
                 {
                     await notesMan.addPage(notesMan.selected, this.page);
-                } // end if
+                }
             },
             onShown()
             {

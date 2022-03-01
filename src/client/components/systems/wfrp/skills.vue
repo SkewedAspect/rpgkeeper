@@ -91,7 +91,7 @@
                 {
                     // Save the character
                     return charMan.save(charMan.selected);
-                } // end if
+                }
             },
             openEditModal()
             {

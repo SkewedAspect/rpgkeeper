@@ -235,10 +235,10 @@
                     {
                         // We have to remove `item.index` from the list of purchased upgrades
                         purchased = purchased.filter((instIdx) => instIdx !== item.index);
-                    } // end if
+                    }
 
                     instance.upgrades[value] = purchased;
-                } // end if
+                }
             },
             getUpgrades(instance, supplement)
             {
@@ -267,7 +267,7 @@
                     {
                         // In the simple case, we just push the upgrade with the name.
                         upgrades.push({ ...upgrade, name, purchased: upgradeInst });
-                    } // end if
+                    }
 
                     return upgrades;
                 }, []);

@@ -212,7 +212,7 @@
                 if(!this.character.details.force)
                 {
                     this.character.details.force = { rating: 0, committed: 0, powers: [] };
-                } // end if
+                }
 
                 this.character.details.career = this.career;
                 this.character.details.species = this.species;
@@ -232,7 +232,7 @@
                 if(!this.character.details.force)
                 {
                     this.character.details.force = { rating: 0, committed: 0, powers: [] };
-                } // end if
+                }
 
                 // Reset the edit fields
                 this.name = this.character.name;

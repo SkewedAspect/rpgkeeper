@@ -127,7 +127,7 @@
                 if(idx > -1)
                 {
                     this.stunts.splice(idx, 1);
-                } // end if
+                }
             },
 
             show()

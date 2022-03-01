@@ -105,7 +105,7 @@
                 if(this.talent && this.talent.id)
                 {
                     return this.talents.find((talent) => talent.id === this.talent.id);
-                } // end if
+                }
 
                 return {};
             },
@@ -114,7 +114,7 @@
                 if(this.talentBase.name)
                 {
                     return eoteMan.activationEnum[this.talentBase.activation];
-                } // end if
+                }
 
                 return '';
             }
@@ -125,14 +125,14 @@
                 if(!this.readonly)
                 {
                     this.$emit('edit', this.talent.title);
-                } // end if
+                }
             },
             remove()
             {
                 if(!this.readonly)
                 {
                     this.$emit('remove', this.talent.title);
-                } // end if
+                }
             }
         }
     };

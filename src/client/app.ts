@@ -159,7 +159,7 @@ renderer.table = function(header, body)
 {
     const tableBody = `<thead>${ header }</thead><tbody>${ body }</tbody>`;
     return `<div class="table-responsive"><table class="table table-striped table-hover table-sm">${ tableBody }</table></div>`;
-}; // end table parsing
+};
 
 // Configure marked parser
 marked.setOptions({

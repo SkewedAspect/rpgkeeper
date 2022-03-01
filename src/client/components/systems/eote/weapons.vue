@@ -163,14 +163,14 @@
                     {
                         dice.ability = rankCount - charCount;
                         dice.proficiency = charCount;
-                    } // end if
+                    }
 
                     this.$emit('roll', dice, item.name);
                 }
                 else
                 {
                     console.warn('Failed to find weapon skill:', item.skill);
-                } // end if
+                }
             },
             onDelModalHidden()
             {
@@ -202,7 +202,7 @@
 
                     // Save
                     await charMan.save(this.character);
-                } // end if
+                }
             }
         }
     };

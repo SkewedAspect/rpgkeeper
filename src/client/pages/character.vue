@@ -166,7 +166,7 @@
                 else
                 {
                     this.system = undefined;
-                } // end if
+                }
             });
 
             // We always select the character that matches our route, so we handle navigation.

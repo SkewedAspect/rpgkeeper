@@ -124,7 +124,7 @@
                     });
 
                     this.$emit('add', ability);
-                } // end if
+                }
             },
             onShown()
             {
@@ -151,7 +151,7 @@
                 else
                 {
                     this.id = undefined;
-                } // end if
+                }
 
                 this.$refs.modal.show();
             },

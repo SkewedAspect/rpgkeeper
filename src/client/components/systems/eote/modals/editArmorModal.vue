@@ -171,7 +171,7 @@
                 {
                     // Reset the edit fields
                     this.clear();
-                } // end if
+                }
             },
 
             show()

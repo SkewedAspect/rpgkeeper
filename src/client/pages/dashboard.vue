@@ -231,7 +231,7 @@
                 {
                     // We've finished loading, and we're not signed in
                     this.$router.push('/');
-                } // end if
+                }
 
                 this.selectAllSystems();
             });
@@ -264,7 +264,7 @@
 
                     default:
                         return undefined;
-                } // end switch
+                }
             },
             getStatusVariant(desc)
             {
@@ -281,7 +281,7 @@
 
                     default:
                         return undefined;
-                } // end switch
+                }
             },
 
             selectAllSystems()
@@ -300,7 +300,7 @@
                 if(!char)
                 {
                     char = await characterMan.create({});
-                } // end if
+                }
 
                 this.addEditChar = char;
             },

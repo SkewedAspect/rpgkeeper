@@ -31,7 +31,7 @@ class CharacterManager
 
         // Subscriptions
         authMan.account$.subscribe(this._onAccountChanged.bind(this));
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Observables
@@ -67,8 +67,8 @@ class CharacterManager
         else
         {
             this._charactersSubject.next([]);
-        } // end if
-    } // end _onAccountChanged
+        }
+    }
 
     _onMessage(envelope)
     {
@@ -93,12 +93,12 @@ class CharacterManager
     async create(charDef)
     {
         return characterRA.newCharacter(charDef);
-    } // end create
+    }
 
     async updateSysDefaults(char)
     {
         return characterRA.updateSysDefaults(char);
-    } // end updateSysDefaults
+    }
 
     async select(charID)
     {
@@ -110,7 +110,7 @@ class CharacterManager
             // Add to our internal cache of characters
             this.characters.push(char);
             this._charactersSubject.next(this.characters);
-        } // end if
+        }
 
         // Select this character
         this._selectedSubject.next(char);
@@ -119,7 +119,7 @@ class CharacterManager
         notesMan.select(char.noteID);
 
         return char;
-    } // end selected
+    }
 
     /**
      * Save the character. Attempts to debounce this; we will only have one active save at a time, and if the character
@@ -140,7 +140,7 @@ class CharacterManager
         if(this.saving || !character.dirty)
         {
             return character;
-        } // end if
+        }
 
         // Otherwise, we set ourselves to saving
         this.saving = true;
@@ -155,17 +155,17 @@ class CharacterManager
         if(character.dirty)
         {
             await this.save(character);
-        } // end if
+        }
 
         // If we're saving someone new, let's add it to our list of characters.
         if(!this.characters.includes(character))
         {
             this.characters.push(character);
             this._charactersSubject.next(this.characters);
-        } // end if
+        }
 
         return character;
-    } // end save
+    }
 
     async delete(character)
     {
@@ -173,8 +173,8 @@ class CharacterManager
         const characters = _.without(this.characters, character);
 
         this._charactersSubject.next(characters);
-    } // end delete
-} // end CharacterManager
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

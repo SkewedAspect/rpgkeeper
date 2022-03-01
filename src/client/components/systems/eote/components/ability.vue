@@ -76,7 +76,7 @@
                 else
                 {
                     return 'Unknown';
-                } // end if
+                }
             },
             abilityText()
             {
@@ -87,14 +87,14 @@
                 else
                 {
                     return 'Unknown ability.';
-                } // end if
+                }
             },
             abilityReference()
             {
                 if(this.ability && this.ability.reference)
                 {
                     return this.ability.reference;
-                } // end if
+                }
 
                 return '';
             }

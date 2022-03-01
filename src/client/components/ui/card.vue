@@ -120,7 +120,7 @@
                 else if(this.shrink !== false)
                 {
                     return 'shrink';
-                } // end if
+                }
 
                 return 'nothing';
             }

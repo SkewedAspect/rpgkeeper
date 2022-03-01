@@ -25,7 +25,7 @@ class SystemsManager
                 this._systemsSubject.next(systems);
                 this._statusSubject.next('loaded');
             });
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Observables
@@ -49,7 +49,7 @@ class SystemsManager
     {
         await this.loading;
         return _.find(this.systems, { id: systemID });
-    } // end getSystem
+    }
 
     getStatusDisplay(desc)
     {
@@ -66,8 +66,8 @@ class SystemsManager
 
             default:
                 return desc;
-        } // end switch
-    } // end getStatusDisplay
+        }
+    }
 
     getStatusDescription(desc)
     {
@@ -84,9 +84,9 @@ class SystemsManager
 
             default:
                 return 'Unknown status.';
-        } // end switch
-    } // end getStatusDescription
-} // end SystemsManager
+        }
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

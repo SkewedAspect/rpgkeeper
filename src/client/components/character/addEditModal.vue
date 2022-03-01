@@ -256,7 +256,7 @@
                 if(this.char)
                 {
                     charMan.updateSysDefaults(this.char);
-                } // end if
+                }
             }
         },
         methods: {
@@ -266,7 +266,7 @@
                 if(!this.saving)
                 {
                     this.char.revert();
-                } // end if
+                }
 
                 this.$v.$reset();
                 this.$emit('hidden');
@@ -284,7 +284,7 @@
                 else
                 {
                     bvModalEvent.preventDefault();
-                } // end if
+                }
             },
             async pickImageDropBox(prop)
             {

@@ -14,7 +14,7 @@ class NewsPostModel
             created: Date.now(),
             edited: Date.now(),
             ...def };
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -35,13 +35,13 @@ class NewsPostModel
     update(def)
     {
         this.$state = Object.assign(this.$state, def);
-    } // end update
+    }
 
     toJSON()
     {
         return { ...this.$state };
-    } // end toJSON
-} // end NewsPostModel
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

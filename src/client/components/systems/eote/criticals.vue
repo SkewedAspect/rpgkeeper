@@ -125,12 +125,12 @@
                     if(upperBound === 'Infinity')
                     {
                         bounds = `${ lowerBound }+`;
-                    } // end if
+                    }
 
                     if(!critical.severity)
                     {
                         severity = '';
-                    } // end if
+                    }
 
                     return {
                         value: critical.title,
@@ -161,7 +161,7 @@
                     this.sortCriticals();
 
                     return this.saveChar();
-                } // end if
+                }
             },
             removeCritical(index)
             {

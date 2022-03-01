@@ -18,14 +18,14 @@ class ToastUtil
     constructor()
     {
         this.#vueRoot = undefined;
-    } // end constructor
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
 
     setVueRoot(vueRoot : VueRoot) : void
     {
         this.#vueRoot = vueRoot;
-    } // end setVueRoot
+    }
 
     toast(message : string | VNode[], options : Record<string, unknown>) : void
     {
@@ -37,8 +37,8 @@ class ToastUtil
         else
         {
             this.#vueRoot.$bvToast.toast(message, options);
-        } // end if
-    } // end toast
+        }
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
     // Convenience Functions
@@ -54,7 +54,7 @@ class ToastUtil
         };
 
         this.toast(message, options);
-    } // end info
+    }
 
     success(message : string, options : Record<string, unknown> = {}) : void
     {
@@ -79,7 +79,7 @@ class ToastUtil
 
             this.toast([ msgVNodes ], options);
         }
-    } // end success
+    }
 
     warning(message : string, options : Record<string, unknown> = {}) : void
     {
@@ -104,7 +104,7 @@ class ToastUtil
 
             this.toast([ msgVNodes ], options);
         }
-    } // end warning
+    }
 
     error(message : string, options : Record<string, unknown> = {}) : void
     {
@@ -129,8 +129,8 @@ class ToastUtil
 
             this.toast([ msgVNodes ], options);
         }
-    } // end error
-} // end ToastUtil
+    }
+}
 
 // ---------------------------------------------------------------------------------------------------------------------
 

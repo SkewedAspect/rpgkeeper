@@ -95,7 +95,7 @@
                 if(!this.readonly)
                 {
                     this.$emit('remove', this.critical.title);
-                } // end if
+                }
             }
         }
     };

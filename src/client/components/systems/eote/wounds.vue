@@ -195,7 +195,7 @@
                 else if(this.isDangerWounds)
                 {
                     return 'text-warning';
-                } // end if
+                }
 
                 return undefined;
             },
@@ -208,7 +208,7 @@
                 else if(this.isDangerStrain)
                 {
                     return 'text-warning';
-                } // end if
+                }
 
                 return undefined;
             },
@@ -246,7 +246,7 @@
 
                     // Save the character
                     return charMan.save(this.character);
-                } // end if
+                }
             },
             resetStims()
             {
@@ -265,7 +265,7 @@
 
                     // Apply the rest as normal wounds
                     this.dealWounds(woundsRemaining);
-                } // end if
+                }
             },
             dealWounds(wounds)
             {
@@ -283,7 +283,7 @@
 
                     // Save the character
                     return charMan.save(this.character);
-                } // end if
+                }
             },
             healWounds(wounds)
             {
@@ -299,7 +299,7 @@
 
                     // Save the character
                     return charMan.save(this.character);
-                } // end if
+                }
             },
             soakStrain()
             {
@@ -311,7 +311,7 @@
 
                     // Apply the rest as normal strain
                     this.dealStrain(strainRemaining);
-                } // end if
+                }
             },
             dealStrain(strain)
             {
@@ -329,7 +329,7 @@
 
                     // Save the character
                     return charMan.save(this.character);
-                } // end if
+                }
             },
             healStrain(strain)
             {
@@ -345,7 +345,7 @@
 
                     // Save the character
                     return charMan.save(this.character);
-                } // end if
+                }
             },
             saveChar()
             {

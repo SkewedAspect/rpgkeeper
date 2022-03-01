@@ -198,7 +198,7 @@
                 {
                     // We're in the sign in process
                     this.signingIn = true;
-                } // end if
+                }
 
                 if(status === 'signed in' && this.signingIn)
                 {
@@ -206,7 +206,7 @@
 
                     // We've completed a sign in, redirect
                     this.$router.push('/dashboard');
-                } // end if
+                }
             });
         },
         subscriptions()

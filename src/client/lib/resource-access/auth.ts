@@ -15,7 +15,7 @@ class AuthResourceAccess
     {
         return $http.post('/auth/google', { idToken })
             .then(({ data }) => new AccountModel(data));
-    } // end completeSignIn
+    }
 
     async save(account : AccountModel) : Promise<AccountModel>
     {

@@ -257,12 +257,12 @@
                         for(let toAdd = 0; toAdd < (val - currLength); toAdd++)
                         {
                             this.addControl();
-                        } // end for
+                        }
                     }
                     else
                     {
                         this.upgrades.control.splice((currLength - val) * -1);
-                    } // end if
+                    }
                 }
             }
         },
@@ -281,27 +281,27 @@
                 if(forcePowerDef.upgrades.strength.available === 0)
                 {
                     forcePowerDef.upgrades.strength = undefined;
-                } // end if
+                }
 
                 if(forcePowerDef.upgrades.magnitude.available === 0)
                 {
                     forcePowerDef.upgrades.magnitude = undefined;
-                } // end if
+                }
 
                 if(forcePowerDef.upgrades.duration.available === 0)
                 {
                     forcePowerDef.upgrades.duration = undefined;
-                } // end if
+                }
 
                 if(forcePowerDef.upgrades.range.available === 0)
                 {
                     forcePowerDef.upgrades.range = undefined;
-                } // end if
+                }
 
                 if(forcePowerDef.upgrades.mastery.available === 0)
                 {
                     forcePowerDef.upgrades.mastery = undefined;
-                } // end if
+                }
 
                 // Filter out blank control entries
                 forcePowerDef.upgrades.control = forcePowerDef.upgrades.control
@@ -319,7 +319,7 @@
                     const forcePower = await eoteMan.addSup('forcePowers', forcePowerDef);
 
                     this.$emit('add', forcePower);
-                } // end if
+                }
             },
             onShown()
             {
@@ -334,27 +334,27 @@
                     if(this.$refs.editorStrength)
                     {
                         this.$refs.editorStrength.codemirror.refresh();
-                    } // end if
+                    }
 
                     if(this.$refs.editorMagnitude)
                     {
                         this.$refs.editorMagnitude.codemirror.refresh();
-                    } // end if
+                    }
 
                     if(this.$refs.editorDuration)
                     {
                         this.$refs.editorDuration.codemirror.refresh();
-                    } // end if
+                    }
 
                     if(this.$refs.editorRange)
                     {
                         this.$refs.editorRange.codemirror.refresh();
-                    } // end if
+                    }
 
                     if(this.$refs.editorMastery)
                     {
                         this.$refs.editorMastery.codemirror.refresh();
-                    } // end if
+                    }
 
                     if(this.$refs.editorControl)
                     {
@@ -362,7 +362,7 @@
                         {
                             ref.codemirror.refresh();
                         });
-                    } // end if
+                    }
                 });
             },
             addControl()
@@ -392,7 +392,7 @@
                     this.description = '';
                     this.reference = '';
                     this.upgrades = deepClone(defaultUpgrades);
-                } // end if
+                }
 
                 this.$refs.modal.show();
             },

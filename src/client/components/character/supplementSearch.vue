@@ -101,7 +101,7 @@
                         if(_.get(this.selected[0], 'id') !== undefined)
                         {
                             alreadyAdded = !!(this.selected.filter((item) => item.id === supp.id)[0]);
-                        } // end if
+                        }
                         return supp.name.toLowerCase().includes(this.search.toLowerCase()) && !alreadyAdded;
                     })
                     .sort(this.sortFn);

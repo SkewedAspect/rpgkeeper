@@ -112,7 +112,7 @@
                 {
                     // Save the character
                     return charMan.save(charMan.selected);
-                } // end if
+                }
             },
             openEditModal()
             {
@@ -126,7 +126,7 @@
 
                     // Save the character
                     return charMan.save(charMan.selected);
-                } // end if
+                }
             },
             roll(dice, name)
             {

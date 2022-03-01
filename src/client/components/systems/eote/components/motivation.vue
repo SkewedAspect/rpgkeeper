@@ -80,8 +80,8 @@
                     if(this.motivation.ranked)
                     {
                         text += ` ${ this.ranks }`;
-                    } // end if
-                } // end if
+                    }
+                }
 
                 return text;
             },
@@ -94,14 +94,14 @@
                 else
                 {
                     return 'Unknown motivation.';
-                } // end if
+                }
             },
             motivationReference()
             {
                 if(this.motivation && this.motivation.reference)
                 {
                     return this.motivation.reference;
-                } // end if
+                }
 
                 return '';
             }

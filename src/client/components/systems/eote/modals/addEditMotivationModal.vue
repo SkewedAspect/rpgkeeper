@@ -158,7 +158,7 @@
                     });
 
                     this.$emit('add', motivation);
-                } // end if
+                }
 
                 // Clear
                 this.id = undefined;
@@ -204,7 +204,7 @@
                     this.type = '';
                     this.description = '';
                     this.reference = '';
-                } // end if
+                }
 
                 this.$refs.modal.show();
             },

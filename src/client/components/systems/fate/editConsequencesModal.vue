@@ -184,7 +184,7 @@
                 else
                 {
                     return 'none';
-                } // end if
+                }
             }
         },
         methods: {

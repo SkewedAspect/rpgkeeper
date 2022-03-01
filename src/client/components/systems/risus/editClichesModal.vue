@@ -126,7 +126,7 @@
                     {
                         console.error('Error saving:', error);
                         // TODO: Let the user know about this!
-                    } // end if
+                    }
                 });
             },
             onCancel()
@@ -155,7 +155,7 @@
                 if(idx > -1)
                 {
                     this.cliches.splice(idx, 1);
-                } // end if
+                }
             },
 
             show()

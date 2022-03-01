@@ -143,7 +143,7 @@
                     });
 
                     this.$emit('add', quality);
-                } // end if
+                }
             },
             onShown()
             {
@@ -177,7 +177,7 @@
                     this.reference = '';
                     this.passive = false;
                     this.ranked = false;
-                } // end if
+                }
 
                 this.$refs.modal.show();
             },

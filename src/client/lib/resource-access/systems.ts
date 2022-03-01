@@ -15,8 +15,8 @@ class SystemsResourceAccess
     {
         const { data } = await $http.get('/api/systems');
         return data;
-    } // end loadSystems
-} // end SystemsResourceAccess
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -16,7 +16,7 @@ class AccountModel
             settings: {},
             created: Date.now(),
             ...def };
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -48,13 +48,13 @@ class AccountModel
     update(def)
     {
         this.$state = Object.assign(this.$state, def);
-    } // end update
+    }
 
     toJSON()
     {
         return { ...this.$state };
-    } // end toJSON
-} // end AccountModel
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

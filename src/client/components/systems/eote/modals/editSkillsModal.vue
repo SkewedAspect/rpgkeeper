@@ -310,7 +310,7 @@
                     const start = index;
                     const end = index - 1;
                     this.skills.splice(end, 0, this.skills.splice(start, 1)[0]);
-                } // end if
+                }
             },
             moveSkillDown(index)
             {
@@ -319,7 +319,7 @@
                     const start = index;
                     const end = index + 1;
                     this.skills.splice(end, 0, this.skills.splice(start, 1)[0]);
-                } // end if
+                }
             },
 
             show()

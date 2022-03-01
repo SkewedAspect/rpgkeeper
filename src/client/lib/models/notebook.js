@@ -8,7 +8,7 @@ class NotebookModel
     {
         this._id = def.id;
         this._pages = def.pages || [];
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -24,13 +24,13 @@ class NotebookModel
     revert()
     {
         this.pages.forEach((page) => page.revert());
-    } // end revert
+    }
 
     update(def)
     {
         this._id = def.id;
         this._pages = def.pages || [];
-    } // end update
+    }
 
     toJSON()
     {
@@ -38,8 +38,8 @@ class NotebookModel
             id: this._id,
             pages: this.pages.map((page) => page.toJSON())
         };
-    } // end toJSON
-} // end NotebookModel
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

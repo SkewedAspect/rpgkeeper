@@ -114,7 +114,7 @@
                     if(idx >= 0)
                     {
                         this.pageIndex = idx;
-                    } // end if
+                    }
                 }
             }
         },
@@ -128,7 +128,7 @@
                         title: '',
                         content: ''
                     };
-                } // end if
+                }
 
                 this.addEditPage = page;
             },
@@ -137,7 +137,7 @@
                 if(!this.addEditPage.id)
                 {
                     this.pageIndex = this.notes.pages.length - 1;
-                } // end if
+                }
 
                 this.addEditPage = undefined;
             },

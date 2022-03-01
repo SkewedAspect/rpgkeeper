@@ -179,7 +179,7 @@
                     {
                         // Otherwise assume we're just the id, and wrap ourselves in an object. This is Good Enough™.
                         return { id: supp };
-                    } // end if
+                    }
                 });
             },
             currentSupplement()
@@ -201,7 +201,7 @@
                 if(id)
                 {
                     return this.available.filter((supp) => supp.id === id)[0];
-                } // end if
+                }
 
                 return undefined;
             },
@@ -210,7 +210,7 @@
                 if(id)
                 {
                     return this.selectedSupplements.filter((supp) => supp.id === id)[0];
-                } // end if
+                }
 
                 return undefined;
             },
@@ -223,7 +223,7 @@
                 else
                 {
                     this.currentSelection = undefined;
-                } // end if
+                }
             },
             editSupp(supp)
             {

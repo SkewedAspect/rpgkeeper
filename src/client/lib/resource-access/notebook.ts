@@ -37,7 +37,7 @@ class NotesResourceAccess
         {
             page = new PageModel(def);
             this.#pages[def.id] = page;
-        } // end if
+        }
 
         return page;
     }

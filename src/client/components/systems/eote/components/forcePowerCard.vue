@@ -108,7 +108,7 @@
                 if(this.power && this.power.id)
                 {
                     return this.forcePowers.find((forcePower) => forcePower.id === this.power.id);
-                } // end if
+                }
 
                 return {};
             },
@@ -139,7 +139,7 @@
                     {
                         // In the simple case, we just push the upgrade with the name.
                         upgrades.push({ ...upgrade, name, purchased: upgradeInst });
-                    } // end if
+                    }
 
                     return upgrades;
                 }, []);

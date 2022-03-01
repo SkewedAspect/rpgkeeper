@@ -85,7 +85,7 @@
                 else
                 {
                     return `${ this.source }`;
-                } // end if
+                }
             }
         },
         watch: {
@@ -99,7 +99,7 @@
                 if(this.source === 'HB')
                 {
                     this.page = undefined;
-                } // end if
+                }
 
                 this.$emit('input', this.refString);
             },

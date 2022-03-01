@@ -33,10 +33,10 @@ class AuthManager
                 {
                     resolve();
                     subscription.unsubscribe();
-                } // end if
+                }
             });
         });
-    } // end constructor
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Observables
@@ -77,20 +77,20 @@ class AuthManager
                 {
                     this._accountSubject.next();
                     this._statusSubject.next('signed out');
-                } // end if
+                }
             });
         });
-    } // end _onGoogleInit
+    }
 
     _onGoogleSignIn(googleUser)
     {
         return this.$completeSignIn(googleUser.getAuthResponse().id_token);
-    } // end _onGoogleSignIn
+    }
 
     _onGoogleFailure(error)
     {
         console.warn('Google Sign In failure:', error);
-    } // end _onGoogleFailure
+    }
 
     $completeSignIn(idToken)
     {
@@ -106,7 +106,7 @@ class AuthManager
                 console.error('Failed to complete sign in:', error);
                 this._statusSubject.next('signed out');
             });
-    } // end $completeSignIn
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public
@@ -120,12 +120,12 @@ class AuthManager
                 // eslint-disable-next-line @typescript-eslint/no-empty-function
                 this.auth2.attachClickHandler(elem, {}, () => {}, this._onGoogleFailure.bind(this));
             });
-    } // end attachSignIn
+    }
 
     signOut()
     {
         this.auth2.signOut();
-    } // end signOut
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // API
@@ -134,8 +134,8 @@ class AuthManager
     async saveAccount(account)
     {
         return authRA.save(account);
-    } // end saveAccount
-} // end AuthManager
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
