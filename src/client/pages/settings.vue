@@ -59,8 +59,10 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script>
+<script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
+
+    import Vue from 'vue';
 
     // Managers
     import authMan from '../lib/managers/auth';
@@ -70,14 +72,17 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'SettingsPage',
         components: {
             Loading
         },
-        subscriptions: {
-            account: authMan.account$,
-            status: authMan.status$
+        subscriptions()
+        {
+            return {
+                account: authMan.account$,
+                status: authMan.status$
+            };
         },
         methods: {
             save()
@@ -85,7 +90,7 @@
                 authMan.saveAccount(this.account);
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

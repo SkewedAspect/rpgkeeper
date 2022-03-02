@@ -60,10 +60,14 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script>
+<script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    import Vue from 'vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    export default Vue.extend({
         name: 'RPGKCard',
         props: {
             icon: {
@@ -103,7 +107,7 @@
             classes()
             {
                 // We default these to false so that we can test against it, instead of testing truthiness, because the
-                // short cut `<card fill>` makes the property into an empty string. This just means we only have to
+                // shortcut `<card fill>` makes the property into an empty string. This just means we only have to
                 // test against false.
                 if(this.fill !== false)
                 {
@@ -125,7 +129,7 @@
                 return 'nothing';
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

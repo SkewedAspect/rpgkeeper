@@ -27,9 +27,9 @@ class CharacterResourceAccess
         this.#characters = new Map();
     }
 
-    _buildOrUpdateModel(def : Character) : CharacterModel
+    _buildOrUpdateModel(def : Partial<Character>) : CharacterModel
     {
-        let character = this.#characters.get(def.id);
+        let character = this.#characters.get(def.id ?? 'dne');
         if(character)
         {
             character.update(def);
@@ -63,7 +63,7 @@ class CharacterResourceAccess
         this.#characters.delete(charID);
     }
 
-    async newCharacter(charDef : Character) : Promise<CharacterModel>
+    async newCharacter(charDef : Partial<Character>) : Promise<CharacterModel>
     {
         return this._buildOrUpdateModel(charDef);
     }

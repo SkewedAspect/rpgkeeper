@@ -156,10 +156,11 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script>
+<script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
+    import Vue from 'vue';
 
     // Managers
     import authMan from '../lib/managers/auth';
@@ -174,7 +175,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'DashboardPage',
         components: {
             AddEditModal,
@@ -182,13 +183,16 @@
             Loading,
             Thumbnail
         },
-        subscriptions: {
-            account: authMan.account$,
-            allSystems: systemsMan.systems$,
-            characterList: characterMan.characters$,
-            accountStatus: authMan.status$,
-            charsStatus: characterMan.status$,
-            systemsStatus: systemsMan.status$
+        subscriptions()
+        {
+            return {
+                account: authMan.account$,
+                allSystems: systemsMan.systems$,
+                characterList: characterMan.characters$,
+                accountStatus: authMan.status$,
+                charsStatus: characterMan.status$,
+                systemsStatus: systemsMan.status$
+            };
         },
         data()
         {
@@ -202,7 +206,7 @@
         computed: {
             charsLoading()
             {
-                return ![ 'signed in', 'signed out' ].includes(this.accountStatus)
+                return !([ 'signed in', 'signed out' ].includes(this.accountStatus))
                     || this.systemsStatus !== 'loaded'
                     || this.charsStatus !== 'loaded';
             },
@@ -210,8 +214,7 @@
             characters()
             {
                 return _(this.characterList)
-                    // eslint-disable-next-line camelcase
-                    .filter({ accountID: (this.account || {}).id })
+                    .filter({ accountID: (this.account || { id: undefined }).id })
                     .filter((char) =>
                     {
                         return _.includes(this.systemsFilter, char.system);
@@ -321,7 +324,7 @@
                 this.delChar = undefined;
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -19,7 +19,7 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
     #refState : Partial<Character<SystemDetails>>;
     #sysDefaults : Record<string, unknown>;
 
-    constructor(def : Character<SystemDetails>, sysDefaults : Record<string, unknown> = {})
+    constructor(def : Partial<Character<SystemDetails>>, sysDefaults : Record<string, unknown> = {})
     {
         // Save off the defaults for the system specific portion.
         this.#sysDefaults = _.cloneDeep(sysDefaults);
@@ -89,7 +89,7 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
         this.#state = _.cloneDeep(this.#refState);
     }//
 
-    update(def : Character<SystemDetails>) : void
+    update(def : Partial<Character<SystemDetails>>) : void
     {
         // TODO: Decide if this is even worth it, as it's caused bugs in the past. It basically means that if a user
         // deletes something, it reverts back to the default, instead of staying removed. I don't think that's right.

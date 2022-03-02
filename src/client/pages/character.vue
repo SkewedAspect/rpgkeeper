@@ -102,8 +102,10 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script>
+<script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
+
+    import Vue from 'vue';
 
     // Managers
     import authMan from '../lib/managers/auth';
@@ -122,7 +124,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'CharacterPage',
         components: {
             Loading,
@@ -150,10 +152,13 @@
                     && (this.account.id || 'nope!') === this.char.accountID;
             }
         },
-        subscriptions: {
-            account: authMan.account$,
-            char: charMan.selected$,
-            saving: charMan.saving$
+        subscriptions()
+        {
+            return {
+                account: authMan.account$,
+                char: charMan.selected$,
+                saving: charMan.saving$
+            };
         },
         mounted()
         {
@@ -172,7 +177,7 @@
             // We always select the character that matches our route, so we handle navigation.
             charMan.select(this.$route.params.id).catch((err) => this.error = err);
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

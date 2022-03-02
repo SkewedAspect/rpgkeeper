@@ -156,9 +156,10 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script>
+<script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import $ from 'jquery';
 
     // Managers
@@ -166,7 +167,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'MainPage',
         data()
         {
@@ -186,10 +187,10 @@
         },
         mounted()
         {
-            let btnElem = $(this.$el).find('#create-account-btn');
+            let btnElem = $(this.$el).find('#create-account-btn' as any);
             authMan.attachSignIn(btnElem[0]);
 
-            btnElem = $(this.$el).find('#create-account-btn2');
+            btnElem = $(this.$el).find('#create-account-btn2' as any);
             authMan.attachSignIn(btnElem[0]);
 
             this.$subscribeTo(authMan.status$, (status) =>
@@ -213,7 +214,7 @@
         {
             return { account: authMan.account$ };
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

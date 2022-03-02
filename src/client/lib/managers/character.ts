@@ -103,7 +103,7 @@ class CharacterManager
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async create(charDef : Character) : Promise<CharacterModel>
+    async create(charDef : Partial<Character>) : Promise<CharacterModel>
     {
         return characterRA.newCharacter(charDef);
     }//
@@ -129,7 +129,10 @@ class CharacterManager
         this.#selectedSubject.next(char);
 
         // Select the notes in the notes manager
-        notesMan.select(char.noteID);
+        if(char.noteID)
+        {
+            await notesMan.select(char.noteID);
+        }
 
         return char;
     }//

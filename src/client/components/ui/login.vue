@@ -55,8 +55,10 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script>
+<script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
+
+    import Vue from 'vue';
 
     import $ from 'jquery';
 
@@ -65,11 +67,14 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'LoginButton',
-        subscriptions: {
-            account: authMan.account$,
-            authStatus: authMan.status$
+        subscriptions()
+        {
+            return {
+                account: authMan.account$,
+                authStatus: authMan.status$
+            };
         },
         computed: {
             loading() { return this.authStatus === 'signing in'; }
@@ -82,7 +87,7 @@
         methods: {
             signOut() { return authMan.signOut(); }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
