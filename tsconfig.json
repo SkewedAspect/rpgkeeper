@@ -5,7 +5,8 @@
         "allowJs": true,
         "checkJs": true,
         "tsBuildInfoFile": "dist/tsbuildinfo",
-        "target": "es2021",
+        "target": "ES2017",
+        "lib": [ "ES2020", "DOM" ],
         "module": "commonjs",
         "outDir": "./dist",
         "rootDir": ".",
@@ -24,7 +25,9 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "preserveSymlinks": true
+        "allowSyntheticDefaultImports": true,
+        "preserveSymlinks": true,
+        "sourceMap": true
     },
     "files": [
         "src/server/express-shim.d.ts",
@@ -38,7 +41,6 @@
         "src/server/knex/seeds"
     ],
     "exclude": [
-        "node_modules",
-        "src/types"
+        "node_modules"
     ]
 }

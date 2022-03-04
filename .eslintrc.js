@@ -141,7 +141,7 @@ module.exports = {
         'semi': [ 'error', 'always' ],
         'semi-spacing': [ 'warn', { before: false, after: true } ],
         'space-before-blocks': 'warn',
-        'space-before-function-paren': [ 'warn', 'never' ],
+        'space-before-function-paren': 'off',
         'space-in-parens': [ 'warn', 'never' ],
         'space-infix-ops': 'warn',
         'space-unary-ops': 'warn',

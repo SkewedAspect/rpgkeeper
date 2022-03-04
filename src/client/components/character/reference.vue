@@ -27,12 +27,14 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Managers
     import eoteManager from '../../lib/managers/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EotEReference',
         props: {
             reference: {
@@ -44,8 +46,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            references: eoteManager.references$
+        subscriptions()
+        {
+            return {
+                references: eoteManager.references$
+            };
         },
         computed: {
             isInline()
@@ -70,7 +75,7 @@
                     .filter((ref) => ref.abbr === this.abbr)[0];
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

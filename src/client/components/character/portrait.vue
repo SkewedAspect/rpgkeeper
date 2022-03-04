@@ -67,7 +67,9 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    import Vue from 'vue';
+
+    export default Vue.extend({
         name: 'CharacterPortrait',
         props: {
             src: {
@@ -87,7 +89,7 @@
             portraitClass() { return `portrait-${ this.size }`; },
             url() { return this.src || '/images/portraitPlaceholder.png'; }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

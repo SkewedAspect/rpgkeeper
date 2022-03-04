@@ -48,12 +48,14 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Managers
     import notesMan from '../../lib/managers/notebook';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'DeletePageModal',
         props: {
             value: {
@@ -78,7 +80,7 @@
                 await notesMan.deletePage(notesMan.selected, this.page);
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -25,6 +25,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue, { PropType } from 'vue';
     import { marked } from 'marked';
 
     // Managers
@@ -35,14 +36,14 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'NotePage',
         components: {
             markdown
         },
         props: {
             content: {
-                type: String,
+                type: String as PropType<string>,
                 default: ''
             }
         },
@@ -62,7 +63,7 @@
                 return marked(this.content);
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

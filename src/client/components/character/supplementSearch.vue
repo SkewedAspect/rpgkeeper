@@ -58,13 +58,14 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
+    import Vue from 'vue';
 
     // Components
     import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'SupplementSearch',
         components: {
             VueTypeaheadBootstrap
@@ -115,7 +116,7 @@
                 this.search = '';
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

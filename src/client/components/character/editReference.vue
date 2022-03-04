@@ -48,12 +48,14 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Managers
     import eoteManager from '../../lib/managers/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EditReference',
         props: {
             value: {
@@ -61,8 +63,11 @@
                 required: true
             }
         },
-        subscriptions: {
-            references: eoteManager.references$
+        subscriptions()
+        {
+            return {
+                references: eoteManager.references$
+            };
         },
         data()
         {
@@ -113,7 +118,7 @@
             this.source = this.valParts[0];
             this.page = this.valParts[1];
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

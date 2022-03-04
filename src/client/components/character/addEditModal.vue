@@ -196,6 +196,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
     // Managers
@@ -212,7 +213,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'AddEditModal',
         components: {
             ColorPicker,
@@ -296,8 +297,11 @@
                 return $dirty ? !$error : null;
             }
         },
-        subscriptions: {
-            allSystems: systemsMan.systems$
+        subscriptions()
+        {
+            return {
+                allSystems: systemsMan.systems$
+            };
         },
         validations: {
             char: {
@@ -327,7 +331,7 @@
                 }
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -69,6 +69,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
+    import Vue from 'vue';
 
     // Managers
     import noteMan from '../../lib/managers/notebook';
@@ -80,7 +81,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'NoteBook',
         components: {
             NotePage,
@@ -92,6 +93,12 @@
                 type: Boolean,
                 default: false
             }
+        },
+        subscriptions()
+        {
+            return {
+                notes: noteMan.selected$
+            };
         },
         data()
         {
@@ -149,11 +156,8 @@
             {
                 this.delPage = undefined;
             }
-        },
-        subscriptions: {
-            notes: noteMan.selected$
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -118,6 +118,8 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Components
     import SupplementSearch from './supplementSearch.vue';
     import MarkdownBlock from '../ui/markdown.vue';
@@ -125,7 +127,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'SupplementSelect',
         components: {
             MarkdownBlock,
@@ -247,7 +249,7 @@
                 this.currentSelection = undefined;
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
