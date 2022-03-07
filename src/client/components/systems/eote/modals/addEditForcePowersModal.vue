@@ -201,6 +201,8 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Managers
     import eoteMan from '../../../../lib/managers/eote';
     import charMan from '../../../../lib/managers/character';
@@ -224,14 +226,17 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'AddForcePowersModal',
         components: {
             EditReference
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$
+            };
         },
         data()
         {
@@ -401,7 +406,8 @@
                 this.$refs.modal.hide();
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

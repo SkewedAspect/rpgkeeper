@@ -83,6 +83,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -97,7 +98,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EotEWeaponsBlock',
         components: {
             RpgkCard,
@@ -111,9 +112,12 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$
+            };
         },
         data()
         {
@@ -205,7 +209,8 @@
                 }
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

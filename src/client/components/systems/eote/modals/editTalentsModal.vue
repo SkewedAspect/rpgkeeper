@@ -132,6 +132,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -147,7 +148,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EditTalentModal',
         components: {
             DeleteModal,
@@ -156,10 +157,13 @@
             Reference,
             AddEditTalentModal
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$,
-            talents: eoteMan.talents$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$,
+                talents: eoteMan.talents$
+            };
         },
         data()
         {
@@ -306,7 +310,8 @@
                 this.$refs.modal.hide();
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

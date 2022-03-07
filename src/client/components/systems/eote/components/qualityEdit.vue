@@ -57,6 +57,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -72,7 +73,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EoteQualityEdit',
         components: {
             DeleteModal,
@@ -87,10 +88,13 @@
                 required: true
             }
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$,
-            qualities: eoteMan.qualities$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$,
+                qualities: eoteMan.qualities$
+            };
         },
         data()
         {
@@ -120,7 +124,7 @@
             },
             onQualityAdd(quality)
             {
-                const newQual = { id: quality.id };
+                const newQual : { id : number, ranks ?: number } = { id: quality.id };
 
                 if(this.getQual(quality).ranked)
                 {
@@ -168,7 +172,8 @@
                 ]);
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

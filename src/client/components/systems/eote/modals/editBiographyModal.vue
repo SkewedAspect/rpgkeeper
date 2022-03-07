@@ -164,6 +164,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -177,17 +178,20 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EditBiographyModal',
         components: {
             AddEditAbilityModal,
             DeleteModal,
             SupplementSelect
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$,
-            abilities: eoteMan.abilities$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$,
+                abilities: eoteMan.abilities$
+            };
         },
         data()
         {
@@ -293,7 +297,8 @@
                 this.$refs.modal.hide();
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

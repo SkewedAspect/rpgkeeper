@@ -112,6 +112,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -128,7 +129,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EditForcePowersModal',
         components: {
             Pool,
@@ -138,10 +139,13 @@
             Reference,
             AddEditForcePowersModal
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$,
-            forcePowers: eoteMan.forcePowers$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$,
+                forcePowers: eoteMan.forcePowers$
+            };
         },
         data()
         {
@@ -286,7 +290,8 @@
                 this.$refs.modal.hide();
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

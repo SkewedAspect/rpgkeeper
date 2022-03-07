@@ -33,7 +33,10 @@
 <script lang="ts">
 //------------------------------------------------------------------------------------------------------------------
 
-    import { v4 } from 'uuid';
+    import Vue from 'vue';
+
+    // Utils
+    import { shortID } from '../../../../../common/utils/misc';
 
     // Managers
     import eoteMan from '../../../../lib/managers/eote';
@@ -44,7 +47,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'GenesysMotivation',
         components: { MarkdownBlock, Reference },
         props: {
@@ -62,7 +65,7 @@
         data()
         {
             return {
-                uniqueID: v4()
+                uniqueID: shortID()
             };
         },
         computed: {
@@ -106,7 +109,8 @@
                 return '';
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

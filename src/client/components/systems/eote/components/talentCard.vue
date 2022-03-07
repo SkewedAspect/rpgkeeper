@@ -58,7 +58,10 @@
 <script lang="ts">
 //------------------------------------------------------------------------------------------------------------------
 
-    import { v4 } from 'uuid';
+    import Vue from 'vue';
+
+    // Utils
+    import { shortID } from '../../../../../common/utils/misc';
 
     // Managers
     import eoteMan from '../../../../lib/managers/eote';
@@ -69,7 +72,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EotETalentCard',
         components: {
             MarkdownBlock,
@@ -85,14 +88,17 @@
                 default: false
             }
         },
-        subscriptions: {
-            talents: eoteMan.talents$,
-            mode: eoteMan.mode$
+        subscriptions()
+        {
+            return {
+                talents: eoteMan.talents$,
+                mode: eoteMan.mode$
+            };
         },
         data()
         {
             return {
-                uuid: v4()
+                uuid: shortID()
             };
         },
         computed: {
@@ -135,7 +141,8 @@
                 }
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

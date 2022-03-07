@@ -48,6 +48,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -61,7 +62,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EotEForcePowersBlock',
         components: {
             RpgkCard,
@@ -74,9 +75,12 @@
                 default: false
             }
         },
-        subscriptions: {
-            mode: eoteMan.mode$,
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                mode: eoteMan.mode$,
+                character: charMan.selected$
+            };
         },
         computed: {
             forcePowers()
@@ -97,7 +101,8 @@
                 this.$refs.editForcePowersModal.show();
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

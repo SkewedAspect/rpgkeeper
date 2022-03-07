@@ -102,6 +102,8 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Managers
     import charMan from '../../../lib/managers/character';
     import eoteMan from '../../../lib/managers/eote';
@@ -113,7 +115,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EotEArmorBlock',
         components: {
             RpgkCard,
@@ -126,9 +128,12 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$
+            };
         },
         computed: {
             armor() { return this.character.details.armor; }
@@ -139,7 +144,8 @@
                 this.$refs.editModal.show(weapon);
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

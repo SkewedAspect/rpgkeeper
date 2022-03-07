@@ -265,6 +265,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -279,7 +280,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EditMotivationsModal',
         components: {
             MarkdownBlock,
@@ -287,9 +288,12 @@
             DeleteModal,
             AddEditMotivationModal
         },
-        subscriptions: {
-            character: charMan.selected$,
-            motivationsList: eoteMan.motivations$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                motivationsList: eoteMan.motivations$
+            };
         },
         data()
         {
@@ -396,7 +400,8 @@
                 this.$refs.modal.hide();
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

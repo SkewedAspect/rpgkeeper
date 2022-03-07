@@ -31,22 +31,26 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import { v4 } from 'uuid';
+    import Vue from 'vue';
+
+    // Utils
+    import { shortID } from '../../../../../common/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EotETalentPlaceholder',
         data()
         {
             return {
-                uuid: v4()
+                uuid: shortID()
             };
         },
         computed: {
             id() { return `talent-${ this.uuid }`; }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -118,6 +118,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -129,15 +130,18 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'AddEditArmorModal',
         components: {
             QualityEdit
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$,
-            qualities: eoteMan.qualities$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$,
+                qualities: eoteMan.qualities$
+            };
         },
         data()
         {
@@ -195,7 +199,8 @@
                 });
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

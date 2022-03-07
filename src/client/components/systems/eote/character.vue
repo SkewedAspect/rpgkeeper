@@ -44,6 +44,8 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Managers
     import charMan from '../../../lib/managers/character';
     import eoteMan from '../../../lib/managers/eote';
@@ -67,7 +69,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: eoteMan.mode === 'genesys' ? 'GenesysCharacter' : 'EotECharacter',
         components: {
             Biography,
@@ -92,9 +94,12 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$
+            };
         },
         computed: {
             showForcePowers()
@@ -109,7 +114,8 @@
                 this.$refs.roller.setDice(dice, name);
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -61,6 +61,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -72,7 +73,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EotEForcePowerCard',
         components: {
             MarkdownBlock,
@@ -88,9 +89,12 @@
                 default: false
             }
         },
-        subscriptions: {
-            forcePowers: eoteMan.forcePowers$,
-            mode: eoteMan.mode$
+        subscriptions()
+        {
+            return {
+                forcePowers: eoteMan.forcePowers$,
+                mode: eoteMan.mode$
+            };
         },
         data()
         {
@@ -153,7 +157,8 @@
                 return _.startCase(text);
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

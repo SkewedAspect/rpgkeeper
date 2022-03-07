@@ -63,6 +63,8 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Managers
     import charMan from '../../../lib/managers/character';
     import eoteMan from '../../../lib/managers/eote';
@@ -74,7 +76,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'EotEBiographyBlock',
         components: {
             Ability,
@@ -87,9 +89,12 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$,
-            mode: eoteMan.mode$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$,
+                mode: eoteMan.mode$
+            };
         },
         computed: {
             abilities() { return this.character.details.abilities || []; },
@@ -103,7 +108,8 @@
                 this.$refs.editModal.show();
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
