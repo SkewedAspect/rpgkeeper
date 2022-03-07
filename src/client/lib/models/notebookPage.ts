@@ -27,7 +27,7 @@ class NotebookPageModel
 
         // Mark the ref state as non-configurable, so vue ignores it.
         markNonConfigurable(this, '#refState');
-    }//
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -48,13 +48,13 @@ class NotebookPageModel
     revert() : void
     {
         this.#state = Object.assign(this.#state, this.#refState);
-    }//
+    }
 
     update(def : Partial<NotePage>) : void
     {
         this.#state = Object.assign(this.#state, def);
         this.#refState = { id: undefined, title: undefined, content: undefined, ...def };
-    }//
+    }
 
     toJSON() : { id ?: string, title ?: string, content ?: string }
     {
@@ -63,8 +63,8 @@ class NotebookPageModel
             title: this.#state.title,
             content: this.#state.content
         };
-    }//
-}//
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

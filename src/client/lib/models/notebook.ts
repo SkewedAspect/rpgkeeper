@@ -15,7 +15,7 @@ class NotebookModel
     {
         this.#id = def.id;
         this.#pages = def.pages || [];
-    }//
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -31,13 +31,13 @@ class NotebookModel
     revert() : void
     {
         this.pages.forEach((page) => page.revert());
-    }//
+    }
 
     update(def : { id : string, pages : NotebookPageModel[] }) : void
     {
         this.#id = def.id;
         this.#pages = def.pages || [];
-    }//
+    }
 
     toJSON() : { id : string, pages : { id ?: string, title ?: string, content ?: string }[] }
     {
@@ -45,8 +45,8 @@ class NotebookModel
             id: this.#id,
             pages: this.pages.map((page) => page.toJSON())
         };
-    }//
-}//
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

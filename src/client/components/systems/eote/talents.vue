@@ -63,8 +63,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            mode: eoteMan.mode$
+        subscriptions()
+        {
+            return {
+                mode: eoteMan.mode$
+            };
         },
         methods: {
             openEditModal()

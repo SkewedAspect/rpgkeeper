@@ -82,8 +82,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$
+            };
         },
         computed: {
             motivations() { return this.character.details.motivations; }

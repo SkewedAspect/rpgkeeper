@@ -71,7 +71,9 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    import Vue from 'vue';
+
+    export default Vue.extend({
         name: 'EditBioModal',
         props: {
             value: {
@@ -79,8 +81,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$
+            };
         },
         computed: {
             showModal: {
@@ -106,7 +111,7 @@
                 });
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

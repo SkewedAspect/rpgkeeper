@@ -28,6 +28,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -42,7 +43,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'RisusCharacter',
         components: {
             bio: BioComponent,
@@ -57,8 +58,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$
+            };
         },
         computed: {
             cliches()
@@ -76,7 +80,7 @@
                 this.$refs.roller.roll(dice, name);
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -78,8 +78,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$
+            };
         },
         computed: {
             forcePool() { return this.character.details.force; }

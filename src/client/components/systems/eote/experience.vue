@@ -78,8 +78,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$
+            };
         },
         computed: {
             experience() { return this.character.details.experience; }

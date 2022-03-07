@@ -43,11 +43,11 @@ class NotesManager
         else if(this.selected)
         {
             await noteRA.unloadNote(this.selected.id);
-        }//
+        }
 
         // Select this note
         this.#selectedSubject.next(note);
-    }//
+    }
 
     async addPage(note : NotebookModel, page : NotebookPageModel) : Promise<NotebookPageModel>
     {
@@ -55,12 +55,12 @@ class NotesManager
         note.pages.push(page);
 
         return page;
-    }//
+    }
 
     async updatePage(note : NotebookModel, page : NotebookPageModel) : Promise<NotebookPageModel>
     {
         return noteRA.updatePage(note.id, page);
-    }//
+    }
 
     async deletePage(note : NotebookModel, page : NotebookPageModel) : Promise<void>
     {
@@ -71,9 +71,9 @@ class NotesManager
         if(idx >= 0)
         {
             note.pages.splice(idx, 1);
-        }//
-    }//
-}//
+        }
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

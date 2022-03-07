@@ -54,10 +54,10 @@ class AuthManager
                 {
                     resolve();
                     subscription.unsubscribe();
-                }//
+                }
             });
         });
-    }//
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Observables
@@ -98,20 +98,20 @@ class AuthManager
                 {
                     this.#accountSubject.next(undefined);
                     this.#statusSubject.next('signed out');
-                }//
+                }
             });
         });
-    }//
+    }
 
     _onGoogleSignIn(googleUser) : void
     {
         this.$completeSignIn(googleUser.getAuthResponse().id_token);
-    }//
+    }
 
     _onGoogleFailure(error : Error) : void
     {
         console.warn('Google Sign In failure:', error);
-    }//
+    }
 
     $completeSignIn(idToken : string) : Promise<void>
     {
@@ -127,7 +127,7 @@ class AuthManager
                 console.error('Failed to complete sign in:', error);
                 this.#statusSubject.next('signed out');
             });
-    }//
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public
@@ -141,12 +141,12 @@ class AuthManager
                 // eslint-disable-next-line @typescript-eslint/no-empty-function
                 this.auth2.attachClickHandler(elem, {}, () => {}, this._onGoogleFailure.bind(this));
             });
-    }//
+    }
 
     signOut() : void
     {
         this.auth2.signOut();
-    }//
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // API
@@ -155,8 +155,8 @@ class AuthManager
     async saveAccount(account) : Promise<AccountModel>
     {
         return authRA.save(account);
-    }//
-}//
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -44,7 +44,7 @@ class CharacterManager
 
         // Subscriptions
         authMan.account$.subscribe(this._onAccountChanged.bind(this));
-    }//
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Observables
@@ -80,8 +80,8 @@ class CharacterManager
         else
         {
             this.#charactersSubject.next([]);
-        }//
-    }//
+        }
+    }
 
     _onMessage(envelope) : void
     {
@@ -106,12 +106,12 @@ class CharacterManager
     async create(charDef : Partial<Character>) : Promise<CharacterModel>
     {
         return characterRA.newCharacter(charDef);
-    }//
+    }
 
     async updateSysDefaults(char) : Promise<CharacterModel>
     {
         return characterRA.updateSysDefaults(char);
-    }//
+    }
 
     async select(charID) : Promise<CharacterModel>
     {
@@ -123,7 +123,7 @@ class CharacterManager
             // Add to our internal cache of characters
             this.characters.push(char);
             this.#charactersSubject.next(this.characters);
-        }//
+        }
 
         // Select this character
         this.#selectedSubject.next(char);
@@ -135,7 +135,7 @@ class CharacterManager
         }
 
         return char;
-    }//
+    }
 
     /**
      * Save the character. Attempts to debounce this; we will only have one active save at a time, and if the character
@@ -147,16 +147,22 @@ class CharacterManager
      * @returns Returns the updated character model instance. This is the same object that was passed in, with internal
      * changes only.
      */
-    async save(character : CharacterModel) : Promise<CharacterModel>
+    async save(character ?: CharacterModel) : Promise<CharacterModel>
     {
         // Default to the selected character, if none is passed in.
-        character = character || this.selected;
+        character = character ?? this.selected;
+
+        // We should never hit this case
+        if(!character)
+        {
+            throw new Error("Something's gone wrong: missing character, somehow.");
+        }
 
         // If we're already saving, we just return.
-        if(this.saving || !character.dirty)
+        if(this.saving || !character?.dirty)
         {
             return character;
-        }//
+        }
 
         // Otherwise, we set ourselves to saving
         this.saving = true;
@@ -171,17 +177,17 @@ class CharacterManager
         if(character.dirty)
         {
             await this.save(character);
-        }//
+        }
 
         // If we're saving someone new, let's add it to our list of characters.
         if(!this.characters.includes(character))
         {
             this.characters.push(character);
             this.#charactersSubject.next(this.characters);
-        }//
+        }
 
         return character;
-    }//
+    }
 
     async delete(character : CharacterModel) : Promise<void>
     {
@@ -191,8 +197,8 @@ class CharacterManager
             const characters = _.without(this.characters, character);
             this.#charactersSubject.next(characters);
         }
-    }//
-}//
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

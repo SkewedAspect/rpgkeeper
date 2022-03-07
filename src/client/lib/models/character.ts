@@ -33,7 +33,7 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
 
         // Mark the ref state as non-configurable, so vue ignores it.
         markNonConfigurable(this, '#refState');
-    }//
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -87,7 +87,7 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
     revert() : void
     {
         this.#state = _.cloneDeep(this.#refState);
-    }//
+    }
 
     update(def : Partial<Character<SystemDetails>>) : void
     {
@@ -96,7 +96,7 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
         const defaults = _.cloneDeep(this.$defaults);
         this.#state = _.assign({}, defaults, _.cloneDeep(def));
         this.#refState = _.assign({}, defaults, _.cloneDeep(def));
-    }//
+    }
 
     updateSysDefaults(sysDef : SystemDetails) : void
     {
@@ -108,14 +108,14 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
         {
             this.#refState.details = _.cloneDeep(sysDef);
             this.#state.details = _.cloneDeep(sysDef);
-        }//
-    }//
+        }
+    }
 
     toJSON() : Partial<Character<SystemDetails>>
     {
         return _.cloneDeep(this.#state);
-    }//
-}//
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

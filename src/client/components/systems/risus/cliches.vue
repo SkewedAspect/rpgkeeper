@@ -78,6 +78,8 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Managers
     import charMan from '../../../lib/managers/character';
 
@@ -87,7 +89,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'RisusClichesCard',
         components: {
             EditClichesModal,
@@ -99,8 +101,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$
+            };
         },
         computed: {
             cliches() { return this.character.details.cliches; }
@@ -133,7 +138,7 @@
                 this.$emit('roll', dice, name);
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

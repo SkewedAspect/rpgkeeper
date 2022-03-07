@@ -69,7 +69,7 @@
                                 >
                                     <b-form-select
                                         id="char-sys"
-                                        v-model="char.system"
+                                        v-model="currentSystem"
                                         :options="systems"
                                         text-field="name"
                                         value-field="id"
@@ -238,6 +238,17 @@
                 get() { return !!this.value; },
                 set() { /* We ignore setting */ }
             },
+            currentSystem: {
+                get() { return this.char.system; },
+                set(val)
+                {
+                    if(this.char)
+                    {
+                        this.$set(this.char, 'system', val);
+                        charMan.updateSysDefaults(this.char);
+                    }
+                }
+            },
             systems()
             {
                 return this.allSystems
@@ -250,15 +261,6 @@
                     });
             },
             char() { return this.value; }
-        },
-        watch: {
-            'char.system'()
-            {
-                if(this.char)
-                {
-                    charMan.updateSysDefaults(this.char);
-                }
-            }
         },
         methods: {
             onHidden()

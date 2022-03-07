@@ -2,9 +2,14 @@
 // Simple utility functions
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
-import base62 from 'base62';
-import { v4 } from 'uuid';
+import { mapKeys, camelCase, snakeCase } from 'lodash';
+
+import { customAlphabet } from 'nanoid';
+import { alphanumeric } from 'nanoid-dictionary';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const nanoID = customAlphabet(alphanumeric, 10);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -15,11 +20,8 @@ import { v4 } from 'uuid';
  */
 export function shortID() : string
 {
-    const arr = new Uint8Array(16);
-    v4(null, arr);
-    const view = new DataView(arr.buffer);
-    return base62.encode(view.getInt32(0));
-} // end shortID
+    return nanoID();
+}
 
 /**
  * Generates a color based on a string.
@@ -49,7 +51,7 @@ export function colorize(str : string) : string
     } // end for
 
     return color;
-} // end colorize
+}
 
 /**
  * Camel case all the keys in an object.
@@ -60,18 +62,18 @@ export function colorize(str : string) : string
  */
 export function camelCaseKeys(obj : Record<string, unknown>) : Record<string, unknown>
 {
-    return _.mapKeys(obj, (_val, key) =>
+    return mapKeys(obj, (_val, key) =>
     {
-        if(_.includes(key, '_id'))
+        if(key.endsWith('_id'))
         {
             return key.replace(/_id/g, 'ID');
         }
         else
         {
-            return _.camelCase(key);
-        } // end if
+            return camelCase(key);
+        }
     });
-} // end camelCaseKeys
+}
 
 /**
  * Snake case all the keys in an object.
@@ -82,18 +84,18 @@ export function camelCaseKeys(obj : Record<string, unknown>) : Record<string, un
  */
 export function snakeCaseKeys(obj : Record<string, unknown>) : Record<string, unknown>
 {
-    return _.mapKeys(obj, (_val, key) =>
+    return mapKeys(obj, (_val, key) =>
     {
-        if(_.endsWith(key, 'ID'))
+        if(key.endsWith('ID'))
         {
             return key.replace(/ID$/, '_id');
         }
         else
         {
-            return _.snakeCase(key);
-        } // end if
+            return snakeCase(key);
+        }
     });
-} // end snakeCaseKeys
+}
 
 /**
  * A comparator function for sorting by the key of an object.
@@ -108,6 +110,6 @@ export function sortBy(key : string) : (a : Record<string, any>, b : Record<stri
     {
         return (aObj[key] > bObj[key]) ? 1 : ((bObj[key] > aObj[key]) ? -1 : 0);
     };
-} // end sortBy
+}
 
 //----------------------------------------------------------------------------------------------------------------------

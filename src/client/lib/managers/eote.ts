@@ -49,7 +49,7 @@ class EotEManager
     {
         // Subscriptions
         charMan.selected$.subscribe(this._onCharacterChanged.bind(this));
-    }//
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Observables
@@ -117,13 +117,13 @@ class EotEManager
             if(this.mode === 'eote')
             {
                 this.#forcePowersSubject.next(await suppMan.list('forcepowers'));
-            }//
+            }
 
             // Genesys Specific supplements
             if(this.mode === 'genesys')
             {
                 this.#motivationsSubject.next(await suppMan.list('motivations'));
-            }//
+            }
         }
         else
         {
@@ -138,8 +138,8 @@ class EotEManager
             this.#referencesSubject.next([]);
             this.#forcePowersSubject.next([]);
             this.#motivationsSubject.next([]);
-        }//
-    }//
+        }
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API
@@ -174,8 +174,8 @@ class EotEManager
         // Update subject, and compact falsey values
         const supplements = this[type].filter((item) => item.id !== supp.id);
         this[`_${ type }Subject`].next(supplements);
-    }//
-}//
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -28,7 +28,7 @@ class AccountModel
             created: Date.now(),
             ...def
         };
-    }//
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
@@ -60,13 +60,13 @@ class AccountModel
     update(def : AccountState) : void
     {
         this.#state = Object.assign(this.#state, def);
-    }//
+    }
 
     toJSON() : Partial<AccountState>
     {
         return { ...this.#state };
-    }//
-}//
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

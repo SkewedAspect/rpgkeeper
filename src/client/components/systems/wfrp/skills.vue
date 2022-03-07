@@ -57,6 +57,8 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Managers
     import charMan from '../../../lib/managers/character';
 
@@ -66,7 +68,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'WfrpSkillsCard',
         components: {
             EditSkillsModal,
@@ -78,8 +80,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$
+            };
         },
         computed: {
             skills() { return this.character.details.skills; }
@@ -98,7 +103,7 @@
                 this.$refs.editModal.show();
             }
         }
-    };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

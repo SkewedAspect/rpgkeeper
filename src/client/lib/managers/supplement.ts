@@ -33,7 +33,7 @@ class SupplementManager
         }
 
         return suppRA.list(this.system, type);
-    }//
+    }
 
     async search(type : string, query : string, key = 'name') : Promise<Supplement | undefined>
     {
@@ -43,7 +43,7 @@ class SupplementManager
         }
 
         return suppRA.search(this.system, type, query, key);
-    }//
+    }
 
     async add(type : string, supplement : Supplement) : Promise<Supplement>
     {
@@ -53,7 +53,7 @@ class SupplementManager
         }
 
         return suppRA.add(this.system, type, supplement);
-    }//
+    }
 
     async update(type : string, supplement : Supplement) : Promise<Supplement>
     {
@@ -63,7 +63,7 @@ class SupplementManager
         }
 
         return suppRA.update(this.system, type, supplement);
-    }//
+    }
 
     async delete(type, id) : Promise<void>
     {
@@ -73,8 +73,8 @@ class SupplementManager
         }
 
         return suppRA.delete(this.system, type, id);
-    }//
-}//
+    }
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -92,7 +92,7 @@ class CharacterResourceAccess
     async saveCharacter(character : CharacterModel) : Promise<CharacterModel>
     {
         const verb = character.id ? 'patch' : 'post';
-        const charURL = character.id ? `/api/characters/${ character.id }` : `/characters`;
+        const charURL = character.id ? `/api/characters/${ character.id }` : `/api/characters`;
         const { data, status } = await ($http[verb](charURL, character)
             .catch((error) =>
             {

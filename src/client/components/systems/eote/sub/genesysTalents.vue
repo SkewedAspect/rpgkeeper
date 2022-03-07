@@ -44,8 +44,11 @@
         components: {
             TierRow
         },
-        subscriptions: {
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$
+            };
         },
         computed: {
             talents()

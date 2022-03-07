@@ -4,8 +4,7 @@
 
 import _ from 'lodash';
 import { LRU } from './lru';
-import rpgdice from 'rpgdicejs';
-import Expression from 'rpgdicejs/lib/Expression';
+import rpgdice, { Roll } from 'rpgdicejs';
 
 // Dice Systems
 import { fudgeChoices } from './dice-systems/fudge';
@@ -65,7 +64,7 @@ class DiceUtil
         this.eoteCriticals = criticals;
     }
 
-    roll(rollTxt : string, scope : Record<string, unknown>) : string
+    roll(rollTxt : string, scope ?: Record<string, unknown>) : Roll
     {
         // We cache the expression objects, since they're costly to create, and can be evaluated multiple times.
         let expr = this.#cache.get(rollTxt);
@@ -78,7 +77,7 @@ class DiceUtil
         return expr.eval(scope);
     }
 
-    rollFudge(bonus = 0) : Expression
+    rollFudge(bonus = 0) : Roll
     {
         const results = _.map(_.range(4), () =>
         {

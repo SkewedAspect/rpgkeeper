@@ -65,6 +65,8 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
+    import Vue from 'vue';
+
     // Manager
     import charMan from '../../../lib/managers/character';
 
@@ -76,7 +78,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default {
+    export default Vue.extend({
         name: 'FateIdentityCard',
         components: {
             EditIdentityModal,
@@ -90,8 +92,11 @@
                 default: false
             }
         },
-        subscriptions: {
-            character: charMan.selected$
+        subscriptions()
+        {
+            return {
+                character: charMan.selected$
+            };
         },
         data()
         {
@@ -105,7 +110,8 @@
                 this.showEdit = true;
             }
         }
-    };
+
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
