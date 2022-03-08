@@ -5,7 +5,8 @@
         "allowJs": true,
         "checkJs": true,
         "tsBuildInfoFile": "dist/tsbuildinfo",
-        "target": "es2019",
+        "target": "ES2017",
+        "lib": [ "ES2020", "DOM" ],
         "module": "commonjs",
         "outDir": "./dist",
         "rootDir": ".",
@@ -24,21 +25,26 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "preserveSymlinks": true
+        "allowSyntheticDefaultImports": true,
+        "preserveSymlinks": true,
+        "sourceMap": true
     },
     "files": [
-        "server/express-shim.d.ts",
+        "src/server/express-shim.d.ts",
         "package.json",
-        "server.ts",
+        "src/server/server.ts",
         "knexfile.ts",
-        "config.ts",
+        "config.ts"
     ],
     "include": [
-        "server/knex/migrations",
-        "server/knex/seeds"
+        "src/server/knex/migrations",
+        "src/server/knex/seeds"
+    ],
+    "typeRoots": [
+        "src/types",
+        "node_modules/@types"
     ],
     "exclude": [
-        "node_modules",
-        "src/types"
+        "node_modules"
     ]
 }

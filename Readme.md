@@ -1,5 +1,5 @@
 <h1>
-    <img width="32" height="32" src="client/static/images/logo.png">
+    <img width="32" height="32" src="src/client/assets/images/logo.png">
     RPGKeeper
 </h1>
 
@@ -40,24 +40,16 @@ RPGKeeper is, and always will be an open source project. We want to encourage de
 Before getting started you will need the following installed:
 
 * NodeJS >= v14
-* Yarn package manager (`npm install -g yarn`)
 
 ### Running
 
 The first thing you will want to do is to install dependencies:  
 
-* `yarn`
+* `npm`
 
-Next, build the client assets:
+Finally, you will need to start the dev server:
 
-* `yarn build:watch` (for development)
-* `yarn build:release` (for release)
-
-_Note: In a future version this will also build the server._
-
-Finally, you will need to start the server:
-
-* `yarn start`
+* `npm run dev`
 
 It should create a new database file: `<project_root>/db/rpgk.db`. You should now be able to access the running client
 at http://localhost:5678/.

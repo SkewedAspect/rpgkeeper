@@ -6,7 +6,6 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended'
-        // 'plugin:jsdoc/recommended' //FIXME: Too many errors to fix right now, but should be handled!
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -142,7 +141,7 @@ module.exports = {
         'semi': [ 'error', 'always' ],
         'semi-spacing': [ 'warn', { before: false, after: true } ],
         'space-before-blocks': 'warn',
-        'space-before-function-paren': [ 'warn', 'never' ],
+        'space-before-function-paren': 'off',
         'space-in-parens': [ 'warn', 'never' ],
         'space-infix-ops': 'warn',
         'space-unary-ops': 'warn',

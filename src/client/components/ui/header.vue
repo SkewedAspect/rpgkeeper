@@ -1,0 +1,59 @@
+<!----------------------------------------------------------------------------------------------------------------------
+  -- Site Header
+  --------------------------------------------------------------------------------------------------------------------->
+
+<template>
+    <b-navbar toggleable="md" type="dark" variant="dark" sticky>
+        <b-navbar-brand to="/">
+            <img src="/images/logo.png" width="30px" height="30px" style="display: inline-block; margin-top: -5px" />
+            RPGKeeper
+        </b-navbar-brand>
+        <b-navbar-nav>
+            <b-nav-item to="/dashboard">
+                <fa icon="columns"></fa>
+                Dashboard
+            </b-nav-item>
+        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
+            <login></login>
+        </b-navbar-nav>
+    </b-navbar>
+</template>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<style lang="scss">
+	#site-header {
+	}
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<script lang="ts">
+    //------------------------------------------------------------------------------------------------------------------
+
+    import Vue from 'vue';
+
+    // Managers
+    import authMan from '../../lib/managers/auth';
+
+    // Components
+    import LoginComponent from './login.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    export default Vue.extend({
+        name: 'SiteHeader',
+        components: {
+            login: LoginComponent
+        },
+        subscriptions()
+        {
+            return {
+                account: authMan.account$
+            };
+        }
+    });
+</script>
+
+<!--------------------------------------------------------------------------------------------------------------------->

@@ -1,0 +1,64 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Custom Font Styles
+//----------------------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------------------------------
+// Genesys & EotE Dice Fonts
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Symbol Guide
+ *
+ * s - Success
+ * a - Advantage
+ * t - Triumph
+ * f - Failure
+ * h - Threat
+ * d - Despair
+ *
+ */
+@font-face {
+    font-family: 'Genesys Symbol';
+    src: url('../assets/fonts/genesys-font.woff');
+}
+
+/**
+ * Symbol Guide
+ *
+ * s - Success
+ * a - Advantage
+ * x - Triumph
+ * f - Failure
+ * t - Threat
+ * y - Despair
+ *
+ * b - solid square (boot/setback)
+ * B - outline square
+ * d - solid diamond (ability/difficulty)
+ * D - outline diamond
+ * c - solid hexagon (proficiency/challenge)
+ * C - outline hexagon
+ * z - solid circle (darkside force point)
+ * Z - outline circle (lightside force point)
+ *
+ */
+@font-face {
+    font-family: 'EotE Symbol';
+    src: url('../assets/fonts/eote-font.otf');
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+.genesys-symbol {
+    //noinspection CssNoGenericFontName
+    font-family: 'Genesys Symbol';
+    font-style: normal !important;
+}
+
+.eote-symbol {
+    //noinspection CssNoGenericFontName
+    font-family: 'EotE Symbol';
+    font-style: normal !important;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
