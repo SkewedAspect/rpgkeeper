@@ -1,51 +1,42 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- colorPicker.vue
+  -- Color Picker
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="color-picker">
-        <b-button :id="btnID" variant="light" type="button" class="pl-2 pr-2 w-100">
-            <span class="color-block" :style="{ 'background-color': color }">&nbsp;</span>
-        </b-button>
-
-        <b-popover
-            v-if="color"
-            :target="btnID"
-            triggers="click blur"
-            placement="auto"
-            class="cp-popover"
-        >
-            <div class="cp-popover-body">
-                <vue-color v-model="color" :disable-alpha="true"></vue-color>
-            </div>
+    <b-btn ref="colorBtn" v-bind="$attrs" v-on="$listeners">
+        <span class="color-block" :style="{ 'background-color': internalColor }">&nbsp;</span>
+        <b-popover :target="() => $refs.colorBtn" triggers="click blur">
+            <sketch-color-picker
+                v-model="internalColor"
+                :preset-colors="presetColors"
+                :disable-alpha="disableAlpha"
+                :disable-fields="disableFields"
+            ></sketch-color-picker>
         </b-popover>
-    </div>
+    </b-btn>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-    .color-picker {
-        .color-block {
-            display: inline-block;
-            min-width: 1.5rem;
-            height: 100%;
-            width: 100%;
-        }
-    }
-    .cp-popover-body {
-        margin: -0.5rem -0.75rem;
+.color-block {
+    display: inline-block;
+    min-width: 1.5rem;
+    height: 100%;
+    width: 100%;
+}
 
-        .vc-sketch {
-            box-shadow: none;
-        }
+.popover-body {
+    .vc-sketch {
+        box-shadow: none;
+        padding: 0;
     }
+}
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
-
 <script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
 
     import Vue from 'vue';
 
@@ -55,41 +46,74 @@
     //------------------------------------------------------------------------------------------------------------------
 
     export default Vue.extend({
-        name: 'ColorPicker',
+        name: 'ColorInput',
         components: {
-            vueColor: Sketch
+            sketchColorPicker: Sketch
+        },
+        model: {
+            prop: 'color',
+            event: 'change'
         },
         props: {
-            value: {
+            color: {
                 type: String,
-                default: '#ffffff'
+                default: '#000'
+            },
+            presetColors: {
+                type: Array,
+                default: undefined
+            },
+            disableAlpha: {
+                type: Boolean,
+                default: true
+            },
+            disableFields: {
+                type: Boolean,
+                default: false
             }
         },
         data()
         {
             return {
-                color: undefined
+                // This is the private, internal representation of the color.
+                privateColor: undefined
             };
         },
         computed: {
-            btnID() { return `color-picker-${ this._uid }`; }
-        },
-        watch: {
-            value()
-            {
-                this.color = this.value;
-            },
-            color()
-            {
-                if(this.value && this.color.hex && this.color.hex !== this.value)
+            internalColor: {
+                get() { return this.privateColor; },
+                set(val)
                 {
-                    this.$emit('input', this.color.hex);
+                    const colorProp = this.disableAlpha ? 'hex' : 'hex8';
+                    if(val?.[colorProp])
+                    {
+                        this.privateColor = val[colorProp];
+                    }
+                    else
+                    {
+                        this.privateColor = val;
+                    }
                 }
             }
         },
-        mounted()
-        {
-            this.color = this.value;
+        watch: {
+            internalColor()
+            {
+                if(this.color && this.internalColor && (this.internalColor !== this.color))
+                {
+                    this.$emit('change', this.internalColor);
+                }
+            },
+            color: {
+                handler()
+                {
+                    if(this.internalColor !== this.color)
+                    {
+                        this.internalColor = this.color;
+                    }
+                },
+                immediate: true
+            }
         }
     });
 </script>

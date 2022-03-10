@@ -11,8 +11,9 @@
             no-close-on-esc
             no-close-on-backdrop
             size="xxl"
-            :ok-disabled="$v.char.$anyError"
+            :ok-disabled="$v.$anyError"
             @ok="onSave"
+            @show="onShow"
             @hidden="onHidden"
         >
             <!-- Modal Header -->
@@ -32,12 +33,12 @@
             <div class="content">
                 <b-form-row>
                     <b-col class="flex-grow-0 flex-shrink-0 w-auto">
-                        <portrait :src="char.portrait" :color="char.color" size="md"></portrait>
+                        <portrait :src="portrait" :color="color" size="md"></portrait>
                         <div class="text-center">
                             <small class="text-muted">Portrait</small>
                         </div>
                         <div class="text-center mt-4">
-                            <thumbnail :src="char.thumbnail" :color="char.color" :text="char.initial"></thumbnail>
+                            <thumbnail :src="thumbnail" :color="color" :text="initials"></thumbnail>
                             <div>
                                 <small class="text-muted">Thumbnail</small>
                             </div>
@@ -54,9 +55,9 @@
                                 >
                                     <b-form-input
                                         id="char-name"
-                                        v-model="char.name"
+                                        v-model="name"
                                         :state="validateState('name')"
-                                        @input="$v.char.name.$touch()"
+                                        @input="$v.name.$touch()"
                                     ></b-form-input>
                                 </b-form-group>
                             </b-col>
@@ -74,7 +75,7 @@
                                         text-field="name"
                                         value-field="id"
                                         :disabled="!isNew"
-                                        :state="validateState('system')"
+                                        :state="validateState('char.system')"
                                         @input="$v.char.system.$touch()"
                                     ></b-form-select>
                                 </b-form-group>
@@ -87,7 +88,7 @@
                                     label="Color"
                                     label-for="char-color"
                                 >
-                                    <color-picker v-model="char.color"></color-picker>
+                                    <color-picker v-model="color" variant="light" block></color-picker>
                                 </b-form-group>
                             </b-col>
                             <b-col>
@@ -99,9 +100,9 @@
                                     <b-input-group>
                                         <b-form-input
                                             id="char-portrait"
-                                            v-model="char.portrait"
+                                            v-model="portrait"
                                             :state="validateState('portrait')"
-                                            @input="$v.char.portrait.$touch()"
+                                            @input="$v.portrait.$touch()"
                                         ></b-form-input>
                                         <b-input-group-append>
                                             <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('portrait')">
@@ -109,7 +110,7 @@
                                             </b-btn>
                                         </b-input-group-append>
                                     </b-input-group>
-                                    <template slot="description">
+                                    <template #description>
                                         Any urls are accepted. <br />
                                         Recommend dimensions are <code>600x900px</code>.
                                     </template>
@@ -124,9 +125,9 @@
                                     <b-input-group>
                                         <b-form-input
                                             id="char-thumbnail"
-                                            v-model="char.thumbnail"
+                                            v-model="thumbnail"
                                             :state="validateState('thumbnail')"
-                                            @input="$v.char.thumbnail.$touch()"
+                                            @input="$v.thumbnail.$touch()"
                                         ></b-form-input>
                                         <b-input-group-append>
                                             <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('thumbnail')">
@@ -134,7 +135,7 @@
                                             </b-btn>
                                         </b-input-group-append>
                                     </b-input-group>
-                                    <template slot="description">
+                                    <template #description>
                                         Any urls are accepted. <br />
                                         Recommend dimensions are <code>200x200px</code>.
                                     </template>
@@ -149,9 +150,9 @@
                         >
                             <b-form-input
                                 id="char-campaign"
-                                v-model="char.campaign"
+                                v-model="campaign"
                                 :state="validateState('campaign')"
-                                @input="$v.char.campaign.$touch()"
+                                @input="$v.campaign.$touch()"
                             ></b-form-input>
                         </b-form-group>
                         <b-form-group
@@ -162,9 +163,9 @@
                         >
                             <b-form-input
                                 id="char-desc"
-                                v-model="char.description"
+                                v-model="description"
                                 :state="validateState('description')"
-                                @input="$v.char.description.$touch()"
+                                @input="$v.description.$touch()"
                             ></b-form-input>
                         </b-form-group>
                     </b-col>
@@ -196,7 +197,8 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { get } from 'lodash';
+    import Vue, { PropType } from 'vue';
     import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
     // Managers
@@ -206,12 +208,16 @@
     // Utils
     import dropboxUtil from '../../lib/utils/dropbox';
 
+    // Models
+    import CharacterModel from '../../lib/models/character';
+
     // Components
     import ColorPicker from '../ui/colorPicker.vue';
     import Thumbnail from './thumbnail.vue';
     import Portrait from './portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    /* eslint vue/no-mutating-props: "off" */
 
     export default Vue.extend({
         name: 'AddEditModal',
@@ -220,22 +226,51 @@
             Portrait,
             Thumbnail
         },
+        model: {
+            prop: 'char'
+        },
         props: {
-            value: {
-                type: Object,
+            char: {
+                type: Object as PropType<CharacterModel>,
                 default: undefined
             }
+        },
+        subscriptions()
+        {
+            return {
+                allSystems: systemsMan.systems$
+            };
         },
         data()
         {
             return {
+                name: undefined,
+                color: undefined,
+                portrait: undefined,
+                thumbnail: undefined,
+                campaign: undefined,
+                description: undefined,
                 saving: false
             };
         },
         computed: {
-            isNew() { return !this.value || !this.value.id; },
+            isNew() { return !this.char || !this.char.id; },
+            initials() : string
+            {
+                if(this.name)
+                {
+                    const nameParts = this.name.split(' ');
+                    const initials = nameParts[0][0] + (nameParts[1]?.[0] ?? '');
+
+                    return initials.toUpperCase();
+                }
+                else
+                {
+                    return '-';
+                }
+            },
             showModal: {
-                get() { return !!this.value; },
+                get() { return !!this.char; },
                 set() { /* We ignore setting */ }
             },
             currentSystem: {
@@ -259,10 +294,18 @@
                             name: sys.status ? `${ sys.name } (${ systemsMan.getStatusDisplay(sys.status) })` : sys.name
                         };
                     });
-            },
-            char() { return this.value; }
+            }
         },
         methods: {
+            onShow()
+            {
+                this.name = this.char.name;
+                this.color = this.char.color;
+                this.portrait = this.char.portrait;
+                this.thumbnail = this.char.thumbnail;
+                this.campaign = this.char.campaign;
+                this.description = this.char.description;
+            },
             onHidden()
             {
                 // If we're not in the middle of a save, let's revert any changes.
@@ -276,12 +319,21 @@
             },
             async onSave(bvModalEvent)
             {
-                this.$v.char.$touch();
+                this.$v.$touch();
 
-                if(!this.$v.char.$anyError)
+                if(!this.$v.$anyError)
                 {
                     this.saving = true;
+
+                    this.char.name = this.name;
+                    this.char.color = this.color;
+                    this.char.portrait = this.portrait;
+                    this.char.thumbnail = this.thumbnail;
+                    this.char.campaign = this.campaign;
+                    this.char.description = this.description;
+
                     await charMan.save(this.char);
+
                     this.saving = false;
                 }
                 else
@@ -295,41 +347,35 @@
             },
             validateState(name)
             {
-                const { $dirty, $error } = this.$v.char[name];
+                const { $dirty, $error } = get(this.$v, name);
                 return $dirty ? !$error : null;
             }
         },
-        subscriptions()
-        {
-            return {
-                allSystems: systemsMan.systems$
-            };
-        },
         validations: {
+            name: {
+                required,
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
+            portrait: {
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
+            thumbnail: {
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
+            campaign: {
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
+            description: {
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
             char: {
-                name: {
-                    required,
-                    minLength: minLength(1),
-                    maxLength: maxLength(255)
-                },
                 system: {
                     required
-                },
-                portrait: {
-                    minLength: minLength(1),
-                    maxLength: maxLength(255)
-                },
-                thumbnail: {
-                    minLength: minLength(1),
-                    maxLength: maxLength(255)
-                },
-                campaign: {
-                    minLength: minLength(1),
-                    maxLength: maxLength(255)
-                },
-                description: {
-                    minLength: minLength(1),
-                    maxLength: maxLength(255)
                 }
             }
         }

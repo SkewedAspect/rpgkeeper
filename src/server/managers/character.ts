@@ -109,7 +109,7 @@ export async function update(charID : string, updateChar : Record<string, unknow
         description: updateChar.description,
         portrait: updateChar.portrait,
         thumbnail: updateChar.thumbnail,
-        color: updateChar.colot,
+        color: updateChar.color,
         campaign: updateChar.campaign,
         details: updateChar.details
     };
