@@ -106,7 +106,9 @@
                                         {{ char.name }}
                                     </h5>
                                     <p class="text-muted m-0">
-                                        <b-badge>{{ getSystem(char.system).name }}</b-badge>
+                                        <b-badge class="mr-1">
+                                            {{ getSystem(char.system).name }}
+                                        </b-badge>
                                         <small>{{ char.campaign }}</small>
                                     </p>
                                 </div>

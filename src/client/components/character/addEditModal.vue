@@ -343,7 +343,7 @@
             },
             async pickImageDropBox(prop)
             {
-                this.char[prop] = await dropboxUtil.chooseDropboxImage();
+                this[prop] = await dropboxUtil.chooseDropboxImage();
             },
             validateState(name)
             {
