@@ -63,7 +63,20 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
     get details() : SystemDetails { return this.#state.details ?? {} as SystemDetails; }
     get accountID() : string | undefined { return this.#state.accountID; }
     get noteID() : string | undefined { return this.#state.noteID; }
-    get initial() : string { return (this.name?.[0] ?? '?').toUpperCase(); }
+    get initial() : string
+    {
+        if(this.name)
+        {
+            const nameParts = this.name.split(' ');
+            const initials = nameParts[0][0] + (nameParts[1]?.[0] ?? '');
+
+            return initials.toUpperCase();
+        }
+        else
+        {
+            return '-';
+        }
+    }
 
     get system() : string | undefined { return this.#state.system; }
     set system(val : string | undefined) { this.#state.system = val; }

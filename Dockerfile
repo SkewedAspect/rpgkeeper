@@ -2,33 +2,33 @@
 # Bundle Stage - Do all our bundling of assets
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:14 as bundle-builder
+FROM node:16 as bundle-builder
 
 RUN mkdir -p /app
 WORKDIR /app
 
 ADD . /app/
 
-RUN npm
-RUN npm build
+RUN npm ci --no-fund
+RUN npm run build
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Yarn Stage - Install production packages and clean cache
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:14-alpine as npm-builder
+FROM node:16-alpine as npm-builder
 
 COPY --from=bundle-builder /app /app
 
 WORKDIR /app
 
-RUN npm install --production --ignore-scripts
+RUN npm ci --no-fund --production --ignore-scripts
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Final Docker
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:14-alpine
+FROM node:16-alpine
 EXPOSE 5678
 
 MAINTAINER Christopher S. Case <chris.case@g33xnexus.com>
