@@ -13,7 +13,7 @@ RUN npm ci --no-fund
 RUN npm run build
 
 #-----------------------------------------------------------------------------------------------------------------------
-# Yarn Stage - Install production packages and clean cache
+# NPM Stage - Install production packages and clean cache
 #-----------------------------------------------------------------------------------------------------------------------
 
 FROM node:16-alpine as npm-builder
@@ -22,7 +22,7 @@ COPY --from=bundle-builder /app /app
 
 WORKDIR /app
 
-RUN npm ci --no-fund --production --ignore-scripts
+RUN npm ci --no-fund --production
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Final Docker
@@ -44,7 +44,7 @@ WORKDIR /app
 
 VOLUME /app/db
 
-CMD [ "node", "dist/server.js",  "# rpgkeeper" ]
+CMD [ "node", "dist/src/server/server.js",  "# rpgkeeper" ]
 
 #-----------------------------------------------------------------------------------------------------------------------
 
