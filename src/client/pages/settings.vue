@@ -5,10 +5,10 @@
 <template>
     <div class="settings-page container pt-3">
         <!-- Loading -->
-        <loading v-if="status === 'unknown'" text="Account Loading..."></loading>
+        <loading v-if="accountStatus === 'unknown'" text="Account Loading..."></loading>
 
         <!-- Once loaded -->
-        <div v-else-if="status === 'signed in'">
+        <div v-else-if="accountStatus === 'signed in'">
             <!-- Giant Avatar Picture of Doom -->
             <div class="avatar-holder">
                 <b-img rounded="circle" width="128" height="128" :src="account.avatarUrl" :alt="account.name" class="m-1" center></b-img>
@@ -21,7 +21,7 @@
             <b-form-row class="mb-4">
                 <b-col offset="1" cols="10" offset-md="3" md="6" offset-lg="4" lg="4">
                     <b-input-group>
-                        <b-form-input v-model="account.name" placeholder="Display Name"></b-form-input>
+                        <b-form-input v-model="accountName" placeholder="Display Name"></b-form-input>
 
                         <b-input-group-append>
                             <b-btn variant="primary" @click="save()">
@@ -35,7 +35,7 @@
 
             <!-- Settings -->
             <b-card header-bg-variant="dark" header-text-variant="white" class="drop-shadow">
-                <template slot="header">
+                <template #header>
                     <h5 class="align-middle mt-2">
                         <fa icon="sliders-h"></fa>
                         Settings
@@ -81,12 +81,28 @@
         {
             return {
                 account: authMan.account$,
-                status: authMan.status$
+                accountStatus: authMan.status$
             };
+        },
+        data()
+        {
+            return {
+                accountName: undefined
+            };
+        },
+        mounted()
+        {
+            this.$watch('account', () =>
+            {
+                this.accountName = this.account?.name;
+            }, { immediate: true });
         },
         methods: {
             save()
             {
+                this.account.name = this.accountName;
+                this.account.displayName = this.accountName;
+
                 authMan.saveAccount(this.account);
             }
         }

@@ -5,7 +5,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 
 // Models
-import AccountModel from '../models/account';
+import { AccountModel } from '../models/account';
 
 // Resource Access
 import authRA from '../resource-access/auth';
@@ -103,9 +103,9 @@ class AuthManager
         });
     }
 
-    _onGoogleSignIn(googleUser) : void
+    async _onGoogleSignIn(googleUser) : Promise<void>
     {
-        this.$completeSignIn(googleUser.getAuthResponse().id_token);
+        await this.$completeSignIn(googleUser.getAuthResponse().id_token);
     }
 
     _onGoogleFailure(error : Error) : void
@@ -113,7 +113,7 @@ class AuthManager
         console.warn('Google Sign In failure:', error);
     }
 
-    $completeSignIn(idToken : string) : Promise<void>
+    async $completeSignIn(idToken : string) : Promise<void>
     {
         this.#statusSubject.next('signing in');
         return authRA.completeSignIn(idToken)
@@ -133,14 +133,12 @@ class AuthManager
     // Public
     //------------------------------------------------------------------------------------------------------------------
 
-    attachSignIn(elem : HTMLElement) : Promise<void>
+    async attachSignIn(elem : HTMLElement) : Promise<void>
     {
-        return this.loading
-            .then(() =>
-            {
-                // eslint-disable-next-line @typescript-eslint/no-empty-function
-                this.auth2.attachClickHandler(elem, {}, () => {}, this._onGoogleFailure.bind(this));
-            });
+        await this.loading;
+
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        this.auth2.attachClickHandler(elem, {}, () => {}, this._onGoogleFailure.bind(this));
     }
 
     signOut() : void
@@ -152,9 +150,10 @@ class AuthManager
     // API
     //------------------------------------------------------------------------------------------------------------------
 
-    async saveAccount(account) : Promise<AccountModel>
+    async saveAccount(account) : Promise<void>
     {
-        return authRA.save(account);
+        const newAccount = await authRA.save(account);
+        this.#accountSubject.next(newAccount);
     }
 }
 

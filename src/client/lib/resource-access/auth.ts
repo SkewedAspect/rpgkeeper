@@ -5,24 +5,32 @@
 import $http from 'axios';
 
 // Models
-import AccountModel from '../models/account';
+import { Account } from '../../../common/interfaces/common';
+import { AccountModel } from '../models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class AuthResourceAccess
 {
-    completeSignIn(idToken : string) : Promise<AccountModel>
+    _buildModel(account : Account) : AccountModel
     {
-        return $http.post('/auth/google', { idToken })
-            .then(({ data }) => new AccountModel(data));
+        return {
+            ...account,
+            displayName: (account.name || account.email) ?? 'Unknown',
+            avatarUrl: account.avatar || `https://identicons.github.com/${ account.id.replace(/-/g, '') }.png`
+        };
+    }
+
+    async completeSignIn(idToken : string) : Promise<AccountModel>
+    {
+        const { data } = await $http.post('/auth/google', { idToken });
+        return this._buildModel(data);
     }
 
     async save(account : AccountModel) : Promise<AccountModel>
     {
         const { data } = await $http.patch(`/api/accounts/${ account.id }`, account);
-        account.update(data);
-
-        return account;
+        return data;
     }
 }
 

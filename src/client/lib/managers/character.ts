@@ -10,7 +10,7 @@ import { io, Socket } from 'socket.io-client';
 import { Character } from '../../../common/interfaces/common';
 
 // Models
-import AccountModel from '../models/account';
+import { AccountModel } from '../models/account';
 import CharacterModel from '../models/character';
 
 // Managers
