@@ -40,6 +40,9 @@ import 'codemirror/mode/meta';
 // Utils
 import toastUtil from './lib/utils/toast';
 
+// Site Theme
+import './scss/theme.scss';
+
 // Views
 import AppComponent from './app.vue';
 import AboutPage from './pages/about.vue';
@@ -49,9 +52,6 @@ import DashboardPage from './pages/dashboard.vue';
 // Pages
 import HomePage from './pages/home.vue';
 import SettingsPage from './pages/settings.vue';
-
-// Site Theme
-import './scss/theme.scss';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Font Awesome

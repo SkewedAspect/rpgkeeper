@@ -16,6 +16,26 @@ export default defineConfig({
     plugins: [
         createVuePlugin()
     ],
+
+    // Remove charset warning caused by bootstrap
+    css: {
+        postcss: {
+            plugins: [
+                {
+                    postcssPlugin: 'internal:charset-removal',
+                    AtRule: {
+                        charset: (atRule) =>
+                        {
+                            if(atRule.name === 'charset')
+                            {
+                                atRule.remove();
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
     server: {
         port: 5679,
         proxy: {
