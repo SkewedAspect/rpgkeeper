@@ -103,7 +103,8 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
 
     // Basic security fixes
     app.use(helmet({
-        contentSecurityPolicy: false
+        contentSecurityPolicy: false,
+        crossOriginEmbedderPolicy: false // This might be useful to enable, but skip it for now
     }));
 
     // Basic request logging
