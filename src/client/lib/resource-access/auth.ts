@@ -5,14 +5,14 @@
 import $http from 'axios';
 
 // Models
-import { Account } from '../../../common/interfaces/common';
+import { Account as ServerAccount } from '../../../common/interfaces/common';
 import { Account } from '../models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class AuthResourceAccess
 {
-    _buildModel(account : Account) : Account
+    _buildModel(account : ServerAccount) : Account
     {
         return {
             ...account,

@@ -26,18 +26,14 @@ declare global {
 
 class AuthManager
 {
-    #accountSubject : BehaviorSubject<Account | undefined>;
-    #statusSubject : BehaviorSubject<string>;
+    #accountSubject : BehaviorSubject<Account | undefined> = new BehaviorSubject<Account | undefined>(undefined);
+    #statusSubject : BehaviorSubject<string> = new BehaviorSubject('unknown');
 
     auth2 : any;
     loading : Promise<void>;
 
     constructor()
     {
-        // Subjects
-        this.#accountSubject = new BehaviorSubject<Account | undefined>(undefined);
-        this.#statusSubject = new BehaviorSubject('unknown');
-
         // We have to expose this to window for Google to pick it up.
         window.onGoogleInit = this._onGoogleInit.bind(this);
         window.onGoogleSignIn = this._onGoogleSignIn.bind(this);
@@ -150,7 +146,7 @@ class AuthManager
     // API
     //------------------------------------------------------------------------------------------------------------------
 
-    async saveAccount(account) : Promise<void>
+    async saveAccount(account : Account) : Promise<void>
     {
         const newAccount = await authRA.save(account);
         this.#accountSubject.next(newAccount);
