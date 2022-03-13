@@ -5,8 +5,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 
 // Model
-import NotebookModel from '../models/notebook';
-import NotebookPageModel from '../models/notebookPage';
+import { Notebook, NotebookPage } from '../models/notebook';
 
 // Resource Access
 import noteRA from '../resource-access/notebook';
@@ -15,19 +14,19 @@ import noteRA from '../resource-access/notebook';
 
 class NotesManager
 {
-    #selectedSubject : BehaviorSubject<NotebookModel | undefined> = new BehaviorSubject<NotebookModel | undefined>(undefined);
+    #selectedSubject : BehaviorSubject<Notebook| undefined> = new BehaviorSubject<Notebook | undefined>(undefined);
 
     //------------------------------------------------------------------------------------------------------------------
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get selected$() : Observable<NotebookModel | undefined> { return this.#selectedSubject.asObservable(); }
+    get selected$() : Observable<Notebook | undefined> { return this.#selectedSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get selected() : NotebookModel | undefined { return this.#selectedSubject.getValue(); }
+    get selected() : Notebook | undefined { return this.#selectedSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API
@@ -35,43 +34,48 @@ class NotesManager
 
     async select(noteID : string) : Promise<void>
     {
-        let note : NotebookModel | undefined = undefined;
+        let notebook : Notebook | undefined = undefined;
         if(noteID)
         {
-            note = await noteRA.getNotes(noteID);
-        }
-        else if(this.selected)
-        {
-            await noteRA.unloadNote(this.selected.id);
+            notebook = await noteRA.getNotebook(noteID);
         }
 
-        // Select this note
-        this.#selectedSubject.next(note);
+        // Select this notebook
+        this.#selectedSubject.next(notebook);
     }
 
-    async addPage(note : NotebookModel, page : NotebookPageModel) : Promise<NotebookPageModel>
+    async addPage(notebook : Notebook, page : NotebookPage) : Promise<void>
     {
-        page = await noteRA.addPage(note.id, page);
-        note.pages.push(page);
+        // Add the page
+        await noteRA.addPage(notebook.id, page);
 
-        return page;
+        // Get a new copy of the notebook
+        const newNotebook = await noteRA.getNotebook(notebook.id);
+
+        // Push the new notebook
+        this.#selectedSubject.next(newNotebook);
     }
 
-    async updatePage(note : NotebookModel, page : NotebookPageModel) : Promise<NotebookPageModel>
+    async updatePage(notebook : Notebook, page : NotebookPage) : Promise<void>
     {
-        return noteRA.updatePage(note.id, page);
+        await noteRA.updatePage(notebook.id, page);
+
+        // Get a new copy of the notebook
+        const newNotebook = await noteRA.getNotebook(notebook.id);
+
+        // Push the new notebook
+        this.#selectedSubject.next(newNotebook);
     }
 
-    async deletePage(note : NotebookModel, page : NotebookPageModel) : Promise<void>
+    async deletePage(notebook : Notebook, page : NotebookPage) : Promise<void>
     {
-        await noteRA.deletePage(note.id, page);
+        await noteRA.deletePage(notebook.id, page);
 
-        // Remove page from note
-        const idx = note.pages.indexOf(page);
-        if(idx >= 0)
-        {
-            note.pages.splice(idx, 1);
-        }
+        // Get a new copy of the notebook
+        const newNotebook = await noteRA.getNotebook(notebook.id);
+
+        // Push the new notebook
+        this.#selectedSubject.next(newNotebook);
     }
 }
 

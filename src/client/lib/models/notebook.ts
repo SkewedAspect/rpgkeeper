@@ -2,54 +2,12 @@
 // NotebookModel
 //----------------------------------------------------------------------------------------------------------------------
 
-import NotebookPageModel from './notebookPage';
+// Models
+import { Notes, NotePage } from '../../../common/interfaces/common';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class NotebookModel
-{
-    #id : string;
-    #pages : NotebookPageModel[];
-
-    constructor(def : { id : string, pages : NotebookPageModel[] })
-    {
-        this.#id = def.id;
-        this.#pages = def.pages || [];
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Properties
-    //------------------------------------------------------------------------------------------------------------------
-
-    get id() : string { return this.#id; }
-    get pages() : NotebookPageModel[] { return this.#pages; }
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Model API
-    //------------------------------------------------------------------------------------------------------------------
-
-    revert() : void
-    {
-        this.pages.forEach((page) => page.revert());
-    }
-
-    update(def : { id : string, pages : NotebookPageModel[] }) : void
-    {
-        this.#id = def.id;
-        this.#pages = def.pages || [];
-    }
-
-    toJSON() : { id : string, pages : { id ?: string, title ?: string, content ?: string }[] }
-    {
-        return {
-            id: this.#id,
-            pages: this.pages.map((page) => page.toJSON())
-        };
-    }
-}
-
-//----------------------------------------------------------------------------------------------------------------------
-
-export default NotebookModel;
+export type NotebookPage = NotePage;
+export type Notebook = Notes;
 
 //----------------------------------------------------------------------------------------------------------------------
