@@ -5,7 +5,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 
 // Models
-import { AccountModel } from '../models/account';
+import { Account } from '../models/account';
 
 // Resource Access
 import authRA from '../resource-access/auth';
@@ -26,7 +26,7 @@ declare global {
 
 class AuthManager
 {
-    #accountSubject : BehaviorSubject<AccountModel | undefined>;
+    #accountSubject : BehaviorSubject<Account | undefined>;
     #statusSubject : BehaviorSubject<string>;
 
     auth2 : any;
@@ -35,7 +35,7 @@ class AuthManager
     constructor()
     {
         // Subjects
-        this.#accountSubject = new BehaviorSubject<AccountModel | undefined>(undefined);
+        this.#accountSubject = new BehaviorSubject<Account | undefined>(undefined);
         this.#statusSubject = new BehaviorSubject('unknown');
 
         // We have to expose this to window for Google to pick it up.
@@ -63,14 +63,14 @@ class AuthManager
     // Observables
     //------------------------------------------------------------------------------------------------------------------
 
-    get account$() : Observable<AccountModel | undefined> { return this.#accountSubject.asObservable(); }
+    get account$() : Observable<Account | undefined> { return this.#accountSubject.asObservable(); }
     get status$() : Observable<string> { return this.#statusSubject.asObservable(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get account() : AccountModel | undefined { return this.#accountSubject.getValue(); }
+    get account() : Account | undefined { return this.#accountSubject.getValue(); }
     get status() : string { return this.#statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------

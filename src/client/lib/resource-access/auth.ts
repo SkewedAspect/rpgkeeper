@@ -6,13 +6,13 @@ import $http from 'axios';
 
 // Models
 import { Account } from '../../../common/interfaces/common';
-import { AccountModel } from '../models/account';
+import { Account } from '../models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class AuthResourceAccess
 {
-    _buildModel(account : Account) : AccountModel
+    _buildModel(account : Account) : Account
     {
         return {
             ...account,
@@ -21,13 +21,13 @@ class AuthResourceAccess
         };
     }
 
-    async completeSignIn(idToken : string) : Promise<AccountModel>
+    async completeSignIn(idToken : string) : Promise<Account>
     {
         const { data } = await $http.post('/auth/google', { idToken });
         return this._buildModel(data);
     }
 
-    async save(account : AccountModel) : Promise<AccountModel>
+    async save(account : Account) : Promise<Account>
     {
         const { data } = await $http.patch(`/api/accounts/${ account.id }`, account);
         return data;

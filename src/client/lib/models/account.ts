@@ -2,11 +2,11 @@
 // AccountModel
 //----------------------------------------------------------------------------------------------------------------------
 
-import { Account } from '../../../common/interfaces/common';
+import { Account as ServerAccountModel } from '../../../common/interfaces/common';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface AccountModel extends Account
+export interface Account extends ServerAccountModel
 {
     displayName : string;
     avatarUrl : string;

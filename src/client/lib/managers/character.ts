@@ -10,7 +10,7 @@ import { io, Socket } from 'socket.io-client';
 import { Character } from '../../../common/interfaces/common';
 
 // Models
-import { AccountModel } from '../models/account';
+import { Account } from '../models/account';
 import CharacterModel from '../models/character';
 
 // Managers
@@ -69,7 +69,7 @@ class CharacterManager
     // Subscriptions
     //------------------------------------------------------------------------------------------------------------------
 
-    async _onAccountChanged(account : AccountModel | undefined) : Promise<void>
+    async _onAccountChanged(account : Account | undefined) : Promise<void>
     {
         if(account && account.email)
         {
