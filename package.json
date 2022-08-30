@@ -68,7 +68,7 @@
     "sass": "^1.49.9",
     "socket.io-client": "^4.4.1",
     "typescript": "^4.6.2",
-    "vite": "^2.8.6",
+    "vite": "^2.9.13",
     "vite-plugin-vue2": "^1.9.3",
     "vue": "^2.6.14",
     "vue-codemirror": "4.0.5",
