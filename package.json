@@ -32,7 +32,7 @@
     "passport": "^0.5.2",
     "passport-google-web": "^1.1.0",
     "rpgdicejs": "^2.0.1",
-    "socket.io": "^4.4.1",
+    "socket.io": "^4.5.3",
     "trivial-logging": "^2.0.0",
     "trivialperms": "^1.0.0"
   },
