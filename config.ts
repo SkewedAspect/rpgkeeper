@@ -15,7 +15,7 @@ export default {
     secret: process.env.SESSION_SECRET ?? 'etched municipality unconscionably fribble *&^%$## 88',
     key: 'rpgk_session',
     google: {
-        clientID: '712153107187-8e00g8d18nbk5esiffhkrbtr12vktlvq.apps.googleusercontent.com',
+        clientID: process.env.CLIENT_ID ?? '712153107187-8e00g8d18nbk5esiffhkrbtr12vktlvq.apps.googleusercontent.com',
         clientSecret: process.env.CLIENT_SECRET ?? 'hOsFjUL-f_yky8djy1OSuvmp'
     },
     http: {
