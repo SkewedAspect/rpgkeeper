@@ -24,7 +24,7 @@ const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const callbackURL = `${ program.args.includes('--dev') ? 'http://localhost:5679' : '' }/auth/google/redirect`;
+const callbackURL = `${ program.args.includes('--dev') ? 'http://localhost:5679' : process.env['DOMAIN'] }/auth/google/redirect`;
 
 //----------------------------------------------------------------------------------------------------------------------
 
