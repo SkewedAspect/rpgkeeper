@@ -3,8 +3,11 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import passport from 'passport';
-import GoogleStrategy from 'passport-google-web';
+import GoogleStrategy from 'passport-google-oauth20';
 import { Express } from 'express';
+
+// Program Argument Parsing
+import program from '../utils/args';
 
 // We just need to import this somewhere; here makes sense.
 import './serialization';
@@ -12,55 +15,76 @@ import './serialization';
 // Managers
 import * as accountMan from '../managers/account';
 
+// Config
+import configMan from '../managers/config';
+
 // Logging
 import logging from 'trivial-logging';
 const logger = logging.loggerFor(module);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-passport.use(new GoogleStrategy(async(_token, profile, done) =>
-{
-    try
+const callbackURL = `${ program.args.includes('--dev') ? 'http://localhost:5679' : '' }/auth/google/redirect`;
+
+//----------------------------------------------------------------------------------------------------------------------
+
+passport.use(new GoogleStrategy(
     {
-        let account;
-        try { account = await accountMan.getByEmail(profile.email); }
-        catch (error)
+        clientID: configMan.get('google.clientID'),
+        clientSecret: configMan.get('google.clientSecret'),
+        callbackURL,
+        scope: [ 'profile', 'email' ],
+        state: true
+    },
+    async (_accessToken, _refreshToken, profile, done) =>
+    {
+        console.log('profile:', profile);
+        try
         {
-            if(error.code === 'ERR_NOT_FOUND')
+            // TODO: Maybe support more than the first email?
+            const email = profile.emails[0].value;
+            const photo = profile.photos[0]?.value;
+
+            let account;
+            try { account = await accountMan.getByEmail(email); }
+            catch (error)
             {
-                account = null;
+                if(error.code === 'ERR_NOT_FOUND')
+                {
+                    account = null;
+                }
+                else
+                {
+                    logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
+                    done(error);
+                }
+            }
+
+            if(account)
+            {
+                account = await accountMan.update(account.id, {
+                    name: account.name ?? profile.displayName ?? email.split('@')[0],
+                    avatar: photo
+                });
             }
             else
             {
-                logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
-                done(error);
+                account = await accountMan.add({
+                    name: profile.displayName ?? email.split('@')[0],
+                    avatar: photo,
+                    email
+                });
             }
-        }
 
-        if(account)
-        {
-            account = await accountMan.update(account.id, {
-                name: account.name ?? profile.email.split('@')[0],
-                avatar: `${ profile.picture }?sz=512`
-            });
+            done(null, account);
         }
-        else
+        catch (error)
         {
-            account = await accountMan.add({
-                name: profile.email.split('@')[0],
-                avatar: `${ profile.picture }?sz=512`,
-                email: profile.email
-            });
+            logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
+            done(error);
         }
-
-        done(null, account);
     }
-    catch (error)
-    {
-        logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
-        done(error);
-    }
-}));
+));
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -68,15 +92,24 @@ export default {
     initialize(app : Express) : void
     {
         // Authenticate
-        app.post('/auth/google', passport.authenticate('google-signin'), (req, resp) =>
+        app.get('/auth/google', passport.authenticate('google'));
+
+        // Redirect
+        app.get('/auth/google/redirect', passport.authenticate('google', {
+            successReturnToOrRedirect: '/',
+            failureRedirect: '/'
+        }));
+
+        // Get Current User
+        app.get('/auth/user', (req, resp) =>
         {
             resp.json(req.user);
         });
 
         // Logout endpoint
-        app.post('/auth/logout', (req, res) =>
+        app.post('/auth/logout', (req, res, done) =>
         {
-            req.logout();
+            req.logout(done);
             res.end();
         });
     }

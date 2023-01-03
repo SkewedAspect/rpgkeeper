@@ -131,7 +131,7 @@
         </p>
 
         <div class="text-center">
-            <b-btn v-show="!isLoggedIn" id="create-account-btn2" variant="primary">
+            <b-btn v-show="!isLoggedIn" id="create-account-btn2" variant="primary" href="/auth/google">
                 Create free account
                 <fa icon="sign-in"></fa>
             </b-btn>
@@ -160,7 +160,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import Vue from 'vue';
-    import $ from 'jquery';
 
     // Managers
     import authMan from '../lib/managers/auth';
@@ -187,12 +186,6 @@
         },
         mounted()
         {
-            let btnElem = $(this.$el).find('#create-account-btn' as any);
-            authMan.attachSignIn(btnElem[0]);
-
-            btnElem = $(this.$el).find('#create-account-btn2' as any);
-            authMan.attachSignIn(btnElem[0]);
-
             this.$subscribeTo(authMan.status$, (status) =>
             {
                 if(status === 'signing in')

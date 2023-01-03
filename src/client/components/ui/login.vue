@@ -31,7 +31,7 @@
         </b-nav-text>
 
         <!-- Sign In Button -->
-        <b-button v-else id="google-signin-btn" variant="dark">
+        <b-button v-else id="google-signin-btn" variant="dark" href="/auth/google">
             <fa :icon="['fab', 'google']"></fa>
             Sign In
         </b-button>
@@ -60,8 +60,6 @@
 
     import Vue from 'vue';
 
-    import $ from 'jquery';
-
     // Managers
     import authMan from '../../lib/managers/auth';
 
@@ -78,11 +76,6 @@
         },
         computed: {
             loading() { return this.authStatus === 'signing in'; }
-        },
-        mounted()
-        {
-            const btnElem = $(this.$el).find('#google-signin-btn');
-            authMan.attachSignIn(btnElem[0]);
         },
         methods: {
             signOut() { return authMan.signOut(); }

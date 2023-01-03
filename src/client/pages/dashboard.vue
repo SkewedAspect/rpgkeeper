@@ -240,6 +240,14 @@
 
                 this.selectAllSystems();
             });
+
+            this.$watch('systemsStatus', () =>
+            {
+                if(this.systemsStatus === 'loaded')
+                {
+                    this.selectAllSystems();
+                }
+            });
         },
         methods: {
             getSystem(systemID)

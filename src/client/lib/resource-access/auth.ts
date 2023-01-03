@@ -21,10 +21,22 @@ class AuthResourceAccess
         };
     }
 
-    async completeSignIn(idToken : string) : Promise<Account>
+    async getCurrentUser() : Promise<Account | undefined>
     {
-        const { data } = await $http.post('/auth/google', { idToken });
-        return this._buildModel(data);
+        try
+        {
+            const { data } = await $http.get('/auth/user', { withCredentials: true });
+            return this._buildModel(data);
+        }
+        catch (error)
+        {
+            return undefined;
+        }
+    }
+
+    async signOut() : Promise<void>
+    {
+        await $http.post('/auth/logout');
     }
 
     async save(account : Account) : Promise<Account>
