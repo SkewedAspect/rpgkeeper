@@ -38,7 +38,6 @@ passport.use(new GoogleStrategy(
     },
     async (_accessToken, _refreshToken, profile, done) =>
     {
-        console.log('profile:', profile);
         try
         {
             // TODO: Maybe support more than the first email?
