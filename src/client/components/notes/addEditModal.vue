@@ -74,7 +74,10 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import Vue, { PropType } from 'vue';
+
+    // Models
+    import CharacterModel from '../../lib/models/character';
 
     // Managers
     import notesMan from '../../lib/managers/notebook';
@@ -85,7 +88,7 @@
         name: 'AddEditPageModal',
         props: {
             value: {
-                type: Object,
+                type: Object as PropType<CharacterModel>,
                 default: undefined
             }
         },

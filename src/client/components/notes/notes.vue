@@ -5,7 +5,7 @@
 <template>
     <b-card v-if="notes" id="notes" header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
         <!-- Card Header -->
-        <template slot="header">
+        <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                     <fa class="mr-1" icon="book"></fa>
@@ -68,7 +68,6 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
     import Vue from 'vue';
 
     // Managers
@@ -117,7 +116,7 @@
                 get() { return (this.currentPage || {}).id; },
                 set(val)
                 {
-                    const idx = _.findIndex(this.notes.pages, { id: val });
+                    const idx = this.notes.pages.findIndex((note) => note.id === val);
                     if(idx >= 0)
                     {
                         this.pageIndex = idx;
