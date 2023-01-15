@@ -38,10 +38,10 @@
     "trivialperms": "^1.0.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.21",
-    "@fortawesome/free-brands-svg-icons": "^5.10.1",
-    "@fortawesome/pro-regular-svg-icons": "^5.10.1",
-    "@fortawesome/pro-solid-svg-icons": "^5.10.1",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
+    "@fortawesome/pro-regular-svg-icons": "^6.2.1",
+    "@fortawesome/pro-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "2",
     "@types/express": "^4.17.6",
     "@types/jquery": "^3.5.14",
