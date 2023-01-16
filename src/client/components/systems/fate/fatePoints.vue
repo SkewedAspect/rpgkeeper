@@ -6,10 +6,12 @@
     <div class="d-flex flex-nowrap">
         <b-input-group class="fate-points mr-2">
             <b-form-input v-model.number="current" type="number" min="0" step="1" :readonly="readonly" @change="onChange"></b-form-input>
-            <b-input-group-text slot="append">
-                / &nbsp;
-                <b>{{ refresh }}</b>
-            </b-input-group-text>
+            <template #append>
+                <b-input-group-text>
+                    / &nbsp;
+                    <b>{{ refresh }}</b>
+                </b-input-group-text>
+            </template>
         </b-input-group>
         <b-btn variant="primary" class="text-nowrap" :disabled="readonly" @click="refreshFatePoints()">
             <fa icon="redo"></fa>

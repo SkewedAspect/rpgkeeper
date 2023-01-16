@@ -5,12 +5,14 @@
 <template>
     <rpgk-card id="eote-criticals-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
-        <div slot="header" class="d-flex">
-            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <fa class="mr-1" icon="heart-rate"></fa>
-                <span class="d-none d-md-inline">Criticals</span>
-            </h5>
-        </div>
+        <template #header>
+            <div class="d-flex">
+                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="mr-1" icon="heart-rate"></fa>
+                    <span class="d-none d-md-inline">Criticals</span>
+                </h5>
+            </div>
+        </template>
 
         <!-- Card Body -->
         <b-input-group>

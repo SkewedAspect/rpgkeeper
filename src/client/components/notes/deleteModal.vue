@@ -16,7 +16,7 @@
             @hidden="onHidden"
         >
             <!-- Modal Header -->
-            <template slot="modal-title">
+            <template #modal-title>
                 <fa icon="file-minus"></fa>
                 Delete Page
             </template>
@@ -31,11 +31,11 @@
             </p>
 
             <!-- Modal Buttons -->
-            <template slot="modal-ok">
+            <template #modal-ok>
                 <fa icon="trash-alt"></fa>
                 Delete
             </template>
-            <template slot="modal-cancel">
+            <template #modal-cancel>
                 <fa icon="times"></fa>
                 Cancel
             </template>

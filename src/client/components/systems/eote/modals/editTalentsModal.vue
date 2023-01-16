@@ -15,7 +15,7 @@
             @shown="onShown"
         >
             <!-- Modal Header -->
-            <template slot="modal-title">
+            <template #modal-title>
                 <fa icon="file-edit"></fa>
                 Edit Talents
             </template>
@@ -98,11 +98,11 @@
             </div>
 
             <!-- Modal Buttons -->
-            <template slot="modal-ok">
+            <template #modal-ok>
                 <fa icon="save"></fa>
                 Save
             </template>
-            <template slot="modal-cancel">
+            <template #modal-cancel>
                 <fa icon="times"></fa>
                 Cancel
             </template>

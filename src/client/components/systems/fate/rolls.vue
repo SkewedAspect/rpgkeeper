@@ -6,7 +6,7 @@
     <rpgk-card id="rolls" icon="dice" title="Rolls" fill>
         <!-- Select a skill -->
         <b-form-select v-model="skill" :options="sortedSkills" text-field="display" value-field="name" :disabled="readonly">
-            <template slot="first">
+            <template #first>
                 <option value="No Skill">
                     No Skill
                 </option>

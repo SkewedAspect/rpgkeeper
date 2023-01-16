@@ -16,7 +16,7 @@
             @hidden="onHidden"
         >
             <!-- Modal Header -->
-            <template slot="modal-title">
+            <template #modal-title>
                 <span v-if="isNew">
                     <fa icon="file-plus"></fa>
                     Add
@@ -47,11 +47,11 @@
             </b-form-group>
 
             <!-- Modal Buttons -->
-            <template slot="modal-ok">
+            <template #modal-ok>
                 <fa icon="save"></fa>
                 Save
             </template>
-            <template slot="modal-cancel">
+            <template #modal-cancel>
                 <fa icon="times"></fa>
                 Cancel
             </template>

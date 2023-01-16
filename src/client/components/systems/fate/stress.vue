@@ -4,12 +4,14 @@
 
 <template>
     <rpgk-card id="fate-stress" :class="{ readonly: readonly }" no-body fill>
-        <div slot="header" class="d-flex">
-            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <fa class="mr-1" icon="heart-circle"></fa>
-                <span class="d-none d-md-inline">Physical Stress</span>
-            </h5>
-        </div>
+        <template #header>
+            <div class="d-flex">
+                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="mr-1" icon="heart-circle"></fa>
+                    <span class="d-none d-md-inline">Physical Stress</span>
+                </h5>
+            </div>
+        </template>
 
         <!-- Content -->
         <table class="table stress-table table-bordered mb-0">

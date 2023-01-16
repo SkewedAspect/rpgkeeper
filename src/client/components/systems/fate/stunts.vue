@@ -4,18 +4,20 @@
 
 <template>
     <rpgk-card id="fate-stunts" :class="{ readonly: readonly }" fill>
-        <div slot="header" class="d-flex">
-            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <fa class="mr-1" icon="hand-holding-magic"></fa>
-                <span class="d-none d-md-inline">Stunts</span>
-            </h5>
-            <div v-if="!readonly" class="ml-auto">
-                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEdit()">
-                    <fa icon="edit" fixed-width></fa>
-                    <span class="d-none d-md-inline">Edit</span>
-                </b-btn>
+        <template #header>
+            <div class="d-flex">
+                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="mr-1" icon="hand-holding-magic"></fa>
+                    <span class="d-none d-md-inline">Stunts</span>
+                </h5>
+                <div v-if="!readonly" class="ml-auto">
+                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEdit()">
+                        <fa icon="edit" fixed-width></fa>
+                        <span class="d-none d-md-inline">Edit</span>
+                    </b-btn>
+                </div>
             </div>
-        </div>
+        </template>
 
         <!-- Content -->
         <div class="stunts-content">

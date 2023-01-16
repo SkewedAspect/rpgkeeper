@@ -6,7 +6,7 @@
     <div id="login">
         <!-- Profile dropdown -->
         <b-nav-item-dropdown v-if="account" id="profile-dropdown" :title="account.username" right no-caret>
-            <template slot="button-content">
+            <template #button-content>
                 <b-img v-if="account.avatar" rounded="circle" width="32" height="32" blank-color="#777" :src="account.avatar"></b-img>
                 <fa v-else icon="user-circle" size="2x"></fa>
                 {{ account.name }}

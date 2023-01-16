@@ -42,7 +42,7 @@
         <!-- Notes tabs -->
         <b-tabs v-else v-model="pageIndex" nav-wrapper-class="d-none d-md-block" pills card vertical>
             <b-tab v-for="page in notes.pages" :key="page.id">
-                <template slot="title">
+                <template #title>
                     <fa icon="file-alt"></fa>
                     {{ page.title }}
                 </template>

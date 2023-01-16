@@ -7,7 +7,7 @@
         <b-form-row>
             <!--<b-col cols="12" lg="6" class="mb-3">-->
             <!--<b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100">-->
-            <!--<template slot="header">-->
+            <!--<template #header>-->
             <!--<div class="d-flex">-->
             <!--<h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">-->
             <!--<fa class="mr-1" icon="books"></fa>-->
@@ -22,7 +22,7 @@
             <!--</b-input-group-append>-->
             <!--</b-input-group>-->
             <!--<b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
-            <!--<template slot="button-content">-->
+            <!--<template #button-content>-->
             <!--<fa icon="cog"></fa>-->
             <!--</template>-->
 
@@ -37,7 +37,7 @@
             <b-col cols="12" class="mb-3">
                 <!-- Characters Card -->
                 <b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
-                    <template slot="header">
+                    <template #header>
                         <div class="d-flex">
                             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                                 <fa class="mr-1" icon="users"></fa>
@@ -52,7 +52,7 @@
                                 </b-input-group-append>
                             </b-input-group>
                             <b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right>
-                                <template slot="button-content">
+                                <template #button-content>
                                     <fa icon="cog"></fa>
                                 </template>
 

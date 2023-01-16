@@ -5,18 +5,20 @@
 <template>
     <rpgk-card id="eote-chars-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
-        <div slot="header" class="d-flex">
-            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <fa class="mr-1" icon="fist-raised"></fa>
-                <span class="d-none d-md-inline">Characteristics</span>
-            </h5>
-            <div v-if="!readonly" class="ml-auto">
-                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                    <fa icon="edit" fixed-width></fa>
-                    <span class="d-none d-md-inline">Edit</span>
-                </b-btn>
+        <template #header>
+            <div class="d-flex">
+                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="mr-1" icon="fist-raised"></fa>
+                    <span class="d-none d-md-inline">Characteristics</span>
+                </h5>
+                <div v-if="!readonly" class="ml-auto">
+                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                        <fa icon="edit" fixed-width></fa>
+                        <span class="d-none d-md-inline">Edit</span>
+                    </b-btn>
+                </div>
             </div>
-        </div>
+        </template>
 
         <!-- Card Body -->
         <div class="d-flex flex-wrap align-content-stretch justify-content-start mt-auto mb-auto ml-2 mr-2 pt-1 pb-1">
@@ -30,7 +32,7 @@
                 <h3 class="mt-2 mb-2 text-center">
                     {{ getCharacteristic(char) }}
                 </h3>
-                <template slot="footer">
+                <template #footer>
                     <div class="text-center overflow-hidden">
                         {{ startCase(char) }}
                     </div>

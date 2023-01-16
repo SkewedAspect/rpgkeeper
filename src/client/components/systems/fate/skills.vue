@@ -4,18 +4,20 @@
 
 <template>
     <rpgk-card id="fate-skills" class="ml-2" :class="{ readonly: readonly }" no-body fill>
-        <div slot="header" class="d-flex">
-            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <fa class="mr-1" icon="scroll"></fa>
-                <span class="d-none d-md-inline">Skills</span>
-            </h5>
-            <div v-if="!readonly" class="ml-auto">
-                <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                    <fa icon="edit" fixed-width></fa>
-                    <span class="d-none d-md-inline">Edit</span>
-                </b-btn>
+        <template #header>
+            <div class="d-flex">
+                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="mr-1" icon="scroll"></fa>
+                    <span class="d-none d-md-inline">Skills</span>
+                </h5>
+                <div v-if="!readonly" class="ml-auto">
+                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                        <fa icon="edit" fixed-width></fa>
+                        <span class="d-none d-md-inline">Edit</span>
+                    </b-btn>
+                </div>
             </div>
-        </div>
+        </template>
 
         <!-- Content -->
         <table class="table table-bordered mb-0 font-sm">

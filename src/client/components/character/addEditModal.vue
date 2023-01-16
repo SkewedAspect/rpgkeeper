@@ -17,7 +17,7 @@
             @hidden="onHidden"
         >
             <!-- Modal Header -->
-            <template slot="modal-title">
+            <template #modal-title>
                 <span v-if="isNew">
                     <fa icon="user-plus"></fa>
                     Add
@@ -173,11 +173,11 @@
             </div>
 
             <!-- Modal Buttons -->
-            <template slot="modal-ok">
+            <template #modal-ok>
                 <fa icon="save"></fa>
                 Save
             </template>
-            <template slot="modal-cancel">
+            <template #modal-cancel>
                 <fa icon="times"></fa>
                 Cancel
             </template>

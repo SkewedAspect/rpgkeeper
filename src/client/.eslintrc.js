@@ -65,7 +65,12 @@ module.exports = {
                 switchCase: 1,
                 ignores: []
             }
-        ]
+        ],
+
+        // Disabled because it catches html comments in between component tags
+        'vue/valid-attribute-name': 'off',
+        'vue/valid-model-definition': 'off'
+
     },
     overrides: [
         {

@@ -11,7 +11,7 @@
         :class="classes"
         :no-body="noBody"
     >
-        <template slot="header">
+        <template #header>
             <slot name="header">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mt-1 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                     <fa v-if="icon" class="mr-1" :icon="icon"></fa>
@@ -24,7 +24,7 @@
 
         <slot></slot>
 
-        <template slot="footer">
+        <template v-if="hasFooterSlot" #footer>
             <slot name="footer"></slot>
         </template>
     </b-card>
@@ -104,6 +104,10 @@
             }
         },
         computed: {
+            hasFooterSlot()
+            {
+                return !!this.$slots.footer;
+            },
             classes()
             {
                 // We default these to false so that we can test against it, instead of testing truthiness, because the
