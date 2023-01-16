@@ -11,7 +11,7 @@
             no-close-on-esc
             no-close-on-backdrop
             size="xxl"
-            :ok-disabled="$v.$anyError"
+            :ok-disabled="v$.$anyError"
             @ok="onSave"
             @show="onShow"
             @hidden="onHidden"
@@ -57,7 +57,7 @@
                                         id="char-name"
                                         v-model="name"
                                         :state="validateState('name')"
-                                        @input="$v.name.$touch()"
+                                        @input="v$.name.$touch()"
                                     ></b-form-input>
                                 </b-form-group>
                             </b-col>
@@ -76,7 +76,7 @@
                                         value-field="id"
                                         :disabled="!isNew"
                                         :state="validateState('char.system')"
-                                        @input="$v.char.system.$touch()"
+                                        @input="v$.char.system.$touch()"
                                     ></b-form-select>
                                 </b-form-group>
                             </b-col>
@@ -102,7 +102,7 @@
                                             id="char-portrait"
                                             v-model="portrait"
                                             :state="validateState('portrait')"
-                                            @input="$v.portrait.$touch()"
+                                            @input="v$.portrait.$touch()"
                                         ></b-form-input>
                                         <b-input-group-append>
                                             <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('portrait')">
@@ -127,7 +127,7 @@
                                             id="char-thumbnail"
                                             v-model="thumbnail"
                                             :state="validateState('thumbnail')"
-                                            @input="$v.thumbnail.$touch()"
+                                            @input="v$.thumbnail.$touch()"
                                         ></b-form-input>
                                         <b-input-group-append>
                                             <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('thumbnail')">
@@ -152,7 +152,7 @@
                                 id="char-campaign"
                                 v-model="campaign"
                                 :state="validateState('campaign')"
-                                @input="$v.campaign.$touch()"
+                                @input="v$.campaign.$touch()"
                             ></b-form-input>
                         </b-form-group>
                         <b-form-group
@@ -165,7 +165,7 @@
                                 id="char-desc"
                                 v-model="description"
                                 :state="validateState('description')"
-                                @input="$v.description.$touch()"
+                                @input="v$.description.$touch()"
                             ></b-form-input>
                         </b-form-group>
                     </b-col>
@@ -199,7 +199,8 @@
 
     import { get } from 'lodash';
     import { defineComponent, PropType } from 'vue';
-    // import { required, minLength, maxLength } from 'vuelidate/lib/validators';
+    import { useVuelidate } from '@vuelidate/core';
+    import { required, minLength, maxLength } from '@vuelidate/validators';
 
     // Managers
     import charMan from '../../lib/managers/character';
@@ -245,6 +246,7 @@
         data()
         {
             return {
+                v$: useVuelidate(),
                 name: undefined,
                 color: undefined,
                 portrait: undefined,
@@ -315,14 +317,14 @@
                     this.char.revert();
                 }
 
-                this.$v.$reset();
+                this.v$.$reset();
                 this.$emit('hidden');
             },
             async onSave(bvModalEvent)
             {
-                this.$v.$touch();
+                this.v$.$touch();
 
-                if(!this.$v.$anyError)
+                if(!this.v$.$anyError)
                 {
                     this.saving = true;
 
@@ -348,38 +350,38 @@
             },
             validateState(name)
             {
-                const { $dirty, $error } = get(this.$v, name);
+                const { $dirty, $error } = get(this.v$, name);
                 return $dirty ? !$error : null;
             }
+        },
+        validations: {
+            name: {
+                required,
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
+            portrait: {
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
+            thumbnail: {
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
+            campaign: {
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
+            description: {
+                minLength: minLength(1),
+                maxLength: maxLength(255)
+            },
+            char: {
+                system: {
+                    required
+                }
+            }
         }
-        // validations: {
-        //     name: {
-        //         required,
-        //         minLength: minLength(1),
-        //         maxLength: maxLength(255)
-        //     },
-        //     portrait: {
-        //         minLength: minLength(1),
-        //         maxLength: maxLength(255)
-        //     },
-        //     thumbnail: {
-        //         minLength: minLength(1),
-        //         maxLength: maxLength(255)
-        //     },
-        //     campaign: {
-        //         minLength: minLength(1),
-        //         maxLength: maxLength(255)
-        //     },
-        //     description: {
-        //         minLength: minLength(1),
-        //         maxLength: maxLength(255)
-        //     },
-        //     char: {
-        //         system: {
-        //             required
-        //         }
-        //     }
-        // }
     });
 </script>
 

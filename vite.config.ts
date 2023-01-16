@@ -60,9 +60,7 @@ export default defineConfig({
     resolve: {
         alias: {
             'vue': '@vue/compat',
-            'vue-typeahead-bootstrap': 'vue-typeahead-bootstrap/dist/VueTypeaheadBootstrap.umd.js',
-            'vuelidate/lib/validators': 'vuelidate/dist/validators.min.js',
-            'vuelidate': 'vuelidate/dist/vuelidate.min.js'
+            'vue-typeahead-bootstrap': 'vue-typeahead-bootstrap/dist/VueTypeaheadBootstrap.umd.js'
         }
     },
     build: {

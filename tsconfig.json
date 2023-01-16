@@ -31,7 +31,7 @@
     },
     "files": [
         "src/types/rpgdicejs/index.d.ts",
-        "src/types/vue-color/index.d.ts",
+        "src/types/@ckpack/vue-color/index.d.ts",
         "src/types/vuelidate/index.d.ts",
         "src/server/express-shim.d.ts",
         "package.json",

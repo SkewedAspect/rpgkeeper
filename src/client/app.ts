@@ -16,9 +16,6 @@ import VueRx from 'vue-rx';
 // Bootstrap Vue
 import { BootstrapVue } from 'bootstrap-vue';
 
-// Vuelidate
-import Vuelidate from 'vuelidate';
-
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -42,6 +39,8 @@ import toastUtil from './lib/utils/toast';
 
 // Site Theme
 import './scss/theme.scss';
+import 'codemirror/lib/codemirror.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // Views
 import AppComponent from './app.vue';
@@ -57,21 +56,7 @@ import SettingsPage from './pages/settings.vue';
 // Font Awesome
 // ---------------------------------------------------------------------------------------------------------------------
 
-// FIXME: Why the any cast? Whomst fuckith'd the types, praytell?
-library.add(fab as any, far as any, fas as any);
-
-// ---------------------------------------------------------------------------------------------------------------------
-// VueCodeMirror
-// ---------------------------------------------------------------------------------------------------------------------
-
-import 'codemirror/lib/codemirror.css';
-
-// ---------------------------------------------------------------------------------------------------------------------
-// Bootstrap Vue
-// ---------------------------------------------------------------------------------------------------------------------
-
-// TODO: Needed?
-import 'bootstrap-vue/dist/bootstrap-vue.css';
+library.add(fab, far, fas);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Vue Router
@@ -118,7 +103,7 @@ const app = createApp(AppComponent)
     .component('FaLayers', FontAwesomeLayers)
     // FixMe: Remove VueRX
     .use(VueRx as any)
-    .use(Vuelidate)
+    // .use(Vuelidate)
     .use(VueCodemirror, {
         options: {
             mode: {
@@ -139,7 +124,7 @@ const app = createApp(AppComponent)
 // Marked Setup
 //----------------------------------------------------------------------------------------------------------------------
 
-// Configure the marked markdown parser
+// Configure the marked Markdown parser
 const renderer = new marked.Renderer();
 renderer.table = function(header, body)
 {

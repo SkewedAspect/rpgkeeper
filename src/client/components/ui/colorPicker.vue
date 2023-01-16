@@ -41,7 +41,7 @@
     import { defineComponent } from 'vue';
 
     // Components
-    import { Sketch } from 'vue-color';
+    import { Sketch } from '@ckpack/vue-color';
 
     //------------------------------------------------------------------------------------------------------------------
 
