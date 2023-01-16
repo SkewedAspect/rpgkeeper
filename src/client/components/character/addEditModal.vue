@@ -199,7 +199,7 @@
 
     import { get } from 'lodash';
     import { defineComponent, PropType } from 'vue';
-    import { required, minLength, maxLength } from 'vuelidate/lib/validators';
+    // import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
     // Managers
     import charMan from '../../lib/managers/character';
@@ -351,35 +351,35 @@
                 const { $dirty, $error } = get(this.$v, name);
                 return $dirty ? !$error : null;
             }
-        },
-        validations: {
-            name: {
-                required,
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            portrait: {
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            thumbnail: {
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            campaign: {
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            description: {
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            char: {
-                system: {
-                    required
-                }
-            }
         }
+        // validations: {
+        //     name: {
+        //         required,
+        //         minLength: minLength(1),
+        //         maxLength: maxLength(255)
+        //     },
+        //     portrait: {
+        //         minLength: minLength(1),
+        //         maxLength: maxLength(255)
+        //     },
+        //     thumbnail: {
+        //         minLength: minLength(1),
+        //         maxLength: maxLength(255)
+        //     },
+        //     campaign: {
+        //         minLength: minLength(1),
+        //         maxLength: maxLength(255)
+        //     },
+        //     description: {
+        //         minLength: minLength(1),
+        //         maxLength: maxLength(255)
+        //     },
+        //     char: {
+        //         system: {
+        //             required
+        //         }
+        //     }
+        // }
     });
 </script>
 
