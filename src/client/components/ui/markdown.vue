@@ -22,13 +22,13 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     import { marked } from 'marked';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'MarkdownBlock',
         props: {
             text: {

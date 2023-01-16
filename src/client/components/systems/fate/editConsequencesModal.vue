@@ -36,7 +36,7 @@
                             </b-button>
                         </b-input-group-append>
                     </b-input-group>
-                    <b-button class="ml-2 text-nowrap" :pressed.sync="mildHealing1" :disabled="!mildDetail1">
+                    <b-button v-model:pressed="mildHealing1" class="ml-2 text-nowrap" :disabled="!mildDetail1">
                         <fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </b-button>
@@ -58,7 +58,7 @@
                             </b-button>
                         </b-input-group-append>
                     </b-input-group>
-                    <b-button class="ml-2 text-nowrap" :pressed.sync="mildHealing2" :disabled="!mildDetail2">
+                    <b-button v-model:pressed="mildHealing2" class="ml-2 text-nowrap" :disabled="!mildDetail2">
                         <fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </b-button>
@@ -79,7 +79,7 @@
                             </b-button>
                         </b-input-group-append>
                     </b-input-group>
-                    <b-button class="ml-2 text-nowrap" :pressed.sync="moderateHealing" :disabled="!moderateDetail">
+                    <b-button v-model:pressed="moderateHealing" class="ml-2 text-nowrap" :disabled="!moderateDetail">
                         <fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </b-button>
@@ -100,7 +100,7 @@
                             </b-button>
                         </b-input-group-append>
                     </b-input-group>
-                    <b-button class="ml-2 text-nowrap" :pressed.sync="severeHealing" :disabled="!severeDetail">
+                    <b-button v-model:pressed="severeHealing" class="ml-2 text-nowrap" :disabled="!severeDetail">
                         <fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </b-button>
@@ -132,7 +132,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -140,7 +140,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'EditConsequenceModal',
         subscriptions()
         {

@@ -38,7 +38,7 @@
             &copy; 2015 - {{ currentYear }} Skewed Aspect Studios. All rights reserved.
         </p>
         <div class="mb-2">
-            v{{ version }}
+            v{{ appVersion }}
         </div>
     </footer>
 </template>
@@ -73,29 +73,17 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
 
-    import Vue from 'vue';
+    import { computed } from 'vue';
+
+    // FIXME: THIS IS AWFUL
     import { version } from '../../../../package.json';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'SiteFooter',
-        data()
-        {
-            return {
-                version
-            };
-        },
-        computed: {
-            currentYear()
-            {
-                return (new Date()).getFullYear();
-            }
-        }
-    });
+    const appVersion = computed(() => version);
+    const currentYear = computed(() => (new Date()).getFullYear());
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

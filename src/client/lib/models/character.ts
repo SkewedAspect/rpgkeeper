@@ -15,24 +15,24 @@ import { markNonConfigurable } from '../utils/nonreactive';
 
 class CharacterModel<SystemDetails extends Record<string, unknown> = Record<string, unknown>>
 {
-    #state : Partial<Character<SystemDetails>>;
-    #refState : Partial<Character<SystemDetails>>;
-    #sysDefaults : Record<string, unknown>;
+    private _state : Partial<Character<SystemDetails>>;
+    private _refState : Partial<Character<SystemDetails>>;
+    private _sysDefaults : Record<string, unknown>;
 
     constructor(def : Partial<Character<SystemDetails>>, sysDefaults : Record<string, unknown> = {})
     {
         // Save off the defaults for the system specific portion.
-        this.#sysDefaults = _.cloneDeep(sysDefaults);
+        this._sysDefaults = _.cloneDeep(sysDefaults);
 
         // Set some defaults
-        this.#state = { ...this.$defaults };
-        this.#refState = { ...this.$defaults };
+        this._state = { ...this.$defaults };
+        this._refState = { ...this.$defaults };
 
         // Set our properties
         this.update(def);
 
         // Mark the ref state as non-configurable, so vue ignores it.
-        markNonConfigurable(this, '#refState');
+        markNonConfigurable(this, '_refState');
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -50,19 +50,19 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
             thumbnail: '',
             color: colorize(shortID()),
             campaign: '',
-            details: this.#sysDefaults as SystemDetails,
+            details: this._sysDefaults as SystemDetails,
             accountID: undefined,
             noteID: undefined
         };
     }
 
-    get dirty() : boolean { return !_.isEqual(this.#state, this.#refState); }
-    get original() : Partial<Character<SystemDetails>> { return { ...this.#refState }; }
+    get dirty() : boolean { return !_.isEqual(this._state, this._refState); }
+    get original() : Partial<Character<SystemDetails>> { return { ...this._refState }; }
 
-    get id() : string | undefined { return this.#state.id; }
-    get details() : SystemDetails { return this.#state.details ?? {} as SystemDetails; }
-    get accountID() : string | undefined { return this.#state.accountID; }
-    get noteID() : string | undefined { return this.#state.noteID; }
+    get id() : string | undefined { return this._state.id; }
+    get details() : SystemDetails { return this._state.details ?? {} as SystemDetails; }
+    get accountID() : string | undefined { return this._state.accountID; }
+    get noteID() : string | undefined { return this._state.noteID; }
     get initial() : string
     {
         if(this.name)
@@ -78,20 +78,20 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
         }
     }
 
-    get system() : string | undefined { return this.#state.system; }
-    set system(val : string | undefined) { this.#state.system = val; }
-    get name() : string | undefined { return this.#state.name; }
-    set name(val : string | undefined) { this.#state.name = val; }
-    get description() : string | undefined { return this.#state.description; }
-    set description(val : string | undefined) { this.#state.description = val; }
-    get portrait() : string | undefined { return this.#state.portrait; }
-    set portrait(val : string | undefined) { this.#state.portrait = val; }
-    get thumbnail() : string | undefined { return this.#state.thumbnail; }
-    set thumbnail(val : string | undefined) { this.#state.thumbnail = val; }
-    get color() : string | undefined { return this.#state.color; }
-    set color(val : string | undefined) { this.#state.color = val; }
-    get campaign() : string | undefined { return this.#state.campaign; }
-    set campaign(val : string | undefined) { this.#state.campaign = val; }
+    get system() : string | undefined { return this._state.system; }
+    set system(val : string | undefined) { this._state.system = val; }
+    get name() : string | undefined { return this._state.name; }
+    set name(val : string | undefined) { this._state.name = val; }
+    get description() : string | undefined { return this._state.description; }
+    set description(val : string | undefined) { this._state.description = val; }
+    get portrait() : string | undefined { return this._state.portrait; }
+    set portrait(val : string | undefined) { this._state.portrait = val; }
+    get thumbnail() : string | undefined { return this._state.thumbnail; }
+    set thumbnail(val : string | undefined) { this._state.thumbnail = val; }
+    get color() : string | undefined { return this._state.color; }
+    set color(val : string | undefined) { this._state.color = val; }
+    get campaign() : string | undefined { return this._state.campaign; }
+    set campaign(val : string | undefined) { this._state.campaign = val; }
 
     //------------------------------------------------------------------------------------------------------------------
     // Model API
@@ -99,7 +99,7 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
 
     revert() : void
     {
-        this.#state = _.cloneDeep(this.#refState);
+        this._state = _.cloneDeep(this._refState);
     }
 
     update(def : Partial<Character<SystemDetails>>) : void
@@ -107,26 +107,26 @@ class CharacterModel<SystemDetails extends Record<string, unknown> = Record<stri
         // TODO: Decide if this is even worth it, as it's caused bugs in the past. It basically means that if a user
         // deletes something, it reverts back to the default, instead of staying removed. I don't think that's right.
         const defaults = _.cloneDeep(this.$defaults);
-        this.#state = _.assign({}, defaults, _.cloneDeep(def));
-        this.#refState = _.assign({}, defaults, _.cloneDeep(def));
+        this._state = _.assign({}, defaults, _.cloneDeep(def));
+        this._refState = _.assign({}, defaults, _.cloneDeep(def));
     }
 
     updateSysDefaults(sysDef : SystemDetails) : void
     {
-        this.#sysDefaults = sysDef;
+        this._sysDefaults = sysDef;
 
         // We only update the details if this is a 'new' instance of a character, otherwise we would be overwriting
         // user data, a bug that lead directly to this code.
         if(!this.id)
         {
-            this.#refState.details = _.cloneDeep(sysDef);
-            this.#state.details = _.cloneDeep(sysDef);
+            this._refState.details = _.cloneDeep(sysDef);
+            this._state.details = _.cloneDeep(sysDef);
         }
     }
 
     toJSON() : Partial<Character<SystemDetails>>
     {
-        return _.cloneDeep(this.#state);
+        return _.cloneDeep(this._state);
     }
 }
 

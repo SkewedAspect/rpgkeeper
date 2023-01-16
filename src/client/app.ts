@@ -2,8 +2,8 @@
 // Main Client-side Application
 //----------------------------------------------------------------------------------------------------------------------
 
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
 import { marked } from 'marked';
 import { version } from '../../package.json';
 
@@ -14,7 +14,7 @@ import VueCodemirror from 'vue-codemirror';
 import VueRx from 'vue-rx';
 
 // Bootstrap Vue
-import BootstrapVue from 'bootstrap-vue';
+import { BootstrapVue } from 'bootstrap-vue';
 
 // Vuelidate
 import Vuelidate from 'vuelidate';
@@ -60,56 +60,25 @@ import SettingsPage from './pages/settings.vue';
 // FIXME: Why the any cast? Whomst fuckith'd the types, praytell?
 library.add(fab as any, far as any, fas as any);
 
-// eslint-disable-next-line vue/multi-word-component-names
-Vue.component('Fa', FontAwesomeIcon);
-Vue.component('FaLayers', FontAwesomeLayers);
-
 // ---------------------------------------------------------------------------------------------------------------------
 // VueCodeMirror
 // ---------------------------------------------------------------------------------------------------------------------
 
 import 'codemirror/lib/codemirror.css';
 
-Vue.use(VueCodemirror, {
-    options: {
-        mode: {
-            name: 'gfm',
-            gitHubSpice: false
-        },
-        lineNumbers: false,
-        lineWrapping: true,
-        theme: 'default'
-    }
-});
-
-// ---------------------------------------------------------------------------------------------------------------------
-// VueRX
-// ---------------------------------------------------------------------------------------------------------------------
-
-Vue.use(VueRx);
-
-// ---------------------------------------------------------------------------------------------------------------------
-// Vuelidate
-// ---------------------------------------------------------------------------------------------------------------------
-
-Vue.use(Vuelidate);
-
 // ---------------------------------------------------------------------------------------------------------------------
 // Bootstrap Vue
 // ---------------------------------------------------------------------------------------------------------------------
 
+// TODO: Needed?
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-
-Vue.use(BootstrapVue);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Vue Router
 //----------------------------------------------------------------------------------------------------------------------
 
-Vue.use(VueRouter);
-
-const router = new VueRouter({
-    mode: 'history',
+const router = createRouter({
+    history: createWebHistory(),
     routes: [
         { path: '/', name: 'home', component: HomePage },
         { path: '/about', name: 'about', component: AboutPage },
@@ -123,31 +92,48 @@ const router = new VueRouter({
 // Setup Vue App
 //----------------------------------------------------------------------------------------------------------------------
 
-Vue.config.ignoredElements = [
-    'proficiency',
-    'ability',
-    'boost',
-    'force',
-    'challenge',
-    'difficulty',
-    'setback',
-    'success',
-    'advantage',
-    'triumph',
-    'light-side',
-    'force-point',
-    'failure',
-    'threat',
-    'despair',
-    'dark-side'
-];
+// TODO: Do I need to still handle these?
+// Vue.config.ignoredElements = [
+//     'proficiency',
+//     'ability',
+//     'boost',
+//     'force',
+//     'challenge',
+//     'difficulty',
+//     'setback',
+//     'success',
+//     'advantage',
+//     'triumph',
+//     'light-side',
+//     'force-point',
+//     'failure',
+//     'threat',
+//     'despair',
+//     'dark-side'
+// ];
 
 // Setup app component
-const App = Vue.component('App', AppComponent);
-const root = new App({
-    el: '#rpgkeeper',
-    router
-});
+const app = createApp(AppComponent)
+    .component('Fa', FontAwesomeIcon)
+    .component('FaLayers', FontAwesomeLayers)
+    // FixMe: Remove VueRX
+    .use(VueRx as any)
+    .use(Vuelidate)
+    .use(VueCodemirror, {
+        options: {
+            mode: {
+                name: 'gfm',
+                gitHubSpice: false
+            },
+            lineNumbers: false,
+            lineWrapping: true,
+            theme: 'default'
+        }
+    })
+    // FixMe: Why does this not work?
+    .use(BootstrapVue as any)
+    .use(router)
+    .mount('#rpgkeeper');
 
 //----------------------------------------------------------------------------------------------------------------------
 // Marked Setup
@@ -184,13 +170,13 @@ marked.setOptions({
 // App Initialization
 //----------------------------------------------------------------------------------------------------------------------
 
-/**
- *
- */
 async function init() : Promise<void>
 {
-    // Setup Utils
-    toastUtil.setVueRoot(root);
+    if(app)
+    {
+        // Setup Utils
+        toastUtil.setVueRoot(app);
+    }
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

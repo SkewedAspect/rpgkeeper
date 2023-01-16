@@ -25,23 +25,25 @@
 
             <!-- FIXME: This needs to be refactored so as to not use a v-for and v-if -->
             <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
-            <section v-for="rank in ranks" v-if="filterRankSkills(rank.value).length > 0" :key="rank.text" class="skill-group mb-3">
-                <h5 class="mb-0">
-                    {{ rank.text }}
-                </h5>
-                <hr class="mt-1" />
-                <div v-if="filterRankSkills(rank.value).length < 1">
-                    <h6 class="mb-0 text-center">
-                        No skills.
-                    </h6>
-                </div>
-                <div v-for="skill in filterRankSkills(rank.value)" :key="skill.name" class="d-flex mb-2">
-                    <b-form-input v-model="skill.name"></b-form-input>
-                    <b-form-select v-model="skill.rank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></b-form-select>
-                    <b-btn variant="danger" class="ml-2" @click="removeSkill(skill)">
-                        <fa icon="trash-alt"></fa>
-                    </b-btn>
-                </div>
+            <section v-for="rank in ranks" :key="rank.text" class="skill-group mb-3">
+                <template v-if="filterRankSkills(rank.value).length > 0">
+                    <h5 class="mb-0">
+                        {{ rank.text }}
+                    </h5>
+                    <hr class="mt-1" />
+                    <div v-if="filterRankSkills(rank.value).length < 1">
+                        <h6 class="mb-0 text-center">
+                            No skills.
+                        </h6>
+                    </div>
+                    <div v-for="skill in filterRankSkills(rank.value)" :key="skill.name" class="d-flex mb-2">
+                        <b-form-input v-model="skill.name"></b-form-input>
+                        <b-form-select v-model="skill.rank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></b-form-select>
+                        <b-btn variant="danger" class="ml-2" @click="removeSkill(skill)">
+                            <fa icon="trash-alt"></fa>
+                        </b-btn>
+                    </div>
+                </template>
             </section>
 
             <hr />
@@ -86,7 +88,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -94,7 +96,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'EditSkillsModal',
         props: {
             value: {
@@ -102,6 +104,7 @@
                 required: true
             }
         },
+        emits: [ 'input' ],
         data()
         {
             return {

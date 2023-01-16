@@ -198,7 +198,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import { get } from 'lodash';
-    import Vue, { PropType } from 'vue';
+    import { defineComponent, PropType } from 'vue';
     import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
     // Managers
@@ -219,7 +219,7 @@
     //------------------------------------------------------------------------------------------------------------------
     /* eslint vue/no-mutating-props: "off" */
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'AddEditModal',
         components: {
             ColorPicker,
@@ -241,6 +241,7 @@
                 allSystems: systemsMan.systems$
             };
         },
+        emits: [ 'hidden' ],
         data()
         {
             return {

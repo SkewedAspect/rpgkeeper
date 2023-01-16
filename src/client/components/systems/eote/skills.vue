@@ -216,7 +216,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -229,7 +229,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'EotESkillsBlock',
         components: {
             RpgkCard,
@@ -248,6 +248,7 @@
                 mode: eoteMan.mode$
             };
         },
+        emits: [ 'roll' ],
         data()
         {
             return {

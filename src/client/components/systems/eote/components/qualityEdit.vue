@@ -57,7 +57,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -73,7 +73,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'EoteQualityEdit',
         components: {
             DeleteModal,
@@ -96,6 +96,7 @@
                 qualities: eoteMan.qualities$
             };
         },
+        emits: [ 'input' ],
         data()
         {
             return {

@@ -81,7 +81,7 @@
         >
             <pool
                 v-model="character.details.luckyShots.current"
-                :max.sync="character.details.luckyShots.max"
+                v-model:max="character.details.luckyShots.max"
                 name="Lucky Shots"
                 :disabled="readonly"
             ></pool>
@@ -110,7 +110,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
     import _ from 'lodash';
 
     // Managers
@@ -124,7 +124,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'RisusBioCard',
         components: {
             EditBioModal,

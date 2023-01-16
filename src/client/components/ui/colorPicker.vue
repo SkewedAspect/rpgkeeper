@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-btn ref="colorBtn" v-bind="$attrs" v-on="$listeners">
+    <b-btn v-bind="$attrs" ref="colorBtn">
         <span class="color-block" :style="{ 'background-color': internalColor }">&nbsp;</span>
         <b-popover :target="() => $refs.colorBtn" triggers="click blur">
             <sketch-color-picker
@@ -38,14 +38,14 @@
 <script lang="ts">
 //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Components
     import { Sketch } from 'vue-color';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'ColorInput',
         components: {
             sketchColorPicker: Sketch
@@ -72,6 +72,7 @@
                 default: false
             }
         },
+        emits: [ 'change' ],
         data()
         {
             return {

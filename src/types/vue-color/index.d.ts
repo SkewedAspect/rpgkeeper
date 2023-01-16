@@ -4,25 +4,25 @@
 
 declare module 'vue-color'
 {
-    import Vue from 'vue';
+    import { Component } from 'vue';
 
     export const version : string;
 
-    export class Compact extends Vue {}
+    export const Compact : Component;
 
-    export class Material extends Vue {}
+    export const Material : Component;
 
-    export class Slider extends Vue {}
+    export const Slider : Component;
 
-    export class Swatches extends Vue {}
+    export const Swatches : Component;
 
-    export class Photoshop extends Vue {}
+    export const Photoshop : Component;
 
-    export class Sketch extends Vue {}
+    export const Sketch : Component;
 
-    export class Twitter extends Vue {}
+    export const Twitter : Component;
 
-    export class Chrome extends Vue {}
+    export const Chrome : Component;
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

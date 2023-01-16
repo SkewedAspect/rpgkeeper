@@ -48,14 +48,14 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Managers
     import notesMan from '../../lib/managers/notebook';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'DeletePageModal',
         props: {
             value: {
@@ -63,6 +63,7 @@
                 default: undefined
             }
         },
+        emits: [ 'hidden' ],
         computed: {
             showModal: {
                 get() { return !!this.value; },

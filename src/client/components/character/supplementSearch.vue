@@ -58,14 +58,14 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Components
     import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'SupplementSearch',
         components: {
             VueTypeaheadBootstrap
@@ -84,6 +84,7 @@
                 default: (suppA, suppB) => suppA.name.localeCompare(suppB.name)
             }
         },
+        emits: [ 'add' ],
         data()
         {
             return {

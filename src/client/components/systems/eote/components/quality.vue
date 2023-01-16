@@ -32,7 +32,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Utils
     import { shortID } from '../../../../../common/utils/misc';
@@ -46,7 +46,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'EoteQuality',
         components: { MarkdownBlock, Reference },
         props: {

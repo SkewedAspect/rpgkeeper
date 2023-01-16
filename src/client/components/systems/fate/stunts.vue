@@ -49,7 +49,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
     import _ from 'lodash';
 
     // Components
@@ -59,7 +59,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'FateStuntsCard',
         components: {
             RpgkCard,
@@ -76,6 +76,7 @@
                 default: false
             }
         },
+        emits: [ 'input' ],
         computed: {
             stunts: {
                 get() { return _.orderBy(this.value, [ 'title' ], [ 'asc' ]); },

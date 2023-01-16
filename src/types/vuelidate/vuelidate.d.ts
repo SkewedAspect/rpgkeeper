@@ -1,5 +1,5 @@
 import { ValidationParams } from './lib/validators';
-import Vue, { PluginFunction } from 'vue';
+import Vue, { Plugin } from 'vue';
 
 /**
  * Covers beforeCreate(), beforeDestroy() and data().
@@ -9,6 +9,8 @@ import Vue, { PluginFunction } from 'vue';
 export const validationMixin : any;
 
 // const Validation
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export interface Validation extends Vue {
     $model : any
     // const validationGetters
@@ -27,4 +29,4 @@ export interface Validation extends Vue {
 }
 
 // vue plugin
-export const Vuelidate : PluginFunction<any>;
+export const Vuelidate : Plugin;

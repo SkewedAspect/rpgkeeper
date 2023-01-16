@@ -50,7 +50,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';
@@ -60,7 +60,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'RisusRollsCard',
         components: {
             RpgkCard

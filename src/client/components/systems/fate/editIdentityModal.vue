@@ -73,14 +73,14 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Managers
     import charMan from '../../../lib/managers/character';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'EditIdentityModal',
         props: {
             value: {
@@ -94,6 +94,7 @@
                 character: charMan.selected$
             };
         },
+        emits: [ 'input' ],
         computed: {
             showModal: {
                 get() { return this.value; },

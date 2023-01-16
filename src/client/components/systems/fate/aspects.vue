@@ -84,7 +84,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
     import _ from 'lodash';
 
     // Components
@@ -93,7 +93,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'FateAspectsCard',
         components: {
             EditAspectsModal,
@@ -109,6 +109,7 @@
                 default: false
             }
         },
+        emits: [ 'input' ],
         computed: {
             aspects: {
                 get() { return this.value; },

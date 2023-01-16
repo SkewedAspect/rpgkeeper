@@ -94,14 +94,14 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Managers
     import charMan from '../../lib/managers/character';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'DicePool',
         model: {
             prop: 'current',
@@ -145,6 +145,7 @@
                 default: false
             }
         },
+        emits: { 'update': Number, 'update:max': Number },
         data()
         {
             return {

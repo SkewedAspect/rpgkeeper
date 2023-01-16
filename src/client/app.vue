@@ -4,9 +4,9 @@
 
 <template>
     <div id="app">
-        <site-header></site-header>
+        <SiteHeader></SiteHeader>
         <router-view></router-view>
-        <site-footer></site-footer>
+        <SiteFooter></SiteFooter>
     </div>
 </template>
 
@@ -20,23 +20,9 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-	//------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
-
-    // Components
-    import SiteHeader from './components/ui/header.vue';
-    import SiteFooter from './components/ui/footer.vue';
-
-    //------------------------------------------------------------------------------------------------------------------
-
-    export default Vue.extend({
-        components: {
-            siteHeader: SiteHeader,
-            siteFooter: SiteFooter
-        }
-    });
+<script lang="ts" setup>
+    import SiteHeader from './components/ui/siteHeader.vue';
+    import SiteFooter from './components/ui/siteFooter.vue';
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

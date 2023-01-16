@@ -44,7 +44,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Components
     import RpgkCard from '../../ui/card.vue';
@@ -53,7 +53,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'FateExtrasCard',
         components: {
             RpgkCard,

@@ -84,31 +84,31 @@
 
         <b-btn-group class="w-100">
             <b-btn
+                v-model:pressed="health.staggered"
                 v-b-tooltip.hover.html
                 :variant="health.staggered ? 'warning' : 'outline-secondary'"
                 size="sm"
                 :title="staggeredText"
-                :pressed.sync="health.staggered"
                 @click="saveChar"
             >
                 Stagg.
             </b-btn>
             <b-btn
+                v-model:pressed="health.immobilized"
                 v-b-tooltip.hover.html
                 :variant="health.immobilized ? 'warning' : 'outline-secondary'"
                 size="sm"
                 :title="immobilizedText"
-                :pressed.sync="health.immobilized"
                 @click="saveChar"
             >
                 Immob.
             </b-btn>
             <b-btn
+                v-model:pressed="health.disoriented"
                 v-b-tooltip.hover.html
                 :variant="health.disoriented ? 'warning' : 'outline-secondary'"
                 size="sm"
                 :title="disorientedText"
-                :pressed.sync="health.disoriented"
                 @click="saveChar"
             >
                 Disor.
@@ -132,7 +132,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Managers
     import charMan from '../../../lib/managers/character';
@@ -144,7 +144,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'EotEWounsdBlock',
         components: {
             RpgkCard,

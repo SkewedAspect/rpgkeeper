@@ -61,7 +61,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
     import _ from 'lodash';
 
     // Components
@@ -70,7 +70,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'FateSkillsCard',
         components: {
             EditSkillsModal,
@@ -86,6 +86,7 @@
                 default: false
             }
         },
+        emits: [ 'input' ],
         computed: {
             skills: {
                 get() { return _.orderBy(this.value, [ 'rank', 'name' ], [ 'desc', 'asc' ]); },

@@ -2,19 +2,27 @@
 // Vite Config
 //----------------------------------------------------------------------------------------------------------------------
 
-import path from 'path';
 import { defineConfig } from 'vite';
 
 // Vite Plugins
-import { createVuePlugin } from 'vite-plugin-vue2';
+import vue from '@vitejs/plugin-vue';
 
 //----------------------------------------------------------------------------------------------------------------------
 
+/** @type {import('vite').UserConfig} */
 export default defineConfig({
     root: 'src/client',
     publicDir: 'assets',
     plugins: [
-        createVuePlugin()
+        vue({
+            template: {
+                compilerOptions: {
+                    compatConfig: {
+                        MODE: 2
+                    }
+                }
+            }
+        })
     ],
 
     // Remove charset warning caused by bootstrap
@@ -50,32 +58,12 @@ export default defineConfig({
         open: false
     },
     resolve: {
-        alias: [
-            {
-                find: /~(.+)/,
-                replacement: path.join(process.cwd(), 'node_modules/$1')
-            },
-            {
-                find: 'bootstrap-vue$',
-                replacement: 'bootstrap-vue/src/index.js'
-            },
-            {
-                find: 'vue',
-                replacement: 'vue/dist/vue.esm.js'
-            },
-            {
-                find: 'vue-typeahead-bootstrap',
-                replacement: 'vue-typeahead-bootstrap/dist/VueTypeaheadBootstrap.umd.js'
-            },
-            {
-                find: 'vuelidate/lib/validators',
-                replacement: 'vuelidate/dist/validators.min.js'
-            },
-            {
-                find: 'vuelidate',
-                replacement: 'vuelidate/dist/vuelidate.min.js'
-            }
-        ]
+        alias: {
+            'vue': '@vue/compat',
+            'vue-typeahead-bootstrap': 'vue-typeahead-bootstrap/dist/VueTypeaheadBootstrap.umd.js',
+            'vuelidate/lib/validators': 'vuelidate/dist/validators.min.js',
+            'vuelidate': 'vuelidate/dist/vuelidate.min.js'
+        }
     },
     build: {
         outDir: '../../dist/src/client',

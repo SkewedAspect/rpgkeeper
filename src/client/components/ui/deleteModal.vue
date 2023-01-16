@@ -48,11 +48,11 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import _ from 'lodash';
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'DeleteThingModal',
         props: {
             type: {
@@ -64,6 +64,7 @@
                 default: undefined
             }
         },
+        emits: [ 'hidden', 'delete' ],
         computed: {
             title() { return `Delete ${ _.capitalize(this.type) }`; }
         },

@@ -74,7 +74,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue, { PropType } from 'vue';
+    import { defineComponent, PropType } from 'vue';
 
     // Models
     import CharacterModel from '../../lib/models/character';
@@ -84,7 +84,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'AddEditPageModal',
         props: {
             value: {
@@ -92,6 +92,7 @@
                 default: undefined
             }
         },
+        emits: [ 'hidden' ],
         computed: {
             showModal: {
                 get() { return !!this.value; },

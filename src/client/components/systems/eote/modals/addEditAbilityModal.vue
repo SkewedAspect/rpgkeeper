@@ -71,7 +71,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Managers
     import charMan from '../../../../lib/managers/character';
@@ -82,7 +82,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'AddAbilityModal',
         components: {
             EditReference
@@ -94,6 +94,7 @@
                 mode: eoteMan.mode$
             };
         },
+        emits: [ 'edit', 'add' ],
         data()
         {
             return {

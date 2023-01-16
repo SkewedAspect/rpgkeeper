@@ -84,7 +84,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Managers
     import eoteMan from '../../../../lib/managers/eote';
@@ -95,7 +95,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'AddQualityModal',
         components: {
             EditReference
@@ -107,6 +107,7 @@
                 mode: eoteMan.mode$
             };
         },
+        emits: [ 'edit', 'add' ],
         data()
         {
             return {

@@ -118,7 +118,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Components
     import SupplementSearch from './supplementSearch.vue';
@@ -127,7 +127,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'SupplementSelect',
         components: {
             MarkdownBlock,
@@ -160,6 +160,7 @@
                 default: (suppA, suppB) => suppA.name.localeCompare(suppB.name)
             }
         },
+        emits: [ 'edit', 'delete', 'new', 'remove', 'add' ],
         data()
         {
             return {

@@ -61,7 +61,7 @@
                                         :id="`checkbox-${ index }`"
                                         v-model="systemsFilter[index]"
                                         :value="system.id"
-                                        @click.native.stop
+                                        @click.stop
                                     >
                                         {{ system.name }}
                                         <b-badge
@@ -161,8 +161,7 @@
 <script lang="ts">
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-    import Vue from 'vue';
+    import { defineComponent } from 'vue';
 
     // Managers
     import authMan from '../lib/managers/auth';
@@ -177,7 +176,7 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
+    export default defineComponent({
         name: 'DashboardPage',
         components: {
             AddEditModal,
@@ -215,17 +214,16 @@
             systems() { return this.allSystems; },
             characters()
             {
-                return _(this.characterList)
-                    .filter({ accountID: (this.account || { id: undefined }).id })
+                return this.characterList
+                    .filter((char) => char.accountID == (this.account || { id: undefined }).id)
                     .filter((char) =>
                     {
-                        return _.includes(this.systemsFilter, char.system);
+                        return this.systemsFilter.includes(char.system);
                     })
                     .filter((char) =>
                     {
                         return !this.charFilter || char.name.toLowerCase().includes(this.charFilter.toLocaleLowerCase());
-                    })
-                    .value();
+                    });
             }
         },
         mounted()
@@ -252,7 +250,7 @@
         methods: {
             getSystem(systemID)
             {
-                return _.find(this.systems, { id: systemID });
+                return this.systems.find((system) => system.id === systemID);
             },
             getStatusDisplay(desc)
             {

@@ -2,12 +2,12 @@
 // Toast Utility
 // ---------------------------------------------------------------------------------------------------------------------
 
-import Vue, { VNode } from 'vue';
+import { Component, VNode, h } from 'vue';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 type bvToastMixin = { $bvToast : { toast : (m : string | VNode[], o : Record<string, unknown>) => void } };
-type VueRoot = Vue & bvToastMixin;
+type VueRoot = Component & bvToastMixin;
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -22,9 +22,9 @@ class ToastUtil
 
     // -----------------------------------------------------------------------------------------------------------------
 
-    setVueRoot(vueRoot : VueRoot) : void
+    setVueRoot(vueRoot : Component) : void
     {
-        this.#vueRoot = vueRoot;
+        this.#vueRoot = vueRoot as VueRoot;
     }
 
     toast(message : string | VNode[], options : Record<string, unknown>) : void
@@ -60,12 +60,11 @@ class ToastUtil
     {
         if(this.#vueRoot)
         {
-            const html = this.#vueRoot.$createElement;
-            const msgVNodes = html(
+            const msgVNodes = h(
                 'div',
                 {},
                 [
-                    html('b', {}, [ ' Success! ' ]),
+                    h('b', {}, [ ' Success! ' ]),
                     ` ${ message }`
                 ]
             );
@@ -85,12 +84,11 @@ class ToastUtil
     {
         if(this.#vueRoot)
         {
-            const html = this.#vueRoot.$createElement;
-            const msgVNodes = html(
+            const msgVNodes = h(
                 'div',
                 {},
                 [
-                    html('b', {}, [ ' Warning! ' ]),
+                    h('b', {}, [ ' Warning! ' ]),
                     ` ${ message }`
                 ]
             );
@@ -110,12 +108,11 @@ class ToastUtil
     {
         if(this.#vueRoot)
         {
-            const html = this.#vueRoot.$createElement;
-            const msgVNodes = html(
+            const msgVNodes = h(
                 'div',
                 {},
                 [
-                    html('b', {}, [ ' Error! ' ]),
+                    h('b', {}, [ ' Error! ' ]),
                     ` ${ message }`
                 ]
             );
