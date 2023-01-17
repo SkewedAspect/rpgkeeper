@@ -5,13 +5,21 @@
 <template>
     <div class="settings-page container pt-3">
         <!-- Loading -->
-        <loading v-if="accountStatus === 'unknown'" text="Account Loading..."></loading>
+        <loading v-if="!account" text="Account Loading..."></loading>
 
         <!-- Once loaded -->
-        <div v-else-if="accountStatus === 'signed in'">
+        <div v-else>
             <!-- Giant Avatar Picture of Doom -->
             <div class="avatar-holder">
-                <b-img rounded="circle" width="128" height="128" :src="account.avatarUrl" :alt="account.name" class="m-1" center></b-img>
+                <b-img
+                    rounded="circle"
+                    width="128"
+                    height="128"
+                    :src="account.avatarUrl"
+                    :alt="account.displayName"
+                    class="m-1"
+                    center
+                ></b-img>
                 <h4 class="text-center">
                     {{ account.email }}
                 </h4>
@@ -21,7 +29,7 @@
             <b-form-row class="mb-4">
                 <b-col offset="1" cols="10" offset-md="3" md="6" offset-lg="4" lg="4">
                     <b-input-group>
-                        <b-form-input v-model="accountName" placeholder="Display Name"></b-form-input>
+                        <b-form-input v-model="account.name" placeholder="Display Name"></b-form-input>
 
                         <b-input-group-append>
                             <b-btn variant="primary" @click="save()">
@@ -52,17 +60,12 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-    .settings-page {
-    }
-</style>
+<script lang="ts" setup>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    import { storeToRefs } from 'pinia';
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
+    // Stores
+    import { useAccountStore } from '../lib/stores/account';
 
     // Managers
     import authMan from '../lib/managers/auth';
@@ -72,41 +75,13 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'SettingsPage',
-        components: {
-            Loading
-        },
-        subscriptions()
-        {
-            return {
-                account: authMan.account$,
-                accountStatus: authMan.status$
-            };
-        },
-        data()
-        {
-            return {
-                accountName: undefined
-            };
-        },
-        mounted()
-        {
-            this.$watch('account', () =>
-            {
-                this.accountName = this.account?.name;
-            }, { immediate: true });
-        },
-        methods: {
-            save()
-            {
-                this.account.name = this.accountName;
-                this.account.displayName = this.accountName;
+    const store = useAccountStore();
+    const { account } = storeToRefs(store);
 
-                authMan.saveAccount(this.account);
-            }
-        }
-    });
+    async function save() : Promise<void>
+    {
+        return authMan.saveAccount(account.value);
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

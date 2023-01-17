@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import { createRouter, createWebHistory } from 'vue-router';
 import { marked } from 'marked';
 import { version } from '../../package.json';
@@ -34,6 +35,10 @@ import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'codemirror/mode/clike/clike';
 import 'codemirror/mode/meta';
 
+// Managers
+import authMan from './lib/managers/auth';
+import charMan from './lib/managers/character';
+
 // Utils
 import toastUtil from './lib/utils/toast';
 
@@ -44,13 +49,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // Views
 import AppComponent from './app.vue';
-import AboutPage from './pages/about.vue';
-import CharacterPage from './pages/character.vue';
-import DashboardPage from './pages/dashboard.vue';
+import AboutPage from './pages/aboutPage.vue';
+import CharacterPage from './pages/characterPage.vue';
+import DashboardPage from './pages/dashboardPage.vue';
 
 // Pages
-import HomePage from './pages/home.vue';
-import SettingsPage from './pages/settings.vue';
+import HomePage from './pages/homePage.vue';
+import SettingsPage from './pages/settingsPage.vue';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Font Awesome
@@ -97,13 +102,18 @@ const router = createRouter({
 //     'dark-side'
 // ];
 
-// Setup app component
+// Set up pinia
+const pinia = createPinia();
+
+// Set up app component
 const app = createApp(AppComponent)
     .component('Fa', FontAwesomeIcon)
     .component('FaLayers', FontAwesomeLayers)
+
     // FixMe: Remove VueRX
     .use(VueRx as any)
-    // .use(Vuelidate)
+
+    // FixMe: Upgrade to VueCodeMirror v6
     .use(VueCodemirror, {
         options: {
             mode: {
@@ -115,10 +125,12 @@ const app = createApp(AppComponent)
             theme: 'default'
         }
     })
+
     // FixMe: Why does this not work?
     .use(BootstrapVue as any)
-    .use(router)
-    .mount('#rpgkeeper');
+
+    .use(pinia)
+    .use(router);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Marked Setup
@@ -157,11 +169,15 @@ marked.setOptions({
 
 async function init() : Promise<void>
 {
-    if(app)
-    {
-        // Setup Utils
-        toastUtil.setVueRoot(app);
-    }
+    // Load current account
+    await authMan.load();
+    await charMan.init();
+
+    // Initialize Utils
+    toastUtil.setVueRoot(app);
+
+    // Mount the application
+    app.mount('#rpgkeeper');
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -106,9 +106,12 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import { defineComponent } from 'vue';
+    import { mapState } from 'pinia';
+
+    // Stores
+    import { useAccountStore } from '../lib/stores/account';
 
     // Managers
-    import authMan from '../lib/managers/auth';
     import charMan from '../lib/managers/character';
     import sysMan from '../lib/managers/systems';
 
@@ -145,6 +148,7 @@
             };
         },
         computed: {
+            ...mapState(useAccountStore, [ 'account' ]),
             isAuthorized()
             {
                 return !!this.account
@@ -155,7 +159,6 @@
         subscriptions()
         {
             return {
-                account: authMan.account$,
                 char: charMan.selected$,
                 saving: charMan.saving$
             };

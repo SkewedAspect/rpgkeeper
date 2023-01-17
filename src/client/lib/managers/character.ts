@@ -13,8 +13,10 @@ import { Character } from '../../../common/interfaces/common';
 import { Account } from '../models/account';
 import CharacterModel from '../models/character';
 
+// Stores
+import { useAccountStore } from '../stores/account';
+
 // Managers
-import authMan from './auth';
 import notesMan from './notebook';
 
 // Resource Access
@@ -41,9 +43,6 @@ class CharacterManager
         // Listen for messages on the socket.
         this.#socket = io('/characters');
         this.#socket.on('message', this._onMessage.bind(this));
-
-        // Subscriptions
-        authMan.account$.subscribe(this._onAccountChanged.bind(this));
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -69,7 +68,7 @@ class CharacterManager
     // Subscriptions
     //------------------------------------------------------------------------------------------------------------------
 
-    async _onAccountChanged(account : Account | undefined) : Promise<void>
+    async _onAccountChanged(account : Account | null) : Promise<void>
     {
         if(account && account.email)
         {
@@ -102,6 +101,22 @@ class CharacterManager
     //------------------------------------------------------------------------------------------------------------------
     // Public API
     //------------------------------------------------------------------------------------------------------------------
+
+    async init() : Promise<void>
+    {
+        const authStore = useAccountStore();
+
+        // Subscriptions
+        authStore.$subscribe((_mutation, state) =>
+        {
+            this._onAccountChanged(state.account);
+        });
+
+        if(authStore.account)
+        {
+            this._onAccountChanged(authStore.account);
+        }
+    }
 
     async create(charDef : Partial<Character>) : Promise<CharacterModel>
     {

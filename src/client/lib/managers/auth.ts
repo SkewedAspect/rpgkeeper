@@ -2,10 +2,11 @@
 // AuthManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import { BehaviorSubject, Observable } from 'rxjs';
-
 // Models
 import { Account } from '../models/account';
+
+// Stores
+import { useAccountStore } from '../stores/account';
 
 // Resource Access
 import authRA from '../resource-access/auth';
@@ -14,47 +15,27 @@ import authRA from '../resource-access/auth';
 
 class AuthManager
 {
-    #accountSubject : BehaviorSubject<Account | undefined> = new BehaviorSubject<Account | undefined>(undefined);
-    #statusSubject : BehaviorSubject<string> = new BehaviorSubject('unknown');
-
-    loading : Promise<void>;
-
-    constructor()
-    {
-        this.loading = this.#load();
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Observables
-    //------------------------------------------------------------------------------------------------------------------
-
-    get account$() : Observable<Account | undefined> { return this.#accountSubject.asObservable(); }
-    get status$() : Observable<string> { return this.#statusSubject.asObservable(); }
-
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get account() : Account | undefined { return this.#accountSubject.getValue(); }
-    get status() : string { return this.#statusSubject.getValue(); }
+    get account() : Account | null
+    {
+        const accountStore = useAccountStore();
+        return accountStore.account;
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    async #load() : Promise<void>
+    async load() : Promise<void>
     {
-        this.#statusSubject.next('signing in');
+        const accountStore = useAccountStore();
 
+        // Attempt to get the current user
         const account = await authRA.getCurrentUser();
-        this.#accountSubject.next(account);
 
-        if(account)
-        {
-            this.#statusSubject.next('signed in');
-        }
-        else
-        {
-            this.#statusSubject.next('signed out');
-        }
+        // Update the store
+        accountStore.$patch({ account, signedInBeforeLoad: true });
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -64,7 +45,8 @@ class AuthManager
     async signOut() : Promise<void>
     {
         await authRA.signOut();
-        this.#statusSubject.next('signed out');
+
+        // Normally we'd have to update the store, but we just reload the whole page.
         window.location.reload();
     }
 
@@ -74,8 +56,13 @@ class AuthManager
 
     async saveAccount(account : Account) : Promise<void>
     {
+        const accountStore = useAccountStore();
+
+        // Attempt to save the account
         const newAccount = await authRA.save(account);
-        this.#accountSubject.next(newAccount);
+
+        // Update the store
+        accountStore.$patch({ account: newAccount });
     }
 }
 

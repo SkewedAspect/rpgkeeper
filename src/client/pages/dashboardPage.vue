@@ -162,9 +162,12 @@
     //------------------------------------------------------------------------------------------------------------------
 
     import { defineComponent } from 'vue';
+    import { mapState } from 'pinia';
+
+    // Stores
+    import { useAccountStore } from '../lib/stores/account';
 
     // Managers
-    import authMan from '../lib/managers/auth';
     import systemsMan from '../lib/managers/systems';
     import characterMan from '../lib/managers/character';
 
@@ -187,10 +190,8 @@
         subscriptions()
         {
             return {
-                account: authMan.account$,
                 allSystems: systemsMan.systems$,
                 characterList: characterMan.characters$,
-                accountStatus: authMan.status$,
                 charsStatus: characterMan.status$,
                 systemsStatus: systemsMan.status$
             };
@@ -205,47 +206,43 @@
             };
         },
         computed: {
+            ...mapState(useAccountStore, [ 'account' ]),
             charsLoading()
             {
-                return !([ 'signed in', 'signed out' ].includes(this.accountStatus))
+                return !this.account
                     || this.systemsStatus !== 'loaded'
                     || this.charsStatus !== 'loaded';
             },
             systems() { return this.allSystems; },
             characters()
             {
-                return this.characterList
-                    .filter((char) => char.accountID == (this.account || { id: undefined }).id)
-                    .filter((char) =>
-                    {
-                        return this.systemsFilter.includes(char.system);
-                    })
-                    .filter((char) =>
-                    {
-                        return !this.charFilter || char.name.toLowerCase().includes(this.charFilter.toLocaleLowerCase());
-                    });
+                if(this.account)
+                {
+                    return this.characterList
+                        .filter((char) => char.accountID == this.account.id)
+                        .filter((char) =>
+                        {
+                            return this.systemsFilter.includes(char.system);
+                        })
+                        .filter((char) =>
+                        {
+                            return !this.charFilter || char.name.toLowerCase()
+                                .includes(this.charFilter.toLocaleLowerCase());
+                        });
+                }
+
+                return [];
             }
         },
         mounted()
         {
-            this.$subscribeTo(authMan.status$, (status) =>
+            if(!this.account)
             {
-                if(status === 'signed out')
-                {
-                    // We've finished loading, and we're not signed in
-                    this.$router.push('/');
-                }
+                // We've finished loading, and we're not signed in
+                this.$router.push('/');
+            }
 
-                this.selectAllSystems();
-            });
-
-            this.$watch('systemsStatus', () =>
-            {
-                if(this.systemsStatus === 'loaded')
-                {
-                    this.selectAllSystems();
-                }
-            });
+            this.selectAllSystems();
         },
         methods: {
             getSystem(systemID)

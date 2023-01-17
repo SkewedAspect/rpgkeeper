@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-navbar toggleable="md" type="dark" variant="dark" sticky>
+    <b-navbar id="site-header" toggleable="md" type="dark" variant="dark" sticky>
         <b-navbar-brand to="/">
-            <img src="/images/logo.png" width="30px" height="30px" style="display: inline-block; margin-top: -5px" />
+            <img src="/images/logo.png" class="d-inline-block logo" alt="RPGKeeper Logo" />
             RPGKeeper
         </b-navbar-brand>
         <b-navbar-nav>
@@ -15,7 +15,7 @@
             </b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
-            <login></login>
+            <LoginBtn></LoginBtn>
         </b-navbar-nav>
     </b-navbar>
 </template>
@@ -24,36 +24,29 @@
 
 <style lang="scss">
 	#site-header {
+        .logo {
+            margin-top: -5px;
+            width: 30px;
+            height: 30px;
+        }
 	}
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { storeToRefs } from 'pinia';
 
-    import { defineComponent } from 'vue';
-
-    // Managers
-    import authMan from '../../lib/managers/auth';
+    // Stores
+    import { useAccountStore } from '../../lib/stores/account';
 
     // Components
-    import LoginComponent from './login.vue';
+    import LoginBtn from './loginBtn.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'SiteHeader',
-        components: {
-            login: LoginComponent
-        },
-        subscriptions()
-        {
-            return {
-                account: authMan.account$
-            };
-        }
-    });
+    const store = useAccountStore();
+    const { account } = storeToRefs(store);
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -6,7 +6,7 @@
     <div id="main-page" class="container p-3">
         <div class="d-flex">
             <div class="d-flex m-auto">
-                <img class="rpgk-logo" src="/images/logo.png" alt="RPGKeeper Logo" width="200" />
+                <img class="rpgk-logo" src="/images/logo.png" alt="RPGKeeper Logo" />
                 <div class="d-flex flex-column align-self-center">
                     <h1>
                         RPGKeeper
@@ -19,13 +19,13 @@
                         Everything you need to create, store, share, and play table top RPG characters.
                     </p>
                     <div>
-                        <b-btn v-show="!isLoggedIn" id="create-account-btn" variant="primary">
-                            Create free account
-                            <fa icon="sign-in"></fa>
-                        </b-btn>
-                        <b-btn v-show="isLoggedIn" variant="primary" to="/dashboard">
+                        <b-btn v-if="account" variant="primary" to="/dashboard">
                             Go to Dashboard
                             <fa icon="arrow-right"></fa>
+                        </b-btn>
+                        <b-btn v-else variant="primary">
+                            Create free account
+                            <fa icon="sign-in"></fa>
                         </b-btn>
                     </div>
                 </div>
@@ -131,13 +131,13 @@
         </p>
 
         <div class="text-center">
-            <b-btn v-show="!isLoggedIn" id="create-account-btn2" variant="primary" href="/auth/google">
-                Create free account
-                <fa icon="sign-in"></fa>
-            </b-btn>
-            <b-btn v-show="isLoggedIn" variant="primary" to="/dashboard">
+            <b-btn v-if="account" variant="primary" to="/dashboard">
                 Go to Dashboard
                 <fa icon="arrow-right"></fa>
+            </b-btn>
+            <b-btn v-else variant="primary" href="/auth/google">
+                Create free account
+                <fa icon="sign-in"></fa>
             </b-btn>
         </div>
     </div>
@@ -148,6 +148,7 @@
 <style lang="scss">
 	#main-page {
         .rpgk-logo {
+            width: 200px;
             margin-top: -10px;
             margin-right: -5px;
         }
@@ -156,56 +157,26 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
+    import { onMounted } from 'vue';
+    import { useRouter } from 'vue-router';
+    import { storeToRefs } from 'pinia';
+
+    // Stores
+    import { useAccountStore } from '../lib/stores/account';
+
     //------------------------------------------------------------------------------------------------------------------
 
-    import { defineComponent } from 'vue';
+    const router = useRouter();
+    const store = useAccountStore();
+    const { account, signedInBeforeLoad } = storeToRefs(store);
 
-    // Managers
-    import authMan from '../lib/managers/auth';
-
-    //------------------------------------------------------------------------------------------------------------------
-
-    export default defineComponent({
-        name: 'MainPage',
-        data()
+    onMounted(() =>
+    {
+        if(account && signedInBeforeLoad)
         {
-            return {
-                signingIn: false
-            };
-        },
-        computed: {
-            isLoggedIn()
-            {
-                return !!this.account;
-            },
-            showModal: {
-                get() { return !!this.readMorePost; },
-                set(val) { !val ? this.readMorePost = undefined : false; }
-            }
-        },
-        mounted()
-        {
-            this.$subscribeTo(authMan.status$, (status) =>
-            {
-                if(status === 'signing in')
-                {
-                    // We're in the sign in process
-                    this.signingIn = true;
-                }
-
-                if(status === 'signed in' && this.signingIn)
-                {
-                    this.signingIn = false;
-
-                    // We've completed a sign in, redirect
-                    this.$router.push('/dashboard');
-                }
-            });
-        },
-        subscriptions()
-        {
-            return { account: authMan.account$ };
+            // We've completed a sign in, redirect
+            router.push('/dashboard');
         }
     });
 </script>

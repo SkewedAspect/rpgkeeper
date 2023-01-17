@@ -5,11 +5,18 @@
 <template>
     <div id="login">
         <!-- Profile dropdown -->
-        <b-nav-item-dropdown v-if="account" id="profile-dropdown" :title="account.username" right no-caret>
+        <b-nav-item-dropdown v-if="account" id="profile-dropdown" :title="account.displayName" right no-caret>
             <template #button-content>
-                <b-img v-if="account.avatar" rounded="circle" width="32" height="32" blank-color="#777" :src="account.avatar"></b-img>
+                <b-img
+                    v-if="account.avatar"
+                    rounded="circle"
+                    width="32"
+                    height="32"
+                    blank-color="#777"
+                    :src="account.avatar"
+                ></b-img>
                 <fa v-else icon="user-circle" size="2x"></fa>
-                {{ account.name }}
+                {{ account.displayName }}
             </template>
             <b-dropdown-item to="/settings">
                 <fa icon="user-circle"></fa>
@@ -22,17 +29,9 @@
             </b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <!-- Spinner -->
-        <b-nav-text v-else-if="loading" class="p-0">
-            <span class="fa-layers fa-fw fa-2x">
-                <fa class="text-primary" icon="spinner-third" spin></fa>
-                <fa icon="user-circle"></fa>
-            </span>
-        </b-nav-text>
-
         <!-- Sign In Button -->
-        <b-button v-else id="google-signin-btn" variant="dark" href="/auth/google">
-            <fa :icon="['fab', 'google']"></fa>
+        <b-button v-else variant="dark" href="/auth/google">
+            <fa icon="sign-in"></fa>
             Sign In
         </b-button>
     </div>
@@ -45,6 +44,7 @@
 		#profile-dropdown {
             margin-top: -2px;
             margin-bottom: -2px;
+
 			a.nav-link {
 				padding-top: 0.25rem;
                 padding-bottom: 0.25rem;
@@ -55,32 +55,21 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { storeToRefs } from 'pinia';
 
-    import { defineComponent } from 'vue';
+    // Stores
+    import { useAccountStore } from '../../lib/stores/account';
 
     // Managers
     import authMan from '../../lib/managers/auth';
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'LoginButton',
-        subscriptions()
-        {
-            return {
-                account: authMan.account$,
-                authStatus: authMan.status$
-            };
-        },
-        computed: {
-            loading() { return this.authStatus === 'signing in'; }
-        },
-        methods: {
-            signOut() { return authMan.signOut(); }
-        }
-    });
+    const store = useAccountStore();
+    const { account } = storeToRefs(store);
+
+    function signOut() { return authMan.signOut(); }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
