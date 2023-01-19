@@ -199,12 +199,16 @@
 
     import { get } from 'lodash';
     import { defineComponent, PropType } from 'vue';
+    import { mapState } from 'pinia';
     import { useVuelidate } from '@vuelidate/core';
     import { required, minLength, maxLength } from '@vuelidate/validators';
 
     // Managers
     import charMan from '../../lib/managers/character';
     import systemsMan from '../../lib/managers/systems';
+
+    // Stores
+    import { useSystemsStore } from '../../lib/stores/systems';
 
     // Utils
     import dropboxUtil from '../../lib/utils/dropbox';
@@ -236,12 +240,6 @@
                 default: undefined
             }
         },
-        subscriptions()
-        {
-            return {
-                allSystems: systemsMan.systems$
-            };
-        },
         emits: [ 'hidden' ],
         data()
         {
@@ -257,6 +255,7 @@
             };
         },
         computed: {
+            ...mapState(useSystemsStore, { allSystems: (store) => store.systems }),
             isNew() { return !this.char || !this.char.id; },
             initials() : string
             {

@@ -110,10 +110,10 @@
 
     // Stores
     import { useAccountStore } from '../lib/stores/account';
+    import { useSystemsStore } from '../lib/stores/systems';
 
     // Managers
     import charMan from '../lib/managers/character';
-    import sysMan from '../lib/managers/systems';
 
     // Components
     import Loading from '../components/ui/loading.vue';
@@ -143,12 +143,14 @@
         data()
         {
             return {
-                error: undefined,
-                system: undefined
+                error: undefined
             };
         },
         computed: {
             ...mapState(useAccountStore, [ 'account' ]),
+            ...mapState(useSystemsStore, {
+                system: (store) => store.current
+            }),
             isAuthorized()
             {
                 return !!this.account
@@ -165,18 +167,6 @@
         },
         mounted()
         {
-            this.$watch('char', async() =>
-            {
-                if(this.char)
-                {
-                    this.system = await sysMan.getSystem(this.char.system);
-                }
-                else
-                {
-                    this.system = undefined;
-                }
-            });
-
             // We always select the character that matches our route, so we handle navigation.
             charMan.select(this.$route.params.id).catch((err) => this.error = err);
         }

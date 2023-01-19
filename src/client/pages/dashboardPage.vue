@@ -176,6 +176,7 @@
     import AddEditModal from '../components/character/addEditModal.vue';
     import DeleteModal from '../components/character/deleteModal.vue';
     import Thumbnail from '../components/character/thumbnail.vue';
+    import { useSystemsStore } from '../lib/stores/systems';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -190,10 +191,8 @@
         subscriptions()
         {
             return {
-                allSystems: systemsMan.systems$,
                 characterList: characterMan.characters$,
-                charsStatus: characterMan.status$,
-                systemsStatus: systemsMan.status$
+                charsStatus: characterMan.status$
             };
         },
         data()
@@ -207,6 +206,10 @@
         },
         computed: {
             ...mapState(useAccountStore, [ 'account' ]),
+            ...mapState(useSystemsStore, {
+                allSystems: (store) => store.systems,
+                systemsStatus: (store) => store.status
+            }),
             charsLoading()
             {
                 return !this.account

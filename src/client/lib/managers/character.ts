@@ -15,6 +15,7 @@ import CharacterModel from '../models/character';
 
 // Stores
 import { useAccountStore } from '../stores/account';
+import { useSystemsStore } from '../stores/systems';
 
 // Managers
 import notesMan from './notebook';
@@ -130,6 +131,7 @@ class CharacterManager
 
     async select(charID) : Promise<CharacterModel>
     {
+        const systemsStore = useSystemsStore();
         let char = _.find(this.characters, { id: charID });
         if(!char)
         {
@@ -142,6 +144,9 @@ class CharacterManager
 
         // Select this character
         this.#selectedSubject.next(char);
+
+        // Set the current system
+        systemsStore.setCurrent(char.system);
 
         // Select the notes in the notes manager
         if(char.noteID)

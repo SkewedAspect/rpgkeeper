@@ -23,11 +23,11 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref, onMounted } from 'vue';
+    import { computed } from 'vue';
     import { marked } from 'marked';
 
-    // Managers
-    import charMan from '../../lib/managers/character';
+    // Stores
+    import { useSystemsStore } from '../../lib/stores/systems';
 
     // Components
     import MarkdownContent from '../ui/markdown.vue';
@@ -47,7 +47,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const system = ref<string | null>(null);
+    const store = useSystemsStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -57,14 +57,10 @@
     {
         return marked(props.content);
     });
-    //------------------------------------------------------------------------------------------------------------------
-    // Lifecycle
-    //------------------------------------------------------------------------------------------------------------------
 
-    onMounted(() =>
+    const system = computed(() =>
     {
-        // TODO: Remove this in favor of getting the current character's system from a store
-        system.value = charMan.selected.system;
+        return store.current.id;
     });
 </script>
 

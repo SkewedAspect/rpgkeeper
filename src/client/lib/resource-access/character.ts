@@ -5,10 +5,10 @@
 import $http from 'axios';
 
 // Interfaces
-import { Character, System } from '../../../common/interfaces/common';
+import { Character } from '../../../common/interfaces/common';
 
-// Managers
-import sysMan from '../managers/systems';
+// Store
+import { useSystemsStore } from '../stores/systems';
 
 // Models
 import CharacterModel from '../models/character';
@@ -29,6 +29,7 @@ class CharacterResourceAccess
 
     _buildOrUpdateModel(def : Partial<Character>) : CharacterModel
     {
+        const systemsStore = useSystemsStore();
         let character = this.#characters.get(def.id ?? 'dne');
         if(character)
         {
@@ -36,8 +37,7 @@ class CharacterResourceAccess
         }
         else
         {
-            const system = (sysMan.systems as System<Record<string, unknown>>[])
-                .find((sys) => sys.id === def.system) ?? { defaults: {} };
+            const system = systemsStore.find(def.system ?? 'dne') ?? { defaults: {} };
             character = new CharacterModel(def, system.defaults);
 
             // We don't have an id if the character is new.
@@ -70,8 +70,8 @@ class CharacterResourceAccess
 
     async updateSysDefaults(char : CharacterModel) : Promise<CharacterModel>
     {
-        const system = (sysMan.systems as System<Record<string, unknown>>[])
-            .find((sys) => sys.id === char.system) ?? { defaults: {} };
+        const systemsStore = useSystemsStore();
+        const system = systemsStore.find(char.system ?? 'dne') ?? { defaults: {} };
         char.updateSysDefaults(system.defaults);
 
         return char;

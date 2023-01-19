@@ -38,6 +38,7 @@ import 'codemirror/mode/meta';
 // Managers
 import authMan from './lib/managers/auth';
 import charMan from './lib/managers/character';
+import systemsMan from './lib/managers/systems';
 
 // Utils
 import toastUtil from './lib/utils/toast';
@@ -81,26 +82,6 @@ const router = createRouter({
 //----------------------------------------------------------------------------------------------------------------------
 // Setup Vue App
 //----------------------------------------------------------------------------------------------------------------------
-
-// TODO: Do I need to still handle these?
-// Vue.config.ignoredElements = [
-//     'proficiency',
-//     'ability',
-//     'boost',
-//     'force',
-//     'challenge',
-//     'difficulty',
-//     'setback',
-//     'success',
-//     'advantage',
-//     'triumph',
-//     'light-side',
-//     'force-point',
-//     'failure',
-//     'threat',
-//     'despair',
-//     'dark-side'
-// ];
 
 // Set up pinia
 const pinia = createPinia();
@@ -171,6 +152,7 @@ async function init() : Promise<void>
 {
     // Load current account
     await authMan.load();
+    await systemsMan.load();
     await charMan.init();
 
     // Initialize Utils
