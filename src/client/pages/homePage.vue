@@ -171,6 +171,10 @@
     const store = useAccountStore();
     const { account, signedInBeforeLoad } = storeToRefs(store);
 
+    //------------------------------------------------------------------------------------------------------------------
+    // Lifecycle Hooks
+    //------------------------------------------------------------------------------------------------------------------
+
     onMounted(() =>
     {
         if(account && signedInBeforeLoad)

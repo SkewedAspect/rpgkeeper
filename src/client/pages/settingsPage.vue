@@ -78,6 +78,10 @@
     const store = useAccountStore();
     const { account } = storeToRefs(store);
 
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
     async function save() : Promise<void>
     {
         return authMan.saveAccount(account.value);

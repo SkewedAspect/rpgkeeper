@@ -1,28 +1,28 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// Accounts Store
+// Notes Store
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { defineStore } from 'pinia';
 
 // Models
-import { Account } from '../models/account';
+import { NotebookPage } from '../models/notebook';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export interface AccountStoreState
+export interface NotebookStoreState
 {
-    account : Account | null;
-    signedInBeforeLoad : boolean;
+    id : string | null;
+    pages : NotebookPage[];
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const useAccountStore = defineStore('account', {
-    state() : AccountStoreState
+export const useNotebookStore = defineStore('notes', {
+    state() : NotebookStoreState
     {
         return {
-            account: null,
-            signedInBeforeLoad: false
+            id: null,
+            pages: []
         };
     }
 });

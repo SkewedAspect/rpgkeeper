@@ -117,7 +117,7 @@
 
     // Components
     import Loading from '../components/ui/loading.vue';
-    import Notes from '../components/notes/notes.vue';
+    import Notes from '../components/notes/noteBook.vue';
 
     // Systems
     import RisusCharacter from '../components/systems/risus/character.vue';

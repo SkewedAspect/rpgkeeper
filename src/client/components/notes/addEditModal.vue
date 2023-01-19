@@ -3,15 +3,16 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="page" class="add-edit-page">
+    <div class="add-edit-page">
         <b-modal
-            v-model="showModal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="xl"
             @ok="onSave"
+            @cancel="onCancel"
             @shown="onShown"
             @hidden="onHidden"
         >
@@ -34,7 +35,7 @@
                 label="Title"
                 label-for="page-title"
             >
-                <b-form-input id="page-title" v-model="page.title"></b-form-input>
+                <b-form-input id="page-title" v-model="innerPage.title"></b-form-input>
             </b-form-group>
             <b-form-group
                 id="page-content-group"
@@ -42,7 +43,7 @@
                 label-for="page-content"
             >
                 <b-card class="overflow-hidden" no-body>
-                    <codemirror ref="editor" v-model="page.content"></codemirror>
+                    <codemirror ref="editor" v-model="innerPage.content"></codemirror>
                 </b-card>
             </b-form-group>
 
@@ -71,65 +72,112 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { defineComponent, PropType } from 'vue';
+    import { ref, computed } from 'vue';
 
     // Models
-    import CharacterModel from '../../lib/models/character';
+    import { NotebookPage } from '../../lib/models/notebook';
 
-    // Managers
-    import notesMan from '../../lib/managers/notebook';
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface EmittedEvents
+    {
+        (e : 'hidden') : void;
+        (e : 'save', page : Omit<NotebookPage, 'notebookID'>) : void;
+        (e : 'cancel') : void;
+    }
+
+    const emit = defineEmits<EmittedEvents>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const innerPage = ref<Omit<NotebookPage, 'notebookID'>>({
+        id: '',
+        title: '',
+        content: ''
+    });
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    // FIXME: Upgrade to codemirror v6 and add types!
+    const editor = ref<any | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const isNew = computed(() =>
+    {
+        return !innerPage.value.id;
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(page ?: NotebookPage) : void
+    {
+        if(page)
+        {
+            innerPage.value.id = page?.id ?? '';
+            innerPage.value.title = page?.title ?? '';
+            innerPage.value.content = page?.content ?? '';
+        }
+        else
+        {
+            innerPage.value.id = '';
+            innerPage.value.title = '';
+            innerPage.value.content = '';
+        }
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function cmRefresh() : void
+    {
+        // FIXME: Upgrade to codemirror v6 and fix this!
+        editor.value['codemirror'].refresh();
+    }
+
+    function onHidden() : void
+    {
+        emit('hidden');
+    }
+
+    function onShown() : void
+    {
+        cmRefresh();
+    }
+
+    function onSave() : void
+    {
+        emit('save', innerPage.value);
+    }
+
+    function onCancel() : void
+    {
+        emit('cancel');
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'AddEditPageModal',
-        props: {
-            value: {
-                type: Object as PropType<CharacterModel>,
-                default: undefined
-            }
-        },
-        emits: [ 'hidden' ],
-        computed: {
-            showModal: {
-                get() { return !!this.value; },
-                set() { /* We ignore setting */ }
-            },
-            isNew() { return !this.value || !this.value.id; },
-            page() { return this.value; }
-        },
-        methods: {
-            onHidden()
-            {
-                this.$emit('hidden');
-            },
-            async onSave()
-            {
-                if(this.page.id)
-                {
-                    await notesMan.updatePage(notesMan.selected, this.page);
-                }
-                else
-                {
-                    await notesMan.addPage(notesMan.selected, this.page);
-                }
-            },
-            onShown()
-            {
-                this.cmRefresh();
-            },
-            cmRefresh()
-            {
-                this.$nextTick(() =>
-                {
-                    this.$refs.editor.codemirror.refresh();
-                });
-            }
-        }
-    });
+    defineExpose({ show, hide });
+
+    //------------------------------------------------------------------------------------------------------------------
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
