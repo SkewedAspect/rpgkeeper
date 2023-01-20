@@ -28,15 +28,15 @@
     // TODO: THIS IS TO HACK AROUND BROKEN BOOTSTRAP VUE IN VUE 3
     // -----------------------------------------------------------------------------------------------------------------
 
-    import { getCurrentInstance } from 'vue';
+    import { getCurrentInstance, onMounted } from 'vue';
     import toastUtil from './lib/utils/toast';
 
     const instance = (getCurrentInstance() as any);
 
-    setTimeout(() =>
+    onMounted(() =>
     {
         toastUtil.setInstance(instance);
-    }, 100);
+    });
 
     // -----------------------------------------------------------------------------------------------------------------
 </script>
