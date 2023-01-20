@@ -40,9 +40,6 @@ import authMan from './lib/managers/auth';
 import charMan from './lib/managers/character';
 import systemsMan from './lib/managers/systems';
 
-// Utils
-import toastUtil from './lib/utils/toast';
-
 // Site Theme
 import './scss/theme.scss';
 import 'codemirror/lib/codemirror.css';
@@ -154,9 +151,6 @@ async function init() : Promise<void>
     await authMan.load();
     await systemsMan.load();
     await charMan.init();
-
-    // Initialize Utils
-    toastUtil.setVueRoot(app);
 
     // Mount the application
     app.mount('#rpgkeeper');

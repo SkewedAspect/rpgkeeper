@@ -23,6 +23,22 @@
 <script lang="ts" setup>
     import SiteHeader from './components/ui/siteHeader.vue';
     import SiteFooter from './components/ui/siteFooter.vue';
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // TODO: THIS IS TO HACK AROUND BROKEN BOOTSTRAP VUE IN VUE 3
+    // -----------------------------------------------------------------------------------------------------------------
+
+    import { getCurrentInstance } from 'vue';
+    import toastUtil from './lib/utils/toast';
+
+    const instance = (getCurrentInstance() as any);
+
+    setTimeout(() =>
+    {
+        toastUtil.setInstance(instance);
+    }, 100);
+
+    // -----------------------------------------------------------------------------------------------------------------
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
