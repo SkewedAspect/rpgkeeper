@@ -52,7 +52,7 @@
             </b-btn>
         </b-btn-group>
         <b-input-group class="mt-1 text-nowrap flex-nowrap">
-            <b-input v-model.number="woundsInput" type="number" min="0" step="1" placeholder="Wounds" autocomplete="off"></b-input>
+            <b-input v-model="woundsInput" number type="number" min="0" step="1" placeholder="Wounds" autocomplete="off"></b-input>
             <b-input-group-append>
                 <b-btn v-b-tooltip.hover variant="outline-secondary" title="Deal damage, applying soak" @click="soakWounds()">
                     <fa icon="shield-alt"></fa>
@@ -66,7 +66,7 @@
             </b-input-group-append>
         </b-input-group>
         <b-input-group class="mt-1">
-            <b-input v-model.number="strainInput" type="number" min="0" step="1" placeholder="Strain" autocomplete="off"></b-input>
+            <b-input v-model="strainInput" number type="number" min="0" step="1" placeholder="Strain" autocomplete="off"></b-input>
             <b-input-group-append>
                 <b-btn v-b-tooltip.hover variant="outline-secondary" title="Deal damage, applying soak" @click="soakStrain()">
                     <fa icon="shield-alt"></fa>
@@ -136,7 +136,7 @@
 
     // Managers
     import charMan from '../../../lib/managers/character';
-    import eoteMan from '../../../lib/managers/eote';
+    import eoteMan from '../../../lib/managers/systems/eote';
 
     // Components
     import RpgkCard from '../../ui/card.vue';

@@ -65,7 +65,7 @@
                         label-class="font-weight-bold"
                         label-for="skill-damage"
                     >
-                        <b-form-input id="skill-damage" v-model.number="editWeapon.damage" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input id="skill-damage" v-model="editWeapon.damage" number type="number" min="0" step="0"></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -73,7 +73,7 @@
                         label-class="font-weight-bold"
                         label-for="skill-critical"
                     >
-                        <b-form-input id="skill-critical" v-model.number="editWeapon.criticalRating" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input id="skill-critical" v-model="editWeapon.criticalRating" number type="number" min="0" step="0"></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -81,7 +81,7 @@
                         label-class="font-weight-bold"
                         label-for="skill-encumbrance"
                     >
-                        <b-form-input id="skill-encumbrance" v-model.number="editWeapon.encumbrance" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input id="skill-encumbrance" v-model="editWeapon.encumbrance" number type="number" min="0" step="0"></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 w-25"
@@ -89,7 +89,7 @@
                         label-class="font-weight-bold"
                         label-for="skill-rarity"
                     >
-                        <b-form-input id="skill-rarity" v-model.number="editWeapon.rarity" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input id="skill-rarity" v-model="editWeapon.rarity" number type="number" min="0" step="0"></b-form-input>
                     </b-form-group>
                 </b-form-row>
 
@@ -129,7 +129,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import QualityEdit from '../components/qualityEdit.vue';

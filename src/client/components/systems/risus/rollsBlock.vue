@@ -5,7 +5,7 @@
 <template>
     <rpgk-card id="rolls" icon="dice" title="Rolls" fill>
         <b-input-group append="D6">
-            <b-form-input v-model.number="dice" type="number" min="0" max="999" step="1" :disabled="readonly"></b-form-input>
+            <b-form-input v-model="dice" number type="number" min="0" max="999" step="1" :disabled="readonly"></b-form-input>
         </b-input-group>
 
         <!-- Roll History -->
@@ -47,54 +47,59 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { defineComponent } from 'vue';
+    import { ref } from 'vue';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';
 
     // Components
     import RpgkCard from '../../ui/card.vue';
+    import { Roll } from 'rpgdicejs';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const dice = ref<number | null>(null);
+    const rolls = ref<Roll[]>([]);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function roll(diceNum : number, rollName : string) : void
+    {
+        const roll = diceUtil.roll(`${ diceNum }d6`);
+        rolls.value.unshift({
+            roll,
+            name: rollName,
+            display: `${ roll.render() } = ${ roll.value }`
+        });
+    }
+
+    function clearRolls() : void
+    {
+        rolls.value = [];
+        dice.value = null;
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'RisusRollsCard',
-        components: {
-            RpgkCard
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        data()
-        {
-            return {
-                dice: null,
-                rolls: []
-            };
-        },
-        methods: {
-            roll(dice, rollName)
-            {
-                const roll = diceUtil.roll(`${ dice }d6`);
-                this.rolls.unshift({
-                    roll,
-                    name: rollName,
-                    display: `${ roll.render() } = ${ roll.value }`
-                });
-            },
-            clearRolls()
-            {
-                this.rolls = [];
-                this.dice = null;
-            }
-        }
-    });
+    defineExpose({ roll, clearRolls });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

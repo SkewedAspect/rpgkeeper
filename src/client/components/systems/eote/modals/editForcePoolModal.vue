@@ -47,7 +47,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="rating-input" v-model.number="forcePool.rating" type="number" min="0" max="10" step="1" :disabled="!forcePool.sensitive"></b-form-input>
+                            <b-form-input id="rating-input" v-model="forcePool.rating" number type="number" min="0" max="10" step="1" :disabled="!forcePool.sensitive"></b-form-input>
                             <b-input-group-append>
                                 <b-button :disabled="!forcePool.sensitive" @click="forcePool.rating = 0">
                                     <fa icon="times"></fa>
@@ -87,7 +87,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 

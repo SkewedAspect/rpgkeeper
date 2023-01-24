@@ -45,7 +45,7 @@
                                 label-class="font-weight-bold"
                                 label-for="min-rating-input"
                             >
-                                <b-form-input id="min-rating-input" v-model.number="minRating" type="number" min="0" step="1" autocomplete="off"></b-form-input>
+                                <b-form-input id="min-rating-input" v-model="minRating" number type="number" min="0" step="1" autocomplete="off"></b-form-input>
                             </b-form-group>
                         </b-col>
                     </b-form-row>
@@ -204,7 +204,7 @@
     import { defineComponent } from 'vue';
 
     // Managers
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
     import charMan from '../../../../lib/managers/character';
 
     // Components

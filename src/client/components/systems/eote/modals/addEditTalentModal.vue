@@ -70,7 +70,8 @@
                     >
                         <b-form-input
                             id="tiers-input"
-                            v-model.number="tier"
+                            v-model="tier"
+                            number
                             type="number"
                             step="1"
                             min="1"
@@ -122,7 +123,7 @@
     import { defineComponent } from 'vue';
 
     // Managers
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
     import charMan from '../../../../lib/managers/character';
 
     // Components

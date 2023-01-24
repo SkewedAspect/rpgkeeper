@@ -32,7 +32,8 @@
                             <b-input-group>
                                 <b-form-input
                                     :id="`${ char }-input`"
-                                    v-model.number="characteristics[char]"
+                                    v-model="characteristics[char]"
+                                    number
                                     type="number"
                                     step="1"
                                     min="0"
@@ -59,7 +60,8 @@
                             <b-input-group>
                                 <b-form-input
                                     :id="`${ char }-input`"
-                                    v-model.number="characteristics[char]"
+                                    v-model="characteristics[char]"
+                                    number
                                     type="number"
                                     step="1"
                                     min="0"
@@ -106,7 +108,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 

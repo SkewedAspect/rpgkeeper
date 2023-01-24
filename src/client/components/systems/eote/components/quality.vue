@@ -38,7 +38,7 @@
     import { shortID } from '../../../../../common/utils/misc';
 
     // Managers
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import Reference from '../../../character/reference.vue';

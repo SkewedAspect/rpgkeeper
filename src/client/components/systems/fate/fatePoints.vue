@@ -5,7 +5,7 @@
 <template>
     <div class="d-flex flex-nowrap">
         <b-input-group class="fate-points mr-2">
-            <b-form-input v-model.number="current" type="number" min="0" step="1" :readonly="readonly" @change="onChange"></b-form-input>
+            <b-form-input v-model="current" number type="number" min="0" step="1" :readonly="readonly" @change="onChange"></b-form-input>
             <template #append>
                 <b-input-group-text>
                     / &nbsp;

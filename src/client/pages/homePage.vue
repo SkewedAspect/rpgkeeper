@@ -177,7 +177,7 @@
 
     onMounted(() =>
     {
-        if(account && signedInBeforeLoad)
+        if(account.value && signedInBeforeLoad.value)
         {
             // We've completed a sign in, redirect
             router.push('/dashboard');

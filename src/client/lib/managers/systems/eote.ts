@@ -5,11 +5,10 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 
 // Interfaces
-import { Supplement } from '../../../common/interfaces/common';
+import { Supplement } from '../../../../common/interfaces/common';
 
 // Managers
-import charMan from './character';
-import suppMan from './supplement';
+import suppMan from '../supplement';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -44,12 +43,6 @@ class EotEManager
         aa: 'Active (Action)'
     };
     /* eslint-enable id-length */
-
-    constructor()
-    {
-        // Subscriptions
-        charMan.selected$.subscribe(this._onCharacterChanged.bind(this));
-    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Observables
@@ -94,10 +87,10 @@ class EotEManager
     get motivations() : Supplement[] { return this.#motivationsSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Subscriptions
+    // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async _onCharacterChanged(character) : Promise<void>
+    async load(character) : Promise<void>
     {
         if(character && [ 'eote', 'genesys' ].includes(character.system))
         {
@@ -141,15 +134,11 @@ class EotEManager
         }
     }
 
-    //------------------------------------------------------------------------------------------------------------------
-    // Public API
-    //------------------------------------------------------------------------------------------------------------------
-
     async addSup(type : string, supp : Supplement) : Promise<Supplement>
     {
         const newSupp = await suppMan.add(type, supp);
 
-        // Update subject, and compact falsey values
+        // Update subject, and compact falsy values
         const supplements = [ newSupp ].concat(this[type]).filter((item) => !!item);
         this[`_${ type }Subject`].next(supplements);
 
@@ -171,7 +160,7 @@ class EotEManager
     {
         await suppMan.delete(type, supp.id);
 
-        // Update subject, and compact falsey values
+        // Update subject, and compact falsy values
         const supplements = this[type].filter((item) => item.id !== supp.id);
         this[`_${ type }Subject`].next(supplements);
     }

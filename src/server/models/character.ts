@@ -10,8 +10,10 @@ import { sysDetailsDecoder } from '../decoders/systems';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface CharacterOptions<SystemDetails extends Record<string, unknown> = Record<string, unknown>> {
-    id : string;
+export type SystemDetails = Record<string, unknown>;
+
+export interface CharacterOptions<Details extends SystemDetails = SystemDetails> {
+    id : string | null;
     system : string;
     name : string;
     description ?: string;
@@ -21,14 +23,14 @@ export interface CharacterOptions<SystemDetails extends Record<string, unknown> 
     campaign ?: string;
     accountID : string;
     noteID : string;
-    details : SystemDetails
+    details : Details
 }
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export class Character<SystemDetails extends Record<string, unknown> = Record<string, unknown>>
+export class Character<Details extends SystemDetails = SystemDetails>
 {
-    public readonly id : string;
+    public readonly id : string | null;
     public readonly system : string;
     public readonly accountID : string;
     public readonly noteID : string;
@@ -39,9 +41,9 @@ export class Character<SystemDetails extends Record<string, unknown> = Record<st
     public thumbnail ?: string;
     public color ?: string;
     public campaign ?: string;
-    public details : SystemDetails;
+    public details : Details;
 
-    constructor(options : CharacterOptions<SystemDetails>)
+    constructor(options : CharacterOptions<Details>)
     {
         this.id = options.id;
         this.system = options.system;
@@ -60,7 +62,7 @@ export class Character<SystemDetails extends Record<string, unknown> = Record<st
     // Serialization
     //------------------------------------------------------------------------------------------------------------------
 
-    public toJSON() : Record<string, unknown>
+    public toJSON() : CharacterOptions
     {
         return {
             id: this.id,

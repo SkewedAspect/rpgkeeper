@@ -64,7 +64,7 @@
     import { shortID } from '../../../../../common/utils/misc';
 
     // Managers
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import MarkdownBlock from '../../../ui/markdown.vue';

@@ -30,7 +30,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="soak-input" v-model.number="defenses.soak" type="number" min="0" max="10" step="1"></b-form-input>
+                            <b-form-input id="soak-input" v-model="defenses.soak" number type="number" min="0" max="10" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="defenses.soak = 0">
                                     <fa icon="times"></fa>
@@ -48,7 +48,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="melee-input" v-model.number="defenses.melee" type="number" min="0" max="10" step="1"></b-form-input>
+                            <b-form-input id="melee-input" v-model="defenses.melee" number type="number" min="0" max="10" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="defenses.melee = 0">
                                     <fa icon="times"></fa>
@@ -66,7 +66,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="ranged-input" v-model.number="defenses.ranged" type="number" min="0" max="10" step="1"></b-form-input>
+                            <b-form-input id="ranged-input" v-model="defenses.ranged" number type="number" min="0" max="10" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="defenses.ranged = 0">
                                     <fa icon="times"></fa>
@@ -107,7 +107,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 

@@ -75,7 +75,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import EditReference from '../../../character/editReference.vue';

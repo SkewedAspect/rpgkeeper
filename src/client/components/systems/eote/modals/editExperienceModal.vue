@@ -29,7 +29,7 @@
             >
                 <div class="d-flex flex-column">
                     <b-input-group>
-                        <b-form-input id="add-xp-input" v-model.number="addxp" type="number" min="0" step="1"></b-form-input>
+                        <b-form-input id="add-xp-input" v-model="addxp" number type="number" min="0" step="1"></b-form-input>
                         <b-input-group-append>
                             <b-button variant="primary" @click="addXP()">
                                 <fa icon="plus"></fa>
@@ -57,7 +57,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="total-input" v-model.number="experience.total" type="number" min="0" step="1"></b-form-input>
+                            <b-form-input id="total-input" v-model="experience.total" number type="number" min="0" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="experience.total = 0">
                                     <fa icon="times"></fa>
@@ -75,7 +75,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="available-input" v-model.number="experience.available" type="number" min="0" step="1"></b-form-input>
+                            <b-form-input id="available-input" v-model="experience.available" number type="number" min="0" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="experience.available = 0">
                                     <fa icon="times"></fa>
@@ -116,7 +116,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 

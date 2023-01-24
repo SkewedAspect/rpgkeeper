@@ -24,7 +24,7 @@
         <b-list-group v-if="hooks && hooks.length > 0" flush>
             <b-list-group-item v-for="hook in hooks" :key="hook.description" class="d-flex">
                 <fa class="mr-2" icon="bolt" style="margin-top: 5px;"></fa>
-                <markdown :text="hook.description" inline></markdown>
+                <MarkdownBlock :text="hook.description" inline></MarkdownBlock>
             </b-list-group-item>
         </b-list-group>
         <div v-else class="card-body">
@@ -34,7 +34,7 @@
         </div>
 
         <!-- Edit Modal -->
-        <edit-hooks-modal ref="editModal" v-model="character.details.hooks"></edit-hooks-modal>
+        <EditHooksModal ref="editModal" @save="onEditSave"></EditHooksModal>
     </rpgk-card>
 </template>
 
@@ -53,58 +53,75 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { defineComponent } from 'vue';
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    // Interfaces
+    import { Character } from '../../../../common/interfaces/common';
+    import { RisusHook, RisusSystemDetails } from '../../../../common/interfaces/systems/risus';
+
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
     import EditHooksModal from './editHooksModal.vue';
-    import Markdown from '../../ui/markdown.vue';
+    import MarkdownBlock from '../../ui/markdown.vue';
     import RpgkCard from '../../ui/card.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'RisusHooksCard',
-        components: {
-            EditHooksModal,
-            Markdown,
-            RpgkCard
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        computed: {
-            hooks() { return this.character.details.hooks; }
-        },
-        methods: {
-            onChange()
-            {
-                if(!this.readonly)
-                {
-                    // Save the character
-                    return charMan.save(charMan.selected);
-                }
-            },
-            openEditModal()
-            {
-                this.$refs.editModal.show();
-            }
-        }
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const editModal = ref<InstanceType<typeof EditHooksModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const char = computed<Character<RisusSystemDetails>>(() => current.value as any);
+
+    const hooks = computed(() =>
+    {
+        return char.value.details.hooks;
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal() : void
+    {
+        editModal.value.show(hooks.value);
+    }
+
+    function onEditSave(newHooks : RisusHook[]) : void
+    {
+        char.value.details.hooks = newHooks;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

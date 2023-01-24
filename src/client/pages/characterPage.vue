@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container id="character-page" class="mt-2 mb-3">
+    <b-container id="character-page" class="mt-2 mb-3" fluid>
         <!-- Error Handling -->
         <b-container v-if="error">
             <b-alert variant="danger" show>
@@ -31,7 +31,7 @@
             <template v-if="system" #tabs-start>
                 <li style="position: absolute; left: 18px; padding-top: 10px;">
                     <h4 class="text-muted">
-                        {{ system.name }}
+                        <span class="d-none d-md-inline">{{ system.name }}</span>
                         <fa v-if="saving" icon="save" class="flash text-success ml-2"></fa>
                     </h4>
                 </li>
@@ -85,6 +85,8 @@
 
 <style lang="scss">
     #character-page {
+        max-width: 1200px;
+
         .main-tabs {
             position: relative;
 
@@ -111,6 +113,7 @@
     // Stores
     import { useAccountStore } from '../lib/stores/account';
     import { useSystemsStore } from '../lib/stores/systems';
+    import { useCharactersStore } from '../lib/stores/characters';
 
     // Managers
     import charMan from '../lib/managers/character';
@@ -120,7 +123,7 @@
     import Notes from '../components/notes/noteBook.vue';
 
     // Systems
-    import RisusCharacter from '../components/systems/risus/character.vue';
+    import RisusCharacter from '../components/systems/risus/risusCharacter.vue';
     import FateCharacter from '../components/systems/fate/character.vue';
     import EoteCharacter from '../components/systems/eote/character.vue';
     import WfrpCharacter from '../components/systems/wfrp/character.vue';
@@ -151,19 +154,16 @@
             ...mapState(useSystemsStore, {
                 system: (store) => store.current
             }),
+            ...mapState(useCharactersStore, {
+                char: (store) => store.current,
+                saving: (store) => store.saving
+            }),
             isAuthorized()
             {
                 return !!this.account
                     && !!this.char
                     && (this.account.id || 'nope!') === this.char.accountID;
             }
-        },
-        subscriptions()
-        {
-            return {
-                char: charMan.selected$,
-                saving: charMan.saving$
-            };
         },
         mounted()
         {

@@ -106,6 +106,7 @@
         content: ''
     });
 
+    // Component Refs
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
     // FIXME: Upgrade to codemirror v6 and add types!

@@ -35,7 +35,7 @@
         </b-input-group>
 
         <b-input-group class="mt-2">
-            <b-form-input v-model.number="rollBonus" type="number" min="0" step="1" placeholder="Crit. bonus"></b-form-input>
+            <b-form-input v-model="rollBonus" number type="number" min="0" step="1" placeholder="Crit. bonus"></b-form-input>
             <b-input-group-append>
                 <b-btn
                     variant="primary"

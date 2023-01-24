@@ -117,7 +117,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
@@ -125,7 +125,7 @@
     import MarkdownBlock from '../../../ui/markdown.vue';
     import Reference from '../../../character/reference.vue';
     import AddEditForcePowersModal from './addEditForcePowersModal.vue';
-    import Pool from '../../../character/pool.vue';
+    import Pool from '../../../character/dicePool.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

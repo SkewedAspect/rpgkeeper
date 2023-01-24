@@ -38,7 +38,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -66,7 +66,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -94,7 +94,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -122,7 +122,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -150,7 +150,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -175,7 +175,7 @@
                     <b-form-checkbox v-model="newSkill.career" class="ml-2 mt-2" name="check-button" switch>
                         Career
                     </b-form-checkbox>
-                    <b-form-input v-model.number="newSkill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                    <b-form-input v-model="newSkill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                     <b-form-select v-model="newSkill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                     <b-form-select v-model="newSkill.type" class="ml-2" :options="skillTypes"></b-form-select>
                     <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addSkill">
@@ -215,7 +215,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 

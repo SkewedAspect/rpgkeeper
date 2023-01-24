@@ -39,7 +39,7 @@
                         label-class="font-weight-bold"
                         label-for="armor-hardpoints"
                     >
-                        <b-form-input id="armor-hardpoints" v-model.number="editArmor.hardpoints" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input id="armor-hardpoints" v-model="editArmor.hardpoints" number type="number" min="0" step="0"></b-form-input>
                     </b-form-group>
                 </b-form-row>
 
@@ -50,7 +50,7 @@
                         label-class="font-weight-bold"
                         label-for="armor-damage"
                     >
-                        <b-form-input id="armor-damage" v-model.number="editArmor.defense" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input id="armor-damage" v-model="editArmor.defense" number type="number" min="0" step="0"></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -58,7 +58,7 @@
                         label-class="font-weight-bold"
                         label-for="armor-critical"
                     >
-                        <b-form-input id="armor-critical" v-model.number="editArmor.soak" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input id="armor-critical" v-model="editArmor.soak" number type="number" min="0" step="0"></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -66,7 +66,7 @@
                         label-class="font-weight-bold"
                         label-for="armor-encumbrance"
                     >
-                        <b-form-input id="armor-encumbrance" v-model.number="editArmor.encumbrance" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input id="armor-encumbrance" v-model="editArmor.encumbrance" number type="number" min="0" step="0"></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 w-25"
@@ -74,7 +74,7 @@
                         label-class="font-weight-bold"
                         label-for="armor-rarity"
                     >
-                        <b-form-input id="armor-rarity" v-model.number="editArmor.rarity" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input id="armor-rarity" v-model="editArmor.rarity" number type="number" min="0" step="0"></b-form-input>
                     </b-form-group>
                 </b-form-row>
 
@@ -123,7 +123,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import QualityEdit from '../components/qualityEdit.vue';

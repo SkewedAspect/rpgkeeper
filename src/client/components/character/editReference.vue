@@ -26,7 +26,8 @@
         >
             <b-form-input
                 id="page-input"
-                v-model.number="page"
+                v-model="page"
+                number
                 type="number"
                 step="1"
                 min="1"
@@ -51,7 +52,7 @@
     import { defineComponent } from 'vue';
 
     // Managers
-    import eoteManager from '../../lib/managers/eote';
+    import eoteManager from '../../lib/managers/systems/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 

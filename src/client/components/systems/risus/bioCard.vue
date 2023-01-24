@@ -1,5 +1,5 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- bio.vue
+  -- bioCard.vue
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
@@ -26,7 +26,7 @@
             label="Name"
             label-class="font-weight-bold"
         >
-            <h5>{{ character.name }}</h5>
+            <h5>{{ char.name }}</h5>
         </b-form-group>
         <b-form-group
             id="desc-input-group"
@@ -42,16 +42,18 @@
                     label="Advancement Points"
                     label-class="font-weight-bold"
                 >
+                    <!-- FIXME: The 'number' modifier is broken with <b-form-input> -->
                     <b-form-input
-                        v-model.number="character.details.advancementPoints"
+                        v-model="char.details.advancementPoints"
+                        class="form-control"
                         type="number"
                         min="0"
                         max="9999"
                         step="1"
                         :disabled="readonly"
+                        number
                         @change="onChange"
-                    >
-                    </b-form-input>
+                    ></b-form-input>
                 </b-form-group>
             </b-col>
             <b-col>
@@ -61,15 +63,15 @@
                     label-class="font-weight-bold"
                 >
                     <b-form-input
-                        v-model.number="character.details.ffDice"
+                        v-model="char.details.ffDice"
                         type="number"
                         min="0"
                         max="9999"
                         step="1"
                         :disabled="readonly"
+                        number
                         @change="onChange"
-                    >
-                    </b-form-input>
+                    ></b-form-input>
                 </b-form-group>
             </b-col>
         </b-form-row>
@@ -79,16 +81,17 @@
             label-class="font-weight-bold"
             class="mb-0"
         >
-            <pool
-                v-model="character.details.luckyShots.current"
-                v-model:max="character.details.luckyShots.max"
+            <DicePool
+                v-model:current="char.details.luckyShots.current"
+                v-model:max="char.details.luckyShots.max"
                 name="Lucky Shots"
                 :disabled="readonly"
-            ></pool>
+                @save="onChange"
+            ></DicePool>
         </b-form-group>
 
         <!-- Edit Modal -->
-        <edit-bio-modal v-model="showEdit"></edit-bio-modal>
+        <EditBioModal ref="bioModal" @save="onEditSave"></EditBioModal>
     </rpgk-card>
 </template>
 
@@ -107,70 +110,84 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
+    import { truncate } from 'lodash';
 
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    // Interfaces
+    import { Character } from '../../../../common/interfaces/common';
+    import { RisusSystemDetails } from '../../../../common/interfaces/systems/risus';
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
     import EditBioModal from './editBioModal.vue';
-    import Pool from '../../character/pool.vue';
+    import DicePool from '../../character/dicePool.vue';
     import Markdown from '../../ui/markdown.vue';
     import RpgkCard from '../../ui/card.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'RisusBioCard',
-        components: {
-            EditBioModal,
-            Pool,
-            Markdown,
-            RpgkCard
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        data()
-        {
-            return {
-                showEdit: false
-            };
-        },
-        computed: {
-            description()
-            {
-                return _.truncate(this.character.description, { length: 160 });
-            }
-        },
-        methods: {
-            onChange()
-            {
-                if(!this.readonly)
-                {
-                    // Save the character
-                    return charMan.save(charMan.selected);
-                }
-            },
-            openEditModal()
-            {
-                this.showEdit = true;
-            }
-        }
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const bioModal = ref<InstanceType<typeof EditBioModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const char = computed<Character<RisusSystemDetails>>(() => current.value as any);
+
+    const description = computed(() =>
+    {
+        return truncate(char.value.description, { length: 160 });
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function onChange()
+    {
+        if(!props.readonly)
+        {
+            emit('save');
+        }
+    }
+
+    function openEditModal() : void
+    {
+        bioModal.value.show(char.value);
+    }
+
+    function onEditSave(bio : { name : string, description : string }) : void
+    {
+        char.value.name = bio.name;
+        char.value.description = bio.description;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -74,6 +74,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
+    // Component Refs
     const innerPage = ref<NotebookPage | null>(null);
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 

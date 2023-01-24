@@ -218,7 +218,7 @@
 
     // Components
     import ColorPicker from '../ui/colorPicker.vue';
-    import Thumbnail from './thumbnail.vue';
+    import Thumbnail from './charThumbnail.vue';
     import Portrait from './portrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------

@@ -23,7 +23,7 @@
 
             <!-- Modal Content -->
             <div v-for="(skill, index) in skills" :key="index" class="d-flex mb-2">
-                <b-form-input v-model.number="skill.value" type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                <b-form-input v-model="skill.value" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                 <b-form-input v-model="skill.description" class="ml-2" placeholder="Description"></b-form-input>
                 <b-btn variant="danger" class="ml-2" @click="removeSkills(skill)">
                     <fa icon="trash-alt"></fa>
@@ -38,7 +38,7 @@
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input v-model.number="newValue" type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                    <b-form-input v-model="newValue" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                     <b-form-input id="new-desc" v-model="newDesc" class="ml-2" placeholder="Description"></b-form-input>
                     <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addSkill">
                         <fa icon="plus"></fa>

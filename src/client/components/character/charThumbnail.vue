@@ -1,23 +1,23 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Thumbnail
+  -- Character Thumbnail
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
     <div class="char-thumbnail">
         <b-img
-            :src="src"
+            :src="char.thumbnail"
             width="64px"
             height="64px"
             rounded="circle"
-            :blank="!src"
-            :blank-color="color"
+            :blank="!char.thumbnail"
+            :blank-color="char.color"
             thumbnail
             class="shadow-sm"
-            :style="{ 'background-color': color }"
+            :style="{ 'background-color': char.color }"
         >
         </b-img>
-        <div v-if="!src" class="char-text">
-            {{ text }}
+        <div v-if="!char.thumbnail" class="char-text">
+            {{ getInitials(char) }}
         </div>
     </div>
 </template>
@@ -51,30 +51,38 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
+<script lang="ts" setup>
+    import { Character } from '../../../common/interfaces/common';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'CharacterThumbnail',
-        props: {
-            color: {
-                type: String,
-                default: '#ffffff'
-            },
-            src: {
-                type: String,
-                default: undefined
-            },
-            text: {
-                type: String,
-                required: true
-            }
+    interface Props
+    {
+        char : Character
+    }
+
+    const props = defineProps<Props>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function getInitials(char : Character) : string
+    {
+        if(char.name)
+        {
+            const nameParts = char.name.split(' ');
+            const initials = nameParts[0][0] + (nameParts[1]?.[0] ?? '');
+
+            return initials.toUpperCase();
         }
-    });
+        else
+        {
+            return '-';
+        }
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

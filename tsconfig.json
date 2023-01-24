@@ -40,6 +40,7 @@
         "config.ts"
     ],
     "include": [
+        "src/types",
         "src/server/knex/migrations",
         "src/server/knex/seeds"
     ],

@@ -95,7 +95,7 @@
     import _ from 'lodash';
 
     // Managers
-    import eoteMan from '../../../lib/managers/eote';
+    import eoteMan from '../../../lib/managers/systems/eote';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';

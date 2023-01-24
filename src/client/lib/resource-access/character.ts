@@ -5,122 +5,91 @@
 import $http from 'axios';
 
 // Interfaces
-import { Character } from '../../../common/interfaces/common';
+import { Character, SystemDetails } from '../../../common/interfaces/common';
 
 // Store
+import { useAccountStore } from '../stores/account';
 import { useSystemsStore } from '../stores/systems';
-
-// Models
-import CharacterModel from '../models/character';
 
 // Utils
 import toastUtil from '../utils/toast';
+
+// Errors
+import { CharacterSaveError, InvalidCharacterError } from '../error';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class CharacterResourceAccess
 {
-    #characters : Map<string, CharacterModel>;
-
-    constructor()
-    {
-        this.#characters = new Map();
-    }
-
-    _buildOrUpdateModel(def : Partial<Character>) : CharacterModel
+    _buildOrUpdateModel<
+        Details extends SystemDetails = SystemDetails
+    >(def : Partial<Character<Details>>) : Character<Details>
     {
         const systemsStore = useSystemsStore();
-        let character = this.#characters.get(def.id ?? 'dne');
-        if(character)
-        {
-            character.update(def);
-        }
-        else
-        {
-            const system = systemsStore.find(def.system ?? 'dne') ?? { defaults: {} };
-            character = new CharacterModel(def, system.defaults);
+        const system = systemsStore.find(def.system ?? 'dne') ?? { defaults: {} };
 
-            // We don't have an id if the character is new.
-            if(def.id)
-            {
-                this.#characters.set(def.id, character);
-            }
-        }
-
-        return character;
+        // Return a new object that's mixed with the defaults and def
+        return {
+            id: null,
+            system: '',
+            accountID: '',
+            noteID: '',
+            name: '',
+            description: '',
+            portrait: '',
+            thumbnail: '',
+            color: '',
+            campaign: '',
+            details: { ...system.defaults } as Details,
+            ...def
+        };
     }
 
-    $update(def : Character) : void
+    async newCharacter<
+        Details extends SystemDetails = SystemDetails
+    >(charDef : Partial<Character<Details>>) : Promise<Character<Details>>
     {
-        if(this.#characters.has(def.id))
-        {
-            this._buildOrUpdateModel(def);
-        }
+        return this._buildOrUpdateModel<Details>(charDef);
     }
 
-    $remove(charID : string) : void
-    {
-        this.#characters.delete(charID);
-    }
-
-    async newCharacter(charDef : Partial<Character>) : Promise<CharacterModel>
-    {
-        return this._buildOrUpdateModel(charDef);
-    }
-
-    async updateSysDefaults(char : CharacterModel) : Promise<CharacterModel>
-    {
-        const systemsStore = useSystemsStore();
-        const system = systemsStore.find(char.system ?? 'dne') ?? { defaults: {} };
-        char.updateSysDefaults(system.defaults);
-
-        return char;
-    }
-
-    async getCharacter(charID : string) : Promise<CharacterModel>
+    async getCharacter<
+        Details extends SystemDetails = SystemDetails
+    >(charID : string) : Promise<Character<Details>>
     {
         const { data } = await $http.get(`/api/characters/${ charID }`);
-        return this._buildOrUpdateModel(data);
+        return this._buildOrUpdateModel(data) as Character<Details>;
     }
 
-    async getAllCharacters(owner : string) : Promise<CharacterModel[]>
+    async getAllCharacters(owner ?: string) : Promise<Character[]>
     {
+        if(!owner)
+        {
+            const accountStore = useAccountStore();
+            owner = accountStore.account?.email ?? '';
+        }
+
         const { data } = await $http.get('/api/characters', { params: { owner } });
         return data.map((def) => this._buildOrUpdateModel(def));
     }
 
-    async saveCharacter(character : CharacterModel) : Promise<CharacterModel>
+    async saveCharacter<
+        Details extends SystemDetails = SystemDetails
+    >(character : Character<Details>) : Promise<Character<Details>>
     {
         const verb = character.id ? 'patch' : 'post';
         const charURL = character.id ? `/api/characters/${ character.id }` : `/api/characters`;
+
         const { data, status } = await ($http[verb](charURL, character)
             .catch((error) =>
             {
+                const charID = character.id ?? null;
                 if(error.response.status === 422)
                 {
-                    console.warn('Invalid character:', error.response.data);
-                    toastUtil.warning(`${ error.response.data.message } Resetting character.`, {
-                        autoHideDelay: 8000
-                    });
-
-                    // Reset the character
-                    character.revert();
-
-                    // Needed, or the destructure fails.
-                    return { data: undefined, status: undefined };
+                    throw new InvalidCharacterError(charID, error.response.data);
                 }
                 else
                 {
-                    console.error('Failed to save character:', error);
-                    toastUtil.error(`${ error.message }. Resetting character.`, {
-                        autoHideDelay: 8000
-                    });
-
-                    // Reset the character
-                    character.revert();
-
-                    // Rethrow, so other logic can handle the failure correctly.
-                    throw error;
+                    throw new CharacterSaveError(charID, error.message);
                 }
             }));
 
@@ -142,13 +111,7 @@ class CharacterResourceAccess
         }
         else if(data)
         {
-            // We have to make sure the model is in the list of characters before we call `_buildOrUpdateModel`.
-            if(!character.id)
-            {
-                this.#characters.set(data.id, character);
-            }
-
-            return this._buildOrUpdateModel(data);
+            return this._buildOrUpdateModel(data) as Character<Details>;
         }
         else
         {
@@ -156,9 +119,12 @@ class CharacterResourceAccess
         }
     }
 
-    async deleteCharacter(character : { id : string }) : Promise<void>
+    async deleteCharacter(character : { id : string | null }) : Promise<void>
     {
-        $http.delete(`/api/characters/${ character.id }`);
+        if(character.id)
+        {
+            await $http.delete(`/api/characters/${ character.id }`);
+        }
     }
 }
 

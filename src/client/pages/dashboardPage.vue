@@ -56,25 +56,34 @@
                                     <fa icon="cog"></fa>
                                 </template>
 
-                                <b-dropdown-item v-for="(system, index) in systems" :key="system.id">
-                                    <b-form-checkbox
-                                        :id="`checkbox-${ index }`"
-                                        v-model="systemsFilter[index]"
-                                        :value="system.id"
-                                        @click.stop
+                                <b-dropdown-form>
+                                    <b-form-checkbox-group
+                                        v-model="systemsFilter"
+                                        stacked
                                     >
-                                        {{ system.name }}
-                                        <b-badge
-                                            v-if="system.status"
-                                            :variant="getStatusVariant(system.status)"
-                                            class="ml-2"
-                                            :title="getStatusDescription(system.status)"
+                                        <b-form-checkbox
+                                            v-for="system in systems"
+                                            :key="system.id"
+                                            :value="system.id"
+                                            class="text-nowrap system-filter-checkbox"
+                                            @click.stop
                                         >
-                                            <fa :icon="getStatusIcon(system.status)"></fa>
-                                            {{ getStatusDisplay(system.status) }}
-                                        </b-badge>
-                                    </b-form-checkbox>
-                                </b-dropdown-item>
+                                            <div class="mr-1">
+                                                {{ system.name }}
+                                            </div>
+                                            <div class="ml-auto text-right">
+                                                <b-badge
+                                                    v-if="system.status"
+                                                    :variant="getStatusVariant(system.status)"
+                                                    :title="getStatusDescription(system.status)"
+                                                >
+                                                    <fa :icon="getStatusIcon(system.status)"></fa>
+                                                    {{ getStatusDisplay(system.status) }}
+                                                </b-badge>
+                                            </div>
+                                        </b-form-checkbox>
+                                    </b-form-checkbox-group>
+                                </b-dropdown-form>
                                 <b-dropdown-divider></b-dropdown-divider>
                                 <b-dropdown-item style="pointer-events: none">
                                     <div style="pointer-events: all" @click.stop="selectAllSystems()">
@@ -100,7 +109,7 @@
                     <b-list-group v-else-if="characters.length > 0" flush>
                         <b-list-group-item v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
                             <div class="d-flex">
-                                <thumbnail :src="char.thumbnail" :color="char.color" :text="char.initial"></thumbnail>
+                                <CharThumbnail :char="char"></CharThumbnail>
                                 <div class="ml-2 flex-column d-flex justify-content-center flex-fill">
                                     <h5 class="mb-1">
                                         {{ char.name }}
@@ -153,19 +162,32 @@
 <style lang="scss">
     #dashboard {
         padding: 16px;
+
+        .system-filter-checkbox {
+            label {
+                width: 100%;
+                display: flex;
+            }
+        }
     }
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { defineComponent } from 'vue';
-    import { mapState } from 'pinia';
+    import { computed, onMounted, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
+    import { useRouter } from 'vue-router';
+
+    // Interfaces
+    import { Character, System } from '../../common/interfaces/common';
 
     // Stores
     import { useAccountStore } from '../lib/stores/account';
+    import { useSystemsStore } from '../lib/stores/systems';
+    import { useCharactersStore } from '../lib/stores/characters';
 
     // Managers
     import systemsMan from '../lib/managers/systems';
@@ -175,163 +197,161 @@
     import Loading from '../components/ui/loading.vue';
     import AddEditModal from '../components/character/addEditModal.vue';
     import DeleteModal from '../components/character/deleteModal.vue';
-    import Thumbnail from '../components/character/thumbnail.vue';
-    import { useSystemsStore } from '../lib/stores/systems';
+    import CharThumbnail from '../components/character/charThumbnail.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'DashboardPage',
-        components: {
-            AddEditModal,
-            DeleteModal,
-            Loading,
-            Thumbnail
-        },
-        subscriptions()
+    const { account } = storeToRefs(useAccountStore());
+    const router = useRouter();
+    const sysStore = useSystemsStore();
+    const charStore = useCharactersStore();
+
+    const charFilter = ref('');
+    const systemsFilter = ref<string[]>([]);
+    const addEditChar = ref<Character>(null);
+    const delChar = ref<Character>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const charsLoading = computed(() =>
+    {
+        return !account.value || sysStore.status !== 'loaded' || charStore.status !== 'loaded';
+    });
+
+    const systems = computed(() => sysStore.systems);
+
+    const characters = computed(() =>
+    {
+        if(account.value)
         {
-            return {
-                characterList: characterMan.characters$,
-                charsStatus: characterMan.status$
-            };
-        },
-        data()
-        {
-            return {
-                charFilter: '',
-                systemsFilter: [],
-                addEditChar: undefined,
-                delChar: undefined
-            };
-        },
-        computed: {
-            ...mapState(useAccountStore, [ 'account' ]),
-            ...mapState(useSystemsStore, {
-                allSystems: (store) => store.systems,
-                systemsStatus: (store) => store.status
-            }),
-            charsLoading()
-            {
-                return !this.account
-                    || this.systemsStatus !== 'loaded'
-                    || this.charsStatus !== 'loaded';
-            },
-            systems() { return this.allSystems; },
-            characters()
-            {
-                if(this.account)
+            return charStore.characters
+                .filter((char) => char.accountID == account.value.id)
+                .filter((char) =>
                 {
-                    return this.characterList
-                        .filter((char) => char.accountID == this.account.id)
-                        .filter((char) =>
-                        {
-                            return this.systemsFilter.includes(char.system);
-                        })
-                        .filter((char) =>
-                        {
-                            return !this.charFilter || char.name.toLowerCase()
-                                .includes(this.charFilter.toLocaleLowerCase());
-                        });
-                }
-
-                return [];
-            }
-        },
-        mounted()
-        {
-            if(!this.account)
-            {
-                // We've finished loading, and we're not signed in
-                this.$router.push('/');
-            }
-
-            this.selectAllSystems();
-        },
-        methods: {
-            getSystem(systemID)
-            {
-                return this.systems.find((system) => system.id === systemID);
-            },
-            getStatusDisplay(desc)
-            {
-                return systemsMan.getStatusDisplay(desc);
-            },
-            getStatusDescription(desc)
-            {
-                return systemsMan.getStatusDescription(desc);
-            },
-            getStatusIcon(desc)
-            {
-                switch (desc)
+                    return systemsFilter.value.includes(char.system);
+                })
+                .filter((char) =>
                 {
-                    case 'dev':
-                        return 'exclamation-triangle';
-
-                    case 'beta':
-                        return 'info-circle';
-
-                    case 'disabled':
-                        return 'exclamation-triangle';
-
-                    default:
-                        return undefined;
-                }
-            },
-            getStatusVariant(desc)
-            {
-                switch (desc)
-                {
-                    case 'dev':
-                        return 'warning';
-
-                    case 'beta':
-                        return 'info';
-
-                    case 'disabled':
-                        return 'danger';
-
-                    default:
-                        return undefined;
-                }
-            },
-
-            selectAllSystems()
-            {
-                this.systemsFilter = [].concat(this.systems.map((sys) => sys.id));
-            },
-            selectNoneSystems()
-            {
-                this.systemsFilter = [];
-            },
-
-            // Add/Edit Modal
-            async openAddEditModal(char)
-            {
-                // If we don't have a character, we build once from scratch.
-                if(!char)
-                {
-                    char = await characterMan.create({});
-                }
-
-                this.addEditChar = char;
-            },
-            onAddEditHidden()
-            {
-                // We just need to clear this when the modal is hidden.
-                this.addEditChar = undefined;
-            },
-
-            // Delete Modal
-            openDelCharacter(char)
-            {
-                this.delChar = char;
-            },
-            onDeleteHidden()
-            {
-                // We just need to clear this when the modal is hidden.
-                this.delChar = undefined;
-            }
+                    return !charFilter.value || char.name.toLowerCase()
+                        .includes(charFilter.value.toLocaleLowerCase());
+                });
         }
+
+        return [];
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function getSystem<T>(systemID : string) : System<T> | undefined
+    {
+        return sysStore.find(systemID);
+    }
+
+    function getStatusDisplay(desc : string) : string
+    {
+        return systemsMan.getStatusDisplay(desc);
+    }
+
+    function getStatusDescription(desc : string) : string
+    {
+        return systemsMan.getStatusDescription(desc);
+    }
+
+    function getStatusIcon(desc : string) : string
+    {
+        switch (desc)
+        {
+            case 'dev':
+                return 'exclamation-triangle';
+
+            case 'beta':
+                return 'info-circle';
+
+            case 'disabled':
+                return 'exclamation-triangle';
+
+            default:
+                return undefined;
+        }
+    }
+
+    function getStatusVariant(desc : string) : string
+    {
+        switch (desc)
+        {
+            case 'dev':
+                return 'warning';
+
+            case 'beta':
+                return 'info';
+
+            case 'disabled':
+                return 'danger';
+
+            default:
+                return undefined;
+        }
+    }
+
+    function selectAllSystems() : void
+    {
+        systemsFilter.value = [].concat(systems.value.map((sys) => sys.id));
+    }
+
+    function selectNoneSystems() : void
+    {
+        systemsFilter.value = [];
+    }
+
+    // Add/Edit Modal
+    async function openAddEditModal(char)
+    {
+        // If we don't have a character, we build once from scratch.
+        if(!char)
+        {
+            char = await characterMan.create({});
+        }
+
+        addEditChar.value = char;
+    }
+
+    function onAddEditHidden()
+    {
+        // We just need to clear this when the modal is hidden.
+        addEditChar.value = undefined;
+    }
+
+    // Delete Modal
+    function openDelCharacter(char)
+    {
+        delChar.value = char;
+    }
+
+    function onDeleteHidden()
+    {
+        // We just need to clear this when the modal is hidden.
+        delChar.value = undefined;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Lifecycle Hooks
+    //------------------------------------------------------------------------------------------------------------------
+
+    onMounted(() =>
+    {
+        if(!account.value)
+        {
+            // We've finished loading, and we're not signed in
+            router.push('/');
+        }
+
+        selectAllSystems();
     });
 </script>
 

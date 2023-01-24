@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="cliches" class="edit-cliches-modal">
+    <div class="edit-cliches-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             size="lg"
@@ -13,7 +13,6 @@
             no-close-on-backdrop
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -23,7 +22,7 @@
 
             <!-- Modal Content -->
             <div v-for="(cliche, index) in cliches" :key="index" class="d-flex mb-2">
-                <b-form-input v-model.number="cliche.value" type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                <b-form-input v-model="cliche.value" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                 <b-form-input v-model="cliche.description" class="ml-2" placeholder="Description"></b-form-input>
                 <b-form-input v-model="cliche.tools" class="ml-2" placeholder="Tools of the Trade"></b-form-input>
                 <b-btn variant="danger" class="ml-2" @click="removeCliche(cliche)">
@@ -39,7 +38,7 @@
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input v-model.number="newValue" type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                    <b-form-input v-model="newValue" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                     <b-form-input id="new-desc" v-model="newDesc" class="ml-2" placeholder="Description"></b-form-input>
                     <b-form-input id="new-tools" v-model="newTools" class="ml-2" placeholder="Tools of the Trade"></b-form-input>
                     <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addCliche">
@@ -71,105 +70,103 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    import { computed, ref } from 'vue';
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    // Interfaces
+    import { RisusCliche } from '../../../../common/interfaces/systems/risus';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditClichesModal',
-        props: {
-            value: {
-                type: Array,
-                required: true
-            }
-        },
-        emits: [ 'input' ],
-        data()
-        {
-            return {
-                cliches: _.cloneDeep(this.value),
-                newValue: 1,
-                newDesc: '',
-                newTools: ''
-            };
-        },
-        computed: {
-            isAddValid()
-            {
-                return _.isFinite(this.newValue) && !!this.newDesc;
-            }
-        },
-        methods: {
-            onShown()
-            {
-                // Copy the v-model value over our cliches array.
-                this.cliches = _.cloneDeep(this.value);
-            },
-            onSave()
-            {
-                // Filter out invalid cliches.
-                this.cliches = this.cliches.filter((cliche) => _.isFinite(cliche.value) && !!cliche.description);
+    interface Events
+    {
+        (e : 'save', hooks : RisusCliche[]) : void;
+    }
 
-                this.$emit('input', this.cliches);
+    const emit = defineEmits<Events>();
 
-                // We have to wait for things to settle from updating the model
-                this.$nextTick(async() =>
-                {
-                    // Save the character
-                    try { await charMan.save(); }
-                    catch (error)
-                    {
-                        console.error('Error saving:', error);
-                        // TODO: Let the user know about this!
-                    }
-                });
-            },
-            onCancel()
-            {
-                // Clear our local variable
-                this.cliches = [];
-            },
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-            addCliche()
-            {
-                this.cliches.push({
-                    description: this.newDesc,
-                    tools: this.newTools,
-                    value: this.newValue,
-                    current: this.newValue
-                });
-                this.newDesc = '';
-                this.newTools = '';
-                this.newValue = 1;
-            },
-            removeCliche(cliche)
-            {
-                // We can't use lodash, since Vue doesn't track whatever magic `_.pull` does.
-                // See: https://vuejs.org/v2/guide/list.html#Array-Change-Detection
-                const idx = _.findIndex(this.cliches, cliche);
-                if(idx > -1)
-                {
-                    this.cliches.splice(idx, 1);
-                }
-            },
+    const cliches = ref<RisusCliche[]>([]);
+    const newValue = ref<number>(1);
+    const newDesc = ref<string>('');
+    const newTools = ref<string>('');
 
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const isAddValid = computed(() =>
+    {
+        return Number.isFinite(newValue.value) && !!newDesc.value;
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(charHooks : RisusCliche[]) : void
+    {
+        // Clone the array of cliches
+        cliches.value = charHooks.map((cliche) => ({ ...cliche }));
+
+        // Show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', cliches.value);
+        cliches.value = [];
+    }
+
+    function onCancel() : void
+    {
+        cliches.value = [];
+    }
+
+    function addCliche() : void
+    {
+        cliches.value.push({
+            description: newDesc.value,
+            tools: newTools.value,
+            value: newValue.value,
+            current: newValue.value
+        });
+
+        newDesc.value = '';
+        newTools.value = '';
+        newValue.value = 1;
+    }
+
+    function removeCliche(cliche : RisusCliche) : void
+    {
+        const idx = cliches.value.findIndex((item) => item === cliche);
+        if(idx > -1)
+        {
+            cliches.value.splice(idx, 1);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

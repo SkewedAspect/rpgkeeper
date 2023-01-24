@@ -42,7 +42,7 @@
                 label="Fate Refresh"
                 label-for="fp-input"
             >
-                <b-form-input id="fp-input" v-model.number="character.details.fatePoints.refresh" type="number" min="0" step="1"></b-form-input>
+                <b-form-input id="fp-input" v-model="character.details.fatePoints.refresh" number type="number" min="0" step="1"></b-form-input>
             </b-form-group>
 
             <!-- Modal Buttons -->

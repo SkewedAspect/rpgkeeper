@@ -30,7 +30,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="wounds-input" v-model.number="health.wounds" type="number" min="0" max="99" step="1"></b-form-input>
+                            <b-form-input id="wounds-input" v-model="health.wounds" number type="number" min="0" max="99" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="health.wounds = 0">
                                     <fa icon="times"></fa>
@@ -48,7 +48,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="wound-threshold-input" v-model.number="health.woundThreshold" type="number" min="0" max="99" step="1"></b-form-input>
+                            <b-form-input id="wound-threshold-input" v-model="health.woundThreshold" number type="number" min="0" max="99" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="health.woundThreshold = 0">
                                     <fa icon="times"></fa>
@@ -66,7 +66,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="strain-input" v-model.number="health.strain" type="number" min="0" max="99" step="1"></b-form-input>
+                            <b-form-input id="strain-input" v-model="health.strain" number type="number" min="0" max="99" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="health.strain = 0">
                                     <fa icon="times"></fa>
@@ -84,7 +84,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="strain-threshold-input" v-model.number="health.strainThreshold" type="number" min="0" max="99" step="1"></b-form-input>
+                            <b-form-input id="strain-threshold-input" v-model="health.strainThreshold" number type="number" min="0" max="99" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="health.strainThreshold = 0">
                                     <fa icon="times"></fa>
@@ -125,7 +125,7 @@
 
     // Managers
     import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     //------------------------------------------------------------------------------------------------------------------
 

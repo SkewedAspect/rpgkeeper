@@ -105,7 +105,7 @@
     import { defineComponent } from 'vue';
 
     // Managers
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
     import charMan from '../../../../lib/managers/character';
 
     // Components
