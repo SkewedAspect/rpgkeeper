@@ -7,6 +7,7 @@ import { SupportStatus } from '../../server/systems/base';
 import { SupplementOptions } from '../../server/models/supplement';
 import { NotebookOptions, NotebookPageOptions } from '../../server/models/notebook';
 import { CharacterOptions, SystemDetails as SysDetails } from '../../server/models/character';
+import { Roll } from 'rpgdicejs';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -51,5 +52,12 @@ export interface RPGKEventMessage<Payload extends Record<string, unknown> = Reco
 }
 
 export type RPGKMessage = RPGKUpdateMessage | RPGKRemoveMessage | RPGKEventMessage;
+
+export interface DiceRoll
+{
+    roll : Roll;
+    name : string;
+    display : string;
+}
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -52,12 +52,14 @@
 
     import { ref } from 'vue';
 
+    // Interfaces
+    import { DiceRoll } from '../../../../common/interfaces/common';
+
     // Utils
     import diceUtil from '../../../lib/utils/dice';
 
     // Components
     import RpgkCard from '../../ui/card.vue';
-    import { Roll } from 'rpgdicejs';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -75,7 +77,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const dice = ref<number | null>(null);
-    const rolls = ref<Roll[]>([]);
+    const rolls = ref<DiceRoll[]>([]);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -83,11 +85,11 @@
 
     function roll(diceNum : number, rollName : string) : void
     {
-        const roll = diceUtil.roll(`${ diceNum }d6`);
+        const diceRoll = diceUtil.roll(`${ diceNum }d6`);
         rolls.value.unshift({
-            roll,
+            roll: diceRoll,
             name: rollName,
-            display: `${ roll.render() } = ${ roll.value }`
+            display: `${ diceRoll.render() } = ${ diceRoll.value }`
         });
     }
 
