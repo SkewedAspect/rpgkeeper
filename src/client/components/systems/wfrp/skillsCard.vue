@@ -37,7 +37,7 @@
         </div>
 
         <!-- Edit Modal -->
-        <edit-skills-modal ref="editModal" v-model="character.details.skills"></edit-skills-modal>
+        <EditSkillsModal ref="editModal" @save="onEditSave"></EditSkillsModal>
     </rpgk-card>
 </template>
 
@@ -56,56 +56,72 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-    import { defineComponent } from 'vue';
+    // Interfaces
+    import { Character } from '../../../../common/interfaces/common';
+    import { WFRPSkill, WFRPSystemDetails } from '../../../../common/interfaces/systems/wfrp';
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
     import EditSkillsModal from './editSkillsModal.vue';
     import RpgkCard from '../../ui/card.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'WfrpSkillsCard',
-        components: {
-            EditSkillsModal,
-            RpgkCard
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        computed: {
-            skills() { return this.character.details.skills; }
-        },
-        methods: {
-            onChange()
-            {
-                if(!this.readonly)
-                {
-                    // Save the character
-                    return charMan.save(charMan.selected);
-                }
-            },
-            openEditModal()
-            {
-                this.$refs.editModal.show();
-            }
-        }
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const editModal = ref<InstanceType<typeof EditSkillsModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const char = computed<Character<WFRPSystemDetails>>(() => current.value as any);
+
+    const skills = computed(() =>
+    {
+        return char.value.details.skills;
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal() : void
+    {
+        editModal.value.show(skills.value);
+    }
+
+    function onEditSave(newSkills : WFRPSkill[]) : void
+    {
+        char.value.details.skills = newSkills;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

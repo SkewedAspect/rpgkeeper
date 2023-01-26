@@ -64,32 +64,34 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { defineComponent } from 'vue';
+    import { computed } from 'vue';
 
-    export default defineComponent({
-        name: 'CharacterPortrait',
-        props: {
-            src: {
-                type: String,
-                default: '/images/portraitPlaceholder.png'
-            },
-            color: {
-                type: String,
-                default: '#ffffff'
-            },
-            size: {
-                type: String,
-                default: 'auto'
-            }
-        },
-        computed: {
-            portraitClass() { return `portrait-${ this.size }`; },
-            url() { return this.src || '/images/portraitPlaceholder.png'; }
-        }
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Props
+    {
+        src : string;
+        color : string;
+        size : string;
+    }
+
+    const props = withDefaults(defineProps<Props>(), {
+        src: '/images/portraitPlaceholder.png',
+        color: '#ffffff',
+        size: 'auto'
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const portraitClass = computed<string>(() => `portrait-${ props.size }`);
+    const url = computed<string>(() => props.src || '/images/portraitPlaceholder.png');
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

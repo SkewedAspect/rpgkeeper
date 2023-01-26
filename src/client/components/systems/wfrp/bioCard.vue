@@ -1,0 +1,184 @@
+<!----------------------------------------------------------------------------------------------------------------------
+  -- bioCard.vue
+  --------------------------------------------------------------------------------------------------------------------->
+
+<template>
+    <rpgk-card id="wfrp-bio-block" :class="{ readonly: readonly }" fill>
+        <!-- Header -->
+        <template #header>
+            <div class="d-flex">
+                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="mr-1" icon="address-card"></fa>
+                    <span class="d-none d-md-inline">Bio</span>
+                </h5>
+                <div v-if="!readonly" class="ml-auto">
+                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                        <fa icon="edit" fixed-width></fa>
+                        <span class="d-none d-md-inline">Edit</span>
+                    </b-btn>
+                </div>
+            </div>
+        </template>
+
+        <!-- Card Body -->
+        <b-form-group
+            id="name-input-group"
+            label="Name"
+            label-class="font-weight-bold"
+        >
+            <h5>{{ char.name }}</h5>
+        </b-form-group>
+        <b-form-group
+            id="desc-input-group"
+            label="Description"
+            label-class="font-weight-bold"
+        >
+            <markdown class="font-sm" :text="description" inline></markdown>
+        </b-form-group>
+
+        <!-- Edit Modal -->
+        <EditBioModal ref="bioModal" @save="onEditSave"></EditBioModal>
+    </rpgk-card>
+</template>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<style lang="scss">
+    #wfrp-bio-block {
+        &.card:not(.readonly) {
+            .card-header {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+        }
+    }
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
+    import { truncate } from 'lodash';
+
+    // Interfaces
+    import { Character } from '../../../../common/interfaces/common';
+
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
+
+    // Components
+    import EditBioModal from './editBioModal.vue';
+    import Markdown from '../../ui/markdown.vue';
+    import RpgkCard from '../../ui/card.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const bioModal = ref<InstanceType<typeof EditBioModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const char = computed<Character>(() => current.value as any);
+
+    const description = computed(() =>
+    {
+        return truncate(char.value.description, { length: 160 });
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function onChange()
+    {
+        if(!props.readonly)
+        {
+            emit('save');
+        }
+    }
+
+    function openEditModal() : void
+    {
+        bioModal.value.show(char.value);
+    }
+
+    function onEditSave(bio : { name : string, description : string }) : void
+    {
+        char.value.name = bio.name;
+        char.value.description = bio.description;
+
+        emit('save');
+    }
+
+    // export default defineComponent({
+    //     name: 'WfrpBioCard',
+    //     components: {
+    //         EditBioModal,
+    //         Markdown,
+    //         RpgkCard
+    //     },
+    //     props: {
+    //         readonly: {
+    //             type: Boolean,
+    //             default: false
+    //         }
+    //     },
+    //     data()
+    //     {
+    //         return {
+    //             showEdit: false
+    //         };
+    //     },
+    //     subscriptions()
+    //     {
+    //         return {
+    //             character: charMan.selected$
+    //         };
+    //     },
+    //     computed: {
+    //         description()
+    //         {
+    //             return _.truncate(this.character.description, { length: 160 });
+    //         }
+    //     },
+    //     methods: {
+    //         onChange()
+    //         {
+    //             if(!this.readonly)
+    //             {
+    //                 // Save the character
+    //                 return charMan.save(charMan.selected);
+    //             }
+    //         },
+    //         openEditModal()
+    //         {
+    //             this.showEdit = true;
+    //         }
+    //     }
+    // });
+</script>
+
+<!--------------------------------------------------------------------------------------------------------------------->

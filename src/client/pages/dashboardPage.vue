@@ -103,7 +103,7 @@
 
                     <!-- List of Characters -->
                     <div v-if="charsLoading" class="card-body">
-                        <loading></loading>
+                        <LoadingWidget></LoadingWidget>
                     </div>
 
                     <b-list-group v-else-if="characters.length > 0" flush>
@@ -152,8 +152,8 @@
         </b-form-row>
 
         <!-- Modals -->
-        <add-edit-modal v-model="addEditChar" @hidden="onAddEditHidden"></add-edit-modal>
-        <delete-modal v-model="delChar" @hidden="onDeleteHidden"></delete-modal>
+        <AddEditModal ref="addEditModal" @save="onSave"></AddEditModal>
+        <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>
     </b-container>
 </template>
 
@@ -175,8 +175,6 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    //------------------------------------------------------------------------------------------------------------------
-
     import { computed, onMounted, ref } from 'vue';
     import { storeToRefs } from 'pinia';
     import { useRouter } from 'vue-router';
@@ -194,7 +192,7 @@
     import characterMan from '../lib/managers/character';
 
     // Components
-    import Loading from '../components/ui/loading.vue';
+    import LoadingWidget from '../components/ui/loadingWidget.vue';
     import AddEditModal from '../components/character/addEditModal.vue';
     import DeleteModal from '../components/character/deleteModal.vue';
     import CharThumbnail from '../components/character/charThumbnail.vue';
@@ -210,8 +208,9 @@
 
     const charFilter = ref('');
     const systemsFilter = ref<string[]>([]);
-    const addEditChar = ref<Character>(null);
-    const delChar = ref<Character>(null);
+
+    const addEditModal = ref<InstanceType<typeof AddEditModal> | null>(null);
+    const delModal = ref<InstanceType<typeof DeleteModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -310,7 +309,7 @@
     }
 
     // Add/Edit Modal
-    async function openAddEditModal(char)
+    async function openAddEditModal(char) : Promise<void>
     {
         // If we don't have a character, we build once from scratch.
         if(!char)
@@ -318,25 +317,38 @@
             char = await characterMan.create({});
         }
 
-        addEditChar.value = char;
+        addEditModal.value.show(char);
     }
 
-    function onAddEditHidden()
+    async function onSave(charUpdate : Partial<Character>) : Promise<void>
     {
-        // We just need to clear this when the modal is hidden.
-        addEditChar.value = undefined;
+        let char : Character;
+        if(!charUpdate.id)
+        {
+            // Take the partial, and apply system details defaults to it.
+            char = await characterMan.create(charUpdate);
+        }
+        else
+        {
+            // Update the existing character with this partial
+            char = {
+                ...charStore.find(charUpdate.id),
+                ...charUpdate
+            };
+        }
+
+        await characterMan.save(char);
     }
 
     // Delete Modal
-    function openDelCharacter(char)
+    function openDelCharacter(char) : void
     {
-        delChar.value = char;
+        delModal.value.show(char);
     }
 
-    function onDeleteHidden()
+    async function onDelete(char : Character<any>) : Promise<void>
     {
-        // We just need to clear this when the modal is hidden.
-        delChar.value = undefined;
+        return characterMan.delete(char);
     }
 
     //------------------------------------------------------------------------------------------------------------------

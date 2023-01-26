@@ -10,7 +10,7 @@
                 <biography :readonly="!isAuthorized"></biography>
                 <characteristics class="mt-1" :readonly="!isAuthorized"></characteristics>
             </div>
-            <rolls ref="roller" class="ml-1 w-50" :skills="character.details.skills" :readonly="!isAuthorized"></rolls>
+            <rolls ref="roller" class="ml-1 w-50" :skills="character.details.skillsCard" :readonly="!isAuthorized"></rolls>
         </div>
         <div class="d-flex mt-1">
             <div class="d-flex flex-column flex-fill mr-1">
@@ -51,7 +51,7 @@
     import eoteMan from '../../../lib/managers/systems/eote';
 
     // Components
-    import Portrait from '../../character/portrait.vue';
+    import Portrait from '../../character/charPortrait.vue';
     import Biography from './biography.vue';
     import Characteristics from './characteristics.vue';
     import Rolls from './rolls.vue';

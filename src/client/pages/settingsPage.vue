@@ -71,7 +71,7 @@
     import authMan from '../lib/managers/auth';
 
     // Components
-    import Loading from '../components/ui/loading.vue';
+    import Loading from '../components/ui/loadingWidget.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs

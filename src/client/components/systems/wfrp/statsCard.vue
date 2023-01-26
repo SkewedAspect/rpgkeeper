@@ -37,7 +37,7 @@
         </div>
 
         <!-- Edit Modal -->
-        <edit-stats-modal ref="editModal" v-model="character.details.stats"></edit-stats-modal>
+        <EditStatsModal ref="editModal" @save="onEditSave"></EditStatsModal>
     </rpgk-card>
 </template>
 
@@ -56,56 +56,72 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-    import { defineComponent } from 'vue';
+    // Interfaces
+    import { Character } from '../../../../common/interfaces/common';
+    import { WFRPStat, WFRPSystemDetails } from '../../../../common/interfaces/systems/wfrp';
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
-    import EditStatsModal from './editStatsModal.vue';
     import RpgkCard from '../../ui/card.vue';
+    import EditStatsModal from './editStatsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'WfrpStatsCard',
-        components: {
-            EditStatsModal,
-            RpgkCard
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        computed: {
-            stats() { return this.character.details.stats; }
-        },
-        methods: {
-            onChange()
-            {
-                if(!this.readonly)
-                {
-                    // Save the character
-                    return charMan.save(charMan.selected);
-                }
-            },
-            openEditModal()
-            {
-                this.$refs.editModal.show();
-            }
-        }
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const editModal = ref<InstanceType<typeof EditStatsModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const char = computed<Character<WFRPSystemDetails>>(() => current.value as any);
+
+    const stats = computed(() =>
+    {
+        return char.value.details.stats;
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal() : void
+    {
+        editModal.value.show(stats.value);
+    }
+
+    function onEditSave(newSkills : WFRPStat[]) : void
+    {
+        char.value.details.stats = newSkills;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

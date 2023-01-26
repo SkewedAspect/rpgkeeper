@@ -31,7 +31,6 @@
     },
     "files": [
         "src/types/@ckpack/vue-color/index.d.ts",
-        "src/types/vuelidate/index.d.ts",
         "src/server/express-shim.d.ts",
         "package.json",
         "src/server/server.ts",

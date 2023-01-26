@@ -1,35 +1,16 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Character Card
+  -- Character Component
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container v-if="char" id="risus-character" fluid>
-        <div class="d-flex bio-row">
-            <PortraitCard class="mr-1 d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
-            <BioCard
-                v-model:char="char"
-                class="mr-1 ml-1 w-50"
-                :readonly="!isAuthorized"
-                @save="onSave"
-            ></BioCard>
-            <RollsCard
-                ref="roller"
-                class="ml-1 w-50"
-                :readonly="!isAuthorized"
-            ></RollsCard>
+    <b-container v-if="char" id="wfrp-character" fluid>
+        <div class="d-flex">
+            <CharPortrait class="mr-1 d-none d-lg-block" :src="char.portrait" size="lg"></CharPortrait>
+            <BioBlock class="mr-1 ml-1 w-50" :readonly="!isAuthorized"></BioBlock>
         </div>
-        <div class="d-flex mt-2 cliche-row">
-            <ClichesCard
-                class="w-50 mr-1"
-                :readonly="!isAuthorized"
-                @roll="onRoll"
-                @save="onSave"
-            ></ClichesCard>
-            <HooksCard
-                class="w-50 ml-1"
-                :readonly="!isAuthorized"
-                @save="onSave"
-            ></HooksCard>
+        <div class="d-flex mt-2">
+            <StatsBlock class="w-50 mr-1" :readonly="!isAuthorized" @save="onSave"></StatsBlock>
+            <SkillsBlock class="w-50 mr-1" :readonly="!isAuthorized" @save="onSave"></SkillsBlock>
         </div>
     </b-container>
 </template>
@@ -37,51 +18,31 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    #risus-character {
-        max-width: 1200px;
-
-        @media screen and (max-width: 600px)
-        {
-            padding: 0 !important;
-            .bio-row, .cliche-row {
-                flex-wrap: wrap;
-
-                & > div {
-                    margin-left: 0 !important;
-                    margin-right: 0 !important;
-                    flex-basis: 100%;
-
-                    &:not(:first-child) {
-                        margin-top: 0.5rem;
-                    }
-                }
-            }
-        }
+    #wfrp-character {
     }
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Interfaces
     import { Character } from '../../../../common/interfaces/common';
+    import { WFRPSystemDetails } from '../../../../common/interfaces/systems/wfrp';
 
-    // Stores
+    // Store
     import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Managers
     import charMan from '../../../lib/managers/character';
 
     // Components
-    import BioCard from './bioCard.vue';
-    import RollsCard from './rollsBlock.vue';
-    import PortraitCard from '../../character/charPortrait.vue';
-    import ClichesCard from './clichesCard.vue';
-    import HooksCard from './hooksCard.vue';
-    import { RisusSystemDetails } from '../../../../common/interfaces/systems/risus';
+    import BioBlock from './bioCard.vue';
+    import StatsBlock from './statsCard.vue';
+    import SkillsBlock from './skillsCard.vue';
+    import CharPortrait from '../../character/charPortrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Card Definition
@@ -99,22 +60,19 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharactersStore());
-    const roller = ref<InstanceType<typeof RollsCard> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<Character<RisusSystemDetails>>(() => current.value as any);
+    const char = computed<Character<WFRPSystemDetails>>(() => current.value as any);
+
+    const stats = computed(() => char.value.details.stats);
+    const skills = computed(() => char.value.details.skills);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
-
-    function onRoll(dice : string, name : string) : void
-    {
-        roller.value.roll(dice, name);
-    }
 
     async function onSave() : Promise<void>
     {

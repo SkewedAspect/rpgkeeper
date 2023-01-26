@@ -13,6 +13,7 @@ import { useSystemsStore } from '../stores/systems';
 
 // Utils
 import toastUtil from '../utils/toast';
+import { randomColor } from '../../../common/utils/misc';
 
 // Errors
 import { CharacterSaveError, InvalidCharacterError } from '../error';
@@ -38,7 +39,7 @@ class CharacterResourceAccess
             description: '',
             portrait: '',
             thumbnail: '',
-            color: '',
+            color: randomColor(),
             campaign: '',
             details: { ...system.defaults } as Details,
             ...def

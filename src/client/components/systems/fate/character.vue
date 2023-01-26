@@ -50,7 +50,7 @@
     import Stunts from './stunts.vue';
     import Stress from './stress.vue';
     import Consequences from './consequences.vue';
-    import Portrait from '../../character/portrait.vue';
+    import Portrait from '../../character/charPortrait.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

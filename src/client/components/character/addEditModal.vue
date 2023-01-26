@@ -3,17 +3,16 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="char" class="add-edit-modal">
+    <div class="add-edit-modal">
         <b-modal
-            v-model="showModal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="xxl"
-            :ok-disabled="v$.$anyError"
+            :ok-disabled="v$.$errors.length > 0"
             @ok="onSave"
-            @show="onShow"
             @hidden="onHidden"
         >
             <!-- Modal Header -->
@@ -33,12 +32,12 @@
             <div class="content">
                 <b-form-row>
                     <b-col class="flex-grow-0 flex-shrink-0 w-auto">
-                        <portrait :src="portrait" :color="color" size="md"></portrait>
+                        <CharPortrait :src="char.portrait" :color="char.color" size="md"></CharPortrait>
                         <div class="text-center">
                             <small class="text-muted">Portrait</small>
                         </div>
                         <div class="text-center mt-4">
-                            <thumbnail :src="thumbnail" :color="color" :text="initials"></thumbnail>
+                            <CharThumbnail :char="char"></CharThumbnail>
                             <div>
                                 <small class="text-muted">Thumbnail</small>
                             </div>
@@ -55,7 +54,7 @@
                                 >
                                     <b-form-input
                                         id="char-name"
-                                        v-model="name"
+                                        v-model="char.name"
                                         :state="validateState('name')"
                                         @input="v$.name.$touch()"
                                     ></b-form-input>
@@ -70,13 +69,13 @@
                                 >
                                     <b-form-select
                                         id="char-sys"
-                                        v-model="currentSystem"
+                                        v-model="char.system"
                                         :options="systems"
                                         text-field="name"
                                         value-field="id"
                                         :disabled="!isNew"
-                                        :state="validateState('char.system')"
-                                        @input="v$.char.system.$touch()"
+                                        :state="validateState('system')"
+                                        @input="v$.system.$touch()"
                                     ></b-form-select>
                                 </b-form-group>
                             </b-col>
@@ -88,7 +87,7 @@
                                     label="Color"
                                     label-for="char-color"
                                 >
-                                    <color-picker v-model="color" variant="light" block></color-picker>
+                                    <color-picker v-model="char.color" variant="light" block></color-picker>
                                 </b-form-group>
                             </b-col>
                             <b-col>
@@ -100,7 +99,7 @@
                                     <b-input-group>
                                         <b-form-input
                                             id="char-portrait"
-                                            v-model="portrait"
+                                            v-model="char.portrait"
                                             :state="validateState('portrait')"
                                             @input="v$.portrait.$touch()"
                                         ></b-form-input>
@@ -125,7 +124,7 @@
                                     <b-input-group>
                                         <b-form-input
                                             id="char-thumbnail"
-                                            v-model="thumbnail"
+                                            v-model="char.thumbnail"
                                             :state="validateState('thumbnail')"
                                             @input="v$.thumbnail.$touch()"
                                         ></b-form-input>
@@ -150,7 +149,7 @@
                         >
                             <b-form-input
                                 id="char-campaign"
-                                v-model="campaign"
+                                v-model="char.campaign"
                                 :state="validateState('campaign')"
                                 @input="v$.campaign.$touch()"
                             ></b-form-input>
@@ -163,7 +162,7 @@
                         >
                             <b-form-input
                                 id="char-desc"
-                                v-model="description"
+                                v-model="char.description"
                                 :state="validateState('description')"
                                 @input="v$.description.$touch()"
                             ></b-form-input>
@@ -194,17 +193,16 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
+<script lang="ts" setup>
     import { get } from 'lodash';
-    import { defineComponent, PropType } from 'vue';
-    import { mapState } from 'pinia';
+    import { ref, computed } from 'vue';
     import { useVuelidate } from '@vuelidate/core';
     import { required, minLength, maxLength } from '@vuelidate/validators';
 
+    // Interfaces
+    import { Character } from '../../../common/interfaces/common';
+
     // Managers
-    import charMan from '../../lib/managers/character';
     import systemsMan from '../../lib/managers/systems';
 
     // Stores
@@ -213,175 +211,163 @@
     // Utils
     import dropboxUtil from '../../lib/utils/dropbox';
 
-    // Models
-    import CharacterModel from '../../lib/models/character';
-
     // Components
     import ColorPicker from '../ui/colorPicker.vue';
-    import Thumbnail from './charThumbnail.vue';
-    import Portrait from './portrait.vue';
+    import CharThumbnail from './charThumbnail.vue';
+    import CharPortrait from './charPortrait.vue';
+    import { BModal } from 'bootstrap-vue';
 
     //------------------------------------------------------------------------------------------------------------------
-    /* eslint vue/no-mutating-props: "off" */
+    // Types
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'AddEditModal',
-        components: {
-            ColorPicker,
-            Portrait,
-            Thumbnail
-        },
-        model: {
-            prop: 'char'
-        },
-        props: {
-            char: {
-                type: Object as PropType<CharacterModel>,
-                default: undefined
-            }
-        },
-        emits: [ 'hidden' ],
-        data()
-        {
-            return {
-                v$: useVuelidate(),
-                name: undefined,
-                color: undefined,
-                portrait: undefined,
-                thumbnail: undefined,
-                campaign: undefined,
-                description: undefined,
-                saving: false
-            };
-        },
-        computed: {
-            ...mapState(useSystemsStore, { allSystems: (store) => store.systems }),
-            isNew() { return !this.char || !this.char.id; },
-            initials() : string
-            {
-                if(this.name)
-                {
-                    const nameParts = this.name.split(' ');
-                    const initials = nameParts[0][0] + (nameParts[1]?.[0] ?? '');
+    type NewChar = Omit<Character<any>, 'details' | 'accountID' | 'noteID'>;
 
-                    return initials.toUpperCase();
-                }
-                else
-                {
-                    return '-';
-                }
-            },
-            showModal: {
-                get() { return !!this.char; },
-                set() { /* We ignore setting */ }
-            },
-            currentSystem: {
-                get() { return this.char.system; },
-                set(val)
-                {
-                    if(this.char)
-                    {
-                        this.$set(this.char, 'system', val);
-                        charMan.updateSysDefaults(this.char);
-                    }
-                }
-            },
-            systems()
-            {
-                return this.allSystems
-                    .map((sys) =>
-                    {
-                        return {
-                            ...sys,
-                            name: sys.status ? `${ sys.name } (${ systemsMan.getStatusDisplay(sys.status) })` : sys.name
-                        };
-                    });
-            }
-        },
-        methods: {
-            onShow()
-            {
-                this.name = this.char.name;
-                this.color = this.char.color;
-                this.portrait = this.char.portrait;
-                this.thumbnail = this.char.thumbnail;
-                this.campaign = this.char.campaign;
-                this.description = this.char.description;
-            },
-            onHidden()
-            {
-                // If we're not in the middle of a save, let's revert any changes.
-                if(!this.saving)
-                {
-                    this.char.revert();
-                }
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-                this.v$.$reset();
-                this.$emit('hidden');
-            },
-            async onSave(bvModalEvent)
-            {
-                this.v$.$touch();
+    interface Events
+    {
+        (e : 'hidden') : void;
+        (e : 'save', char : NewChar) : void;
+    }
 
-                if(!this.v$.$anyError)
-                {
-                    this.saving = true;
+    const emit = defineEmits<Events>();
 
-                    this.char.name = this.name;
-                    this.char.color = this.color;
-                    this.char.portrait = this.portrait;
-                    this.char.thumbnail = this.thumbnail;
-                    this.char.campaign = this.campaign;
-                    this.char.description = this.description;
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-                    await charMan.save(this.char);
-
-                    this.saving = false;
-                }
-                else
-                {
-                    bvModalEvent.preventDefault();
-                }
-            },
-            async pickImageDropBox(prop)
-            {
-                this[prop] = await dropboxUtil.chooseDropboxImage();
-            },
-            validateState(name)
-            {
-                const { $dirty, $error } = get(this.v$, name);
-                return $dirty ? !$error : null;
-            }
-        },
-        validations: {
-            name: {
-                required,
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            portrait: {
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            thumbnail: {
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            campaign: {
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            description: {
-                minLength: minLength(1),
-                maxLength: maxLength(255)
-            },
-            char: {
-                system: {
-                    required
-                }
-            }
-        }
+    const char = ref<NewChar>({
+        id: null,
+        name: '',
+        portrait: '',
+        thumbnail: '',
+        color: '',
+        campaign: '',
+        description: '',
+        system: null
     });
+
+    const sysStore = useSystemsStore();
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const isNew = computed(() => !char.value.id);
+
+    const systems = computed(() =>
+    {
+        return sysStore.systems
+            .map((sys) =>
+            {
+                return {
+                    ...sys,
+                    name: sys.status ? `${ sys.name } (${ systemsMan.getStatusDisplay(sys.status) })` : sys.name
+                };
+            });
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Validation
+    //------------------------------------------------------------------------------------------------------------------
+
+    const rules = {
+        name: {
+            required,
+            minLength: minLength(1),
+            maxLength: maxLength(255)
+        },
+        portrait: {
+            minLength: minLength(1),
+            maxLength: maxLength(255)
+        },
+        thumbnail: {
+            minLength: minLength(1),
+            maxLength: maxLength(255)
+        },
+        campaign: {
+            minLength: minLength(1),
+            maxLength: maxLength(255)
+        },
+        description: {
+            minLength: minLength(1),
+            maxLength: maxLength(255)
+        },
+        system: {
+            required
+        }
+    };
+
+    // TODO: Cast it to an any so we don't get spurious errors, but this is pretty bad...
+    // @see: https://github.com/vuelidate/vuelidate/issues/925
+    const v$ : any = useVuelidate<typeof rules>(rules, char);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(selectedChar : Character) : void
+    {
+        v$.value.$reset();
+
+        // Destructure just the properties we want
+        const { id, name, portrait, thumbnail, color, campaign, description, system } = selectedChar;
+
+        // Populate our char variable
+        char.value = { id: id ?? null, name, portrait, thumbnail, color: color || '#999', campaign, description, system };
+
+        // Now show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onHidden() : void
+    {
+        emit('hidden');
+    }
+
+    function onSave(bvModalEvent) : void
+    {
+        v$.value.$touch();
+
+        if(v$.value.$errors.length === 0)
+        {
+            emit('save', char.value);
+        }
+        else
+        {
+            bvModalEvent.preventDefault();
+        }
+    }
+
+    function getRandomColor()
+    {
+        return '#90f';
+    }
+
+    function validateState(name : string) : boolean
+    {
+        const { $dirty, $error } = get(v$.value, name);
+        return $dirty ? !$error : null;
+    }
+
+    async function pickImageDropBox(prop)
+    {
+        this[prop] = await dropboxUtil.chooseDropboxImage();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

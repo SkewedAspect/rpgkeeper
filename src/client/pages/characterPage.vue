@@ -119,14 +119,14 @@
     import charMan from '../lib/managers/character';
 
     // Components
-    import Loading from '../components/ui/loading.vue';
+    import Loading from '../components/ui/loadingWidget.vue';
     import Notes from '../components/notes/noteBook.vue';
 
     // Systems
     import RisusCharacter from '../components/systems/risus/risusCharacter.vue';
     import FateCharacter from '../components/systems/fate/character.vue';
     import EoteCharacter from '../components/systems/eote/character.vue';
-    import WfrpCharacter from '../components/systems/wfrp/character.vue';
+    import WfrpCharacter from '../components/systems/wfrp/wfrpCharacter.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

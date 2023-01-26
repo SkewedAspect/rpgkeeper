@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="stats" class="edit-stats-modal">
+    <div class="edit-stats-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             size="lg"
@@ -69,101 +69,182 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+
+    // Interfaces
+    import { WFRPStat } from '../../../../common/interfaces/systems/wfrp';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    interface Events
+    {
+        (e : 'save', hooks : Record<string, unknown>[]) : void;
+    }
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditStatsModal',
-        props: {
-            value: {
-                type: Array,
-                required: true
-            }
-        },
-        emits: [ 'input' ],
-        data()
-        {
-            return {
-                stats: _.cloneDeep(this.value),
-                newValue: 1,
-                newDesc: ''
-            };
-        },
-        computed: {
-            isAddValid()
-            {
-                return _.isFinite(this.newValue) && !!this.newDesc;
-            }
-        },
-        methods: {
-            onShown()
-            {
-                // Copy the v-model value over our stats array.
-                this.stats = _.cloneDeep(this.value);
-            },
-            onSave()
-            {
-                // Filter out invalid stats.
-                this.stats = this.stats.filter((stat) => _.isFinite(stat.value) && !!stat.description);
+    const stats = ref<Record<string, unknown>[]>([]);
+    const newValue = ref<number>(1);
+    const newDesc = ref<string>('');
 
-                this.$emit('input', this.stats);
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
-                // We have to wait for things to settle from updating the model
-                this.$nextTick(async() =>
-                {
-                    // Save the character
-                    try { await charMan.save(); }
-                    catch (error)
-                    {
-                        console.error('Error saving:', error);
-                        // TODO: Let the user know about this!
-                    }
-                });
-            },
-            onCancel()
-            {
-                // Clear our local variable
-                this.stats = [];
-            },
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
 
-            addStat()
-            {
-                this.stats.push({
-                    description: this.newDesc,
-                    value: this.newValue
-                });
-                this.newDesc = '';
-                this.newValue = 1;
-            },
-            removeStats(stat)
-            {
-                // We can't use lodash, since Vue doesn't track whatever magic `_.pull` does.
-                // See: https://vuejs.org/v2/guide/list.html#Array-Change-Detection
-                const idx = _.findIndex(this.stats, stat);
-                if(idx > -1)
-                {
-                    this.stats.splice(idx, 1);
-                }
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
+    const isAddValid = computed(() =>
+    {
+        return Number.isFinite(newValue.value) && !!newDesc.value;
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(charStats : WFRPStat[]) : void
+    {
+        // Clone the array of stats
+        stats.value = charStats.map((stat) => ({ ...stat }));
+
+        // Show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', stats.value);
+        stats.value = [];
+    }
+
+    function onCancel() : void
+    {
+        stats.value = [];
+    }
+
+    function addStat() : void
+    {
+        stats.value.push({
+            description: newDesc.value,
+            value: newValue.value
+        });
+
+        newDesc.value = '';
+        newValue.value = 1;
+    }
+
+    function removeStat(stat : WFRPStat) : void
+    {
+        const idx = stats.value.findIndex((item) => item === stat);
+        if(idx > -1)
+        {
+            stats.value.splice(idx, 1);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
+
+    // export default defineComponent({
+    //     name: 'EditStatsModal',
+    //     props: {
+    //         value: {
+    //             type: Array,
+    //             required: true
+    //         }
+    //     },
+    //     emits: [ 'input' ],
+    //     data()
+    //     {
+    //         return {
+    //             stats: _.cloneDeep(this.value),
+    //             newValue: 1,
+    //             newDesc: ''
+    //         };
+    //     },
+    //     computed: {
+    //         isAddValid()
+    //         {
+    //             return _.isFinite(this.newValue) && !!this.newDesc;
+    //         }
+    //     },
+    //     methods: {
+    //         onShown()
+    //         {
+    //             // Copy the v-model value over our stats array.
+    //             this.stats = _.cloneDeep(this.value);
+    //         },
+    //         onSave()
+    //         {
+    //             // Filter out invalid stats.
+    //             this.stats = this.stats.filter((stat) => _.isFinite(stat.value) && !!stat.description);
+    //
+    //             this.$emit('input', this.stats);
+    //
+    //             // We have to wait for things to settle from updating the model
+    //             this.$nextTick(async() =>
+    //             {
+    //                 // Save the character
+    //                 try { await charMan.save(); }
+    //                 catch (error)
+    //                 {
+    //                     console.error('Error saving:', error);
+    //                     // TODO: Let the user know about this!
+    //                 }
+    //             });
+    //         },
+    //         onCancel()
+    //         {
+    //             // Clear our local variable
+    //             this.stats = [];
+    //         },
+    //
+    //         addStat()
+    //         {
+    //             this.stats.push({
+    //                 description: this.newDesc,
+    //                 value: this.newValue
+    //             });
+    //             this.newDesc = '';
+    //             this.newValue = 1;
+    //         },
+    //         removeStats(stat)
+    //         {
+    //             // We can't use lodash, since Vue doesn't track whatever magic `_.pull` does.
+    //             // See: https://vuejs.org/v2/guide/list.html#Array-Change-Detection
+    //             const idx = _.findIndex(this.stats, stat);
+    //             if(idx > -1)
+    //             {
+    //                 this.stats.splice(idx, 1);
+    //             }
+    //         },
+    //
+    //         show()
+    //         {
+    //             this.$refs.modal.show();
+    //         },
+    //         hide()
+    //         {
+    //             this.$refs.modal.hide();
+    //         }
+    //     }
+    // });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
