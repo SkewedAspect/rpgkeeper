@@ -68,8 +68,8 @@
 
     // Components
     import EditHooksModal from './editHooksModal.vue';
-    import MarkdownBlock from '../../ui/markdown.vue';
-    import RpgkCard from '../../ui/card.vue';
+    import MarkdownBlock from '../../ui/markdownBlock.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

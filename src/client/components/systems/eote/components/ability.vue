@@ -9,7 +9,7 @@
         </b-badge>
         <b-popover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
-                <markdown-block :text="abilityText" inline></markdown-block>
+                <MarkdownBlock :text="abilityText" inline></MarkdownBlock>
                 <reference v-if="abilityReference" class="float-right mt-2 mb-2" :reference="abilityReference"></reference>
             </div>
         </b-popover>
@@ -40,7 +40,7 @@
 
     // Components
     import Reference from '../../../character/reference.vue';
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

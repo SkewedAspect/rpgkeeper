@@ -65,7 +65,7 @@
     import _ from 'lodash';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
     import EditSkillsModal from './editSkillsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------

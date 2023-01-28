@@ -23,7 +23,7 @@
                     </div>
                 </template>
                 <div :class="`${ mode }-system`">
-                    <markdown-block :text="critical.description" inline></markdown-block>
+                    <MarkdownBlock :text="critical.description" inline></MarkdownBlock>
                     <reference class="float-right mt-2 mb-2" :reference="ref"></reference>
                 </div>
             </b-popover>
@@ -57,7 +57,7 @@
     import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import Reference from '../../../character/reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------

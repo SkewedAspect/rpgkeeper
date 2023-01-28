@@ -83,7 +83,7 @@
     import diceMan from '../../../lib/utils/dice';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
     import CriticalCard from './components/criticalCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------

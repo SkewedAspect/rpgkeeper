@@ -68,7 +68,7 @@
 
     // Components
     import Motivation from './components/motivation.vue';
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
     import EditModal from './modals/editMotivationsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------

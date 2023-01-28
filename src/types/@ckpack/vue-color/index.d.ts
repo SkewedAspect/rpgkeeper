@@ -2,7 +2,7 @@
 // Type definitions for vue-color 2.4
 // ---------------------------------------------------------------------------------------------------------------------
 
-declare module 'vue-color'
+declare module '@ckpack/vue-color'
 {
     import { Component } from 'vue';
 

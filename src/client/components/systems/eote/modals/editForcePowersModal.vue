@@ -36,7 +36,7 @@
                 >
                     <template #preview="{ instance, supplement }">
                         <div class="clearfix mb-3">
-                            <markdown-block :text="supplement.description" inline></markdown-block>
+                            <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
                         </div>
                         <h5>Upgrades</h5>
                         <b-table
@@ -65,7 +65,7 @@
                                 ></pool>
                             </template>
                             <template #cell(description)="data">
-                                <markdown-block :text="data.value" inline></markdown-block>
+                                <MarkdownBlock :text="data.value" inline></MarkdownBlock>
                             </template>
                         </b-table>
                         <reference
@@ -122,7 +122,7 @@
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import Reference from '../../../character/reference.vue';
     import AddEditForcePowersModal from './addEditForcePowersModal.vue';
     import Pool from '../../../character/dicePool.vue';

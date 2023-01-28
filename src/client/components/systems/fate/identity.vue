@@ -33,7 +33,7 @@
             label="Description"
             label-class="font-weight-bold"
         >
-            <markdown class="font-sm" :text="character.description" inline></markdown>
+            <MarkdownBlock class="font-sm" :text="character.description" inline></MarkdownBlock>
         </b-form-group>
         <b-form-group
             id="fp-input-group"
@@ -75,8 +75,8 @@
     // Components
     import EditIdentityModal from './editIdentityModal.vue';
     import FatePoints from './fatePoints.vue';
-    import Markdown from '../../ui/markdown.vue';
-    import RpgkCard from '../../ui/card.vue';
+    import MarkdownBlock from '../../ui/markdownBlock.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -85,7 +85,7 @@
         components: {
             EditIdentityModal,
             FatePoints,
-            Markdown,
+            MarkdownBlock,
             RpgkCard
         },
         props: {

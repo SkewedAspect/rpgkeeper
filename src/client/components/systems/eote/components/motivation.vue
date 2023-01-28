@@ -9,7 +9,7 @@
         </b-badge>
         <b-popover :title="motivationName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`genesys-system`">
-                <markdown-block :text="motivationText" inline></markdown-block>
+                <MarkdownBlock :text="motivationText" inline></MarkdownBlock>
                 <reference
                     v-if="motivationReference"
                     class="float-right mt-2 mb-2"
@@ -43,7 +43,7 @@
 
     // Components
     import Reference from '../../../character/reference.vue';
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

@@ -87,7 +87,7 @@
                                     label="Color"
                                     label-for="char-color"
                                 >
-                                    <color-picker v-model="char.color" variant="light" block></color-picker>
+                                    <ColorPicker v-model:color="char.color" variant="light" block></ColorPicker>
                                 </b-form-group>
                             </b-col>
                             <b-col>

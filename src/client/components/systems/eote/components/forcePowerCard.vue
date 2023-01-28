@@ -11,7 +11,7 @@
             </div>
         </template>
         <b-collapse id="`force-power-${ forcePower.id }`" v-model="visible" :class="`${ mode }-system m-2`">
-            <markdown-block class="font-xs" :text="powerBase.description" inline></markdown-block>
+            <MarkdownBlock class="font-xs" :text="powerBase.description" inline></MarkdownBlock>
             <b-table-lite
                 class="font-xs mt-3 mb-0"
                 :items="upgrades"
@@ -26,7 +26,7 @@
                     </b>
                 </template>
                 <template #cell(description)="data">
-                    <markdown-block :text="data.value" inline></markdown-block>
+                    <MarkdownBlock :text="data.value" inline></MarkdownBlock>
                 </template>
             </b-table-lite>
             <div class="clearfix">
@@ -68,7 +68,7 @@
     import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import Reference from '../../../character/reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------

@@ -60,79 +60,70 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
+<script lang="ts" setup>
+    import { computed, useSlots } from 'vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'RPGKCard',
-        props: {
-            icon: {
-                type: String,
-                default: undefined
-            },
-            title: {
-                type: String,
-                default: undefined
-            },
-            noBody: {
-                type: Boolean,
-                default: false
-            },
-            align: {
-                type: String,
-                default: undefined
-            },
-            fill: {
-                type: Boolean,
-                default: false
-            },
-            fixed: {
-                type: Boolean,
-                default: false
-            },
-            grow: {
-                type: Boolean,
-                default: false
-            },
-            shrink: {
-                type: Boolean,
-                default: false
-            }
-        },
-        computed: {
-            hasFooterSlot()
-            {
-                return !!this.$slots.footer;
-            },
-            classes()
-            {
-                // We default these to false so that we can test against it, instead of testing truthiness, because the
-                // shortcut `<card fill>` makes the property into an empty string. This just means we only have to
-                // test against false.
-                if(this.fill !== false)
-                {
-                    return 'fill';
-                }
-                else if(this.fixed !== false)
-                {
-                    return 'fixed';
-                }
-                else if(this.grow !== false)
-                {
-                    return 'grow';
-                }
-                else if(this.shrink !== false)
-                {
-                    return 'shrink';
-                }
+    interface Props
+    {
+        icon ?: string;
+        title ?: string;
+        noBody : boolean;
+        align : 'left' | 'center' | 'right';
+        fill : boolean;
+        fixed : boolean;
+        grow : boolean;
+        shrink : boolean;
+    }
 
-                return 'nothing';
-            }
+    const props = withDefaults(
+        defineProps<Props>(),
+        {
+            icon: undefined,
+            title: undefined,
+            noBody: false,
+            align: 'left',
+            fill: false,
+            fixed: false,
+            grow: false,
+            shrink: false
         }
+    );
+
+    const slots = useSlots();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const hasFooterSlot = computed(() => !!slots.footer);
+
+    const classes = computed(() =>
+    {
+        // We default these to false so that we can test against it, instead of testing truthiness, because the
+        // shortcut `<card fill>` makes the property into an empty string. This just means we only have to
+        // test against false.
+        if(props.fill !== false)
+        {
+            return 'fill';
+        }
+        else if(props.fixed !== false)
+        {
+            return 'fixed';
+        }
+        else if(props.grow !== false)
+        {
+            return 'grow';
+        }
+        else if(props.shrink !== false)
+        {
+            return 'shrink';
+        }
+
+        return '';
     });
 </script>
 

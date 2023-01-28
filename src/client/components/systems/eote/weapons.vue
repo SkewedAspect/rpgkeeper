@@ -93,7 +93,7 @@
     import eoteMan from '../../../lib/managers/systems/eote';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
     import DeleteModal from '../../ui/deleteModal.vue';
     import EditModal from './modals/editWeaponsModal.vue';
     import Quality from './components/quality.vue';

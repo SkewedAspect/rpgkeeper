@@ -66,7 +66,7 @@
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ strength.name }}</b></h5>
-                            <markdown-block :text="strength.description" block></markdown-block>
+                            <MarkdownBlock :text="strength.description" block></MarkdownBlock>
                         </div>
                     </div>
                     <h6 v-else class="font-italic">
@@ -117,7 +117,7 @@
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ flaw.name }}</b></h5>
-                            <markdown-block :text="flaw.description" block></markdown-block>
+                            <MarkdownBlock :text="flaw.description" block></MarkdownBlock>
                         </div>
                     </div>
                     <h6 v-else class="font-italic">
@@ -170,7 +170,7 @@
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ desire.name }}</b></h5>
-                            <markdown-block :text="desire.description" block></markdown-block>
+                            <MarkdownBlock :text="desire.description" block></MarkdownBlock>
                         </div>
                     </div>
                     <h6 v-else class="font-italic">
@@ -221,7 +221,7 @@
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ fear.name }}</b></h5>
-                            <markdown-block :text="fear.description" block></markdown-block>
+                            <MarkdownBlock :text="fear.description" block></MarkdownBlock>
                         </div>
                     </div>
                     <h6 v-else class="font-italic">
@@ -274,7 +274,7 @@
 
     // Components
     import SupplementSearch from '../../../character/supplementSearch.vue';
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
     import AddEditMotivationModal from './addEditMotivationModal.vue';
 

@@ -224,7 +224,7 @@
     import eoteMan from '../../../lib/managers/systems/eote';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
     import EditModal from './modals/editSkillsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------

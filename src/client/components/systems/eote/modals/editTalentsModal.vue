@@ -44,7 +44,7 @@
                             <div class="mb-2">
                                 <i>{{ getActivation(supplement) }}</i>
                             </div>
-                            <markdown-block :text="supplement.description" inline></markdown-block>
+                            <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
                             <reference
                                 class="float-right mt-2"
                                 :reference="supplement.reference"
@@ -73,7 +73,7 @@
                                     </div>
                                 </template>
                             </b-card>
-                            <markdown-block v-else-if="instance.notes" :text="instance.notes" inline></markdown-block>
+                            <MarkdownBlock v-else-if="instance.notes" :text="instance.notes" inline></MarkdownBlock>
                             <i v-else>No notes.</i>
                         </div>
                     </template>
@@ -142,7 +142,7 @@
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import Reference from '../../../character/reference.vue';
     import AddEditTalentModal from './addEditTalentModal.vue';
 

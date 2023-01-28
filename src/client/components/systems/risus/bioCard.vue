@@ -33,7 +33,7 @@
             label="Description"
             label-class="font-weight-bold"
         >
-            <markdown class="font-sm" :text="description" inline></markdown>
+            <MarkdownBlock class="font-sm" :text="description" inline></MarkdownBlock>
         </b-form-group>
         <b-form-row>
             <b-col>
@@ -125,8 +125,8 @@
     // Components
     import EditBioModal from './editBioModal.vue';
     import DicePool from '../../character/dicePool.vue';
-    import Markdown from '../../ui/markdown.vue';
-    import RpgkCard from '../../ui/card.vue';
+    import MarkdownBlock from '../../ui/markdownBlock.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

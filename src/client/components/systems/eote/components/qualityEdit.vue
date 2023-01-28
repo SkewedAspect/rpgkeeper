@@ -25,7 +25,7 @@
                     <i v-if="supplement.passive">Passive</i>
                     <i v-else>Active</i>
                 </div>
-                <markdown-block :text="supplement.description" inline></markdown-block>
+                <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
                 <reference
                     class="float-right mt-2"
                     :reference="supplement.reference"
@@ -68,7 +68,7 @@
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
     import AddEditQualityModal from '../modals/addEditQualityModal.vue';
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import Reference from '../../../character/reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------

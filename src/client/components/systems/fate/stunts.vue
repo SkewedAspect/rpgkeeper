@@ -23,7 +23,7 @@
         <div class="stunts-content">
             <div v-for="(stunt, index) in stunts" :key="index">
                 <div><b>{{ stunt.title }}</b></div>
-                <markdown :text="stunt.description"></markdown>
+                <MarkdownBlock :text="stunt.description"></MarkdownBlock>
             </div>
             <div v-if="stunts.length === 0">
                 <h6 class="text-center">
@@ -53,8 +53,8 @@
     import _ from 'lodash';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
-    import markdown from '../../ui/markdown.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
+    import MarkdownBlock from '../../ui/markdownBlock.vue';
     import EditStuntsModal from './editStuntsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -63,7 +63,7 @@
         name: 'FateStuntsCard',
         components: {
             RpgkCard,
-            markdown,
+            MarkdownBlock,
             EditStuntsModal
         },
         props: {

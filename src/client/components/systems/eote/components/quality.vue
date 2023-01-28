@@ -8,7 +8,7 @@
         </b-badge>
         <b-popover :title="qualityName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
-                <markdown-block :text="qualityText" inline></markdown-block>
+                <MarkdownBlock :text="qualityText" inline></MarkdownBlock>
                 <reference
                     v-if="qualityReference"
                     class="float-right mt-2 mb-2"
@@ -42,7 +42,7 @@
 
     // Components
     import Reference from '../../../character/reference.vue';
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

@@ -83,7 +83,7 @@
     import charMan from '../../../lib/managers/character';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

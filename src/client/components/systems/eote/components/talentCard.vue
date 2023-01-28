@@ -27,13 +27,13 @@
                     <div>
                         <i>{{ activation }}</i>
                     </div>
-                    <markdown-block :text="talentBase.description" inline></markdown-block>
+                    <MarkdownBlock :text="talentBase.description" inline></MarkdownBlock>
                     <div class="clearfix">
                         <reference class="float-right mt-2 mb-2" :reference="talentBase.reference"></reference>
                     </div>
                     <div v-if="talent.notes">
                         <hr class="mt-1 mb-1" />
-                        <markdown-block :text="talent.notes" inline></markdown-block>
+                        <MarkdownBlock :text="talent.notes" inline></MarkdownBlock>
                     </div>
                 </div>
             </b-popover>
@@ -67,7 +67,7 @@
     import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
-    import MarkdownBlock from '../../../ui/markdown.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import Reference from '../../../character/reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------

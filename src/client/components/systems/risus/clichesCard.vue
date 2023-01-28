@@ -104,7 +104,7 @@
 
     // Components
     import EditClichesModal from './editClichesModal.vue';
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

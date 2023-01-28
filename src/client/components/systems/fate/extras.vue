@@ -20,7 +20,7 @@
         </template>
 
         <!-- Content -->
-        <markdown v-if="value" :text="value"></markdown>
+        <MarkdownBlock v-if="value" :text="value"></MarkdownBlock>
         <div v-else>
             <h6 class="text-center">
                 No Extras
@@ -47,8 +47,8 @@
     import { defineComponent } from 'vue';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
-    import markdown from '../../ui/markdown.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
+    import MarkdownBlock from '../../ui/markdownBlock.vue';
     import EditExtrasModal from './editExtrasModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -57,7 +57,7 @@
         name: 'FateExtrasCard',
         components: {
             RpgkCard,
-            markdown,
+            MarkdownBlock,
             EditExtrasModal
         },
         props: {

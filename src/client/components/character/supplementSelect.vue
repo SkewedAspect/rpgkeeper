@@ -91,7 +91,7 @@
                             <label>Ranks</label>
                             <b-form-spinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></b-form-spinbutton>
                         </div>
-                        <markdown-block :text="currentSupplement.description" inline></markdown-block>
+                        <MarkdownBlock :text="currentSupplement.description" inline></MarkdownBlock>
                         <reference
                             class="float-right mt-2"
                             :reference="currentSupplement.reference"
@@ -122,7 +122,7 @@
 
     // Components
     import SupplementSearch from './supplementSearch.vue';
-    import MarkdownBlock from '../ui/markdown.vue';
+    import MarkdownBlock from '../ui/markdownBlock.vue';
     import Reference from './reference.vue';
 
     //------------------------------------------------------------------------------------------------------------------

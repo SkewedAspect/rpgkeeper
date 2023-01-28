@@ -69,7 +69,7 @@
 
     // Components
     import EditSkillsModal from './editSkillsModal.vue';
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

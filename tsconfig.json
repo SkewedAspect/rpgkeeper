@@ -29,8 +29,11 @@
         "preserveSymlinks": true,
         "sourceMap": true
     },
+    "typeRoots": [
+        "node_modules/@types",
+        "src/types"
+    ],
     "files": [
-        "src/types/@ckpack/vue-color/index.d.ts",
         "src/server/express-shim.d.ts",
         "package.json",
         "src/server/server.ts",

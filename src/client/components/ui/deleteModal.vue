@@ -5,7 +5,7 @@
 <template>
     <div class="delete-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
@@ -44,49 +44,77 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { capitalize } from 'lodash';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    import _ from 'lodash';
-    import { defineComponent } from 'vue';
+    interface Props
+    {
+        type : string;
+        name ?: string;
+    }
 
-    //------------------------------------------------------------------------------------------------------------------
-
-    export default defineComponent({
-        name: 'DeleteThingModal',
-        props: {
-            type: {
-                type: String,
-                required: true
-            },
-            name: {
-                type: String,
-                default: undefined
-            }
-        },
-        emits: [ 'hidden', 'delete' ],
-        computed: {
-            title() { return `Delete ${ _.capitalize(this.type) }`; }
-        },
-        methods: {
-            onHidden()
-            {
-                this.$emit('hidden');
-            },
-            onDelete()
-            {
-                this.$emit('delete');
-            },
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
+    const props = withDefaults(
+        defineProps<Props>(),
+        {
+            name: undefined
         }
-    });
+    );
+
+    interface Events
+    {
+        (e : 'hidden') : void;
+        (e : 'delete') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const title = computed(() => `Delete ${ capitalize(props.type) }`);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function onHidden()
+    {
+        emit('hidden');
+    }
+
+    function onDelete()
+    {
+        emit('delete');
+    }
+
+    function show()
+    {
+        innerModal.value.show();
+    }
+
+    function hide()
+    {
+        innerModal.value.hide();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

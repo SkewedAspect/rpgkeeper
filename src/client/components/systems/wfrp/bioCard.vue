@@ -33,7 +33,7 @@
             label="Description"
             label-class="font-weight-bold"
         >
-            <markdown class="font-sm" :text="description" inline></markdown>
+            <MarkdownBlock class="font-sm" :text="description" inline></MarkdownBlock>
         </b-form-group>
 
         <!-- Edit Modal -->
@@ -69,8 +69,8 @@
 
     // Components
     import EditBioModal from './editBioModal.vue';
-    import Markdown from '../../ui/markdown.vue';
-    import RpgkCard from '../../ui/card.vue';
+    import MarkdownBlock from '../../ui/markdownBlock.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -137,7 +137,7 @@
     //     name: 'WfrpBioCard',
     //     components: {
     //         EditBioModal,
-    //         Markdown,
+    //         MarkdownBlock,
     //         RpgkCard
     //     },
     //     props: {

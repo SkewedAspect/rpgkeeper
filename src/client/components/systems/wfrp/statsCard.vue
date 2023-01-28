@@ -68,7 +68,7 @@
     import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
     import EditStatsModal from './editStatsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------

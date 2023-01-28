@@ -1,20 +1,16 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Note Page
-  --------------------------------------------------------------------------------------------------------------------->
+  -- MarkdownBlock   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <MarkdownBlock id="note-page" :text="renderedContent" :class="`${ system }-system`"></MarkdownBlock>
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div class="markdown" :class="block ? '' : 'd-inline-block'" v-html="renderedContent"></div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    #note-page {
-        & > p:first-child {
-            margin-top: 0;
-        }
-
-        & > p:last-child {
+    .markdown {
+        p:last-child {
             margin-bottom: 0;
         }
     }
@@ -23,14 +19,10 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
+    //------------------------------------------------------------------------------------------------------------------
+
     import { computed } from 'vue';
     import { marked } from 'marked';
-
-    // Stores
-    import { useSystemsStore } from '../../lib/stores/systems';
-
-    // Components
-    import MarkdownBlock from '../ui/markdownBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -38,16 +30,18 @@
 
     interface Props
     {
-        content : string;
+        text : string;
+        block : boolean;
+        inline : boolean;
     }
 
-    const props = defineProps<Props>();
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Refs
-    //------------------------------------------------------------------------------------------------------------------
-
-    const store = useSystemsStore();
+    const props = withDefaults(
+        defineProps<Props>(),
+        {
+            block: false,
+            inline: false
+        }
+    );
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -55,12 +49,14 @@
 
     const renderedContent = computed(() =>
     {
-        return marked(props.content);
-    });
+        let rawMarkup = marked(props.text);
 
-    const system = computed(() =>
-    {
-        return store.current.id;
+        if(props.inline !== false)
+        {
+            rawMarkup = rawMarkup.trim().replace(/^(?:<p>)?(.*?)(?:<\/p>)?$/, '$1');
+        }
+
+        return rawMarkup;
     });
 </script>
 

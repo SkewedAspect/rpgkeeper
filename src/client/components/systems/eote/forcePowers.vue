@@ -58,7 +58,7 @@
     import charMan from '../../../lib/managers/character';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
     import EditForcePowersModal from './modals/editForcePowersModal.vue';
     import ForcePowerCard from './components/forcePowerCard.vue';
 
