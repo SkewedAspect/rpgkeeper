@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-armor-block" :class="{ readonly: readonly }" fill no-body>
+    <RpgkCard id="eote-armor-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -82,7 +82,7 @@
 
         <!-- Edit Modal -->
         <edit-modal ref="editModal"></edit-modal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -3,15 +3,16 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-identity-modal">
+    <div class="edit-identity-modal">
         <b-modal
-            v-model="showModal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
+            @cance="onCancel"
             @shown="onShown"
         >
             <!-- Modal Header -->
@@ -26,7 +27,7 @@
                 label="Name"
                 label-for="name-input"
             >
-                <b-form-input id="name-input" v-model="character.name"></b-form-input>
+                <b-form-input id="name-input" v-model="innerIdent.name"></b-form-input>
             </b-form-group>
             <b-form-group
                 id="desc-input-group"
@@ -34,7 +35,7 @@
                 label-for="desc-input"
             >
                 <b-card class="overflow-hidden" no-body>
-                    <codemirror ref="editor" v-model="character.description"></codemirror>
+                    <codemirror ref="editor" v-model="innerIdent.description"></codemirror>
                 </b-card>
             </b-form-group>
             <b-form-group
@@ -42,7 +43,14 @@
                 label="Fate Refresh"
                 label-for="fp-input"
             >
-                <b-form-input id="fp-input" v-model="character.details.fatePoints.refresh" number type="number" min="0" step="1"></b-form-input>
+                <b-form-input
+                    id="fp-input"
+                    v-model="innerIdent.refresh"
+                    number
+                    type="number"
+                    min="0"
+                    step="1"
+                ></b-form-input>
             </b-form-group>
 
             <!-- Modal Buttons -->
@@ -70,57 +78,86 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
+    import { ref } from 'vue';
+
+    // Interfaces
+    import { Character } from '../../../../common/interfaces/common';
+    import { FateSystemDetails } from '../../../../common/interfaces/systems/fate';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    import { defineComponent } from 'vue';
+    interface Events
+    {
+        (e : 'save', identity : { name : string, description : string, refresh : number }) : void;
+    }
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditIdentityModal',
-        props: {
-            value: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        emits: [ 'input' ],
-        computed: {
-            showModal: {
-                get() { return this.value; },
-                set(val) { this.$emit('input', val); }
-            }
-        },
-        methods: {
-            onSave()
-            {
-                // Save the character
-                return charMan.save(charMan.selected);
-            },
-            onShown()
-            {
-                this.cmRefresh();
-            },
-            cmRefresh()
-            {
-                this.$nextTick(() =>
-                {
-                    this.$refs.editor.codemirror.refresh();
-                });
-            }
-        }
-
+    const innerIdent = ref({
+        name: '',
+        description: '',
+        refresh: 0
     });
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    // FIXME: Upgrade to codemirror v6 and add types!
+    const editor = ref<any | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(char : Character<FateSystemDetails>) : void
+    {
+        innerIdent.value.name = char.name;
+        innerIdent.value.description = char.description;
+        innerIdent.value.refresh = char.details.fatePoints.refresh;
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function cmRefresh() : void
+    {
+        // FIXME: Upgrade to codemirror v6 and fix this!
+        editor.value['codemirror'].refresh();
+    }
+
+    function onShown() : void
+    {
+        cmRefresh();
+    }
+
+    function onSave() : void
+    {
+        emit('save', innerIdent.value);
+    }
+
+    function onCancel() : void
+    {
+        innerIdent.value.name = '';
+        innerIdent.value.description = '';
+        innerIdent.value.refresh = 0;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

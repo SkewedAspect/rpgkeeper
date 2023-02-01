@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="rolls" icon="dice" title="Rolls" fill>
+    <RpgkCard id="rolls" icon="dice" title="Rolls" fill>
         <div class="roll-dice">
             <b>Roll:</b>
             <!-- eslint-disable-next-line vue/no-v-html -->
@@ -54,7 +54,7 @@
                 Roll
             </b-btn>
         </div>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

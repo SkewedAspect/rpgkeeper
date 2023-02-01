@@ -1,15 +1,14 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Wfrp Stats
+  -- FATE Extras
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <RpgkCard id="wfrp-stats-block" :class="{ readonly: readonly }" fill no-body>
-        <!-- Header -->
+    <RpgkCard id="fate-extras" :class="{ readonly: readonly }" fill>
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="flame"></fa>
-                    <span class="d-none d-md-inline">Stats</span>
+                    <fa class="mr-1" icon="magic"></fa>
+                    <span class="d-none d-md-inline">Extras</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
                     <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
@@ -20,56 +19,28 @@
             </div>
         </template>
 
-        <!-- Card Body -->
-        <b-list-group v-if="stats && stats.length > 0" flush>
-            <b-list-group-item v-for="stat in stats" :key="stat.description" class="d-flex">
-                <div class="d-inline-block flex-fill">
-                    <div>
-                        <b>{{ stat.description }}</b> ({{ stat.value }})
-                    </div>
-                </div>
-            </b-list-group-item>
-        </b-list-group>
-        <div v-else class="card-body">
-            <h4 class="text-center text-muted m-0">
-                No Stats.
-            </h4>
+        <!-- Content -->
+        <MarkdownBlock v-if="extras" :text="extras"></MarkdownBlock>
+        <div v-else>
+            <h6 class="text-center">
+                No Extras
+            </h6>
         </div>
 
-        <!-- Edit Modal -->
-        <EditStatsModal ref="editModal" @save="onEditSave"></EditStatsModal>
+        <!-- Modals -->
+        <EditExtrasModal ref="editModal" @save="onEditSave"></EditExtrasModal>
     </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    #wfrp-stats-block {
-        &.card:not(.readonly) {
-            .card-header {
-                padding-top: 0.5rem !important;
-                padding-bottom: 0.5rem !important;
-            }
-        }
-    }
-</style>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
 <script lang="ts" setup>
     import { computed, ref } from 'vue';
-    import { storeToRefs } from 'pinia';
-
-    // Interfaces
-    import { Character } from '../../../../common/interfaces/common';
-    import { WFRPStat, WFRPSystemDetails } from '../../../../common/interfaces/systems/wfrp';
-
-    // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
-    import EditStatsModal from './editStatsModal.vue';
+    import MarkdownBlock from '../../ui/markdownBlock.vue';
+    import EditExtrasModal from './editExtrasModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -77,6 +48,7 @@
 
     interface Props
     {
+        extras : string;
         readonly : boolean;
     }
 
@@ -84,27 +56,25 @@
 
     interface Events
     {
+        (e : 'update:extras', extra : string);
         (e : 'save') : void;
     }
 
     const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
-    // Refs
+    // Ref
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
-    const editModal = ref<InstanceType<typeof EditStatsModal> | null>(null);
+    const editModal = ref<InstanceType<typeof EditExtrasModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<Character<WFRPSystemDetails>>(() => current.value as any);
-
-    const stats = computed(() =>
-    {
-        return char.value.details.stats;
+    const extras = computed<string>({
+        get() { return props.extras; },
+        set(val) { emit('update:extras', val); }
     });
 
     //------------------------------------------------------------------------------------------------------------------
@@ -113,12 +83,12 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(stats.value);
+        editModal.value.show(extras.value);
     }
 
-    function onEditSave(newSkills : WFRPStat[]) : void
+    function onEditSave(newExtras : string) : void
     {
-        char.value.details.stats = newSkills;
+        extras.value = newExtras;
 
         emit('save');
     }

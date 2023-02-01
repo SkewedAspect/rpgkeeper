@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-weapons-block" :class="{ readonly: readonly }" fill no-body>
+    <RpgkCard id="eote-weapons-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -63,7 +63,7 @@
             @hidden="onDelModalHidden"
             @delete="onDelWeaponDelete"
         ></delete-modal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

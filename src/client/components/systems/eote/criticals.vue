@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-criticals-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="eote-criticals-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -60,7 +60,7 @@
             :readonly="readonly"
             @remove="removeCritical(index)"
         ></critical-card>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

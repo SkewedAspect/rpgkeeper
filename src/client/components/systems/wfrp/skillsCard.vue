@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="wfrp-skills-block" :class="{ readonly: readonly }" fill no-body>
+    <RpgkCard id="wfrp-skills-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -38,7 +38,7 @@
 
         <!-- Edit Modal -->
         <EditSkillsModal ref="editModal" @save="onEditSave"></EditSkillsModal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

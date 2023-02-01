@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="risus-hooks-block" :class="{ readonly: readonly }" fill no-body>
+    <RpgkCard id="risus-hooks-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -35,7 +35,7 @@
 
         <!-- Edit Modal -->
         <EditHooksModal ref="editModal" @save="onEditSave"></EditHooksModal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

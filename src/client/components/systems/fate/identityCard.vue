@@ -1,15 +1,15 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Wfrp Stats
+  -- Identity Card
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <RpgkCard id="wfrp-stats-block" :class="{ readonly: readonly }" fill no-body>
+    <RpgkCard id="fate-identity-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="flame"></fa>
-                    <span class="d-none d-md-inline">Stats</span>
+                    <fa class="mr-1" icon="address-card"></fa>
+                    <span class="d-none d-md-inline">Identity</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
                     <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
@@ -21,30 +21,43 @@
         </template>
 
         <!-- Card Body -->
-        <b-list-group v-if="stats && stats.length > 0" flush>
-            <b-list-group-item v-for="stat in stats" :key="stat.description" class="d-flex">
-                <div class="d-inline-block flex-fill">
-                    <div>
-                        <b>{{ stat.description }}</b> ({{ stat.value }})
-                    </div>
-                </div>
-            </b-list-group-item>
-        </b-list-group>
-        <div v-else class="card-body">
-            <h4 class="text-center text-muted m-0">
-                No Stats.
-            </h4>
-        </div>
+        <b-form-group
+            id="name-input-group"
+            label="Name"
+            label-class="font-weight-bold"
+        >
+            <h5>{{ char.name }}</h5>
+        </b-form-group>
+        <b-form-group
+            id="desc-input-group"
+            label="Description"
+            label-class="font-weight-bold"
+        >
+            <MarkdownBlock class="font-sm" :text="char.description" inline></MarkdownBlock>
+        </b-form-group>
+        <b-form-group
+            id="fp-input-group"
+            class="mt-4 mb-0"
+            label="Fate Points"
+            label-class="font-weight-bold"
+        >
+            <FatePoints
+                v-model:current="char.details.fatePoints.current"
+                :refresh="char.details.fatePoints.refresh"
+                :readonly="readonly"
+                @update:current="onFateSave"
+            ></FatePoints>
+        </b-form-group>
 
         <!-- Edit Modal -->
-        <EditStatsModal ref="editModal" @save="onEditSave"></EditStatsModal>
+        <EditIdentityModal ref="editModal" @save="onEditSave"></EditIdentityModal>
     </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    #wfrp-stats-block {
+    #fate-identity-block {
         &.card:not(.readonly) {
             .card-header {
                 padding-top: 0.5rem !important;
@@ -62,14 +75,16 @@
 
     // Interfaces
     import { Character } from '../../../../common/interfaces/common';
-    import { WFRPStat, WFRPSystemDetails } from '../../../../common/interfaces/systems/wfrp';
+    import { FateSystemDetails } from '../../../../common/interfaces/systems/fate';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
+    import EditIdentityModal from './editIdentityModal.vue';
+    import FatePoints from './fatePoints.vue';
+    import MarkdownBlock from '../../ui/markdownBlock.vue';
     import RpgkCard from '../../ui/rpgkCard.vue';
-    import EditStatsModal from './editStatsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -94,18 +109,13 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharactersStore());
-    const editModal = ref<InstanceType<typeof EditStatsModal> | null>(null);
+    const editModal = ref<InstanceType<typeof EditIdentityModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<Character<WFRPSystemDetails>>(() => current.value as any);
-
-    const stats = computed(() =>
-    {
-        return char.value.details.stats;
-    });
+    const char = computed<Character<FateSystemDetails>>(() => current.value as any);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -113,12 +123,19 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(stats.value);
+        editModal.value.show(char.value);
     }
 
-    function onEditSave(newSkills : WFRPStat[]) : void
+    function onFateSave() : void
     {
-        char.value.details.stats = newSkills;
+        emit('save');
+    }
+
+    function onEditSave(ident : { name : string, description : string, refresh : number }) : void
+    {
+        char.value.name = ident.name;
+        char.value.description = ident.description;
+        char.value.details.fatePoints.refresh = ident.refresh;
 
         emit('save');
     }

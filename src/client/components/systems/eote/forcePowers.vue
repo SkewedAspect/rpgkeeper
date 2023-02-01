@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-force-powers-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="eote-force-powers-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -35,7 +35,7 @@
 
         <!-- Modals -->
         <edit-force-powers-modal ref="editForcePowersModal"></edit-force-powers-modal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

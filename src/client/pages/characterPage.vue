@@ -124,7 +124,7 @@
 
     // Systems
     import RisusCharacter from '../components/systems/risus/risusCharacter.vue';
-    import FateCharacter from '../components/systems/fate/character.vue';
+    import FateCharacter from '../components/systems/fate/fateCharacter.vue';
     import EoteCharacter from '../components/systems/eote/character.vue';
     import WfrpCharacter from '../components/systems/wfrp/wfrpCharacter.vue';
 

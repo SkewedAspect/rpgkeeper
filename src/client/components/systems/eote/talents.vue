@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-talents-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="eote-talents-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -25,7 +25,7 @@
 
         <!-- Modals -->
         <edit-talents-modal ref="editTalentsModal"></edit-talents-modal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

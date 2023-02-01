@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-force-pool-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="eote-force-pool-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -44,7 +44,7 @@
 
         <!-- Edit Modal -->
         <edit-modal ref="editModal"></edit-modal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

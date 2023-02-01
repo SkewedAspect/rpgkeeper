@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="fate-aspects" :class="{ readonly: readonly }" no-body shrink>
+    <RpgkCard id="fate-aspects" :class="{ readonly: readonly }" no-body shrink>
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
@@ -50,8 +50,8 @@
         </table>
 
         <!-- Modals -->
-        <edit-aspects-modal ref="editModal" v-model="aspects"></edit-aspects-modal>
-    </rpgk-card>
+        <EditAspectsModal ref="editModal" @save="onEditSave"></EditAspectsModal>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -81,51 +81,81 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    // Interfaces
+    import { FateAspect } from '../../../../common/interfaces/systems/fate';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
     import EditAspectsModal from './editAspectsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'FateAspectsCard',
-        components: {
-            EditAspectsModal,
-            RpgkCard
-        },
-        props: {
-            value: {
-                type: Array,
-                required: true
-            },
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        emits: [ 'input' ],
-        computed: {
-            aspects: {
-                get() { return this.value; },
-                set(val) { this.$emit('input', val); }
-            },
-            highConcept() { return _.find(this.aspects, { type: 'high concept' }) || { detail: '' }; },
-            trouble() { return _.find(this.aspects, { type: 'trouble' }) || { detail: '' }; },
-            extraAspects() { return _.filter(this.aspects, { type: 'aspect' }); }
-        },
-        methods: {
-            openEditModal()
-            {
-                this.$refs.editModal.show();
-            }
-        }
+    interface Props
+    {
+        aspects : FateAspect[];
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'update:aspects', aspects : FateAspect[]);
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Ref
+    //------------------------------------------------------------------------------------------------------------------
+
+    const editModal = ref<InstanceType<typeof EditAspectsModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const aspects = computed<FateAspect[]>({
+        get() { return props.aspects; },
+        set(val) { emit('update:aspects', val); }
     });
+
+    const highConcept = computed<FateAspect>(() =>
+    {
+        return aspects.value.find((item) => item.type === 'high concept') ?? { type: 'high concept', detail: '' };
+    });
+
+    const trouble = computed<FateAspect>(() =>
+    {
+        return aspects.value.find((item) => item.type === 'trouble') ?? { type: 'trouble', detail: '' };
+    });
+
+    const extraAspects = computed<FateAspect[]>(() =>
+    {
+        return aspects.value.filter((item) => item.type === 'aspect');
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal() : void
+    {
+        editModal.value.show(aspects.value);
+    }
+
+    function onEditSave(newAspects : FateAspect[]) : void
+    {
+        aspects.value = newAspects;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-motivations-block" :class="{ readonly }" fill>
+    <RpgkCard id="eote-motivations-block" :class="{ readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -46,7 +46,7 @@
 
         <!-- Edit Modal -->
         <edit-modal ref="editModal"></edit-modal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

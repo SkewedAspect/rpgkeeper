@@ -1,12 +1,23 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Risus Rolls
+  -- FATE Rolls
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
     <RpgkCard id="rolls" icon="dice" title="Rolls" fill>
-        <b-input-group append="D6">
-            <b-form-input v-model="dice" number type="number" min="0" max="999" step="1" :disabled="readonly"></b-form-input>
-        </b-input-group>
+        <!-- Select a skill -->
+        <b-form-select
+            v-model="skill"
+            :options="sortedSkills"
+            text-field="display"
+            value-field="name"
+            :disabled="readonly"
+        >
+            <template #first>
+                <option value="No Skill">
+                    No Skill
+                </option>
+            </template>
+        </b-form-select>
 
         <!-- Roll History -->
         <div class="flex-fill mt-3 mb-3 overflow-auto h-0">
@@ -21,12 +32,12 @@
         </div>
 
         <!-- Roll Buttons -->
-        <div v-if="!readonly" class="text-right">
+        <div class="text-right">
             <b-btn :disabled="readonly" @click="clearRolls()">
                 <fa icon="times"></fa>
                 Clear
             </b-btn>
-            <b-btn variant="primary" class="ml-1" :disabled="readonly || !dice" @click="roll(dice)">
+            <b-btn variant="primary" class="ml-1" :disabled="readonly" @click="roll()">
                 <fa icon="dice"></fa>
                 Roll
             </b-btn>
@@ -48,12 +59,11 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { ref } from 'vue';
+    import { computed, ref } from 'vue';
+    import { orderBy } from 'lodash';
 
     // Interfaces
-    import { DiceRoll } from '../../../../common/interfaces/common';
+    import { FateSkill } from '../../../../common/interfaces/systems/fate';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';
@@ -67,6 +77,7 @@
 
     interface Props
     {
+        skills : FateSkill[];
         readonly : boolean;
     }
 
@@ -76,32 +87,55 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const dice = ref<number | null>(null);
-    const rolls = ref<DiceRoll[]>([]);
+    interface RollerRoll
+    {
+        name : string;
+        display : string;
+        roll : { render() : string, value : number }
+    }
+
+    const skill = ref<string>('No Skill');
+    const rolls = ref<RollerRoll[]>([]);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const sortedSkills = computed(() =>
+    {
+        const skills = props.skills.map(({ name, rank }) =>
+        {
+            return {
+                name,
+                rank,
+                display: `${ name } (+${ rank })`
+            };
+        });
+
+        return orderBy(skills, [ 'rank', 'name' ], [ 'desc', 'asc' ]);
+    });
+
+    const selectedSkill = computed(() => sortedSkills.value.find((item) => item.name === skill.value));
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function roll(diceNum : number, rollName : string) : void
+    function roll() : void
     {
-        const diceRoll = diceUtil.roll(`${ diceNum }d6`);
-        rolls.value.unshift({
-            roll: diceRoll,
-            name: rollName,
-            display: `${ diceRoll.render() } = ${ diceRoll.value }`
+        const rollInst = diceUtil.rollFudge(selectedSkill.value?.rank ?? 0);
+        this.rolls.unshift({
+            roll: rollInst,
+            name: selectedSkill.value?.display ?? skill.value,
+            display: `${ rollInst.render() } = ${ rollInst.value }`
         });
     }
 
     function clearRolls() : void
     {
+        skill.value = 'No Skill';
         rolls.value = [];
-        dice.value = null;
     }
-
-    //------------------------------------------------------------------------------------------------------------------
-
-    defineExpose({ roll, clearRolls });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

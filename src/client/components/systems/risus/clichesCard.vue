@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="risus-cliches-block" :class="{ readonly: readonly }" fill no-body>
+    <RpgkCard id="risus-cliches-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -73,7 +73,7 @@
 
         <!-- Edit Modal -->
         <EditClichesModal ref="editModal" @save="onEditSave"></EditClichesModal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

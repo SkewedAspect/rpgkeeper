@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="wfrp-bio-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="wfrp-bio-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -38,7 +38,7 @@
 
         <!-- Edit Modal -->
         <EditBioModal ref="bioModal" @save="onEditSave"></EditBioModal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

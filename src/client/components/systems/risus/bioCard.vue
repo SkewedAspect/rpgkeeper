@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="risus-bio-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="risus-bio-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -92,7 +92,7 @@
 
         <!-- Edit Modal -->
         <EditBioModal ref="bioModal" @save="onEditSave"></EditBioModal>
-    </rpgk-card>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

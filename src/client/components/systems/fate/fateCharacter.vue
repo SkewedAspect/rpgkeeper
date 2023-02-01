@@ -1,64 +1,42 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Character Card
+  -- Character Component
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container v-if="char" id="risus-character" fluid>
-        <div class="d-flex bio-row">
+    <b-container v-if="char" id="fate-char">
+        <div class="d-flex">
             <PortraitCard class="mr-1 d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
-            <BioCard
-                v-model:char="char"
-                class="mr-1 ml-1 w-50"
-                :readonly="!isAuthorized"
-                @save="onSave"
-            ></BioCard>
-            <RollsCard
-                ref="roller"
-                class="ml-1 w-50"
-                :readonly="!isAuthorized"
-            ></RollsCard>
+            <IdentityCard class="mr-1 ml-1 w-50" :readonly="!isAuthorized" @save="onSave"></IdentityCard>
+            <RollsCard class="ml-1 w-50" :skills="char.details.skills" :readonly="!isAuthorized"></RollsCard>
         </div>
-        <div class="d-flex mt-2 cliche-row">
-            <ClichesCard
-                class="w-50 mr-1"
+        <div class="d-flex mt-2">
+            <AspectsCard v-model:aspects="char.details.aspects" :readonly="!isAuthorized" @save="onSave"></AspectsCard>
+            <SkillsCard v-model:skills="char.details.skills" :readonly="!isAuthorized" @save="onSave"></SkillsCard>
+        </div>
+        <div class="d-flex mt-2">
+            <ExtrasCard v-model:extras="char.details.extras" class="w-50" :readonly="!isAuthorized" @save="onSave"></ExtrasCard>
+            <StuntsCard v-model:stunts="char.details.stunts" class="w-50 ml-2" :readonly="!isAuthorized" @save="onSave"></StuntsCard>
+        </div>
+        <div class="d-flex mt-2">
+            <StressCard
+                v-model:physical="char.details.physicalStress"
+                v-model:mental="char.details.mentalStress"
+                :skills="char.details.skills"
+                style="flex-basis: 40%"
                 :readonly="!isAuthorized"
-                @roll="onRoll"
                 @save="onSave"
-            ></ClichesCard>
-            <HooksCard
-                class="w-50 ml-1"
+            ></StressCard>
+            <ConsequencesCard
+                v-model:aspects="char.details.aspects"
+                :skills="char.details.skills"
+                style="flex-basis: 60%"
+                class="ml-2"
                 :readonly="!isAuthorized"
                 @save="onSave"
-            ></HooksCard>
+            ></ConsequencesCard>
         </div>
     </b-container>
 </template>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<style lang="scss">
-    #risus-character {
-        max-width: 1200px;
-
-        @media screen and (max-width: 600px)
-        {
-            padding: 0 !important;
-            .bio-row, .cliche-row {
-                flex-wrap: wrap;
-
-                & > div {
-                    margin-left: 0 !important;
-                    margin-right: 0 !important;
-                    flex-basis: 100%;
-
-                    &:not(:first-child) {
-                        margin-top: 0.5rem;
-                    }
-                }
-            }
-        }
-    }
-</style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
@@ -68,7 +46,7 @@
 
     // Interfaces
     import { Character } from '../../../../common/interfaces/common';
-    import { RisusSystemDetails } from '../../../../common/interfaces/systems/risus';
+    import { FateSystemDetails } from '../../../../common/interfaces/systems/fate';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';
@@ -77,11 +55,15 @@
     import charMan from '../../../lib/managers/character';
 
     // Components
-    import BioCard from './bioCard.vue';
-    import RollsCard from './rollsBlock.vue';
+    import IdentityCard from './identityCard.vue';
+    import RollsCard from './rollsCard.vue';
+    import AspectsCard from './aspectsCard.vue';
+    import SkillsCard from './skillsCard.vue';
+    import ExtrasCard from './extrasCard.vue';
+    import StuntsCard from './stuntsCard.vue';
+    import StressCard from './stressCard.vue';
+    import ConsequencesCard from './consequencesCard.vue';
     import PortraitCard from '../../character/charPortrait.vue';
-    import ClichesCard from './clichesCard.vue';
-    import HooksCard from './hooksCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -105,7 +87,7 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<Character<RisusSystemDetails>>(() => current.value as any);
+    const char = computed<Character<FateSystemDetails>>(() => current.value as any);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
