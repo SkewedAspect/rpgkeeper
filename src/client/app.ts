@@ -8,9 +8,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { marked } from 'marked';
 import { version } from '../../package.json';
 
-// VueCodeMirror
-import VueCodemirror from 'vue-codemirror';
-
 // VueRX
 import VueRx from 'vue-rx';
 
@@ -24,17 +21,6 @@ import { far } from '@fortawesome/pro-regular-svg-icons';
 import { fas } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
 
-// CodeMirror
-import 'codemirror/addon/mode/overlay';
-import 'codemirror/mode/xml/xml';
-import 'codemirror/mode/markdown/markdown';
-import 'codemirror/mode/gfm/gfm';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/css/css';
-import 'codemirror/mode/htmlmixed/htmlmixed';
-import 'codemirror/mode/clike/clike';
-import 'codemirror/mode/meta';
-
 // Managers
 import authMan from './lib/managers/auth';
 import charMan from './lib/managers/character';
@@ -42,7 +28,6 @@ import systemsMan from './lib/managers/systems';
 
 // Site Theme
 import './scss/theme.scss';
-import 'codemirror/lib/codemirror.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // Views
@@ -90,19 +75,6 @@ const app = createApp(AppComponent)
 
     // FixMe: Remove VueRX
     .use(VueRx as any)
-
-    // FixMe: Upgrade to VueCodeMirror v6
-    .use(VueCodemirror, {
-        options: {
-            mode: {
-                name: 'gfm',
-                gitHubSpice: false
-            },
-            lineNumbers: false,
-            lineWrapping: true,
-            theme: 'default'
-        }
-    })
 
     // FixMe: Why does this not work?
     .use(BootstrapVue as any)

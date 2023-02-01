@@ -13,7 +13,6 @@
             size="lg"
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -27,9 +26,7 @@
                 label="Extras"
                 label-for="extras-input"
             >
-                <b-card class="overflow-hidden" no-body>
-                    <codemirror ref="editor" v-model="extras" :options="{ lineNumbers: true }"></codemirror>
-                </b-card>
+                <MarkdownEditor v-model:text="extras"></MarkdownEditor>
             </b-form-group>
 
             <!-- Modal Buttons -->
@@ -62,6 +59,7 @@
 
     // Components
     import { BModal } from 'bootstrap-vue';
+    import MarkdownEditor from '../../ui/markdownEditor.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -82,9 +80,6 @@
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
-    // FIXME: Upgrade to codemirror v6 and add types!
-    const editor = ref<any | null>(null);
-
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
@@ -101,17 +96,6 @@
     function hide() : void
     {
         innerModal.value.hide();
-    }
-
-    function cmRefresh() : void
-    {
-        // FIXME: Upgrade to codemirror v6 and fix this!
-        editor.value['codemirror'].refresh();
-    }
-
-    function onShown() : void
-    {
-        cmRefresh();
     }
 
     function onSave() : void

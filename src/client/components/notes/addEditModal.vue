@@ -42,9 +42,7 @@
                 label="Content"
                 label-for="page-content"
             >
-                <b-card class="overflow-hidden" no-body>
-                    <codemirror ref="editor" v-model="innerPage.content"></codemirror>
-                </b-card>
+                <MarkdownEditor v-model:text="innerPage.content" height="550px"></MarkdownEditor>
             </b-form-group>
 
             <!-- Modal Buttons -->
@@ -62,25 +60,14 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .add-edit-page {
-        .CodeMirror {
-            height: 550px;
-        }
-    }
-</style>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
 <script lang="ts" setup>
-    //------------------------------------------------------------------------------------------------------------------
-
     import { ref, computed } from 'vue';
 
     // Models
     import { NotebookPage } from '../../lib/models/notebook';
 
     // Components
+    import MarkdownEditor from '../ui/markdownEditor.vue';
     import { BModal } from 'bootstrap-vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -108,9 +95,6 @@
 
     // Component Refs
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
-
-    // FIXME: Upgrade to codemirror v6 and add types!
-    const editor = ref<any | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -148,20 +132,9 @@
         innerModal.value.hide();
     }
 
-    function cmRefresh() : void
-    {
-        // FIXME: Upgrade to codemirror v6 and fix this!
-        editor.value['codemirror'].refresh();
-    }
-
     function onHidden() : void
     {
         emit('hidden');
-    }
-
-    function onShown() : void
-    {
-        cmRefresh();
     }
 
     function onSave() : void
