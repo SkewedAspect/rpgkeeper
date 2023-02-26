@@ -12,7 +12,7 @@ import { roleJsonDecoder, roleRecDecoder } from '../decoders/role';
 export interface RoleOptions {
     id : number;
     name : string;
-    permissions ?: string[];
+    permissions : string[];
 }
 
 //----------------------------------------------------------------------------------------------------------------------

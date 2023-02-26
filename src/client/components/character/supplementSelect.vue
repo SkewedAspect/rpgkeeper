@@ -13,7 +13,7 @@
                 <b-card class="h-100 overflow-hidden" no-body :style="{ maxHeight, minHeight: maxHeight }">
                     <template #header>
                         <div class="d-flex">
-                            <supplement-search
+                            <SupplementSearch
                                 class="w-100"
                                 :available="available"
                                 :selected="selected"
@@ -29,26 +29,28 @@
                                         New
                                     </b-button>
                                 </template>
-                            </supplement-search>
+                            </SupplementSearch>
                         </div>
                     </template>
 
                     <!-- Supplement Selection -->
                     <b-list-group v-if="selectedSupplements.length > 0" flush class="overflow-auto">
-                        <b-list-group-item v-for="supp in selectedSupplements" :key="supp.id" :variant=" supp.id === currentSelection ? 'primary' : ''" @click="selectSupp(supp)">
+                        <b-list-group-item
+                            v-for="supp in selectedSupplements"
+                            :key="supp.id"
+                            :variant=" supp.id === currentSelection ? 'primary' : ''"
+                            @click="selectSupp(supp)"
+                        >
                             <div class="float-right">
                                 <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra"></slot>
-                                <b-badge :variant="getSupp(supp.id).scope === 'user' ? 'success' : ''">
-                                    <span v-if="getSupp(supp.id).scope === 'user'">User</span>
-                                    <span v-else-if="getSupp(supp.id).scope === 'public'">Public</span>
-                                </b-badge>
+                                <ScopeBadge :supplement="getSupp(supp.id)"></ScopeBadge>
                                 <b-button class="ml-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
                                     <fa icon="times"></fa>
                                 </b-button>
                             </div>
                             <div class="pt-2">
-                                {{ getSupp(supp.id).name }}
-                                <span v-if="getSupp(supp.id).ranked">{{ supp.ranks }}</span>
+                                {{ getSupp(supp.id)?.name }}
+                                <span v-if="getSupp(supp.id)?.ranked">{{ supp.ranks }}</span>
                             </div>
                         </b-list-group-item>
                     </b-list-group>
@@ -60,43 +62,47 @@
                 </b-card>
             </b-col>
             <b-col>
-                <b-card>
+                <b-card class="h-100">
                     <template v-if="currentSelection" #header>
                         <slot :instance="supplementInstance" :supplement="currentSupplement" name="header">
-                            <div v-if="currentSupplement.scope === 'user'" class="float-right">
-                                <b-btn size="sm" @click="editSupp(currentSupplement)">
+                            <div v-if="canModify" class="float-right">
+                                <b-btn size="sm" class="mt-1" @click="editSupp(currentSupplement)">
                                     <fa icon="edit"></fa>
                                     Edit
                                 </b-btn>
-                                <b-btn variant="danger" size="sm" @click="deleteSupp(currentSupplement)">
+                                <b-btn variant="danger" class="ml-1 mt-1" size="sm" @click="deleteSupp(currentSupplement)">
                                     <fa icon="trash-alt"></fa>
                                     Delete
                                 </b-btn>
                             </div>
-                            <b>
-                                <slot :instance="supplementInstance" :supplement="currentSupplement" name="preview-title">
-                                    {{ currentSupplement.name }}
-                                    <span v-if="currentSupplement.ranked">{{ supplementInstance.ranks }}</span>
-                                </slot>
-                            </b>
+                            <div style="height: 38px; padding-top: 6px">
+                                <h4>
+                                    <slot :instance="supplementInstance" :supplement="currentSupplement" name="preview-title">
+                                        {{ currentSupplement.name }}
+                                        <span v-if="currentSupplement.ranked">{{ supplementInstance.ranks }}</span>
+                                    </slot>
+                                </h4>
+                            </div>
                         </slot>
                     </template>
-                    <slot v-if="!currentSelection" name="noSelection">
-                        <div class="text-center">
-                            <i>Please select an option to view/edit it.</i>
-                        </div>
-                    </slot>
-                    <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
-                        <div v-if="currentSupplement.ranked" class="mb-2">
-                            <label>Ranks</label>
-                            <b-form-spinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></b-form-spinbutton>
-                        </div>
-                        <MarkdownBlock :text="currentSupplement.description" inline></MarkdownBlock>
-                        <reference
-                            class="float-right mt-2"
-                            :reference="currentSupplement.reference"
-                        ></reference>
-                    </slot>
+                    <div class="d-flex flex-column h-100">
+                        <slot v-if="!currentSelection" name="noSelection">
+                            <div class="text-center">
+                                <i>Please select an option to view/edit it.</i>
+                            </div>
+                        </slot>
+                        <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
+                            <div v-if="currentSupplement.ranked" class="mb-2">
+                                <label>Ranks</label>
+                                <b-form-spinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></b-form-spinbutton>
+                            </div>
+                            <MarkdownBlock :text="currentSupplement.description" inline></MarkdownBlock>
+                            <div class="text-right mt-auto">
+                                <h5><ScopeBadge :supplement="currentSupplement"></ScopeBadge></h5>
+                                <ReferenceBlock :reference="currentSupplement.reference"></ReferenceBlock>
+                            </div>
+                        </slot>
+                    </div>
                 </b-card>
             </b-col>
         </b-form-row>
@@ -105,152 +111,180 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .supplement-select {
-        .vbt-autcomplete-list {
-            max-height: calc(100% - 60px);
-        }
-    }
-</style>
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    // Models
+    import { Supplement } from '../../../common/interfaces/systems/supplements';
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+    // Managers
+    import authMan from '../../lib/managers/auth';
 
-    import { defineComponent } from 'vue';
+    // Stores
+    import { useCharactersStore } from '../../lib/stores/characters';
 
     // Components
     import SupplementSearch from './supplementSearch.vue';
     import MarkdownBlock from '../ui/markdownBlock.vue';
-    import Reference from './reference.vue';
+    import ReferenceBlock from './referenceBlock.vue';
+    import ScopeBadge from './scopeBadge.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Props
+    {
+        label : string;
+        labelClass : string;
+        available : Supplement[];
+        selected : Supplement[];
+        maxHeight : string;
+        sortFn : (suppA : Supplement, suppB : Supplement) => number
+    }
+
+    const props = withDefaults(
+        defineProps<Props>(),
+        {
+            maxHeight: '300px',
+            sortFn: (suppA : Supplement, suppB : Supplement) => suppA.name.localeCompare(suppB.name)
+        }
+    );
+
+    interface Events
+    {
+        (e : 'new')
+        (e : 'add', supp : { id : string | number }) : void;
+        (e : 'edit', supp : { id : string | number }) : void;
+        (e : 'delete', supp : { id : string | number }) : void;
+        (e : 'remove', supp : { id : string | number }) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const currentSelection = ref();
+    const { system } = storeToRefs(useCharactersStore());
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const selectedSupplements = computed(() =>
+    {
+        // Normalize the selected supplements to an array of objects with `id`.
+        return props.selected.map((supp) =>
+        {
+            // If we have `id`, assume we're in the right format
+            if(supp.id)
+            {
+                return supp;
+            }
+            else
+            {
+                // Otherwise assume we're just the id, and wrap ourselves in an object. This is Good Enough™.
+                return props.available.find((item) => item.id === supp);
+            }
+        });
+    });
+
+    const currentSupplement = computed(() =>
+    {
+        if(currentSelection.value)
+        {
+            return props.available.find((supp) => supp.id === currentSelection.value);
+        }
+
+        return undefined;
+    });
+
+    const supplementInstance = computed(() =>
+    {
+        if(currentSelection.value)
+        {
+            return selectedSupplements.value.find((supp) => supp.id === currentSelection.value);
+        }
+
+        return undefined;
+    });
+
+    const canModify = computed(() =>
+    {
+        if(supplementInstance.value)
+        {
+            const hasRight = authMan.hasPerm(`${ system }/canModifyContent`);
+            const isOwner = supplementInstance.value.scope === 'user'
+                && supplementInstance.value.owner === authMan.account.id;
+            return isOwner || hasRight;
+        }
+
+        return false;
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function onAdd(supp)
+    {
+        emit('add', supp);
+    }
+
+    function getSupp(id)
+    {
+        if(id)
+        {
+            return props.available.filter((supp) => supp.id === id)[0];
+        }
+
+        return undefined;
+    }
+
+    function selectSupp(supp)
+    {
+        if(supp && currentSelection.value !== supp.id)
+        {
+            currentSelection.value = supp.id;
+        }
+        else
+        {
+            currentSelection.value = undefined;
+        }
+    }
+
+    function clearSelection()
+    {
+        currentSelection.value = null;
+    }
+
+    function editSupp(supp)
+    {
+        emit('edit', supp);
+    }
+
+    function deleteSupp(supp)
+    {
+        emit('delete', supp);
+    }
+
+    function addNew()
+    {
+        emit('new');
+    }
+
+    function removeSupp(supp)
+    {
+        clearSelection();
+        emit('remove', { id: supp.id });
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'SupplementSelect',
-        components: {
-            MarkdownBlock,
-            Reference,
-            SupplementSearch
-        },
-        props: {
-            label: {
-                type: String,
-                default: undefined
-            },
-            labelClass: {
-                type: String,
-                default: undefined
-            },
-            available: {
-                type: Array,
-                default: () => []
-            },
-            selected: {
-                type: Array,
-                default: () => []
-            },
-            maxHeight: {
-                type: String,
-                default: '300px'
-            },
-            sortFn: {
-                type: Function,
-                default: (suppA, suppB) => suppA.name.localeCompare(suppB.name)
-            }
-        },
-        emits: [ 'edit', 'delete', 'new', 'remove', 'add' ],
-        data()
-        {
-            return {
-                currentSelection: undefined
-            };
-        },
-        computed: {
-            selectedSupplements()
-            {
-                // Normalize the selected supplements to an array of objects with `id`.
-                return this.selected.map((supp) =>
-                {
-                    // If we have `id`, assume we're in the right format
-                    if(supp.id)
-                    {
-                        return supp;
-                    }
-                    else
-                    {
-                        // Otherwise assume we're just the id, and wrap ourselves in an object. This is Good Enough™.
-                        return { id: supp };
-                    }
-                });
-            },
-            currentSupplement()
-            {
-                return this.getSupp(this.currentSelection);
-            },
-            supplementInstance()
-            {
-                return this.getSelected(this.currentSelection);
-            }
-        },
-        methods: {
-            onAdd(supp)
-            {
-                this.$emit('add', supp);
-            },
-            getSupp(id)
-            {
-                if(id)
-                {
-                    return this.available.filter((supp) => supp.id === id)[0];
-                }
-
-                return undefined;
-            },
-            getSelected(id)
-            {
-                if(id)
-                {
-                    return this.selectedSupplements.filter((supp) => supp.id === id)[0];
-                }
-
-                return undefined;
-            },
-            selectSupp(supp)
-            {
-                if(supp && this.currentSelection !== supp.id)
-                {
-                    this.currentSelection = supp.id;
-                }
-                else
-                {
-                    this.currentSelection = undefined;
-                }
-            },
-            editSupp(supp)
-            {
-                this.$emit('edit', supp);
-            },
-            deleteSupp(supp)
-            {
-                this.$emit('delete', supp);
-            },
-            addNew()
-            {
-                this.$emit('new');
-            },
-            removeSupp(supp)
-            {
-                this.clearSelection();
-                this.$emit('remove', { id: supp.id });
-            },
-            clearSelection()
-            {
-                this.currentSelection = undefined;
-            }
-        }
-    });
+    defineExpose({ clearSelection });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

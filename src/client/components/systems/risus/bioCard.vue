@@ -91,7 +91,7 @@
         </b-form-group>
 
         <!-- Edit Modal -->
-        <EditBioModal ref="bioModal" @save="onEditSave"></EditBioModal>
+        <EditBioModal ref="editModal" @save="onEditSave"></EditBioModal>
     </RpgkCard>
 </template>
 
@@ -151,7 +151,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharactersStore());
-    const bioModal = ref<InstanceType<typeof EditBioModal> | null>(null);
+    const editModal = ref<InstanceType<typeof EditBioModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -178,7 +178,7 @@
 
     function openEditModal() : void
     {
-        bioModal.value.show(char.value);
+        editModal.value.show(char.value);
     }
 
     function onEditSave(bio : { name : string, description : string }) : void

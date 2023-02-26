@@ -35,7 +35,8 @@
     "rpgdicejs": "^2.0.3",
     "socket.io": "^4.4.1",
     "trivial-logging": "^2.0.0",
-    "trivialperms": "^1.0.0"
+    "trivialperms": "^2.0.0-beta.0",
+    "ts-essentials": "^9.3.0"
   },
   "devDependencies": {
     "@babel/types": "^7.20.7",
@@ -55,6 +56,7 @@
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "@vitejs/plugin-vue": "^4.0.0",
+    "@vue-bootstrap-components/vue-bootstrap-autocomplete": "^2.15.2",
     "@vue/compat": "^3.2.45",
     "@vuelidate/core": "^2.0.0",
     "@vuelidate/validators": "^2.0.0",
@@ -79,8 +81,7 @@
     "vue": "^3.2.45",
     "vue-codemirror": "^6.1.1",
     "vue-router": "^4.1.6",
-    "vue-rx": "^6.2.0",
-    "vue-typeahead-bootstrap": "^2.12.0"
+    "vue-rx": "^6.2.0"
   },
   "lint-staged": {
     "*.{ts,js,vue}": "npm run lint:fix"

@@ -5,19 +5,25 @@
 import axios from 'axios';
 
 // Interfaces
-import { Supplement } from '../../../common/interfaces/common';
+import { Reference, Supplement } from '../../../common/interfaces/systems/supplements';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class SupplementResourceAccess
 {
-    async list(system : string, path : string) : Promise<Supplement[]>
+    async list<T extends Supplement = Supplement>(system : string, path : string) : Promise<T[]>
     {
         return axios.get(`/api/systems/${ system }/${ path }`)
             .then(({ data }) => data);
     }
 
-    async search(system : string, path : string, query : string, key = 'name') : Promise<Supplement>
+    async listReferences(system : string) : Promise<Reference[]>
+    {
+        return axios.get(`/api/systems/${ system }/references`)
+            .then(({ data }) => data);
+    }
+
+    async search<T extends Supplement = Supplement>(system : string, path : string, query : string, key = 'name') : Promise<T>
     {
         const params = {};
         params[key] = `@>${ query }`;
@@ -26,13 +32,13 @@ class SupplementResourceAccess
             .then(({ data }) => data);
     }
 
-    async add(system : string, path : string, supplement : Supplement) : Promise<Supplement>
+    async add<T extends Supplement = Supplement>(system : string, path : string, supplement : Supplement) : Promise<T>
     {
         return axios.post(`/api/systems/${ system }/${ path }`, supplement)
             .then(({ data }) => data);
     }
 
-    async update(system : string, path : string, supplement : Supplement) : Promise<Supplement>
+    async update<T extends Supplement = Supplement>(system : string, path : string, supplement : Supplement) : Promise<T>
     {
         return axios.patch(`/api/systems/${ system }/${ path }/${ supplement.id }`, supplement)
             .then(({ data }) => data);

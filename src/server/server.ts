@@ -50,6 +50,7 @@ import noteRouter from './routes/notebook';
 import charRouter from './routes/characters';
 import sysRouter from './routes/systems';
 import accountsRouter from './routes/accounts';
+import rolesRouter from './routes/roles';
 
 // Version information
 import { version } from '../../package.json';
@@ -167,6 +168,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     app.use('/api/characters', charRouter);
     app.use('/api/systems', sysRouter);
     app.use('/api/accounts', accountsRouter);
+    app.use('/api/roles', rolesRouter);
     app.use('/api/notebook', noteRouter);
 
     // Serve index.html for any html requests, but 404 everything else.

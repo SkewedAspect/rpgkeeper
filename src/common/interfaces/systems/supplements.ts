@@ -1,19 +1,23 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// Roles Manager
+// System Supplements
 // ---------------------------------------------------------------------------------------------------------------------
 
-// Managers
-import { table } from './database';
-
-// Models
-import { Role } from '../models/role';
+import { ReferenceOptions } from '../../../server/models/reference';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export async function list() : Promise<Role[]>
+export type SupplementScope = 'public' | 'user';
+
+export type Reference = ReferenceOptions;
+
+export interface Supplement
 {
-    return (await table('role as r').select('r.role_id as id', 'r.name', 'r.permissions'))
-        .map(Role.fromDB);
+    id ?: number;
+    name : string;
+    owner ?: string;
+    scope : SupplementScope;
+    reference : string;
+    official : boolean;
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

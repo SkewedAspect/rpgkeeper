@@ -14,7 +14,7 @@ import { Account } from '../models/account';
 
 export async function init() : Promise<void>
 {
-    await tp.loadGroups(rolesMan.list());
+    tp.loadGroups(await rolesMan.list());
 }
 
 export function hasPerm(user : Account, perm : string) : boolean

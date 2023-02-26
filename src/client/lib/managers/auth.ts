@@ -10,6 +10,7 @@ import { useAccountStore } from '../stores/account';
 
 // Resource Access
 import authRA from '../resource-access/auth';
+import permRA from '../resource-access/permissions';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -36,6 +37,9 @@ class AuthManager
 
         // Update the store
         accountStore.$patch({ account, signedInBeforeLoad: true });
+
+        // Load Roles
+        await permRA.load();
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -53,6 +57,18 @@ class AuthManager
     //------------------------------------------------------------------------------------------------------------------
     // API
     //------------------------------------------------------------------------------------------------------------------
+
+    hasPerm(perm : string) : boolean
+    {
+        const accountStore = useAccountStore();
+
+        if(accountStore.account)
+        {
+            return permRA.hasPerm(accountStore.account, perm);
+        }
+
+        return false;
+    }
 
     async saveAccount(account : Account) : Promise<void>
     {

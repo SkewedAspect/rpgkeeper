@@ -39,88 +39,120 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-    .edit-reference {
-    }
-</style>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
+<script lang="ts" setup>
+    import { computed } from 'vue';
 
     // Managers
     import eoteManager from '../../lib/managers/systems/eote';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditReference',
-        props: {
-            value: {
-                type: String,
-                required: true
-            }
-        },
-        subscriptions()
-        {
-            return {
-                references: eoteManager.references$
-            };
-        },
-        emits: { input: String },
-        data()
-        {
-            return {
-                source: '',
-                page: undefined
-            };
-        },
-        computed: {
-            valParts()
-            {
-                return this.value.split(':');
-            },
-            refString()
-            {
-                if(this.page)
-                {
-                    return `${ this.source }:${ this.page }`;
-                }
-                else
-                {
-                    return `${ this.source }`;
-                }
-            }
-        },
-        watch: {
-            value()
-            {
-                this.source = this.valParts[0];
-                this.page = this.valParts[1];
-            },
-            source()
-            {
-                if(this.source === 'HB')
-                {
-                    this.page = undefined;
-                }
+    interface Props
+    {
+        reference : string;
+    }
 
-                this.$emit('input', this.refString);
-            },
-            page()
-            {
-                this.$emit('input', this.refString);
-            }
-        },
-        mounted()
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'update:reference', value : string) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const source = computed({
+        get() { return props.reference.split(':')[0]; },
+        set(val : string)
         {
-            this.source = this.valParts[0];
-            this.page = this.valParts[1];
+            const page = props.reference.split(':')[1];
+            emit('update:reference', page ? `${ val }:${ page }` : `${ val }`);
         }
     });
+
+    const pages = computed({
+        get() { return props.reference.split(':')[1]; },
+        set(val : string)
+        {
+            emit('update:reference', val ? `${ source.value }:${ val }` : `${ source.value }`);
+        }
+    });
+
+    const references = computed(() => eoteManager.references);
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    // export default defineComponent({
+    //     name: 'EditReference',
+    //     props: {
+    //         value: {
+    //             type: String,
+    //             required: true
+    //         }
+    //     },
+    //     subscriptions()
+    //     {
+    //         return {
+    //             references: eoteManager.references$
+    //         };
+    //     },
+    //     emits: { input: String },
+    //     data()
+    //     {
+    //         return {
+    //             source: '',
+    //             page: undefined
+    //         };
+    //     },
+    //     computed: {
+    //         valParts()
+    //         {
+    //             return this.value.split(':');
+    //         },
+    //         refString()
+    //         {
+    //             if(this.page)
+    //             {
+    //                 return `${ this.source }:${ this.page }`;
+    //             }
+    //             else
+    //             {
+    //                 return `${ this.source }`;
+    //             }
+    //         }
+    //     },
+    //     watch: {
+    //         value()
+    //         {
+    //             this.source = this.valParts[0];
+    //             this.page = this.valParts[1];
+    //         },
+    //         source()
+    //         {
+    //             if(this.source === 'HB')
+    //             {
+    //                 this.page = undefined;
+    //             }
+    //
+    //             this.$emit('input', this.refString);
+    //         },
+    //         page()
+    //         {
+    //             this.$emit('input', this.refString);
+    //         }
+    //     },
+    //     mounted()
+    //     {
+    //         this.source = this.valParts[0];
+    //         this.page = this.valParts[1];
+    //     }
+    // });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

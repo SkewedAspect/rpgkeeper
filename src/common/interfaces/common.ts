@@ -8,11 +8,14 @@ import { SupplementOptions } from '../../server/models/supplement';
 import { NotebookOptions, NotebookPageOptions } from '../../server/models/notebook';
 import { CharacterOptions, SystemDetails as SysDetails } from '../../server/models/character';
 import { Roll } from 'rpgdicejs';
+import { RoleOptions } from '../../server/models/role';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export type Account = AccountOptions;
 export type AccountSettings = Settings;
+
+export type Role = RoleOptions;
 
 export interface System<Defaults extends Record<string, unknown>> {
     id : string;
