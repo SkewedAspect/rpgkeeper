@@ -109,6 +109,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const physicalStress = computed<FateStress>({
         get() { return props.physical; },
         set(val) { emit('update:physical', val); }

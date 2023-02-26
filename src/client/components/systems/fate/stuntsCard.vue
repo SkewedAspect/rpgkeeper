@@ -81,6 +81,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const stunts = computed<FateStunt[]>({
         get() { return orderBy(props.stunts, [ 'title' ], [ 'asc' ]); },
         set(val) { emit('update:stunts', val); }

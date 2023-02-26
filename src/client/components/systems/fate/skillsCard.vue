@@ -99,6 +99,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const skills = computed<FateSkill[]>({
         get() { return orderBy(props.skills, [ 'rank', 'name' ], [ 'desc', 'asc' ]); },
         set(val) { emit('update:skills', val); }

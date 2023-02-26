@@ -72,6 +72,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const extras = computed<string>({
         get() { return props.extras; },
         set(val) { emit('update:extras', val); }

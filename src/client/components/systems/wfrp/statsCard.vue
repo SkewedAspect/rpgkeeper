@@ -100,6 +100,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const char = computed<Character<WFRPSystemDetails>>(() => current.value as any);
 
     const stats = computed(() =>

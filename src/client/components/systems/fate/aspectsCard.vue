@@ -121,6 +121,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const aspects = computed<FateAspect[]>({
         get() { return props.aspects; },
         set(val) { emit('update:aspects', val); }

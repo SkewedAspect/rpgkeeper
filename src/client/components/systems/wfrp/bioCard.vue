@@ -101,6 +101,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const char = computed<Character>(() => current.value as any);
 
     const description = computed(() =>

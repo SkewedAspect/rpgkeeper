@@ -101,6 +101,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const sortedSkills = computed(() =>
     {
         const skills = props.skills.map(({ name, rank }) =>

@@ -77,7 +77,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { FateAspect, FateSkill, FateStunt } from '../../../../common/interfaces/systems/fate';
+    import { FateAspect, FateSkill } from '../../../../common/interfaces/systems/fate';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
@@ -113,6 +113,8 @@
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
+
+    const readonly = computed(() => props.readonly);
 
     const aspects = computed<FateAspect[]>({
         get() { return props.aspects; },

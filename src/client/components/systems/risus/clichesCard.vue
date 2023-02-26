@@ -136,6 +136,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const char = computed<Character<RisusSystemDetails>>(() => current.value as any);
 
     const cliches = computed(() =>
