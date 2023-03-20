@@ -24,7 +24,7 @@
                 </template>
                 <div :class="`${ mode }-system`">
                     <MarkdownBlock :text="critical.description" inline></MarkdownBlock>
-                    <reference class="float-right mt-2 mb-2" :reference="ref"></reference>
+                    <reference class="float-right mt-2 mb-2" :reference="reference"></reference>
                 </div>
             </b-popover>
         </template>
@@ -33,7 +33,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
+<style lang="scss">
     .eote-critical-card {
         .card-header {
             border-bottom: none;
@@ -45,10 +45,11 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-    import { defineComponent } from 'vue';
+    // Models
+    import { EoteCritical } from '../../../../../common/interfaces/systems/eote';
 
     // Utils
     import { shortID } from '../../../../../common/utils/misc';
@@ -58,55 +59,56 @@
 
     // Components
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
-    import Reference from '../../../character/reference.vue';
+    import Reference from '../../../character/referenceBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EotECriticalCard',
-        components: {
-            MarkdownBlock,
-            Reference
-        },
-        props: {
-            critical: {
-                type: Object,
-                required: true
-            },
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
+    interface Props
+    {
+        critical : EoteCritical;
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'remove', title : string) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const uuid = ref(shortID());
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const mode = computed(() => eoteMan.mode);
+    const critical = computed(() => props.critical);
+    const readonly = computed(() => props.readonly);
+
+    const id = computed(() => `critical-${ uuid.value }`);
+    const reference = computed(() => { return mode.value ? 'E-CRB:217' : 'G-CRB:115'; });
+    const severityRange = computed(() => Array(critical.value.severity));
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function remove() : void
+    {
+        if(!readonly.value)
         {
-            return {
-                mode: eoteMan.mode$
-            };
-        },
-        emits: [ 'remove' ],
-        data()
-        {
-            return {
-                uuid: shortID()
-            };
-        },
-        computed: {
-            id() { return `critical-${ this.uuid }`; },
-            ref() { return this.mode === 'eote' ? 'E-CRB:217' : 'G-CRB:115'; },
-            severityRange() { return Array(this.critical.severity); }
-        },
-        methods: {
-            remove()
-            {
-                if(!this.readonly)
-                {
-                    this.$emit('remove', this.critical.title);
-                }
-            }
+            emit('remove', critical.value.title);
         }
-
-    });
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

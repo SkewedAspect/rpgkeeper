@@ -61,7 +61,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { Supplement } from '../../../common/interfaces/systems/supplements';
+    import { Supplement, SupplementInst } from '../../../common/interfaces/systems/supplements';
 
     // Components
     import VueBootstrapAutocomplete from '@vue-bootstrap-components/vue-bootstrap-autocomplete';
@@ -74,8 +74,8 @@
     interface Props
     {
         available : Supplement[];
-        selected : Supplement[];
-        sortFn : (suppA : Supplement, suppB : Supplement) => number
+        selected : SupplementInst[];
+        sortFn ?: (suppA : Supplement, suppB : Supplement) => number
     }
 
     const props = withDefaults(

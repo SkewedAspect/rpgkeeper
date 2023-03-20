@@ -72,9 +72,9 @@
 
     interface Props
     {
-        src : string;
-        color : string;
-        size : string;
+        src ?: string;
+        color ?: string;
+        size ?: string;
     }
 
     const props = withDefaults(defineProps<Props>(), {

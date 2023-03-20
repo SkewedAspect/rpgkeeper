@@ -1,5 +1,5 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- defenses.vue
+  -- defensesCard.vue
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
@@ -43,62 +43,82 @@
         </div>
 
         <!-- Edit Modal -->
-        <edit-modal ref="editModal"></edit-modal>
+        <EditModal ref="editModal" @save="onEditSave"></EditModal>
     </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-    #eote-defenses-block {
-    }
-</style>
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    // Store
+    import { useCharactersStore } from '../../../lib/stores/characters';
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
-
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    // Models
+    import { EoteOrGenCharacter } from '../../../../common/interfaces/systems/eote';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
     import EditModal from './modals/editDefensesModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EotEDefensesBlock',
-        components: {
-            RpgkCard,
-            EditModal
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        computed: {
-            defenses() { return this.character.details.defenses; }
-        },
-        methods: {
-            openEditModal()
-            {
-                this.$refs.editModal.show();
-            }
-        }
+    interface Defenses
+    {
+        soak : number;
+        melee : number;
+        ranged : number;
+    }
 
-    });
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const readonly = computed(() => props.readonly);
+
+    const editModal = ref<InstanceType<typeof EditModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const character = computed<EoteOrGenCharacter>(() => current.value as any);
+    const defenses = computed(() => character.value.details.defenses);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal() : void
+    {
+        editModal.value.show(character.value);
+    }
+
+    function onEditSave(def : Defenses) : void
+    {
+        character.value.details.defenses = def;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

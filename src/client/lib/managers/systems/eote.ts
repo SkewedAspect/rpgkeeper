@@ -2,29 +2,42 @@
 // EotEManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { XOR } from 'ts-essentials';
 
 // Interfaces
-import { Supplement } from '../../../../common/interfaces/common';
+import * as Models from '../../../../common/interfaces/systems/eote';
+import { Reference, Supplement } from '../../../../common/interfaces/systems/supplements';
 
-// Managers
-import suppMan from '../supplement';
+// Stores
+import { useEoteStore } from '../../stores/systems/eote';
+import { useGenesysStore } from '../../stores/systems/genesys';
+import { InvalidCharacterError } from '../../error';
+
+// Resource Access
+import suppRA from '../../resource-access/supplement';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+type EoteSystemMode = 'eote' | 'genesys';
+type SuppTypes = 'abilities' | 'armors' | 'attachments' | 'forcepowers' | 'gear' | 'qualities'
+    | 'talents' | 'weapons' | 'motivations' | 'references';
+
+type Ability = Models.EoteAbility | Models.GenesysAbility;
+type Armor = Models.EoteArmor | Models.GenesysArmor;
+type Attachment = XOR<Models.EoteAttachment, Models.GenesysAttachment>;
+type Gear = Models.EoteGear | Models.GenesysGear;
+type Quality = Models.EoteQuality | Models.GenesysQuality;
+type Talent = Models.EoteTalent | Models.GenesysTalent;
+type Weapon = Models.EoteWeapon | Models.GenesysWeapon;
+
+type ForcePower = Models.EoteForcePower;
+type Motivation = Models.GenesysMotivation;
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class EotEManager
 {
-    #modeSubject : BehaviorSubject<string> = new BehaviorSubject('eote');
-    #abilitiesSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
-    #armorSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
-    #attachmentSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
-    #gearSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
-    #qualitiesSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
-    #talentsSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
-    #weaponsSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
-    #referencesSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
-    #forcePowersSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
-    #motivationsSubject : BehaviorSubject<Supplement[]> = new BehaviorSubject([] as Supplement[]);
+    mode : EoteSystemMode = 'eote';
 
     /* eslint-disable id-length */
     readonly rangeEnum = {
@@ -45,46 +58,80 @@ class EotEManager
     /* eslint-enable id-length */
 
     //------------------------------------------------------------------------------------------------------------------
-    // Observables
-    //------------------------------------------------------------------------------------------------------------------
-
-    get mode$() : Observable<string> { return this.#modeSubject.asObservable(); }
-
-    // Common
-    get abilities$() : Observable<Supplement[]> { return this.#abilitiesSubject.asObservable(); }
-    get armor$() : Observable<Supplement[]> { return this.#armorSubject.asObservable(); }
-    get attachment$() : Observable<Supplement[]> { return this.#attachmentSubject.asObservable(); }
-    get gear$() : Observable<Supplement[]> { return this.#gearSubject.asObservable(); }
-    get qualities$() : Observable<Supplement[]> { return this.#qualitiesSubject.asObservable(); }
-    get talents$() : Observable<Supplement[]> { return this.#talentsSubject.asObservable(); }
-    get weapons$() : Observable<Supplement[]> { return this.#weaponsSubject.asObservable(); }
-    get references$() : Observable<Supplement[]> { return this.#referencesSubject.asObservable(); }
-
-    // EotE Specific
-    get forcePowers$() : Observable<Supplement[]> { return this.#forcePowersSubject.asObservable(); }
-
-    // Genesys Specific
-    get motivations$() : Observable<Supplement[]> { return this.#motivationsSubject.asObservable(); }
-
-    //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
 
-    get mode() : string { return this.#modeSubject.getValue(); }
-    get abilities() : Supplement[] { return this.#abilitiesSubject.getValue(); }
-    get armor() : Supplement[] { return this.#armorSubject.getValue(); }
-    get attachment() : Supplement[] { return this.#attachmentSubject.getValue(); }
-    get gear() : Supplement[] { return this.#gearSubject.getValue(); }
-    get qualities() : Supplement[] { return this.#qualitiesSubject.getValue(); }
-    get talents() : Supplement[] { return this.#talentsSubject.getValue(); }
-    get weapons() : Supplement[] { return this.#weaponsSubject.getValue(); }
-    get references() : Supplement[] { return this.#referencesSubject.getValue(); }
+    get abilities() : Ability[]
+    {
+        const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
+        return store.abilities;
+    }
+
+    get armors() : Armor[]
+    {
+        const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
+        return store.armors;
+    }
+
+    get attachments() : Attachment[]
+    {
+        const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
+        return store.attachments;
+    }
+
+    get gear() : Gear[]
+    {
+        const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
+        return store.gear;
+    }
+
+    get qualities() : Quality[]
+    {
+        const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
+        return store.qualities;
+    }
+
+    get talents() : Talent[]
+    {
+        const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
+        return store.talents;
+    }
+
+    get weapons() : Weapon[]
+    {
+        const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
+        return store.weapons;
+    }
+
+    get references() : Reference[]
+    {
+        const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
+        return store.references;
+    }
 
     // EotE Specific
-    get forcePowers() : Supplement[] { return this.#forcePowersSubject.getValue(); }
+    get forcePowers() : ForcePower[]
+    {
+        if(this.mode === 'eote')
+        {
+            const store = useEoteStore();
+            return store.forcePowers;
+        }
+
+        return [];
+    }
 
     // Genesys Specific
-    get motivations() : Supplement[] { return this.#motivationsSubject.getValue(); }
+    get motivations() : Motivation[]
+    {
+        if(this.mode === 'genesys')
+        {
+            const store = useGenesysStore();
+            return store.motivations;
+        }
+
+        return [];
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API
@@ -92,77 +139,106 @@ class EotEManager
 
     async load(character) : Promise<void>
     {
-        if(character && [ 'eote', 'genesys' ].includes(character.system))
+        if(![ 'eote', 'genesys' ].includes(character.system))
         {
-            this.#modeSubject.next(character.system);
+            throw new InvalidCharacterError(character.id, 'Invalid character system for EotE/Genesys system.');
+        }
 
-            // Fetch Common subjects
-            this.#abilitiesSubject.next(await suppMan.list('abilities'));
-            this.#armorSubject.next(await suppMan.list('armor'));
-            this.#attachmentSubject.next(await suppMan.list('attachments'));
-            this.#gearSubject.next(await suppMan.list('gear'));
-            this.#qualitiesSubject.next(await suppMan.list('qualities'));
-            this.#talentsSubject.next(await suppMan.list('talents'));
-            this.#weaponsSubject.next(await suppMan.list('weapons'));
-            this.#referencesSubject.next(await suppMan.list('references'));
+        // Set the mode
+        this.mode = character.system;
 
-            // EotE Specific supplements
-            if(this.mode === 'eote')
+        // Pick the right store to load
+        const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
+        store.load();
+    }
+
+    async addSup<Supp extends Supplement = Supplement>(type : SuppTypes, supp : Supp) : Promise<Supp>
+    {
+        const newSupp = await suppRA.add<Supp>(this.mode, type, supp);
+
+        // Note: The code repetition is caused by TypeScript not limiting `type` correctly.
+        if(this.mode === 'eote')
+        {
+            const store = useEoteStore();
+            if(type === 'motivations')
             {
-                this.#forcePowersSubject.next(await suppMan.list('forcepowers'));
+                throw new Error(`Cannot add motivations when mode is 'eote'.`);
             }
 
-            // Genesys Specific supplements
-            if(this.mode === 'genesys')
-            {
-                this.#motivationsSubject.next(await suppMan.list('motivations'));
-            }
+            store.add(type, newSupp);
         }
         else
         {
-            this.#modeSubject.next('eote');
-            this.#abilitiesSubject.next([]);
-            this.#armorSubject.next([]);
-            this.#attachmentSubject.next([]);
-            this.#gearSubject.next([]);
-            this.#qualitiesSubject.next([]);
-            this.#talentsSubject.next([]);
-            this.#weaponsSubject.next([]);
-            this.#referencesSubject.next([]);
-            this.#forcePowersSubject.next([]);
-            this.#motivationsSubject.next([]);
+            const store = useGenesysStore();
+            if(type === 'forcepowers')
+            {
+                throw new Error(`Cannot add motivations when mode is 'genesys'.`);
+            }
+
+            store.add(type, newSupp);
         }
-    }
-
-    async addSup(type : string, supp : Supplement) : Promise<Supplement>
-    {
-        const newSupp = await suppMan.add(type, supp);
-
-        // Update subject, and compact falsy values
-        const supplements = [ newSupp ].concat(this[type]).filter((item) => !!item);
-        this[`_${ type }Subject`].next(supplements);
 
         return newSupp;
     }
 
-    async editSup(type : string, supp : Supplement) : Promise<Supplement>
+    async editSup<Supp extends Supplement = Supplement>(type : SuppTypes, supp : Supp) : Promise<Supp>
     {
-        const newSupp = await suppMan.update(type, supp);
+        const newSupp = await suppRA.update<Supp>(this.mode, type, supp);
 
-        // Update subject
-        const supplements = this[type].filter((item) => item.id !== supp.id).concat([ newSupp ]);
-        this[`_${ type }Subject`].next(supplements);
+        // Note: The code repetition is caused by TypeScript not limiting `type` correctly.
+        if(this.mode === 'eote')
+        {
+            const store = useEoteStore();
+            if(type === 'motivations')
+            {
+                throw new Error(`Cannot update motivations when mode is 'eote'.`);
+            }
+
+            store.update(type, newSupp);
+        }
+        else
+        {
+            const store = useGenesysStore();
+            if(type === 'forcepowers')
+            {
+                throw new Error(`Cannot update motivations when mode is 'genesys'.`);
+            }
+
+            store.update(type, newSupp);
+        }
 
         return newSupp;
     }
 
-    async delSup(type : string, supp : Supplement) : Promise<void>
+    async delSup(type : SuppTypes, supp : { id : string }) : Promise<void>
     {
-        await suppMan.delete(type, supp.id);
+        if(supp.id)
+        {
+            // ToDo: convert supplements to have id be a string.
+            await suppRA.delete(this.mode, type, `${ supp.id }`);
 
-        // Update subject, and compact falsy values
-        const supplements = this[type].filter((item) => item.id !== supp.id);
-        this[`_${ type }Subject`].next(supplements);
+            // Note: The code repetition is caused by TypeScript not limiting `type` correctly.
+            if(this.mode === 'eote')
+            {
+                const store = useEoteStore();
+                if(type === 'motivations')
+                {
+                    throw new Error(`Cannot delete motivations when mode is 'eote'.`);
+                }
+
+                store.remove(type, supp);
+            }
+            else
+            {
+                const store = useGenesysStore();
+                if(type === 'forcepowers')
+                {
+                    throw new Error(`Cannot delete motivations when mode is 'genesys'.`);
+                }
+
+                store.remove(type, supp);
+            }
+        }
     }
 }
 

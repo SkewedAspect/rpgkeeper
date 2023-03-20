@@ -35,7 +35,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
+                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -66,7 +66,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
+                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -99,7 +99,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
+                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -130,7 +130,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
+                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -161,7 +161,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="text-muted">({{ startCase(data.item.characteristic) }})</small>
+                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -184,7 +184,7 @@
         </div>
 
         <!-- Edit Modal -->
-        <edit-modal ref="editModal"></edit-modal>
+        <EditModal ref="editModal" @save="onEditSave"></EditModal>
     </RpgkCard>
 </template>
 
@@ -213,109 +213,138 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    // Models
+    import { EoteOrGenCharacter, EoteSkill } from '../../../../common/interfaces/systems/eote';
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
-    import eoteMan from '../../../lib/managers/systems/eote';
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
     import EditModal from './modals/editSkillsModal.vue';
 
+    // Utils
+    import { startCase } from '../../../../common/utils/misc';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EotESkillsBlock',
-        components: {
-            RpgkCard,
-            EditModal
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        emits: [ 'roll' ],
-        data()
-        {
-            return {
-                skillTypes: {
-                    column1: [ 'general', 'magic' ],
-                    column2: [ 'combat', 'social', 'knowledge' ]
-                },
-                fields: [ 'name', 'career', 'ranks' ]
-            };
-        },
-        computed: {
-            general()
-            {
-                return this.character.details.skills.filter((skill) => skill.type === 'general');
-            },
-            magic()
-            {
-                return this.character.details.skills.filter((skill) => skill.type === 'magic');
-            },
-            combat()
-            {
-                return this.character.details.skills.filter((skill) => skill.type === 'combat');
-            },
-            social()
-            {
-                return this.character.details.skills.filter((skill) => skill.type === 'social');
-            },
-            knowledge()
-            {
-                return this.character.details.skills.filter((skill) => skill.type === 'knowledge');
-            }
-        },
-        methods: {
-            onRowClicked(item)
-            {
-                const dice = { ability: 0, proficiency: 0 };
-                const charCount = this.character.details.characteristics[item.characteristic];
-                const rankCount = item.ranks;
+    interface DiceRoll
+    {
+        ability : number;
+        proficiency : number;
+    }
 
-                if(charCount > rankCount)
-                {
-                    dice.ability = charCount - rankCount;
-                    dice.proficiency = rankCount;
-                }
-                else
-                {
-                    dice.ability = rankCount - charCount;
-                    dice.proficiency = charCount;
-                }
+    interface Props
+    {
+        readonly : boolean;
+    }
 
-                this.$emit('roll', dice, item.name);
-            },
-            openEditModal()
-            {
-                this.$refs.editModal.show();
-            },
-            range(num)
-            {
-                return _.range(num);
-            },
-            startCase(text)
-            {
-                return _.startCase(text);
-            }
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'roll', dice : DiceRoll, name : string) : void;
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const fields = ref([ 'name', 'career', 'ranks' ]);
+
+    const { current } = storeToRefs(useCharactersStore());
+    const editModal = ref<InstanceType<typeof EditModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const character = computed<EoteOrGenCharacter>(() => current.value as any);
+    const mode = computed(() => current.value.system);
+    const readonly = computed(() => props.readonly);
+
+    const skills = computed<EoteSkill[]>(() => character.value.details.skills);
+
+    const general = computed(() =>
+    {
+        return skills.value.filter((skill) => skill.type === 'general');
+    });
+
+    const magic = computed(() =>
+    {
+        return skills.value.filter((skill) => skill.type === 'magic');
+    });
+
+    const combat = computed(() =>
+    {
+        return skills.value.filter((skill) => skill.type === 'combat');
+    });
+
+    const social = computed(() =>
+    {
+        return skills.value.filter((skill) => skill.type === 'social');
+    });
+
+    const knowledge = computed(() =>
+    {
+        return skills.value.filter((skill) => skill.type === 'knowledge');
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal() : void
+    {
+        editModal.value.show(character.value);
+    }
+
+    function onEditSave(newSkills : EoteSkill[]) : void
+    {
+        character.value.details.skills = newSkills;
+
+        emit('save');
+    }
+
+    function onRowClicked(item : EoteSkill) : void
+    {
+        const dice = { ability: 0, proficiency: 0 };
+        const charCount = character.value.details.characteristics[item.characteristic];
+        const rankCount = item.ranks;
+
+        if(charCount > rankCount)
+        {
+            dice.ability = charCount - rankCount;
+            dice.proficiency = rankCount;
+        }
+        else
+        {
+            dice.ability = rankCount - charCount;
+            dice.proficiency = charCount;
         }
 
-    });
+        emit('roll', dice, item.name);
+    }
+
+    function range(num)
+    {
+        const rangeArray = Array(num).fill(0);
+        return rangeArray.map((_, index) => index);
+    }
+
+    function formatCharName(text) : string
+    {
+        return startCase(text);
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

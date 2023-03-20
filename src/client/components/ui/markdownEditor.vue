@@ -37,8 +37,8 @@
     interface Props
     {
         text : string;
-        height : string;
-        readonly : boolean;
+        height ?: string;
+        readonly ?: boolean;
     }
 
     const props = withDefaults(defineProps<Props>(), { readonly: false, height: '450px' });

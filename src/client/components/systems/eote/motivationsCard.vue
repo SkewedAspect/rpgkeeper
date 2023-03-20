@@ -1,15 +1,15 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- forcePowers.vue
+  -- Motivations
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <RpgkCard id="eote-force-powers-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="eote-motivations-block" :class="{ readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="journal-whills"></fa>
-                    <span class="d-none d-md-inline">ForcePowers</span>
+                    <fa class="mr-1" icon="angel"></fa>
+                    <span class="d-none d-md-inline">Motivations</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
                     <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
@@ -21,20 +21,44 @@
         </template>
 
         <!-- Card Body -->
-        <div>
-            <b-form-row>
-                <b-col v-for="forcePower in forcePowers" :key="forcePower.id" cols="12">
-                    <ForcePowerCard class="mb-2" :power="forcePower" :readonly="readonly"></ForcePowerCard>
-                </b-col>
-            </b-form-row>
+        <!-- A table for layout? In this economy? YOU BET YOUR ASS. -->
+        <table style="border-collapse: collapse">
+            <tr>
+                <td>
+                    <b class="mr-1">Strength:</b>
+                </td>
+                <td>
+                    <MotivationCard v-if="motivations.strength" :id="motivations.strength"></MotivationCard>
+                    <i v-else>None</i>
+                </td>
+                <td>
+                    <b class="mr-1">Flaw:</b>
+                </td>
+                <td>
+                    <MotivationCard v-if="motivations.flaw" :id="motivations.flaw"></MotivationCard>
+                    <i v-else>None</i>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b class="mr-1">Desire:</b>
+                </td>
+                <td>
+                    <MotivationCard v-if="motivations.desire" :id="motivations.desire"></MotivationCard>
+                    <i v-else>None</i>
+                </td>
+                <td>
+                    <b class="mr-1">Fear:</b>
+                </td>
+                <td>
+                    <MotivationCard v-if="motivations.fear" :id="motivations.fear"></MotivationCard>
+                    <i v-else>None</i>
+                </td>
+            </tr>
+        </table>
 
-            <h5 v-if="forcePowers.length === 0" class="m-0 text-center">
-                No Force Powers
-            </h5>
-        </div>
-
-        <!-- Modals -->
-        <EditForcePowersModal ref="editForcePowersModal" @save="onEditSave"></EditForcePowersModal>
+        <!-- Edit Modal -->
+        <EditModal ref="editModal" @save="onEditSave"></EditModal>
     </RpgkCard>
 </template>
 
@@ -43,25 +67,29 @@
 <script lang="ts" setup>
     import { computed, ref } from 'vue';
     import { storeToRefs } from 'pinia';
-    import { sortBy } from 'lodash';
 
     // Models
-    import { EoteCharacter, EoteForcePowerInst } from '../../../../common/interfaces/systems/eote';
+    import { GenesysCharacter } from '../../../../common/interfaces/systems/eote';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';
 
-    // Managers
-    import eoteMan from '../../../lib/managers/systems/eote';
-
     // Components
+    import MotivationCard from './components/motivationBlock.vue';
     import RpgkCard from '../../ui/rpgkCard.vue';
-    import ForcePowerCard from './components/forcePowerCard.vue';
-    import EditForcePowersModal from './modals/editForcePowersModal.vue';
+    import EditModal from './modals/editMotivationsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
+
+    interface Motivations
+    {
+        strength : number | null;
+        flaw : number | null;
+        desire : number | null;
+        fear : number | null;
+    }
 
     interface Props
     {
@@ -82,40 +110,28 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharactersStore());
-    const editForcePowersModal = ref<InstanceType<typeof EditForcePowersModal> | null>(null);
+    const readonly = computed(() => props.readonly);
+    const editModal = ref<InstanceType<typeof EditModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteCharacter>(() => current.value as any);
-    const mode = computed(() => eoteMan.mode);
-    const readonly = computed(() => props.readonly);
-
-    const forcePowers = computed(() =>
-    {
-        return sortBy(
-            char.value.details.force.powers ?? [],
-            (powerInst) =>
-            {
-                const powerBase = eoteMan.forcePowers.find((item) => item.id === powerInst.id);
-                return powerBase?.name ?? 'Unknown';
-            }
-        );
-    });
+    const character = computed<GenesysCharacter>(() => current.value as any);
+    const motivations = computed(() => character.value.details.motivations);
 
     //------------------------------------------------------------------------------------------------------------------
-    // Method
+    // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function openEditModal()
+    function openEditModal() : void
     {
-        editForcePowersModal.value.show(char.value);
+        editModal.value.show(character.value);
     }
 
-    function onEditSave(powers : EoteForcePowerInst[]) : void
+    function onEditSave(motivs : Motivations) : void
     {
-        char.value.details.force.powers = powers;
+        character.value.details.motivations = motivs;
 
         emit('save');
     }

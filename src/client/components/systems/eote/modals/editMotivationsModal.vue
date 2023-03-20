@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-motivations-modal">
+    <div class="edit-motivations-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="xl"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -38,7 +37,12 @@
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
-                                    <b-button class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew('strength')">
+                                    <b-button
+                                        class="ml-2 text-nowrap"
+                                        variant="success"
+                                        title="Add New..."
+                                        @click="addNew('strength')"
+                                    >
                                         <fa icon="plus"></fa>
                                         New
                                     </b-button>
@@ -48,20 +52,20 @@
                     </template>
 
                     <div v-if="strength">
-                        <div v-if="isStrengthDirty" class="float-right">
-                            <b-btn size="sm" @click="revert('strength')">
-                                <fa icon="undo"></fa>
-                                Undo
-                            </b-btn>
-                        </div>
                         <div v-if="isEditable(strength)" class="float-right">
-                            <b-btn size="sm" @click="editMotivation(strength)">
+                            <b-btn class="ml-1 mt-1" size="sm" @click="editMotivation(strength)">
                                 <fa icon="edit"></fa>
                                 Edit
                             </b-btn>
-                            <b-btn variant="danger" size="sm" @click="delMotivation(strength)">
+                            <b-btn class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(strength)">
                                 <fa icon="trash"></fa>
                                 Delete
+                            </b-btn>
+                        </div>
+                        <div v-if="isStrengthDirty" class="float-right">
+                            <b-btn class="ml-1 mt-1" size="sm" @click="revert('strength')">
+                                <fa icon="undo"></fa>
+                                Undo
                             </b-btn>
                         </div>
                         <div class="pt-2">
@@ -89,7 +93,12 @@
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
-                                    <b-button class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew('flaw')">
+                                    <b-button
+                                        class="ml-2 text-nowrap"
+                                        variant="success"
+                                        title="Add New..."
+                                        @click="addNew('flaw')"
+                                    >
                                         <fa icon="plus"></fa>
                                         New
                                     </b-button>
@@ -99,20 +108,20 @@
                     </template>
 
                     <div v-if="flaw">
-                        <div v-if="isFlawDirty" class="float-right">
-                            <b-btn size="sm" @click="revert('flaw')">
-                                <fa icon="undo"></fa>
-                                Undo
-                            </b-btn>
-                        </div>
                         <div v-if="isEditable(flaw)" class="float-right">
-                            <b-btn size="sm" @click="editMotivation(flaw)">
+                            <b-btn class="ml-1 mt-1" size="sm" @click="editMotivation(flaw)">
                                 <fa icon="edit"></fa>
                                 Edit
                             </b-btn>
-                            <b-btn variant="danger" size="sm" @click="delMotivation(flaw)">
+                            <b-btn class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(flaw)">
                                 <fa icon="trash"></fa>
                                 Delete
+                            </b-btn>
+                        </div>
+                        <div v-if="isFlawDirty" class="float-right">
+                            <b-btn class="ml-1 mt-1" size="sm" @click="revert('flaw')">
+                                <fa icon="undo"></fa>
+                                Undo
                             </b-btn>
                         </div>
                         <div class="pt-2">
@@ -142,7 +151,12 @@
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
-                                    <b-button class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew('desire')">
+                                    <b-button
+                                        class="ml-2 text-nowrap"
+                                        variant="success"
+                                        title="Add New..."
+                                        @click="addNew('desire')"
+                                    >
                                         <fa icon="plus"></fa>
                                         New
                                     </b-button>
@@ -152,20 +166,20 @@
                     </template>
 
                     <div v-if="desire">
-                        <div v-if="isDesireDirty" class="float-right">
-                            <b-btn size="sm" @click="revert('desire')">
-                                <fa icon="undo"></fa>
-                                Undo
-                            </b-btn>
-                        </div>
                         <div v-if="isEditable(desire)" class="float-right">
-                            <b-btn size="sm" @click="editMotivation(desire)">
+                            <b-btn class="ml-1 mt-1" size="sm" @click="editMotivation(desire)">
                                 <fa icon="edit"></fa>
                                 Edit
                             </b-btn>
-                            <b-btn variant="danger" size="sm" @click="delMotivation(desire)">
+                            <b-btn class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(desire)">
                                 <fa icon="trash"></fa>
                                 Delete
+                            </b-btn>
+                        </div>
+                        <div v-if="isDesireDirty" class="float-right">
+                            <b-btn class="ml-1 mt-1" size="sm" @click="revert('desire')">
+                                <fa icon="undo"></fa>
+                                Undo
                             </b-btn>
                         </div>
                         <div class="pt-2">
@@ -193,7 +207,12 @@
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
-                                    <b-button class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew('fear')">
+                                    <b-button
+                                        class="ml-2 text-nowrap"
+                                        variant="success"
+                                        title="Add New..."
+                                        @click="addNew('fear')"
+                                    >
                                         <fa icon="plus"></fa>
                                         New
                                     </b-button>
@@ -203,20 +222,20 @@
                     </template>
 
                     <div v-if="fear">
-                        <div v-if="isFearDirty" class="float-right">
-                            <b-btn size="sm" @click="revert('fear')">
-                                <fa icon="undo"></fa>
-                                Undo
-                            </b-btn>
-                        </div>
                         <div v-if="isEditable(fear)" class="float-right">
-                            <b-btn size="sm" @click="editMotivation(fear)">
+                            <b-btn class="ml-1 mt-1" size="sm" @click="editMotivation(fear)">
                                 <fa icon="edit"></fa>
                                 Edit
                             </b-btn>
-                            <b-btn variant="danger" size="sm" @click="delMotivation(fear)">
+                            <b-btn class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(fear)">
                                 <fa icon="trash"></fa>
                                 Delete
+                            </b-btn>
+                        </div>
+                        <div v-if="isFearDirty" class="float-right">
+                            <b-btn class="ml-1 mt-1" size="sm" @click="revert('fear')">
+                                <fa icon="undo"></fa>
+                                Undo
                             </b-btn>
                         </div>
                         <div class="pt-2">
@@ -242,34 +261,31 @@
         </b-modal>
 
         <!-- Modals -->
-        <add-edit-motivation-modal ref="addEditMotivModal" @add="onMotivAdd"></add-edit-motivation-modal>
-        <delete-modal
+        <AddEditMotivationModal ref="addEditMotivModal" @add="onMotivAdd"></AddEditMotivationModal>
+        <DeleteModal
             ref="delMotivModal"
             :name="delMotiv.name"
-            type="quality"
+            type="motivation"
             @hidden="onDelMotivHidden"
             @delete="onDelMotivDelete"
-        ></delete-modal>
+        ></DeleteModal>
     </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-motivations-modal {
-    }
-</style>
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    // Models
+    import {
+        GenesysCharacter,
+        GenesysMotivation,
+        GenesysMotivationType
+    } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import charMan from '../../../../lib/managers/character';
+    import authMan from '../../../../lib/managers/auth';
     import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
@@ -277,131 +293,181 @@
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
     import AddEditMotivationModal from './addEditMotivationModal.vue';
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Motivations
+    {
+        strength : number | null;
+        flaw : number | null;
+        desire : number | null;
+        fear : number | null;
+    }
+
+    interface Events
+    {
+        (e : 'save', motivations : Motivations) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const originalMotivations = ref<Motivations>({
+        strength: null,
+        flaw: null,
+        desire: null,
+        fear: null
+    });
+
+    const motivations = ref<Motivations>({
+        strength: null,
+        flaw: null,
+        desire: null,
+        fear: null
+    });
+
+    const delMotiv = ref<{ id ?: number, name : string, type : string }>({
+        id: undefined,
+        name: '',
+        type: ''
+    });
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const addEditMotivModal = ref<InstanceType<typeof AddEditMotivationModal> | null>(null);
+    const delMotivModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const motivationsList = computed(() => eoteMan.motivations);
+    const strength = computed(() => motivationsList.value.find((mot) => mot.id === motivations.value.strength));
+    const flaw = computed(() => motivationsList.value.find((mot) => mot.id === motivations.value.flaw));
+    const desire = computed(() => motivationsList.value.find((mot) => mot.id === motivations.value.desire));
+    const fear = computed(() => motivationsList.value.find((mot) => mot.id === motivations.value.fear));
+
+    const availableStrength = computed(() => motivationsList.value.filter((mot) => mot.type === 'strength'));
+    const availableFlaw = computed(() => motivationsList.value.filter((mot) => mot.type === 'flaw'));
+    const availableDesire = computed(() => motivationsList.value.filter((mot) => mot.type === 'desire'));
+    const availableFear = computed(() => motivationsList.value.filter((mot) => mot.type === 'fear'));
+
+    const isStrengthDirty = computed(() => motivations.value.strength !== originalMotivations.value.strength);
+    const isFlawDirty = computed(() => motivations.value.flaw !== originalMotivations.value.flaw);
+    const isDesireDirty = computed(() => motivations.value.desire !== originalMotivations.value.desire);
+    const isFearDirty = computed(() => motivations.value.fear !== originalMotivations.value.fear);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(char : GenesysCharacter) : void
+    {
+        originalMotivations.value = { ...char.details.motivations };
+        motivations.value = { ...char.details.motivations };
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', motivations.value);
+    }
+
+    function onCancel() : void
+    {
+        originalMotivations.value = {
+            strength: null,
+            flaw: null,
+            desire: null,
+            fear: null
+        };
+
+        motivations.value = {
+            strength: null,
+            flaw: null,
+            desire: null,
+            fear: null
+        };
+    }
+
+    function onMotivAdd(motiv : GenesysMotivation) : void
+    {
+        if(!motiv.type)
+        {
+            motiv = motivationsList.value.find((mot) => mot.id === motiv.id) ?? motiv;
+        }
+
+        motivations.value[motiv.type] = motiv.id;
+    }
+
+    function onDelMotivHidden() : void
+    {
+        delMotiv.value = {
+            id: undefined,
+            name: '',
+            type: ''
+        };
+    }
+
+    async function onDelMotivDelete() : Promise<void>
+    {
+        motivations.value[delMotiv.value.type] = null;
+        emit('save', motivations.value);
+
+        if(delMotiv.value.id)
+        {
+            const delObj = { id: `${ delMotiv.value.id }` };
+            await eoteMan.delSup('motivations', delObj);
+        }
+    }
+
+    function isEditable(motiv : GenesysMotivation) : boolean
+    {
+        const hasRight = authMan.hasPerm(`${ eoteMan.mode }/canModifyContent`);
+        const isOwner = motiv.scope === 'user'
+            && motiv.owner === authMan.account.id;
+
+        return isOwner || hasRight;
+    }
+
+    function addNew(type : GenesysMotivationType)
+    {
+        addEditMotivModal.value.show({ type });
+    }
+
+    function editMotivation(motiv : GenesysMotivation) : void
+    {
+        addEditMotivModal.value.show(motiv);
+    }
+
+    function delMotivation(motiv : GenesysMotivation) : void
+    {
+        delMotiv.value.id = motiv.id;
+        delMotiv.value.name = motiv.name;
+        delMotiv.value.type = motiv.type;
+
+        delMotivModal.value.show();
+    }
+
+    function revert(type : GenesysMotivationType)
+    {
+        motivations.value[type] = originalMotivations.value[type];
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditMotivationsModal',
-        components: {
-            MarkdownBlock,
-            SupplementSearch,
-            DeleteModal,
-            AddEditMotivationModal
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                motivationsList: eoteMan.motivations$
-            };
-        },
-        data()
-        {
-            return {
-                motivations: {
-                    strength: null,
-                    flaw: null,
-                    desire: null,
-                    fear: null
-                },
-                delMotiv: {
-                    id: undefined,
-                    name: '',
-                    type: ''
-                }
-            };
-        },
-        computed: {
-            strength() { return this.motivationsList.filter((mot) => mot.id === this.motivations.strength)[0]; },
-            flaw() { return this.motivationsList.filter((mot) => mot.id === this.motivations.flaw)[0]; },
-            desire() { return this.motivationsList.filter((mot) => mot.id === this.motivations.desire)[0]; },
-            fear() { return this.motivationsList.filter((mot) => mot.id === this.motivations.fear)[0]; },
-            availableStrength() { return this.motivationsList.filter((mot) => mot.type === 'strength'); },
-            availableFlaw() { return this.motivationsList.filter((mot) => mot.type === 'flaw'); },
-            availableDesire() { return this.motivationsList.filter((mot) => mot.type === 'desire'); },
-            availableFear() { return this.motivationsList.filter((mot) => mot.type === 'fear'); },
-            isStrengthDirty() { return this.motivations.strength !== this.character.details.motivations.strength; },
-            isFlawDirty() { return this.motivations.flaw !== this.character.details.motivations.flaw; },
-            isDesireDirty() { return this.motivations.desire !== this.character.details.motivations.desire; },
-            isFearDirty() { return this.motivations.fear !== this.character.details.motivations.fear; }
-        },
-        methods: {
-            async onSave()
-            {
-                this.character.details.motivations = _.cloneDeep(this.motivations);
-
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                // Reset the edit fields
-                this.motivations = _.cloneDeep(this.character.details.motivations);
-            },
-
-            onMotivAdd(motiv)
-            {
-                if(!motiv.type)
-                {
-                    motiv = this.motivationsList.find((mot) => mot.id === motiv.id) ?? motiv;
-                }
-                this.motivations[motiv.type] = motiv.id;
-            },
-
-            onDelMotivHidden()
-            {
-                this.delMotiv.id = undefined;
-                this.delMotiv.name = '';
-                this.delMotiv.type = '';
-            },
-            async onDelMotivDelete()
-            {
-                this.motivations[this.delMotiv.type] = null;
-                this.character.details.motivations = _.cloneDeep(this.motivations);
-
-                return Promise.all([
-                    await charMan.save(this.character),
-                    await eoteMan.delSup('motivations', this.delMotiv)
-                ]);
-            },
-
-            isEditable(motiv)
-            {
-                return motiv.scope === 'user';
-            },
-
-            addNew(type)
-            {
-                this.$refs.addEditMotivModal.show(type);
-            },
-            editMotivation(motiv)
-            {
-                this.$refs.addEditMotivModal.show(motiv);
-            },
-            delMotivation(motiv)
-            {
-                this.delMotiv.id = motiv.id;
-                this.delMotiv.name = motiv.name;
-                this.delMotiv.type = motiv.type;
-
-                this.$refs.delMotivModal.show();
-            },
-            revert(type)
-            {
-                this.motivations[type] = this.character.details.motivations[type];
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
-    });
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

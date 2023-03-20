@@ -1,23 +1,29 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Reference Block
+  -- abilityTag.vue
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="eote-reference" :class="{ inline: isInline }">
-        <span class="name">{{ name }}</span>
-        <span v-if="page">, p{{ page }}</span>
-    </div>
+    <span class="eote-ability">
+        <b-badge :id="`ability-${ id }`">
+            {{ abilityName }}
+        </b-badge>
+        <b-popover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top">
+            <div :class="`${ mode }-system`">
+                <MarkdownBlock :text="abilityText" inline></MarkdownBlock>
+                <reference v-if="abilityReference" class="float-right mt-2 mb-2" :reference="abilityReference"></reference>
+            </div>
+        </b-popover>
+    </span>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-    .eote-reference {
-        font-size: 0.8rem;
-        font-style: italic;
+    .eote-ability {
+        cursor: pointer;
 
-        &.inline {
-            display: inline-block;
+        & + .eote-ability {
+            margin-left: 0.25rem;
         }
     }
 </style>
@@ -28,7 +34,11 @@
     import { computed } from 'vue';
 
     // Managers
-    import eoteManager from '../../lib/managers/systems/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
+
+    // Components
+    import Reference from '../../../character/referenceBlock.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -36,22 +46,25 @@
 
     interface Props
     {
-        reference : string;
-        inline ?: boolean;
+        id : number;
     }
 
-    const props = withDefaults(defineProps<Props>(), { inline: false });
+    const props = defineProps<Props>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const isInline = computed(() => props.inline);
+    const mode = computed(() => eoteMan.mode);
 
-    const abbr = computed(() => props.reference.split(':')[0]);
-    const page = computed(() => props.reference.split(':')[1]);
-    const refObj = computed(() => eoteManager.references.find((ref) => ref.abbr === abbr.value));
-    const name = computed(() => refObj.value?.name);
+    const ability = computed(() =>
+    {
+        return eoteMan.abilities.find((item) => item.id === props.id);
+    });
+
+    const abilityName = computed(() => ability.value?.name ?? 'Unknown');
+    const abilityText = computed(() => ability.value?.description ?? 'Unknown ability.');
+    const abilityReference = computed(() => ability.value?.reference ?? '');
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

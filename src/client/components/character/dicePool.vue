@@ -93,8 +93,6 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    //------------------------------------------------------------------------------------------------------------------
-
     import { range } from 'lodash';
     import { computed, ref } from 'vue';
 
@@ -110,11 +108,11 @@
         current : number;
         max : number;
         name ?: string;
-        checkedIcon : string | string[];
-        uncheckedIcon : string | string[];
-        noEdit : boolean;
-        size : string;
-        disabled : boolean;
+        checkedIcon ?: string | string[];
+        uncheckedIcon ?: string | string[];
+        noEdit ?: boolean;
+        size ?: string;
+        disabled ?: boolean;
     }
 
     const props = withDefaults(defineProps<Props>(), {

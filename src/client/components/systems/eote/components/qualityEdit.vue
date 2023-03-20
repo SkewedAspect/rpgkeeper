@@ -4,7 +4,7 @@
 
 <template>
     <div id="quality-edit">
-        <supplement-select
+        <SupplementSelect
             ref="suppSelect"
             label="Qualities"
             label-class="font-weight-bold"
@@ -17,13 +17,21 @@
             @delete="onQualityDelete"
         >
             <template #preview="{ instance, supplement }">
-                <div v-if="supplement.ranked" class="mb-2 float-right">
-                    <label>Ranks</label>
-                    <b-form-spinbutton id="sb-inline" v-model="instance.ranks" inline></b-form-spinbutton>
-                </div>
-                <div class="mb-2">
-                    <i v-if="supplement.passive">Passive</i>
-                    <i v-else>Active</i>
+                <div>
+                    <div v-if="supplement.ranked" class="mb-2 float-right">
+                        <label>Ranks</label>
+                        <b-form-spinbutton
+                            id="sb-inline"
+                            v-model="instance.ranks"
+                            class="ml-1"
+                            size="sm"
+                            inline
+                        ></b-form-spinbutton>
+                    </div>
+                    <div class="mb-2">
+                        <i v-if="supplement.passive">Passive</i>
+                        <i v-else>Active</i>
+                    </div>
                 </div>
                 <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
                 <reference
@@ -31,37 +39,29 @@
                     :reference="supplement.reference"
                 ></reference>
             </template>
-        </supplement-select>
+        </SupplementSelect>
 
         <!-- Modals -->
-        <add-edit-quality-modal ref="addEditQualityModal" @add="onQualityAdd"></add-edit-quality-modal>
-        <delete-modal
+        <AddEditQualityModal ref="addEditQualityModal" @add="onQualityAdd"></AddEditQualityModal>
+        <DeleteModal
             ref="delQualityModal"
             :name="delQuality.name"
             type="quality"
             @hidden="onDelQualityHidden"
             @delete="onDelQualityDelete"
-        ></delete-modal>
+        ></DeleteModal>
     </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-    #quality-edit {
-    }
-</style>
+<script lang="ts" setup>
+    import { ref, computed } from 'vue';
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    // Models
+    import { EoteQuality, EoteQualityRef } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import charMan from '../../../../lib/managers/character';
     import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
@@ -69,112 +69,117 @@
     import DeleteModal from '../../../ui/deleteModal.vue';
     import AddEditQualityModal from '../modals/addEditQualityModal.vue';
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
-    import Reference from '../../../character/reference.vue';
+    import Reference from '../../../character/referenceBlock.vue';
+
+    // Utils
+    import { uniqBy } from '../../../../../common/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EoteQualityEdit',
-        components: {
-            DeleteModal,
-            SupplementSelect,
-            AddEditQualityModal,
-            MarkdownBlock,
-            Reference
-        },
-        props: {
-            value: {
-                type: Array,
-                required: true
-            }
-        },
-        subscriptions()
+    interface Props
+    {
+        qualities : EoteQualityRef[];
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'update:qualities', qualities : EoteQualityRef[]) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const delQuality = ref<{ id ?: number, name ?: string }>({
+        id: undefined,
+        name: undefined
+    });
+
+    const addEditQualityModal = ref<InstanceType<typeof AddEditQualityModal> | null>(null);
+    const delQualityModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+    const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const qualities = computed(() => eoteMan.qualities);
+    const selectedQualities = computed({
+        get()
         {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$,
-                qualities: eoteMan.qualities$
-            };
+            return [ ...props.qualities ];
         },
-        emits: [ 'input' ],
-        data()
+        set(val)
         {
-            return {
-                delQuality: {
-                    id: undefined,
-                    name: undefined
-                }
-            };
-        },
-        computed: {
-            selectedQualities: {
-                get()
-                {
-                    return this.value.concat();
-                },
-                set(val)
-                {
-                    this.$emit('input', val);
-                }
-            }
-        },
-        methods: {
-            getQual(qualityInstance)
-            {
-                return this.qualities.find((qual) => qual.id === qualityInstance.id);
-            },
-            onQualityAdd(quality)
-            {
-                const newQual : { id : number, ranks ?: number } = { id: quality.id };
+            emit('update:qualities', val);
+        }
+    });
 
-                if(this.getQual(quality).ranked)
-                {
-                    newQual.ranks = 1;
-                }
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
 
-                this.selectedQualities.push(newQual);
-                this.selectedQualities = _.uniqBy(this.selectedQualities, 'id');
+    function getQual(qualityInstance : EoteQualityRef)
+    {
+        return qualities.value.find((qual) => qual.id === qualityInstance.id);
+    }
 
-                this.$emit('input', this.selectedQualities);
-            },
-            onQualityRemove(quality)
-            {
-                this.selectedQualities = _.remove(this.selectedQualities, (qual) => qual.id !== quality.id);
-            },
-            onQualityNew()
-            {
-                this.$refs.addEditQualityModal.show();
-            },
-            onQualityEdit(quality)
-            {
-                this.$refs.addEditQualityModal.show(quality);
-            },
-            onQualityDelete(quality)
-            {
-                this.delQuality.id = quality.id;
-                this.delQuality.name = quality.name;
+    function onQualityAdd(quality : EoteQualityRef) : void
+    {
+        const newQual : { id : number, ranks ?: number } = { id: quality.id };
 
-                this.$refs.delQualityModal.show();
-            },
-            onDelQualityHidden()
-            {
-                this.delQuality.id = '';
-                this.delQuality.name = '';
-            },
-            async onDelQualityDelete()
-            {
-                this.$refs.suppSelect.clearSelection();
-                this.selectedQualities = this.selectedQualities.filter((item) => item.id !== this.delQuality.id);
-                this.character.details.qualities = this.selectedQualities;
-
-                return Promise.all([
-                    await charMan.save(this.character),
-                    await eoteMan.delSup('qualities', this.delQuality)
-                ]);
-            }
+        if(getQual(quality).ranked)
+        {
+            newQual.ranks = 1;
         }
 
-    });
+        // Update to uniq'd version of the array
+        selectedQualities.value = uniqBy([ ...selectedQualities.value, newQual ], 'id');
+    }
+
+    function onQualityRemove(quality : EoteQualityRef) : void
+    {
+        selectedQualities.value = selectedQualities.value.filter((qual) => qual.id !== quality.id);
+    }
+
+    function onQualityNew() : void
+    {
+        addEditQualityModal.value.show();
+    }
+
+    function onQualityEdit(quality : EoteQuality) : void
+    {
+        addEditQualityModal.value.show(quality);
+    }
+
+    function onQualityDelete(quality : EoteQuality) : void
+    {
+        delQuality.value.id = quality.id;
+        delQuality.value.name = quality.name;
+
+        delQualityModal.value.show();
+    }
+
+    function onDelQualityHidden() : void
+    {
+        delQuality.value.id = undefined;
+        delQuality.value.name = undefined;
+    }
+
+    async function onDelQualityDelete() : Promise<void>
+    {
+        suppSelect.value.clearSelection();
+
+        await eoteMan.delSup('qualities', { id: `${ delQuality.value.id }` });
+
+        selectedQualities.value = selectedQualities.value.filter((item) => item.id !== delQuality.value.id);
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

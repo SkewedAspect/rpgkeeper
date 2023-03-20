@@ -12,12 +12,17 @@ export type Reference = ReferenceOptions;
 
 export interface Supplement
 {
-    id ?: number;
+    id ?: number | string;
     name : string;
     owner ?: string;
     scope : SupplementScope;
     reference : string;
     official : boolean;
+}
+
+export interface SupplementInst
+{
+    id : number | string;
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

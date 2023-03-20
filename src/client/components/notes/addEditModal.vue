@@ -13,7 +13,6 @@
             size="xl"
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown"
             @hidden="onHidden"
         >
             <!-- Modal Header -->

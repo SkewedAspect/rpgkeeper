@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-talent-modal">
+    <div class="edit-talent-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="xl"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -59,7 +58,7 @@
                                 </b-btn>
                             </div>
                             <b-card v-if="editInstance" class="overflow-hidden" no-body>
-                                <codemirror ref="editor" v-model="editInstance.notes" :options="{ lineNumbers: true }"></codemirror>
+                                <MarkdownBlock v-model:text="editInstance.notes" inline></MarkdownBlock>
                                 <template #footer>
                                     <div class="text-right">
                                         <b-btn v-if="editInstance" class="mr-2" size="sm" @click="saveInstanceNotes(instance, true)">
@@ -85,12 +84,12 @@
                         <span v-if="supplement.ranked">{{ instance.ranks }}</span>
                     </template>
                     <template #selection-extra="{ supplement }">
-                        <b-badge v-if="mode === 'genesys'">
+                        <b-badge v-if="mode === 'genesys'" class="mr-1">
                             Tier {{ supplement.tier }}
                         </b-badge>
                     </template>
                     <template #suggestion-extra="{ supplement }">
-                        <b-badge v-if="mode === 'genesys'">
+                        <b-badge v-if="mode === 'genesys'" class="mr-1">
                             Tier {{ supplement.tier }}
                         </b-badge>
                     </template>
@@ -109,209 +108,222 @@
         </b-modal>
 
         <!-- Modals -->
-        <add-edit-talent-modal ref="addEditTalentModal" @add="onTalentAdd"></add-edit-talent-modal>
-        <delete-modal
+        <AddEditTalentModal ref="addEditTalentModal" @add="onTalentAdd"></AddEditTalentModal>
+        <DeleteModal
             ref="delTalentModal"
             :name="delTalent.name"
             type="talent"
             @hidden="onDelTalentHidden"
             @delete="onDelTalentDelete"
-        ></delete-modal>
+        ></DeleteModal>
     </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-talent-modal {
-    }
-</style>
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { sortBy } from 'lodash';
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    // Models
+    import {
+        EoteOrGenCharacter,
+        EoteTalentInst,
+        GenesysTalent
+    } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import charMan from '../../../../lib/managers/character';
     import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
-    import Reference from '../../../character/reference.vue';
+    import Reference from '../../../character/referenceBlock.vue';
     import AddEditTalentModal from './addEditTalentModal.vue';
+    import { BModal } from 'bootstrap-vue';
+
+    // Utils
+    import { uniqBy } from '../../../../../common/utils/misc';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Events
+    {
+        (e : 'save', talents : EoteTalentInst[]) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const selectedTalents = ref<EoteTalentInst[]>([]);
+    const delTalent = ref<{ id : number | string, name : string }>({
+        id: '',
+        name: ''
+    });
+    const editInstance = ref<EoteTalentInst>(undefined);
+
+    const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const addEditTalentModal = ref<InstanceType<typeof AddEditTalentModal> | null>(null);
+    const delTalentModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const mode = computed(() => eoteMan.mode);
+    const talents = computed(() => eoteMan.talents);
+
+    const sortedTalents = computed(() =>
+    {
+        return sortBy(talents.value, [ 'tier', 'name' ], [ 'asc', 'desc' ]);
+    });
+
+    const sortedSelected = computed(() =>
+    {
+        return sortBy(
+            selectedTalents.value
+                .map((talentInst) =>
+                {
+                    const talentBase = talents.value.find(({ id }) => id === talentInst.id);
+                    return {
+                        ...talentInst,
+                        base: talentBase
+                    };
+                }),
+            [
+                'base.tier',
+                'base.name'
+            ]
+        );
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(char : EoteOrGenCharacter) : void
+    {
+        selectedTalents.value = char.details.talents;
+
+        delTalent.value.id = '';
+        delTalent.value.name = '';
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', selectedTalents.value);
+    }
+
+    function onCancel() : void
+    {
+        selectedTalents.value = [];
+        delTalent.value.id = '';
+        delTalent.value.name = '';
+    }
+
+    function getActivation(talent : GenesysTalent) : string
+    {
+        return eoteMan.activationEnum[talent.activation] || 'Unknown';
+    }
+
+    function getInst(instID : number) : EoteTalentInst
+    {
+        return selectedTalents.value
+            .find((talentInst) =>
+            {
+                return talentInst.id === instID;
+            });
+    }
+
+    function getTalent(talentInstance : EoteTalentInst) : GenesysTalent
+    {
+        return talents.value.find((talent) => talent.id === talentInstance.id);
+    }
+
+    function onTalentAdd(talent : GenesysTalent) : void
+    {
+        const newTalent : EoteTalentInst = { id: talent.id };
+
+        if(getTalent(newTalent).ranked)
+        {
+            newTalent.ranks = 1;
+        }
+
+        selectedTalents.value = uniqBy([ ...selectedTalents.value, newTalent ], 'id');
+    }
+
+    function onTalentRemove(talent) : void
+    {
+        selectedTalents.value = selectedTalents.value.filter((item) => item.id !== talent.id);
+    }
+
+    function onTalentNew() : void
+    {
+        addEditTalentModal.value.show();
+    }
+
+    function onTalentEdit(talent : GenesysTalent) : void
+    {
+        addEditTalentModal.value.show(talent);
+    }
+
+    function onTalentDelete(talent : GenesysTalent) : void
+    {
+        delTalent.value.id = talent.id;
+        delTalent.value.name = talent.name;
+
+        delTalentModal.value.show();
+    }
+
+    function onDelTalentHidden() : void
+    {
+        delTalent.value.id = '';
+        delTalent.value.name = '';
+    }
+
+    async function onDelTalentDelete() : Promise<void>
+    {
+        suppSelect.value.clearSelection();
+        selectedTalents.value = selectedTalents.value.filter((item) => item.id !== delTalent.value.id);
+
+        await eoteMan.delSup('talents', { id: `${ delTalent.value.id }` });
+
+        emit('save', selectedTalents.value);
+    }
+
+    function editInstanceNotes(instance : EoteTalentInst) : void
+    {
+        editInstance.value = instance;
+    }
+
+    function saveInstanceNotes(instance : EoteTalentInst, cancel = false)
+    {
+        if(!cancel)
+        {
+            const inst = getInst(instance.id);
+            inst.notes = editInstance.value.notes;
+        }
+
+        editInstance.value = undefined;
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditTalentModal',
-        components: {
-            DeleteModal,
-            SupplementSelect,
-            MarkdownBlock,
-            Reference,
-            AddEditTalentModal
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$,
-                talents: eoteMan.talents$
-            };
-        },
-        data()
-        {
-            return {
-                selectedTalents: [],
-                delTalent: {
-                    id: undefined,
-                    name: undefined
-                },
-                editInstance: undefined
-            };
-        },
-        computed: {
-            sortedTalents()
-            {
-                return _.sortBy(this.talents, [ 'tier', 'name' ], [ 'asc', 'desc' ]);
-            },
-            sortedSelected()
-            {
-                return _.sortBy(
-                    this.selectedTalents
-                        .map((talentInst) =>
-                        {
-                            const talentBase = this.talents.find(({ id }) => id === talentInst.id);
-                            return {
-                                ...talentInst,
-                                base: talentBase
-                            };
-                        }),
-                    [
-                        'base.tier',
-                        'base.name'
-                    ]
-                );
-            }
-        },
-        methods: {
-            cmRefresh()
-            {
-                this.$nextTick(() =>
-                {
-                    this.$refs.editor.codemirror.refresh();
-                });
-            },
-            getActivation(talent)
-            {
-                return eoteMan.activationEnum[talent.activation] || 'Unknown';
-            },
-            async onSave()
-            {
-                this.character.details.talents = this.selectedTalents;
-
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                this.selectedTalents = this.character.details.talents.concat();
-            },
-            getInst(instID)
-            {
-                return this.selectedTalents
-                    .find((talentInst) =>
-                    {
-                        return talentInst.id === instID;
-                    });
-            },
-            getTalent(talentInstance)
-            {
-                return this.talents.find((talent) => talent.id === talentInstance.id);
-            },
-            onTalentAdd(talent)
-            {
-                const newTalent = { id: talent.id };
-
-                if(this.getTalent(talent).ranked)
-                {
-                    newTalent.ranks = 1;
-                }
-
-                this.selectedTalents.push(newTalent);
-                this.selectedTalents = _.uniqBy(this.selectedTalents, 'id');
-            },
-            onTalentRemove(talent)
-            {
-                this.selectedTalents = _.remove(this.selectedTalents, (item) => item.id !== talent.id);
-            },
-            onTalentNew()
-            {
-                this.$refs.addEditTalentModal.show();
-            },
-            onTalentEdit(talent)
-            {
-                this.$refs.addEditTalentModal.show(talent);
-            },
-            onTalentDelete(talent)
-            {
-                this.delTalent.id = talent.id;
-                this.delTalent.name = talent.name;
-
-                this.$refs.delTalentModal.show();
-            },
-            onDelTalentHidden()
-            {
-                this.delTalent.id = '';
-                this.delTalent.name = '';
-            },
-            async onDelTalentDelete()
-            {
-                this.$refs.suppSelect.clearSelection();
-                this.selectedTalents = this.selectedTalents.filter((item) => item.id !== this.delTalent.id);
-                this.character.details.talents = this.selectedTalents;
-
-                return Promise.all([
-                    await charMan.save(this.character),
-                    await eoteMan.delSup('talents', this.delTalent)
-                ]);
-            },
-
-            editInstanceNotes(instance)
-            {
-                this.editInstance = instance;
-                this.$nextTick(() =>
-                {
-                    this.cmRefresh();
-                });
-            },
-            saveInstanceNotes(instance, cancel = false)
-            {
-                if(!cancel)
-                {
-                    this.$set(this.getInst(instance.id), 'notes', this.editInstance.notes);
-                }
-
-                this.editInstance = undefined;
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
-    });
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

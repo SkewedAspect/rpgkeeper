@@ -34,6 +34,9 @@ class SupplementResourceAccess
 
     async add<T extends Supplement = Supplement>(system : string, path : string, supplement : Supplement) : Promise<T>
     {
+        // Make sure there is no id specified.
+        supplement.id = undefined;
+
         return axios.post(`/api/systems/${ system }/${ path }`, supplement)
             .then(({ data }) => data);
     }

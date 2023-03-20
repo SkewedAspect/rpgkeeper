@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-forcePool-modal">
+    <div class="edit-forcePool-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -47,7 +46,16 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="rating-input" v-model="forcePool.rating" number type="number" min="0" max="10" step="1" :disabled="!forcePool.sensitive"></b-form-input>
+                            <b-form-input
+                                id="rating-input"
+                                v-model="forcePool.rating"
+                                number
+                                type="number"
+                                min="0"
+                                max="10"
+                                step="1"
+                                :disabled="!forcePool.sensitive"
+                            ></b-form-input>
                             <b-input-group-append>
                                 <b-button :disabled="!forcePool.sensitive" @click="forcePool.rating = 0">
                                     <fa icon="times"></fa>
@@ -73,84 +81,79 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-forcePool-modal {
+<script lang="ts" setup>
+    import { ref } from 'vue';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface ForcePool
+    {
+        sensitive : boolean;
+        committed : number;
+        rating : number;
     }
-</style>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    interface Events
+    {
+        (e : 'save', forcePool : ForcePool) : void;
+    }
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
-
-    // Managers
-    import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/systems/eote';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditForcePoolModal',
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                forcePool: {
-                    sensitive: false,
-                    committed: 0,
-                    rating: 0
-                }
-            };
-        },
-        watch: {
-            'forcePool.sensitive'()
-            {
-                if(!this.forcePool.sensitive)
-                {
-                    this.forcePool.rating = 0;
-                    this.forcePool.committed = 0;
-                }
-            }
-        },
-        methods: {
-            async onSave()
-            {
-                this.character.details.force.sensitive = this.forcePool.sensitive;
-                this.character.details.force.committed = this.forcePool.committed;
-                this.character.details.force.rating = this.forcePool.rating;
-
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                // Reset the edit fields
-                this.forcePool = {
-                    sensitive: this.character.details.force.sensitive || false,
-                    committed: this.character.details.force.committed || 0,
-                    rating: this.character.details.force.rating || 0
-                };
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
+    const forcePool = ref({
+        sensitive: false,
+        committed: 0,
+        rating: 0
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(fp : ForcePool) : void
+    {
+        forcePool.value.sensitive = fp.sensitive;
+        forcePool.value.committed = fp.committed;
+        forcePool.value.rating = fp.rating;
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', forcePool.value);
+    }
+
+    function onCancel() : void
+    {
+        forcePool.value.sensitive = false;
+        forcePool.value.committed = 0;
+        forcePool.value.rating = 0;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -1,5 +1,5 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- armor.vue
+  -- armorCard.vue
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
@@ -9,8 +9,8 @@
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                     <fa class="mr-1" icon="helmet-battle"></fa>
-                    Armor &nbsp;
-                    <span v-if="armor.name"> - {{ armor.name }}</span>
+                    Armor
+                    <span v-if="armor.name" class="ml-1"> - {{ armor.name }}</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
                     <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
@@ -26,7 +26,6 @@
             v-if="armor.name"
             class="font-sm mb-0"
             small
-            hover
         >
             <b-thead>
                 <b-tr>
@@ -68,7 +67,12 @@
                         {{ armor.rarity }}
                     </b-td>
                     <b-td class="text-nowrap w-25">
-                        <quality v-for="quality in armor.qualities" :id="quality.id" :key="quality.id" :ranks="quality.ranks"></quality>
+                        <QualityTag
+                            v-for="quality in armor.qualities"
+                            :id="quality.id"
+                            :key="quality.id"
+                            :ranks="quality.ranks"
+                        ></QualityTag>
                         <h5 v-if="armor.qualities === 0" class="mt-2 text-center">
                             No Upgrades.
                         </h5>
@@ -81,7 +85,7 @@
         </h5>
 
         <!-- Edit Modal -->
-        <edit-modal ref="editModal"></edit-modal>
+        <EditArmorModal ref="editArmorModal" @save="onEditSave"></EditArmorModal>
     </RpgkCard>
 </template>
 
@@ -89,10 +93,6 @@
 
 <style lang="scss">
     #eote-armor-block {
-        .table tr {
-            cursor: pointer;
-        }
-
         .table tr td {
             vertical-align: middle !important;
         }
@@ -101,53 +101,75 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-    import { defineComponent } from 'vue';
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
+
+    // Models
+    import { EoteArmorRef, EoteCharacter } from '../../../../common/interfaces/systems/eote';
 
     // Managers
-    import charMan from '../../../lib/managers/character';
     import eoteMan from '../../../lib/managers/systems/eote';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
-    import EditModal from './modals/editArmorModal.vue';
-    import Quality from './components/quality.vue';
+    import QualityTag from './components/qualityTag.vue';
+    import EditArmorModal from './modals/editArmorModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EotEArmorBlock',
-        components: {
-            RpgkCard,
-            EditModal,
-            Quality
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        computed: {
-            armor() { return this.character.details.armor; }
-        },
-        methods: {
-            openEditModal(weapon)
-            {
-                this.$refs.editModal.show(weapon);
-            }
-        }
+    interface Props
+    {
+        readonly : boolean;
+    }
 
-    });
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+
+    const editArmorModal = ref<InstanceType<typeof EditArmorModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const char = computed<EoteCharacter>(() => current.value as any);
+    const mode = computed(() => eoteMan.mode);
+    const readonly = computed(() => props.readonly);
+
+    const armor = computed(() => char.value.details.armor);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal()
+    {
+        editArmorModal.value.show(char.value);
+    }
+
+    function onEditSave(newArmor : EoteArmorRef) : void
+    {
+        char.value.details.armor = newArmor;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

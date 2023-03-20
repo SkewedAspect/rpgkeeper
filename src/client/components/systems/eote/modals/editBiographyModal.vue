@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-biography-modal">
+    <div class="edit-biography-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="xl"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -68,7 +67,12 @@
                             label-for="species-input"
                             label-sr-only
                         >
-                            <b-form-checkbox v-model="forceSensitive" style="margin-top: 2.4rem" name="force-sensitive" switch>
+                            <b-form-checkbox
+                                v-model="forceSensitive"
+                                style="margin-top: 2.4rem"
+                                name="force-sensitive"
+                                switch
+                            >
                                 Force Sensitive
                             </b-form-checkbox>
                         </b-form-group>
@@ -114,19 +118,19 @@
                     </b-col>
                 </b-form-row>
 
-                <supplement-select
+                <SupplementSelect
                     ref="suppSelect"
                     label="Abilities"
                     label-class="font-weight-bold"
                     :available="abilities"
-                    :selected="selectedAbilities"
+                    :selected="selectedAbilitiesArray"
                     @add="onAbilityAdd"
                     @remove="onAbilityRemove"
                     @new="onAbilityNew"
                     @edit="onAbilityEdit"
                     @delete="onAbilityDelete"
                 >
-                </supplement-select>
+                </SupplementSelect>
             </div>
 
             <!-- Modal Buttons -->
@@ -141,164 +145,185 @@
         </b-modal>
 
         <!-- Modals -->
-        <add-edit-ability-modal ref="addEditAbilityModal" @add="onAbilityAdd"></add-edit-ability-modal>
-        <delete-modal
-            ref="delAbilityModal"
+        <AddEditAbilityModal ref="addEditModal" @add="onAbilityAdd"></AddEditAbilityModal>
+        <DeleteModal
+            ref="delModal"
             :name="delAbility.name"
             type="ability"
             @hidden="onDelAbilityHidden"
             @delete="onDelAbilityDelete"
-        ></delete-modal>
+        ></DeleteModal>
     </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-biography-modal {
-    }
-</style>
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    // Models
+    import { EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import charMan from '../../../../lib/managers/character';
     import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import AddEditAbilityModal from './addEditAbilityModal.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface BioObj
+    {
+        name : string;
+        description : string;
+        career : string;
+        species : string;
+        specializations : string;
+        forceSensitive : boolean;
+        abilities : string[];
+    }
+
+    interface Events
+    {
+        (e : 'save', bio : BioObj) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const mode = ref('eote');
+    const name = ref('');
+    const description = ref('');
+    const career = ref('');
+    const species = ref('');
+    const specialization = ref('');
+    const forceSensitive = ref(false);
+    const selectedAbilities = ref(new Set());
+
+    const delAbility = ref({
+        id: '',
+        name: ''
+    });
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const addEditModal = ref<InstanceType<typeof AddEditAbilityModal> | null>(null);
+    const delModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+    const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const abilities = computed(() => eoteMan.abilities);
+    const selectedAbilitiesArray = computed(() => Array.from(selectedAbilities.value));
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(char : EoteOrGenCharacter) : void
+    {
+        mode.value = char.system;
+
+        name.value = char.name;
+        description.value = char.description;
+        career.value = char.details.career;
+        species.value = char.details.species;
+        selectedAbilities.value = new Set(char.details.abilities);
+
+        if(char.system === 'eote')
+        {
+            specialization.value = char.details.specialization;
+            forceSensitive.value = char.details.force.sensitive;
+        }
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', {
+            name: name.value,
+            description: description.value,
+            career: career.value,
+            species: species.value,
+            specializations: specialization.value,
+            forceSensitive: forceSensitive.value,
+            abilities: Array.from(selectedAbilities.value)
+        });
+    }
+
+    function onCancel() : void
+    {
+        name.value = '';
+        description.value = '';
+        career.value = '';
+        species.value = '';
+        selectedAbilities.value = new Set();
+        specialization.value = '';
+        forceSensitive.value = false;
+    }
+
+    function onAbilityAdd(ability)
+    {
+        selectedAbilities.value.add(ability.id);
+    }
+
+    function onAbilityRemove(ability)
+    {
+        selectedAbilities.value.delete(ability.id);
+    }
+
+    function onAbilityNew()
+    {
+        addEditModal.value.show(undefined);
+    }
+
+    function onAbilityEdit(ability)
+    {
+        addEditModal.value.show(ability);
+    }
+
+    function onAbilityDelete(ability)
+    {
+        delAbility.value.id = ability.id;
+        delAbility.value.name = ability.name;
+
+        delModal.value.show();
+    }
+
+    function onDelAbilityHidden()
+    {
+        delAbility.value.id = '';
+        delAbility.value.name = '';
+    }
+
+    async function onDelAbilityDelete()
+    {
+        suppSelect.value.clearSelection();
+        selectedAbilities.value.delete(delAbility.value.id);
+
+        await eoteMan.delSup('abilities', delAbility.value);
+
+        onSave();
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditBiographyModal',
-        components: {
-            AddEditAbilityModal,
-            DeleteModal,
-            SupplementSelect
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$,
-                abilities: eoteMan.abilities$
-            };
-        },
-        data()
-        {
-            return {
-                name: '',
-                description: '',
-                career: '',
-                species: '',
-                specialization: '',
-                forceSensitive: false,
-                selectedAbilities: [],
-                delAbility: {
-                    id: undefined,
-                    name: undefined
-                }
-            };
-        },
-        methods: {
-            async onSave()
-            {
-                // Ensure character has the right structure
-                if(!this.character.details.force)
-                {
-                    this.character.details.force = { rating: 0, committed: 0, powers: [] };
-                }
-
-                this.character.details.career = this.career;
-                this.character.details.species = this.species;
-                this.character.details.specialization = this.specialization;
-                this.character.details.force.sensitive = this.forceSensitive;
-                this.character.details.abilities = this.selectedAbilities;
-
-                this.character.name = this.name;
-                this.character.description = this.description;
-
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                // Ensure character has the right structure
-                if(!this.character.details.force)
-                {
-                    this.character.details.force = { rating: 0, committed: 0, powers: [] };
-                }
-
-                // Reset the edit fields
-                this.name = this.character.name;
-                this.description = this.character.description;
-                this.career = this.character.details.career;
-                this.species = this.character.details.species;
-                this.specialization = this.character.details.specialization;
-                this.forceSensitive = !!this.character.details.force.sensitive;
-                this.selectedAbilities = this.character.details.abilities.concat();
-            },
-            onAbilityAdd(ability)
-            {
-                this.selectedAbilities.push(ability.id);
-                this.selectedAbilities = _.uniq(this.selectedAbilities);
-            },
-            onAbilityRemove(ability)
-            {
-                this.selectedAbilities = _.without(this.selectedAbilities, ability.id);
-            },
-            onAbilityNew()
-            {
-                this.$refs.addEditAbilityModal.show();
-            },
-            onAbilityEdit(ability)
-            {
-                this.$refs.addEditAbilityModal.show(ability);
-            },
-            onAbilityDelete(ability)
-            {
-                this.delAbility.id = ability.id;
-                this.delAbility.name = ability.name;
-
-                this.$refs.delAbilityModal.show();
-            },
-            onDelAbilityHidden()
-            {
-                this.delAbility.id = '';
-                this.delAbility.name = '';
-            },
-            async onDelAbilityDelete()
-            {
-                this.$refs.suppSelect.clearSelection();
-                this.selectedAbilities = _.without(this.selectedAbilities, this.delAbility.id);
-                this.character.details.abilities = this.selectedAbilities;
-
-                return Promise.all([
-                    await charMan.save(this.character),
-                    await eoteMan.delSup('abilities', this.delAbility)
-                ]);
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
-    });
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

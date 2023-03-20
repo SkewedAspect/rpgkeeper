@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-force-powers-modal">
+    <div class="edit-force-powers-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="xxl"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -22,7 +21,7 @@
 
             <!-- Modal Content -->
             <div :class="`${ mode }-system`">
-                <supplement-select
+                <SupplementSelect
                     ref="suppSelect"
                     label="Force Powers"
                     label-class="font-weight-bold"
@@ -55,25 +54,25 @@
 
                             <template #cell(name)="data">
                                 <b>{{ sentenceCase(data.value) }}</b>
-                                <pool
-                                    v-model="data.item.purchased"
+                                <DicePool
+                                    v-model:current="data.item.purchased"
                                     :max="supplement.upgrades[data.value].available || 1"
                                     size="1x"
                                     no-edit
                                     no-auto-save
-                                    @update="onUpgradeModify(data, instance)"
-                                ></pool>
+                                    @update:current="onUpgradeModify(data, instance)"
+                                ></DicePool>
                             </template>
                             <template #cell(description)="data">
                                 <MarkdownBlock :text="data.value" inline></MarkdownBlock>
                             </template>
                         </b-table>
-                        <reference
+                        <ReferenceBlock
                             class="float-right mt-2"
                             :reference="supplement.reference"
-                        ></reference>
+                        ></ReferenceBlock>
                     </template>
-                </supplement-select>
+                </SupplementSelect>
             </div>
 
             <!-- Modal Buttons -->
@@ -88,14 +87,18 @@
         </b-modal>
 
         <!-- Modals -->
-        <add-edit-force-powers-modal ref="addEditForcePowersModal" @add="onForcePowerAdd"></add-edit-force-powers-modal>
-        <delete-modal
+        <AddEditForcePowersModal
+            ref="addEditForcePowersModal"
+            @add="onForcePowerAdd"
+            @edit="onForcePowerEdit"
+        ></AddEditForcePowersModal>
+        <DeleteModal
             ref="delForcePowersModal"
             :name="delForcePower.name"
             type="forcePower"
             @hidden="onDelForcePowerHidden"
             @delete="onDelForcePowerDelete"
-        ></delete-modal>
+        ></DeleteModal>
     </div>
 </template>
 
@@ -109,189 +112,222 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
+    // Models
+    import {
+        EoteCharacter,
+        EoteForcePower,
+        EoteForcePowerInst, EoteForcePowerUpgrade,
+        EoteTalentInst
+    } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import charMan from '../../../../lib/managers/character';
     import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
+    import DicePool from '../../../character/dicePool.vue';
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
-    import Reference from '../../../character/reference.vue';
+    import ReferenceBlock from '../../../character/referenceBlock.vue';
     import AddEditForcePowersModal from './addEditForcePowersModal.vue';
-    import Pool from '../../../character/dicePool.vue';
+    import { BModal } from 'bootstrap-vue';
+
+    // Utils
+    import { startCase, uniqBy } from '../../../../../common/utils/misc';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface UpgradeInst
+    {
+        available ?: number;
+        description : string;
+        index ?: number;
+        purchased : 0 | 1;
+        name : string;
+    }
+
+    interface Events
+    {
+        (e : 'save', talents : EoteTalentInst[]) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const upgradeFields = ref([
+        { key: 'name', tdClass: 'upgrade-name' },
+        { key: 'description' }
+    ]);
+
+    const selectedForcePowers = ref([]);
+
+    const delForcePower = ref<{ id ?: number, name ?: string }>({
+        id: undefined,
+        name: undefined
+    });
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const addEditForcePowersModal = ref<InstanceType<typeof AddEditForcePowersModal> | null>(null);
+    const delForcePowersModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+    const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const mode = computed(() => eoteMan.mode);
+    const forcePowers = computed(() => eoteMan.forcePowers);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(character : EoteCharacter) : void
+    {
+        selectedForcePowers.value = character.details.force.powers;
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        selectedForcePowers.value = [];
+        innerModal.value.hide();
+    }
+
+    async function onSave()
+    {
+        emit('save', selectedForcePowers.value);
+    }
+
+    function onForcePowerAdd(forcePower : EoteForcePowerInst) : void
+    {
+        const newForcePower = {
+            id: forcePower.id,
+            upgrades: { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 }
+        };
+
+        selectedForcePowers.value.push(newForcePower);
+        selectedForcePowers.value = uniqBy(selectedForcePowers.value, 'id');
+    }
+
+    function onForcePowerRemove(forcePower : EoteForcePowerInst) : void
+    {
+        selectedForcePowers.value = selectedForcePowers.value.filter((item) => item.id !== forcePower.id);
+    }
+
+    function onForcePowerNew() : void
+    {
+        addEditForcePowersModal.value.show();
+    }
+
+    function onForcePowerEdit(forcePower : EoteForcePower) : void
+    {
+        addEditForcePowersModal.value.show(forcePower);
+    }
+
+    function onForcePowerDelete(forcePower : EoteForcePower) : void
+    {
+        delForcePower.value.id = forcePower.id;
+        delForcePower.value.name = forcePower.name;
+
+        delForcePowersModal.value.show();
+    }
+
+    function onDelForcePowerHidden() : void
+    {
+        delForcePower.value.id = undefined;
+        delForcePower.value.name = '';
+    }
+
+    async function onDelForcePowerDelete() : Promise<void>
+    {
+        suppSelect.value.clearSelection();
+        selectedForcePowers.value = selectedForcePowers.value.filter((item) => item.id !== delForcePower.value.id);
+
+        await eoteMan.delSup('forcepowers', { id: `${ delForcePower.value.id }` });
+
+        onSave();
+    }
+
+    function onUpgradeModify(
+        { item, value } : { item : UpgradeInst, value : string },
+        instance : EoteForcePowerInst
+    ) : void
+    {
+        // Are we an array'd upgrade, or not?
+        if(item.index === undefined)
+        {
+            // Simple upgrade case, just update the instance
+            instance.upgrades[value] = item.purchased;
+        }
+        else
+        {
+            // More complicated, we have to mess with the purchased array
+            let purchased = instance.upgrades[value];
+            if(item.purchased)
+            {
+                // We add `item.index` to the list of purchased upgrades
+                purchased.push(item.index);
+            }
+            else
+            {
+                // We have to remove `item.index` from the list of purchased upgrades
+                purchased = purchased.filter((instIdx) => instIdx !== item.index);
+            }
+
+            instance.upgrades[value] = purchased;
+        }
+    }
+
+    function getUpgrades(instance : EoteForcePowerInst, supplement : EoteForcePower) : UpgradeInst[]
+    {
+        return Object.keys(supplement.upgrades).reduce((upgrades : UpgradeInst[], name) =>
+        {
+            const upgrade : (EoteForcePowerUpgrade | Array<{ description : string }>) = supplement.upgrades[name];
+            const upgradeInst : number | number[] = instance.upgrades[name];
+
+            if(Array.isArray(upgrade) && Array.isArray(upgradeInst))
+            {
+                // If it's an array (i.e. `control`) we just add them as individual upgrades, all with the same
+                // name. This is find, because we don't assume the name is unique. Also, we add the `index`
+                // property, because that tells us which control item we've purchased.
+                upgrades = upgrades.concat(upgrade.map((up, index) =>
+                {
+                    const purchased = upgradeInst.includes(index) ? 1 : 0;
+                    return {
+                        ...up,
+                        name,
+                        index,
+                        purchased
+                    };
+                }));
+            }
+            else
+            {
+                // In the simple case, we just push the upgrade with the name.
+                upgrades.push({ ...(upgrade as EoteForcePowerUpgrade), name, purchased: (upgradeInst as 0 | 1) });
+            }
+
+            return upgrades;
+        }, []);
+    }
+
+    function sentenceCase(text) : string
+    {
+        return startCase(text);
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditForcePowersModal',
-        components: {
-            Pool,
-            DeleteModal,
-            SupplementSelect,
-            MarkdownBlock,
-            Reference,
-            AddEditForcePowersModal
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$,
-                forcePowers: eoteMan.forcePowers$
-            };
-        },
-        data()
-        {
-            return {
-                upgradeFields: [
-                    { key: 'name', tdClass: 'upgrade-name' },
-                    { key: 'description' }
-                ],
-                selectedForcePowers: [],
-                delForcePower: {
-                    id: undefined,
-                    name: undefined
-                }
-            };
-        },
-        methods: {
-            async onSave()
-            {
-                this.character.details.force.powers = this.selectedForcePowers;
-
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                this.selectedForcePowers = this.character.details.force.powers.concat();
-            },
-            onForcePowerAdd(forcePower)
-            {
-                const newForcePower = {
-                    id: forcePower.id,
-                    upgrades: { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 }
-                };
-
-                this.selectedForcePowers.push(newForcePower);
-                this.selectedForcePowers = _.uniqBy(this.selectedForcePowers, 'id');
-            },
-            onForcePowerRemove(forcePower)
-            {
-                this.selectedForcePowers = _.remove(this.selectedForcePowers, (item) => item.id !== forcePower.id);
-            },
-            onForcePowerNew()
-            {
-                this.$refs.addEditForcePowersModal.show();
-            },
-            onForcePowerEdit(forcePower)
-            {
-                this.$refs.addEditForcePowersModal.show(forcePower);
-            },
-            onForcePowerDelete(forcePower)
-            {
-                this.delForcePower.id = forcePower.id;
-                this.delForcePower.name = forcePower.name;
-
-                this.$refs.delForcePowersModal.show();
-            },
-            onDelForcePowerHidden()
-            {
-                this.delForcePower.id = '';
-                this.delForcePower.name = '';
-            },
-            async onDelForcePowerDelete()
-            {
-                this.$refs.suppSelect.clearSelection();
-                this.selectedForcePowers = this.selectedForcePowers.filter((item) => item.id !== this.delForcePower.id);
-                this.character.details.forcePowers = this.selectedForcePowers;
-
-                return Promise.all([
-                    await charMan.save(this.character),
-                    await eoteMan.delSup('forcePowers', this.delForcePower)
-                ]);
-            },
-            onUpgradeModify({ item, value }, instance)
-            {
-                // Are we an array'd upgrade, or not?
-                if(item.index === undefined)
-                {
-                    // Simple upgrade case, just update the instance
-                    instance.upgrades[value] = item.purchased;
-                }
-                else
-                {
-                    // More complicated, we have to mess with the purchased array
-                    let purchased = instance.upgrades[value];
-                    if(item.purchased)
-                    {
-                        // We add `item.index` to the list of purchased upgrades
-                        purchased.push(item.index);
-                    }
-                    else
-                    {
-                        // We have to remove `item.index` from the list of purchased upgrades
-                        purchased = purchased.filter((instIdx) => instIdx !== item.index);
-                    }
-
-                    instance.upgrades[value] = purchased;
-                }
-            },
-            getUpgrades(instance, supplement)
-            {
-                return Object.keys(supplement.upgrades).reduce((upgrades, name) =>
-                {
-                    const upgrade = supplement.upgrades[name];
-                    const upgradeInst = instance.upgrades[name];
-
-                    if(Array.isArray(upgrade))
-                    {
-                        // If it's an array (i.e. `control`) we just add them as individual upgrades, all with the same
-                        // name. This is find, because we don't assume the name is unique. Also, we add the `index`
-                        // property, because that tells us which control item we've purchased.
-                        upgrades = upgrades.concat(upgrade.map((up, index) =>
-                        {
-                            const purchased = upgradeInst.includes(index) ? 1 : 0;
-                            return {
-                                ...up,
-                                name,
-                                index,
-                                purchased
-                            };
-                        }));
-                    }
-                    else
-                    {
-                        // In the simple case, we just push the upgrade with the name.
-                        upgrades.push({ ...upgrade, name, purchased: upgradeInst });
-                    }
-
-                    return upgrades;
-                }, []);
-            },
-
-            sentenceCase(text)
-            {
-                return _.startCase(text);
-            },
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
-    });
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

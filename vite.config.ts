@@ -19,7 +19,27 @@ export default defineConfig({
                 compilerOptions: {
                     compatConfig: {
                         MODE: 2
-                    }
+                    },
+                    isCustomElement: (tag) => [
+                        'proficiency',
+                        'ability',
+                        'boost',
+                        'force',
+                        'challenge',
+                        'difficulty',
+                        'setback',
+                        'success',
+                        'advantage',
+                        'advantage',
+                        'triumph',
+                        'lightside',
+                        'forcepoint',
+                        'failure',
+                        'threat',
+                        'threat',
+                        'despair',
+                        'darkside'
+                    ].includes(tag)
                 }
             }
         })

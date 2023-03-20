@@ -39,7 +39,6 @@
     "ts-essentials": "^9.3.0"
   },
   "devDependencies": {
-    "@babel/types": "^7.20.7",
     "@ckpack/vue-color": "^1.3.0",
     "@codemirror/lang-markdown": "^6.0.5",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -71,17 +70,14 @@
     "marked": "^4.0.12",
     "pinia": "^2.0.29",
     "pino-pretty": "^6.0.0",
-    "popper.js": "^1.14.6",
     "rimraf": "^4.0.6",
-    "rxjs": "^6.6.7",
     "sass": "^1.49.9",
     "socket.io-client": "^4.4.1",
     "typescript": "^4.9.4",
     "vite": "^4.0.4",
     "vue": "^3.2.45",
     "vue-codemirror": "^6.1.1",
-    "vue-router": "^4.1.6",
-    "vue-rx": "^6.2.0"
+    "vue-router": "^4.1.6"
   },
   "lint-staged": {
     "*.{ts,js,vue}": "npm run lint:fix"

@@ -1,5 +1,5 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- experience.vue
+  -- expCard.vue
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
@@ -43,7 +43,7 @@
         </div>
 
         <!-- Edit Modal -->
-        <edit-modal ref="editModal"></edit-modal>
+        <EditModal ref="editModal" @save="onEditSave"></EditModal>
     </RpgkCard>
 </template>
 
@@ -56,49 +56,74 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-    import { defineComponent } from 'vue';
+    // Models
+    import { EoteOrGenCharacter } from '../../../../common/interfaces/systems/eote';
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
     import EditModal from './modals/editExperienceModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EotEExperienceBlock',
-        components: {
-            RpgkCard,
-            EditModal
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        computed: {
-            experience() { return this.character.details.experience; }
-        },
-        methods: {
-            openEditModal()
-            {
-                this.$refs.editModal.show();
-            }
-        }
+    interface Experience
+    {
+        total : number;
+        available : number;
+    }
 
-    });
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const readonly = computed(() => props.readonly);
+    const editModal = ref<InstanceType<typeof EditModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const character = computed<EoteOrGenCharacter>(() => current.value as any);
+    const experience = computed(() => character.value.details.experience);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal() : void
+    {
+        editModal.value.show(character.value);
+    }
+
+    function onEditSave(exp : Experience) : void
+    {
+        character.value.details.experience = exp;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

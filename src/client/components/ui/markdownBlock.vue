@@ -31,8 +31,8 @@
     interface Props
     {
         text : string;
-        block : boolean;
-        inline : boolean;
+        block ?: boolean;
+        inline ?: boolean;
     }
 
     const props = withDefaults(

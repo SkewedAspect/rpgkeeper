@@ -8,9 +8,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { marked } from 'marked';
 import { version } from '../../package.json';
 
-// VueRX
-import VueRx from 'vue-rx';
-
 // Bootstrap Vue
 import { BootstrapVue } from 'bootstrap-vue';
 
@@ -39,6 +36,9 @@ import DashboardPage from './pages/dashboardPage.vue';
 // Pages
 import HomePage from './pages/homePage.vue';
 import SettingsPage from './pages/settingsPage.vue';
+
+// Utils
+import { buildWarnHandler } from './lib/utils/warning';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Font Awesome
@@ -73,14 +73,13 @@ const app = createApp(AppComponent)
     .component('Fa', FontAwesomeIcon)
     .component('FaLayers', FontAwesomeLayers)
 
-    // FixMe: Remove VueRX
-    .use(VueRx as any)
-
     // FixMe: Why does this not work?
     .use(BootstrapVue as any)
-
     .use(pinia)
     .use(router);
+
+// Set Up Warning Handler
+app.config.warnHandler = buildWarnHandler();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Marked Setup
@@ -91,7 +90,9 @@ const renderer = new marked.Renderer();
 renderer.table = function(header, body)
 {
     const tableBody = `<thead>${ header }</thead><tbody>${ body }</tbody>`;
-    return `<div class="table-responsive"><table class="table table-striped table-hover table-sm">${ tableBody }</table></div>`;
+    return `<div class="table-responsive">
+            <table class="table table-striped table-hover table-sm">${ tableBody }</table>
+        </div>`;
 };
 
 // Configure marked parser

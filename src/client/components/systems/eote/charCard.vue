@@ -1,15 +1,15 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- forcePowers.vue
+  -- Characteristics Card
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <RpgkCard id="eote-force-powers-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="eote-chars-block" :class="{ readonly: readonly }" fill no-body>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="journal-whills"></fa>
-                    <span class="d-none d-md-inline">ForcePowers</span>
+                    <fa class="mr-1" icon="fist-raised"></fa>
+                    <span class="d-none d-md-inline">Characteristics</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
                     <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
@@ -21,43 +21,62 @@
         </template>
 
         <!-- Card Body -->
-        <div>
-            <b-form-row>
-                <b-col v-for="forcePower in forcePowers" :key="forcePower.id" cols="12">
-                    <ForcePowerCard class="mb-2" :power="forcePower" :readonly="readonly"></ForcePowerCard>
-                </b-col>
-            </b-form-row>
-
-            <h5 v-if="forcePowers.length === 0" class="m-0 text-center">
-                No Force Powers
-            </h5>
+        <div class="d-flex flex-wrap align-content-stretch justify-content-start mt-auto mb-auto ml-2 mr-2 pt-1 pb-1">
+            <b-card
+                v-for="char in characteristics"
+                :key="char"
+                class="flex-fill ml-1 mr-1 mt-1 mb-1 text-nowrap"
+                style="min-width: 50px; width: 30%"
+                no-body
+            >
+                <h3 class="mt-2 mb-2 text-center">
+                    {{ getCharacteristic(char) }}
+                </h3>
+                <template #footer>
+                    <div class="text-center overflow-hidden">
+                        {{ formatCharName(char) }}
+                    </div>
+                </template>
+            </b-card>
         </div>
 
-        <!-- Modals -->
-        <EditForcePowersModal ref="editForcePowersModal" @save="onEditSave"></EditForcePowersModal>
+        <!-- Edit Modal -->
+        <EditModal ref="editModal" @save="onEditSave"></EditModal>
     </RpgkCard>
 </template>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<style lang="scss" scoped>
+    #eote-chars-block {
+        h3 {
+            font-size: 1.50rem;
+        }
+        .card-footer {
+            padding: 0.3rem 1rem;
+            font-size: 0.90rem;
+        }
+    }
+</style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
     import { computed, ref } from 'vue';
     import { storeToRefs } from 'pinia';
-    import { sortBy } from 'lodash';
 
     // Models
-    import { EoteCharacter, EoteForcePowerInst } from '../../../../common/interfaces/systems/eote';
+    import { EoteCharacteristics, EoteOrGenCharacter } from '../../../../common/interfaces/systems/eote';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';
 
-    // Managers
-    import eoteMan from '../../../lib/managers/systems/eote';
+    // Utils
+    import { startCase } from '../../../../common/utils/misc';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
-    import ForcePowerCard from './components/forcePowerCard.vue';
-    import EditForcePowersModal from './modals/editForcePowersModal.vue';
+    import EditModal from './modals/editCharacteristicsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -81,43 +100,52 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
+    const characteristics = ref([
+        'brawn',
+        'agility',
+        'intellect',
+        'cunning',
+        'willpower',
+        'presence'
+    ]);
+
     const { current } = storeToRefs(useCharactersStore());
-    const editForcePowersModal = ref<InstanceType<typeof EditForcePowersModal> | null>(null);
+    const editModal = ref<InstanceType<typeof EditModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteCharacter>(() => current.value as any);
-    const mode = computed(() => eoteMan.mode);
+    const character = computed<EoteOrGenCharacter>(() => current.value as any);
     const readonly = computed(() => props.readonly);
 
-    const forcePowers = computed(() =>
-    {
-        return sortBy(
-            char.value.details.force.powers ?? [],
-            (powerInst) =>
-            {
-                const powerBase = eoteMan.forcePowers.find((item) => item.id === powerInst.id);
-                return powerBase?.name ?? 'Unknown';
-            }
-        );
-    });
-
     //------------------------------------------------------------------------------------------------------------------
-    // Method
+    // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function openEditModal()
+    function openEditModal() : void
     {
-        editForcePowersModal.value.show(char.value);
+        editModal.value.show(character.value);
     }
 
-    function onEditSave(powers : EoteForcePowerInst[]) : void
+    function onEditSave(chars : EoteCharacteristics) : void
     {
-        char.value.details.force.powers = powers;
+        character.value.details.characteristics = {
+            ...character.value.details.characteristics,
+            ...chars
+        };
 
         emit('save');
+    }
+
+    function formatCharName(text) : string
+    {
+        return startCase(text);
+    }
+
+    function getCharacteristic(char) : number
+    {
+        return character.value.details.characteristics[char];
     }
 </script>
 

@@ -24,7 +24,13 @@
         <div v-if="forcePool.sensitive" class="d-flex">
             <div class="flex-fill mr-2">
                 <label class="d-block text-center mt-2"><b>Committed</b></label>
-                <b-form-spinbutton v-model="forcePool.committed" min="0" :max="forcePool.rating" step="1" class="mt-2"></b-form-spinbutton>
+                <b-form-spinbutton
+                    v-model="forcePool.committed"
+                    min="0"
+                    :max="forcePool.rating"
+                    step="1"
+                    class="mt-2"
+                ></b-form-spinbutton>
             </div>
             <b-card class="flex-fill" no-body>
                 <div class="p-2 text-center">
@@ -43,62 +49,82 @@
         </div>
 
         <!-- Edit Modal -->
-        <edit-modal ref="editModal"></edit-modal>
+        <EditModal ref="editModal" @save="onEditSave"></EditModal>
     </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-    #eote-force-pool-block {
-    }
-</style>
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    // Models
+    import { EoteCharacter } from '../../../../common/interfaces/systems/eote';
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
-
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
     import EditModal from './modals/editForcePoolModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EotEForcePoolBlock',
-        components: {
-            RpgkCard,
-            EditModal
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        computed: {
-            forcePool() { return this.character.details.force; }
-        },
-        methods: {
-            openEditModal()
-            {
-                this.$refs.editModal.show();
-            }
-        }
+    interface ForcePool
+    {
+        sensitive : boolean;
+        committed : number;
+        rating : number;
+    }
 
-    });
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const editModal = ref<InstanceType<typeof EditModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const character = computed<EoteCharacter>(() => current.value as any);
+    const forcePool = computed(() => character.value.details.force);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal() : void
+    {
+        editModal.value.show(character.value.details.force);
+    }
+
+    function onEditSave(fp : ForcePool) : void
+    {
+        character.value.details.force.sensitive = fp.sensitive;
+        character.value.details.force.committed = fp.committed;
+        character.value.details.force.rating = fp.rating;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

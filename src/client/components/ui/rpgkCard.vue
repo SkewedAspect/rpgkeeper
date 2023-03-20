@@ -9,7 +9,7 @@
         header-bg-variant="dark"
         header-text-variant="white"
         :class="classes"
-        :no-body="noBody"
+        :no-body="noBody || null"
     >
         <template #header>
             <slot name="header">
@@ -71,12 +71,12 @@
     {
         icon ?: string;
         title ?: string;
-        noBody : boolean;
-        align : 'left' | 'center' | 'right';
-        fill : boolean;
-        fixed : boolean;
-        grow : boolean;
-        shrink : boolean;
+        noBody ?: boolean;
+        align ?: 'left' | 'center' | 'right';
+        fill ?: boolean;
+        fixed ?: boolean;
+        grow ?: boolean;
+        shrink ?: boolean;
     }
 
     const props = withDefaults(

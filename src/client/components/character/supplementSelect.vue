@@ -116,7 +116,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { Supplement } from '../../../common/interfaces/systems/supplements';
+    import { Supplement, SupplementInst } from '../../../common/interfaces/systems/supplements';
 
     // Managers
     import authMan from '../../lib/managers/auth';
@@ -134,14 +134,25 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
+    // TODO: Can't figure out how to define generic Supplements, so we define something a little better.
+    interface GenericSupplement extends Supplement
+    {
+        [key : string] : any;
+    }
+
+    interface GenericSupplementInst extends SupplementInst
+    {
+        [key : string] : any;
+    }
+
     interface Props
     {
         label : string;
         labelClass : string;
-        available : Supplement[];
-        selected : Supplement[];
-        maxHeight : string;
-        sortFn : (suppA : Supplement, suppB : Supplement) => number
+        available : GenericSupplement[];
+        selected : GenericSupplementInst[];
+        maxHeight ?: string;
+        sortFn ?: (suppA : Supplement, suppB : Supplement) => number
     }
 
     const props = withDefaults(
@@ -174,7 +185,7 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const selectedSupplements = computed(() =>
+    const selectedSupplements = computed<GenericSupplementInst[]>(() =>
     {
         // Normalize the selected supplements to an array of objects with `id`.
         return props.selected.map((supp) =>
@@ -187,7 +198,7 @@
             else
             {
                 // Otherwise assume we're just the id, and wrap ourselves in an object. This is Good Enough™.
-                return props.available.find((item) => item.id === supp);
+                return { id: supp as number } satisfies SupplementInst;
             }
         });
     });
@@ -216,9 +227,10 @@
     {
         if(supplementInstance.value)
         {
+            const suppBase = props.available.find((supp) => supp.id === supplementInstance.value.id);
+
             const hasRight = authMan.hasPerm(`${ system }/canModifyContent`);
-            const isOwner = supplementInstance.value.scope === 'user'
-                && supplementInstance.value.owner === authMan.account.id;
+            const isOwner = suppBase.scope === 'user' && suppBase.owner === authMan.account.id;
             return isOwner || hasRight;
         }
 

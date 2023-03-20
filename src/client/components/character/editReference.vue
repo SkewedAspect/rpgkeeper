@@ -76,7 +76,7 @@
         }
     });
 
-    const pages = computed({
+    const page = computed({
         get() { return props.reference.split(':')[1]; },
         set(val : string)
         {
@@ -85,74 +85,6 @@
     });
 
     const references = computed(() => eoteManager.references);
-
-    //------------------------------------------------------------------------------------------------------------------
-
-    // export default defineComponent({
-    //     name: 'EditReference',
-    //     props: {
-    //         value: {
-    //             type: String,
-    //             required: true
-    //         }
-    //     },
-    //     subscriptions()
-    //     {
-    //         return {
-    //             references: eoteManager.references$
-    //         };
-    //     },
-    //     emits: { input: String },
-    //     data()
-    //     {
-    //         return {
-    //             source: '',
-    //             page: undefined
-    //         };
-    //     },
-    //     computed: {
-    //         valParts()
-    //         {
-    //             return this.value.split(':');
-    //         },
-    //         refString()
-    //         {
-    //             if(this.page)
-    //             {
-    //                 return `${ this.source }:${ this.page }`;
-    //             }
-    //             else
-    //             {
-    //                 return `${ this.source }`;
-    //             }
-    //         }
-    //     },
-    //     watch: {
-    //         value()
-    //         {
-    //             this.source = this.valParts[0];
-    //             this.page = this.valParts[1];
-    //         },
-    //         source()
-    //         {
-    //             if(this.source === 'HB')
-    //             {
-    //                 this.page = undefined;
-    //             }
-    //
-    //             this.$emit('input', this.refString);
-    //         },
-    //         page()
-    //         {
-    //             this.$emit('input', this.refString);
-    //         }
-    //     },
-    //     mounted()
-    //     {
-    //         this.source = this.valParts[0];
-    //         this.page = this.valParts[1];
-    //     }
-    // });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

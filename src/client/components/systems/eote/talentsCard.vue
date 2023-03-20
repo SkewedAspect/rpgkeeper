@@ -1,15 +1,15 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- forcePowers.vue
+  -- Talents Card
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <RpgkCard id="eote-force-powers-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="eote-talents-block" :class="{ readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="journal-whills"></fa>
-                    <span class="d-none d-md-inline">ForcePowers</span>
+                    <fa class="mr-1" icon="fist-raised"></fa>
+                    <span class="d-none d-md-inline">Talents</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
                     <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
@@ -21,20 +21,10 @@
         </template>
 
         <!-- Card Body -->
-        <div>
-            <b-form-row>
-                <b-col v-for="forcePower in forcePowers" :key="forcePower.id" cols="12">
-                    <ForcePowerCard class="mb-2" :power="forcePower" :readonly="readonly"></ForcePowerCard>
-                </b-col>
-            </b-form-row>
-
-            <h5 v-if="forcePowers.length === 0" class="m-0 text-center">
-                No Force Powers
-            </h5>
-        </div>
+        <component :is="subTalent" :readonly="readonly"></component>
 
         <!-- Modals -->
-        <EditForcePowersModal ref="editForcePowersModal" @save="onEditSave"></EditForcePowersModal>
+        <EditTalentsModal ref="editTalentsModal" @save="onEditSave"></EditTalentsModal>
     </RpgkCard>
 </template>
 
@@ -43,10 +33,9 @@
 <script lang="ts" setup>
     import { computed, ref } from 'vue';
     import { storeToRefs } from 'pinia';
-    import { sortBy } from 'lodash';
 
     // Models
-    import { EoteCharacter, EoteForcePowerInst } from '../../../../common/interfaces/systems/eote';
+    import { EoteOrGenCharacter, EoteTalentInst } from '../../../../common/interfaces/systems/eote';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';
@@ -56,8 +45,9 @@
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
-    import ForcePowerCard from './components/forcePowerCard.vue';
-    import EditForcePowersModal from './modals/editForcePowersModal.vue';
+    import EotETalents from './sub/eoteTalents.vue';
+    import GenesysTalents from './sub/genesysTalents.vue';
+    import EditTalentsModal from './modals/editTalentsModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -82,27 +72,17 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharactersStore());
-    const editForcePowersModal = ref<InstanceType<typeof EditForcePowersModal> | null>(null);
+    const editTalentsModal = ref<InstanceType<typeof EditTalentsModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteCharacter>(() => current.value as any);
+    const char = computed<EoteOrGenCharacter>(() => current.value as any);
     const mode = computed(() => eoteMan.mode);
     const readonly = computed(() => props.readonly);
 
-    const forcePowers = computed(() =>
-    {
-        return sortBy(
-            char.value.details.force.powers ?? [],
-            (powerInst) =>
-            {
-                const powerBase = eoteMan.forcePowers.find((item) => item.id === powerInst.id);
-                return powerBase?.name ?? 'Unknown';
-            }
-        );
-    });
+    const subTalent = computed(() => { return mode.value === 'eote' ? EotETalents : GenesysTalents; });
 
     //------------------------------------------------------------------------------------------------------------------
     // Method
@@ -110,12 +90,12 @@
 
     function openEditModal()
     {
-        editForcePowersModal.value.show(char.value);
+        editTalentsModal.value.show(char.value);
     }
 
-    function onEditSave(powers : EoteForcePowerInst[]) : void
+    function onEditSave(talents : EoteTalentInst[]) : void
     {
-        char.value.details.force.powers = powers;
+        char.value.details.talents = talents;
 
         emit('save');
     }

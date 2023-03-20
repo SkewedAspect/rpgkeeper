@@ -161,69 +161,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     defineExpose({ show, hide });
-    //
-    // //------------------------------------------------------------------------------------------------------------------
-    //
-    // export default defineComponent({
-    //     name: 'EditStuntsModal',
-    //     subscriptions()
-    //     {
-    //         return {
-    //             character: charMan.selected$
-    //         };
-    //     },
-    //     data()
-    //     {
-    //         return {
-    //             stunts: [],
-    //             newStuntTitle: '',
-    //             newStuntDesc: ''
-    //         };
-    //     },
-    //     methods: {
-    //         async onSave()
-    //         {
-    //             this.character.details.stunts = this.stunts;
-    //
-    //             // Save the character
-    //             await charMan.save(this.character);
-    //
-    //             // Clear the stunts
-    //             this.stunts = [];
-    //         },
-    //         onShown()
-    //         {
-    //             this.stunts = _.cloneDeep(this.character.details.stunts);
-    //         },
-    //
-    //         addStunt()
-    //         {
-    //             this.stunts.push({ title: this.newStuntTitle, description: this.newStuntDesc });
-    //             this.newStuntTitle = '';
-    //             this.newStuntDesc = '';
-    //         },
-    //         removeStunt(stunt)
-    //         {
-    //             // We can't use lodash, since Vue doesn't track whatever magic `_.pull` does.
-    //             // See: https://vuejs.org/v2/guide/list.html#Array-Change-Detection
-    //             const idx = _.findIndex(this.stunts, stunt);
-    //             if(idx > -1)
-    //             {
-    //                 this.stunts.splice(idx, 1);
-    //             }
-    //         },
-    //
-    //         show()
-    //         {
-    //             this.$refs.modal.show();
-    //         },
-    //         hide()
-    //         {
-    //             this.$refs.modal.hide();
-    //         }
-    //     }
-    //
-    // });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

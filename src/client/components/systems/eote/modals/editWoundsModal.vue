@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-health-modal">
+    <div class="edit-health-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -30,7 +29,15 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="wounds-input" v-model="health.wounds" number type="number" min="0" max="99" step="1"></b-form-input>
+                            <b-form-input
+                                id="wounds-input"
+                                v-model="health.wounds"
+                                number
+                                type="number"
+                                min="0"
+                                max="99"
+                                step="1"
+                            ></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="health.wounds = 0">
                                     <fa icon="times"></fa>
@@ -48,7 +55,15 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="wound-threshold-input" v-model="health.woundThreshold" number type="number" min="0" max="99" step="1"></b-form-input>
+                            <b-form-input
+                                id="wound-threshold-input"
+                                v-model="health.woundThreshold"
+                                number
+                                type="number"
+                                min="0"
+                                max="99"
+                                step="1"
+                            ></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="health.woundThreshold = 0">
                                     <fa icon="times"></fa>
@@ -66,7 +81,15 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="strain-input" v-model="health.strain" number type="number" min="0" max="99" step="1"></b-form-input>
+                            <b-form-input
+                                id="strain-input"
+                                v-model="health.strain"
+                                number
+                                type="number"
+                                min="0"
+                                max="99"
+                                step="1"
+                            ></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="health.strain = 0">
                                     <fa icon="times"></fa>
@@ -84,7 +107,15 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="strain-threshold-input" v-model="health.strainThreshold" number type="number" min="0" max="99" step="1"></b-form-input>
+                            <b-form-input
+                                id="strain-threshold-input"
+                                v-model="health.strainThreshold"
+                                number
+                                type="number"
+                                min="0"
+                                max="99"
+                                step="1"
+                            ></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="health.strainThreshold = 0">
                                     <fa icon="times"></fa>
@@ -110,70 +141,82 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-health-modal {
+<script lang="ts" setup>
+    import { ref } from 'vue';
+
+    // Models
+    import { EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Wounds
+    {
+        wounds : number;
+        woundThreshold : number;
+        strain : number;
+        strainThreshold : number;
     }
-</style>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    interface Events
+    {
+        (e : 'save', wounds : Wounds) : void;
+    }
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
-    import _ from 'lodash';
-
-    // Managers
-    import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/systems/eote';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'EditWoundsModal',
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                health: {
-                    wounds: 0,
-                    woundThreshold: 0,
-                    strain: 0,
-                    strainThreshold: 0
-                }
-            };
-        },
-        methods: {
-            async onSave()
-            {
-                this.character.details.health = _.cloneDeep(this.health);
-
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                // Reset the edit fields
-                this.health = _.cloneDeep(this.character.details.health);
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
+    const health = ref({
+        wounds: 0,
+        woundThreshold: 0,
+        strain: 0,
+        strainThreshold: 0
     });
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(char : EoteOrGenCharacter) : void
+    {
+        health.value.wounds = char.details.health.wounds;
+        health.value.woundThreshold = char.details.health.woundThreshold;
+        health.value.strain = char.details.health.strain;
+        health.value.strainThreshold = char.details.health.strainThreshold;
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', health.value);
+    }
+
+    function onCancel() : void
+    {
+        health.value.wounds = 0;
+        health.value.woundThreshold = 0;
+        health.value.strain = 0;
+        health.value.strainThreshold = 0;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
