@@ -11,10 +11,12 @@ import { Reference, Supplement } from '../../../../common/interfaces/systems/sup
 // Stores
 import { useEoteStore } from '../../stores/systems/eote';
 import { useGenesysStore } from '../../stores/systems/genesys';
-import { InvalidCharacterError } from '../../error';
+import { useSystemsStore } from '../../stores/systems';
 
 // Resource Access
 import suppRA from '../../resource-access/supplement';
+
+import { InvalidCharacterError } from '../../error';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -37,7 +39,7 @@ type Motivation = Models.GenesysMotivation;
 
 class EotEManager
 {
-    mode : EoteSystemMode = 'eote';
+    // mode : EoteSystemMode = 'eote';
 
     /* eslint-disable id-length */
     readonly rangeEnum = {
@@ -60,6 +62,12 @@ class EotEManager
     //------------------------------------------------------------------------------------------------------------------
     // Properties
     //------------------------------------------------------------------------------------------------------------------
+
+    get mode() : EoteSystemMode
+    {
+        const store = useSystemsStore();
+        return (store.current?.id || 'eote') as EoteSystemMode;
+    }
 
     get abilities() : Ability[]
     {
@@ -145,7 +153,7 @@ class EotEManager
         }
 
         // Set the mode
-        this.mode = character.system;
+        // this.mode = character.system;
 
         // Pick the right store to load
         const store = this.mode === 'eote' ? useEoteStore() : useGenesysStore();
