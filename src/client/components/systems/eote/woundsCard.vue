@@ -270,6 +270,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const character = computed<EoteOrGenCharacter>(() => current.value as any);
+    const mode = computed(() => eoteMan.mode);
     const readonly = computed(() => props.readonly);
 
     const defenses = computed(() => { return character.value.details.defenses; });
@@ -421,7 +422,7 @@
     function soakWounds() : void
     {
         const soak = defenses.value.soak || 0;
-        if(this.woundsInput > soak)
+        if(woundsInput.value > soak)
         {
             // Safety check; can never be less than 0.
             const woundsRemaining = Math.max(0, woundsInput.value - soak);
