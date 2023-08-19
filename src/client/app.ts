@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { createApp } from 'vue';
+import { configureCompat } from '@vue/compat';
 import { createPinia } from 'pinia';
 import { createRouter, createWebHistory } from 'vue-router';
 import { marked } from 'marked';
@@ -38,7 +39,7 @@ import HomePage from './pages/homePage.vue';
 import SettingsPage from './pages/settingsPage.vue';
 
 // Utils
-import { buildWarnHandler } from './lib/utils/warning';
+// import { buildWarnHandler } from './lib/utils/warning';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Font Awesome
@@ -65,6 +66,27 @@ const router = createRouter({
 // Setup Vue App
 //----------------------------------------------------------------------------------------------------------------------
 
+// Configure `@vue/compat`
+configureCompat({
+    WATCH_ARRAY: 'suppress-warning',
+    RENDER_FUNCTION: 'suppress-warning',
+    INSTANCE_LISTENERS: 'suppress-warning',
+    COMPONENT_FUNCTIONAL: 'suppress-warning',
+    OPTIONS_BEFORE_DESTROY: 'suppress-warning',
+    INSTANCE_SCOPED_SLOTS: 'suppress-warning',
+    OPTIONS_DATA_MERGE: 'suppress-warning',
+    COMPONENT_V_MODEL: 'suppress-warning',
+    CUSTOM_DIR: 'suppress-warning',
+    INSTANCE_EVENT_EMITTER: 'suppress-warning',
+    ATTR_FALSE_VALUE: 'suppress-warning',
+    INSTANCE_ATTRS_CLASS_STYLE: 'suppress-warning',
+    GLOBAL_PROTOTYPE: 'suppress-warning',
+    GLOBAL_EXTEND: 'suppress-warning',
+    GLOBAL_MOUNT: 'suppress-warning',
+    OPTIONS_DESTROYED: 'suppress-warning',
+    INSTANCE_DESTROY: 'suppress-warning'
+});
+
 // Set up pinia
 const pinia = createPinia();
 
@@ -79,7 +101,7 @@ const app = createApp(AppComponent)
     .use(router);
 
 // Set Up Warning Handler
-app.config.warnHandler = buildWarnHandler();
+// app.config.warnHandler = buildWarnHandler();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Marked Setup
