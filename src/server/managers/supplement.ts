@@ -2,8 +2,9 @@
 // SupplementManager
 //----------------------------------------------------------------------------------------------------------------------
 
+import { inspect } from 'node:util';
 import { Knex } from 'knex';
-import logging from 'trivial-logging';
+import logging from '@strata-js/util-logging';
 
 // Managers
 import { table } from './database';
@@ -24,7 +25,7 @@ import { MultipleResultsError, DuplicateSupplementError, NotFoundError, NotAutho
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const logger = logging.loggerFor(module);
+const logger = logging.getLogger(module.filename);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -209,7 +210,7 @@ export async function add(
     {
         logger.warn(
             'Attempted to add supplement with the same name, scope and owner as an existing one:',
-            logger.dump(supplement.toJSON())
+            inspect(supplement.toJSON(), { depth: null })
         );
         throw new DuplicateSupplementError(`${ systemPrefix }/${ type }/${ supplement.name }`);
     }

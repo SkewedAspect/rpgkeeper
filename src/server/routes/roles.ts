@@ -10,8 +10,8 @@ import { errorHandler, wrapAsync } from './utils';
 import * as rolesMan from '../managers/roles';
 
 // Logger
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
+import logging from '@strata-js/util-logging';
+const logger = logging.getLogger(module.filename);
 
 //----------------------------------------------------------------------------------------------------------------------
 

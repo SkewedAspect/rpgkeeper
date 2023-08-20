@@ -8,7 +8,7 @@
             ref="suppSelect"
             label="Qualities"
             label-class="font-weight-bold"
-            :available="qualities"
+            :available="allQualities"
             :selected="selectedQualities"
             @add="onQualityAdd"
             @remove="onQualityRemove"
@@ -109,7 +109,7 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const qualities = computed(() => eoteMan.qualities);
+    const allQualities = computed(() => eoteMan.qualities);
     const selectedQualities = computed({
         get()
         {
@@ -127,7 +127,7 @@
 
     function getQual(qualityInstance : EoteQualityRef)
     {
-        return qualities.value.find((qual) => qual.id === qualityInstance.id);
+        return allQualities.value.find((qual) => qual.id === qualityInstance.id);
     }
 
     function onQualityAdd(quality : EoteQualityRef) : void

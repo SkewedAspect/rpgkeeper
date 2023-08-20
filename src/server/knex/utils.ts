@@ -6,8 +6,8 @@ import _ from 'lodash';
 import { Knex } from 'knex';
 import { FilterToken } from '../routes/utils/query';
 
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
+import logging from '@strata-js/util-logging';
+const logger = logging.getLogger(module.filename);
 
 //----------------------------------------------------------------------------------------------------------------------
 

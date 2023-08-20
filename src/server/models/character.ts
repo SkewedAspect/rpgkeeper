@@ -4,27 +4,12 @@
 
 import * as JsonDecoder from 'decoders';
 
+// Models
+import { CharacterOptions, SystemDetails } from '../../common/interfaces/models/character';
+
 // Decoders
 import { characterJsonDecoder, characterRecDecoder } from '../decoders/character';
 import { sysDetailsDecoder } from '../decoders/systems';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-export type SystemDetails = Record<string, unknown>;
-
-export interface CharacterOptions<Details extends SystemDetails = SystemDetails> {
-    id : string | null;
-    system : string;
-    name : string;
-    description ?: string;
-    portrait ?: string;
-    thumbnail ?: string;
-    color ?: string;
-    campaign ?: string;
-    accountID : string;
-    noteID : string;
-    details : Details
-}
 
 //----------------------------------------------------------------------------------------------------------------------
 

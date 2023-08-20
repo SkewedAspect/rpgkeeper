@@ -7,21 +7,11 @@ import * as JsonDecoder from 'decoders';
 // Decoders
 import { getSupplementDecoder } from '../decoders/supplement';
 
+// Models
+import { SupplementOptions } from '../../common/interfaces/models/supplement';
+
 // Utils
 import { snakeCaseKeys } from '../../common/utils/misc';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-export interface SupplementOptions {
-    id : number;
-    name : string;
-    owner ?: string;
-    scope : 'public' | 'user';
-    official : boolean;
-
-    // There are additional properties to most supplements
-    [ key : string ] : unknown;
-}
 
 //----------------------------------------------------------------------------------------------------------------------
 

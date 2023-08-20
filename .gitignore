@@ -3,6 +3,10 @@
 # IntelliJ artifacts
 .idea
 
+# Local artifacts
+.env
+.env.*
+
 # Build artifacts
 .cache
 dist

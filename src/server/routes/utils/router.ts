@@ -5,7 +5,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { TrivialLogger } from 'trivial-logging';
+import { BasicLogger } from '@strata-js/util-logging';
 import { NextFunction, Request, Response } from 'express';
 import { AppError } from '../../errors';
 
@@ -24,7 +24,7 @@ export type JsonHandlerFunction = (request : Request, response : Response, next 
  *
  * @returns Returns a middleware function to perform logging.
  */
-export function requestLogger(logger : TrivialLogger) : MiddlewareFunction
+export function requestLogger(logger : BasicLogger) : MiddlewareFunction
 {
     return (request, _response, next) =>
     {
@@ -40,26 +40,17 @@ export function requestLogger(logger : TrivialLogger) : MiddlewareFunction
  *
  * @returns Returns a middleware function to perform logging.
  */
-export function errorLogger(logger : TrivialLogger) : ErrorMiddlewareFunction
+export function errorLogger(logger : BasicLogger) : ErrorMiddlewareFunction
 {
     return (error, request, response, next) =>
     {
-        const childLogger = logger.child({
-            request: {
-                method: request.method,
-                url: request.url,
-                body: request.body,
-                query: request.query
-            }
-        });
-
         if(response.statusCode < 500)
         {
-            childLogger.warn(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
+            logger.warn(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
         }
         else
         {
-            childLogger.error(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
+            logger.error(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
         }
 
         next(error);
@@ -73,7 +64,7 @@ export function errorLogger(logger : TrivialLogger) : ErrorMiddlewareFunction
  *
  * @returns Returns a middleware function to perform logging.
  */
-export function errorHandler(logger : TrivialLogger) : ErrorMiddlewareFunction
+export function errorHandler(logger : BasicLogger) : ErrorMiddlewareFunction
 {
     // If we don't have 4 parameters, this function literally doesn't work.
     // eslint-disable-next-line no-unused-vars
@@ -98,22 +89,13 @@ export function errorHandler(logger : TrivialLogger) : ErrorMiddlewareFunction
 
         if(logger)
         {
-            const childLogger = logger.child({
-                request: {
-                    method: request.method,
-                    url: request.url,
-                    body: request.body,
-                    query: request.query
-                }
-            });
-
             if(response.statusCode < 500)
             {
-                childLogger.warn(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
+                logger.warn(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
             }
             else
             {
-                childLogger.error(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
+                logger.error(`${ request.method } ${ response.statusCode } '${ request.url }': ${ error.stack }`);
             }
         }
 

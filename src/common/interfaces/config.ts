@@ -1,28 +1,36 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// System Supplements
+// Configuration Interfaces
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { ReferenceOptions } from '../models/reference';
+import { Knex } from 'knex';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export type SupplementScope = 'public' | 'user';
-
-export type Reference = ReferenceOptions;
-
-export interface Supplement
+export interface GoogleAuthConfig
 {
-    id ?: number | string;
-    name : string;
-    owner ?: string;
-    scope : SupplementScope;
-    reference : string;
-    official : boolean;
+    clientID : string;
+    clientSecret : string;
 }
 
-export interface SupplementInst
+export interface AuthConfig
 {
-    id : number | string;
+    google : GoogleAuthConfig;
+}
+
+export interface HTTPConfig
+{
+    secure : boolean;
+    port : number;
+}
+
+export interface RPGKeeperConfig
+{
+    overrideAuth : boolean;
+    secret : string;
+    key : string;
+    auth : AuthConfig;
+    http : HTTPConfig;
+    database : Knex.Config;
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

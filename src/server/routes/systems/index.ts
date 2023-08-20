@@ -19,8 +19,8 @@ import genRouter from './genesys';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
+import logging from '@strata-js/util-logging';
+const logger = logging.getLogger(module.filename);
 
 const router = express.Router();
 

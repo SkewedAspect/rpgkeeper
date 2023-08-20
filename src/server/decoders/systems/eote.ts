@@ -219,7 +219,7 @@ export const forcePowerDecoder = object({
         range: optional(forcePowerUpgradeDecoder),
         control: optional(array(object({ description: stringWithLength(1) }))),
         mastery: optional(forcePowerUpgradeDecoder)
-    })), {}),
+    })), { strength: null, magnitude: null, duration: null, range: null, control: null, mastery: null }),
     reference: referenceDecoder,
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),

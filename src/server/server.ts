@@ -2,22 +2,16 @@
 // Main server module for RPGKeeper.
 //----------------------------------------------------------------------------------------------------------------------
 
-// Program Argument Parsing
-import program from './utils/args';
+// This has to be first, for reasons
+import 'dotenv/config';
+import configUtil from '@strata-js/util-config';
 
-// Config
-import configMan from './managers/config';
+configUtil.load(`./config.yml`);
 
-// Logging
-import logging from 'trivial-logging';
-logging.setRootLogger('rpgkeeper');
-logging.init(configMan.config);
-
-const logger = logging.loggerFor(module);
-
-//----------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 
 import path from 'path';
+import { AddressInfo } from 'net';
 import express, { Express, RequestHandler } from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
@@ -25,8 +19,13 @@ import session from 'express-session';
 import passport from 'passport';
 import helmet from 'helmet';
 
+import logging from '@strata-js/util-logging';
+
 import http from 'http';
 import { Server as SIOServer } from 'socket.io';
+
+// Interfaces
+import { RPGKeeperConfig } from '../common/interfaces/config';
 
 // Managers
 import * as dbMan from './managers/database';
@@ -53,11 +52,16 @@ import accountsRouter from './routes/accounts';
 import rolesRouter from './routes/roles';
 
 // Version information
-import { version } from '../../package.json';
-import { AddressInfo } from 'net';
 
 // Utils
 import { setSIOInstance } from './utils/sio';
+import program from './utils/args';
+import { getVersion } from './utils/version';
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+const logger = logging.getLogger('server');
+const config = configUtil.getConfig<RPGKeeperConfig>();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handler
@@ -87,7 +91,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     //------------------------------------------------------------------------------------------------------------------
 
     const store = new KnexSessionStore({
-        sidfieldname: configMan.config.key as string | undefined,
+        sidfieldname: config.key as string | undefined,
         knex: dbMan.getDB() as any, // This is because this library's typing is foobar'd.
         createtable: true,
 
@@ -96,8 +100,6 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     });
 
     //------------------------------------------------------------------------------------------------------------------
-
-    const httpConfig : Record<string, any> = configMan.config.http as Record<string, any>;
 
     // Build the express app
     const app = express();
@@ -116,13 +118,13 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     app.use(bodyParser.json());
 
     app.use(session({ // lgtm [js/missing-token-validation]
-        secret: configMan.config.secret,
-        key: configMan.config.key,
+        secret: config.secret,
+        key: config.key,
         resave: false,
         store,
 
         // maxAge = 7 days
-        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: httpConfig.secure },
+        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: config.http.secure },
         saveUninitialized: false
     }));
 
@@ -134,7 +136,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     GoogleAuth.initialize(app);
 
     // Auth override
-    if(configMan.config.overrideAuth)
+    if(config.overrideAuth)
     {
         // Middleware to skip authentication, for testing with postman, or unit tests.
         app.use(wrapAsync(async(req, _resp, next) =>
@@ -191,6 +193,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     //------------------------------------------------------------------------------------------------------------------
 
     const server = http.createServer(app);
+    const version = await getVersion();
 
     const sio = new SIOServer(server);
 
@@ -198,7 +201,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     setSIOInstance(sio);
 
     // Start the server
-    server.listen(httpConfig.port, () =>
+    server.listen(config.http.port, () =>
     {
         const { address, port } = server.address() as AddressInfo;
         const host = address === '::' ? 'localhost' : address;

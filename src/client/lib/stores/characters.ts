@@ -5,7 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { Character } from '../../../common/interfaces/common';
+import { Character, SystemDetails } from '../../../common/interfaces/common';
 
 // Resource Access
 import charactersRA from '../resource-access/character';
@@ -53,9 +53,9 @@ export const useCharactersStore = defineStore('characters', {
                 this.saving = false;
             }
         },
-        find<T extends Record<string, unknown>>(characterID : string) : Character<T> | undefined
+        find<T extends SystemDetails>(characterID : string) : Character<T> | undefined
         {
-            return this.characters.find((character) => character.id === characterID);
+            return this.characters.find((character) => character.id === characterID) as Character<T> | undefined;
         },
         setCurrent(characterID : string | null) : void
         {

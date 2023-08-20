@@ -5,20 +5,8 @@
 import * as JsonDecoder from 'decoders';
 import { notebookDecoder, notebookPageDecoder } from '../decoders/notebook';
 
-//----------------------------------------------------------------------------------------------------------------------
-
-export interface NotebookOptions {
-    id : string;
-    // eslint-disable-next-line no-use-before-define
-    pages ?: NotebookPage[]
-}
-
-export interface NotebookPageOptions {
-    id : string;
-    title : string;
-    content : string;
-    notebookID : string;
-}
+// Models
+import { NotebookOptions, NotebookPageOptions } from '../../common/interfaces/models/notebook';
 
 //----------------------------------------------------------------------------------------------------------------------
 

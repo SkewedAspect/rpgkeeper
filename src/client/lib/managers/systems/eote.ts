@@ -5,6 +5,7 @@
 import { XOR } from 'ts-essentials';
 
 // Interfaces
+import { Character } from '../../../../common/interfaces/common';
 import * as Models from '../../../../common/interfaces/systems/eote';
 import { Reference, Supplement } from '../../../../common/interfaces/systems/supplements';
 
@@ -145,7 +146,7 @@ class EotEManager
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async load(character) : Promise<void>
+    async load(character : Character) : Promise<void>
     {
         if(![ 'eote', 'genesys' ].includes(character.system))
         {

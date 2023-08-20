@@ -2,13 +2,23 @@
 // DropboxUtil
 //----------------------------------------------------------------------------------------------------------------------
 
+declare global
+{
+    interface Window
+    {
+        Dropbox : any;
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
 class DropboxUtil
 {
     chooseDropboxImage() : Promise<Record<string, unknown>>
     {
         return new Promise((resolve) =>
         {
-            (window as any).Dropbox.choose({
+            window.Dropbox.choose({
                 extensions: [ 'images' ],
                 success(files)
                 {

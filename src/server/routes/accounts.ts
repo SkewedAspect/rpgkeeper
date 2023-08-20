@@ -13,8 +13,8 @@ import { Account } from '../models/account';
 import * as permsMan from '../managers/permissions';
 
 // Logger
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
+import logging from '@strata-js/util-logging';
+const logger = logging.getLogger(module.filename);
 
 //----------------------------------------------------------------------------------------------------------------------
 

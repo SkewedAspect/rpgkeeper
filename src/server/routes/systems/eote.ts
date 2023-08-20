@@ -12,8 +12,8 @@ import { buildSupplementRoute } from './utils/supplement';
 import { errorHandler, wrapAsync, parseQuery } from '../utils';
 
 // Logger
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
+import logging from '@strata-js/util-logging';
+const logger = logging.getLogger(module.filename);
 
 //----------------------------------------------------------------------------------------------------------------------
 

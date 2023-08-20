@@ -1,51 +1,32 @@
 {
     "compilerOptions": {
-        "experimentalDecorators": true,
-        "incremental": true,
-        "allowJs": true,
-        "checkJs": true,
-        "tsBuildInfoFile": "dist/tsbuildinfo",
-        "target": "ES2017",
-        "lib": [ "ES2020", "DOM" ],
-        "module": "commonjs",
-        "outDir": "./dist",
-        "rootDir": ".",
-        "strict": false,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "strictBindCallApply": true,
-        "strictPropertyInitialization": true,
-        "forceConsistentCasingInFileNames" : true,
-        "removeComments": true,
-        "noImplicitAny": false,
-        "alwaysStrict": true,
+        "useDefineForClassFields": true,
+        "target": "ES2022",
+        "module": "ES2022",
+        "lib": [ "ES2022", "DOM", "DOM.Iterable" ],
+        "skipLibCheck": true,
+
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        // We can't use this, since we use const enums.
+        //"isolatedModules": true,
+        "noEmit": true,
+        "jsx": "preserve",
+
+        /* Linting */
+        "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "preserveSymlinks": true,
-        "sourceMap": true
+        "noImplicitAny": false
     },
-    "typeRoots": [
-        "node_modules/@types",
-        "src/types"
-    ],
-    "files": [
-        "src/server/express-shim.d.ts",
-        "package.json",
-        "src/server/server.ts",
-        "knexfile.ts",
-        "config.ts"
-    ],
     "include": [
-//        "src/types",
-        "src/server/knex/migrations",
-        "src/server/knex/seeds"
+        "src",
+        "vite.config.ts"
     ],
-    "exclude": [
-        "node_modules"
+    "references": [
+        { "path": "./src/server/tsconfig.json" },
+        { "path": "./src/client/tsconfig.json" },
     ]
 }

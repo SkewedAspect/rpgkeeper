@@ -2,15 +2,21 @@
 // Common Interfaces
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { AccountOptions, AccountSettings as Settings } from '../../server/models/account';
-import { SupportStatus } from '../../server/systems/base';
-import { SupplementOptions } from '../../server/models/supplement';
-import { NotebookOptions, NotebookPageOptions } from '../../server/models/notebook';
-import { CharacterOptions, SystemDetails as SysDetails } from '../../server/models/character';
+import { AccountOptions, AccountSettings as Settings } from './models/account';
+import { SupplementOptions } from './models/supplement';
+import { NotebookOptions, NotebookPageOptions } from './models/notebook';
+import { CharacterOptions, SystemDetails as SysDetails } from './models/character';
 import { Roll } from 'rpgdicejs';
-import { RoleOptions } from '../../server/models/role';
+import { RoleOptions } from './models/role';
 
 // ---------------------------------------------------------------------------------------------------------------------
+
+export const enum SupportStatus
+{
+    InDevelopment = 'dev',
+    PublicBeta = 'beta',
+    Disabled = 'disabled'
+}
 
 export type Account = AccountOptions;
 export type AccountSettings = Settings;

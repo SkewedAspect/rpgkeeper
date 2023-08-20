@@ -12,21 +12,21 @@ import { eoteSysDetailsDecoder, genesysSysDetailsDecoder } from './eote';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export function sysDetailsDecoder<T extends Record<string, unknown>>(system : string) : Decoder<T>
+export function sysDetailsDecoder(system : string) : Decoder<any>
 {
     // Add an entry for every possible system type, and return the decoder for those system details.
     switch (system)
     {
         case 'genesys':
-            return genesysSysDetailsDecoder as Decoder<T>;
+            return genesysSysDetailsDecoder;
         case 'eote':
-            return eoteSysDetailsDecoder as Decoder<T>;
+            return eoteSysDetailsDecoder;
         case 'fate':
-            return fateSysDetailsDecoder as Decoder<T>;
+            return fateSysDetailsDecoder;
         case 'risus':
-            return risusSysDetailsDecoder as Decoder<T>;
+            return risusSysDetailsDecoder;
         case 'wfrp':
-            return wfrpSysDetailsDecoder as Decoder<T>;
+            return wfrpSysDetailsDecoder;
         default:
             return fail(`Unknown system '${ system }'.`);
     }

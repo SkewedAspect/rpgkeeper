@@ -7,13 +7,8 @@ import * as JsonDecoder from 'decoders';
 // Decoders
 import { roleJsonDecoder, roleRecDecoder } from '../decoders/role';
 
-//----------------------------------------------------------------------------------------------------------------------
-
-export interface RoleOptions {
-    id : number;
-    name : string;
-    permissions : string[];
-}
+// Models
+import { RoleOptions } from '../../common/interfaces/models/role';
 
 //----------------------------------------------------------------------------------------------------------------------
 

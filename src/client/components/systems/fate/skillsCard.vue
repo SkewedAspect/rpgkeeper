@@ -141,7 +141,7 @@
     const columns = computed(() =>
     {
         // eslint-disable-next-line no-shadow
-        const maxLength = rows.value.reduce((max, { skills }) => Math.max(max, skills.length), 5);
+        const maxLength = rows.value.reduce((max, row) => Math.max(max, row.skills.length), 5);
         return range(maxLength);
     });
 

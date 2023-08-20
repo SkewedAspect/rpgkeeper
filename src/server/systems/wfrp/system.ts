@@ -3,14 +3,17 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-import { BaseSystem, SupportStatus } from '../base';
+import { BaseSystem } from '../base';
+
+// Models
+import { SupportStatus } from '../../../common/interfaces/common';
 
 // Defaults
 import defaults from './defaults';
 
 // Logger
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
+import logging from '@strata-js/util-logging';
+const logger = logging.getLogger(module.filename);
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition

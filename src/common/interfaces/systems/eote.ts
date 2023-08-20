@@ -6,7 +6,6 @@ import { Supplement } from './supplements';
 import { BoundedRange } from '../../utils/types';
 
 import { Character } from '../common';
-import EoteCharacter from '../../../client/components/systems/eote/eoteCharacter.vue';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

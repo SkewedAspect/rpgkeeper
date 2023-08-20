@@ -5,6 +5,8 @@
 import passport from 'passport';
 import GoogleStrategy from 'passport-google-oauth20';
 import { Express } from 'express';
+import configUtil from '@strata-js/util-config';
+import logging from '@strata-js/util-logging';
 
 // Program Argument Parsing
 import program from '../utils/args';
@@ -12,26 +14,27 @@ import program from '../utils/args';
 // We just need to import this somewhere; here makes sense.
 import './serialization';
 
+// Interfaces
+import { RPGKeeperConfig } from '../../common/interfaces/config';
+
 // Managers
 import * as accountMan from '../managers/account';
 
-// Config
-import configMan from '../managers/config';
-
-// Logging
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
-
 //----------------------------------------------------------------------------------------------------------------------
 
+const logger = logging.getLogger('googleAuth');
+
 const callbackURL = `${ program.args.includes('--dev') ? 'http://localhost:5679' : process.env['DOMAIN'] }/auth/google/redirect`;
+
+const serverConfig = configUtil.getConfig<RPGKeeperConfig>();
+const config = serverConfig.auth.google;
 
 //----------------------------------------------------------------------------------------------------------------------
 
 passport.use(new GoogleStrategy(
     {
-        clientID: configMan.get('google.clientID'),
-        clientSecret: configMan.get('google.clientSecret'),
+        clientID: config.clientID,
+        clientSecret: config.clientID,
         callbackURL,
         scope: [ 'profile', 'email' ],
         state: true

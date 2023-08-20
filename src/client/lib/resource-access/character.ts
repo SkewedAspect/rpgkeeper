@@ -70,7 +70,7 @@ class CharacterResourceAccess
         }
 
         const { data } = await $http.get('/api/characters', { params: { owner } });
-        return data.map((def) => this._buildOrUpdateModel(def));
+        return data.map((def : any) => this._buildOrUpdateModel(def));
     }
 
     async saveCharacter<

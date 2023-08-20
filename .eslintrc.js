@@ -16,6 +16,7 @@ module.exports = {
         // Bad Practices
         '@typescript-eslint/camelcase': 'off', // TODO: Maybe turn this on in the future?
         '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-shadow': 'error',
         'curly': 'error',
         'no-await-in-loop': 'error',
         'no-eval': 'error',
@@ -48,7 +49,7 @@ module.exports = {
         'no-useless-return': 'warn',
         'require-await': 'off',
         'no-mixed-operators': 'warn',
-        'no-shadow': 'warn',
+        'no-shadow': 'off',
 
         // Style
         '@typescript-eslint/type-annotation-spacing': [ 'warn', { before: true, after: true } ],
@@ -172,7 +173,7 @@ module.exports = {
             rules: {
                 'no-dupe-class-members': 'off',
                 'jsdoc/require-param-type': 'off',
-                'jsdoc/require-returns-type': 'off'
+                'jsdoc/require-returns-type': 'off',
             }
         },
         {

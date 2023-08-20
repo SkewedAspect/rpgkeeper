@@ -7,7 +7,6 @@ import { configureCompat } from '@vue/compat';
 import { createPinia } from 'pinia';
 import { createRouter, createWebHistory } from 'vue-router';
 import { marked } from 'marked';
-import { version } from '../../package.json';
 
 // Bootstrap Vue
 import { BootstrapVue } from 'bootstrap-vue';
@@ -132,8 +131,18 @@ marked.setOptions({
 // Version information
 // ---------------------------------------------------------------------------------------------------------------------
 
-(window as any).RPGKeeper = {
-    version
+declare global
+{
+    interface Window
+    {
+        RPGKeeper : {
+            version : string;
+        }
+    }
+}
+
+window.RPGKeeper = {
+    version: __APP_VERSION__
 };
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -488,7 +488,7 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
     // Step 3: Copy tables.
     //------------------------------------------------------------------------------------------------------------------
 
-    const trimColumns = (rows) =>
+    const trimColumns = (rows : any[]) : any[] =>
     {
         return rows.map((obj) =>
         {
