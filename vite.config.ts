@@ -88,7 +88,7 @@ export default defineConfig({
         }
     },
     build: {
-        outDir: '../../dist/src/client',
+        outDir: '../../dist/client',
         emptyOutDir: true,
         cssCodeSplit: true,
         chunkSizeWarningLimit: 650,

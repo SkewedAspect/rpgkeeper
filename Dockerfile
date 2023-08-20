@@ -22,7 +22,7 @@ COPY --from=bundle-builder /app /app
 
 WORKDIR /app
 
-RUN npm ci --no-fund --production
+RUN npm ci --no-fund --omit=dev
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Final Docker

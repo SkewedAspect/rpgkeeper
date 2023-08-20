@@ -73,7 +73,7 @@
     "pinia": "^2.0.29",
     "pino-pretty": "^10.2.0",
     "rimraf": "^4.0.6",
-    "sass": "^1.49.9",
+    "sass": "^1.32.13",
     "socket.io-client": "^4.4.1",
     "typescript": "^5.1.6",
     "vite": "^4.4.9",
