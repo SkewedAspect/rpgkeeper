@@ -12,16 +12,17 @@ on:
   push:
     branches:
       - master
+    tags:
+      - v*
 
   release:
-    types: [published]
+    types: [published, prereleased, released]
 
 env:
   IMAGE_NAME: rpgkeeper
 
 jobs:
   push:
-
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
