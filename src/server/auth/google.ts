@@ -34,7 +34,7 @@ const config = serverConfig.auth.google;
 passport.use(new GoogleStrategy(
     {
         clientID: config.clientID,
-        clientSecret: config.clientID,
+        clientSecret: config.clientSecret,
         callbackURL,
         scope: [ 'profile', 'email' ],
         state: true
@@ -99,7 +99,7 @@ export default {
         // Redirect
         app.get('/auth/google/redirect', passport.authenticate('google', {
             successReturnToOrRedirect: '/',
-            failureRedirect: '/'
+            failWithError: true
         }));
 
         // Get Current User

@@ -114,17 +114,19 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     app.use(requestLogger(logger) as RequestHandler);
 
     // Auth support
-    app.use(cookieParser()); // lgtm [js/missing-token-validation]
+    app.use(cookieParser());
     app.use(bodyParser.json());
 
-    app.use(session({ // lgtm [js/missing-token-validation]
+    const httpSecureCookie = config.http.secure.toLowerCase() === 'true';
+
+    app.use(session({
         secret: config.secret,
         key: config.key,
         resave: false,
         store,
 
         // maxAge = 7 days
-        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: config.http.secure },
+        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: httpSecureCookie },
         saveUninitialized: false
     }));
 

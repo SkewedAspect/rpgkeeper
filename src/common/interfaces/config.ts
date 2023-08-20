@@ -19,7 +19,7 @@ export interface AuthConfig
 
 export interface HTTPConfig
 {
-    secure : boolean;
+    secure : string;
     port : number;
 }
 
