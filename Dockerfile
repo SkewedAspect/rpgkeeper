@@ -44,7 +44,7 @@ WORKDIR /app
 
 VOLUME /app/db
 
-CMD [ "node", "dist/src/server/server.js",  "# rpgkeeper" ]
+CMD [ "npm", "start",  "# rpgkeeper" ]
 
 #-----------------------------------------------------------------------------------------------------------------------
 
