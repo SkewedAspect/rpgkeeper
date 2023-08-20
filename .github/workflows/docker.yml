@@ -61,6 +61,7 @@ jobs:
 
       - name: Push docker
         if: success()
+        uses: actions-hub/docker@master
         run: |
           if [ "$VERSION" == "latest" ]
             then
@@ -68,7 +69,6 @@ jobs:
             else
                 docker push morgul/rpgkeeper:${VERSION} -t morgul/rpgkeeper:latest
             fi
-#        uses: actions-hub/docker@master
 #        with:
 #          args: push morgul/rpgkeeper:${VERSION}
 
