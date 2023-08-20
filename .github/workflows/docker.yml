@@ -54,10 +54,8 @@ jobs:
         run: |
           if [ "$VERSION" == "latest" ]
             then
-                echo TAGS="morgul/rpgkeeper:latest" >> $GITHUB_ENV
                 docker build -t morgul/rpgkeeper:latest .
             else
-                echo TAGS="morgul/rpgkeeper:${VERSION} morgul/rpgkeeper:latest" >> $GITHUB_ENV
                 docker build -t morgul/rpgkeeper:${VERSION} -t morgul/rpgkeeper:latest .
             fi
 
@@ -65,7 +63,7 @@ jobs:
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: push ${TAGS}
+          args: push --all-tags morgul/rpgkeeper
 
   # Deploys Beta docker
   deploy-beta:
