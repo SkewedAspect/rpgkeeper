@@ -62,15 +62,8 @@ jobs:
       - name: Push docker
         if: success()
         uses: actions-hub/docker@master
-        run: |
-          if [ "$VERSION" == "latest" ]
-            then
-                docker push morgul/rpgkeeper:latest
-            else
-                docker push morgul/rpgkeeper:${VERSION} -t morgul/rpgkeeper:latest
-            fi
-#        with:
-#          args: push morgul/rpgkeeper:${VERSION}
+        with:
+          args: push morgul/rpgkeeper:latest [ "$VERSION" -ne "latest" ] && morgul/rpgkeeper:${VERSION}
 
   # Deploys Beta docker
   deploy-beta:
