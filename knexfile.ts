@@ -50,10 +50,12 @@ module.exports = async() =>
         ...getConfig(),
         migrations: {
             directory: './src/server/knex/migrations',
-            extension: 'ts'
+            extension: 'ts',
+            loadExtensions: [ '.ts' ]
         },
         seeds: {
-            directory: './src/server/knex/seeds'
+            directory: './src/server/knex/seeds',
+            loadExtensions: [ '.ts' ]
         }
     };
 };
