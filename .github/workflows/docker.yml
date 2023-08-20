@@ -63,7 +63,7 @@ jobs:
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: push morgul/rpgkeeper:latest $([ "$VERSION" -ne "latest" ] && morgul/rpgkeeper:${VERSION})
+          args: push morgul/rpgkeeper:latest $([ "$VERSION" != "latest" ] && morgul/rpgkeeper:${VERSION})
 
   # Deploys Beta docker
   deploy-beta:
