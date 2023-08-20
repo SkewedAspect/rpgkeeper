@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
         "composite": true,
-        "target": "ES2022",
         "rootDir": "..",
         "outDir": "../../dist",
+        "target": "ES2022",
         "skipLibCheck": true,
 
         // Overrides

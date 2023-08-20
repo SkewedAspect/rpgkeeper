@@ -13,7 +13,7 @@ import defaults from './defaults';
 
 // Logger
 import logging from '@strata-js/util-logging';
-const logger = logging.getLogger(module.filename);
+const logger = logging.getLogger('wfrp-system');
 
 //----------------------------------------------------------------------------------------------------------------------
 // System definition

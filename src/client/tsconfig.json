@@ -5,14 +5,12 @@
         "outDir": "../../dist",
         "skipLibCheck": true,
         "target": "ES2022",
-        "module": "ES2022",
 
         // Overrides
         "lib": ["ES2022", "DOM", "DOM.Iterable"],
-        "moduleResolution": "bundler",
-//        "allowImportingTsExtensions": true,
+        "module": "CommonJS",
+        "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true
     },
     "include": [
         "../common/**/*.ts",

@@ -209,7 +209,6 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
 
         if(program.args.includes('--dev'))
         {
-            logger.warn('Should launch vite...');
             actualPort += 1;
 
             // Start Vite Dev Server

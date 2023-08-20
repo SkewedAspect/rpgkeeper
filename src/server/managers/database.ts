@@ -90,8 +90,6 @@ function _buildConfig() : DBConfig
         config.pool.afterCreate = newAfterCreate;
     }
 
-    logger.debug('Database config:', config);
-
     return config;
 }
 
