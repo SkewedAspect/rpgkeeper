@@ -70,7 +70,7 @@ at http://localhost:5678/.
 
 #### Checking your work
 
-Before you are allowed to push, the project will force you to run through the linter. If the linter doesn't pass, you don't get to push. To check on your own, I recommend you run: `yarn run lint:fix`. If this passes then you know you're good to go.
+Before you are allowed to push, the project will force you to run through the linter. If the linter doesn't pass, you don't get to push. To check on your own, I recommend you run: `npm run lint`. If this passes then you know you're good to go.
 
 _Note: Merge requests will not be accepted without passing linting._
 
