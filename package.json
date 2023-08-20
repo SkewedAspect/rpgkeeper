@@ -1,6 +1,6 @@
 {
   "name": "rpgkeeper",
-  "version": "3.1.0",
+  "version": "3.1.1-beta.0",
   "description": "A site for managing your digital character sheets.",
   "main": "dist/server/server.js",
   "scripts": {
