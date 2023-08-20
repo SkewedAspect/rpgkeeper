@@ -3,16 +3,16 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-consequences-modal">
+    <div class="edit-consequences-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown"
+            @cancel="onCancel"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -36,7 +36,7 @@
                             </b-button>
                         </b-input-group-append>
                     </b-input-group>
-                    <b-button class="ml-2 text-nowrap" :pressed.sync="mildHealing1" :disabled="!mildDetail1">
+                    <b-button v-model:pressed="mildHealing1" class="ml-2 text-nowrap" :disabled="!mildDetail1">
                         <fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </b-button>
@@ -58,7 +58,7 @@
                             </b-button>
                         </b-input-group-append>
                     </b-input-group>
-                    <b-button class="ml-2 text-nowrap" :pressed.sync="mildHealing2" :disabled="!mildDetail2">
+                    <b-button v-model:pressed="mildHealing2" class="ml-2 text-nowrap" :disabled="!mildDetail2">
                         <fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </b-button>
@@ -79,7 +79,7 @@
                             </b-button>
                         </b-input-group-append>
                     </b-input-group>
-                    <b-button class="ml-2 text-nowrap" :pressed.sync="moderateHealing" :disabled="!moderateDetail">
+                    <b-button v-model:pressed="moderateHealing" class="ml-2 text-nowrap" :disabled="!moderateDetail">
                         <fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </b-button>
@@ -100,7 +100,7 @@
                             </b-button>
                         </b-input-group-append>
                     </b-input-group>
-                    <b-button class="ml-2 text-nowrap" :pressed.sync="severeHealing" :disabled="!severeDetail">
+                    <b-button v-model:pressed="severeHealing" class="ml-2 text-nowrap" :disabled="!severeDetail">
                         <fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </b-button>
@@ -122,120 +122,181 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-consequences-modal {
+<script lang="ts" setup>
+    //------------------------------------------------------------------------------------------------------------------
+
+    import { computed, ref } from 'vue';
+
+    // Interfaces
+    import { FateAspect, FateSkill } from '../../../../common/interfaces/systems/fate';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Props
+    {
+        skills : FateSkill[];
     }
-</style>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    const props = defineProps<Props>();
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+    interface Events
+    {
+        (e : 'save', aspects : FateAspect[]) : void;
+    }
 
-    import Vue from 'vue';
-    import _ from 'lodash';
-
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EditConsequenceModal',
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        data()
-        {
-            return {
-                mildDetail1: '',
-                mildDetail2: '',
-                moderateDetail: '',
-                severeDetail: '',
-                mildHealing1: false,
-                mildHealing2: false,
-                moderateHealing: false,
-                severeHealing: false
-            };
-        },
-        computed: {
-            hasExtraMild() { return this.extraMildType !== 'none'; },
-            consequences() { return _.filter(this.character.details.aspects, { type: 'consequence' }); },
-            mildConsequence1() { return _.filter(this.consequences, { value: 2 })[0] || { type: 'consequence', detail: '', healing: false, value: 2 }; },
-            mildConsequence2() { return _.filter(this.consequences, { value: 2 })[1] || { type: 'consequence', detail: '', healing: false, value: 2 }; },
-            moderateConsequence() { return _.filter(this.consequences, { value: 4 })[0] || { type: 'consequence', detail: '', healing: false, value: 4 }; },
-            severeConsequence() { return _.filter(this.consequences, { value: 6 })[0] || { type: 'consequence', detail: '', healing: false, value: 6 }; },
-            extraMildType()
-            {
-                const will = _.find(this.character.details.skills, { name: 'Will' });
-                const physique = _.find(this.character.details.skills, { name: 'Physique' });
+    const aspects = ref<FateAspect[]>([]);
 
-                if((physique && physique.rank >= 5) && (will && will.rank >= 5))
-                {
-                    return 'Mental and Physical';
-                }
-                else if(physique && physique.rank >= 5)
-                {
-                    return 'Physical';
-                }
-                else if(will && will.rank >= 5)
-                {
-                    return 'Mental';
-                }
-                else
-                {
-                    return 'none';
-                }
-            }
-        },
-        methods: {
-            async onSave()
-            {
-                // Filter out any consequences that are now empty.
-                const consequences = [
-                    { ...this.mildConsequence1, detail: this.mildDetail1, healing: this.mildHealing1 },
-                    { ...this.mildConsequence2, detail: this.mildDetail2, healing: this.mildHealing2 },
-                    { ...this.moderateConsequence, detail: this.moderateDetail, healing: this.moderateHealing },
-                    { ...this.severeConsequence, detail: this.severeDetail, healing: this.severeHealing }
-                ].filter((consequence) => !!consequence.detail);
+    const mildDetail1 = ref('');
+    const mildDetail2 = ref('');
+    const moderateDetail = ref('');
+    const severeDetail = ref('');
 
-                // Pull out aspects, remove all consequences, and then re-add them.
-                let aspects = this.character.details.aspects.filter((aspect) => aspect.type !== 'consequence');
-                aspects = aspects.concat(consequences);
+    const mildHealing1 = ref(false);
+    const mildHealing2 = ref(false);
+    const moderateHealing = ref(false);
+    const severeHealing = ref(false);
 
-                // Add them back to the character
-                this.character.details.aspects = aspects;
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                // Reset the edit fields
-                this.mildDetail1 = this.mildConsequence1.detail;
-                this.mildDetail2 = this.mildConsequence2.detail;
-                this.moderateDetail = this.moderateConsequence.detail;
-                this.severeDetail = this.severeConsequence.detail;
-                this.mildHealing1 = this.mildConsequence1.healing;
-                this.mildHealing2 = this.mildConsequence2.healing;
-                this.moderateHealing = this.moderateConsequence.healing;
-                this.severeHealing = this.severeConsequence.healing;
-            },
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
 
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
+    const consequences = computed<FateAspect[]>(() => aspects.value.filter((aspect) => aspect.type === 'consequence'));
 
+    const mildConsequence1 = computed<FateAspect>(() =>
+    {
+        return consequences.value.filter((con) => con.value === 2)[0]
+            ?? { type: 'consequence', detail: '', healing: false, value: 2 };
     });
+
+    const mildConsequence2 = computed<FateAspect>(() =>
+    {
+        return consequences.value.filter((con) => con.value === 2)[1]
+            ?? { type: 'consequence', detail: '', healing: false, value: 2 };
+    });
+
+    const moderateConsequence = computed<FateAspect>(() =>
+    {
+        return consequences.value.filter((con) => con.value === 4)[0]
+            ?? { type: 'consequence', detail: '', healing: false, value: 4 };
+    });
+
+    const severeConsequence = computed<FateAspect>(() =>
+    {
+        return consequences.value.filter((con) => con.value === 6)[0]
+            ?? { type: 'consequence', detail: '', healing: false, value: 6 };
+    });
+
+    const extraMildType = computed(() =>
+    {
+        const will = props.skills.find((skill) => skill.name === 'Will');
+        const physique = props.skills.find((skill) => skill.name === 'Physique');
+
+        if((physique && physique.rank >= 5) && (will && will.rank >= 5))
+        {
+            return 'Mental and Physical';
+        }
+        else if(physique && physique.rank >= 5)
+        {
+            return 'Physical';
+        }
+        else if(will && will.rank >= 5)
+        {
+            return 'Mental';
+        }
+        else
+        {
+            return 'none';
+        }
+    });
+
+    const hasExtraMild = computed(() => extraMildType.value !== 'none');
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(charAspects : FateAspect[]) : void
+    {
+        // Clone the array of aspects
+        aspects.value = charAspects.map((aspect) => ({ ...aspect }));
+
+        // Update the details
+        mildDetail1.value = mildConsequence1.value.detail;
+        mildDetail2.value = mildConsequence2.value.detail;
+        moderateDetail.value = moderateConsequence.value.detail;
+        severeDetail.value = severeConsequence.value.detail;
+        mildHealing1.value = mildConsequence1.value.healing;
+        mildHealing2.value = mildConsequence2.value.healing;
+        moderateHealing.value = moderateConsequence.value.healing;
+        severeHealing.value = severeConsequence.value.healing;
+
+        // Show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        // Build new consequences
+        const newConsequences = [
+            { ...mildConsequence1.value, detail: mildDetail1.value, healing: mildHealing1.value },
+            { ...mildConsequence2.value, detail: mildDetail2.value, healing: mildHealing2.value },
+            { ...moderateConsequence.value, detail: moderateDetail.value, healing: moderateHealing.value },
+            { ...severeConsequence.value, detail: severeDetail.value, healing: severeHealing.value }
+        ].filter((consequence) => !!consequence.detail);
+
+        // Pull out aspects, remove all consequences, and then re-add them.
+        const restAspects = aspects.value.filter((aspect) => aspect.type !== 'consequence');
+
+        emit('save', [ ...restAspects, ...newConsequences ]);
+        aspects.value = [];
+
+        // Update the details
+        mildDetail1.value = '';
+        mildDetail2.value = '';
+        moderateDetail.value = '';
+        severeDetail.value = '';
+        mildHealing1.value = false;
+        mildHealing2.value = false;
+        moderateHealing.value = false;
+        severeHealing.value = false;
+    }
+
+    function onCancel() : void
+    {
+        aspects.value = [];
+
+        // Update the details
+        mildDetail1.value = '';
+        mildDetail2.value = '';
+        moderateDetail.value = '';
+        severeDetail.value = '';
+        mildHealing1.value = false;
+        mildHealing2.value = false;
+        moderateHealing.value = false;
+        severeHealing.value = false;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

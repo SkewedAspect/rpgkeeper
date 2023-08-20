@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="add-motivation-modal">
+    <div class="add-motivation-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -43,25 +42,43 @@
                         label="Type"
                         label-class="font-weight-bold"
                     >
-                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="strength" inline>
+                        <b-form-radio
+                            v-model="type"
+                            :aria-describedby="ariaDescribedby"
+                            name="type-radios"
+                            value="strength"
+                            inline
+                        >
                             Strength
                         </b-form-radio>
-                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="flaw" inline>
+                        <b-form-radio
+                            v-model="type"
+                            :aria-describedby="ariaDescribedby"
+                            name="type-radios"
+                            value="flaw"
+                            inline
+                        >
                             Flaw
                         </b-form-radio>
-                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="desire" inline>
+                        <b-form-radio
+                            v-model="type"
+                            :aria-describedby="ariaDescribedby"
+                            name="type-radios"
+                            value="desire"
+                            inline
+                        >
                             Desire
                         </b-form-radio>
-                        <b-form-radio v-model="type" :aria-describedby="ariaDescribedby" name="type-radios" value="fear" inline>
+                        <b-form-radio
+                            v-model="type"
+                            :aria-describedby="ariaDescribedby"
+                            name="type-radios"
+                            value="fear"
+                            inline
+                        >
                             Fear
                         </b-form-radio>
                     </b-form-group>
-                    <!--                    <b-form-checkbox v-model="passive" name="passive-check" switch>-->
-                    <!--                        <b>Passive</b>-->
-                    <!--                    </b-form-checkbox>-->
-                    <!--                    <b-form-checkbox v-model="ranked" name="ranked-check" switch>-->
-                    <!--                        <b>Ranked</b>-->
-                    <!--                    </b-form-checkbox>-->
                 </b-col>
             </b-form-row>
             <b-form-group
@@ -70,12 +87,12 @@
                 label-class="font-weight-bold"
                 label-for="description-input"
             >
-                <b-card class="overflow-hidden" no-body>
-                    <codemirror ref="editor" v-model="description" :options="{ lineNumbers: true }"></codemirror>
-                </b-card>
+                <MarkdownEditor v-model:text="description"></MarkdownEditor>
             </b-form-group>
 
-            <edit-reference v-model="reference"></edit-reference>
+            <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
+
+            <EditReference v-model:reference="reference"></EditReference>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -92,134 +109,134 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .add-motivation-modal {
-    }
-</style>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
     // Managers
-    import eoteMan from '../../../../lib/managers/eote';
-    import charMan from '../../../../lib/managers/character';
+    import eoteMan from '../../../../lib/managers/systems/eote';
+
+    // Models
+    import {
+        GenesysMotivation,
+        GenesysMotivationType
+    } from '../../../../../common/interfaces/systems/eote';
 
     // Components
     import EditReference from '../../../character/editReference.vue';
+    import ScopeSelect from '../../../character/scopeSelect.vue';
+    import MarkdownEditor from '../../../ui/markdownEditor.vue';
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Events
+    {
+        (e : 'add', motivation : GenesysMotivation) : void;
+        (e : 'edit', motivation : GenesysMotivation) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const id = ref<number>(null);
+    const name = ref('');
+    const type = ref<GenesysMotivationType>('strength');
+    const description = ref('');
+    const reference = ref('');
+    const scope = ref<'public' | 'user'>('user');
+    const official = ref(false);
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const isEdit = computed(() => !!id.value);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(motivation : Partial<GenesysMotivation>) : void
+    {
+        id.value = motivation.id ?? null;
+        name.value = motivation.name ?? '';
+        type.value = motivation.type ?? 'strength';
+        description.value = motivation.description ?? '';
+        reference.value = motivation.reference ?? '';
+        scope.value = motivation.scope ?? 'user';
+        official.value = motivation.official ?? false;
+
+        // Show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    async function onSave() : Promise<void>
+    {
+        if(isEdit.value)
+        {
+            const motivation = await eoteMan.editSup('motivations', {
+                id: id.value,
+                name: name.value,
+                type: type.value,
+                description: description.value,
+                reference: reference.value,
+                official: official.value,
+                scope: scope.value
+            });
+
+            emit('edit', motivation);
+        }
+        else
+        {
+            const motivation = await eoteMan.addSup('motivations', {
+                id: id.value,
+                name: name.value,
+                type: type.value,
+                description: description.value,
+                reference: reference.value,
+                official: official.value,
+                scope: scope.value
+            });
+
+            emit('add', motivation);
+        }
+
+        // Clear
+        id.value = null;
+        name.value = '';
+        type.value = 'strength';
+        description.value = '';
+        reference.value = '';
+        scope.value = 'user';
+        official.value = false;
+    }
+
+    function onCancel() : void
+    {
+        id.value = null;
+        name.value = '';
+        type.value = 'strength';
+        description.value = '';
+        reference.value = '';
+        scope.value = 'user';
+        official.value = false;
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'AddQualityModal',
-        components: {
-            EditReference
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                id: undefined,
-                name: '',
-                type: '',
-                description: '',
-                reference: ''
-            };
-        },
-        computed: {
-            isEdit() { return this.id !== undefined; }
-        },
-        methods: {
-            async onSave()
-            {
-                if(this.isEdit)
-                {
-                    const motivation = await eoteMan.editSup('motivations', {
-                        id: this.id,
-                        name: this.name,
-                        type: this.type,
-                        description: this.description,
-                        reference: this.reference
-                    });
-
-                    this.$emit('edit', motivation);
-                }
-                else
-                {
-                    const motivation = await eoteMan.addSup('motivations', {
-                        name: this.name,
-                        type: this.type,
-                        description: this.description,
-                        reference: this.reference
-                    });
-
-                    this.$emit('add', motivation);
-                }
-
-                // Clear
-                this.id = undefined;
-                this.name = '';
-                this.type = '';
-                this.description = '';
-                this.reference = '';
-            },
-            onShown()
-            {
-                this.cmRefresh();
-            },
-            cmRefresh()
-            {
-                this.$nextTick(() =>
-                {
-                    this.$refs.editor.codemirror.refresh();
-                });
-            },
-
-            show(motivation)
-            {
-                if(typeof motivation === 'string')
-                {
-                    this.id = undefined;
-                    this.name = '';
-                    this.type = motivation;
-                    this.description = '';
-                    this.reference = '';
-                }
-                else if(motivation)
-                {
-                    this.id = motivation.id;
-                    this.name = motivation.name;
-                    this.type = motivation.type;
-                    this.description = motivation.description;
-                    this.reference = motivation.reference;
-                }
-                else
-                {
-                    this.id = undefined;
-                    this.name = '';
-                    this.type = '';
-                    this.description = '';
-                    this.reference = '';
-                }
-
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
-    });
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

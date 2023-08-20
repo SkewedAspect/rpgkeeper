@@ -9,7 +9,7 @@ import models from '../models';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const logger = logging.loggerFor(module);
+const logger = logging.getLogger(module.filename);
 
 const router = express.Router();
 

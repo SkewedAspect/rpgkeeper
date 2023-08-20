@@ -5,7 +5,13 @@
 <template>
     <div id="eote-sub-talents">
         <div class="d-flex flex-wrap" style="margin-top: -0.5rem">
-            <talent-card v-for="talentInst in talents" :key="talentInst.id" class="mr-2 mt-2 flex-fill" :talent="talentInst"></talent-card>
+            <TalentCard
+                v-for="talentInst in talents"
+                :key="talentInst.id"
+                class="mr-2 mt-2 flex-fill"
+                :talent="talentInst"
+                :readonly="readonly"
+            ></TalentCard>
         </div>
 
         <h5 v-if="talents.length === 0" class="m-0 text-center">
@@ -16,21 +22,18 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-    #eote-sub-talents {
-    }
-</style>
+<script lang="ts" setup>
+    import { computed } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    // Stores
+    import { useCharactersStore } from '../../../../lib/stores/characters';
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
+    // Models
+    import { EoteCharacter } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import TalentCard from '../components/talentCard.vue';
@@ -39,41 +42,40 @@
     import { sortBy } from '../../../../../common/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EoteSubTalents',
-        components: {
-            TalentCard
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        computed: {
-            talents()
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const character = computed<EoteCharacter>(() => current.value as any);
+
+    const talents = computed(() =>
+    {
+        return character.value.details.talents
+            .map((talentInst) =>
             {
-                return this.character.details.talents
-                    .map((talentInst) =>
-                    {
-                        const talentBase = eoteMan.talents.find(({ id }) => id === talentInst.id);
-                        return {
-                            ...talentInst,
-                            name: talentBase?.name
-                        };
-                    })
-                    .sort(sortBy('name'));
-            }
-        }
-
+                const talentBase = eoteMan.talents.find(({ id }) => id === talentInst.id);
+                return {
+                    ...talentInst,
+                    name: talentBase?.name
+                };
+            })
+            .sort(sortBy('name'));
     });
 </script>
 

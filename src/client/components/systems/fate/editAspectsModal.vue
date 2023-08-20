@@ -5,7 +5,7 @@
 <template>
     <div v-if="aspects" class="edit-aspects-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             size="lg"
@@ -13,7 +13,6 @@
             no-close-on-backdrop
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -65,7 +64,7 @@
             >
                 <div class="d-flex">
                     <b-form-input id="new-input" v-model="newAspect"></b-form-input>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" @click="addAspect">
+                    <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addAspect">
                         <fa icon="plus"></fa>
                         Add
                     </b-btn>
@@ -87,98 +86,106 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-aspects-modal {
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+
+    // Interfaces
+    import { FateAspect } from '../../../../common/interfaces/systems/fate';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Events
+    {
+        (e : 'save', aspects : FateAspect[]) : void;
     }
-</style>
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
-    import _ from 'lodash';
-
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EditAspectsModal',
-        props: {
-            value: {
-                type: Array,
-                required: true
-            }
-        },
-        data()
-        {
-            return {
-                aspects: _.cloneDeep(this.value),
-                newAspect: ''
-            };
-        },
-        computed: {
-            highConcept() { return _.find(this.aspects, { type: 'high concept' }) || { details: '' }; },
-            trouble() { return _.find(this.aspects, { type: 'trouble' }) || { details: '' }; },
-            extraAspects() { return _.filter(this.aspects, { type: 'aspect' }); }
-        },
-        methods: {
-            onShown()
-            {
-                // Copy the v-model value over our aspects array.
-                this.aspects = _.cloneDeep(this.value);
-            },
-            onSave()
-            {
-                this.$emit('input', this.aspects);
+    const aspects = ref<FateAspect[]>([]);
+    const newAspect = ref<string>('');
 
-                // We have to wait for things to settle from updating the model
-                this.$nextTick(async() =>
-                {
-                    // Save the character
-                    try { await charMan.save(); }
-                    catch (error)
-                    {
-                        // TODO: Let the user know about this!
-                    }
-                });
-            },
-            onCancel()
-            {
-                // Clear our local variable
-                this.aspects = [];
-            },
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
-            addAspect()
-            {
-                this.aspects.push({ type: 'aspect', detail: this.newAspect });
-                this.newAspect = '';
-            },
-            removeAspect(aspect)
-            {
-                // We can't use lodash, since Vue doesn't track whatever magic `_.pull` does.
-                // See: https://vuejs.org/v2/guide/list.html#Array-Change-Detection
-                const idx = _.findIndex(this.aspects, aspect);
-                if(idx > -1)
-                {
-                    this.aspects.splice(idx, 1);
-                }
-            },
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
 
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
+    const isAddValid = computed(() =>
+    {
+        return !!newAspect.value;
     });
+
+    const highConcept = computed<FateAspect>(() =>
+    {
+        return aspects.value.find((item) => item.type === 'high concept') ?? { type: 'high concept', detail: '' };
+    });
+
+    const trouble = computed<FateAspect>(() =>
+    {
+        return aspects.value.find((item) => item.type === 'trouble') ?? { type: 'trouble', detail: '' };
+    });
+
+    const extraAspects = computed<FateAspect[]>(() =>
+    {
+        return aspects.value.filter((item) => item.type === 'aspect');
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(charAspects : FateAspect[]) : void
+    {
+        // Clone the array of aspects
+        aspects.value = charAspects.map((aspect) => ({ ...aspect }));
+
+        // Show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', aspects.value);
+        aspects.value = [];
+    }
+
+    function onCancel() : void
+    {
+        aspects.value = [];
+    }
+
+    function addAspect() : void
+    {
+        aspects.value.push({ type: 'aspect', detail: newAspect.value });
+        newAspect.value = '';
+    }
+
+    function removeAspect(aspect : FateAspect) : void
+    {
+        const idx = aspects.value.findIndex((item) => item === aspect);
+        if(idx > -1)
+        {
+            aspects.value.splice(idx, 1);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

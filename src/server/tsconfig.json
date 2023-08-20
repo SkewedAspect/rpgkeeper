@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "target": "ES2022",
+        "rootDir": "..",
+        "outDir": "../../dist",
+        "skipLibCheck": true,
+
+        // Overrides
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+    },
+    "files": [
+        "./server.ts"
+    ],
+    "include": [
+        "../common/interfaces",
+        "../common/**/*.ts",
+        "**/*.ts",
+    ]
+}

@@ -7,13 +7,8 @@ import * as JsonDecoder from 'decoders';
 // Decoders
 import { referenceJsonDecoder, referenceRecDecoder } from '../decoders/reference';
 
-//----------------------------------------------------------------------------------------------------------------------
-
-export interface ReferenceOptions {
-    abbr : string;
-    name : string;
-    productCode : string;
-}
+// Models
+import { ReferenceOptions } from '../../common/interfaces/models/reference';
 
 //----------------------------------------------------------------------------------------------------------------------
 

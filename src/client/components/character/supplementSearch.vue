@@ -4,7 +4,7 @@
 
 <template>
     <div class="supp-search d-flex">
-        <vue-typeahead-bootstrap
+        <VueBootstrapAutocomplete
             v-model="search"
             class="w-100"
             :data="availableFiltered"
@@ -13,7 +13,7 @@
             :max-matches="1000"
             :serializer="(s) => s.name"
             show-on-focus
-            @hit="suppToAdd = $event"
+            @hit="onHit"
         >
             <template #prepend>
                 <b-input-group-text>
@@ -29,10 +29,7 @@
             <template #suggestion="{ data, htmlText }">
                 <div class="float-right">
                     <slot :supplement="data" name="suggestion-extra"></slot>
-                    <b-badge :variant="data.scope === 'user' ? 'success' : ''">
-                        <span v-if="data.scope === 'user'">User</span>
-                        <span v-else-if="data.scope === 'public'">Public</span>
-                    </b-badge>
+                    <ScopeBadge :supplement="data"></ScopeBadge>
                 </div>
 
                 <!-- Note: the v-html binding is used, as htmlText contains
@@ -40,83 +37,107 @@
                 <!-- eslint-disable-next-line vue/no-v-html -->
                 <span v-html="htmlText"></span>
             </template>
-        </vue-typeahead-bootstrap>
+        </VueBootstrapAutocomplete>
         <slot name="append-extra"></slot>
     </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
+<style lang="scss">
     .supp-search {
+        .vbt-autocomplete-list {
+            position: fixed;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
     }
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-    import _ from 'lodash';
-    import Vue from 'vue';
+    // Models
+    import { Supplement, SupplementInst } from '../../../common/interfaces/systems/supplements';
 
     // Components
-    import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
+    import VueBootstrapAutocomplete from '@vue-bootstrap-components/vue-bootstrap-autocomplete';
+    import ScopeBadge from './scopeBadge.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'SupplementSearch',
-        components: {
-            VueTypeaheadBootstrap
-        },
-        props: {
-            available: {
-                type: Array,
-                required: true
-            },
-            selected: {
-                type: Array,
-                required: true
-            },
-            sortFn: {
-                type: Function,
-                default: (suppA, suppB) => suppA.name.localeCompare(suppB.name)
-            }
-        },
-        data()
+    interface Props
+    {
+        available : Supplement[];
+        selected : SupplementInst[];
+        sortFn ?: (suppA : Supplement, suppB : Supplement) => number
+    }
+
+    const props = withDefaults(
+        defineProps<Props>(),
         {
-            return {
-                search: '',
-                suppToAdd: undefined
-            };
-        },
-        computed: {
-            availableFiltered()
-            {
-                // Filter out an already selected supplements, and ones that match the search filter
-                return this.available
-                    .filter((supp) =>
-                    {
-                        let alreadyAdded = this.selected.includes(supp.id);
-                        if(_.get(this.selected[0], 'id') !== undefined)
-                        {
-                            alreadyAdded = !!(this.selected.filter((item) => item.id === supp.id)[0]);
-                        }
-                        return supp.name.toLowerCase().includes(this.search.toLowerCase()) && !alreadyAdded;
-                    })
-                    .sort(this.sortFn);
-            }
-        },
-        methods: {
-            addSup()
-            {
-                this.$emit('add', { id: this.suppToAdd.id });
-                this.suppToAdd = undefined;
-                this.search = '';
-            }
+            sortFn: (suppA : Supplement, suppB : Supplement) => suppA.name.localeCompare(suppB.name)
         }
+    );
+
+    interface Events
+    {
+        (e : 'add', supp : { id : string | number }) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const search = ref('');
+    const suppToAdd = ref<Supplement>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const availableFiltered = computed(() =>
+    {
+        return props.available
+            .filter((supp) =>
+            {
+                let alreadyAdded;
+                if(props.selected[0]?.id)
+                {
+                    alreadyAdded = !!(props.selected.find((item) => item.id === supp.id));
+                }
+                else
+                {
+                    alreadyAdded = props.selected.includes(supp.id);
+                }
+
+                return supp.name.toLowerCase().includes(search.value.toLowerCase()) && !alreadyAdded;
+            })
+            .sort(props.sortFn);
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function onHit(supp : Supplement)
+    {
+        suppToAdd.value = supp;
+    }
+
+    function addSup()
+    {
+        emit('add', { id: suppToAdd.value.id });
+        suppToAdd.value = null;
+        search.value = '';
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

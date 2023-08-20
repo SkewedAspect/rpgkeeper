@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="skills" class="edit-skills-modal">
+    <div class="edit-skills-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             size="lg"
@@ -13,7 +13,6 @@
             no-close-on-backdrop
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -22,26 +21,25 @@
             </template>
 
             <!-- Modal Content -->
-
-            <!-- FIXME: This needs to be refactored so as to not use a v-for and v-if -->
-            <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
-            <section v-for="rank in ranks" v-if="filterRankSkills(rank.value).length > 0" :key="rank.text" class="skill-group mb-3">
-                <h5 class="mb-0">
-                    {{ rank.text }}
-                </h5>
-                <hr class="mt-1" />
-                <div v-if="filterRankSkills(rank.value).length < 1">
-                    <h6 class="mb-0 text-center">
-                        No skills.
-                    </h6>
-                </div>
-                <div v-for="skill in filterRankSkills(rank.value)" :key="skill.name" class="d-flex mb-2">
-                    <b-form-input v-model="skill.name"></b-form-input>
-                    <b-form-select v-model="skill.rank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></b-form-select>
-                    <b-btn variant="danger" class="ml-2" @click="removeSkill(skill)">
-                        <fa icon="trash-alt"></fa>
-                    </b-btn>
-                </div>
+            <section v-for="rank in ranks" :key="rank.text" class="skill-group mb-3">
+                <template v-if="filterRankSkills(rank.value).length > 0">
+                    <h5 class="mb-0">
+                        {{ rank.text }}
+                    </h5>
+                    <hr class="mt-1" />
+                    <div v-if="filterRankSkills(rank.value).length < 1">
+                        <h6 class="mb-0 text-center">
+                            No skills.
+                        </h6>
+                    </div>
+                    <div v-for="skill in filterRankSkills(rank.value)" :key="skill.name" class="d-flex mb-2">
+                        <b-form-input v-model="skill.name"></b-form-input>
+                        <b-form-select v-model="skill.rank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></b-form-select>
+                        <b-btn variant="danger" class="ml-2" @click="removeSkill(skill)">
+                            <fa icon="trash-alt"></fa>
+                        </b-btn>
+                    </div>
+                </template>
             </section>
 
             <hr />
@@ -76,128 +74,119 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-skills-modal {
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { orderBy } from 'lodash';
+
+    // Interfaces
+    import { FateSkill } from '../../../../common/interfaces/systems/fate';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Events
+    {
+        (e : 'save', aspects : FateSkill[]) : void;
     }
-</style>
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
-    import _ from 'lodash';
-
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EditSkillsModal',
-        props: {
-            value: {
-                type: Array,
-                required: true
-            }
-        },
-        data()
+    const ranks = ref([
         {
-            return {
-                ranks: [
-                    {
-                        text: 'Superb (+5)',
-                        value: 5
-                    },
-                    {
-                        text: 'Great (+4)',
-                        value: 4
-                    },
-                    {
-                        text: 'Good (+3)',
-                        value: 3
-                    },
-                    {
-                        text: 'Fair (+2)',
-                        value: 2
-                    },
-                    {
-                        text: 'Average (+1)',
-                        value: 1
-                    }
-                ],
-                skills: _.cloneDeep(this.value),
-                newSkillName: '',
-                newSkillRank: 1
-            };
+            text: 'Superb (+5)',
+            value: 5
         },
-        computed: {
-            skillsSorted() { return _.orderBy(this.skills, [ 'rank', 'name' ], [ 'desc', 'asc' ]); }
+        {
+            text: 'Great (+4)',
+            value: 4
         },
-        methods: {
-            onShown()
-            {
-                // Copy the v-model value over our skills array.
-                this.skills = _.cloneDeep(this.value);
-
-                // Sort on shown
-                this.skills = _.orderBy(this.skills, [ 'rank', 'name' ], [ 'desc', 'asc' ]);
-            },
-            onSave()
-            {
-                this.$emit('input', this.skills);
-
-                // We have to wait for things to settle from updating the model
-                this.$nextTick(async() =>
-                {
-                    // Save the character
-                    try { await charMan.save(); }
-                    catch (error)
-                    {
-                        // TODO: Let the user know about this!
-                    }
-                });
-            },
-            onCancel()
-            {
-                // Clear our local variable
-                this.skills = [];
-            },
-
-            addSkill()
-            {
-                this.skills.push({ name: this.newSkillName, rank: this.newSkillRank });
-                this.newSkillName = '';
-                this.newSkillRank = 1;
-            },
-            removeSkill(skill)
-            {
-                // We can't use lodash, since Vue doesn't track whatever magic `_.pull` does.
-                // See: https://vuejs.org/v2/guide/list.html#Array-Change-Detection
-                const idx = _.findIndex(this.skills, skill);
-                if(idx > -1)
-                {
-                    this.skills.splice(idx, 1);
-                }
-            },
-
-            filterRankSkills(rank)
-            {
-                return _.filter(this.skillsSorted, { rank });
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
+        {
+            text: 'Good (+3)',
+            value: 3
+        },
+        {
+            text: 'Fair (+2)',
+            value: 2
+        },
+        {
+            text: 'Average (+1)',
+            value: 1
         }
+    ]);
 
-    });
+    const skills = ref<FateSkill[]>([]);
+    const newSkillName = ref<string>('');
+    const newSkillRank = ref<number>(1);
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const skillsSorted = computed(() => orderBy(skills.value, [ 'rank', 'name' ], [ 'desc', 'asc' ]));
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(charSkills : FateSkill[]) : void
+    {
+        // Clone the array of skills
+        skills.value = charSkills.map((skill) => ({ ...skill }));
+
+        // Show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', skills.value);
+        skills.value = [];
+    }
+
+    function onCancel() : void
+    {
+        skills.value = [];
+    }
+
+    function addSkill() : void
+    {
+        skills.value.push({ name: newSkillName.value, rank: newSkillRank.value });
+        newSkillName.value = '';
+        newSkillRank.value = 1;
+    }
+
+    function removeSkill(skill : FateSkill) : void
+    {
+        const idx = skills.value.findIndex((item) => item === skill);
+        if(idx > -1)
+        {
+            skills.value.splice(idx, 1);
+        }
+    }
+
+    function filterRankSkills(rank : number) : FateSkill[]
+    {
+        return skillsSorted.value.filter((skill) => skill.rank === rank);
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

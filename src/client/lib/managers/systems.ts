@@ -2,60 +2,32 @@
 // SystemsManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import { BehaviorSubject, Observable } from 'rxjs';
-
 // Interfaces
 import { System } from '../../../common/interfaces/common';
 
-// Resource Access
-import systemsRA from '../resource-access/systems';
+// Store
+import { useSystemsStore } from '../stores/systems';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class SystemsManager
 {
-    #systemsSubject : BehaviorSubject<System<any>[]>;
-    #statusSubject : BehaviorSubject<string>;
-
-    loading : Promise<void>;
-
-    constructor()
-    {
-        // Subjects
-        this.#systemsSubject = new BehaviorSubject([] as System<any>[]);
-        this.#statusSubject = new BehaviorSubject('loading');
-
-        // Load up our systems
-        this.loading = systemsRA.loadSystems()
-            .then((systems) =>
-            {
-                this.#systemsSubject.next(systems);
-                this.#statusSubject.next('loaded');
-            });
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Observables
-    //------------------------------------------------------------------------------------------------------------------
-
-    get systems$() : Observable<System<any>[]> { return this.#systemsSubject.asObservable(); }
-    get status$() : Observable<string> { return this.#statusSubject.asObservable(); }
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Properties
-    //------------------------------------------------------------------------------------------------------------------
-
-    get systems() : System<any>[] { return this.#systemsSubject.getValue(); }
-    get status() : string { return this.#statusSubject.getValue(); }
-
     //------------------------------------------------------------------------------------------------------------------
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async getSystem(systemID) : Promise<System<any> | undefined>
+    async load() : Promise<void>
     {
-        await this.loading;
-        return this.systems.find((system) => system.id === systemID);
+        const store = useSystemsStore();
+
+        // Load systems from external endpoint
+        await store.load();
+    }
+
+    getSystem(systemID : string) : System<any> | undefined
+    {
+        const store = useSystemsStore();
+        return store.find(systemID);
     }
 
     getStatusDisplay(desc : string) : string

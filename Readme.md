@@ -39,7 +39,21 @@ RPGKeeper is, and always will be an open source project. We want to encourage de
 
 Before getting started you will need the following installed:
 
-* NodeJS >= v14
+* NodeJS >= v16
+
+You will also need to add a .env file to the root of the project. This file should contain the following:
+
+```dotenv
+# Defaults for local development
+SESSION_SECRET='etched municipality unconscionably fribble *&^%$## 88'
+CLIENT_ID='712153107187-8e00g8d18nbk5esiffhkrbtr12vktlvq.apps.googleusercontent.com'
+CLIENT_SECRET='hOsFjUL-f_yky8djy1OSuvmp'
+SERVER_PORT=5678
+```
+
+You will want to replace these with your own values (especially `SECRET_SESSION` and `MAILGUN_KEY`). You can get a 
+`CLIENT_ID` and `CLIENT_SECRET` by creating a new project in the 
+[Google Developer Console](https://console.developers.google.com/).
 
 ### Running
 

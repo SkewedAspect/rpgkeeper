@@ -2,10 +2,11 @@
 // NotesManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import { BehaviorSubject, Observable } from 'rxjs';
-
 // Model
 import { Notebook, NotebookPage } from '../models/notebook';
+
+// Store
+import { useNotebookStore } from '../stores/notebook';
 
 // Resource Access
 import noteRA from '../resource-access/notebook';
@@ -14,19 +15,22 @@ import noteRA from '../resource-access/notebook';
 
 class NotesManager
 {
-    #selectedSubject : BehaviorSubject<Notebook| undefined> = new BehaviorSubject<Notebook | undefined>(undefined);
-
     //------------------------------------------------------------------------------------------------------------------
-    // Observables
+    // Helpers
     //------------------------------------------------------------------------------------------------------------------
 
-    get selected$() : Observable<Notebook | undefined> { return this.#selectedSubject.asObservable(); }
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Properties
-    //------------------------------------------------------------------------------------------------------------------
-
-    get selected() : Notebook | undefined { return this.#selectedSubject.getValue(); }
+    private _updateStore(notebook ?: Notebook) : void
+    {
+        const store = useNotebookStore();
+        if(notebook)
+        {
+            store.$patch({ id: notebook.id, pages: notebook.pages });
+        }
+        else
+        {
+            store.$patch({ id: null, pages: [] });
+        }
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Public API
@@ -40,42 +44,42 @@ class NotesManager
             notebook = await noteRA.getNotebook(noteID);
         }
 
-        // Select this notebook
-        this.#selectedSubject.next(notebook);
+        // Update the store
+        this._updateStore(notebook);
     }
 
-    async addPage(notebook : Notebook, page : NotebookPage) : Promise<void>
+    async addPage(noteID : string, page : NotebookPage) : Promise<void>
     {
         // Add the page
-        await noteRA.addPage(notebook.id, page);
+        await noteRA.addPage(noteID, page);
 
         // Get a new copy of the notebook
-        const newNotebook = await noteRA.getNotebook(notebook.id);
+        const newNotebook = await noteRA.getNotebook(noteID);
 
-        // Push the new notebook
-        this.#selectedSubject.next(newNotebook);
+        // Update the store
+        this._updateStore(newNotebook);
     }
 
-    async updatePage(notebook : Notebook, page : NotebookPage) : Promise<void>
+    async updatePage(noteID : string, page : NotebookPage) : Promise<void>
     {
-        await noteRA.updatePage(notebook.id, page);
+        await noteRA.updatePage(noteID, page);
 
         // Get a new copy of the notebook
-        const newNotebook = await noteRA.getNotebook(notebook.id);
+        const newNotebook = await noteRA.getNotebook(noteID);
 
-        // Push the new notebook
-        this.#selectedSubject.next(newNotebook);
+        // Update the store
+        this._updateStore(newNotebook);
     }
 
-    async deletePage(notebook : Notebook, page : NotebookPage) : Promise<void>
+    async deletePage(noteID : string, page : NotebookPage) : Promise<void>
     {
-        await noteRA.deletePage(notebook.id, page);
+        await noteRA.deletePage(noteID, page);
 
         // Get a new copy of the notebook
-        const newNotebook = await noteRA.getNotebook(notebook.id);
+        const newNotebook = await noteRA.getNotebook(noteID);
 
-        // Push the new notebook
-        this.#selectedSubject.next(newNotebook);
+        // Update the store
+        this._updateStore(newNotebook);
     }
 }
 

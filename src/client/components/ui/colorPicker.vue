@@ -3,15 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-btn ref="colorBtn" v-bind="$attrs" v-on="$listeners">
+    <b-btn v-bind="$attrs" ref="colorBtn">
         <span class="color-block" :style="{ 'background-color': internalColor }">&nbsp;</span>
         <b-popover :target="() => $refs.colorBtn" triggers="click blur">
-            <sketch-color-picker
+            <SketchPicker
                 v-model="internalColor"
                 :preset-colors="presetColors"
                 :disable-alpha="disableAlpha"
                 :disable-fields="disableFields"
-            ></sketch-color-picker>
+            ></SketchPicker>
         </b-popover>
     </b-btn>
 </template>
@@ -19,103 +19,79 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-.color-block {
-    display: inline-block;
-    min-width: 1.5rem;
-    height: 100%;
-    width: 100%;
-}
-
-.popover-body {
-    .vc-sketch {
-        box-shadow: none;
-        padding: 0;
+    .color-block {
+        display: inline-block;
+        min-width: 1.5rem;
+        height: 100%;
+        width: 100%;
     }
-}
+
+    .popover-body {
+        .vc-sketch {
+            box-shadow: none;
+            padding: 0;
+        }
+    }
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
-<script lang="ts">
-//------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
+<script lang="ts" setup>
+    import { computed } from 'vue';
 
     // Components
-    import { Sketch } from 'vue-color';
+    import { Sketch as SketchPicker } from '@ckpack/vue-color';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'ColorInput',
-        components: {
-            sketchColorPicker: Sketch
-        },
-        model: {
-            prop: 'color',
-            event: 'change'
-        },
-        props: {
-            color: {
-                type: String,
-                default: '#000'
-            },
-            presetColors: {
-                type: Array,
-                default: undefined
-            },
-            disableAlpha: {
-                type: Boolean,
-                default: true
-            },
-            disableFields: {
-                type: Boolean,
-                default: false
-            }
-        },
-        data()
+    interface Props
+    {
+        color : string;
+        presetColors ?: string[];
+        enableAlpha : boolean;
+        disableFields : boolean;
+    }
+
+    const props = withDefaults(
+        defineProps<Props>(),
         {
-            return {
-                // This is the private, internal representation of the color.
-                privateColor: undefined
-            };
-        },
-        computed: {
-            internalColor: {
-                get() { return this.privateColor; },
-                set(val)
-                {
-                    const colorProp = this.disableAlpha ? 'hex' : 'hex8';
-                    if(val?.[colorProp])
-                    {
-                        this.privateColor = val[colorProp];
-                    }
-                    else
-                    {
-                        this.privateColor = val;
-                    }
-                }
-            }
-        },
-        watch: {
-            internalColor()
+            color: '#000',
+            presetColors: undefined,
+            enableAlpha: false,
+            disableFields: false
+        }
+    );
+
+    interface Events
+    {
+        (e : 'update:color', color : string) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const internalColor = computed({
+        get() { return props.color; },
+        set(val : string | { hex : string } | { hex8 : string })
+        {
+            if(val['hex'])
             {
-                if(this.color && this.internalColor && (this.internalColor !== this.color))
-                {
-                    this.$emit('change', this.internalColor);
-                }
-            },
-            color: {
-                handler()
-                {
-                    if(this.internalColor !== this.color)
-                    {
-                        this.internalColor = this.color;
-                    }
-                },
-                immediate: true
+                val = val['hex'];
             }
+            else if(val['hex8'])
+            {
+                val = val['hex8'];
+            }
+
+            emit('update:color', val as string);
         }
     });
+
+    const disableAlpha = computed(() => !props.enableAlpha);
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

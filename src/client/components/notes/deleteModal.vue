@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="page" class="delete-page-modal">
+    <div class="delete-page-modal">
         <b-modal
-            v-model="showModal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
@@ -13,6 +13,7 @@
             size="md"
             ok-variant="danger"
             @ok="onDelete"
+            @cancel="onCancel"
             @hidden="onHidden"
         >
             <!-- Modal Header -->
@@ -24,7 +25,7 @@
             <!-- Modal Content -->
             <h3>
                 <fa icon="exclamation-triangle"></fa>
-                Are you sure you want to delete "{{ page.title }}"?
+                Are you sure you want to delete "{{ innerPage.title }}"?
             </h3>
             <p class="text-muted">
                 This page will be removed permanently. This cannot be undone.
@@ -45,42 +46,74 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    import { ref } from 'vue';
 
     // Managers
-    import notesMan from '../../lib/managers/notebook';
+    import { NotebookPage } from '../../lib/models/notebook';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface EmittedEvents
+    {
+        (e : 'hidden') : void;
+        (e : 'delete', page : NotebookPage) : void;
+        (e : 'cancel') : void;
+    }
+
+    const emit = defineEmits<EmittedEvents>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    // Component Refs
+    const innerPage = ref<NotebookPage | null>(null);
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(page : NotebookPage) : void
+    {
+        innerPage.value = page;
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onHidden() : void
+    {
+        emit('hidden');
+    }
+
+    function onDelete() : void
+    {
+        emit('delete', innerPage.value);
+    }
+
+    function onCancel() : void
+    {
+        emit('cancel');
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'DeletePageModal',
-        props: {
-            value: {
-                type: Object,
-                default: undefined
-            }
-        },
-        computed: {
-            showModal: {
-                get() { return !!this.value; },
-                set() { /* We ignore setting */ }
-            },
-            page() { return this.value; }
-        },
-        methods: {
-            onHidden()
-            {
-                this.$emit('hidden');
-            },
-            async onDelete()
-            {
-                await notesMan.deletePage(notesMan.selected, this.page);
-            }
-        }
-    });
+    defineExpose({ show, hide });
+
+    //------------------------------------------------------------------------------------------------------------------
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

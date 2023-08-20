@@ -21,7 +21,7 @@ class AuthResourceAccess
         };
     }
 
-    async getCurrentUser() : Promise<Account | undefined>
+    async getCurrentUser() : Promise<Account | null>
     {
         try
         {
@@ -30,7 +30,7 @@ class AuthResourceAccess
         }
         catch (error)
         {
-            return undefined;
+            return null;
         }
     }
 
@@ -42,7 +42,7 @@ class AuthResourceAccess
     async save(account : Account) : Promise<Account>
     {
         const { data } = await $http.patch(`/api/accounts/${ account.id }`, account);
-        return data;
+        return this._buildModel(data);
     }
 }
 

@@ -6,12 +6,12 @@
     <b-card v-if="power && powerBase" class="eote-force-power-card" no-body>
         <template #header>
             <div :class="{ closed: !visible, open: visible }" @click="visible = !visible">
-                <b>{{ powerBase.name }}</b>
+                <b>{{ powerBase?.name ?? 'Unknown' }}</b>
                 <fa class="text-muted mt-1 fa-pull-right collapse-icon" icon="chevron-right"></fa>
             </div>
         </template>
         <b-collapse id="`force-power-${ forcePower.id }`" v-model="visible" :class="`${ mode }-system m-2`">
-            <markdown-block class="font-xs" :text="powerBase.description" inline></markdown-block>
+            <MarkdownBlock class="font-xs" :text="powerBase?.description" inline></MarkdownBlock>
             <b-table-lite
                 class="font-xs mt-3 mb-0"
                 :items="upgrades"
@@ -26,11 +26,11 @@
                     </b>
                 </template>
                 <template #cell(description)="data">
-                    <markdown-block :text="data.value" inline></markdown-block>
+                    <MarkdownBlock :text="data.value" inline></MarkdownBlock>
                 </template>
             </b-table-lite>
             <div class="clearfix">
-                <reference class="float-right mt-2" :reference="powerBase.reference"></reference>
+                <ReferenceBlock class="float-right mt-2" :reference="powerBase?.reference"></ReferenceBlock>
             </div>
         </b-collapse>
     </b-card>
@@ -38,8 +38,8 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-.eote-force-power-card {
+<style lang="scss">
+    .eote-force-power-card {
         .card-header {
             border-bottom: none;
             cursor: pointer;
@@ -58,107 +58,104 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-    import Vue from 'vue';
-    import _ from 'lodash';
+    // Models
+    import { EoteForcePower, EoteForcePowerInst } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
-    import MarkdownBlock from '../../../ui/markdown.vue';
-    import Reference from '../../../character/reference.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
+    import ReferenceBlock from '../../../character/referenceBlock.vue';
+
+    // Utils
+    import { startCase } from '../../../../../common/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EotEForcePowerCard',
-        components: {
-            MarkdownBlock,
-            Reference
-        },
-        props: {
-            power: {
-                type: Object,
-                required: true
-            },
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
+    interface Props
+    {
+        power : EoteForcePowerInst;
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const visible = ref(false);
+    const upgradeFields = ref([
+        { key: 'name', class: 'text-nowrap' },
+        { key: 'description' }
+    ]);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const mode = computed(() => eoteMan.mode);
+    const readonly = computed(() => props.readonly);
+
+    const powerBase = computed<EoteForcePower | undefined>(() =>
+    {
+        if(props.power && props.power.id)
         {
-            return {
-                forcePowers: eoteMan.forcePowers$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                visible: false,
-                upgradeFields: [
-                    { key: 'name', class: 'text-nowrap' },
-                    { key: 'description' }
-                ]
-            };
-        },
-        computed: {
-            powerBase()
-            {
-                if(this.power && this.power.id)
-                {
-                    return this.forcePowers.find((forcePower) => forcePower.id === this.power.id);
-                }
-
-                return {};
-            },
-            upgrades()
-            {
-                const upgradeList = Object.keys(this.powerBase.upgrades).reduce((upgrades, name) =>
-                {
-                    const upgrade = this.powerBase.upgrades[name];
-                    const upgradeInst = this.power.upgrades[name];
-
-                    if(Array.isArray(upgrade))
-                    {
-                        // If it's an array (i.e. `control`) we just add them as individual upgrades, all with the same
-                        // name. This is find, because we don't assume the name is unique. Also, we add the `index`
-                        // property, because that tells us which control item we've purchased.
-                        upgrades = upgrades.concat(upgrade.map((up, index) =>
-                        {
-                            const purchased = upgradeInst.includes(index) ? 1 : 0;
-                            return {
-                                ...up,
-                                name,
-                                index,
-                                purchased
-                            };
-                        }));
-                    }
-                    else
-                    {
-                        // In the simple case, we just push the upgrade with the name.
-                        upgrades.push({ ...upgrade, name, purchased: upgradeInst });
-                    }
-
-                    return upgrades;
-                }, []);
-
-                return upgradeList.filter((upgrade) => upgrade.purchased > 0);
-            }
-        },
-        methods: {
-            sentenceCase(text)
-            {
-                return _.startCase(text);
-            }
+            return eoteMan.forcePowers.find((forcePower) => forcePower.id === props.power.id);
         }
 
+        return undefined;
     });
+
+    const upgrades = computed(() =>
+    {
+        const populatedUpgrades = Object.keys(powerBase.value.upgrades).reduce((upgradeList, name) =>
+        {
+            const upgrade = powerBase.value.upgrades[name];
+            const upgradeInst = props.power.upgrades[name];
+
+            if(Array.isArray(upgrade))
+            {
+                // If it's an array (i.e. `control`) we just add them as individual upgrades, all with the same
+                // name. This is find, because we don't assume the name is unique. Also, we add the `index`
+                // property, because that tells us which control item we've purchased.
+                upgradeList = upgradeList.concat(upgrade.map((up, index) =>
+                {
+                    const purchased = upgradeInst.includes(index) ? 1 : 0;
+                    return {
+                        ...up,
+                        name,
+                        index,
+                        purchased
+                    };
+                }));
+            }
+            else
+            {
+                // In the simple case, we just push the upgrade with the name.
+                upgradeList.push({ ...upgrade, name, purchased: upgradeInst });
+            }
+
+            return upgradeList;
+        }, []);
+
+        return populatedUpgrades.filter((upgrade) => upgrade.purchased > 0);
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function sentenceCase(text) : string
+    {
+        return startCase(text);
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

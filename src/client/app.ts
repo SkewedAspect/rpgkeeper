@@ -2,22 +2,14 @@
 // Main Client-side Application
 //----------------------------------------------------------------------------------------------------------------------
 
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createApp } from 'vue';
+import { configureCompat } from '@vue/compat';
+import { createPinia } from 'pinia';
+import { createRouter, createWebHistory } from 'vue-router';
 import { marked } from 'marked';
-import { version } from '../../package.json';
-
-// VueCodeMirror
-import VueCodemirror from 'vue-codemirror';
-
-// VueRX
-import VueRx from 'vue-rx';
 
 // Bootstrap Vue
-import BootstrapVue from 'bootstrap-vue';
-
-// Vuelidate
-import Vuelidate from 'vuelidate';
+import { BootstrapVue } from 'bootstrap-vue';
 
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -26,90 +18,40 @@ import { far } from '@fortawesome/pro-regular-svg-icons';
 import { fas } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
 
-// CodeMirror
-import 'codemirror/addon/mode/overlay';
-import 'codemirror/mode/xml/xml';
-import 'codemirror/mode/markdown/markdown';
-import 'codemirror/mode/gfm/gfm';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/css/css';
-import 'codemirror/mode/htmlmixed/htmlmixed';
-import 'codemirror/mode/clike/clike';
-import 'codemirror/mode/meta';
-
-// Utils
-import toastUtil from './lib/utils/toast';
+// Managers
+import authMan from './lib/managers/auth';
+import charMan from './lib/managers/character';
+import systemsMan from './lib/managers/systems';
 
 // Site Theme
 import './scss/theme.scss';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // Views
 import AppComponent from './app.vue';
-import AboutPage from './pages/about.vue';
-import CharacterPage from './pages/character.vue';
-import DashboardPage from './pages/dashboard.vue';
+import AboutPage from './pages/aboutPage.vue';
+import CharacterPage from './pages/characterPage.vue';
+import DashboardPage from './pages/dashboardPage.vue';
 
 // Pages
-import HomePage from './pages/home.vue';
-import SettingsPage from './pages/settings.vue';
+import HomePage from './pages/homePage.vue';
+import SettingsPage from './pages/settingsPage.vue';
+
+// Utils
+// import { buildWarnHandler } from './lib/utils/warning';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Font Awesome
 // ---------------------------------------------------------------------------------------------------------------------
 
-// FIXME: Why the any cast? Whomst fuckith'd the types, praytell?
-library.add(fab as any, far as any, fas as any);
-
-// eslint-disable-next-line vue/multi-word-component-names
-Vue.component('Fa', FontAwesomeIcon);
-Vue.component('FaLayers', FontAwesomeLayers);
-
-// ---------------------------------------------------------------------------------------------------------------------
-// VueCodeMirror
-// ---------------------------------------------------------------------------------------------------------------------
-
-import 'codemirror/lib/codemirror.css';
-
-Vue.use(VueCodemirror, {
-    options: {
-        mode: {
-            name: 'gfm',
-            gitHubSpice: false
-        },
-        lineNumbers: false,
-        lineWrapping: true,
-        theme: 'default'
-    }
-});
-
-// ---------------------------------------------------------------------------------------------------------------------
-// VueRX
-// ---------------------------------------------------------------------------------------------------------------------
-
-Vue.use(VueRx);
-
-// ---------------------------------------------------------------------------------------------------------------------
-// Vuelidate
-// ---------------------------------------------------------------------------------------------------------------------
-
-Vue.use(Vuelidate);
-
-// ---------------------------------------------------------------------------------------------------------------------
-// Bootstrap Vue
-// ---------------------------------------------------------------------------------------------------------------------
-
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-
-Vue.use(BootstrapVue);
+library.add(fab, far, fas);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Vue Router
 //----------------------------------------------------------------------------------------------------------------------
 
-Vue.use(VueRouter);
-
-const router = new VueRouter({
-    mode: 'history',
+const router = createRouter({
+    history: createWebHistory(),
     routes: [
         { path: '/', name: 'home', component: HomePage },
         { path: '/about', name: 'about', component: AboutPage },
@@ -123,42 +65,55 @@ const router = new VueRouter({
 // Setup Vue App
 //----------------------------------------------------------------------------------------------------------------------
 
-Vue.config.ignoredElements = [
-    'proficiency',
-    'ability',
-    'boost',
-    'force',
-    'challenge',
-    'difficulty',
-    'setback',
-    'success',
-    'advantage',
-    'triumph',
-    'light-side',
-    'force-point',
-    'failure',
-    'threat',
-    'despair',
-    'dark-side'
-];
-
-// Setup app component
-const App = Vue.component('App', AppComponent);
-const root = new App({
-    el: '#rpgkeeper',
-    router
+// Configure `@vue/compat`
+configureCompat({
+    WATCH_ARRAY: 'suppress-warning',
+    RENDER_FUNCTION: 'suppress-warning',
+    INSTANCE_LISTENERS: 'suppress-warning',
+    COMPONENT_FUNCTIONAL: 'suppress-warning',
+    OPTIONS_BEFORE_DESTROY: 'suppress-warning',
+    INSTANCE_SCOPED_SLOTS: 'suppress-warning',
+    OPTIONS_DATA_MERGE: 'suppress-warning',
+    COMPONENT_V_MODEL: 'suppress-warning',
+    CUSTOM_DIR: 'suppress-warning',
+    INSTANCE_EVENT_EMITTER: 'suppress-warning',
+    ATTR_FALSE_VALUE: 'suppress-warning',
+    INSTANCE_ATTRS_CLASS_STYLE: 'suppress-warning',
+    GLOBAL_PROTOTYPE: 'suppress-warning',
+    GLOBAL_EXTEND: 'suppress-warning',
+    GLOBAL_MOUNT: 'suppress-warning',
+    OPTIONS_DESTROYED: 'suppress-warning',
+    INSTANCE_DESTROY: 'suppress-warning'
 });
+
+// Set up pinia
+const pinia = createPinia();
+
+// Set up app component
+const app = createApp(AppComponent)
+    .component('Fa', FontAwesomeIcon)
+    .component('FaLayers', FontAwesomeLayers)
+
+    // FixMe: Why does this not work?
+    .use(BootstrapVue as any)
+    .use(pinia)
+    .use(router);
+
+// Set Up Warning Handler
+// app.config.warnHandler = buildWarnHandler();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Marked Setup
 //----------------------------------------------------------------------------------------------------------------------
 
-// Configure the marked markdown parser
+// Configure the marked Markdown parser
 const renderer = new marked.Renderer();
 renderer.table = function(header, body)
 {
     const tableBody = `<thead>${ header }</thead><tbody>${ body }</tbody>`;
-    return `<div class="table-responsive"><table class="table table-striped table-hover table-sm">${ tableBody }</table></div>`;
+    return `<div class="table-responsive">
+            <table class="table table-striped table-hover table-sm">${ tableBody }</table>
+        </div>`;
 };
 
 // Configure marked parser
@@ -176,21 +131,33 @@ marked.setOptions({
 // Version information
 // ---------------------------------------------------------------------------------------------------------------------
 
-(window as any).RPGKeeper = {
-    version
+declare global
+{
+    interface Window
+    {
+        RPGKeeper : {
+            version : string;
+        }
+    }
+}
+
+window.RPGKeeper = {
+    version: __APP_VERSION__
 };
 
 //----------------------------------------------------------------------------------------------------------------------
 // App Initialization
 //----------------------------------------------------------------------------------------------------------------------
 
-/**
- *
- */
 async function init() : Promise<void>
 {
-    // Setup Utils
-    toastUtil.setVueRoot(root);
+    // Load current account
+    await authMan.load();
+    await systemsMan.load();
+    await charMan.init();
+
+    // Mount the application
+    app.mount('#rpgkeeper');
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

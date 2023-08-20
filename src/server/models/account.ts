@@ -4,25 +4,11 @@
 
 import * as JsonDecoder from 'decoders';
 
+// Models
+import { AccountOptions, AccountSettings } from '../../common/interfaces/models/account';
+
 // Decoders
 import { accountJsonDecoder, accountRecDecoder } from '../decoders/account';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface AccountSettings {
-    // TODO: Figure out some settings...
-}
-
-export interface AccountOptions {
-    id : string;
-    email : string;
-    name ?: string;
-    avatar ?: string;
-    permissions ?: string[];
-    groups ?: string[];
-    settings ?: AccountSettings;
-}
 
 //----------------------------------------------------------------------------------------------------------------------
 

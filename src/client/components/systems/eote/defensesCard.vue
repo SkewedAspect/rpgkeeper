@@ -1,0 +1,124 @@
+<!----------------------------------------------------------------------------------------------------------------------
+  -- defensesCard.vue
+  --------------------------------------------------------------------------------------------------------------------->
+
+<template>
+    <RpgkCard id="eote-defenses-block" :class="{ readonly: readonly }" fill>
+        <!-- Header -->
+        <template #header>
+            <div class="d-flex">
+                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="mr-1" icon="shield"></fa>
+                    <span class="d-none d-md-inline">Defenses</span>
+                </h5>
+                <div v-if="!readonly" class="ml-auto">
+                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                        <fa icon="edit" fixed-width></fa>
+                        <span class="d-none d-md-inline">Edit</span>
+                    </b-btn>
+                </div>
+            </div>
+        </template>
+
+        <!-- Card Body -->
+        <div class="d-flex">
+            <b-card class="flex-fill mr-2" no-body>
+                <div class="p-2 text-center">
+                    <b>Soak</b>
+                    <hr class="m-1" />
+                    <h5 class="m-0">
+                        {{ defenses.soak }}
+                    </h5>
+                </div>
+            </b-card>
+            <b-card class="flex-fill" no-body>
+                <div class="p-2 text-center">
+                    <b>Melee / Ranged</b>
+                    <hr class="m-1" />
+                    <h5 class="m-0">
+                        {{ defenses.melee }} / {{ defenses.ranged }}
+                    </h5>
+                </div>
+            </b-card>
+        </div>
+
+        <!-- Edit Modal -->
+        <EditModal ref="editModal" @save="onEditSave"></EditModal>
+    </RpgkCard>
+</template>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
+
+    // Store
+    import { useCharactersStore } from '../../../lib/stores/characters';
+
+    // Models
+    import { EoteOrGenCharacter } from '../../../../common/interfaces/systems/eote';
+
+    // Components
+    import RpgkCard from '../../ui/rpgkCard.vue';
+    import EditModal from './modals/editDefensesModal.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Defenses
+    {
+        soak : number;
+        melee : number;
+        ranged : number;
+    }
+
+    interface Props
+    {
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const readonly = computed(() => props.readonly);
+
+    const editModal = ref<InstanceType<typeof EditModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const character = computed<EoteOrGenCharacter>(() => current.value as any);
+    const defenses = computed(() => character.value.details.defenses);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal() : void
+    {
+        editModal.value.show(character.value);
+    }
+
+    function onEditSave(def : Defenses) : void
+    {
+        character.value.details.defenses = def;
+
+        emit('save');
+    }
+</script>
+
+<!--------------------------------------------------------------------------------------------------------------------->

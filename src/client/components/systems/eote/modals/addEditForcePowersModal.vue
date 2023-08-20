@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="add-edit-forcepower-modal">
+    <div class="add-edit-forcepower-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="xxl"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -30,22 +29,34 @@
             <b-form-row>
                 <b-col cols="6">
                     <b-form-row>
-                        <b-col cols="10">
+                        <b-col>
                             <b-form-group
                                 label="Name"
                                 label-class="font-weight-bold"
                                 label-for="name-input"
                             >
-                                <b-form-input id="name-input" v-model="name" autocomplete="off"></b-form-input>
+                                <b-form-input
+                                    id="name-input"
+                                    v-model="name"
+                                    autocomplete="off"
+                                ></b-form-input>
                             </b-form-group>
                         </b-col>
-                        <b-col cols="2">
+                        <b-col style="max-width: 100px">
                             <b-form-group
                                 label="Min Rating"
-                                label-class="font-weight-bold"
+                                label-class="font-weight-bold text-nowrap"
                                 label-for="min-rating-input"
                             >
-                                <b-form-input id="min-rating-input" v-model.number="minRating" type="number" min="0" step="1" autocomplete="off"></b-form-input>
+                                <b-form-input
+                                    id="min-rating-input"
+                                    v-model="minRating"
+                                    number
+                                    type="number"
+                                    min="0"
+                                    step="1"
+                                    autocomplete="off"
+                                ></b-form-input>
                             </b-form-group>
                         </b-col>
                     </b-form-row>
@@ -56,32 +67,15 @@
                         label-class="font-weight-bold"
                         label-for="extras-input"
                     >
-                        <b-card class="overflow-hidden" no-body>
-                            <codemirror ref="editor" v-model="description" class="editor" :options="{ lineNumbers: true }"></codemirror>
-                        </b-card>
+                        <MarkdownEditor
+                            v-model:text="description"
+                            height="207px"
+                        ></MarkdownEditor>
                     </b-form-group>
 
-                    <edit-reference v-model="reference"></edit-reference>
+                    <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
 
-                    <hr style="margin-top: 0.65rem" />
-
-                    <b-form-group
-                        id="control-input-group"
-                        label="Control"
-                        label-class="font-weight-bold"
-                        label-for="extras-input"
-                    >
-                        <template #label>
-                            Control
-                            <b-form-spinbutton v-model="controlAvailable" class="pull-right" min="0" step="1" size="sm" style="margin-top: -8px" inline></b-form-spinbutton>
-                        </template>
-                        <b-card v-for="(_, index) in upgrades.control" :key="index" class="overflow-hidden mt-2" no-body>
-                            <codemirror ref="editorControl" v-model="upgrades.control[index].description" class="upgrade" :options="{ lineNumbers: true }"></codemirror>
-                        </b-card>
-                        <b-card v-if="upgrades.control.length < 1" class="overflow-hidden" no-body>
-                            <i class="text-center d-inline message-margin">No Mastery upgrades</i>
-                        </b-card>
-                    </b-form-group>
+                    <EditReference v-model:reference="reference"></EditReference>
                 </b-col>
 
                 <b-col cols="6">
@@ -93,11 +87,24 @@
                     >
                         <template #label>
                             Strength
-                            <b-form-spinbutton v-model="upgrades.strength.available" class="pull-right" min="0" step="1" size="sm" style="margin-top: -8px" inline></b-form-spinbutton>
+                            <b-form-spinbutton
+                                v-model="upgrades.strength.available"
+                                class="pull-right"
+                                min="0"
+                                step="1"
+                                size="sm"
+                                style="margin-top: -8px"
+                                inline
+                            ></b-form-spinbutton>
                         </template>
-                        <b-card class="overflow-hidden" no-body>
-                            <codemirror v-if="upgrades.strength.available > 0" ref="editorStrength" v-model="upgrades.strength.description" class="upgrade" :options="{ lineNumbers: true }"></codemirror>
-                            <i v-else class="text-center d-inline message-margin">No Strength upgrades</i>
+                        <MarkdownEditor
+                            v-if="upgrades.strength.available > 0"
+                            v-model:text="upgrades.strength.description"
+                            class="upgrade"
+                            height="64.5px"
+                        ></MarkdownEditor>
+                        <b-card v-else class="overflow-hidden" no-body>
+                            <i class="text-center d-inline message-margin">No Strength upgrades</i>
                         </b-card>
                     </b-form-group>
                     <b-form-group
@@ -108,11 +115,24 @@
                     >
                         <template #label>
                             Magnitude
-                            <b-form-spinbutton v-model="upgrades.magnitude.available" class="pull-right" min="0" step="1" size="sm" style="margin-top: -8px" inline></b-form-spinbutton>
+                            <b-form-spinbutton
+                                v-model="upgrades.magnitude.available"
+                                class="pull-right"
+                                min="0"
+                                step="1"
+                                size="sm"
+                                style="margin-top: -8px"
+                                inline
+                            ></b-form-spinbutton>
                         </template>
-                        <b-card class="overflow-hidden" no-body>
-                            <codemirror v-if="upgrades.magnitude.available > 0" ref="editorMagnitude" v-model="upgrades.magnitude.description" class="upgrade" :options="{ lineNumbers: true }"></codemirror>
-                            <i v-else class="text-center d-inline message-margin">No Magnitude upgrades</i>
+                        <MarkdownEditor
+                            v-if="upgrades.magnitude.available > 0"
+                            v-model:text="upgrades.magnitude.description"
+                            class="upgrade"
+                            height="64.5px"
+                        ></MarkdownEditor>
+                        <b-card v-else class="overflow-hidden" no-body>
+                            <i class="text-center d-inline message-margin">No Magnitude upgrades</i>
                         </b-card>
                     </b-form-group>
                     <b-form-group
@@ -123,11 +143,24 @@
                     >
                         <template #label>
                             Duration
-                            <b-form-spinbutton v-model="upgrades.duration.available" class="pull-right" min="0" step="1" size="sm" style="margin-top: -8px" inline></b-form-spinbutton>
+                            <b-form-spinbutton
+                                v-model="upgrades.duration.available"
+                                class="pull-right"
+                                min="0"
+                                step="1"
+                                size="sm"
+                                style="margin-top: -8px"
+                                inline
+                            ></b-form-spinbutton>
                         </template>
-                        <b-card class="overflow-hidden" no-body>
-                            <codemirror v-if="upgrades.duration.available > 0" ref="editorDuration" v-model="upgrades.duration.description" class="upgrade" :options="{ lineNumbers: true }"></codemirror>
-                            <i v-else class="text-center d-inline message-margin">No Duration upgrades</i>
+                        <MarkdownEditor
+                            v-if="upgrades.duration.available > 0"
+                            v-model:text="upgrades.duration.description"
+                            class="upgrade"
+                            height="64.5px"
+                        ></MarkdownEditor>
+                        <b-card v-else class="overflow-hidden" no-body>
+                            <i class="text-center d-inline message-margin">No Duration upgrades</i>
                         </b-card>
                     </b-form-group>
                     <b-form-group
@@ -138,11 +171,24 @@
                     >
                         <template #label>
                             Range
-                            <b-form-spinbutton v-model="upgrades.range.available" class="pull-right" min="0" step="1" size="sm" style="margin-top: -8px" inline></b-form-spinbutton>
+                            <b-form-spinbutton
+                                v-model="upgrades.range.available"
+                                class="pull-right"
+                                min="0"
+                                step="1"
+                                size="sm"
+                                style="margin-top: -8px"
+                                inline
+                            ></b-form-spinbutton>
                         </template>
-                        <b-card class="overflow-hidden" no-body>
-                            <codemirror v-if="upgrades.range.available > 0" ref="editorRange" v-model="upgrades.range.description" class="upgrade" :options="{ lineNumbers: true }"></codemirror>
-                            <i v-else class="text-center d-inline message-margin">No Range upgrades</i>
+                        <MarkdownEditor
+                            v-if="upgrades.range.available > 0"
+                            v-model:text="upgrades.range.description"
+                            class="upgrade"
+                            height="64.5px"
+                        ></MarkdownEditor>
+                        <b-card v-else class="overflow-hidden" no-body>
+                            <i class="text-center d-inline message-margin">No Range upgrades</i>
                         </b-card>
                     </b-form-group>
                     <b-form-group
@@ -153,11 +199,53 @@
                     >
                         <template #label>
                             Mastery
-                            <b-form-spinbutton v-model="upgrades.mastery.available" class="pull-right" min="0" step="1" size="sm" style="margin-top: -8px" inline></b-form-spinbutton>
+                            <b-form-spinbutton
+                                v-model="upgrades.mastery.available"
+                                class="pull-right"
+                                min="0"
+                                step="1"
+                                size="sm"
+                                style="margin-top: -8px"
+                                inline
+                            ></b-form-spinbutton>
                         </template>
-                        <b-card class="overflow-hidden" no-body>
-                            <codemirror v-if="upgrades.mastery.available > 0" ref="editorMastery" v-model="upgrades.mastery.description" class="upgrade" :options="{ lineNumbers: true }"></codemirror>
-                            <i v-else class="text-center d-inline message-margin">No Mastery upgrades</i>
+                        <MarkdownEditor
+                            v-if="upgrades.mastery.available > 0"
+                            v-model:text="upgrades.mastery.description"
+                            class="upgrade"
+                            height="64.5px"
+                        ></MarkdownEditor>
+                        <b-card v-else class="overflow-hidden" no-body>
+                            <i class="text-center d-inline message-margin">No Mastery upgrades</i>
+                        </b-card>
+                    </b-form-group>
+                    <b-form-group
+                        id="control-input-group"
+                        label="Control"
+                        label-class="font-weight-bold"
+                        label-for="extras-input"
+                    >
+                        <template #label>
+                            Control
+                            <b-form-spinbutton
+                                v-model="controlAvailable"
+                                class="pull-right"
+                                min="0"
+                                step="1"
+                                size="sm"
+                                style="margin-top: -8px"
+                                inline
+                            ></b-form-spinbutton>
+                        </template>
+                        <MarkdownEditor
+                            v-for="(_, index) in upgrades.control"
+                            :key="index"
+                            v-model:text="upgrades.control[index].description"
+                            class="upgrade mt-2"
+                            height="64.5px"
+                        ></MarkdownEditor>
+                        <b-card v-if="upgrades.control.length < 1" class="overflow-hidden" no-body>
+                            <i class="text-center d-inline message-margin">No Control upgrades</i>
                         </b-card>
                     </b-form-group>
                 </b-col>
@@ -179,36 +267,27 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    .editor .CodeMirror {
-        height: 207px; // This makes everything line up.
-    }
-
     .message-margin {
         margin: 0.4rem !important;
     }
-
-    .upgrade {
-
-        .CodeMirror {
-            height: 64.5px; // Also makes things line up better.
-        }
-    }
-
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-    import Vue from 'vue';
+    // Models
+    import { EoteForcePower } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import eoteMan from '../../../../lib/managers/eote';
-    import charMan from '../../../../lib/managers/character';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import EditReference from '../../../character/editReference.vue';
+    import MarkdownEditor from '../../../ui/markdownEditor.vue';
+    import ScopeSelect from '../../../character/scopeSelect.vue';
+    import { BModal } from 'bootstrap-vue';
 
     // Utils
     import { deepClone } from '../../../../lib/utils';
@@ -225,189 +304,171 @@
     };
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'AddForcePowersModal',
-        components: {
-            EditReference
-        },
-        subscriptions()
+    interface Events
+    {
+        (e : 'add', power : EoteForcePower) : void;
+        (e : 'edit', power : EoteForcePower) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const id = ref<number>(undefined);
+    const minRating = ref(0);
+    const name = ref('');
+    const description = ref('');
+    const reference = ref('');
+    const upgrades = ref(deepClone(defaultUpgrades));
+    const scope = ref<'public' | 'user'>('user');
+    const official = ref(false);
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const isEdit = computed(() => id.value !== undefined);
+
+    const controlAvailable = computed({
+        get() { return upgrades.value.control.length; },
+        set(val)
         {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                id: undefined,
-                minRating: 0,
-                name: '',
-                description: '',
-                reference: '',
-                upgrades: deepClone(defaultUpgrades)
-            };
-        },
-        computed: {
-            isEdit() { return this.id !== undefined; },
-            controlAvailable: {
-                get() { return this.upgrades.control.length; },
-                set(val)
+            const currLength = upgrades.value.control.length;
+
+            if(val > currLength)
+            {
+                for(let toAdd = 0; toAdd < (val - currLength); toAdd++)
                 {
-                    const currLength = this.upgrades.control.length;
-
-                    if(val > currLength)
-                    {
-                        for(let toAdd = 0; toAdd < (val - currLength); toAdd++)
-                        {
-                            this.addControl();
-                        }
-                    }
-                    else
-                    {
-                        this.upgrades.control.splice((currLength - val) * -1);
-                    }
+                    // eslint-disable-next-line no-use-before-define
+                    addControl();
                 }
             }
-        },
-        methods: {
-            async onSave()
+            else
             {
-                const forcePowerDef = {
-                    name: this.name,
-                    minRating: this.minRating,
-                    description: this.description,
-                    reference: this.reference,
-                    upgrades: deepClone(this.upgrades)
-                };
-
-                // Filter out upgrades
-                if(forcePowerDef.upgrades.strength.available === 0)
-                {
-                    forcePowerDef.upgrades.strength = undefined;
-                }
-
-                if(forcePowerDef.upgrades.magnitude.available === 0)
-                {
-                    forcePowerDef.upgrades.magnitude = undefined;
-                }
-
-                if(forcePowerDef.upgrades.duration.available === 0)
-                {
-                    forcePowerDef.upgrades.duration = undefined;
-                }
-
-                if(forcePowerDef.upgrades.range.available === 0)
-                {
-                    forcePowerDef.upgrades.range = undefined;
-                }
-
-                if(forcePowerDef.upgrades.mastery.available === 0)
-                {
-                    forcePowerDef.upgrades.mastery = undefined;
-                }
-
-                // Filter out blank control entries
-                forcePowerDef.upgrades.control = forcePowerDef.upgrades.control
-                    .filter((control) => control.description && control.description.length > 0);
-
-                if(this.isEdit)
-                {
-                    forcePowerDef.id = this.id;
-                    const forcePower = await eoteMan.editSup('forcePowers', forcePowerDef);
-
-                    this.$emit('edit', forcePower);
-                }
-                else
-                {
-                    const forcePower = await eoteMan.addSup('forcePowers', forcePowerDef);
-
-                    this.$emit('add', forcePower);
-                }
-            },
-            onShown()
-            {
-                this.cmRefresh();
-            },
-            cmRefresh()
-            {
-                this.$nextTick(() =>
-                {
-                    this.$refs.editor.codemirror.refresh();
-
-                    if(this.$refs.editorStrength)
-                    {
-                        this.$refs.editorStrength.codemirror.refresh();
-                    }
-
-                    if(this.$refs.editorMagnitude)
-                    {
-                        this.$refs.editorMagnitude.codemirror.refresh();
-                    }
-
-                    if(this.$refs.editorDuration)
-                    {
-                        this.$refs.editorDuration.codemirror.refresh();
-                    }
-
-                    if(this.$refs.editorRange)
-                    {
-                        this.$refs.editorRange.codemirror.refresh();
-                    }
-
-                    if(this.$refs.editorMastery)
-                    {
-                        this.$refs.editorMastery.codemirror.refresh();
-                    }
-
-                    if(this.$refs.editorControl)
-                    {
-                        this.$refs.editorControl.forEach((ref) =>
-                        {
-                            ref.codemirror.refresh();
-                        });
-                    }
-                });
-            },
-            addControl()
-            {
-                this.upgrades.control.push({ description: '' });
-            },
-
-            show(forcePower)
-            {
-                if(forcePower)
-                {
-                    this.id = forcePower.id;
-                    this.name = forcePower.name;
-                    this.minRating = forcePower.minRating;
-                    this.description = forcePower.description;
-                    this.reference = forcePower.reference;
-                    this.upgrades = {
-                        ...deepClone(defaultUpgrades),
-                        ...forcePower.upgrades
-                    };
-                }
-                else
-                {
-                    this.id = undefined;
-                    this.name = '';
-                    this.minRating = 0;
-                    this.description = '';
-                    this.reference = '';
-                    this.upgrades = deepClone(defaultUpgrades);
-                }
-
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
+                upgrades.value.control.splice((currLength - val) * -1);
             }
         }
-
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Method
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(forcePower : EoteForcePower) : void
+    {
+        if(forcePower)
+        {
+            id.value = forcePower.id;
+            name.value = forcePower.name;
+            minRating.value = forcePower.minRating;
+            description.value = forcePower.description;
+            reference.value = forcePower.reference;
+            upgrades.value = {
+                ...deepClone(defaultUpgrades),
+                ...forcePower.upgrades
+            };
+        }
+        else
+        {
+            id.value = undefined;
+            name.value = '';
+            minRating.value = 0;
+            description.value = '';
+            reference.value = '';
+            upgrades.value = deepClone(defaultUpgrades);
+        }
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    async function onSave() : Promise<void>
+    {
+        const forcePowerDef : EoteForcePower = {
+            id: undefined,
+            name: this.name,
+            minRating: this.minRating,
+            description: this.description,
+            reference: this.reference,
+            upgrades: deepClone(this.upgrades),
+            scope: undefined,
+            official: false
+        };
+
+        // Filter out upgrades
+        if(forcePowerDef.upgrades.strength.available === 0)
+        {
+            forcePowerDef.upgrades.strength = undefined;
+        }
+
+        if(forcePowerDef.upgrades.magnitude.available === 0)
+        {
+            forcePowerDef.upgrades.magnitude = undefined;
+        }
+
+        if(forcePowerDef.upgrades.duration.available === 0)
+        {
+            forcePowerDef.upgrades.duration = undefined;
+        }
+
+        if(forcePowerDef.upgrades.range.available === 0)
+        {
+            forcePowerDef.upgrades.range = undefined;
+        }
+
+        if(forcePowerDef.upgrades.mastery.available === 0)
+        {
+            forcePowerDef.upgrades.mastery = undefined;
+        }
+
+        // Filter out blank control entries
+        forcePowerDef.upgrades.control = forcePowerDef.upgrades.control
+            .filter((control) => control.description && control.description.length > 0);
+
+        if(isEdit.value)
+        {
+            forcePowerDef.id = id.value;
+            const forcePower = await eoteMan.editSup('forcepowers', forcePowerDef);
+
+            this.$emit('edit', forcePower);
+        }
+        else
+        {
+            const forcePower = await eoteMan.addSup('forcepowers', forcePowerDef);
+
+            this.$emit('add', forcePower);
+        }
+    }
+
+    function onCancel() : void
+    {
+        id.value = undefined;
+        name.value = '';
+        minRating.value = 0;
+        description.value = '';
+        reference.value = '';
+        upgrades.value = deepClone(defaultUpgrades);
+    }
+
+    function addControl()
+    {
+        upgrades.value.control.push({ description: '' });
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

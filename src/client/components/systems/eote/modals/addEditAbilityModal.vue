@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="add-ability-modal">
+    <div class="add-ability-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -39,12 +38,12 @@
                 label="Description"
                 label-for="extras-input"
             >
-                <b-card class="overflow-hidden" no-body>
-                    <codemirror ref="editor" v-model="description" :options="{ lineNumbers: true }"></codemirror>
-                </b-card>
+                <MarkdownEditor v-model:text="description"></MarkdownEditor>
             </b-form-group>
 
-            <edit-reference v-model="reference"></edit-reference>
+            <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
+
+            <EditReference v-model:reference="reference"></EditReference>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -61,112 +60,126 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .add-ability-modal {
-    }
-</style>
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
+    // Models
+    import { EoteAbility } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
+    import MarkdownEditor from '../../../ui/markdownEditor.vue';
     import EditReference from '../../../character/editReference.vue';
+    import ScopeSelect from '../../../character/scopeSelect.vue';
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Events
+    {
+        (e : 'add', ability : EoteAbility) : void;
+        (e : 'edit', ability : EoteAbility) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const id = ref<number>(null);
+    const name = ref('');
+    const description = ref('');
+    const reference = ref('');
+    const scope = ref<'public' | 'user'>('user');
+    const official = ref(false);
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const isEdit = computed(() => !!id.value);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(ability ?: EoteAbility) : void
+    {
+        if(ability)
+        {
+            id.value = ability.id;
+            name.value = ability.name;
+            description.value = ability.description;
+            reference.value = ability.reference;
+            scope.value = ability.scope;
+            official.value = ability.official;
+        }
+        else
+        {
+            id.value = null;
+            name.value = '';
+            description.value = '';
+            reference.value = '';
+            scope.value = 'user';
+            official.value = false;
+        }
+
+        // Show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    async function onSave() : Promise<void>
+    {
+        if(isEdit.value)
+        {
+            const ability = await eoteMan.editSup<EoteAbility>('abilities', {
+                id: id.value,
+                name: name.value,
+                description: description.value,
+                reference: reference.value,
+                official: official.value,
+                scope: scope.value
+            });
+
+            emit('edit', ability);
+        }
+        else
+        {
+            const ability = await eoteMan.addSup<EoteAbility>('abilities', {
+                name: name.value,
+                description: description.value,
+                reference: reference.value,
+                official: official.value,
+                scope: scope.value
+            });
+
+            emit('add', ability);
+        }
+    }
+
+    function onCancel() : void
+    {
+        id.value = null;
+        name.value = '';
+        description.value = '';
+        reference.value = '';
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'AddAbilityModal',
-        components: {
-            EditReference
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                id: undefined,
-                name: '',
-                description: '',
-                reference: ''
-            };
-        },
-        computed: {
-            isEdit() { return this.id !== undefined; }
-        },
-        methods: {
-            async onSave()
-            {
-                if(this.isEdit)
-                {
-                    const ability = await eoteMan.editSup('abilities', {
-                        id: this.id,
-                        name: this.name,
-                        description: this.description,
-                        reference: this.reference
-                    });
-
-                    this.$emit('edit', ability);
-                }
-                else
-                {
-                    const ability = await eoteMan.addSup('abilities', {
-                        name: this.name,
-                        description: this.description,
-                        reference: this.reference
-                    });
-
-                    this.$emit('add', ability);
-                }
-            },
-            onShown()
-            {
-                this.extras = this.character.details.extras;
-                this.cmRefresh();
-            },
-            cmRefresh()
-            {
-                this.$nextTick(() =>
-                {
-                    this.$refs.editor.codemirror.refresh();
-                });
-            },
-
-            show(ability)
-            {
-                if(ability)
-                {
-                    this.id = ability.id;
-                    this.name = ability.name;
-                    this.description = ability.description;
-                    this.reference = ability.reference;
-                }
-                else
-                {
-                    this.id = undefined;
-                }
-
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
-    });
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

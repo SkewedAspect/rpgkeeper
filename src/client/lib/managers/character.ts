@@ -2,20 +2,24 @@
 // CharacterManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 
 // Interfaces
-import { Character } from '../../../common/interfaces/common';
+import { Character, RPGKMessage, SystemDetails } from '../../../common/interfaces/common';
 
 // Models
 import { Account } from '../models/account';
-import CharacterModel from '../models/character';
+
+// Stores
+import { useAccountStore } from '../stores/account';
+import { useSystemsStore } from '../stores/systems';
+import { useCharactersStore } from '../stores/characters';
 
 // Managers
-import authMan from './auth';
 import notesMan from './notebook';
+
+// System Managers
+import eoteMan from './systems/eote';
 
 // Resource Access
 import characterRA from '../resource-access/character';
@@ -24,78 +28,43 @@ import characterRA from '../resource-access/character';
 
 class CharacterManager
 {
-    #charactersSubject : BehaviorSubject<CharacterModel[]>;
-    #selectedSubject : BehaviorSubject<CharacterModel | undefined>;
-    #savingSubject : BehaviorSubject<boolean>;
-    #statusSubject : BehaviorSubject<string>;
     #socket : Socket;
+    #calledWhileSaving = false;
 
     constructor()
     {
-        // Subjects
-        this.#charactersSubject = new BehaviorSubject([] as CharacterModel[]);
-        this.#selectedSubject = new BehaviorSubject<CharacterModel | undefined>(undefined);
-        this.#savingSubject = new BehaviorSubject<boolean>(false);
-        this.#statusSubject = new BehaviorSubject('loading');
-
         // Listen for messages on the socket.
         this.#socket = io('/characters');
         this.#socket.on('message', this._onMessage.bind(this));
-
-        // Subscriptions
-        authMan.account$.subscribe(this._onAccountChanged.bind(this));
     }
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Observables
-    //------------------------------------------------------------------------------------------------------------------
-
-    get characters$() : Observable<CharacterModel[]> { return this.#charactersSubject.asObservable(); }
-    get selected$() : Observable<CharacterModel | undefined> { return this.#selectedSubject.asObservable(); }
-    get saving$() : Observable<boolean> { return this.#savingSubject.asObservable(); }
-    get status$() : Observable<string> { return this.#statusSubject.asObservable(); }
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Properties
-    //------------------------------------------------------------------------------------------------------------------
-
-    get characters() : CharacterModel[] { return this.#charactersSubject.getValue(); }
-    get selected() : CharacterModel | undefined { return this.#selectedSubject.getValue(); }
-    get saving() : boolean { return this.#savingSubject.getValue(); }
-    set saving(val : boolean) { this.#savingSubject.next(!!val); }
-    get status() : string { return this.#statusSubject.getValue(); }
 
     //------------------------------------------------------------------------------------------------------------------
     // Subscriptions
     //------------------------------------------------------------------------------------------------------------------
 
-    async _onAccountChanged(account : Account | undefined) : Promise<void>
+    async _onAccountChanged(account : Account | null) : Promise<void>
     {
+        const charStore = useCharactersStore();
         if(account && account.email)
         {
-            const characters = await characterRA.getAllCharacters(account.email);
-            this.#charactersSubject.next(characters);
-            this.#statusSubject.next('loaded');
+            await charStore.load();
         }
         else
         {
-            this.#charactersSubject.next([]);
+            charStore.$reset();
         }
     }
 
-    _onMessage(envelope) : void
+    _onMessage(envelope : RPGKMessage) : void
     {
+        const charStore = useCharactersStore();
         if(envelope.type === 'update')
         {
-            characterRA.$update(envelope.payload);
+            charStore.update(envelope.payload);
         }
         else if(envelope.type === 'remove')
         {
-            characterRA.$remove(envelope.resource);
-            const characters = this.characters.filter((char) => char.id !== envelope.resource);
-            this.#charactersSubject.next(characters);
-
-            // TODO: We need to pop some kind of warning that the character was deleted.
+            charStore.remove({ id: envelope.resource });
         }
     }
 
@@ -103,99 +72,133 @@ class CharacterManager
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async create(charDef : Partial<Character>) : Promise<CharacterModel>
+    async init() : Promise<void>
     {
-        return characterRA.newCharacter(charDef);
-    }
+        const authStore = useAccountStore();
 
-    async updateSysDefaults(char) : Promise<CharacterModel>
-    {
-        return characterRA.updateSysDefaults(char);
-    }
-
-    async select(charID) : Promise<CharacterModel>
-    {
-        let char = _.find(this.characters, { id: charID });
-        if(!char)
+        // Subscriptions
+        authStore.$subscribe((_mutation, state) =>
         {
-            char = await characterRA.getCharacter(charID);
+            this._onAccountChanged(state.account);
+        });
 
-            // Add to our internal cache of characters
-            this.characters.push(char);
-            this.#charactersSubject.next(this.characters);
-        }
-
-        // Select this character
-        this.#selectedSubject.next(char);
-
-        // Select the notes in the notes manager
-        if(char.noteID)
+        if(authStore.account)
         {
-            await notesMan.select(char.noteID);
+            await this._onAccountChanged(authStore.account);
         }
-
-        return char;
     }
 
     /**
-     * Save the character. Attempts to debounce this; we will only have one active save at a time, and if the character
-     * is still dirty once we're done, we save again. (Because this is promised based, this shouldn't be able to
-     * overflow the stack.)
+     * Creates a new character.
      *
-     * @param character - The character model instance
+     * @param charDef - A partial record for the new character
      *
-     * @returns Returns the updated character model instance. This is the same object that was passed in, with internal
-     * changes only.
+     * @returns Returns an unsaved character object.
      */
-    async save(character ?: CharacterModel) : Promise<CharacterModel>
+    async create<
+        Details extends SystemDetails = SystemDetails
+    >(charDef : Partial<Character<Details>>) : Promise<Character<Details>>
     {
-        // Default to the selected character, if none is passed in.
-        character = character ?? this.selected;
+        return characterRA.newCharacter<Details>(charDef);
+    }
 
-        // We should never hit this case
+    async select(charID : string | null) : Promise<void>
+    {
+        const systemsStore = useSystemsStore();
+        const charStore = useCharactersStore();
+
+        if(charID === null)
+        {
+            charStore.setCurrent(null);
+        }
+        else
+        {
+            let char = charStore.find(charID);
+            if(!char)
+            {
+                char = await characterRA.getCharacter(charID);
+
+                // This will add it to the list
+                charStore.update(char);
+
+                // Now we can select it
+                charStore.setCurrent(charID);
+            }
+
+            // Select this character
+            charStore.setCurrent(charID);
+
+            // Set the current system
+            systemsStore.setCurrent(char.system);
+
+            // Load system specific manager
+            switch (char.system)
+            {
+                case 'eote':
+                case 'genesys':
+                    await eoteMan.load(char);
+                    break;
+
+                default:
+                    break;
+            }
+
+            // Select the notes in the notes manager
+            if(char.noteID)
+            {
+                await notesMan.select(char.noteID);
+            }
+        }
+    }
+
+    /**
+     * Save the character. Attempts to debounce to saves, meaning we will only save once at a time. If save is called
+     * while an ongoing save is happening, we will call save again.
+     *
+     * @param character - The character object.
+     */
+    async save(character ?: Character) : Promise<void>
+    {
+        this.#calledWhileSaving = false;
+        const charStore = useCharactersStore();
+
+        // Default to the selected character, if none is passed in.
+        character = character ?? charStore.current ?? undefined;
+
+        // We should never hit this case; if you have, you may want to check that you're in the right universe and the
+        // laws of physics work as expected. If not, I highly recommend returning to your universe immediately.
         if(!character)
         {
-            throw new Error("Something's gone wrong: missing character, somehow.");
+            console.warn('Attempted to save without one selected.');
         }
 
         // If we're already saving, we just return.
-        if(this.saving || !character?.dirty)
+        if(charStore.saving)
         {
-            return character;
+            this.#calledWhileSaving = true;
         }
 
-        // Otherwise, we set ourselves to saving
-        this.saving = true;
-
-        // Save Character
-        await characterRA.saveCharacter(character);
-
-        // We're done saving
-        this.saving = false;
+        await charStore.save(character);
 
         // Check to see if we need to save again, in case other changes have come in while saving.
-        if(character.dirty)
+        if(this.#calledWhileSaving)
         {
             await this.save(character);
         }
-
-        // If we're saving someone new, let's add it to our list of characters.
-        if(!this.characters.includes(character))
-        {
-            this.characters.push(character);
-            this.#charactersSubject.next(this.characters);
-        }
-
-        return character;
     }
 
-    async delete(character : CharacterModel) : Promise<void>
+    /**
+     * Deletes a character.
+     *
+     * @param character - the character to delete
+     */
+    async delete(character : { id : string | null }) : Promise<void>
     {
+        const charStore = useCharactersStore();
         if(character.id)
         {
-            await characterRA.deleteCharacter({ id: character.id });
-            const characters = _.without(this.characters, character);
-            this.#charactersSubject.next(characters);
+            await characterRA.deleteCharacter(character);
+            charStore.remove(character);
         }
     }
 }

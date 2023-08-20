@@ -4,11 +4,11 @@
 
 <template>
     <div id="genesys-sub-talents">
-        <tier-row :tier="1"></tier-row>
-        <tier-row class="mt-3" :tier="2"></tier-row>
-        <tier-row class="mt-3" :tier="3"></tier-row>
-        <tier-row class="mt-3" :tier="4"></tier-row>
-        <tier-row class="mt-3" :tier="5"></tier-row>
+        <TierRow :tier="1" :readonly="readonly"></TierRow>
+        <TierRow class="mt-3" :tier="2" :readonly="readonly"></TierRow>
+        <TierRow class="mt-3" :tier="3" :readonly="readonly"></TierRow>
+        <TierRow class="mt-3" :tier="4" :readonly="readonly"></TierRow>
+        <TierRow class="mt-3" :tier="5" :readonly="readonly"></TierRow>
 
         <h5 v-if="talents.length === 0" class="m-0 text-center">
             No Talents
@@ -18,7 +18,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
+<style lang="scss">
     #genesys-sub-talents {
         .talent-row {
             margin-top: -0.5rem;
@@ -28,38 +28,43 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed } from 'vue';
+    import { storeToRefs } from 'pinia';
 
-    import Vue from 'vue';
+    // Models
+    import { EoteCharacter } from '../../../../../common/interfaces/systems/eote';
 
-    // Managers
-    import charMan from '../../../../lib/managers/character';
+    // Stores
+    import { useCharactersStore } from '../../../../lib/stores/characters';
 
     // Components
     import TierRow from './tierRow.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'GenesysSubTalents',
-        components: {
-            TierRow
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        computed: {
-            talents()
-            {
-                return this.character.details.talents;
-            }
-        }
+    interface Props
+    {
+        readonly : boolean;
+    }
 
-    });
+    const props = defineProps<Props>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const readonly = computed(() => props.readonly);
+    const character = computed<EoteCharacter>(() => current.value as any);
+    const talents = computed(() => character.value.details.talents);
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

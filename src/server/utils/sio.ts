@@ -4,18 +4,12 @@
 
 import { Server } from 'socket.io';
 
+// Interfaces
+import { RPGKMessage } from '../../common/interfaces/common';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 let sio : Server | undefined;
-
-//----------------------------------------------------------------------------------------------------------------------
-
-export interface RPGKEnvelope
-{
-    type : 'update' | 'remove' | 'event';
-    resource ?: string;
-    payload ?: Record<string, unknown>;
-}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -24,7 +18,7 @@ export async function setSIOInstance(sioServer : Server) : Promise<void>
     sio = sioServer;
 }
 
-export async function broadcast(namespace : string, message : RPGKEnvelope) : Promise<void>
+export async function broadcast(namespace : string, message : RPGKMessage) : Promise<void>
 {
     if(sio)
     {

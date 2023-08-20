@@ -1,0 +1,21 @@
+#-----------------------------------------------------------------------------------------------------------------------
+# Configuration for RPGKeeper
+#-----------------------------------------------------------------------------------------------------------------------
+
+overrideAuth: false
+secret: $SESSION_SECRET
+key: 'rpgk_session'
+auth:
+  google:
+    clientID: $CLIENT_ID
+    clientSecret: $CLIENT_SECRET
+http:
+  secure: false,
+  port: $SERVER_PORT
+database:
+  client: 'better-sqlite3'
+  connection:
+    filename: './db/rpgk.db'
+  useNullAsDefault: true
+
+#-----------------------------------------------------------------------------------------------------------------------

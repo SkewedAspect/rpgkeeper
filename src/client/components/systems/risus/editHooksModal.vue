@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="hooks" class="edit-hooks-modal">
+    <div class="edit-hooks-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             size="lg"
@@ -13,7 +13,6 @@
             no-close-on-backdrop
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -67,86 +66,84 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
+    import { ref } from 'vue';
+
+    // Interfaces
+    import { RisusHook } from '../../../../common/interfaces/systems/risus';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
-    import _ from 'lodash';
+    interface Events
+    {
+        (e : 'save', hooks : RisusHook[]) : void;
+    }
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EditHooksModal',
-        props: {
-            value: {
-                type: Array,
-                required: true
-            }
-        },
-        data()
+    const hooks = ref<RisusHook[]>([]);
+    const newHook = ref<string>('');
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(charHooks : RisusHook[]) : void
+    {
+        // Clone the array of hooks
+        hooks.value = charHooks.map((hook) => ({ ...hook }));
+
+        // Show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', hooks.value);
+        hooks.value = [];
+    }
+
+    function onCancel() : void
+    {
+        hooks.value = [];
+    }
+
+    function addHook() : void
+    {
+        hooks.value.push({ description: newHook.value });
+        newHook.value = '';
+    }
+
+    function removeHook(hook : string) : void
+    {
+        const idx = hooks.value.findIndex((item) => item === hook);
+        if(idx > -1)
         {
-            return {
-                hooks: _.cloneDeep(this.value),
-                newHook: ''
-            };
-        },
-        methods: {
-            onShown()
-            {
-                // Copy the v-model value over our hooks array.
-                this.hooks = _.cloneDeep(this.value);
-            },
-            onSave()
-            {
-                this.$emit('input', this.hooks);
-
-                // We have to wait for things to settle from updating the model
-                this.$nextTick(async() =>
-                {
-                    // Save the character
-                    try { await charMan.save(); }
-                    catch (error)
-                    {
-                        console.error('Error saving:', error);
-                        // TODO: Let the user know about this!
-                    }
-                });
-            },
-            onCancel()
-            {
-                // Clear our local variable
-                this.hooks = [];
-            },
-
-            addHook()
-            {
-                this.hooks.push({ description: this.newHook });
-                this.newHook = '';
-            },
-            removeHook(hook)
-            {
-                // We can't use lodash, since Vue doesn't track whatever magic `_.pull` does.
-                // See: https://vuejs.org/v2/guide/list.html#Array-Change-Detection
-                const idx = _.findIndex(this.hooks, hook);
-                if(idx > -1)
-                {
-                    this.hooks.splice(idx, 1);
-                }
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
+            hooks.value.splice(idx, 1);
         }
-    });
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
+
+    //------------------------------------------------------------------------------------------------------------------
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

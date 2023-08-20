@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <rpgk-card id="eote-force-powers-block" :class="{ readonly: readonly }" fill>
+    <RpgkCard id="eote-force-powers-block" :class="{ readonly: readonly }" fill>
         <!-- Header -->
         <template #header>
             <div class="d-flex">
@@ -23,8 +23,8 @@
         <!-- Card Body -->
         <div>
             <b-form-row>
-                <b-col v-for="forcePower in forcePowers" :key="forcePower.name" cols="12">
-                    <force-power-card class="mb-2" :power="forcePower"></force-power-card>
+                <b-col v-for="forcePower in forcePowers" :key="forcePower.id" cols="12">
+                    <ForcePowerCard class="mb-2" :power="forcePower" :readonly="readonly"></ForcePowerCard>
                 </b-col>
             </b-form-row>
 
@@ -34,77 +34,91 @@
         </div>
 
         <!-- Modals -->
-        <edit-force-powers-modal ref="editForcePowersModal"></edit-force-powers-modal>
-    </rpgk-card>
+        <EditForcePowersModal ref="editForcePowersModal" @save="onEditSave"></EditForcePowersModal>
+    </RpgkCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    #eote-force-powers-block {
-    }
-</style>
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+    import { storeToRefs } from 'pinia';
+    import { sortBy } from 'lodash';
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    // Models
+    import { EoteCharacter, EoteForcePowerInst } from '../../../../common/interfaces/systems/eote';
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
-    import _ from 'lodash';
+    // Stores
+    import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Managers
-    import eoteMan from '../../../lib/managers/eote';
-    import charMan from '../../../lib/managers/character';
+    import eoteMan from '../../../lib/managers/systems/eote';
 
     // Components
-    import RpgkCard from '../../ui/card.vue';
-    import EditForcePowersModal from './modals/editForcePowersModal.vue';
+    import RpgkCard from '../../ui/rpgkCard.vue';
     import ForcePowerCard from './components/forcePowerCard.vue';
+    import EditForcePowersModal from './modals/editForcePowersModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EotEForcePowersBlock',
-        components: {
-            RpgkCard,
-            ForcePowerCard,
-            EditForcePowersModal
-        },
-        props: {
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
-        {
-            return {
-                mode: eoteMan.mode$,
-                character: charMan.selected$
-            };
-        },
-        computed: {
-            forcePowers()
-            {
-                return _.sortBy(
-                    this?.character?.details?.force?.powers ?? [],
-                    (powerInst) =>
-                    {
-                        const powerBase = _.find(eoteMan.forcePowers, { id: powerInst.id });
-                        return (powerBase || {}).name;
-                    }
-                );
-            }
-        },
-        methods: {
-            openEditModal()
-            {
-                this.$refs.editForcePowersModal.show();
-            }
-        }
+    interface Props
+    {
+        readonly : boolean;
+    }
 
+    const props = defineProps<Props>();
+
+    interface Events
+    {
+        (e : 'save') : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const { current } = storeToRefs(useCharactersStore());
+    const editForcePowersModal = ref<InstanceType<typeof EditForcePowersModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const char = computed<EoteCharacter>(() => current.value as any);
+    const mode = computed(() => eoteMan.mode);
+    const readonly = computed(() => props.readonly);
+
+    const forcePowers = computed(() =>
+    {
+        return sortBy(
+            char.value.details.force.powers ?? [],
+            (powerInst) =>
+            {
+                const powerBase = eoteMan.forcePowers.find((item) => item.id === powerInst.id);
+                return powerBase?.name ?? 'Unknown';
+            }
+        );
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Method
+    //------------------------------------------------------------------------------------------------------------------
+
+    function openEditModal()
+    {
+        editForcePowersModal.value.show(char.value);
+    }
+
+    function onEditSave(powers : EoteForcePowerInst[]) : void
+    {
+        char.value.details.force.powers = powers;
+
+        emit('save');
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

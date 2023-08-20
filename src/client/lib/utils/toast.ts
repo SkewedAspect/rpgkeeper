@@ -2,41 +2,34 @@
 // Toast Utility
 // ---------------------------------------------------------------------------------------------------------------------
 
-import Vue, { VNode } from 'vue';
+import { VNode, h, ComponentInternalInstance } from 'vue';
+import { BvToast } from 'bootstrap-vue';
 
 // ---------------------------------------------------------------------------------------------------------------------
-
-type bvToastMixin = { $bvToast : { toast : (m : string | VNode[], o : Record<string, unknown>) => void } };
-type VueRoot = Vue & bvToastMixin;
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 class ToastUtil
 {
-    #vueRoot : VueRoot | undefined;
-
-    constructor()
-    {
-        this.#vueRoot = undefined;
-    }
+    #bvToast ?: BvToast;
 
     // -----------------------------------------------------------------------------------------------------------------
 
-    setVueRoot(vueRoot : VueRoot) : void
+    setInstance(instance : ComponentInternalInstance) : void
     {
-        this.#vueRoot = vueRoot;
+        this.#bvToast = (instance as any).ctx._bv__toast;
     }
 
-    toast(message : string | VNode[], options : Record<string, unknown>) : void
+    toast(message : string | VNode | VNode[], options : Record<string, unknown>) : void
     {
-        if(!this.#vueRoot)
+        if(!this.#bvToast)
         {
             const err = new Error('No Vue Root set!');
             console.warn('Attempted to toast with no Vue Root set!', err.stack);
         }
         else
         {
-            this.#vueRoot.$bvToast.toast(message, options);
+            this.#bvToast.toast(message as any, options);
         }
     }
 
@@ -58,14 +51,13 @@ class ToastUtil
 
     success(message : string, options : Record<string, unknown> = {}) : void
     {
-        if(this.#vueRoot)
+        if(this.#bvToast)
         {
-            const html = this.#vueRoot.$createElement;
-            const msgVNodes = html(
+            const msgVNodes = h(
                 'div',
                 {},
                 [
-                    html('b', {}, [ ' Success! ' ]),
+                    h('b', {}, [ ' Success! ' ]),
                     ` ${ message }`
                 ]
             );
@@ -83,14 +75,13 @@ class ToastUtil
 
     warning(message : string, options : Record<string, unknown> = {}) : void
     {
-        if(this.#vueRoot)
+        if(this.#bvToast)
         {
-            const html = this.#vueRoot.$createElement;
-            const msgVNodes = html(
+            const msgVNodes = h(
                 'div',
                 {},
                 [
-                    html('b', {}, [ ' Warning! ' ]),
+                    h('b', {}, [ ' Warning! ' ]),
                     ` ${ message }`
                 ]
             );
@@ -108,14 +99,13 @@ class ToastUtil
 
     error(message : string, options : Record<string, unknown> = {}) : void
     {
-        if(this.#vueRoot)
+        if(this.#bvToast)
         {
-            const html = this.#vueRoot.$createElement;
-            const msgVNodes = html(
+            const msgVNodes = h(
                 'div',
                 {},
                 [
-                    html('b', {}, [ ' Error! ' ]),
+                    h('b', {}, [ ' Error! ' ]),
                     ` ${ message }`
                 ]
             );

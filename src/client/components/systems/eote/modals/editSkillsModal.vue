@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="skills" class="edit-skills-modal">
+    <div class="edit-skills-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             size="xl"
@@ -13,7 +13,6 @@
             no-close-on-backdrop
             @ok="onSave"
             @cancel="onCancel"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -38,7 +37,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -66,7 +65,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -94,7 +93,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -122,7 +121,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -150,7 +149,7 @@
                         <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <b-form-input v-model.number="skill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                        <b-form-input v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                         <b-form-select v-model="skill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                         <b-form-select v-model="skill.type" class="ml-2" :options="skillTypes"></b-form-select>
                         <b-btn variant="danger" class="ml-2" @click="removeSkill(index)">
@@ -175,7 +174,7 @@
                     <b-form-checkbox v-model="newSkill.career" class="ml-2 mt-2" name="check-button" switch>
                         Career
                     </b-form-checkbox>
-                    <b-form-input v-model.number="newSkill.ranks" class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
+                    <b-form-input v-model="newSkill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
                     <b-form-select v-model="newSkill.characteristic" class="ml-2" :options="characteristics"></b-form-select>
                     <b-form-select v-model="newSkill.type" class="ml-2" :options="skillTypes"></b-form-select>
                     <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addSkill">
@@ -207,136 +206,160 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+
+    // Models
+    import { EoteOrGenCharacter, EoteSkill } from '../../../../../common/interfaces/systems/eote';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+    import { startCase } from '../../../../../common/utils/misc';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
-    import _ from 'lodash';
+    interface Events
+    {
+        (e : 'save', skills : EoteSkill[]) : void;
+    }
 
-    // Managers
-    import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EditSkillsModal',
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                skills: [],
-                newSkill: {
-                    name: '',
-                    career: false,
-                    ranks: 0
-
-                }
-            };
-        },
-        computed: {
-            isAddValid()
-            {
-                return _.isFinite(this.newSkill.ranks)
-                    && !!this.newSkill.name
-                    && !!this.newSkill.characteristic
-                    && this.newSkill.type;
-            },
-            characteristics()
-            {
-                return Object.keys(this.character.details.characteristics)
-                    .map((char) => ({ text: _.startCase(char), value: char }))
-                    .sort();
-            },
-            skillTypes()
-            {
-                return [ 'general', 'magic', 'combat', 'social', 'knowledge' ]
-                    .filter((type) =>
-                    {
-                        return type !== 'magic' || this.mode === 'genesys';
-                    })
-                    .map((type) => ({ text: _.startCase(type), value: type }));
-            }
-        },
-        methods: {
-            onShown()
-            {
-                // Copy the v-model value over our skills array.
-                this.skills = _.cloneDeep(this.character.details.skills);
-                this.newSkill = { name: '', career: false, ranks: 0 };
-            },
-            onSave()
-            {
-                this.character.details.skills = this.skills;
-                return charMan.save(this.character);
-            },
-            onCancel()
-            {
-                // Clear our local variable
-                this.skills = [];
-                this.newSkill = { name: '', career: false, ranks: 0 };
-            },
-
-            addSkill()
-            {
-                // Split skills list into each section
-                const skills = {
-                    general: this.skills.filter((skill) => skill.type === 'general'),
-                    magic: this.skills.filter((skill) => skill.type === 'magic'),
-                    combat: this.skills.filter((skill) => skill.type === 'combat'),
-                    social: this.skills.filter((skill) => skill.type === 'social'),
-                    knowledge: this.skills.filter((skill) => skill.type === 'knowledge')
-                };
-
-                // Add new skill to the right type list
-                skills[this.newSkill.type].push(this.newSkill);
-
-                // Rebuild skills list in proper order
-                this.skills = [].concat(skills.general, skills.magic, skills.combat, skills.social, skills.knowledge);
-
-                // Reset new skill
-                this.newSkill = { name: '', career: false, ranks: 0 };
-            },
-            removeSkill(index)
-            {
-                this.skills.splice(index, 1);
-            },
-            moveSkillUp(index)
-            {
-                if(index > 0)
-                {
-                    const start = index;
-                    const end = index - 1;
-                    this.skills.splice(end, 0, this.skills.splice(start, 1)[0]);
-                }
-            },
-            moveSkillDown(index)
-            {
-                if(index < this.skills.length)
-                {
-                    const start = index;
-                    const end = index + 1;
-                    this.skills.splice(end, 0, this.skills.splice(start, 1)[0]);
-                }
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
+    const newSkill = ref({
+        name: '',
+        career: false,
+        characteristic: '',
+        type: '',
+        ranks: 0
 
     });
+
+    const mode = ref('eote');
+    const skills = ref<EoteSkill[]>([]);
+    const characteristics = ref([]);
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const isAddValid = computed(() =>
+    {
+        return isFinite(newSkill.value.ranks)
+            && !!newSkill.value.name
+            && !!newSkill.value.characteristic
+            && !!newSkill.value.type;
+    });
+
+    const skillTypes = computed(() =>
+    {
+        return [ 'general', 'magic', 'combat', 'social', 'knowledge' ]
+            .filter((type) =>
+            {
+                return type !== 'magic' || mode.value === 'genesys';
+            })
+            .map((type) => ({ text: startCase(type), value: type }));
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(char : EoteOrGenCharacter) : void
+    {
+        skills.value = char.details.skills;
+
+        characteristics.value = Object.keys(char.details.characteristics)
+            .sort()
+            .map((item) => ({ text: startCase(item), value: item }));
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', skills.value);
+    }
+
+    function onCancel() : void
+    {
+        skills.value = [];
+        characteristics.value = [];
+    }
+
+    function addSkill () : void
+    {
+        // Split skills list into each section
+        const skillsSplit = {
+            general: skills.value.filter((skill) => skill.type === 'general'),
+            magic: skills.value.filter((skill) => skill.type === 'magic'),
+            combat: skills.value.filter((skill) => skill.type === 'combat'),
+            social: skills.value.filter((skill) => skill.type === 'social'),
+            knowledge: skills.value.filter((skill) => skill.type === 'knowledge')
+        };
+
+        // Add new skill to the right type list
+        skillsSplit[newSkill.value.type].push(newSkill.value);
+
+        // Rebuild skills list in proper order
+        skills.value = [].concat(
+            skillsSplit.general,
+            skillsSplit.magic,
+            skillsSplit.combat,
+            skillsSplit.social,
+            skillsSplit.knowledge
+        );
+
+        // Reset new skill
+        newSkill.value = {
+            name: '',
+            career: false,
+            characteristic: '',
+            type: '',
+            ranks: 0
+        };
+    }
+
+    function removeSkill(index : number) : void
+    {
+        skills.value.splice(index, 1);
+    }
+
+    function moveSkillUp(index : number) : void
+    {
+        if(index > 0)
+        {
+            const start = index;
+            const end = index - 1;
+            skills.value.splice(end, 0, skills.value.splice(start, 1)[0]);
+        }
+    }
+
+    function moveSkillDown(index : number) : void
+    {
+        if(index < this.skills.length)
+        {
+            const start = index;
+            const end = index + 1;
+            this.skills.splice(end, 0, this.skills.splice(start, 1)[0]);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

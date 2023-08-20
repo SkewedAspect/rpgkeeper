@@ -4,9 +4,9 @@
 
 <template>
     <div id="app">
-        <site-header></site-header>
+        <SiteHeader></SiteHeader>
         <router-view></router-view>
-        <site-footer></site-footer>
+        <SiteFooter></SiteFooter>
     </div>
 </template>
 
@@ -20,23 +20,25 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-	//------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import SiteHeader from './components/ui/siteHeader.vue';
+    import SiteFooter from './components/ui/siteFooter.vue';
 
-    import Vue from 'vue';
+    // -----------------------------------------------------------------------------------------------------------------
+    // TODO: THIS IS TO HACK AROUND BROKEN BOOTSTRAP VUE IN VUE 3
+    // -----------------------------------------------------------------------------------------------------------------
 
-    // Components
-    import SiteHeader from './components/ui/header.vue';
-    import SiteFooter from './components/ui/footer.vue';
+    import { getCurrentInstance, onMounted } from 'vue';
+    import toastUtil from './lib/utils/toast';
 
-    //------------------------------------------------------------------------------------------------------------------
+    const instance = (getCurrentInstance() as any);
 
-    export default Vue.extend({
-        components: {
-            siteHeader: SiteHeader,
-            siteFooter: SiteFooter
-        }
+    onMounted(() =>
+    {
+        toastUtil.setInstance(instance);
     });
+
+    // -----------------------------------------------------------------------------------------------------------------
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

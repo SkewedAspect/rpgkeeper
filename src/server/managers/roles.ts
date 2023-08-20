@@ -10,7 +10,7 @@ import { Role } from '../models/role';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export async function list() : Promise<unknown>
+export async function list() : Promise<Role[]>
 {
     return (await table('role as r').select('r.role_id as id', 'r.name', 'r.permissions'))
         .map(Role.fromDB);

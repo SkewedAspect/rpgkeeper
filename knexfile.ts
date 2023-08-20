@@ -6,18 +6,22 @@ require('ts-node/register');
 
 //----------------------------------------------------------------------------------------------------------------------
 
+// This has to be first, for reasons
+import dotenv from 'dotenv';
+
 import knex from 'knex';
-
-// Config
-import configMan from './src/server/managers/config';
-
-// Logging
-import logging from 'trivial-logging';
-logging.setRootLogger('rpgkeeper');
-logging.init(configMan.config);
+import configUtil from '@strata-js/util-config';
 
 // Managers
 import { getConfig } from './src/server/managers/database';
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Configuration
+// ---------------------------------------------------------------------------------------------------------------------
+
+dotenv.config();
+const env = (process.env.ENVIRONMENT ?? 'local').toLowerCase();
+configUtil.load(`./config/${ env }.yml`);
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -2,8 +2,9 @@
 // SupplementManager
 //----------------------------------------------------------------------------------------------------------------------
 
+import { inspect } from 'node:util';
 import { Knex } from 'knex';
-import logging from 'trivial-logging';
+import logging from '@strata-js/util-logging';
 
 // Managers
 import { table } from './database';
@@ -24,11 +25,15 @@ import { MultipleResultsError, DuplicateSupplementError, NotFoundError, NotAutho
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const logger = logging.loggerFor(module);
+const logger = logging.getLogger(module.filename);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-async function $checkViewAccess(query : Knex.QueryBuilder, systemPrefix ?: string, account ?: Account) : Promise<Knex.QueryBuilder>
+async function $checkViewAccess(
+    query : Knex.QueryBuilder,
+    systemPrefix ?: string,
+    account ?: Account
+) : Promise<Knex.QueryBuilder>
 {
     if(account && systemPrefix)
     {
@@ -49,7 +54,12 @@ async function $checkViewAccess(query : Knex.QueryBuilder, systemPrefix ?: strin
     return query;
 }
 
-async function $checkModAccess(supplement : Supplement, systemPrefix : string, type : string, account ?: Account) : Promise<void>
+async function $checkModAccess(
+    supplement : Supplement,
+    systemPrefix : string,
+    type : string,
+    account ?: Account
+) : Promise<void>
 {
     if(account)
     {
@@ -58,18 +68,45 @@ async function $checkModAccess(supplement : Supplement, systemPrefix : string, t
         const isOwner = supplement.scope === 'user' && account.id === supplement.owner;
         if(!hasRight && !isOwner)
         {
-            throw new NotAuthorizedError('modify', `${ systemPrefix }/${ type }/${ supplement.name }/${ supplement.id }`);
+            throw new NotAuthorizedError(
+                'modify',
+                `${ systemPrefix }/${ type }/${ supplement.name }/${ supplement.id }`
+            );
         }
     }
 }
 
-async function $ensureCorrectOwner(supplement : Supplement, systemPrefix ?: string, account ?: Account) : Promise<Supplement>
+async function $ensureOfficialAllowed(
+    supplement : Supplement,
+    systemPrefix : string,
+    account ?: Account
+) : Promise<void>
+{
+    if(account)
+    {
+        // Check if we have permission to set official
+        const hasRight = permMan.hasPerm(account, `${ systemPrefix }/canSetOfficial`);
+        if(!hasRight)
+        {
+            supplement.official = false;
+        }
+    }
+}
+
+async function $ensureCorrectOwner(
+    supplement : Supplement,
+    systemPrefix ?: string,
+    account ?: Account
+) : Promise<Supplement>
 {
     if(account && systemPrefix)
     {
+        const hasRight = permMan.hasPerm(account, `${ systemPrefix }/canModifyContent`);
+        const isOwner = account.id === supplement.owner;
+
         // If we're not an admin user, and therefore allowed to add/edit content for other people, we have to make sure
         // that the owner is set to the account making this call. (Assuming one was passed in, of course.)
-        if(supplement.scope === 'user' && (!supplement.owner || !permMan.hasPerm(account, `${ systemPrefix }/canModifyContent`)))
+        if(supplement.scope === 'user' && (isOwner || hasRight))
         {
             supplement.owner = account.id;
         }
@@ -110,7 +147,11 @@ export async function get(id : number, type : string, systemPrefix : string, acc
     }
 }
 
-export async function list(filters : Record<string, FilterToken>, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement[]>
+export async function list(
+    filters : Record<string, FilterToken>,
+    type : string, systemPrefix : string,
+    account ?: Account
+) : Promise<Supplement[]>
 {
     const tableName = `${ systemPrefix }_${ type }`;
     let query = table(`${ tableName } as t`)
@@ -141,13 +182,20 @@ export async function exists(id : number, type : string, systemPrefix : string, 
     return !!supp;
 }
 
-export async function add(newSupplement : Record<string, unknown>, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
+export async function add(
+    newSupplement : Record<string, unknown>,
+    type : string, systemPrefix : string,
+    account ?: Account
+) : Promise<Supplement>
 {
     const tableName = `${ systemPrefix }_${ type }`;
     const supplement = Supplement.fromJSON(systemPrefix, type, newSupplement);
 
     // Ensure the supplement's ownership is valid.
     await $ensureCorrectOwner(supplement, systemPrefix, account);
+
+    // Ensure that official is allowed to be set.
+    await $ensureOfficialAllowed(supplement, systemPrefix, account);
 
     // Make sure we have permission to modify
     await $checkModAccess(supplement, systemPrefix, type, account);
@@ -156,11 +204,14 @@ export async function add(newSupplement : Record<string, unknown>, type : string
     // it's very hard to catch specific sqlite errors reliably, so we do the check explicitly.
     const suppExists = (await table(tableName)
         .select()
-        .where({ scope: supplement.scope, owner: supplement.owner, name: supplement.name })).length > 0;
+        .where({ scope: supplement.scope, owner: supplement.owner ?? null, name: supplement.name })).length > 0;
 
     if(suppExists)
     {
-        logger.warn('Attempted to add supplement with the same name, scope and owner as an existing one:', logger.dump(supplement.toJSON()));
+        logger.warn(
+            'Attempted to add supplement with the same name, scope and owner as an existing one:',
+            inspect(supplement.toJSON(), { depth: null })
+        );
         throw new DuplicateSupplementError(`${ systemPrefix }/${ type }/${ supplement.name }`);
     }
 
@@ -183,7 +234,12 @@ export async function add(newSupplement : Record<string, unknown>, type : string
     return get(id, type, systemPrefix, account);
 }
 
-export async function update(id : number, updateSup : Record<string, unknown>, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
+export async function update(
+    id : number,
+    updateSup : Record<string, unknown>,
+    type : string,
+    systemPrefix : string, account ?: Account
+) : Promise<Supplement>
 {
     const supplement = await get(id, type, systemPrefix, account);
     const tableName = `${ systemPrefix }_${ type }`;
@@ -202,6 +258,9 @@ export async function update(id : number, updateSup : Record<string, unknown>, t
 
     // Ensure the supplement's ownership is valid.
     await $ensureCorrectOwner(supplement, systemPrefix, account);
+
+    // Ensure that official is allowed to be set.
+    await $ensureOfficialAllowed(supplement, systemPrefix, account);
 
     // Make sure we have permission to modify
     await $checkModAccess(newSupplement, systemPrefix, type, account);
@@ -227,7 +286,12 @@ export async function update(id : number, updateSup : Record<string, unknown>, t
     return get(id, type, systemPrefix, account);
 }
 
-export async function remove(id : number, type : string, systemPrefix : string, account ?: Account) : Promise<{ status : 'ok' }>
+export async function remove(
+    id : number,
+    type : string,
+    systemPrefix : string,
+    account ?: Account
+) : Promise<{ status : 'ok' }>
 {
     const supplement = await get(id, type, systemPrefix, account).catch(() => undefined);
     const tableName = `${ systemPrefix }_${ type }`;

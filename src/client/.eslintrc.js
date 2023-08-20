@@ -1,6 +1,6 @@
 module.exports = {
     extends: [
-        'plugin:vue/recommended'
+        'plugin:vue/vue3-recommended'
     ],
     parser: 'vue-eslint-parser',
     parserOptions: {
@@ -76,7 +76,8 @@ module.exports = {
         {
             files: [ '*.vue' ],
             rules: {
-                indent: 'off'
+                '@typescript-eslint/no-unused-vars': 'off',
+                'indent': 'off'
             }
         }
     ]

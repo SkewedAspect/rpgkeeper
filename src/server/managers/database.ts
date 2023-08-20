@@ -2,23 +2,29 @@
 // Database Manager
 // ---------------------------------------------------------------------------------------------------------------------
 
-import configMan from './config';
 import knex, { Knex } from 'knex';
+import configUtil from '@strata-js/util-config';
+import logging from '@strata-js/util-logging';
 
 import { AppError } from '../errors';
 
-import logging from 'trivial-logging';
-const logger = logging.loggerFor(module);
+// Interfaces
+import { RPGKeeperConfig } from '../../common/interfaces/config';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 interface DBConfig extends Knex.Config<any> {
-    traceQueries : boolean
+    traceQueries ?: boolean
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-const useTestDB = configMan.get('useTestDB', false);
+// TODO: Make this configurable
+const useTestDB = false;
+
+const serverConfig = configUtil.getConfig<RPGKeeperConfig>();
+
+const logger = logging.getLogger('dbMan');
 
 // eslint-disable-next-line no-use-before-define
 const dbConfig : DBConfig = _buildConfig();
@@ -28,13 +34,13 @@ let db : Knex | undefined;
 
 function _buildConfig() : DBConfig
 {
-    const config : DBConfig = configMan.get('database', {
+    const config : DBConfig = serverConfig.database ?? {
         client: 'sqlite3',
         connection: {
             filename: './db/rpgk.db'
         },
         useNullAsDefault: true
-    }) as DBConfig;
+    } as DBConfig;
 
     // The 'testDB' is an in-memory sqlite database. This makes testing easier.
     if(useTestDB)
@@ -110,8 +116,8 @@ async function _setupDB() : Promise<Knex>
 
                 logger.warn('No existing database, creating one.');
 
-                await db.migrate.latest({ directory: './dist/src/server/knex/migrations' });
-                await db.seed.run({ directory: './dist/src/server/knex/seeds' });
+                await db.migrate.latest({ directory: './dist/server/knex/migrations' });
+                await db.seed.run({ directory: './dist/server/knex/seeds' });
 
                 return db;
             }
@@ -131,7 +137,7 @@ async function _setupDB() : Promise<Knex>
     logger.info('Running any needed migrations...');
 
     // Migrate to the latest migration
-    await db.migrate.latest({ directory: './dist/src/server/knex/migrations' });
+    await db.migrate.latest({ directory: './dist/server/knex/migrations', loadExtensions: [ '.js' ] });
 
     logger.info('Migrations complete.');
 
@@ -141,14 +147,14 @@ async function _setupDB() : Promise<Knex>
 
     logger.info('Running seeds...');
 
-    await db.seed.run({ directory: './dist/src/server/knex/seeds' });
+    await db.seed.run({ directory: './dist/server/knex/seeds', loadExtensions: [ '.js' ] });
 
     logger.info('Seeds complete.');
 
     // -----------------------------------------------------------------------------------------------------------------
 
     return db;
-} // _setupDB
+}
 
 // ---------------------------------------------------------------------------------------------------------------------
 

@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-characteristics-modal">
+    <div class="edit-characteristics-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -32,7 +31,8 @@
                             <b-input-group>
                                 <b-form-input
                                     :id="`${ char }-input`"
-                                    v-model.number="characteristics[char]"
+                                    v-model="characteristics[char]"
+                                    number
                                     type="number"
                                     step="1"
                                     min="0"
@@ -51,7 +51,7 @@
             <b-form-row>
                 <b-col v-for="char in characteristicNames.slice(3)" :key="char">
                     <b-form-group
-                        :label="startCase(char)"
+                        :label="formatCharName(char)"
                         label-class="font-weight-bold"
                         :label-for="`${ char }-input`"
                     >
@@ -59,7 +59,8 @@
                             <b-input-group>
                                 <b-form-input
                                     :id="`${ char }-input`"
-                                    v-model.number="characteristics[char]"
+                                    v-model="characteristics[char]"
+                                    number
                                     type="number"
                                     step="1"
                                     min="0"
@@ -91,89 +92,97 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-characteristics-modal {
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+
+    // Models
+    import { EoteCharacteristics, EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
+
+    // Utils
+    import { startCase } from '../../../../../common/utils/misc';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Events
+    {
+        (e : 'save', bio : EoteCharacteristics) : void;
     }
-</style>
 
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
-    import _ from 'lodash';
-
-    // Managers
-    import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EditCharacteristicsModal',
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                characteristics: {
-                    brawn: 0,
-                    agility: 0,
-                    intellect: 0,
-                    cunning: 0,
-                    willpower: 0,
-                    presence: 0
-                }
-            };
-        },
-        computed: {
-            characteristicNames()
-            {
-                return [
-                    'brawn',
-                    'agility',
-                    'intellect',
-                    'cunning',
-                    'willpower',
-                    'presence'
-                ];
-            }
-        },
-        methods: {
-            startCase(text)
-            {
-                return _.startCase(text);
-            },
-            async onSave()
-            {
-                Object.assign(this.character.details.characteristics, this.characteristics);
-
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                // Reset the edit fields
-                Object.assign(this.characteristics, this.character.details.characteristics);
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
+    const characteristics = ref<EoteCharacteristics>({
+        brawn: 0,
+        agility: 0,
+        intellect: 0,
+        cunning: 0,
+        willpower: 0,
+        presence: 0
     });
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const characteristicNames = computed(() =>
+    {
+        return Object.keys(characteristics.value);
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function formatCharName(text) : string
+    {
+        return startCase(text);
+    }
+
+    function show(char : EoteOrGenCharacter) : void
+    {
+        characteristics.value = {
+            ...characteristics.value,
+            ...char.details.characteristics
+        };
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', characteristics.value);
+    }
+
+    function onCancel() : void
+    {
+        characteristics.value = {
+            brawn: 0,
+            agility: 0,
+            intellect: 0,
+            cunning: 0,
+            willpower: 0,
+            presence: 0
+        };
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

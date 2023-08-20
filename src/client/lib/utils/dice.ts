@@ -77,7 +77,7 @@ class DiceUtil
         return expr.eval(scope);
     }
 
-    rollFudge(bonus = 0) : Roll
+    rollFudge(bonus = 0) : { render() : string, value : number }
     {
         const results = _.map(_.range(4), () =>
         {

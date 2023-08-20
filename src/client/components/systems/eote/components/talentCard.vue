@@ -6,20 +6,20 @@
     <b-card v-if="talent && talentBase" :id="id" class="eote-talent-card" no-body>
         <template #header>
             <div class="text-nowrap text-center">
-                <b>{{ talentBase.name }}</b>
+                <b>{{ talentBase?.name }}</b>
                 <span v-if="talentBase.ranked" class="font-weight-bold">{{ talent.ranks }}</span>
                 <span v-if="mode === 'genesys'">
-                    (Tier {{ talentBase.tier }})
+                    (Tier {{ talentBase?.tier }})
                 </span>
             </div>
 
             <b-popover :target="id" triggers="hover" placement="top">
                 <template #title>
                     <div :class="`${ mode }-system`">
-                        {{ talentBase.name }}
-                        <span v-if="talentBase.ranked">{{ talent.ranks }}</span>
+                        {{ talentBase?.name }}
+                        <span v-if="talentBase?.ranked">{{ talent.ranks }}</span>
                         <span v-if="mode === 'genesys'">
-                            (Tier {{ talent.tier }})
+                            (Tier {{ talentBase?.tier }})
                         </span>
                     </div>
                 </template>
@@ -27,13 +27,13 @@
                     <div>
                         <i>{{ activation }}</i>
                     </div>
-                    <markdown-block :text="talentBase.description" inline></markdown-block>
+                    <MarkdownBlock :text="talentBase?.description" inline></MarkdownBlock>
                     <div class="clearfix">
-                        <reference class="float-right mt-2 mb-2" :reference="talentBase.reference"></reference>
+                        <reference class="float-right mt-2 mb-2" :reference="talentBase?.reference"></reference>
                     </div>
                     <div v-if="talent.notes">
                         <hr class="mt-1 mb-1" />
-                        <markdown-block :text="talent.notes" inline></markdown-block>
+                        <MarkdownBlock :text="talent.notes" inline></MarkdownBlock>
                     </div>
                 </div>
             </b-popover>
@@ -43,7 +43,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
+<style lang="scss">
 .eote-talent-card {
     .card-header {
         border-bottom: none;
@@ -55,93 +55,69 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-//------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-    import Vue from 'vue';
+    // Models
+    import { EoteTalentInst, GenesysTalent } from '../../../../../common/interfaces/systems/eote';
 
     // Utils
     import { shortID } from '../../../../../common/utils/misc';
 
     // Managers
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
-    import MarkdownBlock from '../../../ui/markdown.vue';
-    import Reference from '../../../character/reference.vue';
+    import MarkdownBlock from '../../../ui/markdownBlock.vue';
+    import Reference from '../../../character/referenceBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EotETalentCard',
-        components: {
-            MarkdownBlock,
-            Reference
-        },
-        props: {
-            talent: {
-                type: Object,
-                required: true
-            },
-            readonly: {
-                type: Boolean,
-                default: false
-            }
-        },
-        subscriptions()
+    interface Props
+    {
+        talent : EoteTalentInst
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const uuid = ref(shortID());
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const id = computed(() => `critical-${ uuid.value }`);
+    const talent = computed(() => props.talent);
+    const mode = computed(() => eoteMan.mode);
+
+    // We use GenesysTalent here because it's just `TalentBase` exported, and XOR doesn't work how I want.
+    const talents = computed<GenesysTalent[]>(() => eoteMan.talents);
+
+    const talentBase = computed<GenesysTalent | undefined>(() =>
+    {
+        if(props.talent && props.talent.id)
         {
-            return {
-                talents: eoteMan.talents$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                uuid: shortID()
-            };
-        },
-        computed: {
-            id()
-            {
-                return `talent-${ this.uuid }`;
-            },
-            talentBase()
-            {
-                if(this.talent && this.talent.id)
-                {
-                    return this.talents.find((talent) => talent.id === this.talent.id);
-                }
-
-                return {};
-            },
-            activation()
-            {
-                if(this.talentBase.name)
-                {
-                    return eoteMan.activationEnum[this.talentBase.activation];
-                }
-
-                return '';
-            }
-        },
-        methods: {
-            edit()
-            {
-                if(!this.readonly)
-                {
-                    this.$emit('edit', this.talent.title);
-                }
-            },
-            remove()
-            {
-                if(!this.readonly)
-                {
-                    this.$emit('remove', this.talent.title);
-                }
-            }
+            return talents.value.find((item) => item.id === talent.value.id);
         }
 
+        return undefined;
+    });
+
+    const activation = computed(() =>
+    {
+        if(talentBase.value?.name)
+        {
+            return eoteMan.activationEnum[talentBase.value?.activation];
+        }
+
+        return '';
     });
 </script>
 

@@ -95,12 +95,13 @@ export async function add(accountID : string, newCharacter : Record<string, unkn
     await table('character')
         .insert({ ...char.toDB(), account_id, note_id });
 
-    return this.get(char.id);
+    // We know this is a string since it's set above.
+    return get(char.id as string);
 }
 
 export async function update(charID : string, updateChar : Record<string, unknown>) : Promise<Character>
 {
-    const char = await this.get(charID);
+    const char = await get(charID);
 
     // Mix the current character with the allowed updates.
     const allowedUpdate = {

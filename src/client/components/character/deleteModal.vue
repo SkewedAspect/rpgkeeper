@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="char" class="delete-char-modal">
+    <div class="delete-char-modal">
         <b-modal
-            v-model="showModal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
@@ -44,42 +44,62 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
+    import { ref } from 'vue';
+
+    // Interfaces
+    import { Character } from '../../../common/interfaces/common';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    interface Events
+    {
+        (e : 'hidden') : void;
+        (e : 'delete', char : Character<any>) : void;
+    }
 
-    // Managers
-    import charMan from '../../lib/managers/character';
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const char = ref<Character<any> | null>(null);
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(selectedChar : Character) : void
+    {
+        char.value = selectedChar;
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onHidden() : void
+    {
+        emit('hidden');
+    }
+
+    function onDelete() : void
+    {
+        emit('delete', char.value);
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'DeleteCharModal',
-        props: {
-            value: {
-                type: Object,
-                default: undefined
-            }
-        },
-        computed: {
-            showModal: {
-                get() { return !!this.value; },
-                set() { /* We ignore setting */ }
-            },
-            char() { return this.value; }
-        },
-        methods: {
-            onHidden()
-            {
-                this.$emit('hidden');
-            },
-            async onDelete()
-            {
-                await charMan.delete(this.char);
-            }
-        }
-    });
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

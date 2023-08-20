@@ -3,16 +3,16 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-extras-modal">
+    <div class="edit-extras-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
-            @shown="onShown"
+            @cancel="onCancel"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -26,9 +26,7 @@
                 label="Extras"
                 label-for="extras-input"
             >
-                <b-card class="overflow-hidden" no-body>
-                    <codemirror ref="editor" v-model="extras" :options="{ lineNumbers: true }"></codemirror>
-                </b-card>
+                <MarkdownEditor v-model:text="extras"></MarkdownEditor>
             </b-form-group>
 
             <!-- Modal Buttons -->
@@ -56,64 +54,64 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
+<script lang="ts" setup>
+    import { ref } from 'vue';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+    import MarkdownEditor from '../../ui/markdownEditor.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    import Vue from 'vue';
+    interface Events
+    {
+        (e : 'save', extras : string) : void;
+    }
 
-    // Managers
-    import charMan from '../../../lib/managers/character';
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const extras = ref<string>('');
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(charExtras : string) : void
+    {
+        // Clone the array of skills
+        extras.value = charExtras;
+
+        // Show the modal
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', extras.value);
+        extras.value = '';
+    }
+
+    function onCancel() : void
+    {
+        extras.value = '';
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EditExtrasModal',
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$
-            };
-        },
-        data()
-        {
-            return {
-                extras: ''
-            };
-        },
-        methods: {
-            async onSave()
-            {
-                this.character.details.extras = this.extras;
-
-                // Save the character
-                await charMan.save(this.character);
-
-                // Clear the extras
-                this.extras = '';
-            },
-            onShown()
-            {
-                this.extras = this.character.details.extras;
-                this.cmRefresh();
-            },
-            cmRefresh()
-            {
-                this.$nextTick(() =>
-                {
-                    this.$refs.editor.codemirror.refresh();
-                });
-            },
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
-    });
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

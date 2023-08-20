@@ -3,16 +3,15 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-experience-modal">
+    <div class="edit-experience-modal">
         <b-modal
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="md"
             @ok="onSave"
-            @shown="onShown"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -29,7 +28,7 @@
             >
                 <div class="d-flex flex-column">
                     <b-input-group>
-                        <b-form-input id="add-xp-input" v-model.number="addxp" type="number" min="0" step="1"></b-form-input>
+                        <b-form-input id="add-xp-input" v-model="xpToAdd" number type="number" min="0" step="1"></b-form-input>
                         <b-input-group-append>
                             <b-button variant="primary" @click="addXP()">
                                 <fa icon="plus"></fa>
@@ -57,7 +56,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="total-input" v-model.number="experience.total" type="number" min="0" step="1"></b-form-input>
+                            <b-form-input id="total-input" v-model="experience.total" number type="number" min="0" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="experience.total = 0">
                                     <fa icon="times"></fa>
@@ -75,7 +74,7 @@
                 >
                     <div class="d-flex">
                         <b-input-group>
-                            <b-form-input id="available-input" v-model.number="experience.available" type="number" min="0" step="1"></b-form-input>
+                            <b-form-input id="available-input" v-model="experience.available" number type="number" min="0" step="1"></b-form-input>
                             <b-input-group-append>
                                 <b-button @click="experience.available = 0">
                                     <fa icon="times"></fa>
@@ -101,75 +100,81 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-experience-modal {
+<script lang="ts" setup>
+    import { ref } from 'vue';
+
+    // Models
+    import { EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
+
+    // Components
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Experience
+    {
+        total : number;
+        available : number;
     }
-</style>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+    interface Events
+    {
+        (e : 'save', exp : Experience) : void;
+    }
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import Vue from 'vue';
-    import _ from 'lodash';
-
-    // Managers
-    import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'EditExperienceModal',
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$
-            };
-        },
-        data()
-        {
-            return {
-                experience: {
-                    total: 0,
-                    available: 0
-                },
-                addxp: 0
-            };
-        },
-        methods: {
-            async onSave()
-            {
-                this.character.details.experience = _.cloneDeep(this.experience);
-
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                // Reset the edit fields
-                this.experience = _.cloneDeep(this.character.details.experience);
-            },
-
-            addXP()
-            {
-                this.experience.total += this.addxp;
-                this.experience.available += this.addxp;
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            }
-        }
-
+    const experience = ref<Experience>({
+        total: 0,
+        available: 0
     });
+
+    const xpToAdd = ref(0);
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function show(char : EoteOrGenCharacter) : void
+    {
+        experience.value.total = char.details.experience.total;
+        experience.value.available = char.details.experience.available;
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        innerModal.value.hide();
+    }
+
+    function onSave() : void
+    {
+        emit('save', experience.value);
+    }
+
+    function onCancel() : void
+    {
+        experience.value.total = 0;
+        experience.value.available = 0;
+    }
+
+    function addXP() : void
+    {
+        experience.value.total += xpToAdd.value;
+        experience.value.available += xpToAdd.value;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -189,7 +189,7 @@
     import counter from './components/counter.vue';
     import roll from './components/roll.vue';
     import statblock from './components/statblock.vue';
-    import notes from '../../../../../client/components/notes/notes.vue';
+    import notes from '../../../../../client/components/notes/noteBook.vue';
     import AddEditStatModal from './modals/statAddEdit.vue';
 
     export default {

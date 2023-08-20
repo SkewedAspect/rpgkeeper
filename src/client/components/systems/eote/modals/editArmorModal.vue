@@ -3,10 +3,10 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div v-if="character" class="edit-armor-modal">
+    <div class="edit-armor-modal">
         <b-modal
             id="armorModal"
-            ref="modal"
+            ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
@@ -14,7 +14,7 @@
             body-class="position-static"
             size="xl"
             @ok="onSave"
-            @shown="onShown"
+            @cancel="onCancel"
         >
             <!-- Modal Header -->
             <template #modal-title>
@@ -31,7 +31,11 @@
                         label-class="font-weight-bold"
                         label-for="name-input"
                     >
-                        <b-form-input id="name-input" v-model="editArmor.name" type="text"></b-form-input>
+                        <b-form-input
+                            id="name-input"
+                            v-model="editArmor.name"
+                            type="text"
+                        ></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 w-25"
@@ -39,7 +43,14 @@
                         label-class="font-weight-bold"
                         label-for="armor-hardpoints"
                     >
-                        <b-form-input id="armor-hardpoints" v-model.number="editArmor.hardpoints" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input
+                            id="armor-hardpoints"
+                            v-model="editArmor.hardpoints"
+                            number
+                            type="number"
+                            min="0"
+                            step="0"
+                        ></b-form-input>
                     </b-form-group>
                 </b-form-row>
 
@@ -50,7 +61,14 @@
                         label-class="font-weight-bold"
                         label-for="armor-damage"
                     >
-                        <b-form-input id="armor-damage" v-model.number="editArmor.defense" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input
+                            id="armor-damage"
+                            v-model="editArmor.defense"
+                            number
+                            type="number"
+                            min="0"
+                            step="0"
+                        ></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -58,7 +76,14 @@
                         label-class="font-weight-bold"
                         label-for="armor-critical"
                     >
-                        <b-form-input id="armor-critical" v-model.number="editArmor.soak" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input
+                            id="armor-critical"
+                            v-model="editArmor.soak"
+                            number
+                            type="number"
+                            min="0"
+                            step="0"
+                        ></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -66,7 +91,14 @@
                         label-class="font-weight-bold"
                         label-for="armor-encumbrance"
                     >
-                        <b-form-input id="armor-encumbrance" v-model.number="editArmor.encumbrance" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input
+                            id="armor-encumbrance"
+                            v-model="editArmor.encumbrance"
+                            number
+                            type="number"
+                            min="0"
+                            step="0"
+                        ></b-form-input>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 w-25"
@@ -74,11 +106,18 @@
                         label-class="font-weight-bold"
                         label-for="armor-rarity"
                     >
-                        <b-form-input id="armor-rarity" v-model.number="editArmor.rarity" type="number" min="0" step="0"></b-form-input>
+                        <b-form-input
+                            id="armor-rarity"
+                            v-model="editArmor.rarity"
+                            number
+                            type="number"
+                            min="0"
+                            step="0"
+                        ></b-form-input>
                     </b-form-group>
                 </b-form-row>
 
-                <quality-edit v-model="editArmor.qualities"></quality-edit>
+                <QualityEdit v-model:qualities="editArmor.qualities"></QualityEdit>
 
                 <b-form-row>
                     <b-col cols="8" offset="2">
@@ -115,92 +154,97 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
 
-    import Vue from 'vue';
-    import _ from 'lodash';
+    // Models
+    import { EoteArmorRef, EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
-    import charMan from '../../../../lib/managers/character';
-    import eoteMan from '../../../../lib/managers/eote';
+    import eoteMan from '../../../../lib/managers/systems/eote';
 
     // Components
     import QualityEdit from '../components/qualityEdit.vue';
+    import { BModal } from 'bootstrap-vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Events
+    {
+        (e : 'save', armor : EoteArmorRef) : void;
+    }
+
+    const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const editArmor = ref({
+        name: '',
+        defense: 0,
+        soak: 0,
+        hardpoints: 0,
+        encumbrance: 0,
+        rarity: 0,
+        qualities: []
+    });
+
+    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const mode = computed(() => eoteMan.mode);
+    const qualities = computed(() => eoteMan.qualities);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function clear()
+    {
+        editArmor.value = {
+            name: '',
+            defense: 0,
+            soak: 0,
+            hardpoints: 0,
+            encumbrance: 0,
+            rarity: 0,
+            qualities: []
+        };
+    }
+
+    function show(char : EoteOrGenCharacter) : void
+    {
+        editArmor.value = char.details.armor;
+
+        innerModal.value.show();
+    }
+
+    function hide() : void
+    {
+        clear();
+
+        innerModal.value.hide();
+    }
+
+    async function onSave()
+    {
+        emit('save', editArmor.value as EoteArmorRef);
+    }
+
+    function onCancel() : void
+    {
+        clear();
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
-    export default Vue.extend({
-        name: 'AddEditArmorModal',
-        components: {
-            QualityEdit
-        },
-        subscriptions()
-        {
-            return {
-                character: charMan.selected$,
-                mode: eoteMan.mode$,
-                qualities: eoteMan.qualities$
-            };
-        },
-        data()
-        {
-            return {
-                editArmor: {
-                    name: '',
-                    defense: 0,
-                    soak: 0,
-                    hardpoints: 0,
-                    encumbrance: 0,
-                    rarity: 0,
-                    qualities: []
-                }
-            };
-        },
-        methods: {
-            async onSave()
-            {
-                this.character.details.armor = _.cloneDeep(this.editArmor);
-
-                // Save the character
-                await charMan.save(this.character);
-            },
-            onShown()
-            {
-                if(this.character.details.armor.name)
-                {
-                    this.editArmor = _.cloneDeep(this.character.details.armor);
-                }
-                else
-                {
-                    // Reset the edit fields
-                    this.clear();
-                }
-            },
-
-            show()
-            {
-                this.$refs.modal.show();
-            },
-            hide()
-            {
-                this.$refs.modal.hide();
-            },
-            clear()
-            {
-                this.$set(this, 'editArmor', {
-                    name: '',
-                    defense: 0,
-                    soak: 0,
-                    hardpoints: 0,
-                    encumbrance: 0,
-                    rarity: 0,
-                    qualities: []
-                });
-            }
-        }
-
-    });
+    defineExpose({ show, hide });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

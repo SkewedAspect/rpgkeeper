@@ -6,21 +6,20 @@ I want to rework a lot of the infrastructure so that it's easier to add things t
 * [X] Switch to Bootstrap v4 (and Bootstrap-Vue)
 * [X] Add a base model class that knows if it's dirty ~~(Proxy-based)~~
 * [X] Use RxJS to manage state; the current character becomes an observable
-* [ ] Evaluate using `vuex` instead of RxJS, and the special models.
+* [X] ~~Evaluate using `vuex` instead of RxJS, and the special models.~~
 * [X] Move all resource access (like loading characters, systems, etc) into 'resource-access'
 * [X] Move all state holding and application logic to 'managers'
 * [X] Make components very, very dumb. They only have their own state, and logic relevant to their display.
 * [X] Move to ~~webpack~~ parcel.
-* [ ] Implement `socket.io` so open pages stay in sync as changes are made. (Think, GM opening character pages.)
+* [X] Implement `socket.io` so open pages stay in sync as changes are made. (Think, GM opening character pages.)
 * [X] Move to `knex` and sqlite (with the option for `postgres` for deployment)
 * [X] Move away from one table per system character to a single character record.
     * [X] ~~The system specific data would be a `any()` blob of JSON.~~
     * [X] Each system would define an [ajv][] schema for it's specific data.
     * [X] ~~Evaluate and possibly implement [Joi][joi] instead of [AJV][ajv].~~
     * [X] Any additional data (classes, spells, etc) needed should be treated as static data, and loaded as seeds into the database.
-* [X] Move and refactor systems; they should no longer be their own thing, they should be integrated as just run of the
-    mill routes/components, as part of the application. No need for shared units like current.
-* [ ] Convert to typescript
+* [X] Move and refactor systems; they should no longer be their own thing, they should be integrated as just run-of-the-mill routes/components, as part of the application. No need for shared units like current.
+* [X] Convert to typescript
     * [ ] Convert to better validation/data model (See #52)
 * [ ] Setup a reasonable ~~docker build~~/deploy pipeline in GitHub. (PARTIAL)
 * [X] Setup eslint MR checking in GitHub.
