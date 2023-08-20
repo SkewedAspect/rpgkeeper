@@ -11,7 +11,7 @@ auth:
     clientSecret: $CLIENT_SECRET
 http:
   secure: false,
-  port: $SERVER_PORT
+  port: 5678
 database:
   client: 'better-sqlite3'
   connection:

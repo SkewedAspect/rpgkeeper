@@ -201,7 +201,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     setSIOInstance(sio);
 
     // Start the server
-    server.listen(config.http.port, '0.0.0.0', () =>
+    server.listen(config.http.port, () =>
     {
         const { address, port } = server.address() as AddressInfo;
         const host = address === '::' ? 'localhost' : address;
