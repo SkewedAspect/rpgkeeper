@@ -63,7 +63,7 @@ jobs:
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: image push --all-tags morgul/rpgkeeper
+          args: image push -a morgul/rpgkeeper
 
   # Deploys Beta docker
   deploy-beta:
