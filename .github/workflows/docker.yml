@@ -59,11 +59,17 @@ jobs:
                 docker build -t morgul/rpgkeeper:${VERSION} -t morgul/rpgkeeper:latest .
             fi
 
-      - name: Push docker
+      - name: Push tagged version
+        if: success() && $VERSION != 'latest'
+        uses: actions-hub/docker@master
+        with:
+          args: push morgul/rpgkeeper:${VERSION}
+
+      - name: Push latest
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: image push -a morgul/rpgkeeper
+          args: push morgul/rpgkeeper:latest
 
   # Deploys Beta docker
   deploy-beta:
