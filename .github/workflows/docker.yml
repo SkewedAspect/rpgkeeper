@@ -60,7 +60,7 @@ jobs:
             fi
 
       - name: Push tagged version
-        if: success() && $VERSION != 'latest'
+        if: success() && env.VERSION != 'latest'
         uses: actions-hub/docker@master
         with:
           args: push morgul/rpgkeeper:${VERSION}
