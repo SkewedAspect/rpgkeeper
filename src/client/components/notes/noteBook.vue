@@ -13,7 +13,7 @@
                         Character Notes
                     </span>
                 </h5>
-                <div class="ml-auto d-flex flex-nowrap">
+                <div class="ms-auto d-flex flex-nowrap">
                     <BFormSelect v-model="pageIndex" class="me-2 d-sm-none" :options="notes.pages" text-field="title" value-field="id"></BFormSelect>
                     <BButtonToolbar class="flex-shrink-0 flex-grow-0 w-auto">
                         <BButton @click="openAddEditModal()">

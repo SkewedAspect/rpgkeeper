@@ -43,7 +43,7 @@
                                 <fa class="me-1" icon="users"></fa>
                                 <span class="d-none d-md-inline">Characters</span>
                             </h5>
-                            <BInputGroup class="flex-fill ml-auto" style="max-width: 400px">
+                            <BInputGroup class="flex-fill ms-auto" style="max-width: 400px">
                                 <BFormInput v-model="charFilter" placeholder="Search Characters..."></BFormInput>
                                 <BInputGroupAppend>
                                     <BButton variant="primary">
@@ -71,7 +71,7 @@
                                             <div class="me-1">
                                                 {{ system.name }}
                                             </div>
-                                            <div class="ml-auto text-end">
+                                            <div class="ms-auto text-end">
                                                 <BBadge
                                                     v-if="system.status"
                                                     :variant="getStatusVariant(system.status)"

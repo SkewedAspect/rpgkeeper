@@ -10,7 +10,7 @@
                     <fa class="me-1" icon="hand-holding-magic"></fa>
                     <span class="d-none d-md-inline">Stunts</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
+                <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>

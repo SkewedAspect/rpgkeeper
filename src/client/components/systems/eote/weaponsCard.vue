@@ -11,7 +11,7 @@
                     <fa class="me-1" :icon="mode === 'eote' ? 'sword-laser-alt' : 'sword'"></fa>
                     <span class="d-none d-md-inline">Weapons</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
+                <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openAddEditModal()">
                         <fa icon="plus" fixed-width></fa>
                         <span class="d-none d-md-inline">Add</span>
