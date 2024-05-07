@@ -24,7 +24,7 @@
                 <SupplementSelect
                     ref="suppSelect"
                     label="Force Powers"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     :available="forcePowers"
                     :selected="selectedForcePowers"
                     @add="onForcePowerAdd"
@@ -68,7 +68,7 @@
                             </template>
                         </b-table>
                         <ReferenceBlock
-                            class="float-right mt-2"
+                            class="float-end mt-2"
                             :reference="supplement.reference"
                         ></ReferenceBlock>
                     </template>

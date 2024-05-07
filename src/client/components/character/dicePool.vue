@@ -8,7 +8,7 @@
             <span
                 v-for="index in poolRange"
                 :key="index"
-                class="ml-1"
+                class="ms-1"
                 @click.stop.prevent="setPoolCurrent(index)"
                 @mouseover="hoveredIndex = index"
                 @mouseout="hoveredIndex = null"
@@ -27,7 +27,7 @@
         </div>
         <BButton
             v-if="showEdit"
-            class="ml-2 d-inline-block align-top"
+            class="ms-2 d-inline-block align-top"
             variant="outline-secondary"
             size="sm"
             @click="openEditMax"

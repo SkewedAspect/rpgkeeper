@@ -24,7 +24,7 @@
                                     <slot :supplement="supplement" name="suggestion-extra"></slot>
                                 </template>
                                 <template #append-extra>
-                                    <BButton class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew()">
+                                    <BButton class="ms-2 text-nowrap" variant="success" title="Add New..." @click="addNew()">
                                         <fa icon="plus"></fa>
                                         New
                                     </BButton>
@@ -41,10 +41,10 @@
                             :variant=" supp.id === currentSelection ? 'primary' : ''"
                             @click="selectSupp(supp)"
                         >
-                            <div class="float-right">
+                            <div class="float-end">
                                 <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra"></slot>
                                 <ScopeBadge :supplement="getSupp(supp.id)"></ScopeBadge>
-                                <BButton class="ml-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
+                                <BButton class="ms-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
                                     <fa icon="times"></fa>
                                 </BButton>
                             </div>
@@ -65,12 +65,12 @@
                 <BCard class="h-100">
                     <template v-if="currentSelection" #header>
                         <slot :instance="supplementInstance" :supplement="currentSupplement" name="header">
-                            <div v-if="canModify" class="float-right">
+                            <div v-if="canModify" class="float-end">
                                 <BButton size="sm" class="mt-1" @click="editSupp(currentSupplement)">
                                     <fa icon="edit"></fa>
                                     Edit
                                 </BButton>
-                                <BButton variant="danger" class="ml-1 mt-1" size="sm" @click="deleteSupp(currentSupplement)">
+                                <BButton variant="danger" class="ms-1 mt-1" size="sm" @click="deleteSupp(currentSupplement)">
                                     <fa icon="trash-alt"></fa>
                                     Delete
                                 </BButton>
@@ -97,7 +97,7 @@
                                 <b-form-spinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></b-form-spinbutton>
                             </div>
                             <MarkdownBlock :text="currentSupplement.description" inline></MarkdownBlock>
-                            <div class="text-right mt-auto">
+                            <div class="text-end mt-auto">
                                 <h5><ScopeBadge :supplement="currentSupplement"></ScopeBadge></h5>
                                 <ReferenceBlock :reference="currentSupplement.reference"></ReferenceBlock>
                             </div>

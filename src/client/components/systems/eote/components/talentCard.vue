@@ -7,7 +7,7 @@
         <template #header>
             <div class="text-nowrap text-center">
                 <b>{{ talentBase?.name }}</b>
-                <span v-if="talentBase.ranked" class="font-weight-bold">{{ talent.ranks }}</span>
+                <span v-if="talentBase.ranked" class="fw-bold">{{ talent.ranks }}</span>
                 <span v-if="mode === 'genesys'">
                     (Tier {{ talentBase?.tier }})
                 </span>
@@ -29,7 +29,7 @@
                     </div>
                     <MarkdownBlock :text="talentBase?.description" inline></MarkdownBlock>
                     <div class="clearfix">
-                        <reference class="float-right mt-2 mb-2" :reference="talentBase?.reference"></reference>
+                        <reference class="float-end mt-2 mb-2" :reference="talentBase?.reference"></reference>
                     </div>
                     <div v-if="talent.notes">
                         <hr class="mt-1 mb-1" />

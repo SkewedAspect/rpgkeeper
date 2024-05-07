@@ -12,7 +12,7 @@
                 <MarkdownBlock :text="qualityText" inline></MarkdownBlock>
                 <ReferenceBlock
                     v-if="qualityReference"
-                    class="float-right mt-2 mb-2"
+                    class="float-end mt-2 mb-2"
                     :reference="qualityReference"
                 ></ReferenceBlock>
             </div>

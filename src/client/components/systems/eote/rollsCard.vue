@@ -29,10 +29,10 @@
 
         <!-- Roll History -->
         <div class="flex-fill mb-3 overflow-auto h-0">
-            <div v-if="rollResult.name" class="mr-1 float-left text-muted">
+            <div v-if="rollResult.name" class="me-1 float-start text-muted">
                 <small>{{ rollResult.name }}</small>
             </div>
-            <div class="text-right text-muted">
+            <div class="text-end text-muted">
                 <!-- eslint-disable-next-line vue/no-v-html -->
                 <span v-html="fullResultDisplay"></span>
             </div>
@@ -44,12 +44,12 @@
         </div>
 
         <!-- Roll Buttons -->
-        <div v-if="!readonly" class="text-right">
+        <div v-if="!readonly" class="text-end">
             <BButton :disabled="readonly" @click="clearRoll()">
                 <fa icon="times"></fa>
                 Clear
             </BButton>
-            <BButton variant="primary" class="ml-1" :disabled="readonly" @click="roll()">
+            <BButton variant="primary" class="ms-1" :disabled="readonly" @click="roll()">
                 <fa icon="dice"></fa>
                 Roll
             </BButton>

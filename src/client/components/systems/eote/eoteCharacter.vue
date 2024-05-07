@@ -5,20 +5,20 @@
 <template>
     <div id="eote-character" class="container-fluid" :class="`${ char.system }-system`">
         <div class="d-flex">
-            <portrait class="mr-1 d-none d-lg-block" :src="char.portrait" size="lg"></portrait>
+            <portrait class="me-1 d-none d-lg-block" :src="char.portrait" size="lg"></portrait>
             <div class="d-flex flex-column w-50">
                 <BioCard :readonly="!isAuthorized" @save="onSave"></BioCard>
                 <CharCard class="mt-1" :readonly="!isAuthorized" @save="onSave"></CharCard>
             </div>
             <RollsCard
                 ref="roller"
-                class="ml-1 w-50"
+                class="ms-1 w-50"
                 :skills="char.details.skills"
                 :readonly="!isAuthorized"
             ></RollsCard>
         </div>
         <div class="d-flex mt-1">
-            <div class="d-flex flex-column flex-fill mr-1">
+            <div class="d-flex flex-column flex-fill me-1">
                 <SkillsCard :readonly="!isAuthorized" @roll="onRoll" @save="onSave"></SkillsCard>
                 <TalentsCard class="mt-1" :readonly="!isAuthorized" @save="onSave"></TalentsCard>
                 <ForcePowers

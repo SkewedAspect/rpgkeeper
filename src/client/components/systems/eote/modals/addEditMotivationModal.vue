@@ -30,7 +30,7 @@
                 <b-col cols="9">
                     <b-form-group
                         label="Name"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="name-input"
                     >
                         <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
@@ -40,7 +40,7 @@
                     <b-form-group
                         v-slot="{ ariaDescribedby }"
                         label="Type"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                     >
                         <b-form-radio
                             v-model="type"
@@ -84,7 +84,7 @@
             <b-form-group
                 id="description-input-group"
                 label="Description"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="description-input"
             >
                 <MarkdownEditor v-model:text="description"></MarkdownEditor>

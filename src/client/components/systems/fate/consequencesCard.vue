@@ -6,8 +6,8 @@
     <RpgkCard id="fate-consequences" :class="{ readonly: readonly }" fill no-body>
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="skull-crossbones"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="skull-crossbones"></fa>
                     <span class="d-none d-md-inline">Consequences</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
@@ -22,7 +22,7 @@
         <!-- Content -->
         <table class="table table-bordered mb-0 font-sm">
             <tr>
-                <td class="text-right text-nowrap" style="width: 1%">
+                <td class="text-end text-nowrap" style="width: 1%">
                     <b>2</b>
                 </td>
                 <td style="min-width: 80px" :colspan="hasExtraMild ? 1 : 2">
@@ -41,7 +41,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="text-right text-nowrap" style="width: 1%">
+                <td class="text-end text-nowrap" style="width: 1%">
                     <b>4</b>
                 </td>
                 <td style="min-width: 80px" colspan="2">
@@ -53,7 +53,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="text-right text-nowrap" style="width: 1%">
+                <td class="text-end text-nowrap" style="width: 1%">
                     <b>6</b>
                 </td>
                 <td style="min-width: 80px" colspan="2">

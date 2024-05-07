@@ -24,7 +24,7 @@
                 <supplement-select
                     ref="suppSelect"
                     label="Talents"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     :available="sortedTalents"
                     :selected="sortedSelected"
                     :sort-fn="() => 0"
@@ -36,7 +36,7 @@
                 >
                     <template #preview="{ instance, supplement }">
                         <div class="clearfix">
-                            <div v-if="supplement.ranked" class="mb-2 float-right">
+                            <div v-if="supplement.ranked" class="mb-2 float-end">
                                 <label>Ranks</label>
                                 <b-form-spinbutton v-model="getInst(instance.id).ranks" inline></b-form-spinbutton>
                             </div>
@@ -45,13 +45,13 @@
                             </div>
                             <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
                             <reference
-                                class="float-right mt-2"
+                                class="float-end mt-2"
                                 :reference="supplement.reference"
                             ></reference>
                         </div>
                         <div class="font-sm">
                             <hr />
-                            <div class="float-right">
+                            <div class="float-end">
                                 <BButton v-if="!editInstance" size="sm" @click="editInstanceNotes(instance)">
                                     <fa icon="edit"></fa>
                                     Edit Notes
@@ -60,8 +60,8 @@
                             <BCard v-if="editInstance" class="overflow-hidden" no-body>
                                 <MarkdownBlock v-model:text="editInstance.notes" inline></MarkdownBlock>
                                 <template #footer>
-                                    <div class="text-right">
-                                        <BButton v-if="editInstance" class="mr-2" size="sm" @click="saveInstanceNotes(instance, true)">
+                                    <div class="text-end">
+                                        <BButton v-if="editInstance" class="me-2" size="sm" @click="saveInstanceNotes(instance, true)">
                                             <fa icon="times"></fa>
                                             Cancel Notes
                                         </BButton>
@@ -77,19 +77,19 @@
                         </div>
                     </template>
                     <template #preview-title="{ instance, supplement }">
-                        <div v-if="mode === 'genesys'" class="float-right mr-2">
+                        <div v-if="mode === 'genesys'" class="float-end me-2">
                             <span class="text-muted">Tier {{ supplement.tier }}</span>
                         </div>
                         {{ supplement.name }}
                         <span v-if="supplement.ranked">{{ instance.ranks }}</span>
                     </template>
                     <template #selection-extra="{ supplement }">
-                        <b-badge v-if="mode === 'genesys'" class="mr-1">
+                        <b-badge v-if="mode === 'genesys'" class="me-1">
                             Tier {{ supplement.tier }}
                         </b-badge>
                     </template>
                     <template #suggestion-extra="{ supplement }">
-                        <b-badge v-if="mode === 'genesys'" class="mr-1">
+                        <b-badge v-if="mode === 'genesys'" class="me-1">
                             Tier {{ supplement.tier }}
                         </b-badge>
                     </template>

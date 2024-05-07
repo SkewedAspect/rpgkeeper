@@ -7,24 +7,24 @@
         <!-- Card Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="book"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="book"></fa>
                     <span class="d-none d-md-inline">
                         Character Notes
                     </span>
                 </h5>
                 <div class="ml-auto d-flex flex-nowrap">
-                    <BFormSelect v-model="pageIndex" class="mr-2 d-sm-none" :options="notes.pages" text-field="title" value-field="id"></BFormSelect>
+                    <BFormSelect v-model="pageIndex" class="me-2 d-sm-none" :options="notes.pages" text-field="title" value-field="id"></BFormSelect>
                     <BButtonToolbar class="flex-shrink-0 flex-grow-0 w-auto">
                         <BButton @click="openAddEditModal()">
                             <fa icon="file-plus" fixed-width></fa>
                             <span class="d-none d-md-inline">New</span>
                         </BButton>
-                        <BButton class="ml-2" :disabled="!currentPage" @click="openAddEditModal(currentPage)">
+                        <BButton class="ms-2" :disabled="!currentPage" @click="openAddEditModal(currentPage)">
                             <fa icon="edit" fixed-width></fa>
                             <span class="d-none d-md-inline">Edit</span>
                         </BButton>
-                        <BButton class="ml-2" :disabled="!currentPage" @click="openDelModal(currentPage)">
+                        <BButton class="ms-2" :disabled="!currentPage" @click="openDelModal(currentPage)">
                             <fa icon="trash-alt" fixed-widt></fa>
                             <span class="d-none d-md-inline">Delete</span>
                         </BButton>

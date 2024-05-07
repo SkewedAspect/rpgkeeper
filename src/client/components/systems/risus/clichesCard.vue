@@ -7,8 +7,8 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="flame"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="flame"></fa>
                     <span class="d-none d-md-inline">Cliches</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
@@ -26,7 +26,7 @@
                 <b-form-spinbutton
                     v-model="cliche.current"
                     style="min-width: 40px; max-width: 40px"
-                    class="mr-2"
+                    class="me-2"
                     min="0"
                     :max="cliche.value"
                     step="1"
@@ -59,7 +59,7 @@
                         block
                         @click="resetCliche(cliche)"
                     >
-                        <fa icon="arrow-to-top"></fa>
+                        <fa icon="popover-arrow-to-top"></fa>
                         Reset to Max
                     </BButton>
                 </div>

@@ -34,8 +34,8 @@
                     </div>
                     <div v-for="skill in filterRankSkills(rank.value)" :key="skill.name" class="d-flex mb-2">
                         <BFormInput v-model="skill.name"></BFormInput>
-                        <BFormSelect v-model="skill.rank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
-                        <BButton variant="danger" class="ml-2" @click="removeSkill(skill)">
+                        <BFormSelect v-model="skill.rank" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
+                        <BButton variant="danger" class="ms-2" @click="removeSkill(skill)">
                             <fa icon="trash-alt"></fa>
                         </BButton>
                     </div>
@@ -51,8 +51,8 @@
             >
                 <div class="d-flex">
                     <BFormInput id="name-input" v-model="newSkillName" placeholder="Skill name"></BFormInput>
-                    <BFormSelect v-model="newSkillRank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
-                    <BButton variant="primary" class="ml-2 text-nowrap" @click="addSkill">
+                    <BFormSelect v-model="newSkillRank" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
+                    <BButton variant="primary" class="ms-2 text-nowrap" @click="addSkill">
                         <fa icon="plus"></fa>
                         Add
                     </BButton>

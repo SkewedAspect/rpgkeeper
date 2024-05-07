@@ -23,7 +23,7 @@
             <b-form-group
                 class="flex-fill"
                 label="Add XP"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="add-xp-input"
             >
                 <div class="d-flex flex-column">
@@ -51,7 +51,7 @@
                 <b-form-group
                     class="flex-fill"
                     label="Total"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="total-input"
                 >
                     <div class="d-flex">
@@ -67,9 +67,9 @@
                 </b-form-group>
 
                 <b-form-group
-                    class="flex-fill ml-2"
+                    class="flex-fill ms-2"
                     label="Available"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="available-input"
                 >
                     <div class="d-flex">

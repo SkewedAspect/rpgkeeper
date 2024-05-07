@@ -5,12 +5,12 @@
     <b-form-group
         class="supp-scope-select"
         label="Scope"
-        label-class="font-weight-bold"
+        label-class="fw-bold"
         label-for="name-input"
     >
         <div class="d-flex">
             <BFormSelect v-model="scope" :options="options" :disabled="!canMakePublic"></BFormSelect>
-            <BFormCheckbox v-model="official" class="ml-2 mt-2" switch>
+            <BFormCheckbox v-model="official" class="ms-2 mt-2" switch>
                 Official
             </BFormCheckbox>
         </div>

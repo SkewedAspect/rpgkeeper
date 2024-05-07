@@ -7,8 +7,8 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="jedi"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="jedi"></fa>
                     <span class="d-none d-md-inline">Force</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
@@ -22,7 +22,7 @@
 
         <!-- Card Body -->
         <div v-if="forcePool.sensitive" class="d-flex">
-            <div class="flex-fill mr-2">
+            <div class="flex-fill me-2">
                 <label class="d-block text-center mt-2"><b>Committed</b></label>
                 <b-form-spinbutton
                     v-model="forcePool.committed"

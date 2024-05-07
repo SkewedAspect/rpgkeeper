@@ -3,11 +3,11 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <RpgkCard id="fate-skills" class="ml-2" :class="{ readonly: readonly }" no-body fill>
+    <RpgkCard id="fate-skills" class="ms-2" :class="{ readonly: readonly }" no-body fill>
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="scroll"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="scroll"></fa>
                     <span class="d-none d-md-inline">Skills</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
@@ -23,7 +23,7 @@
         <table class="table table-bordered mb-0 font-sm">
             <!-- eslint-disable-next-line vue/no-template-shadow -->
             <tr v-for="{ name, skills } in rows" :key="name">
-                <td class="text-right text-nowrap" style="width: 1%">
+                <td class="text-end text-nowrap" style="width: 1%">
                     <b>{{ name }}</b>
                 </td>
                 <td v-for="columnIdx in columns" :key="columnIdx" style="min-width: 80px">
@@ -42,15 +42,15 @@
 <style lang="scss" scoped>
     #fate-skills {
         table {
-            border-left: none !important;
-            border-right: none !important;
+            border-start: none !important;
+            border-end: none !important;
 
             td:first-child {
-                border-left: none !important;
+                border-start: none !important;
             }
 
             td:last-child {
-                border-right: none !important;
+                border-end: none !important;
             }
         }
     }

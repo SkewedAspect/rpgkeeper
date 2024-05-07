@@ -22,12 +22,12 @@
             <!-- Modal Content -->
             <div class="d-flex">
                 <BCard
-                    class="flex-fill w-50 mr-1"
+                    class="flex-fill w-50 me-1"
                     :border-variant="isStrengthDirty ? 'success' : undefined"
                 >
                     <template #header>
                         <div class="d-flex">
-                            <h6 class="mt-2 mr-3">
+                            <h6 class="mt-2 me-3">
                                 Strength
                             </h6>
                             <supplement-search
@@ -38,7 +38,7 @@
                             >
                                 <template #append-extra>
                                     <BButton
-                                        class="ml-2 text-nowrap"
+                                        class="ms-2 text-nowrap"
                                         variant="success"
                                         title="Add New..."
                                         @click="addNew('strength')"
@@ -52,18 +52,18 @@
                     </template>
 
                     <div v-if="strength">
-                        <div v-if="isEditable(strength)" class="float-right">
-                            <BButton class="ml-1 mt-1" size="sm" @click="editMotivation(strength)">
+                        <div v-if="isEditable(strength)" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(strength)">
                                 <fa icon="edit"></fa>
                                 Edit
                             </BButton>
-                            <BButton class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(strength)">
+                            <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(strength)">
                                 <fa icon="trash"></fa>
                                 Delete
                             </BButton>
                         </div>
-                        <div v-if="isStrengthDirty" class="float-right">
-                            <BButton class="ml-1 mt-1" size="sm" @click="revert('strength')">
+                        <div v-if="isStrengthDirty" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="revert('strength')">
                                 <fa icon="undo"></fa>
                                 Undo
                             </BButton>
@@ -78,12 +78,12 @@
                     </h6>
                 </BCard>
                 <BCard
-                    class="flex-fill w-50 ml-1"
+                    class="flex-fill w-50 ms-1"
                     :border-variant="isFlawDirty ? 'success' : undefined"
                 >
                     <template #header>
                         <div class="d-flex">
-                            <h6 class="mt-2 mr-3">
+                            <h6 class="mt-2 me-3">
                                 Flaw
                             </h6>
                             <supplement-search
@@ -94,7 +94,7 @@
                             >
                                 <template #append-extra>
                                     <BButton
-                                        class="ml-2 text-nowrap"
+                                        class="ms-2 text-nowrap"
                                         variant="success"
                                         title="Add New..."
                                         @click="addNew('flaw')"
@@ -108,18 +108,18 @@
                     </template>
 
                     <div v-if="flaw">
-                        <div v-if="isEditable(flaw)" class="float-right">
-                            <BButton class="ml-1 mt-1" size="sm" @click="editMotivation(flaw)">
+                        <div v-if="isEditable(flaw)" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(flaw)">
                                 <fa icon="edit"></fa>
                                 Edit
                             </BButton>
-                            <BButton class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(flaw)">
+                            <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(flaw)">
                                 <fa icon="trash"></fa>
                                 Delete
                             </BButton>
                         </div>
-                        <div v-if="isFlawDirty" class="float-right">
-                            <BButton class="ml-1 mt-1" size="sm" @click="revert('flaw')">
+                        <div v-if="isFlawDirty" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="revert('flaw')">
                                 <fa icon="undo"></fa>
                                 Undo
                             </BButton>
@@ -136,12 +136,12 @@
             </div>
             <div class="d-flex mt-2">
                 <BCard
-                    class="flex-fill w-50 mr-1"
+                    class="flex-fill w-50 me-1"
                     :border-variant="isDesireDirty ? 'success' : undefined"
                 >
                     <template #header>
                         <div class="d-flex">
-                            <h6 class="mt-2 mr-3">
+                            <h6 class="mt-2 me-3">
                                 Desire
                             </h6>
                             <supplement-search
@@ -152,7 +152,7 @@
                             >
                                 <template #append-extra>
                                     <BButton
-                                        class="ml-2 text-nowrap"
+                                        class="ms-2 text-nowrap"
                                         variant="success"
                                         title="Add New..."
                                         @click="addNew('desire')"
@@ -166,18 +166,18 @@
                     </template>
 
                     <div v-if="desire">
-                        <div v-if="isEditable(desire)" class="float-right">
-                            <BButton class="ml-1 mt-1" size="sm" @click="editMotivation(desire)">
+                        <div v-if="isEditable(desire)" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(desire)">
                                 <fa icon="edit"></fa>
                                 Edit
                             </BButton>
-                            <BButton class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(desire)">
+                            <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(desire)">
                                 <fa icon="trash"></fa>
                                 Delete
                             </BButton>
                         </div>
-                        <div v-if="isDesireDirty" class="float-right">
-                            <BButton class="ml-1 mt-1" size="sm" @click="revert('desire')">
+                        <div v-if="isDesireDirty" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="revert('desire')">
                                 <fa icon="undo"></fa>
                                 Undo
                             </BButton>
@@ -192,12 +192,12 @@
                     </h6>
                 </BCard>
                 <BCard
-                    class="flex-fill w-50 ml-1"
+                    class="flex-fill w-50 ms-1"
                     :border-variant="isFearDirty ? 'success' : undefined"
                 >
                     <template #header>
                         <div class="d-flex">
-                            <h6 class="mt-2 mr-3">
+                            <h6 class="mt-2 me-3">
                                 Fear
                             </h6>
                             <supplement-search
@@ -208,7 +208,7 @@
                             >
                                 <template #append-extra>
                                     <BButton
-                                        class="ml-2 text-nowrap"
+                                        class="ms-2 text-nowrap"
                                         variant="success"
                                         title="Add New..."
                                         @click="addNew('fear')"
@@ -222,18 +222,18 @@
                     </template>
 
                     <div v-if="fear">
-                        <div v-if="isEditable(fear)" class="float-right">
-                            <BButton class="ml-1 mt-1" size="sm" @click="editMotivation(fear)">
+                        <div v-if="isEditable(fear)" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(fear)">
                                 <fa icon="edit"></fa>
                                 Edit
                             </BButton>
-                            <BButton class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(fear)">
+                            <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(fear)">
                                 <fa icon="trash"></fa>
                                 Delete
                             </BButton>
                         </div>
-                        <div v-if="isFearDirty" class="float-right">
-                            <BButton class="ml-1 mt-1" size="sm" @click="revert('fear')">
+                        <div v-if="isFearDirty" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="revert('fear')">
                                 <fa icon="undo"></fa>
                                 Undo
                             </BButton>

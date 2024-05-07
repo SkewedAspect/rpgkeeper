@@ -30,7 +30,7 @@
                 <b-col cols="10">
                     <b-form-group
                         label="Name"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="name-input"
                     >
                         <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
@@ -46,7 +46,7 @@
                 <b-col>
                     <b-form-group
                         label="Activation"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="activation-input"
                     >
                         <BFormSelect
@@ -60,7 +60,7 @@
                     <b-form-group
                         v-if="mode === 'eote'"
                         label="Trees"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="trees-input"
                     >
                         <BFormInput id="trees-input" v-model="trees" autocomplete="off"></BFormInput>
@@ -68,7 +68,7 @@
                     <b-form-group
                         v-else
                         label="Tiers"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="tiers-input"
                     >
                         <BFormInput
@@ -88,7 +88,7 @@
             <b-form-group
                 id="extras-input-group"
                 label="Description"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="extras-input"
             >
                 <MarkdownEditor v-model:text="description" height="250px"></MarkdownEditor>

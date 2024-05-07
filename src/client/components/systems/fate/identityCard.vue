@@ -7,8 +7,8 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="address-card"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="address-card"></fa>
                     <span class="d-none d-md-inline">Identity</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
@@ -24,14 +24,14 @@
         <b-form-group
             id="name-input-group"
             label="Name"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
         >
             <h5>{{ char.name }}</h5>
         </b-form-group>
         <b-form-group
             id="desc-input-group"
             label="Description"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
         >
             <MarkdownBlock class="font-sm" :text="char.description" inline></MarkdownBlock>
         </b-form-group>
@@ -39,7 +39,7 @@
             id="fp-input-group"
             class="mt-4 mb-0"
             label="Fate Points"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
         >
             <FatePoints
                 v-model:current="char.details.fatePoints.current"

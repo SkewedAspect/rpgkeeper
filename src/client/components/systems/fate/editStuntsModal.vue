@@ -23,8 +23,8 @@
             <!-- Modal Content -->
             <div v-for="(stunt, index) in stunts" :key="index" class="d-flex mb-2">
                 <BFormInput v-model="stunt.title" class="title-input" placeholder="Stunt title"></BFormInput>
-                <BFormInput v-model="stunt.description" class="ml-2" placeholder="Stunt description"></BFormInput>
-                <BButton variant="danger" class="ml-2 text-nowrap" @click="removeStunt(stunt)">
+                <BFormInput v-model="stunt.description" class="ms-2" placeholder="Stunt description"></BFormInput>
+                <BButton variant="danger" class="ms-2 text-nowrap" @click="removeStunt(stunt)">
                     <fa icon="trash-alt"></fa>
                 </BButton>
             </div>
@@ -41,8 +41,8 @@
             >
                 <div class="d-flex">
                     <BFormInput v-model="newStuntTitle" class="title-input" placeholder="Stunt title"></BFormInput>
-                    <BFormInput v-model="newStuntDesc" class="ml-2" placeholder="Stunt description"></BFormInput>
-                    <BButton variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addStunt">
+                    <BFormInput v-model="newStuntDesc" class="ms-2" placeholder="Stunt description"></BFormInput>
+                    <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addStunt">
                         <fa icon="plus"></fa>
                         Add
                     </BButton>

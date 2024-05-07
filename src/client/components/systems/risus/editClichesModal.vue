@@ -23,9 +23,9 @@
             <!-- Modal Content -->
             <div v-for="(cliche, index) in cliches" :key="index" class="d-flex mb-2">
                 <BFormInput v-model="cliche.value" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                <BFormInput v-model="cliche.description" class="ml-2" placeholder="Description"></BFormInput>
-                <BFormInput v-model="cliche.tools" class="ml-2" placeholder="Tools of the Trade"></BFormInput>
-                <BButton variant="danger" class="ml-2" @click="removeCliche(cliche)">
+                <BFormInput v-model="cliche.description" class="ms-2" placeholder="Description"></BFormInput>
+                <BFormInput v-model="cliche.tools" class="ms-2" placeholder="Tools of the Trade"></BFormInput>
+                <BButton variant="danger" class="ms-2" @click="removeCliche(cliche)">
                     <fa icon="trash-alt"></fa>
                 </BButton>
             </div>
@@ -39,9 +39,9 @@
             >
                 <div class="d-flex">
                     <BFormInput v-model="newValue" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                    <BFormInput id="new-desc" v-model="newDesc" class="ml-2" placeholder="Description"></BFormInput>
-                    <BFormInput id="new-tools" v-model="newTools" class="ml-2" placeholder="Tools of the Trade"></BFormInput>
-                    <BButton variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addCliche">
+                    <BFormInput id="new-desc" v-model="newDesc" class="ms-2" placeholder="Description"></BFormInput>
+                    <BFormInput id="new-tools" v-model="newTools" class="ms-2" placeholder="Tools of the Trade"></BFormInput>
+                    <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addCliche">
                         <fa icon="plus"></fa>
                         Add
                     </BButton>

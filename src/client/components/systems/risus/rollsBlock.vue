@@ -21,12 +21,12 @@
         </div>
 
         <!-- Roll Buttons -->
-        <div v-if="!readonly" class="text-right">
+        <div v-if="!readonly" class="text-end">
             <BButton :disabled="readonly" @click="clearRolls()">
                 <fa icon="times"></fa>
                 Clear
             </BButton>
-            <BButton variant="primary" class="ml-1" :disabled="readonly || !dice" @click="roll(dice)">
+            <BButton variant="primary" class="ms-1" :disabled="readonly || !dice" @click="roll(dice)">
                 <fa icon="dice"></fa>
                 Roll
             </BButton>

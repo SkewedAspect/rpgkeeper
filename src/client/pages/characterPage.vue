@@ -14,9 +14,9 @@
                 <div v-for="(line, index) in error.stack.split('\n')" :key="index">
                     {{ line }}
                 </div>
-                <div class="text-right">
+                <div class="text-end">
                     <BButton to="/dashboard" variant="danger">
-                        <fa icon="arrow-left"></fa>
+                        <fa icon="popover-arrow-left"></fa>
                         Back to Dashboard
                     </BButton>
                 </div>
@@ -32,7 +32,7 @@
                 <li style="position: absolute; left: 18px; padding-top: 10px;">
                     <h4 class="text-muted">
                         <span class="d-none d-md-inline">{{ system.name }}</span>
-                        <fa v-if="saving" icon="save" class="flash text-success ml-2"></fa>
+                        <fa v-if="saving" icon="save" class="flash text-success ms-2"></fa>
                     </h4>
                 </li>
             </template>
@@ -55,13 +55,13 @@
                                 This is an internal error, and you never be seen in normal operation. If you are a
                                 developer, you done messed up. If you're a user, then please report this as a bug.
                             </div>
-                            <div class="text-right">
+                            <div class="text-end">
                                 <BButton :href="`https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system '${ char.system }'.&labels=bug`" target="_blank" variant="warning">
                                     <fa icon="bug"></fa>
                                     Report Bug
                                 </BButton>
                                 <BButton to="/dashboard" variant="warning">
-                                    <fa icon="arrow-left"></fa>
+                                    <fa icon="popover-arrow-left"></fa>
                                     Back to Dashboard
                                 </BButton>
                             </div>

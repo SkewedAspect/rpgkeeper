@@ -23,7 +23,7 @@
             <!-- Modal Content -->
             <div v-for="(hook, index) in hooks" :key="index" class="d-flex mb-2">
                 <BFormInput v-model="hook.description"></BFormInput>
-                <BButton variant="danger" class="ml-2" @click="removeHook(hook)">
+                <BButton variant="danger" class="ms-2" @click="removeHook(hook)">
                     <fa icon="trash-alt"></fa>
                 </BButton>
             </div>
@@ -37,7 +37,7 @@
             >
                 <div class="d-flex">
                     <BFormInput id="new-input" v-model="newHook"></BFormInput>
-                    <BButton variant="primary" class="ml-2 text-nowrap" @click="addHook">
+                    <BButton variant="primary" class="ms-2 text-nowrap" @click="addHook">
                         <fa icon="plus"></fa>
                         Add
                     </BButton>

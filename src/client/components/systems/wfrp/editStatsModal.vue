@@ -23,8 +23,8 @@
             <!-- Modal Content -->
             <div v-for="(stat, index) in stats" :key="index" class="d-flex mb-2">
                 <BFormInput v-model="stat.value" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                <BFormInput v-model="stat.description" class="ml-2" placeholder="Description"></BFormInput>
-                <BButton variant="danger" class="ml-2" @click="removeStat(stat)">
+                <BFormInput v-model="stat.description" class="ms-2" placeholder="Description"></BFormInput>
+                <BButton variant="danger" class="ms-2" @click="removeStat(stat)">
                     <fa icon="trash-alt"></fa>
                 </BButton>
             </div>
@@ -38,8 +38,8 @@
             >
                 <div class="d-flex">
                     <BFormInput v-model="newValue" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                    <BFormInput id="new-desc" v-model="newDesc" class="ml-2" placeholder="Description"></BFormInput>
-                    <BButton variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addStat">
+                    <BFormInput id="new-desc" v-model="newDesc" class="ms-2" placeholder="Description"></BFormInput>
+                    <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addStat">
                         <fa icon="plus"></fa>
                         Add
                     </BButton>

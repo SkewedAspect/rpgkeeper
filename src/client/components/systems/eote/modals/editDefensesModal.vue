@@ -24,7 +24,7 @@
                 <b-form-group
                     class="flex-fill"
                     label="Soak"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="soak-input"
                 >
                     <div class="d-flex">
@@ -40,9 +40,9 @@
                 </b-form-group>
 
                 <b-form-group
-                    class="flex-fill ml-2"
+                    class="flex-fill ms-2"
                     label="Melee"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="melee-input"
                 >
                     <div class="d-flex">
@@ -58,9 +58,9 @@
                 </b-form-group>
 
                 <b-form-group
-                    class="flex-fill ml-2"
+                    class="flex-fill ms-2"
                     label="Ranged"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="ranged-input"
                 >
                     <div class="d-flex">

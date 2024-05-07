@@ -30,7 +30,7 @@
                 </template>
             </b-table-lite>
             <div class="clearfix">
-                <ReferenceBlock class="float-right mt-2" :reference="powerBase?.reference"></ReferenceBlock>
+                <ReferenceBlock class="float-end mt-2" :reference="powerBase?.reference"></ReferenceBlock>
             </div>
         </b-collapse>
     </BCard>

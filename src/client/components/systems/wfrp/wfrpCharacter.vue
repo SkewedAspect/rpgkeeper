@@ -5,12 +5,12 @@
 <template>
     <b-container v-if="char" id="wfrp-character" fluid>
         <div class="d-flex">
-            <CharPortrait class="mr-1 d-none d-lg-block" :src="char.portrait" size="lg"></CharPortrait>
-            <BioBlock class="mr-1 ml-1 w-50" :readonly="!isAuthorized"></BioBlock>
+            <CharPortrait class="me-1 d-none d-lg-block" :src="char.portrait" size="lg"></CharPortrait>
+            <BioBlock class="me-1 ms-1 w-50" :readonly="!isAuthorized"></BioBlock>
         </div>
         <div class="d-flex mt-2">
-            <StatsBlock class="w-50 mr-1" :readonly="!isAuthorized" @save="onSave"></StatsBlock>
-            <SkillsBlock class="w-50 mr-1" :readonly="!isAuthorized" @save="onSave"></SkillsBlock>
+            <StatsBlock class="w-50 me-1" :readonly="!isAuthorized" @save="onSave"></StatsBlock>
+            <SkillsBlock class="w-50 me-1" :readonly="!isAuthorized" @save="onSave"></SkillsBlock>
         </div>
     </b-container>
 </template>

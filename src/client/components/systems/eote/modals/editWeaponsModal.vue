@@ -33,9 +33,9 @@
             <div :class="`${ mode }-system`">
                 <b-form-row>
                     <b-form-group
-                        class="flex-fill pr-1 w-50"
+                        class="flex-fill pe-1 w-50"
                         label="Name"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="name-input"
                     >
                         <BFormInput
@@ -45,9 +45,9 @@
                         ></BFormInput>
                     </b-form-group>
                     <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Skill"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-input"
                     >
                         <BFormSelect
@@ -57,9 +57,9 @@
                         ></BFormSelect>
                     </b-form-group>
                     <b-form-group
-                        class="flex-fill pl-1 w-25"
+                        class="flex-fill ps-1 w-25"
                         label="Range"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="range-input"
                     >
                         <BFormSelect
@@ -72,9 +72,9 @@
 
                 <b-form-row>
                     <b-form-group
-                        class="flex-fill pr-1 w-25"
+                        class="flex-fill pe-1 w-25"
                         label="Damage"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-damage"
                     >
                         <BFormInput
@@ -87,9 +87,9 @@
                         ></BFormInput>
                     </b-form-group>
                     <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Critical"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-critical"
                     >
                         <BFormInput
@@ -102,9 +102,9 @@
                         ></BFormInput>
                     </b-form-group>
                     <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Encumb."
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-encumbrance"
                     >
                         <BFormInput
@@ -117,9 +117,9 @@
                         ></BFormInput>
                     </b-form-group>
                     <b-form-group
-                        class="flex-fill pl-1 w-25"
+                        class="flex-fill ps-1 w-25"
                         label="Rarity"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-rarity"
                     >
                         <BFormInput

@@ -7,8 +7,8 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="shield"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="shield"></fa>
                     <span class="d-none d-md-inline">Defenses</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
@@ -22,7 +22,7 @@
 
         <!-- Card Body -->
         <div class="d-flex">
-            <BCard class="flex-fill mr-2" no-body>
+            <BCard class="flex-fill me-2" no-body>
                 <div class="p-2 text-center">
                     <b>Soak</b>
                     <hr class="m-1" />

@@ -27,7 +27,7 @@
                 </BButton>
             </template>
             <template #suggestion="{ data, htmlText }">
-                <div class="float-right">
+                <div class="float-end">
                     <slot :supplement="data" name="suggestion-extra"></slot>
                     <ScopeBadge :supplement="data"></ScopeBadge>
                 </div>

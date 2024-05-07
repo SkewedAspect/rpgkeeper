@@ -7,7 +7,7 @@
         <b-form-group
             class="flex-fill"
             label="Source"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
             label-for="source-input"
         >
             <BFormSelect
@@ -19,9 +19,9 @@
             ></BFormSelect>
         </b-form-group>
         <b-form-group
-            class="flex-fill ml-2"
+            class="flex-fill ms-2"
             label="Page"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
             label-for="page-input"
         >
             <BFormInput

@@ -30,7 +30,7 @@
                 <b-col cols="10">
                     <b-form-group
                         label="Name"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="name-input"
                     >
                         <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
@@ -48,7 +48,7 @@
             <b-form-group
                 id="extras-input-group"
                 label="Description"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="extras-input"
             >
                 <MarkdownEditor v-model:text="description"></MarkdownEditor>

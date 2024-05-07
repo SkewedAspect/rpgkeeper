@@ -25,7 +25,7 @@
                     <b-col>
                         <b-form-group
                             label="Name"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="name-input"
                         >
                             <BFormInput id="name-input" v-model="name"></BFormInput>
@@ -34,7 +34,7 @@
                     <b-col>
                         <b-form-group
                             label="Description"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="description-input"
                         >
                             <BFormInput id="description-input" v-model="description"></BFormInput>
@@ -45,7 +45,7 @@
                     <b-col>
                         <b-form-group
                             label="Species"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="species-input"
                         >
                             <div class="d-flex">
@@ -63,7 +63,7 @@
                     <b-col v-if="mode === 'eote'" cols="auto">
                         <b-form-group
                             label="Force Sensitive"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="species-input"
                             label-sr-only
                         >
@@ -83,7 +83,7 @@
                     <b-col xs="12">
                         <b-form-group
                             label="Career"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="career-input"
                         >
                             <div class="d-flex">
@@ -101,7 +101,7 @@
                     <b-col v-if="mode === 'eote'" xs="12">
                         <b-form-group
                             label="Specializations"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="special-input"
                         >
                             <div class="d-flex">
@@ -121,7 +121,7 @@
                 <SupplementSelect
                     ref="suppSelect"
                     label="Abilities"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     :available="abilities"
                     :selected="selectedAbilitiesArray"
                     @add="onAbilityAdd"

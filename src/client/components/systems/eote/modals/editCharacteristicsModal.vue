@@ -24,7 +24,7 @@
                 <b-col v-for="char in characteristicNames.slice(0, 3)" :key="char">
                     <b-form-group
                         :label="startCase(char)"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         :label-for="`${ char }-input`"
                     >
                         <div class="d-flex">
@@ -52,7 +52,7 @@
                 <b-col v-for="char in characteristicNames.slice(3)" :key="char">
                     <b-form-group
                         :label="formatCharName(char)"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         :label-for="`${ char }-input`"
                     >
                         <div class="d-flex">

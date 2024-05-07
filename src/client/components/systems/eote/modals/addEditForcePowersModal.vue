@@ -32,7 +32,7 @@
                         <b-col>
                             <b-form-group
                                 label="Name"
-                                label-class="font-weight-bold"
+                                label-class="fw-bold"
                                 label-for="name-input"
                             >
                                 <BFormInput
@@ -45,7 +45,7 @@
                         <b-col style="max-width: 100px">
                             <b-form-group
                                 label="Min Rating"
-                                label-class="font-weight-bold text-nowrap"
+                                label-class="fw-bold text-nowrap"
                                 label-for="min-rating-input"
                             >
                                 <BFormInput
@@ -64,7 +64,7 @@
                     <b-form-group
                         id="description-input-group"
                         label="Description"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="extras-input"
                     >
                         <MarkdownEditor
@@ -82,7 +82,7 @@
                     <b-form-group
                         id="strength-input-group"
                         label="Strength"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="extras-input"
                     >
                         <template #label>
@@ -110,7 +110,7 @@
                     <b-form-group
                         id="magnitude-input-group"
                         label="Magnitude"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="extras-input"
                     >
                         <template #label>
@@ -138,7 +138,7 @@
                     <b-form-group
                         id="duration-input-group"
                         label="Duration"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="extras-input"
                     >
                         <template #label>
@@ -166,7 +166,7 @@
                     <b-form-group
                         id="range-input-group"
                         label="Range"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="extras-input"
                     >
                         <template #label>
@@ -194,7 +194,7 @@
                     <b-form-group
                         id="mastery-input-group"
                         label="Mastery"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="extras-input"
                     >
                         <template #label>
@@ -222,7 +222,7 @@
                     <b-form-group
                         id="control-input-group"
                         label="Control"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="extras-input"
                     >
                         <template #label>

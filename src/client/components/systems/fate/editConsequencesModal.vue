@@ -24,7 +24,7 @@
             <b-form-group
                 id="mild-consequence-1"
                 label="Mild Consequence (2)"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="mc-input-1"
             >
                 <div class="d-flex">
@@ -36,7 +36,7 @@
                             </BButton>
                         </BInputGroupAppend>
                     </BInputGroup>
-                    <BButton v-model:pressed="mildHealing1" class="ml-2 text-nowrap" :disabled="!mildDetail1">
+                    <BButton v-model:pressed="mildHealing1" class="ms-2 text-nowrap" :disabled="!mildDetail1">
                         <fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </BButton>
@@ -46,7 +46,7 @@
                 v-if="hasExtraMild"
                 id="mild-consequence-2"
                 :label="`Mild Consequence (2, ${ extraMildType })`"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="mc-input-2"
             >
                 <div class="d-flex">
@@ -58,7 +58,7 @@
                             </BButton>
                         </BInputGroupAppend>
                     </BInputGroup>
-                    <BButton v-model:pressed="mildHealing2" class="ml-2 text-nowrap" :disabled="!mildDetail2">
+                    <BButton v-model:pressed="mildHealing2" class="ms-2 text-nowrap" :disabled="!mildDetail2">
                         <fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </BButton>
@@ -67,7 +67,7 @@
             <b-form-group
                 id="moderate-consequence"
                 label="Moderate Consequence (4)"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="mc-input"
             >
                 <div class="d-flex">
@@ -79,7 +79,7 @@
                             </BButton>
                         </BInputGroupAppend>
                     </BInputGroup>
-                    <BButton v-model:pressed="moderateHealing" class="ml-2 text-nowrap" :disabled="!moderateDetail">
+                    <BButton v-model:pressed="moderateHealing" class="ms-2 text-nowrap" :disabled="!moderateDetail">
                         <fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </BButton>
@@ -88,7 +88,7 @@
             <b-form-group
                 id="severe-consequence"
                 label="Severe Consequence (6)"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="sc-input"
             >
                 <div class="d-flex">
@@ -100,7 +100,7 @@
                             </BButton>
                         </BInputGroupAppend>
                     </BInputGroup>
-                    <BButton v-model:pressed="severeHealing" class="ml-2 text-nowrap" :disabled="!severeDetail">
+                    <BButton v-model:pressed="severeHealing" class="ms-2 text-nowrap" :disabled="!severeDetail">
                         <fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
                     </BButton>

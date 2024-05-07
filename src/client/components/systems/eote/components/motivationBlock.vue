@@ -12,7 +12,7 @@
                 <MarkdownBlock :text="motivationText" inline></MarkdownBlock>
                 <reference
                     v-if="motivationReference"
-                    class="float-right mt-2 mb-2"
+                    class="float-end mt-2 mb-2"
                     :reference="motivationReference"
                 ></reference>
             </div>

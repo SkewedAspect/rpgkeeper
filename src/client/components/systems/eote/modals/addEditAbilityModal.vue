@@ -28,7 +28,7 @@
             <!-- Modal Content -->
             <b-form-group
                 label="Name"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="name-input"
             >
                 <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>

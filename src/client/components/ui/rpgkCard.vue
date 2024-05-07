@@ -13,8 +13,8 @@
     >
         <template #header>
             <slot name="header">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mt-1 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa v-if="icon" class="mr-1" :icon="icon"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 mt-1 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa v-if="icon" class="me-1" :icon="icon"></fa>
                     <span class="d-none d-md-inline">
                         {{ title }}
                     </span>

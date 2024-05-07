@@ -7,10 +7,10 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="helmet-battle"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="helmet-battle"></fa>
                     Armor
-                    <span v-if="armor.name" class="ml-1"> - {{ armor.name }}</span>
+                    <span v-if="armor.name" class="ms-1"> - {{ armor.name }}</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">

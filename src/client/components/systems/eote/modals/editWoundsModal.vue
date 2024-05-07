@@ -24,7 +24,7 @@
                 <b-form-group
                     class="flex-fill"
                     label="Wounds"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="wounds-input"
                 >
                     <div class="d-flex">
@@ -48,9 +48,9 @@
                 </b-form-group>
 
                 <b-form-group
-                    class="flex-fill ml-2"
+                    class="flex-fill ms-2"
                     label="Wound Threshold"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="wound-threshold-input"
                 >
                     <div class="d-flex">
@@ -74,9 +74,9 @@
                 </b-form-group>
 
                 <b-form-group
-                    class="flex-fill ml-4"
+                    class="flex-fill ms-4"
                     label="Strain"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="strain-input"
                 >
                     <div class="d-flex">
@@ -100,9 +100,9 @@
                 </b-form-group>
 
                 <b-form-group
-                    class="flex-fill ml-2"
+                    class="flex-fill ms-2"
                     label="Strain Threshold"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="strain-threshold-input"
                 >
                     <div class="d-flex">

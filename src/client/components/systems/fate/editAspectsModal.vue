@@ -26,7 +26,7 @@
                     <b-form-group
                         id="hc-input-group"
                         label="High Concept"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="hc-input"
                     >
                         <BFormInput id="hc-input" v-model="highConcept.detail"></BFormInput>
@@ -36,7 +36,7 @@
                     <b-form-group
                         id="tBInputGroup"
                         label="Trouble"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="tb-input"
                     >
                         <BFormInput id="tb-input" v-model="trouble.detail"></BFormInput>
@@ -50,7 +50,7 @@
 
             <div v-for="(aspect, index) in extraAspects" :key="index" class="d-flex mb-2">
                 <BFormInput v-model="aspect.detail"></BFormInput>
-                <BButton variant="danger" class="ml-2" @click="removeAspect(aspect)">
+                <BButton variant="danger" class="ms-2" @click="removeAspect(aspect)">
                     <fa icon="trash-alt"></fa>
                 </BButton>
             </div>
@@ -64,7 +64,7 @@
             >
                 <div class="d-flex">
                     <BFormInput id="new-input" v-model="newAspect"></BFormInput>
-                    <BButton variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addAspect">
+                    <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addAspect">
                         <fa icon="plus"></fa>
                         Add
                     </BButton>

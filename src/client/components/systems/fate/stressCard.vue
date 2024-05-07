@@ -6,8 +6,8 @@
     <RpgkCard id="fate-stress" :class="{ readonly: readonly }" no-body fill>
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="heart-circle"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="heart-circle"></fa>
                     <span class="d-none d-md-inline">Physical Stress</span>
                 </h5>
             </div>
@@ -17,7 +17,7 @@
         <table class="table stress-table table-bordered mb-0">
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <b-form-checkbox v-model="physicalStress[index]" class="mr-1" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onSave">
+                    <b-form-checkbox v-model="physicalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onSave">
                         <b>{{ stressBox }}</b>
                     </b-form-checkbox>
                 </td>
@@ -25,15 +25,15 @@
         </table>
 
         <div class="card-header bg-dark text-white">
-            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                <fa class="mr-1" icon="head-side-brain"></fa>
+            <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                <fa class="me-1" icon="head-side-brain"></fa>
                 <span class="d-none d-md-inline">Mental Stress</span>
             </h5>
         </div>
         <table class="table stress-table table-bordered mb-0">
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <b-form-checkbox v-model="mentalStress[index]" class="mr-1" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onSave">
+                    <b-form-checkbox v-model="mentalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onSave">
                         <b>{{ stressBox }}</b>
                     </b-form-checkbox>
                 </td>
@@ -56,7 +56,7 @@
                 border-bottom: none;
 
                 td:first-child {
-                    border-left: none;
+                    border-start: none;
                 }
 
                 td:last-child {

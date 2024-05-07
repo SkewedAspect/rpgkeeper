@@ -24,7 +24,7 @@
                 </template>
                 <div :class="`${ mode }-system`">
                     <MarkdownBlock :text="critical.description" inline></MarkdownBlock>
-                    <ReferenceBlock class="float-right mt-2 mb-2" :reference="reference"></ReferenceBlock>
+                    <ReferenceBlock class="float-end mt-2 mb-2" :reference="reference"></ReferenceBlock>
                 </div>
             </BPopover>
         </template>

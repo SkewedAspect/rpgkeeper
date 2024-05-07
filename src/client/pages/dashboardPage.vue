@@ -10,10 +10,10 @@
             <!--<template #header>-->
             <!--<div class="d-flex">-->
             <!--<h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">-->
-            <!--<fa class="mr-1" icon="books"></fa>-->
+            <!--<fa class="me-1" icon="books"></fa>-->
             <!--<span class="d-none d-md-inline">Campaigns</span>-->
             <!--</h5>-->
-            <!--<BInputGroup class="flex-fill ml-2">-->
+            <!--<BInputGroup class="flex-fill ms-2">-->
             <!--<BFormInput placeholder="Search Campaigns..." disabled></BFormInput>-->
             <!--<BInputGroupAppend>-->
             <!--<BButton variant="primary" disabled>-->
@@ -21,7 +21,7 @@
             <!--</BButton>-->
             <!--</BInputGroupAppend>-->
             <!--</BInputGroup>-->
-            <!--<b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
+            <!--<b-dropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
             <!--<template #button-content>-->
             <!--<fa icon="cog"></fa>-->
             <!--</template>-->
@@ -39,8 +39,8 @@
                 <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
                     <template #header>
                         <div class="d-flex">
-                            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                                <fa class="mr-1" icon="users"></fa>
+                            <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                                <fa class="me-1" icon="users"></fa>
                                 <span class="d-none d-md-inline">Characters</span>
                             </h5>
                             <BInputGroup class="flex-fill ml-auto" style="max-width: 400px">
@@ -51,7 +51,7 @@
                                     </BButton>
                                 </BInputGroupAppend>
                             </BInputGroup>
-                            <b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right>
+                            <b-dropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right>
                                 <template #button-content>
                                     <fa icon="cog"></fa>
                                 </template>
@@ -68,10 +68,10 @@
                                             class="text-nowrap system-filter-checkbox"
                                             @click.stop
                                         >
-                                            <div class="mr-1">
+                                            <div class="me-1">
                                                 {{ system.name }}
                                             </div>
-                                            <div class="ml-auto text-right">
+                                            <div class="ml-auto text-end">
                                                 <b-badge
                                                     v-if="system.status"
                                                     :variant="getStatusVariant(system.status)"
@@ -110,23 +110,23 @@
                         <b-list-group-item v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
                             <div class="d-flex">
                                 <CharThumbnail :char="char"></CharThumbnail>
-                                <div class="ml-2 flex-column d-flex justify-content-center flex-fill">
+                                <div class="ms-2 flex-column d-flex justify-content-center flex-fill">
                                     <h5 class="mb-1">
                                         {{ char.name }}
                                     </h5>
                                     <p class="text-muted m-0">
-                                        <b-badge class="mr-1">
+                                        <b-badge class="me-1">
                                             {{ getSystem(char.system).name }}
                                         </b-badge>
                                         <small>{{ char.campaign }}</small>
                                     </p>
                                 </div>
-                                <div class="mr-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
+                                <div class="me-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
                                     <BCloseButton title="Edit User" @click.prevent.stop="openAddEditModal(char)">
                                         <fa icon="user-edit"></fa>
                                     </BCloseButton>
                                 </div>
-                                <div class="ml-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
+                                <div class="ms-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
                                     <BCloseButton title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
                                         <fa icon="trash-alt"></fa>
                                     </BCloseButton>
@@ -141,7 +141,7 @@
                         </h6>
                     </div>
 
-                    <div class="card-body text-right">
+                    <div class="card-body text-end">
                         <BButton variant="primary" @click="openAddEditModal()">
                             <fa icon="user-plus"></fa>
                             New Character

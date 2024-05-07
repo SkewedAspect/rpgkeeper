@@ -33,14 +33,14 @@
                                 <fa icon="chevron-down"></fa>
                             </BButton>
                         </BButtonGroup>
-                        <BFormInput v-model="skill.name" class="ml-2" placeholder="Name"></BFormInput>
-                        <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
+                        <BFormInput v-model="skill.name" class="ms-2" placeholder="Name"></BFormInput>
+                        <b-form-checkbox v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <BFormInput v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                        <BFormSelect v-model="skill.characteristic" class="ml-2" :options="characteristics"></BFormSelect>
-                        <BFormSelect v-model="skill.type" class="ml-2" :options="skillTypes"></BFormSelect>
-                        <BButton variant="danger" class="ml-2" @click="removeSkill(index)">
+                        <BFormInput v-model="skill.ranks" number class="ms-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                        <BFormSelect v-model="skill.characteristic" class="ms-2" :options="characteristics"></BFormSelect>
+                        <BFormSelect v-model="skill.type" class="ms-2" :options="skillTypes"></BFormSelect>
+                        <BButton variant="danger" class="ms-2" @click="removeSkill(index)">
                             <fa icon="trash-alt"></fa>
                         </BButton>
                     </div>
@@ -61,14 +61,14 @@
                                 <fa icon="chevron-down"></fa>
                             </BButton>
                         </BButtonGroup>
-                        <BFormInput v-model="skill.name" class="ml-2" placeholder="Name"></BFormInput>
-                        <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
+                        <BFormInput v-model="skill.name" class="ms-2" placeholder="Name"></BFormInput>
+                        <b-form-checkbox v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <BFormInput v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                        <BFormSelect v-model="skill.characteristic" class="ml-2" :options="characteristics"></BFormSelect>
-                        <BFormSelect v-model="skill.type" class="ml-2" :options="skillTypes"></BFormSelect>
-                        <BButton variant="danger" class="ml-2" @click="removeSkill(index)">
+                        <BFormInput v-model="skill.ranks" number class="ms-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                        <BFormSelect v-model="skill.characteristic" class="ms-2" :options="characteristics"></BFormSelect>
+                        <BFormSelect v-model="skill.type" class="ms-2" :options="skillTypes"></BFormSelect>
+                        <BButton variant="danger" class="ms-2" @click="removeSkill(index)">
                             <fa icon="trash-alt"></fa>
                         </BButton>
                     </div>
@@ -89,14 +89,14 @@
                                 <fa icon="chevron-down"></fa>
                             </BButton>
                         </BButtonGroup>
-                        <BFormInput v-model="skill.name" class="ml-2" placeholder="Name"></BFormInput>
-                        <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
+                        <BFormInput v-model="skill.name" class="ms-2" placeholder="Name"></BFormInput>
+                        <b-form-checkbox v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <BFormInput v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                        <BFormSelect v-model="skill.characteristic" class="ml-2" :options="characteristics"></BFormSelect>
-                        <BFormSelect v-model="skill.type" class="ml-2" :options="skillTypes"></BFormSelect>
-                        <BButton variant="danger" class="ml-2" @click="removeSkill(index)">
+                        <BFormInput v-model="skill.ranks" number class="ms-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                        <BFormSelect v-model="skill.characteristic" class="ms-2" :options="characteristics"></BFormSelect>
+                        <BFormSelect v-model="skill.type" class="ms-2" :options="skillTypes"></BFormSelect>
+                        <BButton variant="danger" class="ms-2" @click="removeSkill(index)">
                             <fa icon="trash-alt"></fa>
                         </BButton>
                     </div>
@@ -117,14 +117,14 @@
                                 <fa icon="chevron-down"></fa>
                             </BButton>
                         </BButtonGroup>
-                        <BFormInput v-model="skill.name" class="ml-2" placeholder="Name"></BFormInput>
-                        <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
+                        <BFormInput v-model="skill.name" class="ms-2" placeholder="Name"></BFormInput>
+                        <b-form-checkbox v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <BFormInput v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                        <BFormSelect v-model="skill.characteristic" class="ml-2" :options="characteristics"></BFormSelect>
-                        <BFormSelect v-model="skill.type" class="ml-2" :options="skillTypes"></BFormSelect>
-                        <BButton variant="danger" class="ml-2" @click="removeSkill(index)">
+                        <BFormInput v-model="skill.ranks" number class="ms-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                        <BFormSelect v-model="skill.characteristic" class="ms-2" :options="characteristics"></BFormSelect>
+                        <BFormSelect v-model="skill.type" class="ms-2" :options="skillTypes"></BFormSelect>
+                        <BButton variant="danger" class="ms-2" @click="removeSkill(index)">
                             <fa icon="trash-alt"></fa>
                         </BButton>
                     </div>
@@ -145,14 +145,14 @@
                                 <fa icon="chevron-down"></fa>
                             </BButton>
                         </BButtonGroup>
-                        <BFormInput v-model="skill.name" class="ml-2" placeholder="Name"></BFormInput>
-                        <b-form-checkbox v-model="skill.career" class="ml-2 mt-2" name="check-button" switch>
+                        <BFormInput v-model="skill.name" class="ms-2" placeholder="Name"></BFormInput>
+                        <b-form-checkbox v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
                             Career
                         </b-form-checkbox>
-                        <BFormInput v-model="skill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                        <BFormSelect v-model="skill.characteristic" class="ml-2" :options="characteristics"></BFormSelect>
-                        <BFormSelect v-model="skill.type" class="ml-2" :options="skillTypes"></BFormSelect>
-                        <BButton variant="danger" class="ml-2" @click="removeSkill(index)">
+                        <BFormInput v-model="skill.ranks" number class="ms-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                        <BFormSelect v-model="skill.characteristic" class="ms-2" :options="characteristics"></BFormSelect>
+                        <BFormSelect v-model="skill.type" class="ms-2" :options="skillTypes"></BFormSelect>
+                        <BButton variant="danger" class="ms-2" @click="removeSkill(index)">
                             <fa icon="trash-alt"></fa>
                         </BButton>
                     </div>
@@ -170,14 +170,14 @@
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <BFormInput v-model="newSkill.name" class="ml-2" placeholder="Name"></BFormInput>
-                    <b-form-checkbox v-model="newSkill.career" class="ml-2 mt-2" name="check-button" switch>
+                    <BFormInput v-model="newSkill.name" class="ms-2" placeholder="Name"></BFormInput>
+                    <b-form-checkbox v-model="newSkill.career" class="ms-2 mt-2" name="check-button" switch>
                         Career
                     </b-form-checkbox>
-                    <BFormInput v-model="newSkill.ranks" number class="ml-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                    <BFormSelect v-model="newSkill.characteristic" class="ml-2" :options="characteristics"></BFormSelect>
-                    <BFormSelect v-model="newSkill.type" class="ml-2" :options="skillTypes"></BFormSelect>
-                    <BButton variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addSkill">
+                    <BFormInput v-model="newSkill.ranks" number class="ms-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                    <BFormSelect v-model="newSkill.characteristic" class="ms-2" :options="characteristics"></BFormSelect>
+                    <BFormSelect v-model="newSkill.type" class="ms-2" :options="skillTypes"></BFormSelect>
+                    <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addSkill">
                         <fa icon="plus"></fa>
                         Add
                     </BButton>

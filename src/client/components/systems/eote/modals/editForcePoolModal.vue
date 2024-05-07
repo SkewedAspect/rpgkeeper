@@ -29,9 +29,9 @@
             <hr />
             <div class="d-flex">
                 <b-form-group
-                    class="flex-fill ml-2"
+                    class="flex-fill ms-2"
                     label="Force Sensitive"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="species-input"
                 >
                     <b-form-checkbox v-model="forcePool.sensitive" class="mt-3" name="force-sensitive" switch>
@@ -39,9 +39,9 @@
                     </b-form-checkbox>
                 </b-form-group>
                 <b-form-group
-                    class="flex-fill ml-2"
+                    class="flex-fill ms-2"
                     label="Force Rating"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="rating-input"
                 >
                     <div class="d-flex">

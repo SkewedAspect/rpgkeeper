@@ -7,8 +7,8 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="fist-raised"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="fist-raised"></fa>
                     <span class="d-none d-md-inline">Characteristics</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
@@ -21,11 +21,11 @@
         </template>
 
         <!-- Card Body -->
-        <div class="d-flex flex-wrap align-content-stretch justify-content-start mt-auto mb-auto ml-2 mr-2 pt-1 pb-1">
+        <div class="d-flex flex-wrap align-content-stretch justify-content-start mt-auto mb-auto ms-2 me-2 pt-1 pb-1">
             <BCard
                 v-for="char in characteristics"
                 :key="char"
-                class="flex-fill ml-1 mr-1 mt-1 mb-1 text-nowrap"
+                class="flex-fill ms-1 me-1 mt-1 mb-1 text-nowrap"
                 style="min-width: 50px; width: 30%"
                 no-body
             >

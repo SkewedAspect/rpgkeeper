@@ -26,9 +26,9 @@
             <div :class="`${ mode }-system`">
                 <b-form-row>
                     <b-form-group
-                        class="flex-fill pr-1 w-50"
+                        class="flex-fill pe-1 w-50"
                         label="Name"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="name-input"
                     >
                         <BFormInput
@@ -38,9 +38,9 @@
                         ></BFormInput>
                     </b-form-group>
                     <b-form-group
-                        class="flex-fill pl-1 w-25"
+                        class="flex-fill ps-1 w-25"
                         label="Hardpoints"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-hardpoints"
                     >
                         <BFormInput
@@ -56,9 +56,9 @@
 
                 <b-form-row>
                     <b-form-group
-                        class="flex-fill pr-1 w-25"
+                        class="flex-fill pe-1 w-25"
                         label="Defense"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-damage"
                     >
                         <BFormInput
@@ -71,9 +71,9 @@
                         ></BFormInput>
                     </b-form-group>
                     <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Soak"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-critical"
                     >
                         <BFormInput
@@ -86,9 +86,9 @@
                         ></BFormInput>
                     </b-form-group>
                     <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Encumb."
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-encumbrance"
                     >
                         <BFormInput
@@ -101,9 +101,9 @@
                         ></BFormInput>
                     </b-form-group>
                     <b-form-group
-                        class="flex-fill pl-1 w-25"
+                        class="flex-fill ps-1 w-25"
                         label="Rarity"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-rarity"
                     >
                         <BFormInput

@@ -32,12 +32,12 @@
         </div>
 
         <!-- Roll Buttons -->
-        <div class="text-right">
+        <div class="text-end">
             <BButton :disabled="readonly" @click="clearRolls()">
                 <fa icon="times"></fa>
                 Clear
             </BButton>
-            <BButton variant="primary" class="ml-1" :disabled="readonly" @click="roll()">
+            <BButton variant="primary" class="ms-1" :disabled="readonly" @click="roll()">
                 <fa icon="dice"></fa>
                 Roll
             </BButton>

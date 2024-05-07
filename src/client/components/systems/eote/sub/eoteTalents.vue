@@ -8,7 +8,7 @@
             <TalentCard
                 v-for="talentInst in talents"
                 :key="talentInst.id"
-                class="mr-2 mt-2 flex-fill"
+                class="me-2 mt-2 flex-fill"
                 :talent="talentInst"
                 :readonly="readonly"
             ></TalentCard>

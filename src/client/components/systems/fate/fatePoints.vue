@@ -4,7 +4,7 @@
 
 <template>
     <div class="d-flex flex-nowrap">
-        <BInputGroup class="fate-points mr-2">
+        <BInputGroup class="fate-points me-2">
             <BFormInput
                 v-model="current"
                 number
