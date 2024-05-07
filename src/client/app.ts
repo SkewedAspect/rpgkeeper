@@ -121,9 +121,6 @@ marked.setOptions({
     gfm: true,
     breaks: false,
     pedantic: false,
-    sanitize: false,
-    smartLists: true,
-    smartypants: false,
     renderer
 });
 

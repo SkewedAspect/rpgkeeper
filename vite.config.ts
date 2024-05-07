@@ -74,7 +74,6 @@ export default defineConfig({
                 ws: true
             }
         },
-        https: false,
         open: false
     },
     define: {
