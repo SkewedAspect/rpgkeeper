@@ -124,7 +124,7 @@
 
         <!-- Modals -->
         <!--        <AddEditModal ref="addEditModal" @save="onSave"></AddEditModal>-->
-        <!--        <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>-->
+        <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>
     </BContainer>
 </template>
 
