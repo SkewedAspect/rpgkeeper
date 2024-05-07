@@ -5,6 +5,7 @@ Back at it again.
 * [ ] Switch to Bootstrap v5 (and Bootstrap-Vue-Next)
 * [ ] Convert from decoders to better validation/data model
   * [ ] Evaluate options in 2024 ([ajv][], [ajv-ts][] [joi][], [zod][], etc)
+* [ ] Add local user registration, link with Google / Facebook / Twitter
 * [ ] Move project to GitLab (and make GitHub a mirror)
   * [ ] Set Pipelines for CI/CD
     * [ ] Dev deploys on all master merges

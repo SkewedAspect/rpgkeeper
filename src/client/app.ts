@@ -3,13 +3,14 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { createApp } from 'vue';
-import { configureCompat } from '@vue/compat';
+// import { configureCompat } from '@vue/compat';
 import { createPinia } from 'pinia';
 import { createRouter, createWebHistory } from 'vue-router';
 import { marked } from 'marked';
 
 // Bootstrap Vue
-import { BootstrapVue } from 'bootstrap-vue';
+import { createBootstrap } from 'bootstrap-vue-next';
+// import { BootstrapVue } from 'bootstrap-vue';
 
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -25,7 +26,7 @@ import systemsMan from './lib/managers/systems';
 
 // Site Theme
 import './scss/theme.scss';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
+// import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // Views
 import AppComponent from './app.vue';
@@ -65,26 +66,26 @@ const router = createRouter({
 // Setup Vue App
 //----------------------------------------------------------------------------------------------------------------------
 
-// Configure `@vue/compat`
-configureCompat({
-    WATCH_ARRAY: 'suppress-warning',
-    RENDER_FUNCTION: 'suppress-warning',
-    INSTANCE_LISTENERS: 'suppress-warning',
-    COMPONENT_FUNCTIONAL: 'suppress-warning',
-    OPTIONS_BEFORE_DESTROY: 'suppress-warning',
-    INSTANCE_SCOPED_SLOTS: 'suppress-warning',
-    OPTIONS_DATA_MERGE: 'suppress-warning',
-    COMPONENT_V_MODEL: 'suppress-warning',
-    CUSTOM_DIR: 'suppress-warning',
-    INSTANCE_EVENT_EMITTER: 'suppress-warning',
-    ATTR_FALSE_VALUE: 'suppress-warning',
-    INSTANCE_ATTRS_CLASS_STYLE: 'suppress-warning',
-    GLOBAL_PROTOTYPE: 'suppress-warning',
-    GLOBAL_EXTEND: 'suppress-warning',
-    GLOBAL_MOUNT: 'suppress-warning',
-    OPTIONS_DESTROYED: 'suppress-warning',
-    INSTANCE_DESTROY: 'suppress-warning'
-});
+// // Configure `@vue/compat`
+// configureCompat({
+//     WATCH_ARRAY: 'suppress-warning',
+//     RENDER_FUNCTION: 'suppress-warning',
+//     INSTANCE_LISTENERS: 'suppress-warning',
+//     COMPONENT_FUNCTIONAL: 'suppress-warning',
+//     OPTIONS_BEFORE_DESTROY: 'suppress-warning',
+//     INSTANCE_SCOPED_SLOTS: 'suppress-warning',
+//     OPTIONS_DATA_MERGE: 'suppress-warning',
+//     COMPONENT_V_MODEL: 'suppress-warning',
+//     CUSTOM_DIR: 'suppress-warning',
+//     INSTANCE_EVENT_EMITTER: 'suppress-warning',
+//     ATTR_FALSE_VALUE: 'suppress-warning',
+//     INSTANCE_ATTRS_CLASS_STYLE: 'suppress-warning',
+//     GLOBAL_PROTOTYPE: 'suppress-warning',
+//     GLOBAL_EXTEND: 'suppress-warning',
+//     GLOBAL_MOUNT: 'suppress-warning',
+//     OPTIONS_DESTROYED: 'suppress-warning',
+//     INSTANCE_DESTROY: 'suppress-warning'
+// });
 
 // Set up pinia
 const pinia = createPinia();
@@ -93,9 +94,7 @@ const pinia = createPinia();
 const app = createApp(AppComponent)
     .component('Fa', FontAwesomeIcon)
     .component('FaLayers', FontAwesomeLayers)
-
-    // FixMe: Why does this not work?
-    .use(BootstrapVue as any)
+    .use(createBootstrap())
     .use(pinia)
     .use(router);
 

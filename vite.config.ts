@@ -6,6 +6,8 @@ import { defineConfig } from 'vite';
 
 // Vite Plugins
 import vue from '@vitejs/plugin-vue';
+import Components from 'unplugin-vue-components/vite';
+import { BootstrapVueNextResolver } from 'unplugin-vue-components/resolvers';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -42,6 +44,9 @@ export default defineConfig({
                     ].includes(tag)
                 }
             }
+        }),
+        Components({
+            resolvers: [ BootstrapVueNextResolver() ]
         })
     ],
 
@@ -81,7 +86,7 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            'vue': '@vue/compat',
+            // 'vue': '@vue/compat',
             '@vue-bootstrap-components/vue-bootstrap-autocomplete':
                 '@vue-bootstrap-components/vue-bootstrap-autocomplete/dist/VueBootstrapAutocomplete.umd.min.js'
         }
