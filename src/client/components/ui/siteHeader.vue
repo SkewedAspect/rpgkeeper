@@ -3,21 +3,24 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-navbar id="site-header" toggleable="md" type="dark" variant="dark" sticky>
-        <b-navbar-brand to="/">
+    <BNavbar id="site-header" v-b-color-mode="'dark'" toggleable="md" type="dark" variant="dark" sticky="top">
+        <BNavbarToggle target="nav-text-collapse"></BNavbarToggle>
+        <BNavbarBrand to="/">
             <img src="/images/logo.png" class="d-inline-block logo" alt="RPGKeeper Logo" />
             RPGKeeper
-        </b-navbar-brand>
-        <b-navbar-nav>
-            <b-nav-item to="/dashboard">
-                <fa icon="columns"></fa>
-                Dashboard
-            </b-nav-item>
-        </b-navbar-nav>
-        <b-navbar-nav class="ml-auto">
-            <LoginBtn></LoginBtn>
-        </b-navbar-nav>
-    </b-navbar>
+        </BNavbarBrand>
+        <BCollapse id="nav-text-collapse" is-nav>
+            <BNavbarNav>
+                <BNavItem to="/dashboard">
+                    <fa icon="columns"></fa>
+                    Dashboard
+                </BNavItem>
+            </BNavbarNav>
+            <BNavbarNav class="ms-auto">
+                <LoginBtn></LoginBtn>
+            </BNavbarNav>
+        </BCollapse>
+    </BNavbar>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
