@@ -51,14 +51,8 @@
         </BTabs>
 
         <!-- Modals -->
-        <AddEditModal
-            ref="addEditModal"
-            @save="onAddEditSave"
-        ></AddEditModal>
-        <DeleteModal
-            ref="delModal"
-            @delete="onDelete"
-        ></DeleteModal>
+        <AddEditModal ref="addEditModal" @save="onAddEditSave"></AddEditModal>
+        <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>
     </BCard>
 </template>
 

@@ -137,6 +137,7 @@
     import MarkdownEditor from '../../../ui/markdownEditor.vue';
     import ScopeSelect from '../../../character/scopeSelect.vue';
     import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

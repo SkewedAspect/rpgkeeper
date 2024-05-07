@@ -179,6 +179,7 @@
     import AddEditAbilityModal from './addEditAbilityModal.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
     import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

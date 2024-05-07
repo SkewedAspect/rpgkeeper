@@ -75,6 +75,7 @@
     // Components
     import MarkdownEditor from '../ui/markdownEditor.vue';
     import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

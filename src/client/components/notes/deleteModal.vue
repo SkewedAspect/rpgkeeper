@@ -27,11 +27,11 @@
 
             <!-- Modal Content -->
             <h3>
-                <fa icon="exclamation-triangle"></fa>
-                Are you sure you want to delete "{{ innerPage.title }}"?
+                <fa class="text-danger" icon="exclamation-triangle"></fa>
+                Delete notes page "{{ innerPage?.title }}"?
             </h3>
             <p class="text-muted">
-                This page will be removed permanently. This cannot be undone.
+                This page will be removed <b>permanently</b>. This cannot be undone.
             </p>
 
             <!-- Modal Buttons -->
@@ -63,6 +63,7 @@
 
     // Components
     import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -57,6 +57,7 @@
 
     // Components
     import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from './closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

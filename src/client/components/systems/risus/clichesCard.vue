@@ -25,7 +25,6 @@
             <BListGroupItem v-for="cliche in cliches" :key="cliche.description" class="d-flex">
                 <BFormSpinbutton
                     v-model="cliche.current"
-                    style="min-width: 40px; max-width: 40px"
                     class="me-2"
                     min="0"
                     :max="cliche.value"
@@ -44,7 +43,7 @@
                         {{ cliche.tools }}
                     </div>
                 </div>
-                <div v-if="!readonly" class="d-flex flex-column text-nowrap">
+                <div v-if="!readonly" class="d-flex flex-column justify-content-between text-nowrap">
                     <BButton
                         title="Roll this cliche"
                         variant="primary"

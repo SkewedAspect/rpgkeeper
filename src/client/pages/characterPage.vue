@@ -6,7 +6,7 @@
     <BContainer id="character-page" class="mt-2 mb-3" fluid>
         <!-- Error Handling -->
         <BContainer v-if="error">
-            <BAlert variant="danger" show>
+            <BAlert variant="danger" :model-value="true">
                 <h4>
                     <fa icon="exclamation-triangle"></fa>
                     Error loading character
@@ -24,7 +24,7 @@
         </BContainer>
 
         <!-- Loading -->
-        <loading v-else-if="!char"></loading>
+        <LoadingWidget v-else-if="!char"></LoadingWidget>
 
         <!-- Main Sheet Tabs -->
         <BTabs v-else class="main-tabs" pills>
@@ -75,7 +75,7 @@
                     Notes
                 </template>
 
-                <notes></notes>
+                <NoteBook></NoteBook>
             </BTab>
         </BTabs>
     </BContainer>
@@ -119,8 +119,8 @@
     import charMan from '../lib/managers/character';
 
     // Components
-    import Loading from '../components/ui/loadingWidget.vue';
-    import Notes from '../components/notes/noteBook.vue';
+    import LoadingWidget from '../components/ui/loadingWidget.vue';
+    import NoteBook from '../components/notes/noteBook.vue';
 
     // Systems
     import RisusCharacter from '../components/systems/risus/risusCharacter.vue';
@@ -133,8 +133,8 @@
     export default defineComponent({
         name: 'CharacterPage',
         components: {
-            Loading,
-            Notes,
+            LoadingWidget,
+            NoteBook,
 
             // Systems
             fate: FateCharacter,

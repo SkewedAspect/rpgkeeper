@@ -222,6 +222,7 @@
     // Components
     import { BModal } from 'bootstrap-vue-next';
     import { startCase } from '../../../../../common/utils/misc';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

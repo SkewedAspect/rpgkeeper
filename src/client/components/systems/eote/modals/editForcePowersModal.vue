@@ -144,6 +144,7 @@
 
     // Utils
     import { startCase, uniqBy } from '../../../../../common/utils/misc';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -173,6 +173,7 @@
     // Components
     import QualityEdit from '../components/qualityEdit.vue';
     import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

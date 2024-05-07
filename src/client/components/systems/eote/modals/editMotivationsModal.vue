@@ -301,6 +301,7 @@
     import DeleteModal from '../../../ui/deleteModal.vue';
     import AddEditMotivationModal from './addEditMotivationModal.vue';
     import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
