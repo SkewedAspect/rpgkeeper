@@ -16,7 +16,7 @@
                 </div>
                 <div class="text-end">
                     <BButton to="/dashboard" variant="danger">
-                        <fa icon="popover-arrow-left"></fa>
+                        <fa icon="arrow-left"></fa>
                         Back to Dashboard
                     </BButton>
                 </div>
@@ -61,7 +61,7 @@
                                     Report Bug
                                 </BButton>
                                 <BButton to="/dashboard" variant="warning">
-                                    <fa icon="popover-arrow-left"></fa>
+                                    <fa icon="arrow-left"></fa>
                                     Back to Dashboard
                                 </BButton>
                             </div>

@@ -59,7 +59,7 @@
                         block
                         @click="resetCliche(cliche)"
                     >
-                        <fa icon="popover-arrow-to-top"></fa>
+                        <fa icon="arrow-to-top"></fa>
                         Reset to Max
                     </BButton>
                 </div>

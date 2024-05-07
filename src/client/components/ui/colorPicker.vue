@@ -49,8 +49,8 @@
     {
         color : string;
         presetColors ?: string[];
-        enableAlpha : boolean;
-        disableFields : boolean;
+        enableAlpha ?: boolean;
+        disableFields ?: boolean;
     }
 
     const props = withDefaults(

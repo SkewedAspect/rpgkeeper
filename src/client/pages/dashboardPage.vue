@@ -5,35 +5,6 @@
 <template>
     <BContainer id="dashboard" class="pb-0">
         <BFormRow>
-            <!--<BCol cols="12" lg="6" class="mb-3">-->
-            <!--<BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100">-->
-            <!--<template #header>-->
-            <!--<div class="d-flex">-->
-            <!--<h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">-->
-            <!--<fa class="me-1" icon="books"></fa>-->
-            <!--<span class="d-none d-md-inline">Campaigns</span>-->
-            <!--</h5>-->
-            <!--<BInputGroup class="flex-fill ms-2">-->
-            <!--<BFormInput placeholder="Search Campaigns..." disabled></BFormInput>-->
-            <!--<BInputGroupAppend>-->
-            <!--<BButton variant="primary" disabled>-->
-            <!--<fa icon="search"></fa>-->
-            <!--</BButton>-->
-            <!--</BInputGroupAppend>-->
-            <!--</BInputGroup>-->
-            <!--<BDropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
-            <!--<template #button-content>-->
-            <!--<fa icon="cog"></fa>-->
-            <!--</template>-->
-
-            <!--<BDropdownItem>Filter 1</BDropdownItem>-->
-            <!--</BDropdown>-->
-            <!--</div>-->
-            <!--</template>-->
-
-            <!--<h4 class="text-center text-muted mb-0">Campaigns are not implemented.</h4>-->
-            <!--</BCard>-->
-            <!--</BCol>-->
             <BCol cols="12" class="mb-3">
                 <!-- Characters Card -->
                 <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
@@ -51,27 +22,27 @@
                                     </BButton>
                                 </BInputGroupAppend>
                             </BInputGroup>
+
+                            <!-- System Filter Dropdown -->
                             <BDropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right>
                                 <template #button-content>
                                     <fa icon="cog"></fa>
                                 </template>
 
-                                <BDropdownForm>
-                                    <BformCheckboxGroup
+                                <BDropdownForm class="system-filter-checkbox">
+                                    <BFormCheckbox
+                                        v-for="system in systems"
+                                        :key="system.id"
                                         v-model="systemsFilter"
-                                        stacked
+                                        :value="system.id"
+                                        class="block-labels"
+                                        @click.stop
                                     >
-                                        <BFormGroup
-                                            v-for="system in systems"
-                                            :key="system.id"
-                                            :value="system.id"
-                                            class="text-nowrap system-filter-checkbox"
-                                            @click.stop
-                                        >
+                                        <div class="text-nowrap d-flex w-100" @click.stop>
                                             <div class="me-1">
                                                 {{ system.name }}
                                             </div>
-                                            <div class="ms-auto text-end">
+                                            <div class="ms-auto">
                                                 <BBadge
                                                     v-if="system.status"
                                                     :variant="getStatusVariant(system.status)"
@@ -81,8 +52,8 @@
                                                     {{ getStatusDisplay(system.status) }}
                                                 </BBadge>
                                             </div>
-                                        </BFormGroup>
-                                    </BformCheckboxGroup>
+                                        </div>
+                                    </BFormCheckbox>
                                 </BDropdownForm>
                                 <BDropdownDivider></BDropdownDivider>
                                 <BDropdownItem style="pointer-events: none">
@@ -122,14 +93,14 @@
                                     </p>
                                 </div>
                                 <div class="me-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
-                                    <BCloseButton title="Edit User" @click.prevent.stop="openAddEditModal(char)">
+                                    <CloseButton title="Edit User" @click.prevent.stop="openAddEditModal(char)">
                                         <fa icon="user-edit"></fa>
-                                    </BCloseButton>
+                                    </CloseButton>
                                 </div>
                                 <div class="ms-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
-                                    <BCloseButton title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
+                                    <CloseButton class="btn-close" title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
                                         <fa icon="trash-alt"></fa>
-                                    </BCloseButton>
+                                    </CloseButton>
                                 </div>
                             </div>
                         </BListGroupItem>
@@ -152,8 +123,8 @@
         </BFormRow>
 
         <!-- Modals -->
-        <AddEditModal ref="addEditModal" @save="onSave"></AddEditModal>
-        <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>
+        <!--        <AddEditModal ref="addEditModal" @save="onSave"></AddEditModal>-->
+        <!--        <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>-->
     </BContainer>
 </template>
 
@@ -178,6 +149,7 @@
     import { computed, onMounted, ref } from 'vue';
     import { storeToRefs } from 'pinia';
     import { useRouter } from 'vue-router';
+    import { BaseColorVariant } from 'bootstrap-vue-next';
 
     // Interfaces
     import { Character, System } from '../../common/interfaces/common';
@@ -196,6 +168,7 @@
     import AddEditModal from '../components/character/addEditModal.vue';
     import DeleteModal from '../components/character/deleteModal.vue';
     import CharThumbnail from '../components/character/charThumbnail.vue';
+    import CloseButton from '../components/ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -247,7 +220,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function getSystem<T>(systemID : string) : System<T> | undefined
+    function getSystem<T extends Record<string, unknown>>(systemID : string) : System<T> | undefined
     {
         return sysStore.find(systemID);
     }
@@ -280,12 +253,12 @@
         }
     }
 
-    function getStatusVariant(desc : string) : string
+    function getStatusVariant(desc : string) : keyof BaseColorVariant
     {
         switch (desc)
         {
             case 'dev':
-                return 'warning';
+                return ('warning' as const);
 
             case 'beta':
                 return 'info';
@@ -294,7 +267,7 @@
                 return 'danger';
 
             default:
-                return undefined;
+                return null;
         }
     }
 
@@ -309,7 +282,7 @@
     }
 
     // Add/Edit Modal
-    async function openAddEditModal(char) : Promise<void>
+    async function openAddEditModal(char ?: Character) : Promise<void>
     {
         // If we don't have a character, we build once from scratch.
         if(!char)

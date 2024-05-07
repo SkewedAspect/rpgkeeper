@@ -21,7 +21,7 @@
                     <div>
                         <BButton v-if="account" variant="primary" to="/dashboard">
                             Go to Dashboard
-                            <fa icon="popover-arrow-right"></fa>
+                            <fa icon="arrow-right"></fa>
                         </BButton>
                         <BButton v-else variant="primary">
                             Create free account
@@ -133,7 +133,7 @@
         <div class="text-center">
             <BButton v-if="account" variant="primary" to="/dashboard">
                 Go to Dashboard
-                <fa icon="popover-arrow-right"></fa>
+                <fa icon="arror-right"></fa>
             </BButton>
             <BButton v-else variant="primary" href="/auth/google">
                 Create free account

@@ -5,7 +5,7 @@
 <template>
     <div id="app">
         <SiteHeader></SiteHeader>
-<!--        <router-view></router-view>-->
+        <router-view></router-view>
         <SiteFooter></SiteFooter>
         <BToastOrchestrator></BToastOrchestrator>
     </div>

@@ -9,14 +9,14 @@
             <img src="/images/logo.png" class="d-inline-block logo" alt="RPGKeeper Logo" />
             RPGKeeper
         </BNavbarBrand>
-        <BCollapse id="nav-text-collapse" v-b-color-mode="'light'" is-nav>
+        <BCollapse id="nav-text-collapse" is-nav>
             <BNavbarNav>
                 <BNavItem to="/dashboard">
                     <fa icon="columns"></fa>
                     Dashboard
                 </BNavItem>
             </BNavbarNav>
-            <BNavbarNav class="ms-auto">
+            <BNavbarNav class="ms-auto" v-b-color-mode="'light'">
                 <LoginBtn></LoginBtn>
             </BNavbarNav>
         </BCollapse>

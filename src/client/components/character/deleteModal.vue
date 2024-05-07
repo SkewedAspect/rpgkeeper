@@ -23,7 +23,7 @@
 
             <h3>
                 <fa icon="exclamation-triangle"></fa>
-                Are you sure you want to delete "{{ char.name }}"?
+                Are you sure you want to delete "{{ char?.name }}"?
             </h3>
             <p class="text-muted">
                 You will permanently lose this character. This cannot be undone.
