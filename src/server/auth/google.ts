@@ -26,7 +26,7 @@ const logger = logging.getLogger('googleAuth');
 
 const callbackURL = `${ program.args.includes('--dev') ? 'http://localhost:5679' : process.env['DOMAIN'] }/auth/google/redirect`;
 
-const serverConfig = configUtil.getConfig<RPGKeeperConfig>();
+const serverConfig = configUtil.get<RPGKeeperConfig>();
 const config = serverConfig.auth.google;
 
 //----------------------------------------------------------------------------------------------------------------------

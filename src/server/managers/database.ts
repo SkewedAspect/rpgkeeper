@@ -22,7 +22,7 @@ interface DBConfig extends Knex.Config<any> {
 // TODO: Make this configurable
 const useTestDB = false;
 
-const serverConfig = configUtil.getConfig<RPGKeeperConfig>();
+const serverConfig = configUtil.get<RPGKeeperConfig>();
 
 const logger = logging.getLogger('dbMan');
 

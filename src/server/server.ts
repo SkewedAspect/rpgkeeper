@@ -61,7 +61,7 @@ import { getVersion } from './utils/version';
 // ---------------------------------------------------------------------------------------------------------------------
 
 const logger = logging.getLogger('server');
-const config = configUtil.getConfig<RPGKeeperConfig>();
+const config = configUtil.get<RPGKeeperConfig>();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handler
