@@ -12,10 +12,10 @@
                     <span class="d-none d-md-inline">Weapons</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openAddEditModal()">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openAddEditModal()">
                         <fa icon="plus" fixed-width></fa>
                         <span class="d-none d-md-inline">Add</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
@@ -42,12 +42,12 @@
 
             <!-- Buttons Slot -->
             <template #cell(buttons)="data">
-                <b-btn size="sm" @click="openAddEditModal(data.item)">
+                <BButton size="sm" @click="openAddEditModal(data.item)">
                     <fa icon="edit"></fa>
-                </b-btn>
-                <b-btn class="ml-1" variant="danger" size="sm" @click="openDeleteModal(data.item)">
+                </BButton>
+                <BButton class="ml-1" variant="danger" size="sm" @click="openDeleteModal(data.item)">
                     <fa icon="trash-alt"></fa>
-                </b-btn>
+                </BButton>
             </template>
         </b-table>
 

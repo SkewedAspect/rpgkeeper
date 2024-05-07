@@ -52,26 +52,26 @@
                         <div class="font-sm">
                             <hr />
                             <div class="float-right">
-                                <b-btn v-if="!editInstance" size="sm" @click="editInstanceNotes(instance)">
+                                <BButton v-if="!editInstance" size="sm" @click="editInstanceNotes(instance)">
                                     <fa icon="edit"></fa>
                                     Edit Notes
-                                </b-btn>
+                                </BButton>
                             </div>
-                            <b-card v-if="editInstance" class="overflow-hidden" no-body>
+                            <BCard v-if="editInstance" class="overflow-hidden" no-body>
                                 <MarkdownBlock v-model:text="editInstance.notes" inline></MarkdownBlock>
                                 <template #footer>
                                     <div class="text-right">
-                                        <b-btn v-if="editInstance" class="mr-2" size="sm" @click="saveInstanceNotes(instance, true)">
+                                        <BButton v-if="editInstance" class="mr-2" size="sm" @click="saveInstanceNotes(instance, true)">
                                             <fa icon="times"></fa>
                                             Cancel Notes
-                                        </b-btn>
-                                        <b-btn v-if="editInstance" variant="success" size="sm" @click="saveInstanceNotes(instance)">
+                                        </BButton>
+                                        <BButton v-if="editInstance" variant="success" size="sm" @click="saveInstanceNotes(instance)">
                                             <fa icon="save"></fa>
                                             Save Notes
-                                        </b-btn>
+                                        </BButton>
                                     </div>
                                 </template>
-                            </b-card>
+                            </BCard>
                             <MarkdownBlock v-else-if="instance.notes" :text="instance.notes" inline></MarkdownBlock>
                             <i v-else>No notes.</i>
                         </div>
@@ -141,7 +141,7 @@
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import Reference from '../../../character/referenceBlock.vue';
     import AddEditTalentModal from './addEditTalentModal.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     // Utils
     import { uniqBy } from '../../../../../common/utils/misc';

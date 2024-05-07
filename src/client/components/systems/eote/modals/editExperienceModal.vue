@@ -27,15 +27,15 @@
                 label-for="add-xp-input"
             >
                 <div class="d-flex flex-column">
-                    <b-input-group>
-                        <b-form-input id="add-xp-input" v-model="xpToAdd" number type="number" min="0" step="1"></b-form-input>
-                        <b-input-group-append>
-                            <b-button variant="primary" @click="addXP()">
+                    <BInputGroup>
+                        <BFormInput id="add-xp-input" v-model="xpToAdd" number type="number" min="0" step="1"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton variant="primary" @click="addXP()">
                                 <fa icon="plus"></fa>
                                 Add
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
                     <p class="text-muted m-0">
                         <small>
                             To gain experience, use this form. It updates both the total, and the available. Just type
@@ -55,14 +55,14 @@
                     label-for="total-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="total-input" v-model="experience.total" number type="number" min="0" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="experience.total = 0">
+                        <BInputGroup>
+                            <BFormInput id="total-input" v-model="experience.total" number type="number" min="0" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="experience.total = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
                 </b-form-group>
 
@@ -73,14 +73,14 @@
                     label-for="available-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="available-input" v-model="experience.available" number type="number" min="0" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="experience.available = 0">
+                        <BInputGroup>
+                            <BFormInput id="available-input" v-model="experience.available" number type="number" min="0" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="experience.available = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
                 </b-form-group>
             </div>
@@ -107,7 +107,7 @@
     import { EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

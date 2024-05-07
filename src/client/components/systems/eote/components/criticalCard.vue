@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card :id="id" class="eote-critical-card" no-body>
+    <BCard :id="id" class="eote-critical-card" no-body>
         <template #header>
-            <b-btn-close v-if="!readonly" style="margin-top: -2px;" @click.stop.prevent="remove"></b-btn-close>
+            <BCloseButton v-if="!readonly" style="margin-top: -2px;" @click.stop.prevent="remove"></BCloseButton>
             <small>
                 {{ critical.title }}
                 <span v-if="critical.severity">
@@ -13,7 +13,7 @@
                 </span>
             </small>
 
-            <b-popover :target="id" triggers="hover" placement="top">
+            <BPopover :target="id" triggers="hover" placement="top">
                 <template #title>
                     <div :class="`${ mode }-system`">
                         {{ critical.title }}
@@ -24,11 +24,11 @@
                 </template>
                 <div :class="`${ mode }-system`">
                     <MarkdownBlock :text="critical.description" inline></MarkdownBlock>
-                    <reference class="float-right mt-2 mb-2" :reference="reference"></reference>
+                    <ReferenceBlock class="float-right mt-2 mb-2" :reference="reference"></ReferenceBlock>
                 </div>
-            </b-popover>
+            </BPopover>
         </template>
-    </b-card>
+    </BCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -59,7 +59,7 @@
 
     // Components
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
-    import Reference from '../../../character/referenceBlock.vue';
+    import ReferenceBlock from '../../../character/referenceBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -19,14 +19,14 @@
                         Everything you need to create, store, share, and play table top RPG characters.
                     </p>
                     <div>
-                        <b-btn v-if="account" variant="primary" to="/dashboard">
+                        <BButton v-if="account" variant="primary" to="/dashboard">
                             Go to Dashboard
                             <fa icon="arrow-right"></fa>
-                        </b-btn>
-                        <b-btn v-else variant="primary">
+                        </BButton>
+                        <BButton v-else variant="primary">
                             Create free account
                             <fa icon="sign-in"></fa>
-                        </b-btn>
+                        </BButton>
                     </div>
                 </div>
             </div>
@@ -131,14 +131,14 @@
         </p>
 
         <div class="text-center">
-            <b-btn v-if="account" variant="primary" to="/dashboard">
+            <BButton v-if="account" variant="primary" to="/dashboard">
                 Go to Dashboard
                 <fa icon="arrow-right"></fa>
-            </b-btn>
-            <b-btn v-else variant="primary" href="/auth/google">
+            </BButton>
+            <BButton v-else variant="primary" href="/auth/google">
                 Create free account
                 <fa icon="sign-in"></fa>
-            </b-btn>
+            </BButton>
         </div>
     </div>
 </template>

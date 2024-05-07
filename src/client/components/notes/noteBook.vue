@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card id="notes" header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
+    <BCard id="notes" header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
         <!-- Card Header -->
         <template #header>
             <div class="d-flex">
@@ -14,21 +14,21 @@
                     </span>
                 </h5>
                 <div class="ml-auto d-flex flex-nowrap">
-                    <b-form-select v-model="pageIndex" class="mr-2 d-sm-none" :options="notes.pages" text-field="title" value-field="id"></b-form-select>
-                    <b-button-toolbar class="flex-shrink-0 flex-grow-0 w-auto">
-                        <b-btn @click="openAddEditModal()">
+                    <BFormSelect v-model="pageIndex" class="mr-2 d-sm-none" :options="notes.pages" text-field="title" value-field="id"></BFormSelect>
+                    <BButtonToolbar class="flex-shrink-0 flex-grow-0 w-auto">
+                        <BButton @click="openAddEditModal()">
                             <fa icon="file-plus" fixed-width></fa>
                             <span class="d-none d-md-inline">New</span>
-                        </b-btn>
-                        <b-btn class="ml-2" :disabled="!currentPage" @click="openAddEditModal(currentPage)">
+                        </BButton>
+                        <BButton class="ml-2" :disabled="!currentPage" @click="openAddEditModal(currentPage)">
                             <fa icon="edit" fixed-width></fa>
                             <span class="d-none d-md-inline">Edit</span>
-                        </b-btn>
-                        <b-btn class="ml-2" :disabled="!currentPage" @click="openDelModal(currentPage)">
+                        </BButton>
+                        <BButton class="ml-2" :disabled="!currentPage" @click="openDelModal(currentPage)">
                             <fa icon="trash-alt" fixed-widt></fa>
                             <span class="d-none d-md-inline">Delete</span>
-                        </b-btn>
-                    </b-button-toolbar>
+                        </BButton>
+                    </BButtonToolbar>
                 </div>
             </div>
         </template>
@@ -59,7 +59,7 @@
             ref="delModal"
             @delete="onDelete"
         ></DeleteModal>
-    </b-card>
+    </BCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

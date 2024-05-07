@@ -15,10 +15,10 @@
                     {{ line }}
                 </div>
                 <div class="text-right">
-                    <b-btn to="/dashboard" variant="danger">
+                    <BButton to="/dashboard" variant="danger">
                         <fa icon="arrow-left"></fa>
                         Back to Dashboard
-                    </b-btn>
+                    </BButton>
                 </div>
             </b-alert>
         </b-container>
@@ -56,14 +56,14 @@
                                 developer, you done messed up. If you're a user, then please report this as a bug.
                             </div>
                             <div class="text-right">
-                                <b-btn :href="`https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system '${ char.system }'.&labels=bug`" target="_blank" variant="warning">
+                                <BButton :href="`https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system '${ char.system }'.&labels=bug`" target="_blank" variant="warning">
                                     <fa icon="bug"></fa>
                                     Report Bug
-                                </b-btn>
-                                <b-btn to="/dashboard" variant="warning">
+                                </BButton>
+                                <BButton to="/dashboard" variant="warning">
                                     <fa icon="arrow-left"></fa>
                                     Back to Dashboard
-                                </b-btn>
+                                </BButton>
                             </div>
                         </b-alert>
                     </b-container>

@@ -28,14 +28,14 @@
                     label-for="soak-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="soak-input" v-model="defenses.soak" number type="number" min="0" max="10" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="defenses.soak = 0">
+                        <BInputGroup>
+                            <BFormInput id="soak-input" v-model="defenses.soak" number type="number" min="0" max="10" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="defenses.soak = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
                 </b-form-group>
 
@@ -46,14 +46,14 @@
                     label-for="melee-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="melee-input" v-model="defenses.melee" number type="number" min="0" max="10" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="defenses.melee = 0">
+                        <BInputGroup>
+                            <BFormInput id="melee-input" v-model="defenses.melee" number type="number" min="0" max="10" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="defenses.melee = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
                 </b-form-group>
 
@@ -64,14 +64,14 @@
                     label-for="ranged-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="ranged-input" v-model="defenses.ranged" number type="number" min="0" max="10" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="defenses.ranged = 0">
+                        <BInputGroup>
+                            <BFormInput id="ranged-input" v-model="defenses.ranged" number type="number" min="0" max="10" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="defenses.ranged = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
                 </b-form-group>
             </div>
@@ -98,7 +98,7 @@
     import { EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

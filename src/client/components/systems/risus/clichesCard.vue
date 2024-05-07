@@ -12,10 +12,10 @@
                     <span class="d-none d-md-inline">Cliches</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div v-if="!readonly" class="d-flex flex-column text-nowrap">
-                    <b-btn
+                    <BButton
                         title="Roll this cliche"
                         variant="primary"
                         block
@@ -53,15 +53,15 @@
                     >
                         <fa icon="dice"></fa>
                         Roll
-                    </b-btn>
-                    <b-btn
+                    </BButton>
+                    <BButton
                         title="Reset to max"
                         block
                         @click="resetCliche(cliche)"
                     >
                         <fa icon="arrow-to-top"></fa>
                         Reset to Max
-                    </b-btn>
+                    </BButton>
                 </div>
             </b-list-group-item>
         </b-list-group>

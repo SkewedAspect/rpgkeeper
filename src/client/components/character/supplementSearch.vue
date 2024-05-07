@@ -16,15 +16,15 @@
             @hit="onHit"
         >
             <template #prepend>
-                <b-input-group-text>
+                <BInputGroupText>
                     <fa icon="search"></fa>
-                </b-input-group-text>
+                </BInputGroupText>
             </template>
             <template #append>
-                <b-button class="text-nowrap" variant="primary" title="Add..." @click="addSup()">
+                <BButton class="text-nowrap" variant="primary" title="Add..." @click="addSup()">
                     <fa icon="plus"></fa>
                     Add
-                </b-button>
+                </BButton>
             </template>
             <template #suggestion="{ data, htmlText }">
                 <div class="float-right">

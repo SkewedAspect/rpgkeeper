@@ -28,8 +28,8 @@
                         :label-for="`${ char }-input`"
                     >
                         <div class="d-flex">
-                            <b-input-group>
-                                <b-form-input
+                            <BInputGroup>
+                                <BFormInput
                                     :id="`${ char }-input`"
                                     v-model="characteristics[char]"
                                     number
@@ -37,13 +37,13 @@
                                     step="1"
                                     min="0"
                                     max="99"
-                                ></b-form-input>
-                                <b-input-group-append>
-                                    <b-button @click="characteristics[char] = 0">
+                                ></BFormInput>
+                                <BInputGroupAppend>
+                                    <BButton @click="characteristics[char] = 0">
                                         <fa icon="undo"></fa>
-                                    </b-button>
-                                </b-input-group-append>
-                            </b-input-group>
+                                    </BButton>
+                                </BInputGroupAppend>
+                            </BInputGroup>
                         </div>
                     </b-form-group>
                 </b-col>
@@ -56,8 +56,8 @@
                         :label-for="`${ char }-input`"
                     >
                         <div class="d-flex">
-                            <b-input-group>
-                                <b-form-input
+                            <BInputGroup>
+                                <BFormInput
                                     :id="`${ char }-input`"
                                     v-model="characteristics[char]"
                                     number
@@ -65,13 +65,13 @@
                                     step="1"
                                     min="0"
                                     max="99"
-                                ></b-form-input>
-                                <b-input-group-append>
-                                    <b-button @click="characteristics[char] = 0">
+                                ></BFormInput>
+                                <BInputGroupAppend>
+                                    <BButton @click="characteristics[char] = 0">
                                         <fa icon="undo"></fa>
-                                    </b-button>
-                                </b-input-group-append>
-                            </b-input-group>
+                                    </BButton>
+                                </BInputGroupAppend>
+                            </BInputGroup>
                         </div>
                     </b-form-group>
                 </b-col>
@@ -102,7 +102,7 @@
     import { startCase } from '../../../../../common/utils/misc';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

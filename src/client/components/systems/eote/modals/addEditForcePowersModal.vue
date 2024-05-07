@@ -35,11 +35,11 @@
                                 label-class="font-weight-bold"
                                 label-for="name-input"
                             >
-                                <b-form-input
+                                <BFormInput
                                     id="name-input"
                                     v-model="name"
                                     autocomplete="off"
-                                ></b-form-input>
+                                ></BFormInput>
                             </b-form-group>
                         </b-col>
                         <b-col style="max-width: 100px">
@@ -48,7 +48,7 @@
                                 label-class="font-weight-bold text-nowrap"
                                 label-for="min-rating-input"
                             >
-                                <b-form-input
+                                <BFormInput
                                     id="min-rating-input"
                                     v-model="minRating"
                                     number
@@ -56,7 +56,7 @@
                                     min="0"
                                     step="1"
                                     autocomplete="off"
-                                ></b-form-input>
+                                ></BFormInput>
                             </b-form-group>
                         </b-col>
                     </b-form-row>
@@ -103,9 +103,9 @@
                             class="upgrade"
                             height="64.5px"
                         ></MarkdownEditor>
-                        <b-card v-else class="overflow-hidden" no-body>
+                        <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Strength upgrades</i>
-                        </b-card>
+                        </BCard>
                     </b-form-group>
                     <b-form-group
                         id="magnitude-input-group"
@@ -131,9 +131,9 @@
                             class="upgrade"
                             height="64.5px"
                         ></MarkdownEditor>
-                        <b-card v-else class="overflow-hidden" no-body>
+                        <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Magnitude upgrades</i>
-                        </b-card>
+                        </BCard>
                     </b-form-group>
                     <b-form-group
                         id="duration-input-group"
@@ -159,9 +159,9 @@
                             class="upgrade"
                             height="64.5px"
                         ></MarkdownEditor>
-                        <b-card v-else class="overflow-hidden" no-body>
+                        <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Duration upgrades</i>
-                        </b-card>
+                        </BCard>
                     </b-form-group>
                     <b-form-group
                         id="range-input-group"
@@ -187,9 +187,9 @@
                             class="upgrade"
                             height="64.5px"
                         ></MarkdownEditor>
-                        <b-card v-else class="overflow-hidden" no-body>
+                        <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Range upgrades</i>
-                        </b-card>
+                        </BCard>
                     </b-form-group>
                     <b-form-group
                         id="mastery-input-group"
@@ -215,9 +215,9 @@
                             class="upgrade"
                             height="64.5px"
                         ></MarkdownEditor>
-                        <b-card v-else class="overflow-hidden" no-body>
+                        <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Mastery upgrades</i>
-                        </b-card>
+                        </BCard>
                     </b-form-group>
                     <b-form-group
                         id="control-input-group"
@@ -244,9 +244,9 @@
                             class="upgrade mt-2"
                             height="64.5px"
                         ></MarkdownEditor>
-                        <b-card v-if="upgrades.control.length < 1" class="overflow-hidden" no-body>
+                        <BCard v-if="upgrades.control.length < 1" class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Control upgrades</i>
-                        </b-card>
+                        </BCard>
                     </b-form-group>
                 </b-col>
             </b-form-row>
@@ -287,7 +287,7 @@
     import EditReference from '../../../character/editReference.vue';
     import MarkdownEditor from '../../../ui/markdownEditor.vue';
     import ScopeSelect from '../../../character/scopeSelect.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     // Utils
     import { deepClone } from '../../../../lib/utils';

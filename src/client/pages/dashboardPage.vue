@@ -6,21 +6,21 @@
     <b-container id="dashboard" class="pb-0">
         <b-form-row>
             <!--<b-col cols="12" lg="6" class="mb-3">-->
-            <!--<b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100">-->
+            <!--<BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100">-->
             <!--<template #header>-->
             <!--<div class="d-flex">-->
             <!--<h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">-->
             <!--<fa class="mr-1" icon="books"></fa>-->
             <!--<span class="d-none d-md-inline">Campaigns</span>-->
             <!--</h5>-->
-            <!--<b-input-group class="flex-fill ml-2">-->
-            <!--<b-form-input placeholder="Search Campaigns..." disabled></b-form-input>-->
-            <!--<b-input-group-append>-->
-            <!--<b-btn variant="primary" disabled>-->
+            <!--<BInputGroup class="flex-fill ml-2">-->
+            <!--<BFormInput placeholder="Search Campaigns..." disabled></BFormInput>-->
+            <!--<BInputGroupAppend>-->
+            <!--<BButton variant="primary" disabled>-->
             <!--<fa icon="search"></fa>-->
-            <!--</b-btn>-->
-            <!--</b-input-group-append>-->
-            <!--</b-input-group>-->
+            <!--</BButton>-->
+            <!--</BInputGroupAppend>-->
+            <!--</BInputGroup>-->
             <!--<b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
             <!--<template #button-content>-->
             <!--<fa icon="cog"></fa>-->
@@ -32,25 +32,25 @@
             <!--</template>-->
 
             <!--<h4 class="text-center text-muted mb-0">Campaigns are not implemented.</h4>-->
-            <!--</b-card>-->
+            <!--</BCard>-->
             <!--</b-col>-->
             <b-col cols="12" class="mb-3">
                 <!-- Characters Card -->
-                <b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
+                <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
                     <template #header>
                         <div class="d-flex">
                             <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
                                 <fa class="mr-1" icon="users"></fa>
                                 <span class="d-none d-md-inline">Characters</span>
                             </h5>
-                            <b-input-group class="flex-fill ml-auto" style="max-width: 400px">
-                                <b-form-input v-model="charFilter" placeholder="Search Characters..."></b-form-input>
-                                <b-input-group-append>
-                                    <b-btn variant="primary">
+                            <BInputGroup class="flex-fill ml-auto" style="max-width: 400px">
+                                <BFormInput v-model="charFilter" placeholder="Search Characters..."></BFormInput>
+                                <BInputGroupAppend>
+                                    <BButton variant="primary">
                                         <fa icon="search"></fa>
-                                    </b-btn>
-                                </b-input-group-append>
-                            </b-input-group>
+                                    </BButton>
+                                </BInputGroupAppend>
+                            </BInputGroup>
                             <b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right>
                                 <template #button-content>
                                     <fa icon="cog"></fa>
@@ -122,14 +122,14 @@
                                     </p>
                                 </div>
                                 <div class="mr-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
-                                    <b-button-close title="Edit User" @click.prevent.stop="openAddEditModal(char)">
+                                    <BCloseButton title="Edit User" @click.prevent.stop="openAddEditModal(char)">
                                         <fa icon="user-edit"></fa>
-                                    </b-button-close>
+                                    </BCloseButton>
                                 </div>
                                 <div class="ml-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
-                                    <b-button-close title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
+                                    <BCloseButton title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
                                         <fa icon="trash-alt"></fa>
-                                    </b-button-close>
+                                    </BCloseButton>
                                 </div>
                             </div>
                         </b-list-group-item>
@@ -142,12 +142,12 @@
                     </div>
 
                     <div class="card-body text-right">
-                        <b-btn variant="primary" @click="openAddEditModal()">
+                        <BButton variant="primary" @click="openAddEditModal()">
                             <fa icon="user-plus"></fa>
                             New Character
-                        </b-btn>
+                        </BButton>
                     </div>
-                </b-card>
+                </BCard>
             </b-col>
         </b-form-row>
 

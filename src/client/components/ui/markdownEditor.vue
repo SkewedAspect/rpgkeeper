@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card class="overflow-hidden" no-body>
+    <BCard class="overflow-hidden" no-body>
         <codemirror
             v-model:model-value="text"
             :style="{ 'height': height }"
@@ -12,7 +12,7 @@
             :disabled="readonly"
             wrap
         ></codemirror>
-    </b-card>
+    </BCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

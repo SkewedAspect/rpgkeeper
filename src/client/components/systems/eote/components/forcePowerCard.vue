@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card v-if="power && powerBase" class="eote-force-power-card" no-body>
+    <BCard v-if="power && powerBase" class="eote-force-power-card" no-body>
         <template #header>
             <div :class="{ closed: !visible, open: visible }" @click="visible = !visible">
                 <b>{{ powerBase?.name ?? 'Unknown' }}</b>
@@ -33,7 +33,7 @@
                 <ReferenceBlock class="float-right mt-2" :reference="powerBase?.reference"></ReferenceBlock>
             </div>
         </b-collapse>
-    </b-card>
+    </BCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

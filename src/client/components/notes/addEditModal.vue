@@ -34,7 +34,7 @@
                 label="Title"
                 label-for="page-title"
             >
-                <b-form-input id="page-title" v-model="innerPage.title"></b-form-input>
+                <BFormInput id="page-title" v-model="innerPage.title"></BFormInput>
             </b-form-group>
             <b-form-group
                 id="page-content-group"
@@ -67,7 +67,7 @@
 
     // Components
     import MarkdownEditor from '../ui/markdownEditor.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

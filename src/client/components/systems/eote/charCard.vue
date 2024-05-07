@@ -12,17 +12,17 @@
                     <span class="d-none d-md-inline">Characteristics</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
 
         <!-- Card Body -->
         <div class="d-flex flex-wrap align-content-stretch justify-content-start mt-auto mb-auto ml-2 mr-2 pt-1 pb-1">
-            <b-card
+            <BCard
                 v-for="char in characteristics"
                 :key="char"
                 class="flex-fill ml-1 mr-1 mt-1 mb-1 text-nowrap"
@@ -37,7 +37,7 @@
                         {{ formatCharName(char) }}
                     </div>
                 </template>
-            </b-card>
+            </BCard>
         </div>
 
         <!-- Edit Modal -->

@@ -30,10 +30,10 @@
         </b-nav-item-dropdown>
 
         <!-- Sign In Button -->
-        <b-button v-else variant="dark" href="/auth/google">
+        <BButton v-else variant="dark" href="/auth/google">
             <fa icon="sign-in"></fa>
             Sign In
-        </b-button>
+        </BButton>
     </div>
 </template>
 

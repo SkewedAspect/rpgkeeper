@@ -13,10 +13,10 @@
                     <span v-if="armor.name" class="ml-1"> - {{ armor.name }}</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>

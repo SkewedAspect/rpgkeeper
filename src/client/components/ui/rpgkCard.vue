@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card
+    <BCard
         class="rpgkeeper-card shadow-sm"
         :align="align"
         header-bg-variant="dark"
@@ -27,7 +27,7 @@
         <template v-if="hasFooterSlot" #footer>
             <slot name="footer"></slot>
         </template>
-    </b-card>
+    </BCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

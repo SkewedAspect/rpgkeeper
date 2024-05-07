@@ -12,10 +12,10 @@
                     <span class="d-none d-md-inline">Force</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
@@ -32,7 +32,7 @@
                     class="mt-2"
                 ></b-form-spinbutton>
             </div>
-            <b-card class="flex-fill" no-body>
+            <BCard class="flex-fill" no-body>
                 <div class="p-2 text-center">
                     <b>Rating</b>
                     <hr class="m-1" />
@@ -40,7 +40,7 @@
                         {{ forcePool.rating - forcePool.committed }} / <small class="text-muted">{{ forcePool.rating }}</small>
                     </h5>
                 </div>
-            </b-card>
+            </BCard>
         </div>
         <div v-else class="d-flex text-center">
             <div class="flex-fill">

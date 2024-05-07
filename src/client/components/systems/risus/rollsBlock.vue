@@ -4,9 +4,9 @@
 
 <template>
     <RpgkCard id="rolls" icon="dice" title="Rolls" fill>
-        <b-input-group append="D6">
-            <b-form-input v-model="dice" number type="number" min="0" max="999" step="1" :disabled="readonly"></b-form-input>
-        </b-input-group>
+        <BInputGroup append="D6">
+            <BFormInput v-model="dice" number type="number" min="0" max="999" step="1" :disabled="readonly"></BFormInput>
+        </BInputGroup>
 
         <!-- Roll History -->
         <div class="flex-fill mt-3 mb-3 overflow-auto h-0">
@@ -22,14 +22,14 @@
 
         <!-- Roll Buttons -->
         <div v-if="!readonly" class="text-right">
-            <b-btn :disabled="readonly" @click="clearRolls()">
+            <BButton :disabled="readonly" @click="clearRolls()">
                 <fa icon="times"></fa>
                 Clear
-            </b-btn>
-            <b-btn variant="primary" class="ml-1" :disabled="readonly || !dice" @click="roll(dice)">
+            </BButton>
+            <BButton variant="primary" class="ml-1" :disabled="readonly || !dice" @click="roll(dice)">
                 <fa icon="dice"></fa>
                 Roll
-            </b-btn>
+            </BButton>
         </div>
     </RpgkCard>
 </template>

@@ -51,7 +51,7 @@
     import { Character } from '../../../common/interfaces/common';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

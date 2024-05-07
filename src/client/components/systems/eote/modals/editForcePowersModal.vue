@@ -133,7 +133,7 @@
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import ReferenceBlock from '../../../character/referenceBlock.vue';
     import AddEditForcePowersModal from './addEditForcePowersModal.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     // Utils
     import { startCase, uniqBy } from '../../../../../common/utils/misc';

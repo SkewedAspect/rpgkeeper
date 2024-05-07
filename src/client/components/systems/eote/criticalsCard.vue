@@ -15,14 +15,14 @@
         </template>
 
         <!-- Card Body -->
-        <b-input-group>
-            <b-form-select
+        <BInputGroup>
+            <BFormSelect
                 v-model="selectedCritical"
                 :options="formattedCriticals"
                 :disabled="readonly"
-            ></b-form-select>
-            <b-input-group-append>
-                <b-btn
+            ></BFormSelect>
+            <BInputGroupAppend>
+                <BButton
                     variant="primary"
                     style="max-width: 48px; min-width: 48px;"
                     title="Add selected Critical"
@@ -30,14 +30,14 @@
                     @click="addCritical()"
                 >
                     <fa icon="plus"></fa>
-                </b-btn>
-            </b-input-group-append>
-        </b-input-group>
+                </BButton>
+            </BInputGroupAppend>
+        </BInputGroup>
 
-        <b-input-group class="mt-2">
-            <b-form-input v-model="rollBonus" number type="number" min="0" step="1" placeholder="Crit. bonus"></b-form-input>
-            <b-input-group-append>
-                <b-btn
+        <BInputGroup class="mt-2">
+            <BFormInput v-model="rollBonus" number type="number" min="0" step="1" placeholder="Crit. bonus"></BFormInput>
+            <BInputGroupAppend>
+                <BButton
                     variant="primary"
                     style="min-width: 48px;"
                     title="Roll for a random Critical"
@@ -46,9 +46,9 @@
                 >
                     <fa icon="dice"></fa>
                     Roll Crit.
-                </b-btn>
-            </b-input-group-append>
-        </b-input-group>
+                </BButton>
+            </BInputGroupAppend>
+        </BInputGroup>
 
         <hr class="mt-2 mb-2" />
 

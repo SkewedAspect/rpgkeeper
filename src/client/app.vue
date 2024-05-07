@@ -5,8 +5,9 @@
 <template>
     <div id="app">
         <SiteHeader></SiteHeader>
-        <router-view></router-view>
+<!--        <router-view></router-view>-->
         <SiteFooter></SiteFooter>
+        <BToastOrchestrator></BToastOrchestrator>
     </div>
 </template>
 
@@ -23,22 +24,6 @@
 <script lang="ts" setup>
     import SiteHeader from './components/ui/siteHeader.vue';
     import SiteFooter from './components/ui/siteFooter.vue';
-
-    // -----------------------------------------------------------------------------------------------------------------
-    // TODO: THIS IS TO HACK AROUND BROKEN BOOTSTRAP VUE IN VUE 3
-    // -----------------------------------------------------------------------------------------------------------------
-
-    import { getCurrentInstance, onMounted } from 'vue';
-    import toastUtil from './lib/utils/toast';
-
-    const instance = (getCurrentInstance() as any);
-
-    onMounted(() =>
-    {
-        toastUtil.setInstance(instance);
-    });
-
-    // -----------------------------------------------------------------------------------------------------------------
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

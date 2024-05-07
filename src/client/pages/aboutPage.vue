@@ -38,10 +38,10 @@
             </p>
 
             <div class="text-center mb-3">
-                <b-btn variant="primary" href="https://www.paypal.me/morgul/10" target="_blank" class="m-auto">
+                <BButton variant="primary" href="https://www.paypal.me/morgul/10" target="_blank" class="m-auto">
                     <fa icon="donate"></fa>
                     Buy me a Pizza
-                </b-btn>
+                </BButton>
             </div>
         </div>
     </div>

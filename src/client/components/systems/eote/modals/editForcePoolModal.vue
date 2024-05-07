@@ -45,8 +45,8 @@
                     label-for="rating-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input
+                        <BInputGroup>
+                            <BFormInput
                                 id="rating-input"
                                 v-model="forcePool.rating"
                                 number
@@ -55,13 +55,13 @@
                                 max="10"
                                 step="1"
                                 :disabled="!forcePool.sensitive"
-                            ></b-form-input>
-                            <b-input-group-append>
-                                <b-button :disabled="!forcePool.sensitive" @click="forcePool.rating = 0">
+                            ></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton :disabled="!forcePool.sensitive" @click="forcePool.rating = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
                 </b-form-group>
             </div>
@@ -85,7 +85,7 @@
     import { ref } from 'vue';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

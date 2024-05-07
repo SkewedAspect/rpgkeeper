@@ -12,10 +12,10 @@
                     <span class="d-none d-md-inline">Bio</span>
                 </h5>
                 <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
@@ -42,8 +42,8 @@
                     label="Advancement Points"
                     label-class="font-weight-bold"
                 >
-                    <!-- FIXME: The 'number' modifier is broken with <b-form-input> -->
-                    <b-form-input
+                    <!-- FIXME: The 'number' modifier is broken with <BFormInput> -->
+                    <BFormInput
                         v-model="char.details.advancementPoints"
                         class="form-control"
                         type="number"
@@ -53,7 +53,7 @@
                         :disabled="readonly"
                         number
                         @change="onChange"
-                    ></b-form-input>
+                    ></BFormInput>
                 </b-form-group>
             </b-col>
             <b-col>
@@ -62,7 +62,7 @@
                     label="Fire and Forget Dice"
                     label-class="font-weight-bold"
                 >
-                    <b-form-input
+                    <BFormInput
                         v-model="char.details.ffDice"
                         type="number"
                         min="0"
@@ -71,7 +71,7 @@
                         :disabled="readonly"
                         number
                         @change="onChange"
-                    ></b-form-input>
+                    ></BFormInput>
                 </b-form-group>
             </b-col>
         </b-form-row>

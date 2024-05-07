@@ -33,7 +33,7 @@
                         label-class="font-weight-bold"
                         label-for="name-input"
                     >
-                        <b-form-input id="name-input" v-model="name" autocomplete="off"></b-form-input>
+                        <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
                     </b-form-group>
                 </b-col>
                 <b-col cols="2" class="pt-4">
@@ -49,11 +49,11 @@
                         label-class="font-weight-bold"
                         label-for="activation-input"
                     >
-                        <b-form-select
+                        <BFormSelect
                             id="activation-input"
                             v-model="activation"
                             :options="activations"
-                        ></b-form-select>
+                        ></BFormSelect>
                     </b-form-group>
                 </b-col>
                 <b-col>
@@ -63,7 +63,7 @@
                         label-class="font-weight-bold"
                         label-for="trees-input"
                     >
-                        <b-form-input id="trees-input" v-model="trees" autocomplete="off"></b-form-input>
+                        <BFormInput id="trees-input" v-model="trees" autocomplete="off"></BFormInput>
                     </b-form-group>
                     <b-form-group
                         v-else
@@ -71,7 +71,7 @@
                         label-class="font-weight-bold"
                         label-for="tiers-input"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="tiers-input"
                             v-model="tier"
                             number
@@ -80,7 +80,7 @@
                             min="1"
                             max="5"
                             autocomplete="off"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                 </b-col>
             </b-form-row>
@@ -129,7 +129,7 @@
     import EditReference from '../../../character/editReference.vue';
     import MarkdownEditor from '../../../ui/markdownEditor.vue';
     import ScopeSelect from '../../../character/scopeSelect.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

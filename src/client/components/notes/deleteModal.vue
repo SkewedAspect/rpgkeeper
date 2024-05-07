@@ -55,7 +55,7 @@
     import { NotebookPage } from '../../lib/models/notebook';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -10,13 +10,13 @@
             label-class="font-weight-bold"
             label-for="source-input"
         >
-            <b-form-select
+            <BFormSelect
                 id="source-input"
                 v-model="source"
                 :options="references"
                 text-field="name"
                 value-field="abbr"
-            ></b-form-select>
+            ></BFormSelect>
         </b-form-group>
         <b-form-group
             class="flex-fill ml-2"
@@ -24,7 +24,7 @@
             label-class="font-weight-bold"
             label-for="page-input"
         >
-            <b-form-input
+            <BFormInput
                 id="page-input"
                 v-model="page"
                 number
@@ -32,7 +32,7 @@
                 step="1"
                 min="1"
                 :disabled="source === 'HB'"
-            ></b-form-input>
+            ></BFormInput>
         </b-form-group>
     </div>
 </template>

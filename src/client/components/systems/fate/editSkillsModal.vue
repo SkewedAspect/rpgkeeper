@@ -33,31 +33,31 @@
                         </h6>
                     </div>
                     <div v-for="skill in filterRankSkills(rank.value)" :key="skill.name" class="d-flex mb-2">
-                        <b-form-input v-model="skill.name"></b-form-input>
-                        <b-form-select v-model="skill.rank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></b-form-select>
-                        <b-btn variant="danger" class="ml-2" @click="removeSkill(skill)">
+                        <BFormInput v-model="skill.name"></BFormInput>
+                        <BFormSelect v-model="skill.rank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
+                        <BButton variant="danger" class="ml-2" @click="removeSkill(skill)">
                             <fa icon="trash-alt"></fa>
-                        </b-btn>
+                        </BButton>
                     </div>
                 </template>
             </section>
 
             <hr />
 
-            <b-card
+            <BCard
                 header="New Skill"
                 header-bg-variant="dark"
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input id="name-input" v-model="newSkillName" placeholder="Skill name"></b-form-input>
-                    <b-form-select v-model="newSkillRank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></b-form-select>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" @click="addSkill">
+                    <BFormInput id="name-input" v-model="newSkillName" placeholder="Skill name"></BFormInput>
+                    <BFormSelect v-model="newSkillRank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
+                    <BButton variant="primary" class="ml-2 text-nowrap" @click="addSkill">
                         <fa icon="plus"></fa>
                         Add
-                    </b-btn>
+                    </BButton>
                 </div>
-            </b-card>
+            </BCard>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -82,7 +82,7 @@
     import { FateSkill } from '../../../../common/interfaces/systems/fate';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

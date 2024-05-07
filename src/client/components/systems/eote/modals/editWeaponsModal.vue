@@ -38,11 +38,11 @@
                         label-class="font-weight-bold"
                         label-for="name-input"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="name-input"
                             v-model="editWeapon.name"
                             type="text"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -50,11 +50,11 @@
                         label-class="font-weight-bold"
                         label-for="skill-input"
                     >
-                        <b-form-select
+                        <BFormSelect
                             id="skill-input"
                             v-model="editWeapon.skill"
                             :options="skillNames"
-                        ></b-form-select>
+                        ></BFormSelect>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 w-25"
@@ -62,11 +62,11 @@
                         label-class="font-weight-bold"
                         label-for="range-input"
                     >
-                        <b-form-select
+                        <BFormSelect
                             id="range-input"
                             v-model="editWeapon.range"
                             :options="rangeOptions"
-                        ></b-form-select>
+                        ></BFormSelect>
                     </b-form-group>
                 </b-form-row>
 
@@ -77,14 +77,14 @@
                         label-class="font-weight-bold"
                         label-for="skill-damage"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="skill-damage"
                             v-model="editWeapon.damage"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -92,14 +92,14 @@
                         label-class="font-weight-bold"
                         label-for="skill-critical"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="skill-critical"
                             v-model="editWeapon.criticalRating"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -107,14 +107,14 @@
                         label-class="font-weight-bold"
                         label-for="skill-encumbrance"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="skill-encumbrance"
                             v-model="editWeapon.encumbrance"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 w-25"
@@ -122,14 +122,14 @@
                         label-class="font-weight-bold"
                         label-for="skill-rarity"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="skill-rarity"
                             v-model="editWeapon.rarity"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                 </b-form-row>
 
@@ -181,7 +181,7 @@
 
     // Components
     import QualityEdit from '../components/qualityEdit.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

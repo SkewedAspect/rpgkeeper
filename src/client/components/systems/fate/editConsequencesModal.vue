@@ -28,18 +28,18 @@
                 label-for="mc-input-1"
             >
                 <div class="d-flex">
-                    <b-input-group>
-                        <b-form-input id="mc-input-1" v-model="mildDetail1"></b-form-input>
-                        <b-input-group-append>
-                            <b-button @click="mildDetail1 = ''">
+                    <BInputGroup>
+                        <BFormInput id="mc-input-1" v-model="mildDetail1"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton @click="mildDetail1 = ''">
                                 <fa icon="times"></fa>
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
-                    <b-button v-model:pressed="mildHealing1" class="ml-2 text-nowrap" :disabled="!mildDetail1">
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
+                    <BButton v-model:pressed="mildHealing1" class="ml-2 text-nowrap" :disabled="!mildDetail1">
                         <fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
-                    </b-button>
+                    </BButton>
                 </div>
             </b-form-group>
             <b-form-group
@@ -50,18 +50,18 @@
                 label-for="mc-input-2"
             >
                 <div class="d-flex">
-                    <b-input-group>
-                        <b-form-input id="mc-input-2" v-model="mildDetail2"></b-form-input>
-                        <b-input-group-append>
-                            <b-button @click="mildDetail2 = ''">
+                    <BInputGroup>
+                        <BFormInput id="mc-input-2" v-model="mildDetail2"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton @click="mildDetail2 = ''">
                                 <fa icon="times"></fa>
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
-                    <b-button v-model:pressed="mildHealing2" class="ml-2 text-nowrap" :disabled="!mildDetail2">
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
+                    <BButton v-model:pressed="mildHealing2" class="ml-2 text-nowrap" :disabled="!mildDetail2">
                         <fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
-                    </b-button>
+                    </BButton>
                 </div>
             </b-form-group>
             <b-form-group
@@ -71,18 +71,18 @@
                 label-for="mc-input"
             >
                 <div class="d-flex">
-                    <b-input-group>
-                        <b-form-input id="mc-input" v-model="moderateDetail"></b-form-input>
-                        <b-input-group-append>
-                            <b-button @click="moderateDetail = ''">
+                    <BInputGroup>
+                        <BFormInput id="mc-input" v-model="moderateDetail"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton @click="moderateDetail = ''">
                                 <fa icon="times"></fa>
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
-                    <b-button v-model:pressed="moderateHealing" class="ml-2 text-nowrap" :disabled="!moderateDetail">
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
+                    <BButton v-model:pressed="moderateHealing" class="ml-2 text-nowrap" :disabled="!moderateDetail">
                         <fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
-                    </b-button>
+                    </BButton>
                 </div>
             </b-form-group>
             <b-form-group
@@ -92,18 +92,18 @@
                 label-for="sc-input"
             >
                 <div class="d-flex">
-                    <b-input-group>
-                        <b-form-input id="sc-input" v-model="severeDetail"></b-form-input>
-                        <b-input-group-append>
-                            <b-button @click="severeDetail = ''">
+                    <BInputGroup>
+                        <BFormInput id="sc-input" v-model="severeDetail"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton @click="severeDetail = ''">
                                 <fa icon="times"></fa>
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
-                    <b-button v-model:pressed="severeHealing" class="ml-2 text-nowrap" :disabled="!severeDetail">
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
+                    <BButton v-model:pressed="severeHealing" class="ml-2 text-nowrap" :disabled="!severeDetail">
                         <fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
-                    </b-button>
+                    </BButton>
                 </div>
             </b-form-group>
 
@@ -131,7 +131,7 @@
     import { FateAspect, FateSkill } from '../../../../common/interfaces/systems/fate';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

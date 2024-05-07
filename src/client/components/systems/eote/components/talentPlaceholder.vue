@@ -3,13 +3,13 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card :id="id" class="eote-talent-placeholder" no-body>
+    <BCard :id="id" class="eote-talent-placeholder" no-body>
         <template #header>
             <div class="text-muted text-nowrap text-center">
                 Open Talent Slot
             </div>
         </template>
-    </b-card>
+    </BCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

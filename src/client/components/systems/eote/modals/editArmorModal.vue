@@ -31,11 +31,11 @@
                         label-class="font-weight-bold"
                         label-for="name-input"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="name-input"
                             v-model="editArmor.name"
                             type="text"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 w-25"
@@ -43,14 +43,14 @@
                         label-class="font-weight-bold"
                         label-for="armor-hardpoints"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-hardpoints"
                             v-model="editArmor.hardpoints"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                 </b-form-row>
 
@@ -61,14 +61,14 @@
                         label-class="font-weight-bold"
                         label-for="armor-damage"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-damage"
                             v-model="editArmor.defense"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -76,14 +76,14 @@
                         label-class="font-weight-bold"
                         label-for="armor-critical"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-critical"
                             v-model="editArmor.soak"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 pr-1 w-25"
@@ -91,14 +91,14 @@
                         label-class="font-weight-bold"
                         label-for="armor-encumbrance"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-encumbrance"
                             v-model="editArmor.encumbrance"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                     <b-form-group
                         class="flex-fill pl-1 w-25"
@@ -106,14 +106,14 @@
                         label-class="font-weight-bold"
                         label-for="armor-rarity"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-rarity"
                             v-model="editArmor.rarity"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
+                        ></BFormInput>
                     </b-form-group>
                 </b-form-row>
 
@@ -121,10 +121,10 @@
 
                 <b-form-row>
                     <b-col cols="8" offset="2">
-                        <b-button variant="danger" block @click="clear()">
+                        <BButton variant="danger" block @click="clear()">
                             <fa icon="trash-alt"></fa>
                             Clear Armor
-                        </b-button>
+                        </BButton>
                     </b-col>
                 </b-form-row>
             </div>
@@ -165,7 +165,7 @@
 
     // Components
     import QualityEdit from '../components/qualityEdit.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

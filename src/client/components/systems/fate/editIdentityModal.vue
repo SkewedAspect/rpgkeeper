@@ -26,7 +26,7 @@
                 label="Name"
                 label-for="name-input"
             >
-                <b-form-input id="name-input" v-model="innerIdent.name"></b-form-input>
+                <BFormInput id="name-input" v-model="innerIdent.name"></BFormInput>
             </b-form-group>
             <b-form-group
                 id="desc-input-group"
@@ -40,14 +40,14 @@
                 label="Fate Refresh"
                 label-for="fp-input"
             >
-                <b-form-input
+                <BFormInput
                     id="fp-input"
                     v-model="innerIdent.refresh"
                     number
                     type="number"
                     min="0"
                     step="1"
-                ></b-form-input>
+                ></BFormInput>
             </b-form-group>
 
             <!-- Modal Buttons -->
@@ -73,7 +73,7 @@
     import { FateSystemDetails } from '../../../../common/interfaces/systems/fate';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
     import MarkdownEditor from '../../ui/markdownEditor.vue';
 
     //------------------------------------------------------------------------------------------------------------------

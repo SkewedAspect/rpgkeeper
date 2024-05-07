@@ -7,7 +7,7 @@
         <b-badge :id="uniqueID">
             {{ motivationName }}
         </b-badge>
-        <b-popover :title="motivationName" :target="uniqueID" triggers="hover" placement="top">
+        <BPopover :title="motivationName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`genesys-system`">
                 <MarkdownBlock :text="motivationText" inline></MarkdownBlock>
                 <reference
@@ -16,7 +16,7 @@
                     :reference="motivationReference"
                 ></reference>
             </div>
-        </b-popover>
+        </BPopover>
     </div>
 </template>
 

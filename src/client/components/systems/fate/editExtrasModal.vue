@@ -58,7 +58,7 @@
     import { ref } from 'vue';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
     import MarkdownEditor from '../../ui/markdownEditor.vue';
 
     //------------------------------------------------------------------------------------------------------------------

@@ -28,7 +28,7 @@
                             label-class="font-weight-bold"
                             label-for="name-input"
                         >
-                            <b-form-input id="name-input" v-model="name"></b-form-input>
+                            <BFormInput id="name-input" v-model="name"></BFormInput>
                         </b-form-group>
                     </b-col>
                     <b-col>
@@ -37,7 +37,7 @@
                             label-class="font-weight-bold"
                             label-for="description-input"
                         >
-                            <b-form-input id="description-input" v-model="description"></b-form-input>
+                            <BFormInput id="description-input" v-model="description"></BFormInput>
                         </b-form-group>
                     </b-col>
                 </b-form-row>
@@ -49,14 +49,14 @@
                             label-for="species-input"
                         >
                             <div class="d-flex">
-                                <b-input-group>
-                                    <b-form-input id="species-input" v-model="species"></b-form-input>
-                                    <b-input-group-append>
-                                        <b-button @click="species = ''">
+                                <BInputGroup>
+                                    <BFormInput id="species-input" v-model="species"></BFormInput>
+                                    <BInputGroupAppend>
+                                        <BButton @click="species = ''">
                                             <fa icon="times"></fa>
-                                        </b-button>
-                                    </b-input-group-append>
-                                </b-input-group>
+                                        </BButton>
+                                    </BInputGroupAppend>
+                                </BInputGroup>
                             </div>
                         </b-form-group>
                     </b-col>
@@ -87,14 +87,14 @@
                             label-for="career-input"
                         >
                             <div class="d-flex">
-                                <b-input-group>
-                                    <b-form-input id="career-input" v-model="career"></b-form-input>
-                                    <b-input-group-append>
-                                        <b-button @click="career = ''">
+                                <BInputGroup>
+                                    <BFormInput id="career-input" v-model="career"></BFormInput>
+                                    <BInputGroupAppend>
+                                        <BButton @click="career = ''">
                                             <fa icon="times"></fa>
-                                        </b-button>
-                                    </b-input-group-append>
-                                </b-input-group>
+                                        </BButton>
+                                    </BInputGroupAppend>
+                                </BInputGroup>
                             </div>
                         </b-form-group>
                     </b-col>
@@ -105,14 +105,14 @@
                             label-for="special-input"
                         >
                             <div class="d-flex">
-                                <b-input-group>
-                                    <b-form-input id="special-input" v-model="specialization"></b-form-input>
-                                    <b-input-group-append>
-                                        <b-button @click="specialization = ''">
+                                <BInputGroup>
+                                    <BFormInput id="special-input" v-model="specialization"></BFormInput>
+                                    <BInputGroupAppend>
+                                        <BButton @click="specialization = ''">
                                             <fa icon="times"></fa>
-                                        </b-button>
-                                    </b-input-group-append>
-                                </b-input-group>
+                                        </BButton>
+                                    </BInputGroupAppend>
+                                </BInputGroup>
                             </div>
                         </b-form-group>
                     </b-col>
@@ -171,7 +171,7 @@
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import AddEditAbilityModal from './addEditAbilityModal.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

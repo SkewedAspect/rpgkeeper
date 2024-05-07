@@ -22,11 +22,11 @@
 
             <!-- Modal Content -->
             <div v-for="(stunt, index) in stunts" :key="index" class="d-flex mb-2">
-                <b-form-input v-model="stunt.title" class="title-input" placeholder="Stunt title"></b-form-input>
-                <b-form-input v-model="stunt.description" class="ml-2" placeholder="Stunt description"></b-form-input>
-                <b-btn variant="danger" class="ml-2 text-nowrap" @click="removeStunt(stunt)">
+                <BFormInput v-model="stunt.title" class="title-input" placeholder="Stunt title"></BFormInput>
+                <BFormInput v-model="stunt.description" class="ml-2" placeholder="Stunt description"></BFormInput>
+                <BButton variant="danger" class="ml-2 text-nowrap" @click="removeStunt(stunt)">
                     <fa icon="trash-alt"></fa>
-                </b-btn>
+                </BButton>
             </div>
             <div v-if="stunts.length === 0" class="text-center">
                 <h6>No Stunts.</h6>
@@ -34,20 +34,20 @@
 
             <hr />
 
-            <b-card
+            <BCard
                 header="New Stunt"
                 header-bg-variant="dark"
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input v-model="newStuntTitle" class="title-input" placeholder="Stunt title"></b-form-input>
-                    <b-form-input v-model="newStuntDesc" class="ml-2" placeholder="Stunt description"></b-form-input>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addStunt">
+                    <BFormInput v-model="newStuntTitle" class="title-input" placeholder="Stunt title"></BFormInput>
+                    <BFormInput v-model="newStuntDesc" class="ml-2" placeholder="Stunt description"></BFormInput>
+                    <BButton variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addStunt">
                         <fa icon="plus"></fa>
                         Add
-                    </b-btn>
+                    </BButton>
                 </div>
-            </b-card>
+            </BCard>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -81,7 +81,7 @@
     import { FateStunt } from '../../../../common/interfaces/systems/fate';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

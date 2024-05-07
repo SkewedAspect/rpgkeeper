@@ -22,29 +22,29 @@
 
             <!-- Modal Content -->
             <div v-for="(stat, index) in stats" :key="index" class="d-flex mb-2">
-                <b-form-input v-model="stat.value" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
-                <b-form-input v-model="stat.description" class="ml-2" placeholder="Description"></b-form-input>
-                <b-btn variant="danger" class="ml-2" @click="removeStat(stat)">
+                <BFormInput v-model="stat.value" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                <BFormInput v-model="stat.description" class="ml-2" placeholder="Description"></BFormInput>
+                <BButton variant="danger" class="ml-2" @click="removeStat(stat)">
                     <fa icon="trash-alt"></fa>
-                </b-btn>
+                </BButton>
             </div>
 
             <hr />
 
-            <b-card
+            <BCard
                 header="New Stat"
                 header-bg-variant="dark"
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input v-model="newValue" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
-                    <b-form-input id="new-desc" v-model="newDesc" class="ml-2" placeholder="Description"></b-form-input>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addStat">
+                    <BFormInput v-model="newValue" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                    <BFormInput id="new-desc" v-model="newDesc" class="ml-2" placeholder="Description"></BFormInput>
+                    <BButton variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addStat">
                         <fa icon="plus"></fa>
                         Add
-                    </b-btn>
+                    </BButton>
                 </div>
-            </b-card>
+            </BCard>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -75,7 +75,7 @@
     import { WFRPStat } from '../../../../common/interfaces/systems/wfrp';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

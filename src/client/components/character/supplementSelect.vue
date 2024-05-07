@@ -10,7 +10,7 @@
     >
         <b-form-row>
             <b-col>
-                <b-card class="h-100 overflow-hidden" no-body :style="{ maxHeight, minHeight: maxHeight }">
+                <BCard class="h-100 overflow-hidden" no-body :style="{ maxHeight, minHeight: maxHeight }">
                     <template #header>
                         <div class="d-flex">
                             <SupplementSearch
@@ -24,10 +24,10 @@
                                     <slot :supplement="supplement" name="suggestion-extra"></slot>
                                 </template>
                                 <template #append-extra>
-                                    <b-button class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew()">
+                                    <BButton class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew()">
                                         <fa icon="plus"></fa>
                                         New
-                                    </b-button>
+                                    </BButton>
                                 </template>
                             </SupplementSearch>
                         </div>
@@ -44,9 +44,9 @@
                             <div class="float-right">
                                 <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra"></slot>
                                 <ScopeBadge :supplement="getSupp(supp.id)"></ScopeBadge>
-                                <b-button class="ml-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
+                                <BButton class="ml-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
                                     <fa icon="times"></fa>
-                                </b-button>
+                                </BButton>
                             </div>
                             <div class="pt-2">
                                 {{ getSupp(supp.id)?.name }}
@@ -59,21 +59,21 @@
                             Nothing added to character.
                         </h5>
                     </div>
-                </b-card>
+                </BCard>
             </b-col>
             <b-col>
-                <b-card class="h-100">
+                <BCard class="h-100">
                     <template v-if="currentSelection" #header>
                         <slot :instance="supplementInstance" :supplement="currentSupplement" name="header">
                             <div v-if="canModify" class="float-right">
-                                <b-btn size="sm" class="mt-1" @click="editSupp(currentSupplement)">
+                                <BButton size="sm" class="mt-1" @click="editSupp(currentSupplement)">
                                     <fa icon="edit"></fa>
                                     Edit
-                                </b-btn>
-                                <b-btn variant="danger" class="ml-1 mt-1" size="sm" @click="deleteSupp(currentSupplement)">
+                                </BButton>
+                                <BButton variant="danger" class="ml-1 mt-1" size="sm" @click="deleteSupp(currentSupplement)">
                                     <fa icon="trash-alt"></fa>
                                     Delete
-                                </b-btn>
+                                </BButton>
                             </div>
                             <div style="height: 38px; padding-top: 6px">
                                 <h4>
@@ -103,7 +103,7 @@
                             </div>
                         </slot>
                     </div>
-                </b-card>
+                </BCard>
             </b-col>
         </b-form-row>
     </b-form-group>

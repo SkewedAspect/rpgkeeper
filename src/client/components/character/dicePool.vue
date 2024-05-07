@@ -25,7 +25,7 @@
                 No pool
             </h5>
         </div>
-        <b-btn
+        <BButton
             v-if="showEdit"
             class="ml-2 d-inline-block align-top"
             variant="outline-secondary"
@@ -34,7 +34,7 @@
         >
             <fa icon="edit"></fa>
             Edit
-        </b-btn>
+        </BButton>
 
         <!-- Edit Modal -->
         <b-modal
@@ -59,7 +59,7 @@
                 label="Pool Maximum"
                 label-for="max-input"
             >
-                <b-form-input
+                <BFormInput
                     id="max-input"
                     v-model="editMax"
                     type="number"
@@ -67,7 +67,7 @@
                     max="9999999"
                     step="1"
                     number
-                ></b-form-input>
+                ></BFormInput>
             </b-form-group>
 
             <!-- Modal Buttons -->
@@ -97,7 +97,7 @@
     import { computed, ref } from 'vue';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

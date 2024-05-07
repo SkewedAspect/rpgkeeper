@@ -7,7 +7,7 @@
         <b-badge :id="uniqueID">
             {{ qualityName }}
         </b-badge>
-        <b-popover :title="qualityName" :target="uniqueID" triggers="hover" placement="top">
+        <BPopover :title="qualityName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
                 <MarkdownBlock :text="qualityText" inline></MarkdownBlock>
                 <ReferenceBlock
@@ -16,7 +16,7 @@
                     :reference="qualityReference"
                 ></ReferenceBlock>
             </div>
-        </b-popover>
+        </BPopover>
     </span>
 </template>
 

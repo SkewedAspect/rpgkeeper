@@ -3,17 +3,17 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-btn v-bind="$attrs" ref="colorBtn">
+    <BButton v-bind="$attrs" ref="colorBtn">
         <span class="color-block" :style="{ 'background-color': internalColor }">&nbsp;</span>
-        <b-popover :target="() => $refs.colorBtn" triggers="click blur">
+        <BPopover :target="() => $refs.colorBtn" triggers="click blur">
             <SketchPicker
                 v-model="internalColor"
                 :preset-colors="presetColors"
                 :disable-alpha="disableAlpha"
                 :disable-fields="disableFields"
             ></SketchPicker>
-        </b-popover>
-    </b-btn>
+        </BPopover>
+    </BButton>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

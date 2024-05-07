@@ -29,17 +29,17 @@
                         label-class="font-weight-bold"
                         label-for="hc-input"
                     >
-                        <b-form-input id="hc-input" v-model="highConcept.detail"></b-form-input>
+                        <BFormInput id="hc-input" v-model="highConcept.detail"></BFormInput>
                     </b-form-group>
                 </b-col>
                 <b-col cols="12" lg="6">
                     <b-form-group
-                        id="tb-input-group"
+                        id="tBInputGroup"
                         label="Trouble"
                         label-class="font-weight-bold"
                         label-for="tb-input"
                     >
-                        <b-form-input id="tb-input" v-model="trouble.detail"></b-form-input>
+                        <BFormInput id="tb-input" v-model="trouble.detail"></BFormInput>
                     </b-form-group>
                 </b-col>
             </b-form-row>
@@ -49,27 +49,27 @@
             <h4>Extra Aspects</h4>
 
             <div v-for="(aspect, index) in extraAspects" :key="index" class="d-flex mb-2">
-                <b-form-input v-model="aspect.detail"></b-form-input>
-                <b-btn variant="danger" class="ml-2" @click="removeAspect(aspect)">
+                <BFormInput v-model="aspect.detail"></BFormInput>
+                <BButton variant="danger" class="ml-2" @click="removeAspect(aspect)">
                     <fa icon="trash-alt"></fa>
-                </b-btn>
+                </BButton>
             </div>
 
             <hr />
 
-            <b-card
+            <BCard
                 header="New Aspect"
                 header-bg-variant="dark"
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input id="new-input" v-model="newAspect"></b-form-input>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addAspect">
+                    <BFormInput id="new-input" v-model="newAspect"></BFormInput>
+                    <BButton variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addAspect">
                         <fa icon="plus"></fa>
                         Add
-                    </b-btn>
+                    </BButton>
                 </div>
-            </b-card>
+            </BCard>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -93,7 +93,7 @@
     import { FateAspect } from '../../../../common/interfaces/systems/fate';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

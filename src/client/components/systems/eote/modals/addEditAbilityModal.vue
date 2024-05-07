@@ -31,7 +31,7 @@
                 label-class="font-weight-bold"
                 label-for="name-input"
             >
-                <b-form-input id="name-input" v-model="name" autocomplete="off"></b-form-input>
+                <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
             </b-form-group>
             <b-form-group
                 id="extras-input-group"
@@ -73,7 +73,7 @@
     import MarkdownEditor from '../../../ui/markdownEditor.vue';
     import EditReference from '../../../character/editReference.vue';
     import ScopeSelect from '../../../character/scopeSelect.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

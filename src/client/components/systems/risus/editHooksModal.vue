@@ -22,27 +22,27 @@
 
             <!-- Modal Content -->
             <div v-for="(hook, index) in hooks" :key="index" class="d-flex mb-2">
-                <b-form-input v-model="hook.description"></b-form-input>
-                <b-btn variant="danger" class="ml-2" @click="removeHook(hook)">
+                <BFormInput v-model="hook.description"></BFormInput>
+                <BButton variant="danger" class="ml-2" @click="removeHook(hook)">
                     <fa icon="trash-alt"></fa>
-                </b-btn>
+                </BButton>
             </div>
 
             <hr />
 
-            <b-card
+            <BCard
                 header="New Hook"
                 header-bg-variant="dark"
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input id="new-input" v-model="newHook"></b-form-input>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" @click="addHook">
+                    <BFormInput id="new-input" v-model="newHook"></BFormInput>
+                    <BButton variant="primary" class="ml-2 text-nowrap" @click="addHook">
                         <fa icon="plus"></fa>
                         Add
-                    </b-btn>
+                    </BButton>
                 </div>
-            </b-card>
+            </BCard>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -73,7 +73,7 @@
     import { RisusHook } from '../../../../common/interfaces/systems/risus';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

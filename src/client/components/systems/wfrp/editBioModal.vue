@@ -26,7 +26,7 @@
                 label="Name"
                 label-for="name-input"
             >
-                <b-form-input id="name-input" v-model="innerBio.name"></b-form-input>
+                <BFormInput id="name-input" v-model="innerBio.name"></BFormInput>
             </b-form-group>
             <b-form-group
                 id="desc-input-group"
@@ -59,7 +59,7 @@
     import { RisusSystemDetails } from '../../../../common/interfaces/systems/risus';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
     import MarkdownEditor from '../../ui/markdownEditor.vue';
 
     //------------------------------------------------------------------------------------------------------------------
