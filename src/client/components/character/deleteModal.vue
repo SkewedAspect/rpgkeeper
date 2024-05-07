@@ -15,13 +15,8 @@
         @hidden="onHidden"
     >
         <!-- Modal Header -->
-        <template #title>
-            <fa icon="trash-alt"></fa>
-            Delete Character
-        </template>
-
         <template #header="{ cancel }">
-            <h5 class="w-100 mb-0" v-b-color-mode="'dark'">
+            <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
                 <fa icon="trash-alt"></fa>
                 Delete Character
                 <CloseButton class="float-end" @click="cancel"></CloseButton>

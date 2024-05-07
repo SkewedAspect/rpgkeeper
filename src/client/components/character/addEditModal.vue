@@ -11,21 +11,24 @@
             no-close-on-esc
             no-close-on-backdrop
             size="xxl"
-            :ok-disabled="v$.$errors.length > 0"
+            :ok-disabled="/*v$.$errors.length > 0*/false"
             @ok="onSave"
             @hidden="onHidden"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <span v-if="isNew">
-                    <fa icon="user-plus"></fa>
-                    Add
-                </span>
-                <span v-else>
-                    <fa icon="user-edit"></fa>
-                    Edit
-                </span>
-                Character
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <span v-if="isNew">
+                        <fa icon="user-plus"></fa>
+                        Add
+                    </span>
+                    <span v-else>
+                        <fa icon="user-edit"></fa>
+                        Edit
+                    </span>
+                    Character
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Body -->
@@ -172,13 +175,17 @@
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
         </BModal>
     </div>
@@ -209,6 +216,7 @@
     import CharThumbnail from './charThumbnail.vue';
     import CharPortrait from './charPortrait.vue';
     import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Types

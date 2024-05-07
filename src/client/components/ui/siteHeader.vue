@@ -16,7 +16,7 @@
                     Dashboard
                 </BNavItem>
             </BNavbarNav>
-            <BNavbarNav class="ms-auto" v-b-color-mode="'light'">
+            <BNavbarNav v-b-color-mode="'light'" class="ms-auto">
                 <LoginBtn></LoginBtn>
             </BNavbarNav>
         </BCollapse>

@@ -16,9 +16,12 @@
             @hidden="onHidden"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="trash-alt"></fa>
-                {{ title }}
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="trash-alt"></fa>
+                    {{ title }}
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <h3>
@@ -30,13 +33,17 @@
             </p>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="trash-alt"></fa>
-                Delete
+            <template #ok="{ ok }">
+                <BButton variant="danger" @click="ok">
+                    <fa icon="trash-alt"></fa>
+                    Delete
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
         </BModal>
     </div>

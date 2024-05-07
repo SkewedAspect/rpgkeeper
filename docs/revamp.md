@@ -3,6 +3,7 @@
 Back at it again.
 
 * [ ] Switch to Bootstrap v5 (and Bootstrap-Vue-Next)
+* [ ] Switch to New [Color-picker][]
 * [ ] Convert from decoders to better validation/data model
   * [ ] Evaluate options in 2024 ([ajv][], [ajv-ts][] [joi][], [zod][], etc)
 * [ ] Add local user registration, link with Google / Facebook / Twitter
@@ -24,3 +25,5 @@ Back at it again.
 [ajv-ts]: https://github.com/vitalics/ajv-ts
 [joi]: https://github.com/hapijs/joi
 [zod]: https://github.com/colinhacks/zod
+
+[color-picker]: https://github.com/cyhnkckali/vue3-color-picker
