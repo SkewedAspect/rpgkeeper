@@ -133,7 +133,7 @@
         <div class="text-center">
             <BButton v-if="account" variant="primary" to="/dashboard">
                 Go to Dashboard
-                <fa icon="arror-right"></fa>
+                <fa icon="arrow-right"></fa>
             </BButton>
             <BButton v-else variant="primary" href="/auth/google">
                 Create free account
@@ -169,7 +169,7 @@
 
     const router = useRouter();
     const store = useAccountStore();
-    const { account, signedInBeforeLoad } = storeToRefs(store);
+    const { account, redirectToDashboard } = storeToRefs(store);
 
     //------------------------------------------------------------------------------------------------------------------
     // Lifecycle Hooks
@@ -177,8 +177,10 @@
 
     onMounted(() =>
     {
-        if(account.value && signedInBeforeLoad.value)
+        if(account.value && redirectToDashboard.value)
         {
+            console.warn('User was signed in before page load, redirecting to dashboard.');
+
             // We've completed a sign in, redirect
             router.push('/dashboard');
         }

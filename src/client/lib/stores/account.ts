@@ -12,7 +12,7 @@ import { Account } from '../models/account';
 export interface AccountStoreState
 {
     account : Account | null;
-    signedInBeforeLoad : boolean;
+    redirectToDashboard : boolean;
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ export const useAccountStore = defineStore('account', {
     {
         return {
             account: null,
-            signedInBeforeLoad: false
+            redirectToDashboard: false
         };
     }
 });

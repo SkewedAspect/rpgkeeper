@@ -36,7 +36,7 @@ class AuthManager
         const account = await authRA.getCurrentUser();
 
         // Update the store
-        accountStore.$patch({ account, signedInBeforeLoad: true });
+        accountStore.$patch({ account, redirectToDashboard: !!account });
 
         // Load Roles
         await permRA.load();

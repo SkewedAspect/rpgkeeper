@@ -174,7 +174,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { account } = storeToRefs(useAccountStore());
+    const { account, redirectToDashboard } = storeToRefs(useAccountStore());
     const router = useRouter();
     const sysStore = useSystemsStore();
     const charStore = useCharactersStore();
@@ -335,6 +335,9 @@
             // We've finished loading, and we're not signed in
             router.push('/');
         }
+
+        // We've loaded the dashboard, no need to redirect here anymore.
+        redirectToDashboard.value = false;
 
         selectAllSystems();
     });
