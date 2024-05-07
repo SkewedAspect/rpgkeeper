@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-ability-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -26,20 +26,20 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 label="Name"
                 label-class="fw-bold"
                 label-for="name-input"
             >
                 <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 id="extras-input-group"
                 label="Description"
                 label-for="extras-input"
             >
                 <MarkdownEditor v-model:text="description"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
 
@@ -54,7 +54,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

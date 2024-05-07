@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-biography-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -21,29 +21,29 @@
 
             <!-- Modal Content -->
             <div :class="`${ mode }-system`">
-                <b-form-row>
-                    <b-col>
-                        <b-form-group
+                <BFormRow>
+                    <BCol>
+                        <BFormGroup
                             label="Name"
                             label-class="fw-bold"
                             label-for="name-input"
                         >
                             <BFormInput id="name-input" v-model="name"></BFormInput>
-                        </b-form-group>
-                    </b-col>
-                    <b-col>
-                        <b-form-group
+                        </BFormGroup>
+                    </BCol>
+                    <BCol>
+                        <BFormGroup
                             label="Description"
                             label-class="fw-bold"
                             label-for="description-input"
                         >
                             <BFormInput id="description-input" v-model="description"></BFormInput>
-                        </b-form-group>
-                    </b-col>
-                </b-form-row>
-                <b-form-row>
-                    <b-col>
-                        <b-form-group
+                        </BFormGroup>
+                    </BCol>
+                </BFormRow>
+                <BFormRow>
+                    <BCol>
+                        <BFormGroup
                             label="Species"
                             label-class="fw-bold"
                             label-for="species-input"
@@ -58,30 +58,30 @@
                                     </BInputGroupAppend>
                                 </BInputGroup>
                             </div>
-                        </b-form-group>
-                    </b-col>
-                    <b-col v-if="mode === 'eote'" cols="auto">
-                        <b-form-group
+                        </BFormGroup>
+                    </BCol>
+                    <BCol v-if="mode === 'eote'" cols="auto">
+                        <BFormGroup
                             label="Force Sensitive"
                             label-class="fw-bold"
                             label-for="species-input"
                             label-sr-only
                         >
-                            <b-form-checkbox
+                            <BFormGroup
                                 v-model="forceSensitive"
                                 style="margin-top: 2.4rem"
                                 name="force-sensitive"
                                 switch
                             >
                                 Force Sensitive
-                            </b-form-checkbox>
-                        </b-form-group>
-                    </b-col>
-                </b-form-row>
+                            </BFormGroup>
+                        </BFormGroup>
+                    </BCol>
+                </BFormRow>
 
-                <b-form-row>
-                    <b-col xs="12">
-                        <b-form-group
+                <BFormRow>
+                    <BCol xs="12">
+                        <BFormGroup
                             label="Career"
                             label-class="fw-bold"
                             label-for="career-input"
@@ -96,10 +96,10 @@
                                     </BInputGroupAppend>
                                 </BInputGroup>
                             </div>
-                        </b-form-group>
-                    </b-col>
-                    <b-col v-if="mode === 'eote'" xs="12">
-                        <b-form-group
+                        </BFormGroup>
+                    </BCol>
+                    <BCol v-if="mode === 'eote'" xs="12">
+                        <BFormGroup
                             label="Specializations"
                             label-class="fw-bold"
                             label-for="special-input"
@@ -114,9 +114,9 @@
                                     </BInputGroupAppend>
                                 </BInputGroup>
                             </div>
-                        </b-form-group>
-                    </b-col>
-                </b-form-row>
+                        </BFormGroup>
+                    </BCol>
+                </BFormRow>
 
                 <SupplementSelect
                     ref="suppSelect"
@@ -142,7 +142,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
 
         <!-- Modals -->
         <AddEditAbilityModal ref="addEditModal" @add="onAbilityAdd"></AddEditAbilityModal>

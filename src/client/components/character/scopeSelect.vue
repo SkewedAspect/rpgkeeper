@@ -2,7 +2,7 @@
   -- scopeSelect
   --------------------------------------------------------------------------------------------------------------------->
 <template>
-    <b-form-group
+    <BFormGroup
         class="supp-scope-select"
         label="Scope"
         label-class="fw-bold"
@@ -14,7 +14,7 @@
                 Official
             </BFormCheckbox>
         </div>
-    </b-form-group>
+    </BFormGroup>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

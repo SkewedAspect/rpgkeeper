@@ -22,51 +22,51 @@
         </template>
 
         <!-- Card Body -->
-        <b-table-simple
+        <BTableSimple
             v-if="armor.name"
             class="font-sm mb-0"
             small
         >
-            <b-thead>
-                <b-tr>
-                    <b-th class="text-center">
+            <BThead>
+                <BTr>
+                    <BTh class="text-center">
                         Defense
-                    </b-th>
-                    <b-th class="text-center">
+                    </BTh>
+                    <BTh class="text-center">
                         Soak
-                    </b-th>
-                    <b-th class="text-center">
+                    </BTh>
+                    <BTh class="text-center">
                         Hardpoints
-                    </b-th>
-                    <b-th class="text-center">
+                    </BTh>
+                    <BTh class="text-center">
                         Encumb.
-                    </b-th>
-                    <b-th class="text-center">
+                    </BTh>
+                    <BTh class="text-center">
                         Rarity
-                    </b-th>
-                    <b-th>
+                    </BTh>
+                    <BTh>
                         Upgrades
-                    </b-th>
-                </b-tr>
-            </b-thead>
-            <b-tbody>
-                <b-tr>
-                    <b-td class="text-center">
+                    </BTh>
+                </BTr>
+            </BThead>
+            <BTbody>
+                <BTr>
+                    <BTd class="text-center">
                         {{ armor.defense }}
-                    </b-td>
-                    <b-td class="text-center">
+                    </BTd>
+                    <BTd class="text-center">
                         {{ armor.soak }}
-                    </b-td>
-                    <b-td class="text-center">
+                    </BTd>
+                    <BTd class="text-center">
                         {{ armor.hardpoints }}
-                    </b-td>
-                    <b-td class="text-center">
+                    </BTd>
+                    <BTd class="text-center">
                         {{ armor.encumbrance }}
-                    </b-td>
-                    <b-td class="text-center">
+                    </BTd>
+                    <BTd class="text-center">
                         {{ armor.rarity }}
-                    </b-td>
-                    <b-td class="text-nowrap w-25">
+                    </BTd>
+                    <BTd class="text-nowrap w-25">
                         <QualityTag
                             v-for="quality in armor.qualities"
                             :id="quality.id"
@@ -76,10 +76,10 @@
                         <h5 v-if="armor.qualities === 0" class="mt-2 text-center">
                             No Upgrades.
                         </h5>
-                    </b-td>
-                </b-tr>
-            </b-tbody>
-        </b-table-simple>
+                    </BTd>
+                </BTr>
+            </BTbody>
+        </BTableSimple>
         <h5 v-else class="mt-2 text-center">
             No armor
         </h5>

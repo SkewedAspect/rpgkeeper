@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-quality-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -26,33 +26,33 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col cols="10">
-                    <b-form-group
+            <BFormRow>
+                <BCol cols="10">
+                    <BFormGroup
                         label="Name"
                         label-class="fw-bold"
                         label-for="name-input"
                     >
                         <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
-                    </b-form-group>
-                </b-col>
-                <b-col cols="2" class="pt-4">
-                    <b-form-checkbox v-model="passive" name="passive-check" switch>
+                    </BFormGroup>
+                </BCol>
+                <BCol cols="2" class="pt-4">
+                    <BFormGroup v-model="passive" name="passive-check" switch>
                         <b>Passive</b>
-                    </b-form-checkbox>
-                    <b-form-checkbox v-model="ranked" name="ranked-check" switch>
+                    </BFormGroup>
+                    <BFormGroup v-model="ranked" name="ranked-check" switch>
                         <b>Ranked</b>
-                    </b-form-checkbox>
-                </b-col>
-            </b-form-row>
-            <b-form-group
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
+            <BFormGroup
                 id="extras-input-group"
                 label="Description"
                 label-class="fw-bold"
                 label-for="extras-input"
             >
                 <MarkdownEditor v-model:text="description"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
 
@@ -67,7 +67,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

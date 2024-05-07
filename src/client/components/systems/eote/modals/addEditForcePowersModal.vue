@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-edit-forcepower-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -26,11 +26,11 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col cols="6">
-                    <b-form-row>
-                        <b-col>
-                            <b-form-group
+            <BFormRow>
+                <BCol cols="6">
+                    <BFormRow>
+                        <BCol>
+                            <BFormGroup
                                 label="Name"
                                 label-class="fw-bold"
                                 label-for="name-input"
@@ -40,10 +40,10 @@
                                     v-model="name"
                                     autocomplete="off"
                                 ></BFormInput>
-                            </b-form-group>
-                        </b-col>
-                        <b-col style="max-width: 100px">
-                            <b-form-group
+                            </BFormGroup>
+                        </BCol>
+                        <BCol style="max-width: 100px">
+                            <BFormGroup
                                 label="Min Rating"
                                 label-class="fw-bold text-nowrap"
                                 label-for="min-rating-input"
@@ -57,11 +57,11 @@
                                     step="1"
                                     autocomplete="off"
                                 ></BFormInput>
-                            </b-form-group>
-                        </b-col>
-                    </b-form-row>
+                            </BFormGroup>
+                        </BCol>
+                    </BFormRow>
 
-                    <b-form-group
+                    <BFormGroup
                         id="description-input-group"
                         label="Description"
                         label-class="fw-bold"
@@ -71,15 +71,15 @@
                             v-model:text="description"
                             height="207px"
                         ></MarkdownEditor>
-                    </b-form-group>
+                    </BFormGroup>
 
                     <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
 
                     <EditReference v-model:reference="reference"></EditReference>
-                </b-col>
+                </BCol>
 
-                <b-col cols="6">
-                    <b-form-group
+                <BCol cols="6">
+                    <BFormGroup
                         id="strength-input-group"
                         label="Strength"
                         label-class="fw-bold"
@@ -87,7 +87,7 @@
                     >
                         <template #label>
                             Strength
-                            <b-form-spinbutton
+                            <BFormSpinbutton
                                 v-model="upgrades.strength.available"
                                 class="pull-right"
                                 min="0"
@@ -95,7 +95,7 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></b-form-spinbutton>
+                            ></BFormSpinbutton>
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.strength.available > 0"
@@ -106,8 +106,8 @@
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Strength upgrades</i>
                         </BCard>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         id="magnitude-input-group"
                         label="Magnitude"
                         label-class="fw-bold"
@@ -115,7 +115,7 @@
                     >
                         <template #label>
                             Magnitude
-                            <b-form-spinbutton
+                            <BFormSpinbutton
                                 v-model="upgrades.magnitude.available"
                                 class="pull-right"
                                 min="0"
@@ -123,7 +123,7 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></b-form-spinbutton>
+                            ></BFormSpinbutton>
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.magnitude.available > 0"
@@ -134,8 +134,8 @@
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Magnitude upgrades</i>
                         </BCard>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         id="duration-input-group"
                         label="Duration"
                         label-class="fw-bold"
@@ -143,7 +143,7 @@
                     >
                         <template #label>
                             Duration
-                            <b-form-spinbutton
+                            <BFormSpinbutton
                                 v-model="upgrades.duration.available"
                                 class="pull-right"
                                 min="0"
@@ -151,7 +151,7 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></b-form-spinbutton>
+                            ></BFormSpinbutton>
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.duration.available > 0"
@@ -162,8 +162,8 @@
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Duration upgrades</i>
                         </BCard>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         id="range-input-group"
                         label="Range"
                         label-class="fw-bold"
@@ -171,7 +171,7 @@
                     >
                         <template #label>
                             Range
-                            <b-form-spinbutton
+                            <BFormSpinbutton
                                 v-model="upgrades.range.available"
                                 class="pull-right"
                                 min="0"
@@ -179,7 +179,7 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></b-form-spinbutton>
+                            ></BFormSpinbutton>
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.range.available > 0"
@@ -190,8 +190,8 @@
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Range upgrades</i>
                         </BCard>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         id="mastery-input-group"
                         label="Mastery"
                         label-class="fw-bold"
@@ -199,7 +199,7 @@
                     >
                         <template #label>
                             Mastery
-                            <b-form-spinbutton
+                            <BFormSpinbutton
                                 v-model="upgrades.mastery.available"
                                 class="pull-right"
                                 min="0"
@@ -207,7 +207,7 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></b-form-spinbutton>
+                            ></BFormSpinbutton>
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.mastery.available > 0"
@@ -218,8 +218,8 @@
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Mastery upgrades</i>
                         </BCard>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         id="control-input-group"
                         label="Control"
                         label-class="fw-bold"
@@ -227,7 +227,7 @@
                     >
                         <template #label>
                             Control
-                            <b-form-spinbutton
+                            <BFormSpinbutton
                                 v-model="controlAvailable"
                                 class="pull-right"
                                 min="0"
@@ -235,7 +235,7 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></b-form-spinbutton>
+                            ></BFormSpinbutton>
                         </template>
                         <MarkdownEditor
                             v-for="(_, index) in upgrades.control"
@@ -247,9 +247,9 @@
                         <BCard v-if="upgrades.control.length < 1" class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Control upgrades</i>
                         </BCard>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -260,7 +260,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

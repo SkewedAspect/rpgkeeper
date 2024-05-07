@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container v-if="char" id="risus-character" fluid>
+    <BContainer v-if="char" id="risus-character" fluid>
         <div class="d-flex bio-row">
             <PortraitCard class="me-1 d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
             <BioCard
@@ -31,7 +31,7 @@
                 @save="onSave"
             ></HooksCard>
         </div>
-    </b-container>
+    </BContainer>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

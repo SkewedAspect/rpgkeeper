@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-experience-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -20,7 +20,7 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 class="flex-fill"
                 label="Add XP"
                 label-class="fw-bold"
@@ -43,12 +43,12 @@
                         </small>
                     </p>
                 </div>
-            </b-form-group>
+            </BFormGroup>
 
             <hr class="mt-2 mb-2" />
 
             <div class="d-flex">
-                <b-form-group
+                <BFormGroup
                     class="flex-fill"
                     label="Total"
                     label-class="fw-bold"
@@ -64,9 +64,9 @@
                             </BInputGroupAppend>
                         </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
 
-                <b-form-group
+                <BFormGroup
                     class="flex-fill ms-2"
                     label="Available"
                     label-class="fw-bold"
@@ -82,7 +82,7 @@
                             </BInputGroupAppend>
                         </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
             </div>
 
             <!-- Modal Buttons -->
@@ -94,7 +94,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

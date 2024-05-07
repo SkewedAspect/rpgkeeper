@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-force-powers-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -38,7 +38,7 @@
                             <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
                         </div>
                         <h5>Upgrades</h5>
-                        <b-table
+                        <BTable
                             class="font-sm"
                             :items="getUpgrades(instance, supplement)"
                             :fields="upgradeFields"
@@ -66,7 +66,7 @@
                             <template #cell(description)="data">
                                 <MarkdownBlock :text="data.value" inline></MarkdownBlock>
                             </template>
-                        </b-table>
+                        </BTable>
                         <ReferenceBlock
                             class="float-end mt-2"
                             :reference="supplement.reference"
@@ -84,7 +84,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
 
         <!-- Modals -->
         <AddEditForcePowersModal

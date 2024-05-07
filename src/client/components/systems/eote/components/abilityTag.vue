@@ -4,9 +4,9 @@
 
 <template>
     <span class="eote-ability">
-        <b-badge :id="`ability-${ id }`">
+        <BBadge :id="`ability-${ id }`">
             {{ abilityName }}
-        </b-badge>
+        </BBadge>
         <BPopover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
                 <MarkdownBlock :text="abilityText" inline></MarkdownBlock>

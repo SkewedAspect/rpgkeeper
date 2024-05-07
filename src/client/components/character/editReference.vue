@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-reference d-flex">
-        <b-form-group
+        <BFormGroup
             class="flex-fill"
             label="Source"
             label-class="fw-bold"
@@ -17,8 +17,8 @@
                 text-field="name"
                 value-field="abbr"
             ></BFormSelect>
-        </b-form-group>
-        <b-form-group
+        </BFormGroup>
+        <BFormGroup
             class="flex-fill ms-2"
             label="Page"
             label-class="fw-bold"
@@ -33,7 +33,7 @@
                 min="1"
                 :disabled="source === 'HB'"
             ></BFormInput>
-        </b-form-group>
+        </BFormGroup>
     </div>
 </template>
 

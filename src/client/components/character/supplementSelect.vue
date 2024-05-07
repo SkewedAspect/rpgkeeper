@@ -3,13 +3,13 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-form-group
+    <BFormGroup
         class="supplement-select"
         :label="label"
         :label-class="labelClass"
     >
-        <b-form-row>
-            <b-col>
+        <BFormRow>
+            <BCol>
                 <BCard class="h-100 overflow-hidden" no-body :style="{ maxHeight, minHeight: maxHeight }">
                     <template #header>
                         <div class="d-flex">
@@ -34,8 +34,8 @@
                     </template>
 
                     <!-- Supplement Selection -->
-                    <b-list-group v-if="selectedSupplements.length > 0" flush class="overflow-auto">
-                        <b-list-group-item
+                    <BListGroup v-if="selectedSupplements.length > 0" flush class="overflow-auto">
+                        <BListGroupItem
                             v-for="supp in selectedSupplements"
                             :key="supp.id"
                             :variant=" supp.id === currentSelection ? 'primary' : ''"
@@ -52,16 +52,16 @@
                                 {{ getSupp(supp.id)?.name }}
                                 <span v-if="getSupp(supp.id)?.ranked">{{ supp.ranks }}</span>
                             </div>
-                        </b-list-group-item>
-                    </b-list-group>
+                        </BListGroupItem>
+                    </BListGroup>
                     <div v-else class="card-body">
                         <h5 class="m-0 text-center">
                             Nothing added to character.
                         </h5>
                     </div>
                 </BCard>
-            </b-col>
-            <b-col>
+            </BCol>
+            <BCol>
                 <BCard class="h-100">
                     <template v-if="currentSelection" #header>
                         <slot :instance="supplementInstance" :supplement="currentSupplement" name="header">
@@ -94,7 +94,7 @@
                         <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
                             <div v-if="currentSupplement.ranked" class="mb-2">
                                 <label>Ranks</label>
-                                <b-form-spinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></b-form-spinbutton>
+                                <BFormSpinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></BFormSpinbutton>
                             </div>
                             <MarkdownBlock :text="currentSupplement.description" inline></MarkdownBlock>
                             <div class="text-end mt-auto">
@@ -104,9 +104,9 @@
                         </slot>
                     </div>
                 </BCard>
-            </b-col>
-        </b-form-row>
-    </b-form-group>
+            </BCol>
+        </BFormRow>
+    </BFormGroup>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

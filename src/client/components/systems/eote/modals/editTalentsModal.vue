@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-talent-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -38,7 +38,7 @@
                         <div class="clearfix">
                             <div v-if="supplement.ranked" class="mb-2 float-end">
                                 <label>Ranks</label>
-                                <b-form-spinbutton v-model="getInst(instance.id).ranks" inline></b-form-spinbutton>
+                                <BFormSpinbutton v-model="getInst(instance.id).ranks" inline></BFormSpinbutton>
                             </div>
                             <div class="mb-2">
                                 <i>{{ getActivation(supplement) }}</i>
@@ -84,14 +84,14 @@
                         <span v-if="supplement.ranked">{{ instance.ranks }}</span>
                     </template>
                     <template #selection-extra="{ supplement }">
-                        <b-badge v-if="mode === 'genesys'" class="me-1">
+                        <BBadge v-if="mode === 'genesys'" class="me-1">
                             Tier {{ supplement.tier }}
-                        </b-badge>
+                        </BBadge>
                     </template>
                     <template #suggestion-extra="{ supplement }">
-                        <b-badge v-if="mode === 'genesys'" class="me-1">
+                        <BBadge v-if="mode === 'genesys'" class="me-1">
                             Tier {{ supplement.tier }}
-                        </b-badge>
+                        </BBadge>
                     </template>
                 </supplement-select>
             </div>
@@ -105,7 +105,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
 
         <!-- Modals -->
         <AddEditTalentModal ref="addEditTalentModal" @add="onTalentAdd"></AddEditTalentModal>

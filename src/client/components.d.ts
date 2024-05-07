@@ -29,11 +29,13 @@ declare module 'vue' {
     BFormCheckbox: typeof import('bootstrap-vue-next')['BFormCheckbox']
     BFormCheckboxGroup: typeof import('bootstrap-vue-next')['BFormCheckboxGroup']
     BFormGroup: typeof import('bootstrap-vue-next')['BFormGroup']
+    BFormGroupGroup: typeof import('bootstrap-vue-next')['BFormGroupGroup']
     BFormInput: typeof import('bootstrap-vue-next')['BFormInput']
     BFormRadio: typeof import('bootstrap-vue-next')['BFormRadio']
     BFormRow: typeof import('bootstrap-vue-next')['BFormRow']
     BFormSelect: typeof import('bootstrap-vue-next')['BFormSelect']
     BFormSpinbutton: typeof import('bootstrap-vue-next')['BFormSpinbutton']
+    BFormSpinButton: typeof import('bootstrap-vue-next')['BFormSpinButton']
     BImg: typeof import('bootstrap-vue-next')['BImg']
     BInput: typeof import('bootstrap-vue-next')['BInput']
     BInputGroup: typeof import('bootstrap-vue-next')['BInputGroup']
@@ -45,6 +47,7 @@ declare module 'vue' {
     BNavbar: typeof import('bootstrap-vue-next')['BNavbar']
     BNavbarBrand: typeof import('bootstrap-vue-next')['BNavbarBrand']
     BNavbarNav: typeof import('bootstrap-vue-next')['BNavbarNav']
+    BNavbarToggle: typeof import('bootstrap-vue-next')['BNavbarToggle']
     BNavItem: typeof import('bootstrap-vue-next')['BNavItem']
     BNavItemDropdown: typeof import('bootstrap-vue-next')['BNavItemDropdown']
     BPopover: typeof import('bootstrap-vue-next')['BPopover']
@@ -56,6 +59,7 @@ declare module 'vue' {
     BTableSimple: typeof import('bootstrap-vue-next')['BTableSimple']
     BTabs: typeof import('bootstrap-vue-next')['BTabs']
     BTbody: typeof import('bootstrap-vue-next')['BTbody']
+    BTBody: typeof import('bootstrap-vue-next')['BTBody']
     BTd: typeof import('bootstrap-vue-next')['BTd']
     BTh: typeof import('bootstrap-vue-next')['BTh']
     BThead: typeof import('bootstrap-vue-next')['BThead']
@@ -65,6 +69,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
   }
   export interface ComponentCustomProperties {
+    vBColorMode: typeof import('bootstrap-vue-next')['vBColorMode']
     vBTooltip: typeof import('bootstrap-vue-next')['vBTooltip']
   }
 }

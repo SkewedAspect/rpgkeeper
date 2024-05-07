@@ -25,7 +25,7 @@
             <div class="skill-column">
                 <div class="skill-group">
                     <b>General</b>
-                    <b-table
+                    <BTable
                         class="font-sm"
                         :items="general"
                         :fields="fields"
@@ -52,11 +52,11 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
                 <div v-if="mode === 'genesys' && magic.length" class="skill-group">
                     <b>Magic</b>
-                    <b-table
+                    <BTable
                         class="font-sm"
                         :items="magic"
                         :fields="fields"
@@ -83,13 +83,13 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
             </div>
             <div class="skill-column">
                 <div v-if="combat.length" class="skill-group">
                     <b>Combat</b>
-                    <b-table
+                    <BTable
                         class="font-sm"
                         :items="combat"
                         :fields="fields"
@@ -116,11 +116,11 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
                 <div v-if="social.length" class="skill-group">
                     <b>Social</b>
-                    <b-table
+                    <BTable
                         class="font-sm"
                         :items="social"
                         :fields="fields"
@@ -147,11 +147,11 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
                 <div v-if="knowledge.length" class="skill-group">
                     <b>Knowledge</b>
-                    <b-table
+                    <BTable
                         class="font-sm mb-0"
                         :items="knowledge"
                         :fields="fields"
@@ -178,7 +178,7 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
             </div>
         </div>

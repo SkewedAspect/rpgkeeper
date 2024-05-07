@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-hooks-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -53,7 +53,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

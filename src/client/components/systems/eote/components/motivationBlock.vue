@@ -4,9 +4,9 @@
 
 <template>
     <div class="genesys-motivation d-inline-block">
-        <b-badge :id="uniqueID">
+        <BBadge :id="uniqueID">
             {{ motivationName }}
-        </b-badge>
+        </BBadge>
         <BPopover :title="motivationName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`genesys-system`">
                 <MarkdownBlock :text="motivationText" inline></MarkdownBlock>

@@ -21,20 +21,20 @@
         </template>
 
         <!-- Card Body -->
-        <b-form-group
+        <BFormGroup
             id="name-input-group"
             label="Name"
             label-class="fw-bold"
         >
             <h5>{{ char.name }}</h5>
-        </b-form-group>
-        <b-form-group
+        </BFormGroup>
+        <BFormGroup
             id="desc-input-group"
             label="Description"
             label-class="fw-bold"
         >
             <MarkdownBlock class="font-sm" :text="description" inline></MarkdownBlock>
-        </b-form-group>
+        </BFormGroup>
 
         <!-- Edit Modal -->
         <EditBioModal ref="bioModal" @save="onEditSave"></EditBioModal>

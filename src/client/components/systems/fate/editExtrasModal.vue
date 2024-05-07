@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-extras-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -21,13 +21,13 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="extras-input-group"
                 label="Extras"
                 label-for="extras-input"
             >
                 <MarkdownEditor v-model:text="extras"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -38,7 +38,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

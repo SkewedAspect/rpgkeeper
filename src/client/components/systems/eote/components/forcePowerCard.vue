@@ -10,9 +10,9 @@
                 <fa class="text-muted mt-1 fa-pull-right collapse-icon" icon="chevron-right"></fa>
             </div>
         </template>
-        <b-collapse id="`force-power-${ forcePower.id }`" v-model="visible" :class="`${ mode }-system m-2`">
+        <BCollapse id="`force-power-${ forcePower.id }`" v-model="visible" :class="`${ mode }-system m-2`">
             <MarkdownBlock class="font-xs" :text="powerBase?.description" inline></MarkdownBlock>
-            <b-table-lite
+            <BTableLite
                 class="font-xs mt-3 mb-0"
                 :items="upgrades"
                 :fields="upgradeFields"
@@ -28,11 +28,11 @@
                 <template #cell(description)="data">
                     <MarkdownBlock :text="data.value" inline></MarkdownBlock>
                 </template>
-            </b-table-lite>
+            </BTableLite>
             <div class="clearfix">
                 <ReferenceBlock class="float-end mt-2" :reference="powerBase?.reference"></ReferenceBlock>
             </div>
-        </b-collapse>
+        </BCollapse>
     </BCard>
 </template>
 

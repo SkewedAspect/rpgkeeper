@@ -4,7 +4,7 @@
 
 <template>
     <div v-if="aspects" class="edit-aspects-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -21,28 +21,28 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col cols="12" lg="6">
-                    <b-form-group
+            <BFormRow>
+                <BCol cols="12" lg="6">
+                    <BFormGroup
                         id="hc-input-group"
                         label="High Concept"
                         label-class="fw-bold"
                         label-for="hc-input"
                     >
                         <BFormInput id="hc-input" v-model="highConcept.detail"></BFormInput>
-                    </b-form-group>
-                </b-col>
-                <b-col cols="12" lg="6">
-                    <b-form-group
+                    </BFormGroup>
+                </BCol>
+                <BCol cols="12" lg="6">
+                    <BFormGroup
                         id="tBInputGroup"
                         label="Trouble"
                         label-class="fw-bold"
                         label-for="tb-input"
                     >
                         <BFormInput id="tb-input" v-model="trouble.detail"></BFormInput>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
 
             <hr class="mt-2" />
 
@@ -80,7 +80,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

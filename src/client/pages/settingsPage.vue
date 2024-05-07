@@ -11,7 +11,7 @@
         <div v-else>
             <!-- Giant Avatar Picture of Doom -->
             <div class="avatar-holder">
-                <b-img
+                <BImg
                     rounded="circle"
                     width="128"
                     height="128"
@@ -19,15 +19,15 @@
                     :alt="account.displayName"
                     class="m-1"
                     center
-                ></b-img>
+                ></BImg>
                 <h4 class="text-center">
                     {{ account.email }}
                 </h4>
             </div>
 
             <!-- Display Name setting -->
-            <b-form-row class="mb-4">
-                <b-col offset="1" cols="10" offset-md="3" md="6" offset-lg="4" lg="4">
+            <BFormRow class="mb-4">
+                <BCol offset="1" cols="10" offset-md="3" md="6" offset-lg="4" lg="4">
                     <BInputGroup>
                         <BFormInput v-model="account.name" placeholder="Display Name"></BFormInput>
 
@@ -38,8 +38,8 @@
                             </BButton>
                         </BInputGroupAppend>
                     </BInputGroup>
-                </b-col>
-            </b-form-row>
+                </BCol>
+            </BFormRow>
 
             <!-- Settings -->
             <BCard header-bg-variant="dark" header-text-variant="white" class="drop-shadow">

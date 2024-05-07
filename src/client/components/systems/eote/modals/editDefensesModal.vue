@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-defenses-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -21,7 +21,7 @@
 
             <!-- Modal Content -->
             <div class="d-flex">
-                <b-form-group
+                <BFormGroup
                     class="flex-fill"
                     label="Soak"
                     label-class="fw-bold"
@@ -37,9 +37,9 @@
                             </BInputGroupAppend>
                         </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
 
-                <b-form-group
+                <BFormGroup
                     class="flex-fill ms-2"
                     label="Melee"
                     label-class="fw-bold"
@@ -55,9 +55,9 @@
                             </BInputGroupAppend>
                         </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
 
-                <b-form-group
+                <BFormGroup
                     class="flex-fill ms-2"
                     label="Ranged"
                     label-class="fw-bold"
@@ -73,7 +73,7 @@
                             </BInputGroupAppend>
                         </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
             </div>
 
             <!-- Modal Buttons -->
@@ -85,7 +85,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

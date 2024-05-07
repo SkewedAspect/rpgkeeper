@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-armor-modal">
-        <b-modal
+        <BModal
             id="armorModal"
             ref="innerModal"
             header-bg-variant="dark"
@@ -24,8 +24,8 @@
 
             <!-- Modal Content -->
             <div :class="`${ mode }-system`">
-                <b-form-row>
-                    <b-form-group
+                <BFormRow>
+                    <BFormGroup
                         class="flex-fill pe-1 w-50"
                         label="Name"
                         label-class="fw-bold"
@@ -36,8 +36,8 @@
                             v-model="editArmor.name"
                             type="text"
                         ></BFormInput>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         class="flex-fill ps-1 w-25"
                         label="Hardpoints"
                         label-class="fw-bold"
@@ -51,11 +51,11 @@
                             min="0"
                             step="0"
                         ></BFormInput>
-                    </b-form-group>
-                </b-form-row>
+                    </BFormGroup>
+                </BFormRow>
 
-                <b-form-row>
-                    <b-form-group
+                <BFormRow>
+                    <BFormGroup
                         class="flex-fill pe-1 w-25"
                         label="Defense"
                         label-class="fw-bold"
@@ -69,8 +69,8 @@
                             min="0"
                             step="0"
                         ></BFormInput>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
                         label="Soak"
                         label-class="fw-bold"
@@ -84,8 +84,8 @@
                             min="0"
                             step="0"
                         ></BFormInput>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
                         label="Encumb."
                         label-class="fw-bold"
@@ -99,8 +99,8 @@
                             min="0"
                             step="0"
                         ></BFormInput>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         class="flex-fill ps-1 w-25"
                         label="Rarity"
                         label-class="fw-bold"
@@ -114,19 +114,19 @@
                             min="0"
                             step="0"
                         ></BFormInput>
-                    </b-form-group>
-                </b-form-row>
+                    </BFormGroup>
+                </BFormRow>
 
                 <QualityEdit v-model:qualities="editArmor.qualities"></QualityEdit>
 
-                <b-form-row>
-                    <b-col cols="8" offset="2">
+                <BFormRow>
+                    <BCol cols="8" offset="2">
                         <BButton variant="danger" block @click="clear()">
                             <fa icon="trash-alt"></fa>
                             Clear Armor
                         </BButton>
-                    </b-col>
-                </b-form-row>
+                    </BCol>
+                </BFormRow>
             </div>
 
             <!-- Modal Buttons -->
@@ -138,7 +138,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

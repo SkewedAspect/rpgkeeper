@@ -34,8 +34,8 @@
 
         <hr class="fancy mt-5" />
 
-        <b-row class="mt-5">
-            <b-col>
+        <BRow class="mt-5">
+            <BCol>
                 <h3 class="text-center">
                     <fa icon="bullseye-pointer"></fa>
                     Targeted Characters
@@ -48,8 +48,8 @@
                 </p>
 
                 <hr class="fancy" />
-            </b-col>
-            <b-col>
+            </BCol>
+            <BCol>
                 <h3 class="text-center">
                     <fa icon="users-crown"></fa>
                     User Driven
@@ -62,8 +62,8 @@
                 </p>
 
                 <hr class="fancy" />
-            </b-col>
-            <b-col>
+            </BCol>
+            <BCol>
                 <h3 class="text-center">
                     <fa icon="chart-network"></fa>
                     Interoperable
@@ -76,10 +76,10 @@
                 </p>
 
                 <hr class="fancy" />
-            </b-col>
-        </b-row>
-        <b-row class="mt-5">
-            <b-col>
+            </BCol>
+        </BRow>
+        <BRow class="mt-5">
+            <BCol>
                 <h3 class="text-center">
                     <fa icon="tachometer-alt"></fa>
                     Optimized Code
@@ -92,8 +92,8 @@
                 </p>
 
                 <hr class="fancy" />
-            </b-col>
-            <b-col>
+            </BCol>
+            <BCol>
                 <h3 class="text-center">
                     <fa icon="code-branch"></fa>
                     Open Source
@@ -106,8 +106,8 @@
                 </p>
 
                 <hr class="fancy" />
-            </b-col>
-            <b-col>
+            </BCol>
+            <BCol>
                 <h3 class="text-center">
                     <fa icon="sack-dollar"></fa>
                     Usefully Free
@@ -120,8 +120,8 @@
                 </p>
 
                 <hr class="fancy" />
-            </b-col>
-        </b-row>
+            </BCol>
+        </BRow>
 
         <h4 class="text-center mt-5">
             Now that you've read our marketing pitch, why don't you try out RPGKeeper?

@@ -21,21 +21,21 @@
         </template>
 
         <!-- Card Body -->
-        <b-form-group
+        <BFormGroup
             id="name-input-group"
             label="Name"
             label-class="fw-bold"
         >
             <h5>{{ char.name }}</h5>
-        </b-form-group>
-        <b-form-group
+        </BFormGroup>
+        <BFormGroup
             id="desc-input-group"
             label="Description"
             label-class="fw-bold"
         >
             <MarkdownBlock class="font-sm" :text="char.description" inline></MarkdownBlock>
-        </b-form-group>
-        <b-form-group
+        </BFormGroup>
+        <BFormGroup
             id="fp-input-group"
             class="mt-4 mb-0"
             label="Fate Points"
@@ -47,7 +47,7 @@
                 :readonly="readonly"
                 @update:current="onFateSave"
             ></FatePoints>
-        </b-form-group>
+        </BFormGroup>
 
         <!-- Edit Modal -->
         <EditIdentityModal ref="editModal" @save="onEditSave"></EditIdentityModal>

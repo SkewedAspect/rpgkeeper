@@ -17,9 +17,9 @@
         <table class="table stress-table table-bordered mb-0">
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <b-form-checkbox v-model="physicalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onSave">
+                    <BFormGroup v-model="physicalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onSave">
                         <b>{{ stressBox }}</b>
-                    </b-form-checkbox>
+                    </BFormGroup>
                 </td>
             </tr>
         </table>
@@ -33,9 +33,9 @@
         <table class="table stress-table table-bordered mb-0">
             <tr>
                 <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <b-form-checkbox v-model="mentalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onSave">
+                    <BFormGroup v-model="mentalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onSave">
                         <b>{{ stressBox }}</b>
-                    </b-form-checkbox>
+                    </BFormGroup>
                 </td>
             </tr>
         </table>

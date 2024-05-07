@@ -21,7 +21,7 @@
         </template>
 
         <!-- Card Body -->
-        <b-table
+        <BTable
             v-if="weapons.length > 0"
             class="font-sm mb-0"
             :items="weapons"
@@ -49,7 +49,7 @@
                     <fa icon="trash-alt"></fa>
                 </BButton>
             </template>
-        </b-table>
+        </BTable>
 
         <!-- Empty -->
         <h5 v-else class="mt-2 text-center">

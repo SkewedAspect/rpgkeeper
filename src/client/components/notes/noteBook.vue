@@ -40,15 +40,15 @@
         </div>
 
         <!-- Notes tabs -->
-        <b-tabs v-else v-model="pageIndex" nav-wrapper-class="d-none d-md-block" pills card vertical>
-            <b-tab v-for="page in notes.pages" :key="page.id">
+        <BTabs v-else v-model="pageIndex" nav-wrapper-class="d-none d-md-block" pills card vertical>
+            <BTab v-for="page in notes.pages" :key="page.id">
                 <template #title>
                     <fa icon="file-alt"></fa>
                     {{ page.title }}
                 </template>
                 <note-page :content="page.content"></note-page>
-            </b-tab>
-        </b-tabs>
+            </BTab>
+        </BTabs>
 
         <!-- Modals -->
         <AddEditModal

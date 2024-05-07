@@ -21,12 +21,12 @@
         </template>
 
         <!-- Card Body -->
-        <b-list-group v-if="hooks && hooks.length > 0" flush>
-            <b-list-group-item v-for="hook in hooks" :key="hook.description" class="d-flex">
+        <BListGroup v-if="hooks && hooks.length > 0" flush>
+            <BListGroupItem v-for="hook in hooks" :key="hook.description" class="d-flex">
                 <fa class="me-2" icon="bolt" style="margin-top: 5px;"></fa>
                 <MarkdownBlock :text="hook.description" inline></MarkdownBlock>
-            </b-list-group-item>
-        </b-list-group>
+            </BListGroupItem>
+        </BListGroup>
         <div v-else class="card-body">
             <h4 class="text-center text-muted m-0">
                 No Hooks.

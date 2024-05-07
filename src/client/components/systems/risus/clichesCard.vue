@@ -21,9 +21,9 @@
         </template>
 
         <!-- Card Body -->
-        <b-list-group v-if="cliches && cliches.length > 0" flush>
-            <b-list-group-item v-for="cliche in cliches" :key="cliche.description" class="d-flex">
-                <b-form-spinbutton
+        <BListGroup v-if="cliches && cliches.length > 0" flush>
+            <BListGroupItem v-for="cliche in cliches" :key="cliche.description" class="d-flex">
+                <BFormSpinbutton
                     v-model="cliche.current"
                     style="min-width: 40px; max-width: 40px"
                     class="me-2"
@@ -35,7 +35,7 @@
                     size="sm"
                     @change="onChange()"
                 >
-                </b-form-spinbutton>
+                </BFormSpinbutton>
                 <div class="d-inline-block flex-fill">
                     <h5 class="mb-0">
                         <b>{{ cliche.description }}</b> ({{ cliche.value }})
@@ -63,8 +63,8 @@
                         Reset to Max
                     </BButton>
                 </div>
-            </b-list-group-item>
-        </b-list-group>
+            </BListGroupItem>
+        </BListGroup>
         <div v-else class="card-body">
             <h4 class="text-center text-muted m-0">
                 No Cliches.

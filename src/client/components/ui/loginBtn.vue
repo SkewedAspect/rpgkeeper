@@ -5,29 +5,29 @@
 <template>
     <div id="login">
         <!-- Profile dropdown -->
-        <b-nav-item-dropdown v-if="account" id="profile-dropdown" :title="account.displayName" right no-caret>
+        <BNavItemDropdown v-if="account" id="profile-dropdown" :title="account.displayName" right no-caret>
             <template #button-content>
-                <b-img
+                <BImg
                     v-if="account.avatar"
                     rounded="circle"
                     width="32"
                     height="32"
                     blank-color="#777"
                     :src="account.avatar"
-                ></b-img>
+                ></BImg>
                 <fa v-else icon="user-circle" size="2x"></fa>
                 {{ account.displayName }}
             </template>
-            <b-dropdown-item to="/settings">
+            <BDropdownItem to="/settings">
                 <fa icon="user-circle"></fa>
                 Profile
-            </b-dropdown-item>
-            <b-dropdown-divider></b-dropdown-divider>
-            <b-dropdown-item @click="signOut()">
+            </BDropdownItem>
+            <BDropdownDivider></BDropdownDivider>
+            <BDropdownItem @click="signOut()">
                 <fa icon="sign-out"></fa>
                 Sign Out
-            </b-dropdown-item>
-        </b-nav-item-dropdown>
+            </BDropdownItem>
+        </BNavItemDropdown>
 
         <!-- Sign In Button -->
         <BButton v-else variant="dark" href="/auth/google">

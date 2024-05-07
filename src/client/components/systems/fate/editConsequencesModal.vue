@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-consequences-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -21,7 +21,7 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="mild-consequence-1"
                 label="Mild Consequence (2)"
                 label-class="fw-bold"
@@ -41,8 +41,8 @@
                         Healing
                     </BButton>
                 </div>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 v-if="hasExtraMild"
                 id="mild-consequence-2"
                 :label="`Mild Consequence (2, ${ extraMildType })`"
@@ -63,8 +63,8 @@
                         Healing
                     </BButton>
                 </div>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 id="moderate-consequence"
                 label="Moderate Consequence (4)"
                 label-class="fw-bold"
@@ -84,8 +84,8 @@
                         Healing
                     </BButton>
                 </div>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 id="severe-consequence"
                 label="Severe Consequence (6)"
                 label-class="fw-bold"
@@ -105,7 +105,7 @@
                         Healing
                     </BButton>
                 </div>
-            </b-form-group>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -116,7 +116,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

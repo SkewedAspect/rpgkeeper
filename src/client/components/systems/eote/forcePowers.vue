@@ -22,11 +22,11 @@
 
         <!-- Card Body -->
         <div>
-            <b-form-row>
-                <b-col v-for="forcePower in forcePowers" :key="forcePower.id" cols="12">
+            <BFormRow>
+                <BCol v-for="forcePower in forcePowers" :key="forcePower.id" cols="12">
                     <ForcePowerCard class="mb-2" :power="forcePower" :readonly="readonly"></ForcePowerCard>
-                </b-col>
-            </b-form-row>
+                </BCol>
+            </BFormRow>
 
             <h5 v-if="forcePowers.length === 0" class="m-0 text-center">
                 No Force Powers

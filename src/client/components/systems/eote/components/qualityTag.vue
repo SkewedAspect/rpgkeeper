@@ -4,9 +4,9 @@
 
 <template>
     <span class="eote-quality">
-        <b-badge :id="uniqueID">
+        <BBadge :id="uniqueID">
             {{ qualityName }}
-        </b-badge>
+        </BBadge>
         <BPopover :title="qualityName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
                 <MarkdownBlock :text="qualityText" inline></MarkdownBlock>

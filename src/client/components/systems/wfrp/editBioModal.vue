@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-bio-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -21,20 +21,20 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="name-input-group"
                 label="Name"
                 label-for="name-input"
             >
                 <BFormInput id="name-input" v-model="innerBio.name"></BFormInput>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 id="desc-input-group"
                 label="Description"
                 label-for="desc-input"
             >
                 <MarkdownEditor v-model:text="innerBio.description"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -45,7 +45,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

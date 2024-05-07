@@ -3,10 +3,10 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container id="character-page" class="mt-2 mb-3" fluid>
+    <BContainer id="character-page" class="mt-2 mb-3" fluid>
         <!-- Error Handling -->
-        <b-container v-if="error">
-            <b-alert variant="danger" show>
+        <BContainer v-if="error">
+            <BAlert variant="danger" show>
                 <h4>
                     <fa icon="exclamation-triangle"></fa>
                     Error loading character
@@ -20,14 +20,14 @@
                         Back to Dashboard
                     </BButton>
                 </div>
-            </b-alert>
-        </b-container>
+            </BAlert>
+        </BContainer>
 
         <!-- Loading -->
         <loading v-else-if="!char"></loading>
 
         <!-- Main Sheet Tabs -->
-        <b-tabs v-else class="main-tabs" pills>
+        <BTabs v-else class="main-tabs" pills>
             <template v-if="system" #tabs-start>
                 <li style="position: absolute; left: 18px; padding-top: 10px;">
                     <h4 class="text-muted">
@@ -36,7 +36,7 @@
                     </h4>
                 </li>
             </template>
-            <b-tab active>
+            <BTab active>
                 <template #title>
                     <fa icon="file-user"></fa>
                     Sheet
@@ -45,8 +45,8 @@
                 <!-- Actual System Character Sheet -->
                 <component :is="char.system" :is-authorized="isAuthorized">
                     <!-- We put a warning here, mostly for the developer. -->
-                    <b-container>
-                        <b-alert variant="warning" show>
+                    <BContainer>
+                        <BAlert variant="warning" show>
                             <h4>
                                 <fa icon="exclamation-triangle"></fa>
                                 Unknown system "{{ char.system }}"
@@ -65,20 +65,20 @@
                                     Back to Dashboard
                                 </BButton>
                             </div>
-                        </b-alert>
-                    </b-container>
+                        </BAlert>
+                    </BContainer>
                 </component>
-            </b-tab>
-            <b-tab>
+            </BTab>
+            <BTab>
                 <template #title>
                     <fa icon="book"></fa>
                     Notes
                 </template>
 
                 <notes></notes>
-            </b-tab>
-        </b-tabs>
-    </b-container>
+            </BTab>
+        </BTabs>
+    </BContainer>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

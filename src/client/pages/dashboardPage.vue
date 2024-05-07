@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container id="dashboard" class="pb-0">
-        <b-form-row>
-            <!--<b-col cols="12" lg="6" class="mb-3">-->
+    <BContainer id="dashboard" class="pb-0">
+        <BFormRow>
+            <!--<BCol cols="12" lg="6" class="mb-3">-->
             <!--<BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100">-->
             <!--<template #header>-->
             <!--<div class="d-flex">-->
@@ -21,20 +21,20 @@
             <!--</BButton>-->
             <!--</BInputGroupAppend>-->
             <!--</BInputGroup>-->
-            <!--<b-dropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
+            <!--<BDropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
             <!--<template #button-content>-->
             <!--<fa icon="cog"></fa>-->
             <!--</template>-->
 
-            <!--<b-dropdown-item>Filter 1</b-dropdown-item>-->
-            <!--</b-dropdown>-->
+            <!--<BDropdownItem>Filter 1</BDropdownItem>-->
+            <!--</BDropdown>-->
             <!--</div>-->
             <!--</template>-->
 
             <!--<h4 class="text-center text-muted mb-0">Campaigns are not implemented.</h4>-->
             <!--</BCard>-->
-            <!--</b-col>-->
-            <b-col cols="12" class="mb-3">
+            <!--</BCol>-->
+            <BCol cols="12" class="mb-3">
                 <!-- Characters Card -->
                 <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
                     <template #header>
@@ -51,17 +51,17 @@
                                     </BButton>
                                 </BInputGroupAppend>
                             </BInputGroup>
-                            <b-dropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right>
+                            <BDropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right>
                                 <template #button-content>
                                     <fa icon="cog"></fa>
                                 </template>
 
-                                <b-dropdown-form>
-                                    <b-form-checkbox-group
+                                <BDropdownForm>
+                                    <BformCheckboxGroup
                                         v-model="systemsFilter"
                                         stacked
                                     >
-                                        <b-form-checkbox
+                                        <BFormGroup
                                             v-for="system in systems"
                                             :key="system.id"
                                             :value="system.id"
@@ -72,32 +72,32 @@
                                                 {{ system.name }}
                                             </div>
                                             <div class="ml-auto text-end">
-                                                <b-badge
+                                                <BBadge
                                                     v-if="system.status"
                                                     :variant="getStatusVariant(system.status)"
                                                     :title="getStatusDescription(system.status)"
                                                 >
                                                     <fa :icon="getStatusIcon(system.status)"></fa>
                                                     {{ getStatusDisplay(system.status) }}
-                                                </b-badge>
+                                                </BBadge>
                                             </div>
-                                        </b-form-checkbox>
-                                    </b-form-checkbox-group>
-                                </b-dropdown-form>
-                                <b-dropdown-divider></b-dropdown-divider>
-                                <b-dropdown-item style="pointer-events: none">
+                                        </BFormGroup>
+                                    </BformCheckboxGroup>
+                                </BDropdownForm>
+                                <BDropdownDivider></BDropdownDivider>
+                                <BDropdownItem style="pointer-events: none">
                                     <div style="pointer-events: all" @click.stop="selectAllSystems()">
                                         <fa icon="check-square"></fa>
                                         Select All
                                     </div>
-                                </b-dropdown-item>
-                                <b-dropdown-item style="pointer-events: none">
+                                </BDropdownItem>
+                                <BDropdownItem style="pointer-events: none">
                                     <div style="pointer-events: all" @click.stop="selectNoneSystems()">
                                         <fa :icon="['far', 'square']"></fa>
                                         Select None
                                     </div>
-                                </b-dropdown-item>
-                            </b-dropdown>
+                                </BDropdownItem>
+                            </BDropdown>
                         </div>
                     </template>
 
@@ -106,8 +106,8 @@
                         <LoadingWidget></LoadingWidget>
                     </div>
 
-                    <b-list-group v-else-if="characters.length > 0" flush>
-                        <b-list-group-item v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
+                    <BListGroup v-else-if="characters.length > 0" flush>
+                        <BListGroupItem v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
                             <div class="d-flex">
                                 <CharThumbnail :char="char"></CharThumbnail>
                                 <div class="ms-2 flex-column d-flex justify-content-center flex-fill">
@@ -115,9 +115,9 @@
                                         {{ char.name }}
                                     </h5>
                                     <p class="text-muted m-0">
-                                        <b-badge class="me-1">
+                                        <BBadge class="me-1">
                                             {{ getSystem(char.system).name }}
-                                        </b-badge>
+                                        </BBadge>
                                         <small>{{ char.campaign }}</small>
                                     </p>
                                 </div>
@@ -132,8 +132,8 @@
                                     </BCloseButton>
                                 </div>
                             </div>
-                        </b-list-group-item>
-                    </b-list-group>
+                        </BListGroupItem>
+                    </BListGroup>
 
                     <div v-else class="card-body">
                         <h6 class="text-center text-muted">
@@ -148,13 +148,13 @@
                         </BButton>
                     </div>
                 </BCard>
-            </b-col>
-        </b-form-row>
+            </BCol>
+        </BFormRow>
 
         <!-- Modals -->
         <AddEditModal ref="addEditModal" @save="onSave"></AddEditModal>
         <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>
-    </b-container>
+    </BContainer>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

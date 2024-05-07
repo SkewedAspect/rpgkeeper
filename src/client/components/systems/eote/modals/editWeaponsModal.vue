@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-weapons-modal">
-        <b-modal
+        <BModal
             id="weapModal"
             ref="innerModal"
             header-bg-variant="dark"
@@ -31,8 +31,8 @@
 
             <!-- Modal Content -->
             <div :class="`${ mode }-system`">
-                <b-form-row>
-                    <b-form-group
+                <BFormRow>
+                    <BFormGroup
                         class="flex-fill pe-1 w-50"
                         label="Name"
                         label-class="fw-bold"
@@ -43,8 +43,8 @@
                             v-model="editWeapon.name"
                             type="text"
                         ></BFormInput>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
                         label="Skill"
                         label-class="fw-bold"
@@ -55,8 +55,8 @@
                             v-model="editWeapon.skill"
                             :options="skillNames"
                         ></BFormSelect>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         class="flex-fill ps-1 w-25"
                         label="Range"
                         label-class="fw-bold"
@@ -67,11 +67,11 @@
                             v-model="editWeapon.range"
                             :options="rangeOptions"
                         ></BFormSelect>
-                    </b-form-group>
-                </b-form-row>
+                    </BFormGroup>
+                </BFormRow>
 
-                <b-form-row>
-                    <b-form-group
+                <BFormRow>
+                    <BFormGroup
                         class="flex-fill pe-1 w-25"
                         label="Damage"
                         label-class="fw-bold"
@@ -85,8 +85,8 @@
                             min="0"
                             step="0"
                         ></BFormInput>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
                         label="Critical"
                         label-class="fw-bold"
@@ -100,8 +100,8 @@
                             min="0"
                             step="0"
                         ></BFormInput>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
                         label="Encumb."
                         label-class="fw-bold"
@@ -115,8 +115,8 @@
                             min="0"
                             step="0"
                         ></BFormInput>
-                    </b-form-group>
-                    <b-form-group
+                    </BFormGroup>
+                    <BFormGroup
                         class="flex-fill ps-1 w-25"
                         label="Rarity"
                         label-class="fw-bold"
@@ -130,8 +130,8 @@
                             min="0"
                             step="0"
                         ></BFormInput>
-                    </b-form-group>
-                </b-form-row>
+                    </BFormGroup>
+                </BFormRow>
 
                 <QualityEdit v-model:qualities="editWeapon.qualities"></QualityEdit>
             </div>
@@ -145,7 +145,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

@@ -21,15 +21,15 @@
         </template>
 
         <!-- Card Body -->
-        <b-list-group v-if="skills && skills.length > 0" flush>
-            <b-list-group-item v-for="skill in skills" :key="skill.description" class="d-flex">
+        <BListGroup v-if="skills && skills.length > 0" flush>
+            <BListGroupItem v-for="skill in skills" :key="skill.description" class="d-flex">
                 <div class="d-inline-block flex-fill">
                     <div>
                         <b>{{ skill.description }}</b> ({{ skill.value }})
                     </div>
                 </div>
-            </b-list-group-item>
-        </b-list-group>
+            </BListGroupItem>
+        </BListGroup>
         <div v-else class="card-body">
             <h4 class="text-center text-muted m-0">
                 No Skills yet.

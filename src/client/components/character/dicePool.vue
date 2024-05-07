@@ -37,7 +37,7 @@
         </BButton>
 
         <!-- Edit Modal -->
-        <b-modal
+        <BModal
             ref="editPool"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -54,7 +54,7 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="name-input-group"
                 label="Pool Maximum"
                 label-for="max-input"
@@ -68,7 +68,7 @@
                     step="1"
                     number
                 ></BFormInput>
-            </b-form-group>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -79,7 +79,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

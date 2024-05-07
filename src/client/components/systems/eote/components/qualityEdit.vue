@@ -20,13 +20,13 @@
                 <div>
                     <div v-if="supplement.ranked" class="mb-2 float-end">
                         <label>Ranks</label>
-                        <b-form-spinbutton
+                        <BFormSpinbutton
                             id="sb-inline"
                             v-model="instance.ranks"
                             class="ms-1"
                             size="sm"
                             inline
-                        ></b-form-spinbutton>
+                        ></BFormSpinbutton>
                     </div>
                     <div class="mb-2">
                         <i v-if="supplement.passive">Passive</i>

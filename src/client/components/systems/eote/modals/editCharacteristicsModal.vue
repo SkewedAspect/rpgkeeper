@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-characteristics-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -20,9 +20,9 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col v-for="char in characteristicNames.slice(0, 3)" :key="char">
-                    <b-form-group
+            <BFormRow>
+                <BCol v-for="char in characteristicNames.slice(0, 3)" :key="char">
+                    <BFormGroup
                         :label="startCase(char)"
                         label-class="fw-bold"
                         :label-for="`${ char }-input`"
@@ -45,12 +45,12 @@
                                 </BInputGroupAppend>
                             </BInputGroup>
                         </div>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
-            <b-form-row>
-                <b-col v-for="char in characteristicNames.slice(3)" :key="char">
-                    <b-form-group
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
+            <BFormRow>
+                <BCol v-for="char in characteristicNames.slice(3)" :key="char">
+                    <BFormGroup
                         :label="formatCharName(char)"
                         label-class="fw-bold"
                         :label-for="`${ char }-input`"
@@ -73,9 +73,9 @@
                                 </BInputGroupAppend>
                             </BInputGroup>
                         </div>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -86,7 +86,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

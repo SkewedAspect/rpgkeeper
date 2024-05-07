@@ -7,7 +7,7 @@
         <h5 class="text-center">
             {{ text }}
         </h5>
-        <b-progress variant="primary" :value="100" animated></b-progress>
+        <BProgress variant="primary" :value="100" animated></BProgress>
     </div>
 </template>
 

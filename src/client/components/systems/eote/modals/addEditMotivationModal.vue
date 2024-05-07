@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-motivation-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -26,23 +26,23 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col cols="9">
-                    <b-form-group
+            <BFormRow>
+                <BCol cols="9">
+                    <BFormGroup
                         label="Name"
                         label-class="fw-bold"
                         label-for="name-input"
                     >
                         <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
-                    </b-form-group>
-                </b-col>
-                <b-col cols="3">
-                    <b-form-group
+                    </BFormGroup>
+                </BCol>
+                <BCol cols="3">
+                    <BFormGroup
                         v-slot="{ ariaDescribedby }"
                         label="Type"
                         label-class="fw-bold"
                     >
-                        <b-form-radio
+                        <BFormRadio
                             v-model="type"
                             :aria-describedby="ariaDescribedby"
                             name="type-radios"
@@ -50,8 +50,8 @@
                             inline
                         >
                             Strength
-                        </b-form-radio>
-                        <b-form-radio
+                        </BFormRadio>
+                        <BFormRadio
                             v-model="type"
                             :aria-describedby="ariaDescribedby"
                             name="type-radios"
@@ -59,8 +59,8 @@
                             inline
                         >
                             Flaw
-                        </b-form-radio>
-                        <b-form-radio
+                        </BFormRadio>
+                        <BFormRadio
                             v-model="type"
                             :aria-describedby="ariaDescribedby"
                             name="type-radios"
@@ -68,8 +68,8 @@
                             inline
                         >
                             Desire
-                        </b-form-radio>
-                        <b-form-radio
+                        </BFormRadio>
+                        <BFormRadio
                             v-model="type"
                             :aria-describedby="ariaDescribedby"
                             name="type-radios"
@@ -77,18 +77,18 @@
                             inline
                         >
                             Fear
-                        </b-form-radio>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
-            <b-form-group
+                        </BFormRadio>
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
+            <BFormGroup
                 id="description-input-group"
                 label="Description"
                 label-class="fw-bold"
                 label-for="description-input"
             >
                 <MarkdownEditor v-model:text="description"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
 
@@ -103,7 +103,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

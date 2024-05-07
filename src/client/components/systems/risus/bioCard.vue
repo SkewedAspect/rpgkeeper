@@ -21,23 +21,23 @@
         </template>
 
         <!-- Card Body -->
-        <b-form-group
+        <BFormGroup
             id="name-input-group"
             label="Name"
             label-class="fw-bold"
         >
             <h5>{{ char.name }}</h5>
-        </b-form-group>
-        <b-form-group
+        </BFormGroup>
+        <BFormGroup
             id="desc-input-group"
             label="Description"
             label-class="fw-bold"
         >
             <MarkdownBlock class="font-sm" :text="description" inline></MarkdownBlock>
-        </b-form-group>
-        <b-form-row>
-            <b-col>
-                <b-form-group
+        </BFormGroup>
+        <BFormRow>
+            <BCol>
+                <BFormGroup
                     id="adv-input-group"
                     label="Advancement Points"
                     label-class="fw-bold"
@@ -54,10 +54,10 @@
                         number
                         @change="onChange"
                     ></BFormInput>
-                </b-form-group>
-            </b-col>
-            <b-col>
-                <b-form-group
+                </BFormGroup>
+            </BCol>
+            <BCol>
+                <BFormGroup
                     id="ffd-input-group"
                     label="Fire and Forget Dice"
                     label-class="fw-bold"
@@ -72,10 +72,10 @@
                         number
                         @change="onChange"
                     ></BFormInput>
-                </b-form-group>
-            </b-col>
-        </b-form-row>
-        <b-form-group
+                </BFormGroup>
+            </BCol>
+        </BFormRow>
+        <BFormGroup
             id="lucky-input-group"
             label="Lucky Shots"
             label-class="fw-bold"
@@ -88,7 +88,7 @@
                 :disabled="readonly"
                 @save="onChange"
             ></DicePool>
-        </b-form-group>
+        </BFormGroup>
 
         <!-- Edit Modal -->
         <EditBioModal ref="editModal" @save="onEditSave"></EditBioModal>

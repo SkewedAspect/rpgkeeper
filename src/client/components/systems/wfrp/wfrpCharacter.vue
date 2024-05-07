@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container v-if="char" id="wfrp-character" fluid>
+    <BContainer v-if="char" id="wfrp-character" fluid>
         <div class="d-flex">
             <CharPortrait class="me-1 d-none d-lg-block" :src="char.portrait" size="lg"></CharPortrait>
             <BioBlock class="me-1 ms-1 w-50" :readonly="!isAuthorized"></BioBlock>
@@ -12,7 +12,7 @@
             <StatsBlock class="w-50 me-1" :readonly="!isAuthorized" @save="onSave"></StatsBlock>
             <SkillsBlock class="w-50 me-1" :readonly="!isAuthorized" @save="onSave"></SkillsBlock>
         </div>
-    </b-container>
+    </BContainer>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

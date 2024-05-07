@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-edit-page">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -29,20 +29,20 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="page-title-group"
                 label="Title"
                 label-for="page-title"
             >
                 <BFormInput id="page-title" v-model="innerPage.title"></BFormInput>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 id="page-content-group"
                 label="Content"
                 label-for="page-content"
             >
                 <MarkdownEditor v-model:text="innerPage.content" height="550px"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -53,7 +53,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

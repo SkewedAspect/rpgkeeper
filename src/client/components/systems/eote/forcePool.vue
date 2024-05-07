@@ -24,13 +24,13 @@
         <div v-if="forcePool.sensitive" class="d-flex">
             <div class="flex-fill me-2">
                 <label class="d-block text-center mt-2"><b>Committed</b></label>
-                <b-form-spinbutton
+                <BFormSpinbutton
                     v-model="forcePool.committed"
                     min="0"
                     :max="forcePool.rating"
                     step="1"
                     class="mt-2"
-                ></b-form-spinbutton>
+                ></BFormSpinbutton>
             </div>
             <BCard class="flex-fill" no-body>
                 <div class="p-2 text-center">

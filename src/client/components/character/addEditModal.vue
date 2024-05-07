@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-edit-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -30,8 +30,8 @@
 
             <!-- Modal Body -->
             <div class="content">
-                <b-form-row>
-                    <b-col class="flex-grow-0 flex-shrink-0 w-auto">
+                <BFormRow>
+                    <BCol class="flex-grow-0 flex-shrink-0 w-auto">
                         <CharPortrait :src="char.portrait" :color="char.color" size="md"></CharPortrait>
                         <div class="text-center">
                             <small class="text-muted">Portrait</small>
@@ -42,11 +42,11 @@
                                 <small class="text-muted">Thumbnail</small>
                             </div>
                         </div>
-                    </b-col>
-                    <b-col>
-                        <b-form-row>
-                            <b-col>
-                                <b-form-group
+                    </BCol>
+                    <BCol>
+                        <BFormRow>
+                            <BCol>
+                                <BFormGroup
                                     id="char-name-group"
                                     description="Your character's full name."
                                     label="Name"
@@ -58,10 +58,10 @@
                                         :state="validateState('name')"
                                         @input="v$.name.$touch()"
                                     ></BFormInput>
-                                </b-form-group>
-                            </b-col>
-                            <b-col>
-                                <b-form-group
+                                </BFormGroup>
+                            </BCol>
+                            <BCol>
+                                <BFormGroup
                                     id="char-sys-group"
                                     description="The rpg system this character is for."
                                     label="System"
@@ -77,21 +77,21 @@
                                         :state="validateState('system')"
                                         @input="v$.system.$touch()"
                                     ></BFormSelect>
-                                </b-form-group>
-                            </b-col>
-                        </b-form-row>
-                        <b-form-row>
-                            <b-col class="flex-grow-0 flex-shrink-0 w-auto" style="min-width: 5rem;">
-                                <b-form-group
+                                </BFormGroup>
+                            </BCol>
+                        </BFormRow>
+                        <BFormRow>
+                            <BCol class="flex-grow-0 flex-shrink-0 w-auto" style="min-width: 5rem;">
+                                <BFormGroup
                                     id="char-color-group"
                                     label="Color"
                                     label-for="char-color"
                                 >
                                     <ColorPicker v-model:color="char.color" variant="light" block></ColorPicker>
-                                </b-form-group>
-                            </b-col>
-                            <b-col>
-                                <b-form-group
+                                </BFormGroup>
+                            </BCol>
+                            <BCol>
+                                <BFormGroup
                                     id="char-portrait-group"
                                     label="Portrait"
                                     label-for="char-portrait"
@@ -113,10 +113,10 @@
                                         Any urls are accepted. <br />
                                         Recommend dimensions are <code>600x900px</code>.
                                     </template>
-                                </b-form-group>
-                            </b-col>
-                            <b-col>
-                                <b-form-group
+                                </BFormGroup>
+                            </BCol>
+                            <BCol>
+                                <BFormGroup
                                     id="char-thumbnail-group"
                                     label="Thumbnail"
                                     label-for="char-thumbnail"
@@ -138,10 +138,10 @@
                                         Any urls are accepted. <br />
                                         Recommend dimensions are <code>200x200px</code>.
                                     </template>
-                                </b-form-group>
-                            </b-col>
-                        </b-form-row>
-                        <b-form-group
+                                </BFormGroup>
+                            </BCol>
+                        </BFormRow>
+                        <BFormGroup
                             id="char-campaign-group"
                             description="A brief description of the campaign or RP this character is associated with."
                             label="Campaign"
@@ -153,8 +153,8 @@
                                 :state="validateState('campaign')"
                                 @input="v$.campaign.$touch()"
                             ></BFormInput>
-                        </b-form-group>
-                        <b-form-group
+                        </BFormGroup>
+                        <BFormGroup
                             id="char-desc-group"
                             description="A brief description of your character. Could be physical or personality."
                             label="Description"
@@ -166,9 +166,9 @@
                                 :state="validateState('description')"
                                 @input="v$.description.$touch()"
                             ></BFormInput>
-                        </b-form-group>
-                    </b-col>
-                </b-form-row>
+                        </BFormGroup>
+                    </BCol>
+                </BFormRow>
             </div>
 
             <!-- Modal Buttons -->
@@ -180,7 +180,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-identity-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -21,21 +21,21 @@
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="name-input-group"
                 label="Name"
                 label-for="name-input"
             >
                 <BFormInput id="name-input" v-model="innerIdent.name"></BFormInput>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 id="desc-input-group"
                 label="Description"
                 label-for="desc-input"
             >
                 <MarkdownEditor v-model:text="innerIdent.description"></MarkdownEditor>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 id="fp-input-group"
                 label="Fate Refresh"
                 label-for="fp-input"
@@ -48,7 +48,7 @@
                     min="0"
                     step="1"
                 ></BFormInput>
-            </b-form-group>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #modal-ok>
@@ -59,7 +59,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 

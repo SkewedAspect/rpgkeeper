@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-forcePool-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -28,17 +28,17 @@
             </div>
             <hr />
             <div class="d-flex">
-                <b-form-group
+                <BFormGroup
                     class="flex-fill ms-2"
                     label="Force Sensitive"
                     label-class="fw-bold"
                     label-for="species-input"
                 >
-                    <b-form-checkbox v-model="forcePool.sensitive" class="mt-3" name="force-sensitive" switch>
+                    <BFormGroup v-model="forcePool.sensitive" class="mt-3" name="force-sensitive" switch>
                         Force Sensitive
-                    </b-form-checkbox>
-                </b-form-group>
-                <b-form-group
+                    </BFormGroup>
+                </BFormGroup>
+                <BFormGroup
                     class="flex-fill ms-2"
                     label="Force Rating"
                     label-class="fw-bold"
@@ -63,7 +63,7 @@
                             </BInputGroupAppend>
                         </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
             </div>
 
             <!-- Modal Buttons -->
@@ -75,7 +75,7 @@
                 <fa icon="times"></fa>
                 Cancel
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
