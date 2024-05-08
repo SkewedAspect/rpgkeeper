@@ -13,8 +13,8 @@
                         Character Notes
                     </span>
                 </h5>
-                <div class="ms-auto d-flex flex-nowrap">
-                    <BFormSelect v-model="pageIndex" class="me-2 d-sm-none" :options="notes.pages" text-field="title" value-field="id"></BFormSelect>
+                <div v-b-color-mode="'light'" class="ms-auto d-flex flex-nowrap">
+                    <BFormSelect v-model="pageIndex" class="me-2 d-md-none" :options="pageOptions" text-field="title" value-field="index"></BFormSelect>
                     <BButtonToolbar class="flex-shrink-0 flex-grow-0 w-auto">
                         <BButton @click="openAddEditModal()">
                             <fa icon="file-plus" fixed-width></fa>
@@ -40,13 +40,21 @@
         </div>
 
         <!-- Notes tabs -->
-        <BTabs v-else v-model="pageIndex" nav-wrapper-class="d-none d-md-block" pills card vertical>
+        <BTabs
+            v-else
+            v-model="pageIndex"
+            nav-wrapper-class="d-none d-md-block ps-3 py-2"
+            nav-item-class="text-nowrap text-start"
+            justified
+            pills
+            vertical
+        >
             <BTab v-for="page in notes.pages" :key="page.id">
                 <template #title>
                     <fa icon="file-alt"></fa>
                     {{ page.title }}
                 </template>
-                <note-page :content="page.content"></note-page>
+                <NotePage class="pe-2 pb-3" :content="page.content"></NotePage>
             </BTab>
         </BTabs>
 
@@ -90,6 +98,14 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const currentPage = computed<NotebookPage | undefined>(() => { return notes.pages[pageIndex.value]; });
+
+    const pageOptions = computed(() =>
+    {
+        return notes.pages.map((page, index) =>
+        {
+            return { title: page.title, value: page.id, index };
+        });
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
