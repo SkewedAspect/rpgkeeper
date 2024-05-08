@@ -35,7 +35,7 @@
             <!-- Modal Content -->
             <div :class="`${ mode }-system`">
                 <BFormRow>
-                    <BFormGroup
+                    <BFormCheckbox
                         class="flex-fill pe-1 w-50"
                         label="Name"
                         label-class="fw-bold"
@@ -46,7 +46,7 @@
                             v-model="editWeapon.name"
                             type="text"
                         ></BFormInput>
-                    </BFormGroup>
+                    </BFormCheckbox>
                     <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
                         label="Skill"

@@ -37,9 +37,9 @@
                     label-class="fw-bold"
                     label-for="species-input"
                 >
-                    <BFormGroup v-model="forcePool.sensitive" class="mt-3" name="force-sensitive" switch>
+                    <BFormCheckbox v-model="forcePool.sensitive" class="mt-3" name="force-sensitive" switch>
                         Force Sensitive
-                    </BFormGroup>
+                    </BFormCheckbox>
                 </BFormGroup>
                 <BFormGroup
                     class="flex-fill ms-2"

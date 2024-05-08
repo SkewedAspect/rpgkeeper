@@ -40,9 +40,9 @@
                     </BFormGroup>
                 </BCol>
                 <BCol cols="2" class="pt-4">
-                    <BFormGroup v-model="ranked" class="mt-3" name="ranked-check" switch>
+                    <BFormCheckbox v-model="ranked" class="mt-3" name="ranked-check" switch>
                         <b>Ranked</b>
-                    </BFormGroup>
+                    </BFormCheckbox>
                 </BCol>
             </BFormRow>
             <BFormRow>

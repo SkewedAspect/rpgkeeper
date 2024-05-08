@@ -21,49 +21,51 @@
 
         <!-- Content -->
         <table class="table table-bordered mb-0 font-sm">
-            <tr>
-                <td class="text-end text-nowrap" style="width: 1%">
-                    <b>2</b>
-                </td>
-                <td style="min-width: 80px" :colspan="hasExtraMild ? 1 : 2">
-                    <span v-if="mildConsequence1.detail">
-                        {{ mildConsequence1.detail }}
-                        <small v-if="mildConsequence1.healing"><i>(Healing)</i></small>
-                    </span>
-                    <span v-else class="text-muted">Mild</span>
-                </td>
-                <td v-if="hasExtraMild" style="min-width: 80px">
-                    <span v-if="mildConsequence2.detail">
-                        {{ mildConsequence2.detail }}
-                        <small v-if="mildConsequence2.healing"><i>(Healing)</i></small>
-                    </span>
-                    <span v-else class="text-muted">Mild ({{ extraMildType }})</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-end text-nowrap" style="width: 1%">
-                    <b>4</b>
-                </td>
-                <td style="min-width: 80px" colspan="2">
-                    <span v-if="moderateConsequence.detail">
-                        {{ moderateConsequence.detail }}
-                        <small v-if="moderateConsequence.healing"><i>(Healing)</i></small>
-                    </span>
-                    <span v-else class="text-muted">Moderate</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-end text-nowrap" style="width: 1%">
-                    <b>6</b>
-                </td>
-                <td style="min-width: 80px" colspan="2">
-                    <span v-if="severeConsequence.detail">
-                        {{ severeConsequence.detail }}
-                        <small v-if="severeConsequence.healing"><i>(Healing)</i></small>
-                    </span>
-                    <span v-else class="text-muted">Severe</span>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td class="text-end text-nowrap" style="width: 1%">
+                        <b>2</b>
+                    </td>
+                    <td style="min-width: 80px" :colspan="hasExtraMild ? 1 : 2">
+                        <span v-if="mildConsequence1.detail">
+                            {{ mildConsequence1.detail }}
+                            <small v-if="mildConsequence1.healing"><i>(Healing)</i></small>
+                        </span>
+                        <span v-else class="text-muted">Mild</span>
+                    </td>
+                    <td v-if="hasExtraMild" style="min-width: 80px">
+                        <span v-if="mildConsequence2.detail">
+                            {{ mildConsequence2.detail }}
+                            <small v-if="mildConsequence2.healing"><i>(Healing)</i></small>
+                        </span>
+                        <span v-else class="text-muted">Mild ({{ extraMildType }})</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-end text-nowrap" style="width: 1%">
+                        <b>4</b>
+                    </td>
+                    <td style="min-width: 80px" colspan="2">
+                        <span v-if="moderateConsequence.detail">
+                            {{ moderateConsequence.detail }}
+                            <small v-if="moderateConsequence.healing"><i>(Healing)</i></small>
+                        </span>
+                        <span v-else class="text-muted">Moderate</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-end text-nowrap" style="width: 1%">
+                        <b>6</b>
+                    </td>
+                    <td style="min-width: 80px" colspan="2">
+                        <span v-if="severeConsequence.detail">
+                            {{ severeConsequence.detail }}
+                            <small v-if="severeConsequence.healing"><i>(Healing)</i></small>
+                        </span>
+                        <span v-else class="text-muted">Severe</span>
+                    </td>
+                </tr>
+            </tbody>
         </table>
 
         <!-- Modals -->

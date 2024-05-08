@@ -37,9 +37,9 @@
                             </BButton>
                         </BButtonGroup>
                         <BFormInput v-model="skill.name" class="ms-2" placeholder="Name"></BFormInput>
-                        <BFormGroup v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
+                        <BFormCheckbox v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
                             Career
-                        </BFormGroup>
+                        </BFormCheckbox>
                         <BFormInput v-model="skill.ranks" number class="ms-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
                         <BFormSelect v-model="skill.characteristic" class="ms-2" :options="characteristics"></BFormSelect>
                         <BFormSelect v-model="skill.type" class="ms-2" :options="skillTypes"></BFormSelect>
@@ -65,9 +65,9 @@
                             </BButton>
                         </BButtonGroup>
                         <BFormInput v-model="skill.name" class="ms-2" placeholder="Name"></BFormInput>
-                        <BFormGroup v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
+                        <BFormCheckbox v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
                             Career
-                        </BFormGroup>
+                        </BFormCheckbox>
                         <BFormInput v-model="skill.ranks" number class="ms-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
                         <BFormSelect v-model="skill.characteristic" class="ms-2" :options="characteristics"></BFormSelect>
                         <BFormSelect v-model="skill.type" class="ms-2" :options="skillTypes"></BFormSelect>
@@ -93,9 +93,9 @@
                             </BButton>
                         </BButtonGroup>
                         <BFormInput v-model="skill.name" class="ms-2" placeholder="Name"></BFormInput>
-                        <BFormGroup v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
+                        <BFormCheckbox v-model="skill.career" class="ms-2 mt-2" name="check-button" switch>
                             Career
-                        </BFormGroup>
+                        </BFormCheckbox>
                         <BFormInput v-model="skill.ranks" number class="ms-2" type="number" min="0" max="5" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
                         <BFormSelect v-model="skill.characteristic" class="ms-2" :options="characteristics"></BFormSelect>
                         <BFormSelect v-model="skill.type" class="ms-2" :options="skillTypes"></BFormSelect>

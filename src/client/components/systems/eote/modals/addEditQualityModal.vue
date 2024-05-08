@@ -40,12 +40,12 @@
                     </BFormGroup>
                 </BCol>
                 <BCol cols="2" class="pt-4">
-                    <BFormGroup v-model="passive" name="passive-check" switch>
+                    <BFormCheckbox v-model="passive" name="passive-check" switch>
                         <b>Passive</b>
-                    </BFormGroup>
-                    <BFormGroup v-model="ranked" name="ranked-check" switch>
+                    </BFormCheckbox>
+                    <BFormCheckbox v-model="ranked" name="ranked-check" switch>
                         <b>Ranked</b>
-                    </BFormGroup>
+                    </BFormCheckbox>
                 </BCol>
             </BFormRow>
             <BFormGroup

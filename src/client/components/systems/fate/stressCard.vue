@@ -15,13 +15,15 @@
 
         <!-- Content -->
         <table class="table stress-table table-bordered mb-0">
-            <tr>
-                <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <BFormGroup v-model="physicalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onSave">
-                        <b>{{ stressBox }}</b>
-                    </BFormGroup>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
+                        <BFormCheckbox v-model="physicalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onSave">
+                            <b>{{ stressBox }}</b>
+                        </BFormCheckbox>
+                    </td>
+                </tr>
+            </tbody>
         </table>
 
         <div class="card-header bg-dark text-white">
@@ -31,13 +33,15 @@
             </h5>
         </div>
         <table class="table stress-table table-bordered mb-0">
-            <tr>
-                <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                    <BFormGroup v-model="mentalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onSave">
-                        <b>{{ stressBox }}</b>
-                    </BFormGroup>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
+                        <BFormCheckbox v-model="mentalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onSave">
+                            <b>{{ stressBox }}</b>
+                        </BFormCheckbox>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </RpgkCard>
 </template>
@@ -48,26 +52,26 @@
     #fate-stress {
         min-width: 245px;
 
-        .stress-table {
-            border: none;
-
-            tr {
-                border-top: none;
-                border-bottom: none;
-
-                td:first-child {
-                    border-start: none;
-                }
-
-                td:last-child {
-                    border-right: none;
-                }
-
-                td {
-                    border-bottom: none;
-                }
-            }
-        }
+        //.stress-table {
+        //    border: none;
+        //
+        //    tr {
+        //        border-top: none;
+        //        border-bottom: none;
+        //
+        //        td:first-child {
+        //            border-left: none;
+        //        }
+        //
+        //        td:last-child {
+        //            border-right: none;
+        //        }
+        //
+        //        td {
+        //            border-bottom: none;
+        //        }
+        //    }
+        //}
     }
 </style>
 

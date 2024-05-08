@@ -21,40 +21,23 @@
 
         <!-- Content -->
         <table class="table table-bordered mb-0 font-sm">
-            <!-- eslint-disable-next-line vue/no-template-shadow -->
-            <tr v-for="{ name, skills } in rows" :key="name">
-                <td class="text-end text-nowrap" style="width: 1%">
-                    <b>{{ name }}</b>
-                </td>
-                <td v-for="columnIdx in columns" :key="columnIdx" style="min-width: 80px">
-                    {{ (skills[ columnIdx ] || {}).name }}
-                </td>
-            </tr>
+            <tbody>
+                <!-- eslint-disable-next-line vue/no-template-shadow -->
+                <tr v-for="{ name, skills } in rows" :key="name">
+                    <td class="text-end text-nowrap" style="width: 1%">
+                        <b>{{ name }}</b>
+                    </td>
+                    <td v-for="columnIdx in columns" :key="columnIdx" style="min-width: 80px">
+                        {{ (skills[ columnIdx ] || {}).name }}
+                    </td>
+                </tr>
+            </tbody>
         </table>
 
         <!-- Modals -->
         <EditSkillsModal ref="editModal" :readonly="readonly" @save="onEditSave"></EditSkillsModal>
     </RpgkCard>
 </template>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
-<style lang="scss" scoped>
-    #fate-skills {
-        table {
-            border-start: none !important;
-            border-end: none !important;
-
-            td:first-child {
-                border-start: none !important;
-            }
-
-            td:last-child {
-                border-end: none !important;
-            }
-        }
-    }
-</style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 

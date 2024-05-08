@@ -70,14 +70,14 @@
                             label-for="species-input"
                             label-sr-only
                         >
-                            <BFormGroup
+                            <BFormCheckbox
                                 v-model="forceSensitive"
                                 style="margin-top: 2.4rem"
                                 name="force-sensitive"
                                 switch
                             >
                                 Force Sensitive
-                            </BFormGroup>
+                            </BFormCheckbox>
                         </BFormGroup>
                     </BCol>
                 </BFormRow>

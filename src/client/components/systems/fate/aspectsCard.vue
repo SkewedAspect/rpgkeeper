@@ -21,32 +21,34 @@
 
         <!-- Content -->
         <table class="table table-bordered mb-0 font-sm">
-            <!-- High Concept -->
-            <tr>
-                <td class="text-nowrap">
-                    <b>High Concept:</b>
-                </td>
-                <td class="w-100">
-                    {{ highConcept.detail }}
-                </td>
-            </tr>
+            <tbody>
+                <!-- High Concept -->
+                <tr>
+                    <td class="text-nowrap">
+                        <b>High Concept:</b>
+                    </td>
+                    <td class="w-100">
+                        {{ highConcept.detail }}
+                    </td>
+                </tr>
 
-            <!-- Trouble Concept -->
-            <tr>
-                <td class="text-nowrap">
-                    <b>Trouble:</b>
-                </td>
-                <td class="w-100">
-                    {{ trouble.detail }}
-                </td>
-            </tr>
+                <!-- Trouble Concept -->
+                <tr>
+                    <td class="text-nowrap">
+                        <b>Trouble:</b>
+                    </td>
+                    <td class="w-100">
+                        {{ trouble.detail }}
+                    </td>
+                </tr>
 
-            <!-- Extra Concepts -->
-            <tr v-for="(aspect, index) in extraAspects" :key="index">
-                <td colspan="2">
-                    {{ aspect.detail }}
-                </td>
-            </tr>
+                <!-- Extra Concepts -->
+                <tr v-for="(aspect, index) in extraAspects" :key="index">
+                    <td colspan="2">
+                        {{ aspect.detail }}
+                    </td>
+                </tr>
+            </tbody>
         </table>
 
         <!-- Modals -->
@@ -59,22 +61,22 @@
 <style lang="scss">
     #fate-aspects {
         table {
-            border-start: none !important;
-            border-end: none !important;
+            //border-left: none !important;
+            //border-right: none !important;
+            //
+            //td:first-child {
+            //    border-left: none !important;
+            //}
+            //td:last-child {
+            //    border-right: none !important;
+            //}
 
-            td:first-child {
-                border-start: none !important;
-            }
-            td:last-child {
-                border-end: none !important;
-            }
-
-            tr:last-child {
-
-                td {
-                    border-bottom-width: 1px;
-                }
-            }
+            //tbody tr:last-child {
+            //
+            //    td {
+            //        border-bottom-width: 1px;
+            //    }
+            //}
         }
     }
 </style>
