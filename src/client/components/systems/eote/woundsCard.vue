@@ -172,6 +172,9 @@
             >
                 Immob.
             </BButton>
+
+            <!-- The popover shoves a span in here which breaks the CSS for removing the border radius, so we have to
+            re-add the border radius on the final button. -->
             <BButton
                 v-model:pressed="health.disoriented"
                 v-b-tooltip.hover.html
@@ -179,6 +182,7 @@
                 size="sm"
                 :title="disorientedText"
                 :disabled="readonly"
+                style="border-top-right-radius: var(--bs-btn-border-radius); border-bottom-right-radius: var(--bs-btn-border-radius)"
                 @click="saveChar"
             >
                 Disor.
@@ -374,8 +378,11 @@
     function saveChar() : void
     {
         // Save the character
-        character.value.details.health = health.value;
-        emit('save');
+        // TODO: Why does this need a timeout to actually update correctly???
+        setTimeout(() =>
+        {
+            emit('save');
+        }, 0);
     }
 
     function useStim() : void

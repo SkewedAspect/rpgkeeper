@@ -17,13 +17,6 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-    #markdown-editor {
-    }
-</style>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
 <script lang="ts" setup>
     import { Codemirror } from 'vue-codemirror';
     import { markdown, markdownLanguage } from '@codemirror/lang-markdown';

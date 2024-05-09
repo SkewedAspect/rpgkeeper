@@ -38,7 +38,7 @@
                         <BListGroupItem
                             v-for="supp in selectedSupplements"
                             :key="supp.id"
-                            :variant=" supp.id === currentSelection ? 'primary' : ''"
+                            :variant=" supp.id === currentSelection ? 'primary' : null"
                             @click="selectSupp(supp)"
                         >
                             <div class="float-end">
@@ -79,7 +79,7 @@
                                 <h4>
                                     <slot :instance="supplementInstance" :supplement="currentSupplement" name="preview-title">
                                         {{ currentSupplement.name }}
-                                        <span v-if="currentSupplement.ranked">{{ supplementInstance.ranks }}</span>
+                                        <span v-if="currentSupplement.ranked">{{ supplementInstance?.ranks }}</span>
                                     </slot>
                                 </h4>
                             </div>
@@ -179,7 +179,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const currentSelection = ref();
-    const { system } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharactersStore());
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -225,7 +225,8 @@
 
     const canModify = computed(() =>
     {
-        if(supplementInstance.value)
+        const system = current.value?.system;
+        if(supplementInstance.value && system)
         {
             const suppBase = props.available.find((supp) => supp.id === supplementInstance.value.id);
 

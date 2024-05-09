@@ -5,7 +5,12 @@
 <template>
     <BCard :id="id" class="eote-critical-card" no-body>
         <template #header>
-            <BCloseButton v-if="!readonly" style="margin-top: -2px;" @click.stop.prevent="remove"></BCloseButton>
+            <CloseButton
+                v-if="!readonly"
+                class="float-end"
+                style="margin-top: -3px;"
+                @click.stop.prevent="remove"
+            ></CloseButton>
             <small>
                 {{ critical.title }}
                 <span v-if="critical.severity">
@@ -60,6 +65,7 @@
     // Components
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import ReferenceBlock from '../../../character/referenceBlock.vue';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

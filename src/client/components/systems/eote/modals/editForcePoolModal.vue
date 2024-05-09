@@ -10,7 +10,7 @@
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
-            size="lg"
+            size="md"
             @ok="onSave"
         >
             <!-- Modal Header -->
@@ -37,7 +37,7 @@
                     label-class="fw-bold"
                     label-for="species-input"
                 >
-                    <BFormCheckbox v-model="forcePool.sensitive" class="mt-3" name="force-sensitive" switch>
+                    <BFormCheckbox v-model="forcePool.sensitive" name="force-sensitive" switch>
                         Force Sensitive
                     </BFormCheckbox>
                 </BFormGroup>

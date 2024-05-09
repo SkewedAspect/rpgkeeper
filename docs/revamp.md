@@ -7,6 +7,7 @@ Back at it again.
 * [ ] Convert from decoders to better validation/data model
   * [ ] Evaluate options in 2024 ([ajv][], [ajv-ts][] [joi][], [zod][], etc)
 * [ ] Add local user registration, link with Google / Facebook / Twitter
+* [ ] Remove/replace the 'supplements' system with a more customized system per system.
 * [ ] Move project to GitLab (and make GitHub a mirror)
   * [ ] Set Pipelines for CI/CD
     * [ ] Dev deploys on all master merges

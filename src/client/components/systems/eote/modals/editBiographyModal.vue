@@ -69,10 +69,10 @@
                             label-class="fw-bold"
                             label-for="species-input"
                             label-sr-only
+                            style="margin-top: 2.4rem"
                         >
                             <BFormCheckbox
                                 v-model="forceSensitive"
-                                style="margin-top: 2.4rem"
                                 name="force-sensitive"
                                 switch
                             >

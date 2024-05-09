@@ -171,7 +171,7 @@
         return criticals.value.find((crit) => crit.title === criticalName);
     }
 
-    function addCritical(critical : EoteCritical) : void
+    function addCritical(critical ?: EoteCritical) : void
     {
         critical = critical || criticals.value.find((crit) => crit.title === selectedCritical.value);
         if(critical)
