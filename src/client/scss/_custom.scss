@@ -5,6 +5,11 @@
 //
 //----------------------------------------------------------------------------------------------------------------------
 
+// Prevent overscrolling
+:root {
+    overscroll-behavior: none;
+}
+
 // Fix primary button color
 .btn-primary,
 .btn-primary.disabled,

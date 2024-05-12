@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <BNavbar id="site-header" v-b-color-mode="'dark'" toggleable="md" type="dark" variant="dark" sticky="top">
+    <BNavbar id="site-header" v-b-color-mode="'dark'" toggleable="md" type="dark" variant="dark" fixed="top">
         <BNavbarToggle target="nav-text-collapse"></BNavbarToggle>
         <BNavbarBrand to="/">
             <img src="/images/logo.png" class="d-inline-block logo" alt="RPGKeeper Logo" />
