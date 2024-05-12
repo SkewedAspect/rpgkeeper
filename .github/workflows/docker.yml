@@ -101,7 +101,7 @@ jobs:
       - name: Deploy Beta Site
         uses: nvti/portainer-stack-deploy@v1.4
         with:
-          portainer-host: ${{ vars.PORTAINER_HOST }}
+          portainer-host: "https://docker.skewedaspect.com" #${{ vars.PORTAINER_HOST }}
           username: ${{ secrets.PORTAINER_USERNAME }}
           password: ${{ secrets.PORTAINER_PASSWORD }}
           stack-name: 'rpgkeeper-beta'
