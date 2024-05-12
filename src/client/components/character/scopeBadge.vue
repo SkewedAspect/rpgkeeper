@@ -66,7 +66,7 @@
             }
         }
 
-        return '';
+        return 'secondary';
     });
 
 </script>
