@@ -94,15 +94,26 @@ jobs:
           echo VERSION=$VERSION >> $GITHUB_ENV
 
       - name: Deploy Beta Site
-        uses: SkewedAspect/rancher-redeploy@v0.5.0
-        env:
-          RANCHER_BEARER_TOKEN: ${{ secrets.RANCHER_API_KEY }}
-          RANCHER_CLUSTER_ID: 'c-g65ld'
-          RANCHER_NAMESPACE: 'rpgkeeper'
-          RANCHER_PROJECT_ID: 'p-7wdzf'
-          RANCHER_URL: 'https://rancher.skewedaspect.com/'
-          RANCHER_WORKLOAD: 'rpgkeeper-beta'
-          IMAGE_TAG: ${{ env.VERSION }}
+        uses: nvti/portainer-stack-deploy@v1.4
+        with:
+          portainer-host: ${{ vars.PORTAINER_HOST }}
+          username: ${{ secrets.PORTAINER_USERNAME }}
+          password: ${{ secrets.PORTAINER_PASSWORD }}
+          stack-name: 'rpgkeeper-beta'
+          stack-definition: 'compose/beta.yml'
+          template-variables: '{"client": "${{ secrets.GOOGLE_CLIENT_ID }}", "secret": "${{ secrets.GOOGLE_CLIENT_SECRET }}", "sess": "${{ secrets.BETA_SESSION_SECRET }}"}'
+          pull-image: true
+
+      # - name: Deploy Beta Site
+      #   uses: SkewedAspect/rancher-redeploy@v0.5.0
+      #   env:
+      #     RANCHER_BEARER_TOKEN: ${{ secrets.RANCHER_API_KEY }}
+      #     RANCHER_CLUSTER_ID: 'c-g65ld'
+      #     RANCHER_NAMESPACE: 'rpgkeeper'
+      #     RANCHER_PROJECT_ID: 'p-7wdzf'
+      #     RANCHER_URL: 'https://rancher.skewedaspect.com/'
+      #     RANCHER_WORKLOAD: 'rpgkeeper-beta'
+      #     IMAGE_TAG: ${{ env.VERSION }}
 
   # Deploys prod docker
   deploy-prod:
@@ -127,12 +138,23 @@ jobs:
           echo VERSION=$VERSION >> $GITHUB_ENV
 
       - name: Deploy Production Site
-        uses: SkewedAspect/rancher-redeploy@v0.5.0
-        env:
-          RANCHER_BEARER_TOKEN: ${{ secrets.RANCHER_API_KEY }}
-          RANCHER_CLUSTER_ID: 'c-g65ld'
-          RANCHER_NAMESPACE: 'rpgkeeper'
-          RANCHER_PROJECT_ID: 'p-7wdzf'
-          RANCHER_URL: 'https://rancher.skewedaspect.com/'
-          RANCHER_WORKLOAD: 'rpgkeeper'
-          IMAGE_TAG: ${{ env.VERSION }}
+        uses: nvti/portainer-stack-deploy@v1.4
+        with:
+          portainer-host: ${{ vars.PORTAINER_HOST }}
+          username: ${{ secrets.PORTAINER_USERNAME }}
+          password: ${{ secrets.PORTAINER_PASSWORD }}
+          stack-name: 'rpgkeeper'
+          stack-definition: 'compose/prod.yml'
+          template-variables: '{"version": "${{ env.VERSION }}", "client": "${{ secrets.GOOGLE_CLIENT_ID }}", "secret": "${{ secrets.GOOGLE_CLIENT_SECRET }}", "sess": "${{ secrets.PROD_SESSION_SECRET }}"}'
+          pull-image: true
+          
+      # - name: Deploy Production Site
+      #   uses: SkewedAspect/rancher-redeploy@v0.5.0
+      #   env:
+      #     RANCHER_BEARER_TOKEN: ${{ secrets.RANCHER_API_KEY }}
+      #     RANCHER_CLUSTER_ID: 'c-g65ld'
+      #     RANCHER_NAMESPACE: 'rpgkeeper'
+      #     RANCHER_PROJECT_ID: 'p-7wdzf'
+      #     RANCHER_URL: 'https://rancher.skewedaspect.com/'
+      #     RANCHER_WORKLOAD: 'rpgkeeper'
+      #     IMAGE_TAG: ${{ env.VERSION }}
