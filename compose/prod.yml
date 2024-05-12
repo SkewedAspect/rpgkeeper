@@ -1,0 +1,13 @@
+services:
+  rpgkeeper:
+    image: morgul/rpgkeeper:{{version}}
+    environment:
+      SESSION_SECRET: "{{sess}}"
+      DOMAIN: "https://rpgkeeper.com"
+      CLIENT_SECRET: "{{secret}}"
+      CLIENT_ID: "{{client}}"
+    restart: unless-stopped
+    volumes:
+      - /srv/docker/rpgkeeper/db:/app/db
+    ports:
+      - "5679:5678"
