@@ -10,4 +10,4 @@ services:
     volumes:
       - /srv/docker/rpgkeeper/db:/app/db
     ports:
-      - "5679:5678"
+      - "2695:5678"
