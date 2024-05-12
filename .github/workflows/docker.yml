@@ -1,9 +1,14 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # Build and Deploy docker images
 #
-# This action requires the following secrets to be set:
-#   * RANCHER_ACCESS_KEY - API Access key created in Rancher.
-#   * RANCHER_SECRET_KEY - API Secret key created in Rancher.
+# This action requires the following variables and secrets to be set:
+#   * vars.PORTAINER_HOST - The deployment username for PORTAINER_HOST
+#   * secrets.PORTAINER_USERNAME - The deployment username for PORTAINER_HOST
+#   * secrets.PORTAINER_PASSWORD - The deployment password for PORTAINER_USERNAME
+#   * secrets.GOOGLE_CLIENT_ID - The Google OAuth 2.0 Client ID
+#   * secrets.GOOGLE_CLIENT_SECRET - The Google OAuth 2.0 Client Secret
+#   * secrets.BETA_SESSION_SECRET - The beta site's session secret
+#   * secrets.PROD_SESSION_SECRET - The prod site's session secret
 # ----------------------------------------------------------------------------------------------------------------------
 
 name: Docker
@@ -27,7 +32,7 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Login to docker hub
         if: success()
@@ -78,7 +83,7 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set ENV Variables.
         run: |
@@ -102,6 +107,7 @@ jobs:
           stack-name: 'rpgkeeper-beta'
           stack-definition: 'compose/beta.yml'
           template-variables: '{"client": "${{ secrets.GOOGLE_CLIENT_ID }}", "secret": "${{ secrets.GOOGLE_CLIENT_SECRET }}", "sess": "${{ secrets.BETA_SESSION_SECRET }}"}'
+          prune-stack: false
           pull-image: true
 
       # - name: Deploy Beta Site
@@ -122,7 +128,7 @@ jobs:
     if: github.event_name == 'release'
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set ENV Variables.
         run: |
@@ -146,6 +152,7 @@ jobs:
           stack-name: 'rpgkeeper'
           stack-definition: 'compose/prod.yml'
           template-variables: '{"version": "${{ env.VERSION }}", "client": "${{ secrets.GOOGLE_CLIENT_ID }}", "secret": "${{ secrets.GOOGLE_CLIENT_SECRET }}", "sess": "${{ secrets.PROD_SESSION_SECRET }}"}'
+          prune-stack: false
           pull-image: true
           
       # - name: Deploy Production Site
