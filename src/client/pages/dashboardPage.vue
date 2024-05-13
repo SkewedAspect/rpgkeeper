@@ -94,12 +94,12 @@
                                 </div>
                                 <div class="me-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
                                     <CloseButton title="Edit User" @click.prevent.stop="openAddEditModal(char)">
-                                        <fa icon="user-edit"></fa>
+                                        <fa icon="user-edit" size="xl"></fa>
                                     </CloseButton>
                                 </div>
                                 <div class="ms-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
                                     <CloseButton class="btn-close" title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
-                                        <fa icon="trash-alt"></fa>
+                                        <fa icon="trash-alt" size="xl"></fa>
                                     </CloseButton>
                                 </div>
                             </div>
