@@ -19,9 +19,6 @@ export default defineConfig({
         vue({
             template: {
                 compilerOptions: {
-                    compatConfig: {
-                        MODE: 2
-                    },
                     isCustomElement: (tag) => [
                         'proficiency',
                         'ability',
@@ -83,13 +80,6 @@ export default defineConfig({
     },
     define: {
         __APP_VERSION__: JSON.stringify(process.env.npm_package_version)
-    },
-    resolve: {
-        alias: {
-            // 'vue': '@vue/compat',
-            // '@vue-bootstrap-components/vue-bootstrap-autocomplete':
-            //     '@vue-bootstrap-components/vue-bootstrap-autocomplete/dist/VueBootstrapAutocomplete.umd.min.js'
-        }
     },
     build: {
         outDir: '../../dist/client',
