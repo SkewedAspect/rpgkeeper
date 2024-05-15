@@ -89,8 +89,7 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    bootstrap: [ 'popper.js', 'jquery', 'bootstrap' ],
-                    bootstrapVue: [ 'bootstrap-vue' ]
+                    bootstrapVueNext: [ 'bootstrap-vue-next' ]
                 }
             }
         }

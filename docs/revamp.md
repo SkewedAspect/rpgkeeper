@@ -2,8 +2,10 @@
 
 Back at it again.
 
-* [ ] Switch to Bootstrap v5 (and Bootstrap-Vue-Next)
-* [ ] Switch to New [Color-picker][]
+* [X] Switch to Bootstrap v5 (and Bootstrap-Vue-Next)
+* [X] Switch to Vue 3
+* [ ] Change FontAwesome imports to [tree-shakable][] version
+* ~~[ ] Switch to New [Color-picker][]~~ Old one works fine
 * [ ] Convert from decoders to better validation/data model
   * [ ] Evaluate options in 2024 ([ajv][], [ajv-ts][] [joi][], [zod][], etc)
 * [ ] Add local user registration, link with Google / Facebook / Twitter
@@ -28,3 +30,4 @@ Back at it again.
 [zod]: https://github.com/colinhacks/zod
 
 [color-picker]: https://github.com/cyhnkckali/vue3-color-picker
+[tree-shakable]: https://docs.fontawesome.com/apis/javascript/tree-shaking
