@@ -7,32 +7,32 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="jedi"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="jedi"></fa>
                     <span class="d-none d-md-inline">Force</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                <div v-if="!readonly" class="ms-auto">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
 
         <!-- Card Body -->
         <div v-if="forcePool.sensitive" class="d-flex">
-            <div class="flex-fill mr-2">
+            <div class="flex-fill me-2">
                 <label class="d-block text-center mt-2"><b>Committed</b></label>
-                <b-form-spinbutton
+                <BFormSpinbutton
                     v-model="forcePool.committed"
                     min="0"
                     :max="forcePool.rating"
                     step="1"
                     class="mt-2"
-                ></b-form-spinbutton>
+                ></BFormSpinbutton>
             </div>
-            <b-card class="flex-fill" no-body>
+            <BCard class="flex-fill" no-body>
                 <div class="p-2 text-center">
                     <b>Rating</b>
                     <hr class="m-1" />
@@ -40,7 +40,7 @@
                         {{ forcePool.rating - forcePool.committed }} / <small class="text-muted">{{ forcePool.rating }}</small>
                     </h5>
                 </div>
-            </b-card>
+            </BCard>
         </div>
         <div v-else class="d-flex text-center">
             <div class="flex-fill">

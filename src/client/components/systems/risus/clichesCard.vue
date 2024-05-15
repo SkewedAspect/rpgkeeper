@@ -7,26 +7,25 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="flame"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="flame"></fa>
                     <span class="d-none d-md-inline">Cliches</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                <div v-if="!readonly" class="ms-auto">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
 
         <!-- Card Body -->
-        <b-list-group v-if="cliches && cliches.length > 0" flush>
-            <b-list-group-item v-for="cliche in cliches" :key="cliche.description" class="d-flex">
-                <b-form-spinbutton
+        <BListGroup v-if="cliches && cliches.length > 0" flush>
+            <BListGroupItem v-for="cliche in cliches" :key="cliche.description" class="d-flex">
+                <BFormSpinbutton
                     v-model="cliche.current"
-                    style="min-width: 40px; max-width: 40px"
-                    class="mr-2"
+                    class="me-2"
                     min="0"
                     :max="cliche.value"
                     step="1"
@@ -35,7 +34,7 @@
                     size="sm"
                     @change="onChange()"
                 >
-                </b-form-spinbutton>
+                </BFormSpinbutton>
                 <div class="d-inline-block flex-fill">
                     <h5 class="mb-0">
                         <b>{{ cliche.description }}</b> ({{ cliche.value }})
@@ -44,8 +43,8 @@
                         {{ cliche.tools }}
                     </div>
                 </div>
-                <div v-if="!readonly" class="d-flex flex-column text-nowrap">
-                    <b-btn
+                <div v-if="!readonly" class="d-flex flex-column justify-content-between text-nowrap">
+                    <BButton
                         title="Roll this cliche"
                         variant="primary"
                         block
@@ -53,18 +52,18 @@
                     >
                         <fa icon="dice"></fa>
                         Roll
-                    </b-btn>
-                    <b-btn
+                    </BButton>
+                    <BButton
                         title="Reset to max"
                         block
                         @click="resetCliche(cliche)"
                     >
                         <fa icon="arrow-to-top"></fa>
                         Reset to Max
-                    </b-btn>
+                    </BButton>
                 </div>
-            </b-list-group-item>
-        </b-list-group>
+            </BListGroupItem>
+        </BListGroup>
         <div v-else class="card-body">
             <h4 class="text-center text-muted m-0">
                 No Cliches.

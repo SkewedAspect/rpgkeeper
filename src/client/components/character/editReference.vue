@@ -4,27 +4,27 @@
 
 <template>
     <div class="edit-reference d-flex">
-        <b-form-group
+        <BFormGroup
             class="flex-fill"
             label="Source"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
             label-for="source-input"
         >
-            <b-form-select
+            <BFormSelect
                 id="source-input"
                 v-model="source"
                 :options="references"
                 text-field="name"
                 value-field="abbr"
-            ></b-form-select>
-        </b-form-group>
-        <b-form-group
-            class="flex-fill ml-2"
+            ></BFormSelect>
+        </BFormGroup>
+        <BFormGroup
+            class="flex-fill ms-2"
             label="Page"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
             label-for="page-input"
         >
-            <b-form-input
+            <BFormInput
                 id="page-input"
                 v-model="page"
                 number
@@ -32,8 +32,8 @@
                 step="1"
                 min="1"
                 :disabled="source === 'HB'"
-            ></b-form-input>
-        </b-form-group>
+            ></BFormInput>
+        </BFormGroup>
     </div>
 </template>
 

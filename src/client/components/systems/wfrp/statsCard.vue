@@ -7,29 +7,29 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="flame"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="flame"></fa>
                     <span class="d-none d-md-inline">Stats</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                <div v-if="!readonly" class="ms-auto">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
 
         <!-- Card Body -->
-        <b-list-group v-if="stats && stats.length > 0" flush>
-            <b-list-group-item v-for="stat in stats" :key="stat.description" class="d-flex">
+        <BListGroup v-if="stats && stats.length > 0" flush>
+            <BListGroupItem v-for="stat in stats" :key="stat.description" class="d-flex">
                 <div class="d-inline-block flex-fill">
                     <div>
                         <b>{{ stat.description }}</b> ({{ stat.value }})
                     </div>
                 </div>
-            </b-list-group-item>
-        </b-list-group>
+            </BListGroupItem>
+        </BListGroup>
         <div v-else class="card-body">
             <h4 class="text-center text-muted m-0">
                 No Stats.

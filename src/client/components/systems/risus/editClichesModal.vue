@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-cliches-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -15,49 +15,56 @@
             @cancel="onCancel"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Cliches
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Cliches
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
             <div v-for="(cliche, index) in cliches" :key="index" class="d-flex mb-2">
-                <b-form-input v-model="cliche.value" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
-                <b-form-input v-model="cliche.description" class="ml-2" placeholder="Description"></b-form-input>
-                <b-form-input v-model="cliche.tools" class="ml-2" placeholder="Tools of the Trade"></b-form-input>
-                <b-btn variant="danger" class="ml-2" @click="removeCliche(cliche)">
+                <BFormInput v-model="cliche.value" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                <BFormInput v-model="cliche.description" class="ms-2" placeholder="Description"></BFormInput>
+                <BFormInput v-model="cliche.tools" class="ms-2" placeholder="Tools of the Trade"></BFormInput>
+                <BButton variant="danger" class="ms-2" @click="removeCliche(cliche)">
                     <fa icon="trash-alt"></fa>
-                </b-btn>
+                </BButton>
             </div>
 
             <hr />
 
-            <b-card
+            <BCard
                 header="New Cliche"
                 header-bg-variant="dark"
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input v-model="newValue" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></b-form-input>
-                    <b-form-input id="new-desc" v-model="newDesc" class="ml-2" placeholder="Description"></b-form-input>
-                    <b-form-input id="new-tools" v-model="newTools" class="ml-2" placeholder="Tools of the Trade"></b-form-input>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addCliche">
+                    <BFormInput v-model="newValue" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
+                    <BFormInput id="new-desc" v-model="newDesc" class="ms-2" placeholder="Description"></BFormInput>
+                    <BFormInput id="new-tools" v-model="newTools" class="ms-2" placeholder="Tools of the Trade"></BFormInput>
+                    <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addCliche">
                         <fa icon="plus"></fa>
                         Add
-                    </b-btn>
+                    </BButton>
                 </div>
-            </b-card>
+            </BCard>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -77,7 +84,8 @@
     import { RisusCliche } from '../../../../common/interfaces/systems/risus';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

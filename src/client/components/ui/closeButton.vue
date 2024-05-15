@@ -1,49 +1,48 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Talent Placeholder
+  -- closeButton
   --------------------------------------------------------------------------------------------------------------------->
-
 <template>
-    <BCard :id="id" class="eote-talent-placeholder" no-body>
-        <template #header>
-            <div class="text-muted text-nowrap text-center">
-                Open Talent Slot
-            </div>
-        </template>
-    </BCard>
+    <button
+        :type="type"
+        class="btn-close"
+        :disabled="props.disabled"
+        :aria-label="ariaLabel"
+        @click="emit('click', $event)"
+    >
+        <slot>
+            <fa icon="times"></fa>
+        </slot>
+    </button>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .eote-talent-placeholder {
-        border-style: dashed;
-
-        .card-header {
-            border-bottom: none;
-            padding: 0.25rem 0.5rem;
-        }
+<style lang="scss" scoped>
+    .btn-close {
+        --bs-btn-close-bg: none;
     }
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
-
-    // Utils
-    import { shortID } from '../../../../../common/utils/misc';
+    import type { BCloseButtonProps } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
-    // Refs
+    // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    const uuid = ref(shortID());
+    const props = withDefaults(defineProps<BCloseButtonProps>(), {
+        ariaLabel: 'Close',
+        disabled: false,
+        type: 'button'
+    });
+
+    const emit = defineEmits<{
+        click : [value: MouseEvent]
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
-    // Computed
-    //------------------------------------------------------------------------------------------------------------------
-
-    const id = computed(() => `talent-${ uuid.value }`);
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

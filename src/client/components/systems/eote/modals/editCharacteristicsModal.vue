@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-characteristics-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,22 +14,25 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Characteristics
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Characteristics
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col v-for="char in characteristicNames.slice(0, 3)" :key="char">
-                    <b-form-group
+            <BFormRow>
+                <BCol v-for="char in characteristicNames.slice(0, 3)" :key="char">
+                    <BFormGroup
                         :label="startCase(char)"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         :label-for="`${ char }-input`"
                     >
                         <div class="d-flex">
-                            <b-input-group>
-                                <b-form-input
+                            <BInputGroup>
+                                <BFormInput
                                     :id="`${ char }-input`"
                                     v-model="characteristics[char]"
                                     number
@@ -37,27 +40,27 @@
                                     step="1"
                                     min="0"
                                     max="99"
-                                ></b-form-input>
-                                <b-input-group-append>
-                                    <b-button @click="characteristics[char] = 0">
+                                ></BFormInput>
+                                <BInputGroupAppend>
+                                    <BButton @click="characteristics[char] = 0">
                                         <fa icon="undo"></fa>
-                                    </b-button>
-                                </b-input-group-append>
-                            </b-input-group>
+                                    </BButton>
+                                </BInputGroupAppend>
+                            </BInputGroup>
                         </div>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
-            <b-form-row>
-                <b-col v-for="char in characteristicNames.slice(3)" :key="char">
-                    <b-form-group
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
+            <BFormRow>
+                <BCol v-for="char in characteristicNames.slice(3)" :key="char">
+                    <BFormGroup
                         :label="formatCharName(char)"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         :label-for="`${ char }-input`"
                     >
                         <div class="d-flex">
-                            <b-input-group>
-                                <b-form-input
+                            <BInputGroup>
+                                <BFormInput
                                     :id="`${ char }-input`"
                                     v-model="characteristics[char]"
                                     number
@@ -65,28 +68,32 @@
                                     step="1"
                                     min="0"
                                     max="99"
-                                ></b-form-input>
-                                <b-input-group-append>
-                                    <b-button @click="characteristics[char] = 0">
+                                ></BFormInput>
+                                <BInputGroupAppend>
+                                    <BButton @click="characteristics[char] = 0">
                                         <fa icon="undo"></fa>
-                                    </b-button>
-                                </b-input-group-append>
-                            </b-input-group>
+                                    </BButton>
+                                </BInputGroupAppend>
+                            </BInputGroup>
                         </div>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -102,7 +109,8 @@
     import { startCase } from '../../../../../common/utils/misc';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-skills-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -15,9 +15,12 @@
             @cancel="onCancel"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Skills
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Skills
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
@@ -33,42 +36,46 @@
                         </h6>
                     </div>
                     <div v-for="skill in filterRankSkills(rank.value)" :key="skill.name" class="d-flex mb-2">
-                        <b-form-input v-model="skill.name"></b-form-input>
-                        <b-form-select v-model="skill.rank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></b-form-select>
-                        <b-btn variant="danger" class="ml-2" @click="removeSkill(skill)">
+                        <BFormInput v-model="skill.name"></BFormInput>
+                        <BFormSelect v-model="skill.rank" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
+                        <BButton variant="danger" class="ms-2" @click="removeSkill(skill)">
                             <fa icon="trash-alt"></fa>
-                        </b-btn>
+                        </BButton>
                     </div>
                 </template>
             </section>
 
             <hr />
 
-            <b-card
+            <BCard
                 header="New Skill"
                 header-bg-variant="dark"
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input id="name-input" v-model="newSkillName" placeholder="Skill name"></b-form-input>
-                    <b-form-select v-model="newSkillRank" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></b-form-select>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" @click="addSkill">
+                    <BFormInput id="name-input" v-model="newSkillName" placeholder="Skill name"></BFormInput>
+                    <BFormSelect v-model="newSkillRank" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
+                    <BButton variant="primary" class="ms-2 text-nowrap" @click="addSkill">
                         <fa icon="plus"></fa>
                         Add
-                    </b-btn>
+                    </BButton>
                 </div>
-            </b-card>
+            </BCard>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -82,7 +89,8 @@
     import { FateSkill } from '../../../../common/interfaces/systems/fate';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

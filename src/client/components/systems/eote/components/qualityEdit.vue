@@ -7,7 +7,7 @@
         <SupplementSelect
             ref="suppSelect"
             label="Qualities"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
             :available="allQualities"
             :selected="selectedQualities"
             @add="onQualityAdd"
@@ -18,15 +18,15 @@
         >
             <template #preview="{ instance, supplement }">
                 <div>
-                    <div v-if="supplement.ranked" class="mb-2 float-right">
+                    <div v-if="supplement.ranked" class="mb-2 float-end">
                         <label>Ranks</label>
-                        <b-form-spinbutton
+                        <BFormSpinbutton
                             id="sb-inline"
                             v-model="instance.ranks"
-                            class="ml-1"
+                            class="ms-1"
                             size="sm"
                             inline
-                        ></b-form-spinbutton>
+                        ></BFormSpinbutton>
                     </div>
                     <div class="mb-2">
                         <i v-if="supplement.passive">Passive</i>
@@ -35,7 +35,7 @@
                 </div>
                 <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
                 <reference
-                    class="float-right mt-2"
+                    class="float-end mt-2"
                     :reference="supplement.reference"
                 ></reference>
             </template>

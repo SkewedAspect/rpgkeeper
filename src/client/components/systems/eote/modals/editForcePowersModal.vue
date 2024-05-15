@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-force-powers-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,9 +14,12 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Force Powers
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Force Powers
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
@@ -24,7 +27,7 @@
                 <SupplementSelect
                     ref="suppSelect"
                     label="Force Powers"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     :available="forcePowers"
                     :selected="selectedForcePowers"
                     @add="onForcePowerAdd"
@@ -38,7 +41,7 @@
                             <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
                         </div>
                         <h5>Upgrades</h5>
-                        <b-table
+                        <BTable
                             class="font-sm"
                             :items="getUpgrades(instance, supplement)"
                             :fields="upgradeFields"
@@ -66,9 +69,9 @@
                             <template #cell(description)="data">
                                 <MarkdownBlock :text="data.value" inline></MarkdownBlock>
                             </template>
-                        </b-table>
+                        </BTable>
                         <ReferenceBlock
-                            class="float-right mt-2"
+                            class="float-end mt-2"
                             :reference="supplement.reference"
                         ></ReferenceBlock>
                     </template>
@@ -76,15 +79,19 @@
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
 
         <!-- Modals -->
         <AddEditForcePowersModal
@@ -133,10 +140,11 @@
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import ReferenceBlock from '../../../character/referenceBlock.vue';
     import AddEditForcePowersModal from './addEditForcePowersModal.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     // Utils
     import { startCase, uniqBy } from '../../../../../common/utils/misc';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

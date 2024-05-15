@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-consequences-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -15,108 +15,115 @@
             @cancel="onCancel"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Consequence
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Consequence
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="mild-consequence-1"
                 label="Mild Consequence (2)"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="mc-input-1"
             >
                 <div class="d-flex">
-                    <b-input-group>
-                        <b-form-input id="mc-input-1" v-model="mildDetail1"></b-form-input>
-                        <b-input-group-append>
-                            <b-button @click="mildDetail1 = ''">
+                    <BInputGroup>
+                        <BFormInput id="mc-input-1" v-model="mildDetail1"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton @click="mildDetail1 = ''">
                                 <fa icon="times"></fa>
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
-                    <b-button v-model:pressed="mildHealing1" class="ml-2 text-nowrap" :disabled="!mildDetail1">
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
+                    <BButton v-model:pressed="mildHealing1" class="ms-2 text-nowrap" :disabled="!mildDetail1">
                         <fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
-                    </b-button>
+                    </BButton>
                 </div>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 v-if="hasExtraMild"
                 id="mild-consequence-2"
                 :label="`Mild Consequence (2, ${ extraMildType })`"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="mc-input-2"
             >
                 <div class="d-flex">
-                    <b-input-group>
-                        <b-form-input id="mc-input-2" v-model="mildDetail2"></b-form-input>
-                        <b-input-group-append>
-                            <b-button @click="mildDetail2 = ''">
+                    <BInputGroup>
+                        <BFormInput id="mc-input-2" v-model="mildDetail2"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton @click="mildDetail2 = ''">
                                 <fa icon="times"></fa>
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
-                    <b-button v-model:pressed="mildHealing2" class="ml-2 text-nowrap" :disabled="!mildDetail2">
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
+                    <BButton v-model:pressed="mildHealing2" class="ms-2 text-nowrap" :disabled="!mildDetail2">
                         <fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
-                    </b-button>
+                    </BButton>
                 </div>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 id="moderate-consequence"
                 label="Moderate Consequence (4)"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="mc-input"
             >
                 <div class="d-flex">
-                    <b-input-group>
-                        <b-form-input id="mc-input" v-model="moderateDetail"></b-form-input>
-                        <b-input-group-append>
-                            <b-button @click="moderateDetail = ''">
+                    <BInputGroup>
+                        <BFormInput id="mc-input" v-model="moderateDetail"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton @click="moderateDetail = ''">
                                 <fa icon="times"></fa>
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
-                    <b-button v-model:pressed="moderateHealing" class="ml-2 text-nowrap" :disabled="!moderateDetail">
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
+                    <BButton v-model:pressed="moderateHealing" class="ms-2 text-nowrap" :disabled="!moderateDetail">
                         <fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
-                    </b-button>
+                    </BButton>
                 </div>
-            </b-form-group>
-            <b-form-group
+            </BFormGroup>
+            <BFormGroup
                 id="severe-consequence"
                 label="Severe Consequence (6)"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="sc-input"
             >
                 <div class="d-flex">
-                    <b-input-group>
-                        <b-form-input id="sc-input" v-model="severeDetail"></b-form-input>
-                        <b-input-group-append>
-                            <b-button @click="severeDetail = ''">
+                    <BInputGroup>
+                        <BFormInput id="sc-input" v-model="severeDetail"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton @click="severeDetail = ''">
                                 <fa icon="times"></fa>
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
-                    <b-button v-model:pressed="severeHealing" class="ml-2 text-nowrap" :disabled="!severeDetail">
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
+                    <BButton v-model:pressed="severeHealing" class="ms-2 text-nowrap" :disabled="!severeDetail">
                         <fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
                         Healing
-                    </b-button>
+                    </BButton>
                 </div>
-            </b-form-group>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -131,7 +138,8 @@
     import { FateAspect, FateSkill } from '../../../../common/interfaces/systems/fate';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

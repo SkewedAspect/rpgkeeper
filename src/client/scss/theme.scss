@@ -7,6 +7,10 @@
 
 // Bootstrap
 @import "bootstrap";
+@import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
+
+// Components
+@import '@morgul/vue-bootstrap-autocomplete/dist/style.css';
 
 // Custom SCSS code
 @import "custom";

@@ -7,21 +7,21 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" :icon="mode === 'eote' ? 'sword-laser-alt' : 'sword'"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" :icon="mode === 'eote' ? 'sword-laser-alt' : 'sword'"></fa>
                     <span class="d-none d-md-inline">Weapons</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openAddEditModal()">
+                <div v-if="!readonly" class="ms-auto">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openAddEditModal()">
                         <fa icon="plus" fixed-width></fa>
                         <span class="d-none d-md-inline">Add</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
 
         <!-- Card Body -->
-        <b-table
+        <BTable
             v-if="weapons.length > 0"
             class="font-sm mb-0"
             :items="weapons"
@@ -42,14 +42,14 @@
 
             <!-- Buttons Slot -->
             <template #cell(buttons)="data">
-                <b-btn size="sm" @click="openAddEditModal(data.item)">
+                <BButton size="sm" @click="openAddEditModal(data.item)">
                     <fa icon="edit"></fa>
-                </b-btn>
-                <b-btn class="ml-1" variant="danger" size="sm" @click="openDeleteModal(data.item)">
+                </BButton>
+                <BButton class="ms-1" variant="danger" size="sm" @click="openDeleteModal(data.item)">
                     <fa icon="trash-alt"></fa>
-                </b-btn>
+                </BButton>
             </template>
-        </b-table>
+        </BTable>
 
         <!-- Empty -->
         <h5 v-else class="mt-2 text-center">

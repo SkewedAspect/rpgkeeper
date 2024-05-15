@@ -4,26 +4,26 @@
 
 <template>
     <div class="d-flex flex-nowrap">
-        <b-input-group class="fate-points mr-2">
-            <b-form-input
+        <BInputGroup class="fate-points me-2">
+            <BFormInput
                 v-model="current"
                 number
                 type="number"
                 min="0"
                 step="1"
                 :readonly="readonly"
-            ></b-form-input>
+            ></BFormInput>
             <template #append>
-                <b-input-group-text>
+                <BInputGroupText>
                     / &nbsp;
                     <b>{{ refresh }}</b>
-                </b-input-group-text>
+                </BInputGroupText>
             </template>
-        </b-input-group>
-        <b-btn variant="primary" class="text-nowrap" :disabled="readonly" @click="refreshFatePoints()">
+        </BInputGroup>
+        <BButton variant="primary" class="text-nowrap" :disabled="readonly" @click="refreshFatePoints()">
             <fa icon="redo"></fa>
             Refresh
-        </b-btn>
+        </BButton>
     </div>
 </template>
 

@@ -3,32 +3,32 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card id="notes" header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
+    <BCard id="notes" header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
         <!-- Card Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="book"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="book"></fa>
                     <span class="d-none d-md-inline">
                         Character Notes
                     </span>
                 </h5>
-                <div class="ml-auto d-flex flex-nowrap">
-                    <b-form-select v-model="pageIndex" class="mr-2 d-sm-none" :options="notes.pages" text-field="title" value-field="id"></b-form-select>
-                    <b-button-toolbar class="flex-shrink-0 flex-grow-0 w-auto">
-                        <b-btn @click="openAddEditModal()">
+                <div v-b-color-mode="'light'" class="ms-auto d-flex flex-nowrap">
+                    <BFormSelect v-model="pageIndex" class="me-2 d-md-none" :options="pageOptions" text-field="title" value-field="index"></BFormSelect>
+                    <BButtonToolbar class="flex-shrink-0 flex-grow-0 w-auto">
+                        <BButton @click="openAddEditModal()">
                             <fa icon="file-plus" fixed-width></fa>
                             <span class="d-none d-md-inline">New</span>
-                        </b-btn>
-                        <b-btn class="ml-2" :disabled="!currentPage" @click="openAddEditModal(currentPage)">
+                        </BButton>
+                        <BButton class="ms-2" :disabled="!currentPage" @click="openAddEditModal(currentPage)">
                             <fa icon="edit" fixed-width></fa>
                             <span class="d-none d-md-inline">Edit</span>
-                        </b-btn>
-                        <b-btn class="ml-2" :disabled="!currentPage" @click="openDelModal(currentPage)">
+                        </BButton>
+                        <BButton class="ms-2" :disabled="!currentPage" @click="openDelModal(currentPage)">
                             <fa icon="trash-alt" fixed-widt></fa>
                             <span class="d-none d-md-inline">Delete</span>
-                        </b-btn>
-                    </b-button-toolbar>
+                        </BButton>
+                    </BButtonToolbar>
                 </div>
             </div>
         </template>
@@ -40,26 +40,28 @@
         </div>
 
         <!-- Notes tabs -->
-        <b-tabs v-else v-model="pageIndex" nav-wrapper-class="d-none d-md-block" pills card vertical>
-            <b-tab v-for="page in notes.pages" :key="page.id">
+        <BTabs
+            v-else
+            v-model="pageIndex"
+            nav-wrapper-class="d-none d-md-block ps-3 py-2"
+            nav-item-class="text-nowrap text-start"
+            justified
+            pills
+            vertical
+        >
+            <BTab v-for="page in notes.pages" :key="page.id">
                 <template #title>
                     <fa icon="file-alt"></fa>
                     {{ page.title }}
                 </template>
-                <note-page :content="page.content"></note-page>
-            </b-tab>
-        </b-tabs>
+                <NotePage class="pe-2 pb-3" :content="page.content"></NotePage>
+            </BTab>
+        </BTabs>
 
         <!-- Modals -->
-        <AddEditModal
-            ref="addEditModal"
-            @save="onAddEditSave"
-        ></AddEditModal>
-        <DeleteModal
-            ref="delModal"
-            @delete="onDelete"
-        ></DeleteModal>
-    </b-card>
+        <AddEditModal ref="addEditModal" @save="onAddEditSave"></AddEditModal>
+        <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>
+    </BCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -96,6 +98,14 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const currentPage = computed<NotebookPage | undefined>(() => { return notes.pages[pageIndex.value]; });
+
+    const pageOptions = computed(() =>
+    {
+        return notes.pages.map((page, index) =>
+        {
+            return { title: page.title, value: page.id, index };
+        });
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

@@ -3,17 +3,17 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-btn v-bind="$attrs" ref="colorBtn">
-        <span class="color-block" :style="{ 'background-color': internalColor }">&nbsp;</span>
-        <b-popover :target="() => $refs.colorBtn" triggers="click blur">
+    <BButton v-bind="$attrs" ref="colorBtn">
+        <span class="color-block" :style="{ 'background-color': htmlColor }">&nbsp;</span>
+        <BPopover :target="colorBtn" triggers="click blur">
             <SketchPicker
                 v-model="internalColor"
                 :preset-colors="presetColors"
                 :disable-alpha="disableAlpha"
                 :disable-fields="disableFields"
             ></SketchPicker>
-        </b-popover>
-    </b-btn>
+        </BPopover>
+    </BButton>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -36,10 +36,14 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 <script lang="ts" setup>
-    import { computed } from 'vue';
+    import { computed, ref } from 'vue';
+
+    // Types
+    import type { ColorInput } from '@ctrl/tinycolor';
 
     // Components
     import { Sketch as SketchPicker } from '@ckpack/vue-color';
+    import { BButton } from 'bootstrap-vue-next';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -49,8 +53,8 @@
     {
         color : string;
         presetColors ?: string[];
-        enableAlpha : boolean;
-        disableFields : boolean;
+        enableAlpha ?: boolean;
+        disableFields ?: boolean;
     }
 
     const props = withDefaults(
@@ -70,13 +74,15 @@
 
     const emit = defineEmits<Events>();
 
+    const colorBtn = ref<InstanceType<typeof BButton> | null>(null);
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const internalColor = computed({
+    const internalColor = computed<ColorInput>({
         get() { return props.color; },
-        set(val : string | { hex : string } | { hex8 : string })
+        set(val : ColorInput)
         {
             if(val['hex'])
             {
@@ -89,6 +95,24 @@
 
             emit('update:color', val as string);
         }
+    });
+
+    const htmlColor = computed(() =>
+    {
+        if(typeof internalColor.value === 'string')
+        {
+            return internalColor.value;
+        }
+        else if(internalColor.value['hex'])
+        {
+            return internalColor.value['hex'];
+        }
+        else if(internalColor.value['hex8'])
+        {
+            return internalColor.value['hex8'];
+        }
+
+        return '#000';
     });
 
     const disableAlpha = computed(() => !props.enableAlpha);

@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-experience-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,28 +14,31 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Experience
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Experience
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 class="flex-fill"
                 label="Add XP"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="add-xp-input"
             >
                 <div class="d-flex flex-column">
-                    <b-input-group>
-                        <b-form-input id="add-xp-input" v-model="xpToAdd" number type="number" min="0" step="1"></b-form-input>
-                        <b-input-group-append>
-                            <b-button variant="primary" @click="addXP()">
+                    <BInputGroup>
+                        <BFormInput id="add-xp-input" v-model="xpToAdd" number type="number" min="0" step="1"></BFormInput>
+                        <BInputGroupAppend>
+                            <BButton variant="primary" @click="addXP()">
                                 <fa icon="plus"></fa>
                                 Add
-                            </b-button>
-                        </b-input-group-append>
-                    </b-input-group>
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
                     <p class="text-muted m-0">
                         <small>
                             To gain experience, use this form. It updates both the total, and the available. Just type
@@ -43,58 +46,62 @@
                         </small>
                     </p>
                 </div>
-            </b-form-group>
+            </BFormGroup>
 
             <hr class="mt-2 mb-2" />
 
             <div class="d-flex">
-                <b-form-group
+                <BFormGroup
                     class="flex-fill"
                     label="Total"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="total-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="total-input" v-model="experience.total" number type="number" min="0" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="experience.total = 0">
+                        <BInputGroup>
+                            <BFormInput id="total-input" v-model="experience.total" number type="number" min="0" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="experience.total = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
 
-                <b-form-group
-                    class="flex-fill ml-2"
+                <BFormGroup
+                    class="flex-fill ms-2"
                     label="Available"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="available-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="available-input" v-model="experience.available" number type="number" min="0" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="experience.available = 0">
+                        <BInputGroup>
+                            <BFormInput id="available-input" v-model="experience.available" number type="number" min="0" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="experience.available = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -107,7 +114,8 @@
     import { EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

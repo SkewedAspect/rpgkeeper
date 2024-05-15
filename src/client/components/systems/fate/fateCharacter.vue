@@ -3,11 +3,11 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container v-if="char" id="fate-char">
+    <BContainer v-if="char" id="fate-char">
         <div class="d-flex">
-            <PortraitCard class="mr-1 d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
-            <IdentityCard class="mr-1 ml-1 w-50" :readonly="!isAuthorized" @save="onSave"></IdentityCard>
-            <RollsCard class="ml-1 w-50" :skills="char.details.skills" :readonly="!isAuthorized"></RollsCard>
+            <PortraitCard class="me-1 d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
+            <IdentityCard class="me-1 ms-1 w-50" :readonly="!isAuthorized" @save="onSave"></IdentityCard>
+            <RollsCard class="ms-1 w-50" :skills="char.details.skills" :readonly="!isAuthorized"></RollsCard>
         </div>
         <div class="d-flex mt-2">
             <AspectsCard v-model:aspects="char.details.aspects" :readonly="!isAuthorized" @save="onSave"></AspectsCard>
@@ -15,7 +15,7 @@
         </div>
         <div class="d-flex mt-2">
             <ExtrasCard v-model:extras="char.details.extras" class="w-50" :readonly="!isAuthorized" @save="onSave"></ExtrasCard>
-            <StuntsCard v-model:stunts="char.details.stunts" class="w-50 ml-2" :readonly="!isAuthorized" @save="onSave"></StuntsCard>
+            <StuntsCard v-model:stunts="char.details.stunts" class="w-50 ms-2" :readonly="!isAuthorized" @save="onSave"></StuntsCard>
         </div>
         <div class="d-flex mt-2">
             <StressCard
@@ -30,12 +30,12 @@
                 v-model:aspects="char.details.aspects"
                 :skills="char.details.skills"
                 style="flex-basis: 60%"
-                class="ml-2"
+                class="ms-2"
                 :readonly="!isAuthorized"
                 @save="onSave"
             ></ConsequencesCard>
         </div>
-    </b-container>
+    </BContainer>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

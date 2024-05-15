@@ -12,22 +12,23 @@
             autocomplete="off"
             :max-matches="1000"
             :serializer="(s) => s.name"
+            :popper-options="popperOptions"
             show-on-focus
             @hit="onHit"
         >
             <template #prepend>
-                <b-input-group-text>
+                <BInputGroupText>
                     <fa icon="search"></fa>
-                </b-input-group-text>
+                </BInputGroupText>
             </template>
             <template #append>
-                <b-button class="text-nowrap" variant="primary" title="Add..." @click="addSup()">
+                <BButton class="text-nowrap" variant="primary" title="Add..." @click="addSup()">
                     <fa icon="plus"></fa>
                     Add
-                </b-button>
+                </BButton>
             </template>
             <template #suggestion="{ data, htmlText }">
-                <div class="float-right">
+                <div class="float-end">
                     <slot :supplement="data" name="suggestion-extra"></slot>
                     <ScopeBadge :supplement="data"></ScopeBadge>
                 </div>
@@ -46,8 +47,7 @@
 
 <style lang="scss">
     .supp-search {
-        .vbt-autocomplete-list {
-            position: fixed;
+        ul.vbt-autocomplete-list {
             max-height: 300px;
             overflow-y: auto;
             z-index: 1000;
@@ -64,7 +64,7 @@
     import { Supplement, SupplementInst } from '../../../common/interfaces/systems/supplements';
 
     // Components
-    import VueBootstrapAutocomplete from '@vue-bootstrap-components/vue-bootstrap-autocomplete';
+    import { VueBootstrapAutocomplete } from '@morgul/vue-bootstrap-autocomplete';
     import ScopeBadge from './scopeBadge.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -75,12 +75,14 @@
     {
         available : Supplement[];
         selected : SupplementInst[];
+        boundary ?: 'scrollParent' | 'viewport' | 'window';
         sortFn ?: (suppA : Supplement, suppB : Supplement) => number
     }
 
     const props = withDefaults(
         defineProps<Props>(),
         {
+            boundary: 'window',
             sortFn: (suppA : Supplement, suppB : Supplement) => suppA.name.localeCompare(suppB.name)
         }
     );
@@ -95,6 +97,10 @@
     //------------------------------------------------------------------------------------------------------------------
     // Refs
     //------------------------------------------------------------------------------------------------------------------
+
+    const popperOptions = {
+        strategy: 'fixed',
+    };
 
     const search = ref('');
     const suppToAdd = ref<Supplement>(null);

@@ -7,15 +7,15 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="address-card"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="address-card"></fa>
                     <span class="d-none d-md-inline">Skills</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                <div v-if="!readonly" class="ms-auto">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
@@ -25,7 +25,7 @@
             <div class="skill-column">
                 <div class="skill-group">
                     <b>General</b>
-                    <b-table
+                    <BTable
                         class="font-sm"
                         :items="general"
                         :fields="fields"
@@ -35,7 +35,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
+                            <small class="ms-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -52,11 +52,11 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
                 <div v-if="mode === 'genesys' && magic.length" class="skill-group">
                     <b>Magic</b>
-                    <b-table
+                    <BTable
                         class="font-sm"
                         :items="magic"
                         :fields="fields"
@@ -66,7 +66,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
+                            <small class="ms-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -83,13 +83,13 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
             </div>
             <div class="skill-column">
                 <div v-if="combat.length" class="skill-group">
                     <b>Combat</b>
-                    <b-table
+                    <BTable
                         class="font-sm"
                         :items="combat"
                         :fields="fields"
@@ -99,7 +99,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
+                            <small class="ms-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -116,11 +116,11 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
                 <div v-if="social.length" class="skill-group">
                     <b>Social</b>
-                    <b-table
+                    <BTable
                         class="font-sm"
                         :items="social"
                         :fields="fields"
@@ -130,7 +130,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
+                            <small class="ms-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -147,11 +147,11 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
                 <div v-if="knowledge.length" class="skill-group">
                     <b>Knowledge</b>
-                    <b-table
+                    <BTable
                         class="font-sm mb-0"
                         :items="knowledge"
                         :fields="fields"
@@ -161,7 +161,7 @@
                     >
                         <template #cell(name)="data">
                             <b>{{ data.value }}</b>
-                            <small class="ml-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
+                            <small class="ms-1 text-muted">({{ formatCharName(data.item.characteristic) }})</small>
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
@@ -178,7 +178,7 @@
                                 ></fa>
                             </div>
                         </template>
-                    </b-table>
+                    </BTable>
                 </div>
             </div>
         </div>

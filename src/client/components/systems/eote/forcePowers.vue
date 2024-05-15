@@ -7,26 +7,26 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="journal-whills"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="journal-whills"></fa>
                     <span class="d-none d-md-inline">ForcePowers</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                <div v-if="!readonly" class="ms-auto">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
 
         <!-- Card Body -->
         <div>
-            <b-form-row>
-                <b-col v-for="forcePower in forcePowers" :key="forcePower.id" cols="12">
+            <BFormRow>
+                <BCol v-for="forcePower in forcePowers" :key="forcePower.id" cols="12">
                     <ForcePowerCard class="mb-2" :power="forcePower" :readonly="readonly"></ForcePowerCard>
-                </b-col>
-            </b-form-row>
+                </BCol>
+            </BFormRow>
 
             <h5 v-if="forcePowers.length === 0" class="m-0 text-center">
                 No Force Powers

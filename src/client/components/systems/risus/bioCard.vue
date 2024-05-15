@@ -7,43 +7,43 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="address-card"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="address-card"></fa>
                     <span class="d-none d-md-inline">Bio</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                <div v-if="!readonly" class="ms-auto">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
 
         <!-- Card Body -->
-        <b-form-group
+        <BFormGroup
             id="name-input-group"
             label="Name"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
         >
             <h5>{{ char.name }}</h5>
-        </b-form-group>
-        <b-form-group
+        </BFormGroup>
+        <BFormGroup
             id="desc-input-group"
             label="Description"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
         >
             <MarkdownBlock class="font-sm" :text="description" inline></MarkdownBlock>
-        </b-form-group>
-        <b-form-row>
-            <b-col>
-                <b-form-group
+        </BFormGroup>
+        <BFormRow>
+            <BCol>
+                <BFormGroup
                     id="adv-input-group"
                     label="Advancement Points"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                 >
-                    <!-- FIXME: The 'number' modifier is broken with <b-form-input> -->
-                    <b-form-input
+                    <!-- FIXME: The 'number' modifier is broken with <BFormInput> -->
+                    <BFormInput
                         v-model="char.details.advancementPoints"
                         class="form-control"
                         type="number"
@@ -53,16 +53,16 @@
                         :disabled="readonly"
                         number
                         @change="onChange"
-                    ></b-form-input>
-                </b-form-group>
-            </b-col>
-            <b-col>
-                <b-form-group
+                    ></BFormInput>
+                </BFormGroup>
+            </BCol>
+            <BCol>
+                <BFormGroup
                     id="ffd-input-group"
                     label="Fire and Forget Dice"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                 >
-                    <b-form-input
+                    <BFormInput
                         v-model="char.details.ffDice"
                         type="number"
                         min="0"
@@ -71,14 +71,14 @@
                         :disabled="readonly"
                         number
                         @change="onChange"
-                    ></b-form-input>
-                </b-form-group>
-            </b-col>
-        </b-form-row>
-        <b-form-group
+                    ></BFormInput>
+                </BFormGroup>
+            </BCol>
+        </BFormRow>
+        <BFormGroup
             id="lucky-input-group"
             label="Lucky Shots"
-            label-class="font-weight-bold"
+            label-class="fw-bold"
             class="mb-0"
         >
             <DicePool
@@ -88,7 +88,7 @@
                 :disabled="readonly"
                 @save="onChange"
             ></DicePool>
-        </b-form-group>
+        </BFormGroup>
 
         <!-- Edit Modal -->
         <EditBioModal ref="editModal" @save="onEditSave"></EditBioModal>

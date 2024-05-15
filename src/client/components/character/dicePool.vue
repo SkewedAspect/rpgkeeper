@@ -8,7 +8,7 @@
             <span
                 v-for="index in poolRange"
                 :key="index"
-                class="ml-1"
+                class="ms-1"
                 @click.stop.prevent="setPoolCurrent(index)"
                 @mouseover="hoveredIndex = index"
                 @mouseout="hoveredIndex = null"
@@ -25,19 +25,19 @@
                 No pool
             </h5>
         </div>
-        <b-btn
+        <BButton
             v-if="showEdit"
-            class="ml-2 d-inline-block align-top"
+            class="ms-2 d-inline-block align-top"
             variant="outline-secondary"
             size="sm"
             @click="openEditMax"
         >
             <fa icon="edit"></fa>
             Edit
-        </b-btn>
+        </BButton>
 
         <!-- Edit Modal -->
-        <b-modal
+        <BModal
             ref="editPool"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -48,18 +48,21 @@
             @shown="onEditShown"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit "{{ name }}" Pool
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit "{{ name }}" Pool
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="name-input-group"
                 label="Pool Maximum"
                 label-for="max-input"
             >
-                <b-form-input
+                <BFormInput
                     id="max-input"
                     v-model="editMax"
                     type="number"
@@ -67,19 +70,23 @@
                     max="9999999"
                     step="1"
                     number
-                ></b-form-input>
-            </b-form-group>
+                ></BFormInput>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -97,7 +104,8 @@
     import { computed, ref } from 'vue';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

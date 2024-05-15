@@ -3,43 +3,48 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="delete-char-modal">
-        <b-modal
-            ref="innerModal"
-            header-bg-variant="dark"
-            header-text-variant="white"
-            no-close-on-esc
-            no-close-on-backdrop
-            size="md"
-            ok-variant="danger"
-            @ok="onDelete"
-            @hidden="onHidden"
-        >
-            <!-- Modal Header -->
-            <template #modal-title>
+    <BModal
+        v-model="shown"
+        header-bg-variant="dark"
+        header-text-variant="light"
+        no-close-on-esc
+        no-close-on-backdrop
+        size="md"
+        ok-variant="danger"
+        @ok="onDelete"
+        @hidden="onHidden"
+    >
+        <!-- Modal Header -->
+        <template #header="{ cancel }">
+            <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
                 <fa icon="trash-alt"></fa>
                 Delete Character
-            </template>
+                <CloseButton class="float-end" @click="cancel"></CloseButton>
+            </h5>
+        </template>
 
-            <h3>
-                <fa icon="exclamation-triangle"></fa>
-                Are you sure you want to delete "{{ char.name }}"?
-            </h3>
-            <p class="text-muted">
-                You will permanently lose this character. This cannot be undone.
-            </p>
+        <h3>
+            <fa class="text-danger" icon="exclamation-triangle"></fa>
+            Delete "{{ char?.name }}"?
+        </h3>
+        <p class="text-muted">
+            You will <b>permanently lose</b> this character. This cannot be undone.
+        </p>
 
-            <!-- Modal Buttons -->
-            <template #modal-ok>
+        <!-- Modal Buttons -->
+        <template #ok="{ ok }">
+            <BButton variant="danger" @click="ok">
                 <fa icon="trash-alt"></fa>
                 Delete
-            </template>
-            <template #modal-cancel>
+            </BButton>
+        </template>
+        <template #cancel="{ cancel }">
+            <BButton variant="secondary" @click="cancel">
                 <fa icon="times"></fa>
                 Cancel
-            </template>
-        </b-modal>
-    </div>
+            </BButton>
+        </template>
+    </BModal>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -51,7 +56,7 @@
     import { Character } from '../../../common/interfaces/common';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import CloseButton from '../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -70,7 +75,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const char = ref<Character<any> | null>(null);
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const shown = ref(false);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -79,12 +84,12 @@
     function show(selectedChar : Character) : void
     {
         char.value = selectedChar;
-        innerModal.value.show();
+        shown.value = true;
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        shown.value = false;
     }
 
     function onHidden() : void

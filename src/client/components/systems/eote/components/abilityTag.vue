@@ -4,15 +4,15 @@
 
 <template>
     <span class="eote-ability">
-        <b-badge :id="`ability-${ id }`">
+        <BBadge :id="`ability-${ id }`">
             {{ abilityName }}
-        </b-badge>
-        <b-popover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top">
+        </BBadge>
+        <BPopover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
                 <MarkdownBlock :text="abilityText" inline></MarkdownBlock>
-                <reference v-if="abilityReference" class="float-right mt-2 mb-2" :reference="abilityReference"></reference>
+                <reference v-if="abilityReference" class="float-end mt-2 mb-2" :reference="abilityReference"></reference>
             </div>
-        </b-popover>
+        </BPopover>
     </span>
 </template>
 

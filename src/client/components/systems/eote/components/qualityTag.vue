@@ -4,19 +4,19 @@
 
 <template>
     <span class="eote-quality">
-        <b-badge :id="uniqueID">
+        <BBadge :id="uniqueID">
             {{ qualityName }}
-        </b-badge>
-        <b-popover :title="qualityName" :target="uniqueID" triggers="hover" placement="top">
+        </BBadge>
+        <BPopover :title="qualityName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
                 <MarkdownBlock :text="qualityText" inline></MarkdownBlock>
                 <ReferenceBlock
                     v-if="qualityReference"
-                    class="float-right mt-2 mb-2"
+                    class="float-end mt-2 mb-2"
                     :reference="qualityReference"
                 ></ReferenceBlock>
             </div>
-        </b-popover>
+        </BPopover>
     </span>
 </template>
 

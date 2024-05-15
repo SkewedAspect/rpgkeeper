@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-edit-page">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -16,44 +16,51 @@
             @hidden="onHidden"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <span v-if="isNew">
-                    <fa icon="file-plus"></fa>
-                    Add
-                </span>
-                <span v-else>
-                    <fa icon="file-edit"></fa>
-                    Edit
-                </span>
-                Page
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <span v-if="isNew">
+                        <fa icon="file-plus"></fa>
+                        Add
+                    </span>
+                    <span v-else>
+                        <fa icon="file-edit"></fa>
+                        Edit
+                    </span>
+                    Page
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="page-title-group"
                 label="Title"
                 label-for="page-title"
             >
-                <b-form-input id="page-title" v-model="innerPage.title"></b-form-input>
-            </b-form-group>
-            <b-form-group
+                <BFormInput id="page-title" v-model="innerPage.title"></BFormInput>
+            </BFormGroup>
+            <BFormGroup
                 id="page-content-group"
                 label="Content"
                 label-for="page-content"
             >
                 <MarkdownEditor v-model:text="innerPage.content" height="550px"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -67,7 +74,8 @@
 
     // Components
     import MarkdownEditor from '../ui/markdownEditor.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

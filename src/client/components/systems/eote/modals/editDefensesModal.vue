@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-defenses-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,78 +14,85 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Defenses
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Defenses
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
             <div class="d-flex">
-                <b-form-group
+                <BFormGroup
                     class="flex-fill"
                     label="Soak"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="soak-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="soak-input" v-model="defenses.soak" number type="number" min="0" max="10" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="defenses.soak = 0">
+                        <BInputGroup>
+                            <BFormInput id="soak-input" v-model="defenses.soak" number type="number" min="0" max="10" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="defenses.soak = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
 
-                <b-form-group
-                    class="flex-fill ml-2"
+                <BFormGroup
+                    class="flex-fill ms-2"
                     label="Melee"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="melee-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="melee-input" v-model="defenses.melee" number type="number" min="0" max="10" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="defenses.melee = 0">
+                        <BInputGroup>
+                            <BFormInput id="melee-input" v-model="defenses.melee" number type="number" min="0" max="10" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="defenses.melee = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
 
-                <b-form-group
-                    class="flex-fill ml-2"
+                <BFormGroup
+                    class="flex-fill ms-2"
                     label="Ranged"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="ranged-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input id="ranged-input" v-model="defenses.ranged" number type="number" min="0" max="10" step="1"></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="defenses.ranged = 0">
+                        <BInputGroup>
+                            <BFormInput id="ranged-input" v-model="defenses.ranged" number type="number" min="0" max="10" step="1"></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="defenses.ranged = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -98,7 +105,8 @@
     import { EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -2,19 +2,19 @@
   -- scopeSelect
   --------------------------------------------------------------------------------------------------------------------->
 <template>
-    <b-form-group
+    <BFormGroup
         class="supp-scope-select"
         label="Scope"
-        label-class="font-weight-bold"
+        label-class="fw-bold"
         label-for="name-input"
     >
         <div class="d-flex">
-            <b-form-select v-model="scope" :options="options" :disabled="!canMakePublic"></b-form-select>
-            <b-checkbox v-model="official" class="ml-2 mt-2" switch>
+            <BFormSelect v-model="scope" :options="options" :disabled="!canMakePublic"></BFormSelect>
+            <BFormCheckbox v-model="official" class="ms-2 mt-2" switch>
                 Official
-            </b-checkbox>
+            </BFormCheckbox>
         </div>
-    </b-form-group>
+    </BFormGroup>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

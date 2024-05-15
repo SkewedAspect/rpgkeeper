@@ -3,17 +3,17 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-card v-if="talent && talentBase" :id="id" class="eote-talent-card" no-body>
+    <BCard v-if="talent && talentBase" :id="id" class="eote-talent-card" no-body>
         <template #header>
             <div class="text-nowrap text-center">
                 <b>{{ talentBase?.name }}</b>
-                <span v-if="talentBase.ranked" class="font-weight-bold">{{ talent.ranks }}</span>
+                <span v-if="talentBase.ranked" class="fw-bold">{{ talent.ranks }}</span>
                 <span v-if="mode === 'genesys'">
                     (Tier {{ talentBase?.tier }})
                 </span>
             </div>
 
-            <b-popover :target="id" triggers="hover" placement="top">
+            <BPopover :target="id" triggers="hover" placement="top">
                 <template #title>
                     <div :class="`${ mode }-system`">
                         {{ talentBase?.name }}
@@ -29,16 +29,16 @@
                     </div>
                     <MarkdownBlock :text="talentBase?.description" inline></MarkdownBlock>
                     <div class="clearfix">
-                        <reference class="float-right mt-2 mb-2" :reference="talentBase?.reference"></reference>
+                        <reference class="float-end mt-2 mb-2" :reference="talentBase?.reference"></reference>
                     </div>
                     <div v-if="talent.notes">
                         <hr class="mt-1 mb-1" />
                         <MarkdownBlock :text="talent.notes" inline></MarkdownBlock>
                     </div>
                 </div>
-            </b-popover>
+            </BPopover>
         </template>
-    </b-card>
+    </BCard>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

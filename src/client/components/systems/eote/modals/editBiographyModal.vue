@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-biography-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,114 +14,117 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Biography
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Biography
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
             <div :class="`${ mode }-system`">
-                <b-form-row>
-                    <b-col>
-                        <b-form-group
+                <BFormRow>
+                    <BCol>
+                        <BFormGroup
                             label="Name"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="name-input"
                         >
-                            <b-form-input id="name-input" v-model="name"></b-form-input>
-                        </b-form-group>
-                    </b-col>
-                    <b-col>
-                        <b-form-group
+                            <BFormInput id="name-input" v-model="name"></BFormInput>
+                        </BFormGroup>
+                    </BCol>
+                    <BCol>
+                        <BFormGroup
                             label="Description"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="description-input"
                         >
-                            <b-form-input id="description-input" v-model="description"></b-form-input>
-                        </b-form-group>
-                    </b-col>
-                </b-form-row>
-                <b-form-row>
-                    <b-col>
-                        <b-form-group
+                            <BFormInput id="description-input" v-model="description"></BFormInput>
+                        </BFormGroup>
+                    </BCol>
+                </BFormRow>
+                <BFormRow>
+                    <BCol>
+                        <BFormGroup
                             label="Species"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="species-input"
                         >
                             <div class="d-flex">
-                                <b-input-group>
-                                    <b-form-input id="species-input" v-model="species"></b-form-input>
-                                    <b-input-group-append>
-                                        <b-button @click="species = ''">
+                                <BInputGroup>
+                                    <BFormInput id="species-input" v-model="species"></BFormInput>
+                                    <BInputGroupAppend>
+                                        <BButton @click="species = ''">
                                             <fa icon="times"></fa>
-                                        </b-button>
-                                    </b-input-group-append>
-                                </b-input-group>
+                                        </BButton>
+                                    </BInputGroupAppend>
+                                </BInputGroup>
                             </div>
-                        </b-form-group>
-                    </b-col>
-                    <b-col v-if="mode === 'eote'" cols="auto">
-                        <b-form-group
+                        </BFormGroup>
+                    </BCol>
+                    <BCol v-if="mode === 'eote'" cols="auto">
+                        <BFormGroup
                             label="Force Sensitive"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="species-input"
                             label-sr-only
+                            style="margin-top: 2.4rem"
                         >
-                            <b-form-checkbox
+                            <BFormCheckbox
                                 v-model="forceSensitive"
-                                style="margin-top: 2.4rem"
                                 name="force-sensitive"
                                 switch
                             >
                                 Force Sensitive
-                            </b-form-checkbox>
-                        </b-form-group>
-                    </b-col>
-                </b-form-row>
+                            </BFormCheckbox>
+                        </BFormGroup>
+                    </BCol>
+                </BFormRow>
 
-                <b-form-row>
-                    <b-col xs="12">
-                        <b-form-group
+                <BFormRow>
+                    <BCol xs="12">
+                        <BFormGroup
                             label="Career"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="career-input"
                         >
                             <div class="d-flex">
-                                <b-input-group>
-                                    <b-form-input id="career-input" v-model="career"></b-form-input>
-                                    <b-input-group-append>
-                                        <b-button @click="career = ''">
+                                <BInputGroup>
+                                    <BFormInput id="career-input" v-model="career"></BFormInput>
+                                    <BInputGroupAppend>
+                                        <BButton @click="career = ''">
                                             <fa icon="times"></fa>
-                                        </b-button>
-                                    </b-input-group-append>
-                                </b-input-group>
+                                        </BButton>
+                                    </BInputGroupAppend>
+                                </BInputGroup>
                             </div>
-                        </b-form-group>
-                    </b-col>
-                    <b-col v-if="mode === 'eote'" xs="12">
-                        <b-form-group
+                        </BFormGroup>
+                    </BCol>
+                    <BCol v-if="mode === 'eote'" xs="12">
+                        <BFormGroup
                             label="Specializations"
-                            label-class="font-weight-bold"
+                            label-class="fw-bold"
                             label-for="special-input"
                         >
                             <div class="d-flex">
-                                <b-input-group>
-                                    <b-form-input id="special-input" v-model="specialization"></b-form-input>
-                                    <b-input-group-append>
-                                        <b-button @click="specialization = ''">
+                                <BInputGroup>
+                                    <BFormInput id="special-input" v-model="specialization"></BFormInput>
+                                    <BInputGroupAppend>
+                                        <BButton @click="specialization = ''">
                                             <fa icon="times"></fa>
-                                        </b-button>
-                                    </b-input-group-append>
-                                </b-input-group>
+                                        </BButton>
+                                    </BInputGroupAppend>
+                                </BInputGroup>
                             </div>
-                        </b-form-group>
-                    </b-col>
-                </b-form-row>
+                        </BFormGroup>
+                    </BCol>
+                </BFormRow>
 
                 <SupplementSelect
                     ref="suppSelect"
                     label="Abilities"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     :available="abilities"
                     :selected="selectedAbilitiesArray"
                     @add="onAbilityAdd"
@@ -134,15 +137,19 @@
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
 
         <!-- Modals -->
         <AddEditAbilityModal ref="addEditModal" @add="onAbilityAdd"></AddEditAbilityModal>
@@ -171,7 +178,8 @@
     import SupplementSelect from '../../../character/supplementSelect.vue';
     import AddEditAbilityModal from './addEditAbilityModal.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

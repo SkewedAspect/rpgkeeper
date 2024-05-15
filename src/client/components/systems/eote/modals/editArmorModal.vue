@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-armor-modal">
-        <b-modal
+        <BModal
             id="armorModal"
             ref="innerModal"
             header-bg-variant="dark"
@@ -17,128 +17,135 @@
             @cancel="onCancel"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Armor
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Armor
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
             <div :class="`${ mode }-system`">
-                <b-form-row>
-                    <b-form-group
-                        class="flex-fill pr-1 w-50"
+                <BFormRow>
+                    <BFormGroup
+                        class="flex-fill pe-1 w-50"
                         label="Name"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="name-input"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="name-input"
                             v-model="editArmor.name"
                             type="text"
-                        ></b-form-input>
-                    </b-form-group>
-                    <b-form-group
-                        class="flex-fill pl-1 w-25"
+                        ></BFormInput>
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1 w-25"
                         label="Hardpoints"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-hardpoints"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-hardpoints"
                             v-model="editArmor.hardpoints"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
-                    </b-form-group>
-                </b-form-row>
+                        ></BFormInput>
+                    </BFormGroup>
+                </BFormRow>
 
-                <b-form-row>
-                    <b-form-group
-                        class="flex-fill pr-1 w-25"
+                <BFormRow>
+                    <BFormGroup
+                        class="flex-fill pe-1 w-25"
                         label="Defense"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-damage"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-damage"
                             v-model="editArmor.defense"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
-                    </b-form-group>
-                    <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        ></BFormInput>
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Soak"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-critical"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-critical"
                             v-model="editArmor.soak"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
-                    </b-form-group>
-                    <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        ></BFormInput>
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Encumb."
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-encumbrance"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-encumbrance"
                             v-model="editArmor.encumbrance"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
-                    </b-form-group>
-                    <b-form-group
-                        class="flex-fill pl-1 w-25"
+                        ></BFormInput>
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1 w-25"
                         label="Rarity"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="armor-rarity"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="armor-rarity"
                             v-model="editArmor.rarity"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
-                    </b-form-group>
-                </b-form-row>
+                        ></BFormInput>
+                    </BFormGroup>
+                </BFormRow>
 
                 <QualityEdit v-model:qualities="editArmor.qualities"></QualityEdit>
 
-                <b-form-row>
-                    <b-col cols="8" offset="2">
-                        <b-button variant="danger" block @click="clear()">
+                <BFormRow>
+                    <BCol cols="8" offset="2">
+                        <BButton variant="danger" block @click="clear()">
                             <fa icon="trash-alt"></fa>
                             Clear Armor
-                        </b-button>
-                    </b-col>
-                </b-form-row>
+                        </BButton>
+                    </BCol>
+                </BFormRow>
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -165,7 +172,8 @@
 
     // Components
     import QualityEdit from '../components/qualityEdit.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

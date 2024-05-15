@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-talent-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,9 +14,12 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Talents
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Talents
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
@@ -24,7 +27,7 @@
                 <supplement-select
                     ref="suppSelect"
                     label="Talents"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     :available="sortedTalents"
                     :selected="sortedSelected"
                     :sort-fn="() => 0"
@@ -36,76 +39,80 @@
                 >
                     <template #preview="{ instance, supplement }">
                         <div class="clearfix">
-                            <div v-if="supplement.ranked" class="mb-2 float-right">
+                            <div v-if="supplement.ranked" class="mb-2 float-end">
                                 <label>Ranks</label>
-                                <b-form-spinbutton v-model="getInst(instance.id).ranks" inline></b-form-spinbutton>
+                                <BFormSpinbutton v-model="getInst(instance.id).ranks" inline></BFormSpinbutton>
                             </div>
                             <div class="mb-2">
                                 <i>{{ getActivation(supplement) }}</i>
                             </div>
                             <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
                             <reference
-                                class="float-right mt-2"
+                                class="float-end mt-2"
                                 :reference="supplement.reference"
                             ></reference>
                         </div>
                         <div class="font-sm">
                             <hr />
-                            <div class="float-right">
-                                <b-btn v-if="!editInstance" size="sm" @click="editInstanceNotes(instance)">
+                            <div class="float-end">
+                                <BButton v-if="!editInstance" size="sm" @click="editInstanceNotes(instance)">
                                     <fa icon="edit"></fa>
                                     Edit Notes
-                                </b-btn>
+                                </BButton>
                             </div>
-                            <b-card v-if="editInstance" class="overflow-hidden" no-body>
+                            <BCard v-if="editInstance" class="overflow-hidden" no-body>
                                 <MarkdownBlock v-model:text="editInstance.notes" inline></MarkdownBlock>
                                 <template #footer>
-                                    <div class="text-right">
-                                        <b-btn v-if="editInstance" class="mr-2" size="sm" @click="saveInstanceNotes(instance, true)">
+                                    <div class="text-end">
+                                        <BButton v-if="editInstance" class="me-2" size="sm" @click="saveInstanceNotes(instance, true)">
                                             <fa icon="times"></fa>
                                             Cancel Notes
-                                        </b-btn>
-                                        <b-btn v-if="editInstance" variant="success" size="sm" @click="saveInstanceNotes(instance)">
+                                        </BButton>
+                                        <BButton v-if="editInstance" variant="success" size="sm" @click="saveInstanceNotes(instance)">
                                             <fa icon="save"></fa>
                                             Save Notes
-                                        </b-btn>
+                                        </BButton>
                                     </div>
                                 </template>
-                            </b-card>
+                            </BCard>
                             <MarkdownBlock v-else-if="instance.notes" :text="instance.notes" inline></MarkdownBlock>
                             <i v-else>No notes.</i>
                         </div>
                     </template>
                     <template #preview-title="{ instance, supplement }">
-                        <div v-if="mode === 'genesys'" class="float-right mr-2">
+                        <div v-if="mode === 'genesys'" class="float-end me-2">
                             <span class="text-muted">Tier {{ supplement.tier }}</span>
                         </div>
                         {{ supplement.name }}
                         <span v-if="supplement.ranked">{{ instance.ranks }}</span>
                     </template>
                     <template #selection-extra="{ supplement }">
-                        <b-badge v-if="mode === 'genesys'" class="mr-1">
+                        <BBadge v-if="mode === 'genesys'" class="me-1">
                             Tier {{ supplement.tier }}
-                        </b-badge>
+                        </BBadge>
                     </template>
                     <template #suggestion-extra="{ supplement }">
-                        <b-badge v-if="mode === 'genesys'" class="mr-1">
+                        <BBadge v-if="mode === 'genesys'" class="me-1">
                             Tier {{ supplement.tier }}
-                        </b-badge>
+                        </BBadge>
                     </template>
                 </supplement-select>
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
 
         <!-- Modals -->
         <AddEditTalentModal ref="addEditTalentModal" @add="onTalentAdd"></AddEditTalentModal>
@@ -141,10 +148,11 @@
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import Reference from '../../../character/referenceBlock.vue';
     import AddEditTalentModal from './addEditTalentModal.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
 
     // Utils
     import { uniqBy } from '../../../../../common/utils/misc';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-quality-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,60 +14,67 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                <span v-if="isEdit">
-                    Edit
-                </span>
-                <span v-else>
-                    Add
-                </span>
-                Quality
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    <span v-if="isEdit">
+                        Edit
+                    </span>
+                    <span v-else>
+                        Add
+                    </span>
+                    Quality
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col cols="10">
-                    <b-form-group
+            <BFormRow>
+                <BCol cols="10">
+                    <BFormGroup
                         label="Name"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="name-input"
                     >
-                        <b-form-input id="name-input" v-model="name" autocomplete="off"></b-form-input>
-                    </b-form-group>
-                </b-col>
-                <b-col cols="2" class="pt-4">
-                    <b-form-checkbox v-model="passive" name="passive-check" switch>
+                        <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
+                    </BFormGroup>
+                </BCol>
+                <BCol cols="2" class="pt-4">
+                    <BFormCheckbox v-model="passive" name="passive-check" switch>
                         <b>Passive</b>
-                    </b-form-checkbox>
-                    <b-form-checkbox v-model="ranked" name="ranked-check" switch>
+                    </BFormCheckbox>
+                    <BFormCheckbox v-model="ranked" name="ranked-check" switch>
                         <b>Ranked</b>
-                    </b-form-checkbox>
-                </b-col>
-            </b-form-row>
-            <b-form-group
+                    </BFormCheckbox>
+                </BCol>
+            </BFormRow>
+            <BFormGroup
                 id="extras-input-group"
                 label="Description"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="extras-input"
             >
                 <MarkdownEditor v-model:text="description"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
 
             <EditReference v-model:reference="reference"></EditReference>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -86,7 +93,8 @@
     import EditReference from '../../../character/editReference.vue';
     import MarkdownEditor from '../../../ui/markdownEditor.vue';
     import ScopeSelect from '../../../character/scopeSelect.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

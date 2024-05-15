@@ -3,101 +3,72 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container id="dashboard" class="pb-0">
-        <b-form-row>
-            <!--<b-col cols="12" lg="6" class="mb-3">-->
-            <!--<b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100">-->
-            <!--<template #header>-->
-            <!--<div class="d-flex">-->
-            <!--<h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">-->
-            <!--<fa class="mr-1" icon="books"></fa>-->
-            <!--<span class="d-none d-md-inline">Campaigns</span>-->
-            <!--</h5>-->
-            <!--<b-input-group class="flex-fill ml-2">-->
-            <!--<b-form-input placeholder="Search Campaigns..." disabled></b-form-input>-->
-            <!--<b-input-group-append>-->
-            <!--<b-btn variant="primary" disabled>-->
-            <!--<fa icon="search"></fa>-->
-            <!--</b-btn>-->
-            <!--</b-input-group-append>-->
-            <!--</b-input-group>-->
-            <!--<b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right disabled>-->
-            <!--<template #button-content>-->
-            <!--<fa icon="cog"></fa>-->
-            <!--</template>-->
-
-            <!--<b-dropdown-item>Filter 1</b-dropdown-item>-->
-            <!--</b-dropdown>-->
-            <!--</div>-->
-            <!--</template>-->
-
-            <!--<h4 class="text-center text-muted mb-0">Campaigns are not implemented.</h4>-->
-            <!--</b-card>-->
-            <!--</b-col>-->
-            <b-col cols="12" class="mb-3">
+    <BContainer id="dashboard" class="pb-0">
+        <BFormRow>
+            <BCol cols="12" class="mb-3">
                 <!-- Characters Card -->
-                <b-card header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
+                <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
                     <template #header>
                         <div class="d-flex">
-                            <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                                <fa class="mr-1" icon="users"></fa>
+                            <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                                <fa class="me-1" icon="users"></fa>
                                 <span class="d-none d-md-inline">Characters</span>
                             </h5>
-                            <b-input-group class="flex-fill ml-auto" style="max-width: 400px">
-                                <b-form-input v-model="charFilter" placeholder="Search Characters..."></b-form-input>
-                                <b-input-group-append>
-                                    <b-btn variant="primary">
+                            <BInputGroup class="flex-fill ms-auto" style="max-width: 400px">
+                                <BFormInput v-model="charFilter" placeholder="Search Characters..."></BFormInput>
+                                <BInputGroupAppend>
+                                    <BButton variant="primary">
                                         <fa icon="search"></fa>
-                                    </b-btn>
-                                </b-input-group-append>
-                            </b-input-group>
-                            <b-dropdown id="filterSystems" class="ml-2 flex-grow-0 flex-shrink-0 w-auto" right>
+                                    </BButton>
+                                </BInputGroupAppend>
+                            </BInputGroup>
+
+                            <!-- System Filter Dropdown -->
+                            <BDropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right>
                                 <template #button-content>
                                     <fa icon="cog"></fa>
                                 </template>
 
-                                <b-dropdown-form>
-                                    <b-form-checkbox-group
+                                <BDropdownForm class="system-filter-checkbox">
+                                    <BFormCheckbox
+                                        v-for="system in systems"
+                                        :key="system.id"
                                         v-model="systemsFilter"
-                                        stacked
+                                        :value="system.id"
+                                        class="block-labels"
+                                        @click.stop
                                     >
-                                        <b-form-checkbox
-                                            v-for="system in systems"
-                                            :key="system.id"
-                                            :value="system.id"
-                                            class="text-nowrap system-filter-checkbox"
-                                            @click.stop
-                                        >
-                                            <div class="mr-1">
+                                        <div class="text-nowrap d-flex w-100" @click.stop>
+                                            <div class="me-1">
                                                 {{ system.name }}
                                             </div>
-                                            <div class="ml-auto text-right">
-                                                <b-badge
+                                            <div class="ms-auto">
+                                                <BBadge
                                                     v-if="system.status"
                                                     :variant="getStatusVariant(system.status)"
                                                     :title="getStatusDescription(system.status)"
                                                 >
                                                     <fa :icon="getStatusIcon(system.status)"></fa>
                                                     {{ getStatusDisplay(system.status) }}
-                                                </b-badge>
+                                                </BBadge>
                                             </div>
-                                        </b-form-checkbox>
-                                    </b-form-checkbox-group>
-                                </b-dropdown-form>
-                                <b-dropdown-divider></b-dropdown-divider>
-                                <b-dropdown-item style="pointer-events: none">
+                                        </div>
+                                    </BFormCheckbox>
+                                </BDropdownForm>
+                                <BDropdownDivider></BDropdownDivider>
+                                <BDropdownItem style="pointer-events: none">
                                     <div style="pointer-events: all" @click.stop="selectAllSystems()">
                                         <fa icon="check-square"></fa>
                                         Select All
                                     </div>
-                                </b-dropdown-item>
-                                <b-dropdown-item style="pointer-events: none">
+                                </BDropdownItem>
+                                <BDropdownItem style="pointer-events: none">
                                     <div style="pointer-events: all" @click.stop="selectNoneSystems()">
                                         <fa :icon="['far', 'square']"></fa>
                                         Select None
                                     </div>
-                                </b-dropdown-item>
-                            </b-dropdown>
+                                </BDropdownItem>
+                            </BDropdown>
                         </div>
                     </template>
 
@@ -106,34 +77,34 @@
                         <LoadingWidget></LoadingWidget>
                     </div>
 
-                    <b-list-group v-else-if="characters.length > 0" flush>
-                        <b-list-group-item v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
+                    <BListGroup v-else-if="characters.length > 0" flush>
+                        <BListGroupItem v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
                             <div class="d-flex">
                                 <CharThumbnail :char="char"></CharThumbnail>
-                                <div class="ml-2 flex-column d-flex justify-content-center flex-fill">
+                                <div class="ms-2 flex-column d-flex justify-content-center flex-fill">
                                     <h5 class="mb-1">
                                         {{ char.name }}
                                     </h5>
                                     <p class="text-muted m-0">
-                                        <b-badge class="mr-1">
+                                        <BBadge class="me-1">
                                             {{ getSystem(char.system).name }}
-                                        </b-badge>
+                                        </BBadge>
                                         <small>{{ char.campaign }}</small>
                                     </p>
                                 </div>
-                                <div class="mr-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
-                                    <b-button-close title="Edit User" @click.prevent.stop="openAddEditModal(char)">
-                                        <fa icon="user-edit"></fa>
-                                    </b-button-close>
+                                <div class="me-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
+                                    <CloseButton title="Edit User" @click.prevent.stop="openAddEditModal(char)">
+                                        <fa icon="user-edit" size="xl"></fa>
+                                    </CloseButton>
                                 </div>
-                                <div class="ml-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
-                                    <b-button-close title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
-                                        <fa icon="trash-alt"></fa>
-                                    </b-button-close>
+                                <div class="ms-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
+                                    <CloseButton class="btn-close" title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
+                                        <fa icon="trash-alt" size="xl"></fa>
+                                    </CloseButton>
                                 </div>
                             </div>
-                        </b-list-group-item>
-                    </b-list-group>
+                        </BListGroupItem>
+                    </BListGroup>
 
                     <div v-else class="card-body">
                         <h6 class="text-center text-muted">
@@ -141,20 +112,20 @@
                         </h6>
                     </div>
 
-                    <div class="card-body text-right">
-                        <b-btn variant="primary" @click="openAddEditModal()">
+                    <div class="card-body text-end">
+                        <BButton variant="primary" @click="openAddEditModal()">
                             <fa icon="user-plus"></fa>
                             New Character
-                        </b-btn>
+                        </BButton>
                     </div>
-                </b-card>
-            </b-col>
-        </b-form-row>
+                </BCard>
+            </BCol>
+        </BFormRow>
 
         <!-- Modals -->
         <AddEditModal ref="addEditModal" @save="onSave"></AddEditModal>
         <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>
-    </b-container>
+    </BContainer>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -178,6 +149,7 @@
     import { computed, onMounted, ref } from 'vue';
     import { storeToRefs } from 'pinia';
     import { useRouter } from 'vue-router';
+    import { BaseColorVariant } from 'bootstrap-vue-next';
 
     // Interfaces
     import { Character, System } from '../../common/interfaces/common';
@@ -196,12 +168,13 @@
     import AddEditModal from '../components/character/addEditModal.vue';
     import DeleteModal from '../components/character/deleteModal.vue';
     import CharThumbnail from '../components/character/charThumbnail.vue';
+    import CloseButton from '../components/ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { account } = storeToRefs(useAccountStore());
+    const { account, redirectToDashboard } = storeToRefs(useAccountStore());
     const router = useRouter();
     const sysStore = useSystemsStore();
     const charStore = useCharactersStore();
@@ -247,7 +220,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function getSystem<T>(systemID : string) : System<T> | undefined
+    function getSystem<T extends Record<string, unknown>>(systemID : string) : System<T> | undefined
     {
         return sysStore.find(systemID);
     }
@@ -280,12 +253,12 @@
         }
     }
 
-    function getStatusVariant(desc : string) : string
+    function getStatusVariant(desc : string) : keyof BaseColorVariant
     {
         switch (desc)
         {
             case 'dev':
-                return 'warning';
+                return ('warning' as const);
 
             case 'beta':
                 return 'info';
@@ -294,7 +267,7 @@
                 return 'danger';
 
             default:
-                return undefined;
+                return null;
         }
     }
 
@@ -309,7 +282,7 @@
     }
 
     // Add/Edit Modal
-    async function openAddEditModal(char) : Promise<void>
+    async function openAddEditModal(char ?: Character) : Promise<void>
     {
         // If we don't have a character, we build once from scratch.
         if(!char)
@@ -362,6 +335,9 @@
             // We've finished loading, and we're not signed in
             router.push('/');
         }
+
+        // We've loaded the dashboard, no need to redirect here anymore.
+        redirectToDashboard.value = false;
 
         selectAllSystems();
     });

@@ -3,14 +3,14 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-form-group
+    <BFormGroup
         class="supplement-select"
         :label="label"
         :label-class="labelClass"
     >
-        <b-form-row>
-            <b-col>
-                <b-card class="h-100 overflow-hidden" no-body :style="{ maxHeight, minHeight: maxHeight }">
+        <BFormRow>
+            <BCol>
+                <BCard class="h-100 overflow-hidden" no-body :style="{ maxHeight, minHeight: maxHeight }">
                     <template #header>
                         <div class="d-flex">
                             <SupplementSearch
@@ -24,62 +24,62 @@
                                     <slot :supplement="supplement" name="suggestion-extra"></slot>
                                 </template>
                                 <template #append-extra>
-                                    <b-button class="ml-2 text-nowrap" variant="success" title="Add New..." @click="addNew()">
+                                    <BButton class="ms-2 text-nowrap" variant="success" title="Add New..." @click="addNew()">
                                         <fa icon="plus"></fa>
                                         New
-                                    </b-button>
+                                    </BButton>
                                 </template>
                             </SupplementSearch>
                         </div>
                     </template>
 
                     <!-- Supplement Selection -->
-                    <b-list-group v-if="selectedSupplements.length > 0" flush class="overflow-auto">
-                        <b-list-group-item
+                    <BListGroup v-if="selectedSupplements.length > 0" flush class="overflow-auto">
+                        <BListGroupItem
                             v-for="supp in selectedSupplements"
                             :key="supp.id"
-                            :variant=" supp.id === currentSelection ? 'primary' : ''"
+                            :variant=" supp.id === currentSelection ? 'primary' : null"
                             @click="selectSupp(supp)"
                         >
-                            <div class="float-right">
+                            <div class="float-end">
                                 <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra"></slot>
                                 <ScopeBadge :supplement="getSupp(supp.id)"></ScopeBadge>
-                                <b-button class="ml-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
+                                <BButton class="ms-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
                                     <fa icon="times"></fa>
-                                </b-button>
+                                </BButton>
                             </div>
                             <div class="pt-2">
                                 {{ getSupp(supp.id)?.name }}
                                 <span v-if="getSupp(supp.id)?.ranked">{{ supp.ranks }}</span>
                             </div>
-                        </b-list-group-item>
-                    </b-list-group>
+                        </BListGroupItem>
+                    </BListGroup>
                     <div v-else class="card-body">
                         <h5 class="m-0 text-center">
                             Nothing added to character.
                         </h5>
                     </div>
-                </b-card>
-            </b-col>
-            <b-col>
-                <b-card class="h-100">
+                </BCard>
+            </BCol>
+            <BCol>
+                <BCard class="h-100">
                     <template v-if="currentSelection" #header>
                         <slot :instance="supplementInstance" :supplement="currentSupplement" name="header">
-                            <div v-if="canModify" class="float-right">
-                                <b-btn size="sm" class="mt-1" @click="editSupp(currentSupplement)">
+                            <div v-if="canModify" class="float-end">
+                                <BButton size="sm" class="mt-1" @click="editSupp(currentSupplement)">
                                     <fa icon="edit"></fa>
                                     Edit
-                                </b-btn>
-                                <b-btn variant="danger" class="ml-1 mt-1" size="sm" @click="deleteSupp(currentSupplement)">
+                                </BButton>
+                                <BButton variant="danger" class="ms-1 mt-1" size="sm" @click="deleteSupp(currentSupplement)">
                                     <fa icon="trash-alt"></fa>
                                     Delete
-                                </b-btn>
+                                </BButton>
                             </div>
                             <div style="height: 38px; padding-top: 6px">
                                 <h4>
                                     <slot :instance="supplementInstance" :supplement="currentSupplement" name="preview-title">
                                         {{ currentSupplement.name }}
-                                        <span v-if="currentSupplement.ranked">{{ supplementInstance.ranks }}</span>
+                                        <span v-if="currentSupplement.ranked">{{ supplementInstance?.ranks }}</span>
                                     </slot>
                                 </h4>
                             </div>
@@ -94,19 +94,19 @@
                         <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
                             <div v-if="currentSupplement.ranked" class="mb-2">
                                 <label>Ranks</label>
-                                <b-form-spinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></b-form-spinbutton>
+                                <BFormSpinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></BFormSpinbutton>
                             </div>
                             <MarkdownBlock :text="currentSupplement.description" inline></MarkdownBlock>
-                            <div class="text-right mt-auto">
+                            <div class="text-end mt-auto">
                                 <h5><ScopeBadge :supplement="currentSupplement"></ScopeBadge></h5>
                                 <ReferenceBlock :reference="currentSupplement.reference"></ReferenceBlock>
                             </div>
                         </slot>
                     </div>
-                </b-card>
-            </b-col>
-        </b-form-row>
-    </b-form-group>
+                </BCard>
+            </BCol>
+        </BFormRow>
+    </BFormGroup>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -179,7 +179,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const currentSelection = ref();
-    const { system } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharactersStore());
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -225,7 +225,8 @@
 
     const canModify = computed(() =>
     {
-        if(supplementInstance.value)
+        const system = current.value?.system;
+        if(supplementInstance.value && system)
         {
             const suppBase = props.available.find((supp) => supp.id === supplementInstance.value.id);
 

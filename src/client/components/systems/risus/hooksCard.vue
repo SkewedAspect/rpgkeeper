@@ -7,26 +7,26 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="fist-raised"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="fist-raised"></fa>
                     <span class="d-none d-md-inline">Hooks</span>
                 </h5>
-                <div v-if="!readonly" class="ml-auto">
-                    <b-btn size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
+                <div v-if="!readonly" class="ms-auto">
+                    <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
                         <fa icon="edit" fixed-width></fa>
                         <span class="d-none d-md-inline">Edit</span>
-                    </b-btn>
+                    </BButton>
                 </div>
             </div>
         </template>
 
         <!-- Card Body -->
-        <b-list-group v-if="hooks && hooks.length > 0" flush>
-            <b-list-group-item v-for="hook in hooks" :key="hook.description" class="d-flex">
-                <fa class="mr-2" icon="bolt" style="margin-top: 5px;"></fa>
+        <BListGroup v-if="hooks && hooks.length > 0" flush>
+            <BListGroupItem v-for="hook in hooks" :key="hook.description" class="d-flex">
+                <fa class="me-2" icon="bolt" style="margin-top: 5px;"></fa>
                 <MarkdownBlock :text="hook.description" inline></MarkdownBlock>
-            </b-list-group-item>
-        </b-list-group>
+            </BListGroupItem>
+        </BListGroup>
         <div v-else class="card-body">
             <h4 class="text-center text-muted m-0">
                 No Hooks.

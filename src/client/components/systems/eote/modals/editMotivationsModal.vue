@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-motivations-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,20 +14,23 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Motivations
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Motivations
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
             <div class="d-flex">
-                <b-card
-                    class="flex-fill w-50 mr-1"
+                <BCard
+                    class="flex-fill w-50 me-1"
                     :border-variant="isStrengthDirty ? 'success' : undefined"
                 >
                     <template #header>
                         <div class="d-flex">
-                            <h6 class="mt-2 mr-3">
+                            <h6 class="mt-2 me-3">
                                 Strength
                             </h6>
                             <supplement-search
@@ -37,36 +40,36 @@
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
-                                    <b-button
-                                        class="ml-2 text-nowrap"
+                                    <BButton
+                                        class="ms-2 text-nowrap"
                                         variant="success"
                                         title="Add New..."
                                         @click="addNew('strength')"
                                     >
                                         <fa icon="plus"></fa>
                                         New
-                                    </b-button>
+                                    </BButton>
                                 </template>
                             </supplement-search>
                         </div>
                     </template>
 
                     <div v-if="strength">
-                        <div v-if="isEditable(strength)" class="float-right">
-                            <b-btn class="ml-1 mt-1" size="sm" @click="editMotivation(strength)">
+                        <div v-if="isEditable(strength)" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(strength)">
                                 <fa icon="edit"></fa>
                                 Edit
-                            </b-btn>
-                            <b-btn class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(strength)">
+                            </BButton>
+                            <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(strength)">
                                 <fa icon="trash"></fa>
                                 Delete
-                            </b-btn>
+                            </BButton>
                         </div>
-                        <div v-if="isStrengthDirty" class="float-right">
-                            <b-btn class="ml-1 mt-1" size="sm" @click="revert('strength')">
+                        <div v-if="isStrengthDirty" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="revert('strength')">
                                 <fa icon="undo"></fa>
                                 Undo
-                            </b-btn>
+                            </BButton>
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ strength.name }}</b></h5>
@@ -76,14 +79,14 @@
                     <h6 v-else class="font-italic">
                         No Strength selected.
                     </h6>
-                </b-card>
-                <b-card
-                    class="flex-fill w-50 ml-1"
+                </BCard>
+                <BCard
+                    class="flex-fill w-50 ms-1"
                     :border-variant="isFlawDirty ? 'success' : undefined"
                 >
                     <template #header>
                         <div class="d-flex">
-                            <h6 class="mt-2 mr-3">
+                            <h6 class="mt-2 me-3">
                                 Flaw
                             </h6>
                             <supplement-search
@@ -93,36 +96,36 @@
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
-                                    <b-button
-                                        class="ml-2 text-nowrap"
+                                    <BButton
+                                        class="ms-2 text-nowrap"
                                         variant="success"
                                         title="Add New..."
                                         @click="addNew('flaw')"
                                     >
                                         <fa icon="plus"></fa>
                                         New
-                                    </b-button>
+                                    </BButton>
                                 </template>
                             </supplement-search>
                         </div>
                     </template>
 
                     <div v-if="flaw">
-                        <div v-if="isEditable(flaw)" class="float-right">
-                            <b-btn class="ml-1 mt-1" size="sm" @click="editMotivation(flaw)">
+                        <div v-if="isEditable(flaw)" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(flaw)">
                                 <fa icon="edit"></fa>
                                 Edit
-                            </b-btn>
-                            <b-btn class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(flaw)">
+                            </BButton>
+                            <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(flaw)">
                                 <fa icon="trash"></fa>
                                 Delete
-                            </b-btn>
+                            </BButton>
                         </div>
-                        <div v-if="isFlawDirty" class="float-right">
-                            <b-btn class="ml-1 mt-1" size="sm" @click="revert('flaw')">
+                        <div v-if="isFlawDirty" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="revert('flaw')">
                                 <fa icon="undo"></fa>
                                 Undo
-                            </b-btn>
+                            </BButton>
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ flaw.name }}</b></h5>
@@ -132,16 +135,16 @@
                     <h6 v-else class="font-italic">
                         No Flaw selected.
                     </h6>
-                </b-card>
+                </BCard>
             </div>
             <div class="d-flex mt-2">
-                <b-card
-                    class="flex-fill w-50 mr-1"
+                <BCard
+                    class="flex-fill w-50 me-1"
                     :border-variant="isDesireDirty ? 'success' : undefined"
                 >
                     <template #header>
                         <div class="d-flex">
-                            <h6 class="mt-2 mr-3">
+                            <h6 class="mt-2 me-3">
                                 Desire
                             </h6>
                             <supplement-search
@@ -151,36 +154,36 @@
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
-                                    <b-button
-                                        class="ml-2 text-nowrap"
+                                    <BButton
+                                        class="ms-2 text-nowrap"
                                         variant="success"
                                         title="Add New..."
                                         @click="addNew('desire')"
                                     >
                                         <fa icon="plus"></fa>
                                         New
-                                    </b-button>
+                                    </BButton>
                                 </template>
                             </supplement-search>
                         </div>
                     </template>
 
                     <div v-if="desire">
-                        <div v-if="isEditable(desire)" class="float-right">
-                            <b-btn class="ml-1 mt-1" size="sm" @click="editMotivation(desire)">
+                        <div v-if="isEditable(desire)" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(desire)">
                                 <fa icon="edit"></fa>
                                 Edit
-                            </b-btn>
-                            <b-btn class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(desire)">
+                            </BButton>
+                            <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(desire)">
                                 <fa icon="trash"></fa>
                                 Delete
-                            </b-btn>
+                            </BButton>
                         </div>
-                        <div v-if="isDesireDirty" class="float-right">
-                            <b-btn class="ml-1 mt-1" size="sm" @click="revert('desire')">
+                        <div v-if="isDesireDirty" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="revert('desire')">
                                 <fa icon="undo"></fa>
                                 Undo
-                            </b-btn>
+                            </BButton>
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ desire.name }}</b></h5>
@@ -190,14 +193,14 @@
                     <h6 v-else class="font-italic">
                         No Desire selected.
                     </h6>
-                </b-card>
-                <b-card
-                    class="flex-fill w-50 ml-1"
+                </BCard>
+                <BCard
+                    class="flex-fill w-50 ms-1"
                     :border-variant="isFearDirty ? 'success' : undefined"
                 >
                     <template #header>
                         <div class="d-flex">
-                            <h6 class="mt-2 mr-3">
+                            <h6 class="mt-2 me-3">
                                 Fear
                             </h6>
                             <supplement-search
@@ -207,36 +210,36 @@
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
-                                    <b-button
-                                        class="ml-2 text-nowrap"
+                                    <BButton
+                                        class="ms-2 text-nowrap"
                                         variant="success"
                                         title="Add New..."
                                         @click="addNew('fear')"
                                     >
                                         <fa icon="plus"></fa>
                                         New
-                                    </b-button>
+                                    </BButton>
                                 </template>
                             </supplement-search>
                         </div>
                     </template>
 
                     <div v-if="fear">
-                        <div v-if="isEditable(fear)" class="float-right">
-                            <b-btn class="ml-1 mt-1" size="sm" @click="editMotivation(fear)">
+                        <div v-if="isEditable(fear)" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(fear)">
                                 <fa icon="edit"></fa>
                                 Edit
-                            </b-btn>
-                            <b-btn class="ml-1 mt-1" variant="danger" size="sm" @click="delMotivation(fear)">
+                            </BButton>
+                            <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(fear)">
                                 <fa icon="trash"></fa>
                                 Delete
-                            </b-btn>
+                            </BButton>
                         </div>
-                        <div v-if="isFearDirty" class="float-right">
-                            <b-btn class="ml-1 mt-1" size="sm" @click="revert('fear')">
+                        <div v-if="isFearDirty" class="float-end">
+                            <BButton class="ms-1 mt-1" size="sm" @click="revert('fear')">
                                 <fa icon="undo"></fa>
                                 Undo
-                            </b-btn>
+                            </BButton>
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ fear.name }}</b></h5>
@@ -246,19 +249,23 @@
                     <h6 v-else class="font-italic">
                         No Fear selected.
                     </h6>
-                </b-card>
+                </BCard>
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
 
         <!-- Modals -->
         <AddEditMotivationModal ref="addEditMotivModal" @add="onMotivAdd"></AddEditMotivationModal>
@@ -293,7 +300,8 @@
     import MarkdownBlock from '../../../ui/markdownBlock.vue';
     import DeleteModal from '../../../ui/deleteModal.vue';
     import AddEditMotivationModal from './addEditMotivationModal.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

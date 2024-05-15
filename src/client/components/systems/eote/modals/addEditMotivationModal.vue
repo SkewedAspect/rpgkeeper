@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-motivation-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,35 +14,38 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                <span v-if="isEdit">
-                    Edit
-                </span>
-                <span v-else>
-                    Add
-                </span>
-                Motivation
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    <span v-if="isEdit">
+                        Edit
+                    </span>
+                    <span v-else>
+                        Add
+                    </span>
+                    Motivation
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col cols="9">
-                    <b-form-group
+            <BFormRow>
+                <BCol cols="9">
+                    <BFormGroup
                         label="Name"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="name-input"
                     >
-                        <b-form-input id="name-input" v-model="name" autocomplete="off"></b-form-input>
-                    </b-form-group>
-                </b-col>
-                <b-col cols="3">
-                    <b-form-group
+                        <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
+                    </BFormGroup>
+                </BCol>
+                <BCol cols="3">
+                    <BFormGroup
                         v-slot="{ ariaDescribedby }"
                         label="Type"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                     >
-                        <b-form-radio
+                        <BFormRadio
                             v-model="type"
                             :aria-describedby="ariaDescribedby"
                             name="type-radios"
@@ -50,8 +53,8 @@
                             inline
                         >
                             Strength
-                        </b-form-radio>
-                        <b-form-radio
+                        </BFormRadio>
+                        <BFormRadio
                             v-model="type"
                             :aria-describedby="ariaDescribedby"
                             name="type-radios"
@@ -59,8 +62,8 @@
                             inline
                         >
                             Flaw
-                        </b-form-radio>
-                        <b-form-radio
+                        </BFormRadio>
+                        <BFormRadio
                             v-model="type"
                             :aria-describedby="ariaDescribedby"
                             name="type-radios"
@@ -68,8 +71,8 @@
                             inline
                         >
                             Desire
-                        </b-form-radio>
-                        <b-form-radio
+                        </BFormRadio>
+                        <BFormRadio
                             v-model="type"
                             :aria-describedby="ariaDescribedby"
                             name="type-radios"
@@ -77,33 +80,37 @@
                             inline
                         >
                             Fear
-                        </b-form-radio>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
-            <b-form-group
+                        </BFormRadio>
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
+            <BFormGroup
                 id="description-input-group"
                 label="Description"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="description-input"
             >
                 <MarkdownEditor v-model:text="description"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
 
             <EditReference v-model:reference="reference"></EditReference>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -125,7 +132,8 @@
     import EditReference from '../../../character/editReference.vue';
     import ScopeSelect from '../../../character/scopeSelect.vue';
     import MarkdownEditor from '../../../ui/markdownEditor.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

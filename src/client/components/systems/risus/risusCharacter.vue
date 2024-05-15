@@ -3,35 +3,35 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-container v-if="char" id="risus-character" fluid>
+    <BContainer v-if="char" id="risus-character" fluid>
         <div class="d-flex bio-row">
-            <PortraitCard class="mr-1 d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
+            <PortraitCard class="me-1 d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
             <BioCard
                 v-model:char="char"
-                class="mr-1 ml-1 w-50"
+                class="me-1 ms-1 w-50"
                 :readonly="!isAuthorized"
                 @save="onSave"
             ></BioCard>
             <RollsCard
                 ref="roller"
-                class="ml-1 w-50"
+                class="ms-1 w-50"
                 :readonly="!isAuthorized"
             ></RollsCard>
         </div>
         <div class="d-flex mt-2 cliche-row">
             <ClichesCard
-                class="w-50 mr-1"
+                class="w-50 me-1"
                 :readonly="!isAuthorized"
                 @roll="onRoll"
                 @save="onSave"
             ></ClichesCard>
             <HooksCard
-                class="w-50 ml-1"
+                class="w-50 ms-1"
                 :readonly="!isAuthorized"
                 @save="onSave"
             ></HooksCard>
         </div>
-    </b-container>
+    </BContainer>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

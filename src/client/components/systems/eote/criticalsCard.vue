@@ -7,22 +7,22 @@
         <!-- Header -->
         <template #header>
             <div class="d-flex">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mr-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="mr-1" icon="heart-rate"></fa>
+                <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                    <fa class="me-1" icon="heart-rate"></fa>
                     <span class="d-none d-md-inline">Criticals</span>
                 </h5>
             </div>
         </template>
 
         <!-- Card Body -->
-        <b-input-group>
-            <b-form-select
+        <BInputGroup>
+            <BFormSelect
                 v-model="selectedCritical"
                 :options="formattedCriticals"
                 :disabled="readonly"
-            ></b-form-select>
-            <b-input-group-append>
-                <b-btn
+            ></BFormSelect>
+            <BInputGroupAppend>
+                <BButton
                     variant="primary"
                     style="max-width: 48px; min-width: 48px;"
                     title="Add selected Critical"
@@ -30,14 +30,14 @@
                     @click="addCritical()"
                 >
                     <fa icon="plus"></fa>
-                </b-btn>
-            </b-input-group-append>
-        </b-input-group>
+                </BButton>
+            </BInputGroupAppend>
+        </BInputGroup>
 
-        <b-input-group class="mt-2">
-            <b-form-input v-model="rollBonus" number type="number" min="0" step="1" placeholder="Crit. bonus"></b-form-input>
-            <b-input-group-append>
-                <b-btn
+        <BInputGroup class="mt-2">
+            <BFormInput v-model="rollBonus" number type="number" min="0" step="1" placeholder="Crit. bonus"></BFormInput>
+            <BInputGroupAppend>
+                <BButton
                     variant="primary"
                     style="min-width: 48px;"
                     title="Roll for a random Critical"
@@ -46,9 +46,9 @@
                 >
                     <fa icon="dice"></fa>
                     Roll Crit.
-                </b-btn>
-            </b-input-group-append>
-        </b-input-group>
+                </BButton>
+            </BInputGroupAppend>
+        </BInputGroup>
 
         <hr class="mt-2 mb-2" />
 
@@ -171,7 +171,7 @@
         return criticals.value.find((crit) => crit.title === criticalName);
     }
 
-    function addCritical(critical : EoteCritical) : void
+    function addCritical(critical ?: EoteCritical) : void
     {
         critical = critical || criticals.value.find((crit) => crit.title === selectedCritical.value);
         if(critical)

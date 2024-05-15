@@ -4,19 +4,19 @@
 
 <template>
     <div class="genesys-motivation d-inline-block">
-        <b-badge :id="uniqueID">
+        <BBadge :id="uniqueID">
             {{ motivationName }}
-        </b-badge>
-        <b-popover :title="motivationName" :target="uniqueID" triggers="hover" placement="top">
+        </BBadge>
+        <BPopover :title="motivationName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`genesys-system`">
                 <MarkdownBlock :text="motivationText" inline></MarkdownBlock>
                 <reference
                     v-if="motivationReference"
-                    class="float-right mt-2 mb-2"
+                    class="float-end mt-2 mb-2"
                     :reference="motivationReference"
                 ></reference>
             </div>
-        </b-popover>
+        </BPopover>
     </div>
 </template>
 

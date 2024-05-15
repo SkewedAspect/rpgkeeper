@@ -11,28 +11,28 @@
         </div>
 
         <div class="dice-input d-flex flex-wrap align-content-stretch justify-content-center">
-            <b-input-group v-for="die in diceList" :key="die" size="sm" class="text-nowrap flex-nowrap w-auto m-1">
-                <b-input-group-prepend is-text>
+            <BInputGroup v-for="die in diceList" :key="die" size="sm" class="text-nowrap flex-nowrap w-auto m-1">
+                <BInputGroupPrepend is-text>
                     <!-- eslint-disable-next-line vue/no-v-html -->
                     <span v-html="makeDieHTML(die)"></span>
-                </b-input-group-prepend>
-                <b-input-group-append>
-                    <b-btn variant="light" @click="addDie(die)">
+                </BInputGroupPrepend>
+                <BInputGroupAppend>
+                    <BButton variant="light" @click="addDie(die)">
                         <fa icon="plus"></fa>
-                    </b-btn>
-                    <b-btn variant="light" @click="removeDie(die)">
+                    </BButton>
+                    <BButton variant="light" @click="removeDie(die)">
                         <fa icon="minus"></fa>
-                    </b-btn>
-                </b-input-group-append>
-            </b-input-group>
+                    </BButton>
+                </BInputGroupAppend>
+            </BInputGroup>
         </div>
 
         <!-- Roll History -->
         <div class="flex-fill mb-3 overflow-auto h-0">
-            <div v-if="rollResult.name" class="mr-1 float-left text-muted">
+            <div v-if="rollResult.name" class="me-1 float-start text-muted">
                 <small>{{ rollResult.name }}</small>
             </div>
-            <div class="text-right text-muted">
+            <div class="text-end text-muted">
                 <!-- eslint-disable-next-line vue/no-v-html -->
                 <span v-html="fullResultDisplay"></span>
             </div>
@@ -44,15 +44,15 @@
         </div>
 
         <!-- Roll Buttons -->
-        <div v-if="!readonly" class="text-right">
-            <b-btn :disabled="readonly" @click="clearRoll()">
+        <div v-if="!readonly" class="text-end">
+            <BButton :disabled="readonly" @click="clearRoll()">
                 <fa icon="times"></fa>
                 Clear
-            </b-btn>
-            <b-btn variant="primary" class="ml-1" :disabled="readonly" @click="roll()">
+            </BButton>
+            <BButton variant="primary" class="ms-1" :disabled="readonly" @click="roll()">
                 <fa icon="dice"></fa>
                 Roll
-            </b-btn>
+            </BButton>
         </div>
     </RpgkCard>
 </template>

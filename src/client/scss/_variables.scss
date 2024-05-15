@@ -6,24 +6,6 @@
 //
 //----------------------------------------------------------------------------------------------------------------------
 
-$font-family-sans-serif: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji" !default;
-
-// Theme colors
-$primary: #FF9900 !default;
-$secondary: #6c757d !default;
-$success: #009900 !default;
-$info: #19b0f5 !default;
-$warning: #e48800 !default;
-$danger: #D03619 !default;
-$light: #eef0f3 !default;
-$dark: #424242 !default;
-
-// Other Color definitions
-$white: #FFFFFF !default;
-$gray-200: #eef0f3 !default;
-
 // Theme Options
 $enable-caret: true;
 $enable-rounded: true;
@@ -35,13 +17,42 @@ $enable-grid-classes: true;
 $enable-print-styles: true;
 $enable-validation-icons: true;
 
-// Tables
-//$table-accent-bg: #E7F1F8 !default;
+//----------------------------------------------------------------------------------------------------------------------
+// Colors
+//----------------------------------------------------------------------------------------------------------------------
 
-// Navbars
-//$navbar-dark-color: rgba($white, .90);
-//$navbar-dark-hover-color: $white;
-//$navbar-dark-active-color: $white;
-//$navbar-dark-disabled-color: rgba($white, .5);
+// Theme colors
+$primary: #FF9900 !default;
+$secondary: #6C757D !default;
+$success: #009900 !default;
+$info: #a977ff !default;
+$warning: #E48800 !default;
+$danger: #D03619 !default;
+$light: #EEF0F3 !default;
+$dark: #424242 !default;
+
+// Other Color definitions
+$white: #FFFFFF !default;
+$gray-200: #EEF0F3 !default;
+
+// Text Color Overrides (buttons, badges, etc.)
+$theme-colors-text: (
+    primary: #FFFFFF,
+    secondary: #FFFFFF,
+    success: #FFFFFF,
+    info: #FFFFFF,
+    warning: #FFFFFF,
+    danger: #FFFFFF,
+    light: #000000,
+    dark: #FFFFFF
+);
+
+//----------------------------------------------------------------------------------------------------------------------
+// Fonts
+//----------------------------------------------------------------------------------------------------------------------
+
+$font-family-sans-serif: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+"Noto Color Emoji" !default;
 
 //----------------------------------------------------------------------------------------------------------------------

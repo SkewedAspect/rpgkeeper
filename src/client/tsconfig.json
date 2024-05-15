@@ -8,8 +8,8 @@
 
         // Overrides
         "lib": ["ES2022", "DOM", "DOM.Iterable"],
-        "module": "CommonJS",
-        "moduleResolution": "node",
+        "module": "Node16",
+        "moduleResolution": "node16",
         "allowSyntheticDefaultImports": true,
     },
     "include": [

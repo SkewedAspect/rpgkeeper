@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-bio-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -15,37 +15,44 @@
             @cancel="onCancel"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Identity
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Identity
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 id="name-input-group"
                 label="Name"
                 label-for="name-input"
             >
-                <b-form-input id="name-input" v-model="innerBio.name"></b-form-input>
-            </b-form-group>
-            <b-form-group
+                <BFormInput id="name-input" v-model="innerBio.name"></BFormInput>
+            </BFormGroup>
+            <BFormGroup
                 id="desc-input-group"
                 label="Description"
                 label-for="desc-input"
             >
                 <MarkdownEditor v-model:text="innerBio.description"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -59,8 +66,9 @@
     import { RisusSystemDetails } from '../../../../common/interfaces/systems/risus';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
     import MarkdownEditor from '../../ui/markdownEditor.vue';
+    import CloseButton from '../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

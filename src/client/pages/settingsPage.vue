@@ -11,7 +11,7 @@
         <div v-else>
             <!-- Giant Avatar Picture of Doom -->
             <div class="avatar-holder">
-                <b-img
+                <BImg
                     rounded="circle"
                     width="128"
                     height="128"
@@ -19,30 +19,30 @@
                     :alt="account.displayName"
                     class="m-1"
                     center
-                ></b-img>
+                ></BImg>
                 <h4 class="text-center">
                     {{ account.email }}
                 </h4>
             </div>
 
             <!-- Display Name setting -->
-            <b-form-row class="mb-4">
-                <b-col offset="1" cols="10" offset-md="3" md="6" offset-lg="4" lg="4">
-                    <b-input-group>
-                        <b-form-input v-model="account.name" placeholder="Display Name"></b-form-input>
+            <BFormRow class="mb-4">
+                <BCol offset="1" cols="10" offset-md="3" md="6" offset-lg="4" lg="4">
+                    <BInputGroup>
+                        <BFormInput v-model="account.name" placeholder="Display Name"></BFormInput>
 
-                        <b-input-group-append>
-                            <b-btn variant="primary" @click="save()">
+                        <BInputGroupAppend>
+                            <BButton variant="primary" @click="save()">
                                 <fa icon="save"></fa>
                                 Set Name
-                            </b-btn>
-                        </b-input-group-append>
-                    </b-input-group>
-                </b-col>
-            </b-form-row>
+                            </BButton>
+                        </BInputGroupAppend>
+                    </BInputGroup>
+                </BCol>
+            </BFormRow>
 
             <!-- Settings -->
-            <b-card header-bg-variant="dark" header-text-variant="white" class="drop-shadow">
+            <BCard header-bg-variant="dark" header-text-variant="white" class="drop-shadow">
                 <template #header>
                     <h5 class="align-middle mt-2">
                         <fa icon="sliders-h"></fa>
@@ -53,7 +53,7 @@
                 <h4 class="text-center text-muted mb-0">
                     Settings are not implemented.
                 </h4>
-            </b-card>
+            </BCard>
         </div>
     </div>
 </template>

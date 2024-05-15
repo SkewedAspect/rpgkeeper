@@ -5,16 +5,45 @@
 //
 //----------------------------------------------------------------------------------------------------------------------
 
-// Fix primary button color
-.btn-primary,
-.btn-primary.disabled,
-.btn-primary:disabled,
-.btn-outline-primary:hover,
-.badge-primary {
-    color: #fff;
+// Prevent overscrolling
+:root {
+    overscroll-behavior: none;
 }
 
 //----------------------------------------------------------------------------------------------------------------------
+// Color Fixes
+//----------------------------------------------------------------------------------------------------------------------
+
+// Buttons, Badges, etc.
+@each $color, $value in $theme-colors-text {
+    .btn-#{$color}
+    {
+        $base-color: map-get($theme-colors, $color);
+        --#{$prefix}btn-color: #{ $value };
+        --#{$prefix}btn-hover-color: #{ $value };
+        --#{$prefix}btn-border-width: #{ 2px };
+        --#{$prefix}btn-hover-border-color: #{ tint-color($base-color, 60%) };
+    }
+
+    .text-bg-#{$color}
+    {
+        color: $value !important;
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Misc Overrides
+//----------------------------------------------------------------------------------------------------------------------
+
+h1.header,
+h2.header,
+h3.header,
+h4.header,
+h5.header,
+h6.header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+}
 
 // Height
 .h-0 {
@@ -29,14 +58,10 @@
     font-size: 0.85rem;
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-
-// Dropshadow
+// Drop shadow
 .shadow-sm {
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1) !important;
 }
-
-//----------------------------------------------------------------------------------------------------------------------
 
 hr.fancy {
     border: 0;
@@ -44,6 +69,8 @@ hr.fancy {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(180, 180, 180, 0.75), rgba(0, 0, 0, 0));
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+// Animations
 //----------------------------------------------------------------------------------------------------------------------
 
 .flash {
@@ -60,6 +87,8 @@ hr.fancy {
     100% { opacity: 1; }
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+// Modal Overrides
 //----------------------------------------------------------------------------------------------------------------------
 
 // Fix modals
@@ -80,99 +109,6 @@ hr.fancy {
 .modal-xxl {
     width: 80%;
     max-width: none;
-}
-
-//----------------------------------------------------------------------------------------------------------------------
-
-// Navbar
-@each $color, $value in $theme-colors {
-    .navbar.bg-#{$color} {
-		.navbar-nav {
-
-			// Nav-link hover style
-			.nav-link:hover {
-				border: 1px solid desaturate(lighten($value, 20%), 25%);
-			}
-
-			// Active nav-link style
-			.nav-link.active,
-			.nav-item.active .nav-link {
-				background-color: desaturate(lighten($value, 20%), 25%);
-
-				&:hover {
-					background-color: transparent;
-				}
-			}
-
-			// Special navlink buttons
-			.nav-link.nav-btn {
-				background-color: desaturate(lighten($value, 20%), 25%);
-
-				&:hover {
-					background-color: desaturate(lighten($value, 30%), 25%);
-				}
-			}
-
-			// Dropdowns are handled differently
-			.nav-item.dropdown.bordered {
-				.nav-link {
-					border: 1px solid desaturate(lighten($value, 20%), 25%);
-				}
-
-				.nav-link:hover {
-					background-color: desaturate(lighten($value, 20%), 25%);
-				}
-			}
-		}
-	}
-}
-
-.navbar-collapse.collapsing,
-.navbar-collapse.collapse.show {
-	margin-top: 10px;
-}
-
-.navbar-nav {
-	.nav-item.dropdown {
-		white-space: nowrap;
-	}
-
-	.nav-link {
-		padding-right: $navbar-nav-link-padding-x;
-		padding-left: $navbar-nav-link-padding-x;
-
-		margin-left: 0.125rem;
-		margin-right: 0.125rem;
-		border-radius: $border-radius;
-		border: 1px solid transparent;
-
-		&.disabled:hover {
-			border: 1px solid transparent !important;
-			cursor: not-allowed;
-		}
-
-		&.nav-btn {
-			margin-left: 0.25rem;
-			margin-right: 0.25rem;
-
-			padding-top: 0.3rem;
-			padding-bottom: 0.3rem;
-			margin-top: 0.2rem;
-			margin-bottom: 0.2rem;
-		}
-	}
-}
-
-//----------------------------------------------------------------------------------------------------------------------
-
-h1.header,
-h2.header,
-h3.header,
-h4.header,
-h5.header,
-h6.header {
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 0;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 
 <template>
     <div class="add-ability-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,47 +14,54 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                <span v-if="isEdit">
-                    Edit
-                </span>
-                <span v-else>
-                    Add
-                </span>
-                Ability
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    <span v-if="isEdit">
+                        Edit
+                    </span>
+                    <span v-else>
+                        Add
+                    </span>
+                    Ability
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-group
+            <BFormGroup
                 label="Name"
-                label-class="font-weight-bold"
+                label-class="fw-bold"
                 label-for="name-input"
             >
-                <b-form-input id="name-input" v-model="name" autocomplete="off"></b-form-input>
-            </b-form-group>
-            <b-form-group
+                <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
+            </BFormGroup>
+            <BFormGroup
                 id="extras-input-group"
                 label="Description"
                 label-for="extras-input"
             >
                 <MarkdownEditor v-model:text="description"></MarkdownEditor>
-            </b-form-group>
+            </BFormGroup>
 
             <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
 
             <EditReference v-model:reference="reference"></EditReference>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -73,7 +80,8 @@
     import MarkdownEditor from '../../../ui/markdownEditor.vue';
     import EditReference from '../../../character/editReference.vue';
     import ScopeSelect from '../../../character/scopeSelect.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

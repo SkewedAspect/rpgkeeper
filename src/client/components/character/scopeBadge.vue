@@ -3,9 +3,9 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <b-badge class="supp-scope-badge" :variant="badgeVariant">
+    <BBadge class="supp-scope-badge" :variant="badgeVariant">
         {{ badgeText }}
-    </b-badge>
+    </BBadge>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -66,7 +66,7 @@
             }
         }
 
-        return '';
+        return 'secondary';
     });
 
 </script>

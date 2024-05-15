@@ -4,19 +4,22 @@
 
 <template>
     <div class="edit-forcePool-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
-            size="lg"
+            size="md"
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Force
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Force
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
@@ -28,25 +31,25 @@
             </div>
             <hr />
             <div class="d-flex">
-                <b-form-group
-                    class="flex-fill ml-2"
+                <BFormGroup
+                    class="flex-fill ms-2"
                     label="Force Sensitive"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="species-input"
                 >
-                    <b-form-checkbox v-model="forcePool.sensitive" class="mt-3" name="force-sensitive" switch>
+                    <BFormCheckbox v-model="forcePool.sensitive" name="force-sensitive" switch>
                         Force Sensitive
-                    </b-form-checkbox>
-                </b-form-group>
-                <b-form-group
-                    class="flex-fill ml-2"
+                    </BFormCheckbox>
+                </BFormGroup>
+                <BFormGroup
+                    class="flex-fill ms-2"
                     label="Force Rating"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="rating-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input
+                        <BInputGroup>
+                            <BFormInput
                                 id="rating-input"
                                 v-model="forcePool.rating"
                                 number
@@ -55,27 +58,31 @@
                                 max="10"
                                 step="1"
                                 :disabled="!forcePool.sensitive"
-                            ></b-form-input>
-                            <b-input-group-append>
-                                <b-button :disabled="!forcePool.sensitive" @click="forcePool.rating = 0">
+                            ></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton :disabled="!forcePool.sensitive" @click="forcePool.rating = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -85,7 +92,8 @@
     import { ref } from 'vue';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

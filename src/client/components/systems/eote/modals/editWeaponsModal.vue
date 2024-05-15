@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-weapons-modal">
-        <b-modal
+        <BModal
             id="weapModal"
             ref="innerModal"
             header-bg-variant="dark"
@@ -17,135 +17,142 @@
             @cancel="onCancel"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <span v-if="isAdd">
-                    <fa icon="plus"></fa>
-                    Add
-                </span>
-                <span v-else>
-                    <fa icon="file-edit"></fa>
-                    Edit
-                </span>
-                Weapons
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <span v-if="isAdd">
+                        <fa icon="plus"></fa>
+                        Add
+                    </span>
+                    <span v-else>
+                        <fa icon="file-edit"></fa>
+                        Edit
+                    </span>
+                    Weapons
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
             <div :class="`${ mode }-system`">
-                <b-form-row>
-                    <b-form-group
-                        class="flex-fill pr-1 w-50"
+                <BFormRow>
+                    <BFormGroup
+                        class="flex-fill pe-1 w-50"
                         label="Name"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="name-input"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="name-input"
                             v-model="editWeapon.name"
                             type="text"
-                        ></b-form-input>
-                    </b-form-group>
-                    <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        ></BFormInput>
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Skill"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-input"
                     >
-                        <b-form-select
+                        <BFormSelect
                             id="skill-input"
                             v-model="editWeapon.skill"
                             :options="skillNames"
-                        ></b-form-select>
-                    </b-form-group>
-                    <b-form-group
-                        class="flex-fill pl-1 w-25"
+                        ></BFormSelect>
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1 w-25"
                         label="Range"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="range-input"
                     >
-                        <b-form-select
+                        <BFormSelect
                             id="range-input"
                             v-model="editWeapon.range"
                             :options="rangeOptions"
-                        ></b-form-select>
-                    </b-form-group>
-                </b-form-row>
+                        ></BFormSelect>
+                    </BFormGroup>
+                </BFormRow>
 
-                <b-form-row>
-                    <b-form-group
-                        class="flex-fill pr-1 w-25"
+                <BFormRow>
+                    <BFormGroup
+                        class="flex-fill pe-1 w-25"
                         label="Damage"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-damage"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="skill-damage"
                             v-model="editWeapon.damage"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
-                    </b-form-group>
-                    <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        ></BFormInput>
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Critical"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-critical"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="skill-critical"
                             v-model="editWeapon.criticalRating"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
-                    </b-form-group>
-                    <b-form-group
-                        class="flex-fill pl-1 pr-1 w-25"
+                        ></BFormInput>
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1 pe-1 w-25"
                         label="Encumb."
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-encumbrance"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="skill-encumbrance"
                             v-model="editWeapon.encumbrance"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
-                    </b-form-group>
-                    <b-form-group
-                        class="flex-fill pl-1 w-25"
+                        ></BFormInput>
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1 w-25"
                         label="Rarity"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="skill-rarity"
                     >
-                        <b-form-input
+                        <BFormInput
                             id="skill-rarity"
                             v-model="editWeapon.rarity"
                             number
                             type="number"
                             min="0"
                             step="0"
-                        ></b-form-input>
-                    </b-form-group>
-                </b-form-row>
+                        ></BFormInput>
+                    </BFormGroup>
+                </BFormRow>
 
                 <QualityEdit v-model:qualities="editWeapon.qualities"></QualityEdit>
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -181,7 +188,8 @@
 
     // Components
     import QualityEdit from '../components/qualityEdit.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

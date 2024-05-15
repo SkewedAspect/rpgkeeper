@@ -4,34 +4,37 @@
 
 <template>
     <div class="add-edit-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
             size="xxl"
-            :ok-disabled="v$.$errors.length > 0"
+            :ok-disabled="/*v$.$errors.length > 0*/false"
             @ok="onSave"
             @hidden="onHidden"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <span v-if="isNew">
-                    <fa icon="user-plus"></fa>
-                    Add
-                </span>
-                <span v-else>
-                    <fa icon="user-edit"></fa>
-                    Edit
-                </span>
-                Character
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <span v-if="isNew">
+                        <fa icon="user-plus"></fa>
+                        Add
+                    </span>
+                    <span v-else>
+                        <fa icon="user-edit"></fa>
+                        Edit
+                    </span>
+                    Character
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Body -->
             <div class="content">
-                <b-form-row>
-                    <b-col class="flex-grow-0 flex-shrink-0 w-auto">
+                <BFormRow>
+                    <BCol class="flex-grow-0 flex-shrink-0 w-auto">
                         <CharPortrait :src="char.portrait" :color="char.color" size="md"></CharPortrait>
                         <div class="text-center">
                             <small class="text-muted">Portrait</small>
@@ -42,32 +45,32 @@
                                 <small class="text-muted">Thumbnail</small>
                             </div>
                         </div>
-                    </b-col>
-                    <b-col>
-                        <b-form-row>
-                            <b-col>
-                                <b-form-group
+                    </BCol>
+                    <BCol>
+                        <BFormRow>
+                            <BCol>
+                                <BFormGroup
                                     id="char-name-group"
                                     description="Your character's full name."
                                     label="Name"
                                     label-for="char-name"
                                 >
-                                    <b-form-input
+                                    <BFormInput
                                         id="char-name"
                                         v-model="char.name"
                                         :state="validateState('name')"
                                         @input="v$.name.$touch()"
-                                    ></b-form-input>
-                                </b-form-group>
-                            </b-col>
-                            <b-col>
-                                <b-form-group
+                                    ></BFormInput>
+                                </BFormGroup>
+                            </BCol>
+                            <BCol>
+                                <BFormGroup
                                     id="char-sys-group"
                                     description="The rpg system this character is for."
                                     label="System"
                                     label-for="char-sys"
                                 >
-                                    <b-form-select
+                                    <BFormSelect
                                         id="char-sys"
                                         v-model="char.system"
                                         :options="systems"
@@ -76,111 +79,115 @@
                                         :disabled="!isNew"
                                         :state="validateState('system')"
                                         @input="v$.system.$touch()"
-                                    ></b-form-select>
-                                </b-form-group>
-                            </b-col>
-                        </b-form-row>
-                        <b-form-row>
-                            <b-col class="flex-grow-0 flex-shrink-0 w-auto" style="min-width: 5rem;">
-                                <b-form-group
+                                    ></BFormSelect>
+                                </BFormGroup>
+                            </BCol>
+                        </BFormRow>
+                        <BFormRow>
+                            <BCol class="flex-grow-0 flex-shrink-0 w-auto" style="min-width: 5rem;">
+                                <BFormGroup
                                     id="char-color-group"
                                     label="Color"
                                     label-for="char-color"
                                 >
                                     <ColorPicker v-model:color="char.color" variant="light" block></ColorPicker>
-                                </b-form-group>
-                            </b-col>
-                            <b-col>
-                                <b-form-group
+                                </BFormGroup>
+                            </BCol>
+                            <BCol>
+                                <BFormGroup
                                     id="char-portrait-group"
                                     label="Portrait"
                                     label-for="char-portrait"
                                 >
-                                    <b-input-group>
-                                        <b-form-input
+                                    <BInputGroup>
+                                        <BFormInput
                                             id="char-portrait"
                                             v-model="char.portrait"
                                             :state="validateState('portrait')"
                                             @input="v$.portrait.$touch()"
-                                        ></b-form-input>
-                                        <b-input-group-append>
-                                            <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('portrait')">
+                                        ></BFormInput>
+                                        <BInputGroupAppend>
+                                            <BButton title="Choose file from Dropbox" @click="pickImageDropBox('portrait')">
                                                 <fa :icon="[ 'fab', 'dropbox' ]"></fa>
-                                            </b-btn>
-                                        </b-input-group-append>
-                                    </b-input-group>
+                                            </BButton>
+                                        </BInputGroupAppend>
+                                    </BInputGroup>
                                     <template #description>
                                         Any urls are accepted. <br />
                                         Recommend dimensions are <code>600x900px</code>.
                                     </template>
-                                </b-form-group>
-                            </b-col>
-                            <b-col>
-                                <b-form-group
+                                </BFormGroup>
+                            </BCol>
+                            <BCol>
+                                <BFormGroup
                                     id="char-thumbnail-group"
                                     label="Thumbnail"
                                     label-for="char-thumbnail"
                                 >
-                                    <b-input-group>
-                                        <b-form-input
+                                    <BInputGroup>
+                                        <BFormInput
                                             id="char-thumbnail"
                                             v-model="char.thumbnail"
                                             :state="validateState('thumbnail')"
                                             @input="v$.thumbnail.$touch()"
-                                        ></b-form-input>
-                                        <b-input-group-append>
-                                            <b-btn title="Choose file from Dropbox" @click="pickImageDropBox('thumbnail')">
+                                        ></BFormInput>
+                                        <BInputGroupAppend>
+                                            <BButton title="Choose file from Dropbox" @click="pickImageDropBox('thumbnail')">
                                                 <fa :icon="[ 'fab', 'dropbox' ]"></fa>
-                                            </b-btn>
-                                        </b-input-group-append>
-                                    </b-input-group>
+                                            </BButton>
+                                        </BInputGroupAppend>
+                                    </BInputGroup>
                                     <template #description>
                                         Any urls are accepted. <br />
                                         Recommend dimensions are <code>200x200px</code>.
                                     </template>
-                                </b-form-group>
-                            </b-col>
-                        </b-form-row>
-                        <b-form-group
+                                </BFormGroup>
+                            </BCol>
+                        </BFormRow>
+                        <BFormGroup
                             id="char-campaign-group"
                             description="A brief description of the campaign or RP this character is associated with."
                             label="Campaign"
                             label-for="char-campaign"
                         >
-                            <b-form-input
+                            <BFormInput
                                 id="char-campaign"
                                 v-model="char.campaign"
                                 :state="validateState('campaign')"
                                 @input="v$.campaign.$touch()"
-                            ></b-form-input>
-                        </b-form-group>
-                        <b-form-group
+                            ></BFormInput>
+                        </BFormGroup>
+                        <BFormGroup
                             id="char-desc-group"
                             description="A brief description of your character. Could be physical or personality."
                             label="Description"
                             label-for="char-desc"
                         >
-                            <b-form-input
+                            <BFormInput
                                 id="char-desc"
                                 v-model="char.description"
                                 :state="validateState('description')"
                                 @input="v$.description.$touch()"
-                            ></b-form-input>
-                        </b-form-group>
-                    </b-col>
-                </b-form-row>
+                            ></BFormInput>
+                        </BFormGroup>
+                    </BCol>
+                </BFormRow>
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -208,7 +215,8 @@
     import ColorPicker from '../ui/colorPicker.vue';
     import CharThumbnail from './charThumbnail.vue';
     import CharPortrait from './charPortrait.vue';
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Types

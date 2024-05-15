@@ -4,7 +4,7 @@
 
 <template>
     <div class="edit-health-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -14,22 +14,25 @@
             @ok="onSave"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Wounds
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Wounds
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
             <div class="d-flex">
-                <b-form-group
+                <BFormGroup
                     class="flex-fill"
                     label="Wounds"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="wounds-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input
+                        <BInputGroup>
+                            <BFormInput
                                 id="wounds-input"
                                 v-model="health.wounds"
                                 number
@@ -37,25 +40,25 @@
                                 min="0"
                                 max="99"
                                 step="1"
-                            ></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="health.wounds = 0">
+                            ></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="health.wounds = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
 
-                <b-form-group
-                    class="flex-fill ml-2"
+                <BFormGroup
+                    class="flex-fill ms-2"
                     label="Wound Threshold"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="wound-threshold-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input
+                        <BInputGroup>
+                            <BFormInput
                                 id="wound-threshold-input"
                                 v-model="health.woundThreshold"
                                 number
@@ -63,25 +66,25 @@
                                 min="0"
                                 max="99"
                                 step="1"
-                            ></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="health.woundThreshold = 0">
+                            ></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="health.woundThreshold = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
 
-                <b-form-group
-                    class="flex-fill ml-4"
+                <BFormGroup
+                    class="flex-fill ms-4"
                     label="Strain"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="strain-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input
+                        <BInputGroup>
+                            <BFormInput
                                 id="strain-input"
                                 v-model="health.strain"
                                 number
@@ -89,25 +92,25 @@
                                 min="0"
                                 max="99"
                                 step="1"
-                            ></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="health.strain = 0">
+                            ></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="health.strain = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
 
-                <b-form-group
-                    class="flex-fill ml-2"
+                <BFormGroup
+                    class="flex-fill ms-2"
                     label="Strain Threshold"
-                    label-class="font-weight-bold"
+                    label-class="fw-bold"
                     label-for="strain-threshold-input"
                 >
                     <div class="d-flex">
-                        <b-input-group>
-                            <b-form-input
+                        <BInputGroup>
+                            <BFormInput
                                 id="strain-threshold-input"
                                 v-model="health.strainThreshold"
                                 number
@@ -115,27 +118,31 @@
                                 min="0"
                                 max="99"
                                 step="1"
-                            ></b-form-input>
-                            <b-input-group-append>
-                                <b-button @click="health.strainThreshold = 0">
+                            ></BFormInput>
+                            <BInputGroupAppend>
+                                <BButton @click="health.strainThreshold = 0">
                                     <fa icon="times"></fa>
-                                </b-button>
-                            </b-input-group-append>
-                        </b-input-group>
+                                </BButton>
+                            </BInputGroupAppend>
+                        </BInputGroup>
                     </div>
-                </b-form-group>
+                </BFormGroup>
             </div>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -148,7 +155,8 @@
     import { EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

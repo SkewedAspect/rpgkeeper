@@ -4,7 +4,7 @@
 
 <template>
     <div v-if="aspects" class="edit-aspects-modal">
-        <b-modal
+        <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
@@ -15,72 +15,79 @@
             @cancel="onCancel"
         >
             <!-- Modal Header -->
-            <template #modal-title>
-                <fa icon="file-edit"></fa>
-                Edit Aspects
+            <template #header="{ cancel }">
+                <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
+                    <fa icon="file-edit"></fa>
+                    Edit Aspects
+                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                </h5>
             </template>
 
             <!-- Modal Content -->
-            <b-form-row>
-                <b-col cols="12" lg="6">
-                    <b-form-group
+            <BFormRow>
+                <BCol cols="12" lg="6">
+                    <BFormGroup
                         id="hc-input-group"
                         label="High Concept"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="hc-input"
                     >
-                        <b-form-input id="hc-input" v-model="highConcept.detail"></b-form-input>
-                    </b-form-group>
-                </b-col>
-                <b-col cols="12" lg="6">
-                    <b-form-group
-                        id="tb-input-group"
+                        <BFormInput id="hc-input" v-model="highConcept.detail"></BFormInput>
+                    </BFormGroup>
+                </BCol>
+                <BCol cols="12" lg="6">
+                    <BFormGroup
+                        id="tBInputGroup"
                         label="Trouble"
-                        label-class="font-weight-bold"
+                        label-class="fw-bold"
                         label-for="tb-input"
                     >
-                        <b-form-input id="tb-input" v-model="trouble.detail"></b-form-input>
-                    </b-form-group>
-                </b-col>
-            </b-form-row>
+                        <BFormInput id="tb-input" v-model="trouble.detail"></BFormInput>
+                    </BFormGroup>
+                </BCol>
+            </BFormRow>
 
             <hr class="mt-2" />
 
             <h4>Extra Aspects</h4>
 
             <div v-for="(aspect, index) in extraAspects" :key="index" class="d-flex mb-2">
-                <b-form-input v-model="aspect.detail"></b-form-input>
-                <b-btn variant="danger" class="ml-2" @click="removeAspect(aspect)">
+                <BFormInput v-model="aspect.detail"></BFormInput>
+                <BButton variant="danger" class="ms-2" @click="removeAspect(aspect)">
                     <fa icon="trash-alt"></fa>
-                </b-btn>
+                </BButton>
             </div>
 
             <hr />
 
-            <b-card
+            <BCard
                 header="New Aspect"
                 header-bg-variant="dark"
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <b-form-input id="new-input" v-model="newAspect"></b-form-input>
-                    <b-btn variant="primary" class="ml-2 text-nowrap" :disabled="!isAddValid" @click="addAspect">
+                    <BFormInput id="new-input" v-model="newAspect"></BFormInput>
+                    <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addAspect">
                         <fa icon="plus"></fa>
                         Add
-                    </b-btn>
+                    </BButton>
                 </div>
-            </b-card>
+            </BCard>
 
             <!-- Modal Buttons -->
-            <template #modal-ok>
-                <fa icon="save"></fa>
-                Save
+            <template #ok="{ ok }">
+                <BButton variant="primary" @click="ok">
+                    <fa icon="save"></fa>
+                    Save
+                </BButton>
             </template>
-            <template #modal-cancel>
-                <fa icon="times"></fa>
-                Cancel
+            <template #cancel="{ cancel }">
+                <BButton variant="secondary" @click="cancel">
+                    <fa icon="times"></fa>
+                    Cancel
+                </BButton>
             </template>
-        </b-modal>
+        </BModal>
     </div>
 </template>
 
@@ -93,7 +100,8 @@
     import { FateAspect } from '../../../../common/interfaces/systems/fate';
 
     // Components
-    import { BModal } from 'bootstrap-vue';
+    import { BModal } from 'bootstrap-vue-next';
+    import CloseButton from '../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

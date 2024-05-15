@@ -4,7 +4,7 @@
 
 <template>
     <div class="char-thumbnail">
-        <b-img
+        <BImg
             :src="char.thumbnail"
             width="64px"
             height="64px"
@@ -15,7 +15,7 @@
             class="shadow-sm"
             :style="{ 'background-color': char.color }"
         >
-        </b-img>
+        </BImg>
         <div v-if="!char.thumbnail" class="char-text">
             {{ getInitials(char) }}
         </div>

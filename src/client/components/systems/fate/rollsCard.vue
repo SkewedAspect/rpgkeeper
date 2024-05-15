@@ -5,7 +5,7 @@
 <template>
     <RpgkCard id="rolls" icon="dice" title="Rolls" fill>
         <!-- Select a skill -->
-        <b-form-select
+        <BFormSelect
             v-model="skill"
             :options="sortedSkills"
             text-field="display"
@@ -17,7 +17,7 @@
                     No Skill
                 </option>
             </template>
-        </b-form-select>
+        </BFormSelect>
 
         <!-- Roll History -->
         <div class="flex-fill mt-3 mb-3 overflow-auto h-0">
@@ -32,15 +32,15 @@
         </div>
 
         <!-- Roll Buttons -->
-        <div class="text-right">
-            <b-btn :disabled="readonly" @click="clearRolls()">
+        <div class="text-end">
+            <BButton :disabled="readonly" @click="clearRolls()">
                 <fa icon="times"></fa>
                 Clear
-            </b-btn>
-            <b-btn variant="primary" class="ml-1" :disabled="readonly" @click="roll()">
+            </BButton>
+            <BButton variant="primary" class="ms-1" :disabled="readonly" @click="roll()">
                 <fa icon="dice"></fa>
                 Roll
-            </b-btn>
+            </BButton>
         </div>
     </RpgkCard>
 </template>
