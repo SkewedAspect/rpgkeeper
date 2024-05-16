@@ -4,7 +4,7 @@
 
 import express from 'express';
 
-import { errorHandler, wrapAsync } from './utils';
+import { errorHandler } from './utils';
 
 // Managers
 import * as rolesMan from '../managers/roles';
@@ -19,10 +19,10 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', wrapAsync(async(_req, resp) =>
+router.get('/', async(_req, resp) =>
 {
     resp.json((await rolesMan.list()));
-}));
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handling

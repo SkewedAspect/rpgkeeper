@@ -4,7 +4,7 @@
 
 import express from 'express';
 
-import { ensureAuthenticated, errorHandler, wrapAsync } from './utils';
+import { convertQueryToRecord, ensureAuthenticated, errorHandler } from './utils';
 
 // Managers
 import * as noteMan from '../managers/notebook';
@@ -23,11 +23,12 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', wrapAsync(async(req, resp) =>
+router.get('/', async(req, resp) =>
 {
     if(req.isAuthenticated() && await hasPerm(req.user as Account, 'Notes/canViewAll'))
     {
-        const filters = { id: req.query.id, email: req.query.email, title: req.query.title };
+        const query = convertQueryToRecord(req);
+        const filters = { id: query.id, email: query.email, title: query.title };
         resp.json(await noteMan.list(filters));
     }
     else
@@ -39,20 +40,20 @@ router.get('/', wrapAsync(async(req, resp) =>
                 message: `You are not authorized to view all notes.`
             });
     }
-}));
+});
 
-router.post('/', ensureAuthenticated, wrapAsync(async(req, resp) =>
+router.post('/', ensureAuthenticated, async(req, resp) =>
 {
     const pages = req.body.pages;
     resp.json(await noteMan.add(pages));
-}));
+});
 
-router.get('/:noteID', wrapAsync(async(req, resp) =>
+router.get('/:noteID', async(req, resp) =>
 {
     resp.json(await noteMan.get(req.params.noteID));
-}));
+});
 
-router.post('/:noteID/pages', ensureAuthenticated, wrapAsync(async(req, resp) =>
+router.post('/:noteID/pages', ensureAuthenticated, async(req, resp) =>
 {
     const page = req.body;
 
@@ -65,22 +66,22 @@ router.post('/:noteID/pages', ensureAuthenticated, wrapAsync(async(req, resp) =>
 
     // Update the note
     resp.json(await noteMan.addPage(note.id, page));
-}));
+});
 
-router.patch('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async(req, resp) =>
+router.patch('/:noteID/pages/:pageID', ensureAuthenticated, async(req, resp) =>
 {
     // Update the note
     const newPage = await noteMan.updatePage(req.params.pageID, req.body);
     resp.json(newPage);
-}));
+});
 
-router.delete('/:noteID', ensureAuthenticated, wrapAsync(async(req, resp) =>
+router.delete('/:noteID', ensureAuthenticated, async(req, resp) =>
 {
     // We don't check for existence, so we can be idempotent
     resp.json(await noteMan.remove(req.params.noteID));
-}));
+});
 
-router.delete('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async(req, resp) =>
+router.delete('/:noteID/pages/:pageID', ensureAuthenticated, async(req, resp) =>
 {
     const notebook = await noteMan.get(req.params.noteID);
     const page = (notebook.pages.filter((pageInst) => pageInst.id == req.params.pageID))[0];
@@ -95,7 +96,7 @@ router.delete('/:noteID/pages/:pageID', ensureAuthenticated, wrapAsync(async(req
         // We don't throw an error, so we can be idempotent
         resp.json({ status: 'ok' });
     }
-}));
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handling

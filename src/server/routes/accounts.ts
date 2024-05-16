@@ -4,13 +4,15 @@
 
 import express from 'express';
 
-import { ensureAuthenticated, errorHandler, wrapAsync } from './utils';
-
 // Managers
 import * as accountMan from '../managers/account';
-
-import { Account } from '../models/account';
 import * as permsMan from '../managers/permissions';
+
+// Models
+import { Account } from '../models/account';
+
+// Utils
+import { convertQueryToRecord, ensureAuthenticated, errorHandler } from './utils';
 
 // Logger
 import logging from '@strata-js/util-logging';
@@ -22,17 +24,18 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', wrapAsync(async(req, resp) =>
+router.get('/', async(req, resp) =>
 {
-    const filters = { id: req.query.id, email: req.query.email, name: req.query.name };
+    const query = convertQueryToRecord(req);
+    const filters = { id: query.id, email: query.email, name: query.name };
     resp.json((await accountMan.list(filters)).map((accountObj) =>
     {
         const { permissions, settings, groups, ...restAccount } = accountObj;
         return restAccount;
     }));
-}));
+});
 
-router.get('/:accountID', wrapAsync(async(req, resp) =>
+router.get('/:accountID', async(req, resp) =>
 {
     const user = req.user as Account;
     const account = await accountMan.get(req.params.accountID);
@@ -48,14 +51,14 @@ router.get('/:accountID', wrapAsync(async(req, resp) =>
         const { permissions, groups, settings, ...restAccount } = account;
         resp.json(restAccount);
     }
-}));
+});
 
-router.patch('/:accountID', ensureAuthenticated, wrapAsync(async(req, resp) =>
+router.patch('/:accountID', ensureAuthenticated, async(req, resp) =>
 {
     // Update the account
     const newAccount = await accountMan.update(req.params.accountID, req.body);
     resp.json(newAccount);
-}));
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handling

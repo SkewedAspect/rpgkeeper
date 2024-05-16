@@ -11,7 +11,7 @@ import * as permsMan from '../managers/permissions';
 import sysMan from '../managers/system';
 
 // Utils
-import { ensureAuthenticated, errorHandler, interceptHTML, parseQuery, wrapAsync } from './utils';
+import { convertQueryToRecord, ensureAuthenticated, errorHandler, interceptHTML, parseQuery } from './utils';
 import { Account } from '../models/account';
 
 // Logger
@@ -28,12 +28,14 @@ router.get('/', async(req, resp) =>
 {
     interceptHTML(resp, async() =>
     {
+        const query = convertQueryToRecord(req);
+
         // If we pass in `owner`, it'll be an email address, so we need to look that up first, and shove the correct
         // account id into the filters as if that was passed in.
-        let owner = req.query.owner;
+        let owner = query.owner;
         if(owner)
         {
-            delete req.query.owner;
+            delete query.owner;
 
             if(Array.isArray(owner))
             {
@@ -44,16 +46,17 @@ router.get('/', async(req, resp) =>
             {
                 owner = owner.toLowerCase();
                 const account = await accountMan.getByEmail(owner);
-                req.query.accountID = `${ account.id }`;
+                query.accountID = `${ account.id }`;
             }
         }
 
-        const filters = parseQuery(req.query as Record<string, string>);
+        const filters = parseQuery(query);
+
         resp.json(await charMan.list(filters));
     });
 });
 
-router.post('/', ensureAuthenticated, wrapAsync(async(req, resp) =>
+router.post('/', ensureAuthenticated, async(req, resp) =>
 {
     const char = { ...req.body };
     const system = sysMan.get(char.system);
@@ -70,7 +73,7 @@ router.post('/', ensureAuthenticated, wrapAsync(async(req, resp) =>
                 message: `The character with id '${ char.id }' has an invalid or unknown system '${ char.system }'.`
             });
     }
-}));
+});
 
 router.get('/:charID', (req, resp) =>
 {
@@ -80,7 +83,7 @@ router.get('/:charID', (req, resp) =>
     });
 });
 
-router.patch('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
+router.patch('/:charID', ensureAuthenticated, async(req, resp) =>
 {
     // First, retrieve the character
     const char = await charMan.get(req.params.charID);
@@ -113,9 +116,9 @@ router.patch('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
                 message: `You are not authorized to update character '${ req.params.charID }'.`
             });
     }
-}));
+});
 
-router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
+router.delete('/:charID', ensureAuthenticated, async(req, resp) =>
 {
     let char;
     try
@@ -151,7 +154,7 @@ router.delete('/:charID', ensureAuthenticated, wrapAsync(async(req, resp) =>
                 message: `You are not authorized to update character '${ req.params.charID }'.`
             });
     }
-}));
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handling

@@ -12,7 +12,7 @@ configUtil.load(`./config.yml`);
 
 import path from 'path';
 import { AddressInfo } from 'net';
-import express, { Express, RequestHandler } from 'express';
+import express, { Express } from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
@@ -33,18 +33,14 @@ import * as accountMan from './managers/account';
 import * as permsMan from './managers/permissions';
 
 // Session Store
-// FIXME: This is broken by this project.
-//  @see https://github.com/gx0r/connect-session-knex/issues/97
-// import connectSessionKnex from 'connect-session-knex';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const connectSessionKnex = require('connect-session-knex');
+import connectSessionKnex from 'connect-session-knex';
 const KnexSessionStore = connectSessionKnex(session);
 
 // Auth
 import GoogleAuth from './auth/google';
 
 // Routes
-import { requestLogger, wrapAsync, serveIndex, errorLogger } from './routes/utils';
+import { requestLogger, serveIndex, errorLogger } from './routes/utils';
 import noteRouter from './routes/notebook';
 import charRouter from './routes/characters';
 import sysRouter from './routes/systems';
@@ -111,7 +107,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     }));
 
     // Basic request logging
-    app.use(requestLogger(logger) as RequestHandler);
+    app.use(requestLogger(logger));
 
     // Auth support
     app.use(cookieParser());
@@ -141,7 +137,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     if(config.overrideAuth)
     {
         // Middleware to skip authentication, for testing with postman, or unit tests.
-        app.use(wrapAsync(async(req, _resp, next) =>
+        app.use(async(req, _resp, next) =>
         {
             let account = app.get('user');
 
@@ -158,7 +154,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
                 req.user = account;
             }
             next?.();
-        }) as RequestHandler);
+        });
     }
 
     //------------------------------------------------------------------------------------------------------------------

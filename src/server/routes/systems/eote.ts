@@ -9,7 +9,7 @@ import refMan from '../../managers/references';
 
 // Utils
 import { buildSupplementRoute } from './utils/supplement';
-import { errorHandler, wrapAsync, parseQuery } from '../utils';
+import { errorHandler, parseQuery, convertQueryToRecord } from '../utils';
 
 // Logger
 import logging from '@strata-js/util-logging';
@@ -30,11 +30,12 @@ buildSupplementRoute(router, '/talents', 'talent', 'eote');
 buildSupplementRoute(router, '/weapons', 'weapon', 'eote');
 buildSupplementRoute(router, '/forcepowers', 'forcepower', 'eote');
 
-router.get('/references', wrapAsync(async(req, resp) =>
+router.get('/references', async(req, resp) =>
 {
-    const filters = parseQuery(req.query as Record<string, string>);
+    const query = convertQueryToRecord(req);
+    const filters = parseQuery(query);
     resp.json(await refMan.getFiltered(filters, 'eote_reference'));
-}));
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handling

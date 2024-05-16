@@ -165,20 +165,4 @@ export function ensureAuthenticated(request : Request, response : Response, next
     }
 }
 
-/**
- * Wraps a router function in an async handler.
- *
- * @param handler - Express router function.
- *
- * @returns Express router function.
- */
-export function wrapAsync(handler : JsonHandlerFunction) : MiddlewareFunction
-{
-    return function(req, res, next)
-    {
-        // Make sure to `.catch()` any errors and pass them along to the `next()` middleware in the chain
-        handler(req, res, next).catch(next);
-    };
-} // ebd wrapAsync
-
 //----------------------------------------------------------------------------------------------------------------------

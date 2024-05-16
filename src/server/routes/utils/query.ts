@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import _ from 'lodash';
+import { Request } from 'express';
 import logging from '@strata-js/util-logging';
 const logger = logging.getLogger(module.filename);
 
@@ -205,17 +206,51 @@ function containsFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal)
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
+ * Convert the request query object to a record.
+ *
+ * @param request - The request object.
+ *
+ * @returns a record of the query parameters.
+ */
+export function convertQueryToRecord(request : Request) : Record<string, string | string[]>
+{
+    const record : Record<string, string | string[]> = {};
+    for(const key in request.query)
+    {
+        if(Object.prototype.hasOwnProperty.call(request.query, key))
+        {
+            const value = request.query[key];
+            if(Array.isArray(value))
+            {
+                record[key] = value.map(String);
+            }
+            else
+            {
+                record[key] = String(value);
+            }
+        }
+    }
+    return record;
+}
+
+/**
  * Parse the query object for filters, and build a parse tree of those filters.
  *
  * @param queryObj - The parsed query parameters, i.e. `{ foo: 'bar', bar: '>3' }`
  *
  * @returns a parse tree of the query parameters.
  */
-export function parseQuery(queryObj : Record<string, string>) : Record<string, FilterToken>
+export function parseQuery(queryObj : Record<string, string | string[]>) : Record<string, FilterToken>
 {
     const parseTree = {};
-    _.forIn(queryObj, (value : string, key : string) =>
+    _.forIn(queryObj, (value : string | string[], key : string) =>
     {
+        // Convert arrays into single strings
+        if(Array.isArray(value))
+        {
+            value = value.join(',');
+        }
+
         // Check for greater than or less than
         if(value.substr(0, 2) === '>=')
         {

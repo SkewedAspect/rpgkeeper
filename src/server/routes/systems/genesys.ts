@@ -9,7 +9,7 @@ import refMan from '../../managers/references';
 
 // Utils
 import { buildSupplementRoute } from './utils/supplement';
-import { errorHandler, parseQuery, wrapAsync } from '../utils';
+import { convertQueryToRecord, errorHandler, parseQuery } from '../utils';
 
 // Logger
 import logging from '@strata-js/util-logging';
@@ -30,11 +30,12 @@ buildSupplementRoute(router, '/talents', 'talent', 'genesys');
 buildSupplementRoute(router, '/weapons', 'weapon', 'genesys');
 buildSupplementRoute(router, '/motivations', 'motivation', 'genesys');
 
-router.get('/references', wrapAsync(async(req, resp) =>
+router.get('/references', async(req, resp) =>
 {
-    const filters = parseQuery(req.query as Record<string, string>);
+    const query = convertQueryToRecord(req);
+    const filters = parseQuery(query);
     resp.json(await refMan.getFiltered(filters, 'genesys_reference'));
-}));
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handling
