@@ -41,7 +41,7 @@ COPY --from=bundle-builder /app/package.json /app/
 RUN mkdir /app/db
 
 WORKDIR /app
-ADD config/local.yml /app/config.yml
+ADD config/ /app/config/
 
 VOLUME /app/db
 
