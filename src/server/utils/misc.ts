@@ -24,50 +24,6 @@ export function shortID() : string
 }
 
 /**
- * Generates a color based on a string.
- *
- * @param str - String to colorize.
- *
- * @returns Returns a color in hex code format.
- */
-export function colorize(str : string) : string
-{
-    if(!str)
-    {
-        return '#aaaaaa';
-    }
-
-    let hash = 0;
-    for(let i = 0; i < str.length; i++)
-    {
-        hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-
-    let color = '#';
-    for(let i = 0; i < 3; i++)
-    {
-        const value = (hash >> (i * 8)) & 0xFF;
-        color += (`00${ value.toString(16) }`).substr(-2);
-    }
-
-    return color;
-}
-
-/**
- * Generate a random color in hex form.
- */
-export function randomColor() : string
-{
-    function ChanelRand() : number
-    {
-        return Math.floor(Math.random() * (256 + 1));
-    }
-
-    const rgb = [ ChanelRand(), ChanelRand(), ChanelRand() ];
-    return `#${ ((1 << 24) + (rgb[0] << 16) + (rgb[1] << 8) + rgb[2]).toString(16).slice(1) }`;
-}
-
-/**
  * Camel case all the keys in an object.
  *
  * @param obj - The object whose keys we are camel casing.
@@ -144,38 +100,6 @@ export function sortBy(key : string) : (a : Record<string, any>, b : Record<stri
     {
         return (aObj[key] > bObj[key]) ? 1 : ((bObj[key] > aObj[key]) ? -1 : 0);
     };
-}
-
-/**
- * Creates a duplicate-free version of an array, using `iteratee` which is invoked for each element in `arr` to
- * generate the criterion by which uniqueness is computed. The order of result values is determined by the order they
- * occur in the array. The iteratee is invoked with one argument: `(value)`.
- *
- * **WARNING**: _This is not a drop in replacement solution, and it might not work for some edge cases._
- *
- * _This is a simplified implementation of https://youmightnotneed.com/lodash#unionBy which would work with only one
- * array._
- *
- * @param arr - The array to inspect.
- * @param iteratee - The iteratee invoked per element.
- *
- * @return Returns a copy of the array without duplicates.
- */
-export function uniqBy<T>(arr : T[], iteratee : string | ((item : T) => any)) : T[]
-{
-    const iter = (item : T) : any =>
-    {
-        if(typeof iteratee === 'string')
-        {
-            return item[iteratee];
-        }
-        else
-        {
-            iteratee(item);
-        }
-    };
-
-    return arr.filter((x, i, self) => i === self.findIndex((y) => iter(x) === iter(y)));
 }
 
 //----------------------------------------------------------------------------------------------------------------------

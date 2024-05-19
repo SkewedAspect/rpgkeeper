@@ -14,23 +14,32 @@ export interface GoogleAuthConfig
 
 export interface AuthConfig
 {
-    google : GoogleAuthConfig;
+    session : {
+        key : string;
+        secret : string;
+    },
+
+    // Auth Providers
+    google ?: GoogleAuthConfig;
 }
 
 export interface HTTPConfig
 {
-    secure : string;
+    host ?: string;
     port : number;
+    secure : string;
 }
 
-export interface RPGKeeperConfig
+export interface DatabaseConfig extends Knex.Config
 {
-    overrideAuth : boolean;
-    secret : string;
-    key : string;
+    traceQueries ?: boolean;
+}
+
+export interface ServerConfig
+{
     auth : AuthConfig;
     http : HTTPConfig;
-    database : Knex.Config;
+    database : DatabaseConfig
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

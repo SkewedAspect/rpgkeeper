@@ -3,7 +3,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Managers
-import { table } from './database';
 import * as accountMan from './account';
 import * as notebookMan from './notebook';
 import systemMan from './system';
@@ -12,17 +11,19 @@ import systemMan from './system';
 import { Character } from '../models/character';
 
 // Utils
+import { getDB } from '../utils/database';
 import { MultipleResultsError, NotFoundError } from '../errors';
-import { FilterToken } from '../routes/utils/query';
+import { FilterToken } from '../routes/utils';
 import { applyFilters } from '../knex/utils';
-import { shortID } from '../../common/utils/misc';
+import { shortID } from '../utils/misc';
 import { broadcast } from '../utils/sio';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 export async function get(id : string) : Promise<Character>
 {
-    const characters = await table('character as char')
+    const db = await getDB();
+    const characters = await db('character as char')
         .select(
             'char.hash_id as id',
             'char.system',
@@ -57,7 +58,8 @@ export async function get(id : string) : Promise<Character>
 
 export async function list(filters : Record<string, FilterToken> = {}) : Promise<Character[]>
 {
-    let query = table('character as char')
+    const db = await getDB();
+    let query = db('character as char')
         .select(
             'char.hash_id as id',
             'char.system',
@@ -92,7 +94,8 @@ export async function add(accountID : string, newCharacter : Record<string, unkn
     const { account_id } = await accountMan.getRaw(char.accountID);
     const { note_id } = await notebookMan.getRaw(char.noteID);
 
-    await table('character')
+    const db = await getDB();
+    await db('character')
         .insert({ ...char.toDB(), account_id, note_id });
 
     // We know this is a string since it's set above.
@@ -123,7 +126,8 @@ export async function update(charID : string, updateChar : Record<string, unknow
     const { note_id } = await notebookMan.getRaw(char.noteID);
 
     // Update the database
-    await table('character')
+    const db = await getDB();
+    await db('character')
         .update({ ...newCharacter.toDB(), account_id, note_id })
         .where({ hash_id: charID });
 
@@ -142,7 +146,8 @@ export async function update(charID : string, updateChar : Record<string, unknow
 
 export async function remove(charID : string) : Promise<{ status : 'ok' }>
 {
-    await table('character')
+    const db = await getDB();
+    await db('character')
         .where({ hash_id: charID })
         .delete();
 

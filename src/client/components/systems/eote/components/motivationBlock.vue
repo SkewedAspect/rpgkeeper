@@ -34,7 +34,7 @@
     import { computed, ref } from 'vue';
 
     // Utils
-    import { shortID } from '../../../../../common/utils/misc';
+    import { shortID } from '../../../../lib/utils/misc';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

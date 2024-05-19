@@ -13,7 +13,7 @@ import { useSystemsStore } from '../stores/systems';
 
 // Utils
 import toastUtil from '../utils/toast';
-import { randomColor } from '../../../common/utils/misc';
+import { randomColor } from '../utils/colors';
 
 // Errors
 import { CharacterSaveError, InvalidCharacterError } from '../error';

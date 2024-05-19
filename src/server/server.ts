@@ -2,34 +2,22 @@
 // Main server module for RPGKeeper.
 //----------------------------------------------------------------------------------------------------------------------
 
-// This has to be first, for reasons
 import 'dotenv/config';
-import configUtil from '@strata-js/util-config';
 
-configUtil.load(`./config.yml`);
+import { resolve } from 'node:path';
+import http from 'node:http';
+import { AddressInfo } from 'node:net';
 
-// ---------------------------------------------------------------------------------------------------------------------
-
-import path from 'path';
-import { AddressInfo } from 'net';
-import express, { Express } from 'express';
-import bodyParser from 'body-parser';
+import express, { Request, Response } from 'express';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from 'passport';
 import helmet from 'helmet';
-
+import configUtil from '@strata-js/util-config';
 import logging from '@strata-js/util-logging';
-
-import http from 'http';
 import { Server as SIOServer } from 'socket.io';
 
-// Interfaces
-import { RPGKeeperConfig } from '../common/interfaces/config';
-
 // Managers
-import * as dbMan from './managers/database';
-import * as accountMan from './managers/account';
 import * as permsMan from './managers/permissions';
 
 // Session Store
@@ -39,25 +27,37 @@ const KnexSessionStore = connectSessionKnex(session);
 // Auth
 import GoogleAuth from './auth/google';
 
+// Interfaces
+import { ServerConfig } from '../common/interfaces/config';
+
 // Routes
-import { requestLogger, serveIndex, errorLogger } from './routes/utils';
+import authRouter from './routes/auth';
 import noteRouter from './routes/notebook';
 import charRouter from './routes/characters';
 import sysRouter from './routes/systems';
 import accountsRouter from './routes/accounts';
 import rolesRouter from './routes/roles';
-
-// Version information
+import versionRouter from './routes/version';
 
 // Utils
+import { errorLogger, requestLogger, serveIndex } from './routes/utils';
 import { setSIOInstance } from './utils/sio';
 import program from './utils/args';
 import { getVersion } from './utils/version';
+import { getDB } from './utils/database';
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Server Configuration
+// ---------------------------------------------------------------------------------------------------------------------
+
+const env = (process.env.ENVIRONMENT ?? 'local').toLowerCase();
+configUtil.load(`./config/${ env }.yml`);
+
+const config = configUtil.get<ServerConfig>();
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 const logger = logging.getLogger('server');
-const config = configUtil.get<RPGKeeperConfig>();
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handler
@@ -72,23 +72,25 @@ process.on('uncaughtException', (err) =>
 // Main Function
 //----------------------------------------------------------------------------------------------------------------------
 
-/**
- * Main function
- */
-async function main() : Promise<{ app : Express, sio : any, server : any }>
+async function main() : Promise<void>
 {
+    let devMode = false;
+    if(program.args.includes('--dev'))
+    {
+        devMode = true;
+    }
+
     //------------------------------------------------------------------------------------------------------------------
     // Initialize managers
     //------------------------------------------------------------------------------------------------------------------
 
-    await dbMan.init();
     await permsMan.init();
 
     //------------------------------------------------------------------------------------------------------------------
 
     const store = new KnexSessionStore({
-        sidfieldname: config.key as string | undefined,
-        knex: dbMan.getDB() as any, // This is because this library's typing is foobar'd.
+        sidfieldname: config.auth.session.key,
+        knex: await getDB() as any,
         createtable: true,
 
         // Clear expired sessions. (1 hour)
@@ -97,27 +99,26 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
 
     //------------------------------------------------------------------------------------------------------------------
 
+    // Get version
+    const version = await getVersion();
+
     // Build the express app
     const app = express();
 
-    // Basic security fixes
-    app.use(helmet({
-        contentSecurityPolicy: false,
-        crossOriginEmbedderPolicy: false // This might be useful to enable, but skip it for now
-    }));
+    // Middleware
+    app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false }));
+    app.use(express.json());
+    app.use(cookieParser());
 
     // Basic request logging
     app.use(requestLogger(logger));
 
-    // Auth support
-    app.use(cookieParser());
-    app.use(bodyParser.json());
-
-    const httpSecureCookie = config.http.secure.toLowerCase() === 'true';
+    // Session support
+    const httpSecureCookie = config.http.secure;
 
     app.use(session({
-        secret: config.secret,
-        key: config.key,
+        secret: config.auth.session.secret,
+        name: config.auth.session.key,
         resave: false,
         store,
 
@@ -131,40 +132,20 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     app.use(passport.session());
 
     // Set up our authentication support
-    GoogleAuth.initialize(app);
-
-    // Auth override
-    if(config.overrideAuth)
-    {
-        // Middleware to skip authentication, for testing with postman, or unit tests.
-        app.use(async(req, _resp, next) =>
-        {
-            let account = app.get('user');
-
-            // Check for an email header. Even if `app.user` is set, this overrides (this keeps the code simpler).
-            const email = req.get('auth-email');
-            if(email)
-            {
-                account = await accountMan.getByEmail(email);
-            }
-
-            if(account)
-            {
-                logger.warn(`Forcing auth to account: ${ account.email }`);
-                req.user = account;
-            }
-            next?.();
-        });
-    }
+    GoogleAuth.initialize(config, app, devMode);
 
     //------------------------------------------------------------------------------------------------------------------
     // Routing
     //------------------------------------------------------------------------------------------------------------------
 
     // Setup static serving
-    app.use(express.static(path.resolve(__dirname, '..', 'client')));
+    app.use(express.static(resolve(__dirname, '..', 'client')));
 
-    // Set up our application routes
+    // Core Application Routes
+    app.use('/auth', authRouter);
+    app.use('/version', versionRouter);
+
+    // Api Routes
     app.use('/api/characters', charRouter);
     app.use('/api/systems', sysRouter);
     app.use('/api/accounts', accountsRouter);
@@ -176,7 +157,7 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     {
         response.format({
             html: serveIndex,
-            json: (_req, resp) =>
+            json: (_req : Request, resp : Response) =>
             {
                 resp.status(404).end();
             }
@@ -191,22 +172,28 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
     //------------------------------------------------------------------------------------------------------------------
 
     const server = http.createServer(app);
-    const version = await getVersion();
 
+    // Socket.IO
     const sio = new SIOServer(server);
-
-    // Send the sio server to the sio utility
     setSIOInstance(sio);
 
+    let httpPort = config.http.port;
+    if(devMode)
+    {
+        httpPort -= 1;
+        logger.debug(`Starting real http server on port ${ httpPort }...`);
+    }
+
     // Start the server
-    server.listen(config.http.port, () =>
+    server.listen(httpPort, config.http.host, () =>
     {
         const { address, port } = server.address() as AddressInfo;
-        const host = address === '::' ? 'localhost' : address;
+        const host = [ '::', '0.0.0.0' ].includes(address) ? 'localhost' : address;
         let actualPort = port;
 
-        if(program.args.includes('--dev'))
+        if(devMode)
         {
+            logger.debug('Launching vite...');
             actualPort += 1;
 
             // Start Vite Dev Server
@@ -218,20 +205,17 @@ async function main() : Promise<{ app : Express, sio : any, server : any }>
             })();
         }
 
-        logger.info(`RPGKeeper v${ version } listening at http://${ host }:${ actualPort }.`);
+        const url = `http://${ host }:${ actualPort }`;
+        logger.info(`RPGKeeper v${ version } listening at ${ url }.`);
     });
-
-    // Return these, to make it easier for unit tests.
-    return { app, sio, server };
 }
 
 //----------------------------------------------------------------------------------------------------------------------
 
-// Execute server
-const loading = main();
-
-//----------------------------------------------------------------------------------------------------------------------
-
-module.exports = { loading };
+main()
+    .catch((error) =>
+    {
+        logger.error('Unexpected error, exiting. Error was:', error.stack);
+    });
 
 //----------------------------------------------------------------------------------------------------------------------

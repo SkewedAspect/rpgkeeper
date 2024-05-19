@@ -39,7 +39,7 @@
     import TalentCard from '../components/talentCard.vue';
 
     // Utils
-    import { sortBy } from '../../../../../common/utils/misc';
+    import { sortBy } from '../../../../lib/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

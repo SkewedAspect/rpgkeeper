@@ -1,28 +1,29 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Knex Migration configuration
+// Auth Router
 //----------------------------------------------------------------------------------------------------------------------
 
-import 'dotenv/config';
-import configUtil from '@strata-js/util-config';
-import type { Knex } from 'knex';
-
-import { ServerConfig } from './src/common/interfaces/config';
+import express from 'express';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const env = (process.env.ENVIRONMENT ?? 'local').toLowerCase();
-configUtil.load(`./config/${ env }.yml`);
+const router = express.Router();
+
+// Get Current User
+router.get('/user', (req, resp) =>
+{
+    resp.json(req.user);
+});
+
+// Logout endpoint
+router.post('/logout', (req, res, done) =>
+{
+    req.logout(done);
+    res.end();
+});
+
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
-    ...configUtil.get<ServerConfig>().database ?? {},
-    migrations: {
-        directory: './src/server/knex/migrations'
-    },
-    seeds: {
-        directory: './src/server/knex/seeds'
-    }
-} satisfies Knex.Config;
+export default router;
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -72,7 +72,7 @@
     import Reference from '../../../character/referenceBlock.vue';
 
     // Utils
-    import { uniqBy } from '../../../../../common/utils/misc';
+    import { uniqBy } from '../../../../lib/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -72,7 +72,7 @@
     import ReferenceBlock from '../../../character/referenceBlock.vue';
 
     // Utils
-    import { startCase } from '../../../../../common/utils/misc';
+    import { startCase } from '../../../../lib/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

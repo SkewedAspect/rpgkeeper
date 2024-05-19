@@ -106,7 +106,7 @@
     import { EoteCharacteristics, EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
 
     // Utils
-    import { startCase } from '../../../../../common/utils/misc';
+    import { startCase } from '../../../../lib/utils/misc';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

@@ -2,17 +2,18 @@
 // Roles Manager
 // ---------------------------------------------------------------------------------------------------------------------
 
-// Managers
-import { table } from './database';
-
 // Models
 import { Role } from '../models/role';
+
+// Utils
+import { getDB } from '../utils/database';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export async function list() : Promise<Role[]>
 {
-    return (await table('role as r').select('r.role_id as id', 'r.name', 'r.permissions'))
+    const db = await getDB();
+    return (await db('role as r').select('r.role_id as id', 'r.name', 'r.permissions'))
         .map(Role.fromDB);
 }
 

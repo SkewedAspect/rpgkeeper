@@ -1,22 +1,22 @@
 {
     "compilerOptions": {
         "composite": true,
+        "target": "ES2020",
         "rootDir": "..",
         "outDir": "../../dist",
-        "target": "ES2022",
         "skipLibCheck": true,
-
-        // Overrides
         "module": "CommonJS",
         "moduleResolution": "node",
+
+        // Overrides
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
+        "resolveJsonModule": true
     },
     "files": [
         "./server.ts"
     ],
     "include": [
-        "../common/interfaces",
         "../common/**/*.ts",
         "**/*.ts",
     ]

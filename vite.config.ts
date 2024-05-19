@@ -2,12 +2,28 @@
 // Vite Config
 //----------------------------------------------------------------------------------------------------------------------
 
+import 'dotenv/config';
 import { defineConfig } from 'vite';
 
 // Vite Plugins
 import vue from '@vitejs/plugin-vue';
 import Components from 'unplugin-vue-components/vite';
 import { BootstrapVueNextResolver } from 'unplugin-vue-components/resolvers';
+
+// Interfaces
+import { ServerConfig } from './src/common/interfaces/config';
+
+// Utils
+import configUtil from '@strata-js/util-config';
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Configuration
+// ---------------------------------------------------------------------------------------------------------------------
+
+const env = (process.env.ENVIRONMENT ?? 'local').toLowerCase();
+configUtil.load(`./config/${ env }.yml`);
+
+const config = configUtil.get<ServerConfig>();
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -67,12 +83,14 @@ export default defineConfig({
         }
     },
     server: {
-        port: 5679,
+        host: config.http.host,
+        port: config.http.port,
         proxy: {
-            '/auth': 'http://localhost:5678',
-            '/api': 'http://localhost:5678',
+            '/auth': `http://127.0.0.1:${ config.http.port - 1 }`,
+            '/api': `http://127.0.0.1:${ config.http.port - 1 }`,
+            '/version': `http://127.0.0.1:${ config.http.port - 1 }`,
             '/socket.io': {
-                target: 'http://localhost:5678',
+                target: `http://127.0.0.1:${ config.http.port - 1 }`,
                 ws: true
             }
         },

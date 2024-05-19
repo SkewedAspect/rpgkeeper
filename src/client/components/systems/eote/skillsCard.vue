@@ -228,7 +228,7 @@
     import EditModal from './modals/editSkillsModal.vue';
 
     // Utils
-    import { startCase } from '../../../../common/utils/misc';
+    import { startCase } from '../../../lib/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -11,7 +11,7 @@ import { getSupplementDecoder } from '../decoders/supplement';
 import { SupplementOptions } from '../../common/interfaces/models/supplement';
 
 // Utils
-import { snakeCaseKeys } from '../../common/utils/misc';
+import { snakeCaseKeys } from '../utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -62,7 +62,7 @@
     import { EoteTalentInst, GenesysTalent } from '../../../../../common/interfaces/systems/eote';
 
     // Utils
-    import { shortID } from '../../../../../common/utils/misc';
+    import { shortID } from '../../../../lib/utils/misc';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

@@ -1,16 +1,16 @@
 {
     "compilerOptions": {
-        "useDefineForClassFields": true,
-        "lib": [ "ES2022", "DOM", "DOM.Iterable" ],
+        "target": "ES2020",
+        "module": "CommonJS",
+        "lib": [ "ES2020" ],
         "skipLibCheck": true,
-        "target": "ES2022",
-        "module": "ES2022",
+        "useDefineForClassFields": true,
 
         /* Bundler mode */
-        "moduleResolution": "bundler",
+        "moduleResolution": "node",
         "allowImportingTsExtensions": true,
-        // We can't use this, since we use const enums.
-        //"isolatedModules": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
         "noEmit": true,
         "jsx": "preserve",
 
@@ -18,15 +18,14 @@
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": false
+        "noFallthroughCasesInSwitch": true
     },
     "include": [
-        "src",
-        "vite.config.ts"
+        "vite.config.ts",
+        "knexfile.ts"
     ],
     "references": [
-        { "path": "./src/server/tsconfig.json" },
         { "path": "./src/client/tsconfig.json" },
+        { "path": "./src/server/tsconfig.json" }
     ]
 }

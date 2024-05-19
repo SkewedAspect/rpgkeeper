@@ -47,7 +47,7 @@
     import TalentPlaceholder from '../components/talentPlaceholder.vue';
 
     // Utils
-    import { sortBy } from '../../../../../common/utils/misc';
+    import { sortBy } from '../../../../lib/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

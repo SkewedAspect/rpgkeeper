@@ -72,7 +72,7 @@
     import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Utils
-    import { startCase } from '../../../../common/utils/misc';
+    import { startCase } from '../../../lib/utils/misc';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';

@@ -5,16 +5,18 @@
         "outDir": "../../dist",
         "skipLibCheck": true,
         "target": "ES2022",
+        "module": "ES2022",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
+        "moduleResolution": "bundler",
 
         // Overrides
-        "lib": ["ES2022", "DOM", "DOM.Iterable"],
-        "module": "Node16",
-        "moduleResolution": "node16",
         "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true
     },
     "include": [
         "../common/**/*.ts",
         "**/*.ts",
         "**/*.vue",
+        "components.d.ts"
     ]
 }

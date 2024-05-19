@@ -7,7 +7,6 @@ import { Knex } from 'knex';
 import logging from '@strata-js/util-logging';
 
 // Managers
-import { table } from './database';
 import * as accountMan from './account';
 import * as permMan from './permissions';
 
@@ -16,9 +15,10 @@ import { Account } from '../models/account';
 import { Supplement } from '../models/supplement';
 
 // Utilities
+import { getDB } from '../utils/database';
 import { applyFilters } from '../knex/utils';
-import { FilterToken } from '../routes/utils/query';
-import { camelCaseKeys } from '../../common/utils/misc';
+import { FilterToken } from '../routes/utils';
+import { camelCaseKeys } from '../utils/misc';
 
 // Errors
 import { MultipleResultsError, DuplicateSupplementError, NotFoundError, NotAuthorizedError } from '../errors';
@@ -125,7 +125,8 @@ async function $ensureCorrectOwner(
 export async function get(id : number, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
 {
     const tableName = `${ systemPrefix }_${ type }`;
-    const query = table(`${ tableName } as t`)
+    const db = await getDB();
+    const query = db(`${ tableName } as t`)
         .select('t.*', 'a.hash_id as ownerHash')
         .leftJoin('account as a', 'a.account_id', '=', 't.owner')
         .where({ id });
@@ -154,7 +155,8 @@ export async function list(
 ) : Promise<Supplement[]>
 {
     const tableName = `${ systemPrefix }_${ type }`;
-    let query = table(`${ tableName } as t`)
+    const db = await getDB();
+    let query = db(`${ tableName } as t`)
         .select('t.*', 'a.hash_id as ownerHash')
         .leftJoin('account as a', 'a.account_id', '=', 't.owner');
 
@@ -188,6 +190,7 @@ export async function add(
     account ?: Account
 ) : Promise<Supplement>
 {
+    const db = await getDB();
     const tableName = `${ systemPrefix }_${ type }`;
     const supplement = Supplement.fromJSON(systemPrefix, type, newSupplement);
 
@@ -202,7 +205,7 @@ export async function add(
 
     // First, we check to see if we already have one that matches the unique constraint. We do this manually, because
     // it's very hard to catch specific sqlite errors reliably, so we do the check explicitly.
-    const suppExists = (await table(tableName)
+    const suppExists = (await db(tableName)
         .select()
         .where({ scope: supplement.scope, owner: supplement.owner ?? null, name: supplement.name })).length > 0;
 
@@ -228,7 +231,7 @@ export async function add(
     // =====================================================================================
 
     // Now, we insert the supplement
-    const [ id ] = await table(tableName).insert({ ...supplement.toDB(), owner });
+    const [ id ] = await db(tableName).insert({ ...supplement.toDB(), owner });
 
     // Return the inserted supplement
     return get(id, type, systemPrefix, account);
@@ -241,6 +244,7 @@ export async function update(
     systemPrefix : string, account ?: Account
 ) : Promise<Supplement>
 {
+    const db = await getDB();
     const supplement = await get(id, type, systemPrefix, account);
     const tableName = `${ systemPrefix }_${ type }`;
 
@@ -278,7 +282,7 @@ export async function update(
     // =====================================================================================
 
     // Now, we update the supplement
-    await table(tableName)
+    await db(tableName)
         .update({ ...newSupplement.toDB(), owner })
         .where({ id });
 
@@ -293,6 +297,7 @@ export async function remove(
     account ?: Account
 ) : Promise<{ status : 'ok' }>
 {
+    const db = await getDB();
     const supplement = await get(id, type, systemPrefix, account).catch(() => undefined);
     const tableName = `${ systemPrefix }_${ type }`;
 
@@ -302,7 +307,7 @@ export async function remove(
         await $checkModAccess(supplement, systemPrefix, type, account);
 
         // Delete the supplement
-        await table(tableName)
+        await db(tableName)
             .delete()
             .where({ id });
     }

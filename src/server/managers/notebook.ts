@@ -2,14 +2,12 @@
 // Notes Manager
 // ---------------------------------------------------------------------------------------------------------------------
 
-// Managers
-import { table } from './database';
-
 // Models
 import { Notebook, NotebookPage } from '../models/notebook';
 
 // Utils
-import { shortID } from '../../common/utils/misc';
+import { getDB } from '../utils/database';
+import { shortID } from '../utils/misc';
 import { MultipleResultsError, NotFoundError } from '../errors';
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -24,7 +22,8 @@ export interface NoteFilters {
 
 export async function get(notebookID : string) : Promise<Notebook>
 {
-    const pages = (await table('note_page as np')
+    const db = await getDB();
+    const pages = (await db('note_page as np')
         .select(
             'page_id as id',
             'n.hash_id as notebookID',
@@ -40,7 +39,8 @@ export async function get(notebookID : string) : Promise<Notebook>
 
 export async function list(filters : NoteFilters) : Promise<Notebook[]>
 {
-    const query = table('note as n')
+    const db = await getDB();
+    const query = db('note as n')
         .select('n.hash_id as notebookID')
         .distinct('n.hash_id')
         .leftJoin('note_page as np', 'np.note_id', '=', 'n.note_id')
@@ -71,7 +71,8 @@ export async function list(filters : NoteFilters) : Promise<Notebook[]>
 
 export async function getRaw(notebookID : string) : Promise<Record<string, unknown>>
 {
-    const notebooks = await table('note')
+    const db = await getDB();
+    const notebooks = await db('note')
         .select()
         .where({ hash_id: notebookID });
 
@@ -91,7 +92,8 @@ export async function getRaw(notebookID : string) : Promise<Record<string, unkno
 
 export async function getPage(pageID : string | number) : Promise<NotebookPage>
 {
-    const pages = await table('note_page as np')
+    const db = await getDB();
+    const pages = await db('note_page as np')
         .select(
             'page_id as id',
             'n.hash_id as notebookID',
@@ -117,9 +119,10 @@ export async function getPage(pageID : string | number) : Promise<NotebookPage>
 
 export async function addPage(notebookID : string, page : Record<string, unknown>) : Promise<NotebookPage>
 {
+    const db = await getDB();
     const notePage = NotebookPage.fromJSON({ ...page, notebookID });
 
-    const [ notebook ] = await table('note')
+    const [ notebook ] = await db('note')
         .select('note_id as id')
         .where({ hash_id: notebookID })
         .catch(() =>
@@ -127,7 +130,7 @@ export async function addPage(notebookID : string, page : Record<string, unknown
             throw new NotFoundError(`No notebook record found for id '${ notebookID }'`);
         });
 
-    const [ pageID ] = await table('note_page')
+    const [ pageID ] = await db('note_page')
         .insert({ ...notePage.toDB(), note_id: notebook.id });
 
     // Return the notebook page
@@ -136,9 +139,10 @@ export async function addPage(notebookID : string, page : Record<string, unknown
 
 export async function add(pages : Record<string, unknown>[] = []) : Promise<Notebook>
 {
+    const db = await getDB();
     const newNoteID = shortID();
 
-    await table('note')
+    await db('note')
         .insert({ hash_id: newNoteID });
 
     // Add any pages that were specified
@@ -171,7 +175,8 @@ export async function updatePage(pageID : string | number, pageUpdate : Record<s
     const { note_id, ...dbRest } = newPage.toDB();
 
     // Update the database
-    await table('note_page')
+    const db = await getDB();
+    await db('note_page')
         .update(dbRest)
         .where({ page_id: pageID });
 
@@ -181,7 +186,8 @@ export async function updatePage(pageID : string | number, pageUpdate : Record<s
 
 export async function removePage(pageID : string) : Promise<{ status : 'ok' }>
 {
-    await table('note_page')
+    const db = await getDB();
+    await db('note_page')
         .where({ page_id: pageID })
         .delete();
 
@@ -190,7 +196,8 @@ export async function removePage(pageID : string) : Promise<{ status : 'ok' }>
 
 export async function remove(notebookID : string) : Promise<{ status : 'ok' }>
 {
-    await table('note')
+    const db = await getDB();
+    await db('note')
         .where({ hash_id: notebookID })
         .delete();
 

@@ -143,7 +143,7 @@
     import { BModal } from 'bootstrap-vue-next';
 
     // Utils
-    import { startCase, uniqBy } from '../../../../../common/utils/misc';
+    import { startCase, uniqBy } from '../../../../lib/utils/misc';
     import CloseButton from '../../../ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------

@@ -2,9 +2,6 @@
 // Account Manager
 // ---------------------------------------------------------------------------------------------------------------------
 
-// Managers
-import { table } from './database';
-
 // Models
 import { Account } from '../models/account';
 
@@ -12,7 +9,8 @@ import { Account } from '../models/account';
 import { MultipleResultsError, NotFoundError } from '../errors';
 
 // Utils
-import { shortID } from '../../common/utils/misc';
+import { getDB } from '../utils/database';
+import { shortID } from '../utils/misc';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -26,7 +24,8 @@ export interface AccountFilters {
 
 export async function list(filters : AccountFilters) : Promise<Account[]>
 {
-    const query = table('account')
+    const db = await getDB();
+    const query = db('account')
         .select(
             'hash_id as id',
             'email',
@@ -56,7 +55,8 @@ export async function list(filters : AccountFilters) : Promise<Account[]>
 
 export async function getGroups(accountID : string) : Promise<string[]>
 {
-    const roles = await table('account as ac')
+    const db = await getDB();
+    const roles = await db('account as ac')
         .select('r.name as name', 'r.role_id as id')
         .join('account_role as ar', 'ac.account_id', '=', 'ar.account_id')
         .join('role as r', 'ar.role_id', '=', 'r.role_id')
@@ -69,7 +69,8 @@ export async function getGroups(accountID : string) : Promise<string[]>
 
 export async function getRaw(accountID : string) : Promise<Record<string, unknown>>
 {
-    const accounts = await table('account')
+    const db = await getDB();
+    const accounts = await db('account')
         .select(
             'account_id',
             'hash_id as id',
@@ -106,7 +107,8 @@ export async function get(accountID : string) : Promise<Account>
 
 export async function getByEmail(email : string) : Promise<Account>
 {
-    const accounts = await table('account')
+    const db = await getDB();
+    const accounts = await db('account')
         .select(
             'hash_id as id',
             'email',
@@ -135,7 +137,8 @@ export async function getByEmail(email : string) : Promise<Account>
 export async function add(newAccount : Record<string, unknown>) : Promise<Account>
 {
     const account = Account.fromJSON({ ...newAccount, id: shortID(), created: Date.now() });
-    await table('account')
+    const db = await getDB();
+    await db('account')
         .insert(account.toDB());
 
     return get(account.id);
@@ -158,7 +161,8 @@ export async function update(accountID : string, accountUpdate : Record<string, 
     const newAccount = Account.fromJSON(allowedUpdate);
 
     // Update the database
-    await table('account')
+    const db = await getDB();
+    await db('account')
         .update(newAccount.toDB())
         .where({ hash_id: accountID });
 
@@ -168,7 +172,8 @@ export async function update(accountID : string, accountUpdate : Record<string, 
 
 export async function remove(accountID : string) : Promise<{ status : 'ok' }>
 {
-    await table('account')
+    const db = await getDB();
+    await db('account')
         .where({ hash_id: accountID })
         .delete();
 

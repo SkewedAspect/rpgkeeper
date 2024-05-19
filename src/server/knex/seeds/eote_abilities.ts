@@ -4,7 +4,7 @@
 
 import { Knex } from 'knex';
 
-import { sortBy } from '../../../common/utils/misc';
+import { sortBy } from '../../utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 
