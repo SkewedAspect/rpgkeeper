@@ -3,16 +3,17 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
+import { processRequest } from 'zod-express-middleware';
 
 // Managers
 import * as accountMan from '../managers/account';
 import * as permsMan from '../managers/permissions';
 
-// Models
-// import { Account } from '../models/account';
+// Validation
+import * as AccountValidators from '../engines/validation/models/account';
 
 // Utils
-import { convertQueryToRecord, ensureAuthenticated, errorHandler } from './utils';
+import { ensureAuthenticated, errorHandler } from './utils';
 
 // Logger
 import logging from '@strata-js/util-logging';
@@ -24,23 +25,16 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', async(req, resp) =>
+router.get('/', processRequest({ query: AccountValidators.AccountFilter }), async(req, resp) =>
 {
-    const query = convertQueryToRecord(req);
-    const filters = {
-        id: query.id,
-        email: query.email,
-        name: query.name
-    };
-
-    resp.json((await accountMan.list(filters)).map((accountObj) =>
+    resp.json((await accountMan.list(req.query)).map((accountObj) =>
     {
         const { permissions, settings, groups, ...restAccount } = accountObj;
         return restAccount;
     }));
 });
 
-router.get('/:accountID', async(req, resp) =>
+router.get('/:accountID', processRequest({ params: AccountValidators.UpdateParams }), async(req, resp) =>
 {
     const user = req.user;
     const account = await accountMan.get(req.params.accountID);
@@ -58,12 +52,20 @@ router.get('/:accountID', async(req, resp) =>
     }
 });
 
-router.patch('/:accountID', ensureAuthenticated, async(req, resp) =>
-{
-    // Update the account
-    const newAccount = await accountMan.update(req.params.accountID, req.body);
-    resp.json(newAccount);
-});
+router.patch(
+    '/:accountID',
+    ensureAuthenticated,
+    processRequest({
+        params: AccountValidators.UpdateParams,
+        body: AccountValidators.Account.partial({ id: true })
+    }),
+    async(req, resp) =>
+    {
+        // Update the account
+        const newAccount = await accountMan.update(req.params.accountID, req.body);
+        resp.json(newAccount);
+    }
+);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handling
