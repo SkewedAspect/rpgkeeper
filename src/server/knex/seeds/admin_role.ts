@@ -25,15 +25,6 @@ exports.seed = async(knex) =>
             permissions: '["*/*"]',
             settings: '{}',
             created: knex.fn.now()
-        },
-        {
-            account_id: '3VzoXi',
-            email: 'null23544@gmail.com',
-            name: 'Lord Null',
-            avatar: 'https://lh6.googleusercontent.com/-uCa4jsA-_i0/AAAAAAAAAAI/AAAAAAAAAB4/chnr3xPv3_c/s96-c/photo.jpg?sz=512',
-            permissions: '[]',
-            settings: '{}',
-            created: knex.fn.now()
         }
     ];
 
@@ -55,7 +46,7 @@ exports.seed = async(knex) =>
     for(const account of admins)
     {
         const exists = (await knex('account').select()
-            .where({ account_id: account.account_id })).length > 0;
+            .where({ email: account.email })).length > 0;
         if(!exists)
         {
             await knex('account').insert(account);
@@ -73,7 +64,7 @@ exports.seed = async(knex) =>
     for(const account of mods)
     {
         const exists = (await knex('account').select()
-            .where({ account_id: account.account_id })).length > 0;
+            .where({ email: account.email })).length > 0;
         if(!exists)
         {
             await knex('account').insert(account);

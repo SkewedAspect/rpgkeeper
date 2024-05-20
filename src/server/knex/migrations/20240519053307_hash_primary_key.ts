@@ -243,15 +243,13 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
     // Step 5: Re-add Indexes
     //------------------------------------------------------------------------------------------------------------------
 
-    knex.schema.table('account', (table) =>
+    await knex.schema.table('account', (table) =>
     {
-        table.dropUnique([ 'email' ]);
         table.unique('email');
     });
 
-    knex.schema.table('account_role', (table) =>
+    await knex.schema.table('account_role', (table) =>
     {
-        table.dropIndex([ 'account_id', 'role_id' ]);
         table.unique([ 'account_id', 'role_id' ]);
     });
 }
@@ -505,15 +503,13 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
     // Step 5: Re-add Indexes
     //------------------------------------------------------------------------------------------------------------------
 
-    knex.schema.table('account', (table) =>
+    await knex.schema.table('account', (table) =>
     {
-        table.dropUnique([ 'email' ]);
         table.unique('email');
     });
 
-    knex.schema.table('account_role', (table) =>
+    await knex.schema.table('account_role', (table) =>
     {
-        table.dropIndex([ 'account_id', 'role_id' ]);
         table.unique([ 'account_id', 'role_id' ]);
     });
 }
