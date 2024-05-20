@@ -52,7 +52,7 @@ export class Supplement
             scope: this.scope,
             official: this.official
         };
-    } // end
+    }
 
     public toDB() : Record<string, unknown>
     {

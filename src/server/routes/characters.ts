@@ -12,7 +12,6 @@ import sysMan from '../managers/system';
 
 // Utils
 import { convertQueryToRecord, ensureAuthenticated, errorHandler, interceptHTML, parseQuery } from './utils';
-import { Account } from '../models/account';
 
 // Logger
 import logging from '@strata-js/util-logging';
@@ -52,6 +51,8 @@ router.get('/', async(req, resp) =>
 
         const filters = parseQuery(query);
 
+        console.log('filters:', filters);
+
         resp.json(await charMan.list(filters));
     });
 });
@@ -63,7 +64,7 @@ router.post('/', ensureAuthenticated, async(req, resp) =>
 
     if(system)
     {
-        resp.json(await charMan.add((req.user as Account).id, char));
+        resp.json(await charMan.add(req.user.id, char));
     }
     else
     {
@@ -94,7 +95,7 @@ router.patch('/:charID', ensureAuthenticated, async(req, resp) =>
     if(system)
     {
         // Allow either the owner, or moderators/admins to modify the character
-        if(char.accountID === (req.user as Account).id || permsMan.hasPerm(req.user as Account, `${ char.system }/canModifyChar`))
+        if(char.accountID === req.user.id || permsMan.hasPerm(req.user, `${ char.system }/canModifyChar`))
         {
             // Update the character
             resp.json(await charMan.update(req.params.charID, req.body));
@@ -141,7 +142,7 @@ router.delete('/:charID', ensureAuthenticated, async(req, resp) =>
     }
 
     // Allow either the owner, or moderators/admins to delete the character
-    if(char.accountID === (req.user as Account).id || permsMan.hasPerm(req.user as Account, `${ char.system }/canDeleteChar`))
+    if(char.accountID === req.user.id || permsMan.hasPerm(req.user, `${ char.system }/canDeleteChar`))
     {
         // Delete the character
         resp.json(await charMan.remove(req.params.charID));

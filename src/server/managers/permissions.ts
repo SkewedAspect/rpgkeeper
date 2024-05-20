@@ -8,7 +8,7 @@ import tp from 'trivialperms';
 import * as rolesMan from './roles';
 
 // Models
-import { Account } from '../models/account';
+import { Account } from '../../common/interfaces/models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 

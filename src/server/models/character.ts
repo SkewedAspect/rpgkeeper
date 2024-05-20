@@ -62,7 +62,7 @@ export class Character<Details extends SystemDetails = SystemDetails>
             campaign: this.campaign,
             details: this.details
         };
-    } // end
+    }
 
     public toDB() : Record<string, unknown>
     {

@@ -36,7 +36,7 @@ export class Role
             name: this.name,
             permissions: this.permissions
         };
-    } // end
+    }
 
     public toDB() : Record<string, unknown>
     {

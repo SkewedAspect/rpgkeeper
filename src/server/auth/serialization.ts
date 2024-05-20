@@ -8,7 +8,7 @@ import passport from 'passport';
 import * as accountMan from '../managers/account';
 
 // Models
-import { Account } from '../models/account';
+import { Account } from '../../common/interfaces/models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 

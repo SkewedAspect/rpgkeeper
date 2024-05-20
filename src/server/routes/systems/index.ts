@@ -2,7 +2,6 @@
 // Routes for system operations
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
 import express from 'express';
 
 // Managers
@@ -11,7 +10,6 @@ import systemMan from '../../managers/system';
 
 // Utils
 import { errorHandler, interceptHTML } from '../utils';
-import { Account } from '../../models/account';
 
 // Sub-routes
 import eoteRouter from './eote';
@@ -33,8 +31,7 @@ router.get('/', (request, response) =>
         const systems = systemMan.systems
             .filter((system) =>
             {
-                const user = _.get(request, 'user', { permissions: [], groups: [] });
-                return permMan.hasPerm(user as Account, 'Systems/viewDisabled') || system.status !== 'disabled';
+                return permMan.hasPerm(request.user, 'Systems/viewDisabled') || system.status !== 'disabled';
             });
 
         response.json(systems);

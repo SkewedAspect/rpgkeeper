@@ -14,7 +14,8 @@
         "resolveJsonModule": true
     },
     "files": [
-        "./server.ts"
+        "./server.ts",
+        "express-shim.d.ts"
     ],
     "include": [
         "../common/**/*.ts",

@@ -10,7 +10,7 @@ import logging from '@strata-js/util-logging';
 import * as permMan from './permissions';
 
 // Models
-import { Account } from '../models/account';
+import { Account } from '../../common/interfaces/models/account';
 import { Supplement } from '../models/supplement';
 
 // Utilities

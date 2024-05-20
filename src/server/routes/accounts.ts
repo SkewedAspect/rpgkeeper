@@ -9,7 +9,7 @@ import * as accountMan from '../managers/account';
 import * as permsMan from '../managers/permissions';
 
 // Models
-import { Account } from '../models/account';
+// import { Account } from '../models/account';
 
 // Utils
 import { convertQueryToRecord, ensureAuthenticated, errorHandler } from './utils';
@@ -27,7 +27,12 @@ const router = express.Router();
 router.get('/', async(req, resp) =>
 {
     const query = convertQueryToRecord(req);
-    const filters = { id: query.id, email: query.email, name: query.name };
+    const filters = {
+        id: query.id,
+        email: query.email,
+        name: query.name
+    };
+
     resp.json((await accountMan.list(filters)).map((accountObj) =>
     {
         const { permissions, settings, groups, ...restAccount } = accountObj;
@@ -37,7 +42,7 @@ router.get('/', async(req, resp) =>
 
 router.get('/:accountID', async(req, resp) =>
 {
-    const user = req.user as Account;
+    const user = req.user;
     const account = await accountMan.get(req.params.accountID);
 
     const sameOrAdmin = user && (user.id === req.params.accountID || permsMan.hasPerm(user, `Accounts/canViewDetails`));

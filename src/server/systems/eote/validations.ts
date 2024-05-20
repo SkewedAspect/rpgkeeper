@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from '../../models/account';
+import { Account } from '../../../common/interfaces/models/account';
 import { Character } from '../../models/character';
 
 // Managers

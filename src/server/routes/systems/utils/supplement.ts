@@ -7,9 +7,6 @@ import { IRouter } from 'express';
 // Managers
 import * as suppMan from '../../../managers/supplement';
 
-// Models
-import { Account } from '../../../models/account';
-
 // Utils
 import { ensureAuthenticated, parseQuery, convertQueryToRecord } from '../../utils';
 
@@ -25,7 +22,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
     {
         const query = convertQueryToRecord(req);
         const filters = parseQuery(query);
-        resp.json(await suppMan.list(filters, type, systemPrefix, req.user as Account));
+        resp.json(await suppMan.list(filters, type, systemPrefix, req.user));
     });
 
     router.get(`${ path }/:suppID`, async(req, resp) =>
@@ -33,7 +30,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         const suppID = parseInt(req.params.suppID);
         if(Number.isFinite(suppID))
         {
-            resp.json(await suppMan.get(suppID, type, systemPrefix, req.user as Account));
+            resp.json(await suppMan.get(suppID, type, systemPrefix, req.user));
         }
         else
         {
@@ -47,7 +44,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
 
     router.post(path, ensureAuthenticated, async(req, resp) =>
     {
-        resp.json(await suppMan.add(req.body, type, systemPrefix, req.user as Account));
+        resp.json(await suppMan.add(req.body, type, systemPrefix, req.user));
     });
 
     router.patch(`${ path }/:suppID`, ensureAuthenticated, async(req, resp) =>
@@ -55,7 +52,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         const suppID = parseInt(req.params.suppID);
         if(Number.isFinite(suppID))
         {
-            resp.json(await suppMan.update(suppID, req.body, type, systemPrefix, req.user as Account));
+            resp.json(await suppMan.update(suppID, req.body, type, systemPrefix, req.user));
         }
         else
         {
@@ -72,7 +69,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         const suppID = parseInt(req.params.suppID);
         if(Number.isFinite(suppID))
         {
-            resp.json(await suppMan.remove(suppID, type, systemPrefix, req.user as Account));
+            resp.json(await suppMan.remove(suppID, type, systemPrefix, req.user));
         }
         else
         {

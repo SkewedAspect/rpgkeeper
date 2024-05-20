@@ -38,7 +38,7 @@ export class NotebookPage
             content: this.content,
             notebookID: this.notebookID
         };
-    } // end
+    }
 
     public toDB() : Record<string, unknown>
     {
@@ -94,7 +94,7 @@ export class Notebook
             id: this.id,
             pages: this.pages.map((page) => page.toJSON())
         };
-    } // end
+    }
 
     public toDB() : Record<string, unknown>
     {

@@ -10,9 +10,6 @@ import { convertQueryToRecord, ensureAuthenticated, errorHandler } from './utils
 import * as noteMan from '../managers/notebook';
 import { hasPerm } from '../managers/permissions';
 
-// Models
-import { Account } from '../models/account';
-
 // Logger
 import logging from '@strata-js/util-logging';
 const logger = logging.getLogger(module.filename);
@@ -25,7 +22,7 @@ const router = express.Router();
 
 router.get('/', async(req, resp) =>
 {
-    if(req.isAuthenticated() && await hasPerm(req.user as Account, 'Notes/canViewAll'))
+    if(req.isAuthenticated() && await hasPerm(req.user, 'Notes/canViewAll'))
     {
         const query = convertQueryToRecord(req);
         const filters = { id: query.id, email: query.email, title: query.title };

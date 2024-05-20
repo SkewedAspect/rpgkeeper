@@ -36,7 +36,7 @@ export class Reference
             name: this.name,
             productCode: this.productCode
         };
-    } // end
+    }
 
     public toDB() : Record<string, unknown>
     {

@@ -2,9 +2,8 @@
 // Account
 //----------------------------------------------------------------------------------------------------------------------
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AccountSettings {
-    // TODO: Figure out some settings...
+    colorMode ?: 'light' | 'dark' | 'auto';
 }
 
 export interface AccountOptions {
@@ -19,5 +18,7 @@ export interface AccountOptions {
 
 // FIXME: Once Models are removed, `AccountOptions` should be named 'Account'.
 export type Account = AccountOptions;
+
+export type NewAccount = Omit<Account, 'id'>;
 
 //----------------------------------------------------------------------------------------------------------------------
