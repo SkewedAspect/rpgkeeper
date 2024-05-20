@@ -141,4 +141,25 @@ export async function getDB() : Promise<Knex>
     }
 }
 
+export async function runMigrations(runSeeds = true, convertToJs = true) : Promise<void>
+{
+    const db = await getDB();
+
+    if(convertToJs)
+    {
+        // Ensure that the migrations are in .js format
+        await db.update({ name: db.raw('replace(name, \'.ts\', \'.js\')') })
+            .from('knex_migrations');
+    }
+
+    // Run the migrations
+    await db.migrate.latest({ directory: './dist/server/knex/migrations' });
+
+    // Run the seeds
+    if(runSeeds)
+    {
+        await db.seed.run({ directory: './dist/server/knex/seeds' });
+    }
+}
+
 // ---------------------------------------------------------------------------------------------------------------------

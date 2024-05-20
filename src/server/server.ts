@@ -44,7 +44,7 @@ import { errorLogger, requestLogger, serveIndex } from './routes/utils';
 import { setSIOInstance } from './utils/sio';
 import program from './utils/args';
 import { getVersion } from './utils/version';
-import { getDB } from './utils/database';
+import { getDB, runMigrations } from './utils/database';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Server Configuration
@@ -85,6 +85,16 @@ async function main() : Promise<void>
     //------------------------------------------------------------------------------------------------------------------
 
     await permsMan.init();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Database
+    //------------------------------------------------------------------------------------------------------------------
+
+    if(!devMode)
+    {
+        logger.info('Running database migrations...');
+        await runMigrations();
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 
