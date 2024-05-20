@@ -43,13 +43,16 @@ exports.seed = async(knex) =>
     /* eslint-disable no-await-in-loop */
 
     // Do a `mapSeries` over admins, and add them and their `account_role entry`, if needed.
-    for(const account of admins)
+    for(const acc of admins)
     {
-        const exists = (await knex('account').select()
-            .where({ email: account.email })).length > 0;
-        if(!exists)
+        let account = await knex('account').select()
+            .where({ email: acc.email })
+            .first();
+
+        if(!account)
         {
-            await knex('account').insert(account);
+            await knex('account').insert(acc);
+            account = acc;
         }
 
         const linkExists = (await knex('account_role').select()
@@ -61,13 +64,16 @@ exports.seed = async(knex) =>
     }
 
     // Do a `mapSeries` over mods, and add them and their `account_role entry`, if needed.
-    for(const account of mods)
+    for(const acc of mods)
     {
-        const exists = (await knex('account').select()
-            .where({ email: account.email })).length > 0;
-        if(!exists)
+        let account = await knex('account').select()
+            .where({ email: acc.email })
+            .first();
+
+        if(!account)
         {
-            await knex('account').insert(account);
+            await knex('account').insert(acc);
+            account = acc;
         }
 
         const linkExists = (await knex('account_role').select()
