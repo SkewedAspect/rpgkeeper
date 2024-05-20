@@ -8,4 +8,7 @@ export interface RoleOptions {
     permissions : string[];
 }
 
+// FIXME: Once Models are removed, `RoleOptions` should be named 'Role'.
+export type Role = RoleOptions;
+
 //----------------------------------------------------------------------------------------------------------------------

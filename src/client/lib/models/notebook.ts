@@ -3,11 +3,11 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Notes, NotePage } from '../../../common/interfaces/common';
+import { NotebookOptions, NotePage } from '../../../common/interfaces/common';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 export type NotebookPage = NotePage;
-export type Notebook = Notes;
+export type Notebook = NotebookOptions;
 
 //----------------------------------------------------------------------------------------------------------------------

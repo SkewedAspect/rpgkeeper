@@ -15,5 +15,11 @@ export interface NotebookPageOptions {
     notebookID : string;
 }
 
+// FIXME: Once Models are removed, `NotebookOptions` should be named 'Notebook'.
+export type Notebook = NotebookOptions;
+
+// FIXME: Once Models are removed, `NotebookPageOptions` should be named 'NotePage'.
+export type NotePage = NotebookPageOptions;
+
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -13,4 +13,7 @@ export interface SupplementOptions {
     [ key : string ] : unknown;
 }
 
+// FIXME: Once Models are removed, `SupplementOptions` should be named 'Supplement'.
+export type Supplement = SupplementOptions;
+
 //----------------------------------------------------------------------------------------------------------------------

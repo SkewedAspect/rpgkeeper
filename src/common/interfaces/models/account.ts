@@ -17,4 +17,7 @@ export interface AccountOptions {
     settings ?: AccountSettings;
 }
 
+// FIXME: Once Models are removed, `AccountOptions` should be named 'Account'.
+export type Account = AccountOptions;
+
 //----------------------------------------------------------------------------------------------------------------------

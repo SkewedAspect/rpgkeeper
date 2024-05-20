@@ -18,4 +18,7 @@ export interface CharacterOptions<Details extends SystemDetails = SystemDetails>
     details : Details
 }
 
+// FIXME: Once Models are removed, `CharacterOptions` should be named 'Character'.
+export type Character<Details extends SystemDetails = SystemDetails> = CharacterOptions<Details>;
+
 //----------------------------------------------------------------------------------------------------------------------
