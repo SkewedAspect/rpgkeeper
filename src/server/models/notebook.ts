@@ -99,7 +99,7 @@ export class Notebook
     public toDB() : Record<string, unknown>
     {
         return {
-            hash_id: this.id
+            note_id: this.id
         };
     }
 

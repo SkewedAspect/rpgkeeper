@@ -7,7 +7,6 @@ import { Knex } from 'knex';
 import logging from '@strata-js/util-logging';
 
 // Managers
-import * as accountMan from './account';
 import * as permMan from './permissions';
 
 // Models
@@ -40,13 +39,10 @@ async function $checkViewAccess(
         // Generally, this is just going to be admins; but hey, why not let admins see everything?
         if(!permMan.hasPerm(account, `${ systemPrefix }/canViewContent`))
         {
-            // FIXME: This hack should be removed, and `hash_id` should be the foreign_key
-            const { account_id } = await accountMan.getRaw(account.id);
-
             // Add scoping in
             query = query.where(function()
             {
-                this.where({ scope: 'public' }).orWhere({ scope: 'user', owner: account_id });
+                this.where({ scope: 'public' }).orWhere({ scope: 'user', owner: account.id });
             });
         }
     }
@@ -127,7 +123,7 @@ export async function get(id : number, type : string, systemPrefix : string, acc
     const tableName = `${ systemPrefix }_${ type }`;
     const db = await getDB();
     const query = db(`${ tableName } as t`)
-        .select('t.*', 'a.hash_id as ownerHash')
+        .select('t.*', 'a.account_id as ownerHash')
         .leftJoin('account as a', 'a.account_id', '=', 't.owner')
         .where({ id });
 
@@ -157,7 +153,7 @@ export async function list(
     const tableName = `${ systemPrefix }_${ type }`;
     const db = await getDB();
     let query = db(`${ tableName } as t`)
-        .select('t.*', 'a.hash_id as ownerHash')
+        .select('t.*', 'a.account_id as ownerHash')
         .leftJoin('account as a', 'a.account_id', '=', 't.owner');
 
     // Add filters for only what we have access to
@@ -218,20 +214,8 @@ export async function add(
         throw new DuplicateSupplementError(`${ systemPrefix }/${ type }/${ supplement.name }`);
     }
 
-    // =====================================================================================
-    // FIXME: This hack should be removed, and `hash_id` should be the foreign_key
-
-    let owner;
-    if(supplement.scope === 'user' && supplement.owner)
-    {
-        const { account_id } = await accountMan.getRaw(supplement.owner);
-        owner = account_id;
-    }
-
-    // =====================================================================================
-
     // Now, we insert the supplement
-    const [ id ] = await db(tableName).insert({ ...supplement.toDB(), owner });
+    const [ id ] = await db(tableName).insert(supplement.toDB());
 
     // Return the inserted supplement
     return get(id, type, systemPrefix, account);
@@ -269,21 +253,9 @@ export async function update(
     // Make sure we have permission to modify
     await $checkModAccess(newSupplement, systemPrefix, type, account);
 
-    // =====================================================================================
-    // FIXME: This hack should be removed, and `hash_id` should be the foreign_key
-
-    let owner;
-    if(newSupplement.scope === 'user' && newSupplement.owner)
-    {
-        const { account_id } = await accountMan.getRaw(newSupplement.owner);
-        owner = account_id;
-    }
-
-    // =====================================================================================
-
     // Now, we update the supplement
     await db(tableName)
-        .update({ ...newSupplement.toDB(), owner })
+        .update(newSupplement.toDB())
         .where({ id });
 
     // Return the updated supplement

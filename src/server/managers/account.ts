@@ -27,7 +27,7 @@ export async function list(filters : AccountFilters) : Promise<Account[]>
     const db = await getDB();
     const query = db('account')
         .select(
-            'hash_id as id',
+            'account_id as id',
             'email',
             'name',
             'avatar',
@@ -37,7 +37,7 @@ export async function list(filters : AccountFilters) : Promise<Account[]>
 
     if(filters.id)
     {
-        query.where({ hash_id: filters.id });
+        query.where({ account_id: filters.id });
     }
 
     if(filters.email)
@@ -61,19 +61,18 @@ export async function getGroups(accountID : string) : Promise<string[]>
         .join('account_role as ar', 'ac.account_id', '=', 'ar.account_id')
         .join('role as r', 'ar.role_id', '=', 'r.role_id')
         .where({
-            'ac.hash_id': accountID
+            'ac.account_id': accountID
         });
 
     return roles.map((role) => role.name);
 }
 
-export async function getRaw(accountID : string) : Promise<Record<string, unknown>>
+export async function get(accountID : string) : Promise<Account>
 {
     const db = await getDB();
     const accounts = await db('account')
         .select(
-            'account_id',
-            'hash_id as id',
+            'account_id as id',
             'email',
             'name',
             'avatar',
@@ -81,7 +80,7 @@ export async function getRaw(accountID : string) : Promise<Record<string, unknow
             'settings'
         )
         .where({
-            hash_id: accountID
+            account_id: accountID
         });
 
     if(accounts.length > 1)
@@ -95,14 +94,8 @@ export async function getRaw(accountID : string) : Promise<Record<string, unknow
     else
     {
         const groups = await getGroups(accountID);
-        return { ...accounts[0], groups };
+        return Account.fromDB({ ...accounts[0], groups });
     }
-}
-
-export async function get(accountID : string) : Promise<Account>
-{
-    const { account_id, ...restAccount } = await getRaw(accountID);
-    return Account.fromDB(restAccount);
 }
 
 export async function getByEmail(email : string) : Promise<Account>
@@ -110,7 +103,7 @@ export async function getByEmail(email : string) : Promise<Account>
     const db = await getDB();
     const accounts = await db('account')
         .select(
-            'hash_id as id',
+            'account_id as id',
             'email',
             'name',
             'avatar',
@@ -164,7 +157,7 @@ export async function update(accountID : string, accountUpdate : Record<string, 
     const db = await getDB();
     await db('account')
         .update(newAccount.toDB())
-        .where({ hash_id: accountID });
+        .where({ account_id: accountID });
 
     // Return the updated record
     return get(accountID);
@@ -174,7 +167,7 @@ export async function remove(accountID : string) : Promise<{ status : 'ok' }>
 {
     const db = await getDB();
     await db('account')
-        .where({ hash_id: accountID })
+        .where({ account_id: accountID })
         .delete();
 
     return { status: 'ok' };

@@ -70,7 +70,7 @@ export class Character<Details extends SystemDetails = SystemDetails>
         return {
             ...jsonObj,
             details: JSON.stringify(details),
-            hash_id: id,
+            character_id: id,
             account_id: accountID,
             note_id: noteID
         };

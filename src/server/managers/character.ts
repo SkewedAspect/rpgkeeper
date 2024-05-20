@@ -3,7 +3,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Managers
-import * as accountMan from './account';
 import * as notebookMan from './notebook';
 import systemMan from './system';
 
@@ -25,7 +24,7 @@ export async function get(id : string) : Promise<Character>
     const db = await getDB();
     const characters = await db('character as char')
         .select(
-            'char.hash_id as id',
+            'char.character_id as id',
             'char.system',
             'char.name',
             'char.description',
@@ -34,12 +33,12 @@ export async function get(id : string) : Promise<Character>
             'char.color',
             'char.campaign',
             'char.details',
-            'acc.hash_id as accountID',
-            'note.hash_id as noteID'
+            'acc.account_id as accountID',
+            'note.note_id as noteID'
         )
         .join('note', 'note.note_id', '=', 'char.note_id')
         .join('account as acc', 'acc.account_id', '=', 'char.account_id')
-        .where({ 'char.hash_id': id });
+        .where({ 'char.character_id': id });
 
     if(characters.length > 1)
     {
@@ -54,14 +53,14 @@ export async function get(id : string) : Promise<Character>
         const char = Character.fromDB(characters[0]);
         return systemMan.validateCharacterDetails(char);
     }
-} // get
+}
 
 export async function list(filters : Record<string, FilterToken> = {}) : Promise<Character[]>
 {
     const db = await getDB();
     let query = db('character as char')
         .select(
-            'char.hash_id as id',
+            'char.character_id as id',
             'char.system',
             'char.name',
             'char.description',
@@ -70,8 +69,8 @@ export async function list(filters : Record<string, FilterToken> = {}) : Promise
             'char.color',
             'char.campaign',
             'char.details',
-            'acc.hash_id as accountID',
-            'note.hash_id as noteID'
+            'acc.account_id as accountID',
+            'note.note_id as noteID'
         )
         .join('note', 'note.note_id', '=', 'char.note_id')
         .join('account as acc', 'acc.account_id', '=', 'char.account_id');
@@ -90,13 +89,9 @@ export async function add(accountID : string, newCharacter : Record<string, unkn
 
     const char = Character.fromJSON({ ...newCharacter, id: shortID(), noteID: notebook.id, accountID });
 
-    // FIXME: These hacks should be removed, and `hash_id` should be the foreign_key
-    const { account_id } = await accountMan.getRaw(char.accountID);
-    const { note_id } = await notebookMan.getRaw(char.noteID);
-
     const db = await getDB();
     await db('character')
-        .insert({ ...char.toDB(), account_id, note_id });
+        .insert(char.toDB());
 
     // We know this is a string since it's set above.
     return get(char.id as string);
@@ -121,15 +116,11 @@ export async function update(charID : string, updateChar : Record<string, unknow
     // Make a new character object
     const newCharacter = Character.fromJSON(allowedUpdate);
 
-    // FIXME: These hacks should be removed, and `hash_id` should be the foreign_key
-    const { account_id } = await accountMan.getRaw(char.accountID);
-    const { note_id } = await notebookMan.getRaw(char.noteID);
-
     // Update the database
     const db = await getDB();
     await db('character')
-        .update({ ...newCharacter.toDB(), account_id, note_id })
-        .where({ hash_id: charID });
+        .update(newCharacter.toDB())
+        .where({ character_id: charID });
 
     const newChar = await get(charID);
 
@@ -148,7 +139,7 @@ export async function remove(charID : string) : Promise<{ status : 'ok' }>
 {
     const db = await getDB();
     await db('character')
-        .where({ hash_id: charID })
+        .where({ character_id: charID })
         .delete();
 
     // Broadcast the update

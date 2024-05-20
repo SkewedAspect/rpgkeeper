@@ -53,10 +53,9 @@ export class Account
 
     public toDB() : Record<string, unknown>
     {
-        const { id, groups, ...jsonObj } = this.toJSON();
+        const { groups, ...jsonObj } = this.toJSON();
         return {
             ...jsonObj,
-            hash_id: id,
             permissions: JSON.stringify(this.permissions),
             settings: JSON.stringify(this.settings)
         };

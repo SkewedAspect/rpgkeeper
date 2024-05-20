@@ -26,12 +26,12 @@ export async function get(notebookID : string) : Promise<Notebook>
     const pages = (await db('note_page as np')
         .select(
             'page_id as id',
-            'n.hash_id as notebookID',
+            'n.note_id as notebookID',
             'content',
             'title'
         )
         .join('note as n', 'n.note_id', '=', 'np.note_id')
-        .where({ 'n.hash_id': notebookID }))
+        .where({ 'n.note_id': notebookID }))
         .map(NotebookPage.fromDB);
 
     return Notebook.fromDB({ id: notebookID, pages });
@@ -41,15 +41,15 @@ export async function list(filters : NoteFilters) : Promise<Notebook[]>
 {
     const db = await getDB();
     const query = db('note as n')
-        .select('n.hash_id as notebookID')
-        .distinct('n.hash_id')
+        .select('n.note_id as notebookID')
+        .distinct('n.note_id')
         .leftJoin('note_page as np', 'np.note_id', '=', 'n.note_id')
         .join('character as c', 'c.note_id', '=', 'n.note_id')
         .join('account as a', 'a.account_id', '=', 'c.account_id');
 
     if(filters.id)
     {
-        query.where({ 'n.hash_id': filters.id });
+        query.where({ 'n.note_id': filters.id });
     }
 
     if(filters.email)
@@ -69,34 +69,13 @@ export async function list(filters : NoteFilters) : Promise<Notebook[]>
         }));
 }
 
-export async function getRaw(notebookID : string) : Promise<Record<string, unknown>>
-{
-    const db = await getDB();
-    const notebooks = await db('note')
-        .select()
-        .where({ hash_id: notebookID });
-
-    if(notebooks.length > 1)
-    {
-        throw new MultipleResultsError('notebook');
-    }
-    else if(notebooks.length === 0)
-    {
-        throw new NotFoundError(`No notebook record found for notebook '${ notebookID }'.`);
-    }
-    else
-    {
-        return notebooks[0];
-    }
-}
-
 export async function getPage(pageID : string | number) : Promise<NotebookPage>
 {
     const db = await getDB();
     const pages = await db('note_page as np')
         .select(
             'page_id as id',
-            'n.hash_id as notebookID',
+            'n.note_id as notebookID',
             'content',
             'title'
         )
@@ -122,16 +101,8 @@ export async function addPage(notebookID : string, page : Record<string, unknown
     const db = await getDB();
     const notePage = NotebookPage.fromJSON({ ...page, notebookID });
 
-    const [ notebook ] = await db('note')
-        .select('note_id as id')
-        .where({ hash_id: notebookID })
-        .catch(() =>
-        {
-            throw new NotFoundError(`No notebook record found for id '${ notebookID }'`);
-        });
-
     const [ pageID ] = await db('note_page')
-        .insert({ ...notePage.toDB(), note_id: notebook.id });
+        .insert(notePage.toDB());
 
     // Return the notebook page
     return getPage(pageID);
@@ -143,7 +114,7 @@ export async function add(pages : Record<string, unknown>[] = []) : Promise<Note
     const newNoteID = shortID();
 
     await db('note')
-        .insert({ hash_id: newNoteID });
+        .insert({ note_id: newNoteID });
 
     // Add any pages that were specified
     await Promise.all(pages.map(async(page) =>
@@ -170,8 +141,7 @@ export async function updatePage(pageID : string | number, pageUpdate : Record<s
     // Make a new page object
     const newPage = NotebookPage.fromJSON(allowedUpdate);
 
-    // FIXME: We have to drop this, since we don't want to update it. This will be fixed if we switch to having a
-    //  foreign key on the hash_id.
+    // Drop the note_id from the update
     const { note_id, ...dbRest } = newPage.toDB();
 
     // Update the database
@@ -198,7 +168,7 @@ export async function remove(notebookID : string) : Promise<{ status : 'ok' }>
 {
     const db = await getDB();
     await db('note')
-        .where({ hash_id: notebookID })
+        .where({ note_id: notebookID })
         .delete();
 
     return { status: 'ok' };

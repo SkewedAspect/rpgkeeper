@@ -18,8 +18,7 @@ exports.seed = async(knex) =>
     // Check for admin records, and add them if they're not already there.
     const admins = [
         {
-            account_id: 1,
-            hash_id: '3VAAgA',
+            account_id: '3VAAgA',
             email: 'chris.case@g33xnexus.com',
             name: 'Morgul',
             avatar: 'https://lh3.googleusercontent.com/-r8fmbWdlFvg/AAAAAAAAAAI/AAAAAAAAA9g/oWyh8pnmDSY/s96-c/photo.jpg?sz=512',
@@ -28,8 +27,7 @@ exports.seed = async(knex) =>
             created: knex.fn.now()
         },
         {
-            account_id: 2,
-            hash_id: '3VzoXi',
+            account_id: '3VzoXi',
             email: 'null23544@gmail.com',
             name: 'Lord Null',
             avatar: 'https://lh6.googleusercontent.com/-uCa4jsA-_i0/AAAAAAAAAAI/AAAAAAAAAB4/chnr3xPv3_c/s96-c/photo.jpg?sz=512',
@@ -41,15 +39,13 @@ exports.seed = async(knex) =>
 
     const mods = [
         {
-            account_id: 3,
-            hash_id: '3Ks11R',
+            account_id: '3Ks11R',
             email: 'travis.a.odom@gmail.com',
             name: 'Burstaholic',
             avatar: 'https://lh6.googleusercontent.com/-Cm7eBAJV2gQ/AAAAAAAAAAI/AAAAAAAAAXE/KLFM6YmcWm8/s96-c/photo.jpg?sz=512',
             permissions: '[]',
             settings: '{}',
             created: knex.fn.now()
-
         }
     ];
 
