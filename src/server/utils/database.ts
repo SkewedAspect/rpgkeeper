@@ -153,12 +153,18 @@ export async function runMigrations(runSeeds = true, convertToJs = true) : Promi
     }
 
     // Run the migrations
-    await db.migrate.latest({ directory: './dist/server/knex/migrations' });
+    await db.migrate.latest({
+        directory: './dist/server/knex/migrations',
+        loadExtensions: [ '.js' ]
+    });
 
     // Run the seeds
     if(runSeeds)
     {
-        await db.seed.run({ directory: './dist/server/knex/seeds' });
+        await db.seed.run({
+            directory: './dist/server/knex/seeds',
+            loadExtensions: [ '.js' ]
+        });
     }
 }
 
