@@ -3,18 +3,16 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Role } from '../models/role';
+import { Role } from '../../common/interfaces/models/role';
 
-// Utils
-import { getDB } from '../utils/database';
+// Resource Access
+import * as roleRA from '../resource-access/role';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export async function list() : Promise<Role[]>
 {
-    const db = await getDB();
-    return (await db('role as r').select('r.role_id as id', 'r.name', 'r.permissions'))
-        .map(Role.fromDB);
+    return roleRA.list();
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

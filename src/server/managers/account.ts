@@ -18,7 +18,7 @@ export async function list(filters : accountRA.AccountFilters) : Promise<Account
     const accounts = await accountRA.list(filters);
     return pMap(accounts, async (account) =>
     {
-        const roles = await roleRA.getRoles(account.id);
+        const roles = await roleRA.getForAccount(account.id);
         return {
             ...account,
             groups: roles
@@ -29,7 +29,7 @@ export async function list(filters : accountRA.AccountFilters) : Promise<Account
 export async function get(accountID : string) : Promise<Account>
 {
     const account = await accountRA.get(accountID);
-    const roles = await roleRA.getRoles(accountID);
+    const roles = await roleRA.getForAccount(accountID);
 
     return {
         ...account,
@@ -40,7 +40,7 @@ export async function get(accountID : string) : Promise<Account>
 export async function getByEmail(email : string) : Promise<Account>
 {
     const account = await accountRA.getByEmail(email);
-    const roles = await roleRA.getRoles(account.id);
+    const roles = await roleRA.getForAccount(account.id);
 
     return {
         ...account,
