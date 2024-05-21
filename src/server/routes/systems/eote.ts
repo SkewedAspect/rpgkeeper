@@ -5,7 +5,7 @@
 import express from 'express';
 
 // Managers
-import refMan from '../../managers/references';
+import * as refMan from '../../managers/reference';
 
 // Utils
 import { buildSupplementRoute } from './utils/supplement';
@@ -34,7 +34,7 @@ router.get('/references', async(req, resp) =>
 {
     const query = convertQueryToRecord(req);
     const filters = parseQuery(query);
-    resp.json(await refMan.getFiltered(filters, 'eote_reference'));
+    resp.json(await refMan.list(filters, 'eote_reference'));
 });
 
 //----------------------------------------------------------------------------------------------------------------------
