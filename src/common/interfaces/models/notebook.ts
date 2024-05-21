@@ -18,8 +18,8 @@ export interface NotebookPageOptions {
 // FIXME: Once Models are removed, `NotebookOptions` should be named 'Notebook'.
 export type Notebook = NotebookOptions;
 
-// FIXME: Once Models are removed, `NotebookPageOptions` should be named 'NotePage'.
-export type NotePage = NotebookPageOptions;
+// FIXME: Once Models are removed, `NotebookPageOptions` should be named 'NotebookPage'.
+export type NotebookPage = NotebookPageOptions;
 
 //----------------------------------------------------------------------------------------------------------------------
 
