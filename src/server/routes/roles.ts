@@ -7,7 +7,7 @@ import express from 'express';
 import { errorHandler } from './utils';
 
 // Managers
-import * as rolesMan from '../managers/roles';
+import * as rolesMan from '../managers/role';
 
 // Logger
 import logging from '@strata-js/util-logging';

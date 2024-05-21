@@ -5,7 +5,7 @@
 import tp from 'trivialperms';
 
 // Managers
-import * as rolesMan from './roles';
+import * as rolesMan from './role';
 
 // Models
 import { Account } from '../../common/interfaces/models/account';

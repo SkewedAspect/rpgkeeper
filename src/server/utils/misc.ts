@@ -102,4 +102,16 @@ export function sortBy(key : string) : (a : Record<string, any>, b : Record<stri
     };
 }
 
+/**
+ * Checks to see if an object is empty.
+ *
+ * @param obj - The object to check.
+ *
+ * @returns Returns `true` if the object is empty, `false` otherwise.
+ */
+export function isEmpty (obj : any) : boolean
+{
+    return [ Object, Array ].includes((obj || {}).constructor) && !Object.entries((obj || {})).length;
+}
+
 //----------------------------------------------------------------------------------------------------------------------
