@@ -77,20 +77,6 @@ export async function list(filters : AccountFilters) : Promise<Account[]>
     return (await query).map(AccountTransforms.fromDB);
 }
 
-export async function getGroups(accountID : string) : Promise<string[]>
-{
-    const db = await getDB();
-    const roles = await db('account as ac')
-        .select('r.name as name', 'r.role_id as id')
-        .join('account_role as ar', 'ac.account_id', '=', 'ar.account_id')
-        .join('role as r', 'ar.role_id', '=', 'r.role_id')
-        .where({
-            'ac.account_id': accountID
-        });
-
-    return roles.map((role) => role.name);
-}
-
 export async function get(accountID : string) : Promise<Account>
 {
     const db = await getDB();
@@ -117,8 +103,7 @@ export async function get(accountID : string) : Promise<Account>
     }
     else
     {
-        const groups = await getGroups(accountID);
-        return AccountTransforms.fromDB({ ...accounts[0], groups });
+        return AccountTransforms.fromDB(accounts[0]);
     }
 }
 
@@ -146,22 +131,21 @@ export async function getByEmail(email : string) : Promise<Account>
     }
     else
     {
-        const groups = await getGroups(accounts[0].account_id);
-        return AccountTransforms.fromDB({ ...accounts[0], groups });
+        return AccountTransforms.fromDB(accounts[0]);
     }
 }
 
-export async function add(newAccount : NewAccount) : Promise<Account>
+export async function add(newAccount : NewAccount) : Promise<string>
 {
-    const account = AccountTransforms.toDB(newAccount);
+    const account = AccountTransforms.toDB({ ...newAccount, id: shortID() });
     const db = await getDB();
     await db('account')
-        .insert({ ...account, id: shortID(), created: db.fn.now() });
+        .insert({ ...account, created: db.fn.now() });
 
-    return get(account.account_id);
+    return account.account_id;
 }
 
-export async function update(accountID : string, accountUpdate : Partial<Account>) : Promise<Account>
+export async function update(accountID : string, accountUpdate : Partial<Account>) : Promise<void>
 {
     // Get the current account
     const account = await get(accountID);
@@ -179,9 +163,6 @@ export async function update(accountID : string, accountUpdate : Partial<Account
     await db('account')
         .update(AccountTransforms.toDB(allowedUpdate))
         .where({ account_id: accountID });
-
-    // Return the updated record
-    return get(accountID);
 }
 
 export async function remove(accountID : string) : Promise<{ status : 'ok' }>

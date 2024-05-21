@@ -50,9 +50,6 @@ router.get('/', async(req, resp) =>
         }
 
         const filters = parseQuery(query);
-
-        console.log('filters:', filters);
-
         resp.json(await charMan.list(filters));
     });
 });
