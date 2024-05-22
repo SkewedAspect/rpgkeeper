@@ -95,7 +95,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const innerPage = ref<Omit<NotebookPage, 'notebookID'>>({
-        id: '',
+        id: null,
         title: '',
         content: ''
     });
@@ -120,13 +120,13 @@
     {
         if(page)
         {
-            innerPage.value.id = page?.id ?? '';
+            innerPage.value.id = page?.id ?? null;
             innerPage.value.title = page?.title ?? '';
             innerPage.value.content = page?.content ?? '';
         }
         else
         {
-            innerPage.value.id = '';
+            innerPage.value.id = null;
             innerPage.value.title = '';
             innerPage.value.content = '';
         }

@@ -8,7 +8,7 @@ import { Notebook, NotebookPage } from '../../../common/interfaces/models/notebo
 
 export interface NotePageDBRecord
 {
-    page_id : string;
+    page_id : number;
     note_id : string;
     title : string;
     content : string;
@@ -25,7 +25,7 @@ export interface NotebookDBRecord
 export function pageFromDB(record : NotePageDBRecord) : NotebookPage
 {
     return {
-        id: record.page_id,
+        id: `${ record.page_id }`,
         notebookID: record.note_id,
         title: record.title,
         content: record.content
@@ -43,7 +43,7 @@ export function fromDB(record : NotebookDBRecord) : Notebook
 export function pageToDB(page : NotebookPage) : NotePageDBRecord
 {
     return {
-        page_id: page.id,
+        page_id: parseInt(page.id),
         note_id: page.notebookID,
         title: page.title,
         content: page.content

@@ -94,7 +94,7 @@ router.patch(
     ensureAuthenticated,
     async(req, resp) =>
     {
-    // Update the note
+        // Update the note
         const newPage = await noteMan.updatePage(req.params.pageID, req.body);
         resp.json(newPage);
     }

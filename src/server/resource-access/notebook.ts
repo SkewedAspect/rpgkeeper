@@ -28,8 +28,8 @@ export async function get(notebookID : string) : Promise<Notebook>
     const db = await getDB();
     const pages = await db('note_page as np')
         .select(
-            'page_id as id',
-            'n.note_id as notebookID',
+            'page_id',
+            'n.note_id',
             'content',
             'title'
         )
@@ -76,13 +76,13 @@ export async function getPage(pageID : string | number) : Promise<NotebookPage>
     const db = await getDB();
     const pages = await db('note_page as np')
         .select(
-            'page_id as id',
-            'n.note_id as notebookID',
+            'page_id',
+            'n.note_id',
             'content',
             'title'
         )
         .join('note as n', 'n.note_id', '=', 'np.note_id')
-        .where({ id: pageID });
+        .where({ page_id: pageID });
 
     if(pages.length > 1)
     {
