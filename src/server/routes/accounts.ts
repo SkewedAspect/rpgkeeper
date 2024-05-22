@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
-import { processRequest } from 'zod-express';
+import logging from '@strata-js/util-logging';
 
 // Managers
 import * as accountMan from '../managers/account';
@@ -11,25 +11,21 @@ import * as permsMan from '../utils/permissions';
 
 // Validation
 import * as AccountValidators from '../engines/validation/models/account';
-import { validationErrorHandler } from '../engines/validation/express';
+import { processRequest, validationErrorHandler } from '../engines/validation/express';
 
 // Utils
 import { ensureAuthenticated, errorHandler } from './utils';
 
-// Logger
-import logging from '@strata-js/util-logging';
-
-const logger = logging.getLogger(module.filename);
-
 //----------------------------------------------------------------------------------------------------------------------
 
 const router = express.Router();
+const logger = logging.getLogger(module.filename);
 
 //----------------------------------------------------------------------------------------------------------------------
 
 router.get(
     '/',
-    processRequest({ query: AccountValidators.AccountFilter }, { passErrorToNext: true }),
+    processRequest({ query: AccountValidators.AccountFilter }),
     async (req, resp) =>
     {
         resp.json((await accountMan.list(req.query)).map((accountObj) =>
@@ -47,7 +43,7 @@ router.get(
 
 router.get(
     '/:accountID',
-    processRequest({ params: AccountValidators.UpdateParams }, { passErrorToNext: true }),
+    processRequest({ params: AccountValidators.UpdateParams }),
     async (req, resp) =>
     {
         const user = req.user;
@@ -81,7 +77,7 @@ router.patch(
     processRequest({
         params: AccountValidators.UpdateParams,
         body: AccountValidators.Account.partial({ id: true })
-    }, { passErrorToNext: true }),
+    }),
     async (req, resp) =>
     {
         // Update the account

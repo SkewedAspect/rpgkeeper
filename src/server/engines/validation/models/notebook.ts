@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// Account Validation Model
+// Notebook Validation Model
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { z } from 'zod';
@@ -9,33 +9,32 @@ import { HashID } from './common';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const AccountID = HashID;
+export const NotebookID = HashID;
 
-export const AccountSettings = z.object({
-    colorMode: z.enum([ 'light', 'dark', 'auto' ]).optional()
-
-    // Other settings...
+export const NotebookPage = z.object({
+    id: z.string().min(1),
+    title: z.string().min(1),
+    content: z.string().min(1),
+    notebookID: NotebookID
 });
 
-export const Account = z.object({
-    id: z.string(),
-    email: z.string(),
-    name: z.string().optional(),
-    avatar: z.string().optional(),
-    permissions: z.array(z.string()).optional(),
-    settings: AccountSettings.passthrough().optional()
+export const Notebook = z.object({
+    id: NotebookID,
+    pages: z.array(NotebookPage).optional()
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Request Validations
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const UpdateParams = z.object({
-    accountID: AccountID
+export const RouteParams = z.object({
+    noteID: NotebookID,
+    pageID: z.string().min(1)
+        .optional()
 });
 
-export const AccountFilter = z.object({
-    id: z.union([ AccountID, z.array(AccountID) ]).optional(),
+export const NotebookFilter = z.object({
+    id: z.union([ NotebookID, z.array(NotebookID) ]).optional(),
     email: z.union([ z.string().email(), z.array(z.string().email()) ])
         .optional(),
     name: z.union([ z.string().min(1), z.array(z.string().min(1)) ])
