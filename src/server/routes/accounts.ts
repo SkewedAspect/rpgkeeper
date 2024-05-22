@@ -7,7 +7,7 @@ import { processRequest } from 'zod-express';
 
 // Managers
 import * as accountMan from '../managers/account';
-import * as permsMan from '../managers/permissions';
+import * as permsMan from '../utils/permissions';
 
 // Validation
 import * as AccountValidators from '../engines/validation/models/account';

@@ -5,7 +5,7 @@
 import express from 'express';
 
 // Managers
-import * as permMan from '../../managers/permissions';
+import * as permMan from '../../utils/permissions';
 import systemMan from '../../managers/system';
 
 // Utils

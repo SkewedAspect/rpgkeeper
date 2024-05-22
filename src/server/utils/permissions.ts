@@ -1,20 +1,20 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// PermissionsManager
+// Permissions Util
 //----------------------------------------------------------------------------------------------------------------------
 
 import tp from 'trivialperms';
 
-// Managers
-import * as rolesMan from './role';
+// Interfaces
+import { Role } from '../../common/interfaces/models/role';
 
 // Models
 import { Account } from '../../common/interfaces/models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export async function init() : Promise<void>
+export async function loadRoles(roles : Role[]) : Promise<void>
 {
-    tp.loadGroups(await rolesMan.list());
+    tp.loadGroups(roles);
 }
 
 export function hasPerm(user : Account, perm : string) : boolean

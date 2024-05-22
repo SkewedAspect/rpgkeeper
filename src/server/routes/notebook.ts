@@ -8,7 +8,7 @@ import { convertQueryToRecord, ensureAuthenticated, errorHandler } from './utils
 
 // Managers
 import * as noteMan from '../managers/notebook';
-import { hasPerm } from '../managers/permissions';
+import { hasPerm } from '../utils/permissions';
 
 // Logger
 import logging from '@strata-js/util-logging';

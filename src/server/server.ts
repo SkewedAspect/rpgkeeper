@@ -18,7 +18,8 @@ import logging from '@strata-js/util-logging';
 import { Server as SIOServer } from 'socket.io';
 
 // Managers
-import * as permsMan from './managers/permissions';
+import * as rolesMan from './managers/role';
+import * as permsMan from './utils/permissions';
 
 // Session Store
 import connectSessionKnex from 'connect-session-knex';
@@ -84,7 +85,8 @@ async function main() : Promise<void>
     // Initialize managers
     //------------------------------------------------------------------------------------------------------------------
 
-    await permsMan.init();
+    const roles = await rolesMan.list();
+    await permsMan.loadRoles(roles);
 
     //------------------------------------------------------------------------------------------------------------------
     // Database

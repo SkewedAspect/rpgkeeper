@@ -7,7 +7,7 @@ import express from 'express';
 // Managers
 import * as accountMan from '../managers/account';
 import * as charMan from '../managers/character';
-import * as permsMan from '../managers/permissions';
+import * as permsMan from '../utils/permissions';
 import sysMan from '../managers/system';
 
 // Utils
