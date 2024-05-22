@@ -19,7 +19,7 @@ import { Server as SIOServer } from 'socket.io';
 
 // Managers
 import * as rolesMan from './managers/role';
-import * as permsMan from './utils/permissions';
+import * as permsUtil from './utils/permissions';
 
 // Session Store
 import connectSessionKnex from 'connect-session-knex';
@@ -86,7 +86,7 @@ async function main() : Promise<void>
     //------------------------------------------------------------------------------------------------------------------
 
     const roles = await rolesMan.list();
-    await permsMan.loadRoles(roles);
+    await permsUtil.loadRoles(roles);
 
     //------------------------------------------------------------------------------------------------------------------
     // Database

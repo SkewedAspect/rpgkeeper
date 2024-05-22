@@ -19,11 +19,21 @@ export async function loadRoles(roles : Role[]) : Promise<void>
 
 export function hasPerm(user : Account, perm : string) : boolean
 {
+    if(!user)
+    {
+        return false;
+    }
+
     return tp.hasPerm(user, perm);
 }
 
 export function hasGroup(user : Account, groupName : string) : boolean
 {
+    if(!user)
+    {
+        return false;
+    }
+
     return tp.hasGroup(user, groupName);
 }
 
