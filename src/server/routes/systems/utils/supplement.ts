@@ -1,11 +1,15 @@
 //----------------------------------------------------------------------------------------------------------------------
-// SupplementUtils
+// Supplement Utils
 //----------------------------------------------------------------------------------------------------------------------
 
 import { IRouter } from 'express';
 
 // Managers
 import * as suppMan from '../../../managers/supplement';
+
+// Validation
+import * as SuppValidators from '../../../engines/validation/models/supplement';
+import { processRequest, validationErrorHandler } from '../../../engines/validation/express';
 
 // Utils
 import { ensureAuthenticated, parseQuery, convertQueryToRecord } from '../../utils';
@@ -25,7 +29,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         resp.json(await suppMan.list(filters, type, systemPrefix, req.user));
     });
 
-    router.get(`${ path }/:suppID`, async(req, resp) =>
+    router.get(`${ path }/:suppID`, processRequest({ params: SuppValidators.RouteParams }), async(req, resp) =>
     {
         const suppID = parseInt(req.params.suppID);
         if(Number.isFinite(suppID))
@@ -42,44 +46,64 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         }
     });
 
-    router.post(path, ensureAuthenticated, async(req, resp) =>
-    {
-        resp.json(await suppMan.add(req.body, type, systemPrefix, req.user));
-    });
+    router.post(
+        path,
+        ensureAuthenticated,
+        processRequest({ body: SuppValidators.Supplement.omit({ id: true }) }), async(req, resp) =>
+        {
+            resp.json(await suppMan.add(req.body, type, systemPrefix, req.user));
+        }
+    );
 
-    router.patch(`${ path }/:suppID`, ensureAuthenticated, async(req, resp) =>
-    {
-        const suppID = parseInt(req.params.suppID);
-        if(Number.isFinite(suppID))
+    router.patch(
+        `${ path }/:suppID`,
+        ensureAuthenticated,
+        processRequest({ params: SuppValidators.RouteParams, body: SuppValidators.Supplement }),
+        async(req, resp) =>
         {
-            resp.json(await suppMan.update(suppID, req.body, type, systemPrefix, req.user));
+            const suppID = parseInt(req.params.suppID);
+            if(Number.isFinite(suppID))
+            {
+                resp.json(await suppMan.update(suppID, req.body, type, systemPrefix, req.user));
+            }
+            else
+            {
+                resp.status(404)
+                    .json({
+                        type: 'NotFound',
+                        message: `No ${ type } with id '${ suppID }' found.`
+                    });
+            }
         }
-        else
-        {
-            resp.status(404)
-                .json({
-                    type: 'NotFound',
-                    message: `No ${ type } with id '${ suppID }' found.`
-                });
-        }
-    });
+    );
 
-    router.delete(`${ path }/:suppID`, ensureAuthenticated, async(req, resp) =>
-    {
-        const suppID = parseInt(req.params.suppID);
-        if(Number.isFinite(suppID))
+    router.delete(
+        `${ path }/:suppID`,
+        ensureAuthenticated,
+        processRequest({ params: SuppValidators.RouteParams }),
+        async(req, resp) =>
         {
-            resp.json(await suppMan.remove(suppID, type, systemPrefix, req.user));
+            const suppID = parseInt(req.params.suppID);
+            if(Number.isFinite(suppID))
+            {
+                resp.json(await suppMan.remove(suppID, type, systemPrefix, req.user));
+            }
+            else
+            {
+                resp.status(404)
+                    .json({
+                        type: 'NotFound',
+                        message: `No ${ type } with id '${ suppID }' found.`
+                    });
+            }
         }
-        else
-        {
-            resp.status(404)
-                .json({
-                    type: 'NotFound',
-                    message: `No ${ type } with id '${ suppID }' found.`
-                });
-        }
-    });
+    );
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    router.use(validationErrorHandler);
+
+    //------------------------------------------------------------------------------------------------------------------
 }
 
 //----------------------------------------------------------------------------------------------------------------------

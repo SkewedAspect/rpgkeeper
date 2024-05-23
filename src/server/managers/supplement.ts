@@ -4,7 +4,7 @@
 
 // Models
 import { Account } from '../../common/interfaces/models/account';
-import { Supplement } from '../models/supplement';
+import { Supplement } from '../../common/interfaces/models/supplement';
 
 // Resource Access
 import * as suppRA from '../resource-access/supplement';
@@ -34,7 +34,7 @@ export async function exists(id : number, type : string, systemPrefix : string, 
 }
 
 export async function add(
-    newSupplement : Record<string, unknown>,
+    newSupplement : Supplement,
     type : string, systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement>
@@ -44,7 +44,7 @@ export async function add(
 
 export async function update(
     id : number,
-    updateSup : Record<string, unknown>,
+    updateSup : Partial<Supplement>,
     type : string,
     systemPrefix : string, account ?: Account
 ) : Promise<Supplement>

@@ -6,18 +6,18 @@ import { inspect } from 'node:util';
 import { Knex } from 'knex';
 import logging from '@strata-js/util-logging';
 
-// Managers
-
 // Models
 import { Account } from '../../common/interfaces/models/account';
-import { Supplement } from '../models/supplement';
+import { Supplement } from '../../common/interfaces/models/supplement';
+
+// Transforms
+import * as SuppTransforms from '../resource-access/transforms/supplement';
 
 // Utilities
 import { getDB } from '../utils/database';
-import * as permMan from '../utils/permissions';
+import { hasPerm } from '../utils/permissions';
 import { applyFilters } from '../knex/utils';
 import { FilterToken } from '../routes/utils';
-import { camelCaseKeys } from '../utils/misc';
 
 // Errors
 import { MultipleResultsError, DuplicateSupplementError, NotFoundError, NotAuthorizedError } from '../errors';
@@ -37,7 +37,7 @@ async function $checkViewAccess(
     if(account && systemPrefix)
     {
         // Generally, this is just going to be admins; but hey, why not let admins see everything?
-        if(!permMan.hasPerm(account, `${ systemPrefix }/canViewContent`))
+        if(!hasPerm(account, `${ systemPrefix }/canViewContent`))
         {
             // Add scoping in
             query = query.where(function()
@@ -60,7 +60,7 @@ async function $checkModAccess(
     if(account)
     {
         // Check if we have permission to remove
-        const hasRight = permMan.hasPerm(account, `${ systemPrefix }/canModifyContent`);
+        const hasRight = hasPerm(account, `${ systemPrefix }/canModifyContent`);
         const isOwner = supplement.scope === 'user' && account.id === supplement.owner;
         if(!hasRight && !isOwner)
         {
@@ -81,7 +81,7 @@ async function $ensureOfficialAllowed(
     if(account)
     {
         // Check if we have permission to set official
-        const hasRight = permMan.hasPerm(account, `${ systemPrefix }/canSetOfficial`);
+        const hasRight = hasPerm(account, `${ systemPrefix }/canSetOfficial`);
         if(!hasRight)
         {
             supplement.official = false;
@@ -97,7 +97,7 @@ async function $ensureCorrectOwner(
 {
     if(account && systemPrefix)
     {
-        const hasRight = permMan.hasPerm(account, `${ systemPrefix }/canModifyContent`);
+        const hasRight = hasPerm(account, `${ systemPrefix }/canModifyContent`);
         const isOwner = account.id === supplement.owner;
 
         // If we're not an admin user, and therefore allowed to add/edit content for other people, we have to make sure
@@ -123,8 +123,7 @@ export async function get(id : number, type : string, systemPrefix : string, acc
     const tableName = `${ systemPrefix }_${ type }`;
     const db = await getDB();
     const query = db(`${ tableName } as t`)
-        .select('t.*', 'a.account_id as ownerHash')
-        .leftJoin('account as a', 'a.account_id', '=', 't.owner')
+        .select('t.*')
         .where({ id });
 
     // Handle retrieval
@@ -139,8 +138,8 @@ export async function get(id : number, type : string, systemPrefix : string, acc
     }
     else
     {
-        const { ownerHash, ...restSupp } = supplements[0];
-        return Supplement.fromDB(systemPrefix, type, { ...camelCaseKeys(restSupp), owner: ownerHash });
+        // TODO: We should probably ask the system to decode the non-supplement fields.
+        return SuppTransforms.fromDB(supplements[0]);
     }
 }
 
@@ -153,8 +152,7 @@ export async function list(
     const tableName = `${ systemPrefix }_${ type }`;
     const db = await getDB();
     let query = db(`${ tableName } as t`)
-        .select('t.*', 'a.account_id as ownerHash')
-        .leftJoin('account as a', 'a.account_id', '=', 't.owner');
+        .select('t.*');
 
     // Add filters for only what we have access to
     query = await $checkViewAccess(query, systemPrefix, account);
@@ -164,8 +162,8 @@ export async function list(
 
     return (await query).map((supp) =>
     {
-        const { ownerHash, ...restSupp } = supp;
-        return Supplement.fromDB(systemPrefix, type, { ...camelCaseKeys(restSupp), owner: ownerHash });
+        // TODO: We should probably ask the system to decode the non-supplement fields.
+        return SuppTransforms.fromDB(supp);
     });
 }
 
@@ -181,14 +179,15 @@ export async function exists(id : number, type : string, systemPrefix : string, 
 }
 
 export async function add(
-    newSupplement : Record<string, unknown>,
+    newSupplement : Supplement,
     type : string, systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement>
 {
     const db = await getDB();
     const tableName = `${ systemPrefix }_${ type }`;
-    const supplement = Supplement.fromJSON(systemPrefix, type, newSupplement);
+
+    const supplement = SuppTransforms.toDB(newSupplement);
 
     // Ensure the supplement's ownership is valid.
     await $ensureCorrectOwner(supplement, systemPrefix, account);
@@ -209,13 +208,13 @@ export async function add(
     {
         logger.warn(
             'Attempted to add supplement with the same name, scope and owner as an existing one:',
-            inspect(supplement.toJSON(), { depth: null })
+            inspect(supplement, { depth: null })
         );
         throw new DuplicateSupplementError(`${ systemPrefix }/${ type }/${ supplement.name }`);
     }
 
     // Now, we insert the supplement
-    const [ id ] = await db(tableName).insert(supplement.toDB());
+    const [ id ] = await db(tableName).insert(supplement);
 
     // Return the inserted supplement
     return get(id, type, systemPrefix, account);
@@ -223,7 +222,7 @@ export async function add(
 
 export async function update(
     id : number,
-    updateSup : Record<string, unknown>,
+    updateSup : Partial<Supplement>,
     type : string,
     systemPrefix : string, account ?: Account
 ) : Promise<Supplement>
@@ -236,13 +235,13 @@ export async function update(
     // updatable, we assume everything but ID is. Instead of trying to destructure just id out, we apply everything,
     // and re-apply id. It's less efficient, but more explicit.
     const allowedUpdate = {
-        ...supplement.toJSON(),
+        ...supplement,
         ...updateSup,
         id
     };
 
-    // Make a new character object
-    const newSupplement = Supplement.fromJSON(systemPrefix, type, allowedUpdate);
+    // Make a new supplement object
+    const newSupplement = SuppTransforms.toDB(allowedUpdate);
 
     // Ensure the supplement's ownership is valid.
     await $ensureCorrectOwner(supplement, systemPrefix, account);
@@ -255,7 +254,7 @@ export async function update(
 
     // Now, we update the supplement
     await db(tableName)
-        .update(newSupplement.toDB())
+        .update(newSupplement)
         .where({ id });
 
     // Return the updated supplement
