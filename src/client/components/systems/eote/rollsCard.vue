@@ -12,18 +12,18 @@
 
         <div class="dice-input d-flex flex-wrap align-content-stretch justify-content-center">
             <BInputGroup v-for="die in diceList" :key="die" size="sm" class="text-nowrap flex-nowrap w-auto m-1">
-                <BInputGroupPrepend is-text>
+                <BInputGroupText>
                     <!-- eslint-disable-next-line vue/no-v-html -->
                     <span v-html="makeDieHTML(die)"></span>
-                </BInputGroupPrepend>
-                <BInputGroupAppend>
+                </BInputGroupText>
+                <template #append>
                     <BButton variant="light" @click="addDie(die)">
                         <fa icon="plus"></fa>
                     </BButton>
                     <BButton variant="light" @click="removeDie(die)">
                         <fa icon="minus"></fa>
                     </BButton>
-                </BInputGroupAppend>
+                </template>
             </BInputGroup>
         </div>
 

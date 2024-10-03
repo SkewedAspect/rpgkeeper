@@ -18,5 +18,4 @@ export interface System<Defaults extends Record<string, unknown>>
     status : SupportStatus;
 }
 
-
 // ---------------------------------------------------------------------------------------------------------------------

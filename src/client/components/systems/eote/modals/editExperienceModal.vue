@@ -32,12 +32,12 @@
                 <div class="d-flex flex-column">
                     <BInputGroup>
                         <BFormInput id="add-xp-input" v-model="xpToAdd" number type="number" min="0" step="1"></BFormInput>
-                        <BInputGroupAppend>
+                        <template #append>
                             <BButton variant="primary" @click="addXP()">
                                 <fa icon="plus"></fa>
                                 Add
                             </BButton>
-                        </BInputGroupAppend>
+                        </template>
                     </BInputGroup>
                     <p class="text-muted m-0">
                         <small>
@@ -60,11 +60,11 @@
                     <div class="d-flex">
                         <BInputGroup>
                             <BFormInput id="total-input" v-model="experience.total" number type="number" min="0" step="1"></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton @click="experience.total = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>
@@ -78,11 +78,11 @@
                     <div class="d-flex">
                         <BInputGroup>
                             <BFormInput id="available-input" v-model="experience.available" number type="number" min="0" step="1"></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton @click="experience.available = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>

@@ -106,11 +106,11 @@
                                             :state="validateState('portrait')"
                                             @input="v$.portrait.$touch()"
                                         ></BFormInput>
-                                        <BInputGroupAppend>
+                                        <template #append>
                                             <BButton title="Choose file from Dropbox" @click="pickImageDropBox('portrait')">
                                                 <fa :icon="[ 'fab', 'dropbox' ]"></fa>
                                             </BButton>
-                                        </BInputGroupAppend>
+                                        </template>
                                     </BInputGroup>
                                     <template #description>
                                         Any urls are accepted. <br />
@@ -131,11 +131,11 @@
                                             :state="validateState('thumbnail')"
                                             @input="v$.thumbnail.$touch()"
                                         ></BFormInput>
-                                        <BInputGroupAppend>
+                                        <template #append>
                                             <BButton title="Choose file from Dropbox" @click="pickImageDropBox('thumbnail')">
                                                 <fa :icon="[ 'fab', 'dropbox' ]"></fa>
                                             </BButton>
-                                        </BInputGroupAppend>
+                                        </template>
                                     </BInputGroup>
                                     <template #description>
                                         Any urls are accepted. <br />

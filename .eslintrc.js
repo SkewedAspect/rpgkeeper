@@ -41,7 +41,14 @@ module.exports = {
         'require-atomic-updates': 'off',
 
         // Common Mistakes
-        '@typescript-eslint/no-unused-vars': [ 'warn', { ignoreRestSiblings: true, argsIgnorePattern: '^_' } ],
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
+            {
+                ignoreRestSiblings: true,
+                argsIgnorePattern: '^_',
+                caughtErrorsIgnorePattern: '^_',
+            }
+        ],
         'no-extra-bind': 'warn',
         'no-floating-decimal': 'warn',
         'no-multi-spaces': 'warn',
@@ -52,8 +59,8 @@ module.exports = {
         'no-shadow': 'off',
 
         // Style
-        '@typescript-eslint/type-annotation-spacing': [ 'warn', { before: true, after: true } ],
-        '@typescript-eslint/explicit-function-return-type': [ 'warn', { allowExpressions: true } ],
+        //'@typescript-eslint/type-annotation-spacing': [ 'warn', { before: true, after: true } ],
+        '@typescript-eslint/explicit-function-return-type': [ 'warn', { allowExpressions: true, } ],
         'array-bracket-newline': [ 'warn', 'consistent' ],
         'array-bracket-spacing': [ 'warn', 'always' ],
         'array-element-newline': [ 'warn', 'consistent' ],

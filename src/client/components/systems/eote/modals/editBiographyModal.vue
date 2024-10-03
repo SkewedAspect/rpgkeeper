@@ -54,11 +54,11 @@
                             <div class="d-flex">
                                 <BInputGroup>
                                     <BFormInput id="species-input" v-model="species"></BFormInput>
-                                    <BInputGroupAppend>
+                                    <template #append>
                                         <BButton @click="species = ''">
                                             <fa icon="times"></fa>
                                         </BButton>
-                                    </BInputGroupAppend>
+                                    </template>
                                 </BInputGroup>
                             </div>
                         </BFormGroup>
@@ -92,11 +92,11 @@
                             <div class="d-flex">
                                 <BInputGroup>
                                     <BFormInput id="career-input" v-model="career"></BFormInput>
-                                    <BInputGroupAppend>
+                                    <template #append>
                                         <BButton @click="career = ''">
                                             <fa icon="times"></fa>
                                         </BButton>
-                                    </BInputGroupAppend>
+                                    </template>
                                 </BInputGroup>
                             </div>
                         </BFormGroup>
@@ -110,11 +110,11 @@
                             <div class="d-flex">
                                 <BInputGroup>
                                     <BFormInput id="special-input" v-model="specialization"></BFormInput>
-                                    <BInputGroupAppend>
+                                    <template #append>
                                         <BButton @click="specialization = ''">
                                             <fa icon="times"></fa>
                                         </BButton>
-                                    </BInputGroupAppend>
+                                    </template>
                                 </BInputGroup>
                             </div>
                         </BFormGroup>

@@ -16,11 +16,11 @@
                             </h5>
                             <BInputGroup class="flex-fill ms-auto" style="max-width: 400px">
                                 <BFormInput v-model="charFilter" placeholder="Search Characters..."></BFormInput>
-                                <BInputGroupAppend>
+                                <template #append>
                                     <BButton variant="primary">
                                         <fa icon="search"></fa>
                                     </BButton>
-                                </BInputGroupAppend>
+                                </template>
                             </BInputGroup>
 
                             <!-- System Filter Dropdown -->

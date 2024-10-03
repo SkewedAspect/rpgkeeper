@@ -28,7 +28,7 @@ class AuthResourceAccess
             const { data } = await $http.get('/auth/user', { withCredentials: true });
             return this._buildModel(data);
         }
-        catch (error)
+        catch (_error)
         {
             return null;
         }

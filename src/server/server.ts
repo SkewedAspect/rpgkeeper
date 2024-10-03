@@ -22,8 +22,7 @@ import * as rolesMan from './managers/role';
 import * as permsUtil from './utils/permissions';
 
 // Session Store
-import connectSessionKnex from 'connect-session-knex';
-const KnexSessionStore = connectSessionKnex(session);
+import { ConnectSessionKnexStore } from 'connect-session-knex';
 
 // Auth
 import GoogleAuth from './auth/google';
@@ -100,13 +99,13 @@ async function main() : Promise<void>
 
     //------------------------------------------------------------------------------------------------------------------
 
-    const store = new KnexSessionStore({
-        sidfieldname: config.auth.session.key,
+    const store = new ConnectSessionKnexStore({
+        sidFieldName: config.auth.session.key,
         knex: await getDB() as any,
-        createtable: true,
+        createTable: true,
 
         // Clear expired sessions. (1 hour)
-        clearInterval: 60 * 60 * 1000
+        cleanupInterval: 60 * 60 * 1000
     });
 
     //------------------------------------------------------------------------------------------------------------------

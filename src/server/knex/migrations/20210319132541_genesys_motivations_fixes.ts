@@ -44,7 +44,10 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
     // Convert damage to an integer
     bk_genesys_motivation.forEach((mot) => mot.type = 'unknown');
 
-    bk_genesys_motivation.length > 0 ? await knex('genesys_motivation').insert(bk_genesys_motivation) : undefined;
+    if(bk_genesys_motivation.length > 0)
+    {
+        await knex('genesys_motivation').insert(bk_genesys_motivation);
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Step 4: Delete bk_* tables
@@ -106,7 +109,10 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
         return mot;
     });
 
-    bk_genesys_motivation.length > 0 ? await knex('genesys_motivation').insert(bk_genesys_motivation) : undefined;
+    if(bk_genesys_motivation.length > 0)
+    {
+        await knex('genesys_motivation').insert(bk_genesys_motivation);
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Step 4: Delete bk_* tables

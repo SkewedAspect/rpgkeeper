@@ -33,11 +33,11 @@
                     <div class="d-flex">
                         <BInputGroup>
                             <BFormInput id="soak-input" v-model="defenses.soak" number type="number" min="0" max="10" step="1"></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton @click="defenses.soak = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>
@@ -51,11 +51,11 @@
                     <div class="d-flex">
                         <BInputGroup>
                             <BFormInput id="melee-input" v-model="defenses.melee" number type="number" min="0" max="10" step="1"></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton @click="defenses.melee = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>
@@ -69,11 +69,11 @@
                     <div class="d-flex">
                         <BInputGroup>
                             <BFormInput id="ranged-input" v-model="defenses.ranged" number type="number" min="0" max="10" step="1"></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton @click="defenses.ranged = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>

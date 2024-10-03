@@ -75,7 +75,7 @@
                 autocomplete="off"
                 :disabled="readonly"
             ></BFormInput>
-            <BInputGroupAppend>
+            <template #append>
                 <BButton
                     v-b-tooltip.hover
                     variant="outline-secondary"
@@ -103,7 +103,7 @@
                 >
                     <fa icon="first-aid"></fa>
                 </BButton>
-            </BInputGroupAppend>
+            </template>
         </BInputGroup>
         <BInputGroup class="mt-1">
             <BFormInput
@@ -116,7 +116,7 @@
                 autocomplete="off"
                 :disabled="readonly"
             ></BFormInput>
-            <BInputGroupAppend>
+            <template #append>
                 <BButton
                     v-b-tooltip.hover
                     variant="outline-secondary"
@@ -144,7 +144,7 @@
                 >
                     <fa icon="first-aid"></fa>
                 </BButton>
-            </BInputGroupAppend>
+            </template>
         </BInputGroup>
 
         <hr class="mt-2 mb-2" />

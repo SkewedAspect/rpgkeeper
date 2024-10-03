@@ -59,11 +59,11 @@
                                 step="1"
                                 :disabled="!forcePool.sensitive"
                             ></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton :disabled="!forcePool.sensitive" @click="forcePool.rating = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>

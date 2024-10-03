@@ -41,11 +41,11 @@
                                     min="0"
                                     max="99"
                                 ></BFormInput>
-                                <BInputGroupAppend>
+                                <template #append>
                                     <BButton @click="characteristics[char] = 0">
                                         <fa icon="undo"></fa>
                                     </BButton>
-                                </BInputGroupAppend>
+                                </template>
                             </BInputGroup>
                         </div>
                     </BFormGroup>
@@ -69,11 +69,11 @@
                                     min="0"
                                     max="99"
                                 ></BFormInput>
-                                <BInputGroupAppend>
+                                <template #append>
                                     <BButton @click="characteristics[char] = 0">
                                         <fa icon="undo"></fa>
                                     </BButton>
-                                </BInputGroupAppend>
+                                </template>
                             </BInputGroup>
                         </div>
                     </BFormGroup>

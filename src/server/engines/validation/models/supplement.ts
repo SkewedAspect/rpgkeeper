@@ -6,7 +6,6 @@ import { z } from 'zod';
 
 // Models
 import { HashID } from './common';
-import { NotebookID } from './notebook';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

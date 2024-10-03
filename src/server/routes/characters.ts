@@ -130,7 +130,8 @@ router.delete('/:charID', ensureAuthenticated, async(req, resp) =>
         // 404 with no body. While this isn't technically necessary, I'd prefer the API to remain consistent.
         if(error.code === 'ERR_NOT_FOUND')
         {
-            return resp.status(404).end();
+            resp.status(404).end();
+            return;
         }
         else
         {

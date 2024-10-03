@@ -7,10 +7,7 @@ import { camelCaseKeys, snakeCaseKeys } from '../../utils/misc';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export interface SupplementDBSchema extends Supplement
-{
-    // No additional fields
-}
+export type SupplementDBSchema = Supplement
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -32,7 +29,7 @@ export function fromDB(dbObj : SupplementDBSchema) : Supplement
             {
                 suppDef[key] = JSON.parse(value);
             }
-            catch (err)
+            catch (_err)
             {
                 // Ignore failures and just return the string
                 suppDef[key] = value;

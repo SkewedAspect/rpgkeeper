@@ -83,8 +83,14 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
     bk_genesys_weapon.forEach((weap) => weap.damage = parseInt(weap.damage));
     bk_eote_weapon.forEach((weap) => weap.damage = parseInt(weap.damage));
 
-    bk_genesys_weapon.length > 0 ? await knex('genesys_weapon').insert(bk_genesys_weapon) : undefined;
-    bk_eote_weapon.length > 0 ? await knex('eote_weapon').insert(bk_eote_weapon) : undefined;
+    if(bk_genesys_weapon.length > 0)
+    {
+        await knex('genesys_weapon').insert(bk_genesys_weapon);
+    }
+    if(bk_eote_weapon.length > 0)
+    {
+        await knex('eote_weapon').insert(bk_eote_weapon);
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Step 4: Delete bk_* tables
@@ -185,8 +191,15 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
     bk_genesys_weapon.forEach((weap) => weap.damage = parseInt(weap.damage));
     bk_eote_weapon.forEach((weap) => weap.damage = parseInt(weap.damage));
 
-    bk_genesys_weapon.length > 0 ? await knex('genesys_weapon').insert(bk_genesys_weapon) : undefined;
-    bk_eote_weapon.length > 0 ? await knex('eote_weapon').insert(bk_eote_weapon) : undefined;
+    if(bk_genesys_weapon.length > 0)
+    {
+        await knex('genesys_weapon').insert(bk_genesys_weapon);
+    }
+
+    if(bk_eote_weapon.length > 0)
+    {
+        await knex('eote_weapon').insert(bk_eote_weapon);
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Step 4: Delete bk_* tables

@@ -41,11 +41,11 @@
                                 max="99"
                                 step="1"
                             ></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton @click="health.wounds = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>
@@ -67,11 +67,11 @@
                                 max="99"
                                 step="1"
                             ></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton @click="health.woundThreshold = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>
@@ -93,11 +93,11 @@
                                 max="99"
                                 step="1"
                             ></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton @click="health.strain = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>
@@ -119,11 +119,11 @@
                                 max="99"
                                 step="1"
                             ></BFormInput>
-                            <BInputGroupAppend>
+                            <template #append>
                                 <BButton @click="health.strainThreshold = 0">
                                     <fa icon="times"></fa>
                                 </BButton>
-                            </BInputGroupAppend>
+                            </template>
                         </BInputGroup>
                     </div>
                 </BFormGroup>

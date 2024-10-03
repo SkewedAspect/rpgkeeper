@@ -10,6 +10,7 @@
 # Build artifacts
 .cache
 dist
+*.tsbuildinfo
 
 # Node artifacts
 node_modules

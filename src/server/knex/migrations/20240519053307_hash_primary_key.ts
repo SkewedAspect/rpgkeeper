@@ -438,7 +438,6 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
 
     if(notes.length > 0)
     {
-
         await knex('note')
             .insert(notes.map((note, idx) =>
             {

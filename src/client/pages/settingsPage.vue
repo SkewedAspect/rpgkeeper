@@ -31,12 +31,12 @@
                     <BInputGroup>
                         <BFormInput v-model="account.name" placeholder="Display Name"></BFormInput>
 
-                        <BInputGroupAppend>
+                        <template #append>
                             <BButton variant="primary" @click="save()">
                                 <fa icon="save"></fa>
                                 Set Name
                             </BButton>
-                        </BInputGroupAppend>
+                        </template>
                     </BInputGroup>
                 </BCol>
             </BFormRow>

@@ -21,7 +21,7 @@
                 :options="formattedCriticals"
                 :disabled="readonly"
             ></BFormSelect>
-            <BInputGroupAppend>
+            <template #append>
                 <BButton
                     variant="primary"
                     style="max-width: 48px; min-width: 48px;"
@@ -31,12 +31,12 @@
                 >
                     <fa icon="plus"></fa>
                 </BButton>
-            </BInputGroupAppend>
+            </template>
         </BInputGroup>
 
         <BInputGroup class="mt-2">
             <BFormInput v-model="rollBonus" number type="number" min="0" step="1" placeholder="Crit. bonus"></BFormInput>
-            <BInputGroupAppend>
+            <template #append>
                 <BButton
                     variant="primary"
                     style="min-width: 48px;"
@@ -47,7 +47,7 @@
                     <fa icon="dice"></fa>
                     Roll Crit.
                 </BButton>
-            </BInputGroupAppend>
+            </template>
         </BInputGroup>
 
         <hr class="mt-2 mb-2" />

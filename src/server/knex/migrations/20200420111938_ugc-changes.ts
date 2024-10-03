@@ -375,21 +375,95 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
     const bk_eote_armor = await knex('bk_eote_armor').select();
     const bk_eote_weapon = await knex('bk_eote_weapon').select();
 
-    bk_genesys_motivation.length > 0 ? await knex('genesys_motivation').insert(bk_genesys_motivation) : undefined;
-    bk_genesys_ability.length > 0 ? await knex('genesys_ability').insert(bk_genesys_ability) : undefined;
-    bk_genesys_talent.length > 0 ? await knex('genesys_talent').insert(bk_genesys_talent) : undefined;
-    bk_genesys_gear.length > 0 ? await knex('genesys_gear').insert(bk_genesys_gear) : undefined;
-    bk_genesys_attachment.length > 0 ? await knex('genesys_attachment').insert(bk_genesys_attachment) : undefined;
-    bk_genesys_quality.length > 0 ? await knex('genesys_quality').insert(bk_genesys_quality) : undefined;
-    bk_genesys_armor.length > 0 ? await knex('genesys_armor').insert(bk_genesys_armor) : undefined;
-    bk_genesys_weapon.length > 0 ? await knex('genesys_weapon').insert(bk_genesys_weapon) : undefined;
-    bk_eote_ability.length > 0 ? await knex('eote_ability').insert(bk_eote_ability) : undefined;
-    bk_eote_talent.length > 0 ? await knex('eote_talent').insert(bk_eote_talent) : undefined;
-    bk_eote_gear.length > 0 ? await knex('eote_gear').insert(bk_eote_gear) : undefined;
-    bk_eote_attachment.length > 0 ? await knex('eote_attachment').insert(bk_eote_attachment) : undefined;
-    bk_eote_quality.length > 0 ? await knex('eote_quality').insert(bk_eote_quality) : undefined;
-    bk_eote_armor.length > 0 ? await knex('eote_armor').insert(bk_eote_armor) : undefined;
-    bk_eote_weapon.length > 0 ? await knex('eote_weapon').insert(bk_eote_weapon) : undefined;
+    if(bk_genesys_motivation.length > 0)
+    {
+        await knex('genesys_motivation')
+            .insert(bk_genesys_motivation);
+    }
+
+    if(bk_genesys_ability.length > 0)
+    {
+        await knex('genesys_ability')
+            .insert(bk_genesys_ability);
+    }
+
+    if(bk_genesys_talent.length > 0)
+    {
+        await knex('genesys_talent')
+            .insert(bk_genesys_talent);
+    }
+
+    if(bk_genesys_gear.length > 0)
+    {
+        await knex('genesys_gear')
+            .insert(bk_genesys_gear);
+    }
+
+    if(bk_genesys_attachment.length > 0)
+    {
+        await knex('genesys_attachment')
+            .insert(bk_genesys_attachment);
+    }
+
+    if(bk_genesys_quality.length > 0)
+    {
+        await knex('genesys_quality')
+            .insert(bk_genesys_quality);
+    }
+
+    if(bk_genesys_armor.length > 0)
+    {
+        await knex('genesys_armor')
+            .insert(bk_genesys_armor);
+    }
+
+    if(bk_genesys_weapon.length > 0)
+    {
+        await knex('genesys_weapon')
+            .insert(bk_genesys_weapon);
+    }
+
+    if(bk_eote_ability.length > 0)
+    {
+        await knex('eote_ability')
+            .insert(bk_eote_ability);
+    }
+
+    if(bk_eote_talent.length > 0)
+    {
+        await knex('eote_talent')
+            .insert(bk_eote_talent);
+    }
+
+    if(bk_eote_gear.length > 0)
+    {
+        await knex('eote_gear')
+            .insert(bk_eote_gear);
+    }
+
+    if(bk_eote_attachment.length > 0)
+    {
+        await knex('eote_attachment')
+            .insert(bk_eote_attachment);
+    }
+
+    if(bk_eote_quality.length > 0)
+    {
+        await knex('eote_quality')
+            .insert(bk_eote_quality);
+    }
+
+    if(bk_eote_armor.length > 0)
+    {
+        await knex('eote_armor')
+            .insert(bk_eote_armor);
+    }
+
+    if(bk_eote_weapon.length > 0)
+    {
+        await knex('eote_weapon')
+            .insert(bk_eote_weapon);
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Step 4: Delete bk_* tables
@@ -516,21 +590,95 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
     const bk_eote_armor = trimColumns(await knex('bk_eote_armor').select());
     const bk_eote_weapon = trimColumns(await knex('bk_eote_weapon').select());
 
-    bk_genesys_motivation.length > 0 ? await knex('genesys_motivation').insert(bk_genesys_motivation) : undefined;
-    bk_genesys_ability.length > 0 ? await knex('genesys_ability').insert(bk_genesys_ability) : undefined;
-    bk_genesys_talent.length > 0 ? await knex('genesys_talent').insert(bk_genesys_talent) : undefined;
-    bk_genesys_gear.length > 0 ? await knex('genesys_gear').insert(bk_genesys_gear) : undefined;
-    bk_genesys_attachment.length > 0 ? await knex('genesys_attachment').insert(bk_genesys_attachment) : undefined;
-    bk_genesys_quality.length > 0 ? await knex('genesys_quality').insert(bk_genesys_quality) : undefined;
-    bk_genesys_armor.length > 0 ? await knex('genesys_armor').insert(bk_genesys_armor) : undefined;
-    bk_genesys_weapon.length > 0 ? await knex('genesys_weapon').insert(bk_genesys_weapon) : undefined;
-    bk_eote_ability.length > 0 ? await knex('eote_ability').insert(bk_eote_ability) : undefined;
-    bk_eote_talent.length > 0 ? await knex('eote_talent').insert(bk_eote_talent) : undefined;
-    bk_eote_gear.length > 0 ? await knex('eote_gear').insert(bk_eote_gear) : undefined;
-    bk_eote_attachment.length > 0 ? await knex('eote_attachment').insert(bk_eote_attachment) : undefined;
-    bk_eote_quality.length > 0 ? await knex('eote_quality').insert(bk_eote_quality) : undefined;
-    bk_eote_armor.length > 0 ? await knex('eote_armor').insert(bk_eote_armor) : undefined;
-    bk_eote_weapon.length > 0 ? await knex('eote_weapon').insert(bk_eote_weapon) : undefined;
+    if(bk_genesys_motivation.length > 0)
+    {
+        await knex('genesys_motivation')
+            .insert(bk_genesys_motivation);
+    }
+
+    if(bk_genesys_ability.length > 0)
+    {
+        await knex('genesys_ability')
+            .insert(bk_genesys_ability);
+    }
+
+    if(bk_genesys_talent.length > 0)
+    {
+        await knex('genesys_talent')
+            .insert(bk_genesys_talent);
+    }
+
+    if(bk_genesys_gear.length > 0)
+    {
+        await knex('genesys_gear')
+            .insert(bk_genesys_gear);
+    }
+
+    if(bk_genesys_attachment.length > 0)
+    {
+        await knex('genesys_attachment')
+            .insert(bk_genesys_attachment);
+    }
+
+    if(bk_genesys_quality.length > 0)
+    {
+        await knex('genesys_quality')
+            .insert(bk_genesys_quality);
+    }
+
+    if(bk_genesys_armor.length > 0)
+    {
+        await knex('genesys_armor')
+            .insert(bk_genesys_armor);
+    }
+
+    if(bk_genesys_weapon.length > 0)
+    {
+        await knex('genesys_weapon')
+            .insert(bk_genesys_weapon);
+    }
+
+    if(bk_eote_ability.length > 0)
+    {
+        await knex('eote_ability')
+            .insert(bk_eote_ability);
+    }
+
+    if(bk_eote_talent.length > 0)
+    {
+        await knex('eote_talent')
+            .insert(bk_eote_talent);
+    }
+
+    if(bk_eote_gear.length > 0)
+    {
+        await knex('eote_gear')
+            .insert(bk_eote_gear);
+    }
+
+    if(bk_eote_attachment.length > 0)
+    {
+        await knex('eote_attachment')
+            .insert(bk_eote_attachment);
+    }
+
+    if(bk_eote_quality.length > 0)
+    {
+        await knex('eote_quality')
+            .insert(bk_eote_quality);
+    }
+
+    if(bk_eote_armor.length > 0)
+    {
+        await knex('eote_armor')
+            .insert(bk_eote_armor);
+    }
+
+    if(bk_eote_weapon.length > 0)
+    {
+        await knex('eote_weapon')
+            .insert(bk_eote_weapon);
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Step 4: Delete bk_* tables
