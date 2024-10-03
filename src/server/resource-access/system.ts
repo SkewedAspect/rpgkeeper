@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-// SystemManager
+// System Resource Access
 //----------------------------------------------------------------------------------------------------------------------
 
 // Systems
@@ -8,7 +8,9 @@ import Fate from '../systems/fate/system';
 import Wfrp from '../systems/wfrp/system';
 import { Genesys, EdgeOfTheEmpire } from '../systems/eote/system';
 import { BaseSystem } from '../systems/base';
-import { Character } from '../models/character';
+
+// Models
+import { Character } from '../../common/interfaces/models/character';
 
 //----------------------------------------------------------------------------------------------------------------------
 

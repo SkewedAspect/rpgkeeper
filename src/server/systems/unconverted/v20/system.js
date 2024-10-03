@@ -6,7 +6,7 @@ import express from 'express';
 // import logging from 'omega-logger';
 
 import models from './models';
-import systemMan from '../manager';
+import systemRA from '../manager';
 
 // Routes
 // import raceRouter from './routes/races';
@@ -43,8 +43,8 @@ const id = 'V20';
 const name = 'Vampire: The Masquerade (20th Anniversary Edition)';
 const description = 'This system was built for V20, but should work for original VtM as well.';
 
-systemMan.register(id, name, description, router, models);
-systemMan.buildGeneralEndpoints(router, models);
+systemRA.register(id, name, description, router, models);
+systemRA.buildGeneralEndpoints(router, models);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Data Loading Helpers

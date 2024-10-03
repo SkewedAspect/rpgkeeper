@@ -7,7 +7,7 @@ import express from 'express';
 import logging from 'omega-logger';
 
 import models from './models';
-import systemMan from '../manager';
+import systemRA from '../manager';
 
 // Routes
 import raceRouter from './routes/races';
@@ -44,8 +44,8 @@ const id = 'dnd35';
 const name = 'Dungeons and Dragons v3.5';
 const description = 'A system that should work with D&D v3/3.5 and Pathfinder.';
 
-systemMan.register(id, name, description, router, models);
-systemMan.buildGeneralEndpoints(router, models);
+systemRA.register(id, name, description, router, models);
+systemRA.buildGeneralEndpoints(router, models);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Data Loading Helpers

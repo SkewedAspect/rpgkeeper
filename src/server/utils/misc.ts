@@ -30,7 +30,7 @@ export function shortID() : string
  *
  * @returns Returns a new object with the keys camel cased.
  */
-export function camelCaseKeys(obj : Record<string, unknown>) : Record<string, unknown>
+export function camelCaseKeys<T>(obj : Record<string, T>) : Record<string, T>
 {
     return mapKeys(obj, (_val, key) =>
     {
@@ -52,7 +52,7 @@ export function camelCaseKeys(obj : Record<string, unknown>) : Record<string, un
  *
  * @returns Returns a new object with the keys snake cased.
  */
-export function snakeCaseKeys(obj : Record<string, unknown>) : Record<string, unknown>
+export function snakeCaseKeys<T>(obj : Record<string, T>) : Record<string, T>
 {
     return mapKeys(obj, (_val, key) =>
     {

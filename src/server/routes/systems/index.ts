@@ -6,7 +6,7 @@ import express from 'express';
 
 // Managers
 import * as permMan from '../../utils/permissions';
-import systemMan from '../../managers/system';
+import systemRA from '../../resource-access/system';
 
 // Utils
 import { errorHandler, interceptHTML } from '../utils';
@@ -28,7 +28,7 @@ router.get('/', (request, response) =>
 {
     interceptHTML(response, async() =>
     {
-        const systems = systemMan.systems
+        const systems = systemRA.systems
             .filter((system) =>
             {
                 return permMan.hasPerm(request.user, 'Systems/viewDisabled') || system.status !== 'disabled';

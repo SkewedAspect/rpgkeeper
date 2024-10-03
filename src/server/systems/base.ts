@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SupportStatus } from '../../common/interfaces/common';
-import { Character } from '../models/character';
+import { SupportStatus } from '../../common/interfaces/models/system';
+import { Character } from '../../common/interfaces/models/character';
 
 //----------------------------------------------------------------------------------------------------------------------
 
