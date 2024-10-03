@@ -5,7 +5,7 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { createRouter, createWebHistory } from 'vue-router';
-import { marked } from 'marked';
+import { marked, Tokens } from 'marked';
 
 // Bootstrap Vue
 import { createBootstrap } from 'bootstrap-vue-next';
@@ -87,9 +87,32 @@ const app = createApp(AppComponent)
 
 // Configure the marked Markdown parser
 const renderer = new marked.Renderer();
-renderer.table = function(header, body)
+renderer.table = function(token : Tokens.Table) : string
 {
-    const tableBody = `<thead>${ header }</thead><tbody>${ body }</tbody>`;
+    // Build table head
+    let tableBody = '<thead>';
+    for(const header of token.header)
+    {
+        // Translate alignment
+        const align = header.align === 'center' ? 'text-center' : header.align === 'right' ? 'text-end' : 'text-start';
+
+        tableBody += `<th class="${ align }">${ header.text }</th>`;
+    }
+    tableBody += '</thead>';
+
+    tableBody += '<tbody>';
+    for(const row of token.rows)
+    {
+        tableBody += '<tr>';
+        for(const cell of row)
+        {
+            const align = cell.align === 'center' ? 'text-center' : cell.align === 'right' ? 'text-end' : 'text-start';
+            tableBody += `<td class="${ align }">${ cell.text }</td>`;
+        }
+        tableBody += '</tr>';
+    }
+    tableBody += '</tbody>';
+
     return `<div class="table-responsive">
             <table class="table table-striped table-hover table-sm">${ tableBody }</table>
         </div>`;

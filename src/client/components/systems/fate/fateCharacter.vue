@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <BContainer v-if="char" id="fate-char">
+    <BContainer v-if="char" id="fate-char" fluid>
         <div class="d-flex">
             <PortraitCard class="me-1 d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
             <IdentityCard class="me-1 ms-1 w-50" :readonly="!isAuthorized" @save="onSave"></IdentityCard>
