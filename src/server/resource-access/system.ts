@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Systems
+import CoC from '../systems/coc/system';
 import Risus from '../systems/risus/system';
 import Fate from '../systems/fate/system';
 import Wfrp from '../systems/wfrp/system';
@@ -21,6 +22,7 @@ class SystemManager
     constructor()
     {
         this.systems = [
+            CoC,
             Risus,
             Fate,
             Genesys,
