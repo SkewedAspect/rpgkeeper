@@ -8,12 +8,13 @@ import { BaseSystem } from '../base';
 // Models
 import { SupportStatus } from '../../../common/interfaces/common';
 import { Character } from '../../models/character';
+import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote';
 
 // Validations
+import { validateEoteDetails, validateGenesysDetails } from './validations';
 
 // Defaults
 import defaults from './defaults';
-import { validateEoteDetails, validateGenesysDetails } from './validations';
 
 // Logger
 import logging from '@strata-js/util-logging';
@@ -36,9 +37,9 @@ class GenesysSystem extends BaseSystem
         logger.info(`Loaded '${ name }' system.`);
     }
 
-    async validateCharacterDetails(character : Character) : Promise<Character>
+    async validateCharacterDetails(character : GenesysCharacter) : Promise<Character>
     {
-        return validateGenesysDetails(character);
+        return validateGenesysDetails(character) as Promise<Character>;
     }
 }
 
@@ -55,9 +56,9 @@ class EOTESystem extends BaseSystem
         logger.info(`Loaded '${ name }' system.`);
     }
 
-    async validateCharacterDetails(character : Character) : Promise<Character>
+    async validateCharacterDetails(character : EoteCharacter) : Promise<Character>
     {
-        return validateEoteDetails(character);
+        return validateEoteDetails(character) as Promise<Character>;
     }
 }
 

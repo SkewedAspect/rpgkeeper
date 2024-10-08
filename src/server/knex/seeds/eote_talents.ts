@@ -2,11 +2,12 @@
 // Populate a default set of EotE/Genesys Talents
 //----------------------------------------------------------------------------------------------------------------------
 
+import { Knex } from 'knex';
 import { sortBy } from '../../utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const genesysRefs = {
+const genesysRefs :Record<string, { tier: number, reference : string }> = {
     'Durable': { tier: 1, reference: 'G-CRB:73' },
     'Enduring': { tier: 4, reference: 'G-CRB:80' },
     'Toughened': { tier: 1, reference: 'G-CRB:75' },
@@ -27,7 +28,7 @@ const genesysRefs = {
     'Heightened Awareness': { tier: 2, reference: 'G-CRB:76' }
 };
 
-exports.seed = async function(knex)
+exports.seed = async function(knex : Knex)
 {
     const talents = [
         {

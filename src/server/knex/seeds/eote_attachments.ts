@@ -2,11 +2,12 @@
 // Populate a default set of EotE/Genesys Attachments
 //----------------------------------------------------------------------------------------------------------------------
 
+import { Knex } from 'knex';
 import { sortBy } from '../../utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.seed = async function(knex)
+exports.seed = async function(knex : Knex)
 {
     const eoteAttachments = [
         {

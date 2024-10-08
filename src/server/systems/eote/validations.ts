@@ -5,6 +5,7 @@
 // Models
 import { Account } from '../../../common/interfaces/models/account';
 import { Character } from '../../models/character';
+import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote';
 
 // Managers
 import * as accountMan from '../../managers/account';
@@ -34,7 +35,7 @@ function isNumbers(array : number[] | SupplementRef[]) : array is number[]
 
 //----------------------------------------------------------------------------------------------------------------------
 
-async function validateMotivations(character : Character, account : Account) : Promise<void>
+async function validateMotivations(character : GenesysCharacter, account : Account) : Promise<void>
 {
     const motivations = <Motivations>character.details.motivations;
 
@@ -105,7 +106,7 @@ async function validateSuppRef(suppRefs : SupplementRef[] | number[], type : str
 // Top-level Validation Functions
 //----------------------------------------------------------------------------------------------------------------------
 
-export async function validateGenesysDetails(character : Character) : Promise<Character>
+export async function validateGenesysDetails(character : GenesysCharacter) : Promise<GenesysCharacter>
 {
     // We get the owner of the character, as that's how we check for validity; not based on the person wanting to
     // retrieve it.
@@ -133,7 +134,7 @@ export async function validateGenesysDetails(character : Character) : Promise<Ch
     return character;
 }
 
-export async function validateEoteDetails(character : Character) : Promise<Character>
+export async function validateEoteDetails(character : EoteCharacter) : Promise<EoteCharacter>
 {
     // We get the owner of the character, as that's how we check for validity; not based on the person wanting to
     // retrieve it.

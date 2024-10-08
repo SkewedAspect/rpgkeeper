@@ -2,7 +2,24 @@
 // Call of Cthulhu Models
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface CocBackstory
+import { Supplement } from '../models/supplement';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export const validCoCCharacteristicNames = [
+    'strength',
+    'dexterity',
+    'intelligence',
+    'constitution',
+    'appearance',
+    'power',
+    'size',
+    'education'
+] as const;
+
+export type CoCCharacteristicName = typeof validCoCCharacteristicNames[number];
+
+export interface CoCBackstory
 {
     description : string;
     ideology : string;
@@ -19,20 +36,16 @@ export interface CocBackstory
 export interface CoCSkill
 {
     name : string;
-    defaultValue : number;
-    value : number;
+    defaultValue : number | null;
+    characteristic ?: CoCCharacteristicName;
+    half ?: boolean;
+    value : number | null;
+    used : boolean;
 }
 
-export interface CoCCharacteristics
+export type CoCCharacteristics =
 {
-    strength : number;
-    constitution : number;
-    size : number;
-    dexterity : number;
-    appearance : number;
-    intelligence : number;
-    power : number;
-    education : number;
+    [ CharacteristicName in typeof validCoCCharacteristicNames[number] ] : number;
 }
 
 export interface CoCStat
@@ -52,14 +65,14 @@ export interface CocBiography
     residence : string;
 }
 
-export interface CoCWeapon
+export interface CoCWeapon extends Omit<Supplement, 'id'>
 {
     name : string;
     damage : string;
     range : string;
     attacks : number;
     ammo : number;
-    malfunctions : number;
+    malfunction : number;
     skill : string; // TODO: This is a skill name, should be a reference to a skill
 }
 
@@ -88,7 +101,7 @@ export interface CoCSystemDetails
         dying : boolean;
     }
     weapons : CoCWeapon[];
-    backstory : CocBackstory;
+    backstory : CoCBackstory;
     gear : string[];
     wealth : CoCWealth;
 }

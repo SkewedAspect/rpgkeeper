@@ -12,6 +12,7 @@ import systemRA from '../../resource-access/system';
 import { errorHandler, interceptHTML } from '../utils';
 
 // Sub-routes
+import cocRouter from './coc';
 import eoteRouter from './eote';
 import genRouter from './genesys';
 
@@ -42,6 +43,7 @@ router.get('/', (request, response) =>
 // Sub Routes
 //----------------------------------------------------------------------------------------------------------------------
 
+router.use('/coc', cocRouter);
 router.use('/eote', eoteRouter);
 router.use('/genesys', genRouter);
 

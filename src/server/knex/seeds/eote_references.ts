@@ -2,7 +2,11 @@
 // Populate a default set of EotE/Genesys References
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.seed = async function(knex)
+import { Knex } from 'knex';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+exports.seed = async function(knex : Knex)
 {
     // Deletes ALL existing entries
     await knex('eote_reference').del();

@@ -5,13 +5,13 @@
 <template>
     <BContainer id="character-page" class="mt-2 mb-3" fluid>
         <!-- Error Handling -->
-        <BContainer v-if="error">
+        <BContainer v-if="pageError">
             <BAlert variant="danger" :model-value="true">
                 <h4>
                     <fa icon="exclamation-triangle"></fa>
                     Error loading character
                 </h4>
-                <div v-for="(line, index) in error.stack.split('\n')" :key="index">
+                <div v-for="(line, index) in pageError.stack.split('\n')" :key="index">
                     {{ line }}
                 </div>
                 <div class="text-end">
@@ -43,7 +43,7 @@
                 </template>
 
                 <!-- Actual System Character Sheet -->
-                <component :is="char.system" :is-authorized="isAuthorized">
+                <Component :is="characterPages[char.system]" :is-authorized="isAuthorized">
                     <!-- We put a warning here, mostly for the developer. -->
                     <BContainer>
                         <BAlert variant="warning" show>
@@ -67,7 +67,7 @@
                             </div>
                         </BAlert>
                     </BContainer>
-                </component>
+                </Component>
             </BTab>
             <BTab>
                 <template #title>
@@ -104,11 +104,9 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts">
-    //------------------------------------------------------------------------------------------------------------------
-
-    import { defineComponent } from 'vue';
-    import { mapState } from 'pinia';
+<script setup lang="ts">
+    import { computed, onBeforeMount, ref } from 'vue';
+    import { useRoute } from 'vue-router';
 
     // Stores
     import { useAccountStore } from '../lib/stores/account';
@@ -123,53 +121,60 @@
     import NoteBook from '../components/notes/noteBook.vue';
 
     // Systems
+    import CocCharacter from '../components/systems/coc/cocCharacter.vue';
     import RisusCharacter from '../components/systems/risus/risusCharacter.vue';
     import FateCharacter from '../components/systems/fate/fateCharacter.vue';
     import EoteCharacter from '../components/systems/eote/eoteCharacter.vue';
     import WfrpCharacter from '../components/systems/wfrp/wfrpCharacter.vue';
 
     //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
 
-    export default defineComponent({
-        name: 'CharacterPage',
-        components: {
-            LoadingWidget,
-            NoteBook,
+    const characterPages = {
+        coc: CocCharacter,
+        fate: FateCharacter,
+        risus: RisusCharacter,
+        genesys: EoteCharacter, // This is actually correct. We use the same component for both.
+        eote: EoteCharacter,
+        wfrp: WfrpCharacter
+    };
 
-            // Systems
-            fate: FateCharacter,
-            risus: RisusCharacter,
-            genesys: EoteCharacter, // This is actually correct. We use the same component for both.
-            eote: EoteCharacter,
-            wfrp: WfrpCharacter
-        },
-        data()
-        {
-            return {
-                error: undefined
-            };
-        },
-        computed: {
-            ...mapState(useAccountStore, [ 'account' ]),
-            ...mapState(useSystemsStore, {
-                system: (store) => store.current
-            }),
-            ...mapState(useCharactersStore, {
-                char: (store) => store.current,
-                saving: (store) => store.saving
-            }),
-            isAuthorized()
-            {
-                return !!this.account
-                    && !!this.char
-                    && (this.account.id || 'nope!') === this.char.accountID;
-            }
-        },
-        mounted()
-        {
-            // We always select the character that matches our route, so we handle navigation.
-            charMan.select(this.$route.params.id).catch((err) => this.error = err);
-        }
+    const accountStore = useAccountStore();
+    const charactersStore = useCharactersStore();
+    const systemsStore = useSystemsStore();
+
+    const route = useRoute();
+    const pageError = ref<Error | null>(null);
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const account = computed(() => accountStore.account);
+    const char = computed(() => charactersStore.current);
+    const saving = computed(() => charactersStore.saving);
+    const system = computed(() => systemsStore.current);
+
+    const isAuthorized = computed(() =>
+    {
+        return !!account.value
+            && !!char.value
+            && (account.value.id || 'nope!') === char.value.accountID;
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Lifecycle Hooks
+    //------------------------------------------------------------------------------------------------------------------
+
+    onBeforeMount(() =>
+    {
+        // This will never normally be an array, but we handle it just in case.
+        const charID = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id;
+
+        // We always select the character that matches our route, so we handle navigation.
+        charMan.select(charID)
+            .catch((err) => pageError.value = err);
     });
 </script>
 

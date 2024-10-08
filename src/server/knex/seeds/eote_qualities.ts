@@ -2,13 +2,14 @@
 // Populate a default set of EotE/Genesys Qualities
 //----------------------------------------------------------------------------------------------------------------------
 
+import { Knex } from 'knex';
 import { sortBy } from '../../utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.seed = async function(knex)
+exports.seed = async function(knex : Knex)
 {
-    const genesysRefs = {
+    const genesysRefs : Record<string, string> = {
         'Accurate': 'G-CRB:86',
         'Auto-Fire': 'G-CRB:86',
         'Blast': 'G-CRB:86',
