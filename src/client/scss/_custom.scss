@@ -5,7 +5,9 @@
 //
 //----------------------------------------------------------------------------------------------------------------------
 
-// Prevent overscrolling
+@use "sass:map";
+
+// Prevent overscroll
 :root {
     overscroll-behavior: none;
 }
@@ -18,7 +20,7 @@
 @each $color, $value in $theme-colors-text {
     .btn-#{$color}
     {
-        $base-color: map-get($theme-colors, $color);
+        $base-color: map.get($theme-colors, $color);
         --#{$prefix}btn-color: #{ $value };
         --#{$prefix}btn-hover-color: #{ $value };
         --#{$prefix}btn-border-width: #{ 2px };

@@ -2,6 +2,16 @@
 // RPGKeeper Bootstrap Theme
 //----------------------------------------------------------------------------------------------------------------------
 
+// Custom Fonts
+@use "fonts";
+
+// Custom system stuff
+@use "eote";
+
+//----------------------------------------------------------------------------------------------------------------------
+// TODO: This needs to be ported to the new sass module system, however, it depends on bootstrap, which is not yet
+//  ported. Maybe v6? (See: https://github.com/twbs/bootstrap/issues/29853)
+
 // Our theme variables (these override the default Bootstrap ones)
 @import "variables";
 
@@ -14,11 +24,5 @@
 
 // Custom SCSS code
 @import "custom";
-
-// Custom Fonts
-@import "fonts";
-
-// Custom system stuff
-@import "eote";
 
 //----------------------------------------------------------------------------------------------------------------------

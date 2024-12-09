@@ -23,38 +23,40 @@
         <!-- Card Body -->
         <!-- A table for layout? In this economy? YOU BET YOUR ASS. -->
         <table style="border-collapse: collapse">
-            <tr>
-                <td>
-                    <b class="me-1">Strength:</b>
-                </td>
-                <td>
-                    <MotivationCard v-if="motivations.strength" :id="motivations.strength" />
-                    <i v-else>None</i>
-                </td>
-                <td>
-                    <b class="me-1">Flaw:</b>
-                </td>
-                <td>
-                    <MotivationCard v-if="motivations.flaw" :id="motivations.flaw" />
-                    <i v-else>None</i>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b class="me-1">Desire:</b>
-                </td>
-                <td>
-                    <MotivationCard v-if="motivations.desire" :id="motivations.desire" />
-                    <i v-else>None</i>
-                </td>
-                <td>
-                    <b class="me-1">Fear:</b>
-                </td>
-                <td>
-                    <MotivationCard v-if="motivations.fear" :id="motivations.fear" />
-                    <i v-else>None</i>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>
+                        <b class="me-1">Strength:</b>
+                    </td>
+                    <td>
+                        <MotivationCard v-if="motivations.strength" :id="motivations.strength" />
+                        <i v-else>None</i>
+                    </td>
+                    <td>
+                        <b class="me-1">Flaw:</b>
+                    </td>
+                    <td>
+                        <MotivationCard v-if="motivations.flaw" :id="motivations.flaw" />
+                        <i v-else>None</i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b class="me-1">Desire:</b>
+                    </td>
+                    <td>
+                        <MotivationCard v-if="motivations.desire" :id="motivations.desire" />
+                        <i v-else>None</i>
+                    </td>
+                    <td>
+                        <b class="me-1">Fear:</b>
+                    </td>
+                    <td>
+                        <MotivationCard v-if="motivations.fear" :id="motivations.fear" />
+                        <i v-else>None</i>
+                    </td>
+                </tr>
+            </tbody>
         </table>
 
         <!-- Edit Modal -->

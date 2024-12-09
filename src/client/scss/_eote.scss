@@ -2,6 +2,10 @@
 // EotE Dice
 //----------------------------------------------------------------------------------------------------------------------
 
+@use "sass:color";
+
+//----------------------------------------------------------------------------------------------------------------------
+
 $proficiency-color: #ece44d;
 $ability-color: #5fb576;
 $boost-color: #95caeb;
@@ -95,7 +99,7 @@ $force-color: #ffffff;
 @include makeDie('difficulty', $difficulty-color, 'd');
 
 // Setback Die
-@include makeDie('setback', $setback-color, 'b', invert($setback-color));
+@include makeDie('setback', $setback-color, 'b', color.invert($setback-color));
 
 //----------------------------------------------------------------------------------------------------------------------
 // Positive Symbols
