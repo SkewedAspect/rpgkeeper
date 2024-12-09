@@ -149,7 +149,11 @@ export async function runMigrations(runSeeds = true, convertToJs = true) : Promi
     {
         // Ensure that the migrations are in .js format
         await db.update({ name: db.raw('replace(name, \'.ts\', \'.js\')') })
-            .from('knex_migrations');
+            .from('knex_migrations')
+            .catch((err) =>
+            {
+                logger.warn('Error converting migrations to .js, skipping:', err);
+            });
     }
 
     // Run the migrations

@@ -7,7 +7,7 @@ import { sortBy } from '../../utils/misc.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.seed = async function(knex : Knex)
+export async function seed(knex : Knex) : Promise<void>
 {
     const genesysRefs : Record<string, string> = {
         'Accurate': 'G-CRB:86',

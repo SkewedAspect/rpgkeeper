@@ -12,6 +12,11 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
     // Step 1: Rename tables, drop indexes
     //------------------------------------------------------------------------------------------------------------------
 
+    await knex.schema.table('character', (table) =>
+    {
+        table.dropIndex('system');
+    });
+
     await knex.schema.renameTable('account', 'bk_account');
     await knex.schema.renameTable('account_role', 'bk_account_role');
     await knex.schema.renameTable('ugc_mod_comment', 'bk_ugc_mod_comment');

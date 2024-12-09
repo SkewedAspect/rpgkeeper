@@ -28,7 +28,7 @@ const genesysRefs : Record<string, { tier : number, reference : string }> = {
     'Heightened Awareness': { tier: 2, reference: 'G-CRB:76' },
 };
 
-exports.seed = async function(knex : Knex)
+export async function seed(knex : Knex) : Promise<void>
 {
     const talents = [
         {

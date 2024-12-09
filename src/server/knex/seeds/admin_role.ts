@@ -6,7 +6,7 @@ import { Knex } from 'knex';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.seed = async(knex : Knex) =>
+export async function seed(knex : Knex) : Promise<void>
 {
     // Delete automatic roles
     await knex('role').del()

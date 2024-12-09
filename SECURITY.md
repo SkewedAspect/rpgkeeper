@@ -10,5 +10,5 @@ docker images, are not things that we provide any explicit support for.
 
 To report a security vulnerability, please make a new issue with 
 `[Security]` in the title. If you're concerned about disclosure, then
-you can send an email to development@skewedaspect.com with the title 
-of `RPGKeeper Security Vulnerability`. Please be as detailed as possible.
+you can email development@skewedaspect.com with the title of 
+`RPGKeeper Security Vulnerability`. Please be as detailed as possible.

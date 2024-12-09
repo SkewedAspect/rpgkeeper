@@ -6,7 +6,7 @@ import { Knex } from 'knex';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-exports.seed = async function(knex : Knex)
+export async function seed(knex : Knex) : Promise<void>
 {
     // Deletes ALL existing entries
     await knex('eote_reference').del();
