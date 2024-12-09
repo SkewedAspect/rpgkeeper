@@ -164,7 +164,7 @@ async function main() : Promise<void>
     app.use('/api/notebook', noteRouter);
 
     // Serve index.html for any html requests, but 404 everything else.
-    app.get('*', (_request, response) =>
+    app.get(/(.*)/, (_request, response) =>
     {
         response.format({
             html: serveIndex,
