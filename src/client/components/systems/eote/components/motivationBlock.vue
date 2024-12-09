@@ -7,7 +7,7 @@
         <BBadge :id="uniqueID">
             {{ motivationName }}
         </BBadge>
-        <BPopover :title="motivationName" :target="uniqueID" triggers="hover" placement="top">
+        <BPopover :title="motivationName" :target="uniqueID" triggers="hover" placement="top" teleport-to="body">
             <div :class="`genesys-system`">
                 <MarkdownBlock :text="motivationText" inline />
                 <Reference

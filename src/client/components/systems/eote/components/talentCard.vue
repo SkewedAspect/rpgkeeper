@@ -13,7 +13,7 @@
                 </span>
             </div>
 
-            <BPopover :target="id" triggers="hover" placement="top">
+            <BPopover :target="id" triggers="hover" placement="top" teleport-to="body">
                 <template #title>
                     <div :class="`${ mode }-system`">
                         {{ talentBase?.name }}

@@ -153,19 +153,18 @@
 
         <BButtonGroup class="w-100">
             <BButton
+                ref="staggeredBtn"
                 v-model:pressed="health.staggered"
-                v-b-tooltip.hover.html
                 :variant="health.staggered ? 'warning' : 'outline-secondary'"
                 size="sm"
-                :title="staggeredText"
                 :disabled="readonly"
                 @click="saveChar"
             >
                 Stagg.
             </BButton>
             <BButton
+                ref="immobilizedBtn"
                 v-model:pressed="health.immobilized"
-                v-b-tooltip.hover.html
                 :variant="health.immobilized ? 'warning' : 'outline-secondary'"
                 size="sm"
                 :title="immobilizedText"
@@ -178,8 +177,8 @@
             <!-- The popover shoves a span in here which breaks the CSS for removing the border radius, so we have to
             re-add the border radius on the final button. -->
             <BButton
+                ref="disorientedBtn"
                 v-model:pressed="health.disoriented"
-                v-b-tooltip.hover.html
                 :variant="health.disoriented ? 'warning' : 'outline-secondary'"
                 size="sm"
                 :title="disorientedText"
@@ -190,6 +189,26 @@
                 Disor.
             </BButton>
         </BButtonGroup>
+
+        <!-- Tooltip Components -->
+        <BTooltip :target="staggeredBtn">
+            A <b>staggered</b> character cannot perform actions (including downgrading actions to maneuvers).
+        </BTooltip>
+
+        <BTooltip :target="immobilizedBtn">
+            <span :class="eoteMan.mode + '-system'">
+                An <b>immobilized</b> character cannot perform maneuvers (including maneuvers purchased via strain or
+                <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
+                by spending <advantage />)
+            </span>
+        </BTooltip>
+
+        <BTooltip :target="disorientedBtn">
+            <span :class="eoteMan.mode + '-system'">
+                <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
+                A <b>disoriented</b> character adds <setback /> (setback) to all checks they make.
+            </span>
+        </BTooltip>
 
         <!-- Edit Modal -->
         <EditModal ref="editModal" @save="onEditSave" />
@@ -269,6 +288,9 @@
     const woundsInput = ref<number>(undefined);
     const strainInput = ref<number>(undefined);
 
+    const staggeredBtn = ref<HTMLElement | null>(null);
+    const immobilizedBtn = ref<HTMLElement | null>(null);
+    const disorientedBtn = ref<HTMLElement | null>(null);
     const editModal = ref<InstanceType<typeof EditModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -334,15 +356,14 @@
         return undefined;
     });
 
-    const staggeredText = computed(() =>
-    {
-        return `A <b>staggered</b> character cannot perform actions (including downgrading actions to maneuvers).`;
-    });
+    // const staggeredText = computed(() =>
+    // {
+    //     return `A <b>staggered</b> character cannot perform actions (including downgrading actions to maneuvers).`;
+    // });
 
     const immobilizedText = computed(() =>
     {
-        return `<span class="${ eoteMan.mode }-system">An <b>immobilized</b> character cannot perform maneuvers `
-            + `(including maneuvers purchased via strain or by spending <advantage></advantage>)</span>`;
+        return ``;
     });
 
     const disorientedText = computed(() =>

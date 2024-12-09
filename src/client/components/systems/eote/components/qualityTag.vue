@@ -7,7 +7,7 @@
         <BBadge :id="uniqueID">
             {{ qualityName }}
         </BBadge>
-        <BPopover :title="qualityName" :target="uniqueID" triggers="hover" placement="top">
+        <BPopover :title="qualityName" :target="uniqueID" triggers="hover" placement="top" teleport-to="body">
             <div :class="`${ mode }-system`">
                 <MarkdownBlock :text="qualityText" inline />
                 <ReferenceBlock

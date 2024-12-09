@@ -7,7 +7,7 @@
         <BBadge :id="`ability-${ id }`">
             {{ abilityName }}
         </BBadge>
-        <BPopover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top">
+        <BPopover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top" teleport-to="body">
             <div :class="`${ mode }-system`">
                 <MarkdownBlock :text="abilityText" inline />
                 <Reference v-if="abilityReference" class="float-end mt-2 mb-2" :reference="abilityReference" />

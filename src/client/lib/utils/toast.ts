@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { VNode, h } from 'vue';
-import { useToast } from 'bootstrap-vue-next';
+import { useToastController } from 'bootstrap-vue-next';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ class ToastUtil
 {
     toast(message : string | VNode, options : Record<string, unknown>) : void
     {
-        const { show } = useToast();
+        const { show } = useToastController();
         show({ props: options, component: { render: () => message } });
     }
 
