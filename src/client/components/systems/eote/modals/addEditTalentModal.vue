@@ -16,7 +16,7 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     <span v-if="isEdit">
                         Edit
                     </span>
@@ -24,7 +24,7 @@
                         Add
                     </span>
                     Talent
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -36,7 +36,7 @@
                         label-class="fw-bold"
                         label-for="name-input"
                     >
-                        <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
+                        <BFormInput id="name-input" v-model="name" autocomplete="off" />
                     </BFormGroup>
                 </BCol>
                 <BCol cols="2" class="pt-4">
@@ -56,7 +56,7 @@
                             id="activation-input"
                             v-model="activation"
                             :options="activations"
-                        ></BFormSelect>
+                        />
                     </BFormGroup>
                 </BCol>
                 <BCol>
@@ -66,7 +66,7 @@
                         label-class="fw-bold"
                         label-for="trees-input"
                     >
-                        <BFormInput id="trees-input" v-model="trees" autocomplete="off"></BFormInput>
+                        <BFormInput id="trees-input" v-model="trees" autocomplete="off" />
                     </BFormGroup>
                     <BFormGroup
                         v-else
@@ -83,7 +83,7 @@
                             min="1"
                             max="5"
                             autocomplete="off"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                 </BCol>
             </BFormRow>
@@ -94,23 +94,23 @@
                 label-class="fw-bold"
                 label-for="extras-input"
             >
-                <MarkdownEditor v-model:text="description" height="250px"></MarkdownEditor>
+                <MarkdownEditor v-model:text="description" height="250px" />
             </BFormGroup>
 
-            <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
+            <ScopeSelect v-model:scope="scope" v-model:official="official" />
 
-            <EditReference v-model:reference="reference"></EditReference>
+            <EditReference v-model:reference="reference" />
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -126,7 +126,7 @@
     // Models
     import {
         EoteOrGenesysTalent,
-        EoteTalent
+        EoteTalent,
     } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
@@ -143,13 +143,10 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'add', talent : EoteTalent) : void;
-        (e : 'edit', talent : EoteTalent) : void;
-    }
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        add : [talent: EoteTalent]
+        edit : [talent: EoteTalent]
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -182,7 +179,7 @@
                 const text = eoteMan.activationEnum[value];
                 return {
                     text,
-                    value
+                    value,
                 };
             });
     });
@@ -242,7 +239,7 @@
                 ranked: ranked.value,
                 reference: reference.value,
                 scope: undefined,
-                official: false
+                official: false,
             });
 
             this.$emit('edit', talent);
@@ -258,7 +255,7 @@
                 ranked: ranked.value,
                 reference: reference.value,
                 scope: undefined,
-                official: false
+                official: false,
             });
 
             this.$emit('add', talent);

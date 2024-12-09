@@ -6,7 +6,7 @@ export const enum SupportStatus
 {
     InDevelopment = 'dev',
     PublicBeta = 'beta',
-    Disabled = 'disabled'
+    Disabled = 'disabled',
 }
 
 export interface System<Defaults extends Record<string, unknown>>

@@ -3,47 +3,47 @@
         <div class="card-header">
             <div class="btn-toolbar pull-right">
                 <button class="btn btn-secondary" :class="{ active: showSkills }" title="Show/Hide Skills" @click="toggleShowSkills()">
-                    <i class="fa" :class="{ 'fa-eye': showSkills, 'fa-eye-slash': !showSkills }"></i>
+                    <i class="fa" :class="{ 'fa-eye': showSkills, 'fa-eye-slash': !showSkills }" />
                 </button>
                 <button class="btn btn-primary" title="Add Skill...">
-                    <i class="fa fa-plus"></i>
+                    <i class="fa fa-plus" />
                 </button>
             </div>
 
-            <i class="fa fa-list"></i>
+            <i class="fa fa-list" />
             Skills
         </div>
         <table class="table table-sm table-hover">
             <thead class="thead-default">
-            <tr>
-                <th>Skill</th>
-                <th>Ability</th>
-                <th>Total</th>
-                <th>Ranks</th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>Skill</th>
+                    <th>Ability</th>
+                    <th>Total</th>
+                    <th>Ranks</th>
+                    <th />
+                </tr>
             </thead>
             <tbody>
-            <tr class="skill" :class="{ 'table-info': skill.hidden }" v-for="skill in char.skills" v-if="showSkills || !skill.hidden" @click="rollSkill(skill)">
-                <td>
-                    <span class="name">{{ skill.name }}</span><span class="armorPenalty" v-if="skill.armorPenalty" title="Armor Check Penalty applies">*</span>
-                    <span class="untrained" v-if="skill.untrained" title="Can be used untrained">&diams;</span>
-                </td>
-                <td class="text-center">
-                    {{ skill.ability | abilityShort }}
-                </td>
-                <td class="text-center">
-                    <b>{{ calcSkill(skill) || 0 }}</b>
-                </td>
-                <td class="text-center">
-                    {{ skill.ranks || 0 }}
-                </td>
-                <td>
-                    <button class="close" title="Edit Skill...">
-                        <i class="fa fa-edit"></i>
-                    </button>
-                </td>
-            </tr>
+                <tr v-for="skill in char.skills" v-if="showSkills || !skill.hidden" class="skill" :class="{ 'table-info': skill.hidden }" @click="rollSkill(skill)">
+                    <td>
+                        <span class="name">{{ skill.name }}</span><span v-if="skill.armorPenalty" class="armorPenalty" title="Armor Check Penalty applies">*</span>
+                        <span v-if="skill.untrained" class="untrained" title="Can be used untrained">&diams;</span>
+                    </td>
+                    <td class="text-center">
+                        {{ skill.ability | abilityShort }}
+                    </td>
+                    <td class="text-center">
+                        <b>{{ calcSkill(skill) || 0 }}</b>
+                    </td>
+                    <td class="text-center">
+                        {{ skill.ranks || 0 }}
+                    </td>
+                    <td>
+                        <button class="close" title="Edit Skill...">
+                            <i class="fa fa-edit" />
+                        </button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -75,22 +75,22 @@
     import rollsSvc from '../services/rolls';
 
     export default {
-        props: {
-            char: {
-                required: true
-            }
-        },
-        data: function()
-        {
-            return {
-                showSkills: false
-            };
-        },
         filters: {
             abilityShort(ability)
             {
                 return ability.substr(0, 3).toLocaleUpperCase();
-            }
+            },
+        },
+        props: {
+            char: {
+                required: true,
+            },
+        },
+        data()
+        {
+            return {
+                showSkills: false,
+            };
         },
         methods: {
             toggleShowSkills()
@@ -107,7 +107,7 @@
                 var scope = _.merge({}, this.char.toJSON(), { skill: { ranks: 0 } }, { skill }, { bonuses: 0 });
 
                 rollsSvc.roll(rollText, scope, skill.name);
-            }
-        }
-    }
+            },
+        },
+    };
 </script>

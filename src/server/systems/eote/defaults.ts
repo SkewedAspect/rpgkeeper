@@ -12,8 +12,8 @@ const ability = {
     description: '',
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const genesysTalent = {
@@ -25,8 +25,8 @@ const genesysTalent = {
     tier: 1,
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const gear = {
@@ -37,8 +37,8 @@ const gear = {
     rarity: 0,
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const genesysAttachment = {
@@ -50,8 +50,8 @@ const genesysAttachment = {
     hpRequired: 0,
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const quality = {
@@ -61,8 +61,8 @@ const quality = {
     passive: true,
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const armor = {
@@ -76,8 +76,8 @@ const armor = {
     rarity: 0,
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const weapon = {
@@ -93,8 +93,8 @@ const weapon = {
     qualities: [],
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const genesysSkills = [
@@ -143,7 +143,7 @@ const genesysSkills = [
     { name: 'Negotiation', characteristic: 'presence', ranks: 0, career: false, type: 'social' },
 
     // Knowledge
-    { name: 'Knowledge', characteristic: 'intellect', ranks: 0, career: false, type: 'knowledge' }
+    { name: 'Knowledge', characteristic: 'intellect', ranks: 0, career: false, type: 'knowledge' },
 ];
 
 const genesysChar = {
@@ -153,7 +153,7 @@ const genesysChar = {
         strength: null,
         flaw: null,
         desire: null,
-        fear: null
+        fear: null,
     },
     characteristics: {
         brawn: 0,
@@ -161,16 +161,16 @@ const genesysChar = {
         intellect: 0,
         cunning: 0,
         willpower: 0,
-        presence: 0
+        presence: 0,
     },
     experience: {
         total: 0,
-        available: 0
+        available: 0,
     },
     defenses: {
         soak: 0,
         melee: 0,
-        ranged: 0
+        ranged: 0,
     },
     health: {
         wounds: 0,
@@ -181,7 +181,7 @@ const genesysChar = {
         stimsUsed: 0,
         staggered: false,
         immobilized: false,
-        disoriented: false
+        disoriented: false,
     },
     skills: _.cloneDeep(genesysSkills),
     talents: [],
@@ -195,9 +195,9 @@ const genesysChar = {
         encumbrance: 0,
         rarity: 0,
         attachments: [] as any[],
-        qualities: [] as any[]
+        qualities: [] as any[],
     },
-    weapons: []
+    weapons: [],
 };
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -213,8 +213,8 @@ const eoteTalent = {
     trees: '',
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const eoteAttachment = {
@@ -226,8 +226,8 @@ const eoteAttachment = {
     hpRequired: 0,
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const forcePower = {
@@ -238,30 +238,30 @@ const forcePower = {
     upgrades: {
         strength: {
             available: 0,
-            description: ''
+            description: '',
         },
         magnitude: {
             available: 0,
-            description: ''
+            description: '',
         },
         duration: {
             available: 0,
-            description: ''
+            description: '',
         },
         range: {
             available: 0,
-            description: ''
+            description: '',
         },
         control: [],
         mastery: {
             available: 0,
-            description: ''
-        }
+            description: '',
+        },
     },
     reference: {
         source: '',
-        page: undefined
-    }
+        page: undefined,
+    },
 };
 
 const eoteSkills = [
@@ -306,7 +306,7 @@ const eoteSkills = [
     { name: 'Lore', characteristic: 'intellect', ranks: 0, career: false, type: 'knowledge' },
     { name: 'Outer Rim', characteristic: 'intellect', ranks: 0, career: false, type: 'knowledge' },
     { name: 'Underworld', characteristic: 'intellect', ranks: 0, career: false, type: 'knowledge' },
-    { name: 'Xenology', characteristic: 'intellect', ranks: 0, career: false, type: 'knowledge' }
+    { name: 'Xenology', characteristic: 'intellect', ranks: 0, career: false, type: 'knowledge' },
 ];
 
 // Strip unneeded props
@@ -319,10 +319,10 @@ const eoteChar = {
         rating: 0,
         committed: 0,
         powers: [],
-        sensitive: false
+        sensitive: false,
     },
     specialization: '',
-    skills: _.cloneDeep(eoteSkills)
+    skills: _.cloneDeep(eoteSkills),
 };
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -337,7 +337,7 @@ export default {
         talent: genesysTalent,
         skills: genesysSkills,
         attachment: genesysAttachment,
-        character: genesysChar
+        character: genesysChar,
     },
     eote: {
         ability,
@@ -349,8 +349,8 @@ export default {
         talent: eoteTalent,
         skills: eoteSkills,
         attachment: eoteAttachment,
-        character: eoteChar
-    }
+        character: eoteChar,
+    },
 };
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -53,14 +53,14 @@ export default defineConfig({
                         'threat',
                         'threat',
                         'despair',
-                        'darkside'
-                    ].includes(tag)
-                }
-            }
+                        'darkside',
+                    ].includes(tag),
+                },
+            },
         }),
         Components({
-            resolvers: [ BootstrapVueNextResolver() ]
-        })
+            resolvers: [ BootstrapVueNextResolver() ],
+        }),
     ],
 
     // Remove charset warning caused by bootstrap
@@ -76,11 +76,11 @@ export default defineConfig({
                             {
                                 atRule.remove();
                             }
-                        }
-                    }
-                }
-            ]
-        }
+                        },
+                    },
+                },
+            ],
+        },
     },
     server: {
         host: config.http.host,
@@ -91,13 +91,13 @@ export default defineConfig({
             '/version': `http://127.0.0.1:${ config.http.port - 1 }`,
             '/socket.io': {
                 target: `http://127.0.0.1:${ config.http.port - 1 }`,
-                ws: true
-            }
+                ws: true,
+            },
         },
-        open: false
+        open: false,
     },
     define: {
-        __APP_VERSION__: JSON.stringify(process.env.npm_package_version)
+        __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
     },
     build: {
         outDir: '../../dist/client',
@@ -107,11 +107,11 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    bootstrapVueNext: [ 'bootstrap-vue-next' ]
-                }
-            }
-        }
-    }
+                    bootstrapVueNext: [ 'bootstrap-vue-next' ],
+                },
+            },
+        },
+    },
 });
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -18,28 +18,28 @@
         >
             <template #prepend>
                 <BInputGroupText>
-                    <fa icon="search"></fa>
+                    <Fa icon="search" />
                 </BInputGroupText>
             </template>
             <template #append>
                 <BButton class="text-nowrap" variant="primary" title="Add..." @click="addSup()">
-                    <fa icon="plus"></fa>
+                    <Fa icon="plus" />
                     Add
                 </BButton>
             </template>
             <template #suggestion="{ data, htmlText }">
                 <div class="float-end">
-                    <slot :supplement="data" name="suggestion-extra"></slot>
-                    <ScopeBadge :supplement="data"></ScopeBadge>
+                    <slot :supplement="data" name="suggestion-extra" />
+                    <ScopeBadge :supplement="data" />
                 </div>
 
                 <!-- Note: the v-html binding is used, as htmlText contains
                          the suggestion text highlighted with <strong> tags -->
                 <!-- eslint-disable-next-line vue/no-v-html -->
-                <span v-html="htmlText"></span>
+                <span v-html="htmlText" />
             </template>
         </VueBootstrapAutocomplete>
-        <slot name="append-extra"></slot>
+        <slot name="append-extra" />
     </div>
 </template>
 
@@ -83,14 +83,11 @@
         defineProps<Props>(),
         {
             boundary: 'window',
-            sortFn: (suppA : Supplement, suppB : Supplement) => suppA.name.localeCompare(suppB.name)
+            sortFn: (suppA : Supplement, suppB : Supplement) => suppA.name.localeCompare(suppB.name),
         }
     );
 
-    interface Events
-    {
-        (e : 'add', supp : { id : string | number }) : void;
-    }
+    type Events = (e : 'add', supp : { id : string | number }) => void;
 
     const emit = defineEmits<Events>();
 
@@ -99,7 +96,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const popperOptions = {
-        strategy: 'fixed'
+        strategy: 'fixed',
     };
 
     const search = ref('');
@@ -133,12 +130,12 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onHit(supp : Supplement)
+    function onHit(supp : Supplement) : void
     {
         suppToAdd.value = supp;
     }
 
-    function addSup()
+    function addSup() : void
     {
         emit('add', { id: suppToAdd.value.id });
         suppToAdd.value = null;

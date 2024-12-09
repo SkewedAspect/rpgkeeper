@@ -8,12 +8,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="address-card"></fa>
+                    <Fa class="me-1" icon="address-card" />
                     <span class="d-none d-md-inline">Bio</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -33,7 +33,7 @@
             label="Description"
             label-class="fw-bold"
         >
-            <MarkdownBlock class="font-sm" :text="description" inline></MarkdownBlock>
+            <MarkdownBlock class="font-sm" :text="description" inline />
         </BFormGroup>
         <BFormRow>
             <BCol>
@@ -53,7 +53,7 @@
                         :disabled="readonly"
                         number
                         @change="onChange"
-                    ></BFormInput>
+                    />
                 </BFormGroup>
             </BCol>
             <BCol>
@@ -71,7 +71,7 @@
                         :disabled="readonly"
                         number
                         @change="onChange"
-                    ></BFormInput>
+                    />
                 </BFormGroup>
             </BCol>
         </BFormRow>
@@ -87,11 +87,11 @@
                 name="Lucky Shots"
                 :disabled="readonly"
                 @save="onChange"
-            ></DicePool>
+            />
         </BFormGroup>
 
         <!-- Edit Modal -->
-        <EditBioModal ref="editModal" @save="onEditSave"></EditBioModal>
+        <EditBioModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -139,10 +139,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'save') : void;
-    }
+    type Events = (e : 'save') => void;
 
     const emit = defineEmits<Events>();
 
@@ -170,7 +167,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onChange()
+    function onChange() : void
     {
         if(!props.readonly)
         {

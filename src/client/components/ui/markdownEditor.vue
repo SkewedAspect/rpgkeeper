@@ -4,14 +4,14 @@
 
 <template>
     <BCard class="overflow-hidden" no-body>
-        <codemirror
+        <Codemirror
             v-model:model-value="text"
             :style="{ 'height': height }"
             :extensions="extensions"
             class="markdown-editor"
             :disabled="readonly"
             wrap
-        ></codemirror>
+        />
     </BCard>
 </template>
 
@@ -55,7 +55,7 @@
 
     const text = computed({
         get() { return props.text; },
-        set(val) { emit('update:text', val); }
+        set(val) { emit('update:text', val); },
     });
 
     const height = computed(() =>

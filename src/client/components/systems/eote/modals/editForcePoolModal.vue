@@ -16,9 +16,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Force
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -29,7 +29,7 @@
                 force rating. If a character has committed force die to a power, their rating does not change for
                 the purposes of buying new powers, but their effective rating (the number of dice rolled) is reduced.
             </div>
-            <hr />
+            <hr>
             <div class="d-flex">
                 <BFormGroup
                     class="flex-fill ms-2"
@@ -58,10 +58,10 @@
                                 max="10"
                                 step="1"
                                 :disabled="!forcePool.sensitive"
-                            ></BFormInput>
+                            />
                             <template #append>
                                 <BButton :disabled="!forcePool.sensitive" @click="forcePool.rating = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -72,13 +72,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -106,10 +106,7 @@
         rating : number;
     }
 
-    interface Events
-    {
-        (e : 'save', forcePool : ForcePool) : void;
-    }
+    type Events = (e : 'save', forcePool : ForcePool) => void;
 
     const emit = defineEmits<Events>();
 
@@ -120,7 +117,7 @@
     const forcePool = ref({
         sensitive: false,
         committed: 0,
-        rating: 0
+        rating: 0,
     });
 
     //------------------------------------------------------------------------------------------------------------------

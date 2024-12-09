@@ -14,8 +14,7 @@
             thumbnail
             class="shadow-sm"
             :style="{ 'background-color': char.color }"
-        >
-        </BImg>
+        />
         <div v-if="!char.thumbnail" class="char-text">
             {{ getInitials(char) }}
         </div>

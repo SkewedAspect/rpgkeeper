@@ -105,7 +105,7 @@ async function main() : Promise<void>
         createTable: true,
 
         // Clear expired sessions. (1 hour)
-        cleanupInterval: 60 * 60 * 1000
+        cleanupInterval: 60 * 60 * 1000,
     });
 
     //------------------------------------------------------------------------------------------------------------------
@@ -135,7 +135,7 @@ async function main() : Promise<void>
 
         // maxAge = 7 days
         cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: httpSecureCookie },
-        saveUninitialized: false
+        saveUninitialized: false,
     }));
 
     // Passport support
@@ -171,7 +171,7 @@ async function main() : Promise<void>
             json: (_req : Request, resp : Response) =>
             {
                 resp.status(404).end();
-            }
+            },
         });
     });
 

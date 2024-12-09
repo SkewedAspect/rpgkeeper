@@ -9,12 +9,12 @@ import rpgdice, { Roll } from 'rpgdicejs';
 // Dice Systems
 import { fudgeChoices } from './dice-systems/fudge';
 import {
+    cancelEotEResults,
+    criticals,
     eoteChoices,
     eoteDiceSortOrder,
     eoteResultsSortOrder,
-    criticals,
-    cancelEotEResults,
-    findCritical
+    findCritical,
 } from './dice-systems/eote';
 
 // Interfaces
@@ -94,7 +94,7 @@ class DiceUtil
             {
                 return `[ ${ results.join(', ') } ] + ${ bonus }`;
             },
-            value: rollTotal + bonus
+            value: rollTotal + bonus,
         };
     }
 
@@ -118,7 +118,7 @@ class DiceUtil
 
         return {
             full: sorted,
-            uncancelled: cancelEotEResults(sorted)
+            uncancelled: cancelEotEResults(sorted),
         };
     }
 

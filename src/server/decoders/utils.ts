@@ -6,14 +6,14 @@ import {
     Decoder,
     array,
     compose,
+    either,
+    inexact,
     integer,
-    predicate,
     map,
     nullable,
     optional,
-    regex,
-    string,
-    either, inexact
+    predicate,
+    regex, string,
 } from 'decoders';
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ export function withDefault<T>(itemDecoder : Decoder<T>, defaultVal : T) : Decod
     );
 } // withDefault
 
-export function jsonArrayString<T>(itemDecoder : Decoder<T>) : Decoder<Array<T>>
+export function jsonArrayString<T>(itemDecoder : Decoder<T>) : Decoder<T[]>
 {
     const decodeJsonStr = map(
         either(string, array(itemDecoder)),
@@ -68,7 +68,7 @@ export function jsonObjectString<T>(objectDecoder : Decoder<T>) : Decoder<T>
     );
 }
 
-export function arrayWithLength<T>(itemDecoder : Decoder<T>, min : number, max = Infinity) : Decoder<Array<T>>
+export function arrayWithLength<T>(itemDecoder : Decoder<T>, min : number, max = Infinity) : Decoder<T[]>
 {
     let decoder = compose(
         array(itemDecoder),

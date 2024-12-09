@@ -27,13 +27,13 @@
                     <div>
                         <i>{{ activation }}</i>
                     </div>
-                    <MarkdownBlock :text="talentBase?.description" inline></MarkdownBlock>
+                    <MarkdownBlock :text="talentBase?.description" inline />
                     <div class="clearfix">
-                        <reference class="float-end mt-2 mb-2" :reference="talentBase?.reference"></reference>
+                        <Reference class="float-end mt-2 mb-2" :reference="talentBase?.reference" />
                     </div>
                     <div v-if="talent.notes">
-                        <hr class="mt-1 mb-1" />
-                        <MarkdownBlock :text="talent.notes" inline></MarkdownBlock>
+                        <hr class="mt-1 mb-1">
+                        <MarkdownBlock :text="talent.notes" inline />
                     </div>
                 </div>
             </BPopover>

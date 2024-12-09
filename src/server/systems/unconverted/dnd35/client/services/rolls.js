@@ -12,7 +12,7 @@ class RollsService
     constructor()
     {
         this.state = {
-            results: []
+            results: [],
         };
     }
 
@@ -29,8 +29,8 @@ class RollsService
             title,
             roll: {
                 value: roll.value,
-                text: roll.render()
-            }
+                text: roll.render(),
+            },
         });
     }
 }

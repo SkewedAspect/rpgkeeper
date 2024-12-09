@@ -16,7 +16,7 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     <span v-if="isEdit">
                         Edit
                     </span>
@@ -24,7 +24,7 @@
                         Add
                     </span>
                     Ability
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -34,30 +34,30 @@
                 label-class="fw-bold"
                 label-for="name-input"
             >
-                <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
+                <BFormInput id="name-input" v-model="name" autocomplete="off" />
             </BFormGroup>
             <BFormGroup
                 id="extras-input-group"
                 label="Description"
                 label-for="extras-input"
             >
-                <MarkdownEditor v-model:text="description"></MarkdownEditor>
+                <MarkdownEditor v-model:text="description" />
             </BFormGroup>
 
-            <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
+            <ScopeSelect v-model:scope="scope" v-model:official="official" />
 
-            <EditReference v-model:reference="reference"></EditReference>
+            <EditReference v-model:reference="reference" />
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -71,7 +71,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteAbility } from '../../../../../common/interfaces/systems/eote';
+    import { EoteAbility, EoteForcePower } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';
@@ -87,13 +87,10 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'add', ability : EoteAbility) : void;
-        (e : 'edit', ability : EoteAbility) : void;
-    }
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        add : [ability: EoteAbility]
+        edit : [ability: EoteAbility]
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -158,7 +155,7 @@
                 description: description.value,
                 reference: reference.value,
                 official: official.value,
-                scope: scope.value
+                scope: scope.value,
             });
 
             emit('edit', ability);
@@ -170,7 +167,7 @@
                 description: description.value,
                 reference: reference.value,
                 official: official.value,
-                scope: scope.value
+                scope: scope.value,
             });
 
             emit('add', ability);

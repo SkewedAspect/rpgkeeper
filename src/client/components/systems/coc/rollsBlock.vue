@@ -5,24 +5,24 @@
 <template>
     <RpgkCard id="rolls" icon="dice" title="Rolls" fill>
         <BInputGroup>
-            <BFormInput v-model="dice" number type="number" min="0" max="999" step="1" :disabled="readonly"></BFormInput>
+            <BFormInput v-model="dice" number type="number" min="0" max="999" step="1" :disabled="readonly" />
             <template #append>
                 <BDropdown>
                     <template #button-content>
                         <span v-if="selectedDice === 'd100'">
-                            <fa icon="dice-d10"></fa>
-                            <fa icon="dice-d10"></fa>
+                            <Fa icon="dice-d10" />
+                            <Fa icon="dice-d10" />
                         </span>
-                        <fa v-else :icon="`dice-${ selectedDice }`"></fa>
+                        <Fa v-else :icon="`dice-${ selectedDice }`" />
                         {{ selectedDice.toUpperCase() }}
                     </template>
                     <BDropdownItem v-for="die in diceOptions" :key="die" @click="selectedDice = die">
-                        <fa :icon="`dice-${ die }`"></fa>
+                        <Fa :icon="`dice-${ die }`" />
                         {{ die.toUpperCase() }}
                     </BDropdownItem>
                     <BDropdownItem @click="selectedDice = 'd100'">
-                        <fa icon="dice-d10"></fa>
-                        <fa icon="dice-d10"></fa>
+                        <Fa icon="dice-d10" />
+                        <Fa icon="dice-d10" />
                         D100
                     </BDropdownItem>
                 </BDropdown>
@@ -44,11 +44,11 @@
         <!-- Roll Buttons -->
         <div v-if="!readonly" class="text-end">
             <BButton :disabled="readonly" @click="clearRolls()">
-                <fa icon="times"></fa>
+                <Fa icon="times" />
                 Clear
             </BButton>
             <BButton variant="primary" class="ms-1" :disabled="readonly || !dice" @click="roll(dice)">
-                <fa icon="dice"></fa>
+                <Fa icon="dice" />
                 Roll
             </BButton>
         </div>
@@ -127,7 +127,7 @@
         rolls.value.unshift({
             roll: diceRoll,
             name: rollName,
-            display: `${ diceRoll.render() } = ${ diceRoll.value }`
+            display: `${ diceRoll.render() } = ${ diceRoll.value }`,
         });
     }
 

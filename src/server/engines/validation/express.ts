@@ -4,7 +4,7 @@
 
 import { z } from 'zod';
 import { fromError } from 'zod-validation-error';
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -49,6 +49,7 @@ export function processRequest(schema : ProcessRequestSchema) : any
                     // Delete all existing properties from req.query
                     for(const key in req.query)
                     {
+                        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
                         delete req.query[key];
                     }
 
@@ -101,7 +102,7 @@ export function validationErrorHandler(err : any, req : Request, res : Response,
         {
             return {
                 ...errObj,
-                errors: fromError(errObj.errors)
+                errors: fromError(errObj.errors),
             };
         });
 
@@ -114,7 +115,7 @@ export function validationErrorHandler(err : any, req : Request, res : Response,
 
             res.status(422).json({
                 message: `Request Validation Failed: ${ errorMsg.join('\n') }`,
-                errors
+                errors,
             });
 
             // Return to not call next

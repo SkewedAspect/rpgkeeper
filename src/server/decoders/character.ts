@@ -18,7 +18,7 @@ export const characterRecDecoder = object({
     thumbnail: optional(string),
     color: optional(hexColor),
     campaign: optional(stringWithLength(0, 255)),
-    details: jsonObjectString(inexact({}))
+    details: jsonObjectString(inexact({})),
 });
 
 export const characterJsonDecoder = object({
@@ -32,7 +32,7 @@ export const characterJsonDecoder = object({
     thumbnail: optional(string),
     color: optional(hexColor),
     campaign: optional(stringWithLength(0, 255)),
-    details: withDefault(inexact({}), {})
+    details: withDefault(inexact({}), {}),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

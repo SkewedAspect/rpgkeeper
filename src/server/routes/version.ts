@@ -17,7 +17,7 @@ router.get('/', async (_req, resp) =>
 {
     const version = await getVersion();
     resp.json({
-        version
+        version,
     });
 });
 

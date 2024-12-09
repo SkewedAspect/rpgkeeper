@@ -21,11 +21,11 @@ export const risusClicheDecoder = object({
     value: boundedInteger(1),
     current: positiveInteger,
     description: nonEmptyString,
-    tools: optional(string)
+    tools: optional(string),
 });
 
 export const risusHooksDecoder = object({
-    description: nonEmptyString
+    description: nonEmptyString,
 });
 
 export const risusSysDetailsDecoder = object({
@@ -35,8 +35,8 @@ export const risusSysDetailsDecoder = object({
     hooks: withDefault(array(risusHooksDecoder), hooks),
     luckyShots: withDefault(object({
         current: positiveInteger,
-        max: positiveInteger
-    }), luckyShots)
+        max: positiveInteger,
+    }), luckyShots),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

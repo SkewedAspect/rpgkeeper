@@ -5,20 +5,20 @@
 <template>
     <BContainer v-if="char" id="coc-character" fluid>
         <div class="d-flex gap-2 bio-row">
-            <PortraitCard class="d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
+            <PortraitCard class="d-none d-lg-block" :src="char.portrait" size="lg" />
             <div class="d-flex gap-2 flex-column">
                 <BioCard
                     v-model:char="char"
                     :readonly="!isAuthorized"
                     @save="onSave"
-                ></BioCard>
-                <CharCard :readonly="!isAuthorized" @save="onSave"></CharCard>
+                />
+                <CharCard :readonly="!isAuthorized" @save="onSave" />
             </div>
             <RollsCard
                 ref="roller"
                 class="w-75"
                 :readonly="!isAuthorized"
-            ></RollsCard>
+            />
         </div>
     </BContainer>
 </template>

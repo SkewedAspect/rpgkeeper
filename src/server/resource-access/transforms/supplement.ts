@@ -7,7 +7,7 @@ import { camelCaseKeys, snakeCaseKeys } from '../../utils/misc';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export type SupplementDBSchema = Supplement
+export type SupplementDBSchema = Supplement;
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -43,7 +43,7 @@ export function fromDB(dbObj : SupplementDBSchema) : Supplement
         name,
         scope,
         owner,
-        official
+        official,
     };
 }
 
@@ -69,7 +69,7 @@ export function toDB(model : Supplement) : SupplementDBSchema
         name,
         scope,
         owner,
-        official
+        official,
     };
 }
 

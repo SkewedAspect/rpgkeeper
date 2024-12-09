@@ -8,12 +8,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="angel"></fa>
+                    <Fa class="me-1" icon="angel" />
                     <span class="d-none d-md-inline">Motivations</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -28,14 +28,14 @@
                     <b class="me-1">Strength:</b>
                 </td>
                 <td>
-                    <MotivationCard v-if="motivations.strength" :id="motivations.strength"></MotivationCard>
+                    <MotivationCard v-if="motivations.strength" :id="motivations.strength" />
                     <i v-else>None</i>
                 </td>
                 <td>
                     <b class="me-1">Flaw:</b>
                 </td>
                 <td>
-                    <MotivationCard v-if="motivations.flaw" :id="motivations.flaw"></MotivationCard>
+                    <MotivationCard v-if="motivations.flaw" :id="motivations.flaw" />
                     <i v-else>None</i>
                 </td>
             </tr>
@@ -44,21 +44,21 @@
                     <b class="me-1">Desire:</b>
                 </td>
                 <td>
-                    <MotivationCard v-if="motivations.desire" :id="motivations.desire"></MotivationCard>
+                    <MotivationCard v-if="motivations.desire" :id="motivations.desire" />
                     <i v-else>None</i>
                 </td>
                 <td>
                     <b class="me-1">Fear:</b>
                 </td>
                 <td>
-                    <MotivationCard v-if="motivations.fear" :id="motivations.fear"></MotivationCard>
+                    <MotivationCard v-if="motivations.fear" :id="motivations.fear" />
                     <i v-else>None</i>
                 </td>
             </tr>
         </table>
 
         <!-- Edit Modal -->
-        <EditModal ref="editModal" @save="onEditSave"></EditModal>
+        <EditModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -98,10 +98,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'save') : void;
-    }
+    type Events = (e : 'save') => void;
 
     const emit = defineEmits<Events>();
 

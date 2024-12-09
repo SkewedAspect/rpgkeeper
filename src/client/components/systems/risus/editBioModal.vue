@@ -17,9 +17,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Identity
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -29,26 +29,26 @@
                 label="Name"
                 label-for="name-input"
             >
-                <BFormInput id="name-input" v-model="innerBio.name"></BFormInput>
+                <BFormInput id="name-input" v-model="innerBio.name" />
             </BFormGroup>
             <BFormGroup
                 id="desc-input-group"
                 label="Description"
                 label-for="desc-input"
             >
-                <MarkdownEditor v-model:text="innerBio.description"></MarkdownEditor>
+                <MarkdownEditor v-model:text="innerBio.description" />
             </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -74,10 +74,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', bio : { name : string, description : string }) : void;
-    }
+    type Events = (e : 'save', bio : { name : string, description : string }) => void;
 
     const emit = defineEmits<Events>();
 
@@ -87,7 +84,7 @@
 
     const innerBio = ref({
         name: '',
-        description: ''
+        description: '',
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);

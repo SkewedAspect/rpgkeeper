@@ -12,7 +12,7 @@ import * as SuppValidators from '../../../engines/validation/models/supplement';
 import { processRequest, validationErrorHandler } from '../../../engines/validation/express';
 
 // Utils
-import { ensureAuthenticated, parseQuery, convertQueryToRecord } from '../../utils';
+import { convertQueryToRecord, ensureAuthenticated, parseQuery } from '../../utils';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
             resp.status(404)
                 .json({
                     type: 'NotFound',
-                    message: `No ${ type } with id '${ suppID }' found.`
+                    message: `No ${ type } with id '${ suppID }' found.`,
                 });
         }
     });
@@ -49,7 +49,8 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
     router.post(
         path,
         ensureAuthenticated,
-        processRequest({ body: SuppValidators.Supplement.omit({ id: true }) }), async(req, resp) =>
+        processRequest({ body: SuppValidators.Supplement.omit({ id: true }) }), 
+        async(req, resp) =>
         {
             resp.json(await suppMan.add(req.body, type, systemPrefix, req.user));
         }
@@ -71,7 +72,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
                 resp.status(404)
                     .json({
                         type: 'NotFound',
-                        message: `No ${ type } with id '${ suppID }' found.`
+                        message: `No ${ type } with id '${ suppID }' found.`,
                     });
             }
         }
@@ -93,7 +94,7 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
                 resp.status(404)
                     .json({
                         type: 'NotFound',
-                        message: `No ${ type } with id '${ suppID }' found.`
+                        message: `No ${ type } with id '${ suppID }' found.`,
                     });
             }
         }

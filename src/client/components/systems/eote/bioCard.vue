@@ -8,14 +8,14 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex m-0 me-2 flex-grow-0 flex-shrink-0 w-75">
-                    <fa class="me-1" icon="address-card"></fa>
+                    <Fa class="me-1" icon="address-card" />
                     <span class="d-none d-md-block">
                         {{ char.name }}
                     </span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -43,13 +43,13 @@
             </div>
             <div class="bio-line">
                 <b>Abilities:</b>
-                <AbilityTag v-for="id in abilities" :id="id" :key="id" class="ms-1"></AbilityTag>
+                <AbilityTag v-for="id in abilities" :id="id" :key="id" class="ms-1" />
                 <span v-if="abilities.length === 0" class="ms-1">None</span>
             </div>
         </div>
 
         <!-- Edit Modal -->
-        <EditModal ref="editModal" @save="onEditSave"></EditModal>
+        <EditModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -93,10 +93,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'save') : void;
-    }
+    type Events = (e : 'save') => void;
 
     const emit = defineEmits<Events>();
 

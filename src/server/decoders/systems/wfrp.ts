@@ -19,17 +19,17 @@ const { stats, skills } = defaults.character;
 
 export const wfrpStatsDecoder = object({
     value: boundedInteger(0),
-    description: nonEmptyString
+    description: nonEmptyString,
 });
 
 export const wfrpSkillsDecoder = object({
     value: boundedInteger(0),
-    description: nonEmptyString
+    description: nonEmptyString,
 });
 
 export const wfrpSysDetailsDecoder = object({
     stats: withDefault(array(wfrpStatsDecoder), stats),
-    skills: withDefault(array(wfrpSkillsDecoder), skills)
+    skills: withDefault(array(wfrpSkillsDecoder), skills),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

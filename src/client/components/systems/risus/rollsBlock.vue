@@ -5,7 +5,7 @@
 <template>
     <RpgkCard id="rolls" icon="dice" title="Rolls" fill>
         <BInputGroup append="D6">
-            <BFormInput v-model="dice" number type="number" min="0" max="999" step="1" :disabled="readonly"></BFormInput>
+            <BFormInput v-model="dice" number type="number" min="0" max="999" step="1" :disabled="readonly" />
         </BInputGroup>
 
         <!-- Roll History -->
@@ -23,11 +23,11 @@
         <!-- Roll Buttons -->
         <div v-if="!readonly" class="text-end">
             <BButton :disabled="readonly" @click="clearRolls()">
-                <fa icon="times"></fa>
+                <Fa icon="times" />
                 Clear
             </BButton>
             <BButton variant="primary" class="ms-1" :disabled="readonly || !dice" @click="roll(dice)">
-                <fa icon="dice"></fa>
+                <Fa icon="dice" />
                 Roll
             </BButton>
         </div>
@@ -95,7 +95,7 @@
         rolls.value.unshift({
             roll: diceRoll,
             name: rollName,
-            display: `${ diceRoll.render() } = ${ diceRoll.value }`
+            display: `${ diceRoll.render() } = ${ diceRoll.value }`,
         });
     }
 

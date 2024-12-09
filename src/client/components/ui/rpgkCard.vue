@@ -14,7 +14,7 @@
         <template #header>
             <slot name="header">
                 <h5 class="align-items-center d-flex text-nowrap m-0 mt-1 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa v-if="icon" class="me-1" :icon="icon"></fa>
+                    <Fa v-if="icon" class="me-1" :icon="icon" />
                     <span class="d-none d-md-inline">
                         {{ title }}
                     </span>
@@ -22,10 +22,10 @@
             </slot>
         </template>
 
-        <slot></slot>
+        <slot />
 
         <template v-if="hasFooterSlot" #footer>
-            <slot name="footer"></slot>
+            <slot name="footer" />
         </template>
     </BCard>
 </template>
@@ -89,7 +89,7 @@
             fill: false,
             fixed: false,
             grow: false,
-            shrink: false
+            shrink: false,
         }
     );
 

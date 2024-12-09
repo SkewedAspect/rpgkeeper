@@ -16,7 +16,7 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     <span v-if="isEdit">
                         Edit
                     </span>
@@ -24,7 +24,7 @@
                         Add
                     </span>
                     ForcePowers
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -42,7 +42,7 @@
                                     id="name-input"
                                     v-model="name"
                                     autocomplete="off"
-                                ></BFormInput>
+                                />
                             </BFormGroup>
                         </BCol>
                         <BCol style="max-width: 100px">
@@ -59,7 +59,7 @@
                                     min="0"
                                     step="1"
                                     autocomplete="off"
-                                ></BFormInput>
+                                />
                             </BFormGroup>
                         </BCol>
                     </BFormRow>
@@ -73,12 +73,12 @@
                         <MarkdownEditor
                             v-model:text="description"
                             height="207px"
-                        ></MarkdownEditor>
+                        />
                     </BFormGroup>
 
-                    <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
+                    <ScopeSelect v-model:scope="scope" v-model:official="official" />
 
-                    <EditReference v-model:reference="reference"></EditReference>
+                    <EditReference v-model:reference="reference" />
                 </BCol>
 
                 <BCol cols="6">
@@ -98,14 +98,14 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></BFormSpinbutton>
+                            />
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.strength.available > 0"
                             v-model:text="upgrades.strength.description"
                             class="upgrade"
                             height="64.5px"
-                        ></MarkdownEditor>
+                        />
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Strength upgrades</i>
                         </BCard>
@@ -126,14 +126,14 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></BFormSpinbutton>
+                            />
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.magnitude.available > 0"
                             v-model:text="upgrades.magnitude.description"
                             class="upgrade"
                             height="64.5px"
-                        ></MarkdownEditor>
+                        />
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Magnitude upgrades</i>
                         </BCard>
@@ -154,14 +154,14 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></BFormSpinbutton>
+                            />
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.duration.available > 0"
                             v-model:text="upgrades.duration.description"
                             class="upgrade"
                             height="64.5px"
-                        ></MarkdownEditor>
+                        />
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Duration upgrades</i>
                         </BCard>
@@ -182,14 +182,14 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></BFormSpinbutton>
+                            />
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.range.available > 0"
                             v-model:text="upgrades.range.description"
                             class="upgrade"
                             height="64.5px"
-                        ></MarkdownEditor>
+                        />
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Range upgrades</i>
                         </BCard>
@@ -210,14 +210,14 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></BFormSpinbutton>
+                            />
                         </template>
                         <MarkdownEditor
                             v-if="upgrades.mastery.available > 0"
                             v-model:text="upgrades.mastery.description"
                             class="upgrade"
                             height="64.5px"
-                        ></MarkdownEditor>
+                        />
                         <BCard v-else class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Mastery upgrades</i>
                         </BCard>
@@ -238,7 +238,7 @@
                                 size="sm"
                                 style="margin-top: -8px"
                                 inline
-                            ></BFormSpinbutton>
+                            />
                         </template>
                         <MarkdownEditor
                             v-for="(_, index) in upgrades.control"
@@ -246,7 +246,7 @@
                             v-model:text="upgrades.control[index].description"
                             class="upgrade mt-2"
                             height="64.5px"
-                        ></MarkdownEditor>
+                        />
                         <BCard v-if="upgrades.control.length < 1" class="overflow-hidden" no-body>
                             <i class="text-center d-inline message-margin">No Control upgrades</i>
                         </BCard>
@@ -257,13 +257,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -285,7 +285,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteForcePower } from '../../../../../common/interfaces/systems/eote';
+    import { EoteForcePower, EoteQuality } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';
@@ -308,20 +308,17 @@
         duration: { available: 0, description: '' },
         range: { available: 0, description: '' },
         control: [],
-        mastery: { available: 0, description: '' }
+        mastery: { available: 0, description: '' },
     };
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'add', power : EoteForcePower) : void;
-        (e : 'edit', power : EoteForcePower) : void;
-    }
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        add : [power: EoteForcePower]
+        edit : [power: EoteForcePower]
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -362,7 +359,7 @@
             {
                 upgrades.value.control.splice((currLength - val) * -1);
             }
-        }
+        },
     });
 
     //------------------------------------------------------------------------------------------------------------------
@@ -380,7 +377,7 @@
             reference.value = forcePower.reference;
             upgrades.value = {
                 ...deepClone(defaultUpgrades),
-                ...forcePower.upgrades
+                ...forcePower.upgrades,
             };
         }
         else
@@ -411,7 +408,7 @@
             reference: this.reference,
             upgrades: deepClone(this.upgrades),
             scope: undefined,
-            official: false
+            official: false,
         };
 
         // Filter out upgrades
@@ -469,7 +466,7 @@
         upgrades.value = deepClone(defaultUpgrades);
     }
 
-    function addControl()
+    function addControl() : void
     {
         upgrades.value.control.push({ description: '' });
     }

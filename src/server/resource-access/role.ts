@@ -27,7 +27,7 @@ export async function getForAccount(accountID : string) : Promise<string[]>
         .join('account_role as ar', 'ac.account_id', '=', 'ar.account_id')
         .join('role as r', 'ar.role_id', '=', 'r.role_id')
         .where({
-            'ac.account_id': accountID
+            'ac.account_id': accountID,
         });
 
     return roles.map((role) => role.name);

@@ -8,12 +8,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="heart"></fa>
+                    <Fa class="me-1" icon="heart" />
                     <span class="d-none d-md-inline">Wounds</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -25,18 +25,22 @@
             <BCard class="flex-fill me-2" no-body>
                 <div class="p-2 text-center">
                     <b>Wounds</b>
-                    <hr class="m-1" />
+                    <hr class="m-1">
                     <h5 class="m-0">
-                        <span :class="woundTextClass">{{ health.wounds }}</span> / <small class="text-muted">{{ health.woundThreshold }}</small>
+                        <span
+                            :class="woundTextClass"
+                        >{{ health.wounds }}</span> / <small class="text-muted">{{ health.woundThreshold }}</small>
                     </h5>
                 </div>
             </BCard>
             <BCard class="flex-fill" no-body>
                 <div class="p-2 text-center">
                     <b>Strain</b>
-                    <hr class="m-1" />
+                    <hr class="m-1">
                     <h5 class="m-0">
-                        <span :class="strainTextClass">{{ health.strain }}</span> / <small class="text-muted">{{ health.strainThreshold }}</small>
+                        <span
+                            :class="strainTextClass"
+                        >{{ health.strain }}</span> / <small class="text-muted">{{ health.strainThreshold }}</small>
                     </h5>
                 </div>
             </BCard>
@@ -61,7 +65,7 @@
                 :disabled="readonly"
                 @click="resetStims"
             >
-                <fa icon="sync"></fa>
+                <Fa icon="sync" />
             </BButton>
         </BButtonGroup>
         <BInputGroup class="mt-1 text-nowrap flex-nowrap">
@@ -74,7 +78,7 @@
                 placeholder="Wounds"
                 autocomplete="off"
                 :disabled="readonly"
-            ></BFormInput>
+            />
             <template #append>
                 <BButton
                     v-b-tooltip.hover
@@ -83,7 +87,7 @@
                     :disabled="readonly"
                     @click="soakWounds()"
                 >
-                    <fa icon="shield-alt"></fa>
+                    <Fa icon="shield-alt" />
                 </BButton>
                 <BButton
                     v-b-tooltip.hover
@@ -92,7 +96,7 @@
                     :disabled="readonly"
                     @click="dealWounds()"
                 >
-                    <fa :icon="mode === 'eote' ? 'swords-laser' : 'swords'"></fa>
+                    <Fa :icon="mode === 'eote' ? 'swords-laser' : 'swords'" />
                 </BButton>
                 <BButton
                     v-b-tooltip.hover
@@ -101,7 +105,7 @@
                     :disabled="readonly"
                     @click="healWounds()"
                 >
-                    <fa icon="first-aid"></fa>
+                    <Fa icon="first-aid" />
                 </BButton>
             </template>
         </BInputGroup>
@@ -115,7 +119,7 @@
                 placeholder="Strain"
                 autocomplete="off"
                 :disabled="readonly"
-            ></BFormInput>
+            />
             <template #append>
                 <BButton
                     v-b-tooltip.hover
@@ -124,7 +128,7 @@
                     :disabled="readonly"
                     @click="soakStrain()"
                 >
-                    <fa icon="shield-alt"></fa>
+                    <Fa icon="shield-alt" />
                 </BButton>
                 <BButton
                     v-b-tooltip.hover
@@ -133,7 +137,7 @@
                     :disabled="readonly"
                     @click="dealStrain()"
                 >
-                    <fa :icon="mode === 'eote' ? 'swords-laser' : 'swords'"></fa>
+                    <Fa :icon="mode === 'eote' ? 'swords-laser' : 'swords'" />
                 </BButton>
                 <BButton
                     v-b-tooltip.hover
@@ -142,12 +146,12 @@
                     :disabled="readonly"
                     @click="healStrain()"
                 >
-                    <fa icon="first-aid"></fa>
+                    <Fa icon="first-aid" />
                 </BButton>
             </template>
         </BInputGroup>
 
-        <hr class="mt-2 mb-2" />
+        <hr class="mt-2 mb-2">
 
         <BButtonGroup class="w-100">
             <BButton
@@ -182,7 +186,7 @@
                 size="sm"
                 :title="disorientedText"
                 :disabled="readonly"
-                style="border-top-right-radius: var(--bs-btn-border-radius); border-bottom-right-radius: var(--bs-btn-border-radius)"
+                :style="buttonStyleFix"
                 @click="saveChar"
             >
                 Disor.
@@ -190,7 +194,7 @@
         </BButtonGroup>
 
         <!-- Edit Modal -->
-        <EditModal ref="editModal" @save="onEditSave"></EditModal>
+        <EditModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -251,16 +255,16 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'save') : void;
-    }
+    type Events = (e : 'save') => void;
 
     const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
     //------------------------------------------------------------------------------------------------------------------
+
+    const buttonStyleFix = 'border-top-right-radius: var(--bs-btn-border-radius); '
+        + 'border-bottom-right-radius: var(--bs-btn-border-radius)';
 
     const { current } = storeToRefs(useCharactersStore());
 
@@ -456,7 +460,7 @@
         }
     }
 
-    function dealStrain(strain ?: number)
+    function dealStrain(strain ?: number) : void
     {
         strain = strain || strainInput.value || 0;
 

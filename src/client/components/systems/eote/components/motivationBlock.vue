@@ -9,12 +9,12 @@
         </BBadge>
         <BPopover :title="motivationName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`genesys-system`">
-                <MarkdownBlock :text="motivationText" inline></MarkdownBlock>
-                <reference
+                <MarkdownBlock :text="motivationText" inline />
+                <Reference
                     v-if="motivationReference"
                     class="float-end mt-2 mb-2"
                     :reference="motivationReference"
-                ></reference>
+                />
             </div>
         </BPopover>
     </div>

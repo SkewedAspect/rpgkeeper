@@ -1,7 +1,9 @@
 <template>
     <div id="dnd35-char">
         <div v-if="!char">
-            <h4 class="text-center">Loading...</h4>
+            <h4 class="text-center">
+                Loading...
+            </h4>
         </div>
         <div v-else>
             <div style="margin-left: 2px;">
@@ -15,11 +17,11 @@
                         {{ char.name }}
                         <button class="btn btn-success-outline btn-sm" style="pointer-events: none">
                             <span v-if="!char.saving">
-                                <i class="fa fa-check"></i>
+                                <i class="fa fa-check" />
                                 Saved!
                             </span>
                             <span v-else>
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <i class="fa fa-spinner fa-spin" />
                                 Saving...
                             </span>
                         </button>
@@ -30,7 +32,7 @@
                         {{ char.race.name }}
                     </h4>
                     <button class="close" title="Edit Race">
-                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-edit" />
                     </button>
                 </div>
                 <div class="classes">
@@ -41,7 +43,7 @@
                         </span>
                     </h4>
                     <button class="close" title="Edit Classes and Levels">
-                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-edit" />
                     </button>
                 </div>
             </header>
@@ -52,61 +54,68 @@
                 <div class="upper-sheet">
                     <div class="section-group por-bio">
                         <div class="portrait">
-                            <img class="img-thumbnail"
-                                 :src="char.portrait || 'http://placehold.it/800x1200'"
-                                 height="445px"
-                                 width="300px"
-                                 style="max-width: inherit">
+                            <img
+                                class="img-thumbnail"
+                                :src="char.portrait || 'http://placehold.it/800x1200'"
+                                height="445px"
+                                width="300px"
+                                style="max-width: inherit"
+                            >
                         </div>
                         <div class="section-group bio-lang">
-
                             <!-- Biographical Information -->
                             <div class="bio card">
                                 <div class="card-header">
-                                    <i class="fa fa-list"></i>
+                                    <i class="fa fa-list" />
                                     Details
                                 </div>
                                 <div class="card-block flex-form">
                                     <div class="form-group age">
-                                        <input id="age" type="number" class="form-control" v-model="char.age" debounce="500" number>
+                                        <input id="age" v-model="char.age" type="number" class="form-control" debounce="500" number>
                                         <label for="age">Age</label>
                                     </div>
                                     <div class="form-group height">
-                                        <input id="height" type="text" class="form-control" v-model="char.height" debounce="500">
+                                        <input id="height" v-model="char.height" type="text" class="form-control" debounce="500">
                                         <label for="height">Height</label>
                                     </div>
                                     <div class="form-group size">
-                                        <p class="form-control-static">{{ char.size }}</p>
+                                        <p class="form-control-static">
+                                            {{ char.size }}
+                                        </p>
                                         <label>Size</label>
                                     </div>
                                     <div class="form-group gender">
-                                        <select id="gender" class="form-control" v-model="char.gender">
-                                            <option :value="undefined" :selected="!char.gender">Please select...</option>
-                                            <option :value="opt.value" v-for="opt in char.genderOptions">
+                                        <select id="gender" v-model="char.gender" class="form-control">
+                                            <option :value="undefined" :selected="!char.gender">
+                                                Please select...
+                                            </option>
+                                            <option v-for="opt in char.genderOptions" :value="opt.value">
                                                 {{ opt.display }}
                                             </option>
                                         </select>
                                         <label for="gender">Gender</label>
                                     </div>
                                     <div class="form-group alignment">
-                                        <select id="alignment" class="form-control" v-model="char.alignment">
-                                            <option :value="undefined" :selected="!char.alignment">Please select...</option>
-                                            <option :value="opt.value" v-for="opt in char.alignmentOptions">
+                                        <select id="alignment" v-model="char.alignment" class="form-control">
+                                            <option :value="undefined" :selected="!char.alignment">
+                                                Please select...
+                                            </option>
+                                            <option v-for="opt in char.alignmentOptions" :value="opt.value">
                                                 {{ opt.display }}
                                             </option>
                                         </select>
                                         <label for="alignment">Alignment</label>
                                     </div>
                                     <div class="form-group speed">
-                                        <input id="speed" type="number" class="form-control" v-model="char.speed" debounce="500" number>
+                                        <input id="speed" v-model="char.speed" type="number" class="form-control" debounce="500" number>
                                         <label for="speed">Speed</label>
                                     </div>
                                     <div class="form-group experience">
-                                        <input id="experience" type="number" class="form-control" v-model="char.experience" debounce="500" number>
+                                        <input id="experience" v-model="char.experience" type="number" class="form-control" debounce="500" number>
                                         <label for="experience">Experience</label>
                                     </div>
                                     <div class="form-group wealth">
-                                        <input id="wealth" type="number" class="form-control" v-model="char.wealth" debounce="500" number>
+                                        <input id="wealth" v-model="char.wealth" type="number" class="form-control" debounce="500" number>
                                         <label for="wealth">Wealth</label>
                                     </div>
                                 </div>
@@ -115,7 +124,7 @@
                             <!-- Languages -->
                             <div class="languages card">
                                 <div class="card-header">
-                                    <i class="fa fa-list"></i>
+                                    <i class="fa fa-list" />
                                     Languages
                                 </div>
                                 <div class="card-block">
@@ -127,7 +136,7 @@
                     <div class="section-group">
                         <div class="conditions card">
                             <div class="card-header">
-                                <i class="fa fa-list"></i>
+                                <i class="fa fa-list" />
                                 Conditions
                             </div>
                             <div class="card-block">
@@ -137,18 +146,16 @@
                     </div>
                 </div>
                 <div class="right-sheet">
-
                     <!-- Rolls -->
-                    <rolls :char="char"></rolls>
+                    <Rolls :char="char" />
 
                     <!-- Skills -->
-                    <skills :char="char"></skills>
-
+                    <Skills :char="char" />
                 </div>
             </div>
 
             <!-- Notes -->
-            <notes id="notes" :notes="char.notes" :save="save"></notes>
+            <Notes id="notes" :notes="char.notes" :save="save" />
         </div>
     </div>
 </template>
@@ -343,15 +350,15 @@
         components: {
             rolls,
             skills,
-            notes
+            notes,
         },
         props: {
-            base: { required: true }
+            base: { required: true },
         },
-        data: function()
+        data()
         {
             return {
-                char: null
+                char: null,
             };
         },
         methods: {
@@ -359,16 +366,16 @@
             {
                 console.log('save?');
                 this.char.save();
-            }
+            },
         },
-        activate: function(done)
+        activate(done)
         {
             var char = new DnD35Character(this.base, {});
             char.loading.then(() =>
             {
                 this.char = char;
-                done()
+                done();
             });
-        }
-    }
+        },
+    };
 </script>

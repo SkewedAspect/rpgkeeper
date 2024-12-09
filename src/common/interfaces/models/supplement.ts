@@ -2,7 +2,8 @@
 // Supplement
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface SupplementOptions {
+export interface SupplementOptions 
+{
     id : number;
     name : string;
     owner ?: string;

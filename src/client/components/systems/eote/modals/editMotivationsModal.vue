@@ -16,9 +16,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Motivations
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -33,7 +33,7 @@
                             <h6 class="mt-2 me-3">
                                 Strength
                             </h6>
-                            <supplement-search
+                            <SupplementSearch
                                 class="w-100"
                                 :available="availableStrength"
                                 :selected="[ strength ]"
@@ -46,34 +46,34 @@
                                         title="Add New..."
                                         @click="addNew('strength')"
                                     >
-                                        <fa icon="plus"></fa>
+                                        <Fa icon="plus" />
                                         New
                                     </BButton>
                                 </template>
-                            </supplement-search>
+                            </SupplementSearch>
                         </div>
                     </template>
 
                     <div v-if="strength">
                         <div v-if="isEditable(strength)" class="float-end">
                             <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(strength)">
-                                <fa icon="edit"></fa>
+                                <Fa icon="edit" />
                                 Edit
                             </BButton>
                             <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(strength)">
-                                <fa icon="trash"></fa>
+                                <Fa icon="trash" />
                                 Delete
                             </BButton>
                         </div>
                         <div v-if="isStrengthDirty" class="float-end">
                             <BButton class="ms-1 mt-1" size="sm" @click="revert('strength')">
-                                <fa icon="undo"></fa>
+                                <Fa icon="undo" />
                                 Undo
                             </BButton>
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ strength.name }}</b></h5>
-                            <MarkdownBlock :text="strength.description" block></MarkdownBlock>
+                            <MarkdownBlock :text="strength.description" block />
                         </div>
                     </div>
                     <h6 v-else class="font-italic">
@@ -89,7 +89,7 @@
                             <h6 class="mt-2 me-3">
                                 Flaw
                             </h6>
-                            <supplement-search
+                            <SupplementSearch
                                 class="w-100"
                                 :available="availableFlaw"
                                 :selected="[ flaw ]"
@@ -102,34 +102,34 @@
                                         title="Add New..."
                                         @click="addNew('flaw')"
                                     >
-                                        <fa icon="plus"></fa>
+                                        <Fa icon="plus" />
                                         New
                                     </BButton>
                                 </template>
-                            </supplement-search>
+                            </SupplementSearch>
                         </div>
                     </template>
 
                     <div v-if="flaw">
                         <div v-if="isEditable(flaw)" class="float-end">
                             <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(flaw)">
-                                <fa icon="edit"></fa>
+                                <Fa icon="edit" />
                                 Edit
                             </BButton>
                             <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(flaw)">
-                                <fa icon="trash"></fa>
+                                <Fa icon="trash" />
                                 Delete
                             </BButton>
                         </div>
                         <div v-if="isFlawDirty" class="float-end">
                             <BButton class="ms-1 mt-1" size="sm" @click="revert('flaw')">
-                                <fa icon="undo"></fa>
+                                <Fa icon="undo" />
                                 Undo
                             </BButton>
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ flaw.name }}</b></h5>
-                            <MarkdownBlock :text="flaw.description" block></MarkdownBlock>
+                            <MarkdownBlock :text="flaw.description" block />
                         </div>
                     </div>
                     <h6 v-else class="font-italic">
@@ -147,7 +147,7 @@
                             <h6 class="mt-2 me-3">
                                 Desire
                             </h6>
-                            <supplement-search
+                            <SupplementSearch
                                 class="w-100"
                                 :available="availableDesire"
                                 :selected="[ desire ]"
@@ -160,34 +160,34 @@
                                         title="Add New..."
                                         @click="addNew('desire')"
                                     >
-                                        <fa icon="plus"></fa>
+                                        <Fa icon="plus" />
                                         New
                                     </BButton>
                                 </template>
-                            </supplement-search>
+                            </SupplementSearch>
                         </div>
                     </template>
 
                     <div v-if="desire">
                         <div v-if="isEditable(desire)" class="float-end">
                             <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(desire)">
-                                <fa icon="edit"></fa>
+                                <Fa icon="edit" />
                                 Edit
                             </BButton>
                             <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(desire)">
-                                <fa icon="trash"></fa>
+                                <Fa icon="trash" />
                                 Delete
                             </BButton>
                         </div>
                         <div v-if="isDesireDirty" class="float-end">
                             <BButton class="ms-1 mt-1" size="sm" @click="revert('desire')">
-                                <fa icon="undo"></fa>
+                                <Fa icon="undo" />
                                 Undo
                             </BButton>
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ desire.name }}</b></h5>
-                            <MarkdownBlock :text="desire.description" block></MarkdownBlock>
+                            <MarkdownBlock :text="desire.description" block />
                         </div>
                     </div>
                     <h6 v-else class="font-italic">
@@ -203,7 +203,7 @@
                             <h6 class="mt-2 me-3">
                                 Fear
                             </h6>
-                            <supplement-search
+                            <SupplementSearch
                                 class="w-100"
                                 :available="availableFear"
                                 :selected="[ fear ]"
@@ -216,34 +216,34 @@
                                         title="Add New..."
                                         @click="addNew('fear')"
                                     >
-                                        <fa icon="plus"></fa>
+                                        <Fa icon="plus" />
                                         New
                                     </BButton>
                                 </template>
-                            </supplement-search>
+                            </SupplementSearch>
                         </div>
                     </template>
 
                     <div v-if="fear">
                         <div v-if="isEditable(fear)" class="float-end">
                             <BButton class="ms-1 mt-1" size="sm" @click="editMotivation(fear)">
-                                <fa icon="edit"></fa>
+                                <Fa icon="edit" />
                                 Edit
                             </BButton>
                             <BButton class="ms-1 mt-1" variant="danger" size="sm" @click="delMotivation(fear)">
-                                <fa icon="trash"></fa>
+                                <Fa icon="trash" />
                                 Delete
                             </BButton>
                         </div>
                         <div v-if="isFearDirty" class="float-end">
                             <BButton class="ms-1 mt-1" size="sm" @click="revert('fear')">
-                                <fa icon="undo"></fa>
+                                <Fa icon="undo" />
                                 Undo
                             </BButton>
                         </div>
                         <div class="pt-2">
                             <h5><b>{{ fear.name }}</b></h5>
-                            <MarkdownBlock :text="fear.description" block></MarkdownBlock>
+                            <MarkdownBlock :text="fear.description" block />
                         </div>
                     </div>
                     <h6 v-else class="font-italic">
@@ -255,27 +255,27 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
         </BModal>
 
         <!-- Modals -->
-        <AddEditMotivationModal ref="addEditMotivModal" @add="onMotivAdd"></AddEditMotivationModal>
+        <AddEditMotivationModal ref="addEditMotivModal" @add="onMotivAdd" />
         <DeleteModal
             ref="delMotivModal"
             :name="delMotiv.name"
             type="motivation"
             @hidden="onDelMotivHidden"
             @delete="onDelMotivDelete"
-        ></DeleteModal>
+        />
     </div>
 </template>
 
@@ -288,7 +288,7 @@
     import {
         GenesysCharacter,
         GenesysMotivation,
-        GenesysMotivationType
+        GenesysMotivationType,
     } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
@@ -315,10 +315,7 @@
         fear : number | null;
     }
 
-    interface Events
-    {
-        (e : 'save', motivations : Motivations) : void;
-    }
+    type Events = (e : 'save', motivations : Motivations) => void;
 
     const emit = defineEmits<Events>();
 
@@ -330,20 +327,20 @@
         strength: null,
         flaw: null,
         desire: null,
-        fear: null
+        fear: null,
     });
 
     const motivations = ref<Motivations>({
         strength: null,
         flaw: null,
         desire: null,
-        fear: null
+        fear: null,
     });
 
     const delMotiv = ref<{ id ?: number, name : string, type : string }>({
         id: undefined,
         name: '',
-        type: ''
+        type: '',
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
@@ -398,14 +395,14 @@
             strength: null,
             flaw: null,
             desire: null,
-            fear: null
+            fear: null,
         };
 
         motivations.value = {
             strength: null,
             flaw: null,
             desire: null,
-            fear: null
+            fear: null,
         };
     }
 
@@ -424,7 +421,7 @@
         delMotiv.value = {
             id: undefined,
             name: '',
-            type: ''
+            type: '',
         };
     }
 
@@ -449,7 +446,7 @@
         return isOwner || hasRight;
     }
 
-    function addNew(type : GenesysMotivationType)
+    function addNew(type : GenesysMotivationType) : void
     {
         addEditMotivModal.value.show({ type });
     }
@@ -468,7 +465,7 @@
         delMotivModal.value.show();
     }
 
-    function revert(type : GenesysMotivationType)
+    function revert(type : GenesysMotivationType) : void
     {
         motivations.value[type] = originalMotivations.value[type];
     }

@@ -37,7 +37,7 @@ exports.seed = async function(knex : Knex)
         'Superior': 'G-CRB:88',
         'Tractor': 'G-CRB:89',
         'Unwieldy': 'G-CRB:89',
-        'Vicious': 'G-CRB:89'
+        'Vicious': 'G-CRB:89',
     };
 
     const qualities = [
@@ -67,18 +67,18 @@ exports.seed = async function(knex : Knex)
         { id: 24, name: 'Superior', description: 'Generates automatic <advantage></advantage> on all checks related to its use.', passive: false, ranked: false, reference: 'E-CRB:157', official: true, scope: 'public' },
         { id: 25, name: 'Tractor', description: 'On hit, the target may not move unless it\'s pilot makes a Piloting check with difficulty equal the Tractor rating.', passive: true, ranked: true, reference: 'E-CRB:157', official: true, scope: 'public' },
         { id: 26, name: 'Unwieldy', description: 'For each point of Agility below the weapon\'s Unwieldy rating, increase the difficulty of all checks made with the weapon by one.', passive: true, ranked: true, reference: 'F-CRB:164', official: true, scope: 'public' },
-        { id: 27, name: 'Vicious', description: 'When an attack with this weapon results in a Critical Injury, add 10 times the Vicious rating to the result rolled on the critical injury table.', passive: true, ranked: true, reference: 'E-CRB:157', official: true, scope: 'public' }
+        { id: 27, name: 'Vicious', description: 'When an attack with this weapon results in a Critical Injury, add 10 times the Vicious rating to the result rolled on the critical injury table.', passive: true, ranked: true, reference: 'E-CRB:157', official: true, scope: 'public' },
     ];
 
     const eoteQualities = [
         { id: 28, name: 'Cortosis', description: 'Weapons with the Cortosis quality are immune to Sunder. Armor with this quality makes the wearer\'s soak immune to the Pierce and Breach qualities.', passive: true, ranked: false, reference: 'E-CRB:155', official: true, scope: 'public' },
-        { id: 29, name: 'Ion', description: 'Damage is dealt as system strain (usually on vehicles.) Armor and soak still reduce damage. Droids take ion damage as strain.', passive: true, ranked: false, reference: 'E-CRB:156', official: true, scope: 'public' }
+        { id: 29, name: 'Ion', description: 'Damage is dealt as system strain (usually on vehicles.) Armor and soak still reduce damage. Droids take ion damage as strain.', passive: true, ranked: false, reference: 'E-CRB:156', official: true, scope: 'public' },
     ]
         .concat(qualities)
         .sort(sortBy('id'));
 
     const genesysQualities = [
-        { id: 28, name: 'Reinforced', description: 'Weapons with the Reinforced quality are immune to Sunder. Armor with this quality makes the wearer\'s soak immune to the Pierce and Breach qualities.', passive: true, ranked: false, reference: 'G-CRB:88', official: true, scope: 'public' }
+        { id: 28, name: 'Reinforced', description: 'Weapons with the Reinforced quality are immune to Sunder. Armor with this quality makes the wearer\'s soak immune to the Pierce and Breach qualities.', passive: true, ranked: false, reference: 'G-CRB:88', official: true, scope: 'public' },
     ]
         .concat(qualities)
         .sort(sortBy('id'))
@@ -87,7 +87,7 @@ exports.seed = async function(knex : Knex)
             // Look up the Genesys reference, since all the shared qualities have EotE references.
             return {
                 ...qual,
-                reference: genesysRefs[qual.name]
+                reference: genesysRefs[qual.name],
             };
         });
 

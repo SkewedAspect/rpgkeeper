@@ -37,7 +37,7 @@ export default {
                 clientSecret: config.clientSecret,
                 callbackURL,
                 scope: [ 'profile', 'email' ],
-                state: true
+                state: true,
             },
             async (_accessToken, _refreshToken, profile, done) =>
             {
@@ -66,7 +66,7 @@ export default {
                     {
                         account = await accountMan.update(account.id, {
                             name: account.name ?? profile.displayName ?? email.split('@')[0],
-                            avatar: photo
+                            avatar: photo,
                         });
                     }
                     else
@@ -74,7 +74,7 @@ export default {
                         account = await accountMan.add({
                             name: profile.displayName ?? email.split('@')[0],
                             avatar: photo,
-                            email
+                            email,
                         });
                     }
 
@@ -94,9 +94,9 @@ export default {
         // Redirect
         app.get('/auth/google/redirect', passport.authenticate('google', {
             successReturnToOrRedirect: '/',
-            failWithError: true
+            failWithError: true,
         }));
-    }
+    },
 };
 
 //----------------------------------------------------------------------------------------------------------------------

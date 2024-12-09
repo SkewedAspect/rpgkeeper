@@ -4,32 +4,32 @@
 
 <template>
     <footer id="site-footer" class="container text-center">
-        <hr class="mt-0 fancy" />
+        <hr class="mt-0 fancy">
         <ul>
             <li>
-                <router-link to="/about">
-                    <fa icon="question"></fa>
+                <RouterLink to="/about">
+                    <Fa icon="question" />
                     About
-                </router-link>
+                </RouterLink>
             </li>
             <li>|</li>
             <li>
                 <a href="https://github.com/Morgul/rpgkeeper" target="_blank">
-                    <fa :icon="['fab', 'github']"></fa>
+                    <Fa :icon="['fab', 'github']" />
                     Github Project
                 </a>
             </li>
             <li>|</li>
             <li>
-                <a href="https://github.com/Morgul/rpgkeeper/issues/new?labels=bug,needs%20review&title=[Bug Report]%20" target="_blank">
-                    <fa icon="bug"></fa>
+                <a :href="bugURL" target="_blank">
+                    <Fa icon="bug" />
                     Report a Bug
                 </a>
             </li>
             <li>|</li>
             <li>
-                <a href="https://github.com/Morgul/rpgkeeper/issues/new?labels=feedback&title=[Feedback]%20" target="_blank">
-                    <fa icon="comment-alt-lines"></fa>
+                <a :href="feedbackURL" target="_blank">
+                    <Fa icon="comment-alt-lines" />
                     Leave Feedback
                 </a>
             </li>
@@ -77,12 +77,13 @@
 
     import { computed } from 'vue';
 
-    // FIXME: THIS IS AWFUL
-    import { version } from '../../../../package.json';
-
     //------------------------------------------------------------------------------------------------------------------
 
-    const appVersion = computed(() => version);
+    const bugURL = 'https://github.com/Morgul/rpgkeeper/issues/new?labels=bug,needs%20review&title=[Bug Report]%20';
+    const feedbackURL = 'https://github.com/Morgul/rpgkeeper/issues/new?labels=feedback&title=[Feedback]%20';
+
+    // eslint-disable-next-line no-undef
+    const appVersion = computed(() => __APP_VERSION__);
     const currentYear = computed(() => (new Date()).getFullYear());
 </script>
 

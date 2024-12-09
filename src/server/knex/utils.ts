@@ -28,7 +28,8 @@ export function applyFilters(query : Knex.QueryBuilder, filters : Record<string,
             switch (token.operation)
             {
                 case '@>':
-                    return Array.isArray(token.value) ? query.whereIn(key, token.value as any[]) : query.where(key, 'LIKE', `%${ token.value }%`);
+                    return Array.isArray(token.value)
+                        ? query.whereIn(key, token.value as any[]) : query.where(key, 'LIKE', `%${ token.value }%`);
 
                 case '>=':
                 case '>':

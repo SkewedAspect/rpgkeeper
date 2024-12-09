@@ -7,7 +7,7 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="heart-circle"></fa>
+                    <Fa class="me-1" icon="heart-circle" />
                     <span class="d-none d-md-inline">Physical Stress</span>
                 </h5>
             </div>
@@ -18,7 +18,13 @@
             <tbody>
                 <tr>
                     <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                        <BFormCheckbox v-model="physicalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalPhysicalBoxes" @input="onSave">
+                        <BFormCheckbox
+                            v-model="physicalStress[index]"
+                            class="me-1"
+                            :value="true"
+                            :disabled="stressBox > totalPhysicalBoxes"
+                            @input="onSave"
+                        >
                             <b>{{ stressBox }}</b>
                         </BFormCheckbox>
                     </td>
@@ -28,7 +34,7 @@
 
         <div class="card-header bg-dark text-white">
             <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                <fa class="me-1" icon="head-side-brain"></fa>
+                <Fa class="me-1" icon="head-side-brain" />
                 <span class="d-none d-md-inline">Mental Stress</span>
             </h5>
         </div>
@@ -36,7 +42,13 @@
             <tbody>
                 <tr>
                     <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
-                        <BFormCheckbox v-model="mentalStress[index]" class="me-1" :value="true" :disabled="stressBox > totalMentalBoxes" @input="onSave">
+                        <BFormCheckbox
+                            v-model="mentalStress[index]"
+                            class="me-1"
+                            :value="true"
+                            :disabled="stressBox > totalMentalBoxes"
+                            @input="onSave"
+                        >
                             <b>{{ stressBox }}</b>
                         </BFormCheckbox>
                     </td>
@@ -81,7 +93,7 @@
     import { computed } from 'vue';
 
     // Interfaces
-    import { FateStress, FateSkill } from '../../../../common/interfaces/systems/fate';
+    import { FateSkill, FateStress } from '../../../../common/interfaces/systems/fate';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
@@ -100,14 +112,11 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'update:physical', physical : FateStress);
-        (e : 'update:mental', physical : FateStress);
-        (e : 'save') : void;
-    }
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        'update:physical' : (val : FateStress) => void;
+        'update:mental' : (val : FateStress) => void;
+        'save' : () => void;
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -117,12 +126,12 @@
 
     const physicalStress = computed<FateStress>({
         get() { return props.physical; },
-        set(val) { emit('update:physical', val); }
+        set(val) { emit('update:physical', val); },
     });
 
     const mentalStress = computed<FateStress>({
         get() { return props.mental; },
-        set(val) { emit('update:physical', val); }
+        set(val) { emit('update:physical', val); },
     });
 
     const totalPhysicalBoxes = computed(() =>

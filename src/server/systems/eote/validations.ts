@@ -4,7 +4,6 @@
 
 // Models
 import { Account } from '../../../common/interfaces/models/account';
-import { Character } from '../../models/character';
 import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote';
 
 // Managers
@@ -13,10 +12,11 @@ import * as suppMan from '../../managers/supplement';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-type Motivations = { strength : number | null, flaw : number | null, desire : number | null, fear : number | null };
-type SupplementRef = { id : number, [ key : string ] : unknown };
+interface Motivations { strength : number | null, flaw : number | null, desire : number | null, fear : number | null }
+interface SupplementRef { id : number, [ key : string ] : unknown }
 
-interface CharDetails {
+interface CharDetails
+{
     abilities : number[],
     talents : SupplementRef[],
     gear : SupplementRef[],
@@ -25,7 +25,7 @@ interface CharDetails {
         attachments : SupplementRef[],
         qualities : SupplementRef[]
     },
-    weapons : Array<{ attachments : SupplementRef[], qualities : SupplementRef[] }>
+    weapons : { attachments : SupplementRef[], qualities : SupplementRef[] }[]
 }
 
 function isNumbers(array : number[] | SupplementRef[]) : array is number[]
@@ -37,7 +37,7 @@ function isNumbers(array : number[] | SupplementRef[]) : array is number[]
 
 async function validateMotivations(character : GenesysCharacter, account : Account) : Promise<void>
 {
-    const motivations = <Motivations>character.details.motivations;
+    const motivations = character.details.motivations as Motivations;
 
     // Check strength
     if(motivations.strength !== null)
@@ -68,9 +68,24 @@ async function validateMotivations(character : GenesysCharacter, account : Accou
     }
 }
 
-async function validateSuppRef(suppRefs : number[], type : string, systemPrefix : string, account : Account) : Promise<number[]>
-async function validateSuppRef(suppRefs : SupplementRef[], type : string, systemPrefix : string, account : Account) : Promise<SupplementRef[]>
-async function validateSuppRef(suppRefs : SupplementRef[] | number[], type : string, systemPrefix : string, account : Account) : Promise<SupplementRef[] | number[]>
+async function validateSuppRef(
+    suppRefs : number[],
+    type : string,
+    systemPrefix : string,
+    account : Account
+) : Promise<number[]>;
+async function validateSuppRef(
+    suppRefs : SupplementRef[],
+    type : string,
+    systemPrefix : string,
+    account : Account
+) : Promise<SupplementRef[]>;
+async function validateSuppRef(
+    suppRefs : SupplementRef[] | number[],
+    type : string,
+    systemPrefix : string,
+    account : Account
+) : Promise<SupplementRef[] | number[]>
 {
     let wasNums = false;
     if(isNumbers(suppRefs))

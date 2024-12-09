@@ -45,7 +45,7 @@ class GenericCharacter extends BaseSystemCharacterModel
                             if(col.type === 'computed')
                             {
                                 Object.defineProperty(subObj, col.name, {
-                                    get() { return rpgdice.eval(row[index], context).value; }
+                                    get() { return rpgdice.eval(row[index], context).value; },
                                 });
                             }
                             else
@@ -67,7 +67,7 @@ class GenericCharacter extends BaseSystemCharacterModel
                     if(item.type === 'computed')
                     {
                         Object.defineProperty(context[block.name], item.key, {
-                            get() { return rpgdice.eval(item.value, context).value; }
+                            get() { return rpgdice.eval(item.value, context).value; },
                         });
                     }
                     else

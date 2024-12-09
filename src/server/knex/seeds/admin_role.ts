@@ -16,7 +16,7 @@ exports.seed = async(knex : Knex) =>
     await knex('role')
         .insert([
             { role_id: 1, name: 'Admins', permissions: JSON.stringify([ '*/*' ]) },
-            { role_id: 2, name: 'Global Mods', permissions: JSON.stringify([ '*/canModifyContent', '*/canDeleteContent' ]) }
+            { role_id: 2, name: 'Global Mods', permissions: JSON.stringify([ '*/canModifyContent', '*/canDeleteContent' ]) },
         ]);
 
     // Check for admin records, and add them if they're not already there.
@@ -28,8 +28,8 @@ exports.seed = async(knex : Knex) =>
             avatar: 'https://lh3.googleusercontent.com/-r8fmbWdlFvg/AAAAAAAAAAI/AAAAAAAAA9g/oWyh8pnmDSY/s96-c/photo.jpg?sz=512',
             permissions: '["*/*"]',
             settings: '{}',
-            created: knex.fn.now()
-        }
+            created: knex.fn.now(),
+        },
     ];
 
     const mods = [
@@ -40,29 +40,31 @@ exports.seed = async(knex : Knex) =>
             avatar: 'https://lh6.googleusercontent.com/-Cm7eBAJV2gQ/AAAAAAAAAAI/AAAAAAAAAXE/KLFM6YmcWm8/s96-c/photo.jpg?sz=512',
             permissions: '[]',
             settings: '{}',
-            created: knex.fn.now()
-        }
+            created: knex.fn.now(),
+        },
     ];
-
-    /* eslint-disable no-await-in-loop */
 
     // Do a `mapSeries` over admins, and add them and their `account_role entry`, if needed.
     for(const acc of admins)
     {
+        // eslint-disable-next-line no-await-in-loop
         let account = await knex('account').select()
             .where({ email: acc.email })
             .first();
 
         if(!account)
         {
+            // eslint-disable-next-line no-await-in-loop
             await knex('account').insert(acc);
             account = acc;
         }
 
+        // eslint-disable-next-line no-await-in-loop
         const linkExists = (await knex('account_role').select()
             .where({ account_id: account.account_id, role_id: 1 })).length > 0;
         if(!linkExists)
         {
+            // eslint-disable-next-line no-await-in-loop
             await knex('account_role').insert({ account_id: account.account_id, role_id: 1 });
         }
     }
@@ -70,25 +72,27 @@ exports.seed = async(knex : Knex) =>
     // Do a `mapSeries` over mods, and add them and their `account_role entry`, if needed.
     for(const acc of mods)
     {
+        // eslint-disable-next-line no-await-in-loop
         let account = await knex('account').select()
             .where({ email: acc.email })
             .first();
 
         if(!account)
         {
+            // eslint-disable-next-line no-await-in-loop
             await knex('account').insert(acc);
             account = acc;
         }
 
+        // eslint-disable-next-line no-await-in-loop
         const linkExists = (await knex('account_role').select()
             .where({ account_id: account.account_id, role_id: 2 })).length > 0;
         if(!linkExists)
         {
+            // eslint-disable-next-line no-await-in-loop
             await knex('account_role').insert({ account_id: account.account_id, role_id: 2 });
         }
     }
-
-    /* eslint-enable no-await-in-loop */
 };
 
 //----------------------------------------------------------------------------------------------------------------------

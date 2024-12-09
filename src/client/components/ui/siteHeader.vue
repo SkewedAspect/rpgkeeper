@@ -4,20 +4,20 @@
 
 <template>
     <BNavbar id="site-header" v-b-color-mode="'dark'" toggleable="md" type="dark" variant="dark" fixed="top">
-        <BNavbarToggle target="nav-text-collapse"></BNavbarToggle>
+        <BNavbarToggle target="nav-text-collapse" />
         <BNavbarBrand to="/">
-            <img src="/images/logo.png" class="d-inline-block logo" alt="RPGKeeper Logo" />
+            <img src="/images/logo.png" class="d-inline-block logo" alt="RPGKeeper Logo">
             RPGKeeper
         </BNavbarBrand>
         <BCollapse id="nav-text-collapse" is-nav>
             <BNavbarNav>
                 <BNavItem to="/dashboard">
-                    <fa icon="columns"></fa>
+                    <Fa icon="columns" />
                     Dashboard
                 </BNavItem>
             </BNavbarNav>
             <BNavbarNav v-b-color-mode="'light'" class="ms-auto">
-                <LoginBtn></LoginBtn>
+                <LoginBtn />
             </BNavbarNav>
         </BCollapse>
     </BNavbar>

@@ -6,7 +6,8 @@ import { Reference } from '../../../common/interfaces/models/reference';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export interface ReferenceDBSchema {
+export interface ReferenceDBSchema 
+{
     abbr : string;
     name : string;
     productCode : string;
@@ -19,7 +20,7 @@ export function toDB(reference : Reference) : ReferenceDBSchema
     return {
         abbr: reference.abbr,
         name: reference.name,
-        productCode: reference.productCode
+        productCode: reference.productCode,
     };
 }
 
@@ -28,7 +29,7 @@ export function fromDB(reference : ReferenceDBSchema) : Reference
     return {
         abbr: reference.abbr,
         name: reference.name,
-        productCode: reference.productCode
+        productCode: reference.productCode,
     };
 }
 

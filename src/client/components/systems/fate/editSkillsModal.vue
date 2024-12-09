@@ -17,9 +17,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Skills
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -29,23 +29,27 @@
                     <h5 class="mb-0">
                         {{ rank.text }}
                     </h5>
-                    <hr class="mt-1" />
+                    <hr class="mt-1">
                     <div v-if="filterRankSkills(rank.value).length < 1">
                         <h6 class="mb-0 text-center">
                             No skills.
                         </h6>
                     </div>
                     <div v-for="skill in filterRankSkills(rank.value)" :key="skill.name" class="d-flex mb-2">
-                        <BFormInput v-model="skill.name"></BFormInput>
-                        <BFormSelect v-model="skill.rank" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
+                        <BFormInput v-model="skill.name" />
+                        <BFormSelect
+                            v-model="skill.rank"
+                            class="ms-2 flex-grow-0 flex-shrink-0 w-auto"
+                            :options="ranks"
+                        />
                         <BButton variant="danger" class="ms-2" @click="removeSkill(skill)">
-                            <fa icon="trash-alt"></fa>
+                            <Fa icon="trash-alt" />
                         </BButton>
                     </div>
                 </template>
             </section>
 
-            <hr />
+            <hr>
 
             <BCard
                 header="New Skill"
@@ -53,10 +57,14 @@
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <BFormInput id="name-input" v-model="newSkillName" placeholder="Skill name"></BFormInput>
-                    <BFormSelect v-model="newSkillRank" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" :options="ranks"></BFormSelect>
+                    <BFormInput id="name-input" v-model="newSkillName" placeholder="Skill name" />
+                    <BFormSelect
+                        v-model="newSkillRank"
+                        class="ms-2 flex-grow-0 flex-shrink-0 w-auto"
+                        :options="ranks"
+                    />
                     <BButton variant="primary" class="ms-2 text-nowrap" @click="addSkill">
-                        <fa icon="plus"></fa>
+                        <Fa icon="plus" />
                         Add
                     </BButton>
                 </div>
@@ -65,13 +73,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -96,10 +104,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', aspects : FateSkill[]) : void;
-    }
+    type Events = (e : 'save', aspects : FateSkill[]) => void;
 
     const emit = defineEmits<Events>();
 
@@ -110,24 +115,24 @@
     const ranks = ref([
         {
             text: 'Superb (+5)',
-            value: 5
+            value: 5,
         },
         {
             text: 'Great (+4)',
-            value: 4
+            value: 4,
         },
         {
             text: 'Good (+3)',
-            value: 3
+            value: 3,
         },
         {
             text: 'Fair (+2)',
-            value: 2
+            value: 2,
         },
         {
             text: 'Average (+1)',
-            value: 1
-        }
+            value: 1,
+        },
     ]);
 
     const skills = ref<FateSkill[]>([]);

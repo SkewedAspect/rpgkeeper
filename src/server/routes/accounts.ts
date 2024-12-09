@@ -76,7 +76,7 @@ router.patch(
     ensureAuthenticated,
     processRequest({
         params: AccountValidators.UpdateParams,
-        body: AccountValidators.Account.partial({ id: true })
+        body: AccountValidators.Account.partial({ id: true }),
     }),
     async (req, resp) =>
     {

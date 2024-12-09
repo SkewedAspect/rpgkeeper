@@ -16,9 +16,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Characteristics
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -40,10 +40,10 @@
                                     step="1"
                                     min="0"
                                     max="99"
-                                ></BFormInput>
+                                />
                                 <template #append>
                                     <BButton @click="characteristics[char] = 0">
-                                        <fa icon="undo"></fa>
+                                        <Fa icon="undo" />
                                     </BButton>
                                 </template>
                             </BInputGroup>
@@ -55,13 +55,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -92,10 +92,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', bio : CoCCharacteristics) : void;
-    }
+    type Events = (e : 'save', bio : CoCCharacteristics) => void;
 
     const emit = defineEmits<Events>();
 
@@ -138,7 +135,7 @@
     {
         characteristics.value = {
             ...characteristics.value,
-            ...char.details.characteristics
+            ...char.details.characteristics,
         };
 
         innerModal.value.show();
@@ -164,7 +161,7 @@
             intelligence: 0,
             power: 0,
             size: 0,
-            strength: 0
+            strength: 0,
         };
     }
 

@@ -29,7 +29,7 @@ export const useSystemsStore = defineStore('systems', {
         return {
             status: 'unloaded',
             current: null,
-            systems: []
+            systems: [],
         };
     },
     actions: {
@@ -55,8 +55,8 @@ export const useSystemsStore = defineStore('systems', {
             {
                 this.current = null;
             }
-        }
-    }
+        },
+    },
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

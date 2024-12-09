@@ -16,7 +16,7 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     <span v-if="isEdit">
                         Edit
                     </span>
@@ -24,7 +24,7 @@
                         Add
                     </span>
                     Quality
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -36,7 +36,7 @@
                         label-class="fw-bold"
                         label-for="name-input"
                     >
-                        <BFormInput id="name-input" v-model="name" autocomplete="off"></BFormInput>
+                        <BFormInput id="name-input" v-model="name" autocomplete="off" />
                     </BFormGroup>
                 </BCol>
                 <BCol cols="2" class="pt-4">
@@ -54,23 +54,23 @@
                 label-class="fw-bold"
                 label-for="extras-input"
             >
-                <MarkdownEditor v-model:text="description"></MarkdownEditor>
+                <MarkdownEditor v-model:text="description" />
             </BFormGroup>
 
-            <ScopeSelect v-model:scope="scope" v-model:official="official"></ScopeSelect>
+            <ScopeSelect v-model:scope="scope" v-model:official="official" />
 
-            <EditReference v-model:reference="reference"></EditReference>
+            <EditReference v-model:reference="reference" />
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -100,13 +100,10 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'add', quality : EoteQuality) : void;
-        (e : 'edit', quality : EoteQuality) : void;
-    }
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        add : [quality: EoteQuality]
+        edit : [quality: EoteQuality]
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -175,7 +172,7 @@
         innerModal.value.hide();
     }
 
-    async function onSave()
+    async function onSave() : Promise<void>
     {
         if(isEdit.value)
         {
@@ -187,7 +184,7 @@
                 ranked: ranked.value,
                 reference: reference.value,
                 scope: scope.value,
-                official: official.value
+                official: official.value,
             });
 
             emit('edit', quality);
@@ -201,7 +198,7 @@
                 ranked: ranked.value,
                 reference: reference.value,
                 scope: scope.value,
-                official: official.value
+                official: official.value,
             });
 
             emit('add', quality);

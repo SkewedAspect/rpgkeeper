@@ -6,7 +6,7 @@ import { Knex } from 'knex';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export async function seed(knex: Knex): Promise<void>
+export async function seed(knex : Knex) : Promise<void>
 {
     const weapons = [
         {
@@ -21,7 +21,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Brass Knuckles',
@@ -35,7 +35,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Bullwhip',
@@ -49,7 +49,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Burning Torch',
@@ -63,7 +63,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Chainsaw',
@@ -77,7 +77,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Blackjack (Cosh, life-preserver)',
@@ -91,7 +91,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Club, large (baseball, cricket bat, poker)',
@@ -105,7 +105,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Club, small (nightstick)',
@@ -119,7 +119,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Crossbow',
@@ -133,7 +133,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Garrote',
@@ -147,7 +147,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Hatchet/Sickle',
@@ -161,7 +161,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Knife, Large (machete, etc.)',
@@ -175,7 +175,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Knife, Medium (carving knife, etc.)',
@@ -189,7 +189,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Knife, Small (switchblade, etc.)',
@@ -203,7 +203,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Live Wire, 2-volt charge',
@@ -217,7 +217,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Mace Spray*',
@@ -231,7 +231,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Nunchaku',
@@ -245,7 +245,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Rock, Thrown',
@@ -259,7 +259,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Shuriken',
@@ -273,7 +273,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Spear (cavalry lance)',
@@ -287,7 +287,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Spear, Thrown',
@@ -301,7 +301,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Sword, heavy (cavalry saber)',
@@ -315,7 +315,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'Coc-IH:250',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Sword, medium (rapier, heavy epee)',
@@ -329,7 +329,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Sword, light (sharpened fencing foil, sword cane)',
@@ -343,7 +343,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Taser (contact)*',
@@ -357,7 +357,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Taser (dart)',
@@ -371,7 +371,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'War Boomerang',
@@ -385,7 +385,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Wood Axe',
@@ -399,7 +399,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Flintlock',
@@ -413,7 +413,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.22 Short Automatic',
@@ -427,7 +427,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.25 Derringer (1B)',
@@ -441,7 +441,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.32 or 7.65mm Revolver',
@@ -455,7 +455,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.32 or 7.65mm Automatic',
@@ -469,7 +469,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.357 Magnum Revolver',
@@ -483,7 +483,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.38 or 9mm Revolver',
@@ -497,7 +497,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.38 Automatic',
@@ -511,7 +511,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Beretta M9',
@@ -525,7 +525,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Glock 17 9mm Auto',
@@ -539,7 +539,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Model P08 Luger',
@@ -553,7 +553,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.41 Revolver',
@@ -567,7 +567,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.44 Magnum Revolver',
@@ -581,7 +581,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.45 Revolver',
@@ -595,7 +595,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '45 Automatic',
@@ -609,7 +609,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'IMI Desert Eagle',
@@ -623,7 +623,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:251',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.58 Springfield Rifle Musket',
@@ -637,7 +637,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.22 Bolt-Action Rifle',
@@ -651,7 +651,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.30 Lever-Action Carbine',
@@ -665,7 +665,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.45 Martini-Henry Rifle',
@@ -679,7 +679,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: "Col. Moran's Air Rifle",
@@ -693,7 +693,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Garand M1, M2 Rifle',
@@ -707,7 +707,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'SKS Carbine',
@@ -721,7 +721,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.303 Lee Enfield',
@@ -735,7 +735,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.30-06 Bolt-Action Rifle',
@@ -749,7 +749,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.30-06 Semi-Auto Rifle',
@@ -763,7 +763,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.444 Marlin Rifle',
@@ -777,7 +777,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Elephant Gun (2B)',
@@ -791,7 +791,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '20-gauge Shotgun (2B)',
@@ -805,7 +805,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '16-gauge Shotgun (2B)',
@@ -819,7 +819,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '12-gauge Shotgun (2B)',
@@ -833,7 +833,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '12-gauge Shotgun (Pump)',
@@ -847,7 +847,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '12-gauge Shotgun (semi-auto)',
@@ -861,7 +861,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '12-gauge Shotgun (2B sawed off)',
@@ -875,7 +875,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '10-gauge Shotgun (2B)',
@@ -889,7 +889,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '12-gauge Benelli M3 (folding stock)',
@@ -903,7 +903,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '12-gauge SPAS (folding stock)',
@@ -917,7 +917,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:252',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'AK-47 or AKM',
@@ -931,7 +931,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'AK-74',
@@ -945,7 +945,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Barrett Model 82',
@@ -959,7 +959,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'FN FAL Light Automatic',
@@ -973,7 +973,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Galil Assault Rifle',
@@ -987,7 +987,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'M16A2',
@@ -1001,7 +1001,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'M4',
@@ -1015,7 +1015,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Steyr AUG',
@@ -1029,7 +1029,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Beretta M70/90',
@@ -1043,7 +1043,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Bergmann-MP18/1 MP28/1',
@@ -1057,7 +1057,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Heckler & Koch MP5',
@@ -1071,7 +1071,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Ingram MAC-11',
@@ -1085,7 +1085,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Skorpion SMG',
@@ -1099,7 +1099,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Thompson',
@@ -1113,7 +1113,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Uzi SMG',
@@ -1127,7 +1127,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Model 1882 Gatling Gun',
@@ -1141,7 +1141,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Browning Auto Rifle M1918',
@@ -1155,7 +1155,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '.30 Browning M1917A1',
@@ -1169,7 +1169,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Bren Gun',
@@ -1183,7 +1183,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Mark I Lewis Gun',
@@ -1197,7 +1197,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Minigun',
@@ -1211,7 +1211,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'FN Minimi 5.56mm',
@@ -1225,7 +1225,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Vickers .303 Machine Gun',
@@ -1239,7 +1239,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:253',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Molotov Cocktail',
@@ -1253,7 +1253,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Signal Handgun (Flare gun)',
@@ -1267,7 +1267,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'M79 Grenade Launcher',
@@ -1281,7 +1281,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Dynamite Stick*',
@@ -1295,7 +1295,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Blasting Cap',
@@ -1309,7 +1309,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Pipe Bomb',
@@ -1323,7 +1323,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Plastique (C-4), 4 oz.',
@@ -1337,7 +1337,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Hand Grenade*',
@@ -1351,7 +1351,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '81mm Mortar',
@@ -1365,7 +1365,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '75mm Field Gun',
@@ -1379,7 +1379,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: '120mm Tank Gun (stabilized)',
@@ -1393,7 +1393,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Ship-mounted 5-inch rifle, stabilized',
@@ -1407,7 +1407,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Anti-Personnel Mine',
@@ -1421,7 +1421,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Claymore Mine',
@@ -1435,7 +1435,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'Flamethrower',
@@ -1449,7 +1449,7 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
+            scope: 'public',
         },
         {
             name: 'LAW*',
@@ -1463,8 +1463,8 @@ export async function seed(knex: Knex): Promise<void>
             reference: 'CoC-IH:254',
             official: true,
             owner: null,
-            scope: 'public'
-        }
+            scope: 'public',
+        },
     ];
 
     // Deletes ALL existing entries

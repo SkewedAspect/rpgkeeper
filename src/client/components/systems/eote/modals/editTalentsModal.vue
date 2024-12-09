@@ -16,15 +16,15 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Talents
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
             <!-- Modal Content -->
             <div :class="`${ mode }-system`">
-                <supplement-select
+                <SupplementSelect
                     ref="suppSelect"
                     label="Talents"
                     label-class="fw-bold"
@@ -41,41 +41,51 @@
                         <div class="clearfix">
                             <div v-if="supplement.ranked" class="mb-2 float-end">
                                 <label>Ranks</label>
-                                <BFormSpinbutton v-model="getInst(instance.id).ranks" inline></BFormSpinbutton>
+                                <BFormSpinbutton v-model="getInst(instance.id).ranks" inline />
                             </div>
                             <div class="mb-2">
                                 <i>{{ getActivation(supplement) }}</i>
                             </div>
-                            <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
-                            <reference
+                            <MarkdownBlock :text="supplement.description" inline />
+                            <Reference
                                 class="float-end mt-2"
                                 :reference="supplement.reference"
-                            ></reference>
+                            />
                         </div>
                         <div class="font-sm">
-                            <hr />
+                            <hr>
                             <div class="float-end">
                                 <BButton v-if="!editInstance" size="sm" @click="editInstanceNotes(instance)">
-                                    <fa icon="edit"></fa>
+                                    <Fa icon="edit" />
                                     Edit Notes
                                 </BButton>
                             </div>
                             <BCard v-if="editInstance" class="overflow-hidden" no-body>
-                                <MarkdownBlock v-model:text="editInstance.notes" inline></MarkdownBlock>
+                                <MarkdownBlock v-model:text="editInstance.notes" inline />
                                 <template #footer>
                                     <div class="text-end">
-                                        <BButton v-if="editInstance" class="me-2" size="sm" @click="saveInstanceNotes(instance, true)">
-                                            <fa icon="times"></fa>
+                                        <BButton
+                                            v-if="editInstance"
+                                            class="me-2"
+                                            size="sm"
+                                            @click="saveInstanceNotes(instance, true)"
+                                        >
+                                            <Fa icon="times" />
                                             Cancel Notes
                                         </BButton>
-                                        <BButton v-if="editInstance" variant="success" size="sm" @click="saveInstanceNotes(instance)">
-                                            <fa icon="save"></fa>
+                                        <BButton
+                                            v-if="editInstance"
+                                            variant="success"
+                                            size="sm"
+                                            @click="saveInstanceNotes(instance)"
+                                        >
+                                            <Fa icon="save" />
                                             Save Notes
                                         </BButton>
                                     </div>
                                 </template>
                             </BCard>
-                            <MarkdownBlock v-else-if="instance.notes" :text="instance.notes" inline></MarkdownBlock>
+                            <MarkdownBlock v-else-if="instance.notes" :text="instance.notes" inline />
                             <i v-else>No notes.</i>
                         </div>
                     </template>
@@ -96,33 +106,33 @@
                             Tier {{ supplement.tier }}
                         </BBadge>
                     </template>
-                </supplement-select>
+                </SupplementSelect>
             </div>
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
         </BModal>
 
         <!-- Modals -->
-        <AddEditTalentModal ref="addEditTalentModal" @add="onTalentAdd"></AddEditTalentModal>
+        <AddEditTalentModal ref="addEditTalentModal" @add="onTalentAdd" />
         <DeleteModal
             ref="delTalentModal"
             :name="delTalent.name"
             type="talent"
             @hidden="onDelTalentHidden"
             @delete="onDelTalentDelete"
-        ></DeleteModal>
+        />
     </div>
 </template>
 
@@ -136,7 +146,7 @@
     import {
         EoteOrGenCharacter,
         EoteTalentInst,
-        GenesysTalent
+        GenesysTalent,
     } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
@@ -158,10 +168,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', talents : EoteTalentInst[]) : void;
-    }
+    type Events = (e : 'save', talents : EoteTalentInst[]) => void;
 
     const emit = defineEmits<Events>();
 
@@ -172,7 +179,7 @@
     const selectedTalents = ref<EoteTalentInst[]>([]);
     const delTalent = ref<{ id : number | string, name : string }>({
         id: '',
-        name: ''
+        name: '',
     });
     const editInstance = ref<EoteTalentInst>(undefined);
 
@@ -202,12 +209,12 @@
                     const talentBase = talents.value.find(({ id }) => id === talentInst.id);
                     return {
                         ...talentInst,
-                        base: talentBase
+                        base: talentBase,
                     };
                 }),
             [
                 'base.tier',
-                'base.name'
+                'base.name',
             ]
         );
     });
@@ -318,7 +325,7 @@
         editInstance.value = instance;
     }
 
-    function saveInstanceNotes(instance : EoteTalentInst, cancel = false)
+    function saveInstanceNotes(instance : EoteTalentInst, cancel = false) : void
     {
         if(!cancel)
         {

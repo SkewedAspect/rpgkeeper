@@ -7,7 +7,7 @@ import CoC from '../systems/coc/system';
 import Risus from '../systems/risus/system';
 import Fate from '../systems/fate/system';
 import Wfrp from '../systems/wfrp/system';
-import { Genesys, EdgeOfTheEmpire } from '../systems/eote/system';
+import { EdgeOfTheEmpire, Genesys } from '../systems/eote/system';
 import { BaseSystem } from '../systems/base';
 
 // Models
@@ -27,7 +27,7 @@ class SystemManager
             Fate,
             Genesys,
             EdgeOfTheEmpire,
-            Wfrp
+            Wfrp,
         ];
 
         this.systems.forEach((system) => system.init());

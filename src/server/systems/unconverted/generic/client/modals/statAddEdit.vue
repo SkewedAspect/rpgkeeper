@@ -1,170 +1,228 @@
 <template>
-    <modal v-ref:modal :backdrop="'static'" :keyboard="false" :width="'900px'">
-        <div class="modal-header" slot="header">
-            <h4 class="modal-title">
-                <span v-if="mode == 'add'">
-                    <i class="fa fa-plus"></i> Add
-                </span>
-                <span v-else>
-                    <i class="fa fa-edit"></i> Edit
-                </span>
-                "{{ statblock.name }}" Statblock
-            </h4>
-        </div>
-        <div class="modal-body" slot="body">
-            <form>
-                <fieldset class="form-group">
-                    <label for="name">Name</label>
-                    <input id="name" type="text" class="form-control" v-model="statblock.name">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="type">Type</label>
-                    <select id="type" class="form-control" v-model="statblock.type">
-                        <option value="table">Table</option>
-                        <option value="list">List</option>
-                    </select>
-                </fieldset>
-                <hr>
-                <div v-if="statblock.type == 'table'" class="form-group">
-                    <h5>Columns</h5>
-                    <table class="table" style="margin-bottom: 0">
-                        <tr>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Type</th>
-                            <th class="text-center">Primary Key</th>
-                            <th></th>
-                        </tr>
-                        <tr v-for="column in statblock.columns">
-                            <td>
-                                <input type="text" class="form-control" v-model="column.name">
-                            </td>
-                            <td>
-                                <select class="form-control" v-model="column.type">
-                                    <option value="string">String</option>
-                                    <option value="number">Number</option>
-                                    <option value="boolean">Boolean</option>
-                                    <option value="computed">Computed</option>
-                                </select>
-                            </td>
-                            <td style="width: 1%">
-                                <button class="btn btn-block" :class="{ 'btn-secondary': !column.pk, 'btn-primary': column.pk, 'no-click': column.pk }" title="Make Primary"
-                                        @click.prevent.stop="makeColumnPrimary(column.name)">
-                                    <span v-if="!column.pk">Make </span>Primary
-                                </button>
-                            </td>
-                            <td style="width: 1%">
-                                <button class="btn btn-danger btn-block" title="Remove row"
-                                        @click.prevent.stop="statblock.columns.$remove(column)">
-                                    <i class="fa fa-fw fa-trash-o"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
-                    <hr class="sm">
-                    <div class="text-right">
-                        <button class="btn btn-link" @click.prevent.stop="statblock.columns.push({ name: null, type: 'string', pk: undefined})">
-                            <i class="fa fa-plus"></i>
-                            Add Column
-                        </button>
+    <Modal v-ref:modal :backdrop="'static'" :keyboard="false" :width="'900px'">
+        <template #header>
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <span v-if="mode == 'add'">
+                        <i class="fa fa-plus" /> Add
+                    </span>
+                    <span v-else>
+                        <i class="fa fa-edit" /> Edit
+                    </span>
+                    "{{ statblock.name }}" Statblock
+                </h4>
+            </div>
+        </template>
+        <template #body>
+            <div class="modal-body">
+                <form>
+                    <fieldset class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" v-model="statblock.name" type="text" class="form-control">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="type">Type</label>
+                        <select id="type" v-model="statblock.type" class="form-control">
+                            <option value="table">
+                                Table
+                            </option>
+                            <option value="list">
+                                List
+                            </option>
+                        </select>
+                    </fieldset>
+                    <hr>
+                    <div v-if="statblock.type == 'table'" class="form-group">
+                        <h5>Columns</h5>
+                        <table class="table" style="margin-bottom: 0">
+                            <tr>
+                                <th class="text-center">
+                                    Name
+                                </th>
+                                <th class="text-center">
+                                    Type
+                                </th>
+                                <th class="text-center">
+                                    Primary Key
+                                </th>
+                                <th />
+                            </tr>
+                            <tr v-for="column in statblock.columns">
+                                <td>
+                                    <input v-model="column.name" type="text" class="form-control">
+                                </td>
+                                <td>
+                                    <select v-model="column.type" class="form-control">
+                                        <option value="string">
+                                            String
+                                        </option>
+                                        <option value="number">
+                                            Number
+                                        </option>
+                                        <option value="boolean">
+                                            Boolean
+                                        </option>
+                                        <option value="computed">
+                                            Computed
+                                        </option>
+                                    </select>
+                                </td>
+                                <td style="width: 1%">
+                                    <button
+                                        class="btn btn-block"
+                                        :class="{ 'btn-secondary': !column.pk, 'btn-primary': column.pk, 'no-click': column.pk }"
+                                        title="Make Primary"
+                                        @click.prevent.stop="makeColumnPrimary(column.name)"
+                                    >
+                                        <span v-if="!column.pk">Make </span>Primary
+                                    </button>
+                                </td>
+                                <td style="width: 1%">
+                                    <button
+                                        class="btn btn-danger btn-block"
+                                        title="Remove row"
+                                        @click.prevent.stop="statblock.columns.$remove(column)"
+                                    >
+                                        <i class="fa fa-fw fa-trash-o" />
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr class="sm">
+                        <div class="text-right">
+                            <button class="btn btn-link" @click.prevent.stop="statblock.columns.push({ name: null, type: 'string', pk: undefined})">
+                                <i class="fa fa-plus" />
+                                Add Column
+                            </button>
+                        </div>
+                        <h5>Data</h5>
+                        <table class="table" style="margin-bottom: 0">
+                            <tr>
+                                <th v-for="column in statblock.columns" class="text-center">
+                                    {{ column.name }}
+                                </th>
+                                <th />
+                            </tr>
+                            <tr v-for="row in statblock.rows">
+                                <td v-for="column in statblock.columns">
+                                    <input v-if="column.type == 'string'" v-model="row[$index]" type="text" class="form-control">
+                                    <input v-if="column.type == 'number'" v-model="row[$index]" type="number" class="form-control" number>
+                                    <div v-if="column.type == 'boolean'" class="checkbox">
+                                        <label>
+                                            <input v-model="row[$index]" type="checkbox">
+                                        </label>
+                                    </div>
+                                    <textarea v-if="column.type == 'computed'" v-model="row[$index]" class="form-control monospace" style="font-size: .85rem;" rows="3" />
+                                </td>
+                                <td style="width: 1%">
+                                    <button
+                                        class="btn btn-danger btn-block"
+                                        title="Remove row"
+                                        @click.prevent.stop="statblock.rows.$remove(row)"
+                                    >
+                                        <i class="fa fa-fw fa-trash-o" />
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr class="sm">
+                        <div class="text-right">
+                            <button class="btn btn-link" @click.prevent.stop="statblock.rows.push([])">
+                                <i class="fa fa-plus" />
+                                Add Row
+                            </button>
+                        </div>
                     </div>
-                    <h5>Data</h5>
-                    <table class="table" style="margin-bottom: 0">
-                        <tr>
-                            <th class="text-center" v-for="column in statblock.columns">{{ column.name }}</th>
-                            <th></th>
-                        </tr>
-                        <tr v-for="row in statblock.rows">
-                            <td v-for="column in statblock.columns">
-                                <input v-if="column.type == 'string'" type="text" class="form-control" v-model="row[$index]">
-                                <input v-if="column.type == 'number'" type="number" class="form-control" v-model="row[$index]" number>
-                                <div class="checkbox" v-if="column.type == 'boolean'">
-                                    <label>
-                                        <input type="checkbox" v-model="row[$index]">
-                                    </label>
-                                </div>
-                                <textarea v-if="column.type == 'computed'" class="form-control monospace" style="font-size: .85rem;" rows="3" v-model="row[$index]"></textarea>
-                            </td>
-                            <td style="width: 1%">
-                                <button class="btn btn-danger btn-block" title="Remove row"
-                                        @click.prevent.stop="statblock.rows.$remove(row)">
-                                    <i class="fa fa-fw fa-trash-o"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
-                    <hr class="sm">
-                    <div class="text-right">
-                        <button class="btn btn-link" @click.prevent.stop="statblock.rows.push([])">
-                            <i class="fa fa-plus"></i>
-                            Add Row
-                        </button>
+                    <div v-else class="form-group">
+                        <h5>Data</h5>
+                        <table class="table" style="margin-bottom: 0">
+                            <tr>
+                                <th class="text-center">
+                                    Key
+                                </th>
+                                <th class="text-center">
+                                    Type
+                                </th>
+                                <th class="text-center">
+                                    Value
+                                </th>
+                                <th />
+                            </tr>
+                            <tr v-for="item in statblock.items">
+                                <td style="width: 20%">
+                                    <input v-model="item.key" type="text" class="form-control">
+                                </td>
+                                <td style="width: 20%">
+                                    <select v-model="item.type" class="form-control">
+                                        <option value="string">
+                                            String
+                                        </option>
+                                        <option value="number">
+                                            Number
+                                        </option>
+                                        <option value="boolean">
+                                            Boolean
+                                        </option>
+                                        <option value="computed">
+                                            Computed
+                                        </option>
+                                    </select>
+                                </td>
+                                <td style="width: 100%">
+                                    <input v-if="item.type == 'string'" v-model="item.value" type="text" class="form-control">
+                                    <input v-if="item.type == 'number'" v-model="item.value" type="number" class="form-control" number>
+                                    <div v-if="item.type == 'boolean'" class="input-group">
+                                        <span class="input-group-addon">
+                                            <input v-model="item.value" type="checkbox">
+                                        </span>
+                                        <input v-model="item.description" type="text" class="form-control">
+                                    </div>
+                                    <textarea v-if="item.type == 'computed'" v-model="item.value" class="form-control monospace" style="font-size: .85rem;" rows="3" />
+                                </td>
+                                <td style="width: 1%">
+                                    <button
+                                        class="btn btn-danger btn-block"
+                                        title="Remove row"
+                                        type="button"
+                                        @click.prevent.stop="statblock.items.$remove(item)"
+                                    >
+                                        <i class="fa fa-fw fa-trash-o" />
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr class="sm">
+                        <div class="text-right">
+                            <button class="btn btn-link" @click.prevent.stop="statblock.items.push({ key: null, type: 'string', value: null})">
+                                <i class="fa fa-plus" />
+                                Add Row
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div v-else class="form-group">
-                    <h5>Data</h5>
-                    <table class="table" style="margin-bottom: 0">
-                        <tr>
-                            <th class="text-center">Key</th>
-                            <th class="text-center">Type</th>
-                            <th class="text-center">Value</th>
-                            <th></th>
-                        </tr>
-                        <tr v-for="item in statblock.items">
-                            <td style="width: 20%">
-                                <input type="text" class="form-control" v-model="item.key">
-                            </td>
-                            <td style="width: 20%">
-                                <select class="form-control" v-model="item.type">
-                                    <option value="string">String</option>
-                                    <option value="number">Number</option>
-                                    <option value="boolean">Boolean</option>
-                                    <option value="computed">Computed</option>
-                                </select>
-                            </td>
-                            <td style="width: 100%">
-                                <input v-if="item.type == 'string'" type="text" class="form-control" v-model="item.value">
-                                <input v-if="item.type == 'number'" type="number" class="form-control" v-model="item.value" number>
-                                <div class="input-group" v-if="item.type == 'boolean'">
-                                    <span class="input-group-addon">
-                                        <input type="checkbox" v-model="item.value">
-                                    </span>
-                                    <input type="text" class="form-control" v-model="item.description">
-                                </div>
-                                <textarea v-if="item.type == 'computed'" class="form-control monospace" style="font-size: .85rem;" rows="3" v-model="item.value"></textarea>
-                            </td>
-                            <td style="width: 1%">
-                                <button class="btn btn-danger btn-block" title="Remove row" type="button"
-                                        @click.prevent.stop="statblock.items.$remove(item)">
-                                    <i class="fa fa-fw fa-trash-o"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
-                    <hr class="sm">
-                    <div class="text-right">
-                        <button class="btn btn-link" @click.prevent.stop="statblock.items.push({ key: null, type: 'string', value: null})">
-                            <i class="fa fa-plus"></i>
-                            Add Row
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer" slot="footer">
-            <button type="button"
+                </form>
+            </div>
+        </template>
+        <template #footer>
+            <div class="modal-footer">
+                <button
+                    type="button"
                     class="btn btn-success"
-                    @click="saveModal()">
-                <i class="fa fa-save"></i>
-                Save
-            </button>
-            <button type="button"
+                    @click="saveModal()"
+                >
+                    <i class="fa fa-save" />
+                    Save
+                </button>
+                <button
+                    type="button"
                     class="btn btn-secondary"
-                    @click="$refs.modal.hideModal()">
-                <i class="fa fa-times"></i>
-                Cancel
-            </button>
-        </div>
-    </modal>
+                    @click="$refs.modal.hideModal()"
+                >
+                    <i class="fa fa-times" />
+                    Cancel
+                </button>
+            </div>
+        </template>
+    </Modal>
 </template>
 
 <script type="text/babel">
@@ -173,7 +231,7 @@
 
     export default {
         components: {
-            modal
+            modal,
         },
         props: {
             stats: {
@@ -181,42 +239,42 @@
                 twoWay: true,
                 default: {
                     name: null,
-                    type: "list",
+                    type: 'list',
                     rows: [],
                     columns: [],
-                    items: []
-                }
+                    items: [],
+                },
             },
             mode: {
                 type: String,
-                default: "edit"
+                default: 'edit',
             },
             save: {
                 type: Function,
-                required: true
-            }
+                required: true,
+            },
         },
-        data: function()
+        data()
         {
             return {
                 defaultStats: {
                     name: null,
-                    type: "list",
+                    type: 'list',
                     rows: [],
                     columns: [],
-                    items: []
+                    items: [],
                 },
                 statblock: {
                     name: null,
-                    type: "list",
+                    type: 'list',
                     rows: [],
                     columns: [],
-                    items: []
-                }
+                    items: [],
+                },
             };
         },
         methods: {
-            show: function()
+            show()
             {
                 // Default to any properties not listed
                 this.stats = _.defaults({}, this.stats, this.defaultStats);
@@ -225,22 +283,22 @@
                 _.assign(this.statblock, _.cloneDeep(this.stats));
                 this.$refs.modal.showModal();
             },
-            showModal: function()
+            showModal()
             {
                 // This is compatibility for the modal lib.
                 this.show();
             },
-            hide: function()
+            hide()
             {
                 this.statblock = _.cloneDeep(this.defaultStats);
                 this.$refs.modal.hideModal();
             },
-            hideModal: function()
+            hideModal()
             {
                 // This is compatibility for the modal lib.
                 this.hide();
             },
-            makeColumnPrimary: function(columnName)
+            makeColumnPrimary(columnName)
             {
                 var columns = _.cloneDeep(this.statblock.columns);
 
@@ -254,12 +312,12 @@
                 // Update Vue
                 this.statblock.columns = columns;
             },
-            saveModal: function()
+            saveModal()
             {
                 _.assign(this.stats, this.statblock);
                 this.$refs.modal.hideModal();
                 this.save();
-            }
-        }
-    }
+            },
+        },
+    };
 </script>

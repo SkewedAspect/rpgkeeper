@@ -31,7 +31,7 @@ export function toDB(character : Character) : CharacterDBSchema
         character_id: id,
         details: JSON.stringify(details),
         note_id: noteID,
-        account_id: accountID
+        account_id: accountID,
     };
 }
 
@@ -48,7 +48,7 @@ export function fromDB(character : CharacterDBSchema) : Character
         campaign: character.campaign,
         details: JSON.parse(character.details),
         noteID: character.note_id,
-        accountID: character.account_id
+        accountID: character.account_id,
     };
 }
 

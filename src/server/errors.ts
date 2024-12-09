@@ -81,7 +81,7 @@ export class DuplicateSupplementError extends AppError
     {
         return {
             ...super.toJSON(),
-            supplement: this.supplement
+            supplement: this.supplement,
         };
     }
 }
@@ -143,7 +143,7 @@ export class NotAuthorizedError extends AppError
         return {
             ...super.toJSON(),
             operation: this.operation,
-            thing: this.thing
+            thing: this.thing,
         };
     }
 }

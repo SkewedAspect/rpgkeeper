@@ -9,12 +9,12 @@
         </BBadge>
         <BPopover :title="qualityName" :target="uniqueID" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
-                <MarkdownBlock :text="qualityText" inline></MarkdownBlock>
+                <MarkdownBlock :text="qualityText" inline />
                 <ReferenceBlock
                     v-if="qualityReference"
                     class="float-end mt-2 mb-2"
                     :reference="qualityReference"
-                ></ReferenceBlock>
+                />
             </div>
         </BPopover>
     </span>

@@ -26,7 +26,7 @@ class DropboxUtil
                     // chooser api, however, any file in dropbox can be directly linked to. The solution? Rewrite
                     // the url. Thankfully their 'preview' url is almost exactly the same format as url we need.
                     resolve(files[0].link.replace('https://www.', 'https://dl.'));
-                }
+                },
             });
         });
     }

@@ -7,19 +7,23 @@
         <h6>
             Tier {{ tier }} ({{ talents.length }} / {{ maxTalents }})
         </h6>
-        <div v-if="(talents.length > 0) || (talentPlaceholders.length > 0)" class="d-flex flex-wrap" style="margin-top: -0.5rem">
+        <div
+            v-if="(talents.length > 0) || (talentPlaceholders.length > 0)"
+            class="d-flex flex-wrap"
+            style="margin-top: -0.5rem"
+        >
             <TalentCard
                 v-for="talentInst in talents"
                 :key="talentInst.id"
                 class="me-2 mt-2 flex-fill"
                 :talent="talentInst"
                 :readonly="readonly"
-            ></TalentCard>
-            <talent-placeholder
+            />
+            <TalentPlaceholder
                 v-for="index in talentPlaceholders"
                 :key="index"
                 class="me-2 mt-2 flex-fill"
-            ></talent-placeholder>
+            />
         </div>
         <div v-else class="text-muted">
             No tier {{ tier }} talents.
@@ -84,7 +88,7 @@
                 return {
                     ...talentInst,
                     name: talentBase?.name,
-                    base: talentBase
+                    base: talentBase,
                 };
             })
             .sort(sortBy('name'));

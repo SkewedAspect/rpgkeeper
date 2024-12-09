@@ -30,7 +30,8 @@ class GenesysSystem extends BaseSystem
     {
         const id = 'genesys';
         const name = 'Genesys';
-        const description = 'Genesys is a role playing system designed for flexibility and adaptability, specifically tooled to work with any setting imaginable.';
+        const description = 'Genesys is a role playing system designed for flexibility and adaptability, '
+            + 'specifically tooled to work with any setting imaginable.';
 
         super(id, name, description, defaults.genesys.character, SupportStatus.PublicBeta);
 

@@ -8,12 +8,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" :icon="mode === 'eote' ? 'sword-laser-alt' : 'sword'"></fa>
+                    <Fa class="me-1" :icon="mode === 'eote' ? 'sword-laser-alt' : 'sword'" />
                     <span class="d-none d-md-inline">Weapons</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openAddEditModal()">
-                        <fa icon="plus" fixed-width></fa>
+                        <Fa icon="plus" fixed-width />
                         <span class="d-none d-md-inline">Add</span>
                     </BButton>
                 </div>
@@ -37,16 +37,16 @@
                     :id="quality.id"
                     :key="quality.id"
                     :ranks="quality.ranks"
-                ></QualityTag>
+                />
             </template>
 
             <!-- Buttons Slot -->
             <template #cell(buttons)="data">
                 <BButton size="sm" @click="openAddEditModal(data.item)">
-                    <fa icon="edit"></fa>
+                    <Fa icon="edit" />
                 </BButton>
                 <BButton class="ms-1" variant="danger" size="sm" @click="openDeleteModal(data.item)">
-                    <fa icon="trash-alt"></fa>
+                    <Fa icon="trash-alt" />
                 </BButton>
             </template>
         </BTable>
@@ -57,7 +57,7 @@
         </h5>
 
         <!-- Edit Modal -->
-        <EditWeaponsModal ref="editWeaponsModal" @add="onAdd" @edit="onEdit"></EditWeaponsModal>
+        <EditWeaponsModal ref="editWeaponsModal" @add="onAdd" @edit="onEdit" />
 
         <!-- Delete Modal -->
         <DeleteModal
@@ -66,7 +66,7 @@
             type="weapon"
             @hidden="onDelModalHidden"
             @delete="onDelWeaponDelete"
-        ></DeleteModal>
+        />
     </RpgkCard>
 </template>
 
@@ -142,12 +142,12 @@
             {
                 return eoteMan.rangeEnum[range];
             },
-            tdClass: 'text-center'
+            tdClass: 'text-center',
         },
         { key: 'encumbrance', label: 'Enc.', headerTitle: 'Weapon Encumbrance', tdClass: 'text-center' },
         { key: 'rarity', label: 'Rar.', headerTitle: 'Weapon Rarity', tdClass: 'text-center' },
         { key: 'qualities', label: 'Special', headerTitle: 'Weapon Qualities' },
-        { key: 'buttons', label: '', thStyle: 'min-width: 80px' }
+        { key: 'buttons', label: '', thStyle: 'min-width: 80px' },
 
         /* TODO: Add in weapon modification support. */
     ]);

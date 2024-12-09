@@ -17,21 +17,21 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Hooks
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
             <!-- Modal Content -->
             <div v-for="(hook, index) in hooks" :key="index" class="d-flex mb-2">
-                <BFormInput v-model="hook.description"></BFormInput>
+                <BFormInput v-model="hook.description" />
                 <BButton variant="danger" class="ms-2" @click="removeHook(hook)">
-                    <fa icon="trash-alt"></fa>
+                    <Fa icon="trash-alt" />
                 </BButton>
             </div>
 
-            <hr />
+            <hr>
 
             <BCard
                 header="New Hook"
@@ -39,9 +39,9 @@
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <BFormInput id="new-input" v-model="newHook"></BFormInput>
+                    <BFormInput id="new-input" v-model="newHook" />
                     <BButton variant="primary" class="ms-2 text-nowrap" @click="addHook">
-                        <fa icon="plus"></fa>
+                        <Fa icon="plus" />
                         Add
                     </BButton>
                 </div>
@@ -50,13 +50,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -87,10 +87,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', hooks : RisusHook[]) : void;
-    }
+    type Events = (e : 'save', hooks : RisusHook[]) => void;
 
     const emit = defineEmits<Events>();
 

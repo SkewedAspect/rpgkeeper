@@ -7,7 +7,7 @@ import { sortBy } from '../../utils/misc';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const genesysRefs :Record<string, { tier: number, reference : string }> = {
+const genesysRefs : Record<string, { tier : number, reference : string }> = {
     'Durable': { tier: 1, reference: 'G-CRB:73' },
     'Enduring': { tier: 4, reference: 'G-CRB:80' },
     'Toughened': { tier: 1, reference: 'G-CRB:75' },
@@ -25,7 +25,7 @@ const genesysRefs :Record<string, { tier: number, reference : string }> = {
     'Quick Draw': { tier: 1, reference: 'G-CRB:74' },
     'Side step': { tier: 2, reference: 'G-CRB:77' },
     'Defensive Stance': { tier: 2, reference: 'G-CRB:75' },
-    'Heightened Awareness': { tier: 2, reference: 'G-CRB:76' }
+    'Heightened Awareness': { tier: 2, reference: 'G-CRB:76' },
 };
 
 exports.seed = async function(knex : Knex)
@@ -40,7 +40,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Bodyguard, Fringer',
             reference: 'E-CRB:135',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -51,7 +51,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Bodyguard, Marauder, Mechanic, Survivalist',
             reference: 'E-CRB:135',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -62,7 +62,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Bodyguard, Fringer, Gadgeteer, Marauder, Mechanic, Outlaw Tech, Pilot Politico, Scholar, Scoundrel, Scout, Mercenary Soldier, Survivalist, Trader',
             reference: 'E-CRB:145',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -73,7 +73,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Ataru Striker, Makashi Duelist Niman Disciple, Protector, Shien Expert, Shii-Cho Knight, Soresu Defender',
             reference: 'F-CRB:149',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -84,7 +84,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Scoundrel, Thief',
             reference: 'E-CRB:141',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -95,7 +95,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin Bodyguard, Doctor, Fringer, Mechanic, Outlaw Tech, Pilot, Politico, Scout, Slicer, Mercenary Soldier, Scholar, Survivalist, Thief, Trader',
             reference: 'E-CRB:136',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -106,7 +106,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Force Sensitive Exile, Scout, Survivalist',
             reference: 'E-CRB:135',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -117,7 +117,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Scoundrel, Scout',
             reference: 'E-CRB:141',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -128,7 +128,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Doctor, Fringer, Politico, Thief, ',
             reference: 'E-CRB:135',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -139,7 +139,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Squadron Leader',
             reference: 'E-CRB:134',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -150,7 +150,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Bodyguard, Doctor, Force Sensitive Exile, Fringer, Gadgeteer, Marauder, Mechanic, Outlaw Tech, Pilot, Politico, Scholar, Scoundrel, Scout, Slicer, Mercenary Soldier, Survivalist, Thief, Trader',
             reference: 'E-CRB:134',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -161,7 +161,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Fringer, Thief',
             reference: 'E-CRB:138',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -172,7 +172,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Peacekeeper, Shii-Cho Knight',
             reference: 'E-CRB:142',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -183,7 +183,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Ataru Striker, Makashi Duelist, Shii-Cho Knight, Soresu Defender',
             reference: 'F-CRB:149',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -194,7 +194,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Force Sensitive Exile, Scoundrel',
             reference: 'E-CRB:141',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -205,7 +205,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Hunter, Shien Expert',
             reference: 'E-CRB:142',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -216,7 +216,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Bodyguard, Gadgeteer, Marauder, Outlaw Tech',
             reference: 'E-CRB:134',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -227,8 +227,8 @@ exports.seed = async function(knex : Knex)
             trees: 'Scout',
             reference: 'E-CRB:136',
             official: true,
-            scope: 'public'
-        }
+            scope: 'public',
+        },
     ];
 
     const eoteTalents = talents.concat([
@@ -241,7 +241,7 @@ exports.seed = async function(knex : Knex)
             trees: 'NPC only',
             reference: 'E-CRB:132',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -252,7 +252,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Doctor',
             reference: 'E-CRB:132',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -263,7 +263,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Gadgeteer',
             reference: 'E-CRB:132',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -274,7 +274,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Gadgeteer',
             reference: 'E-CRB:132',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -285,7 +285,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Doctor',
             reference: 'E-CRB:132',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -296,7 +296,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Gadgeteer, Mercenary Soldier',
             reference: 'E-CRB:134',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -307,7 +307,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Gadgeteer, Scout',
             reference: 'E-CRB:135',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -318,7 +318,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Marauder, Mercenary Soldier',
             reference: 'E-CRB:138',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -329,7 +329,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Trader',
             reference: 'E-CRB:139',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -340,7 +340,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Gadgeteer, Trader',
             reference: 'E-CRB:143',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -351,7 +351,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Force Sensitive Exile, Scoundrel, Trader',
             reference: 'E-CRB:133',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -362,7 +362,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Politico, Trader',
             reference: 'E-CRB:139',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -373,7 +373,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Scoundrel, Thief, Trader',
             reference: 'E-CRB:132',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -384,7 +384,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Slider, Trader',
             reference: 'E-CRB:133',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -395,7 +395,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Scholar, Slicer',
             reference: 'E-CRB:133',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -406,7 +406,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Peacekeeper, Sage, Soresu Defender, Starfighter Ace',
             reference: 'E-CRB:133',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -417,7 +417,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Slicer',
             reference: 'E-CRB:134',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -428,7 +428,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Pilot',
             reference: 'E-CRB:138',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -439,7 +439,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Slicer',
             reference: 'E-CRB:139',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -450,7 +450,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Slicer',
             reference: 'E-CRB:139',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -461,7 +461,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Scholar',
             reference: 'E-CRB:141',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -472,7 +472,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Trader',
             reference: 'E-CRB:145',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -483,7 +483,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Shii-Cho Knight',
             reference: 'F-CRB:147',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -494,7 +494,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Shii-Cho Knight',
             reference: 'F-CRB:151',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -505,7 +505,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Force Sensitive Exile',
             reference: 'E-CRB:135',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -516,7 +516,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Niman Disciple',
             reference: 'F-CRB:148',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -527,7 +527,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Makashi Duelist, Niman Disciple, Shii-Cho Knight',
             reference: 'F-CRB:152',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -538,7 +538,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Fringer, Pilot, Scout',
             reference: 'E-CRB:141',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -549,7 +549,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Marauder',
             reference: 'E-CRB:135',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -560,7 +560,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Scoundrel, Survivalist',
             reference: 'E-CRB:143',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -571,7 +571,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Seer',
             reference: 'E-CRB:145',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -582,7 +582,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Seer',
             reference: 'F-CRB:146',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -593,7 +593,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Seer',
             reference: 'E-CRB:142',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -604,7 +604,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Scout',
             reference: 'E-CRB:139',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -615,7 +615,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Ataru Striker, Niman Disciple, Protector, Shien Expert, Soresu Defender',
             reference: 'F-CRB:150',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -626,7 +626,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Squadron Leader',
             reference: 'A-CRB:156',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -637,7 +637,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Squadron Leader',
             reference: 'E-CRB:145',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -648,7 +648,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin',
             reference: 'E-CRB:141',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -659,7 +659,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Makashi Duelist, Niman Disciple, Shii-Cho Knight',
             reference: 'F-CRB:141',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -670,7 +670,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Squadron Leader',
             reference: 'E-CRB:132',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -681,7 +681,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Scout, Survivalist, Thief',
             reference: 'E-CRB:143',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -692,7 +692,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Assassin, Mercenary Soldier',
             reference: 'E-CRB:144',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -703,7 +703,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Peacekeeper',
             reference: 'A-CRB:144',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -714,7 +714,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Peacekeeper',
             reference: 'F-CRB:142',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -725,7 +725,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Advisor, Peacekeeper',
             reference: 'E-CRB:143',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -736,7 +736,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Soresu Defender',
             reference: 'F-CRB:152',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -747,7 +747,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Soresu Defender',
             reference: 'F-CRB:149',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -758,7 +758,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Shien Expert, Soresu Defender',
             reference: 'F-CRB:150',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -769,7 +769,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Marauder',
             reference: 'E-CRB:135',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -780,7 +780,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Agressor',
             reference: 'E-CRB:137',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -791,7 +791,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Aggressor',
             reference: 'F-CRB:142',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -802,7 +802,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Shadow, Shien Expert',
             reference: 'E-CRB:144',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -813,7 +813,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Shien Expert',
             reference: 'F-CRB:151',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -824,7 +824,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Ataru Striker, Shien Expert',
             reference: 'F-CRB:151',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -835,7 +835,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Shien Expert',
             reference: 'F-CRB:142',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -846,7 +846,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Ataru Striker, Chien Expert, Shii-Cho Knight',
             reference: 'F-CRB:141',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -857,7 +857,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Niman Disciple',
             reference: 'F-CRB:143',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -868,7 +868,7 @@ exports.seed = async function(knex : Knex)
             trees: 'Politico, Scholar',
             reference: 'E-CRB:145',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -879,8 +879,8 @@ exports.seed = async function(knex : Knex)
             trees: 'Sage',
             reference: 'F-CRB:146',
             official: true,
-            scope: 'public'
-        }
+            scope: 'public',
+        },
     ])
         .map((talent, index) =>
         {
@@ -895,7 +895,7 @@ exports.seed = async function(knex : Knex)
             const genesisTalent = genesysRefs[restTalent.name] ?? { tier: -1, reference: 'G-CRB:-1' };
             return {
                 ...restTalent,
-                ...genesisTalent
+                ...genesisTalent,
             };
         })
         .concat([
@@ -908,7 +908,7 @@ exports.seed = async function(knex : Knex)
                 ranked: false,
                 reference: 'G-CRB:73',
                 official: true,
-                scope: 'public'
+                scope: 'public',
             },
             {
                 id: -1,
@@ -919,8 +919,8 @@ exports.seed = async function(knex : Knex)
                 ranked: false,
                 reference: 'G-CRB:73',
                 official: true,
-                scope: 'public'
-            }
+                scope: 'public',
+            },
         ])
         .map((talent, index) =>
         {

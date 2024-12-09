@@ -16,9 +16,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Experience
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -31,10 +31,10 @@
             >
                 <div class="d-flex flex-column">
                     <BInputGroup>
-                        <BFormInput id="add-xp-input" v-model="xpToAdd" number type="number" min="0" step="1"></BFormInput>
+                        <BFormInput id="add-xp-input" v-model="xpToAdd" number type="number" min="0" step="1" />
                         <template #append>
                             <BButton variant="primary" @click="addXP()">
-                                <fa icon="plus"></fa>
+                                <Fa icon="plus" />
                                 Add
                             </BButton>
                         </template>
@@ -48,7 +48,7 @@
                 </div>
             </BFormGroup>
 
-            <hr class="mt-2 mb-2" />
+            <hr class="mt-2 mb-2">
 
             <div class="d-flex">
                 <BFormGroup
@@ -59,10 +59,17 @@
                 >
                     <div class="d-flex">
                         <BInputGroup>
-                            <BFormInput id="total-input" v-model="experience.total" number type="number" min="0" step="1"></BFormInput>
+                            <BFormInput
+                                id="total-input"
+                                v-model="experience.total"
+                                number
+                                type="number"
+                                min="0"
+                                step="1"
+                            />
                             <template #append>
                                 <BButton @click="experience.total = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -77,10 +84,17 @@
                 >
                     <div class="d-flex">
                         <BInputGroup>
-                            <BFormInput id="available-input" v-model="experience.available" number type="number" min="0" step="1"></BFormInput>
+                            <BFormInput
+                                id="available-input"
+                                v-model="experience.available"
+                                number
+                                type="number"
+                                min="0"
+                                step="1"
+                            />
                             <template #append>
                                 <BButton @click="experience.available = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -91,13 +105,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -127,10 +141,7 @@
         available : number;
     }
 
-    interface Events
-    {
-        (e : 'save', exp : Experience) : void;
-    }
+    type Events = (e : 'save', exp : Experience) => void;
 
     const emit = defineEmits<Events>();
 
@@ -140,7 +151,7 @@
 
     const experience = ref<Experience>({
         total: 0,
-        available: 0
+        available: 0,
     });
 
     const xpToAdd = ref(0);

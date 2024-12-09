@@ -17,14 +17,14 @@
         <!-- Modal Header -->
         <template #header="{ cancel }">
             <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                <fa icon="trash-alt"></fa>
+                <Fa icon="trash-alt" />
                 Delete Character
-                <CloseButton class="float-end" @click="cancel"></CloseButton>
+                <CloseButton class="float-end" @click="cancel" />
             </h5>
         </template>
 
         <h3>
-            <fa class="text-danger" icon="exclamation-triangle"></fa>
+            <Fa class="text-danger" icon="exclamation-triangle" />
             Delete "{{ char?.name }}"?
         </h3>
         <p class="text-muted">
@@ -34,13 +34,13 @@
         <!-- Modal Buttons -->
         <template #ok="{ ok }">
             <BButton variant="danger" @click="ok">
-                <fa icon="trash-alt"></fa>
+                <Fa icon="trash-alt" />
                 Delete
             </BButton>
         </template>
         <template #cancel="{ cancel }">
             <BButton variant="secondary" @click="cancel">
-                <fa icon="times"></fa>
+                <Fa icon="times" />
                 Cancel
             </BButton>
         </template>

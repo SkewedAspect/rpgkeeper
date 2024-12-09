@@ -16,9 +16,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Defenses
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -32,10 +32,18 @@
                 >
                     <div class="d-flex">
                         <BInputGroup>
-                            <BFormInput id="soak-input" v-model="defenses.soak" number type="number" min="0" max="10" step="1"></BFormInput>
+                            <BFormInput
+                                id="soak-input"
+                                v-model="defenses.soak"
+                                number
+                                type="number"
+                                min="0"
+                                max="10"
+                                step="1"
+                            />
                             <template #append>
                                 <BButton @click="defenses.soak = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -50,10 +58,18 @@
                 >
                     <div class="d-flex">
                         <BInputGroup>
-                            <BFormInput id="melee-input" v-model="defenses.melee" number type="number" min="0" max="10" step="1"></BFormInput>
+                            <BFormInput
+                                id="melee-input"
+                                v-model="defenses.melee"
+                                number
+                                type="number"
+                                min="0"
+                                max="10"
+                                step="1"
+                            />
                             <template #append>
                                 <BButton @click="defenses.melee = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -68,10 +84,18 @@
                 >
                     <div class="d-flex">
                         <BInputGroup>
-                            <BFormInput id="ranged-input" v-model="defenses.ranged" number type="number" min="0" max="10" step="1"></BFormInput>
+                            <BFormInput
+                                id="ranged-input"
+                                v-model="defenses.ranged"
+                                number
+                                type="number"
+                                min="0"
+                                max="10"
+                                step="1"
+                            />
                             <template #append>
                                 <BButton @click="defenses.ranged = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -82,13 +106,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -119,10 +143,7 @@
         ranged : number;
     }
 
-    interface Events
-    {
-        (e : 'save', def : Defenses) : void;
-    }
+    type Events = (e : 'save', def : Defenses) => void;
 
     const emit = defineEmits<Events>();
 
@@ -133,7 +154,7 @@
     const defenses = ref<Defenses>({
         soak: 0,
         melee: 0,
-        ranged: 0
+        ranged: 0,
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);

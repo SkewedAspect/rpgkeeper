@@ -8,7 +8,7 @@
         <BContainer v-if="pageError">
             <BAlert variant="danger" :model-value="true">
                 <h4>
-                    <fa icon="exclamation-triangle"></fa>
+                    <Fa icon="exclamation-triangle" />
                     Error loading character
                 </h4>
                 <div v-for="(line, index) in pageError.stack.split('\n')" :key="index">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="text-end">
                     <BButton to="/dashboard" variant="danger">
-                        <fa icon="arrow-left"></fa>
+                        <Fa icon="arrow-left" />
                         Back to Dashboard
                     </BButton>
                 </div>
@@ -24,7 +24,7 @@
         </BContainer>
 
         <!-- Loading -->
-        <LoadingWidget v-else-if="!char"></LoadingWidget>
+        <LoadingWidget v-else-if="!char" />
 
         <!-- Main Sheet Tabs -->
         <BTabs v-else class="main-tabs" pills>
@@ -32,13 +32,13 @@
                 <li style="position: absolute; left: 18px; padding-top: 10px;">
                     <h4 class="text-muted">
                         <span class="d-none d-md-inline">{{ system.name }}</span>
-                        <fa v-if="saving" icon="save" class="flash text-success ms-2"></fa>
+                        <Fa v-if="saving" icon="save" class="flash text-success ms-2" />
                     </h4>
                 </li>
             </template>
             <BTab active>
                 <template #title>
-                    <fa icon="file-user"></fa>
+                    <Fa icon="file-user" />
                     Sheet
                 </template>
 
@@ -48,7 +48,7 @@
                     <BContainer>
                         <BAlert variant="warning" show>
                             <h4>
-                                <fa icon="exclamation-triangle"></fa>
+                                <Fa icon="exclamation-triangle" />
                                 Unknown system "{{ char.system }}"
                             </h4>
                             <div>
@@ -56,12 +56,16 @@
                                 developer, you done messed up. If you're a user, then please report this as a bug.
                             </div>
                             <div class="text-end">
-                                <BButton :href="`https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system '${ char.system }'.&labels=bug`" target="_blank" variant="warning">
-                                    <fa icon="bug"></fa>
+                                <BButton
+                                    :href="bugLink"
+                                    target="_blank"
+                                    variant="warning"
+                                >
+                                    <Fa icon="bug" />
                                     Report Bug
                                 </BButton>
                                 <BButton to="/dashboard" variant="warning">
-                                    <fa icon="arrow-left"></fa>
+                                    <Fa icon="arrow-left" />
                                     Back to Dashboard
                                 </BButton>
                             </div>
@@ -71,11 +75,11 @@
             </BTab>
             <BTab>
                 <template #title>
-                    <fa icon="book"></fa>
+                    <Fa icon="book" />
                     Notes
                 </template>
 
-                <NoteBook></NoteBook>
+                <NoteBook />
             </BTab>
         </BTabs>
     </BContainer>
@@ -137,7 +141,7 @@
         risus: RisusCharacter,
         genesys: EoteCharacter, // This is actually correct. We use the same component for both.
         eote: EoteCharacter,
-        wfrp: WfrpCharacter
+        wfrp: WfrpCharacter,
     };
 
     const accountStore = useAccountStore();
@@ -146,6 +150,9 @@
 
     const route = useRoute();
     const pageError = ref<Error | null>(null);
+
+    // eslint-disable-next-line @stylistic/max-len
+    const bugLink = `https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system '${ charactersStore.current.system }'.&labels=bug`;
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

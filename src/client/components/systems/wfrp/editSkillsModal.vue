@@ -17,22 +17,30 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Skills
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
             <!-- Modal Content -->
             <div v-for="(skill, index) in skills" :key="index" class="d-flex mb-2">
-                <BFormInput v-model="skill.value" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                <BFormInput v-model="skill.description" class="ms-2" placeholder="Description"></BFormInput>
+                <BFormInput
+                    v-model="skill.value"
+                    number
+                    type="number"
+                    min="1"
+                    max="99"
+                    step="1"
+                    style="max-width: 60px; min-width: 60px;"
+                />
+                <BFormInput v-model="skill.description" class="ms-2" placeholder="Description" />
                 <BButton variant="danger" class="ms-2" @click="removeSkill(skill)">
-                    <fa icon="trash-alt"></fa>
+                    <Fa icon="trash-alt" />
                 </BButton>
             </div>
 
-            <hr />
+            <hr>
 
             <BCard
                 header="New Skill"
@@ -40,10 +48,18 @@
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <BFormInput v-model="newValue" number type="number" min="1" max="99" step="1" style="max-width: 60px; min-width: 60px;"></BFormInput>
-                    <BFormInput id="new-desc" v-model="newDesc" class="ms-2" placeholder="Description"></BFormInput>
+                    <BFormInput
+                        v-model="newValue"
+                        number
+                        type="number"
+                        min="1"
+                        max="99"
+                        step="1"
+                        style="max-width: 60px; min-width: 60px;"
+                    />
+                    <BFormInput id="new-desc" v-model="newDesc" class="ms-2" placeholder="Description" />
                     <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addSkill">
-                        <fa icon="plus"></fa>
+                        <Fa icon="plus" />
                         Add
                     </BButton>
                 </div>
@@ -52,13 +68,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -89,10 +105,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', hooks : Record<string, unknown>[]) : void;
-    }
+    type Events = (e : 'save', hooks : Record<string, unknown>[]) => void;
 
     const emit = defineEmits<Events>();
 
@@ -148,7 +161,7 @@
     {
         skills.value.push({
             description: newDesc.value,
-            value: newValue.value
+            value: newValue.value,
         });
 
         newDesc.value = '';

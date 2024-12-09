@@ -26,37 +26,37 @@
                             class="ms-1"
                             size="sm"
                             inline
-                        ></BFormSpinbutton>
+                        />
                     </div>
                     <div class="mb-2">
                         <i v-if="supplement.passive">Passive</i>
                         <i v-else>Active</i>
                     </div>
                 </div>
-                <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
-                <reference
+                <MarkdownBlock :text="supplement.description" inline />
+                <Reference
                     class="float-end mt-2"
                     :reference="supplement.reference"
-                ></reference>
+                />
             </template>
         </SupplementSelect>
 
         <!-- Modals -->
-        <AddEditQualityModal ref="addEditQualityModal" @add="onQualityAdd"></AddEditQualityModal>
+        <AddEditQualityModal ref="addEditQualityModal" @add="onQualityAdd" />
         <DeleteModal
             ref="delQualityModal"
             :name="delQuality.name"
             type="quality"
             @hidden="onDelQualityHidden"
             @delete="onDelQualityDelete"
-        ></DeleteModal>
+        />
     </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { ref, computed } from 'vue';
+    import { computed, ref } from 'vue';
 
     // Models
     import { EoteQuality, EoteQualityRef } from '../../../../../common/interfaces/systems/eote';
@@ -85,10 +85,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'update:qualities', qualities : EoteQualityRef[]) : void;
-    }
+    type Events = (e : 'update:qualities', qualities : EoteQualityRef[]) => void;
 
     const emit = defineEmits<Events>();
 
@@ -98,7 +95,7 @@
 
     const delQuality = ref<{ id ?: number, name ?: string }>({
         id: undefined,
-        name: undefined
+        name: undefined,
     });
 
     const addEditQualityModal = ref<InstanceType<typeof AddEditQualityModal> | null>(null);
@@ -118,14 +115,14 @@
         set(val)
         {
             emit('update:qualities', val);
-        }
+        },
     });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function getQual(qualityInstance : EoteQualityRef)
+    function getQual(qualityInstance : EoteQualityRef) : EoteQualityRef
     {
         return allQualities.value.find((qual) => qual.id === qualityInstance.id);
     }

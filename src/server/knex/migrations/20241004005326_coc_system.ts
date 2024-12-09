@@ -40,7 +40,7 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export async function down(knex: Knex): Promise<Knex.QueryBuilder>
+export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
 {
     await knex.schema.dropTable('coc_reference');
     await knex.schema.dropTable('coc_weapon');

@@ -10,8 +10,7 @@
         :src="url"
         :style="{ 'background-color': color }"
         thumbnail
-    >
-    </BImg>
+    />
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -80,7 +79,7 @@
     const props = withDefaults(defineProps<Props>(), {
         src: '/images/portraitPlaceholder.png',
         color: '#ffffff',
-        size: 'auto'
+        size: 'auto',
     });
 
     //------------------------------------------------------------------------------------------------------------------

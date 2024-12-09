@@ -7,12 +7,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="scroll"></fa>
+                    <Fa class="me-1" icon="scroll" />
                     <span class="d-none d-md-inline">Skills</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -35,7 +35,7 @@
         </table>
 
         <!-- Modals -->
-        <EditSkillsModal ref="editModal" :readonly="readonly" @save="onEditSave"></EditSkillsModal>
+        <EditSkillsModal ref="editModal" :readonly="readonly" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -86,7 +86,7 @@
 
     const skills = computed<FateSkill[]>({
         get() { return orderBy(props.skills, [ 'rank', 'name' ], [ 'desc', 'asc' ]); },
-        set(val) { emit('update:skills', val); }
+        set(val) { emit('update:skills', val); },
     });
 
     const averageSkills = computed<FateSkill[]>(() => skills.value.filter((skill) => skill.rank === 1));
@@ -100,30 +100,29 @@
         return [
             {
                 name: 'Superb (+5)',
-                skills: superbSkills.value
+                skills: superbSkills.value,
             },
             {
                 name: 'Great (+4)',
-                skills: greatSkills.value
+                skills: greatSkills.value,
             },
             {
                 name: 'Good (+3)',
-                skills: goodSkills.value
+                skills: goodSkills.value,
             },
             {
                 name: 'Fair (+2)',
-                skills: fairSkills.value
+                skills: fairSkills.value,
             },
             {
                 name: 'Average (+1)',
-                skills: averageSkills.value
-            }
+                skills: averageSkills.value,
+            },
         ];
     });
 
     const columns = computed(() =>
     {
-        // eslint-disable-next-line no-shadow
         const maxLength = rows.value.reduce((max, row) => Math.max(max, row.skills.length), 5);
         return range(maxLength);
     });

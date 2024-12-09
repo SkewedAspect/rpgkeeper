@@ -57,7 +57,7 @@ exports.seed = async function(knex : Knex)
         { name: '[Edge of the Empire] No Disintegrations', abbr: 'ND', product_code: 'SWE16' },
         { name: '[Force and Destiny] Disciples of Harmony', abbr: 'DoH', product_code: 'SWF35' },
         { name: '[Force and Destiny] Ghosts of Dathomir', abbr: 'GoD', product_code: 'SWF40' },
-        { name: '[Age of Rebellion] Fully Operational', abbr: 'FO', product_code: 'SWA47' }
+        { name: '[Age of Rebellion] Fully Operational', abbr: 'FO', product_code: 'SWA47' },
     ]);
 
     await knex('genesys_reference').insert([
@@ -66,7 +66,7 @@ exports.seed = async function(knex : Knex)
         { name: 'Genesys Expanded Player\'s Guide', abbr: 'G-EPG', product_code: 'GNS11' },
         { name: 'Realms of Terrinoth', abbr: 'RoT', product_code: 'GNS03' },
         { name: 'Shadow of the Beanstalk', abbr: 'SotB', product_code: 'GNS04' },
-        { name: 'Secrets of the Crucible', abbr: 'SotC', product_code: 'GNS12' }
+        { name: 'Secrets of the Crucible', abbr: 'SotC', product_code: 'GNS12' },
     ]);
 };
 

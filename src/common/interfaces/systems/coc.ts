@@ -14,7 +14,7 @@ export const validCoCCharacteristicNames = [
     'appearance',
     'power',
     'size',
-    'education'
+    'education',
 ] as const;
 
 export type CoCCharacteristicName = typeof validCoCCharacteristicNames[number];
@@ -44,9 +44,7 @@ export interface CoCSkill
 }
 
 export type CoCCharacteristics =
-{
-    [ CharacteristicName in typeof validCoCCharacteristicNames[number] ] : number;
-}
+Record<typeof validCoCCharacteristicNames[number], number>;
 
 export interface CoCStat
 {

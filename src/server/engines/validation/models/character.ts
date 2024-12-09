@@ -29,7 +29,7 @@ export const Character = z.object({
     campaign: z.string().optional(),
     accountID: z.string(),
     noteID: z.string(),
-    details: jsonSchema.optional() // This will need to be based on the system.
+    details: jsonSchema.optional(), // This will need to be based on the system.
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ export const Character = z.object({
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const RouteParams = z.object({
-    charID: CharacterID
+    charID: CharacterID,
 });
 
 export const CharFilter = z.object({
@@ -45,7 +45,7 @@ export const CharFilter = z.object({
     email: z.union([ z.string().email(), z.array(z.string().email()) ])
         .optional(),
     name: z.union([ z.string().min(1), z.array(z.string().min(1)) ])
-        .optional()
+        .optional(),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

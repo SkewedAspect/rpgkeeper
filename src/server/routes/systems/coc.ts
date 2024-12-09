@@ -12,7 +12,7 @@ import cocDefaults, { defaultSkills, modernSkills, specializations } from '../..
 
 // Utils
 import { buildSupplementRoute } from './utils/supplement';
-import { errorHandler, parseQuery, convertQueryToRecord } from '../utils';
+import { convertQueryToRecord, errorHandler, parseQuery } from '../utils';
 
 // Logger
 import logging from '@strata-js/util-logging';

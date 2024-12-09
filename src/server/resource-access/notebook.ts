@@ -15,7 +15,8 @@ import { MultipleResultsError, NotFoundError } from '../errors';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export interface NoteFilters {
+export interface NoteFilters 
+{
     id ?: string | string[],
     email ?: string | string[]
     title ?: string | string[]
@@ -137,7 +138,7 @@ export async function updatePage(pageID : string | number, pageUpdate : Partial<
     const allowedUpdate = {
         ...page,
         title: pageUpdate.title ?? page.title,
-        content: pageUpdate.content ?? page.content
+        content: pageUpdate.content ?? page.content,
     };
 
     // Make a new page object

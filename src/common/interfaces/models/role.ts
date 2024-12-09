@@ -2,7 +2,8 @@
 // Role
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface RoleOptions {
+export interface RoleOptions 
+{
     id : number;
     name : string;
     permissions : string[];

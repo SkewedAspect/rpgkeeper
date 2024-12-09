@@ -2,21 +2,21 @@
     <div id="rolls" class="card">
         <div class="card-header">
             <button class="btn btn-secondary pull-right" title="Clear Roll History" @click="clearResults()">
-                <i class="fa fa-undo"></i>
+                <i class="fa fa-undo" />
             </button>
-            <i class="fa fa-random"></i>
+            <i class="fa fa-random" />
             Rolls
         </div>
         <div class="card-block">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="1d20 + ..." v-model="rollInput" @keypress.enter="roll()">
+                <input v-model="rollInput" type="text" class="form-control" placeholder="1d20 + ..." @keypress.enter="roll()">
                 <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button" @click="roll()" :disabled="!rollInput">Roll</button>
+                    <button class="btn btn-secondary" type="button" :disabled="!rollInput" @click="roll()">Roll</button>
                 </span>
             </div>
             <hr>
             <div class="results-list">
-                <div class="roll-result" v-for="result in state.results">
+                <div v-for="result in state.results" class="roll-result">
                     <div class="title">
                         <span v-if="result.title">{{ result.title }}: </span><b>{{ result.roll.value }}</b>
                     </div>
@@ -69,14 +69,14 @@
     export default {
         props: {
             char: {
-                required: true
-            }
+                required: true,
+            },
         },
         data()
         {
             return {
-                rollInput: "",
-                state: rollsSvc.state
+                rollInput: '',
+                state: rollsSvc.state,
             };
         },
         methods: {
@@ -89,9 +89,9 @@
                 if(this.rollInput)
                 {
                     rollsSvc.roll(this.rollInput, this.char.toJSON());
-                    this.rollInput = "";
+                    this.rollInput = '';
                 }
-            }
-        }
-    }
+            },
+        },
+    };
 </script>

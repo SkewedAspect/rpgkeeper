@@ -5,7 +5,7 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { createRouter, createWebHistory } from 'vue-router';
-import { marked, Tokens } from 'marked';
+import { Tokens, marked } from 'marked';
 
 // Bootstrap Vue
 import { createBootstrap } from 'bootstrap-vue-next';
@@ -58,8 +58,8 @@ const router = createRouter({
         { path: '/about', name: 'about', component: AboutPage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
         { path: '/characters/:id', name: 'character', component: CharacterPage },
-        { path: '/settings', name: 'settings', component: SettingsPage }
-    ]
+        { path: '/settings', name: 'settings', component: SettingsPage },
+    ],
 });
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -123,7 +123,7 @@ marked.setOptions({
     gfm: true,
     breaks: false,
     pedantic: false,
-    renderer
+    renderer,
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -141,7 +141,7 @@ declare global
 }
 
 window.RPGKeeper = {
-    version: __APP_VERSION__
+    version: __APP_VERSION__,
 };
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -5,30 +5,30 @@
 <template>
     <div id="eote-character" class="container-fluid" :class="`${ char.system }-system`">
         <div class="d-flex">
-            <portrait class="me-1 d-none d-lg-block" :src="char.portrait" size="lg"></portrait>
+            <Portrait class="me-1 d-none d-lg-block" :src="char.portrait" size="lg" />
             <div class="d-flex flex-column w-50">
-                <BioCard :readonly="!isAuthorized" @save="onSave"></BioCard>
-                <CharCard class="mt-1" :readonly="!isAuthorized" @save="onSave"></CharCard>
+                <BioCard :readonly="!isAuthorized" @save="onSave" />
+                <CharCard class="mt-1" :readonly="!isAuthorized" @save="onSave" />
             </div>
             <RollsCard
                 ref="roller"
                 class="ms-1 w-50"
                 :skills="char.details.skills"
                 :readonly="!isAuthorized"
-            ></RollsCard>
+            />
         </div>
         <div class="d-flex mt-1">
             <div class="d-flex flex-column flex-fill me-1">
-                <SkillsCard :readonly="!isAuthorized" @roll="onRoll" @save="onSave"></SkillsCard>
-                <TalentsCard class="mt-1" :readonly="!isAuthorized" @save="onSave"></TalentsCard>
+                <SkillsCard :readonly="!isAuthorized" @roll="onRoll" @save="onSave" />
+                <TalentsCard class="mt-1" :readonly="!isAuthorized" @save="onSave" />
                 <ForcePowers
                     v-if="showForcePowers"
                     class="mt-1"
                     :readonly="!isAuthorized"
                     @save="onSave"
-                ></ForcePowers>
-                <WeaponsCard class="mt-1" :readonly="!isAuthorized" @roll="onRoll" @save="onSave"></WeaponsCard>
-                <ArmorCard class="mt-1" :readonly="!isAuthorized" @save="onSave"></ArmorCard>
+                />
+                <WeaponsCard class="mt-1" :readonly="!isAuthorized" @roll="onRoll" @save="onSave" />
+                <ArmorCard class="mt-1" :readonly="!isAuthorized" @save="onSave" />
             </div>
             <div class="d-flex flex-column" style="min-width: 300px; max-width: 300px;">
                 <MotivationsCard
@@ -36,33 +36,33 @@
                     class="mb-1 flex-shrink-1 flex-grow-0"
                     :readonly="!isAuthorized"
                     @save="onSave"
-                ></MotivationsCard>
+                />
                 <ExpCard
                     class="flex-shrink-1 flex-grow-0"
                     :readonly="!isAuthorized"
                     @save="onSave"
-                ></ExpCard>
+                />
                 <DefensesCard
                     class="mt-1 flex-shrink-1 flex-grow-0"
                     :readonly="!isAuthorized"
                     @save="onSave"
-                ></DefensesCard>
+                />
                 <WoundsCard
                     class="mt-1 flex-shrink-1 flex-grow-0"
                     :readonly="!isAuthorized"
                     @save="onSave"
-                ></WoundsCard>
+                />
                 <ForcePool
                     v-if="char.system === 'eote'"
                     class=" mt-1 flex-shrink-1 flex-grow-0"
                     :readonly="!isAuthorized"
                     @save="onSave"
-                ></ForcePool>
+                />
                 <CriticalsCard
                     class="mt-1"
                     :readonly="!isAuthorized"
                     @save="onSave"
-                ></CriticalsCard>
+                />
             </div>
         </div>
     </div>

@@ -8,12 +8,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="flame"></fa>
+                    <Fa class="me-1" icon="flame" />
                     <span class="d-none d-md-inline">Cliches</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -33,8 +33,7 @@
                     vertical
                     size="sm"
                     @change="onChange()"
-                >
-                </BFormSpinbutton>
+                />
                 <div class="d-inline-block flex-fill">
                     <h5 class="mb-0">
                         <b>{{ cliche.description }}</b> ({{ cliche.value }})
@@ -50,7 +49,7 @@
                         block
                         @click="roll(cliche.current, cliche.description)"
                     >
-                        <fa icon="dice"></fa>
+                        <Fa icon="dice" />
                         Roll
                     </BButton>
                     <BButton
@@ -58,7 +57,7 @@
                         block
                         @click="resetCliche(cliche)"
                     >
-                        <fa icon="arrow-to-top"></fa>
+                        <Fa icon="arrow-to-top" />
                         Reset to Max
                     </BButton>
                 </div>
@@ -71,7 +70,7 @@
         </div>
 
         <!-- Edit Modal -->
-        <EditClichesModal ref="editModal" @save="onEditSave"></EditClichesModal>
+        <EditClichesModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -148,7 +147,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onChange()
+    function onChange() : void
     {
         if(!props.readonly)
         {
@@ -167,7 +166,7 @@
         {
             return {
                 ...cliche,
-                current: Math.min(cliche.value, cliche.current)
+                current: Math.min(cliche.value, cliche.current),
             };
         });
 

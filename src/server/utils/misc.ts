@@ -2,7 +2,7 @@
 // Simple utility functions
 //----------------------------------------------------------------------------------------------------------------------
 
-import { mapKeys, camelCase, snakeCase } from 'lodash';
+import { camelCase, mapKeys, snakeCase } from 'lodash';
 
 import { customAlphabet } from 'nanoid';
 import { alphanumeric } from 'nanoid-dictionary';

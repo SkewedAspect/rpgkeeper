@@ -18,8 +18,8 @@ db.Character = trivialModels.define({
         options: {
             name: 'characters',
             dbPath: 'server/db',
-            namespace: 'dnd35'
-        }
+            namespace: 'dnd35',
+        },
     },
     schema: {
         // The base character
@@ -29,9 +29,9 @@ db.Character = trivialModels.define({
         classes: types.Array({
             schema: {
                 classID: types.String({ required: true }),
-                level: types.Number({ integer: true })
+                level: types.Number({ integer: true }),
             },
-            default: []
+            default: [],
         }),
 
         // Basic Biographic info
@@ -43,7 +43,7 @@ db.Character = trivialModels.define({
         speed: types.Number({ integer: true }),
         languages: types.Array({
             schema: types.String(),
-            default: [ 'Common' ]
+            default: [ 'Common' ],
         }),
 
         // Abilities
@@ -60,15 +60,15 @@ db.Character = trivialModels.define({
                 max: types.Number({ integer: true }),
                 nonlethal: types.Number({ integer: true }),
                 current: types.Number({ integer: true }),
-                temp: types.Number({ integer: true })
-            }
+                temp: types.Number({ integer: true }),
+            },
         }),
         damageReduction: types.Array({
             schema: {
                 amount: types.Number({ integer: true, required: true }),
-                type: types.String({ required: true })
+                type: types.String({ required: true }),
             },
-            default: []
+            default: [],
         }),
 
         // Combat
@@ -83,9 +83,9 @@ db.Character = trivialModels.define({
                 range: types.String({ required: true }),
                 type: types.String({ required: true }),
                 ammunition: types.Number({ integer: true, required: true }),
-                notes: types.String({ required: true })
+                notes: types.String({ required: true }),
             },
-            default: []
+            default: [],
         }),
 
         // Additional Character details
@@ -95,14 +95,14 @@ db.Character = trivialModels.define({
             schema: {
                 name: types.String({ required: true }),
                 ability: types.Enum({
-                    values: [ 'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma' ]
+                    values: [ 'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma' ],
                 }),
                 ranks: types.Number({ integer: true, required: true }),
                 armorPenalty: types.Boolean({ default: false }),
                 untrained: types.Boolean({ default: true }),
-                hidden: types.Boolean({ default: false })
+                hidden: types.Boolean({ default: false }),
             },
-            default: []
+            default: [],
         }),
         bonuses: types.Array({
             schema: {
@@ -110,16 +110,16 @@ db.Character = trivialModels.define({
                 type: types.String({ required: true, default: 'untyped' }),
                 value: types.Number({ integer: true, required: true }),
                 source: types.String(),
-                stacks: types.Boolean({ default: false })
+                stacks: types.Boolean({ default: false }),
             },
-            default: []
+            default: [],
         }),
         feats: types.Array({
             schema: {
                 featID: types.String({ required: true }),
-                notes: types.String()
+                notes: types.String(),
             },
-            default: []
+            default: [],
         }),
         specialAbilities: types.Array({
             schema: {
@@ -127,9 +127,9 @@ db.Character = trivialModels.define({
                 type: types.String(),
                 description: types.String({ required: true }),
                 source: types.String({ required: true }),
-                notes: types.String()
+                notes: types.String(),
             },
-            default: []
+            default: [],
         }),
 
         // Magic
@@ -137,9 +137,9 @@ db.Character = trivialModels.define({
             schema: {
                 spellID: types.String({ required: true }),
                 preparations: types.Number({ integer: true }),
-                notes: types.String()
+                notes: types.String(),
             },
-            default: []
+            default: [],
         }),
         spellSave: types.Number({ integer: true }),
         spellFailure: types.Number({ integer: true }),
@@ -149,7 +149,7 @@ db.Character = trivialModels.define({
                 spellsKnown: types.Number({ integer: true }),
                 spellsPerDay: types.Number({ integer: true }),
                 spellSaveDC: types.Number({ integer: true }),
-                bonusSpells: types.Number({ integer: true })
+                bonusSpells: types.Number({ integer: true }),
             },
             default: [
                 { level: 0, spellsKnown: 0, spellsPerDay: 0, spellSaveDC: null, bonusSpells: 0 },
@@ -161,8 +161,8 @@ db.Character = trivialModels.define({
                 { level: 6, spellsKnown: 0, spellsPerDay: 0, spellSaveDC: null, bonusSpells: 0 },
                 { level: 7, spellsKnown: 0, spellsPerDay: 0, spellSaveDC: null, bonusSpells: 0 },
                 { level: 8, spellsKnown: 0, spellsPerDay: 0, spellSaveDC: null, bonusSpells: 0 },
-                { level: 9, spellsKnown: 0, spellsPerDay: 0, spellSaveDC: null, bonusSpells: 0 }
-            ]
+                { level: 9, spellsKnown: 0, spellsPerDay: 0, spellSaveDC: null, bonusSpells: 0 },
+            ],
         }),
 
         // Equipment
@@ -175,8 +175,8 @@ db.Character = trivialModels.define({
                 spellFailure: types.Number({ integer: true }),
                 speed: types.Number({ integer: true }),
                 weight: types.Number({ integer: true }),
-                special: types.String()
-            }
+                special: types.String(),
+            },
         }),
         shield: types.Object({
             schema: {
@@ -185,60 +185,60 @@ db.Character = trivialModels.define({
                 maxDex: types.Number({ integer: true }),
                 checkPenalty: types.Number({ integer: true }),
                 spellFailure: types.Number({ integer: true }),
-                special: types.String()
-            }
+                special: types.String(),
+            },
         }),
         protectiveItem1: types.Object({
             schema: {
                 name: types.String(),
                 acBonus: types.Number({ integer: true }),
                 weight: types.Number({ integer: true }),
-                special: types.String()
-            }
+                special: types.String(),
+            },
         }),
         protectiveItem2: types.Object({
             schema: {
                 name: types.String(),
                 acBonus: types.Number({ integer: true }),
                 weight: types.Number({ integer: true }),
-                special: types.String()
-            }
+                special: types.String(),
+            },
         }),
         items: types.Array({
             schema: {
                 name: types.String(),
                 price: types.Number({ integer: true }),
-                weight: types.Number({ integer: true })
+                weight: types.Number({ integer: true }),
             },
-            default: []
+            default: [],
         }),
 
         // Misc
         rolls: types.Array({
             schema: {
                 name: types.String({ required: true }),
-                expression: types.String({ required: true })
+                expression: types.String({ required: true }),
             },
-            default: []
+            default: [],
         }),
         notes: types.Array({
             schema: {
                 name: types.String({ required: true }),
-                content: types.String({ required: true })
+                content: types.String({ required: true }),
             },
-            default: []
+            default: [],
         }),
         conditions: types.Array({
             schema: {
                 condition: types.String({ required: true }),
-                duration: types.String({ default: 'Unspecified.' })
+                duration: types.String({ default: 'Unspecified.' }),
             },
-            default: []
+            default: [],
         }),
 
         // The owner of the character
-        user: types.String({ required: true })
-    }
+        user: types.String({ required: true }),
+    },
 });
 
 db.Race = trivialModels.define({
@@ -248,8 +248,8 @@ db.Race = trivialModels.define({
         options: {
             name: 'races',
             dbPath: 'server/db',
-            namespace: 'dnd35'
-        }
+            namespace: 'dnd35',
+        },
     },
     schema: {
         id: types.String({ pk: true }),
@@ -260,14 +260,14 @@ db.Race = trivialModels.define({
         traits: types.Array({
             schema: {
                 name: types.String({ required: true }),
-                description: types.String({ required: true })
+                description: types.String({ required: true }),
             },
-            default: []
+            default: [],
         }),
         source: types.String({ required: true }),
         official: types.Boolean({ default: false }),
-        owner: types.String()
-    }
+        owner: types.String(),
+    },
 });
 
 db.Class = trivialModels.define({
@@ -277,8 +277,8 @@ db.Class = trivialModels.define({
         options: {
             name: 'classes',
             dbPath: 'server/db',
-            namespace: 'dnd35'
-        }
+            namespace: 'dnd35',
+        },
     },
     schema: {
         id: types.String({ pk: true }),
@@ -288,14 +288,14 @@ db.Class = trivialModels.define({
             schema: {
                 name: types.String({ required: true }),
                 type: types.String(),
-                description: types.String({ required: true })
+                description: types.String({ required: true }),
             },
-            default: []
+            default: [],
         }),
         source: types.String({ required: true }),
         official: types.Boolean({ default: false }),
-        owner: types.String()
-    }
+        owner: types.String(),
+    },
 });
 
 db.Feat = trivialModels.define({
@@ -305,8 +305,8 @@ db.Feat = trivialModels.define({
         options: {
             name: 'feats',
             dbPath: 'server/db',
-            namespace: 'dnd35'
-        }
+            namespace: 'dnd35',
+        },
     },
     schema: {
         id: types.String({ pk: true }),
@@ -317,8 +317,8 @@ db.Feat = trivialModels.define({
         special: types.String(),
         source: types.String({ required: true }),
         official: types.Boolean({ default: false }),
-        owner: types.String()
-    }
+        owner: types.String(),
+    },
 });
 
 db.Spell = trivialModels.define({
@@ -328,8 +328,8 @@ db.Spell = trivialModels.define({
         options: {
             name: 'spells',
             dbPath: 'server/db',
-            namespace: 'dnd35'
-        }
+            namespace: 'dnd35',
+        },
     },
     schema: {
         id: types.String({ pk: true }),
@@ -340,13 +340,13 @@ db.Spell = trivialModels.define({
         level: types.Array({
             schema: {
                 level: types.Number({ integer: true, required: true }),
-                class: types.String({ required: true })
+                class: types.String({ required: true }),
             },
-            default: []
+            default: [],
         }),
         components: types.Array({
             schema: types.String(),
-            default: []
+            default: [],
         }),
         castingTime: types.String({ required: true }),
         range: types.String({ required: true }),
@@ -359,8 +359,8 @@ db.Spell = trivialModels.define({
         description: types.String(),
         arcaneFocus: types.String(),
         official: types.Boolean({ default: false }),
-        owner: types.String({ required: true })
-    }
+        owner: types.String({ required: true }),
+    },
 });
 
 //----------------------------------------------------------------------------------------------------------------------

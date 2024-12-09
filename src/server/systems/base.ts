@@ -53,7 +53,7 @@ export class BaseSystem
             name: this.name,
             description: this.description,
             defaults: this.defaults,
-            status: this.status
+            status: this.status,
         };
     }
 }

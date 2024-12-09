@@ -10,11 +10,11 @@
                 class="float-end"
                 style="margin-top: -3px;"
                 @click.stop.prevent="remove"
-            ></CloseButton>
+            />
             <small>
                 {{ critical.title }}
                 <span v-if="critical.severity">
-                    (<difficulty v-for="index in severityRange" :key="index"></difficulty>)
+                    (<Difficulty v-for="index in severityRange" :key="index" />)
                 </span>
             </small>
 
@@ -23,13 +23,13 @@
                     <div :class="`${ mode }-system`">
                         {{ critical.title }}
                         <span v-if="critical.severity">
-                            (<difficulty v-for="index in severityRange" :key="index"></difficulty>)
+                            (<Difficulty v-for="index in severityRange" :key="index" />)
                         </span>
                     </div>
                 </template>
                 <div :class="`${ mode }-system`">
-                    <MarkdownBlock :text="critical.description" inline></MarkdownBlock>
-                    <ReferenceBlock class="float-end mt-2 mb-2" :reference="reference"></ReferenceBlock>
+                    <MarkdownBlock :text="critical.description" inline />
+                    <ReferenceBlock class="float-end mt-2 mb-2" :reference="reference" />
                 </div>
             </BPopover>
         </template>
@@ -79,10 +79,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'remove', title : string) : void;
-    }
+    type Events = (e : 'remove', title : string) => void;
 
     const emit = defineEmits<Events>();
 

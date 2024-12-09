@@ -6,11 +6,11 @@
     <div id="main-page" class="container p-3">
         <div class="d-flex">
             <div class="d-flex m-auto">
-                <img class="rpgk-logo" src="/images/logo.png" alt="RPGKeeper Logo" />
+                <img class="rpgk-logo" src="/images/logo.png" alt="RPGKeeper Logo">
                 <div class="d-flex flex-column align-self-center">
                     <h1>
                         RPGKeeper
-                        <br />
+                        <br>
                         <small class="text-muted">
                             The universal digital character manager
                         </small>
@@ -21,23 +21,23 @@
                     <div>
                         <BButton v-if="account" variant="primary" to="/dashboard">
                             Go to Dashboard
-                            <fa icon="arrow-right"></fa>
+                            <Fa icon="arrow-right" />
                         </BButton>
                         <BButton v-else variant="primary">
                             Create free account
-                            <fa icon="sign-in"></fa>
+                            <Fa icon="sign-in" />
                         </BButton>
                     </div>
                 </div>
             </div>
         </div>
 
-        <hr class="fancy mt-5" />
+        <hr class="fancy mt-5">
 
         <BRow class="mt-5">
             <BCol>
                 <h3 class="text-center">
-                    <fa icon="bullseye-pointer"></fa>
+                    <Fa icon="bullseye-pointer" />
                     Targeted Characters
                 </h3>
 
@@ -47,11 +47,11 @@
                     and every system we support.
                 </p>
 
-                <hr class="fancy" />
+                <hr class="fancy">
             </BCol>
             <BCol>
                 <h3 class="text-center">
-                    <fa icon="users-crown"></fa>
+                    <Fa icon="users-crown" />
                     User Driven
                 </h3>
 
@@ -61,27 +61,27 @@
                     can make suggestions or request features.
                 </p>
 
-                <hr class="fancy" />
+                <hr class="fancy">
             </BCol>
             <BCol>
                 <h3 class="text-center">
-                    <fa icon="chart-network"></fa>
+                    <Fa icon="chart-network" />
                     Interoperable
                 </h3>
 
                 <p class="mt-4">
                     RPGKeeper is deigned to be able to integrate with any other system that wants to do so. Using
-                    standards like oAuth and REST, RPGKeeper exposes an API that allows other applications to authenticate and
-                    pull character data.
+                    standards like oAuth and REST, RPGKeeper exposes an API that allows other applications to
+                    authenticate and pull character data.
                 </p>
 
-                <hr class="fancy" />
+                <hr class="fancy">
             </BCol>
         </BRow>
         <BRow class="mt-5">
             <BCol>
                 <h3 class="text-center">
-                    <fa icon="tachometer-alt"></fa>
+                    <Fa icon="tachometer-alt" />
                     Optimized Code
                 </h3>
 
@@ -91,11 +91,11 @@
                     frameworks that power much larger sites.
                 </p>
 
-                <hr class="fancy" />
+                <hr class="fancy">
             </BCol>
             <BCol>
                 <h3 class="text-center">
-                    <fa icon="code-branch"></fa>
+                    <Fa icon="code-branch" />
                     Open Source
                 </h3>
 
@@ -105,11 +105,11 @@
                     sometimes as quickly as in a few minutes.
                 </p>
 
-                <hr class="fancy" />
+                <hr class="fancy">
             </BCol>
             <BCol>
                 <h3 class="text-center">
-                    <fa icon="sack-dollar"></fa>
+                    <Fa icon="sack-dollar" />
                     Usefully Free
                 </h3>
 
@@ -119,7 +119,7 @@
                     always be useful, even if you don't pay for it.
                 </p>
 
-                <hr class="fancy" />
+                <hr class="fancy">
             </BCol>
         </BRow>
 
@@ -133,11 +133,11 @@
         <div class="text-center">
             <BButton v-if="account" variant="primary" to="/dashboard">
                 Go to Dashboard
-                <fa icon="arrow-right"></fa>
+                <Fa icon="arrow-right" />
             </BButton>
             <BButton v-else variant="primary" href="/auth/google">
                 Create free account
-                <fa icon="sign-in"></fa>
+                <Fa icon="sign-in" />
             </BButton>
         </div>
     </div>

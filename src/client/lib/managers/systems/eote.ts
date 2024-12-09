@@ -48,7 +48,7 @@ class EotEManager
         s: 'Short',
         m: 'Medium',
         l: 'Long',
-        ex: 'Extreme'
+        ex: 'Extreme',
     };
 
     readonly activationEnum = {
@@ -56,7 +56,7 @@ class EotEManager
         ai: 'Active (Incidental)',
         aio: 'Active (Incidental, Out of Turn)',
         am: 'Active (Maneuver)',
-        aa: 'Active (Action)'
+        aa: 'Active (Action)',
     };
     /* eslint-enable id-length */
 

@@ -17,25 +17,25 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Stunts
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
             <!-- Modal Content -->
             <div v-for="(stunt, index) in stunts" :key="index" class="d-flex mb-2">
-                <BFormInput v-model="stunt.title" class="title-input" placeholder="Stunt title"></BFormInput>
-                <BFormInput v-model="stunt.description" class="ms-2" placeholder="Stunt description"></BFormInput>
+                <BFormInput v-model="stunt.title" class="title-input" placeholder="Stunt title" />
+                <BFormInput v-model="stunt.description" class="ms-2" placeholder="Stunt description" />
                 <BButton variant="danger" class="ms-2 text-nowrap" @click="removeStunt(stunt)">
-                    <fa icon="trash-alt"></fa>
+                    <Fa icon="trash-alt" />
                 </BButton>
             </div>
             <div v-if="stunts.length === 0" class="text-center">
                 <h6>No Stunts.</h6>
             </div>
 
-            <hr />
+            <hr>
 
             <BCard
                 header="New Stunt"
@@ -43,10 +43,10 @@
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <BFormInput v-model="newStuntTitle" class="title-input" placeholder="Stunt title"></BFormInput>
-                    <BFormInput v-model="newStuntDesc" class="ms-2" placeholder="Stunt description"></BFormInput>
+                    <BFormInput v-model="newStuntTitle" class="title-input" placeholder="Stunt title" />
+                    <BFormInput v-model="newStuntDesc" class="ms-2" placeholder="Stunt description" />
                     <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addStunt">
-                        <fa icon="plus"></fa>
+                        <Fa icon="plus" />
                         Add
                     </BButton>
                 </div>
@@ -55,13 +55,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -95,10 +95,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', stunts : FateStunt[]) : void;
-    }
+    type Events = (e : 'save', stunts : FateStunt[]) => void;
 
     const emit = defineEmits<Events>();
 

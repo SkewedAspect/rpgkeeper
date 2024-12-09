@@ -16,9 +16,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Biography
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -31,7 +31,7 @@
                             label-class="fw-bold"
                             label-for="name-input"
                         >
-                            <BFormInput id="name-input" v-model="name"></BFormInput>
+                            <BFormInput id="name-input" v-model="name" />
                         </BFormGroup>
                     </BCol>
                     <BCol>
@@ -40,7 +40,7 @@
                             label-class="fw-bold"
                             label-for="description-input"
                         >
-                            <BFormInput id="description-input" v-model="description"></BFormInput>
+                            <BFormInput id="description-input" v-model="description" />
                         </BFormGroup>
                     </BCol>
                 </BFormRow>
@@ -53,10 +53,10 @@
                         >
                             <div class="d-flex">
                                 <BInputGroup>
-                                    <BFormInput id="species-input" v-model="species"></BFormInput>
+                                    <BFormInput id="species-input" v-model="species" />
                                     <template #append>
                                         <BButton @click="species = ''">
-                                            <fa icon="times"></fa>
+                                            <Fa icon="times" />
                                         </BButton>
                                     </template>
                                 </BInputGroup>
@@ -91,10 +91,10 @@
                         >
                             <div class="d-flex">
                                 <BInputGroup>
-                                    <BFormInput id="career-input" v-model="career"></BFormInput>
+                                    <BFormInput id="career-input" v-model="career" />
                                     <template #append>
                                         <BButton @click="career = ''">
-                                            <fa icon="times"></fa>
+                                            <Fa icon="times" />
                                         </BButton>
                                     </template>
                                 </BInputGroup>
@@ -109,10 +109,10 @@
                         >
                             <div class="d-flex">
                                 <BInputGroup>
-                                    <BFormInput id="special-input" v-model="specialization"></BFormInput>
+                                    <BFormInput id="special-input" v-model="specialization" />
                                     <template #append>
                                         <BButton @click="specialization = ''">
-                                            <fa icon="times"></fa>
+                                            <Fa icon="times" />
                                         </BButton>
                                     </template>
                                 </BInputGroup>
@@ -132,34 +132,33 @@
                     @new="onAbilityNew"
                     @edit="onAbilityEdit"
                     @delete="onAbilityDelete"
-                >
-                </SupplementSelect>
+                />
             </div>
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
         </BModal>
 
         <!-- Modals -->
-        <AddEditAbilityModal ref="addEditModal" @add="onAbilityAdd"></AddEditAbilityModal>
+        <AddEditAbilityModal ref="addEditModal" @add="onAbilityAdd" />
         <DeleteModal
             ref="delModal"
             :name="delAbility.name"
             type="ability"
             @hidden="onDelAbilityHidden"
             @delete="onDelAbilityDelete"
-        ></DeleteModal>
+        />
     </div>
 </template>
 
@@ -196,10 +195,7 @@
         abilities : string[];
     }
 
-    interface Events
-    {
-        (e : 'save', bio : BioObj) : void;
-    }
+    type Events = (e : 'save', bio : BioObj) => void;
 
     const emit = defineEmits<Events>();
 
@@ -218,7 +214,7 @@
 
     const delAbility = ref({
         id: '',
-        name: ''
+        name: '',
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
@@ -270,7 +266,7 @@
             species: species.value,
             specializations: specialization.value,
             forceSensitive: forceSensitive.value,
-            abilities: Array.from(selectedAbilities.value)
+            abilities: Array.from(selectedAbilities.value),
         });
     }
 
@@ -285,27 +281,27 @@
         forceSensitive.value = false;
     }
 
-    function onAbilityAdd(ability)
+    function onAbilityAdd(ability) : void
     {
         selectedAbilities.value.add(ability.id);
     }
 
-    function onAbilityRemove(ability)
+    function onAbilityRemove(ability) : void
     {
         selectedAbilities.value.delete(ability.id);
     }
 
-    function onAbilityNew()
+    function onAbilityNew() : void
     {
         addEditModal.value.show(undefined);
     }
 
-    function onAbilityEdit(ability)
+    function onAbilityEdit(ability) : void
     {
         addEditModal.value.show(ability);
     }
 
-    function onAbilityDelete(ability)
+    function onAbilityDelete(ability) : void
     {
         delAbility.value.id = ability.id;
         delAbility.value.name = ability.name;
@@ -313,13 +309,13 @@
         delModal.value.show();
     }
 
-    function onDelAbilityHidden()
+    function onDelAbilityHidden() : void
     {
         delAbility.value.id = '';
         delAbility.value.name = '';
     }
 
-    async function onDelAbilityDelete()
+    async function onDelAbilityDelete() : void
     {
         suppSelect.value.clearSelection();
         selectedAbilities.value.delete(delAbility.value.id);

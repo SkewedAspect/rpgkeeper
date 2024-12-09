@@ -19,15 +19,15 @@
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
                     <span v-if="isNew">
-                        <fa icon="user-plus"></fa>
+                        <Fa icon="user-plus" />
                         Add
                     </span>
                     <span v-else>
-                        <fa icon="user-edit"></fa>
+                        <Fa icon="user-edit" />
                         Edit
                     </span>
                     Character
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -35,12 +35,12 @@
             <div class="content">
                 <BFormRow>
                     <BCol class="flex-grow-0 flex-shrink-0 w-auto">
-                        <CharPortrait :src="char.portrait" :color="char.color" size="md"></CharPortrait>
+                        <CharPortrait :src="char.portrait" :color="char.color" size="md" />
                         <div class="text-center">
                             <small class="text-muted">Portrait</small>
                         </div>
                         <div class="text-center mt-4">
-                            <CharThumbnail :char="char"></CharThumbnail>
+                            <CharThumbnail :char="char" />
                             <div>
                                 <small class="text-muted">Thumbnail</small>
                             </div>
@@ -60,7 +60,7 @@
                                         v-model="char.name"
                                         :state="validateState('name')"
                                         @input="v$.name.$touch()"
-                                    ></BFormInput>
+                                    />
                                 </BFormGroup>
                             </BCol>
                             <BCol>
@@ -79,7 +79,7 @@
                                         :disabled="!isNew"
                                         :state="validateState('system')"
                                         @input="v$.system.$touch()"
-                                    ></BFormSelect>
+                                    />
                                 </BFormGroup>
                             </BCol>
                         </BFormRow>
@@ -90,7 +90,7 @@
                                     label="Color"
                                     label-for="char-color"
                                 >
-                                    <ColorPicker v-model:color="char.color" variant="light" block></ColorPicker>
+                                    <ColorPicker v-model:color="char.color" variant="light" block />
                                 </BFormGroup>
                             </BCol>
                             <BCol>
@@ -105,15 +105,18 @@
                                             v-model="char.portrait"
                                             :state="validateState('portrait')"
                                             @input="v$.portrait.$touch()"
-                                        ></BFormInput>
+                                        />
                                         <template #append>
-                                            <BButton title="Choose file from Dropbox" @click="pickImageDropBox('portrait')">
-                                                <fa :icon="[ 'fab', 'dropbox' ]"></fa>
+                                            <BButton
+                                                title="Choose file from Dropbox"
+                                                @click="pickImageDropBox('portrait')"
+                                            >
+                                                <Fa :icon="[ 'fab', 'dropbox' ]" />
                                             </BButton>
                                         </template>
                                     </BInputGroup>
                                     <template #description>
-                                        Any urls are accepted. <br />
+                                        Any urls are accepted. <br>
                                         Recommend dimensions are <code>600x900px</code>.
                                     </template>
                                 </BFormGroup>
@@ -130,15 +133,18 @@
                                             v-model="char.thumbnail"
                                             :state="validateState('thumbnail')"
                                             @input="v$.thumbnail.$touch()"
-                                        ></BFormInput>
+                                        />
                                         <template #append>
-                                            <BButton title="Choose file from Dropbox" @click="pickImageDropBox('thumbnail')">
-                                                <fa :icon="[ 'fab', 'dropbox' ]"></fa>
+                                            <BButton
+                                                title="Choose file from Dropbox"
+                                                @click="pickImageDropBox('thumbnail')"
+                                            >
+                                                <Fa :icon="[ 'fab', 'dropbox' ]" />
                                             </BButton>
                                         </template>
                                     </BInputGroup>
                                     <template #description>
-                                        Any urls are accepted. <br />
+                                        Any urls are accepted. <br>
                                         Recommend dimensions are <code>200x200px</code>.
                                     </template>
                                 </BFormGroup>
@@ -155,7 +161,7 @@
                                 v-model="char.campaign"
                                 :state="validateState('campaign')"
                                 @input="v$.campaign.$touch()"
-                            ></BFormInput>
+                            />
                         </BFormGroup>
                         <BFormGroup
                             id="char-desc-group"
@@ -168,7 +174,7 @@
                                 v-model="char.description"
                                 :state="validateState('description')"
                                 @input="v$.description.$touch()"
-                            ></BFormInput>
+                            />
                         </BFormGroup>
                     </BCol>
                 </BFormRow>
@@ -177,13 +183,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -195,9 +201,9 @@
 
 <script lang="ts" setup>
     import { get } from 'lodash';
-    import { ref, computed } from 'vue';
+    import { computed, ref } from 'vue';
     import { useVuelidate } from '@vuelidate/core';
-    import { required, minLength, maxLength } from '@vuelidate/validators';
+    import { maxLength, minLength, required } from '@vuelidate/validators';
 
     // Interfaces
     import { Character } from '../../../common/interfaces/common';
@@ -248,7 +254,7 @@
         color: '',
         campaign: '',
         description: '',
-        system: null
+        system: null,
     });
 
     const sysStore = useSystemsStore();
@@ -268,7 +274,7 @@
             {
                 return {
                     ...sys,
-                    name: sys.status ? `${ sys.name } (${ systemsMan.getStatusDisplay(sys.status) })` : sys.name
+                    name: sys.status ? `${ sys.name } (${ systemsMan.getStatusDisplay(sys.status) })` : sys.name,
                 };
             });
     });
@@ -281,27 +287,27 @@
         name: {
             required,
             minLength: minLength(1),
-            maxLength: maxLength(255)
+            maxLength: maxLength(255),
         },
         portrait: {
             minLength: minLength(1),
-            maxLength: maxLength(255)
+            maxLength: maxLength(255),
         },
         thumbnail: {
             minLength: minLength(1),
-            maxLength: maxLength(255)
+            maxLength: maxLength(255),
         },
         campaign: {
             minLength: minLength(1),
-            maxLength: maxLength(255)
+            maxLength: maxLength(255),
         },
         description: {
             minLength: minLength(1),
-            maxLength: maxLength(255)
+            maxLength: maxLength(255),
         },
         system: {
-            required
-        }
+            required,
+        },
     };
 
     // TODO: Cast it to an any so we don't get spurious errors, but this is pretty bad...
@@ -320,7 +326,16 @@
         const { id, name, portrait, thumbnail, color, campaign, description, system } = selectedChar;
 
         // Populate our char variable
-        char.value = { id: id ?? null, name, portrait, thumbnail, color: color || '#999', campaign, description, system };
+        char.value = {
+            id: id ?? null,
+            name,
+            portrait,
+            thumbnail,
+            color: color || '#999',
+            campaign,
+            description,
+            system,
+        };
 
         // Now show the modal
         innerModal.value.show();
@@ -350,18 +365,13 @@
         }
     }
 
-    function getRandomColor()
-    {
-        return '#90f';
-    }
-
     function validateState(name : string) : boolean
     {
         const { $dirty, $error } = get(v$.value, name);
         return $dirty ? !$error : null;
     }
 
-    async function pickImageDropBox(prop)
+    async function pickImageDropBox(prop) : Promise<void>
     {
         this[prop] = await dropboxUtil.chooseDropboxImage();
     }

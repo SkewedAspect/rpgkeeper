@@ -144,7 +144,7 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
                     avatar: account.avatar,
                     permissions: account.permissions,
                     settings: account.settings,
-                    created: account.created
+                    created: account.created,
                 };
             }));
     }
@@ -157,7 +157,7 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
                 const account = accounts.find((acc) => acc.account_id === account_role.account_id);
                 return {
                     account_id: account.hash_id,
-                    role_id: account_role.role_id
+                    role_id: account_role.role_id,
                 };
             }));
     }
@@ -174,7 +174,7 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
                     account_id: account.hash_id,
                     mod_id: comment.mod_id,
                     created: comment.created,
-                    metadata: comment.metadata
+                    metadata: comment.metadata,
                 };
             }));
     }
@@ -185,7 +185,7 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
             .insert(notes.map((note) =>
             {
                 return {
-                    note_id: note.hash_id
+                    note_id: note.hash_id,
                 };
             }));
     }
@@ -200,7 +200,7 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
                     page_id: page.page_id,
                     title: page.title,
                     content: page.content,
-                    note_id: note.hash_id
+                    note_id: note.hash_id,
                 };
             }));
     }
@@ -223,7 +223,7 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
                     campaign: character.campaign,
                     details: character.details,
                     note_id: note.hash_id,
-                    account_id: account.hash_id
+                    account_id: account.hash_id,
                 };
             }));
     }
@@ -401,7 +401,7 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
                     avatar: account.avatar,
                     permissions: account.permissions,
                     settings: account.settings,
-                    created: account.created
+                    created: account.created,
                 };
             }));
     }
@@ -414,7 +414,7 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
                 const accountID = accounts.findIndex((acc) => acc.account_id === account_role.account_id);
                 return {
                     account_id: accountID,
-                    role_id: account_role.role_id
+                    role_id: account_role.role_id,
                 };
             }));
     }
@@ -431,7 +431,7 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
                     account_id: accountID,
                     mod_id: comment.mod_id,
                     created: comment.created,
-                    metadata: comment.metadata
+                    metadata: comment.metadata,
                 };
             }));
     }
@@ -443,7 +443,7 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
             {
                 return {
                     note_id: idx,
-                    hash_id: note.note_id
+                    hash_id: note.note_id,
                 };
             }));
     }
@@ -458,7 +458,7 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
                     page_id: page.page_id,
                     title: page.title,
                     content: page.content,
-                    note_id: noteID
+                    note_id: noteID,
                 };
             }));
     }
@@ -482,7 +482,7 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
                     campaign: character.campaign,
                     details: character.details,
                     note_id: noteID,
-                    account_id: accountID
+                    account_id: accountID,
                 };
             }));
     }

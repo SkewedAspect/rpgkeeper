@@ -8,12 +8,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="address-card"></fa>
+                    <Fa class="me-1" icon="address-card" />
                     <span class="d-none d-md-inline">Skills</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -39,17 +39,17 @@
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
-                                <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
+                                <Fa :icon="data.value ? 'check-square' : ['far', 'square']" />
                             </div>
                         </template>
                         <template #cell(ranks)="data">
                             <div class="text-nowrap">
-                                <fa
+                                <Fa
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
                                     :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
-                                ></fa>
+                                />
                             </div>
                         </template>
                     </BTable>
@@ -70,17 +70,17 @@
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
-                                <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
+                                <Fa :icon="data.value ? 'check-square' : ['far', 'square']" />
                             </div>
                         </template>
                         <template #cell(ranks)="data">
                             <div class="text-nowrap">
-                                <fa
+                                <Fa
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
                                     :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
-                                ></fa>
+                                />
                             </div>
                         </template>
                     </BTable>
@@ -103,17 +103,17 @@
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
-                                <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
+                                <Fa :icon="data.value ? 'check-square' : ['far', 'square']" />
                             </div>
                         </template>
                         <template #cell(ranks)="data">
                             <div class="text-nowrap">
-                                <fa
+                                <Fa
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
                                     :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
-                                ></fa>
+                                />
                             </div>
                         </template>
                     </BTable>
@@ -134,17 +134,17 @@
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
-                                <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
+                                <Fa :icon="data.value ? 'check-square' : ['far', 'square']" />
                             </div>
                         </template>
                         <template #cell(ranks)="data">
                             <div class="text-nowrap">
-                                <fa
+                                <Fa
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
                                     :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
-                                ></fa>
+                                />
                             </div>
                         </template>
                     </BTable>
@@ -165,17 +165,17 @@
                         </template>
                         <template #cell(career)="data">
                             <div class="text-center">
-                                <fa :icon="data.value ? 'check-square' : ['far', 'square']"></fa>
+                                <Fa :icon="data.value ? 'check-square' : ['far', 'square']" />
                             </div>
                         </template>
                         <template #cell(ranks)="data">
                             <div class="text-nowrap">
-                                <fa
+                                <Fa
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
                                     :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
-                                ></fa>
+                                />
                             </div>
                         </template>
                     </BTable>
@@ -184,7 +184,7 @@
         </div>
 
         <!-- Edit Modal -->
-        <EditModal ref="editModal" @save="onEditSave"></EditModal>
+        <EditModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -335,7 +335,7 @@
         emit('roll', dice, item.name);
     }
 
-    function range(num)
+    function range(num) : number[]
     {
         const rangeArray = Array(num).fill(0);
         return rangeArray.map((_, index) => index);

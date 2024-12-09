@@ -19,15 +19,15 @@
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
                     <span v-if="isNew">
-                        <fa icon="file-plus"></fa>
+                        <Fa icon="file-plus" />
                         Add
                     </span>
                     <span v-else>
-                        <fa icon="file-edit"></fa>
+                        <Fa icon="file-edit" />
                         Edit
                     </span>
                     Page
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -37,26 +37,26 @@
                 label="Title"
                 label-for="page-title"
             >
-                <BFormInput id="page-title" v-model="innerPage.title"></BFormInput>
+                <BFormInput id="page-title" v-model="innerPage.title" />
             </BFormGroup>
             <BFormGroup
                 id="page-content-group"
                 label="Content"
                 label-for="page-content"
             >
-                <MarkdownEditor v-model:text="innerPage.content" height="550px"></MarkdownEditor>
+                <MarkdownEditor v-model:text="innerPage.content" height="550px" />
             </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -67,7 +67,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { ref, computed } from 'vue';
+    import { computed, ref } from 'vue';
 
     // Models
     import { NotebookPage } from '../../lib/models/notebook';
@@ -81,14 +81,11 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface EmittedEvents
-    {
-        (e : 'hidden') : void;
-        (e : 'save', page : Omit<NotebookPage, 'notebookID'>) : void;
-        (e : 'cancel') : void;
-    }
-
-    const emit = defineEmits<EmittedEvents>();
+    const emit = defineEmits<{
+        hidden : [];
+        save : [page : Omit<NotebookPage, 'notebookID'>];
+        cancel : [];
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -97,7 +94,7 @@
     const innerPage = ref<Omit<NotebookPage, 'notebookID'>>({
         id: null,
         title: '',
-        content: ''
+        content: '',
     });
 
     // Component Refs

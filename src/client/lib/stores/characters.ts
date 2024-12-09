@@ -31,7 +31,7 @@ export const useCharactersStore = defineStore('characters', {
             status: 'unloaded',
             saving: false,
             current: null,
-            characters: []
+            characters: [],
         };
     },
     actions: {
@@ -99,8 +99,8 @@ export const useCharactersStore = defineStore('characters', {
             {
                 this.characters.splice(charIdx, 1);
             }
-        }
-    }
+        },
+    },
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

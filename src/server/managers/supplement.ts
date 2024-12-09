@@ -21,7 +21,8 @@ export async function get(id : number, type : string, systemPrefix : string, acc
 
 export async function list(
     filters : Record<string, FilterToken>,
-    type : string, systemPrefix : string,
+    type : string, 
+    systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement[]>
 {
@@ -35,7 +36,8 @@ export async function exists(id : number, type : string, systemPrefix : string, 
 
 export async function add(
     newSupplement : Supplement,
-    type : string, systemPrefix : string,
+    type : string, 
+    systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement>
 {
@@ -46,7 +48,8 @@ export async function update(
     id : number,
     updateSup : Partial<Supplement>,
     type : string,
-    systemPrefix : string, account ?: Account
+    systemPrefix : string, 
+    account ?: Account
 ) : Promise<Supplement>
 {
     return suppRA.update(id, updateSup, type, systemPrefix, account);

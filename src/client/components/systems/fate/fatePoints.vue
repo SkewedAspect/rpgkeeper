@@ -12,7 +12,7 @@
                 min="0"
                 step="1"
                 :readonly="readonly"
-            ></BFormInput>
+            />
             <template #append>
                 <BInputGroupText>
                     / &nbsp;
@@ -21,7 +21,7 @@
             </template>
         </BInputGroup>
         <BButton variant="primary" class="text-nowrap" :disabled="readonly" @click="refreshFatePoints()">
-            <fa icon="redo"></fa>
+            <Fa icon="redo" />
             Refresh
         </BButton>
     </div>
@@ -45,10 +45,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'update:current', current : number) : void;
-    }
+    type Events = (e : 'update:current', current : number) => void;
 
     const emit = defineEmits<Events>();
 
@@ -58,7 +55,7 @@
 
     const current = computed({
         get() { return props.current; },
-        set(val) { emit('update:current', val); }
+        set(val) { emit('update:current', val); },
     });
 
     //------------------------------------------------------------------------------------------------------------------

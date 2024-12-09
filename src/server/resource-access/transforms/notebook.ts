@@ -28,7 +28,7 @@ export function pageFromDB(record : NotePageDBRecord) : NotebookPage
         id: `${ record.page_id }`,
         notebookID: record.note_id,
         title: record.title,
-        content: record.content
+        content: record.content,
     };
 }
 
@@ -36,7 +36,7 @@ export function fromDB(record : NotebookDBRecord) : Notebook
 {
     return {
         id: record.notebook_id,
-        pages: record.pages.map(pageFromDB)
+        pages: record.pages.map(pageFromDB),
     };
 }
 
@@ -46,7 +46,7 @@ export function pageToDB(page : NotebookPage) : NotePageDBRecord
         page_id: parseInt(page.id),
         note_id: page.notebookID,
         title: page.title,
-        content: page.content
+        content: page.content,
     };
 }
 
@@ -54,7 +54,7 @@ export function toDB(notebook : Notebook) : NotebookDBRecord
 {
     return {
         notebook_id: notebook.id,
-        pages: notebook.pages.map(pageToDB)
+        pages: notebook.pages.map(pageToDB),
     };
 }
 

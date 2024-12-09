@@ -23,7 +23,7 @@ import { CharacterSaveError, InvalidCharacterError } from '../error';
 class CharacterResourceAccess
 {
     _buildOrUpdateModel<
-        Details extends SystemDetails = SystemDetails
+        Details extends SystemDetails = SystemDetails,
     >(def : Partial<Character<Details>>) : Character<Details>
     {
         const systemsStore = useSystemsStore();
@@ -42,19 +42,19 @@ class CharacterResourceAccess
             color: randomColor(),
             campaign: '',
             details: { ...system.defaults } as Details,
-            ...def
+            ...def,
         };
     }
 
     async newCharacter<
-        Details extends SystemDetails = SystemDetails
+        Details extends SystemDetails = SystemDetails,
     >(charDef : Partial<Character<Details>>) : Promise<Character<Details>>
     {
         return this._buildOrUpdateModel<Details>(charDef);
     }
 
     async getCharacter<
-        Details extends SystemDetails = SystemDetails
+        Details extends SystemDetails = SystemDetails,
     >(charID : string) : Promise<Character<Details>>
     {
         const { data } = await $http.get(`/api/characters/${ charID }`);
@@ -74,7 +74,7 @@ class CharacterResourceAccess
     }
 
     async saveCharacter<
-        Details extends SystemDetails = SystemDetails
+        Details extends SystemDetails = SystemDetails,
     >(character : Character<Details>) : Promise<Character<Details>>
     {
         const verb = character.id ? 'patch' : 'post';
@@ -97,7 +97,7 @@ class CharacterResourceAccess
         if(status === 205)
         {
             toastUtil.warning('Changes have been made to remove inaccessible content.', {
-                autoHideDelay: 8000
+                autoHideDelay: 8000,
             });
 
             console.warn('Disallowed content was filtered from character on save.');

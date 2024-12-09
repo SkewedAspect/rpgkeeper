@@ -8,7 +8,7 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="heart-rate"></fa>
+                    <Fa class="me-1" icon="heart-rate" />
                     <span class="d-none d-md-inline">Criticals</span>
                 </h5>
             </div>
@@ -20,7 +20,7 @@
                 v-model="selectedCritical"
                 :options="formattedCriticals"
                 :disabled="readonly"
-            ></BFormSelect>
+            />
             <template #append>
                 <BButton
                     variant="primary"
@@ -29,13 +29,13 @@
                     :disabled="readonly"
                     @click="addCritical()"
                 >
-                    <fa icon="plus"></fa>
+                    <Fa icon="plus" />
                 </BButton>
             </template>
         </BInputGroup>
 
         <BInputGroup class="mt-2">
-            <BFormInput v-model="rollBonus" number type="number" min="0" step="1" placeholder="Crit. bonus"></BFormInput>
+            <BFormInput v-model="rollBonus" number type="number" min="0" step="1" placeholder="Crit. bonus" />
             <template #append>
                 <BButton
                     variant="primary"
@@ -44,13 +44,13 @@
                     :disabled="readonly"
                     @click="rollCritical()"
                 >
-                    <fa icon="dice"></fa>
+                    <Fa icon="dice" />
                     Roll Crit.
                 </BButton>
             </template>
         </BInputGroup>
 
-        <hr class="mt-2 mb-2" />
+        <hr class="mt-2 mb-2">
 
         <CriticalCard
             v-for="(critical, index) in currentCriticals"
@@ -59,7 +59,7 @@
             :critical="findCritical(critical.name)"
             :readonly="readonly"
             @remove="removeCritical(index)"
-        ></CriticalCard>
+        />
     </RpgkCard>
 </template>
 
@@ -94,10 +94,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'save') : void;
-    }
+    type Events = (e : 'save') => void;
 
     const emit = defineEmits<Events>();
 
@@ -141,7 +138,7 @@
 
             return {
                 value: critical.title,
-                html: `${ bounds }: ${ critical.title } ${ severity }`
+                html: `${ bounds }: ${ critical.title } ${ severity }`,
             };
         });
     });

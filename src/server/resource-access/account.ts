@@ -17,7 +17,8 @@ import { MultipleResultsError, NotFoundError } from '../errors';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export interface AccountFilters {
+export interface AccountFilters 
+{
     id ?: string | string[],
     email ?: string | string[]
     name ?: string | string[]
@@ -90,7 +91,7 @@ export async function get(accountID : string) : Promise<Account>
             'settings'
         )
         .where({
-            account_id: accountID
+            account_id: accountID,
         });
 
     if(accounts.length > 1)
@@ -155,7 +156,7 @@ export async function update(accountID : string, accountUpdate : Partial<Account
         ...account,
         name: accountUpdate.name ?? account.name,
         avatar: accountUpdate.avatar ?? account.avatar,
-        settings: accountUpdate.settings ?? account.settings ?? { colorMode: 'auto' }
+        settings: accountUpdate.settings ?? account.settings ?? { colorMode: 'auto' },
     };
 
     // Update the database

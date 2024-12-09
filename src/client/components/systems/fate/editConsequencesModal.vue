@@ -17,9 +17,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Consequence
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -32,15 +32,15 @@
             >
                 <div class="d-flex">
                     <BInputGroup>
-                        <BFormInput id="mc-input-1" v-model="mildDetail1"></BFormInput>
+                        <BFormInput id="mc-input-1" v-model="mildDetail1" />
                         <template #append>
                             <BButton @click="mildDetail1 = ''">
-                                <fa icon="times"></fa>
+                                <Fa icon="times" />
                             </BButton>
                         </template>
                     </BInputGroup>
                     <BButton v-model:pressed="mildHealing1" class="ms-2 text-nowrap" :disabled="!mildDetail1">
-                        <fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]"></fa>
+                        <Fa :icon="mildHealing1 ? 'check-square' : [ 'far', 'square' ]" />
                         Healing
                     </BButton>
                 </div>
@@ -54,15 +54,15 @@
             >
                 <div class="d-flex">
                     <BInputGroup>
-                        <BFormInput id="mc-input-2" v-model="mildDetail2"></BFormInput>
+                        <BFormInput id="mc-input-2" v-model="mildDetail2" />
                         <template #append>
                             <BButton @click="mildDetail2 = ''">
-                                <fa icon="times"></fa>
+                                <Fa icon="times" />
                             </BButton>
                         </template>
                     </BInputGroup>
                     <BButton v-model:pressed="mildHealing2" class="ms-2 text-nowrap" :disabled="!mildDetail2">
-                        <fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]"></fa>
+                        <Fa :icon="mildHealing2 ? 'check-square' : [ 'far', 'square' ]" />
                         Healing
                     </BButton>
                 </div>
@@ -75,15 +75,15 @@
             >
                 <div class="d-flex">
                     <BInputGroup>
-                        <BFormInput id="mc-input" v-model="moderateDetail"></BFormInput>
+                        <BFormInput id="mc-input" v-model="moderateDetail" />
                         <template #append>
                             <BButton @click="moderateDetail = ''">
-                                <fa icon="times"></fa>
+                                <Fa icon="times" />
                             </BButton>
                         </template>
                     </BInputGroup>
                     <BButton v-model:pressed="moderateHealing" class="ms-2 text-nowrap" :disabled="!moderateDetail">
-                        <fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
+                        <Fa :icon="moderateHealing ? 'check-square' : [ 'far', 'square' ]" />
                         Healing
                     </BButton>
                 </div>
@@ -96,15 +96,15 @@
             >
                 <div class="d-flex">
                     <BInputGroup>
-                        <BFormInput id="sc-input" v-model="severeDetail"></BFormInput>
+                        <BFormInput id="sc-input" v-model="severeDetail" />
                         <template #append>
                             <BButton @click="severeDetail = ''">
-                                <fa icon="times"></fa>
+                                <Fa icon="times" />
                             </BButton>
                         </template>
                     </BInputGroup>
                     <BButton v-model:pressed="severeHealing" class="ms-2 text-nowrap" :disabled="!severeDetail">
-                        <fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]"></fa>
+                        <Fa :icon="severeHealing ? 'check-square' : [ 'far', 'square' ]" />
                         Healing
                     </BButton>
                 </div>
@@ -113,13 +113,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -152,10 +152,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'save', aspects : FateAspect[]) : void;
-    }
+    type Events = (e : 'save', aspects : FateAspect[]) => void;
 
     const emit = defineEmits<Events>();
 
@@ -267,7 +264,7 @@
             { ...mildConsequence1.value, detail: mildDetail1.value, healing: mildHealing1.value },
             { ...mildConsequence2.value, detail: mildDetail2.value, healing: mildHealing2.value },
             { ...moderateConsequence.value, detail: moderateDetail.value, healing: moderateHealing.value },
-            { ...severeConsequence.value, detail: severeDetail.value, healing: severeHealing.value }
+            { ...severeConsequence.value, detail: severeDetail.value, healing: severeHealing.value },
         ].filter((consequence) => !!consequence.detail);
 
         // Pull out aspects, remove all consequences, and then re-add them.

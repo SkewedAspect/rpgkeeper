@@ -60,7 +60,7 @@ export class Character<Details extends SystemDetails = SystemDetails>
             thumbnail: this.thumbnail,
             color: this.color,
             campaign: this.campaign,
-            details: this.details
+            details: this.details,
         };
     }
 
@@ -72,7 +72,7 @@ export class Character<Details extends SystemDetails = SystemDetails>
             details: JSON.stringify(details),
             character_id: id,
             account_id: accountID,
-            note_id: noteID
+            note_id: noteID,
         };
     }
 

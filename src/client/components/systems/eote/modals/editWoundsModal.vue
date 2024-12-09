@@ -16,9 +16,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Wounds
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -40,10 +40,10 @@
                                 min="0"
                                 max="99"
                                 step="1"
-                            ></BFormInput>
+                            />
                             <template #append>
                                 <BButton @click="health.wounds = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -66,10 +66,10 @@
                                 min="0"
                                 max="99"
                                 step="1"
-                            ></BFormInput>
+                            />
                             <template #append>
                                 <BButton @click="health.woundThreshold = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -92,10 +92,10 @@
                                 min="0"
                                 max="99"
                                 step="1"
-                            ></BFormInput>
+                            />
                             <template #append>
                                 <BButton @click="health.strain = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -118,10 +118,10 @@
                                 min="0"
                                 max="99"
                                 step="1"
-                            ></BFormInput>
+                            />
                             <template #append>
                                 <BButton @click="health.strainThreshold = 0">
-                                    <fa icon="times"></fa>
+                                    <Fa icon="times" />
                                 </BButton>
                             </template>
                         </BInputGroup>
@@ -132,13 +132,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -170,10 +170,7 @@
         strainThreshold : number;
     }
 
-    interface Events
-    {
-        (e : 'save', wounds : Wounds) : void;
-    }
+    type Events = (e : 'save', wounds : Wounds) => void;
 
     const emit = defineEmits<Events>();
 
@@ -185,7 +182,7 @@
         wounds: 0,
         woundThreshold: 0,
         strain: 0,
-        strainThreshold: 0
+        strainThreshold: 0,
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);

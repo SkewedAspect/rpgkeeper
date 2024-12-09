@@ -20,7 +20,7 @@ import { applyFilters } from '../knex/utils';
 import { FilterToken } from '../routes/utils';
 
 // Errors
-import { MultipleResultsError, DuplicateSupplementError, NotFoundError, NotAuthorizedError } from '../errors';
+import { DuplicateSupplementError, MultipleResultsError, NotAuthorizedError, NotFoundError } from '../errors';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -145,7 +145,8 @@ export async function get(id : number, type : string, systemPrefix : string, acc
 
 export async function list(
     filters : Record<string, FilterToken>,
-    type : string, systemPrefix : string,
+    type : string, 
+    systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement[]>
 {
@@ -180,7 +181,8 @@ export async function exists(id : number, type : string, systemPrefix : string, 
 
 export async function add(
     newSupplement : Supplement,
-    type : string, systemPrefix : string,
+    type : string, 
+    systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement>
 {
@@ -224,7 +226,8 @@ export async function update(
     id : number,
     updateSup : Partial<Supplement>,
     type : string,
-    systemPrefix : string, account ?: Account
+    systemPrefix : string, 
+    account ?: Account
 ) : Promise<Supplement>
 {
     const db = await getDB();
@@ -237,7 +240,7 @@ export async function update(
     const allowedUpdate = {
         ...supplement,
         ...updateSup,
-        id
+        id,
     };
 
     // Make a new supplement object

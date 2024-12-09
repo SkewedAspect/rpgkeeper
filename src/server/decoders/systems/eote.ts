@@ -3,9 +3,9 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import {
+    Decoder,
     array,
     boolean,
-    Decoder,
     either,
     nullable,
     object,
@@ -13,7 +13,7 @@ import {
     positiveInteger,
     regex,
     string,
-    truthy
+    truthy,
 } from 'decoders';
 
 // Defaults
@@ -27,7 +27,7 @@ import {
     jsonObjectString,
     nullToUndefined,
     stringWithLength,
-    withDefault
+    withDefault,
 } from '../utils';
 import { MissingDecoderError } from '../../errors';
 
@@ -44,7 +44,7 @@ const {
     abilities,
     gear,
     armor,
-    weapons
+    weapons,
 } = genesys.character;
 
 const { force } = eote.character;
@@ -56,7 +56,7 @@ export const referenceDecoder = withDefault(regex(/^[a-zA-z-]+:?\d*$/, 'Must be 
 
 export const eoteCriticalInjury = object({
     name: stringWithLength(1, 255),
-    value: positiveInteger
+    value: positiveInteger,
 });
 
 export const motivationDecoder = object({
@@ -67,7 +67,7 @@ export const motivationDecoder = object({
     reference: referenceDecoder,
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ export const abilityDecoder = object({
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const talentDecoder = object({
@@ -94,7 +94,7 @@ export const talentDecoder = object({
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const skillDecoder = object({
@@ -102,7 +102,7 @@ export const skillDecoder = object({
     characteristic: enumStr([ 'brawn', 'agility', 'intellect', 'cunning', 'willpower', 'presence' ]),
     ranks: boundedInteger(0, 5),
     career: truthy,
-    type: enumStr([ 'general', 'combat', 'magic', 'social', 'knowledge' ])
+    type: enumStr([ 'general', 'combat', 'magic', 'social', 'knowledge' ]),
 });
 
 export const gearDecoder = object({
@@ -114,7 +114,7 @@ export const gearDecoder = object({
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const attachmentDecoder = object({
@@ -127,7 +127,7 @@ export const attachmentDecoder = object({
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const qualityDecoder = object({
@@ -139,7 +139,7 @@ export const qualityDecoder = object({
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const armorDecoder = object({
@@ -154,7 +154,7 @@ export const armorDecoder = object({
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const weaponDecoder = object({
@@ -174,7 +174,7 @@ export const weaponDecoder = object({
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const eoteTalentDecoder = object({
@@ -187,7 +187,7 @@ export const eoteTalentDecoder = object({
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const eoteAttachmentDecoder = object({
@@ -200,12 +200,12 @@ export const eoteAttachmentDecoder = object({
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 export const forcePowerUpgradeDecoder = object({
     available: positiveInteger,
-    description: stringWithLength(1)
+    description: stringWithLength(1),
 });
 
 export const forcePowerDecoder = object({
@@ -218,13 +218,13 @@ export const forcePowerDecoder = object({
         duration: optional(forcePowerUpgradeDecoder),
         range: optional(forcePowerUpgradeDecoder),
         control: optional(array(object({ description: stringWithLength(1) }))),
-        mastery: optional(forcePowerUpgradeDecoder)
+        mastery: optional(forcePowerUpgradeDecoder),
     })), { strength: null, magnitude: null, duration: null, range: null, control: null, mastery: null }),
     reference: referenceDecoder,
     name: stringWithLength(1, 255),
     owner: nullToUndefined(optional(string)),
     scope: withDefault(enumStr([ 'public', 'user' ]), 'user'),
-    official: withDefault(truthy, false) // This is 'truthy', because sqlite returns 0 or 1 for booleans.
+    official: withDefault(truthy, false), // This is 'truthy', because sqlite returns 0 or 1 for booleans.
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -240,16 +240,16 @@ const baseSysDetailsPartial = {
         intellect: boundedInteger(0, 10),
         cunning: boundedInteger(0, 10),
         willpower: boundedInteger(0, 10),
-        presence: boundedInteger(0, 10)
+        presence: boundedInteger(0, 10),
     }), characteristics),
     experience: withDefault(object({
         total: positiveInteger,
-        available: positiveInteger
+        available: positiveInteger,
     }), experience),
     defenses: withDefault(object({
         soak: positiveInteger,
         melee: positiveInteger,
-        ranged: positiveInteger
+        ranged: positiveInteger,
     }), defenses),
     health: withDefault(object({
         wounds: positiveInteger,
@@ -260,7 +260,7 @@ const baseSysDetailsPartial = {
         stimsUsed: positiveInteger,
         staggered: boolean,
         immobilized: boolean,
-        disoriented: boolean
+        disoriented: boolean,
     }), health),
     abilities: withDefault(array(positiveInteger), abilities),
     gear: withDefault(array(gearDecoder), gear),
@@ -274,7 +274,7 @@ const baseSysDetailsPartial = {
         rarity: positiveInteger,
         attachments: withDefault(array(positiveInteger), []),
         qualities: array(object({ id: positiveInteger, ranks: optional(boundedInteger(1)) })),
-        notes: optional(string)
+        notes: optional(string),
     }), armor),
     weapons: withDefault(array(object({
         name: stringWithLength(1, 255),
@@ -287,8 +287,8 @@ const baseSysDetailsPartial = {
         rarity: positiveInteger,
         attachments: withDefault(array(positiveInteger), []),
         qualities: array(object({ id: positiveInteger, ranks: optional(boundedInteger(1)) })),
-        notes: optional(string)
-    })), weapons)
+        notes: optional(string),
+    })), weapons),
 };
 
 export const genesysSysDetailsDecoder = object({
@@ -297,14 +297,14 @@ export const genesysSysDetailsDecoder = object({
         strength: nullable(positiveInteger),
         flaw: nullable(positiveInteger),
         desire: nullable(positiveInteger),
-        fear: nullable(positiveInteger)
+        fear: nullable(positiveInteger),
     }), motivations),
     skills: withDefault(array(skillDecoder), genesys.skills),
     talents: withDefault(array(object({
         id: positiveInteger,
         ranks: optional(boundedInteger(1)),
-        notes: optional(string)
-    })), eote.character.talents)
+        notes: optional(string),
+    })), eote.character.talents),
 });
 
 export const eoteSysDetailsDecoder = object({
@@ -314,7 +314,7 @@ export const eoteSysDetailsDecoder = object({
     talents: withDefault(array(object({
         id: positiveInteger,
         ranks: optional(boundedInteger(1)),
-        notes: optional(string)
+        notes: optional(string),
     })), eote.character.talents),
     force: withDefault(object({
         rating: positiveInteger,
@@ -327,11 +327,11 @@ export const eoteSysDetailsDecoder = object({
                 duration: positiveInteger,
                 range: positiveInteger,
                 control: array(positiveInteger),
-                mastery: positiveInteger
-            }), { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 })
+                mastery: positiveInteger,
+            }), { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 }),
         })),
-        sensitive: boolean
-    }), force)
+        sensitive: boolean,
+    }), force),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

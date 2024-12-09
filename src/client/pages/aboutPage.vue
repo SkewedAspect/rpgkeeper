@@ -5,7 +5,7 @@
 <template>
     <div class="about-page">
         <h1 class="text-center mt-4 mb-4">
-            <img class="rpgk-logo" src="/images/logo.png" alt="RPGKeeper Logo" width="40px" height="40px" />
+            <img class="rpgk-logo" src="/images/logo.png" alt="RPGKeeper Logo" width="40px" height="40px">
             About RPGKeeper
         </h1>
         <div class="container">
@@ -29,7 +29,7 @@
                 just as soon as I get my core target systems built and working.
             </p>
 
-            <hr />
+            <hr>
 
             <p>
                 If you want to help out (or have a suggestion) please checkout the
@@ -39,7 +39,7 @@
 
             <div class="text-center mb-3">
                 <BButton variant="primary" href="https://www.paypal.me/morgul/10" target="_blank" class="m-auto">
-                    <fa icon="donate"></fa>
+                    <Fa icon="donate" />
                     Buy me a Pizza
                 </BButton>
             </div>

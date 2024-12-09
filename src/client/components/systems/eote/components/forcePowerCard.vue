@@ -7,11 +7,11 @@
         <template #header>
             <div :class="{ closed: !visible, open: visible }" @click="visible = !visible">
                 <b>{{ powerBase?.name ?? 'Unknown' }}</b>
-                <fa class="text-muted mt-1 fa-pull-right collapse-icon" icon="chevron-right"></fa>
+                <Fa class="text-muted mt-1 fa-pull-right collapse-icon" icon="chevron-right" />
             </div>
         </template>
         <BCollapse id="`force-power-${ forcePower.id }`" v-model="visible" :class="`${ mode }-system m-2`">
-            <MarkdownBlock class="font-xs" :text="powerBase?.description" inline></MarkdownBlock>
+            <MarkdownBlock class="font-xs" :text="powerBase?.description" inline />
             <BTableLite
                 class="font-xs mt-3 mb-0"
                 :items="upgrades"
@@ -26,11 +26,11 @@
                     </b>
                 </template>
                 <template #cell(description)="data">
-                    <MarkdownBlock :text="data.value" inline></MarkdownBlock>
+                    <MarkdownBlock :text="data.value" inline />
                 </template>
             </BTableLite>
             <div class="clearfix">
-                <ReferenceBlock class="float-end mt-2" :reference="powerBase?.reference"></ReferenceBlock>
+                <ReferenceBlock class="float-end mt-2" :reference="powerBase?.reference" />
             </div>
         </BCollapse>
     </BCard>
@@ -93,7 +93,7 @@
     const visible = ref(false);
     const upgradeFields = ref([
         { key: 'name', class: 'text-nowrap' },
-        { key: 'description' }
+        { key: 'description' },
     ]);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -132,7 +132,7 @@
                         ...up,
                         name,
                         index,
-                        purchased
+                        purchased,
                     };
                 }));
             }

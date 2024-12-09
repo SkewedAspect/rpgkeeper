@@ -86,7 +86,7 @@ export async function update(charID : string, updateChar : Partial<Character>) :
         thumbnail: updateChar.thumbnail ?? char.thumbnail,
         color: updateChar.color ?? char.color,
         campaign: updateChar.campaign ?? char.campaign,
-        details: updateChar.details ?? char.details
+        details: updateChar.details ?? char.details,
     };
 
     // Make a new character object
@@ -104,7 +104,7 @@ export async function update(charID : string, updateChar : Partial<Character>) :
     await broadcast('/characters', {
         type: 'update',
         resource: charID,
-        payload: newChar
+        payload: newChar,
     });
 
     // Return the updated record
@@ -121,7 +121,7 @@ export async function remove(charID : string) : Promise<{ status : 'ok' }>
     // Broadcast the update
     await broadcast('/characters', {
         type: 'remove',
-        resource: charID
+        resource: charID,
     });
 
     return { status: 'ok' };

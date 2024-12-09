@@ -40,7 +40,7 @@ router.get(
                 .status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to view all notes.`
+                    message: `You are not authorized to view all notes.`,
                 });
         }
     }
@@ -71,7 +71,7 @@ router.post(
     ensureAuthenticated,
     processRequest({
         params: NotebookValidators.RouteParams,
-        body: NotebookValidators.NotebookPage.partial({ id: true })
+        body: NotebookValidators.NotebookPage.partial({ id: true }),
     }),
     async(req, resp) =>
     {
@@ -89,7 +89,7 @@ router.patch(
     '/:noteID/pages/:pageID',
     processRequest({
         params: NotebookValidators.RouteParams,
-        body: NotebookValidators.NotebookPage
+        body: NotebookValidators.NotebookPage,
     }),
     ensureAuthenticated,
     async(req, resp) =>

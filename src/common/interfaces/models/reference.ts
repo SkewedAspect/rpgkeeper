@@ -2,7 +2,8 @@
 // Reference
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface ReferenceOptions {
+export interface ReferenceOptions 
+{
     abbr : string;
     name : string;
     productCode : string;

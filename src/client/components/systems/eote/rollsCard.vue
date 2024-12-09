@@ -7,21 +7,21 @@
         <div class="roll-dice">
             <b>Roll:</b>
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <span v-html="diceDisplay"></span>
+            <span v-html="diceDisplay" />
         </div>
 
         <div class="dice-input d-flex flex-wrap align-content-stretch justify-content-center">
             <BInputGroup v-for="die in diceList" :key="die" size="sm" class="text-nowrap flex-nowrap w-auto m-1">
                 <BInputGroupText>
                     <!-- eslint-disable-next-line vue/no-v-html -->
-                    <span v-html="makeDieHTML(die)"></span>
+                    <span v-html="makeDieHTML(die)" />
                 </BInputGroupText>
                 <template #append>
                     <BButton variant="light" @click="addDie(die)">
-                        <fa icon="plus"></fa>
+                        <Fa icon="plus" />
                     </BButton>
                     <BButton variant="light" @click="removeDie(die)">
-                        <fa icon="minus"></fa>
+                        <Fa icon="minus" />
                     </BButton>
                 </template>
             </BInputGroup>
@@ -34,23 +34,23 @@
             </div>
             <div class="text-end text-muted">
                 <!-- eslint-disable-next-line vue/no-v-html -->
-                <span v-html="fullResultDisplay"></span>
+                <span v-html="fullResultDisplay" />
             </div>
 
             <h3 class="mt-3">
                 <!-- eslint-disable-next-line vue/no-v-html -->
-                <span v-html="uncancelledResultDisplay"></span>
+                <span v-html="uncancelledResultDisplay" />
             </h3>
         </div>
 
         <!-- Roll Buttons -->
         <div v-if="!readonly" class="text-end">
             <BButton :disabled="readonly" @click="clearRoll()">
-                <fa icon="times"></fa>
+                <Fa icon="times" />
                 Clear
             </BButton>
             <BButton variant="primary" class="ms-1" :disabled="readonly" @click="roll()">
-                <fa icon="dice"></fa>
+                <Fa icon="dice" />
                 Roll
             </BButton>
         </div>
@@ -124,7 +124,7 @@
     const rollResult = ref({
         full: [],
         uncancelled: [],
-        name: ''
+        name: '',
     });
 
     const dice = ref({
@@ -134,7 +134,7 @@
         challenge: 0,
         difficulty: 0,
         setback: 0,
-        force: 0
+        force: 0,
     });
 
     //------------------------------------------------------------------------------------------------------------------
@@ -206,7 +206,7 @@
             boost: 0,
             setback: 0,
             force: 0,
-            ...diceVals
+            ...diceVals,
         };
 
         // Set the roll name
@@ -219,7 +219,7 @@
 
         rollResult.value = {
             ...diceUtil.rollEotE(this.dice),
-            name: rollName
+            name: rollName,
         };
 
         // Clear pending roll name
@@ -231,7 +231,7 @@
         rollResult.value = {
             full: [],
             uncancelled: [],
-            name: ''
+            name: '',
         };
 
         // Reset our dice counts

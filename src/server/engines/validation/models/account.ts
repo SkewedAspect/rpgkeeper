@@ -12,7 +12,7 @@ import { HashID } from './common';
 export const AccountID = HashID;
 
 export const AccountSettings = z.object({
-    colorMode: z.enum([ 'light', 'dark', 'auto' ]).optional()
+    colorMode: z.enum([ 'light', 'dark', 'auto' ]).optional(),
 
     // Other settings...
 });
@@ -23,7 +23,7 @@ export const Account = z.object({
     name: z.string().optional(),
     avatar: z.string().optional(),
     permissions: z.array(z.string()).optional(),
-    settings: AccountSettings.passthrough().optional()
+    settings: AccountSettings.passthrough().optional(),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ export const Account = z.object({
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const UpdateParams = z.object({
-    accountID: AccountID
+    accountID: AccountID,
 });
 
 export const AccountFilter = z.object({
@@ -39,7 +39,7 @@ export const AccountFilter = z.object({
     email: z.union([ z.string().email(), z.array(z.string().email()) ])
         .optional(),
     name: z.union([ z.string().min(1), z.array(z.string().min(1)) ])
-        .optional()
+        .optional(),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

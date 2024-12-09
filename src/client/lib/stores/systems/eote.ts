@@ -43,7 +43,7 @@ export const useEoteStore = defineStore('eote', {
             qualities: [],
             talents: [],
             weapons: [],
-            references: []
+            references: [],
         };
     },
     actions: {
@@ -61,7 +61,7 @@ export const useEoteStore = defineStore('eote', {
                 talents,
                 weapons,
                 forcepowers,
-                references
+                references,
             ] = await Promise.all([
                 await suppRA.list<EoteModels.EoteAbility>('eote', 'abilities'),
                 await suppRA.list<EoteModels.EoteArmor>('eote', 'armor'),
@@ -71,7 +71,7 @@ export const useEoteStore = defineStore('eote', {
                 await suppRA.list<EoteModels.EoteTalent>('eote', 'talents'),
                 await suppRA.list<EoteModels.EoteWeapon>('eote', 'weapons'),
                 await suppRA.list<EoteModels.EoteForcePower>('eote', 'forcepowers'),
-                await suppRA.listReferences('eote')
+                await suppRA.listReferences('eote'),
             ]);
 
             this.abilities = abilities;
@@ -105,8 +105,8 @@ export const useEoteStore = defineStore('eote', {
             {
                 this[type].splice(suppIdx, 1);
             }
-        }
-    }
+        },
+    },
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

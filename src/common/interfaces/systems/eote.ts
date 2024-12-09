@@ -98,7 +98,8 @@ interface BaseArmor extends Supplement
     rarity : number;
 }
 
-interface BaseArmorRef {
+interface BaseArmorRef 
+{
     name : string;
     description ?: string;
     defense : number;
@@ -243,7 +244,7 @@ export interface EoteForcePower extends Supplement
         magnitude ?: EoteForcePowerUpgrade;
         duration ?: EoteForcePowerUpgrade;
         range ?: EoteForcePowerUpgrade;
-        control ?: Array<{ description : string }>;
+        control ?: { description : string }[];
         mastery ?: EoteForcePowerUpgrade;
     };
 }
@@ -283,7 +284,8 @@ export type GenesysWeapon = BaseWeapon;
 
 export type GenesysMotivationType = 'strength' | 'flaw' | 'desire' | 'fear';
 
-export interface GenesysMotivation extends Supplement{
+export interface GenesysMotivation extends Supplement 
+{
     id ?: number;
     type : GenesysMotivationType;
     description : string;

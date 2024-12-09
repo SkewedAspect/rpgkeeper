@@ -22,9 +22,9 @@ export const useAccountStore = defineStore('account', {
     {
         return {
             account: null,
-            redirectToDashboard: false
+            redirectToDashboard: false,
         };
-    }
+    },
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

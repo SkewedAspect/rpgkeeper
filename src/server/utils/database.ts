@@ -44,8 +44,8 @@ function _buildCustomAfterCreate(config : DatabaseConfig, afterCreate : AfterCre
         ...config,
         pool: {
             ...config.pool,
-            afterCreate: newAfterCreate
-        }
+            afterCreate: newAfterCreate,
+        },
     };
 }
 
@@ -155,7 +155,7 @@ export async function runMigrations(runSeeds = true, convertToJs = true) : Promi
     // Run the migrations
     await db.migrate.latest({
         directory: './dist/server/knex/migrations',
-        loadExtensions: [ '.js' ]
+        loadExtensions: [ '.js' ],
     });
 
     // Run the seeds
@@ -163,7 +163,7 @@ export async function runMigrations(runSeeds = true, convertToJs = true) : Promi
     {
         await db.seed.run({
             directory: './dist/server/knex/seeds',
-            loadExtensions: [ '.js' ]
+            loadExtensions: [ '.js' ],
         });
     }
 }

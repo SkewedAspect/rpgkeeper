@@ -10,7 +10,7 @@
         @click="emit('click', $event)"
     >
         <slot>
-            <fa icon="times"></fa>
+            <Fa icon="times" />
         </slot>
     </button>
 </template>
@@ -35,7 +35,7 @@
     const props = withDefaults(defineProps<BCloseButtonProps>(), {
         ariaLabel: 'Close',
         disabled: false,
-        type: 'button'
+        type: 'button',
     });
 
     const emit = defineEmits<{

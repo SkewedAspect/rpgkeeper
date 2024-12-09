@@ -13,11 +13,11 @@
                 @mouseover="hoveredIndex = index"
                 @mouseout="hoveredIndex = null"
             >
-                <fa
+                <Fa
                     :class="[checkHover(index), { 'read-only': disabled }]"
                     :icon="isChecked(index) ? checkedIcon : uncheckedIcon"
                     :size="size"
-                ></fa>
+                />
             </span>
         </div>
         <div v-else class="d-inline-block">
@@ -32,7 +32,7 @@
             size="sm"
             @click="openEditMax"
         >
-            <fa icon="edit"></fa>
+            <Fa icon="edit" />
             Edit
         </BButton>
 
@@ -50,9 +50,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit "{{ name }}" Pool
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -70,19 +70,19 @@
                     max="9999999"
                     step="1"
                     number
-                ></BFormInput>
+                />
             </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -130,17 +130,14 @@
         uncheckedIcon: () => [ 'far', 'square' ],
         noEdit: false,
         size: '2x',
-        disabled: false
+        disabled: false,
     });
 
-    interface Events
-    {
-        (e : 'save') : void;
-        (e : 'update:max', value : number) : void;
-        (e : 'update:current', value : number) : void;
-    }
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        'save' : [];
+        'update:max' : [value : number];
+        'update:current' : [value : number];
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -158,12 +155,12 @@
 
     const poolMax = computed({
         get() { return props.max; },
-        set(val : number) { emit('update:max', val); }
+        set(val : number) { emit('update:max', val); },
     });
 
     const poolCurrent = computed({
         get() { return props.current; },
-        set(val : number) { emit('update:current', val); }
+        set(val : number) { emit('update:current', val); },
     });
 
     const poolRange = computed(() => range(poolMax.value));

@@ -15,52 +15,62 @@
                 {{ roll.name }}
             </button>
             <button class="btn btn-secondary" type="button" title="Edit Roll" @click="edit()">
-                <i class="fa fa-fw fa-edit"></i>
+                <i class="fa fa-fw fa-edit" />
             </button>
             <button class="btn btn-danger" type="button" title="Remove Roll" @click="$refs.deleteModal.show()">
-                <i class="fa fa-fw fa-trash-o"></i>
+                <i class="fa fa-fw fa-trash-o" />
             </button>
         </span>
     </div>
 
     <!-- Edit Modal -->
-    <modal v-ref:edit-modal :backdrop="'static'" :keyboard="false">
-        <div class="modal-header" slot="header">
-            <h4 class="modal-title">
-                <i class="fa fa-edit"></i>
-                Edit "{{ roll.name }}" Roll
-            </h4>
-        </div>
-        <div class="modal-body" slot="body">
-            <form>
-                <fieldset class="form-group">
-                    <label for="name">Name</label>
-                    <input id="name" type="text" class="form-control" v-model="rollClone.name">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="expr">Expression</label>
-                    <textarea id="expr" rows="5" class="form-control monospace" v-model="rollClone.expression"></textarea>
-                </fieldset>
-            </form>
-        </div>
-        <div class="modal-footer" slot="footer">
-            <button type="button"
+    <Modal v-ref:edit-modal :backdrop="'static'" :keyboard="false">
+        <template #header>
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <i class="fa fa-edit" />
+                    Edit "{{ roll.name }}" Roll
+                </h4>
+            </div>
+        </template>
+        <template #body>
+            <div class="modal-body">
+                <form>
+                    <fieldset class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" v-model="rollClone.name" type="text" class="form-control">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="expr">Expression</label>
+                        <textarea id="expr" v-model="rollClone.expression" rows="5" class="form-control monospace" />
+                    </fieldset>
+                </form>
+            </div>
+        </template>
+        <template #footer>
+            <div class="modal-footer">
+                <button
+                    type="button"
                     class="btn btn-success"
-                    @click="saveEdits()">
-                <i class="fa fa-save"></i>
-                Save Roll
-            </button>
-            <button type="button"
+                    @click="saveEdits()"
+                >
+                    <i class="fa fa-save" />
+                    Save Roll
+                </button>
+                <button
+                    type="button"
                     class="btn btn-secondary"
-                    @click="$refs.editModal.hideModal()">
-                <i class="fa fa-times"></i>
-                Cancel
-            </button>
-        </div>
-    </modal>
+                    @click="$refs.editModal.hideModal()"
+                >
+                    <i class="fa fa-times" />
+                    Cancel
+                </button>
+            </div>
+        </template>
+    </Modal>
 
     <!-- Delete Roll Modal -->
-    <delete-modal v-ref:delete-modal :title="'Roll'" :text="'this roll'" :on-delete="remove"></delete-modal>
+    <DeleteModal v-ref:delete-modal :title="'Roll'" :text="'this roll'" :on-delete="remove" />
 </template>
 
 <style lang="scss">
@@ -103,80 +113,81 @@
     export default {
         components: {
             modal,
-            deleteModal: DeleteModal
+            deleteModal: DeleteModal,
         },
         props: {
             roll: {
                 type: Object,
-                required: true
+                required: true,
             },
             save: {
                 type: Function,
-                required: true
+                required: true,
             },
             context: {
                 type: Object,
-                required: true
+                required: true,
             },
             rolls: {
                 type: Array,
-                required: true
-            }
+                required: true,
+            },
         },
-        data: function()
+        data()
         {
             return {
                 rollClone: {},
-                currentResults: null
+                currentResults: null,
             };
         },
         computed: {
-            renderedText: function()
+            renderedText()
             {
                 if(this.currentResults)
                 {
                     return this.currentResults.render();
                 }
 
-                return "";
+                return '';
             },
-            currentValue: function()
+            currentValue()
             {
                 return (this.currentResults || {}).value;
-            }
+            },
         },
         methods: {
-            edit: function()
+            edit()
             {
                 this.rollClone = _.clone(this.roll);
                 this.$refs.editModal.showModal();
             },
-            execute: function()
+            execute()
             {
                 this.currentResults = diceSvc.roll(this.roll.expression, this.context);
             },
-            clear: function()
+            clear()
             {
                 this.currentResults = null;
             },
-            saveEdits: function()
+            saveEdits()
             {
                 _.assign(this.roll, this.rollClone);
                 this.$refs.editModal.hideModal();
 
                 this.save();
             },
-            remove: function()
+            remove()
             {
                 this.rolls.$remove(this.roll);
                 this.save();
-            }
+            },
         },
-        ready: function()
+        ready()
         {
-            $(function () {
-                $('[data-toggle="popover"]').popover()
+            $(() => 
+            {
+                $('[data-toggle="popover"]').popover();
             });
-        }
-    }
+        },
+    };
 </script>

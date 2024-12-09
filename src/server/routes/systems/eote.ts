@@ -9,7 +9,7 @@ import * as refMan from '../../managers/reference';
 
 // Utils
 import { buildSupplementRoute } from './utils/supplement';
-import { errorHandler, parseQuery, convertQueryToRecord } from '../utils';
+import { convertQueryToRecord, errorHandler, parseQuery } from '../utils';
 
 // Logger
 import logging from '@strata-js/util-logging';

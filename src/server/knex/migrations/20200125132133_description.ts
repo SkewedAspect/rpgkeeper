@@ -17,13 +17,13 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
     // Copy from description to campaign
     await knex('character')
         .update({
-            campaign: knex.raw('??', [ 'description' ])
+            campaign: knex.raw('??', [ 'description' ]),
         });
 
     // Copy from biography to description
     await knex('character')
         .update({
-            description: knex.raw('??', [ 'biography' ])
+            description: knex.raw('??', [ 'biography' ]),
         });
 
     // Drop biography column
@@ -46,13 +46,13 @@ export async function down(knex : Knex) : Promise<Knex.QueryBuilder>
     // Copy from campaign to description
     await knex('character')
         .update({
-            description: knex.raw('??', [ 'campaign' ])
+            description: knex.raw('??', [ 'campaign' ]),
         });
 
     // Copy from description to biography
     await knex('character')
         .update({
-            biography: knex.raw('??', [ 'description' ])
+            biography: knex.raw('??', [ 'description' ]),
         });
 
     // Drop campaign column

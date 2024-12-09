@@ -5,7 +5,7 @@
 <template>
     <div class="settings-page container pt-3">
         <!-- Loading -->
-        <loading v-if="!account" text="Account Loading..."></loading>
+        <Loading v-if="!account" text="Account Loading..." />
 
         <!-- Once loaded -->
         <div v-else>
@@ -19,7 +19,7 @@
                     :alt="account.displayName"
                     class="m-1"
                     center
-                ></BImg>
+                />
                 <h4 class="text-center">
                     {{ account.email }}
                 </h4>
@@ -29,11 +29,11 @@
             <BFormRow class="mb-4">
                 <BCol offset="1" cols="10" offset-md="3" md="6" offset-lg="4" lg="4">
                     <BInputGroup>
-                        <BFormInput v-model="account.name" placeholder="Display Name"></BFormInput>
+                        <BFormInput v-model="account.name" placeholder="Display Name" />
 
                         <template #append>
                             <BButton variant="primary" @click="save()">
-                                <fa icon="save"></fa>
+                                <Fa icon="save" />
                                 Set Name
                             </BButton>
                         </template>
@@ -45,7 +45,7 @@
             <BCard header-bg-variant="dark" header-text-variant="white" class="drop-shadow">
                 <template #header>
                     <h5 class="align-middle mt-2">
-                        <fa icon="sliders-h"></fa>
+                        <Fa icon="sliders-h" />
                         Settings
                     </h5>
                 </template>

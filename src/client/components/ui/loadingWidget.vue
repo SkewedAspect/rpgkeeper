@@ -7,7 +7,7 @@
         <h5 class="text-center">
             {{ text }}
         </h5>
-        <BProgress variant="primary" :value="100" animated></BProgress>
+        <BProgress variant="primary" :value="100" animated />
     </div>
 </template>
 
@@ -24,7 +24,7 @@
     }
 
     const props = withDefaults(defineProps<Props>(), {
-        text: 'Loading...'
+        text: 'Loading...',
     });
 </script>
 

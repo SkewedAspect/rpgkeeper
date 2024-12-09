@@ -1,27 +1,27 @@
 <template>
     <div class="card statblock">
         <div class="card-header">
-            <button type="button" class="close" aria-label="Close" @click="$refs.deleteModal.show()" style="margin-left: 10px">
+            <button type="button" class="close" aria-label="Close" style="margin-left: 10px" @click="$refs.deleteModal.show()">
                 <span aria-hidden="true">
-                    <i class="fa fa-trash-o"></i>
+                    <i class="fa fa-trash-o" />
                 </span>
                 <span class="sr-only">Delete</span>
             </button>
             <button type="button" class="close" aria-label="Close" @click="$refs.editModal.show()">
                 <span aria-hidden="true">
-                    <i class="fa fa-edit"></i>
+                    <i class="fa fa-edit" />
                 </span>
                 <span class="sr-only">Edit</span>
             </button>
             <button type="button" class="close" aria-label="Close" @click="moveUp('stats', statblock)">
                 <span aria-hidden="true">
-                    <i class="fa fa-caret-up"></i>
+                    <i class="fa fa-caret-up" />
                 </span>
                 <span class="sr-only">Move Up</span>
             </button>
             <button type="button" class="close" aria-label="Close" @click="moveDown('stats', statblock)">
                 <span aria-hidden="true">
-                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-down" />
                 </span>
                 <span class="sr-only">Move Down</span>
             </button>
@@ -29,13 +29,17 @@
         </div>
         <table v-if="statblock.type === 'table'" class="table table-sm text-center">
             <tr>
-                <th v-for="column in statblock.columns" class="text-center">{{ column.name }}</th>
+                <th v-for="column in statblock.columns" class="text-center">
+                    {{ column.name }}
+                </th>
             </tr>
             <tr v-for="row in statblock.rows">
-                <td v-for="cell in row">{{ renderCell(cell, $index) }}</td>
+                <td v-for="cell in row">
+                    {{ renderCell(cell, $index) }}
+                </td>
             </tr>
         </table>
-        <table class="table table-sm" v-else>
+        <table v-else class="table table-sm">
             <tr v-for="item in statblock.items">
                 <td><b>{{ item.key }}</b></td>
 
@@ -46,10 +50,10 @@
     </div>
 
     <!-- Edit Modal -->
-    <add-edit-modal v-ref:edit-modal :stats.sync="statblock" :save="save"></add-edit-modal>
+    <AddEditModal v-model:stats="statblock" v-ref:edit-modal :save="save" />
 
     <!-- Delete Modal -->
-    <delete-modal v-ref:delete-modal :title="deleteTitle" :text="'this statblock'" :on-delete="remove"></delete-modal>
+    <DeleteModal v-ref:delete-modal :title="deleteTitle" :text="'this statblock'" :on-delete="remove" />
 </template>
 
 <style lang="scss">
@@ -80,52 +84,52 @@
     export default {
         components: {
             addEditModal: AddEditModal,
-            deleteModal: DeleteModal
+            deleteModal: DeleteModal,
         },
         props: {
             statblock: {
                 type: Object,
                 twoWay: true,
-                required: true
+                required: true,
             },
             context: {
                 type: Object,
-                required: true
+                required: true,
             },
             moveUp: {
                 type: Function,
-                required: true
+                required: true,
             },
             moveDown: {
                 type: Function,
-                required: true
+                required: true,
             },
             save: {
                 type: Function,
                 required: true,
-                default: () => {}
+                default: () => {},
             },
             onDelete: {
                 type: Function,
-                default: () => { console.warn('Failed to pass in `onDelete` function. Doing nothing.'); }
-            }
+                default: () => { console.warn('Failed to pass in `onDelete` function. Doing nothing.'); },
+            },
         },
-        data: function()
+        data()
         {
             return {};
         },
         computed: {
-            deleteTitle: function()
+            deleteTitle()
             {
-                return `"${this.statblock.name}" Statblock`
-            }
+                return `"${ this.statblock.name }" Statblock`;
+            },
         },
         methods: {
-            renderCell: function(cell, index)
+            renderCell(cell, index)
             {
                 var type = this.statblock.columns[index].type;
 
-                switch(type)
+                switch (type)
                 {
                     case 'boolean':
                         return cell ? '<i class="fa fa-check-square"></i>' : '<i class="fa fa-square-o"></i>';
@@ -137,12 +141,12 @@
                         return cell;
                 }
             },
-            renderValue: function(item)
+            renderValue(item)
             {
-                switch(item.type)
+                switch (item.type)
                 {
                     case 'boolean':
-                        return (item.value ? '<i class="fa fa-check-square"></i>' : '<i class="fa fa-square-o"></i>') + ` ${ item.description }`;
+                        return `${ item.value ? '<i class="fa fa-check-square"></i>' : '<i class="fa fa-square-o"></i>' } ${ item.description }`;
 
                     case 'computed':
                         return this.evalComputed(item.value);
@@ -151,14 +155,14 @@
                         return item.value;
                 }
             },
-            evalComputed: function(evalStr)
+            evalComputed(evalStr)
             {
                 return rpgdice.eval(evalStr, this.context).value;
             },
-            remove: function()
+            remove()
             {
                 this.onDelete(this.statblock);
-            }
-        }
-    }
+            },
+        },
+    };
 </script>

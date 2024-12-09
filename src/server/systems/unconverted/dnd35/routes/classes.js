@@ -30,7 +30,7 @@ router.get('/', (req, resp) =>
 
             resp.status(404).json({
                 human: 'Class not found.',
-                message: error.message
+                message: error.message,
             });
         })
         .catch((err) =>
@@ -53,7 +53,7 @@ router.get('/:dndClassID', (req, resp) =>
 
             resp.status(404).json({
                 human: 'Class not found.',
-                message: error.message
+                message: error.message,
             });
         })
         .catch((err) =>

@@ -26,7 +26,7 @@ export class JSONAbleError extends Error
         return {
             name: this.constructor.name,
             code: this.code,
-            message: this.message
+            message: this.message,
         };
     }
 }
@@ -47,7 +47,7 @@ export class InvalidCharacterError extends JSONAbleError
     {
         return {
             ...super.toJSON(),
-            charID: this.charID
+            charID: this.charID,
         };
     }
 }
@@ -68,7 +68,7 @@ export class CharacterSaveError extends JSONAbleError
     {
         return {
             ...super.toJSON(),
-            charID: this.charID
+            charID: this.charID,
         };
     }
 }

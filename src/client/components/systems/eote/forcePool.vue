@@ -8,12 +8,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="jedi"></fa>
+                    <Fa class="me-1" icon="jedi" />
                     <span class="d-none d-md-inline">Force</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -30,14 +30,16 @@
                     :max="forcePool.rating"
                     step="1"
                     class="mt-2"
-                ></BFormSpinbutton>
+                />
             </div>
             <BCard class="flex-fill" no-body>
                 <div class="p-2 text-center">
                     <b>Rating</b>
-                    <hr class="m-1" />
+                    <hr class="m-1">
                     <h5 class="m-0">
-                        {{ forcePool.rating - forcePool.committed }} / <small class="text-muted">{{ forcePool.rating }}</small>
+                        {{ forcePool.rating - forcePool.committed }} / <small class="text-muted">
+                            {{ forcePool.rating }}
+                        </small>
                     </h5>
                 </div>
             </BCard>
@@ -49,7 +51,7 @@
         </div>
 
         <!-- Edit Modal -->
-        <EditModal ref="editModal" @save="onEditSave"></EditModal>
+        <EditModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -87,10 +89,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'save') : void;
-    }
+    type Events = (e : 'save') => void;
 
     const emit = defineEmits<Events>();
 

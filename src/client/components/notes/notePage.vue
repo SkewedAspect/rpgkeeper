@@ -3,7 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <MarkdownBlock id="note-page" :text="renderedContent" :class="`${ system }-system`"></MarkdownBlock>
+    <MarkdownBlock id="note-page" :text="renderedContent" :class="`${ system }-system`" />
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -14,24 +14,24 @@
                     height="32"
                     blank-color="#777"
                     :src="account.avatar"
-                ></BImg>
-                <fa v-else icon="user-circle" size="2x"></fa>
+                />
+                <Fa v-else icon="user-circle" size="2x" />
                 {{ account.displayName }}
             </template>
             <BDropdownItem to="/settings">
-                <fa icon="user-circle"></fa>
+                <Fa icon="user-circle" />
                 Profile
             </BDropdownItem>
-            <BDropdownDivider></BDropdownDivider>
+            <BDropdownDivider />
             <BDropdownItem @click="signOut()">
-                <fa icon="sign-out"></fa>
+                <Fa icon="sign-out" />
                 Sign Out
             </BDropdownItem>
         </BNavItemDropdown>
 
         <!-- Sign In Button -->
         <BButton v-else variant="dark" href="/auth/google">
-            <fa icon="sign-in"></fa>
+            <Fa icon="sign-in" />
             Sign In
         </BButton>
     </div>
@@ -73,7 +73,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function signOut()
+    async function signOut() : Promise<void>
     {
         return authMan.signOut();
     }

@@ -16,9 +16,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Force Powers
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -38,7 +38,7 @@
                 >
                     <template #preview="{ instance, supplement }">
                         <div class="clearfix mb-3">
-                            <MarkdownBlock :text="supplement.description" inline></MarkdownBlock>
+                            <MarkdownBlock :text="supplement.description" inline />
                         </div>
                         <h5>Upgrades</h5>
                         <BTable
@@ -64,16 +64,16 @@
                                     no-edit
                                     no-auto-save
                                     @update:current="onUpgradeModify(data, instance)"
-                                ></DicePool>
+                                />
                             </template>
                             <template #cell(description)="data">
-                                <MarkdownBlock :text="data.value" inline></MarkdownBlock>
+                                <MarkdownBlock :text="data.value" inline />
                             </template>
                         </BTable>
                         <ReferenceBlock
                             class="float-end mt-2"
                             :reference="supplement.reference"
-                        ></ReferenceBlock>
+                        />
                     </template>
                 </SupplementSelect>
             </div>
@@ -81,13 +81,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -98,14 +98,14 @@
             ref="addEditForcePowersModal"
             @add="onForcePowerAdd"
             @edit="onForcePowerEdit"
-        ></AddEditForcePowersModal>
+        />
         <DeleteModal
             ref="delForcePowersModal"
             :name="delForcePower.name"
             type="forcePower"
             @hidden="onDelForcePowerHidden"
             @delete="onDelForcePowerDelete"
-        ></DeleteModal>
+        />
     </div>
 </template>
 
@@ -127,7 +127,7 @@
         EoteCharacter,
         EoteForcePower,
         EoteForcePowerInst, EoteForcePowerUpgrade,
-        EoteTalentInst
+        EoteTalentInst,
     } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
@@ -159,10 +159,7 @@
         name : string;
     }
 
-    interface Events
-    {
-        (e : 'save', talents : EoteTalentInst[]) : void;
-    }
+    type Events = (e : 'save', talents : EoteTalentInst[]) => void;
 
     const emit = defineEmits<Events>();
 
@@ -172,14 +169,14 @@
 
     const upgradeFields = ref([
         { key: 'name', tdClass: 'upgrade-name' },
-        { key: 'description' }
+        { key: 'description' },
     ]);
 
     const selectedForcePowers = ref([]);
 
     const delForcePower = ref<{ id ?: number, name ?: string }>({
         id: undefined,
-        name: undefined
+        name: undefined,
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
@@ -210,7 +207,7 @@
         innerModal.value.hide();
     }
 
-    async function onSave()
+    function onSave() : void
     {
         emit('save', selectedForcePowers.value);
     }
@@ -219,7 +216,7 @@
     {
         const newForcePower = {
             id: forcePower.id,
-            upgrades: { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 }
+            upgrades: { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 },
         };
 
         selectedForcePowers.value.push(newForcePower);
@@ -299,7 +296,7 @@
     {
         return Object.keys(supplement.upgrades).reduce((upgrades : UpgradeInst[], name) =>
         {
-            const upgrade : (EoteForcePowerUpgrade | Array<{ description : string }>) = supplement.upgrades[name];
+            const upgrade : (EoteForcePowerUpgrade | { description : string }[]) = supplement.upgrades[name];
             const upgradeInst : number | number[] = instance.upgrades[name];
 
             if(Array.isArray(upgrade) && Array.isArray(upgradeInst))
@@ -314,7 +311,7 @@
                         ...up,
                         name,
                         index,
-                        purchased
+                        purchased,
                     };
                 }));
             }

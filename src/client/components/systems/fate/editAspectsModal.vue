@@ -17,9 +17,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Aspects
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -32,7 +32,7 @@
                         label-class="fw-bold"
                         label-for="hc-input"
                     >
-                        <BFormInput id="hc-input" v-model="highConcept.detail"></BFormInput>
+                        <BFormInput id="hc-input" v-model="highConcept.detail" />
                     </BFormGroup>
                 </BCol>
                 <BCol cols="12" lg="6">
@@ -42,23 +42,23 @@
                         label-class="fw-bold"
                         label-for="tb-input"
                     >
-                        <BFormInput id="tb-input" v-model="trouble.detail"></BFormInput>
+                        <BFormInput id="tb-input" v-model="trouble.detail" />
                     </BFormGroup>
                 </BCol>
             </BFormRow>
 
-            <hr class="mt-2" />
+            <hr class="mt-2">
 
             <h4>Extra Aspects</h4>
 
             <div v-for="(aspect, index) in extraAspects" :key="index" class="d-flex mb-2">
-                <BFormInput v-model="aspect.detail"></BFormInput>
+                <BFormInput v-model="aspect.detail" />
                 <BButton variant="danger" class="ms-2" @click="removeAspect(aspect)">
-                    <fa icon="trash-alt"></fa>
+                    <Fa icon="trash-alt" />
                 </BButton>
             </div>
 
-            <hr />
+            <hr>
 
             <BCard
                 header="New Aspect"
@@ -66,9 +66,9 @@
                 header-text-variant="white"
             >
                 <div class="d-flex">
-                    <BFormInput id="new-input" v-model="newAspect"></BFormInput>
+                    <BFormInput id="new-input" v-model="newAspect" />
                     <BButton variant="primary" class="ms-2 text-nowrap" :disabled="!isAddValid" @click="addAspect">
-                        <fa icon="plus"></fa>
+                        <Fa icon="plus" />
                         Add
                     </BButton>
                 </div>
@@ -77,13 +77,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -107,10 +107,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', aspects : FateAspect[]) : void;
-    }
+    type Events = (e : 'save', aspects : FateAspect[]) => void;
 
     const emit = defineEmits<Events>();
 

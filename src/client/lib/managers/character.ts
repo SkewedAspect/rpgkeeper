@@ -2,7 +2,7 @@
 // CharacterManager
 //----------------------------------------------------------------------------------------------------------------------
 
-import { io, Socket } from 'socket.io-client';
+import { Socket, io } from 'socket.io-client';
 
 // Interfaces
 import { Character, RPGKMessage, SystemDetails } from '../../../common/interfaces/common';
@@ -96,7 +96,7 @@ class CharacterManager
      * @returns Returns an unsaved character object.
      */
     async create<
-        Details extends SystemDetails = SystemDetails
+        Details extends SystemDetails = SystemDetails,
     >(charDef : Partial<Character<Details>>) : Promise<Character<Details>>
     {
         return characterRA.newCharacter<Details>(charDef);

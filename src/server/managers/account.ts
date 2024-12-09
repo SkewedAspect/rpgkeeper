@@ -21,7 +21,7 @@ export async function list(filters : accountRA.AccountFilters) : Promise<Account
         const roles = await roleRA.getForAccount(account.id);
         return {
             ...account,
-            groups: roles
+            groups: roles,
         };
     }, { concurrency: 10 });
 }
@@ -33,7 +33,7 @@ export async function get(accountID : string) : Promise<Account>
 
     return {
         ...account,
-        groups: roles
+        groups: roles,
     };
 }
 
@@ -44,7 +44,7 @@ export async function getByEmail(email : string) : Promise<Account>
 
     return {
         ...account,
-        groups: roles
+        groups: roles,
     };
 }
 

@@ -17,9 +17,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Identity
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -29,14 +29,14 @@
                 label="Name"
                 label-for="name-input"
             >
-                <BFormInput id="name-input" v-model="innerIdent.name"></BFormInput>
+                <BFormInput id="name-input" v-model="innerIdent.name" />
             </BFormGroup>
             <BFormGroup
                 id="desc-input-group"
                 label="Description"
                 label-for="desc-input"
             >
-                <MarkdownEditor v-model:text="innerIdent.description"></MarkdownEditor>
+                <MarkdownEditor v-model:text="innerIdent.description" />
             </BFormGroup>
             <BFormGroup
                 id="fp-input-group"
@@ -50,19 +50,19 @@
                     type="number"
                     min="0"
                     step="1"
-                ></BFormInput>
+                />
             </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -88,10 +88,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', identity : { name : string, description : string, refresh : number }) : void;
-    }
+    type Events = (e : 'save', identity : { name : string, description : string, refresh : number }) => void;
 
     const emit = defineEmits<Events>();
 
@@ -102,7 +99,7 @@
     const innerIdent = ref({
         name: '',
         description: '',
-        refresh: 0
+        refresh: 0,
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);

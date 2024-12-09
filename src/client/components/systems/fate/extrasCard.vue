@@ -7,12 +7,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="magic"></fa>
+                    <Fa class="me-1" icon="magic" />
                     <span class="d-none d-md-inline">Extras</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -20,7 +20,7 @@
         </template>
 
         <!-- Content -->
-        <MarkdownBlock v-if="extras" :text="extras"></MarkdownBlock>
+        <MarkdownBlock v-if="extras" :text="extras" />
         <div v-else>
             <h6 class="text-center">
                 No Extras
@@ -28,7 +28,7 @@
         </div>
 
         <!-- Modals -->
-        <EditExtrasModal ref="editModal" @save="onEditSave"></EditExtrasModal>
+        <EditExtrasModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -76,7 +76,7 @@
 
     const extras = computed<string>({
         get() { return props.extras; },
-        set(val) { emit('update:extras', val); }
+        set(val) { emit('update:extras', val); },
     });
 
     //------------------------------------------------------------------------------------------------------------------

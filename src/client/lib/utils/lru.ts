@@ -55,6 +55,7 @@ export class LRU
         {
             if(this.tail)
             {
+                // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
                 delete this.cacheMap[this.tail.key];
                 this.detach(this.tail);
             }

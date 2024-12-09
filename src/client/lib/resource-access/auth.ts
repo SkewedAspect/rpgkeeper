@@ -17,7 +17,7 @@ class AuthResourceAccess
         return {
             ...account,
             displayName: (account.name || account.email) ?? 'Unknown',
-            avatarUrl: account.avatar || `https://identicons.github.com/${ account.id.replace(/-/g, '') }.png`
+            avatarUrl: account.avatar || `https://identicons.github.com/${ account.id.replace(/-/g, '') }.png`,
         };
     }
 

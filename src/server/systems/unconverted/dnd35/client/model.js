@@ -36,7 +36,7 @@ class DnD35Character extends BaseSystemCharacterModel
         return [
             { value: 'M', display: 'Male' },
             { value: 'F', display: 'Female' },
-            { value: 'O', display: 'Other' }
+            { value: 'O', display: 'Other' },
         ];
     }
 
@@ -51,7 +51,7 @@ class DnD35Character extends BaseSystemCharacterModel
             { value: 'CN', display: 'Chaotic Neutral' },
             { value: 'LE', display: 'Lawful Evil' },
             { value: 'NE', display: 'Neutral Evil' },
-            { value: 'CE', display: 'Chaotic Evil' }
+            { value: 'CE', display: 'Chaotic Evil' },
         ];
     }
 
@@ -63,7 +63,7 @@ class DnD35Character extends BaseSystemCharacterModel
             { value: 'M', display: 'Medium' },
             { value: 'L', display: 'Large' },
             { value: 'H', display: 'Huge' },
-            { value: 'G', display: 'Gigantic' }
+            { value: 'G', display: 'Gigantic' },
         ];
     }
 
@@ -120,7 +120,7 @@ class DnD35Character extends BaseSystemCharacterModel
             { name: 'Swim', ability: 'strength', armorPenalty: true, untrained: true, ranks: 0 },
             { name: 'Tumble', ability: 'dexterity', armorPenalty: true, untrained: false, ranks: 0 },
             { name: 'Use Magic Device', ability: 'charisma', armorPenalty: false, untrained: false, ranks: 0 },
-            { name: 'Use Rope', ability: 'dexterity', armorPenalty: false, untrained: true, ranks: 0 }
+            { name: 'Use Rope', ability: 'dexterity', armorPenalty: false, untrained: true, ranks: 0 },
         ];
     }
 
@@ -279,7 +279,7 @@ class DnD35Character extends BaseSystemCharacterModel
         {
             return {
                 classID: classObj.classID,
-                level: classObj.level
+                level: classObj.level,
             };
         });
 
@@ -288,7 +288,7 @@ class DnD35Character extends BaseSystemCharacterModel
         {
             return {
                 name: note.name,
-                content: note.content
+                content: note.content,
             };
         });
 
@@ -303,7 +303,7 @@ class DnD35Character extends BaseSystemCharacterModel
             intMod: this.intMod,
             conMod: this.conMod,
             wisMod: this.wisMod,
-            chaMod: this.chaMod
+            chaMod: this.chaMod,
         });
     }
 }

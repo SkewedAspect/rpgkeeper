@@ -18,8 +18,8 @@ db.Character = trivialModels.define({
         options: {
             name: 'characters',
             dbPath: 'server/db',
-            namespace: 'v20'
-        }
+            namespace: 'v20',
+        },
     },
     schema: {
         id: types.String({ pk: true }),
@@ -45,8 +45,8 @@ db.Character = trivialModels.define({
         // Abilities
 
         notes: types.Array({ default: [] }),
-        user: types.String({ required: true })
-    }
+        user: types.String({ required: true }),
+    },
 });
 
 //----------------------------------------------------------------------------------------------------------------------

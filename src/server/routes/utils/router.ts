@@ -12,7 +12,8 @@ import { AppError } from '../../errors';
 //----------------------------------------------------------------------------------------------------------------------
 
 export type MiddlewareFunction = (request : Request, response : Response, next : NextFunction) => void;
-export type ErrorMiddlewareFunction = (error : AppError, request : Request, response : Response, next : NextFunction) => void;
+export type ErrorMiddlewareFunction =
+    (error : AppError, request : Request, response : Response, next : NextFunction) => void;
 export type JsonHandlerFunction = (request : Request, response : Response, next ?: NextFunction) => Promise<unknown>;
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -67,7 +68,7 @@ export function errorLogger(logger : BasicLogger) : ErrorMiddlewareFunction
 export function errorHandler(logger : BasicLogger) : ErrorMiddlewareFunction
 {
     // If we don't have 4 parameters, this function literally doesn't work.
-    // eslint-disable-next-line no-unused-vars
+
     return (error, request, response, _next) =>
     {
         let errorJSON = {};
@@ -81,7 +82,7 @@ export function errorHandler(logger : BasicLogger) : ErrorMiddlewareFunction
                 name: error.constructor.name,
                 message: error.message,
                 code: error.code,
-                error
+                error,
             };
         }
 
@@ -136,10 +137,10 @@ export function interceptHTML(response : Response, jsonHandler : JsonHandlerFunc
             {
                 resp.status(401).json({
                     name: 'NotAuthorized',
-                    message: `Not authorized.`
+                    message: `Not authorized.`,
                 });
             }
-        }
+        },
     });
 }
 
@@ -160,7 +161,7 @@ export function ensureAuthenticated(request : Request, response : Response, next
     {
         response.status(401).json({
             name: 'NotAuthorized',
-            message: `Not authorized.`
+            message: `Not authorized.`,
         });
     }
 }

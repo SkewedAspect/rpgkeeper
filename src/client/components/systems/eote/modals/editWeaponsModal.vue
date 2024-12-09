@@ -20,15 +20,15 @@
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
                     <span v-if="isAdd">
-                        <fa icon="plus"></fa>
+                        <Fa icon="plus" />
                         Add
                     </span>
                     <span v-else>
-                        <fa icon="file-edit"></fa>
+                        <Fa icon="file-edit" />
                         Edit
                     </span>
                     Weapons
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -45,7 +45,7 @@
                             id="name-input"
                             v-model="editWeapon.name"
                             type="text"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
@@ -57,7 +57,7 @@
                             id="skill-input"
                             v-model="editWeapon.skill"
                             :options="skillNames"
-                        ></BFormSelect>
+                        />
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 w-25"
@@ -69,7 +69,7 @@
                             id="range-input"
                             v-model="editWeapon.range"
                             :options="rangeOptions"
-                        ></BFormSelect>
+                        />
                     </BFormGroup>
                 </BFormRow>
 
@@ -87,7 +87,7 @@
                             type="number"
                             min="0"
                             step="0"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
@@ -102,7 +102,7 @@
                             type="number"
                             min="0"
                             step="0"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
@@ -117,7 +117,7 @@
                             type="number"
                             min="0"
                             step="0"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 w-25"
@@ -132,23 +132,23 @@
                             type="number"
                             min="0"
                             step="0"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                 </BFormRow>
 
-                <QualityEdit v-model:qualities="editWeapon.qualities"></QualityEdit>
+                <QualityEdit v-model:qualities="editWeapon.qualities" />
             </div>
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -180,7 +180,7 @@
         EncounterRange,
         EoteCharacter,
         EoteQualityRef,
-        EoteWeapon
+        EoteWeapon,
     } from '../../../../../common/interfaces/systems/eote';
 
     // Managers
@@ -233,7 +233,7 @@
         range: 'm',
         encumbrance: 0,
         rarity: 0,
-        qualities: []
+        qualities: [],
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
@@ -254,7 +254,7 @@
         {
             return {
                 text: eoteMan.rangeEnum[rng],
-                value: rng
+                value: rng,
             };
         });
     });
@@ -281,7 +281,7 @@
                 range: newWeapon.range,
                 encumbrance: newWeapon.encumbrance,
                 rarity: newWeapon.rarity,
-                qualities: newWeapon.qualities
+                qualities: newWeapon.qualities,
             };
         }
         else
@@ -297,7 +297,7 @@
                 range: 'm',
                 encumbrance: 0,
                 rarity: 0,
-                qualities: []
+                qualities: [],
             };
         }
 
@@ -317,13 +317,13 @@
             range: 'm',
             encumbrance: 0,
             rarity: 0,
-            qualities: []
+            qualities: [],
         };
 
         innerModal.value.hide();
     }
 
-    async function onSave()
+    async function onSave() : Promise<void>
     {
         if(isAdd.value)
         {
@@ -339,7 +339,7 @@
                 skill: editWeapon.value.skill,
                 official: false,
                 reference: 'HB',
-                scope: 'user'
+                scope: 'user',
             };
 
             emit('add', newWeap);
@@ -348,7 +348,7 @@
         {
             const newWeapon = {
                 ...weapon.value,
-                ...editWeapon.value
+                ...editWeapon.value,
             };
 
             emit('edit', newWeapon, weapIndex.value);
@@ -368,7 +368,7 @@
             range: 'm',
             encumbrance: 0,
             rarity: 0,
-            qualities: []
+            qualities: [],
         };
     }
 

@@ -20,7 +20,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 2,
             reference: 'E-CRB:194',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -32,7 +32,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'E-CRB:194',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -44,7 +44,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'E-CRB:194',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -56,7 +56,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'E-CRB:194',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -68,7 +68,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 2,
             reference: 'E-CRB:194',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -80,7 +80,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 2,
             reference: 'E-CRB:195',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -92,7 +92,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'E-CRB:191',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -104,7 +104,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'E-CRB:195',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -116,7 +116,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'E-CRB:191',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -128,7 +128,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'E-CRB:195',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -140,7 +140,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'F-CRB:201',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -152,7 +152,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'F-CRB:194',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -164,7 +164,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'F-CRB:194',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -176,7 +176,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'F-CRB:194',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -188,7 +188,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'F-CRB:197',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -200,7 +200,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'F-CRB:200',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -212,7 +212,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 2,
             reference: 'F-CRB:196',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -224,8 +224,8 @@ exports.seed = async function(knex : Knex)
             hp_required: 2,
             reference: 'F-CRB:197',
             official: true,
-            scope: 'public'
-        }
+            scope: 'public',
+        },
     ]
         .map((attachment, index) =>
         {
@@ -244,7 +244,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'G-CRB:209',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -255,7 +255,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 2,
             reference: 'G-CRB:209',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -266,7 +266,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 0,
             reference: 'G-CRB:209',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -277,7 +277,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 2,
             reference: 'G-CRB:209',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -288,7 +288,7 @@ exports.seed = async function(knex : Knex)
             hp_required: 2,
             reference: 'G-CRB:209',
             official: true,
-            scope: 'public'
+            scope: 'public',
         },
         {
             id: -1,
@@ -299,8 +299,8 @@ exports.seed = async function(knex : Knex)
             hp_required: 1,
             reference: 'G-CRB:209',
             official: true,
-            scope: 'public'
-        }
+            scope: 'public',
+        },
     ]
         .map((attachment, index) =>
         {

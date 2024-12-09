@@ -21,11 +21,16 @@
                                 @add="onAdd"
                             >
                                 <template #suggestion-extra="{ supplement }">
-                                    <slot :supplement="supplement" name="suggestion-extra"></slot>
+                                    <slot :supplement="supplement" name="suggestion-extra" />
                                 </template>
                                 <template #append-extra>
-                                    <BButton class="ms-2 text-nowrap" variant="success" title="Add New..." @click="addNew()">
-                                        <fa icon="plus"></fa>
+                                    <BButton
+                                        class="ms-2 text-nowrap"
+                                        variant="success"
+                                        title="Add New..."
+                                        @click="addNew()"
+                                    >
+                                        <Fa icon="plus" />
                                         New
                                     </BButton>
                                 </template>
@@ -42,10 +47,15 @@
                             @click="selectSupp(supp)"
                         >
                             <div class="float-end">
-                                <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra"></slot>
-                                <ScopeBadge :supplement="getSupp(supp.id)"></ScopeBadge>
-                                <BButton class="ms-2 text-nowrap" variant="danger" title="Remove" @click.prevent.stop="removeSupp(supp)">
-                                    <fa icon="times"></fa>
+                                <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra" />
+                                <ScopeBadge :supplement="getSupp(supp.id)" />
+                                <BButton
+                                    class="ms-2 text-nowrap"
+                                    variant="danger"
+                                    title="Remove"
+                                    @click.prevent.stop="removeSupp(supp)"
+                                >
+                                    <Fa icon="times" />
                                 </BButton>
                             </div>
                             <div class="pt-2">
@@ -67,17 +77,26 @@
                         <slot :instance="supplementInstance" :supplement="currentSupplement" name="header">
                             <div v-if="canModify" class="float-end">
                                 <BButton size="sm" class="mt-1" @click="editSupp(currentSupplement)">
-                                    <fa icon="edit"></fa>
+                                    <Fa icon="edit" />
                                     Edit
                                 </BButton>
-                                <BButton variant="danger" class="ms-1 mt-1" size="sm" @click="deleteSupp(currentSupplement)">
-                                    <fa icon="trash-alt"></fa>
+                                <BButton
+                                    variant="danger"
+                                    class="ms-1 mt-1"
+                                    size="sm"
+                                    @click="deleteSupp(currentSupplement)"
+                                >
+                                    <Fa icon="trash-alt" />
                                     Delete
                                 </BButton>
                             </div>
                             <div style="height: 38px; padding-top: 6px">
                                 <h4>
-                                    <slot :instance="supplementInstance" :supplement="currentSupplement" name="preview-title">
+                                    <slot
+                                        :instance="supplementInstance"
+                                        :supplement="currentSupplement"
+                                        name="preview-title"
+                                    >
                                         {{ currentSupplement.name }}
                                         <span v-if="currentSupplement.ranked">{{ supplementInstance?.ranks }}</span>
                                     </slot>
@@ -94,12 +113,12 @@
                         <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
                             <div v-if="currentSupplement.ranked" class="mb-2">
                                 <label>Ranks</label>
-                                <BFormSpinbutton id="sb-inline" v-model="supplementInstance.ranks" inline></BFormSpinbutton>
+                                <BFormSpinbutton id="sb-inline" v-model="supplementInstance.ranks" inline />
                             </div>
-                            <MarkdownBlock :text="currentSupplement.description" inline></MarkdownBlock>
+                            <MarkdownBlock :text="currentSupplement.description" inline />
                             <div class="text-end mt-auto">
-                                <h5><ScopeBadge :supplement="currentSupplement"></ScopeBadge></h5>
-                                <ReferenceBlock :reference="currentSupplement.reference"></ReferenceBlock>
+                                <h5><ScopeBadge :supplement="currentSupplement" /></h5>
+                                <ReferenceBlock :reference="currentSupplement.reference" />
                             </div>
                         </slot>
                     </div>
@@ -135,11 +154,13 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // TODO: Can't figure out how to define generic Supplements, so we define something a little better.
+    // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
     interface GenericSupplement extends Supplement
     {
         [key : string] : any;
     }
 
+    // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
     interface GenericSupplementInst extends SupplementInst
     {
         [key : string] : any;
@@ -159,20 +180,17 @@
         defineProps<Props>(),
         {
             maxHeight: '300px',
-            sortFn: (suppA : Supplement, suppB : Supplement) => suppA.name.localeCompare(suppB.name)
+            sortFn: (suppA : Supplement, suppB : Supplement) => suppA.name.localeCompare(suppB.name),
         }
     );
 
-    interface Events
-    {
-        (e : 'new')
-        (e : 'add', supp : { id : string | number }) : void;
-        (e : 'edit', supp : { id : string | number }) : void;
-        (e : 'delete', supp : { id : string | number }) : void;
-        (e : 'remove', supp : { id : string | number }) : void;
-    }
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        new : [];
+        add : [supp : { id : string | number }];
+        edit : [supp : { id : string | number }];
+        delete : [supp : { id : string | number }];
+        remove : [supp : { id : string | number }];
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -242,12 +260,12 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onAdd(supp)
+    function onAdd(supp) : void
     {
         emit('add', supp);
     }
 
-    function getSupp(id)
+    function getSupp(id) : GenericSupplement | undefined
     {
         if(id)
         {
@@ -257,7 +275,7 @@
         return undefined;
     }
 
-    function selectSupp(supp)
+    function selectSupp(supp) : void
     {
         if(supp && currentSelection.value !== supp.id)
         {
@@ -269,27 +287,27 @@
         }
     }
 
-    function clearSelection()
+    function clearSelection() : void
     {
         currentSelection.value = null;
     }
 
-    function editSupp(supp)
+    function editSupp(supp) : void
     {
         emit('edit', supp);
     }
 
-    function deleteSupp(supp)
+    function deleteSupp(supp) : void
     {
         emit('delete', supp);
     }
 
-    function addNew()
+    function addNew() : void
     {
         emit('new');
     }
 
-    function removeSupp(supp)
+    function removeSupp(supp) : void
     {
         clearSelection();
         emit('remove', { id: supp.id });

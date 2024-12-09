@@ -9,8 +9,8 @@
         </BBadge>
         <BPopover :title="abilityName" :target="`ability-${ id }`" triggers="hover" placement="top">
             <div :class="`${ mode }-system`">
-                <MarkdownBlock :text="abilityText" inline></MarkdownBlock>
-                <reference v-if="abilityReference" class="float-end mt-2 mb-2" :reference="abilityReference"></reference>
+                <MarkdownBlock :text="abilityText" inline />
+                <Reference v-if="abilityReference" class="float-end mt-2 mb-2" :reference="abilityReference" />
             </div>
         </BPopover>
     </span>

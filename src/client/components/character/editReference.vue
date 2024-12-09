@@ -16,7 +16,7 @@
                 :options="references"
                 text-field="name"
                 value-field="abbr"
-            ></BFormSelect>
+            />
         </BFormGroup>
         <BFormGroup
             class="flex-fill ms-2"
@@ -32,7 +32,7 @@
                 step="1"
                 min="1"
                 :disabled="source === 'HB'"
-            ></BFormInput>
+            />
         </BFormGroup>
     </div>
 </template>
@@ -56,10 +56,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'update:reference', value : string) : void;
-    }
+    type Events = (e : 'update:reference', value : string) => void;
 
     const emit = defineEmits<Events>();
 
@@ -73,7 +70,7 @@
         {
             const page = props.reference.split(':')[1];
             emit('update:reference', page ? `${ val }:${ page }` : `${ val }`);
-        }
+        },
     });
 
     const page = computed({
@@ -81,7 +78,7 @@
         set(val : string)
         {
             emit('update:reference', val ? `${ source.value }:${ val }` : `${ source.value }`);
-        }
+        },
     });
 
     const references = computed(() => eoteManager.references);

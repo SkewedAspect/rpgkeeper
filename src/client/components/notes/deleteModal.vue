@@ -19,15 +19,15 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-minus"></fa>
+                    <Fa icon="file-minus" />
                     Delete Page
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
             <!-- Modal Content -->
             <h3>
-                <fa class="text-danger" icon="exclamation-triangle"></fa>
+                <Fa class="text-danger" icon="exclamation-triangle" />
                 Delete notes page "{{ innerPage?.title }}"?
             </h3>
             <p class="text-muted">
@@ -37,13 +37,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="danger" @click="ok">
-                    <fa icon="trash-alt"></fa>
+                    <Fa icon="trash-alt" />
                     Delete
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -69,14 +69,11 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface EmittedEvents
-    {
-        (e : 'hidden') : void;
-        (e : 'delete', page : NotebookPage) : void;
-        (e : 'cancel') : void;
-    }
-
-    const emit = defineEmits<EmittedEvents>();
+    const emit = defineEmits<{
+        hidden : [];
+        delete : [page : NotebookPage];
+        cancel : [];
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs

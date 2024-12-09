@@ -43,7 +43,7 @@ export const useGenesysStore = defineStore('genesys', {
             motivations: [],
             talents: [],
             weapons: [],
-            references: []
+            references: [],
         };
     },
     actions: {
@@ -61,7 +61,7 @@ export const useGenesysStore = defineStore('genesys', {
                 motivations,
                 talents,
                 weapons,
-                references
+                references,
             ] = await Promise.all([
                 await suppRA.list<GenesysModels.GenesysAbility>('genesys', 'abilities'),
                 await suppRA.list<GenesysModels.GenesysArmor>('genesys', 'armor'),
@@ -71,7 +71,7 @@ export const useGenesysStore = defineStore('genesys', {
                 await suppRA.list<GenesysModels.GenesysMotivation>('genesys', 'motivations'),
                 await suppRA.list<GenesysModels.GenesysTalent>('genesys', 'talents'),
                 await suppRA.list<GenesysModels.GenesysWeapon>('genesys', 'weapons'),
-                await suppRA.listReferences('genesys')
+                await suppRA.listReferences('genesys'),
             ]);
 
             this.abilities = abilities;
@@ -105,8 +105,8 @@ export const useGenesysStore = defineStore('genesys', {
             {
                 this[type].splice(suppIdx, 1);
             }
-        }
-    }
+        },
+    },
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

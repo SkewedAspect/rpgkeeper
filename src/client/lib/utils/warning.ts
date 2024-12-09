@@ -21,7 +21,7 @@ const componentsToIgnore = [
     'BThead',
     'BTh',
     'BTr',
-    'BTable'
+    'BTable',
 ];
 
 const deprecationsToIgnore = [
@@ -41,7 +41,7 @@ const deprecationsToIgnore = [
     'COMPONENT_V_MODEL',
     'GLOBAL_EXTEND',
     'GLOBAL_MOUNT',
-    'ATTR_FALSE_VALUE'
+    'ATTR_FALSE_VALUE',
 ];
 
 export function buildWarnHandler() : (msg : string, instance: (ComponentPublicInstance | null), trace : string) => void

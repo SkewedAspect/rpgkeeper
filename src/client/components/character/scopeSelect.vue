@@ -9,7 +9,7 @@
         label-for="name-input"
     >
         <div class="d-flex">
-            <BFormSelect v-model="scope" :options="options" :disabled="!canMakePublic"></BFormSelect>
+            <BFormSelect v-model="scope" :options="options" :disabled="!canMakePublic" />
             <BFormCheckbox v-model="official" class="ms-2 mt-2" switch>
                 Official
             </BFormCheckbox>
@@ -55,7 +55,7 @@
 
     const options = ref([
         { text: 'User', value: 'user' },
-        { text: 'Public', value: 'public' }
+        { text: 'Public', value: 'public' },
     ]);
 
     const { system } = storeToRefs(useCharactersStore());
@@ -66,12 +66,12 @@
 
     const scope = computed({
         get() { return props.scope; },
-        set(val : 'public' | 'user') { emit('update:scope', val); }
+        set(val : 'public' | 'user') { emit('update:scope', val); },
     });
 
     const official = computed({
         get() { return props.official; },
-        set(val : boolean) { emit('update:official', val); }
+        set(val : boolean) { emit('update:official', val); },
     });
 
     const canMakePublic = computed(() =>

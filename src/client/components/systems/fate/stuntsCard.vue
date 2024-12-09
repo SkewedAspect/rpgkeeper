@@ -7,12 +7,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="hand-holding-magic"></fa>
+                    <Fa class="me-1" icon="hand-holding-magic" />
                     <span class="d-none d-md-inline">Stunts</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -23,7 +23,7 @@
         <div class="stunts-content">
             <div v-for="(stunt, index) in stunts" :key="index">
                 <div><b>{{ stunt.title }}</b></div>
-                <MarkdownBlock :text="stunt.description"></MarkdownBlock>
+                <MarkdownBlock :text="stunt.description" />
             </div>
             <div v-if="stunts.length === 0">
                 <h6 class="text-center">
@@ -33,7 +33,7 @@
         </div>
 
         <!-- Modals -->
-        <EditStuntsModal ref="editModal" @save="onEditSave"></EditStuntsModal>
+        <EditStuntsModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -85,7 +85,7 @@
 
     const stunts = computed<FateStunt[]>({
         get() { return orderBy(props.stunts, [ 'title' ], [ 'asc' ]); },
-        set(val) { emit('update:stunts', val); }
+        set(val) { emit('update:stunts', val); },
     });
 
     //------------------------------------------------------------------------------------------------------------------

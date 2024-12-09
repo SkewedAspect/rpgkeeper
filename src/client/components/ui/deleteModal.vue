@@ -18,14 +18,14 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="trash-alt"></fa>
+                    <Fa icon="trash-alt" />
                     {{ title }}
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
             <h3>
-                <fa icon="exclamation-triangle"></fa>
+                <Fa icon="exclamation-triangle" />
                 Are you sure you want to delete "{{ name }}"?
             </h3>
             <p class="text-muted">
@@ -35,13 +35,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="danger" @click="ok">
-                    <fa icon="trash-alt"></fa>
+                    <Fa icon="trash-alt" />
                     Delete
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -72,17 +72,14 @@
     const props = withDefaults(
         defineProps<Props>(),
         {
-            name: undefined
+            name: undefined,
         }
     );
 
-    interface Events
-    {
-        (e : 'hidden') : void;
-        (e : 'delete') : void;
-    }
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        hidden : () => void;
+        delete : () => void;
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -100,22 +97,22 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onHidden()
+    function onHidden() : void
     {
         emit('hidden');
     }
 
-    function onDelete()
+    function onDelete() : void
     {
         emit('delete');
     }
 
-    function show()
+    function show() : void
     {
         innerModal.value.show();
     }
 
-    function hide()
+    function hide() : void
     {
         innerModal.value.hide();
     }

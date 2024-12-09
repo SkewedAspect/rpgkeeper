@@ -19,9 +19,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Armor
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -38,7 +38,7 @@
                             id="name-input"
                             v-model="editArmor.name"
                             type="text"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 w-25"
@@ -53,7 +53,7 @@
                             type="number"
                             min="0"
                             step="0"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                 </BFormRow>
 
@@ -71,7 +71,7 @@
                             type="number"
                             min="0"
                             step="0"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
@@ -86,7 +86,7 @@
                             type="number"
                             min="0"
                             step="0"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
@@ -101,7 +101,7 @@
                             type="number"
                             min="0"
                             step="0"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 w-25"
@@ -116,16 +116,16 @@
                             type="number"
                             min="0"
                             step="0"
-                        ></BFormInput>
+                        />
                     </BFormGroup>
                 </BFormRow>
 
-                <QualityEdit v-model:qualities="editArmor.qualities"></QualityEdit>
+                <QualityEdit v-model:qualities="editArmor.qualities" />
 
                 <BFormRow>
                     <BCol cols="8" offset="2">
                         <BButton variant="danger" block @click="clear()">
-                            <fa icon="trash-alt"></fa>
+                            <Fa icon="trash-alt" />
                             Clear Armor
                         </BButton>
                     </BCol>
@@ -135,13 +135,13 @@
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -179,10 +179,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', armor : EoteArmorRef) : void;
-    }
+    type Events = (e : 'save', armor : EoteArmorRef) => void;
 
     const emit = defineEmits<Events>();
 
@@ -197,7 +194,7 @@
         hardpoints: 0,
         encumbrance: 0,
         rarity: 0,
-        qualities: []
+        qualities: [],
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
@@ -213,7 +210,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function clear()
+    function clear() : void
     {
         editArmor.value = {
             name: '',
@@ -222,7 +219,7 @@
             hardpoints: 0,
             encumbrance: 0,
             rarity: 0,
-            qualities: []
+            qualities: [],
         };
     }
 
@@ -240,7 +237,7 @@
         innerModal.value.hide();
     }
 
-    async function onSave()
+    function onSave() : void
     {
         emit('save', editArmor.value as EoteArmorRef);
     }

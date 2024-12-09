@@ -14,7 +14,7 @@ const logger = logging.getLogger(module.filename);
 export type JSONPrimitive = string | number | boolean;
 // eslint-disable-next-line no-use-before-define
 export type JSONValue = JSONPrimitive | JSONObject | JSONArray;
-export type JSONObject = { [member : string] : JSONValue };
+export type JSONObject = Record<string, JSONValue>;
 export type JSONArray = JSONValue[];
 
 /**

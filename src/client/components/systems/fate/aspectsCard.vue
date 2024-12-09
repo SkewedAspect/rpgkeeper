@@ -7,12 +7,12 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="fist-raised"></fa>
+                    <Fa class="me-1" icon="fist-raised" />
                     <span class="d-none d-md-inline">Aspects</span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -52,7 +52,7 @@
         </table>
 
         <!-- Modals -->
-        <EditAspectsModal ref="editModal" @save="onEditSave"></EditAspectsModal>
+        <EditAspectsModal ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -127,7 +127,7 @@
 
     const aspects = computed<FateAspect[]>({
         get() { return props.aspects; },
-        set(val) { emit('update:aspects', val); }
+        set(val) { emit('update:aspects', val); },
     });
 
     const highConcept = computed<FateAspect>(() =>

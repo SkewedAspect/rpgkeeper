@@ -1,22 +1,24 @@
 <template>
     <div id="generic-char" class="container">
         <div v-if="!char">
-            <h4 class="text-center">Loading...</h4>
+            <h4 class="text-center">
+                Loading...
+            </h4>
         </div>
         <div v-else>
             <header>
                 <div class="pull-right">
                     <div class="btn-toolbar">
                         <button class="btn btn-primary" @click="open('addCounter')">
-                            <i class="fa fa-plus"></i>
+                            <i class="fa fa-plus" />
                             Counter
                         </button>
                         <button class="btn btn-primary" @click="open('addRoll')">
-                            <i class="fa fa-plus"></i>
+                            <i class="fa fa-plus" />
                             Roll
                         </button>
                         <button class="btn btn-primary" @click="open('addStatblock')">
-                            <i class="fa fa-plus"></i>
+                            <i class="fa fa-plus" />
                             Statblock
                         </button>
                     </div>
@@ -33,147 +35,169 @@
                             <h6>No counters, yet.</h6>
                         </div>
                         <div v-else>
-                            <counter v-for="counter in char.counters" :counter="counter" :save="save" :on-delete="deleteCounter" :move-up="moveUp" :move-down="moveDown"></counter>
+                            <Counter v-for="counter in char.counters" :counter="counter" :save="save" :on-delete="deleteCounter" :move-up="moveUp" :move-down="moveDown" />
                         </div>
                     </div>
                 </div>
                 <!--div class="sidebar"-->
-                    <div id="rolls" class="sidebar card">
-                        <div class="card-header">
-                            <i class="fa fa-random"></i>
-                            Rolls
+                <div id="rolls" class="sidebar card">
+                    <div class="card-header">
+                        <i class="fa fa-random" />
+                        Rolls
+                    </div>
+                    <div class="card-block">
+                        <div class="input-group">
+                            <span class="input-group-addon roll-display" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ rollRendered }}">
+                                <button v-if="rollValue || rollValue === 0" type="button" class="close" @click.prevent.stop="clearRoll()">
+                                    <span aria-hidden="true">
+                                        &times;
+                                    </span>
+                                    <span class="sr-only">Clear</span>
+                                </button>
+                                {{ rollValue }}
+                            </span>
+                            <input v-model="rollExpression" type="text" class="form-control" placeholder="ex: 1d20 +1">
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button" title="Click to roll" @click="executeRoll()">
+                                    <i class="fa fa-random" />
+                                    Roll
+                                </button>
+                            </span>
                         </div>
-                        <div class="card-block">
-                            <div class="input-group">
-                                <span class="input-group-addon roll-display" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ rollRendered }}">
-                                    <button v-if="rollValue || rollValue === 0" type="button" class="close" @click.prevent.stop="clearRoll()">
-                                        <span aria-hidden="true">
-                                            &times;
-                                        </span>
-                                        <span class="sr-only">Clear</span>
-                                    </button>
-                                    {{ rollValue }}
-                                </span>
-                                <input type="text" class="form-control" placeholder="ex: 1d20 +1" v-model="rollExpression">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-secondary" type="button" title="Click to roll" @click="executeRoll()">
-                                        <i class="fa fa-random"></i>
-                                        Roll
-                                    </button>
-                                </span>
-                            </div>
-                            <hr>
-                            <div v-if="!char.rolls || char.rolls.length == 0" class="text-center">
-                                <h6>No rolls, yet.</h6>
-                            </div>
-                            <div v-else>
-                                <roll v-for="roll in char.rolls" :roll="roll" :rolls="char.rolls" :context="char.rollContext" :save="save"></roll>
-                            </div>
+                        <hr>
+                        <div v-if="!char.rolls || char.rolls.length == 0" class="text-center">
+                            <h6>No rolls, yet.</h6>
+                        </div>
+                        <div v-else>
+                            <Roll v-for="roll in char.rolls" :roll="roll" :rolls="char.rolls" :context="char.rollContext" :save="save" />
                         </div>
                     </div>
+                </div>
                 <!--/div-->
             </div>
 
             <!-- Stats -->
             <div id="stats" class="card">
-                <div v-if="!char.stats || char.stats.length === 0"  class="card-block">
-                    <h6 class="text-center" style="margin: 0">No Stats, yet.</h6>
+                <div v-if="!char.stats || char.stats.length === 0" class="card-block">
+                    <h6 class="text-center" style="margin: 0">
+                        No Stats, yet.
+                    </h6>
                 </div>
-                <div class="stats-list"  v-else>
-                    <statblock v-for="statblock in char.stats" :statblock.sync="statblock" :context="char.rollContext" :move-up="moveUp" :move-down="moveDown" :save="save" :on-delete="deleteStatblock"></statblock>
+                <div v-else class="stats-list">
+                    <Statblock v-for="statblock in char.stats" v-model:statblock="statblock" :context="char.rollContext" :move-up="moveUp" :move-down="moveDown" :save="save" :on-delete="deleteStatblock" />
                 </div>
             </div>
 
             <!-- Notes -->
-            <notes :notes="char.notes" :save="save"></notes>
+            <Notes :notes="char.notes" :save="save" />
         </div>
 
         <!-- Add Roll Modal -->
-        <modal v-ref:add-roll :backdrop="'static'" :keyboard="false">
-            <div class="modal-header" slot="header">
-                <h4 class="modal-title">
-                    <i class="fa fa-plus"></i>
-                    New Roll
-                </h4>
-            </div>
-            <div class="modal-body" slot="body">
-                <form>
-                    <fieldset class="form-group">
-                        <label for="roll-name">Name</label>
-                        <input id="roll-name" type="text" class="form-control" v-model="newRoll.name">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="expr">Expression</label>
-                        <textarea id="expr" rows="5" class="form-control monospace" v-model="newRoll.expression"></textarea>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="modal-footer" slot="footer">
-                <button type="button"
+        <Modal v-ref:add-roll :backdrop="'static'" :keyboard="false">
+            <template #header>
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <i class="fa fa-plus" />
+                        New Roll
+                    </h4>
+                </div>
+            </template>
+            <template #body>
+                <div class="modal-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="roll-name">Name</label>
+                            <input id="roll-name" v-model="newRoll.name" type="text" class="form-control">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="expr">Expression</label>
+                            <textarea id="expr" v-model="newRoll.expression" rows="5" class="form-control monospace" />
+                        </fieldset>
+                    </form>
+                </div>
+            </template>
+            <template #footer>
+                <div class="modal-footer">
+                    <button
+                        type="button"
                         class="btn btn-success"
-                        @click="addRoll()">
-                    <i class="fa fa-save"></i>
-                    Add Roll
-                </button>
-                <button type="button"
+                        @click="addRoll()"
+                    >
+                        <i class="fa fa-save" />
+                        Add Roll
+                    </button>
+                    <button
+                        type="button"
                         class="btn btn-secondary"
-                        @click="$refs.addRoll.hideModal()">
-                    <i class="fa fa-times"></i>
-                    Cancel
-                </button>
-            </div>
-        </modal>
+                        @click="$refs.addRoll.hideModal()"
+                    >
+                        <i class="fa fa-times" />
+                        Cancel
+                    </button>
+                </div>
+            </template>
+        </Modal>
 
         <!-- Add Counter Modal -->
-        <modal v-ref:add-counter :backdrop="'static'" :keyboard="false">
-            <div class="modal-header" slot="header">
-                <h4 class="modal-title">
-                    <i class="fa fa-plus"></i>
-                    Add Counter
-                </h4>
-            </div>
-            <div class="modal-body" slot="body">
-                <form>
-                    <fieldset class="form-group">
-                        <label for="counter-name">Name</label>
-                        <input id="counter-name" type="text" class="form-control" v-model="newCounter.name">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="value">Value</label>
-                        <input id="value" type="number" class="form-control" v-model="newCounter.value" number>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="step">Step</label>
-                        <input id="step" type="number" class="form-control" step=".01" v-model="newCounter.step" number>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="min">Min</label>
-                        <input id="min" type="number" class="form-control" v-model="newCounter.min" number>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="max">Max</label>
-                        <input id="max" type="number" class="form-control" v-model="newCounter.max" number>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="modal-footer" slot="footer">
-                <button type="button"
+        <Modal v-ref:add-counter :backdrop="'static'" :keyboard="false">
+            <template #header>
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <i class="fa fa-plus" />
+                        Add Counter
+                    </h4>
+                </div>
+            </template>
+            <template #body>
+                <div class="modal-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="counter-name">Name</label>
+                            <input id="counter-name" v-model="newCounter.name" type="text" class="form-control">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="value">Value</label>
+                            <input id="value" v-model="newCounter.value" type="number" class="form-control" number>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="step">Step</label>
+                            <input id="step" v-model="newCounter.step" type="number" class="form-control" step=".01" number>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="min">Min</label>
+                            <input id="min" v-model="newCounter.min" type="number" class="form-control" number>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="max">Max</label>
+                            <input id="max" v-model="newCounter.max" type="number" class="form-control" number>
+                        </fieldset>
+                    </form>
+                </div>
+            </template>
+            <template #footer>
+                <div class="modal-footer">
+                    <button
+                        type="button"
                         class="btn btn-success"
-                        @click="addCounter()">
-                    <i class="fa fa-save"></i>
-                    Save Counter
-                </button>
-                <button type="button"
+                        @click="addCounter()"
+                    >
+                        <i class="fa fa-save" />
+                        Save Counter
+                    </button>
+                    <button
+                        type="button"
                         class="btn btn-secondary"
-                        @click="$refs.addCounter.hideModal()">
-                    <i class="fa fa-times"></i>
-                    Cancel
-                </button>
-            </div>
-        </modal>
+                        @click="$refs.addCounter.hideModal()"
+                    >
+                        <i class="fa fa-times" />
+                        Cancel
+                    </button>
+                </div>
+            </template>
+        </Modal>
 
         <!-- Add Statblock Modal -->
-        <add-edit-stat-modal v-ref:add-statblock :stats.sync="newStatblock" :mode="'add'" :save="addStatblock"></add-edit-stat-modal>
+        <AddEditStatModal v-model:stats="newStatblock" v-ref:add-statblock :mode="'add'" :save="addStatblock" />
     </div>
 </template>
 
@@ -199,14 +223,14 @@
             statblock,
             notes,
             modal,
-            addEditStatModal: AddEditStatModal
+            addEditStatModal: AddEditStatModal,
         },
         props: {
             base: {
-                required: true
-            }
+                required: true,
+            },
         },
-        data: function()
+        data()
         {
             return {
                 char: null,
@@ -214,56 +238,56 @@
                 newCounter: {},
                 newStatblock: {},
                 rollResults: null,
-                rollExpression: ""
+                rollExpression: '',
             };
         },
         computed: {
-            rollRendered: function()
+            rollRendered()
             {
                 if(this.rollResults)
                 {
                     return this.rollResults.render();
                 }
 
-                return "";
+                return '';
             },
-            rollValue: function()
+            rollValue()
             {
                 return (this.rollResults || {}).value;
-            }
+            },
         },
         methods: {
-            moveUp: function(listName, item)
+            moveUp(listName, item)
             {
                 this.char.moveUp(listName, item);
             },
-            moveDown: function(listName, item)
+            moveDown(listName, item)
             {
                 this.char.moveDown(listName, item);
             },
-            save: function()
+            save()
             {
                 this.char.save();
             },
-            deleteCounter: function(counter)
+            deleteCounter(counter)
             {
                 this.char.counters.$remove(counter);
                 this.char.save();
             },
-            executeRoll: function()
+            executeRoll()
             {
                 this.rollResults = diceSvc.roll(this.rollExpression, {});
             },
-            clearRoll: function()
+            clearRoll()
             {
                 this.rollResults = null;
-                this.rollExpression = "";
+                this.rollExpression = '';
             },
-            open: function(modal)
+            open(modal)
             {
                 this.$refs[modal].showModal();
             },
-            addRoll: function()
+            addRoll()
             {
                 this.char.rolls.push(this.newRoll);
                 this.newRoll = {};
@@ -271,7 +295,7 @@
 
                 this.char.save();
             },
-            addCounter: function()
+            addCounter()
             {
                 this.char.counters.push(this.newCounter);
                 this.newCounter = {};
@@ -279,19 +303,19 @@
 
                 this.char.save();
             },
-            addStatblock: function()
+            addStatblock()
             {
                 this.char.stats.push(this.newStatblock);
                 this.newStatblock = {};
                 this.char.save();
             },
-            deleteStatblock: function(statblock)
+            deleteStatblock(statblock)
             {
                 this.char.stats.$remove(statblock);
                 this.char.save();
-            }
+            },
         },
-        activate: function(done)
+        activate(done)
         {
             systemsSvc.getChar(this.base.system, this.base.id)
                 .then((char) =>
@@ -300,6 +324,6 @@
                     this.char = new GenericCharacter(this.base, char);
                     done();
                 });
-        }
-    }
+        },
+    };
 </script>

@@ -11,14 +11,14 @@
                     <template #header>
                         <div class="d-flex">
                             <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                                <fa class="me-1" icon="users"></fa>
+                                <Fa class="me-1" icon="users" />
                                 <span class="d-none d-md-inline">Characters</span>
                             </h5>
                             <BInputGroup class="flex-fill ms-auto" style="max-width: 400px">
-                                <BFormInput v-model="charFilter" placeholder="Search Characters..."></BFormInput>
+                                <BFormInput v-model="charFilter" placeholder="Search Characters..." />
                                 <template #append>
                                     <BButton variant="primary">
-                                        <fa icon="search"></fa>
+                                        <Fa icon="search" />
                                     </BButton>
                                 </template>
                             </BInputGroup>
@@ -26,7 +26,7 @@
                             <!-- System Filter Dropdown -->
                             <BDropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right>
                                 <template #button-content>
-                                    <fa icon="cog"></fa>
+                                    <Fa icon="cog" />
                                 </template>
 
                                 <BDropdownForm class="system-filter-checkbox">
@@ -48,23 +48,23 @@
                                                     :variant="getStatusVariant(system.status)"
                                                     :title="getStatusDescription(system.status)"
                                                 >
-                                                    <fa :icon="getStatusIcon(system.status)"></fa>
+                                                    <Fa :icon="getStatusIcon(system.status)" />
                                                     {{ getStatusDisplay(system.status) }}
                                                 </BBadge>
                                             </div>
                                         </div>
                                     </BFormCheckbox>
                                 </BDropdownForm>
-                                <BDropdownDivider></BDropdownDivider>
+                                <BDropdownDivider />
                                 <BDropdownItem style="pointer-events: none">
                                     <div style="pointer-events: all" @click.stop="selectAllSystems()">
-                                        <fa icon="check-square"></fa>
+                                        <Fa icon="check-square" />
                                         Select All
                                     </div>
                                 </BDropdownItem>
                                 <BDropdownItem style="pointer-events: none">
                                     <div style="pointer-events: all" @click.stop="selectNoneSystems()">
-                                        <fa :icon="['far', 'square']"></fa>
+                                        <Fa :icon="['far', 'square']" />
                                         Select None
                                     </div>
                                 </BDropdownItem>
@@ -74,13 +74,13 @@
 
                     <!-- List of Characters -->
                     <div v-if="charsLoading" class="card-body">
-                        <LoadingWidget></LoadingWidget>
+                        <LoadingWidget />
                     </div>
 
                     <BListGroup v-else-if="characters.length > 0" flush>
                         <BListGroupItem v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
                             <div class="d-flex">
-                                <CharThumbnail :char="char"></CharThumbnail>
+                                <CharThumbnail :char="char" />
                                 <div class="ms-2 flex-column d-flex justify-content-center flex-fill">
                                     <h5 class="mb-1">
                                         {{ char.name }}
@@ -92,14 +92,24 @@
                                         <small>{{ char.campaign }}</small>
                                     </p>
                                 </div>
-                                <div class="me-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
+                                <div
+                                    class="me-2 flex-column d-flex justify-content-center flex-nowrap"
+                                    style="flex: 0 0 auto"
+                                >
                                     <CloseButton title="Edit User" @click.prevent.stop="openAddEditModal(char)">
-                                        <fa icon="user-edit" size="xl"></fa>
+                                        <Fa icon="user-edit" size="xl" />
                                     </CloseButton>
                                 </div>
-                                <div class="ms-2 flex-column d-flex justify-content-center flex-nowrap" style="flex: 0 0 auto">
-                                    <CloseButton class="btn-close" title="Delete Character" @click.prevent.stop="openDelCharacter(char)">
-                                        <fa icon="trash-alt" size="xl"></fa>
+                                <div
+                                    class="ms-2 flex-column d-flex justify-content-center flex-nowrap"
+                                    style="flex: 0 0 auto"
+                                >
+                                    <CloseButton
+                                        class="btn-close"
+                                        title="Delete Character"
+                                        @click.prevent.stop="openDelCharacter(char)"
+                                    >
+                                        <Fa icon="trash-alt" size="xl" />
                                     </CloseButton>
                                 </div>
                             </div>
@@ -114,7 +124,7 @@
 
                     <div class="card-body text-end">
                         <BButton variant="primary" @click="openAddEditModal()">
-                            <fa icon="user-plus"></fa>
+                            <Fa icon="user-plus" />
                             New Character
                         </BButton>
                     </div>
@@ -123,8 +133,8 @@
         </BFormRow>
 
         <!-- Modals -->
-        <AddEditModal ref="addEditModal" @save="onSave"></AddEditModal>
-        <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>
+        <AddEditModal ref="addEditModal" @save="onSave" />
+        <DeleteModal ref="delModal" @delete="onDelete" />
     </BContainer>
 </template>
 
@@ -306,7 +316,7 @@
             // Update the existing character with this partial
             char = {
                 ...charStore.find(charUpdate.id),
-                ...charUpdate
+                ...charUpdate,
             };
         }
 

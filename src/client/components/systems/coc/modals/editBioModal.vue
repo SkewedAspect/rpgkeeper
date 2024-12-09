@@ -17,9 +17,9 @@
             <!-- Modal Header -->
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
-                    <fa icon="file-edit"></fa>
+                    <Fa icon="file-edit" />
                     Edit Identity
-                    <CloseButton class="float-end" @click="cancel"></CloseButton>
+                    <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
@@ -31,14 +31,14 @@
                     label-for="name-input"
                     class="flex-fill"
                 >
-                    <BFormInput id="name-input" v-model="innerBio.name"></BFormInput>
+                    <BFormInput id="name-input" v-model="innerBio.name" />
                 </BFormGroup>
                 <BFormGroup
                     id="age-input-group"
                     label="Age"
                     label-for="age-input"
                 >
-                    <BFormInput id="age-input" v-model="innerBio.age" type="number" step="1" min="0" max="150" number></BFormInput>
+                    <BFormInput id="age-input" v-model="innerBio.age" type="number" step="1" min="0" max="150" number />
                 </BFormGroup>
                 <BFormGroup
                     id="pronouns-input-group"
@@ -46,7 +46,7 @@
                     label-for="pronouns-input"
                 >
                     <BInputGroup>
-                        <BFormInput id="pronouns-input" v-model="innerBio.pronouns"></BFormInput>
+                        <BFormInput id="pronouns-input" v-model="innerBio.pronouns" />
                         <template #append>
                             <BDropdown text="Pronouns" variant="outline-secondary">
                                 <BDropdownItem @click="innerBio.pronouns = 'Any'">
@@ -73,7 +73,7 @@
                     label-for="birthplace-input"
                     class="flex-fill"
                 >
-                    <BFormInput id="birthplace-input" v-model="innerBio.birthplace"></BFormInput>
+                    <BFormInput id="birthplace-input" v-model="innerBio.birthplace" />
                 </BFormGroup>
                 <BFormGroup
                     id="residence-input-group"
@@ -81,7 +81,7 @@
                     label-for="residence-input"
                     class="flex-fill"
                 >
-                    <BFormInput id="residence-input" v-model="innerBio.residence"></BFormInput>
+                    <BFormInput id="residence-input" v-model="innerBio.residence" />
                 </BFormGroup>
                 <BFormGroup
                     id="occupation-input-group"
@@ -89,7 +89,7 @@
                     label-for="occupation-input"
                     class="flex-fill"
                 >
-                    <BFormInput id="occupation-input" v-model="innerBio.occupation"></BFormInput>
+                    <BFormInput id="occupation-input" v-model="innerBio.occupation" />
                 </BFormGroup>
             </div>
             <BFormGroup
@@ -98,19 +98,19 @@
                 label-for="desc-input"
                 class="mt-2"
             >
-                <MarkdownEditor v-model:text="innerBio.description"></MarkdownEditor>
+                <MarkdownEditor v-model:text="innerBio.description" />
             </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
                 <BButton variant="primary" @click="ok">
-                    <fa icon="save"></fa>
+                    <Fa icon="save" />
                     Save
                 </BButton>
             </template>
             <template #cancel="{ cancel }">
                 <BButton variant="secondary" @click="cancel">
-                    <fa icon="times"></fa>
+                    <Fa icon="times" />
                     Cancel
                 </BButton>
             </template>
@@ -125,7 +125,7 @@
 
     // Interfaces
     import { Character } from '../../../../../common/interfaces/common';
-    import { CocBiography, CoCSystemDetails } from '../../../../../common/interfaces/systems/coc';
+    import { CoCSystemDetails, CocBiography } from '../../../../../common/interfaces/systems/coc';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';
@@ -136,10 +136,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface Events
-    {
-        (e : 'save', bio : { name : string, description : string }) : void;
-    }
+    type Events = (e : 'save', bio : { name : string, description : string }) => void;
 
     const emit = defineEmits<Events>();
 
@@ -154,7 +151,7 @@
         pronouns: '',
         residence: '',
         name: '',
-        description: ''
+        description: '',
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);

@@ -11,7 +11,7 @@
                 :preset-colors="presetColors"
                 :disable-alpha="disableAlpha"
                 :disable-fields="disableFields"
-            ></SketchPicker>
+            />
         </BPopover>
     </BButton>
 </template>
@@ -63,14 +63,11 @@
             color: '#000',
             presetColors: undefined,
             enableAlpha: false,
-            disableFields: false
+            disableFields: false,
         }
     );
 
-    interface Events
-    {
-        (e : 'update:color', color : string) : void;
-    }
+    type Events = (e : 'update:color', color : string) => void;
 
     const emit = defineEmits<Events>();
 
@@ -94,7 +91,7 @@
             }
 
             emit('update:color', val as string);
-        }
+        },
     });
 
     const htmlColor = computed(() =>

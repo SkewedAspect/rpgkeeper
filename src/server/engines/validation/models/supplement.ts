@@ -17,7 +17,7 @@ export const Supplement = z.object({
     owner: z.string().min(1)
         .optional(),
     scope: z.enum([ 'public', 'user' ]),
-    official: z.boolean()
+    official: z.boolean(),
 }).passthrough();
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ export const Supplement = z.object({
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const RouteParams = z.object({
-    suppID: SupplementID
+    suppID: SupplementID,
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

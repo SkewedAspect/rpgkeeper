@@ -27,7 +27,7 @@ class ToastUtil
             ...options,
             noCloseButton: true,
             variant: 'info',
-            appendToast: true
+            appendToast: true,
         };
 
         this.toast(message, options);
@@ -40,7 +40,7 @@ class ToastUtil
             {},
             [
                 h('b', {}, [ ' Success! ' ]),
-                ` ${ message }`
+                ` ${ message }`,
             ]
         );
 
@@ -48,7 +48,7 @@ class ToastUtil
             ...options,
             noCloseButton: true,
             variant: 'success',
-            appendToast: true
+            appendToast: true,
         };
 
         this.toast(msgVNodes, options);
@@ -61,7 +61,7 @@ class ToastUtil
             {},
             [
                 h('b', {}, [ ' Warning! ' ]),
-                ` ${ message }`
+                ` ${ message }`,
             ]
         );
 
@@ -69,7 +69,7 @@ class ToastUtil
             ...options,
             noCloseButton: true,
             variant: 'warning',
-            appendToast: true
+            appendToast: true,
         };
 
         this.toast(msgVNodes, options);
@@ -82,7 +82,7 @@ class ToastUtil
             {},
             [
                 h('b', {}, [ ' Error! ' ]),
-                ` ${ message }`
+                ` ${ message }`,
             ]
         );
 
@@ -90,7 +90,7 @@ class ToastUtil
             ...options,
             noCloseButton: true,
             variant: 'danger',
-            appendToast: true
+            appendToast: true,
         };
 
         this.toast(msgVNodes, options);

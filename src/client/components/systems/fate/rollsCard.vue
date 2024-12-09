@@ -34,11 +34,11 @@
         <!-- Roll Buttons -->
         <div class="text-end">
             <BButton :disabled="readonly" @click="clearRolls()">
-                <fa icon="times"></fa>
+                <Fa icon="times" />
                 Clear
             </BButton>
             <BButton variant="primary" class="ms-1" :disabled="readonly" @click="roll()">
-                <fa icon="dice"></fa>
+                <Fa icon="dice" />
                 Roll
             </BButton>
         </div>
@@ -110,7 +110,7 @@
             return {
                 name,
                 rank,
-                display: `${ name } (+${ rank })`
+                display: `${ name } (+${ rank })`,
             };
         });
 
@@ -129,7 +129,7 @@
         this.rolls.unshift({
             roll: rollInst,
             name: selectedSkill.value?.display ?? skill.value,
-            display: `${ rollInst.render() } = ${ rollInst.value }`
+            display: `${ rollInst.render() } = ${ rollInst.value }`,
         });
     }
 

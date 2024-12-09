@@ -4,7 +4,8 @@
 
 export type SystemDetails = object;
 
-export interface CharacterOptions<Details extends SystemDetails = SystemDetails> {
+export interface CharacterOptions<Details extends SystemDetails = SystemDetails> 
+{
     id : string | null;
     system : string;
     name : string;

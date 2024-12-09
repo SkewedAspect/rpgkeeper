@@ -8,14 +8,14 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex m-0 me-2 flex-grow-0 flex-shrink-0 w-75">
-                    <fa class="me-1" icon="address-card"></fa>
+                    <Fa class="me-1" icon="address-card" />
                     <span class="d-none d-md-block">
                         {{ char.name }}
                     </span>
                 </h5>
                 <div v-if="!readonly" class="ms-auto">
                     <BButton size="sm" style="margin-bottom: 1px;" @click="openEditModal()">
-                        <fa icon="edit" fixed-width></fa>
+                        <Fa icon="edit" fixed-width />
                         <span class="d-none d-md-inline">Edit</span>
                     </BButton>
                 </div>
@@ -53,11 +53,11 @@
             label-class="fw-bold"
             class="mt-2"
         >
-            <MarkdownBlock class="font-sm" :text="description" inline></MarkdownBlock>
+            <MarkdownBlock class="font-sm" :text="description" inline />
         </BFormGroup>
 
         <!-- Edit Modal -->
-        <EditBioModal id="editModal" ref="editModal" @save="onEditSave"></EditBioModal>
+        <EditBioModal id="editModal" ref="editModal" @save="onEditSave" />
     </RpgkCard>
 </template>
 
@@ -83,7 +83,7 @@
 
     // Interfaces
     import { Character } from '../../../../common/interfaces/common';
-    import { CocBiography, CoCSystemDetails } from '../../../../common/interfaces/systems/coc';
+    import { CoCSystemDetails, CocBiography } from '../../../../common/interfaces/systems/coc';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';
@@ -104,10 +104,7 @@
 
     const props = defineProps<Props>();
 
-    interface Events
-    {
-        (e : 'save') : void;
-    }
+    type Events = (e : 'save') => void;
 
     const emit = defineEmits<Events>();
 

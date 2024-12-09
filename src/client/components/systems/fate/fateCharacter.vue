@@ -5,17 +5,22 @@
 <template>
     <BContainer v-if="char" id="fate-char" fluid>
         <div class="d-flex">
-            <PortraitCard class="me-1 d-none d-lg-block" :src="char.portrait" size="lg"></PortraitCard>
-            <IdentityCard class="me-1 ms-1 w-50" :readonly="!isAuthorized" @save="onSave"></IdentityCard>
-            <RollsCard class="ms-1 w-50" :skills="char.details.skills" :readonly="!isAuthorized"></RollsCard>
+            <PortraitCard class="me-1 d-none d-lg-block" :src="char.portrait" size="lg" />
+            <IdentityCard class="me-1 ms-1 w-50" :readonly="!isAuthorized" @save="onSave" />
+            <RollsCard class="ms-1 w-50" :skills="char.details.skills" :readonly="!isAuthorized" />
         </div>
         <div class="d-flex mt-2">
-            <AspectsCard v-model:aspects="char.details.aspects" :readonly="!isAuthorized" @save="onSave"></AspectsCard>
-            <SkillsCard v-model:skills="char.details.skills" :readonly="!isAuthorized" @save="onSave"></SkillsCard>
+            <AspectsCard v-model:aspects="char.details.aspects" :readonly="!isAuthorized" @save="onSave" />
+            <SkillsCard v-model:skills="char.details.skills" :readonly="!isAuthorized" @save="onSave" />
         </div>
         <div class="d-flex mt-2">
-            <ExtrasCard v-model:extras="char.details.extras" class="w-50" :readonly="!isAuthorized" @save="onSave"></ExtrasCard>
-            <StuntsCard v-model:stunts="char.details.stunts" class="w-50 ms-2" :readonly="!isAuthorized" @save="onSave"></StuntsCard>
+            <ExtrasCard v-model:extras="char.details.extras" class="w-50" :readonly="!isAuthorized" @save="onSave" />
+            <StuntsCard
+                v-model:stunts="char.details.stunts"
+                class="w-50 ms-2"
+                :readonly="!isAuthorized"
+                @save="onSave"
+            />
         </div>
         <div class="d-flex mt-2">
             <StressCard
@@ -25,7 +30,7 @@
                 style="flex-basis: 40%"
                 :readonly="!isAuthorized"
                 @save="onSave"
-            ></StressCard>
+            />
             <ConsequencesCard
                 v-model:aspects="char.details.aspects"
                 :skills="char.details.skills"
@@ -33,7 +38,7 @@
                 class="ms-2"
                 :readonly="!isAuthorized"
                 @save="onSave"
-            ></ConsequencesCard>
+            />
         </div>
     </BContainer>
 </template>

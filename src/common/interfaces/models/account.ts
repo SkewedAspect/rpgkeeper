@@ -2,11 +2,13 @@
 // Account
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface AccountSettings {
+export interface AccountSettings 
+{
     colorMode ?: 'light' | 'dark' | 'auto';
 }
 
-export interface AccountOptions {
+export interface AccountOptions 
+{
     id : string;
     email : string;
     name ?: string;

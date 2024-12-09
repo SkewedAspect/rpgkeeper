@@ -4,11 +4,11 @@
 
 <template>
     <div id="genesys-sub-talents">
-        <TierRow :tier="1" :readonly="readonly"></TierRow>
-        <TierRow class="mt-3" :tier="2" :readonly="readonly"></TierRow>
-        <TierRow class="mt-3" :tier="3" :readonly="readonly"></TierRow>
-        <TierRow class="mt-3" :tier="4" :readonly="readonly"></TierRow>
-        <TierRow class="mt-3" :tier="5" :readonly="readonly"></TierRow>
+        <TierRow :tier="1" :readonly="readonly" />
+        <TierRow class="mt-3" :tier="2" :readonly="readonly" />
+        <TierRow class="mt-3" :tier="3" :readonly="readonly" />
+        <TierRow class="mt-3" :tier="4" :readonly="readonly" />
+        <TierRow class="mt-3" :tier="5" :readonly="readonly" />
 
         <h5 v-if="talents.length === 0" class="m-0 text-center">
             No Talents

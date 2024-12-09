@@ -15,12 +15,12 @@ export const NotebookPage = z.object({
     id: z.string().min(1),
     title: z.string().min(1),
     content: z.string().min(1),
-    notebookID: NotebookID
+    notebookID: NotebookID,
 });
 
 export const Notebook = z.object({
     id: NotebookID,
-    pages: z.array(NotebookPage).optional()
+    pages: z.array(NotebookPage).optional(),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -30,7 +30,7 @@ export const Notebook = z.object({
 export const RouteParams = z.object({
     noteID: NotebookID,
     pageID: z.string().min(1)
-        .optional()
+        .optional(),
 });
 
 export const NotebookFilter = z.object({
@@ -38,7 +38,7 @@ export const NotebookFilter = z.object({
     email: z.union([ z.string().email(), z.array(z.string().email()) ])
         .optional(),
     name: z.union([ z.string().min(1), z.array(z.string().min(1)) ])
-        .optional()
+        .optional(),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

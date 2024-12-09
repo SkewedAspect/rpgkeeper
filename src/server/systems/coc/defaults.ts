@@ -88,7 +88,7 @@ export const baseSkills : CoCSkill[] = [
 ];
 
 export const twentiesSkills : CoCSkill[] = [
-    ...baseSkills
+    ...baseSkills,
 ];
 
 export const modernSkills : CoCSkill[] = [
@@ -160,8 +160,8 @@ export default {
                 reference: 'Coc-IH:250',
                 official: true,
                 owner: null,
-                scope: 'public'
-            }
+                scope: 'public',
+            },
         ],
         backstory: {
             description: '',
@@ -181,7 +181,7 @@ export default {
             assets: '',
             spendingLevel: '',
         },
-    } satisfies CoCSystemDetails
+    } satisfies CoCSystemDetails,
 };
 
 //----------------------------------------------------------------------------------------------------------------------

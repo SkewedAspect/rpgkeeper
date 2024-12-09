@@ -68,7 +68,7 @@ router.post('/', ensureAuthenticated, async(req, resp) =>
         resp.status(422)
             .json({
                 type: 'InvalidCharacter',
-                message: `The character with id '${ char.id }' has an invalid or unknown system '${ char.system }'.`
+                message: `The character with id '${ char.id }' has an invalid or unknown system '${ char.system }'.`,
             });
     }
 });
@@ -102,7 +102,8 @@ router.patch('/:charID', ensureAuthenticated, async(req, resp) =>
             resp.status(422)
                 .json({
                     type: 'InvalidCharacter',
-                    message: `The character with id '${ char.id }' has an invalid or unknown system '${ char.system }'.`
+                    message: `The character with id '${ char.id }' has an invalid or unknown system `
+                        + `'${ char.system }'.`,
                 });
         }
     }
@@ -111,7 +112,7 @@ router.patch('/:charID', ensureAuthenticated, async(req, resp) =>
         resp.status(403)
             .json({
                 type: 'NotAuthorized',
-                message: `You are not authorized to update character '${ req.params.charID }'.`
+                message: `You are not authorized to update character '${ req.params.charID }'.`,
             });
     }
 });
@@ -150,7 +151,7 @@ router.delete('/:charID', ensureAuthenticated, async(req, resp) =>
         resp.status(403)
             .json({
                 type: 'NotAuthorized',
-                message: `You are not authorized to update character '${ req.params.charID }'.`
+                message: `You are not authorized to update character '${ req.params.charID }'.`,
             });
     }
 });

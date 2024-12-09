@@ -23,7 +23,12 @@ class SupplementResourceAccess
             .then(({ data }) => data);
     }
 
-    async search<T extends Supplement = Supplement>(system : string, path : string, query : string, key = 'name') : Promise<T>
+    async search<T extends Supplement = Supplement>(
+        system : string,
+        path : string,
+        query : string,
+        key = 'name'
+    ) : Promise<T>
     {
         const params = {};
         params[key] = `@>${ query }`;
@@ -41,7 +46,11 @@ class SupplementResourceAccess
             .then(({ data }) => data);
     }
 
-    async update<T extends Supplement = Supplement>(system : string, path : string, supplement : Supplement) : Promise<T>
+    async update<T extends Supplement = Supplement>(
+        system : string,
+        path : string,
+        supplement : Supplement
+    ) : Promise<T>
     {
         return axios.patch(`/api/systems/${ system }/${ path }/${ supplement.id }`, supplement)
             .then(({ data }) => data);

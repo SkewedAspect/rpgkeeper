@@ -8,24 +8,30 @@
         <template #header>
             <div class="d-flex">
                 <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <fa class="me-1" icon="book"></fa>
+                    <Fa class="me-1" icon="book" />
                     <span class="d-none d-md-inline">
                         Character Notes
                     </span>
                 </h5>
                 <div v-b-color-mode="'light'" class="ms-auto d-flex flex-nowrap">
-                    <BFormSelect v-model="pageIndex" class="me-2 d-md-none" :options="pageOptions" text-field="title" value-field="index"></BFormSelect>
+                    <BFormSelect
+                        v-model="pageIndex"
+                        class="me-2 d-md-none"
+                        :options="pageOptions"
+                        text-field="title"
+                        value-field="index"
+                    />
                     <BButtonToolbar class="flex-shrink-0 flex-grow-0 w-auto">
                         <BButton @click="openAddEditModal()">
-                            <fa icon="file-plus" fixed-width></fa>
+                            <Fa icon="file-plus" fixed-width />
                             <span class="d-none d-md-inline">New</span>
                         </BButton>
                         <BButton class="ms-2" :disabled="!currentPage" @click="openAddEditModal(currentPage)">
-                            <fa icon="edit" fixed-width></fa>
+                            <Fa icon="edit" fixed-width />
                             <span class="d-none d-md-inline">Edit</span>
                         </BButton>
                         <BButton class="ms-2" :disabled="!currentPage" @click="openDelModal(currentPage)">
-                            <fa icon="trash-alt" fixed-widt></fa>
+                            <Fa icon="trash-alt" fixed-widt />
                             <span class="d-none d-md-inline">Delete</span>
                         </BButton>
                     </BButtonToolbar>
@@ -36,7 +42,7 @@
         <!-- No Notes help text -->
         <div v-if="notes.pages.length < 1" class="card-body text-center">
             <h5>No pages found.</h5>
-            <i>To add a note, click the</i> <fa icon="file-plus"></fa> New <i>button above.</i>
+            <i>To add a note, click the</i> <Fa icon="file-plus" /> New <i>button above.</i>
         </div>
 
         <!-- Notes tabs -->
@@ -51,16 +57,16 @@
         >
             <BTab v-for="page in notes.pages" :key="page.id">
                 <template #title>
-                    <fa icon="file-alt"></fa>
+                    <Fa icon="file-alt" />
                     {{ page.title }}
                 </template>
-                <NotePage class="pe-2 pb-3" :content="page.content"></NotePage>
+                <NotePage class="pe-2 pb-3" :content="page.content" />
             </BTab>
         </BTabs>
 
         <!-- Modals -->
-        <AddEditModal ref="addEditModal" @save="onAddEditSave"></AddEditModal>
-        <DeleteModal ref="delModal" @delete="onDelete"></DeleteModal>
+        <AddEditModal ref="addEditModal" @save="onAddEditSave" />
+        <DeleteModal ref="delModal" @delete="onDelete" />
     </BCard>
 </template>
 
@@ -69,7 +75,7 @@
 <script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { ref, computed } from 'vue';
+    import { computed, ref } from 'vue';
 
     // Models
     import { NotebookPage } from '../../lib/models/notebook';

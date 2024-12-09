@@ -11,7 +11,7 @@
                 class="me-2 mt-2 flex-fill"
                 :talent="talentInst"
                 :readonly="readonly"
-            ></TalentCard>
+            />
         </div>
 
         <h5 v-if="talents.length === 0" class="m-0 text-center">
@@ -72,7 +72,7 @@
                 const talentBase = eoteMan.talents.find(({ id }) => id === talentInst.id);
                 return {
                     ...talentInst,
-                    name: talentBase?.name
+                    name: talentBase?.name,
                 };
             })
             .sort(sortBy('name'));
