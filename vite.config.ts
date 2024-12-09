@@ -63,6 +63,11 @@ export default defineConfig({
 
     // Remove charset warning caused by bootstrap
     css: {
+        preprocessorOptions: {
+            scss: {
+                quietDeps: true,
+            },
+        },
         postcss: {
             plugins: [
                 {
@@ -80,6 +85,7 @@ export default defineConfig({
             ],
         },
     },
+
     server: {
         host: config.http.host,
         port: config.http.port,
