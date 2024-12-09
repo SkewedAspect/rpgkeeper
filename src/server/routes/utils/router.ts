@@ -7,7 +7,7 @@ import path from 'path';
 
 import { BasicLogger } from '@strata-js/util-logging';
 import { NextFunction, Request, Response } from 'express';
-import { AppError } from '../../errors';
+import { AppError } from '../../errors.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -113,7 +113,7 @@ export function errorHandler(logger : BasicLogger) : ErrorMiddlewareFunction
 export function serveIndex(_request : Request, response : Response) : void
 {
     response.setHeader('Content-Type', 'text/html');
-    fs.createReadStream(path.resolve(__dirname, '..', '..', '..', 'client', 'index.html')).pipe(response);
+    fs.createReadStream(path.resolve(import.meta.dirname, '..', '..', '..', 'client', 'index.html')).pipe(response);
 }
 
 /**

@@ -2,8 +2,8 @@
 // Supplement Database Transform
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Supplement } from '../../../common/interfaces/models/supplement';
-import { camelCaseKeys, snakeCaseKeys } from '../../utils/misc';
+import { Supplement } from '../../../common/interfaces/models/supplement.js';
+import { camelCaseKeys, snakeCaseKeys } from '../../utils/misc.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

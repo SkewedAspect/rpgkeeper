@@ -51,8 +51,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="rating-input"
-                                v-model="forcePool.rating"
-                                number
+                                v-model.number="forcePool.rating"
                                 type="number"
                                 min="0"
                                 max="10"

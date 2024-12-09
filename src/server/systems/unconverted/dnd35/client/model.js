@@ -7,8 +7,8 @@ import _ from 'lodash';
 import Vue from 'vue';
 
 // Services
-import raceSvc from '../services/race';
-import classSvc from '../services/class';
+import raceSvc from '../services/race.js';
+import classSvc from '../services/class.js';
 
 // Base Model
 import BaseSystemCharacterModel from '../../../client/components/character/BaseSystemCharacterModel';

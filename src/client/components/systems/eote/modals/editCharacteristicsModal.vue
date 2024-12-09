@@ -34,8 +34,7 @@
                             <BInputGroup>
                                 <BFormInput
                                     :id="`${ char }-input`"
-                                    v-model="characteristics[char]"
-                                    number
+                                    v-model.number="characteristics[char]"
                                     type="number"
                                     step="1"
                                     min="0"
@@ -62,8 +61,7 @@
                             <BInputGroup>
                                 <BFormInput
                                     :id="`${ char }-input`"
-                                    v-model="characteristics[char]"
-                                    number
+                                    v-model.number="characteristics[char]"
                                     type="number"
                                     step="1"
                                     min="0"

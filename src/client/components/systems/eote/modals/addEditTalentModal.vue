@@ -76,8 +76,7 @@
                     >
                         <BFormInput
                             id="tiers-input"
-                            v-model="tier"
-                            number
+                            v-model.number="tier"
                             type="number"
                             step="1"
                             min="1"

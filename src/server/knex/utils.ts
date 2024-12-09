@@ -4,10 +4,10 @@
 
 import _ from 'lodash';
 import { Knex } from 'knex';
-import { FilterToken } from '../routes/utils/query';
+import { FilterToken } from '../routes/utils/query.js';
 
 import logging from '@strata-js/util-logging';
-const logger = logging.getLogger(module.filename);
+const logger = logging.getLogger('knex util');
 
 //----------------------------------------------------------------------------------------------------------------------
 

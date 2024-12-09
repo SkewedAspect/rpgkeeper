@@ -53,8 +53,7 @@
                             >
                                 <BFormInput
                                     id="min-rating-input"
-                                    v-model="minRating"
-                                    number
+                                    v-model.number="minRating"
                                     type="number"
                                     min="0"
                                     step="1"

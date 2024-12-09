@@ -26,8 +26,7 @@
             <!-- Modal Content -->
             <div v-for="(skill, index) in skills" :key="index" class="d-flex mb-2">
                 <BFormInput
-                    v-model="skill.value"
-                    number
+                    v-model.number="skill.value"
                     type="number"
                     min="1"
                     max="99"
@@ -49,8 +48,7 @@
             >
                 <div class="d-flex">
                     <BFormInput
-                        v-model="newValue"
-                        number
+                        v-model.number="newValue"
                         type="number"
                         min="1"
                         max="99"
@@ -113,7 +111,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const skills = ref<Record<string, unknown>[]>([]);
+    const skills = ref<WFRPSkill[]>([]);
     const newValue = ref<number>(1);
     const newDesc = ref<string>('');
 

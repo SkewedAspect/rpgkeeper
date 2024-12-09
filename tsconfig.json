@@ -1,16 +1,17 @@
 {
     "compilerOptions": {
-        "target": "ES2020",
-        "module": "CommonJS",
-        "lib": [ "ES2020" ],
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": [ "ES2023" ],
         "skipLibCheck": true,
         "useDefineForClassFields": true,
 
         /* Bundler mode */
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
+        "esModuleInterop": true,
         "noEmit": true,
         "jsx": "preserve",
 
@@ -21,11 +22,11 @@
         "noFallthroughCasesInSwitch": true
     },
     "include": [
-        "vite.config.ts",
-        "knexfile.ts"
+        "src",
+        "vite.config.ts"
     ],
     "references": [
+        { "path": "./src/server/tsconfig.json" },
         { "path": "./src/client/tsconfig.json" },
-        { "path": "./src/server/tsconfig.json" }
     ]
 }

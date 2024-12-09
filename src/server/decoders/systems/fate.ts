@@ -5,10 +5,10 @@
 import { array, boolean, object, optional, positiveInteger, string } from 'decoders';
 
 // Defaults
-import defaults from '../../systems/fate/defaults';
+import defaults from '../../systems/fate/defaults.js';
 
 // Utils
-import { arrayWithLength, enumStr, stringWithLength, withDefault } from '../utils';
+import { arrayWithLength, enumStr, stringWithLength, withDefault } from '../utils.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

@@ -61,8 +61,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="total-input"
-                                v-model="experience.total"
-                                number
+                                v-model.number="experience.total"
                                 type="number"
                                 min="0"
                                 step="1"
@@ -86,8 +85,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="available-input"
-                                v-model="experience.available"
-                                number
+                                v-model.number="experience.available"
                                 type="number"
                                 min="0"
                                 step="1"

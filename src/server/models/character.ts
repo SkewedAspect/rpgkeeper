@@ -5,11 +5,11 @@
 import * as JsonDecoder from 'decoders';
 
 // Models
-import { CharacterOptions, SystemDetails } from '../../common/interfaces/models/character';
+import { CharacterOptions, SystemDetails } from '../../common/interfaces/models/character.js';
 
 // Decoders
-import { characterJsonDecoder, characterRecDecoder } from '../decoders/character';
-import { sysDetailsDecoder } from '../decoders/systems';
+import { characterJsonDecoder, characterRecDecoder } from '../decoders/character.js';
+import { sysDetailsDecoder } from '../decoders/systems/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

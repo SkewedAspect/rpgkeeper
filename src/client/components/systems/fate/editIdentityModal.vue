@@ -45,8 +45,7 @@
             >
                 <BFormInput
                     id="fp-input"
-                    v-model="innerIdent.refresh"
-                    number
+                    v-model.number="innerIdent.refresh"
                     type="number"
                     min="0"
                     step="1"

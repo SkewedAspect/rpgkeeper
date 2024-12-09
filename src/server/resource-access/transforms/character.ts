@@ -2,7 +2,7 @@
 // Character Database Transform
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Character } from '../../../common/interfaces/models/character';
+import { Character } from '../../../common/interfaces/models/character.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

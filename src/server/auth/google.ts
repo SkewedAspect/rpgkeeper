@@ -8,13 +8,13 @@ import GoogleStrategy from 'passport-google-oauth20';
 import logging from '@strata-js/util-logging';
 
 // We just need to import this somewhere; here makes sense.
-import './serialization';
+import './serialization.js';
 
 // Interfaces
-import { ServerConfig } from '../../common/interfaces/config';
+import { ServerConfig } from '../../common/interfaces/config.js';
 
 // Managers
-import * as accountMan from '../managers/account';
+import * as accountMan from '../managers/account.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

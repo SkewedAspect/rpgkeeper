@@ -5,21 +5,21 @@
 import express from 'express';
 
 // Managers
-import * as permMan from '../../utils/permissions';
-import systemRA from '../../resource-access/system';
+import * as permMan from '../../utils/permissions.js';
+import systemRA from '../../resource-access/system.js';
 
 // Utils
-import { errorHandler, interceptHTML } from '../utils';
+import { errorHandler, interceptHTML } from '../utils/index.js';
 
 // Sub-routes
-import cocRouter from './coc';
-import eoteRouter from './eote';
-import genRouter from './genesys';
+import cocRouter from './coc.js';
+import eoteRouter from './eote.js';
+import genRouter from './genesys.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 import logging from '@strata-js/util-logging';
-const logger = logging.getLogger(module.filename);
+const logger = logging.getLogger('system router');
 
 const router = express.Router();
 

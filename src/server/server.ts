@@ -18,33 +18,33 @@ import logging from '@strata-js/util-logging';
 import { Server as SIOServer } from 'socket.io';
 
 // Managers
-import * as rolesMan from './managers/role';
-import * as permsUtil from './utils/permissions';
+import * as rolesMan from './managers/role.js';
+import * as permsUtil from './utils/permissions.js';
 
 // Session Store
 import { ConnectSessionKnexStore } from 'connect-session-knex';
 
 // Auth
-import GoogleAuth from './auth/google';
+import GoogleAuth from './auth/google.js';
 
 // Interfaces
-import { ServerConfig } from '../common/interfaces/config';
+import { ServerConfig } from '../common/interfaces/config.js';
 
 // Routes
-import authRouter from './routes/auth';
-import noteRouter from './routes/notebook';
-import charRouter from './routes/characters';
-import sysRouter from './routes/systems';
-import accountsRouter from './routes/accounts';
-import rolesRouter from './routes/roles';
-import versionRouter from './routes/version';
+import authRouter from './routes/auth.js';
+import noteRouter from './routes/notebook.js';
+import charRouter from './routes/characters.js';
+import sysRouter from './routes/systems/index.js';
+import accountsRouter from './routes/accounts.js';
+import rolesRouter from './routes/roles.js';
+import versionRouter from './routes/version.js';
 
 // Utils
-import { errorLogger, requestLogger, serveIndex } from './routes/utils';
-import { setSIOInstance } from './utils/sio';
-import program from './utils/args';
-import { getVersion } from './utils/version';
-import { getDB, runMigrations } from './utils/database';
+import { errorLogger, requestLogger, serveIndex } from './routes/utils/index.js';
+import { setSIOInstance } from './utils/sio.js';
+import program from './utils/args.js';
+import { getVersion } from './utils/version.js';
+import { getDB, runMigrations } from './utils/database.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Server Configuration
@@ -150,7 +150,7 @@ async function main() : Promise<void>
     //------------------------------------------------------------------------------------------------------------------
 
     // Setup static serving
-    app.use(express.static(resolve(__dirname, '..', 'client')));
+    app.use(express.static(resolve(import.meta.dirname, '..', 'client')));
 
     // Core Application Routes
     app.use('/auth', authRouter);

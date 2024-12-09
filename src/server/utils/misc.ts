@@ -2,8 +2,6 @@
 // Simple utility functions
 //----------------------------------------------------------------------------------------------------------------------
 
-import { camelCase, mapKeys, snakeCase } from 'lodash';
-
 import { customAlphabet } from 'nanoid';
 import { alphanumeric } from 'nanoid-dictionary';
 
@@ -32,17 +30,24 @@ export function shortID() : string
  */
 export function camelCaseKeys<T>(obj : Record<string, T>) : Record<string, T>
 {
-    return mapKeys(obj, (_val, key) =>
+    const result : Record<string, T> = {};
+    for(const key in obj)
     {
-        if(key.endsWith('_id'))
+        if(Object.prototype.hasOwnProperty.call(obj, key))
         {
-            return key.replace(/_id/g, 'ID');
+            let newKey = key;
+            if(key.endsWith('_id'))
+            {
+                newKey = key.replace(/_id/g, 'ID');
+            }
+            else
+            {
+                newKey = key.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+            }
+            result[newKey] = obj[key];
         }
-        else
-        {
-            return camelCase(key);
-        }
-    });
+    }
+    return result;
 }
 
 /**
@@ -54,17 +59,24 @@ export function camelCaseKeys<T>(obj : Record<string, T>) : Record<string, T>
  */
 export function snakeCaseKeys<T>(obj : Record<string, T>) : Record<string, T>
 {
-    return mapKeys(obj, (_val, key) =>
+    const result : Record<string, T> = {};
+    for(const key in obj)
     {
-        if(key.endsWith('ID'))
+        if(Object.prototype.hasOwnProperty.call(obj, key))
         {
-            return key.replace(/ID$/, '_id');
+            let newKey = key;
+            if(key.endsWith('ID'))
+            {
+                newKey = key.replace(/ID$/, '_id');
+            }
+            else
+            {
+                newKey = key.replace(/[A-Z]/g, (letter) => `_${ letter.toLowerCase() }`);
+            }
+            result[newKey] = obj[key];
         }
-        else
-        {
-            return snakeCase(key);
-        }
-    });
+    }
+    return result;
 }
 
 /**

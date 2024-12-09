@@ -3,16 +3,16 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Reference } from '../../common/interfaces/models/reference';
+import { Reference } from '../../common/interfaces/models/reference.js';
 
 // Transforms
-import * as ReferenceTrans from './transforms/reference';
+import * as ReferenceTrans from './transforms/reference.js';
 
 // Utils
-import { isEmpty } from '../utils/misc';
-import { getDB } from '../utils/database';
-import { applyFilters } from '../knex/utils';
-import { FilterToken } from '../routes/utils';
+import { isEmpty } from '../utils/misc.js';
+import { getDB } from '../utils/database.js';
+import { applyFilters } from '../knex/utils.js';
+import { FilterToken } from '../routes/utils/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

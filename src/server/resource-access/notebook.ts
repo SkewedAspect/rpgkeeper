@@ -3,15 +3,15 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Notebook, NotebookPage } from '../../common/interfaces/models/notebook';
+import { Notebook, NotebookPage } from '../../common/interfaces/models/notebook.js';
 
 // Transforms
-import * as NoteTransforms from './transforms/notebook';
+import * as NoteTransforms from './transforms/notebook.js';
 
 // Utils
-import { getDB } from '../utils/database';
-import { shortID } from '../utils/misc';
-import { MultipleResultsError, NotFoundError } from '../errors';
+import { getDB } from '../utils/database.js';
+import { shortID } from '../utils/misc.js';
+import { MultipleResultsError, NotFoundError } from '../errors.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

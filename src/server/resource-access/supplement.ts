@@ -7,24 +7,24 @@ import { Knex } from 'knex';
 import logging from '@strata-js/util-logging';
 
 // Models
-import { Account } from '../../common/interfaces/models/account';
-import { Supplement } from '../../common/interfaces/models/supplement';
+import { Account } from '../../common/interfaces/models/account.js';
+import { Supplement } from '../../common/interfaces/models/supplement.js';
 
 // Transforms
-import * as SuppTransforms from '../resource-access/transforms/supplement';
+import * as SuppTransforms from '../resource-access/transforms/supplement.js';
 
 // Utilities
-import { getDB } from '../utils/database';
-import { hasPerm } from '../utils/permissions';
-import { applyFilters } from '../knex/utils';
-import { FilterToken } from '../routes/utils';
+import { getDB } from '../utils/database.js';
+import { hasPerm } from '../utils/permissions.js';
+import { applyFilters } from '../knex/utils.js';
+import { FilterToken } from '../routes/utils/index.js';
 
 // Errors
-import { DuplicateSupplementError, MultipleResultsError, NotAuthorizedError, NotFoundError } from '../errors';
+import { DuplicateSupplementError, MultipleResultsError, NotAuthorizedError, NotFoundError } from '../errors.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const logger = logging.getLogger(module.filename);
+const logger = logging.getLogger('supplement router');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -145,7 +145,7 @@ export async function get(id : number, type : string, systemPrefix : string, acc
 
 export async function list(
     filters : Record<string, FilterToken>,
-    type : string, 
+    type : string,
     systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement[]>
@@ -181,7 +181,7 @@ export async function exists(id : number, type : string, systemPrefix : string, 
 
 export async function add(
     newSupplement : Supplement,
-    type : string, 
+    type : string,
     systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement>
@@ -226,7 +226,7 @@ export async function update(
     id : number,
     updateSup : Partial<Supplement>,
     type : string,
-    systemPrefix : string, 
+    systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement>
 {

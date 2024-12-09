@@ -5,15 +5,15 @@
 import express from 'express';
 
 // Managers
-import * as refMan from '../../managers/reference';
+import * as refMan from '../../managers/reference.js';
 
 // Utils
-import { buildSupplementRoute } from './utils/supplement';
-import { convertQueryToRecord, errorHandler, parseQuery } from '../utils';
+import { buildSupplementRoute } from './utils/supplement.js';
+import { convertQueryToRecord, errorHandler, parseQuery } from '../utils/index.js';
 
 // Logger
 import logging from '@strata-js/util-logging';
-const logger = logging.getLogger(module.filename);
+const logger = logging.getLogger('genysys router');
 
 //----------------------------------------------------------------------------------------------------------------------
 

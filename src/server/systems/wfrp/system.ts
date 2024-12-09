@@ -3,13 +3,13 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-import { BaseSystem } from '../base';
+import { BaseSystem } from '../base.js';
 
 // Models
-import { SupportStatus } from '../../../common/interfaces/common';
+import { SupportStatus } from '../../../common/interfaces/common.js';
 
 // Defaults
-import defaults from './defaults';
+import defaults from './defaults.js';
 
 // Logger
 import logging from '@strata-js/util-logging';

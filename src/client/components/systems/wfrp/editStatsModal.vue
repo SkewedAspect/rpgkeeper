@@ -26,8 +26,7 @@
             <!-- Modal Content -->
             <div v-for="(stat, index) in stats" :key="index" class="d-flex mb-2">
                 <BFormInput
-                    v-model="stat.value"
-                    number
+                    v-model.number="stat.value"
                     type="number"
                     min="1"
                     max="99"
@@ -49,8 +48,7 @@
             >
                 <div class="d-flex">
                     <BFormInput
-                        v-model="newValue"
-                        number
+                        v-model.number="newValue"
                         type="number"
                         min="1"
                         max="99"

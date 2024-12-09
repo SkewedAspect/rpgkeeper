@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { inexact, object, optional, string } from 'decoders';
-import { hexColor, jsonObjectString, nullToUndefined, stringWithLength, withDefault } from './utils';
+import { hexColor, jsonObjectString, nullToUndefined, stringWithLength, withDefault } from './utils.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

@@ -34,8 +34,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="soak-input"
-                                v-model="defenses.soak"
-                                number
+                                v-model.number="defenses.soak"
                                 type="number"
                                 min="0"
                                 max="10"
@@ -60,8 +59,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="melee-input"
-                                v-model="defenses.melee"
-                                number
+                                v-model.number="defenses.melee"
                                 type="number"
                                 min="0"
                                 max="10"
@@ -86,8 +84,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="ranged-input"
-                                v-model="defenses.ranged"
-                                number
+                                v-model.number="defenses.ranged"
                                 type="number"
                                 min="0"
                                 max="10"

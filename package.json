@@ -2,6 +2,7 @@
   "name": "rpgkeeper",
   "version": "3.3.0-alpha.0",
   "description": "A site for managing your digital character sheets.",
+  "type": "module",
   "main": "dist/server/server.js",
   "scripts": {
     "start": "node ./dist/server/server.js",

@@ -3,22 +3,22 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Character } from '../../common/interfaces/models/character';
+import { Character } from '../../common/interfaces/models/character.js';
 
 // Transforms
-import * as CharTransforms from './transforms/character';
+import * as CharTransforms from './transforms/character.js';
 
 // Resource Access
-import systemRA from './system';
+import systemRA from './system.js';
 
 // Utils
-import { getDB } from '../utils/database';
-import { FilterToken } from '../routes/utils';
-import { applyFilters } from '../knex/utils';
-import { shortID, snakeCaseKeys } from '../utils/misc';
-import { broadcast } from '../utils/sio';
+import { getDB } from '../utils/database.js';
+import { FilterToken } from '../routes/utils/index.js';
+import { applyFilters } from '../knex/utils.js';
+import { shortID, snakeCaseKeys } from '../utils/misc.js';
+import { broadcast } from '../utils/sio.js';
 
-import { MultipleResultsError, NotFoundError } from '../errors';
+import { MultipleResultsError, NotFoundError } from '../errors.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -5,10 +5,10 @@
 import { Decoder, fail } from 'decoders';
 
 // System Decoders
-import { wfrpSysDetailsDecoder } from './wfrp';
-import { risusSysDetailsDecoder } from './risus';
-import { fateSysDetailsDecoder } from './fate';
-import { eoteSysDetailsDecoder, genesysSysDetailsDecoder } from './eote';
+import { wfrpSysDetailsDecoder } from './wfrp.js';
+import { risusSysDetailsDecoder } from './risus.js';
+import { fateSysDetailsDecoder } from './fate.js';
+import { eoteSysDetailsDecoder, genesysSysDetailsDecoder } from './eote.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

@@ -26,8 +26,7 @@
             <!-- Modal Content -->
             <div v-for="(cliche, index) in cliches" :key="index" class="d-flex mb-2">
                 <BFormInput
-                    v-model="cliche.value"
-                    number
+                    v-model.number="cliche.value"
                     type="number"
                     min="1"
                     max="99"
@@ -50,8 +49,7 @@
             >
                 <div class="d-flex">
                     <BFormInput
-                        v-model="newValue"
-                        number
+                        v-model.number="newValue"
                         type="number"
                         min="1"
                         max="99"

@@ -5,7 +5,7 @@
 import { Router } from 'express';
 
 // Utils
-import { getVersion } from '../utils/version';
+import { getVersion } from '../utils/version.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

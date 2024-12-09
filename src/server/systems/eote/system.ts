@@ -3,18 +3,18 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-import { BaseSystem } from '../base';
+import { BaseSystem } from '../base.js';
 
 // Models
-import { SupportStatus } from '../../../common/interfaces/common';
-import { Character } from '../../models/character';
-import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote';
+import { SupportStatus } from '../../../common/interfaces/common.js';
+import { Character } from '../../models/character.js';
+import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote.js';
 
 // Validations
-import { validateEoteDetails, validateGenesysDetails } from './validations';
+import { validateEoteDetails, validateGenesysDetails } from './validations.js';
 
 // Defaults
-import defaults from './defaults';
+import defaults from './defaults.js';
 
 // Logger
 import logging from '@strata-js/util-logging';

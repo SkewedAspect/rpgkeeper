@@ -5,17 +5,17 @@
 import express from 'express';
 
 // Managers
-import * as accountMan from '../managers/account';
-import * as charMan from '../managers/character';
-import * as permsMan from '../utils/permissions';
-import sysMan from '../resource-access/system';
+import * as accountMan from '../managers/account.js';
+import * as charMan from '../managers/character.js';
+import * as permsMan from '../utils/permissions.js';
+import sysMan from '../resource-access/system.js';
 
 // Utils
-import { convertQueryToRecord, ensureAuthenticated, errorHandler, interceptHTML, parseQuery } from './utils';
+import { convertQueryToRecord, ensureAuthenticated, errorHandler, interceptHTML, parseQuery } from './utils/index.js';
 
 // Logger
 import logging from '@strata-js/util-logging';
-const logger = logging.getLogger(module.filename);
+const logger = logging.getLogger('characters router');
 
 //----------------------------------------------------------------------------------------------------------------------
 

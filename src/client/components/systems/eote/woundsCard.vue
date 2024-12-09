@@ -70,8 +70,7 @@
         </BButtonGroup>
         <BInputGroup class="mt-1 text-nowrap flex-nowrap">
             <BFormInput
-                v-model="woundsInput"
-                number
+                v-model.number="woundsInput"
                 type="number"
                 min="0"
                 step="1"
@@ -111,8 +110,7 @@
         </BInputGroup>
         <BInputGroup class="mt-1">
             <BFormInput
-                v-model="strainInput"
-                number
+                v-model.number="strainInput"
                 type="number"
                 min="0"
                 step="1"

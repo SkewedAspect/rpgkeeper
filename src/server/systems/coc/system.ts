@@ -3,14 +3,14 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-import { BaseSystem } from '../base';
+import { BaseSystem } from '../base.js';
 
 // Defaults
-import defaults from './defaults';
+import defaults from './defaults.js';
 
 // Logger
 import logging from '@strata-js/util-logging';
-import { SupportStatus } from '../../../common/interfaces/models/system';
+import { SupportStatus } from '../../../common/interfaces/models/system.js';
 
 const logger = logging.getLogger('fate-system');
 

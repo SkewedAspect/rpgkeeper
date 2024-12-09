@@ -3,14 +3,14 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from '../../common/interfaces/models/account';
-import { Supplement } from '../../common/interfaces/models/supplement';
+import { Account } from '../../common/interfaces/models/account.js';
+import { Supplement } from '../../common/interfaces/models/supplement.js';
 
 // Resource Access
-import * as suppRA from '../resource-access/supplement';
+import * as suppRA from '../resource-access/supplement.js';
 
 // Utilities
-import { FilterToken } from '../routes/utils';
+import { FilterToken } from '../routes/utils/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

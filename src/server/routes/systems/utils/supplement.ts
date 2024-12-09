@@ -5,14 +5,14 @@
 import { IRouter } from 'express';
 
 // Managers
-import * as suppMan from '../../../managers/supplement';
+import * as suppMan from '../../../managers/supplement.js';
 
 // Validation
-import * as SuppValidators from '../../../engines/validation/models/supplement';
-import { processRequest, validationErrorHandler } from '../../../engines/validation/express';
+import * as SuppValidators from '../../../engines/validation/models/supplement.js';
+import { processRequest, validationErrorHandler } from '../../../engines/validation/express.js';
 
 // Utils
-import { convertQueryToRecord, ensureAuthenticated, parseQuery } from '../../utils';
+import { convertQueryToRecord, ensureAuthenticated, parseQuery } from '../../utils/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

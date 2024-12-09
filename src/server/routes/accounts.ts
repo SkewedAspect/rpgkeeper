@@ -6,20 +6,20 @@ import express from 'express';
 import logging from '@strata-js/util-logging';
 
 // Managers
-import * as accountMan from '../managers/account';
-import * as permsMan from '../utils/permissions';
+import * as accountMan from '../managers/account.js';
+import * as permsMan from '../utils/permissions.js';
 
 // Validation
-import * as AccountValidators from '../engines/validation/models/account';
-import { processRequest, validationErrorHandler } from '../engines/validation/express';
+import * as AccountValidators from '../engines/validation/models/account.js';
+import { processRequest, validationErrorHandler } from '../engines/validation/express.js';
 
 // Utils
-import { ensureAuthenticated, errorHandler } from './utils';
+import { ensureAuthenticated, errorHandler } from './utils/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 const router = express.Router();
-const logger = logging.getLogger(module.filename);
+const logger = logging.getLogger('accounts router');
 
 //----------------------------------------------------------------------------------------------------------------------
 

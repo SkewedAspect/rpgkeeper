@@ -44,14 +44,13 @@
                 >
                     <!-- FIXME: The 'number' modifier is broken with <BFormInput> -->
                     <BFormInput
-                        v-model="char.details.advancementPoints"
+                        v-model.number="char.details.advancementPoints"
                         class="form-control"
                         type="number"
                         min="0"
                         max="9999"
                         step="1"
                         :disabled="readonly"
-                        number
                         @change="onChange"
                     />
                 </BFormGroup>
@@ -63,13 +62,12 @@
                     label-class="fw-bold"
                 >
                     <BFormInput
-                        v-model="char.details.ffDice"
+                        v-model.number="char.details.ffDice"
                         type="number"
                         min="0"
                         max="9999"
                         step="1"
                         :disabled="readonly"
-                        number
                         @change="onChange"
                     />
                 </BFormGroup>

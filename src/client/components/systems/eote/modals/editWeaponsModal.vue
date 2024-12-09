@@ -82,8 +82,7 @@
                     >
                         <BFormInput
                             id="skill-damage"
-                            v-model="editWeapon.damage"
-                            number
+                            v-model.number="editWeapon.damage"
                             type="number"
                             min="0"
                             step="0"
@@ -97,8 +96,7 @@
                     >
                         <BFormInput
                             id="skill-critical"
-                            v-model="editWeapon.criticalRating"
-                            number
+                            v-model.number="editWeapon.criticalRating"
                             type="number"
                             min="0"
                             step="0"
@@ -112,8 +110,7 @@
                     >
                         <BFormInput
                             id="skill-encumbrance"
-                            v-model="editWeapon.encumbrance"
-                            number
+                            v-model.number="editWeapon.encumbrance"
                             type="number"
                             min="0"
                             step="0"
@@ -127,8 +124,7 @@
                     >
                         <BFormInput
                             id="skill-rarity"
-                            v-model="editWeapon.rarity"
-                            number
+                            v-model.number="editWeapon.rarity"
                             type="number"
                             min="0"
                             step="0"

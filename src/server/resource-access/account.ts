@@ -3,17 +3,17 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account, NewAccount } from '../../common/interfaces/models/account';
+import { Account, NewAccount } from '../../common/interfaces/models/account.js';
 
 // Transforms
-import * as AccountTransforms from './transforms/account';
+import * as AccountTransforms from './transforms/account.js';
 
 // Utils
-import { getDB } from '../utils/database';
-import { shortID } from '../utils/misc';
+import { getDB } from '../utils/database.js';
+import { shortID } from '../utils/misc.js';
 
 // Errors
-import { MultipleResultsError, NotFoundError } from '../errors';
+import { MultipleResultsError, NotFoundError } from '../errors.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

@@ -34,8 +34,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="wounds-input"
-                                v-model="health.wounds"
-                                number
+                                v-model.number="health.wounds"
                                 type="number"
                                 min="0"
                                 max="99"
@@ -60,8 +59,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="wound-threshold-input"
-                                v-model="health.woundThreshold"
-                                number
+                                v-model.number="health.woundThreshold"
                                 type="number"
                                 min="0"
                                 max="99"
@@ -86,8 +84,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="strain-input"
-                                v-model="health.strain"
-                                number
+                                v-model.number="health.strain"
                                 type="number"
                                 min="0"
                                 max="99"
@@ -112,8 +109,7 @@
                         <BInputGroup>
                             <BFormInput
                                 id="strain-threshold-input"
-                                v-model="health.strainThreshold"
-                                number
+                                v-model.number="health.strainThreshold"
                                 type="number"
                                 min="0"
                                 max="99"

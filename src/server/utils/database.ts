@@ -5,7 +5,7 @@
 import knex, { Knex } from 'knex';
 import configUtil from '@strata-js/util-config';
 import logging from '@strata-js/util-logging';
-import { DatabaseConfig, ServerConfig } from '../../common/interfaces/config';
+import { DatabaseConfig, ServerConfig } from '../../common/interfaces/config.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

@@ -5,11 +5,11 @@
 import { z } from 'zod';
 
 // Models
-import { HashID } from './common';
+import { HashID } from './common.js';
 
 // Utils
-import { cssColorRegEx, jsonSchema } from '../utils';
-import { AccountID } from './account';
+import { cssColorRegEx, jsonSchema } from '../utils.js';
+import { AccountID } from './account.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

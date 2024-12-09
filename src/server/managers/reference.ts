@@ -3,13 +3,13 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Reference } from '../../common/interfaces/models/reference';
+import { Reference } from '../../common/interfaces/models/reference.js';
 
 // Resource Access
-import * as referenceRA from '../resource-access/reference';
+import * as referenceRA from '../resource-access/reference.js';
 
 // Utilities
-import { FilterToken } from '../routes/utils';
+import { FilterToken } from '../routes/utils/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

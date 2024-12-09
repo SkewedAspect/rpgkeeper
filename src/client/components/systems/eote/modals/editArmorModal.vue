@@ -48,8 +48,7 @@
                     >
                         <BFormInput
                             id="armor-hardpoints"
-                            v-model="editArmor.hardpoints"
-                            number
+                            v-model.number="editArmor.hardpoints"
                             type="number"
                             min="0"
                             step="0"
@@ -66,8 +65,7 @@
                     >
                         <BFormInput
                             id="armor-damage"
-                            v-model="editArmor.defense"
-                            number
+                            v-model.number="editArmor.defense"
                             type="number"
                             min="0"
                             step="0"
@@ -81,8 +79,7 @@
                     >
                         <BFormInput
                             id="armor-critical"
-                            v-model="editArmor.soak"
-                            number
+                            v-model.number="editArmor.soak"
                             type="number"
                             min="0"
                             step="0"
@@ -96,8 +93,7 @@
                     >
                         <BFormInput
                             id="armor-encumbrance"
-                            v-model="editArmor.encumbrance"
-                            number
+                            v-model.number="editArmor.encumbrance"
                             type="number"
                             min="0"
                             step="0"
@@ -111,8 +107,7 @@
                     >
                         <BFormInput
                             id="armor-rarity"
-                            v-model="editArmor.rarity"
-                            number
+                            v-model.number="editArmor.rarity"
                             type="number"
                             min="0"
                             step="0"

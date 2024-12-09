@@ -151,9 +151,6 @@
     const route = useRoute();
     const pageError = ref<Error | null>(null);
 
-    // eslint-disable-next-line @stylistic/max-len
-    const bugLink = `https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system '${ charactersStore.current.system }'.&labels=bug`;
-
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
@@ -168,6 +165,12 @@
         return !!account.value
             && !!char.value
             && (account.value.id || 'nope!') === char.value.accountID;
+    });
+
+    const bugLink = computed(() =>
+    {
+        return 'https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system \''
+            + `${ char.value.system }'.&labels=bug`;
     });
 
     //------------------------------------------------------------------------------------------------------------------

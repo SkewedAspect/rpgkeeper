@@ -3,12 +3,12 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from '../../../common/interfaces/models/account';
-import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote';
+import { Account } from '../../../common/interfaces/models/account.js';
+import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote.js';
 
 // Managers
-import * as accountMan from '../../managers/account';
-import * as suppMan from '../../managers/supplement';
+import * as accountMan from '../../managers/account.js';
+import * as suppMan from '../../managers/supplement.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

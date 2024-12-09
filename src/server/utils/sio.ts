@@ -5,7 +5,7 @@
 import { Server } from 'socket.io';
 
 // Interfaces
-import { RPGKMessage } from '../../common/interfaces/common';
+import { RPGKMessage } from '../../common/interfaces/common.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

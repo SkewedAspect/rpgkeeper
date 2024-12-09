@@ -3,13 +3,14 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { array, object } from 'decoders';
-import { nonEmptyString } from 'decoders/string';
+import * as decoders from 'decoders';
+const nonEmptyString = decoders.nonEmptyString;
 
 // Defaults
-import defaults from '../../systems/wfrp/defaults';
+import defaults from '../../systems/wfrp/defaults.js';
 
 // Utils
-import { boundedInteger, withDefault } from '../utils';
+import { boundedInteger, withDefault } from '../utils.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

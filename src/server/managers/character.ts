@@ -3,16 +3,16 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Managers
-import * as notebookMan from './notebook';
+import * as notebookMan from './notebook.js';
 
 // Models
-import { Character } from '../../common/interfaces/models/character';
+import { Character } from '../../common/interfaces/models/character.js';
 
 // Resource Access
-import * as characterRA from '../resource-access/character';
+import * as characterRA from '../resource-access/character.js';
 
 // Utils
-import { FilterToken } from '../routes/utils';
+import { FilterToken } from '../routes/utils/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

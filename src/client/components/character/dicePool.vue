@@ -64,12 +64,11 @@
             >
                 <BFormInput
                     id="max-input"
-                    v-model="editMax"
+                    v-model.number="editMax"
                     type="number"
                     min="0"
                     max="9999999"
                     step="1"
-                    number
                 />
             </BFormGroup>
 

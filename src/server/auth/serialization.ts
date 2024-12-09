@@ -5,10 +5,10 @@
 import passport from 'passport';
 
 // Managers
-import * as accountMan from '../managers/account';
+import * as accountMan from '../managers/account.js';
 
 // Models
-import { Account } from '../../common/interfaces/models/account';
+import { Account } from '../../common/interfaces/models/account.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

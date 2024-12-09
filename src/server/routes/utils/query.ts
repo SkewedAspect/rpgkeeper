@@ -2,10 +2,13 @@
 // A module for casting query parameters to something useful, and generating a filter out of them.
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
 import { Request } from 'express';
+
 import logging from '@strata-js/util-logging';
-const logger = logging.getLogger(module.filename);
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const logger = logging.getLogger('query-util');
 
 //----------------------------------------------------------------------------------------------------------------------
 // Types/Interfaces
@@ -14,7 +17,8 @@ const logger = logging.getLogger(module.filename);
 export type JSONPrimitive = string | number | boolean;
 // eslint-disable-next-line no-use-before-define
 export type JSONValue = JSONPrimitive | JSONObject | JSONArray;
-export type JSONObject = Record<string, JSONValue>;
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface JSONObject extends Record<string, JSONValue> {}
 export type JSONArray = JSONValue[];
 
 /**
@@ -83,7 +87,7 @@ function detectParam(value : string) : QueryFilterVal
     {
         return castParam(Boolean, value);
     }
-    else if(_.includes(value, ','))
+    else if(value.includes(','))
     {
         return castParam(Array, value);
     }
@@ -92,7 +96,7 @@ function detectParam(value : string) : QueryFilterVal
         // Attempt converting to a number
         const tmp = castParam(Number, value);
 
-        if(!_.isNaN(tmp))
+        if(!isNaN(tmp as number))
         {
             return tmp;
         }
@@ -167,7 +171,7 @@ function arrayFilter(queryVal : QueryFilterVal) : (modelVal : QueryFilterVal) =>
     {
         if(Array.isArray(modelVal) && Array.isArray(queryVal))
         {
-            return !_.isEqual(modelVal, _.difference(modelVal, queryVal));
+            return modelVal.every((val) => queryVal.includes(val));
         }
         else
         {
@@ -243,51 +247,46 @@ export function convertQueryToRecord(request : Request) : Record<string, string 
 export function parseQuery(queryObj : Record<string, string | string[]>) : Record<string, FilterToken>
 {
     const parseTree = {};
-    _.forIn(queryObj, (value : string | string[], key : string) =>
+    for(const [ key, value ] of Object.entries(queryObj))
     {
         // Convert arrays into single strings
-        if(Array.isArray(value))
-        {
-            value = value.join(',');
-        }
+        let val = Array.isArray(value) ? value.join(',') : value;
 
         // Check for greater than or less than
-        if(value.substr(0, 2) === '>=')
+        if(val.startsWith('>='))
         {
-            value = value.substr(2);
-            parseTree[key] = { value: detectParam(value), operation: '>=' };
+            val = val.slice(2);
+            parseTree[key] = { value: detectParam(val), operation: '>=' };
         }
-        else if(value.substr(0, 2) === '@>')
+        else if(val.startsWith('@>'))
         {
-            value = value.substr(2);
-            parseTree[key] = { value: detectParam(value), operation: '@>' };
+            val = val.slice(2);
+            parseTree[key] = { value: detectParam(val), operation: '@>' };
         }
-        else if(value.substr(0, 1) === '>')
+        else if(val.startsWith('>'))
         {
-            value = value.substr(1);
-            parseTree[key] = { value: detectParam(value), operation: '>' };
+            val = val.slice(1);
+            parseTree[key] = { value: detectParam(val), operation: '>' };
         }
-        else if(value.substr(0, 2) === '<=')
+        else if(val.startsWith('<='))
         {
-            value = value.substr(2);
-            parseTree[key] = { value: detectParam(value), operation: '<=' };
+            val = val.slice(2);
+            parseTree[key] = { value: detectParam(val), operation: '<=' };
         }
-        else if(value.substr(0, 1) === '<')
+        else if(val.startsWith('<'))
         {
-            value = value.substr(1);
-            parseTree[key] = { value: detectParam(value), operation: '<' };
+            val = val.slice(1);
+            parseTree[key] = { value: detectParam(val), operation: '<' };
         }
-        else if(_.includes(value, ','))
+        else if(val.includes(','))
         {
-            parseTree[key] = arrayFilter(detectParam(value));
-            parseTree[key] = { value: detectParam(value), operation: '=', isArray: true };
+            parseTree[key] = { value: detectParam(val), operation: '=', isArray: true };
         }
         else
         {
-            parseTree[key] = { value: detectParam(value), operation: '=' };
+            parseTree[key] = { value: detectParam(val), operation: '=' };
         }
-    });
-
+    }
     return parseTree;
 }
 
@@ -298,50 +297,45 @@ export function parseQuery(queryObj : Record<string, string | string[]>) : Recor
 export function filterByQuery(queryObj : Record<string, string>, list : QueryFilterVal[]) : unknown[]
 {
     // Build filters
-    const filters = {};
-    _.forIn(parseQuery(queryObj), (token, key) =>
+    const filters : Record<string, (modelVal : QueryFilterVal) => boolean> = {};
+    for(const [ key, token ] of Object.entries(parseQuery(queryObj)))
     {
         switch (token.operation)
         {
             case '@>':
-                return filters[key] = containsFilter(token.value);
+                filters[key] = containsFilter(token.value);
+                break;
 
             case '>=':
-                return filters[key] = gteFilter(token.value);
+                filters[key] = gteFilter(token.value);
+                break;
 
             case '>':
-                return filters[key] = gtFilter(token.value);
+                filters[key] = gtFilter(token.value);
+                break;
 
             case '<=':
-                return filters[key] = lteFilter(token.value);
+                filters[key] = lteFilter(token.value);
+                break;
 
             case '<':
-                return filters[key] = ltFilter(token.value);
+                filters[key] = ltFilter(token.value);
+                break;
 
             case '=':
-                return filters[key] = Array.isArray(token.value) ? arrayFilter(token.value) : eqFilter(token.value);
+                filters[key] = Array.isArray(token.value) ? arrayFilter(token.value) : eqFilter(token.value);
+                break;
 
             default:
                 logger.warn('Unknown query operation:', token.operation);
                 break;
         }
-    });
+    }
 
     // Filter the list
-    return _.filter(list, (item) =>
+    return list.filter((item) =>
     {
-        let include = true;
-
-        _.forIn(filters, (filter : (modelVal : QueryFilterVal) => boolean, key : string) =>
-        {
-            const value = item[key];
-            if(filter)
-            {
-                include = filter(value);
-            } // en if
-        });
-
-        return include;
+        return Object.entries(filters).every(([ key, filter ]) => filter(item[key]));
     });
 }
 

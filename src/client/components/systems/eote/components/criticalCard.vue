@@ -14,7 +14,8 @@
             <small>
                 {{ critical.title }}
                 <span v-if="critical.severity">
-                    (<Difficulty v-for="index in severityRange" :key="index" />)
+                    <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
+                    (<difficulty v-for="index in severityRange" :key="index" />)
                 </span>
             </small>
 
@@ -23,7 +24,8 @@
                     <div :class="`${ mode }-system`">
                         {{ critical.title }}
                         <span v-if="critical.severity">
-                            (<Difficulty v-for="index in severityRange" :key="index" />)
+                            <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
+                            (<difficulty v-for="index in severityRange" :key="index" />)
                         </span>
                     </div>
                 </template>

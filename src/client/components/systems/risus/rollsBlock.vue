@@ -5,7 +5,7 @@
 <template>
     <RpgkCard id="rolls" icon="dice" title="Rolls" fill>
         <BInputGroup append="D6">
-            <BFormInput v-model="dice" number type="number" min="0" max="999" step="1" :disabled="readonly" />
+            <BFormInput v-model.number="dice" type="number" min="0" max="999" step="1" :disabled="readonly" />
         </BInputGroup>
 
         <!-- Roll History -->

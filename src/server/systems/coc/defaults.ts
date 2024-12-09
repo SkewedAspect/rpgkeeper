@@ -2,7 +2,7 @@
 // Fate Model Defaults
 //----------------------------------------------------------------------------------------------------------------------
 
-import { CoCSkill, CoCSystemDetails } from '../../../common/interfaces/systems/coc';
+import { CoCSkill, CoCSystemDetails } from '../../../common/interfaces/systems/coc.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

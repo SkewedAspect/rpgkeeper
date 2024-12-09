@@ -1,12 +1,12 @@
 {
     "compilerOptions": {
         "composite": true,
-        "target": "ES2020",
+        "target": "ES2023",
         "rootDir": "..",
         "outDir": "../../dist",
         "skipLibCheck": true,
-        "module": "CommonJS",
-        "moduleResolution": "node",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
 
         // Overrides
         "allowSyntheticDefaultImports": true,

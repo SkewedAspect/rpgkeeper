@@ -17,7 +17,7 @@ import {
 } from 'decoders';
 
 // Defaults
-import defaults from '../../systems/eote/defaults';
+import defaults from '../../systems/eote/defaults.js';
 
 // Utils
 import {
@@ -28,8 +28,8 @@ import {
     nullToUndefined,
     stringWithLength,
     withDefault,
-} from '../utils';
-import { MissingDecoderError } from '../../errors';
+} from '../utils.js';
+import { MissingDecoderError } from '../../errors.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

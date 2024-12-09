@@ -5,16 +5,16 @@
 import tp from 'trivialperms';
 
 // Interfaces
-import { Role } from '../../common/interfaces/models/role';
+import { Role } from '../../common/interfaces/models/role.js';
 
 // Models
-import { Account } from '../../common/interfaces/models/account';
+import { Account } from '../../common/interfaces/models/account.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 export async function loadRoles(roles : Role[]) : Promise<void>
 {
-    tp.loadGroups(roles);
+    tp.default.loadGroups(roles);
 }
 
 export function hasPerm(user : Account, perm : string) : boolean
@@ -24,7 +24,7 @@ export function hasPerm(user : Account, perm : string) : boolean
         return false;
     }
 
-    return tp.hasPerm(user, perm);
+    return tp.default.hasPerm(user, perm);
 }
 
 export function hasGroup(user : Account, groupName : string) : boolean
@@ -34,7 +34,7 @@ export function hasGroup(user : Account, groupName : string) : boolean
         return false;
     }
 
-    return tp.hasGroup(user, groupName);
+    return tp.default.hasGroup(user, groupName);
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -6,8 +6,7 @@
     <div class="d-flex flex-nowrap">
         <BInputGroup class="fate-points me-2">
             <BFormInput
-                v-model="current"
-                number
+                v-model.number="current"
                 type="number"
                 min="0"
                 step="1"

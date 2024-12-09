@@ -35,7 +35,7 @@
         </BInputGroup>
 
         <BInputGroup class="mt-2">
-            <BFormInput v-model="rollBonus" number type="number" min="0" step="1" placeholder="Crit. bonus" />
+            <BFormInput v-model.number="rollBonus" type="number" min="0" step="1" placeholder="Crit. bonus" />
             <template #append>
                 <BButton
                     variant="primary"

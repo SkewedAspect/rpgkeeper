@@ -4,14 +4,14 @@
 
 import express from 'express';
 
-import { errorHandler } from './utils';
+import { errorHandler } from './utils/index.js';
 
 // Managers
-import * as rolesMan from '../managers/role';
+import * as rolesMan from '../managers/role.js';
 
 // Logger
 import logging from '@strata-js/util-logging';
-const logger = logging.getLogger(module.filename);
+const logger = logging.getLogger('roles router');
 
 //----------------------------------------------------------------------------------------------------------------------
 

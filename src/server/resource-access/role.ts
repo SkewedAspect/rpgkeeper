@@ -2,13 +2,13 @@
 // Role Resource Access Layer
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Role } from '../../common/interfaces/models/role';
+import { Role } from '../../common/interfaces/models/role.js';
 
 // Transforms
-import * as RoleTransforms from './transforms/role';
+import * as RoleTransforms from './transforms/role.js';
 
 // Utils
-import { getDB } from '../utils/database';
+import { getDB } from '../utils/database.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

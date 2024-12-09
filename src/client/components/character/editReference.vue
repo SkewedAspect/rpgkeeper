@@ -26,8 +26,7 @@
         >
             <BFormInput
                 id="page-input"
-                v-model="page"
-                number
+                v-model.number="page"
                 type="number"
                 step="1"
                 min="1"

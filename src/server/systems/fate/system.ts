@@ -3,10 +3,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // BaseClass
-import { BaseSystem } from '../base';
+import { BaseSystem } from '../base.js';
 
 // Defaults
-import defaults from './defaults';
+import defaults from './defaults.js';
 
 // Logger
 import logging from '@strata-js/util-logging';

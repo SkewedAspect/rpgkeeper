@@ -3,10 +3,10 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Notebook, NotebookPage } from '../../common/interfaces/models/notebook';
+import { Notebook, NotebookPage } from '../../common/interfaces/models/notebook.js';
 
 // Resource Access
-import * as noteRA from '../resource-access/notebook';
+import * as noteRA from '../resource-access/notebook.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

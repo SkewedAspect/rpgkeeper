@@ -2,7 +2,7 @@
 // Reference Database Transform
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Reference } from '../../../common/interfaces/models/reference';
+import { Reference } from '../../../common/interfaces/models/reference.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

@@ -43,8 +43,7 @@
                             </BFormCheckbox>
                         </div>
                         <BFormInput
-                            v-model="skill.ranks"
-                            number
+                            v-model.number="skill.ranks"
                             class="ms-2"
                             type="number"
                             min="0"
@@ -82,8 +81,7 @@
                             </BFormCheckbox>
                         </div>
                         <BFormInput
-                            v-model="skill.ranks"
-                            number
+                            v-model.number="skill.ranks"
                             class="ms-2"
                             type="number"
                             min="0"
@@ -121,8 +119,7 @@
                             </BFormCheckbox>
                         </div>
                         <BFormInput
-                            v-model="skill.ranks"
-                            number
+                            v-model.number="skill.ranks"
                             class="ms-2"
                             type="number"
                             min="0"
@@ -160,8 +157,7 @@
                             </BFormCheckbox>
                         </div>
                         <BFormInput
-                            v-model="skill.ranks"
-                            number
+                            v-model.number="skill.ranks"
                             class="ms-2"
                             type="number"
                             min="0"
@@ -199,8 +195,7 @@
                             </BFormCheckbox>
                         </div>
                         <BFormInput
-                            v-model="skill.ranks"
-                            number
+                            v-model.number="skill.ranks"
                             class="ms-2"
                             type="number"
                             min="0"
@@ -235,8 +230,7 @@
                         </BFormCheckbox>
                     </div>
                     <BFormInput
-                        v-model="newSkill.ranks"
-                        number
+                        v-model.number="newSkill.ranks"
                         class="ms-2"
                         type="number"
                         min="0"

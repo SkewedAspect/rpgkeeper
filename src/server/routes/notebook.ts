@@ -6,20 +6,20 @@ import express from 'express';
 import logging from '@strata-js/util-logging';
 
 // Managers
-import * as noteMan from '../managers/notebook';
-import { hasPerm } from '../utils/permissions';
+import * as noteMan from '../managers/notebook.js';
+import { hasPerm } from '../utils/permissions.js';
 
 // Validation
-import * as NotebookValidators from '../engines/validation/models/notebook';
-import { processRequest, validationErrorHandler } from '../engines/validation/express';
+import * as NotebookValidators from '../engines/validation/models/notebook.js';
+import { processRequest, validationErrorHandler } from '../engines/validation/express.js';
 
 // Utils
-import { convertQueryToRecord, ensureAuthenticated, errorHandler } from './utils';
+import { convertQueryToRecord, ensureAuthenticated, errorHandler } from './utils/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 const router = express.Router();
-const logger = logging.getLogger(module.filename);
+const logger = logging.getLogger('notes router');
 
 //----------------------------------------------------------------------------------------------------------------------
 
