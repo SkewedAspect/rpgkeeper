@@ -12,15 +12,17 @@
 
         <div class="dice-input d-flex flex-wrap align-content-stretch justify-content-center">
             <BInputGroup v-for="die in diceList" :key="die" size="sm" class="text-nowrap flex-nowrap w-auto m-1">
+                <template #prepend>
+                    <BButton :variant="btnVariant" @click="addDie(die)">
+                        <Fa icon="plus" />
+                    </BButton>
+                </template>
                 <BInputGroupText>
                     <!-- eslint-disable-next-line vue/no-v-html -->
                     <span v-html="makeDieHTML(die)" />
                 </BInputGroupText>
                 <template #append>
-                    <BButton variant="light" @click="addDie(die)">
-                        <Fa icon="plus" />
-                    </BButton>
-                    <BButton variant="light" @click="removeDie(die)">
+                    <BButton :variant="btnVariant" @click="removeDie(die)">
                         <Fa icon="minus" />
                     </BButton>
                 </template>
@@ -94,6 +96,7 @@
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useColorModeStore } from '../../../lib/stores/colorMode';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';
@@ -120,7 +123,7 @@
 
     const { current } = storeToRefs(useCharactersStore());
 
-    const pendingRollname = ref('');
+    const pendingRollName = ref('');
     const rollResult = ref({
         full: [],
         uncancelled: [],
@@ -166,6 +169,18 @@
             .reduce((results, die) => `${ results }<${ die }></${ die }>`, '');
     });
 
+    const btnVariant = computed(() =>
+    {
+        if(useColorModeStore().bsTheme === 'light')
+        {
+            return 'light';
+        }
+        else
+        {
+            return 'secondary';
+        }
+    });
+
     const fullResultDisplay = computed(() =>
     {
         return rollResult.value.full.reduce((results, result) => `${ results }<${ result }></${ result }>`, '');
@@ -182,7 +197,7 @@
 
     function makeDieHTML(die : string) : string
     {
-        return `<${ die }></${ die }>`;
+        return `${ dice.value[die] } <${ die }></${ die }>`;
     }
 
     function addDie(die : string) : void
@@ -210,12 +225,12 @@
         };
 
         // Set the roll name
-        pendingRollname.value = rollName;
+        pendingRollName.value = rollName;
     }
 
     function roll(rollName ?: string) : void
     {
-        rollName = rollName || pendingRollname.value;
+        rollName = rollName || pendingRollName.value;
 
         rollResult.value = {
             ...diceUtil.rollEotE(this.dice),
@@ -223,7 +238,7 @@
         };
 
         // Clear pending roll name
-        pendingRollname.value = '';
+        pendingRollName.value = '';
     }
 
     function clearRoll() : void
