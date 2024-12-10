@@ -85,7 +85,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { FateStunt } from '../../../../common/interfaces/systems/fate';
+    import { FateStunt } from '../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

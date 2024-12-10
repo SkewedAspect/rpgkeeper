@@ -5,9 +5,10 @@
 import { XOR } from 'ts-essentials';
 
 // Interfaces
-import { Character } from '../../../../common/interfaces/common';
-import * as Models from '../../../../common/interfaces/systems/eote';
-import { Reference, Supplement } from '../../../../common/interfaces/systems/supplements';
+import { Character } from '../../../../common/models';
+import * as Models from '../../../../common/models/systems/eote';
+import { Supplement } from '../../../../common/models/systems';
+import { Reference } from '../../../../common/models/reference';
 
 // Stores
 import { useEoteStore } from '../../stores/systems/eote';

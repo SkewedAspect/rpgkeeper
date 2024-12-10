@@ -162,7 +162,7 @@
     import { BaseColorVariant } from 'bootstrap-vue-next';
 
     // Interfaces
-    import { Character, System } from '../../common/interfaces/common';
+    import { Character, System } from '../../common/models';
 
     // Stores
     import { useAccountStore } from '../lib/stores/account';

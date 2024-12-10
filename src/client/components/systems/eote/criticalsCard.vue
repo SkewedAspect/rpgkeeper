@@ -74,7 +74,7 @@
     import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Models
-    import { EoteCritical, EoteOrGenCharacter } from '../../../../common/interfaces/systems/eote';
+    import { EoteCritical, EoteOrGenCharacter } from '../../../../common/models/systems';
 
     // Managers
     import diceMan from '../../../lib/utils/dice';

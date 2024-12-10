@@ -63,7 +63,7 @@
     import { orderBy } from 'lodash';
 
     // Interfaces
-    import { FateSkill } from '../../../../common/interfaces/systems/fate';
+    import { FateSkill } from '../../../../common/models/systems';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';

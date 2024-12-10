@@ -127,7 +127,7 @@
         EoteQuality,
         GenesysMotivation,
         GenesysMotivationType,
-    } from '../../../../../common/interfaces/systems/eote';
+    } from '../../../../../common/models/systems';
 
     // Components
     import EditReference from '../../../character/editReference.vue';

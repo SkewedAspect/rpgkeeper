@@ -53,7 +53,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { DiceRoll } from '../../../../common/interfaces/common';
+    import { DiceRoll } from '../../../../common/models';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';

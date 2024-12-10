@@ -5,7 +5,7 @@
 import $http from 'axios';
 
 // Interfaces
-import { System } from '../../../common/interfaces/common';
+import { System } from '../../../common/models';
 
 //----------------------------------------------------------------------------------------------------------------------
 

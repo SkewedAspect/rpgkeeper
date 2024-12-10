@@ -1,15 +1,13 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Reference
+// System Models
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface ReferenceOptions 
-{
-    abbr : string;
-    name : string;
-    productCode : string;
-}
+export * from './coc.js';
+export * from './eote.js';
+export * from './fate.js';
+export * from './risus.js';
+export * from './wfrp.js';
 
-// FIXME: Once Models are removed, `ReferenceOptions` should be named 'Reference'.
-export type Reference = ReferenceOptions;
+export * from './supplements.js';
 
 //----------------------------------------------------------------------------------------------------------------------

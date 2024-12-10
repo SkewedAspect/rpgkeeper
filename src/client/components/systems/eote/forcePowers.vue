@@ -46,7 +46,7 @@
     import { sortBy } from 'lodash';
 
     // Models
-    import { EoteCharacter, EoteForcePowerInst } from '../../../../common/interfaces/systems/eote';
+    import { EoteCharacter, EoteForcePowerInst } from '../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

@@ -109,7 +109,7 @@
     import { useCharactersStore } from '../../../lib/stores/characters';
 
     // Models
-    import { EoteArmorRef, EoteCharacter } from '../../../../common/interfaces/systems/eote';
+    import { EoteArmorRef, EoteCharacter } from '../../../../common/models/systems';
 
     // Managers
     import eoteMan from '../../../lib/managers/systems/eote';

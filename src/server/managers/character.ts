@@ -6,7 +6,7 @@
 import * as notebookMan from './notebook.js';
 
 // Models
-import { Character } from '../../common/interfaces/models/character.js';
+import { Character } from '../../common/models/index.js';
 
 // Resource Access
 import * as characterRA from '../resource-access/character.js';

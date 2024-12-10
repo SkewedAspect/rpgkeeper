@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Reference } from '../../common/interfaces/models/reference.js';
+import { Reference } from '../../common/models/reference.js';
 
 // Resource Access
 import * as referenceRA from '../resource-access/reference.js';

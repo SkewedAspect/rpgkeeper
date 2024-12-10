@@ -6,7 +6,7 @@
 import { BaseSystem } from '../base.js';
 
 // Models
-import { SupportStatus } from '../../../common/interfaces/common.js';
+import { SupportStatus } from '../../../common/models/index.js';
 
 // Defaults
 import defaults from './defaults.js';

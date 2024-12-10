@@ -78,7 +78,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { NotebookPage } from '../../lib/models/notebook';
+    import { NotebookPage } from '../../../common/models';
 
     // Stores
     import { useNotebookStore } from '../../lib/stores/notebook';

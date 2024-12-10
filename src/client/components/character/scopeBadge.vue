@@ -14,7 +14,7 @@
     import { computed } from 'vue';
 
     // Models
-    import { Supplement } from '../../../common/interfaces/common';
+    import { Supplement } from '../../../common/models';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

@@ -1,15 +1,17 @@
 //----------------------------------------------------------------------------------------------------------------------
-// AccountModel
+// Supplement
 //----------------------------------------------------------------------------------------------------------------------
 
-import { Account as ServerAccountModel } from '../../../common/models';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-export interface Account extends ServerAccountModel
+export interface Supplement
 {
-    displayName : string;
-    avatarUrl : string;
+    id : number;
+    name : string;
+    owner ?: string;
+    scope : 'public' | 'user';
+    official : boolean;
+
+    // There are additional properties to most supplements
+    [ key : string ] : unknown;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

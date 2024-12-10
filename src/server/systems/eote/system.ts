@@ -6,9 +6,8 @@
 import { BaseSystem } from '../base.js';
 
 // Models
-import { SupportStatus } from '../../../common/interfaces/common.js';
-import { Character } from '../../models/character.js';
-import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote.js';
+import { Character, SupportStatus } from '../../../common/models/index.js';
+import { EoteCharacter, GenesysCharacter } from '../../../common/models/systems/eote.js';
 
 // Validations
 import { validateEoteDetails, validateGenesysDetails } from './validations.js';
@@ -40,7 +39,7 @@ class GenesysSystem extends BaseSystem
 
     async validateCharacterDetails(character : GenesysCharacter) : Promise<Character>
     {
-        return validateGenesysDetails(character) as Promise<Character>;
+        return validateGenesysDetails(character);
     }
 }
 
@@ -59,7 +58,7 @@ class EOTESystem extends BaseSystem
 
     async validateCharacterDetails(character : EoteCharacter) : Promise<Character>
     {
-        return validateEoteDetails(character) as Promise<Character>;
+        return validateEoteDetails(character);
     }
 }
 

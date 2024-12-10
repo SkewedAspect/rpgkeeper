@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account, NewAccount } from '../../common/interfaces/models/account.js';
+import { Account, NewAccount } from '../../common/models/account.js';
 
 // Transforms
 import * as AccountTransforms from './transforms/account.js';

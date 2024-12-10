@@ -1,28 +1,16 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// System Supplements
+// Dice Roll Models
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { ReferenceOptions } from '../models/reference.js';
+import { Roll } from 'rpgdicejs';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export type SupplementScope = 'public' | 'user';
-
-export type Reference = ReferenceOptions;
-
-export interface Supplement
+export interface DiceRoll
 {
-    id ?: number | string;
+    roll : Roll;
     name : string;
-    owner ?: string;
-    scope : SupplementScope;
-    reference : string;
-    official : boolean;
-}
-
-export interface SupplementInst
-{
-    id : number | string;
+    display : string;
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

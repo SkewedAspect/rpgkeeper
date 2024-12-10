@@ -38,7 +38,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { GenesysCharacter } from '../../../../../common/interfaces/systems/eote';
+    import { GenesysCharacter } from '../../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../../lib/stores/characters';

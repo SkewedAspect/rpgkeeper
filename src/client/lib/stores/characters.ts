@@ -5,7 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { Character, SystemDetails } from '../../../common/interfaces/common';
+import { Character, SystemDetails } from '../../../common/models';
 
 // Resource Access
 import charactersRA from '../resource-access/character';

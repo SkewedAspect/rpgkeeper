@@ -11,7 +11,7 @@ import logging from '@strata-js/util-logging';
 import './serialization.js';
 
 // Interfaces
-import { ServerConfig } from '../../common/interfaces/config.js';
+import { ServerConfig } from '../interfaces/config.js';
 
 // Managers
 import * as accountMan from '../managers/account.js';

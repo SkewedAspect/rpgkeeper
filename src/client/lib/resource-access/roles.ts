@@ -5,7 +5,7 @@
 import $http from 'axios';
 
 // Interfaces
-import { Role } from '../../../common/interfaces/common';
+import { Role } from '../../../common/models';
 
 //----------------------------------------------------------------------------------------------------------------------
 

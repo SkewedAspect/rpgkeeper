@@ -60,8 +60,8 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Character } from '../../../../common/interfaces/common';
-    import { RisusHook, RisusSystemDetails } from '../../../../common/interfaces/systems/risus';
+    import { Character } from '../../../../common/models';
+    import { RisusHook, RisusSystemDetails } from '../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

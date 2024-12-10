@@ -2,7 +2,7 @@
 // Account
 //----------------------------------------------------------------------------------------------------------------------
 
-import { ValidColorMode } from './colorMode';
+import { ValidColorMode } from './colorMode.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -11,7 +11,7 @@ export interface AccountSettings
     colorMode ?: ValidColorMode
 }
 
-export interface AccountOptions
+export interface Account
 {
     id : string;
     email : string;
@@ -21,9 +21,6 @@ export interface AccountOptions
     groups ?: string[];
     settings ?: AccountSettings;
 }
-
-// FIXME: Once Models are removed, `AccountOptions` should be named 'Account'.
-export type Account = AccountOptions;
 
 export type NewAccount = Omit<Account, 'id'>;
 

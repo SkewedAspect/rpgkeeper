@@ -94,7 +94,7 @@
     import { orderBy } from 'lodash';
 
     // Interfaces
-    import { FateSkill } from '../../../../common/interfaces/systems/fate';
+    import { FateSkill } from '../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

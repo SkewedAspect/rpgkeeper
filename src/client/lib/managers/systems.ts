@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Interfaces
-import { System } from '../../../common/interfaces/common';
+import { System } from '../../../common/models';
 
 // Store
 import { useSystemsStore } from '../stores/systems';

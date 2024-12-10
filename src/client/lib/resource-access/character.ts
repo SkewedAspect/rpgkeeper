@@ -5,7 +5,7 @@
 import $http from 'axios';
 
 // Interfaces
-import { Character, SystemDetails } from '../../../common/interfaces/common';
+import { Character, SystemDetails } from '../../../common/models';
 
 // Store
 import { useAccountStore } from '../stores/account';

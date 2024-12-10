@@ -1,16 +1,22 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// Dice
+// System Supplements
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Roll } from 'rpgdicejs';
+export type SupplementScope = 'public' | 'user';
 
-// ---------------------------------------------------------------------------------------------------------------------
-
-export interface DiceRoll
+export interface Supplement
 {
-    roll : Roll;
+    id ?: number | string;
     name : string;
-    display : string;
+    owner ?: string;
+    scope : SupplementScope;
+    reference : string;
+    official : boolean;
+}
+
+export interface SupplementInst
+{
+    id : number | string;
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

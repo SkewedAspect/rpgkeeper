@@ -5,7 +5,7 @@
 import $http from 'axios';
 
 // Models
-import { Account as ServerAccount } from '../../../common/interfaces/common';
+import { Account as ServerAccount } from '../../../common/models';
 import { Account } from '../models/account';
 
 //----------------------------------------------------------------------------------------------------------------------

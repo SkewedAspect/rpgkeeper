@@ -101,7 +101,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteCharacteristics, EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
+    import { EoteCharacteristics, EoteOrGenCharacter } from '../../../../../common/models/systems';
 
     // Utils
     import { startCase } from '../../../../lib/utils/misc';

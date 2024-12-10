@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Character } from '../../common/interfaces/models/character.js';
+import { Character } from '../../common/models/index.js';
 
 // Transforms
 import * as CharTransforms from './transforms/character.js';

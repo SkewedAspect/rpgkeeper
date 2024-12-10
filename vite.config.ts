@@ -11,7 +11,7 @@ import Components from 'unplugin-vue-components/vite';
 import { BootstrapVueNextResolver } from 'unplugin-vue-components/resolvers';
 
 // Interfaces
-import { ServerConfig } from './src/common/interfaces/config';
+import { ServerConfig } from './src/server/interfaces/config.ts';
 
 // Utils
 import configUtil from '@strata-js/util-config';

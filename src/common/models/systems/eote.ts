@@ -5,7 +5,7 @@
 import { Supplement } from './supplements.js';
 import { BoundedRange } from '../../utils/types.js';
 
-import { Character } from '../common.js';
+import { Character } from '../index.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -98,7 +98,7 @@ interface BaseArmor extends Supplement
     rarity : number;
 }
 
-interface BaseArmorRef 
+interface BaseArmorRef
 {
     name : string;
     description ?: string;
@@ -284,7 +284,7 @@ export type GenesysWeapon = BaseWeapon;
 
 export type GenesysMotivationType = 'strength' | 'flaw' | 'desire' | 'fear';
 
-export interface GenesysMotivation extends Supplement 
+export interface GenesysMotivation extends Supplement
 {
     id ?: number;
     type : GenesysMotivationType;

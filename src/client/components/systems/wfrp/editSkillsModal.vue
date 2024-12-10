@@ -93,7 +93,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { WFRPSkill } from '../../../../common/interfaces/systems/wfrp';
+    import { WFRPSkill } from '../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

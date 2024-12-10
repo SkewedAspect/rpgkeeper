@@ -4,7 +4,7 @@
 
 export type SystemDetails = object;
 
-export interface CharacterOptions<Details extends SystemDetails = SystemDetails> 
+export interface Character<Details extends SystemDetails = SystemDetails>
 {
     id : string | null;
     system : string;
@@ -18,8 +18,5 @@ export interface CharacterOptions<Details extends SystemDetails = SystemDetails>
     noteID : string;
     details : Details
 }
-
-// FIXME: Once Models are removed, `CharacterOptions` should be named 'Character'.
-export type Character<Details extends SystemDetails = SystemDetails> = CharacterOptions<Details>;
 
 //----------------------------------------------------------------------------------------------------------------------

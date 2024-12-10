@@ -2,7 +2,7 @@
 // Account Database Transform
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Account, NewAccount } from '../../../common/interfaces/models/account.js';
+import { Account, NewAccount } from '../../../common/models/account.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

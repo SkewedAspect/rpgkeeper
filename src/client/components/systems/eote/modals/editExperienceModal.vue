@@ -123,7 +123,7 @@
     import { ref } from 'vue';
 
     // Models
-    import { EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
+    import { EoteOrGenCharacter } from '../../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

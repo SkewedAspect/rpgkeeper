@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from '../../../common/interfaces/models/account.js';
-import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote.js';
+import { Account } from '../../../common/models/account.js';
+import { EoteCharacter, GenesysCharacter } from '../../../common/models/systems/eote.js';
 
 // Managers
 import * as accountMan from '../../managers/account.js';
@@ -12,7 +12,6 @@ import * as suppMan from '../../managers/supplement.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-interface Motivations { strength : number | null, flaw : number | null, desire : number | null, fear : number | null }
 interface SupplementRef { id : number, [ key : string ] : unknown }
 
 interface CharDetails
@@ -37,7 +36,7 @@ function isNumbers(array : number[] | SupplementRef[]) : array is number[]
 
 async function validateMotivations(character : GenesysCharacter, account : Account) : Promise<void>
 {
-    const motivations = character.details.motivations as Motivations;
+    const motivations = character.details.motivations;
 
     // Check strength
     if(motivations.strength !== null)

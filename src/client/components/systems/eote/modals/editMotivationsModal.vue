@@ -289,7 +289,7 @@
         GenesysCharacter,
         GenesysMotivation,
         GenesysMotivationType,
-    } from '../../../../../common/interfaces/systems/eote';
+    } from '../../../../../common/models/systems';
 
     // Managers
     import authMan from '../../../../lib/managers/auth';

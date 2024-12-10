@@ -68,6 +68,6 @@ export async function seed(knex : Knex) : Promise<void>
         { name: 'Shadow of the Beanstalk', abbr: 'SotB', product_code: 'GNS04' },
         { name: 'Secrets of the Crucible', abbr: 'SotC', product_code: 'GNS12' },
     ]);
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

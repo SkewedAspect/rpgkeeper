@@ -135,7 +135,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { Supplement, SupplementInst } from '../../../common/interfaces/systems/supplements';
+    import { Supplement, SupplementInst } from '../../../common/models/systems';
 
     // Managers
     import authMan from '../../lib/managers/auth';

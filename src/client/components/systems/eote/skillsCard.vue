@@ -218,7 +218,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { EoteOrGenCharacter, EoteSkill } from '../../../../common/interfaces/systems/eote';
+    import { EoteOrGenCharacter, EoteSkill } from '../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

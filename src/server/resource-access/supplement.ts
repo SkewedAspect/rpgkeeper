@@ -7,8 +7,8 @@ import { Knex } from 'knex';
 import logging from '@strata-js/util-logging';
 
 // Models
-import { Account } from '../../common/interfaces/models/account.js';
-import { Supplement } from '../../common/interfaces/models/supplement.js';
+import { Account } from '../../common/models/account.js';
+import { Supplement } from '../../common/models/index.js';
 
 // Transforms
 import * as SuppTransforms from '../resource-access/transforms/supplement.js';

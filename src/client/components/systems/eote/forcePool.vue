@@ -62,7 +62,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { EoteCharacter } from '../../../../common/interfaces/systems/eote';
+    import { EoteCharacter } from '../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

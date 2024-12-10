@@ -46,7 +46,7 @@
     import { orderBy, range } from 'lodash';
 
     // Interfaces
-    import { FateSkill } from '../../../../common/interfaces/systems/fate';
+    import { FateSkill } from '../../../../common/models/systems';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';

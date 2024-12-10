@@ -1,15 +1,20 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Role
+// Notebook Models
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface RoleOptions 
+export interface NotebookPage
 {
-    id : number;
-    name : string;
-    permissions : string[];
+    id : string;
+    title : string;
+    content : string;
+    notebookID : string;
 }
 
-// FIXME: Once Models are removed, `RoleOptions` should be named 'Role'.
-export type Role = RoleOptions;
+export interface Notebook
+{
+    id : string;
+    pages ?: NotebookPage[]
+}
 
 //----------------------------------------------------------------------------------------------------------------------
+

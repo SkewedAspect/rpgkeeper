@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Role } from '../../common/interfaces/models/role.js';
+import { Role } from '../../common/models/role.js';
 
 // Resource Access
 import * as roleRA from '../resource-access/role.js';

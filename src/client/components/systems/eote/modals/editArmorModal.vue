@@ -160,7 +160,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteArmorRef, EoteOrGenCharacter } from '../../../../../common/interfaces/systems/eote';
+    import { EoteArmorRef, EoteOrGenCharacter } from '../../../../../common/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

@@ -30,7 +30,7 @@
     import { useCharactersStore } from '../../../../lib/stores/characters';
 
     // Models
-    import { EoteCharacter } from '../../../../../common/interfaces/systems/eote';
+    import { EoteCharacter } from '../../../../../common/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';
