@@ -10,7 +10,7 @@
         <!-- Once loaded -->
         <div v-else>
             <!-- Giant Avatar Picture of Doom -->
-            <div class="avatar-holder">
+            <div class="text-center">
                 <BImg
                     rounded="circle"
                     width="128"
@@ -34,7 +34,7 @@
                         <template #append>
                             <BButton variant="primary" @click="save()">
                                 <Fa icon="save" />
-                                Set Name
+                                Set Nick Name
                             </BButton>
                         </template>
                     </BInputGroup>
@@ -44,15 +44,30 @@
             <!-- Settings -->
             <BCard header-bg-variant="dark" header-text-variant="white" class="drop-shadow">
                 <template #header>
+                    <BButton
+                        variant="primary"
+                        class="float-end"
+                        @click="save()"
+                    >
+                        <Fa icon="save" />
+                        Save
+                    </BButton>
                     <h5 class="align-middle mt-2">
                         <Fa icon="sliders-h" />
                         Settings
                     </h5>
                 </template>
 
-                <h4 class="text-center text-muted mb-0">
-                    Settings are not implemented.
-                </h4>
+                <BFormGroup
+                    label="Color Mode"
+                    label-for="color-mode"
+                >
+                    <BFormRadioGroup
+                        id="color-mode"
+                        v-model="account.settings.colorMode"
+                        :options="colorModeOptions"
+                    />
+                </BFormGroup>
             </BCard>
         </div>
     </div>
@@ -62,10 +77,12 @@
 
 <script lang="ts" setup>
 
+    import { onBeforeMount } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Stores
     import { useAccountStore } from '../lib/stores/account';
+    import { useColorModeStore } from '../lib/stores/colorMode';
 
     // Managers
     import authMan from '../lib/managers/auth';
@@ -77,8 +94,17 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const store = useAccountStore();
-    const { account } = storeToRefs(store);
+    const colorModeOptions = [
+        { text: 'Light', value: 'light' },
+        { text: 'Dark', value: 'dark' },
+        { text: 'Auto', value: 'auto' },
+    ];
+
+    const accountStore = useAccountStore();
+    const { account } = storeToRefs(accountStore);
+
+    const colorModeStore = useColorModeStore();
+    const { colorMode } = storeToRefs(colorModeStore);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -86,8 +112,27 @@
 
     async function save() : Promise<void>
     {
-        return authMan.saveAccount(account.value);
+        // Save the account
+        authMan.saveAccount(account.value);
+
+        // Save the color mode
+        colorMode.value = account.value.settings.colorMode ?? 'auto';
     }
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Lifecycle
+    //------------------------------------------------------------------------------------------------------------------
+
+    onBeforeMount(() =>
+    {
+        account.value.settings = {
+            // Default settings
+            colorMode: 'auto',
+
+            // Current settings
+            ...account.value.settings || {},
+        };
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

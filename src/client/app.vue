@@ -24,8 +24,29 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
+    import { watch } from 'vue';
+
+    // Stores
+    import { useColorModeStore } from './lib/stores/colorMode';
+
+    // Components
     import SiteHeader from './components/ui/siteHeader.vue';
     import SiteFooter from './components/ui/siteFooter.vue';
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    const colorModeStore = useColorModeStore();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Watchers
+    //------------------------------------------------------------------------------------------------------------------
+
+    watch(() => colorModeStore.bsTheme, (newBSTheme) =>
+    {
+        // We have to manually set the bootstrap theme on the base body property for dumb reasons.
+        document.documentElement.setAttribute('data-bs-theme', newBSTheme);
+    }, { immediate: true });
+
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

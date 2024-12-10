@@ -6,7 +6,7 @@ import { Account, NewAccount } from '../../../common/interfaces/models/account.j
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export interface AccountDBSchema 
+export interface AccountDBSchema
 {
     account_id : string;
     email : string;
@@ -25,8 +25,8 @@ export function toDB(account : NewAccount | Account) : AccountDBSchema
     return {
         ...rest,
         account_id: id,
-        permissions: JSON.stringify(this.permissions ?? []),
-        settings: JSON.stringify(this.settings ?? {}),
+        permissions: JSON.stringify(account.permissions ?? []),
+        settings: JSON.stringify(account.settings ?? {}),
     };
 }
 

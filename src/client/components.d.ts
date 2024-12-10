@@ -24,6 +24,7 @@ declare module 'vue' {
     BFormGroup: typeof import('bootstrap-vue-next')['BFormGroup']
     BFormInput: typeof import('bootstrap-vue-next')['BFormInput']
     BFormRadio: typeof import('bootstrap-vue-next')['BFormRadio']
+    BFormRadioGroup: typeof import('bootstrap-vue-next')['BFormRadioGroup']
     BFormRow: typeof import('bootstrap-vue-next')['BFormRow']
     BFormSelect: typeof import('bootstrap-vue-next')['BFormSelect']
     BFormSpinbutton: typeof import('bootstrap-vue-next')['BFormSpinbutton']

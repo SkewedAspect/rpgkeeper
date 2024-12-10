@@ -2,12 +2,16 @@
 // Account
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface AccountSettings 
+import { ValidColorMode } from './colorMode';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export interface AccountSettings
 {
-    colorMode ?: 'light' | 'dark' | 'auto';
+    colorMode ?: ValidColorMode
 }
 
-export interface AccountOptions 
+export interface AccountOptions
 {
     id : string;
     email : string;

@@ -7,6 +7,7 @@ import { Account } from '../models/account';
 
 // Stores
 import { useAccountStore } from '../stores/account';
+import { useColorModeStore } from '../stores/colorMode';
 
 // Resource Access
 import authRA from '../resource-access/auth';
@@ -31,12 +32,19 @@ class AuthManager
     async load() : Promise<void>
     {
         const accountStore = useAccountStore();
+        const colorModeStore = useColorModeStore();
 
         // Attempt to get the current user
         const account = await authRA.getCurrentUser();
 
         // Update the store
         accountStore.$patch({ account, redirectToDashboard: !!account });
+
+        if(account)
+        {
+            // Set the color mode
+            colorModeStore.$patch({ colorMode: account.settings?.colorMode ?? 'auto' });
+        }
 
         // Load Roles
         await permRA.load();
