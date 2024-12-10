@@ -3,13 +3,10 @@
     RPGKeeper
 </h1>
 
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/Morgul/rpgkeeper.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Morgul/rpgkeeper/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Morgul/rpgkeeper.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Morgul/rpgkeeper/context:javascript)
-
 * Production: https://rpgkeeper.com
 * Beta: https://beta.rpgkeeper.com
 
-RPGKeeper is a digital chracter manager. While there are many others out there that are targeted to one or two systems, RPGKeeper aims to be a _universal_ character management system. It can support any TTRPG system ever created, as long as that system is added into it's codebase. Building a system is a time-consuming process, but it's possible to get the basics going in just a few hours. With support for a 'generic' system, RPGKeeper allows you to get down to playing quickly even if it doesn't support your game with a dedicated system.
+RPGKeeper is a digital character manager. While there are many others out there that are targeted to one or two systems, RPGKeeper aims to be a _universal_ character management system. It can support any TTRPG system ever created, as long as that system is added into it's codebase. Building a system is a time-consuming process, but it's possible to get the basics going in just a few hours. With support for a 'generic' system, RPGKeeper allows you to get down to playing quickly even if it doesn't support your game with a dedicated system.
 
 ## FAQ
 
@@ -19,7 +16,7 @@ Don't get us wrong, Roll20 certainly has a lot of features, and a dedicated fanb
 
 ### How many Characters can I have?
 
-Currently there are no limits on number of characters.
+Currently, there are no limits on number of characters.
 
 ### I have a game I want to add a system for!
 
