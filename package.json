@@ -24,7 +24,6 @@
     "body-parser": "^1.20.3",
     "connect-session-knex": "^5.0.0",
     "cookie-parser": "^1.4.6",
-    "decoders": "^1.23.3",
     "dotenv": "^16.4.5",
     "express": "^5.0.1",
     "express-session": "^1.18.0",

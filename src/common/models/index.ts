@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 export { AccountSettings, Account } from './account.js';
-export { CharacterOptions, SystemDetails, Character } from './character.js';
+export { SystemDetails, Character } from './character.js';
 export { DiceRoll } from './dice.js';
 export { Notebook, NotebookPage } from './notebook.js';
 export { Role } from './role.js';
