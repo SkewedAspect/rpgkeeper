@@ -1,15 +1,8 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Note
+// Notebook Models
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface NotebookOptions 
-{
-    id : string;
-    // eslint-disable-next-line no-use-before-define
-    pages ?: NotebookPageOptions[]
-}
-
-export interface NotebookPageOptions 
+export interface NotebookPage
 {
     id : string;
     title : string;
@@ -17,11 +10,11 @@ export interface NotebookPageOptions
     notebookID : string;
 }
 
-// FIXME: Once Models are removed, `NotebookOptions` should be named 'Notebook'.
-export type Notebook = NotebookOptions;
-
-// FIXME: Once Models are removed, `NotebookPageOptions` should be named 'NotebookPage'.
-export type NotebookPage = NotebookPageOptions;
+export interface Notebook
+{
+    id : string;
+    pages ?: NotebookPage[]
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

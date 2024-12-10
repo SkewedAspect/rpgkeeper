@@ -2,13 +2,7 @@
 // System Supplements
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { ReferenceOptions } from '../models/reference.js';
-
-// ---------------------------------------------------------------------------------------------------------------------
-
 export type SupplementScope = 'public' | 'user';
-
-export type Reference = ReferenceOptions;
 
 export interface Supplement
 {

@@ -2,7 +2,7 @@
 // Supplement
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface SupplementOptions 
+export interface Supplement
 {
     id : number;
     name : string;
@@ -13,8 +13,5 @@ export interface SupplementOptions
     // There are additional properties to most supplements
     [ key : string ] : unknown;
 }
-
-// FIXME: Once Models are removed, `SupplementOptions` should be named 'Supplement'.
-export type Supplement = SupplementOptions;
 
 //----------------------------------------------------------------------------------------------------------------------

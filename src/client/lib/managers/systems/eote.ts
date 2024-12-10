@@ -7,7 +7,8 @@ import { XOR } from 'ts-essentials';
 // Interfaces
 import { Character } from '../../../../common/interfaces/common';
 import * as Models from '../../../../common/interfaces/systems/eote';
-import { Reference, Supplement } from '../../../../common/interfaces/systems/supplements';
+import { Supplement } from '../../../../common/interfaces/systems/supplements';
+import { Reference } from '../../../../common/interfaces/models/reference';
 
 // Stores
 import { useEoteStore } from '../../stores/systems/eote';
