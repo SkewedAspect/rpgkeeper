@@ -938,6 +938,6 @@ export async function seed(knex : Knex) : Promise<void>
     // Inserts seed entries
     await Promise.all(eoteTalents.map((talent) => knex('eote_talent').insert(talent)));
     await Promise.all(genesysTalents.map((talent) => knex('genesys_talent').insert(talent)));
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

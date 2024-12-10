@@ -28,7 +28,7 @@ import { ConnectSessionKnexStore } from 'connect-session-knex';
 import GoogleAuth from './auth/google.js';
 
 // Interfaces
-import { ServerConfig } from '../common/interfaces/config.js';
+import { ServerConfig } from './interfaces/config.js';
 
 // Routes
 import authRouter from './routes/auth.js';

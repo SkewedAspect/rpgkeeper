@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from '../../../common/interfaces/models/account.js';
-import { EoteCharacter, GenesysCharacter } from '../../../common/interfaces/systems/eote.js';
+import { Account } from '../../../common/models/account.js';
+import { EoteCharacter, GenesysCharacter } from '../../../common/models/systems/eote.js';
 
 // Managers
 import * as accountMan from '../../managers/account.js';

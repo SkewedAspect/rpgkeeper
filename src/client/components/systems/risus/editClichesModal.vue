@@ -95,7 +95,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { RisusCliche } from '../../../../common/interfaces/systems/risus';
+    import { RisusCliche } from '../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

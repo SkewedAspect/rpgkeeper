@@ -62,7 +62,7 @@
     import { truncate } from 'lodash';
 
     // Interfaces
-    import { Character } from '../../../../common/interfaces/common';
+    import { Character } from '../../../../common/models';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

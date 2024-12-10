@@ -5,10 +5,10 @@
 import tp from 'trivialperms';
 
 // Interfaces
-import { Role } from '../../common/interfaces/models/role.js';
+import { Role } from '../../common/models/role.js';
 
 // Models
-import { Account } from '../../common/interfaces/models/account.js';
+import { Account } from '../../common/models/account.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

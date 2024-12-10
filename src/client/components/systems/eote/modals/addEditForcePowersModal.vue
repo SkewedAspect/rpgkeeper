@@ -284,7 +284,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteForcePower, EoteQuality } from '../../../../../common/interfaces/systems/eote';
+    import { EoteForcePower, EoteQuality } from '../../../../../common/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

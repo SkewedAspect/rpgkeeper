@@ -37,8 +37,8 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Character } from '../../../../common/interfaces/common';
-    import { CoCSystemDetails } from '../../../../common/interfaces/systems/coc';
+    import { Character } from '../../../../common/models';
+    import { CoCSystemDetails } from '../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

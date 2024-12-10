@@ -5,9 +5,9 @@
 import { defineStore } from 'pinia';
 
 // Models
-import * as GenesysModels from '../../../../common/interfaces/systems/eote';
-import { Supplement } from '../../../../common/interfaces/systems/supplements';
-import { Reference } from '../../../../common/interfaces/models/reference';
+import * as GenesysModels from '../../../../common/models/systems/eote';
+import { Supplement } from '../../../../common/models/systems';
+import { Reference } from '../../../../common/models/reference';
 
 // Resource Access
 import suppRA from '../../resource-access/supplement';

@@ -93,6 +93,6 @@ export async function seed(knex : Knex) : Promise<void>
             await knex('account_role').insert({ account_id: account.account_id, role_id: 2 });
         }
     }
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

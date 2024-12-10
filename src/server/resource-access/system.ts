@@ -11,7 +11,7 @@ import { EdgeOfTheEmpire, Genesys } from '../systems/eote/system.js';
 import { BaseSystem } from '../systems/base.js';
 
 // Models
-import { Character } from '../../common/interfaces/models/character.js';
+import { Character } from '../../common/models/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

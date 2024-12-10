@@ -5,7 +5,7 @@
 import _ from 'lodash';
 
 // Interfaces
-import { EoteCritical } from '../../../../common/interfaces/systems/eote';
+import { EoteCritical } from '../../../../common/models/systems';
 
 //----------------------------------------------------------------------------------------------------------------------
 

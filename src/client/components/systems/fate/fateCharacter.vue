@@ -50,8 +50,8 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Character } from '../../../../common/interfaces/common';
-    import { FateSystemDetails } from '../../../../common/interfaces/systems/fate';
+    import { Character } from '../../../../common/models';
+    import { FateSystemDetails } from '../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

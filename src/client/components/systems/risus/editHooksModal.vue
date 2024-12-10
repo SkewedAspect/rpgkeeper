@@ -77,7 +77,7 @@
     import { ref } from 'vue';
 
     // Interfaces
-    import { RisusHook } from '../../../../common/interfaces/systems/risus';
+    import { RisusHook } from '../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

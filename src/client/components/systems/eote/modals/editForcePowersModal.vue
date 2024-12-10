@@ -128,7 +128,7 @@
         EoteForcePower,
         EoteForcePowerInst, EoteForcePowerUpgrade,
         EoteTalentInst,
-    } from '../../../../../common/interfaces/systems/eote';
+    } from '../../../../../common/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

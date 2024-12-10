@@ -53,7 +53,7 @@
     import { ref } from 'vue';
 
     // Interfaces
-    import { Character } from '../../../common/interfaces/common';
+    import { Character } from '../../../common/models';
 
     // Components
     import CloseButton from '../ui/closeButton.vue';

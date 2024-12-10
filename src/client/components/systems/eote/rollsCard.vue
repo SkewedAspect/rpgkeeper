@@ -103,7 +103,7 @@
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
-    import { EoteSkill } from '../../../../common/interfaces/systems/eote';
+    import { EoteSkill } from '../../../../common/models/systems';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

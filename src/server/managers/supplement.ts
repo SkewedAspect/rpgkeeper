@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from '../../common/interfaces/models/account.js';
-import { Supplement } from '../../common/interfaces/models/supplement.js';
+import { Account } from '../../common/models/account.js';
+import { Supplement } from '../../common/models/index.js';
 
 // Resource Access
 import * as suppRA from '../resource-access/supplement.js';
@@ -21,7 +21,7 @@ export async function get(id : number, type : string, systemPrefix : string, acc
 
 export async function list(
     filters : Record<string, FilterToken>,
-    type : string, 
+    type : string,
     systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement[]>
@@ -36,7 +36,7 @@ export async function exists(id : number, type : string, systemPrefix : string, 
 
 export async function add(
     newSupplement : Supplement,
-    type : string, 
+    type : string,
     systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement>
@@ -48,7 +48,7 @@ export async function update(
     id : number,
     updateSup : Partial<Supplement>,
     type : string,
-    systemPrefix : string, 
+    systemPrefix : string,
     account ?: Account
 ) : Promise<Supplement>
 {

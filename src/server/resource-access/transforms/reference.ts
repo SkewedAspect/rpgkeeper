@@ -2,11 +2,11 @@
 // Reference Database Transform
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Reference } from '../../../common/interfaces/models/reference.js';
+import { Reference } from '../../../common/models/reference.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export interface ReferenceDBSchema 
+export interface ReferenceDBSchema
 {
     abbr : string;
     name : string;

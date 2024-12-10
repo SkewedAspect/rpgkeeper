@@ -66,7 +66,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { EoteCharacteristics, EoteOrGenCharacter } from '../../../../common/interfaces/systems/eote';
+    import { EoteCharacteristics, EoteOrGenCharacter } from '../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

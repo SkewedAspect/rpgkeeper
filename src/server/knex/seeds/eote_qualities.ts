@@ -106,6 +106,6 @@ export async function seed(knex : Knex) : Promise<void>
     // Inserts seed entries
     await Promise.all(eoteQualities.map((quality) => knex('eote_quality').insert(quality)));
     await Promise.all(genesysQualities.map((quality) => knex('genesys_quality').insert(quality)));
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

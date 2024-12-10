@@ -97,7 +97,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { FateAspect } from '../../../../common/interfaces/systems/fate';
+    import { FateAspect } from '../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

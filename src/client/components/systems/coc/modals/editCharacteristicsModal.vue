@@ -75,11 +75,11 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { Character } from '../../../../../common/interfaces/common';
+    import { Character } from '../../../../../common/models';
     import {
         CoCCharacteristics,
         CoCSystemDetails,
-    } from '../../../../../common/interfaces/systems/coc';
+    } from '../../../../../common/models/systems';
 
     // Utils
     import { startCase } from '../../../../lib/utils/misc';

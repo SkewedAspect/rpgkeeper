@@ -2,7 +2,7 @@
 // Notebook Database Transforms
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Notebook, NotebookPage } from '../../../common/interfaces/models/notebook.js';
+import { Notebook, NotebookPage } from '../../../common/models/notebook.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

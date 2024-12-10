@@ -22,8 +22,8 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Character } from '../../../../common/interfaces/common';
-    import { WFRPSystemDetails } from '../../../../common/interfaces/systems/wfrp';
+    import { Character } from '../../../../common/models';
+    import { WFRPSystemDetails } from '../../../../common/models/systems';
 
     // Store
     import { useCharactersStore } from '../../../lib/stores/characters';

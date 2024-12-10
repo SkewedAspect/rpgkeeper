@@ -5,8 +5,8 @@
 import axios from 'axios';
 
 // Interfaces
-import { Supplement } from '../../../common/interfaces/systems/supplements';
-import { Reference } from '../../../common/interfaces/models/reference';
+import { Supplement } from '../../../common/models/systems';
+import { Reference } from '../../../common/models/reference';
 
 //----------------------------------------------------------------------------------------------------------------------
 

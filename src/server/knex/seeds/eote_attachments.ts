@@ -318,6 +318,6 @@ export async function seed(knex : Knex) : Promise<void>
     // Inserts seed entries
     await Promise.all(eoteAttachments.map((attachment) => knex('eote_attachment').insert(attachment)));
     await Promise.all(genesysAttachments.map((attachment) => knex('genesys_attachment').insert(attachment)));
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

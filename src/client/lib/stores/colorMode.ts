@@ -5,7 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { ValidBSTheme, ValidColorMode } from '../../../common/interfaces/models/colorMode';
+import { ValidBSTheme, ValidColorMode } from '../../../common/models/colorMode';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ export const useColorModeStore = defineStore('colorMode', {
     state() : ColorModeStoreState
     {
         return {
-            colorMode: 'auto',
+            colorMode: 'dark',
         };
     },
     getters: {

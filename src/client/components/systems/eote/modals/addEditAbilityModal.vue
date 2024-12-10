@@ -71,7 +71,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteAbility, EoteForcePower } from '../../../../../common/interfaces/systems/eote';
+    import { EoteAbility, EoteForcePower } from '../../../../../common/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

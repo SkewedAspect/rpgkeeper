@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SupportStatus } from '../../common/interfaces/models/system.js';
-import { Character } from '../../common/interfaces/models/character.js';
+import { SupportStatus } from '../../common/models/system.js';
+import { Character } from '../../common/models/index.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 

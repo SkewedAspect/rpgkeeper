@@ -62,8 +62,8 @@
     import { ref } from 'vue';
 
     // Interfaces
-    import { Character } from '../../../../common/interfaces/common';
-    import { RisusSystemDetails } from '../../../../common/interfaces/systems/risus';
+    import { Character } from '../../../../common/models';
+    import { RisusSystemDetails } from '../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

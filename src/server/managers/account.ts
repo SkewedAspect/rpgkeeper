@@ -5,7 +5,7 @@
 import pMap from 'p-map';
 
 // Models
-import { Account, NewAccount } from '../../common/interfaces/models/account.js';
+import { Account, NewAccount } from '../../common/models/account.js';
 
 // Resource Access
 import * as accountRA from '../resource-access/account.js';

@@ -103,12 +103,12 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { Character } from '../../../../common/interfaces/common';
+    import { Character } from '../../../../common/models';
     import {
         CoCCharacteristics,
         CoCSystemDetails,
         validCoCCharacteristicNames,
-    } from '../../../../common/interfaces/systems/coc';
+    } from '../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

@@ -61,8 +61,8 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Character } from '../../../../common/interfaces/common';
-    import { WFRPStat, WFRPSystemDetails } from '../../../../common/interfaces/systems/wfrp';
+    import { Character } from '../../../../common/models';
+    import { WFRPStat, WFRPSystemDetails } from '../../../../common/models/systems';
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';

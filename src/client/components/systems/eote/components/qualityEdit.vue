@@ -59,7 +59,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteQuality, EoteQualityRef } from '../../../../../common/interfaces/systems/eote';
+    import { EoteQuality, EoteQualityRef } from '../../../../../common/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

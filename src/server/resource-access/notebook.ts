@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Notebook, NotebookPage } from '../../common/interfaces/models/notebook.js';
+import { Notebook, NotebookPage } from '../../common/models/notebook.js';
 
 // Transforms
 import * as NoteTransforms from './transforms/notebook.js';
@@ -15,7 +15,7 @@ import { MultipleResultsError, NotFoundError } from '../errors.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export interface NoteFilters 
+export interface NoteFilters
 {
     id ?: string | string[],
     email ?: string | string[]

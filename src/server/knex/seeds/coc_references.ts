@@ -17,6 +17,6 @@ export async function seed(knex : Knex) : Promise<void>
         { name: 'Call of Cthulhu Keeper Rulebook', abbr: 'CoC-RK', product_code: 'CHA23135' },
         { name: 'Call of Cthulhu Investigator Handbook', abbr: 'CoC-IH', product_code: 'CHA23136' },
     ]);
-};
+}
 
 //----------------------------------------------------------------------------------------------------------------------

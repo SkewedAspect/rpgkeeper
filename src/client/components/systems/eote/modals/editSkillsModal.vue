@@ -277,7 +277,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteOrGenCharacter, EoteSkill } from '../../../../../common/interfaces/systems/eote';
+    import { EoteOrGenCharacter, EoteSkill } from '../../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

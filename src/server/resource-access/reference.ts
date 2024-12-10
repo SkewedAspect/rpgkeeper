@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Reference } from '../../common/interfaces/models/reference.js';
+import { Reference } from '../../common/models/reference.js';
 
 // Transforms
 import * as ReferenceTrans from './transforms/reference.js';

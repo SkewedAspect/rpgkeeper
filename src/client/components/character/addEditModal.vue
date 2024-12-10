@@ -206,7 +206,7 @@
     import { maxLength, minLength, required } from '@vuelidate/validators';
 
     // Interfaces
-    import { Character } from '../../../common/interfaces/common';
+    import { Character } from '../../../common/models';
 
     // Managers
     import systemsMan from '../../lib/managers/systems';

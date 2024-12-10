@@ -2,7 +2,7 @@
 // Role Resource Access Layer
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Role } from '../../common/interfaces/models/role.js';
+import { Role } from '../../common/models/role.js';
 
 // Transforms
 import * as RoleTransforms from './transforms/role.js';
