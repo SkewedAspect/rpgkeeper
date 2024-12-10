@@ -34,10 +34,13 @@
                         <template #append>
                             <BButton variant="primary" @click="save()">
                                 <Fa icon="save" />
-                                Set Nick Name
+                                Set Display Name
                             </BButton>
                         </template>
                     </BInputGroup>
+                    <small class="text-muted">
+                        This is the name that will be displayed to other users.
+                    </small>
                 </BCol>
             </BFormRow>
 
@@ -58,16 +61,55 @@
                     </h5>
                 </template>
 
-                <BFormGroup
-                    label="Color Mode"
-                    label-for="color-mode"
-                >
-                    <BFormRadioGroup
-                        id="color-mode"
-                        v-model="account.settings.colorMode"
-                        :options="colorModeOptions"
-                    />
-                </BFormGroup>
+                <div class="d-flex gap-2">
+                    <BCard class="w-100">
+                        <BFormGroup
+                            label="Theme Colors"
+                            label-for="color-mode"
+                        >
+                            <BFormRadioGroup
+                                id="color-mode"
+                                v-model="account.settings.colorMode"
+                                :options="colorModeOptions"
+                            />
+                        </BFormGroup>
+                    </BCard>
+                    <BCard class="w-100">
+                        <div class="d-flex gap-2">
+                            <div class="w-50">
+                                <BFormGroup
+                                    label="Development Status Filter"
+                                    label-for="sys-filter"
+                                    description="By default, we don't display systems that are in early development.
+                                    This setting allows you to change how we filter what systems we display for your
+                                    user."
+                                >
+                                    <BFormSelect
+                                        id="sys-filter"
+                                        v-model="account.settings.systemFilter"
+                                        :options="systemFilterOptions"
+                                    />
+                                </BFormGroup>
+                            </div>
+                            <div class="w-50">
+                                <ul>
+                                    <li class="font-xs">
+                                        <b>Development (Alpha)</b> - these systems are in early development and may not
+                                        be stable. Expect them to be incomplete, buggy, or missing features.
+                                    </li>
+                                    <li class="font-xs">
+                                        <b>Public Preview (Beta)</b> - these systems are in public preview and may have
+                                        some bugs or missing features.
+                                    </li>
+                                    <li class="font-xs">
+                                        <b>Production Ready (Stable)</b> - these systems are production-ready and are
+                                        considered stable. All features should be present and working.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </BCard>
+                </div>
             </BCard>
         </div>
     </div>
@@ -82,7 +124,6 @@
 
     // Stores
     import { useAccountStore } from '../lib/stores/account';
-    import { useColorModeStore } from '../lib/stores/colorMode';
 
     // Managers
     import authMan from '../lib/managers/auth';
@@ -100,11 +141,14 @@
         { text: 'Auto', value: 'auto' },
     ];
 
+    const systemFilterOptions = [
+        { text: 'Development (Alpha)', value: 'dev' },
+        { text: 'Public Preview (Beta)', value: 'beta' },
+        { text: 'Production Ready (Stable)', value: 'stable' },
+    ];
+
     const accountStore = useAccountStore();
     const { account } = storeToRefs(accountStore);
-
-    const colorModeStore = useColorModeStore();
-    const { colorMode } = storeToRefs(colorModeStore);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -114,9 +158,6 @@
     {
         // Save the account
         authMan.saveAccount(account.value);
-
-        // Save the color mode
-        colorMode.value = account.value.settings.colorMode ?? 'auto';
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -128,10 +169,17 @@
         account.value.settings = {
             // Default settings
             colorMode: 'auto',
+            systemFilter: 'beta',
 
             // Current settings
             ...account.value.settings || {},
         };
+
+        // Check to see if we have permissions to see disabled systems.
+        if(authMan.hasPerm('Systems/ViewDisabled'))
+        {
+            systemFilterOptions.unshift({ text: 'Disabled (Unusable)', value: 'disabled' });
+        }
     });
 </script>
 

@@ -1,5 +1,5 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- Eote Rolls
+  -- EotE Rolls
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
@@ -96,14 +96,13 @@
 
     // Stores
     import { useCharactersStore } from '../../../lib/stores/characters';
-    import { useColorModeStore } from '../../../lib/stores/colorMode';
+    import { useAccountStore } from '../../../lib/stores/account';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
-    import { EoteSkill } from '../../../../common/models/systems';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -111,7 +110,6 @@
 
     interface Props
     {
-        skills : EoteSkill[];
         readonly : boolean;
     }
 
@@ -144,6 +142,8 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const readonly = computed(() => props.readonly);
+
     const diceList = computed(() =>
     {
         return Object.keys(dice.value)
@@ -171,7 +171,7 @@
 
     const btnVariant = computed(() =>
     {
-        if(useColorModeStore().bsTheme === 'light')
+        if(useAccountStore().bsTheme === 'light')
         {
             return 'light';
         }

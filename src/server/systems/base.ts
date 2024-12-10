@@ -14,7 +14,7 @@ export class BaseSystem
     public readonly name : string;
     public readonly description : string;
     public readonly defaults : Record<string, unknown>;
-    public readonly status ?: SupportStatus;
+    public readonly status : SupportStatus;
 
     constructor(
         id : string,
@@ -28,7 +28,7 @@ export class BaseSystem
         this.name = name;
         this.description = description;
         this.defaults = defaults;
-        this.status = status;
+        this.status = status ?? SupportStatus.InDevelopment;
     }
 
     //------------------------------------------------------------------------------------------------------------------

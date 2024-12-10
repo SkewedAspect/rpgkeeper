@@ -5,6 +5,9 @@
 // BaseClass
 import { BaseSystem } from '../base.js';
 
+// Models
+import { SupportStatus } from '../../../common/models/index.js';
+
 // Defaults
 import defaults from './defaults.js';
 
@@ -26,7 +29,7 @@ class FATESystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description, defaults.character);
+        super(id, name, description, defaults.character, SupportStatus.Stable);
 
         logger.info(`Loaded '${ name }' system.`);
     }

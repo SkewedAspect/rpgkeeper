@@ -10,6 +10,9 @@ import { System } from '../../../common/models';
 // Resource Access
 import systemsRA from '../resource-access/systems';
 
+// Stores
+import { useAccountStore } from './account';
+
 // ---------------------------------------------------------------------------------------------------------------------
 
 export type SystemStoreStatus = 'unloaded' | 'loading' | 'loaded';
@@ -31,6 +34,37 @@ export const useSystemsStore = defineStore('systems', {
             current: null,
             systems: [],
         };
+    },
+    getters: {
+        filteredSystems() : System<Record<string, unknown>>[]
+        {
+            const accountStore = useAccountStore();
+            const systemFilter = accountStore.systemFilter;
+
+            return this.systems.filter((system) =>
+            {
+                if(systemFilter === 'disabled')
+                {
+                    return true;
+                }
+                else if(systemFilter === 'dev')
+                {
+                    return system.status !== 'disabled';
+                }
+                else if(systemFilter === 'beta')
+                {
+                    return system.status === 'beta' || system.status === 'stable';
+                }
+                else if(systemFilter === 'stable')
+                {
+                    return system.status === 'stable';
+                }
+                else
+                {
+                    return false;
+                }
+            });
+        },
     },
     actions: {
         async load() : Promise<void>

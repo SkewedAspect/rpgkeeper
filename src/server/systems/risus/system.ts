@@ -5,11 +5,15 @@
 // BaseClass
 import { BaseSystem } from '../base.js';
 
+// Models
+import { SupportStatus } from '../../../common/models/index.js';
+
 // Defaults
 import defaults from './defaults.js';
 
 // Logger
 import logging from '@strata-js/util-logging';
+
 const logger = logging.getLogger('risus-system');
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -28,7 +32,7 @@ class RisusSystem extends BaseSystem
 {
     constructor()
     {
-        super(id, name, description, defaults.character);
+        super(id, name, description, defaults.character, SupportStatus.Stable);
 
         logger.info(`Loaded '${ name }' system.`);
     }

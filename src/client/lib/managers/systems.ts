@@ -35,13 +35,16 @@ class SystemsManager
         switch (desc)
         {
             case 'dev':
-                return 'Early Development';
+                return 'Development';
 
             case 'beta':
-                return 'Public Beta';
+                return 'Public Preview';
 
             case 'disabled':
                 return 'Disabled';
+
+            case 'stable':
+                return 'Production Ready';
 
             default:
                 return desc;
@@ -60,6 +63,9 @@ class SystemsManager
 
             case 'disabled':
                 return 'This system is disabled for normal users. USE AT YOUR OWN RISK.';
+
+            case 'stable':
+                return 'This system is considered complete and considered stable.';
 
             default:
                 return 'Unknown status.';

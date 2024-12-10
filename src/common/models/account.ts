@@ -3,12 +3,14 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { ValidColorMode } from './colorMode.js';
+import { ValidSupportStatus } from './system.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 export interface AccountSettings
 {
     colorMode ?: ValidColorMode
+    systemFilter ?: ValidSupportStatus
 }
 
 export interface Account

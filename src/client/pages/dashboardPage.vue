@@ -39,12 +39,12 @@
                                         @click.stop
                                     >
                                         <div class="text-nowrap d-flex w-100" @click.stop>
-                                            <div class="me-1">
+                                            <div class="me-3">
                                                 {{ system.name }}
                                             </div>
                                             <div class="ms-auto">
                                                 <BBadge
-                                                    v-if="system.status"
+                                                    v-if="system.status && system.status !== 'stable'"
                                                     :variant="getStatusVariant(system.status)"
                                                     :title="getStatusDescription(system.status)"
                                                 >
@@ -204,7 +204,7 @@
         return !account.value || sysStore.status !== 'loaded' || charStore.status !== 'loaded';
     });
 
-    const systems = computed(() => sysStore.systems);
+    const systems = computed(() => sysStore.filteredSystems);
 
     const characters = computed(() =>
     {

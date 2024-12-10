@@ -27,7 +27,7 @@
     import { watch } from 'vue';
 
     // Stores
-    import { useColorModeStore } from './lib/stores/colorMode';
+    import { useAccountStore } from './lib/stores/account';
 
     // Components
     import SiteHeader from './components/ui/siteHeader.vue';
@@ -35,13 +35,13 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    const colorModeStore = useColorModeStore();
+    const accountStore = useAccountStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Watchers
     //------------------------------------------------------------------------------------------------------------------
 
-    watch(() => colorModeStore.bsTheme, (newBSTheme) =>
+    watch(() => accountStore.bsTheme, (newBSTheme) =>
     {
         // We have to manually set the bootstrap theme on the base body property for dumb reasons.
         document.documentElement.setAttribute('data-bs-theme', newBSTheme);

@@ -269,12 +269,13 @@
 
     const systems = computed(() =>
     {
-        return sysStore.systems
+        return sysStore.filteredSystems
             .map((sys) =>
             {
                 return {
                     ...sys,
-                    name: sys.status ? `${ sys.name } (${ systemsMan.getStatusDisplay(sys.status) })` : sys.name,
+                    name: sys.status !== 'stable'
+                        ? `${ sys.name } (${ systemsMan.getStatusDisplay(sys.status) })` : sys.name,
                 };
             });
     });
