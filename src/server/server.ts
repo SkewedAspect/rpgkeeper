@@ -108,7 +108,7 @@ async function main() : Promise<void>
     //------------------------------------------------------------------------------------------------------------------
 
     // Get version
-    const version = await getVersion();
+    const appVersion = await getVersion();
 
     // Build the express app
     const app = express();
@@ -192,6 +192,8 @@ async function main() : Promise<void>
         logger.debug(`Starting real http server on port ${ httpPort }...`);
     }
 
+    console.log('VERSION!!!!', appVersion);
+
     // Start the server
     server.listen(httpPort, config.http.host, () =>
     {
@@ -214,7 +216,7 @@ async function main() : Promise<void>
         }
 
         const url = `http://${ host }:${ actualPort }`;
-        logger.info(`RPGKeeper v${ version } listening at ${ url }.`);
+        logger.info(`RPGKeeper v${ appVersion.version.full } listening at ${ url }.`);
     });
 }
 

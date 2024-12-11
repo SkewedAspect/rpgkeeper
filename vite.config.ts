@@ -15,6 +15,7 @@ import { ServerConfig } from './src/server/interfaces/config.js';
 
 // Utils
 import configUtil from '@strata-js/util-config';
+import { getVersion } from './src/server/utils/version.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Configuration
@@ -101,7 +102,7 @@ export default defineConfig({
         open: false,
     },
     define: {
-        __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
+        __APP_VERSION__: JSON.stringify((await getVersion()).version.full),
     },
     build: {
         outDir: '../../dist/client',
