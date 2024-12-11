@@ -6,26 +6,7 @@
     <BContainer id="dashboard" class="pb-0">
         <h3>Recently Used</h3>
         <div class="d-flex gap-2 mb-5">
-            <BCard v-for="char in recentCharacters" :key="char.id" class="flex-fill">
-                <div class="d-flex">
-                    <div style="min-width: 64px">
-                        <CharThumbnail :char="char" />
-                    </div>
-                    <div class="ms-2 flex-column d-flex justify-content-center">
-                        <h5 class="mb-1">
-                            {{ char.name }}
-                        </h5>
-                        <p class="text-muted m-0">
-                            <BBadge class="me-1">
-                                {{ getSystem(char.system).name }}
-                            </BBadge>
-                        </p>
-                        <p class="text-muted m-0">
-                            <small>{{ char.campaign }}</small>
-                        </p>
-                    </div>
-                </div>
-            </BCard>
+            <CharCard v-for="char in recentCharacters" :key="char.id" :character="char" class="flex-fill" />
         </div>
         <BFormRow>
             <BCol cols="12" class="mb-3">
@@ -199,6 +180,7 @@
     // Components
     import LoadingWidget from '../components/ui/loadingWidget.vue';
     import AddEditModal from '../components/character/addEditModal.vue';
+    import CharCard from '../components/character/charCard.vue';
     import DeleteModal from '../components/character/deleteModal.vue';
     import CharThumbnail from '../components/character/charThumbnail.vue';
     import CloseButton from '../components/ui/closeButton.vue';
