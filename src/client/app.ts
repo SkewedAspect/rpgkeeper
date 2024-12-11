@@ -159,7 +159,7 @@ async function init() : Promise<void>
     app.mount('#rpgkeeper');
 
     // Print out an initialization message
-    console.log(`RPGKeeper v${ appVersion.version.full } initialized.`);
+    console.info(`RPGKeeper v${ appVersion.version.full } initialized.`);
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

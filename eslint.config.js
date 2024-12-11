@@ -9,7 +9,6 @@ import pluginVue from 'eslint-plugin-vue';
 
 export default [
     { files: [ '**/*.{js,mjs,cjs,ts}' ] },
-    { ignores: [ 'src/server/systems/unconverted/**/*' ] },
     {
         plugins: {
             '@stylistic': stylistic,
@@ -45,6 +44,10 @@ export default [
             'no-useless-return': 'error',
             'require-await': 'off',
             'no-new-native-nonconstructor': 'error',
+            'no-console': [
+                'error',
+                { allow: [ 'debug', 'info', 'warn', 'error' ] },
+            ],
 
             // Style
             'consistent-this': [ 'error', 'self' ],
@@ -252,12 +255,6 @@ export default [
             // Overrides for Vue rules to supersede the default rules
             '@stylistic/indent': 'off',
             '@typescript-eslint/no-unused-vars': 'off',
-
-            // Bad Practices
-            'no-console': [
-                'error',
-                { allow: [ 'debug', 'info', 'warn', 'error' ] },
-            ],
 
             // Style
             'vue/component-tags-order': [ 'error', {
