@@ -15,10 +15,7 @@ const router = Router();
 
 router.get('/', async (_req, resp) =>
 {
-    const version = await getVersion();
-    resp.json({
-        version,
-    });
+    resp.json(await getVersion());
 });
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -20,6 +20,9 @@ import { far } from '@fortawesome/pro-regular-svg-icons';
 import { fas } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
 
+// Models
+import { AppVersion } from '../common/models/version';
+
 // Managers
 import authMan from './lib/managers/auth';
 import charMan from './lib/managers/character';
@@ -39,7 +42,7 @@ import HomePage from './pages/homePage.vue';
 import SettingsPage from './pages/settingsPage.vue';
 
 // Utils
-// import { buildWarnHandler } from './lib/utils/warning';
+import versionRA from './lib/resource-access/version';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Font Awesome
@@ -134,15 +137,12 @@ declare global
 {
     interface Window
     {
-        RPGKeeper : {
-            version : string;
-        }
+        RPGKeeper : AppVersion;
     }
 }
 
-window.RPGKeeper = {
-    version: __APP_VERSION__,
-};
+const appVersion = await versionRA.getAppVersion();
+window.RPGKeeper = appVersion;
 
 //----------------------------------------------------------------------------------------------------------------------
 // App Initialization
@@ -157,6 +157,9 @@ async function init() : Promise<void>
 
     // Mount the application
     app.mount('#rpgkeeper');
+
+    // Print out an initialization message
+    console.log(`RPGKeeper v${ appVersion.version.full } initialized.`);
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
