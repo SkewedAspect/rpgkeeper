@@ -6,7 +6,7 @@
     <BContainer id="dashboard" class="pb-0">
         <h3>Recently Used</h3>
         <div class="d-flex gap-2 mb-5">
-            <BCard v-for="char in recentCharacters" :key="char.id">
+            <BCard v-for="char in recentCharacters" :key="char.id" class="flex-fill">
                 <div class="d-flex">
                     <div style="min-width: 64px">
                         <CharThumbnail :char="char" />
