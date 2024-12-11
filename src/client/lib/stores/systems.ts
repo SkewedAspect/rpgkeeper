@@ -5,7 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { System } from '../../../common/models';
+import { SystemDefinition } from '../../../common/models';
 
 // Resource Access
 import systemsRA from '../resource-access/systems';
@@ -20,8 +20,8 @@ export type SystemStoreStatus = 'unloaded' | 'loading' | 'loaded';
 export interface SystemsStoreState
 {
     status : SystemStoreStatus;
-    current : System<Record<string, unknown>> | null;
-    systems : System<Record<string, unknown>>[];
+    current : SystemDefinition<Record<string, unknown>> | null;
+    systems : SystemDefinition<Record<string, unknown>>[];
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ export const useSystemsStore = defineStore('systems', {
         };
     },
     getters: {
-        filteredSystems() : System<Record<string, unknown>>[]
+        filteredSystems() : SystemDefinition<Record<string, unknown>>[]
         {
             const accountStore = useAccountStore();
             const systemFilter = accountStore.systemFilter;
@@ -75,7 +75,7 @@ export const useSystemsStore = defineStore('systems', {
             this.systems = await systemsRA.loadSystems();
             this.status = 'loaded';
         },
-        find<T extends Record<string, unknown>>(systemID : string) : System<T> | undefined
+        find<T extends Record<string, unknown>>(systemID : string) : SystemDefinition<T> | undefined
         {
             return this.systems.find((system) => system.id === systemID);
         },

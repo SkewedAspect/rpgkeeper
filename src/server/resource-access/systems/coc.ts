@@ -1,9 +1,13 @@
 //----------------------------------------------------------------------------------------------------------------------
-// CoC Model Defaults
+// CoC Model Definition
 //----------------------------------------------------------------------------------------------------------------------
 
-import { CoCSkill, CoCSystemDetails } from '../../../common/models/systems/index.js';
+// Models
+import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
+import { CoCSkill, CoCSystemDetails } from '../../../common/models/systems/coc.js';
 
+//----------------------------------------------------------------------------------------------------------------------
+// Defaults Definitions
 //----------------------------------------------------------------------------------------------------------------------
 
 export const specializations : CoCSkill[] = [
@@ -101,87 +105,100 @@ export const defaultSkills : CoCSkill[] = [
     ...twentiesSkills,
 ];
 
-export default {
-    character: {
-        biography: {
-            age: 0,
-            birthplace: '',
-            name: '',
-            occupation: '',
-            pronouns: '',
-            residence: '',
+export const cocDefaults : CoCSystemDetails = {
+    biography: {
+        age: 0,
+        birthplace: '',
+        name: '',
+        occupation: '',
+        pronouns: '',
+        residence: '',
+    },
+    characteristics: {
+        strength: 0,
+        constitution: 0,
+        size: 0,
+        dexterity: 0,
+        appearance: 0,
+        intelligence: 0,
+        power: 0,
+        education: 0,
+    },
+    skills: defaultSkills,
+    movement: 0,
+    luck: {
+        value: 0,
+        max: 99,
+        starting: 0,
+    },
+    sanity: {
+        value: 0,
+        max: 99,
+    },
+    hitPoints: {
+        value: 0,
+        max: 10,
+    },
+    magicPoints: {
+        value: 0,
+        max: 0,
+    },
+    status: {
+        temporaryInsanity: false,
+        indefiniteInsanity: false,
+        majorWound: false,
+        unconscious: false,
+        dying: false,
+    },
+    weapons: [
+        {
+            name: 'Unknown',
+            damage: '1d3 + {damageBonus}',
+            range: 'Touch',
+            attacks: 1,
+            ammo: null,
+            malfunction: null,
+            notes: '',
+            skill: 'Fighting (Brawl)',
+            reference: 'Coc-IH:250',
+            official: true,
+            owner: null,
+            scope: 'public',
         },
-        characteristics: {
-            strength: 0,
-            constitution: 0,
-            size: 0,
-            dexterity: 0,
-            appearance: 0,
-            intelligence: 0,
-            power: 0,
-            education: 0,
-        },
-        skills: defaultSkills,
-        movement: 0,
-        luck: {
-            value: 0,
-            max: 99,
-            starting: 0,
-        },
-        sanity: {
-            value: 0,
-            max: 99,
-        },
-        hitPoints: {
-            value: 0,
-            max: 10,
-        },
-        magicPoints: {
-            value: 0,
-            max: 0,
-        },
-        status: {
-            temporaryInsanity: false,
-            indefiniteInsanity: false,
-            majorWound: false,
-            unconscious: false,
-            dying: false,
-        },
-        weapons: [
-            {
-                name: 'Unknown',
-                damage: '1d3 + {damageBonus}',
-                range: 'Touch',
-                attacks: 1,
-                ammo: null,
-                malfunction: null,
-                notes: '',
-                skill: 'Fighting (Brawl)',
-                reference: 'Coc-IH:250',
-                official: true,
-                owner: null,
-                scope: 'public',
-            },
-        ],
-        backstory: {
-            description: '',
-            ideology: '',
-            significantPeople: '',
-            meaningfulLocations: '',
-            treasuredPossession: '',
-            traits: '',
-            injuries: '',
-            phobias: '',
-            arcaneTomes: '',
-            encounters: '',
-        },
-        gear: [],
-        wealth: {
-            cash: 0,
-            assets: '',
-            spendingLevel: '',
-        },
-    } satisfies CoCSystemDetails,
+    ],
+    backstory: {
+        description: '',
+        ideology: '',
+        significantPeople: '',
+        meaningfulLocations: '',
+        treasuredPossession: '',
+        traits: '',
+        injuries: '',
+        phobias: '',
+        arcaneTomes: '',
+        encounters: '',
+    },
+    gear: [],
+    wealth: {
+        cash: 0,
+        assets: '',
+        spendingLevel: '',
+    },
 };
+
+//----------------------------------------------------------------------------------------------------------------------
+// System Definition
+//----------------------------------------------------------------------------------------------------------------------
+
+export default {
+    id: 'coc',
+    name: 'Call of Cthulhu',
+    description: 'In Call of Cthulhu, you take on the role of everyday people who become investigators of the '
+        + 'unknown—whether they are prepared or not. The mysterious places, people, and situations you encounter are '
+        + 'often not what they seem—you and your friends are the only thing standing in the way of diabolical cults '
+        + 'and cosmic monsters from beyond space!',
+    defaults: cocDefaults,
+    status: SupportStatus.Alpha,
+} satisfies SystemDefinition<CoCSystemDetails>;
 
 //----------------------------------------------------------------------------------------------------------------------

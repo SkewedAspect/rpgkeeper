@@ -7,13 +7,15 @@ export type ValidSupportStatus = typeof validSupportStatuses[number];
 
 export const enum SupportStatus
 {
-    InDevelopment = 'dev',
-    PublicBeta = 'beta',
+    Alpha = 'dev',
+    Beta = 'beta',
     Disabled = 'disabled',
     Stable = 'stable',
 }
 
-export interface System<Defaults extends Record<string, unknown>>
+export type SystemDefaults = object;
+
+export interface SystemDefinition<Defaults extends SystemDefaults = SystemDefaults>
 {
     id : string;
     name : string;

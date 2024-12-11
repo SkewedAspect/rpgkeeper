@@ -162,7 +162,7 @@
     import { BaseColorVariant } from 'bootstrap-vue-next';
 
     // Interfaces
-    import { Character, System } from '../../common/models';
+    import { Character, SystemDefinition } from '../../common/models';
 
     // Stores
     import { useAccountStore } from '../lib/stores/account';
@@ -230,7 +230,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function getSystem<T extends Record<string, unknown>>(systemID : string) : System<T> | undefined
+    function getSystem<T extends Record<string, unknown>>(systemID : string) : SystemDefinition<T> | undefined
     {
         return sysStore.find(systemID);
     }

@@ -5,13 +5,13 @@
 import $http from 'axios';
 
 // Interfaces
-import { System } from '../../../common/models';
+import { SystemDefinition } from '../../../common/models';
 
 //----------------------------------------------------------------------------------------------------------------------
 
 class SystemsResourceAccess
 {
-    async loadSystems() : Promise<System<Record<string, unknown>>[]>
+    async loadSystems() : Promise<SystemDefinition<Record<string, unknown>>[]>
     {
         const { data } = await $http.get('/api/systems');
         return data;

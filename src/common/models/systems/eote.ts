@@ -180,7 +180,7 @@ interface BaseSystemDetails
     talents : BaseTalentInst[];
     gear : BaseGear[];
     armor : BaseArmorRef;
-    weapons : BaseWeaponRef;
+    weapons : BaseWeaponRef[];
 }
 
 // ---------------------------------------------------------------------------------------------------------------------

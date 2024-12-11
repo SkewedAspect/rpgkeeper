@@ -8,7 +8,7 @@ import express from 'express';
 import * as refMan from '../../managers/reference.js';
 
 // Defaults
-import cocDefaults, { defaultSkills, modernSkills, specializations } from '../../systems/coc/defaults.js';
+import { cocDefaults, defaultSkills, modernSkills, specializations } from '../../resource-access/systems/coc.js';
 
 // Utils
 import { buildSupplementRoute } from './utils/supplement.js';

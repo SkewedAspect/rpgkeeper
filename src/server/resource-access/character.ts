@@ -9,7 +9,7 @@ import { Character } from '../../common/models/index.js';
 import * as CharTransforms from './transforms/character.js';
 
 // Resource Access
-import systemRA from './system.js';
+import systemRA from '../managers/system.js';
 
 // Utils
 import { getDB } from '../utils/database.js';

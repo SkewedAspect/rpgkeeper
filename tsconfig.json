@@ -5,11 +5,10 @@
         "lib": [ "ES2023" ],
         "skipLibCheck": true,
         "useDefineForClassFields": true,
+        "declaration": false,
 
         /* Bundler mode */
         "moduleResolution": "bundler",
-        "allowImportingTsExtensions": true,
-        "resolveJsonModule": true,
         "isolatedModules": true,
         "esModuleInterop": true,
         "noEmit": true,

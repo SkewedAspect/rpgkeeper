@@ -6,7 +6,7 @@ import express from 'express';
 
 // Managers
 import * as permMan from '../../utils/permissions.js';
-import systemRA from '../../resource-access/system.js';
+import systemRA from '../../managers/system.js';
 
 // Utils
 import { errorHandler, interceptHTML } from '../utils/index.js';

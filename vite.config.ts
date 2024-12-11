@@ -8,10 +8,10 @@ import { defineConfig } from 'vite';
 // Vite Plugins
 import vue from '@vitejs/plugin-vue';
 import Components from 'unplugin-vue-components/vite';
-import { BootstrapVueNextResolver } from 'unplugin-vue-components/resolvers';
+import { BootstrapVueNextResolver } from 'bootstrap-vue-next';
 
 // Interfaces
-import { ServerConfig } from './src/server/interfaces/config.ts';
+import { ServerConfig } from './src/server/interfaces/config.js';
 
 // Utils
 import configUtil from '@strata-js/util-config';

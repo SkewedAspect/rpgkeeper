@@ -1,9 +1,21 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Wfrp Model Defaults
+// WFRP System Definition
+//----------------------------------------------------------------------------------------------------------------------
+
+// Models
+import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
+import { WFRPSystemDetails } from '../../../common/models/systems/wfrp.js';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 export default {
-    character: {
+    id: 'wfrp',
+    name: 'Warhammer 4th edition',
+    description: 'The fourth edition of the original dark fantasy roleplaying game,'
+        + ' Warhammer Fantasy Roleplay takes you back to the world where Chaos never sleeps.'
+        + ' Drawing inspiration from the legendary early publications of the grimdark RPG,'
+        + ' WFRP brings innovative twists to build on the beloved classic.',
+    defaults: {
         skills: [],
         stats: [
             {
@@ -60,6 +72,7 @@ export default {
             },
         ],
     },
-};
+    status: SupportStatus.Alpha,
+} satisfies SystemDefinition<WFRPSystemDetails>;
 
 //----------------------------------------------------------------------------------------------------------------------

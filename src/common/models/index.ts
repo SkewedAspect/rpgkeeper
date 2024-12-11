@@ -9,6 +9,6 @@ export { Notebook, NotebookPage } from './notebook.js';
 export { Role } from './role.js';
 export { RPGKMessage, RPGKEventMessage, RPGKRemoveMessage, RPGKUpdateMessage } from './messages.js';
 export { Supplement } from './supplement.js';
-export { SupportStatus, System } from './system.js';
+export { SupportStatus, SystemDefinition, SystemDefaults } from './system.js';
 
 // ---------------------------------------------------------------------------------------------------------------------

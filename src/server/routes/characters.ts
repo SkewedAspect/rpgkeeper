@@ -8,7 +8,7 @@ import express from 'express';
 import * as accountMan from '../managers/account.js';
 import * as charMan from '../managers/character.js';
 import * as permsMan from '../utils/permissions.js';
-import sysMan from '../resource-access/system.js';
+import sysMan from '../managers/system.js';
 
 // Utils
 import { convertQueryToRecord, ensureAuthenticated, errorHandler, interceptHTML, parseQuery } from './utils/index.js';

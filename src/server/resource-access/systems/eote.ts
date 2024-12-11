@@ -1,103 +1,19 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Genesys Model Defaults
+// Genesys Model Definitions
 //----------------------------------------------------------------------------------------------------------------------
 
-import _ from 'lodash';
+// Models
+import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
+import {
+    EoteSkill,
+    EoteSystemDetails,
+    GenesysSkill,
+    GenesysSystemDetails,
+} from '../../../common/models/systems/eote.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const ability = {
-    id: undefined,
-    name: '',
-    description: '',
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const genesysTalent = {
-    id: undefined,
-    name: '',
-    description: '',
-    activation: 'p',
-    ranked: false,
-    tier: 1,
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const gear = {
-    id: undefined,
-    name: '',
-    description: '',
-    encumbrance: 1,
-    rarity: 0,
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const genesysAttachment = {
-    id: undefined,
-    name: '',
-    description: '',
-    useWith: '',
-    modifiers: '',
-    hpRequired: 0,
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const quality = {
-    id: undefined,
-    name: '',
-    description: '',
-    passive: true,
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const armor = {
-    id: undefined,
-    name: '',
-    description: '',
-    defense: 0,
-    soak: 0,
-    hardpoints: 0,
-    encumbrance: 0,
-    rarity: 0,
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const weapon = {
-    id: undefined,
-    name: '',
-    description: '',
-    skill: '',
-    damage: '',
-    criticalRating: 0,
-    range: 'en',
-    encumbrance: 0,
-    rarity: 0,
-    qualities: [],
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const genesysSkills = [
+const genesysSkills : GenesysSkill[] = [
     // General
     { name: 'Alchemy', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
     { name: 'Astrocartogrphy', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
@@ -146,7 +62,7 @@ const genesysSkills = [
     { name: 'Knowledge', characteristic: 'intellect', ranks: 0, career: false, type: 'knowledge' },
 ];
 
-const genesysChar = {
+const genesysDefaults : GenesysSystemDetails = {
     career: '',
     species: '',
     motivations: {
@@ -183,7 +99,7 @@ const genesysChar = {
         immobilized: false,
         disoriented: false,
     },
-    skills: _.cloneDeep(genesysSkills),
+    skills: genesysSkills,
     talents: [],
     abilities: [],
     gear: [],
@@ -197,74 +113,25 @@ const genesysChar = {
         attachments: [] as any[],
         qualities: [] as any[],
     },
-    weapons: [],
+    weapons: [] as any[],
 };
 
 //----------------------------------------------------------------------------------------------------------------------
-// EotE Model Defaults
+
+export const genesysSystem : SystemDefinition<GenesysSystemDetails> = {
+    id: 'genesys',
+    name: 'Genesys',
+    description: 'Genesys is a role playing system designed for flexibility and adaptability, specifically tooled to '
+        + 'work with any setting imaginable.',
+    status: SupportStatus.Beta,
+    defaults: genesysDefaults,
+};
+
+//----------------------------------------------------------------------------------------------------------------------
+// EotE Model Definitions
 //----------------------------------------------------------------------------------------------------------------------
 
-const eoteTalent = {
-    id: undefined,
-    name: '',
-    description: '',
-    activation: 'p',
-    ranked: false,
-    trees: '',
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const eoteAttachment = {
-    id: undefined,
-    name: '',
-    description: '',
-    baseModifier: '',
-    modOptions: '',
-    hpRequired: 0,
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const forcePower = {
-    id: undefined,
-    name: '',
-    description: '',
-    minRating: 0,
-    upgrades: {
-        strength: {
-            available: 0,
-            description: '',
-        },
-        magnitude: {
-            available: 0,
-            description: '',
-        },
-        duration: {
-            available: 0,
-            description: '',
-        },
-        range: {
-            available: 0,
-            description: '',
-        },
-        control: [],
-        mastery: {
-            available: 0,
-            description: '',
-        },
-    },
-    reference: {
-        source: '',
-        page: undefined,
-    },
-};
-
-const eoteSkills = [
+const eoteSkills : EoteSkill[] = [
     // General
     { name: 'Astrogation', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
     { name: 'Athletics', characteristic: 'brawn', ranks: 0, career: false, type: 'general' },
@@ -310,10 +177,10 @@ const eoteSkills = [
 ];
 
 // Strip unneeded props
-const { motivations, ...restGenesysChar } = genesysChar;
+const { motivations, ...restGenesysChar } = genesysDefaults;
 
 // Build EotEChar from existing pieces
-const eoteChar = {
+const eoteDefaults : EoteSystemDetails = {
     ...restGenesysChar,
     force: {
         rating: 0,
@@ -322,35 +189,17 @@ const eoteChar = {
         sensitive: false,
     },
     specialization: '',
-    skills: _.cloneDeep(eoteSkills),
+    skills: eoteSkills,
 };
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export default {
-    genesys: {
-        ability,
-        gear,
-        quality,
-        armor,
-        weapon,
-        talent: genesysTalent,
-        skills: genesysSkills,
-        attachment: genesysAttachment,
-        character: genesysChar,
-    },
-    eote: {
-        ability,
-        gear,
-        quality,
-        armor,
-        weapon,
-        forcePower,
-        talent: eoteTalent,
-        skills: eoteSkills,
-        attachment: eoteAttachment,
-        character: eoteChar,
-    },
+export const eoteSystem : SystemDefinition<EoteSystemDetails> = {
+    id: 'eote',
+    name: 'Edge of the Empire',
+    description: "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.",
+    status: SupportStatus.Beta,
+    defaults: eoteDefaults,
 };
 
 //----------------------------------------------------------------------------------------------------------------------

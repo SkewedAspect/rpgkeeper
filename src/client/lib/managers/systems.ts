@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Interfaces
-import { System } from '../../../common/models';
+import { SystemDefinition } from '../../../common/models';
 
 // Store
 import { useSystemsStore } from '../stores/systems';
@@ -24,7 +24,7 @@ class SystemsManager
         await store.load();
     }
 
-    getSystem(systemID : string) : System<any> | undefined
+    getSystem(systemID : string) : SystemDefinition<any> | undefined
     {
         const store = useSystemsStore();
         return store.find(systemID);
