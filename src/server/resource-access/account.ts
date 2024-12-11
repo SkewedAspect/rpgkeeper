@@ -151,8 +151,6 @@ export async function update(accountID : string, accountUpdate : Partial<Account
     // Get the current account
     const account = await get(accountID);
 
-    console.log('??:', accountUpdate);
-
     // Mix the current account with the allowed updates.
     const allowedUpdate = {
         ...account,
@@ -160,8 +158,6 @@ export async function update(accountID : string, accountUpdate : Partial<Account
         avatar: accountUpdate.avatar ?? account.avatar,
         settings: accountUpdate.settings ?? account.settings ?? { colorMode: 'auto' },
     };
-
-    console.log('?1:', allowedUpdate);
 
     // Update the database
     const db = await getDB();

@@ -364,7 +364,6 @@
         methods: {
             save()
             {
-                console.log('save?');
                 this.char.save();
             },
         },

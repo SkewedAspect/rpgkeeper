@@ -170,6 +170,8 @@ export async function removePage(pageID : string) : Promise<{ status : 'ok' }>
 export async function remove(notebookID : string) : Promise<{ status : 'ok' }>
 {
     const db = await getDB();
+
+    // Delete the note
     await db('note')
         .where({ note_id: notebookID })
         .delete();

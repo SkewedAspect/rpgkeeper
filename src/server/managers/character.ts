@@ -40,8 +40,8 @@ export async function update(charID : string, updateChar : Partial<Character>) :
 export async function remove(charID : string) : Promise<{ status : 'ok' }>
 {
     const char = await characterRA.get(charID);
-    await notebookMan.remove(char.noteID);
     await characterRA.remove(charID);
+    await notebookMan.remove(char.noteID);
 
     return { status: 'ok' };
 }
