@@ -118,7 +118,7 @@ const genesysDefaults : GenesysSystemDetails = {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export const genesysSystem : SystemDefinition<GenesysSystemDetails> = {
+export const GenesysSystem : SystemDefinition<GenesysSystemDetails> = {
     id: 'genesys',
     name: 'Genesys',
     description: 'Genesys is a role playing system designed for flexibility and adaptability, specifically tooled to '
@@ -194,7 +194,7 @@ const eoteDefaults : EoteSystemDetails = {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export const eoteSystem : SystemDefinition<EoteSystemDetails> = {
+export const EoteSystem : SystemDefinition<EoteSystemDetails> = {
     id: 'eote',
     name: 'Edge of the Empire',
     description: "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.",
