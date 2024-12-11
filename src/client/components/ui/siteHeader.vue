@@ -15,6 +15,10 @@
                     <Fa icon="columns" />
                     Dashboard
                 </BNavItem>
+                <BNavItem to="/characters">
+                    <Fa icon="users" />
+                    Characters
+                </BNavItem>
             </BNavbarNav>
             <BNavbarNav v-b-color-mode="'light'" class="ms-auto">
                 <LoginBtn />

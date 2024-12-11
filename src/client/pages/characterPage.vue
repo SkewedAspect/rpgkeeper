@@ -11,7 +11,7 @@
                     <Fa icon="exclamation-triangle" />
                     Error loading character
                 </h4>
-                <div v-for="(line, index) in pageError.stack.split('\n')" :key="index">
+                <div v-for="(line, index) in pageError?.stack?.split('\n')" :key="index">
                     {{ line }}
                 </div>
                 <div class="text-end">

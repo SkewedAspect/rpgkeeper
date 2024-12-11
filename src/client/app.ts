@@ -35,6 +35,7 @@ import './scss/theme.scss';
 import AppComponent from './app.vue';
 import AboutPage from './pages/aboutPage.vue';
 import CharacterPage from './pages/characterPage.vue';
+import CharListPage from './pages/charListPage.vue';
 import DashboardPage from './pages/dashboardPage.vue';
 
 // Pages
@@ -61,6 +62,7 @@ const router = createRouter({
         { path: '/about', name: 'about', component: AboutPage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
         { path: '/characters/:id', name: 'character', component: CharacterPage },
+        { path: '/characters', name: 'character', component: CharListPage },
         { path: '/settings', name: 'settings', component: SettingsPage },
     ],
 });

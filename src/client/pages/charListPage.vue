@@ -3,11 +3,7 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <BContainer id="dashboard" class="pb-0">
-        <h3>Recently Used</h3>
-        <div class="d-flex gap-2 mb-5">
-            <CharCard v-for="char in recentCharacters" :key="char.id" :character="char" class="flex-fill" />
-        </div>
+    <BContainer id="char-list" class="pb-0">
         <BFormRow>
             <BCol cols="12" class="mb-3">
                 <!-- Characters Card -->
@@ -81,7 +77,7 @@
                         <LoadingWidget />
                     </div>
 
-                    <BListGroup v-else-if="characters.length > 0" id="char-list" flush>
+                    <BListGroup v-else-if="characters.length > 0" flush>
                         <BListGroupItem v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
                             <div class="d-flex">
                                 <CharThumbnail :char="char" />
@@ -145,15 +141,8 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
-    #dashboard {
-        max-height: calc(100vh - 156px);
+    #char-list {
         padding: 16px;
-        overflow: hidden;
-
-        #char-list {
-            max-height: calc(100vh - 550px);
-            overflow-y: auto;
-        }
 
         .system-filter-checkbox {
             label {
@@ -187,7 +176,6 @@
     // Components
     import LoadingWidget from '../components/ui/loadingWidget.vue';
     import AddEditModal from '../components/character/addEditModal.vue';
-    import CharCard from '../components/character/charCard.vue';
     import DeleteModal from '../components/character/deleteModal.vue';
     import CharThumbnail from '../components/character/charThumbnail.vue';
     import CloseButton from '../components/ui/closeButton.vue';
