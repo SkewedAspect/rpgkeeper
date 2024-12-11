@@ -176,7 +176,7 @@
         };
 
         // Check to see if we have permissions to see disabled systems.
-        if(authMan.hasPerm('Systems/ViewDisabled'))
+        if(authMan.hasPerm('Systems/viewDisabled'))
         {
             systemFilterOptions.unshift({ text: 'Disabled (Unusable)', value: 'disabled' });
         }
