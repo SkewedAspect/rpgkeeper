@@ -99,7 +99,7 @@ jobs:
           echo VERSION=$VERSION >> $GITHUB_ENV
 
       - name: Deploy Beta Site
-        uses: nvti/portainer-stack-deploy@v1.4
+        uses: Morgul/portainer-stack-deploy@v1.2.0
         with:
           portainer-host: ${{ vars.PORTAINER_HOST }}
           endpoint-id: 2
@@ -110,17 +110,6 @@ jobs:
           template-variables: '{"client": "${{ secrets.GOOGLE_CLIENT_ID }}", "secret": "${{ secrets.GOOGLE_CLIENT_SECRET }}", "sess": "${{ secrets.BETA_SESSION_SECRET }}"}'
           prune-stack: false
           pull-image: true
-
-      # - name: Deploy Beta Site
-      #   uses: SkewedAspect/rancher-redeploy@v0.5.0
-      #   env:
-      #     RANCHER_BEARER_TOKEN: ${{ secrets.RANCHER_API_KEY }}
-      #     RANCHER_CLUSTER_ID: 'c-g65ld'
-      #     RANCHER_NAMESPACE: 'rpgkeeper'
-      #     RANCHER_PROJECT_ID: 'p-7wdzf'
-      #     RANCHER_URL: 'https://rancher.skewedaspect.com/'
-      #     RANCHER_WORKLOAD: 'rpgkeeper-beta'
-      #     IMAGE_TAG: ${{ env.VERSION }}
 
   # Deploys prod docker
   deploy-prod:
@@ -145,7 +134,7 @@ jobs:
           echo VERSION=$VERSION >> $GITHUB_ENV
 
       - name: Deploy Production Site
-        uses: nvti/portainer-stack-deploy@v1.4
+        uses: Morgul/portainer-stack-deploy@v1.2.0
         with:
           portainer-host: ${{ vars.PORTAINER_HOST }}
           endpoint-id: 2
@@ -156,14 +145,3 @@ jobs:
           template-variables: '{"version": "${{ env.VERSION }}", "client": "${{ secrets.GOOGLE_CLIENT_ID }}", "secret": "${{ secrets.GOOGLE_CLIENT_SECRET }}", "sess": "${{ secrets.PROD_SESSION_SECRET }}"}'
           prune-stack: false
           pull-image: true
-          
-      # - name: Deploy Production Site
-      #   uses: SkewedAspect/rancher-redeploy@v0.5.0
-      #   env:
-      #     RANCHER_BEARER_TOKEN: ${{ secrets.RANCHER_API_KEY }}
-      #     RANCHER_CLUSTER_ID: 'c-g65ld'
-      #     RANCHER_NAMESPACE: 'rpgkeeper'
-      #     RANCHER_PROJECT_ID: 'p-7wdzf'
-      #     RANCHER_URL: 'https://rancher.skewedaspect.com/'
-      #     RANCHER_WORKLOAD: 'rpgkeeper'
-      #     IMAGE_TAG: ${{ env.VERSION }}
