@@ -1,17 +1,11 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Generic Schema Validations
+// Generic System Model
 //----------------------------------------------------------------------------------------------------------------------
 
-export default {
-    character: {
-        type: 'object',
-        required: [ 'stats', 'counters', 'rolls' ],
-        properties: {
-            stats: { type: 'array' },
-            counters: { type: 'array' },
-            rolls: { type: 'array' },
-        },
-    },
-};
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface GenericSystemDetails
+{
+    // TODO: Add generic system details
+}
 
 //----------------------------------------------------------------------------------------------------------------------
