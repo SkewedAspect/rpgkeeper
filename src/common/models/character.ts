@@ -16,7 +16,9 @@ export interface Character<Details extends SystemDetails = SystemDetails>
     campaign ?: string;
     accountID : string;
     noteID : string;
-    details : Details
+    details : Details;
+    created : number;
+    updated : number;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

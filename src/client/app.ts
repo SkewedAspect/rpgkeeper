@@ -141,9 +141,6 @@ declare global
     }
 }
 
-const appVersion = await versionRA.getAppVersion();
-window.RPGKeeper = appVersion;
-
 //----------------------------------------------------------------------------------------------------------------------
 // App Initialization
 //----------------------------------------------------------------------------------------------------------------------
@@ -157,6 +154,10 @@ async function init() : Promise<void>
 
     // Mount the application
     app.mount('#rpgkeeper');
+
+    // Set the app version on window
+    const appVersion = await versionRA.getAppVersion();
+    window.RPGKeeper = appVersion;
 
     // Print out an initialization message
     console.info(`RPGKeeper v${ appVersion.version.full } initialized.`);

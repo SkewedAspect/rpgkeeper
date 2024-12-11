@@ -95,7 +95,7 @@ export async function update(charID : string, updateChar : Partial<Character>) :
     // Update the database
     const db = await getDB();
     await db('character')
-        .update(newCharacter)
+        .update({ ...newCharacter, updated: db.fn.now() })
         .where({ character_id: charID });
 
     const newChar = await get(charID);

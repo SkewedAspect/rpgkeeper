@@ -66,7 +66,7 @@ export async function up(knex : Knex) : Promise<Knex.QueryBuilder>
             .insert(characters.map((character) =>
             {
                 return {
-                    character_id: character.hash_id,
+                    character_id: character.character_id,
                     system: character.system,
                     name: character.name,
                     description: character.description,

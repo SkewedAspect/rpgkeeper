@@ -34,6 +34,14 @@ export const useCharactersStore = defineStore('characters', {
             characters: [],
         };
     },
+    getters: {
+        recentCharacters() : Character[]
+        {
+            return this.characters
+                .slice()
+                .sort((charA, charB) => charB.updated - charA.updated);
+        },
+    },
     actions: {
         async load() : Promise<void>
         {
