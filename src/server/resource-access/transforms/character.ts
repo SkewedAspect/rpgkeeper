@@ -19,13 +19,15 @@ export interface CharacterDBSchema
     details : string | null;
     note_id : string;
     account_id : string;
+    created : string;
+    updated : string;
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export function toDB(character : Character) : CharacterDBSchema
+export function toDB(character : Character) : Omit<CharacterDBSchema, 'created' | 'updated'>
 {
-    const { id, details, accountID, noteID, ...rest } = character;
+    const { id, details, accountID, noteID, created, updated, ...rest } = character;
     return {
         ...rest,
         character_id: id,
@@ -49,6 +51,8 @@ export function fromDB(character : CharacterDBSchema) : Character
         details: JSON.parse(character.details),
         noteID: character.note_id,
         accountID: character.account_id,
+        created: (new Date(character.created)).getTime() / 1000,
+        updated: (new Date(character.updated)).getTime() / 1000,
     };
 }
 

@@ -42,6 +42,8 @@ class CharacterResourceAccess
             color: randomColor(),
             campaign: '',
             details: { ...system.defaults } as Details,
+            created: Date.now(),
+            updated: Date.now(),
             ...def,
         };
     }
