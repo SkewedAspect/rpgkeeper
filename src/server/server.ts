@@ -192,8 +192,6 @@ async function main() : Promise<void>
         logger.debug(`Starting real http server on port ${ httpPort }...`);
     }
 
-    console.log('VERSION!!!!', appVersion);
-
     // Start the server
     server.listen(httpPort, config.http.host, () =>
     {
