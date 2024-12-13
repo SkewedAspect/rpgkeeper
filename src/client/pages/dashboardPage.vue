@@ -4,9 +4,11 @@
 
 <template>
     <BContainer id="dashboard" class="pb-0">
-        <h3>Recently Used</h3>
-        <div class="d-flex gap-2 mb-5">
-            <CharCard v-for="char in recentCharacters" :key="char.id" :character="char" class="flex-fill" />
+        <div v-if="recentCharacters.length > 0" class="my-2">
+            <h3>Recently Used</h3>
+            <div class="d-flex gap-2 flex-wrap">
+                <CharCard v-for="char in recentCharacters" :key="char.id" :character="char" class="flex-fill" />
+            </div>
         </div>
         <BFormRow>
             <BCol cols="12" class="mb-3">
@@ -147,7 +149,8 @@
 <style lang="scss">
     #dashboard {
         max-height: calc(100vh - 156px);
-        padding: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
         overflow: hidden;
 
         #char-list {
