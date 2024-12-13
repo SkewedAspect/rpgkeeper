@@ -61,8 +61,8 @@ const router = createRouter({
         { path: '/', name: 'home', component: HomePage },
         { path: '/about', name: 'about', component: AboutPage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
+        { path: '/characters', name: 'character-list', component: CharListPage },
         { path: '/characters/:id', name: 'character', component: CharacterPage },
-        { path: '/characters', name: 'character', component: CharListPage },
         { path: '/settings', name: 'settings', component: SettingsPage },
     ],
 });
