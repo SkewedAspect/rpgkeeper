@@ -154,7 +154,7 @@
         overflow: hidden;
 
         #char-list {
-            max-height: calc(100vh - 550px);
+            max-height: calc(100vh - 460px);
             overflow-y: auto;
         }
 
