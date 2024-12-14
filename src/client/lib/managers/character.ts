@@ -34,7 +34,7 @@ class CharacterManager
     constructor()
     {
         // Listen for messages on the socket.
-        this.#socket = io('/characters');
+        this.#socket = io('/character');
         this.#socket.on('message', this._onMessage.bind(this));
     }
 
@@ -58,13 +58,19 @@ class CharacterManager
     _onMessage(envelope : RPGKMessage) : void
     {
         const charStore = useCharactersStore();
-        if(envelope.type === 'update')
+        switch (envelope.type)
         {
-            charStore.update(envelope.payload);
-        }
-        else if(envelope.type === 'remove')
-        {
-            charStore.remove({ id: envelope.resource });
+            case 'add':
+            case 'update':
+                charStore.update(envelope.payload as Character);
+                break;
+
+            case 'remove':
+                charStore.remove({ id: envelope.resource });
+                break;
+
+            default:
+                break;
         }
     }
 
