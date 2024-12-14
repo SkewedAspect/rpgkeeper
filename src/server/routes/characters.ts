@@ -99,20 +99,20 @@ router.patch('/:charID', ensureAuthenticated, async(req, resp) =>
         }
         else
         {
-            resp.status(422)
+            resp.status(403)
                 .json({
-                    type: 'InvalidCharacter',
-                    message: `The character with id '${ char.id }' has an invalid or unknown system `
-                        + `'${ char.system }'.`,
+                    type: 'NotAuthorized',
+                    message: `You are not authorized to update character '${ req.params.charID }'.`,
                 });
         }
     }
     else
     {
-        resp.status(403)
+        resp.status(422)
             .json({
-                type: 'NotAuthorized',
-                message: `You are not authorized to update character '${ req.params.charID }'.`,
+                type: 'InvalidCharacter',
+                message: `The character with id '${ char.id }' has an invalid or unknown system `
+                    + `'${ char.system }'.`,
             });
     }
 });
