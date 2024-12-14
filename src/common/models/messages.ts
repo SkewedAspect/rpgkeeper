@@ -2,15 +2,18 @@
 // Messages Models
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Character } from './character.js';
+export interface RPGKAddMessage<T = any>
+{
+    type : 'add';
+    resource : string;
+    payload : T
+}
 
-// ---------------------------------------------------------------------------------------------------------------------
-
-export interface RPGKUpdateMessage
+export interface RPGKUpdateMessage<T = any>
 {
     type : 'update';
     resource : string;
-    payload : Character;
+    payload : T
 }
 
 export interface RPGKRemoveMessage
@@ -26,6 +29,6 @@ export interface RPGKEventMessage<Payload extends Record<string, unknown> = Reco
     payload : Payload;
 }
 
-export type RPGKMessage = RPGKUpdateMessage | RPGKRemoveMessage | RPGKEventMessage;
+export type RPGKMessage = RPGKAddMessage | RPGKUpdateMessage | RPGKRemoveMessage | RPGKEventMessage;
 
 // ---------------------------------------------------------------------------------------------------------------------
