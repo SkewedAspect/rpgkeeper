@@ -41,8 +41,14 @@ export function fromDB(character : CharacterDBSchema) : Character
 {
     const { character_id, details, note_id, account_id, created, updated, ...rest } = character;
     return {
-        ...rest,
         id: character_id,
+        name: rest.name,
+        system: rest.system,
+        description: rest.description,
+        portrait: rest.portrait,
+        thumbnail: rest.thumbnail,
+        color: rest.color,
+        campaign: rest.campaign,
         details: fromJSON(details) ?? {},
         noteID: note_id,
         accountID: account_id,

@@ -33,6 +33,7 @@ import { ServerConfig } from './interfaces/config.js';
 // Routes
 import authRouter from './routes/auth.js';
 import noteRouter from './routes/notebook.js';
+import campRouter from './routes/campaign.js';
 import charRouter from './routes/characters.js';
 import sysRouter from './routes/systems/index.js';
 import accountsRouter from './routes/accounts.js';
@@ -154,6 +155,7 @@ async function main() : Promise<void>
     app.use('/version', versionRouter);
 
     // Api Routes
+    app.use('/api/campaign', campRouter);
     app.use('/api/characters', charRouter);
     app.use('/api/systems', sysRouter);
     app.use('/api/accounts', accountsRouter);
