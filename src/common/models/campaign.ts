@@ -21,11 +21,18 @@ export interface CampaignNote extends Notebook
     updated : number;
 }
 
+export interface CampaignParticipant
+{
+    accountID : string;
+    role : CampaignRole;
+}
+
 export interface Campaign
 {
     id : string;
     name : string;
     description ?: string;
+    participants : CampaignParticipant[];
     created : number;
     updated : number;
 }

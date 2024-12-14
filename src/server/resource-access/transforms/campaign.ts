@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Campaign } from '../../../common/models/index.js';
+import { Campaign, CampaignParticipant, CampaignRole } from '../../../common/models/index.js';
 
 // Utils
 import { fromDBTimestamp } from './utils/timestamp.js';
@@ -17,6 +17,13 @@ export interface CampaignDBSchema extends Omit<Campaign, 'id' | 'created' | 'upd
     updated : string;
 }
 
+export interface CampaignParticipantDBSchema
+{
+    campaign_id : string;
+    account_id : string;
+    role : CampaignRole
+}
+
 // ---------------------------------------------------------------------------------------------------------------------
 
 export function toDB(campaign : Campaign) : Omit<CampaignDBSchema, 'created' | 'updated'>
@@ -28,14 +35,23 @@ export function toDB(campaign : Campaign) : Omit<CampaignDBSchema, 'created' | '
     };
 }
 
-export function fromDB(campaign : CampaignDBSchema) : Campaign
+export function fromDB(campaign : CampaignDBSchema) : Omit<Campaign, 'participants'>
 {
     const { campaign_id, created, updated, ...rest } = campaign;
     return {
-        ...rest,
         id: campaign_id,
+        name: rest.name,
+        description: rest.description,
         created: fromDBTimestamp(created),
         updated: fromDBTimestamp(updated),
+    };
+}
+
+export function participantFromDB(partDB : CampaignParticipantDBSchema) : CampaignParticipant
+{
+    return {
+        accountID: partDB.account_id,
+        role: partDB.role,
     };
 }
 

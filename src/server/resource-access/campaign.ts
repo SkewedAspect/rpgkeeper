@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Campaign, CampaignRole, CharacterRole } from '../../common/models/index.js';
+import { Campaign, CampaignParticipant, CampaignRole, CharacterRole } from '../../common/models/index.js';
 
 // Transforms
 import * as CampTransforms from './transforms/campaign.js';
@@ -33,7 +33,8 @@ async function _removeCampaignRole(campaignID : string, accountID : string) : Pr
 {
     const db = await getDB();
     await db('campaign_role')
-        .where({ campaign_id: campaignID, account_id: accountID });
+        .where({ campaign_id: campaignID, account_id: accountID })
+        .delete();
 }
 
 async function _upsertCharacterRole(campaignID : string, characterID : string, role : CharacterRole) : Promise<void>
@@ -55,6 +56,16 @@ async function _removeCharacterRole(campaignID : string, characterID : string) :
 
 //----------------------------------------------------------------------------------------------------------------------
 
+export async function getParticipants(campaignID : string) : Promise<CampaignParticipant[]>
+{
+    const db = await getDB();
+    const participants = await db('campaign_role')
+        .select()
+        .where({ campaign_id: campaignID });
+
+    return participants.map(CampTransforms.participantFromDB);
+}
+
 export async function get(id : string) : Promise<Campaign>
 {
     const db = await getDB();
@@ -72,15 +83,25 @@ export async function get(id : string) : Promise<Campaign>
     }
     else
     {
-        return CampTransforms.fromDB(campaigns[0]);
+        return {
+            ...CampTransforms.fromDB(campaigns[0]),
+            participants: await getParticipants(id),
+        };
     }
 }
 
-export async function list(filters : Record<string, FilterToken> = {}) : Promise<Campaign[]>
+export async function list(filters : Record<string, FilterToken> = {}, accountID ?: string) : Promise<Campaign[]>
 {
     const db = await getDB();
     let query = db('campaign')
         .select();
+
+    if(accountID)
+    {
+        query = query
+            .join('campaign_role', 'campaign_role.campaign_id', 'campaign.campaign_id')
+            .where('campaign_role.account_id', accountID);
+    }
 
     // Snake case the filters
     filters = snakeCaseKeys(filters);
@@ -88,7 +109,14 @@ export async function list(filters : Record<string, FilterToken> = {}) : Promise
     // Apply any filters
     query = applyFilters(query, filters);
 
-    return Promise.all((await query).map(CampTransforms.fromDB));
+    return Promise.all((await query)
+        .map(async (item) =>
+        {
+            return {
+                ...CampTransforms.fromDB(item),
+                participants: await getParticipants(item.campaign_id),
+            };
+        }));
 }
 
 export async function add(accountID : string, newCampaign : Omit<Campaign, 'id'>) : Promise<Campaign>
