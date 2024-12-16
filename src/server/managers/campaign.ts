@@ -7,7 +7,14 @@ import * as accountMan from './account.js';
 // import * as notebookMan from './notebook.js';
 
 // Models
-import { Campaign, CampaignParticipant, CampaignRole, CharacterRole } from '../../common/models/index.js';
+import {
+    Campaign,
+    CampaignCharacter,
+    CampaignNote,
+    CampaignParticipant,
+    CampaignRole,
+    CharacterRole,
+} from '../../common/models/index.js';
 
 // Resource Access
 import * as campaignRA from '../resource-access/campaign.js';
@@ -36,6 +43,16 @@ export async function _getAccountIDFromEmailOrID(maybeEmail ?: string) : Promise
 export async function get(id : string) : Promise<Campaign>
 {
     return campaignRA.get(id);
+}
+
+export async function getCharacters(campID : string) : Promise<CampaignCharacter[]>
+{
+    return campaignRA.getCharacters(campID);
+}
+
+export async function getNotes(campID : string) : Promise<CampaignNote[]>
+{
+    return campaignRA.getNotes(campID);
 }
 
 export async function getParticipants(campID : string) : Promise<CampaignParticipant[]>
