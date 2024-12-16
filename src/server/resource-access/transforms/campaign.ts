@@ -3,7 +3,13 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Campaign, CampaignParticipant, CampaignRole } from '../../../common/models/index.js';
+import {
+    Campaign,
+    CampaignCharacter, CampaignNote,
+    CampaignParticipant,
+    CampaignRole,
+    CharacterRole,
+} from '../../../common/models/index.js';
 
 // Utils
 import { fromDBTimestamp } from './utils/timestamp.js';
@@ -13,6 +19,23 @@ import { fromDBTimestamp } from './utils/timestamp.js';
 export interface CampaignDBSchema extends Omit<Campaign, 'id' | 'created' | 'updated'>
 {
     campaign_id : string;
+    created : string;
+    updated : string;
+}
+
+export interface CampaignCharacterDBSchema
+{
+    campaign_id : string;
+    character_id : string;
+    role : CharacterRole;
+}
+
+export interface CampaignNoteDBSchema
+{
+    campaign_id : string;
+    notebook_id : string;
+    public_view : boolean;
+    public_edit : boolean;
     created : string;
     updated : string;
 }
@@ -35,7 +58,7 @@ export function toDB(campaign : Campaign) : Omit<CampaignDBSchema, 'created' | '
     };
 }
 
-export function fromDB(campaign : CampaignDBSchema) : Omit<Campaign, 'participants'>
+export function fromDB(campaign : CampaignDBSchema) : Omit<Campaign, 'participants' | 'characters' | 'notes'>
 {
     const { campaign_id, created, updated, ...rest } = campaign;
     return {
@@ -44,6 +67,39 @@ export function fromDB(campaign : CampaignDBSchema) : Omit<Campaign, 'participan
         description: rest.description,
         created: fromDBTimestamp(created),
         updated: fromDBTimestamp(updated),
+    };
+}
+
+export function noteFromDB(noteDB : CampaignNoteDBSchema) : CampaignNote
+{
+    const viewers : CampaignRole[] = [ 'owner' ];
+    const editors : CampaignRole[] = [ 'owner' ];
+
+    if(noteDB.public_view)
+    {
+        viewers.push('player');
+    }
+
+    if(noteDB.public_edit)
+    {
+        editors.push('player');
+    }
+
+    return {
+        campaignID: noteDB.campaign_id,
+        notebookID: noteDB.notebook_id,
+        viewers,
+        editors,
+        created: fromDBTimestamp(noteDB.created),
+        updated: fromDBTimestamp(noteDB.updated),
+    };
+}
+
+export function characterFromDB(charDB : CampaignCharacterDBSchema) : CampaignCharacter
+{
+    return {
+        characterID: charDB.character_id,
+        role: charDB.role,
     };
 }
 
