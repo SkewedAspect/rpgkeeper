@@ -3,7 +3,13 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Campaign, CampaignParticipant, CampaignRole, CharacterRole } from '../../common/models/index.js';
+import {
+    Campaign,
+    CampaignCharacter, CampaignNote,
+    CampaignParticipant,
+    CampaignRole,
+    CharacterRole,
+} from '../../common/models/index.js';
 
 // Transforms
 import * as CampTransforms from './transforms/campaign.js';
@@ -56,6 +62,26 @@ async function _removeCharacterRole(campaignID : string, characterID : string) :
 
 //----------------------------------------------------------------------------------------------------------------------
 
+export async function getCharacters(campaignID : string) : Promise<CampaignCharacter[]>
+{
+    const db = await getDB();
+    const characters = await db('campaign_character')
+        .select()
+        .where({ campaign_id: campaignID });
+
+    return characters.map(CampTransforms.characterFromDB);
+}
+
+export async function getNotes(campaignID : string) : Promise<CampaignNote[]>
+{
+    const db = await getDB();
+    const notes = await db('campaign_note')
+        .select()
+        .where({ campaign_id: campaignID });
+
+    return notes.map(CampTransforms.noteFromDB);
+}
+
 export async function getParticipants(campaignID : string) : Promise<CampaignParticipant[]>
 {
     const db = await getDB();
@@ -85,6 +111,8 @@ export async function get(id : string) : Promise<Campaign>
     {
         return {
             ...CampTransforms.fromDB(campaigns[0]),
+            characters: await getCharacters(id),
+            notes: await getNotes(id),
             participants: await getParticipants(id),
         };
     }
@@ -114,6 +142,8 @@ export async function list(filters : Record<string, FilterToken> = {}, accountID
         {
             return {
                 ...CampTransforms.fromDB(item),
+                characters: await getCharacters(item.campaign_id),
+                notes: await getNotes(item.campaign_id),
                 participants: await getParticipants(item.campaign_id),
             };
         }));
