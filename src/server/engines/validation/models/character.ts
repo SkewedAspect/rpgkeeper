@@ -21,9 +21,11 @@ export const Character = z.object({
     name: z.string(),
     description: z.string().optional(),
     portrait: z.string().url()
-        .optional(),
+        .optional()
+        .or(z.literal('')),
     thumbnail: z.string().url()
-        .optional(),
+        .optional()
+        .or(z.literal('')),
     color: z.string().regex(cssColorRegEx)
         .optional(),
     campaign: z.string().optional(),

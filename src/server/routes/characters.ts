@@ -10,6 +10,10 @@ import * as charMan from '../managers/character.js';
 import * as permsMan from '../utils/permissions.js';
 import sysMan from '../managers/system.js';
 
+// Validation
+import * as CharValidators from '../engines/validation/models/character.js';
+import { processRequest, validationErrorHandler } from '../engines/validation/express.js';
+
 // Utils
 import { convertQueryToRecord, ensureAuthenticated, errorHandler, interceptHTML, parseQuery } from './utils/index.js';
 
@@ -23,7 +27,7 @@ const router = express.Router();
 
 //----------------------------------------------------------------------------------------------------------------------
 
-router.get('/', async(req, resp) =>
+router.get('/', processRequest({ query: CharValidators.CharFilter }), async(req, resp) =>
 {
     interceptHTML(resp, async() =>
     {
@@ -54,48 +58,122 @@ router.get('/', async(req, resp) =>
     });
 });
 
-router.post('/', ensureAuthenticated, async(req, resp) =>
-{
-    const char = { ...req.body };
-    const system = sysMan.get(char.system);
-
-    if(system)
+router.post(
+    '/',
+    ensureAuthenticated,
+    processRequest({
+        body: CharValidators.Character.partial({ id: true }),
+    }),
+    async(req, resp) =>
     {
-        resp.json(await charMan.add(req.user.id, char));
-    }
-    else
-    {
-        resp.status(422)
-            .json({
-                type: 'InvalidCharacter',
-                message: `The character with id '${ char.id }' has an invalid or unknown system '${ char.system }'.`,
-            });
-    }
-});
+        const char = { ...req.body };
+        const system = sysMan.get(char.system);
 
-router.get('/:charID', (req, resp) =>
-{
-    interceptHTML(resp, async() =>
-    {
-        resp.json(await charMan.get(req.params.charID));
-    });
-});
-
-router.patch('/:charID', ensureAuthenticated, async(req, resp) =>
-{
-    // First, retrieve the character
-    const char = await charMan.get(req.params.charID);
-
-    // Next, get the system
-    const system = sysMan.get(char.system);
-
-    if(system)
-    {
-        // Allow either the owner, or moderators/admins to modify the character
-        if(char.accountID === req.user.id || permsMan.hasPerm(req.user, `${ char.system }/canModifyChar`))
+        if(system)
         {
-            // Update the character
-            resp.json(await charMan.update(req.params.charID, req.body));
+            resp.json(await charMan.add(req.user.id, char));
+        }
+        else
+        {
+            resp.status(422)
+                .json({
+                    type: 'InvalidCharacter',
+                    message: "The character with id '${ char.id }' has an invalid or unknown system "
+                    + `${ char.system }'.`,
+                });
+        }
+    }
+);
+
+router.get(
+    '/:charID',
+    processRequest({ params: CharValidators.RouteParams }),
+    (req, resp) =>
+    {
+        interceptHTML(resp, async() =>
+        {
+            resp.json(await charMan.get(req.params.charID));
+        });
+    }
+);
+
+router.patch(
+    '/:charID',
+    ensureAuthenticated,
+    processRequest({
+        params: CharValidators.RouteParams,
+        body: CharValidators.Character.partial({ id: true }),
+    }),
+    async(req, resp) =>
+    {
+        // First, retrieve the character
+        const char = await charMan.get(req.params.charID);
+
+        // Next, get the system
+        const system = sysMan.get(char.system);
+
+        if(system)
+        {
+            // Allow either the owner, or moderators/admins to modify the character
+            if(char.accountID === req.user.id || permsMan.hasPerm(req.user, `${ char.system }/canModifyChar`))
+            {
+                // Update the character
+                resp.json(await charMan.update(req.params.charID, req.body));
+            }
+            else
+            {
+                resp.status(403)
+                    .json({
+                        type: 'NotAuthorized',
+                        message: `You are not authorized to update character '${ req.params.charID }'.`,
+                    });
+            }
+        }
+        else
+        {
+            resp.status(422)
+                .json({
+                    type: 'InvalidCharacter',
+                    message: `The character with id '${ char.id }' has an invalid or unknown system `
+                    + `'${ char.system }'.`,
+                });
+        }
+    }
+);
+
+router.delete(
+    '/:charID',
+    ensureAuthenticated,
+    processRequest({ params: CharValidators.RouteParams }),
+    async(req, resp) =>
+    {
+        let char;
+        try
+        {
+            // First, retrieve the character
+            char = await charMan.get(req.params.charID);
+        }
+        catch (error)
+        {
+            // If we can't find the character, we need to emulate the behavior of the other delete endpoints, and
+            // return a 404 with no body. While this isn't technically necessary, I'd prefer the API to remain
+            // consistent.
+            if(error.code === 'ERR_NOT_FOUND')
+            {
+                resp.status(404).end();
+                return;
+            }
+            else
+            {
+                throw error;
+            }
+        }
+
+        // Allow either the owner, or moderators/admins to delete the character
+        if(char.accountID === req.user.id || permsMan.hasPerm(req.user, `${ char.system }/canDeleteChar`))
+        {
+            // Delete the character
+            resp.json(await charMan.remove(req.params.charID));
         }
         else
         {
@@ -106,60 +184,13 @@ router.patch('/:charID', ensureAuthenticated, async(req, resp) =>
                 });
         }
     }
-    else
-    {
-        resp.status(422)
-            .json({
-                type: 'InvalidCharacter',
-                message: `The character with id '${ char.id }' has an invalid or unknown system `
-                    + `'${ char.system }'.`,
-            });
-    }
-});
-
-router.delete('/:charID', ensureAuthenticated, async(req, resp) =>
-{
-    let char;
-    try
-    {
-        // First, retrieve the character
-        char = await charMan.get(req.params.charID);
-    }
-    catch (error)
-    {
-        // If we can't find the character, we need to emulate the behavior of the other delete endpoints, and return a
-        // 404 with no body. While this isn't technically necessary, I'd prefer the API to remain consistent.
-        if(error.code === 'ERR_NOT_FOUND')
-        {
-            resp.status(404).end();
-            return;
-        }
-        else
-        {
-            throw error;
-        }
-    }
-
-    // Allow either the owner, or moderators/admins to delete the character
-    if(char.accountID === req.user.id || permsMan.hasPerm(req.user, `${ char.system }/canDeleteChar`))
-    {
-        // Delete the character
-        resp.json(await charMan.remove(req.params.charID));
-    }
-    else
-    {
-        resp.status(403)
-            .json({
-                type: 'NotAuthorized',
-                message: `You are not authorized to update character '${ req.params.charID }'.`,
-            });
-    }
-});
+);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Error Handling
 //----------------------------------------------------------------------------------------------------------------------
 
+router.use(validationErrorHandler);
 router.use(errorHandler(logger));
 
 //----------------------------------------------------------------------------------------------------------------------
