@@ -5,16 +5,16 @@
 import { z } from 'zod';
 
 // Models
-import { HashID } from './common.js';
+import { validColorModes, validSupportStatuses } from '../../../../common/models/index.js';
+
+// Validations
+import { HashID, ItemFilter } from './common.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const AccountID = HashID;
-
 export const AccountSettings = z.object({
-    colorMode: z.enum([ 'light', 'dark', 'auto' ]).optional(),
-
-    // Other settings...
+    colorMode: z.enum(validColorModes).optional(),
+    systemFilter: z.enum(validSupportStatuses).optional(),
 });
 
 export const Account = z.object({
@@ -31,15 +31,9 @@ export const Account = z.object({
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const UpdateParams = z.object({
-    accountID: AccountID,
+    accountID: HashID,
 });
 
-export const AccountFilter = z.object({
-    id: z.union([ AccountID, z.array(AccountID) ]).optional(),
-    email: z.union([ z.string().email(), z.array(z.string().email()) ])
-        .optional(),
-    name: z.union([ z.string().min(1), z.array(z.string().min(1)) ])
-        .optional(),
-});
+export const AccountFilter = ItemFilter;
 
 // ---------------------------------------------------------------------------------------------------------------------

@@ -5,6 +5,7 @@
 export * from './account.js';
 export * from './campaign.js';
 export * from './character.js';
+export * from './colorMode.js';
 export * from './dice.js';
 export * from './notebook.js';
 export * from './role.js';

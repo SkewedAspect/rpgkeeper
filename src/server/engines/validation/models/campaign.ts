@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------------------------------------------------
-// Character Validation Model
+// Campaign Validation Model
 // ---------------------------------------------------------------------------------------------------------------------
 
 import { z } from 'zod';
@@ -7,40 +7,53 @@ import { z } from 'zod';
 // Models
 import { HashID, ItemFilter } from './common.js';
 
-// Utils
-import { cssColorRegEx, jsonSchema } from '../utils.js';
-
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const Character = z.object({
+export const CampaignCharacter = z.object({
+    characterID: HashID,
+    role: z.string().min(1),
+});
+
+export const CampaignParticipant = z.object({
+    accountID: HashID,
+    role: z.string().min(1),
+});
+
+export const CampaignNote = z.object({
+    notebookID: HashID,
+    publicView: z.boolean(),
+    publicEdit: z.boolean(),
+});
+
+export const Campaign = z.object({
     id: HashID,
-    system: z.string().min(1), // This could be an enum of known systems? How can I generate it?
-    name: z.string(),
+    name: z.string().min(1),
     description: z.string().optional(),
-    portrait: z.string().url()
-        .optional()
-        .or(z.literal('')),
-    thumbnail: z.string().url()
-        .optional()
-        .or(z.literal('')),
-    color: z.string().regex(cssColorRegEx)
-        .optional(),
-    campaign: z.string().optional(),
-    accountID: z.string(),
-    noteID: z.string(),
-    details: jsonSchema.optional(), // This will need to be based on the system.
+    characters: z.array(CampaignCharacter),
+    participants: z.array(CampaignParticipant),
+    notes: z.array(CampaignNote),
 });
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Request Validations
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const RouteParams = z.object({
+export const CampRouteParams = z.object({
+    campID: HashID,
+});
+
+export const CharRouteParams = z.object({
+    campID: HashID,
     charID: HashID,
 });
 
-export const CharFilter = ItemFilter.merge(z.strictObject({
-    owner: z.union([ z.string().email(), z.array(z.string().email()) ])
+export const AccountRouteParams = z.object({
+    campID: HashID,
+    accountID: HashID,
+});
+
+export const CampFilter = ItemFilter.merge(z.strictObject({
+    account: z.union([ z.string().email(), z.array(z.string().email()) ])
         .optional(),
 }));
 
