@@ -23,7 +23,7 @@
                             class="me-1"
                             :value="true"
                             :disabled="stressBox > totalPhysicalBoxes"
-                            @input="onSave"
+                            @update:model-value="onSave"
                         >
                             <b>{{ stressBox }}</b>
                         </BFormCheckbox>
@@ -47,7 +47,7 @@
                             class="me-1"
                             :value="true"
                             :disabled="stressBox > totalMentalBoxes"
-                            @input="onSave"
+                            @update:model-value="onSave"
                         >
                             <b>{{ stressBox }}</b>
                         </BFormCheckbox>
@@ -63,27 +63,6 @@
 <style lang="scss" scoped>
     #fate-stress {
         min-width: 245px;
-
-        //.stress-table {
-        //    border: none;
-        //
-        //    tr {
-        //        border-top: none;
-        //        border-bottom: none;
-        //
-        //        td:first-child {
-        //            border-left: none;
-        //        }
-        //
-        //        td:last-child {
-        //            border-right: none;
-        //        }
-        //
-        //        td {
-        //            border-bottom: none;
-        //        }
-        //    }
-        //}
     }
 </style>
 
@@ -113,9 +92,9 @@
     const props = defineProps<Props>();
 
     const emit = defineEmits<{
-        'update:physical' : (val : FateStress) => void;
-        'update:mental' : (val : FateStress) => void;
-        'save' : () => void;
+        'update:physical' : [val : FateStress];
+        'update:mental' : [val : FateStress];
+        'save' : [];
     }>();
 
     //------------------------------------------------------------------------------------------------------------------
