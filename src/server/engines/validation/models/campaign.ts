@@ -52,6 +52,11 @@ export const AccountRouteParams = z.object({
     accountID: HashID,
 });
 
+export const NoteRouteParams = z.object({
+    campID: HashID,
+    noteID: HashID,
+});
+
 export const CampFilter = ItemFilter.merge(z.strictObject({
     account: z.union([ z.string().email(), z.array(z.string().email()) ])
         .optional(),

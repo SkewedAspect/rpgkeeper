@@ -293,6 +293,88 @@ router.get('/:campID/note', processRequest({ query: CampValidators.CampFilter })
     resp.json(await campMan.getNotes(req.params.campID));
 });
 
+router.post(
+    '/:campID/note',
+    ensureAuthenticated,
+    processRequest({
+        params: CampValidators.CampRouteParams,
+        body: CampValidators.CampaignNote.partial({ notebookID: true }),
+    }),
+    async (req, resp) =>
+    {
+        const campID = req.params.campID;
+        const viewers = req.body.viewers;
+        const editors = req.body.editors;
+
+        resp.json(await campMan.addNote(campID, viewers, editors));
+    }
+);
+
+router.patch(
+    '/:campID/note/:noteID',
+    ensureAuthenticated,
+    processRequest({
+        params: CampValidators.NoteRouteParams,
+        body: CampValidators.CampaignNote.partial({ notebookID: true }),
+    }),
+    async (req, resp) =>
+    {
+        // Get the campaign
+        const camp = await campMan.get(req.params.campID);
+
+        // Allow either the owners, or moderators/admins to modify the campaign
+        const owners = camp.participants.filter((part) => part.role === 'owner');
+        if(owners.some((part) => part.accountID === req.user.id)
+            || permsUtil.hasPerm(req.user, 'campaign/canModifyCamp'))
+        {
+            // Update the note
+            await campMan.updateNote(req.params.campID, req.params.noteID, req.body.viewers, req.body.editors);
+            resp.status(204)
+                .end();
+        }
+        else
+        {
+            resp.status(403)
+                .json({
+                    type: 'NotAuthorized',
+                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                });
+        }
+    }
+);
+
+router.delete(
+    '/:campID/note/:noteID',
+    ensureAuthenticated,
+    processRequest({
+        params: CampValidators.NoteRouteParams,
+    }),
+    async (req, resp) =>
+    {
+        // Get the campaign
+        const camp = await campMan.get(req.params.campID);
+
+        // Allow either the owners, or moderators/admins to modify the campaign
+        const owners = camp.participants.filter((part) => part.role === 'owner');
+        if(owners.some((part) => part.accountID === req.user.id)
+            || permsUtil.hasPerm(req.user, 'campaign/canModifyCamp'))
+        {
+            // Remove the note
+            await campMan.removeNote(req.params.campID, req.params.noteID);
+            resp.status(204)
+                .end();
+        }
+        else
+        {
+            resp.status(403)
+                .json({
+                    type: 'NotAuthorized',
+                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                });
+        }
+    }
+);
+
 //----------------------------------------------------------------------------------------------------------------------
 // Participant Routes
 //----------------------------------------------------------------------------------------------------------------------

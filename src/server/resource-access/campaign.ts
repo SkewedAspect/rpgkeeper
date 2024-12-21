@@ -60,6 +60,31 @@ async function _removeCharacterRole(campaignID : string, characterID : string) :
         .delete();
 }
 
+async function _upsertCampaignNote(
+    campaignID : string,
+    notebookID : string,
+    viewers : CampaignRole[],
+    editors : CampaignRole[]
+) : Promise<void>
+{
+    const publicView = viewers.includes('player');
+    const publicEdit = editors.includes('player');
+
+    const db = await getDB();
+    await db('campaign_note')
+        .insert({ campaign_id: campaignID, notebook_id: notebookID, public_view: publicView, public_edit: publicEdit })
+        .onConflict([ 'campaign_id', 'notebook_id' ])
+        .merge();
+}
+
+async function _removeCampaignNote(campaignID : string, notebookID : string) : Promise<void>
+{
+    const db = await getDB();
+    await db('campaign_note')
+        .where({ campaign_id: campaignID, notebook_id: notebookID })
+        .delete();
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 
 export async function getCharacters(campaignID : string) : Promise<CampaignCharacter[]>
@@ -182,6 +207,21 @@ export async function addCharacter(campaignID : string, characterID : string, ro
 export async function removeCharacter(campaignID : string, characterID : string) : Promise<void>
 {
     await _removeCharacterRole(campaignID, characterID);
+}
+
+export async function addNote(
+    campaignID : string,
+    notebookID : string,
+    viewers : CampaignRole[],
+    editors : CampaignRole[]
+) : Promise<void>
+{
+    await _upsertCampaignNote(campaignID, notebookID, viewers, editors);
+}
+
+export async function removeNote(campaignID : string, notebookID : string) : Promise<void>
+{
+    await _removeCampaignNote(campaignID, notebookID);
 }
 
 export async function update(campID : string, updateCamp : Partial<Campaign>) : Promise<Campaign>
