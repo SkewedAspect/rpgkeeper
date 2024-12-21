@@ -17,7 +17,7 @@
         <table class="table stress-table table-bordered mb-0">
             <tbody>
                 <tr>
-                    <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
+                    <td v-for="(stressBox, index) in stressSlots" :key="stressBox">
                         <BFormCheckbox
                             v-model="physicalStress[index]"
                             class="me-1"
@@ -41,7 +41,7 @@
         <table class="table stress-table table-bordered mb-0">
             <tbody>
                 <tr>
-                    <td v-for="(stressBox, index) in [ 1, 2, 3, 4 ]" :key="stressBox">
+                    <td v-for="(stressBox, index) in stressSlots" :key="stressBox">
                         <BFormCheckbox
                             v-model="mentalStress[index]"
                             class="me-1"
@@ -78,13 +78,16 @@
     import RpgkCard from '../../ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
-    // Component Definition
+    // State
     //------------------------------------------------------------------------------------------------------------------
+
+    const stressSlots = [ 1, 2, 3, 4 ];
+
+    const physicalStress = defineModel<FateStress>('physical');
+    const mentalStress = defineModel<FateStress>('mental');
 
     interface Props
     {
-        physical : FateStress;
-        mental : FateStress;
         skills : FateSkill[];
         readonly : boolean;
     }
@@ -92,9 +95,7 @@
     const props = defineProps<Props>();
 
     const emit = defineEmits<{
-        'update:physical' : [val : FateStress];
-        'update:mental' : [val : FateStress];
-        'save' : [];
+        save : [];
     }>();
 
     //------------------------------------------------------------------------------------------------------------------
@@ -102,16 +103,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const readonly = computed(() => props.readonly);
-
-    const physicalStress = computed<FateStress>({
-        get() { return props.physical; },
-        set(val) { emit('update:physical', val); },
-    });
-
-    const mentalStress = computed<FateStress>({
-        get() { return props.mental; },
-        set(val) { emit('update:physical', val); },
-    });
 
     const totalPhysicalBoxes = computed(() =>
     {
