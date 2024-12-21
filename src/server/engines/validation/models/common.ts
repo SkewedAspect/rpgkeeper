@@ -9,4 +9,11 @@ import { z } from 'zod';
 export const HashID = z.string().min(4)
     .regex(/^[a-zA-Z0-9]+$/);
 
+export const ItemFilter = z.strictObject({
+    id: z.union([ HashID, z.array(HashID) ]).optional(),
+    email: z.union([ z.string().email(), z.array(z.string().email()) ])
+        .optional(),
+    name: z.union([ z.string().min(1), z.array(z.string().min(1)) ])
+        .optional(),
+});
 // ---------------------------------------------------------------------------------------------------------------------
