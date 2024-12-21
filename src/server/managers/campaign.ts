@@ -4,7 +4,7 @@
 
 // Managers
 import * as accountMan from './account.js';
-// import * as notebookMan from './notebook.js';
+import * as notebookMan from './notebook.js';
 
 // Models
 import {
@@ -100,6 +100,32 @@ export async function addCharacter(campID : string, charID : string, role : Char
 export async function removeCharacter(campID : string, charID : string) : Promise<void>
 {
     await campaignRA.removeCharacter(campID, charID);
+}
+
+export async function addNote(
+    campID : string,
+    viewers : CampaignRole[],
+    editors : CampaignRole[]
+) : Promise<void>
+{
+    const notebook = await notebookMan.add();
+    await campaignRA.addNote(campID, notebook.id, viewers, editors);
+}
+
+export async function updateNote(
+    campID : string,
+    noteID : string,
+    viewers : CampaignRole[],
+    editors : CampaignRole[]
+) : Promise<void>
+{
+    await campaignRA.addNote(campID, noteID, viewers, editors);
+}
+
+export async function removeNote(campID : string, noteID : string) : Promise<void>
+{
+    await campaignRA.removeNote(campID, noteID);
+    await notebookMan.remove(noteID);
 }
 
 export async function update(campID : string, updateCamp : Partial<Campaign>) : Promise<Campaign>
