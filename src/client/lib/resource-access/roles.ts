@@ -2,7 +2,7 @@
 // RolesResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-import $http from 'axios';
+import axios from 'axios';
 
 // Interfaces
 import { Role } from '../../../common/models';
@@ -13,7 +13,7 @@ class RolesResourceAccess
 {
     async list() : Promise<Role[]>
     {
-        const { data } = await $http.get('/api/roles');
+        const { data } = await axios.get('/api/roles');
         return data;
     }
 }

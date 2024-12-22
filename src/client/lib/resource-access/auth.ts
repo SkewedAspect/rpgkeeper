@@ -2,7 +2,7 @@
 // AuthResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-import $http from 'axios';
+import axios from 'axios';
 
 // Models
 import { Account as ServerAccount } from '../../../common/models';
@@ -25,7 +25,7 @@ class AuthResourceAccess
     {
         try
         {
-            const { data } = await $http.get('/auth/user', { withCredentials: true });
+            const { data } = await axios.get('/auth/user', { withCredentials: true });
             return this._buildModel(data);
         }
         catch (_error)
@@ -36,12 +36,12 @@ class AuthResourceAccess
 
     async signOut() : Promise<void>
     {
-        await $http.post('/auth/logout');
+        await axios.post('/auth/logout');
     }
 
     async save(account : Account) : Promise<Account>
     {
-        const { data } = await $http.patch(`/api/accounts/${ account.id }`, account);
+        const { data } = await axios.patch(`/api/accounts/${ account.id }`, account);
         return this._buildModel(data);
     }
 }

@@ -2,7 +2,7 @@
 // SystemsResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-import $http from 'axios';
+import axios from 'axios';
 
 // Interfaces
 import { SystemDefinition } from '../../../common/models';
@@ -13,7 +13,7 @@ class SystemsResourceAccess
 {
     async loadSystems() : Promise<SystemDefinition<Record<string, unknown>>[]>
     {
-        const { data } = await $http.get('/api/systems');
+        const { data } = await axios.get('/api/systems');
         return data;
     }
 }
