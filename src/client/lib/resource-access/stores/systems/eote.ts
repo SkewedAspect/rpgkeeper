@@ -5,12 +5,12 @@
 import { defineStore } from 'pinia';
 
 // Models
-import * as EoteModels from '../../../../common/models/systems/eote';
-import { Supplement } from '../../../../common/models/systems';
-import { Reference } from '../../../../common/models/reference';
+import * as EoteModels from '../../../../../common/models/systems/eote';
+import { Supplement } from '../../../../../common/models/systems';
+import { Reference } from '../../../../../common/models/reference';
 
 // Resource Access
-import suppRA from '../../resource-access/supplement';
+import suppRA from '../../supplement';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

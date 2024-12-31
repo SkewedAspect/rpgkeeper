@@ -163,7 +163,7 @@
     import { storeToRefs } from 'pinia';
 
     // Stores
-    import { useAccountStore } from '../lib/stores/account';
+    import { useAccountStore } from '../lib/resource-access/stores/account';
 
     //------------------------------------------------------------------------------------------------------------------
 

@@ -27,7 +27,7 @@
     import { storeToRefs } from 'pinia';
 
     // Stores
-    import { useCharactersStore } from '../../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../../lib/resource-access/stores/characters';
 
     // Models
     import { EoteCharacter } from '../../../../../common/models/systems';
@@ -56,7 +56,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

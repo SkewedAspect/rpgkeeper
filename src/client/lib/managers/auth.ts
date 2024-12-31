@@ -3,10 +3,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from '../models/account';
+import { Account } from '../../../common/models';
 
 // Stores
-import { useAccountStore } from '../stores/account';
+import { useAccountStore } from '../resource-access/stores/account';
 
 // Resource Access
 import authRA from '../resource-access/auth';

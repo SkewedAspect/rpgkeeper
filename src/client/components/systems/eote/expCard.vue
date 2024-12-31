@@ -64,7 +64,7 @@
     import { EoteOrGenCharacter } from '../../../../common/models/systems';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
@@ -95,7 +95,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
     const readonly = computed(() => props.readonly);
     const editModal = ref<InstanceType<typeof EditModal> | null>(null);
 

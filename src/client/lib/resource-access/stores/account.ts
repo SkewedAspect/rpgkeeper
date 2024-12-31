@@ -5,9 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { Account } from '../models/account';
-import { ValidBSTheme, ValidColorMode } from '../../../common/models/colorMode';
-import { ValidSupportStatus } from '../../../common/models/system';
+import { Account, ValidBSTheme, ValidColorMode, ValidSupportStatus } from '../../../../common/models';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

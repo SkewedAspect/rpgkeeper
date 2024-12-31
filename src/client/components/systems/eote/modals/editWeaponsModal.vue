@@ -169,7 +169,7 @@
     import { storeToRefs } from 'pinia';
 
     // Stores
-    import { useCharactersStore } from '../../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../../lib/resource-access/stores/characters';
 
     // Models
     import {
@@ -216,7 +216,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     const weapIndex = ref(-1);
     const weapon = ref<EoteWeapon>(undefined);

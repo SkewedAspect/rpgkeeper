@@ -221,7 +221,7 @@
     import { EoteOrGenCharacter, EoteSkill } from '../../../../common/models/systems';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
@@ -261,7 +261,7 @@
 
     const fields = ref([ 'name', 'career', 'ranks' ]);
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
     const editModal = ref<InstanceType<typeof EditModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------

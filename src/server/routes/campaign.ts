@@ -57,7 +57,7 @@ router.post(
     '/',
     ensureAuthenticated,
     processRequest({
-        body: CampValidators.Campaign.partial({ id: true }),
+        body: CampValidators.Campaign.partial({ id: true, characters: true, notes: true, participants: true }),
     }),
     async (req, resp) =>
     {

@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // Models
-import { Notebook, NotebookPage } from '../models/notebook';
+import { Notebook, NotebookPage } from '../../../common/models';
 
 //----------------------------------------------------------------------------------------------------------------------
 

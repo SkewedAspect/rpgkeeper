@@ -46,7 +46,7 @@ export default [
             'no-new-native-nonconstructor': 'error',
             'no-console': [
                 'error',
-                { allow: [ 'debug', 'info', 'warn', 'error' ] },
+                { allow: [ 'trace', 'debug', 'info', 'warn', 'error' ] },
             ],
 
             // Style

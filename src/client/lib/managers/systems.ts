@@ -6,7 +6,7 @@
 import { SystemDefinition } from '../../../common/models';
 
 // Store
-import { useSystemsStore } from '../stores/systems';
+import { useSystemStore } from '../resource-access/stores/systems';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ class SystemsManager
 
     async load() : Promise<void>
     {
-        const store = useSystemsStore();
+        const store = useSystemStore();
 
         // Load systems from external endpoint
         await store.load();
@@ -26,7 +26,7 @@ class SystemsManager
 
     getSystem(systemID : string) : SystemDefinition<any> | undefined
     {
-        const store = useSystemsStore();
+        const store = useSystemStore();
         return store.find(systemID);
     }
 

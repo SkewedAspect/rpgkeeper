@@ -5,18 +5,21 @@
 import { z } from 'zod';
 
 // Models
+import { campaignRoles, characterRoles } from '../../../../common/models/index.js';
+
+// Zod Utils
 import { HashID, ItemFilter } from './common.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const CampaignCharacter = z.object({
     characterID: HashID,
-    role: z.string().min(1),
+    role: z.enum(characterRoles),
 });
 
 export const CampaignParticipant = z.object({
     accountID: HashID,
-    role: z.string().min(1),
+    role: z.enum(campaignRoles),
 });
 
 export const CampaignNote = z.object({

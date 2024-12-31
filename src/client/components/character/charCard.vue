@@ -42,7 +42,7 @@
     import { useRouter } from 'vue-router';
 
     // Stores
-    import { useSystemsStore } from '../../lib/stores/systems';
+    import { useSystemStore } from '../../lib/resource-access/stores/systems';
 
     // Models
     import { Character, SystemDefinition } from '../../../common/models';
@@ -54,7 +54,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
     const router = useRouter();
-    const sysStore = useSystemsStore();
+    const sysStore = useSystemStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Props

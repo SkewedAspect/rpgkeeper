@@ -15,6 +15,10 @@
                     <Fa icon="columns" />
                     Dashboard
                 </BNavItem>
+                <BNavItem to="/campaigns">
+                    <Fa icon="notebook" />
+                    Campaigns
+                </BNavItem>
                 <BNavItem to="/characters">
                     <Fa icon="users" />
                     Characters
@@ -45,7 +49,7 @@
     import { storeToRefs } from 'pinia';
 
     // Stores
-    import { useAccountStore } from '../../lib/stores/account';
+    import { useAccountStore } from '../../lib/resource-access/stores/account';
 
     // Components
     import LoginBtn from './loginBtn.vue';

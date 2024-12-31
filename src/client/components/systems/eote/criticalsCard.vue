@@ -71,7 +71,7 @@
     import { sortBy } from 'lodash';
 
     // Store
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Models
     import { EoteCritical, EoteOrGenCharacter } from '../../../../common/models/systems';
@@ -102,7 +102,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     const selectedCritical = ref(diceMan.eoteCriticals[0].title);
     const currentCriticals = ref([]);

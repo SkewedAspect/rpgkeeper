@@ -11,9 +11,9 @@ import { Supplement } from '../../../../common/models/systems';
 import { Reference } from '../../../../common/models/reference';
 
 // Stores
-import { useEoteStore } from '../../stores/systems/eote';
-import { useGenesysStore } from '../../stores/systems/genesys';
-import { useSystemsStore } from '../../stores/systems';
+import { useEoteStore } from '../../resource-access/stores/systems/eote';
+import { useGenesysStore } from '../../resource-access/stores/systems/genesys';
+import { useSystemStore } from '../../resource-access/stores/systems';
 
 // Resource Access
 import suppRA from '../../resource-access/supplement';
@@ -67,7 +67,7 @@ class EotEManager
 
     get mode() : EoteSystemMode
     {
-        const store = useSystemsStore();
+        const store = useSystemStore();
         return (store.current?.id || 'eote') as EoteSystemMode;
     }
 

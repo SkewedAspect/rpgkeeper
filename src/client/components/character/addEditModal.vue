@@ -212,7 +212,7 @@
     import systemsMan from '../../lib/managers/systems';
 
     // Stores
-    import { useSystemsStore } from '../../lib/stores/systems';
+    import { useSystemStore } from '../../lib/resource-access/stores/systems';
 
     // Utils
     import dropboxUtil from '../../lib/utils/dropbox';
@@ -257,7 +257,7 @@
         system: null,
     });
 
-    const sysStore = useSystemsStore();
+    const sysStore = useSystemStore();
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
