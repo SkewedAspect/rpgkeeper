@@ -95,8 +95,8 @@
     import { storeToRefs } from 'pinia';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
-    import { useAccountStore } from '../../../lib/stores/account';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
+    import { useAccountStore } from '../../../lib/resource-access/stores/account';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';
@@ -119,7 +119,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     const pendingRollName = ref('');
     const rollResult = ref({

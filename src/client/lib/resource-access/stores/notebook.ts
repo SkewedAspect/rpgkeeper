@@ -5,7 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { NotebookPage } from '../models/notebook';
+import { NotebookPage } from '../../../../common/models';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

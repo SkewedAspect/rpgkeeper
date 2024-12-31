@@ -27,7 +27,7 @@
     import authMan from '../../lib/managers/auth';
 
     // Stores
-    import { useCharactersStore } from '../../lib/stores/characters';
+    import { useCharacterStore } from '../../lib/resource-access/stores/characters';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -58,7 +58,7 @@
         { text: 'Public', value: 'public' },
     ]);
 
-    const { system } = storeToRefs(useCharactersStore());
+    const { system } = storeToRefs(useCharacterStore());
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

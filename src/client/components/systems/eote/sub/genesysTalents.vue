@@ -36,7 +36,7 @@
     import { EoteCharacter } from '../../../../../common/models/systems';
 
     // Stores
-    import { useCharactersStore } from '../../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../../lib/resource-access/stores/characters';
 
     // Components
     import TierRow from './tierRow.vue';
@@ -56,7 +56,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

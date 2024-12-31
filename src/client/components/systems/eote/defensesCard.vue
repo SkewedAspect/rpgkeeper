@@ -54,7 +54,7 @@
     import { storeToRefs } from 'pinia';
 
     // Store
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Models
     import { EoteOrGenCharacter } from '../../../../common/models/systems';
@@ -89,7 +89,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
     const readonly = computed(() => props.readonly);
 
     const editModal = ref<InstanceType<typeof EditModal> | null>(null);

@@ -81,7 +81,7 @@
     import { NotebookPage } from '../../../common/models';
 
     // Stores
-    import { useNotebookStore } from '../../lib/stores/notebook';
+    import { useNotebookStore } from '../../lib/resource-access/stores/notebook';
 
     // Managers
     import notebookMan from '../../lib/managers/notebook';

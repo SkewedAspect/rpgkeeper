@@ -141,7 +141,7 @@
     import authMan from '../../lib/managers/auth';
 
     // Stores
-    import { useCharactersStore } from '../../lib/stores/characters';
+    import { useCharacterStore } from '../../lib/resource-access/stores/characters';
 
     // Components
     import SupplementSearch from './supplementSearch.vue';
@@ -197,7 +197,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const currentSelection = ref();
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

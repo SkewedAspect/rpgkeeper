@@ -6,6 +6,7 @@ import 'dotenv/config';
 import { defineConfig } from 'vite';
 
 // Vite Plugins
+import checker from 'vite-plugin-checker';
 import vue from '@vitejs/plugin-vue';
 import Components from 'unplugin-vue-components/vite';
 import { BootstrapVueNextResolver } from 'bootstrap-vue-next';
@@ -33,6 +34,15 @@ export default defineConfig({
     root: 'src/client',
     publicDir: 'assets',
     plugins: [
+        checker({
+            eslint: {
+                lintCommand: 'eslint "../../src/**/*.{ts,js,vue}" --max-warnings=0',
+                useFlatConfig: true,
+            },
+            typescript: true,
+            // Not quite ready to work through these errors yet
+            // vueTsc: true,
+        }),
         vue({
             template: {
                 compilerOptions: {

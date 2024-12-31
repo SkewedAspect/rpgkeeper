@@ -222,7 +222,7 @@
     import { storeToRefs } from 'pinia';
 
     // Store
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Models
     import { EoteOrGenCharacter } from '../../../../common/models/systems';
@@ -283,7 +283,7 @@
     const buttonStyleFix = 'border-top-right-radius: var(--bs-btn-border-radius); '
         + 'border-bottom-right-radius: var(--bs-btn-border-radius)';
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     const woundsInput = ref<number>(undefined);
     const strainInput = ref<number>(undefined);

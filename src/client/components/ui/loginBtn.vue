@@ -5,7 +5,7 @@
 <template>
     <div id="login">
         <!-- Profile dropdown -->
-        <BNavItemDropdown v-if="account" id="profile-dropdown" :title="account.displayName" right no-caret>
+        <BNavItemDropdown v-if="account" id="profile-dropdown" :title="account.name" right no-caret>
             <template #button-content>
                 <BImg
                     v-if="account.avatar"
@@ -16,7 +16,7 @@
                     :src="account.avatar"
                 />
                 <Fa v-else icon="user-circle" size="2x" />
-                {{ account.displayName }}
+                {{ account.name }}
             </template>
             <BDropdownItem to="/settings">
                 <Fa icon="user-circle" />
@@ -59,7 +59,7 @@
     import { storeToRefs } from 'pinia';
 
     // Stores
-    import { useAccountStore } from '../../lib/stores/account';
+    import { useAccountStore } from '../../lib/resource-access/stores/account';
 
     // Managers
     import authMan from '../../lib/managers/auth';

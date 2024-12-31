@@ -5,10 +5,10 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { Character, SystemDetails } from '../../../common/models';
+import { Character, SystemDetails } from '../../../../common/models';
 
 // Resource Access
-import charactersRA from '../resource-access/character';
+import charactersRA from '../character';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ export interface CharactersStoreState
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const useCharactersStore = defineStore('characters', {
+export const useCharacterStore = defineStore('characters', {
     state() : CharactersStoreState
     {
         return {

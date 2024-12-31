@@ -15,8 +15,8 @@
                     rounded="circle"
                     width="128"
                     height="128"
-                    :src="account.avatarUrl"
-                    :alt="account.displayName"
+                    :src="account.avatar"
+                    :alt="account.name"
                     class="m-1"
                     center
                 />
@@ -123,7 +123,7 @@
     import { storeToRefs } from 'pinia';
 
     // Stores
-    import { useAccountStore } from '../lib/stores/account';
+    import { useAccountStore } from '../lib/resource-access/stores/account';
 
     // Managers
     import authMan from '../lib/managers/auth';

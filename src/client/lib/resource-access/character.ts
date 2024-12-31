@@ -8,8 +8,8 @@ import axios from 'axios';
 import { Character, SystemDetails } from '../../../common/models';
 
 // Store
-import { useAccountStore } from '../stores/account';
-import { useSystemsStore } from '../stores/systems';
+import { useAccountStore } from './stores/account';
+import { useSystemStore } from './stores/systems';
 
 // Utils
 import toastUtil from '../utils/toast';
@@ -26,7 +26,7 @@ class CharacterResourceAccess
         Details extends SystemDetails = SystemDetails,
     >(def : Partial<Character<Details>>) : Character<Details>
     {
-        const systemsStore = useSystemsStore();
+        const systemsStore = useSystemStore();
         const system = systemsStore.find(def.system ?? 'dne') ?? { defaults: {} };
 
         // Return a new object that's mixed with the defaults and def

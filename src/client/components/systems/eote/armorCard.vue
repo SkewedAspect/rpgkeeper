@@ -106,7 +106,7 @@
     import { storeToRefs } from 'pinia';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Models
     import { EoteArmorRef, EoteCharacter } from '../../../../common/models/systems';
@@ -138,7 +138,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     const editArmorModal = ref<InstanceType<typeof EditArmorModal> | null>(null);
 

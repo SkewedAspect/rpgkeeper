@@ -13,12 +13,17 @@
     >
         <template #header>
             <slot name="header">
-                <h5 class="align-items-center d-flex text-nowrap m-0 mt-1 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                    <Fa v-if="icon" class="me-1" :icon="icon" />
-                    <span class="d-none d-md-inline">
-                        {{ title }}
-                    </span>
-                </h5>
+                <div class="d-flex">
+                    <h5 class="align-items-center d-flex text-nowrap m-0 flex-grow-0 flex-shrink-0 w-auto">
+                        <Fa v-if="icon" class="me-1" :icon="icon" />
+                        <span class="d-none d-md-inline">
+                            {{ title }}
+                        </span>
+                    </h5>
+                    <div class="ms-auto">
+                        <slot name="header-right" />
+                    </div>
+                </div>
             </slot>
         </template>
 
@@ -63,6 +68,8 @@
 <script lang="ts" setup>
     import { computed, useSlots } from 'vue';
 
+    import { AlignmentTextHorizontal } from 'bootstrap-vue-next';
+
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
@@ -72,7 +79,7 @@
         icon ?: string;
         title ?: string;
         noBody ?: boolean;
-        align ?: 'left' | 'center' | 'right';
+        align ?: AlignmentTextHorizontal;
         fill ?: boolean;
         fixed ?: boolean;
         grow ?: boolean;
@@ -85,7 +92,7 @@
             icon: undefined,
             title: undefined,
             noBody: false,
-            align: 'left',
+            align: 'start',
             fill: false,
             fixed: false,
             grow: false,

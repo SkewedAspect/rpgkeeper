@@ -41,7 +41,7 @@
     import { CoCSystemDetails } from '../../../../common/models/systems';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Managers
     import charMan from '../../../lib/managers/character';
@@ -67,7 +67,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
     // const roller = ref<InstanceType<typeof RollsCard> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------

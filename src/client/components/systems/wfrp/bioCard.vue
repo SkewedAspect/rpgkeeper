@@ -65,7 +65,7 @@
     import { Character } from '../../../../common/models';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Components
     import EditBioModal from './editBioModal.vue';
@@ -91,7 +91,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
     const bioModal = ref<InstanceType<typeof EditBioModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
