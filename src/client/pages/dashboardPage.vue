@@ -10,7 +10,7 @@
                 <CharCard v-for="char in recentCharacters" :key="char.id" :character="char" class="flex-fill" />
             </div>
         </div>
-        <BFormRow>
+        <BFormRow :class="recentCharacters.length == 0 ? 'mt-3' : ''">
             <BCol cols="12" class="mb-3">
                 <!-- Characters Card -->
                 <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
