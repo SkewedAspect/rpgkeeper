@@ -15,7 +15,7 @@ const logger = logging.getLogger('query-util');
 //----------------------------------------------------------------------------------------------------------------------
 
 export type JSONPrimitive = string | number | boolean;
-// eslint-disable-next-line no-use-before-define
+ 
 export type JSONValue = JSONPrimitive | JSONObject | JSONArray;
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface JSONObject extends Record<string, JSONValue> {}
