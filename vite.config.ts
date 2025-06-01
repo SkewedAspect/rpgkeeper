@@ -77,6 +77,7 @@ export default defineConfig({
         preprocessorOptions: {
             scss: {
                 quietDeps: true,
+                silenceDeprecations: [ 'import' ],
             },
         },
         postcss: {
