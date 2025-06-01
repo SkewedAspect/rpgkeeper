@@ -48,7 +48,7 @@
         <!-- Notes tabs -->
         <BTabs
             v-else
-            v-model="pageIndex"
+            v-model:index="pageIndex"
             nav-wrapper-class="d-none d-md-block ps-3 py-2"
             nav-item-class="text-nowrap text-start"
             justified
