@@ -6,7 +6,7 @@ import 'dotenv/config';
 import configUtil from '@strata-js/util-config';
 import type { Knex } from 'knex';
 
-import { ServerConfig } from './src/server/interfaces/config';
+import { type ServerConfig } from './src/server/interfaces/config.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ configUtil.load(`./config/${ env }.yml`);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+export default {
     ...configUtil.get<ServerConfig>().database ?? {},
     migrations: {
         directory: './src/server/knex/migrations',
