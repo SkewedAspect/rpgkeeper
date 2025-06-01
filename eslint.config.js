@@ -4,6 +4,7 @@ import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
 import pluginVue from 'eslint-plugin-vue';
+import globals from 'globals';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -12,6 +13,13 @@ export default [
     {
         plugins: {
             '@stylistic': stylistic,
+        },
+    },
+    {
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+            },
         },
     },
     pluginJs.configs.recommended,
@@ -257,7 +265,7 @@ export default [
             '@typescript-eslint/no-unused-vars': 'off',
 
             // Style
-            'vue/component-tags-order': [ 'error', {
+            'vue/block-order': [ 'error', {
                 order: [ 'template', 'style', 'script' ],
             } ],
             'vue/valid-v-on': [

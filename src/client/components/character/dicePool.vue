@@ -113,7 +113,7 @@
     interface Props
     {
         current : number;
-        max : number;
+        max ?: number;
         name ?: string;
         checkedIcon ?: string | string[];
         uncheckedIcon ?: string | string[];
