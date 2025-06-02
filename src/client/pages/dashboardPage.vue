@@ -5,13 +5,66 @@
 <template>
     <BContainer id="dashboard" class="pb-0">
         <div v-if="recentCharacters.length > 0" class="my-2">
-            <h3>Recently Used</h3>
+            <h3>Recent Characters</h3>
             <div class="d-flex gap-2 flex-wrap">
                 <CharCard v-for="char in recentCharacters" :key="char.id" :character="char" class="flex-fill" />
             </div>
         </div>
         <BFormRow :class="recentCharacters.length == 0 ? 'mt-3' : ''">
-            <BCol cols="12" class="mb-3">
+            <!-- Campaigns Column -->
+            <BCol cols="12" lg="6" class="mb-3">
+                <ListCard
+                    icon="notebook"
+                    title="Campaigns"
+                    :fill="true"
+                    :items="campaignItems"
+                    :loading="campsLoading"
+                >
+                    <template #header-right>
+                        <BButton variant="primary" size="sm">
+                            <Fa icon="plus" />
+                            New
+                        </BButton>
+                    </template>
+
+                    <template #no-items>
+                        <div class="text-center text-muted">
+                            No campaigns, yet.
+                        </div>
+                        <div class="text-center text-muted mt-2">
+                            <small>To add one, click the 'New' button.</small>
+                        </div>
+                    </template>
+
+                    <template #item="{ item }">
+                        <div class="d-flex">
+                            <div class="me-2 d-flex flex-column justify-content-center">
+                                <Fa :icon="[ 'fas', 'book' ]" size="2x" />
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="m-0">
+                                    {{ item.name }}
+                                    <small />
+                                </h5>
+                                <p class="m-0">
+                                    {{ item.description }}
+                                </p>
+                            </div>
+                            <div class="ms-auto d-flex flex-column justify-content-center" style="width: 50px;">
+                                <BBadge
+                                    class="w-100"
+                                    :variant="getCampaignRole(item) === 'owner' ? 'info' : 'secondary'"
+                                >
+                                    {{ capitalize(getCampaignRole(item)) }}
+                                </BBadge>
+                            </div>
+                        </div>
+                    </template>
+                </ListCard>
+            </BCol>
+
+            <!-- Characters Column -->
+            <BCol cols="12" lg="6" class="mb-3">
                 <!-- Characters Card -->
                 <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
                     <template #header>
@@ -176,16 +229,18 @@
     import { BaseColorVariant } from 'bootstrap-vue-next';
 
     // Interfaces
-    import { Character, SystemDefinition } from '../../common/models';
+    import { Campaign, CampaignRole, Character, SystemDefinition } from '../../common/models';
 
     // Stores
     import { useAccountStore } from '../lib/resource-access/stores/account';
     import { useSystemStore } from '../lib/resource-access/stores/systems';
     import { useCharacterStore } from '../lib/resource-access/stores/characters';
+    import { useCampaignStore } from '../lib/resource-access/stores/campaign';
 
     // Managers
     import systemsMan from '../lib/managers/systems';
     import characterMan from '../lib/managers/character';
+    import campaignMan from '../lib/managers/campaign';
 
     // Components
     import LoadingWidget from '../components/ui/loadingWidget.vue';
@@ -194,6 +249,7 @@
     import DeleteModal from '../components/character/deleteModal.vue';
     import CharThumbnail from '../components/character/charThumbnail.vue';
     import CloseButton from '../components/ui/closeButton.vue';
+    import ListCard from '../components/ui/listCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -203,6 +259,7 @@
     const router = useRouter();
     const sysStore = useSystemStore();
     const charStore = useCharacterStore();
+    const campaignStore = useCampaignStore();
 
     const charFilter = ref('');
     const systemsFilter = ref<string[]>([]);
@@ -218,6 +275,8 @@
     {
         return !account.value || sysStore.status !== 'loaded' || charStore.status !== 'loaded';
     });
+
+    const campsLoading = computed(() => campaignStore.status === 'loading');
 
     const systems = computed(() => sysStore.filteredSystems);
 
@@ -252,6 +311,11 @@
 
         return [];
     });
+
+    const campaignItems = computed(() => campaignStore.campaigns.map((camp) => ({
+        ...camp,
+        to: `/campaigns/${ camp.id }`,
+    })));
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -318,6 +382,24 @@
         systemsFilter.value = [];
     }
 
+    function getCampaignRole(campaign : Campaign) : CampaignRole
+    {
+        const role = campaign.participants.find((part) => part.accountID === account.value.id);
+        if(role)
+        {
+            return role.role;
+        }
+
+        console.warn('No role found for account', account.value.id, 'in campaign', campaign.id);
+
+        return 'player';
+    }
+
+    function capitalize(value : string) : string
+    {
+        return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+
     // Add/Edit Modal
     async function openAddEditModal(char ?: Character) : Promise<void>
     {
@@ -376,6 +458,10 @@
         // We've loaded the dashboard, no need to redirect here anymore.
         redirectToDashboard.value = false;
 
+        // Initialize campaign manager
+        campaignMan.init();
+
+        // Select all systems by default
         selectAllSystems();
     });
 </script>
