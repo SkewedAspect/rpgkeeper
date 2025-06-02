@@ -72,7 +72,7 @@ export const useCampaignStore = defineStore('campaigns', {
             }
             else
             {
-                const campaign = this.find('id', campaignID);
+                const campaign = this.find(campaignID);
                 if(campaign)
                 {
                     this.current = campaign;

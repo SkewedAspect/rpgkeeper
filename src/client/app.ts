@@ -36,6 +36,7 @@ import './scss/theme.scss';
 import AppComponent from './app.vue';
 import AboutPage from './pages/aboutPage.vue';
 import CampListPage from './pages/campListPage.vue';
+import CampaignPage from './pages/campaignPage.vue';
 import CharacterPage from './pages/characterPage.vue';
 import CharListPage from './pages/charListPage.vue';
 import DashboardPage from './pages/dashboardPage.vue';
@@ -64,6 +65,7 @@ const router = createRouter({
         { path: '/about', name: 'about', component: AboutPage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
         { path: '/campaigns', name: 'campaign-list', component: CampListPage },
+        { path: '/campaigns/:campaignID', name: 'campaign', component: CampaignPage },
         { path: '/characters', name: 'character-list', component: CharListPage },
         { path: '/characters/:id', name: 'character', component: CharacterPage },
         { path: '/settings', name: 'settings', component: SettingsPage },
