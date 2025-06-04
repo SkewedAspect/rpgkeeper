@@ -13,7 +13,7 @@
     "lint": "eslint \"src/**/*.{ts,js,vue}\" --max-warnings=0 --no-warn-ignored",
     "prepare": "if-env NODE_ENV=production && exit 0 || husky"
   },
-  "repository": "Morgul/rpgkkeper",
+  "repository": "Morgul/rpgkeeper",
   "author": "Christopher S. Case <chris.case@g33xnexus.com>",
   "license": "MIT",
   "dependencies": {
