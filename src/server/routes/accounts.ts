@@ -80,8 +80,22 @@ router.patch(
     }),
     async (req, resp) =>
     {
+        const user = req.user;
+        const targetID = req.params.accountID;
+
+        // Ensure the user is modifying their own account, or has the right perm
+        if(user.id !== targetID && !permsMan.hasPerm(user, 'Accounts/canModify'))
+        {
+            resp.status(403)
+                .json({
+                    type: 'NotAuthorized',
+                    message: `You are not authorized to update account '${ targetID }'.`,
+                });
+            return;
+        }
+
         // Update the account
-        const newAccount = await accountMan.update(req.params.accountID, req.body);
+        const newAccount = await accountMan.update(targetID, req.body);
         resp.json(newAccount);
     }
 );
