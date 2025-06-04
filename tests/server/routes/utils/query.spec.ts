@@ -23,7 +23,7 @@ describe('parseQuery', () =>
         const input = { tags: 'magic,combat' };
         const result = parseQuery(input);
         expect(result.tags.operation).to.equal('=');
-        expect((result.tags as any).isArray).to.equal(true);
+        expect(result.tags.isArray).to.equal(true);
         expect(result.tags.value).to.deep.equal([ 'magic', 'combat' ]);
     });
 });
