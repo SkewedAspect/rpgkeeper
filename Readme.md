@@ -48,7 +48,7 @@ CLIENT_SECRET='hOsFjUL-f_yky8djy1OSuvmp'
 SERVER_PORT=5678
 ```
 
-You will want to replace these with your own values (especially `SECRET_SESSION` and `MAILGUN_KEY`). You can get a 
+You will want to replace these with your own values (especially `SESSION_SECRET` and `MAILGUN_KEY`). You can get a
 `CLIENT_ID` and `CLIENT_SECRET` by creating a new project in the 
 [Google Developer Console](https://console.developers.google.com/).
 
