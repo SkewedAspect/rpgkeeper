@@ -110,7 +110,7 @@ export default [
             '@stylistic/comma-style': [ 'error', 'last' ],
             '@stylistic/computed-property-spacing': [ 'error', 'never' ],
             '@stylistic/eol-last': [ 'error', 'always' ],
-            '@stylistic/func-call-spacing': [ 'error', 'never' ],
+            '@stylistic/function-call-spacing': [ 'error', 'never' ],
             '@stylistic/function-paren-newline': [ 'error', 'multiline-arguments' ],
             '@stylistic/generator-star-spacing': [ 'error', { before: true, after: false } ],
             '@stylistic/indent': [
@@ -172,7 +172,7 @@ export default [
             '@stylistic/operator-linebreak': [ 'error', 'before' ],
             '@stylistic/padded-blocks': [ 'error', 'never' ],
             '@stylistic/quote-props': [ 'error', 'consistent-as-needed' ],
-            '@stylistic/quotes': [ 'error', 'single', { avoidEscape: true, allowTemplateLiterals: true } ],
+            '@stylistic/quotes': [ 'error', 'single', { avoidEscape: true, allowTemplateLiterals: 'always' } ],
             '@stylistic/semi': [ 'error', 'always' ],
             '@stylistic/semi-spacing': [ 'error', { before: false, after: true } ],
             '@stylistic/space-before-blocks': 'error',

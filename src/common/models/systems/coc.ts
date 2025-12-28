@@ -43,8 +43,8 @@ export interface CoCSkill
     used : boolean;
 }
 
-export type CoCCharacteristics =
-Record<typeof validCoCCharacteristicNames[number], number>;
+export type CoCCharacteristics
+    = Record<typeof validCoCCharacteristicNames[number], number>;
 
 export interface CoCStat
 {
