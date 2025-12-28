@@ -228,7 +228,7 @@
     // Types
     //------------------------------------------------------------------------------------------------------------------
 
-    type NewChar = Omit<Character<any>, 'details' | 'accountID' | 'noteID'>;
+    type NewChar = Omit<Character<any>, 'details' | 'accountID' | 'noteID' | 'created' | 'updated'>;
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -313,7 +313,7 @@
 
     // TODO: Cast it to an any so we don't get spurious errors, but this is pretty bad...
     // @see: https://github.com/vuelidate/vuelidate/issues/925
-    const v$ : any = useVuelidate<typeof rules>(rules, char);
+    const v$ : any = useVuelidate(rules, char as any);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

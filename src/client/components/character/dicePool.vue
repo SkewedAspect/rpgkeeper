@@ -146,7 +146,7 @@
     const editMax = ref<number | null>(null);
 
     // Component Refs
-    const editPool = ref<InstanceType<BModal> | null>(null);
+    const editPool = ref<InstanceType<typeof BModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

@@ -73,7 +73,7 @@
                             :key="quality.id"
                             :ranks="quality.ranks"
                         />
-                        <h5 v-if="armor.qualities === 0" class="mt-2 text-center">
+                        <h5 v-if="armor.qualities.length === 0" class="mt-2 text-center">
                             No Upgrades.
                         </h5>
                     </BTd>

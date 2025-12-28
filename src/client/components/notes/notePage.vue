@@ -55,7 +55,7 @@
 
     const renderedContent = computed(() =>
     {
-        return marked(props.content);
+        return marked.parse(props.content, { async: false }) as string;
     });
 
     const system = computed(() =>

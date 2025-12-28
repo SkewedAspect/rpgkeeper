@@ -171,7 +171,7 @@
         label : string;
         labelClass : string;
         available : GenericSupplement[];
-        selected : GenericSupplementInst[];
+        selected : (GenericSupplementInst | string | number)[];
         maxHeight ?: string;
         sortFn ?: (suppA : Supplement, suppB : Supplement) => number
     }
@@ -208,15 +208,15 @@
         // Normalize the selected supplements to an array of objects with `id`.
         return props.selected.map((supp) =>
         {
-            // If we have `id`, assume we're in the right format
-            if(supp.id)
+            // If we have an object with `id`, assume we're in the right format
+            if(typeof supp === 'object' && supp.id)
             {
                 return supp;
             }
             else
             {
                 // Otherwise assume we're just the id, and wrap ourselves in an object. This is Good Enough™.
-                return { id: supp as number } satisfies SupplementInst;
+                return { id: supp as string | number } satisfies SupplementInst;
             }
         });
     });

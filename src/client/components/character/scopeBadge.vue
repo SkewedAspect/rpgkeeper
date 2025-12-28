@@ -22,7 +22,7 @@
 
     interface Props
     {
-        supplement : Supplement
+        supplement : Pick<Supplement, 'scope' | 'official'>
     }
 
     const props = defineProps<Props>();

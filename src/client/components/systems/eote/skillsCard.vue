@@ -238,6 +238,7 @@
     {
         ability : number;
         proficiency : number;
+        [key : string] : number;
     }
 
     interface Props

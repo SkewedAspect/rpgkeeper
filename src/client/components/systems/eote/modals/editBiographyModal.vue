@@ -192,7 +192,7 @@
         species : string;
         specializations : string;
         forceSensitive : boolean;
-        abilities : string[];
+        abilities : number[];
     }
 
     type Events = (e : 'save', bio : BioObj) => void;
@@ -210,10 +210,10 @@
     const species = ref('');
     const specialization = ref('');
     const forceSensitive = ref(false);
-    const selectedAbilities = ref(new Set());
+    const selectedAbilities = ref(new Set<number>());
 
-    const delAbility = ref({
-        id: '',
+    const delAbility = ref<{ id : number | undefined; name : string }>({
+        id: undefined,
         name: '',
     });
 
@@ -311,16 +311,16 @@
 
     function onDelAbilityHidden() : void
     {
-        delAbility.value.id = '';
+        delAbility.value.id = undefined;
         delAbility.value.name = '';
     }
 
-    async function onDelAbilityDelete() : void
+    async function onDelAbilityDelete() : Promise<void>
     {
         suppSelect.value.clearSelection();
         selectedAbilities.value.delete(delAbility.value.id);
 
-        await eoteMan.delSup('abilities', delAbility.value);
+        await eoteMan.delSup('abilities', { id: `${ delAbility.value.id }` });
 
         onSave();
     }

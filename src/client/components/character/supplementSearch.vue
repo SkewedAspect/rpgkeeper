@@ -74,7 +74,7 @@
     interface Props
     {
         available : Supplement[];
-        selected : SupplementInst[];
+        selected : (SupplementInst | string | number)[];
         boundary ?: 'scrollParent' | 'viewport' | 'window';
         sortFn ?: (suppA : Supplement, suppB : Supplement) => number
     }
@@ -112,13 +112,14 @@
             .filter((supp) =>
             {
                 let alreadyAdded;
-                if(props.selected[0]?.id)
+                const firstItem = props.selected[0];
+                if(typeof firstItem === 'object' && firstItem?.id)
                 {
-                    alreadyAdded = !!(props.selected.find((item) => item.id === supp.id));
+                    alreadyAdded = !!(props.selected as SupplementInst[]).find((item) => item.id === supp.id);
                 }
                 else
                 {
-                    alreadyAdded = props.selected.includes(supp.id);
+                    alreadyAdded = (props.selected as (string | number)[]).includes(supp.id);
                 }
 
                 return supp.name.toLowerCase().includes(search.value.toLowerCase()) && !alreadyAdded;

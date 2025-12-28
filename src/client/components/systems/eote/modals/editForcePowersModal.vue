@@ -159,7 +159,7 @@
         name : string;
     }
 
-    type Events = (e : 'save', talents : EoteTalentInst[]) => void;
+    type Events = (e : 'save', powers : EoteForcePowerInst[]) => void;
 
     const emit = defineEmits<Events>();
 

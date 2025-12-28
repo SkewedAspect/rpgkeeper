@@ -58,7 +58,7 @@
         { text: 'Public', value: 'public' },
     ]);
 
-    const { system } = storeToRefs(useCharacterStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -76,7 +76,7 @@
 
     const canMakePublic = computed(() =>
     {
-        return authMan.hasPerm(`${ system }/canModifyContent`);
+        return authMan.hasPerm(`${ current.value?.system }/canModifyContent`);
     });
 
     //------------------------------------------------------------------------------------------------------------------
