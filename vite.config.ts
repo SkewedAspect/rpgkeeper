@@ -36,10 +36,11 @@ export default defineConfig({
     plugins: [
         checker({
             eslint: {
-                lintCommand: 'eslint "../../src/**/*.{ts,js,vue}" --max-warnings=0',
+                lintCommand: 'eslint "src/**/*.{ts,js,vue}" --max-warnings=0',
                 useFlatConfig: true,
             },
             typescript: true,
+            root: process.cwd(),
             // Not quite ready to work through these errors yet
             // vueTsc: true,
         }),
