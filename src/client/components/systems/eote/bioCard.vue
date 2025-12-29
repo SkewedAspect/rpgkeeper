@@ -83,7 +83,7 @@
         species : string;
         specializations : string;
         forceSensitive : boolean;
-        abilities : string[];
+        abilities : number[];
     }
 
     interface Props
@@ -150,8 +150,7 @@
             character.details.force.sensitive = bio.forceSensitive;
         }
 
-        // TODO: Make this accept string ids
-        character.details.abilities = bio.abilities.map((id) => parseInt(id));
+        character.details.abilities = bio.abilities;
 
         emit('save');
     }

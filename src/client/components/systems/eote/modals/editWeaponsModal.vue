@@ -176,7 +176,7 @@
         EncounterRange,
         EoteCharacter,
         EoteQualityRef,
-        EoteWeapon,
+        EoteWeaponRef,
     } from '../../../../../common/models/systems';
 
     // Managers
@@ -206,8 +206,8 @@
 
     interface Events
     {
-        (e : 'add', weapon : EoteWeapon) : void;
-        (e : 'edit', weapon : EoteWeapon, index : number) : void;
+        (e : 'add', weapon : EoteWeaponRef) : void;
+        (e : 'edit', weapon : EoteWeaponRef, index : number) : void;
     }
 
     const emit = defineEmits<Events>();
@@ -219,7 +219,7 @@
     const { current } = storeToRefs(useCharacterStore());
 
     const weapIndex = ref(-1);
-    const weapon = ref<EoteWeapon>(undefined);
+    const weapon = ref<EoteWeaponRef | undefined>(undefined);
     const editWeapon = ref<SimpleWeapon>({
         weaponID: undefined,
         name: undefined,
@@ -259,7 +259,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function show(newWeapon ?: EoteWeapon, index ?: number) : void
+    function show(newWeapon ?: EoteWeaponRef, index ?: number) : void
     {
         index = index ?? -1;
 
@@ -269,7 +269,7 @@
             weapon.value = newWeapon;
 
             editWeapon.value = {
-                weaponID: newWeapon.id,
+                weaponID: undefined,
                 name: newWeapon.name,
                 skill: newWeapon.skill,
                 damage: newWeapon.damage,
@@ -323,28 +323,32 @@
     {
         if(isAdd.value)
         {
-            const newWeap : EoteWeapon = {
-                criticalRating: editWeapon.value.criticalRating,
+            const newWeap : EoteWeaponRef = {
+                name: editWeapon.value.name ?? '',
+                skill: editWeapon.value.skill ?? '',
                 damage: editWeapon.value.damage,
-                description: undefined,
-                encumbrance: editWeapon.value.encumbrance,
-                name: editWeapon.value.name,
-                qualities: editWeapon.value.qualities,
+                criticalRating: editWeapon.value.criticalRating,
                 range: editWeapon.value.range,
+                encumbrance: editWeapon.value.encumbrance,
                 rarity: editWeapon.value.rarity,
-                skill: editWeapon.value.skill,
-                official: false,
-                reference: 'HB',
-                scope: 'user',
+                attachments: [],
+                qualities: editWeapon.value.qualities,
             };
 
             emit('add', newWeap);
         }
-        else
+        else if(weapon.value)
         {
-            const newWeapon = {
+            const newWeapon : EoteWeaponRef = {
                 ...weapon.value,
-                ...editWeapon.value,
+                name: editWeapon.value.name ?? weapon.value.name,
+                skill: editWeapon.value.skill ?? weapon.value.skill,
+                damage: editWeapon.value.damage,
+                criticalRating: editWeapon.value.criticalRating,
+                range: editWeapon.value.range,
+                encumbrance: editWeapon.value.encumbrance,
+                rarity: editWeapon.value.rarity,
+                qualities: editWeapon.value.qualities,
             };
 
             emit('edit', newWeapon, weapIndex.value);

@@ -48,7 +48,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>
@@ -79,7 +79,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>
@@ -112,7 +112,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>
@@ -143,7 +143,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>
@@ -174,7 +174,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>

@@ -100,7 +100,7 @@
 
     function onRoll(dice : string, name : string) : void
     {
-        roller.value.roll(dice, name);
+        roller.value?.roll();
     }
 
     async function onSave() : Promise<void>

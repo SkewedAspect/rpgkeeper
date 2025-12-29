@@ -186,9 +186,9 @@
 
     const emit = defineEmits<{
         new : [];
-        add : [supp : { id : string | number }];
-        edit : [supp : { id : string | number }];
-        delete : [supp : { id : string | number }];
+        add : [supp : GenericSupplement];
+        edit : [supp : GenericSupplement];
+        delete : [supp : GenericSupplement];
         remove : [supp : { id : string | number }];
     }>();
 

@@ -43,14 +43,11 @@
 
     type ListItem = T & { to ?: string };
 
-    interface Props
-    {
-        items : ListItem[];
-        loading ?: boolean;
-    }
-
     const props = withDefaults(
-        defineProps<Props>(),
+        defineProps<{
+            items : ListItem[];
+            loading ?: boolean;
+        }>(),
         {
             loading: false,
         }

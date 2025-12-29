@@ -43,7 +43,7 @@
                         <h5>Upgrades</h5>
                         <BTable
                             class="font-sm"
-                            :items="getUpgrades(instance, supplement)"
+                            :items="getUpgrades(instance as EoteForcePowerInst, supplement as EoteForcePower)"
                             :fields="upgradeFields"
                             thead-class="d-none"
                             small
@@ -56,18 +56,21 @@
                             </template>
 
                             <template #cell(name)="data">
-                                <b>{{ sentenceCase(data.value) }}</b>
+                                <b>{{ sentenceCase(data.value as string) }}</b>
                                 <DicePool
                                     v-model:current="data.item.purchased"
-                                    :max="supplement.upgrades[data.value].available || 1"
+                                    :max="(supplement as EoteForcePower).upgrades[data.value as string]?.available || 1"
                                     size="1x"
                                     no-edit
                                     no-auto-save
-                                    @update:current="onUpgradeModify(data, instance)"
+                                    @update:current="onUpgradeModify(
+                                        { item: data.item, value: data.value as string },
+                                        instance as EoteForcePowerInst
+                                    )"
                                 />
                             </template>
                             <template #cell(description)="data">
-                                <MarkdownBlock :text="data.value" inline />
+                                <MarkdownBlock :text="data.value as string" inline />
                             </template>
                         </BTable>
                         <ReferenceBlock
@@ -167,12 +170,12 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const upgradeFields = ref([
+    const upgradeFields = ref<{ key : string; tdClass ?: string }[]>([
         { key: 'name', tdClass: 'upgrade-name' },
         { key: 'description' },
     ]);
 
-    const selectedForcePowers = ref([]);
+    const selectedForcePowers = ref<EoteForcePowerInst[]>([]);
 
     const delForcePower = ref<{ id ?: number, name ?: string }>({
         id: undefined,
@@ -212,10 +215,12 @@
         emit('save', selectedForcePowers.value);
     }
 
-    function onForcePowerAdd(forcePower : EoteForcePowerInst) : void
+    function onForcePowerAdd(forcePower : { id ?: number | string }) : void
     {
-        const newForcePower = {
-            id: forcePower.id,
+        if(!forcePower.id) { return; }
+        const fpId = typeof forcePower.id === 'string' ? parseInt(forcePower.id, 10) : forcePower.id;
+        const newForcePower : EoteForcePowerInst = {
+            id: fpId,
             upgrades: { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 },
         };
 
@@ -223,9 +228,11 @@
         selectedForcePowers.value = uniqBy(selectedForcePowers.value, 'id');
     }
 
-    function onForcePowerRemove(forcePower : EoteForcePowerInst) : void
+    function onForcePowerRemove(forcePower : { id ?: number | string }) : void
     {
-        selectedForcePowers.value = selectedForcePowers.value.filter((item) => item.id !== forcePower.id);
+        if(!forcePower.id) { return; }
+        const fpId = typeof forcePower.id === 'string' ? parseInt(forcePower.id, 10) : forcePower.id;
+        selectedForcePowers.value = selectedForcePowers.value.filter((item) => item.id !== fpId);
     }
 
     function onForcePowerNew() : void

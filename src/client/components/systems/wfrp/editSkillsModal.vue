@@ -103,7 +103,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    type Events = (e : 'save', hooks : Record<string, unknown>[]) => void;
+    type Events = (e : 'save', skills : WFRPSkill[]) => void;
 
     const emit = defineEmits<Events>();
 

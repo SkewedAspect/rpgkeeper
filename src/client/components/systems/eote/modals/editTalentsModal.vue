@@ -39,14 +39,14 @@
                 >
                     <template #preview="{ instance, supplement }">
                         <div class="clearfix">
-                            <div v-if="supplement.ranked" class="mb-2 float-end">
+                            <div v-if="(supplement as BaseTalent).ranked" class="mb-2 float-end">
                                 <label>Ranks</label>
-                                <BFormSpinbutton v-model="getInst(instance.id).ranks" inline />
+                                <BFormSpinbutton v-model="getInst(instance.id)!.ranks" inline />
                             </div>
                             <div class="mb-2">
-                                <i>{{ getActivation(supplement) }}</i>
+                                <i>{{ getActivation(supplement as BaseTalent) }}</i>
                             </div>
-                            <MarkdownBlock :text="supplement.description" inline />
+                            <MarkdownBlock :text="(supplement as BaseTalent).description" inline />
                             <Reference
                                 class="float-end mt-2"
                                 :reference="supplement.reference"
@@ -55,7 +55,11 @@
                         <div class="font-sm">
                             <hr>
                             <div class="float-end">
-                                <BButton v-if="!editInstance" size="sm" @click="editInstanceNotes(instance)">
+                                <BButton
+                                    v-if="!editInstance"
+                                    size="sm"
+                                    @click="editInstanceNotes(instance as BaseTalentInst)"
+                                >
                                     <Fa icon="edit" />
                                     Edit Notes
                                 </BButton>
@@ -68,7 +72,7 @@
                                             v-if="editInstance"
                                             class="me-2"
                                             size="sm"
-                                            @click="saveInstanceNotes(instance, true)"
+                                            @click="saveInstanceNotes(instance as BaseTalentInst, true)"
                                         >
                                             <Fa icon="times" />
                                             Cancel Notes
@@ -77,7 +81,7 @@
                                             v-if="editInstance"
                                             variant="success"
                                             size="sm"
-                                            @click="saveInstanceNotes(instance)"
+                                            @click="saveInstanceNotes(instance as BaseTalentInst)"
                                         >
                                             <Fa icon="save" />
                                             Save Notes
@@ -85,7 +89,11 @@
                                     </div>
                                 </template>
                             </BCard>
-                            <MarkdownBlock v-else-if="instance.notes" :text="instance.notes" inline />
+                            <MarkdownBlock
+                                v-else-if="(instance as BaseTalentInst).notes"
+                                :text="(instance as BaseTalentInst).notes!"
+                                inline
+                            />
                             <i v-else>No notes.</i>
                         </div>
                     </template>
@@ -147,7 +155,12 @@
         EoteOrGenCharacter,
         EoteTalentInst,
         GenesysTalent,
+        GenesysTalentInst,
     } from '../../../../../common/models/systems';
+
+    // Use type aliases for template casts
+    type BaseTalent = GenesysTalent;
+    type BaseTalentInst = GenesysTalentInst;
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';
@@ -250,30 +263,34 @@
         delTalent.value.name = '';
     }
 
-    function getActivation(talent : GenesysTalent) : string
+    function getActivation(talent : { activation ?: string }) : string
     {
         return eoteMan.activationEnum[talent.activation] || 'Unknown';
     }
 
-    function getInst(instID : number) : EoteTalentInst
+    function getInst(instID : number | string) : EoteTalentInst | undefined
     {
+        const id = typeof instID === 'string' ? parseInt(instID, 10) : instID;
         return selectedTalents.value
             .find((talentInst) =>
             {
-                return talentInst.id === instID;
+                return talentInst.id === id;
             });
     }
 
-    function getTalent(talentInstance : EoteTalentInst) : GenesysTalent
+    function getTalent(talentId : number) : GenesysTalent | undefined
     {
-        return talents.value.find((talent) => talent.id === talentInstance.id);
+        return talents.value.find((talent) => talent.id === talentId);
     }
 
-    function onTalentAdd(talent : GenesysTalent) : void
+    function onTalentAdd(talent : { id ?: number | string }) : void
     {
-        const newTalent : EoteTalentInst = { id: talent.id };
+        if(!talent.id) { return; }
+        const talentId = typeof talent.id === 'string' ? parseInt(talent.id, 10) : talent.id;
+        const newTalent : EoteTalentInst = { id: talentId };
+        const talentDef = getTalent(talentId);
 
-        if(getTalent(newTalent).ranked)
+        if(talentDef?.ranked)
         {
             newTalent.ranks = 1;
         }
@@ -281,9 +298,11 @@
         selectedTalents.value = uniqBy([ ...selectedTalents.value, newTalent ], 'id');
     }
 
-    function onTalentRemove(talent) : void
+    function onTalentRemove(talent : { id ?: number | string }) : void
     {
-        selectedTalents.value = selectedTalents.value.filter((item) => item.id !== talent.id);
+        if(!talent.id) { return; }
+        const talentId = typeof talent.id === 'string' ? parseInt(talent.id, 10) : talent.id;
+        selectedTalents.value = selectedTalents.value.filter((item) => item.id !== talentId);
     }
 
     function onTalentNew() : void

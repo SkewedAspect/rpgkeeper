@@ -126,7 +126,7 @@
     function roll() : void
     {
         const rollInst = diceUtil.rollFudge(selectedSkill.value?.rank ?? 0);
-        this.rolls.unshift({
+        rolls.value.unshift({
             roll: rollInst,
             name: selectedSkill.value?.display ?? skill.value,
             display: `${ rollInst.render() } = ${ rollInst.value }`,
@@ -138,6 +138,8 @@
         skill.value = 'No Skill';
         rolls.value = [];
     }
+
+    defineExpose({ roll, clearRolls });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

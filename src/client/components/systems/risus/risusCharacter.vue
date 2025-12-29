@@ -111,9 +111,9 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onRoll(dice : string, name : string) : void
+    function onRoll(dice : number, name ?: string) : void
     {
-        roller.value.roll(dice, name);
+        roller.value?.roll(dice, name);
     }
 
     async function onSave() : Promise<void>

@@ -365,7 +365,7 @@
     // Method
     //------------------------------------------------------------------------------------------------------------------
 
-    function show(forcePower : EoteForcePower) : void
+    function show(forcePower ?: EoteForcePower) : void
     {
         if(forcePower)
         {

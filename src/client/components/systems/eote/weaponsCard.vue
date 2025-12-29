@@ -33,7 +33,7 @@
             <!-- Qualities Slot -->
             <template #cell(qualities)="data">
                 <QualityTag
-                    v-for="quality in data.value"
+                    v-for="quality in (data.value as EoteQualityRef[])"
                     :id="quality.id"
                     :key="quality.id"
                     :ranks="quality.ranks"
@@ -91,7 +91,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { EoteCharacter, EoteWeapon } from '../../../../common/models/systems';
+    import { EoteCharacter, EoteQualityRef, EoteWeaponRef } from '../../../../common/models/systems';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
@@ -130,17 +130,27 @@
 
     const { current } = storeToRefs(useCharacterStore());
 
-    const delWeapon = ref<EoteWeapon>(undefined);
-    const fields = ref([
+    interface FieldDef
+    {
+        key : string;
+        headerTitle ?: string;
+        label ?: string;
+        tdClass ?: string;
+        thStyle ?: string;
+        formatter ?: (value : unknown) => string;
+    }
+
+    const delWeapon = ref<EoteWeaponRef | undefined>(undefined);
+    const fields = ref<FieldDef[]>([
         { key: 'name', headerTitle: 'Weapon name' },
         { key: 'skill', headerTitle: 'Required Skill', tdClass: 'text-nowrap' },
         { key: 'damage', label: 'Dmg.', headerTitle: 'Weapon Damage', tdClass: 'text-center' },
         { key: 'criticalRating', label: 'Crit.', headerTitle: 'Weapon Critical rating', tdClass: 'text-center' },
         {
             key: 'range',
-            formatter(range)
+            formatter(range : unknown)
             {
-                return eoteMan.rangeEnum[range];
+                return eoteMan.rangeEnum[range as string];
             },
             tdClass: 'text-center',
         },
@@ -169,7 +179,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    async function removeWeapon(weapon : EoteWeapon) : Promise<void>
+    async function removeWeapon(weapon : EoteWeaponRef) : Promise<void>
     {
         const index = char.value.details.weapons.indexOf(weapon);
         if(index !== -1)
@@ -181,7 +191,7 @@
         }
     }
 
-    function onRowClicked(item : EoteWeapon) : void
+    function onRowClicked(item : EoteWeaponRef) : void
     {
         const skill = char.value.details.skills.find((skillItem) => skillItem.name === item.skill);
         if(skill)
@@ -219,14 +229,14 @@
         removeWeapon(delWeapon.value);
     }
 
-    function onAdd(weapon : EoteWeapon) : void
+    function onAdd(weapon : EoteWeaponRef) : void
     {
         char.value.details.weapons.push(weapon);
 
         emit('save');
     }
 
-    function onEdit(weapon : EoteWeapon, index : number) : void
+    function onEdit(weapon : EoteWeaponRef, index : number) : void
     {
         if(index !== -1)
         {
@@ -237,7 +247,7 @@
         }
     }
 
-    function openAddEditModal(weapon : EoteWeapon) : void
+    function openAddEditModal(weapon ?: EoteWeaponRef) : void
     {
         if(weapon)
         {
@@ -250,7 +260,7 @@
         }
     }
 
-    function openDeleteModal(weapon : EoteWeapon) : void
+    function openDeleteModal(weapon : EoteWeaponRef) : void
     {
         delWeapon.value = weapon;
         delModal.value.show();
