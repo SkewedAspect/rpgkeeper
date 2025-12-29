@@ -5,25 +5,24 @@
 import { z } from 'zod';
 
 // Models
-import { HashID } from './common.js';
+import { HashID, ItemFilter } from './common.js';
 
 // Utils
 import { cssColorRegEx, jsonSchema } from '../utils.js';
-import { AccountID } from './account.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const CharacterID = HashID;
-
 export const Character = z.object({
-    id: CharacterID,
+    id: HashID,
     system: z.string().min(1), // This could be an enum of known systems? How can I generate it?
     name: z.string(),
     description: z.string().optional(),
     portrait: z.string().url()
-        .optional(),
+        .optional()
+        .or(z.literal('')),
     thumbnail: z.string().url()
-        .optional(),
+        .optional()
+        .or(z.literal('')),
     color: z.string().regex(cssColorRegEx)
         .optional(),
     campaign: z.string().optional(),
@@ -37,15 +36,12 @@ export const Character = z.object({
 // ---------------------------------------------------------------------------------------------------------------------
 
 export const RouteParams = z.object({
-    charID: CharacterID,
+    charID: HashID,
 });
 
-export const CharFilter = z.object({
-    id: z.union([ AccountID, z.array(AccountID) ]).optional(),
-    email: z.union([ z.string().email(), z.array(z.string().email()) ])
+export const CharFilter = ItemFilter.merge(z.strictObject({
+    owner: z.union([ z.string().email(), z.array(z.string().email()) ])
         .optional(),
-    name: z.union([ z.string().min(1), z.array(z.string().min(1)) ])
-        .optional(),
-});
+}));
 
 // ---------------------------------------------------------------------------------------------------------------------

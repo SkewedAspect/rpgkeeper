@@ -44,7 +44,7 @@ const deprecationsToIgnore = [
     'ATTR_FALSE_VALUE',
 ];
 
-export function buildWarnHandler() : (msg : string, instance: (ComponentPublicInstance | null), trace : string) => void
+export function buildWarnHandler() : (msg : string, instance : (ComponentPublicInstance | null), trace : string) => void
 {
     return (msg : string, instance : ComponentPublicInstance | null, trace : string) =>
     {

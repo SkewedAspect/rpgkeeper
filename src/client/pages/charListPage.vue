@@ -165,9 +165,9 @@
     import { Character, SystemDefinition } from '../../common/models';
 
     // Stores
-    import { useAccountStore } from '../lib/stores/account';
-    import { useSystemsStore } from '../lib/stores/systems';
-    import { useCharactersStore } from '../lib/stores/characters';
+    import { useAccountStore } from '../lib/resource-access/stores/account';
+    import { useSystemStore } from '../lib/resource-access/stores/systems';
+    import { useCharacterStore } from '../lib/resource-access/stores/characters';
 
     // Managers
     import systemsMan from '../lib/managers/systems';
@@ -186,8 +186,8 @@
 
     const { account, redirectToDashboard } = storeToRefs(useAccountStore());
     const router = useRouter();
-    const sysStore = useSystemsStore();
-    const charStore = useCharactersStore();
+    const sysStore = useSystemStore();
+    const charStore = useCharacterStore();
 
     const charFilter = ref('');
     const systemsFilter = ref<string[]>([]);

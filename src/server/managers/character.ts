@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-// CharacterManager
+// Character Manager
 //----------------------------------------------------------------------------------------------------------------------
 
 // Managers
@@ -13,6 +13,7 @@ import * as characterRA from '../resource-access/character.js';
 
 // Utils
 import { FilterToken } from '../routes/utils/index.js';
+import { broadcast } from '../utils/sio.js';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -29,12 +30,30 @@ export async function list(filters : Record<string, FilterToken> = {}) : Promise
 export async function add(accountID : string, newCharacter : Omit<Character, 'id'>) : Promise<Character>
 {
     const notebook = await notebookMan.add();
-    return characterRA.add(accountID, { ...newCharacter, noteID: notebook.id });
+    const newChar = await characterRA.add(accountID, { ...newCharacter, noteID: notebook.id });
+
+    // Broadcast the update
+    await broadcast('/character', {
+        type: 'add',
+        resource: newChar.id,
+        payload: newChar,
+    });
+
+    return newChar;
 }
 
 export async function update(charID : string, updateChar : Partial<Character>) : Promise<Character>
 {
-    return characterRA.update(charID, updateChar);
+    const newChar = await characterRA.update(charID, updateChar);
+
+    // Broadcast the update
+    await broadcast('/character', {
+        type: 'update',
+        resource: charID,
+        payload: newChar,
+    });
+
+    return newChar;
 }
 
 export async function remove(charID : string) : Promise<{ status : 'ok' }>
@@ -42,6 +61,12 @@ export async function remove(charID : string) : Promise<{ status : 'ok' }>
     const char = await characterRA.get(charID);
     await characterRA.remove(charID);
     await notebookMan.remove(char.noteID);
+
+    // Broadcast the update
+    await broadcast('/character', {
+        type: 'remove',
+        resource: charID,
+    });
 
     return { status: 'ok' };
 }

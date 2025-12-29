@@ -135,7 +135,7 @@
         newHook.value = '';
     }
 
-    function removeHook(hook : string) : void
+    function removeHook(hook : RisusHook) : void
     {
         const idx = hooks.value.findIndex((item) => item === hook);
         if(idx > -1)

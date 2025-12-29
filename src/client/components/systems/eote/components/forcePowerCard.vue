@@ -26,7 +26,7 @@
                     </b>
                 </template>
                 <template #cell(description)="data">
-                    <MarkdownBlock :text="data.value" inline />
+                    <MarkdownBlock :text="data.value as string" inline />
                 </template>
             </BTableLite>
             <div class="clearfix">

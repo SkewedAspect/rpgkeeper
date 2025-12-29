@@ -51,7 +51,7 @@
 
     interface Props
     {
-        color : string;
+        color ?: string;
         presetColors ?: string[];
         enableAlpha ?: boolean;
         disableFields ?: boolean;

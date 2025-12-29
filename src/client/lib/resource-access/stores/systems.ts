@@ -5,10 +5,10 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { SystemDefinition } from '../../../common/models';
+import { SystemDefinition } from '../../../../common/models';
 
 // Resource Access
-import systemsRA from '../resource-access/systems';
+import systemsRA from '../systems';
 
 // Stores
 import { useAccountStore } from './account';
@@ -26,7 +26,7 @@ export interface SystemsStoreState
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export const useSystemsStore = defineStore('systems', {
+export const useSystemStore = defineStore('systems', {
     state() : SystemsStoreState
     {
         return {

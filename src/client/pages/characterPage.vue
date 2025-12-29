@@ -113,9 +113,9 @@
     import { useRoute } from 'vue-router';
 
     // Stores
-    import { useAccountStore } from '../lib/stores/account';
-    import { useSystemsStore } from '../lib/stores/systems';
-    import { useCharactersStore } from '../lib/stores/characters';
+    import { useAccountStore } from '../lib/resource-access/stores/account';
+    import { useSystemStore } from '../lib/resource-access/stores/systems';
+    import { useCharacterStore } from '../lib/resource-access/stores/characters';
 
     // Managers
     import charMan from '../lib/managers/character';
@@ -145,8 +145,8 @@
     };
 
     const accountStore = useAccountStore();
-    const charactersStore = useCharactersStore();
-    const systemsStore = useSystemsStore();
+    const charactersStore = useCharacterStore();
+    const systemsStore = useSystemStore();
 
     const route = useRoute();
     const pageError = ref<Error | null>(null);

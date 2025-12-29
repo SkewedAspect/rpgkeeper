@@ -2,14 +2,14 @@
 // CharacterResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-import $http from 'axios';
+import axios from 'axios';
 
 // Interfaces
 import { Character, SystemDetails } from '../../../common/models';
 
 // Store
-import { useAccountStore } from '../stores/account';
-import { useSystemsStore } from '../stores/systems';
+import { useAccountStore } from './stores/account';
+import { useSystemStore } from './stores/systems';
 
 // Utils
 import toastUtil from '../utils/toast';
@@ -26,7 +26,7 @@ class CharacterResourceAccess
         Details extends SystemDetails = SystemDetails,
     >(def : Partial<Character<Details>>) : Character<Details>
     {
-        const systemsStore = useSystemsStore();
+        const systemsStore = useSystemStore();
         const system = systemsStore.find(def.system ?? 'dne') ?? { defaults: {} };
 
         // Return a new object that's mixed with the defaults and def
@@ -59,7 +59,7 @@ class CharacterResourceAccess
         Details extends SystemDetails = SystemDetails,
     >(charID : string) : Promise<Character<Details>>
     {
-        const { data } = await $http.get(`/api/characters/${ charID }`);
+        const { data } = await axios.get(`/api/characters/${ charID }`);
         return this._buildOrUpdateModel(data) as Character<Details>;
     }
 
@@ -71,7 +71,7 @@ class CharacterResourceAccess
             owner = accountStore.account?.email ?? '';
         }
 
-        const { data } = await $http.get('/api/characters', { params: { owner } });
+        const { data } = await axios.get('/api/characters', { params: { owner } });
         return data.map((def : any) => this._buildOrUpdateModel(def));
     }
 
@@ -82,7 +82,7 @@ class CharacterResourceAccess
         const verb = character.id ? 'patch' : 'post';
         const charURL = character.id ? `/api/characters/${ character.id }` : `/api/characters`;
 
-        const { data, status } = await ($http[verb](charURL, character)
+        const { data, status } = await (axios[verb](charURL, character)
             .catch((error) =>
             {
                 const charID = character.id ?? null;
@@ -126,7 +126,7 @@ class CharacterResourceAccess
     {
         if(character.id)
         {
-            await $http.delete(`/api/characters/${ character.id }`);
+            await axios.delete(`/api/characters/${ character.id }`);
         }
     }
 }

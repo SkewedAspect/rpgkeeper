@@ -63,7 +63,6 @@
 
     // Interfaces
     import { Character } from '../../../../common/models';
-    import { RisusSystemDetails } from '../../../../common/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';
@@ -93,7 +92,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function show(char : Character<RisusSystemDetails>) : void
+    function show(char : Character) : void
     {
         innerBio.value.name = char.name;
         innerBio.value.description = char.description;

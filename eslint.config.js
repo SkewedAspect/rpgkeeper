@@ -4,6 +4,7 @@ import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
 import pluginVue from 'eslint-plugin-vue';
+import globals from 'globals';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -12,6 +13,13 @@ export default [
     {
         plugins: {
             '@stylistic': stylistic,
+        },
+    },
+    {
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+            },
         },
     },
     pluginJs.configs.recommended,
@@ -46,7 +54,7 @@ export default [
             'no-new-native-nonconstructor': 'error',
             'no-console': [
                 'error',
-                { allow: [ 'debug', 'info', 'warn', 'error' ] },
+                { allow: [ 'trace', 'debug', 'info', 'warn', 'error' ] },
             ],
 
             // Style
@@ -102,7 +110,7 @@ export default [
             '@stylistic/comma-style': [ 'error', 'last' ],
             '@stylistic/computed-property-spacing': [ 'error', 'never' ],
             '@stylistic/eol-last': [ 'error', 'always' ],
-            '@stylistic/func-call-spacing': [ 'error', 'never' ],
+            '@stylistic/function-call-spacing': [ 'error', 'never' ],
             '@stylistic/function-paren-newline': [ 'error', 'multiline-arguments' ],
             '@stylistic/generator-star-spacing': [ 'error', { before: true, after: false } ],
             '@stylistic/indent': [
@@ -164,7 +172,7 @@ export default [
             '@stylistic/operator-linebreak': [ 'error', 'before' ],
             '@stylistic/padded-blocks': [ 'error', 'never' ],
             '@stylistic/quote-props': [ 'error', 'consistent-as-needed' ],
-            '@stylistic/quotes': [ 'error', 'single', { avoidEscape: true, allowTemplateLiterals: true } ],
+            '@stylistic/quotes': [ 'error', 'single', { avoidEscape: true, allowTemplateLiterals: 'always' } ],
             '@stylistic/semi': [ 'error', 'always' ],
             '@stylistic/semi-spacing': [ 'error', { before: false, after: true } ],
             '@stylistic/space-before-blocks': 'error',
@@ -257,7 +265,7 @@ export default [
             '@typescript-eslint/no-unused-vars': 'off',
 
             // Style
-            'vue/component-tags-order': [ 'error', {
+            'vue/block-order': [ 'error', {
                 order: [ 'template', 'style', 'script' ],
             } ],
             'vue/valid-v-on': [

@@ -50,7 +50,7 @@
 
     const renderedContent = computed(() =>
     {
-        let rawMarkup = marked(props.text);
+        let rawMarkup = marked.parse(props.text, { async: false }) as string;
 
         if(props.inline !== false)
         {

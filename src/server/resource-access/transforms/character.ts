@@ -2,20 +2,20 @@
 // Character Database Transform
 // ---------------------------------------------------------------------------------------------------------------------
 
+// Models
 import { Character } from '../../../common/models/index.js';
+
+// Utils
+import { fromDBTimestamp } from './utils/timestamp.js';
+import { fromJSON, toJSON } from './utils/json.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-export interface CharacterDBSchema
+export interface CharacterDBSchema extends Omit<
+    Character, 'id' | 'details' | 'accountID' | 'noteID' | 'created' | 'updated'
+>
 {
     character_id : string;
-    system : string;
-    name : string;
-    description ?: string | null;
-    portrait ?: string | null;
-    thumbnail ?: string | null;
-    color ?: string | null;
-    campaign ?: string | null;
     details : string | null;
     note_id : string;
     account_id : string;
@@ -31,7 +31,7 @@ export function toDB(character : Character) : Omit<CharacterDBSchema, 'created' 
     return {
         ...rest,
         character_id: id,
-        details: JSON.stringify(details),
+        details: toJSON(details),
         note_id: noteID,
         account_id: accountID,
     };
@@ -39,20 +39,21 @@ export function toDB(character : Character) : Omit<CharacterDBSchema, 'created' 
 
 export function fromDB(character : CharacterDBSchema) : Character
 {
+    const { character_id, details, note_id, account_id, created, updated, ...rest } = character;
     return {
-        id: character.character_id,
-        system: character.system,
-        name: character.name,
-        description: character.description,
-        portrait: character.portrait,
-        thumbnail: character.thumbnail,
-        color: character.color,
-        campaign: character.campaign,
-        details: JSON.parse(character.details),
-        noteID: character.note_id,
-        accountID: character.account_id,
-        created: (new Date(character.created)).getTime() / 1000,
-        updated: (new Date(character.updated)).getTime() / 1000,
+        id: character_id,
+        name: rest.name,
+        system: rest.system,
+        description: rest.description,
+        portrait: rest.portrait,
+        thumbnail: rest.thumbnail,
+        color: rest.color,
+        campaign: rest.campaign,
+        details: fromJSON(details) ?? {},
+        noteID: note_id,
+        accountID: account_id,
+        created: fromDBTimestamp(created),
+        updated: fromDBTimestamp(updated),
     };
 }
 

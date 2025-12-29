@@ -63,7 +63,7 @@
     import { EoteOrGenCharacter } from '../../../../common/models/systems';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
@@ -83,7 +83,7 @@
         species : string;
         specializations : string;
         forceSensitive : boolean;
-        abilities : string[];
+        abilities : number[];
     }
 
     interface Props
@@ -101,7 +101,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
     const editModal = ref<InstanceType<typeof EditModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -150,8 +150,7 @@
             character.details.force.sensitive = bio.forceSensitive;
         }
 
-        // TODO: Make this accept string ids
-        character.details.abilities = bio.abilities.map((id) => parseInt(id));
+        character.details.abilities = bio.abilities;
 
         emit('save');
     }

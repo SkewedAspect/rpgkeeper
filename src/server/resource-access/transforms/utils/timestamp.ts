@@ -1,8 +1,15 @@
 //----------------------------------------------------------------------------------------------------------------------
-// NotebookModel
+// Timestamp Utility Functions
 //----------------------------------------------------------------------------------------------------------------------
 
-// Models
-export { Notebook, NotebookPage } from '../../../common/models';
+export function toDBTimestamp(date : number) : string
+{
+    return (new Date(date * 1000)).toISOString();
+}
+
+export function fromDBTimestamp(date : string) : number
+{
+    return (new Date(date)).getTime() / 1000;
+}
 
 //----------------------------------------------------------------------------------------------------------------------

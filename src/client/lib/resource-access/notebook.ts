@@ -2,10 +2,10 @@
 // NotesResourceAccess
 //----------------------------------------------------------------------------------------------------------------------
 
-import $http from 'axios';
+import axios from 'axios';
 
 // Models
-import { Notebook, NotebookPage } from '../models/notebook';
+import { Notebook, NotebookPage } from '../../../common/models';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ class NotesResourceAccess
 
     async getNotebook(noteID : string) : Promise<Notebook>
     {
-        const { data } = await $http.get(`/api/notebook/${ noteID }`);
+        const { data } = await axios.get(`/api/notebook/${ noteID }`);
         return data;
     }
 
@@ -27,7 +27,7 @@ class NotesResourceAccess
         // Also, we always need to set the notebookID.
         page.notebookID = noteID;
 
-        const { data } = await $http.post(`/api/notebook/${ noteID }/pages`, page);
+        const { data } = await axios.post(`/api/notebook/${ noteID }/pages`, page);
         return data;
     }
 
@@ -36,13 +36,13 @@ class NotesResourceAccess
         // We always need to set the notebookID.
         page.notebookID = noteID;
 
-        const { data } = await $http.patch(`/api/notebook/${ noteID }/pages/${ page.id }`, page);
+        const { data } = await axios.patch(`/api/notebook/${ noteID }/pages/${ page.id }`, page);
         return data;
     }
 
     async deletePage(noteID : string, page : NotebookPage) : Promise<void>
     {
-        await $http.delete(`/api/notebook/${ noteID }/pages/${ page.id }`);
+        await axios.delete(`/api/notebook/${ noteID }/pages/${ page.id }`);
     }
 }
 

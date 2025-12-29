@@ -27,7 +27,7 @@
     import { marked } from 'marked';
 
     // Stores
-    import { useSystemsStore } from '../../lib/stores/systems';
+    import { useSystemStore } from '../../lib/resource-access/stores/systems';
 
     // Components
     import MarkdownBlock from '../ui/markdownBlock.vue';
@@ -47,7 +47,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const store = useSystemsStore();
+    const store = useSystemStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -55,7 +55,7 @@
 
     const renderedContent = computed(() =>
     {
-        return marked(props.content);
+        return marked.parse(props.content, { async: false }) as string;
     });
 
     const system = computed(() =>

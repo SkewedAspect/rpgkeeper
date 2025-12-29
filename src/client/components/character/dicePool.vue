@@ -113,7 +113,7 @@
     interface Props
     {
         current : number;
-        max : number;
+        max ?: number;
         name ?: string;
         checkedIcon ?: string | string[];
         uncheckedIcon ?: string | string[];
@@ -146,7 +146,7 @@
     const editMax = ref<number | null>(null);
 
     // Component Refs
-    const editPool = ref<InstanceType<BModal> | null>(null);
+    const editPool = ref<InstanceType<typeof BModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

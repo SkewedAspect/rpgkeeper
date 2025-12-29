@@ -27,7 +27,7 @@
     import { watch } from 'vue';
 
     // Stores
-    import { useAccountStore } from './lib/stores/account';
+    import { useAccountStore } from './lib/resource-access/stores/account';
 
     // Components
     import SiteHeader from './components/ui/siteHeader.vue';

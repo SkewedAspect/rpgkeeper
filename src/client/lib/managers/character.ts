@@ -4,16 +4,13 @@
 
 import { Socket, io } from 'socket.io-client';
 
-// Interfaces
-import { Character, RPGKMessage, SystemDetails } from '../../../common/models';
-
 // Models
-import { Account } from '../models/account';
+import { Account, Character, RPGKMessage, SystemDetails } from '../../../common/models';
 
 // Stores
-import { useAccountStore } from '../stores/account';
-import { useSystemsStore } from '../stores/systems';
-import { useCharactersStore } from '../stores/characters';
+import { useAccountStore } from '../resource-access/stores/account';
+import { useSystemStore } from '../resource-access/stores/systems';
+import { useCharacterStore } from '../resource-access/stores/characters';
 
 // Managers
 import notesMan from './notebook';
@@ -34,7 +31,7 @@ class CharacterManager
     constructor()
     {
         // Listen for messages on the socket.
-        this.#socket = io('/characters');
+        this.#socket = io('/character');
         this.#socket.on('message', this._onMessage.bind(this));
     }
 
@@ -44,7 +41,7 @@ class CharacterManager
 
     async _onAccountChanged(account : Account | null) : Promise<void>
     {
-        const charStore = useCharactersStore();
+        const charStore = useCharacterStore();
         if(account && account.email)
         {
             await charStore.load();
@@ -57,14 +54,20 @@ class CharacterManager
 
     _onMessage(envelope : RPGKMessage) : void
     {
-        const charStore = useCharactersStore();
-        if(envelope.type === 'update')
+        const charStore = useCharacterStore();
+        switch (envelope.type)
         {
-            charStore.update(envelope.payload);
-        }
-        else if(envelope.type === 'remove')
-        {
-            charStore.remove({ id: envelope.resource });
+            case 'add':
+            case 'update':
+                charStore.update(envelope.payload as Character);
+                break;
+
+            case 'remove':
+                charStore.remove({ id: envelope.resource });
+                break;
+
+            default:
+                break;
         }
     }
 
@@ -104,8 +107,8 @@ class CharacterManager
 
     async select(charID : string | null) : Promise<void>
     {
-        const systemsStore = useSystemsStore();
-        const charStore = useCharactersStore();
+        const systemsStore = useSystemStore();
+        const charStore = useCharacterStore();
 
         if(charID === null)
         {
@@ -160,7 +163,7 @@ class CharacterManager
     async save(character ?: Character) : Promise<void>
     {
         this.#calledWhileSaving = false;
-        const charStore = useCharactersStore();
+        const charStore = useCharacterStore();
 
         // Default to the selected character, if none is passed in.
         character = character ?? charStore.current ?? undefined;
@@ -170,6 +173,7 @@ class CharacterManager
         if(!character)
         {
             console.warn('Attempted to save without one selected.');
+            return;
         }
 
         // If we're already saving, we just return.
@@ -194,7 +198,7 @@ class CharacterManager
      */
     async delete(character : { id : string | null }) : Promise<void>
     {
-        const charStore = useCharactersStore();
+        const charStore = useCharacterStore();
         if(character.id)
         {
             await characterRA.deleteCharacter(character);

@@ -26,7 +26,7 @@
     import { WFRPSystemDetails } from '../../../../common/models/systems';
 
     // Store
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Managers
     import charMan from '../../../lib/managers/character';
@@ -52,7 +52,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

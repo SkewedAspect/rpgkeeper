@@ -1,15 +1,14 @@
 //----------------------------------------------------------------------------------------------------------------------
-// AccountModel
+// Feature Flags
 //----------------------------------------------------------------------------------------------------------------------
 
-import { Account as ServerAccountModel } from '../../../common/models';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-export interface Account extends ServerAccountModel
-{
-    displayName : string;
-    avatarUrl : string;
-}
+/**
+ * Feature flags to enable/disable functionality that is in development.
+ * Set to `true` to enable, `false` to disable.
+ */
+export const features = {
+    /** Campaigns feature - allows grouping characters and sharing with other users */
+    campaigns: false,
+} as const;
 
 //----------------------------------------------------------------------------------------------------------------------

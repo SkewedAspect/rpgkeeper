@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Character Manager
+// Character Resource Access
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
@@ -16,7 +16,6 @@ import { getDB } from '../utils/database.js';
 import { FilterToken } from '../routes/utils/index.js';
 import { applyFilters } from '../knex/utils.js';
 import { shortID, snakeCaseKeys } from '../utils/misc.js';
-import { broadcast } from '../utils/sio.js';
 
 import { MultipleResultsError, NotFoundError } from '../errors.js';
 
@@ -98,17 +97,8 @@ export async function update(charID : string, updateChar : Partial<Character>) :
         .update({ ...newCharacter, updated: db.fn.now() })
         .where({ character_id: charID });
 
-    const newChar = await get(charID);
-
-    // Broadcast the update
-    await broadcast('/characters', {
-        type: 'update',
-        resource: charID,
-        payload: newChar,
-    });
-
     // Return the updated record
-    return newChar;
+    return await get(charID);
 }
 
 export async function remove(charID : string) : Promise<{ status : 'ok' }>
@@ -117,12 +107,6 @@ export async function remove(charID : string) : Promise<{ status : 'ok' }>
     await db('character')
         .where({ character_id: charID })
         .delete();
-
-    // Broadcast the update
-    await broadcast('/characters', {
-        type: 'remove',
-        resource: charID,
-    });
 
     return { status: 'ok' };
 }

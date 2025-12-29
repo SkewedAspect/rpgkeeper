@@ -12,8 +12,8 @@ import { AppError } from '../../errors.js';
 //----------------------------------------------------------------------------------------------------------------------
 
 export type MiddlewareFunction = (request : Request, response : Response, next : NextFunction) => void;
-export type ErrorMiddlewareFunction =
-    (error : AppError, request : Request, response : Response, next : NextFunction) => void;
+export type ErrorMiddlewareFunction
+    = (error : AppError, request : Request, response : Response, next : NextFunction) => void;
 export type JsonHandlerFunction = (request : Request, response : Response, next ?: NextFunction) => Promise<unknown>;
 
 //----------------------------------------------------------------------------------------------------------------------

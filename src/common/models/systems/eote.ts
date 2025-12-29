@@ -25,19 +25,19 @@ interface BaseCriticalInjuryEntry
     description : string;
 }
 
-interface BaseQualityRef
+export interface BaseQualityRef
 {
     id : number;
     ranks ?: number;
 }
 
-interface BaseAbility extends Supplement
+export interface BaseAbility extends Supplement
 {
     id ?: number;
     description : string;
 }
 
-interface BaseTalent extends Supplement
+export interface BaseTalent extends Supplement
 {
     id ?: number;
     description : string;
@@ -46,14 +46,14 @@ interface BaseTalent extends Supplement
     tier : BoundedRange<1, 5>
 }
 
-interface BaseTalentInst
+export interface BaseTalentInst
 {
     id : number;
     ranks ?: number;
     notes ?: string;
 }
 
-interface BaseSkill
+export interface BaseSkill
 {
     name : string;
     characteristic : 'brawn' | 'agility' | 'intellect' | 'cunning' | 'willpower' | 'presence';
@@ -79,7 +79,7 @@ interface BaseAttachment extends Supplement
     hpRequired : BoundedRange<0, 50>;
 }
 
-interface BaseQuality extends Supplement
+export interface BaseQuality extends Supplement
 {
     id ?: number;
     description : string;
@@ -98,7 +98,7 @@ interface BaseArmor extends Supplement
     rarity : number;
 }
 
-interface BaseArmorRef
+export interface BaseArmorRef
 {
     name : string;
     description ?: string;
@@ -125,7 +125,7 @@ interface BaseWeapon extends Supplement
     qualities : BaseQualityRef[];
 }
 
-interface BaseWeaponRef
+export interface BaseWeaponRef
 {
     name : string;
     description ?: string;
@@ -140,7 +140,7 @@ interface BaseWeaponRef
     notes ?: string;
 }
 
-interface BaseCharacteristics
+export interface BaseCharacteristics
 {
     brawn : number;
     agility : number;

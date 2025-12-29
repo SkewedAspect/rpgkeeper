@@ -98,7 +98,7 @@
     import { RisusCliche, RisusSystemDetails } from '../../../../common/models/systems';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Components
     import EditClichesModal from './editClichesModal.vue';
@@ -127,7 +127,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
     const editModal = ref<InstanceType<typeof EditClichesModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------

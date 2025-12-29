@@ -89,7 +89,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function roll(diceNum : number, rollName : string) : void
+    function roll(diceNum : number, rollName ?: string) : void
     {
         const diceRoll = diceUtil.roll(`${ diceNum }d6`);
         rolls.value.unshift({

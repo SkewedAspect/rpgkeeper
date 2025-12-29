@@ -36,7 +36,7 @@
                             <SupplementSearch
                                 class="w-100"
                                 :available="availableStrength"
-                                :selected="[ strength ]"
+                                :selected="motivations.strength ? [{ id: motivations.strength }] : []"
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
@@ -92,7 +92,7 @@
                             <SupplementSearch
                                 class="w-100"
                                 :available="availableFlaw"
-                                :selected="[ flaw ]"
+                                :selected="motivations.flaw ? [{ id: motivations.flaw }] : []"
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
@@ -150,7 +150,7 @@
                             <SupplementSearch
                                 class="w-100"
                                 :available="availableDesire"
-                                :selected="[ desire ]"
+                                :selected="motivations.desire ? [{ id: motivations.desire }] : []"
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
@@ -206,7 +206,7 @@
                             <SupplementSearch
                                 class="w-100"
                                 :available="availableFear"
-                                :selected="[ fear ]"
+                                :selected="motivations.fear ? [{ id: motivations.fear }] : []"
                                 @add="onMotivAdd"
                             >
                                 <template #append-extra>
@@ -406,14 +406,26 @@
         };
     }
 
-    function onMotivAdd(motiv : GenesysMotivation) : void
+    function onMotivAdd(supp : { id ?: number | string; type ?: GenesysMotivationType }) : void
     {
-        if(!motiv.type)
+        if(!supp.id) { return; }
+        const motivId = typeof supp.id === 'string' ? parseInt(supp.id, 10) : supp.id;
+
+        // Look up the full motivation to get its type if not provided
+        let motiv : GenesysMotivation | undefined;
+        if(!supp.type)
         {
-            motiv = motivationsList.value.find((mot) => mot.id === motiv.id) ?? motiv;
+            motiv = motivationsList.value.find((mot) => mot.id === motivId);
+        }
+        else
+        {
+            motiv = { id: motivId, type: supp.type } as GenesysMotivation;
         }
 
-        motivations.value[motiv.type] = motiv.id;
+        if(motiv?.type)
+        {
+            motivations.value[motiv.type] = motivId;
+        }
     }
 
     function onDelMotivHidden() : void

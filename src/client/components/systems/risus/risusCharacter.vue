@@ -71,7 +71,7 @@
     import { RisusSystemDetails } from '../../../../common/models/systems';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Managers
     import charMan from '../../../lib/managers/character';
@@ -98,7 +98,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
     const roller = ref<InstanceType<typeof RollsCard> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -111,9 +111,9 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onRoll(dice : string, name : string) : void
+    function onRoll(dice : number, name ?: string) : void
     {
-        roller.value.roll(dice, name);
+        roller.value?.roll(dice, name);
     }
 
     async function onSave() : Promise<void>

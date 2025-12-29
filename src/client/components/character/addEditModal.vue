@@ -212,7 +212,7 @@
     import systemsMan from '../../lib/managers/systems';
 
     // Stores
-    import { useSystemsStore } from '../../lib/stores/systems';
+    import { useSystemStore } from '../../lib/resource-access/stores/systems';
 
     // Utils
     import dropboxUtil from '../../lib/utils/dropbox';
@@ -228,7 +228,7 @@
     // Types
     //------------------------------------------------------------------------------------------------------------------
 
-    type NewChar = Omit<Character<any>, 'details' | 'accountID' | 'noteID'>;
+    type NewChar = Omit<Character<any>, 'details' | 'accountID' | 'noteID' | 'created' | 'updated'>;
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -257,7 +257,7 @@
         system: null,
     });
 
-    const sysStore = useSystemsStore();
+    const sysStore = useSystemStore();
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -313,7 +313,7 @@
 
     // TODO: Cast it to an any so we don't get spurious errors, but this is pretty bad...
     // @see: https://github.com/vuelidate/vuelidate/issues/925
-    const v$ : any = useVuelidate<typeof rules>(rules, char);
+    const v$ : any = useVuelidate(rules, char as any);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

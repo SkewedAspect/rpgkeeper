@@ -103,7 +103,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    type Events = (e : 'save', hooks : Record<string, unknown>[]) => void;
+    type Events = (e : 'save', stats : WFRPStat[]) => void;
 
     const emit = defineEmits<Events>();
 
@@ -111,7 +111,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const stats = ref<Record<string, unknown>[]>([]);
+    const stats = ref<WFRPStat[]>([]);
     const newValue = ref<number>(1);
     const newDesc = ref<string>('');
 

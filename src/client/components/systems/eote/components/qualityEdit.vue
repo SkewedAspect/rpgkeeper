@@ -122,16 +122,19 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function getQual(qualityInstance : EoteQualityRef) : EoteQualityRef
+    function getQual(qualityId : number) : EoteQuality | undefined
     {
-        return allQualities.value.find((qual) => qual.id === qualityInstance.id);
+        return allQualities.value.find((qual) => qual.id === qualityId);
     }
 
-    function onQualityAdd(quality : EoteQualityRef) : void
+    function onQualityAdd(quality : { id ?: number | string }) : void
     {
-        const newQual : { id : number, ranks ?: number } = { id: quality.id };
+        if(!quality.id) { return; }
+        const qualId = typeof quality.id === 'string' ? parseInt(quality.id, 10) : quality.id;
+        const newQual : { id : number, ranks ?: number } = { id: qualId };
+        const qualDef = getQual(qualId);
 
-        if(getQual(quality).ranked)
+        if(qualDef?.ranked)
         {
             newQual.ranks = 1;
         }
@@ -140,9 +143,11 @@
         selectedQualities.value = uniqBy([ ...selectedQualities.value, newQual ], 'id');
     }
 
-    function onQualityRemove(quality : EoteQualityRef) : void
+    function onQualityRemove(quality : { id ?: number | string }) : void
     {
-        selectedQualities.value = selectedQualities.value.filter((qual) => qual.id !== quality.id);
+        if(!quality.id) { return; }
+        const qualId = typeof quality.id === 'string' ? parseInt(quality.id, 10) : quality.id;
+        selectedQualities.value = selectedQualities.value.filter((qual) => qual.id !== qualId);
     }
 
     function onQualityNew() : void

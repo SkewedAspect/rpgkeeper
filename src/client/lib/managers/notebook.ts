@@ -3,10 +3,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Model
-import { Notebook, NotebookPage } from '../models/notebook';
+import { Notebook, NotebookPage } from '../../../common/models';
 
 // Store
-import { useNotebookStore } from '../stores/notebook';
+import { useNotebookStore } from '../resource-access/stores/notebook';
 
 // Resource Access
 import noteRA from '../resource-access/notebook';

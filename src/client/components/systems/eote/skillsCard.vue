@@ -48,7 +48,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>
@@ -79,7 +79,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>
@@ -112,7 +112,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>
@@ -143,7 +143,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>
@@ -174,7 +174,7 @@
                                     v-for="index in range(5)"
                                     :key="index"
                                     class="skill-pip"
-                                    :icon="index >= data.value ? ['far', 'circle'] : 'circle'"
+                                    :icon="index >= (data.value as number) ? ['far', 'circle'] : 'circle'"
                                 />
                             </div>
                         </template>
@@ -221,7 +221,7 @@
     import { EoteOrGenCharacter, EoteSkill } from '../../../../common/models/systems';
 
     // Stores
-    import { useCharactersStore } from '../../../lib/stores/characters';
+    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';
@@ -238,6 +238,7 @@
     {
         ability : number;
         proficiency : number;
+        [key : string] : number;
     }
 
     interface Props
@@ -261,7 +262,7 @@
 
     const fields = ref([ 'name', 'career', 'ranks' ]);
 
-    const { current } = storeToRefs(useCharactersStore());
+    const { current } = storeToRefs(useCharacterStore());
     const editModal = ref<InstanceType<typeof EditModal> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------

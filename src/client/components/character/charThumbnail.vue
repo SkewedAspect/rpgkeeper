@@ -51,7 +51,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { Character } from '../../../common/models';
+    import type { Character } from '../../../common/models';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -59,7 +59,7 @@
 
     interface Props
     {
-        char : Character
+        char : Pick<Character, 'name' | 'thumbnail' | 'color'>
     }
 
     const props = defineProps<Props>();
@@ -68,7 +68,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function getInitials(char : Character) : string
+    function getInitials(char : Pick<Character, 'name'>) : string
     {
         if(char.name)
         {

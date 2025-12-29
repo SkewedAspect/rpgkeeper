@@ -30,7 +30,7 @@ export function processRequest(schema : ProcessRequestSchema) : any
                 const paramResults = schema.params.safeParse(req.params);
                 if(paramResults.success)
                 {
-                    req.params = paramResults.data;
+                    req.params = paramResults.data as typeof req.params;
                 }
                 else
                 {
@@ -56,7 +56,7 @@ export function processRequest(schema : ProcessRequestSchema) : any
                     // Copy the validated properties to req.query
                     for(const key in queryResults.data)
                     {
-                        req.query[key] = queryResults.data[key];
+                        req.query[key] = queryResults.data[key] as typeof req.query[typeof key];
                     }
                 }
                 else

@@ -76,10 +76,9 @@
         }
     );
 
-    const emit = defineEmits<{
-        hidden : () => void;
-        delete : () => void;
-    }>();
+    type Events = (e : 'hidden' | 'delete') => void;
+
+    const emit = defineEmits<Events>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
