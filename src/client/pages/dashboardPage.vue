@@ -12,7 +12,7 @@
         </div>
         <BFormRow :class="recentCharacters.length == 0 ? 'mt-3' : ''">
             <!-- Campaigns Column -->
-            <BCol cols="12" lg="6" class="mb-3">
+            <BCol v-if="features.campaigns" cols="12" lg="6" class="mb-3">
                 <ListCard
                     icon="notebook"
                     title="Campaigns"
@@ -64,7 +64,7 @@
             </BCol>
 
             <!-- Characters Column -->
-            <BCol cols="12" lg="6" class="mb-3">
+            <BCol cols="12" :lg="features.campaigns ? 6 : 12" class="mb-3">
                 <!-- Characters Card -->
                 <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
                     <template #header>
@@ -241,6 +241,9 @@
     import systemsMan from '../lib/managers/systems';
     import characterMan from '../lib/managers/character';
     import campaignMan from '../lib/managers/campaign';
+
+    // Config
+    import { features } from '../lib/config/features';
 
     // Components
     import LoadingWidget from '../components/ui/loadingWidget.vue';
@@ -458,8 +461,11 @@
         // We've loaded the dashboard, no need to redirect here anymore.
         redirectToDashboard.value = false;
 
-        // Initialize campaign manager
-        campaignMan.init();
+        // Initialize campaign manager (if enabled)
+        if(features.campaigns)
+        {
+            campaignMan.init();
+        }
 
         // Select all systems by default
         selectAllSystems();

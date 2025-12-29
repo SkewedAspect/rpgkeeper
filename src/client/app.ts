@@ -29,6 +29,9 @@ import campMan from './lib/managers/campaign';
 import charMan from './lib/managers/character';
 import systemsMan from './lib/managers/systems';
 
+// Config
+import { features } from './lib/config/features';
+
 // Site Theme
 import './scss/theme.scss';
 
@@ -64,11 +67,15 @@ const router = createRouter({
         { path: '/', name: 'home', component: HomePage },
         { path: '/about', name: 'about', component: AboutPage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
-        { path: '/campaigns', name: 'campaign-list', component: CampListPage },
-        { path: '/campaigns/:campaignID', name: 'campaign', component: CampaignPage },
         { path: '/characters', name: 'character-list', component: CharListPage },
         { path: '/characters/:id', name: 'character', component: CharacterPage },
         { path: '/settings', name: 'settings', component: SettingsPage },
+
+        // Campaign routes (feature flagged)
+        ...(features.campaigns ? [
+            { path: '/campaigns', name: 'campaign-list', component: CampListPage },
+            { path: '/campaigns/:campaignID', name: 'campaign', component: CampaignPage },
+        ] : []),
     ],
 });
 
@@ -157,7 +164,10 @@ async function init() : Promise<void>
     // Load current account
     await authMan.load();
     await systemsMan.load();
-    await campMan.init();
+    if(features.campaigns)
+    {
+        await campMan.init();
+    }
     await charMan.init();
 
     // Mount the application

@@ -15,7 +15,7 @@
                     <Fa icon="columns" />
                     Dashboard
                 </BNavItem>
-                <BNavItem to="/campaigns">
+                <BNavItem v-if="features.campaigns" to="/campaigns">
                     <Fa icon="notebook" />
                     Campaigns
                 </BNavItem>
@@ -53,6 +53,9 @@
 
     // Components
     import LoginBtn from './loginBtn.vue';
+
+    // Config
+    import { features } from '../../lib/config/features';
 
     //------------------------------------------------------------------------------------------------------------------
 
