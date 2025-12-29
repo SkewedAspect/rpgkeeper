@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // Models
-import { Campaign } from '../../../common/models';
+import { Campaign } from '@rpgk/core';
 
 //----------------------------------------------------------------------------------------------------------------------
 

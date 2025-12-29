@@ -18,7 +18,7 @@ import {
 } from './dice-systems/eote';
 
 // Interfaces
-import { EoteCritical } from '../../../common/models/systems';
+import { EoteCritical } from '@rpgk/core/models/systems';
 
 //----------------------------------------------------------------------------------------------------------------------
 

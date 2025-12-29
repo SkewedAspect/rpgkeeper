@@ -5,7 +5,7 @@
 import { Socket, io } from 'socket.io-client';
 
 // Models
-import { Account, Campaign, RPGKMessage } from '../../../common/models';
+import { Account, Campaign, RPGKMessage } from '@rpgk/core';
 
 // Stores
 import { useAccountStore } from '../resource-access/stores/account';

@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
-import { V20SystemDetails } from '../../../common/models/systems/v20.js';
+import { SupportStatus, SystemDefinition } from '@rpgk/core/models/system';
+import { V20SystemDetails } from '@rpgk/core/models/systems/v20';
 
 //----------------------------------------------------------------------------------------------------------------------
 

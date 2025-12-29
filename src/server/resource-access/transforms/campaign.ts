@@ -9,7 +9,7 @@ import {
     CampaignParticipant,
     CampaignRole,
     CharacterRole,
-} from '../../../common/models/index.js';
+} from '@rpgk/core';
 
 // Utils
 import { fromDBTimestamp } from './utils/timestamp.js';

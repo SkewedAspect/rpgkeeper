@@ -71,7 +71,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteAbility, EoteForcePower } from '../../../../../common/models/systems';
+    import { EoteAbility, EoteForcePower } from '@rpgk/core/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

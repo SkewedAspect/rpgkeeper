@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SystemDefinition } from '../../common/models/index.js';
+import { SystemDefinition } from '@rpgk/core';
 
 // Systems
 import CoC from './systems/coc.js';

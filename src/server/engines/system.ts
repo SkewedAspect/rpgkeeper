@@ -2,10 +2,10 @@
 // SystemsEngine
 //----------------------------------------------------------------------------------------------------------------------
 
-import { Character } from '../../common/models/index.js';
+import { Character } from '@rpgk/core';
 
 // Models
-import { EoteCharacter, GenesysCharacter } from '../../common/models/systems/index.js';
+import { EoteCharacter, GenesysCharacter } from '@rpgk/core/models/systems/index';
 
 // Validations
 import { validateEoteDetails, validateGenesysDetails } from './validation/systems/eote.js';

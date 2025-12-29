@@ -93,7 +93,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { WFRPStat } from '../../../../common/models/systems';
+    import { WFRPStat } from '@rpgk/core/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

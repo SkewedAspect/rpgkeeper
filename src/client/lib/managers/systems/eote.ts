@@ -5,10 +5,10 @@
 import { XOR } from 'ts-essentials';
 
 // Interfaces
-import { Character } from '../../../../common/models';
-import * as Models from '../../../../common/models/systems/eote';
-import { Supplement } from '../../../../common/models/systems';
-import { Reference } from '../../../../common/models/reference';
+import { Character } from '@rpgk/core';
+import * as Models from '@rpgk/core/models/systems/eote';
+import { Supplement } from '@rpgk/core/models/systems';
+import { Reference } from '@rpgk/core/models/reference';
 
 // Stores
 import { useEoteStore } from '../../resource-access/stores/systems/eote';

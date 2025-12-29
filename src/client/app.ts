@@ -21,7 +21,7 @@ import { fas } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome';
 
 // Models
-import { AppVersion } from '../common/models/version';
+import { AppVersion } from '@rpgk/core/models/version';
 
 // Managers
 import authMan from './lib/managers/auth';

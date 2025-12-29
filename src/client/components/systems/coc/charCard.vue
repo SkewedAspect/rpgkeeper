@@ -103,12 +103,12 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { Character } from '../../../../common/models';
+    import { Character } from '@rpgk/core';
     import {
         CoCCharacteristics,
         CoCSystemDetails,
         validCoCCharacteristicNames,
-    } from '../../../../common/models/systems';
+    } from '@rpgk/core/models/systems';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';

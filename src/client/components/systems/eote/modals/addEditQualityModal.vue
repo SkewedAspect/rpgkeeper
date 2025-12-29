@@ -84,7 +84,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteQuality } from '../../../../../common/models/systems';
+    import { EoteQuality } from '@rpgk/core/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

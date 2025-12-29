@@ -156,7 +156,7 @@
         EoteTalentInst,
         GenesysTalent,
         GenesysTalentInst,
-    } from '../../../../../common/models/systems';
+    } from '@rpgk/core/models/systems';
 
     // Use type aliases for template casts
     type BaseTalent = GenesysTalent;

@@ -79,7 +79,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { FateAspect, FateSkill } from '../../../../common/models/systems';
+    import { FateAspect, FateSkill } from '@rpgk/core/models/systems';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';

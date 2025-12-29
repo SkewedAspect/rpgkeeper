@@ -14,7 +14,7 @@
     import { computed } from 'vue';
 
     // Models
-    import { Supplement } from '../../../common/models';
+    import { Supplement } from '@rpgk/core';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

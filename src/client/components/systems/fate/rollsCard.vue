@@ -63,7 +63,7 @@
     import { orderBy } from 'lodash';
 
     // Interfaces
-    import { FateSkill } from '../../../../common/models/systems';
+    import { FateSkill } from '@rpgk/core/models/systems';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';

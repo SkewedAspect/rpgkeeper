@@ -5,7 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { Character, SystemDetails } from '../../../../common/models';
+import { Character, SystemDetails } from '@rpgk/core';
 
 // Resource Access
 import charactersRA from '../character';

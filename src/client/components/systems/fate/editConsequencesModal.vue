@@ -135,7 +135,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { FateAspect, FateSkill } from '../../../../common/models/systems';
+    import { FateAspect, FateSkill } from '@rpgk/core/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

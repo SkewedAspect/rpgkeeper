@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Reference } from '../../common/models/reference.js';
+import { Reference } from '@rpgk/core/models/reference';
 
 // Transforms
 import * as ReferenceTrans from './transforms/reference.js';

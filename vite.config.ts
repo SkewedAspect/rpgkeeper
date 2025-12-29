@@ -2,6 +2,7 @@
 // Vite Config
 //----------------------------------------------------------------------------------------------------------------------
 
+import { resolve } from 'path';
 import 'dotenv/config';
 import { defineConfig } from 'vite';
 
@@ -33,6 +34,11 @@ const config = configUtil.get<ServerConfig>();
 export default defineConfig({
     root: 'src/client',
     publicDir: 'assets',
+    resolve: {
+        alias: {
+            '@rpgk/core': resolve(__dirname, 'packages/core/src'),
+        },
+    },
     plugins: [
         checker({
             eslint: {

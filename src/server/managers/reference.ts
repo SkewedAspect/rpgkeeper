@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Reference } from '../../common/models/reference.js';
+import { Reference } from '@rpgk/core/models/reference';
 
 // Resource Access
 import * as referenceRA from '../resource-access/reference.js';

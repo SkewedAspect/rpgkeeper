@@ -70,7 +70,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { NotebookPage } from '../../../common/models';
+    import { NotebookPage } from '@rpgk/core';
 
     // Components
     import MarkdownEditor from '../ui/markdownEditor.vue';

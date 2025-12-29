@@ -57,7 +57,7 @@
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Models
-    import { EoteOrGenCharacter } from '../../../../common/models/systems';
+    import { EoteOrGenCharacter } from '@rpgk/core/models/systems';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';

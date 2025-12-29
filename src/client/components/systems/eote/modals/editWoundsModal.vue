@@ -148,7 +148,7 @@
     import { ref } from 'vue';
 
     // Models
-    import { EoteOrGenCharacter } from '../../../../../common/models/systems';
+    import { EoteOrGenCharacter } from '@rpgk/core/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

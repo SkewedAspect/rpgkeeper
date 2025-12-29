@@ -10,7 +10,7 @@ import { packageDirectorySync } from 'pkg-dir';
 
 // Utils
 import { GitInfo, getGitInfo } from './git.js';
-import { AppVersion } from '../../common/models/version.js';
+import { AppVersion } from '@rpgk/core/models/version';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

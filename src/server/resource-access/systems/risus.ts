@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
-import { RisusSystemDetails } from '../../../common/models/systems/risus.js';
+import { SupportStatus, SystemDefinition } from '@rpgk/core/models/system';
+import { RisusSystemDetails } from '@rpgk/core/models/systems/risus';
 
 //----------------------------------------------------------------------------------------------------------------------
 

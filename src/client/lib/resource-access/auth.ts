@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // Models
-import { Account } from '../../../common/models';
+import { Account } from '@rpgk/core';
 
 //----------------------------------------------------------------------------------------------------------------------
 

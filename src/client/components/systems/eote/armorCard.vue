@@ -109,7 +109,7 @@
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Models
-    import { EoteArmorRef, EoteCharacter } from '../../../../common/models/systems';
+    import { EoteArmorRef, EoteCharacter } from '@rpgk/core/models/systems';
 
     // Managers
     import eoteMan from '../../../lib/managers/systems/eote';

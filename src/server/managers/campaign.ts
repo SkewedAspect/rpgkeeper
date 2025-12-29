@@ -14,7 +14,7 @@ import {
     CampaignParticipant,
     CampaignRole,
     CharacterRole,
-} from '../../common/models/index.js';
+} from '@rpgk/core';
 
 // Resource Access
 import * as campaignRA from '../resource-access/campaign.js';

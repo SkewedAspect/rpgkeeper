@@ -37,8 +37,8 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Character } from '../../../../common/models';
-    import { CoCSystemDetails } from '../../../../common/models/systems';
+    import { Character } from '@rpgk/core';
+    import { CoCSystemDetails } from '@rpgk/core/models/systems';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';

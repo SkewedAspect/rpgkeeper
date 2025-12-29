@@ -11,12 +11,20 @@
 
         // Overrides
         "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+
+        // Workspace paths
+        "paths": {
+            "@rpgk/core": ["../../packages/core/src/index.ts"],
+            "@rpgk/core/*": ["../../packages/core/src/*"]
+        }
     },
     "include": [
-        "../common/**/*.ts",
         "**/*.ts",
         "**/*.vue",
         "components.d.ts"
+    ],
+    "references": [
+        { "path": "../../packages/core" }
     ]
 }

@@ -62,7 +62,7 @@
     import { ref } from 'vue';
 
     // Interfaces
-    import { Character } from '../../../../common/models';
+    import { Character } from '@rpgk/core';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

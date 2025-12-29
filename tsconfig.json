@@ -18,14 +18,21 @@
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+
+        /* Workspace paths */
+        "paths": {
+            "@rpgk/core": ["./packages/core/src/index.ts"],
+            "@rpgk/core/*": ["./packages/core/src/*"]
+        }
     },
     "include": [
         "src",
         "vite.config.ts"
     ],
     "references": [
+        { "path": "./packages/core" },
         { "path": "./src/server/tsconfig.json" },
-        { "path": "./src/client/tsconfig.json" },
+        { "path": "./src/client/tsconfig.json" }
     ]
 }

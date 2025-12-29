@@ -2,7 +2,7 @@
 // Notebook Database Transforms
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Notebook, NotebookPage } from '../../../common/models/notebook.js';
+import { Notebook, NotebookPage } from '@rpgk/core/models/notebook';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

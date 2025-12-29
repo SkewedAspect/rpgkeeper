@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
-import { WFRPSystemDetails } from '../../../common/models/systems/wfrp.js';
+import { SupportStatus, SystemDefinition } from '@rpgk/core/models/system';
+import { WFRPSystemDetails } from '@rpgk/core/models/systems/wfrp';
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -11,13 +11,21 @@
         // Overrides
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
+
+        // Workspace paths
+        "paths": {
+            "@rpgk/core": ["../../packages/core/src/index.ts"],
+            "@rpgk/core/*": ["../../packages/core/src/*"]
+        }
     },
     "files": [
         "./server.ts",
         "express-shim.d.ts"
     ],
     "include": [
-        "../common/**/*.ts",
-        "**/*.ts",
+        "**/*.ts"
+    ],
+    "references": [
+        { "path": "../../packages/core" }
     ]
 }

@@ -75,11 +75,11 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { Character } from '../../../../../common/models';
+    import { Character } from '@rpgk/core';
     import {
         CoCCharacteristics,
         CoCSystemDetails,
-    } from '../../../../../common/models/systems';
+    } from '@rpgk/core/models/systems';
 
     // Utils
     import { startCase } from '../../../../lib/utils/misc';

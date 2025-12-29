@@ -143,7 +143,7 @@
     import { useRoute } from 'vue-router';
 
     // Models
-    import type { Campaign } from '../../common/models';
+    import type { Campaign } from '@rpgk/core';
 
     // Components
     import LoadingWidget from '../components/ui/loadingWidget.vue';

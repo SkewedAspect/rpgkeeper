@@ -8,7 +8,7 @@ import passport from 'passport';
 import * as accountMan from '../managers/account.js';
 
 // Models
-import { Account } from '../../common/models/account.js';
+import { Account } from '@rpgk/core/models/account';
 
 //----------------------------------------------------------------------------------------------------------------------
 

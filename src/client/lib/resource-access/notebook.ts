@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // Models
-import { Notebook, NotebookPage } from '../../../common/models';
+import { Notebook, NotebookPage } from '@rpgk/core';
 
 //----------------------------------------------------------------------------------------------------------------------
 

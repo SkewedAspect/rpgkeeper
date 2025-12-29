@@ -62,7 +62,7 @@
     import { truncate } from 'lodash';
 
     // Interfaces
-    import { Character } from '../../../../common/models';
+    import { Character } from '@rpgk/core';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';

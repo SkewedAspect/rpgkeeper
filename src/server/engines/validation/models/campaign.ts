@@ -5,7 +5,7 @@
 import { z } from 'zod';
 
 // Models
-import { campaignRoles, characterRoles } from '../../../../common/models/index.js';
+import { campaignRoles, characterRoles } from '@rpgk/core';
 
 // Zod Utils
 import { HashID, ItemFilter } from './common.js';

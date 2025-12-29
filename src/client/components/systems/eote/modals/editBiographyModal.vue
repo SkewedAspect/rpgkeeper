@@ -168,7 +168,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteOrGenCharacter } from '../../../../../common/models/systems';
+    import { EoteOrGenCharacter } from '@rpgk/core/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

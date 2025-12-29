@@ -229,7 +229,7 @@
     import { BaseColorVariant } from 'bootstrap-vue-next';
 
     // Interfaces
-    import { Campaign, CampaignRole, Character, SystemDefinition } from '../../common/models';
+    import { Campaign, CampaignRole, Character, SystemDefinition } from '@rpgk/core';
 
     // Stores
     import { useAccountStore } from '../lib/resource-access/stores/account';

@@ -74,7 +74,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { DiceRoll } from '../../../../common/models';
+    import { DiceRoll } from '@rpgk/core';
 
     // Utils
     import diceUtil from '../../../lib/utils/dice';

@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Interfaces
-import { SystemDefinition } from '../../../common/models';
+import { SystemDefinition } from '@rpgk/core';
 
 // Store
 import { useSystemStore } from '../resource-access/stores/systems';

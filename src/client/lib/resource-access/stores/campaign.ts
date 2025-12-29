@@ -5,7 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { Campaign } from '../../../../common/models';
+import { Campaign } from '@rpgk/core';
 
 // Resource Access
 import campaignRA from '../campaign';

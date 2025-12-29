@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // Interfaces
-import { Role } from '../../../common/models';
+import { Role } from '@rpgk/core';
 
 //----------------------------------------------------------------------------------------------------------------------
 

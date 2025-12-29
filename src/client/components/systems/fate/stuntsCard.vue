@@ -44,7 +44,7 @@
     import { orderBy } from 'lodash';
 
     // Interfaces
-    import { FateStunt } from '../../../../common/models/systems';
+    import { FateStunt } from '@rpgk/core/models/systems';
 
     // Components
     import RpgkCard from '../../ui/rpgkCard.vue';

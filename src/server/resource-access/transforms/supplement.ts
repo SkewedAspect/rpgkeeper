@@ -2,7 +2,7 @@
 // Supplement Database Transform
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Supplement } from '../../../common/models/index.js';
+import { Supplement } from '@rpgk/core';
 import { camelCaseKeys, snakeCaseKeys } from '../../utils/misc.js';
 
 // ---------------------------------------------------------------------------------------------------------------------

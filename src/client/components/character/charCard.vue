@@ -45,7 +45,7 @@
     import { useSystemStore } from '../../lib/resource-access/stores/systems';
 
     // Models
-    import { Character, SystemDefinition } from '../../../common/models';
+    import { Character, SystemDefinition } from '@rpgk/core';
 
     // Components
     import CharThumbnail from './charThumbnail.vue';

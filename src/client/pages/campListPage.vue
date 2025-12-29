@@ -77,7 +77,7 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Campaign, CampaignRole } from '../../common/models';
+    import { Campaign, CampaignRole } from '@rpgk/core';
 
     // Stores
     import { useAccountStore } from '../lib/resource-access/stores/account';

@@ -59,7 +59,7 @@
     import { ref } from 'vue';
 
     // Managers
-    import { NotebookPage } from '../../../common/models';
+    import { NotebookPage } from '@rpgk/core';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

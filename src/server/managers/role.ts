@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Role } from '../../common/models/role.js';
+import { Role } from '@rpgk/core/models/role';
 
 // Resource Access
 import * as roleRA from '../resource-access/role.js';

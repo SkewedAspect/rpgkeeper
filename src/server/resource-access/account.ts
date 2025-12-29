@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account, NewAccount } from '../../common/models/account.js';
+import { Account, NewAccount } from '@rpgk/core/models/account';
 
 // Transforms
 import * as AccountTransforms from './transforms/account.js';

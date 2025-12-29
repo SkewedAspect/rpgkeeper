@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Character, SystemDefinition } from '../../common/models/index.js';
+import { Character, SystemDefinition } from '@rpgk/core';
 
 // Engines
 import systemsEngine from '../engines/system.js';

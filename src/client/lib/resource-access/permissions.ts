@@ -8,7 +8,7 @@ import tp from 'trivialperms';
 import rolesRA from './roles';
 
 // Models
-import { Account } from '../../../common/models';
+import { Account } from '@rpgk/core';
 
 //----------------------------------------------------------------------------------------------------------------------
 

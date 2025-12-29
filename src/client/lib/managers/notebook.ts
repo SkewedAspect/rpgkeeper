@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Model
-import { Notebook, NotebookPage } from '../../../common/models';
+import { Notebook, NotebookPage } from '@rpgk/core';
 
 // Store
 import { useNotebookStore } from '../resource-access/stores/notebook';

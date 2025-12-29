@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // Interfaces
-import { SystemDefinition } from '../../../common/models';
+import { SystemDefinition } from '@rpgk/core';
 
 //----------------------------------------------------------------------------------------------------------------------
 

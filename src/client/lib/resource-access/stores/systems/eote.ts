@@ -5,9 +5,9 @@
 import { defineStore } from 'pinia';
 
 // Models
-import * as EoteModels from '../../../../../common/models/systems/eote';
-import { Supplement } from '../../../../../common/models/systems';
-import { Reference } from '../../../../../common/models/reference';
+import * as EoteModels from '@rpgk/core/models/systems/eote';
+import { Supplement } from '@rpgk/core/models/systems';
+import { Reference } from '@rpgk/core/models/reference';
 
 // Resource Access
 import suppRA from '../../supplement';

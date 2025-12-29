@@ -5,7 +5,7 @@
 import _ from 'lodash';
 
 // Interfaces
-import { EoteCritical } from '../../../../common/models/systems';
+import { EoteCritical } from '@rpgk/core/models/systems';
 
 //----------------------------------------------------------------------------------------------------------------------
 

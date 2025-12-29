@@ -5,8 +5,8 @@
 import axios from 'axios';
 
 // Interfaces
-import { Supplement } from '../../../common/models/systems';
-import { Reference } from '../../../common/models/reference';
+import { Supplement } from '@rpgk/core/models/systems';
+import { Reference } from '@rpgk/core/models/reference';
 
 //----------------------------------------------------------------------------------------------------------------------
 

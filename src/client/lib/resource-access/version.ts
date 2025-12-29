@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // Models
-import { AppVersion } from '../../../common/models/version';
+import { AppVersion } from '@rpgk/core/models/version';
 
 //----------------------------------------------------------------------------------------------------------------------
 

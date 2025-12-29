@@ -101,7 +101,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteCharacteristics, EoteOrGenCharacter } from '../../../../../common/models/systems';
+    import { EoteCharacteristics, EoteOrGenCharacter } from '@rpgk/core/models/systems';
 
     // Utils
     import { startCase } from '../../../../lib/utils/misc';

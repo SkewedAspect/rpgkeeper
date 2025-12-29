@@ -59,7 +59,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteTalentInst, GenesysTalent } from '../../../../../common/models/systems';
+    import { EoteTalentInst, GenesysTalent } from '@rpgk/core/models/systems';
 
     // Utils
     import { shortID } from '../../../../lib/utils/misc';

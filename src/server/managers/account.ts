@@ -5,7 +5,7 @@
 import pMap from 'p-map';
 
 // Models
-import { Account, NewAccount } from '../../common/models/account.js';
+import { Account, NewAccount } from '@rpgk/core/models/account';
 
 // Resource Access
 import * as accountRA from '../resource-access/account.js';

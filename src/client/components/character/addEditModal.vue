@@ -206,7 +206,7 @@
     import { maxLength, minLength, required } from '@vuelidate/validators';
 
     // Interfaces
-    import { Character } from '../../../common/models';
+    import { Character } from '@rpgk/core';
 
     // Managers
     import systemsMan from '../../lib/managers/systems';

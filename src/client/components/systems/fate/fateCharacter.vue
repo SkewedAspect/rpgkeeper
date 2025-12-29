@@ -50,8 +50,8 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Character } from '../../../../common/models';
-    import { FateSystemDetails } from '../../../../common/models/systems';
+    import { Character } from '@rpgk/core';
+    import { FateSystemDetails } from '@rpgk/core/models/systems';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';

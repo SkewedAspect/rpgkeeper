@@ -56,7 +56,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { EoteCritical } from '../../../../../common/models/systems';
+    import { EoteCritical } from '@rpgk/core/models/systems';
 
     // Utils
     import { shortID } from '../../../../lib/utils/misc';

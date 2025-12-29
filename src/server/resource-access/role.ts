@@ -2,7 +2,7 @@
 // Role Resource Access Layer
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Role } from '../../common/models/role.js';
+import { Role } from '@rpgk/core/models/role';
 
 // Transforms
 import * as RoleTransforms from './transforms/role.js';

@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // Interfaces
-import { Character, SystemDetails } from '../../../common/models';
+import { Character, SystemDetails } from '@rpgk/core';
 
 // Store
 import { useAccountStore } from './stores/account';

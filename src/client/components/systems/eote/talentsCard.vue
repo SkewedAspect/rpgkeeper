@@ -35,7 +35,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { EoteOrGenCharacter, EoteTalentInst } from '../../../../common/models/systems';
+    import { EoteOrGenCharacter, EoteTalentInst } from '@rpgk/core/models/systems';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';

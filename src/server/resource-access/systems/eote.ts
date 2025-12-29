@@ -3,13 +3,13 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
+import { SupportStatus, SystemDefinition } from '@rpgk/core/models/system';
 import {
     EoteSkill,
     EoteSystemDetails,
     GenesysSkill,
     GenesysSystemDetails,
-} from '../../../common/models/systems/eote.js';
+} from '@rpgk/core/models/systems/eote';
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from '../../../common/models';
+import { Account } from '@rpgk/core';
 
 // Stores
 import { useAccountStore } from '../resource-access/stores/account';

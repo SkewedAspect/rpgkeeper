@@ -5,7 +5,7 @@
 import { z } from 'zod';
 
 // Models
-import { validColorModes, validSupportStatuses } from '../../../../common/models/index.js';
+import { validColorModes, validSupportStatuses } from '@rpgk/core';
 
 // Validations
 import { HashID, ItemFilter } from './common.js';

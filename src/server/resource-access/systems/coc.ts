@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
-import { CoCSkill, CoCSystemDetails } from '../../../common/models/systems/coc.js';
+import { SupportStatus, SystemDefinition } from '@rpgk/core/models/system';
+import { CoCSkill, CoCSystemDetails } from '@rpgk/core/models/systems/coc';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Defaults Definitions

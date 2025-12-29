@@ -61,8 +61,8 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Character } from '../../../../common/models';
-    import { WFRPSkill, WFRPSystemDetails } from '../../../../common/models/systems';
+    import { Character } from '@rpgk/core';
+    import { WFRPSkill, WFRPSystemDetails } from '@rpgk/core/models/systems';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';

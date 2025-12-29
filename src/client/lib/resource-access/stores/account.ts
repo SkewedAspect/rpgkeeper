@@ -5,7 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { Account, ValidBSTheme, ValidColorMode, ValidSupportStatus } from '../../../../common/models';
+import { Account, ValidBSTheme, ValidColorMode, ValidSupportStatus } from '@rpgk/core';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

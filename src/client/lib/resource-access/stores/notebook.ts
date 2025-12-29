@@ -5,7 +5,7 @@
 import { defineStore } from 'pinia';
 
 // Models
-import { NotebookPage } from '../../../../common/models';
+import { NotebookPage } from '@rpgk/core';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

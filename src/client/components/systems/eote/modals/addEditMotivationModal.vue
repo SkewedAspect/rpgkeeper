@@ -127,7 +127,7 @@
         EoteQuality,
         GenesysMotivation,
         GenesysMotivationType,
-    } from '../../../../../common/models/systems';
+    } from '@rpgk/core/models/systems';
 
     // Components
     import EditReference from '../../../character/editReference.vue';

@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
-import { FateSystemDetails } from '../../../common/models/systems/fate.js';
+import { SupportStatus, SystemDefinition } from '@rpgk/core/models/system';
+import { FateSystemDetails } from '@rpgk/core/models/systems/fate';
 
 //----------------------------------------------------------------------------------------------------------------------
 

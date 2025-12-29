@@ -74,7 +74,7 @@
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
 
     // Models
-    import { EoteCritical, EoteOrGenCharacter } from '../../../../common/models/systems';
+    import { EoteCritical, EoteOrGenCharacter } from '@rpgk/core/models/systems';
 
     // Managers
     import diceMan from '../../../lib/utils/dice';

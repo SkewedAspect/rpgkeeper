@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Character } from '../../common/models/index.js';
+import { Character } from '@rpgk/core';
 
 // Transforms
 import * as CharTransforms from './transforms/character.js';

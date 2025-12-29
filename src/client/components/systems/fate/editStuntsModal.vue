@@ -85,7 +85,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { FateStunt } from '../../../../common/models/systems';
+    import { FateStunt } from '@rpgk/core/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

@@ -61,7 +61,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import { Supplement, SupplementInst } from '../../../common/models/systems';
+    import { Supplement, SupplementInst } from '@rpgk/core/models/systems';
 
     // Components
     import { VueBootstrapAutocomplete } from '@morgul/vue-bootstrap-autocomplete';

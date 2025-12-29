@@ -71,7 +71,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { GenesysCharacter } from '../../../../common/models/systems';
+    import { GenesysCharacter } from '@rpgk/core/models/systems';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';

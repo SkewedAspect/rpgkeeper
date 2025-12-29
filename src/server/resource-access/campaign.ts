@@ -9,7 +9,7 @@ import {
     CampaignParticipant,
     CampaignRole,
     CharacterRole,
-} from '../../common/models/index.js';
+} from '@rpgk/core';
 
 // Transforms
 import * as CampTransforms from './transforms/campaign.js';

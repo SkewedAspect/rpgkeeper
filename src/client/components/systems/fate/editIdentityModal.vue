@@ -75,8 +75,8 @@
     import { ref } from 'vue';
 
     // Interfaces
-    import { Character } from '../../../../common/models';
-    import { FateSystemDetails } from '../../../../common/models/systems';
+    import { Character } from '@rpgk/core';
+    import { FateSystemDetails } from '@rpgk/core/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

@@ -126,7 +126,7 @@
     import {
         EoteOrGenesysTalent,
         EoteTalent,
-    } from '../../../../../common/models/systems';
+    } from '@rpgk/core/models/systems';
 
     // Managers
     import eoteMan from '../../../../lib/managers/systems/eote';

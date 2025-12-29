@@ -162,7 +162,7 @@
     import { BaseColorVariant } from 'bootstrap-vue-next';
 
     // Interfaces
-    import { Character, SystemDefinition } from '../../common/models';
+    import { Character, SystemDefinition } from '@rpgk/core';
 
     // Stores
     import { useAccountStore } from '../lib/resource-access/stores/account';

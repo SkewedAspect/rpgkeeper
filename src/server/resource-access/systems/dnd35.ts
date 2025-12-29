@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { SupportStatus, SystemDefinition } from '../../../common/models/system.js';
-import { DnD35SystemDetails } from '../../../common/models/systems/dnd35.js';
+import { SupportStatus, SystemDefinition } from '@rpgk/core/models/system';
+import { DnD35SystemDetails } from '@rpgk/core/models/systems/dnd35';
 
 //----------------------------------------------------------------------------------------------------------------------
 

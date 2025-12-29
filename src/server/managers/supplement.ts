@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Account } from '../../common/models/account.js';
-import { Supplement } from '../../common/models/index.js';
+import { Account } from '@rpgk/core/models/account';
+import { Supplement } from '@rpgk/core';
 
 // Resource Access
 import * as suppRA from '../resource-access/supplement.js';

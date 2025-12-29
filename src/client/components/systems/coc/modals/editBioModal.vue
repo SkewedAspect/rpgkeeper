@@ -124,8 +124,8 @@
     import { ref } from 'vue';
 
     // Interfaces
-    import { Character } from '../../../../../common/models';
-    import { CoCSystemDetails, CocBiography } from '../../../../../common/models/systems';
+    import { Character } from '@rpgk/core';
+    import { CoCSystemDetails, CocBiography } from '@rpgk/core/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

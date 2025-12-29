@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // Models
-import { Notebook, NotebookPage } from '../../common/models/notebook.js';
+import { Notebook, NotebookPage } from '@rpgk/core/models/notebook';
 
 // Transforms
 import * as NoteTransforms from './transforms/notebook.js';

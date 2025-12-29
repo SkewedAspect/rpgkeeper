@@ -91,7 +91,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import { EoteCharacter, EoteQualityRef, EoteWeaponRef } from '../../../../common/models/systems';
+    import { EoteCharacter, EoteQualityRef, EoteWeaponRef } from '@rpgk/core/models/systems';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';

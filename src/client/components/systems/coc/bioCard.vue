@@ -82,8 +82,8 @@
     import { truncate } from 'lodash';
 
     // Interfaces
-    import { Character } from '../../../../common/models';
-    import { CoCSystemDetails, CocBiography } from '../../../../common/models/systems';
+    import { Character } from '@rpgk/core';
+    import { CoCSystemDetails, CocBiography } from '@rpgk/core/models/systems';
 
     // Stores
     import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
