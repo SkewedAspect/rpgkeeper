@@ -23,7 +23,10 @@
         /* Workspace paths */
         "paths": {
             "@rpgk/core": ["./packages/core/src/index.ts"],
-            "@rpgk/core/*": ["./packages/core/src/*"]
+            "@rpgk/core/*": ["./packages/core/src/*"],
+            "@rpgk/systems": ["./packages/systems/src/index.ts"],
+            "@rpgk/systems/*": ["./packages/systems/src/*"],
+            "@client/*": ["./src/client/*"]
         }
     },
     "include": [
@@ -32,6 +35,7 @@
     ],
     "references": [
         { "path": "./packages/core" },
+        { "path": "./packages/systems" },
         { "path": "./src/server/tsconfig.json" },
         { "path": "./src/client/tsconfig.json" }
     ]

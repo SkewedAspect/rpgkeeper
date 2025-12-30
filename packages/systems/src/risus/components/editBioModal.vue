@@ -1,16 +1,16 @@
 <!----------------------------------------------------------------------------------------------------------------------
-  -- editHooksModal
+  -- editBioModal
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="edit-hooks-modal">
+    <div class="edit-bio-modal">
         <BModal
             ref="innerModal"
             header-bg-variant="dark"
             header-text-variant="white"
-            size="lg"
             no-close-on-esc
             no-close-on-backdrop
+            size="lg"
             @ok="onSave"
             @cancel="onCancel"
         >
@@ -18,34 +18,26 @@
             <template #header="{ cancel }">
                 <h5 v-b-color-mode="'dark'" class="w-100 mb-0">
                     <Fa icon="file-edit" />
-                    Edit Hooks
+                    Edit Identity
                     <CloseButton class="float-end" @click="cancel" />
                 </h5>
             </template>
 
             <!-- Modal Content -->
-            <div v-for="(hook, index) in hooks" :key="index" class="d-flex mb-2">
-                <BFormInput v-model="hook.description" />
-                <BButton variant="danger" class="ms-2" @click="removeHook(hook)">
-                    <Fa icon="trash-alt" />
-                </BButton>
-            </div>
-
-            <hr>
-
-            <BCard
-                header="New Hook"
-                header-bg-variant="dark"
-                header-text-variant="white"
+            <BFormGroup
+                id="name-input-group"
+                label="Name"
+                label-for="name-input"
             >
-                <div class="d-flex">
-                    <BFormInput id="new-input" v-model="newHook" />
-                    <BButton variant="primary" class="ms-2 text-nowrap" @click="addHook">
-                        <Fa icon="plus" />
-                        Add
-                    </BButton>
-                </div>
-            </BCard>
+                <BFormInput id="name-input" v-model="innerBio.name" />
+            </BFormGroup>
+            <BFormGroup
+                id="desc-input-group"
+                label="Description"
+                label-for="desc-input"
+            >
+                <MarkdownEditor v-model:text="innerBio.description" />
+            </BFormGroup>
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
@@ -66,28 +58,23 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss">
-    .edit-hooks-modal {
-    }
-</style>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
 <script lang="ts" setup>
     import { ref } from 'vue';
 
     // Interfaces
-    import { RisusHook } from '@rpgk/core/models/systems';
+    import { Character } from '@rpgk/core';
+    import { RisusSystemDetails } from '@rpgk/core/models/systems';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';
-    import CloseButton from '../../ui/closeButton.vue';
+    import MarkdownEditor from '@client/components/ui/markdownEditor.vue';
+    import CloseButton from '@client/components/ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    type Events = (e : 'save', hooks : RisusHook[]) => void;
+    type Events = (e : 'save', bio : { name : string, description : string }) => void;
 
     const emit = defineEmits<Events>();
 
@@ -95,8 +82,10 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const hooks = ref<RisusHook[]>([]);
-    const newHook = ref<string>('');
+    const innerBio = ref({
+        name: '',
+        description: '',
+    });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -104,12 +93,11 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function show(charHooks : RisusHook[]) : void
+    function show(char : Character<RisusSystemDetails>) : void
     {
-        // Clone the array of hooks
-        hooks.value = charHooks.map((hook) => ({ ...hook }));
+        innerBio.value.name = char.name;
+        innerBio.value.description = char.description;
 
-        // Show the modal
         innerModal.value.show();
     }
 
@@ -120,35 +108,18 @@
 
     function onSave() : void
     {
-        emit('save', hooks.value);
-        hooks.value = [];
+        emit('save', innerBio.value);
     }
 
     function onCancel() : void
     {
-        hooks.value = [];
-    }
-
-    function addHook() : void
-    {
-        hooks.value.push({ description: newHook.value });
-        newHook.value = '';
-    }
-
-    function removeHook(hook : RisusHook) : void
-    {
-        const idx = hooks.value.findIndex((item) => item === hook);
-        if(idx > -1)
-        {
-            hooks.value.splice(idx, 1);
-        }
+        innerBio.value.name = '';
+        innerBio.value.description = '';
     }
 
     //------------------------------------------------------------------------------------------------------------------
 
     defineExpose({ show, hide });
-
-    //------------------------------------------------------------------------------------------------------------------
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

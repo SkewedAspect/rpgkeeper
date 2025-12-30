@@ -98,11 +98,11 @@
     import { RisusCliche, RisusSystemDetails } from '@rpgk/core/models/systems';
 
     // Stores
-    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
+    import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
 
     // Components
     import EditClichesModal from './editClichesModal.vue';
-    import RpgkCard from '../../ui/rpgkCard.vue';
+    import RpgkCard from '@client/components/ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -175,7 +175,7 @@
 
     function resetCliche(cliche : RisusCliche) : void
     {
-        if(!this.readonly)
+        if(!readonly.value)
         {
             cliche.current = cliche.value;
 

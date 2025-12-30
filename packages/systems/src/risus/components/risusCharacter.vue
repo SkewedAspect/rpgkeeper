@@ -71,15 +71,15 @@
     import { RisusSystemDetails } from '@rpgk/core/models/systems';
 
     // Stores
-    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
+    import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
 
     // Managers
-    import charMan from '../../../lib/managers/character';
+    import charMan from '@client/lib/managers/character';
 
     // Components
     import BioCard from './bioCard.vue';
     import RollsCard from './rollsBlock.vue';
-    import PortraitCard from '../../character/charPortrait.vue';
+    import PortraitCard from '@client/components/character/charPortrait.vue';
     import ClichesCard from './clichesCard.vue';
     import HooksCard from './hooksCard.vue';
 

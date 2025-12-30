@@ -5,7 +5,7 @@
 export const validSupportStatuses = [ 'dev', 'beta', 'disabled', 'stable' ] as const;
 export type ValidSupportStatus = typeof validSupportStatuses[number];
 
-export const enum SupportStatus
+export enum SupportStatus
 {
     Alpha = 'dev',
     Beta = 'beta',

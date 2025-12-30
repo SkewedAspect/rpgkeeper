@@ -10,9 +10,10 @@
   ],
   "scripts": {
     "start": "node ./dist/server/server.js",
-    "dev": "npm run build:core && tsc --build && DEBUG=true node ./dist/server/server.js --dev",
-    "build": "npm run build:core && tsc --build && vite build",
+    "dev": "npm run build:core && npm run build:systems && tsc --build && DEBUG=true node ./dist/server/server.js --dev",
+    "build": "npm run build:core && npm run build:systems && tsc --build && vite build",
     "build:core": "npm run -w @rpgk/core build",
+    "build:systems": "npm run -w @rpgk/systems build",
     "db:migrate": "knex migrate:latest",
     "db:setup": "knex migrate:latest && knex seed:run",
     "lint": "eslint \"src/**/*.{ts,js,vue}\" \"packages/*/src/**/*.ts\" --max-warnings=0 --no-warn-ignored",

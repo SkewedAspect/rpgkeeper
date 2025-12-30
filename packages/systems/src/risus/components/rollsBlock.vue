@@ -56,10 +56,10 @@
     import { DiceRoll } from '@rpgk/core';
 
     // Utils
-    import diceUtil from '../../../lib/utils/dice';
+    import diceUtil from '@client/lib/utils/dice';
 
     // Components
-    import RpgkCard from '../../ui/rpgkCard.vue';
+    import RpgkCard from '@client/components/ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

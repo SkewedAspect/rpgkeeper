@@ -64,12 +64,12 @@
     import { RisusHook, RisusSystemDetails } from '@rpgk/core/models/systems';
 
     // Stores
-    import { useCharacterStore } from '../../../lib/resource-access/stores/characters';
+    import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
 
     // Components
     import EditHooksModal from './editHooksModal.vue';
-    import MarkdownBlock from '../../ui/markdownBlock.vue';
-    import RpgkCard from '../../ui/rpgkCard.vue';
+    import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
+    import RpgkCard from '@client/components/ui/rpgkCard.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition

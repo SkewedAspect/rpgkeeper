@@ -37,6 +37,8 @@ export default defineConfig({
     resolve: {
         alias: {
             '@rpgk/core': resolve(__dirname, 'packages/core/src'),
+            '@rpgk/systems': resolve(__dirname, 'packages/systems/src'),
+            '@client': resolve(__dirname, 'src/client'),
         },
     },
     plugins: [

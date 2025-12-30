@@ -43,7 +43,7 @@
                 </template>
 
                 <!-- Actual System Character Sheet -->
-                <Component :is="characterPages[char.system]" :is-authorized="isAuthorized">
+                <Component :is="getCharacterComponent(char.system)" :is-authorized="isAuthorized">
                     <!-- We put a warning here, mostly for the developer. -->
                     <BContainer>
                         <BAlert variant="warning" show>
@@ -109,7 +109,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script setup lang="ts">
-    import { computed, onBeforeMount, ref } from 'vue';
+    import { type Component, computed, onBeforeMount, ref } from 'vue';
     import { useRoute } from 'vue-router';
 
     // Stores
@@ -124,9 +124,11 @@
     import LoadingWidget from '../components/ui/loadingWidget.vue';
     import NoteBook from '../components/notes/noteBook.vue';
 
-    // Systems
+    // Systems from @rpgk/systems registry
+    import { systemRegistry } from '@rpgk/systems';
+
+    // Systems not yet migrated to @rpgk/systems
     import CocCharacter from '../components/systems/coc/cocCharacter.vue';
-    import RisusCharacter from '../components/systems/risus/risusCharacter.vue';
     import FateCharacter from '../components/systems/fate/fateCharacter.vue';
     import EoteCharacter from '../components/systems/eote/eoteCharacter.vue';
     import WfrpCharacter from '../components/systems/wfrp/wfrpCharacter.vue';
@@ -135,14 +137,26 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const characterPages = {
-        coc: CocCharacter,
-        fate: FateCharacter,
-        risus: RisusCharacter,
-        genesys: EoteCharacter, // This is actually correct. We use the same component for both.
-        eote: EoteCharacter,
-        wfrp: WfrpCharacter,
-    };
+    // Get character component from registry if available, fall back to legacy imports
+    function getCharacterComponent(systemId : string) : Component | undefined
+    {
+        const system = systemRegistry.get(systemId);
+        if(system?.characterComponent)
+        {
+            return system.characterComponent;
+        }
+
+        // Fall back to legacy imports for non-migrated systems
+        const legacyComponents : Record<string, Component> = {
+            coc: CocCharacter,
+            fate: FateCharacter,
+            genesys: EoteCharacter, // This is actually correct. We use the same component for both.
+            eote: EoteCharacter,
+            wfrp: WfrpCharacter,
+        };
+
+        return legacyComponents[systemId];
+    }
 
     const accountStore = useAccountStore();
     const charactersStore = useCharacterStore();

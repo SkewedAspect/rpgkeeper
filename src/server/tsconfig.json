@@ -15,7 +15,8 @@
         // Workspace paths
         "paths": {
             "@rpgk/core": ["../../packages/core/src/index.ts"],
-            "@rpgk/core/*": ["../../packages/core/src/*"]
+            "@rpgk/core/*": ["../../packages/core/src/*"],
+            "@rpgk/systems/definitions": ["../../packages/systems/src/definitions.ts"]
         }
     },
     "files": [
@@ -26,6 +27,7 @@
         "**/*.ts"
     ],
     "references": [
-        { "path": "../../packages/core" }
+        { "path": "../../packages/core" },
+        { "path": "../../packages/systems" }
     ]
 }
