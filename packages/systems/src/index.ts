@@ -10,7 +10,7 @@ export { systemRegistry } from './registry.ts';
 
 // Import and register all systems
 import coc from './coc/index.ts';
-import { eote, genesys } from './eote/index.ts';
+import { eote, genesys } from './eote';
 import fate from './fate/index.ts';
 import risus from './risus/index.ts';
 import wfrp from './wfrp/index.ts';
