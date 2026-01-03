@@ -101,14 +101,14 @@ import { broadcast } from '../utils/sio.ts';
 
 ## Architecture Patterns
 
-### Layered Architecture
+### Current: Layered Architecture
 
 1. **Routes** - HTTP endpoint handlers
 2. **Managers** - Business logic and orchestration
 3. **Resource Access** - Database queries and data access
 4. **Engines** - Specialized logic (validation, system-specific)
 
-### Functional Module Pattern
+### Current: Functional Module Pattern
 
 ```typescript
 //----------------------------------------------------------------------------------------------------------------------
@@ -130,6 +130,63 @@ export async function add(accountID : string, newCharacter : Omit<Character, 'id
     // Business logic here
     return characterRA.add(accountID, newCharacter);
 }
+
+//----------------------------------------------------------------------------------------------------------------------
+```
+
+### Target: iDesign Architecture (Aspirational)
+
+> **Note**: This section describes the target architecture we're migrating toward. Remove this note once the migration is complete.
+
+The project is migrating to **iDesign methodology** - a layered architecture with strict separation of concerns:
+
+1. **Clients** - External consumers (API routes, CLI, etc.)
+2. **Managers** - Business logic orchestration (coordinate multiple operations)
+3. **Engines** - Pure business logic (no I/O, stateless calculations)
+4. **Resource Access** - Data persistence (database, external APIs)
+5. **Utils** - Cross-cutting concerns (logging, validation helpers)
+
+Key principles:
+- Each layer only calls the layer directly below it
+- Managers coordinate between Engines and Resource Access
+- Engines contain pure logic, easily testable
+- Resource Access handles all I/O operations
+
+Target class-based pattern:
+
+```typescript
+//----------------------------------------------------------------------------------------------------------------------
+// Character Manager
+//----------------------------------------------------------------------------------------------------------------------
+
+import { CharacterEngine } from '../engines/character.ts';
+import { CharacterRA } from '../resource-access/character.ts';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+class CharacterManager
+{
+    private readonly engine = new CharacterEngine();
+    private readonly ra = new CharacterRA();
+
+    async get(id : string) : Promise<Character>
+    {
+        return this.ra.get(id);
+    }
+
+    async add(accountID : string, newCharacter : Omit<Character, 'id'>) : Promise<Character>
+    {
+        // Engine validates/transforms
+        const validated = this.engine.validate(newCharacter);
+
+        // RA persists
+        return this.ra.add(accountID, validated);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export default new CharacterManager();
 
 //----------------------------------------------------------------------------------------------------------------------
 ```
