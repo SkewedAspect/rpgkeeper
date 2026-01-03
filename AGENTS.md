@@ -4,7 +4,7 @@
 
 **RPGKeeper** - A universal digital character sheet manager for TTRPGs
 
-This project has been in development for over a decade across multiple major versions. The current version (v3) is a ground-up rewrite with the goal of finally supporting all the RPG systems and characters from previous versions. Expect some legacy cruft and historical design decisions.
+This project has been in development for over a decade across multiple major versions. Even v3 has evolved significantly—originally pure JavaScript, now being migrated to TypeScript. There's still work to modernize the codebase fully. The goal is to finally support all the RPG systems and characters from previous versions. Expect legacy cruft and historical design decisions throughout.
 
 - **@rpgk/server** - Node.js/Express 5 backend
 - **@rpgk/client** - Vue 3/Vite/Bootstrap frontend

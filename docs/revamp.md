@@ -99,11 +99,18 @@ interface SystemDefinition<TDetails> {
 
 ### Migration Plan
 
-- [ ] Phase 1: Create workspace structure, extract `@rpgk/core` from `src/common/`
-- [ ] Phase 2: Update client and server to import from `@rpgk/core`
-- [ ] Phase 3: Create `@rpgk/systems` package, extract Risus first (simplest)
-- [ ] Phase 4: Extract remaining systems (Fate, WFRP, CoC, EotE/Genesys)
-- [ ] Phase 5: Clean up legacy code, update documentation
+- [X] Phase 1: Create workspace structure, extract `@rpgk/core` from `src/common/`
+- [X] Phase 2: Update client and server to import from `@rpgk/core`
+- [X] Phase 3: Create `@rpgk/systems` package, extract Risus first (simplest)
+- [X] Phase 4: Extract remaining systems (Fate, WFRP, CoC, EotE/Genesys + dnd35, generic, v20)
+- [X] Phase 5: Clean up legacy code
+
+### Remaining Work
+
+- [ ] Add Zod `detailsSchema` to each system definition
+- [ ] Add optional `routes` to system definitions for server-side routes
+- [ ] Add `supplements` config to system definitions
+- [ ] Update documentation
 
 ## Authentication
 
