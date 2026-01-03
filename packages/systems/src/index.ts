@@ -3,19 +3,32 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Export types
-export * from './types.js';
+export * from './types.ts';
 
 // Export registry
-export { systemRegistry } from './registry.js';
+export { systemRegistry } from './registry.ts';
 
 // Import and register all systems
-import risus from './risus/index.js';
-import { systemRegistry } from './registry.js';
+import coc from './coc/index.ts';
+import { eote, genesys } from './eote/index.ts';
+import fate from './fate/index.ts';
+import risus from './risus/index.ts';
+import wfrp from './wfrp/index.ts';
+import { systemRegistry } from './registry.ts';
 
 // Register systems
+systemRegistry.register(coc);
+systemRegistry.register(eote);
+systemRegistry.register(fate);
+systemRegistry.register(genesys);
 systemRegistry.register(risus);
+systemRegistry.register(wfrp);
 
 // Export individual systems for direct access
-export { default as risus } from './risus/index.js';
+export { default as coc } from './coc/index.ts';
+export { eote, genesys } from './eote/index.ts';
+export { default as fate } from './fate/index.ts';
+export { default as risus } from './risus/index.ts';
+export { default as wfrp } from './wfrp/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -2,8 +2,8 @@
 // Account
 //----------------------------------------------------------------------------------------------------------------------
 
-import { ValidColorMode } from './colorMode.js';
-import { ValidSupportStatus } from './system.js';
+import type { ValidColorMode } from './colorMode.ts';
+import type { ValidSupportStatus } from './system.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 

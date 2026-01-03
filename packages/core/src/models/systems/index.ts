@@ -2,12 +2,11 @@
 // System Models
 //----------------------------------------------------------------------------------------------------------------------
 
-export * from './coc.js';
-export * from './eote.js';
-export * from './fate.js';
-export * from './risus.js';
-export * from './wfrp.js';
-
-export * from './supplements.js';
+export * from './coc.ts';
+export * from './eote.ts';
+export * from './fate.ts';
+export * from './risus.ts';
+export * from './supplements.ts';
+export * from './wfrp.ts';
 
 //----------------------------------------------------------------------------------------------------------------------

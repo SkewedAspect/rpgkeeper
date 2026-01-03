@@ -13,11 +13,11 @@ import Components from 'unplugin-vue-components/vite';
 import { BootstrapVueNextResolver } from 'bootstrap-vue-next';
 
 // Interfaces
-import { ServerConfig } from './src/server/interfaces/config.js';
+import type { ServerConfig } from './packages/server/src/interfaces/config.ts';
 
 // Utils
 import configUtil from '@strata-js/util-config';
-import { getVersion } from './src/server/utils/version.js';
+import { getVersion } from './packages/server/src/utils/version.ts';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Configuration
@@ -32,19 +32,19 @@ const config = configUtil.get<ServerConfig>();
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
-    root: 'src/client',
+    root: 'packages/client/src',
     publicDir: 'assets',
     resolve: {
         alias: {
             '@rpgk/core': resolve(__dirname, 'packages/core/src'),
             '@rpgk/systems': resolve(__dirname, 'packages/systems/src'),
-            '@client': resolve(__dirname, 'src/client'),
+            '@client': resolve(__dirname, 'packages/client/src'),
         },
     },
     plugins: [
         checker({
             eslint: {
-                lintCommand: 'eslint "src/**/*.{ts,js,vue}" --max-warnings=0',
+                lintCommand: 'eslint "packages/{client,systems}/src/**/*.{ts,js,vue}" --max-warnings=0',
                 useFlatConfig: true,
             },
             typescript: true,
@@ -125,7 +125,7 @@ export default defineConfig({
         __APP_VERSION__: JSON.stringify((await getVersion()).version.full),
     },
     build: {
-        outDir: '../../dist/client',
+        outDir: '../../../dist/client',
         emptyOutDir: true,
         cssCodeSplit: true,
         chunkSizeWarningLimit: 650,

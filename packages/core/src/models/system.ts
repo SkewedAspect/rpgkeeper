@@ -5,13 +5,14 @@
 export const validSupportStatuses = [ 'dev', 'beta', 'disabled', 'stable' ] as const;
 export type ValidSupportStatus = typeof validSupportStatuses[number];
 
-export enum SupportStatus
-{
-    Alpha = 'dev',
-    Beta = 'beta',
-    Disabled = 'disabled',
-    Stable = 'stable',
-}
+export const SupportStatus = {
+    Alpha: 'dev',
+    Beta: 'beta',
+    Disabled: 'disabled',
+    Stable: 'stable',
+} as const;
+
+export type SupportStatus = typeof SupportStatus[keyof typeof SupportStatus];
 
 export type SystemDefaults = object;
 

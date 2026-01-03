@@ -94,8 +94,8 @@
     import { storeToRefs } from 'pinia';
 
     // Interfaces
-    import { Character } from '@rpgk/core';
-    import { RisusCliche, RisusSystemDetails } from '@rpgk/core/models/systems';
+    import type { Character } from '@rpgk/core';
+    import type { RisusCliche, RisusSystemDetails } from '@rpgk/core/models/systems';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

@@ -53,7 +53,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import { DiceRoll } from '@rpgk/core';
+    import type { DiceRoll } from '@rpgk/core';
 
     // Utils
     import diceUtil from '@client/lib/utils/dice';

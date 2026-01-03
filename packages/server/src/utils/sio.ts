@@ -1,0 +1,30 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Socket.IO Handler Utility
+//----------------------------------------------------------------------------------------------------------------------
+
+import type { Server } from 'socket.io';
+
+// Interfaces
+import type { RPGKMessage } from '@rpgk/core';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+let sio : Server | undefined;
+
+//----------------------------------------------------------------------------------------------------------------------
+
+export async function setSIOInstance(sioServer : Server) : Promise<void>
+{
+    sio = sioServer;
+}
+
+export async function broadcast(namespace : string, message : RPGKMessage) : Promise<void>
+{
+    if(sio)
+    {
+        const ns = sio.of(namespace);
+        ns.emit('message', message);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------

@@ -2,15 +2,16 @@
 // Common Models
 // ---------------------------------------------------------------------------------------------------------------------
 
-export * from './account.js';
-export * from './campaign.js';
-export * from './character.js';
-export * from './colorMode.js';
-export * from './dice.js';
-export * from './notebook.js';
-export * from './role.js';
-export * from './messages.js';
-export * from './supplement.js';
-export * from './system.js';
+export * from './account.ts';
+export * from './campaign.ts';
+export * from './character.ts';
+export * from './colorMode.ts';
+export * from './dice.ts';
+export * from './messages.ts';
+export * from './notebook.ts';
+export * from './role.ts';
+export * from './supplement.ts';
+export * from './system.ts';
+export * from './version.ts';
 
 // ---------------------------------------------------------------------------------------------------------------------

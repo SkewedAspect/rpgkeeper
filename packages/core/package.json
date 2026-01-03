@@ -3,44 +3,20 @@
   "version": "1.0.0",
   "description": "Core domain models and types for RPGKeeper",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./models": {
-      "types": "./dist/models/index.d.ts",
-      "import": "./dist/models/index.js"
-    },
-    "./models/*": {
-      "types": "./dist/models/*.d.ts",
-      "import": "./dist/models/*.js"
-    },
-    "./models/systems": {
-      "types": "./dist/models/systems/index.d.ts",
-      "import": "./dist/models/systems/index.js"
-    },
-    "./models/systems/*": {
-      "types": "./dist/models/systems/*.d.ts",
-      "import": "./dist/models/systems/*.js"
-    },
-    "./utils/*": {
-      "types": "./dist/utils/*.d.ts",
-      "import": "./dist/utils/*.js"
-    }
+    ".": "./src/index.ts",
+    "./models": "./src/models/index.ts",
+    "./models/*": "./src/models/*.ts",
+    "./models/systems": "./src/models/systems/index.ts",
+    "./models/systems/*": "./src/models/systems/*.ts",
+    "./utils/*": "./src/utils/*.ts"
   },
-  "files": ["dist"],
+  "files": ["src"],
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf dist"
+    "lint:types": "tsc --noEmit"
   },
   "dependencies": {
     "rpgdicejs": "^2.0.3"
   },
-  "devDependencies": {
-    "rimraf": "^6.0.1",
-    "typescript": "^5.7.2"
-  }
+  "devDependencies": {}
 }

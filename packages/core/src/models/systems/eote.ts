@@ -2,10 +2,10 @@
 // Edge of the Empire
 // ---------------------------------------------------------------------------------------------------------------------
 
-import { Supplement } from './supplements.js';
-import { BoundedRange } from '../../utils/types.js';
+import type { Supplement } from './supplements.ts';
+import type { BoundedRange } from '../../utils/types.ts';
 
-import { Character } from '../index.js';
+import type { Character } from '../index.ts';
 
 // ---------------------------------------------------------------------------------------------------------------------
 

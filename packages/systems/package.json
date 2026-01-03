@@ -3,22 +3,13 @@
   "version": "1.0.0",
   "description": "RPG system definitions and Vue components for RPGKeeper",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./src/index.ts"
-    },
-    "./definitions": {
-      "types": "./dist/definitions.d.ts",
-      "import": "./dist/definitions.js"
-    }
+    ".": "./src/index.ts",
+    "./definitions": "./src/definitions.ts"
   },
-  "files": ["dist", "src"],
+  "files": ["src"],
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf dist"
+    "lint:types": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@rpgk/core": "*"
@@ -26,7 +17,5 @@
   "peerDependencies": {
     "vue": "^3.5.0"
   },
-  "devDependencies": {
-    "rimraf": "^6.0.1"
-  }
+  "devDependencies": {}
 }
