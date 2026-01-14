@@ -1,0 +1,8 @@
+{
+    "mcpServers": {
+        "rpgkdb": {
+            "command": "sh",
+            "args": ["-c", "npx @bytebase/dbhub --dsn \"sqlite://$PWD/db/rpgk.db\""]
+        }
+    }
+}
