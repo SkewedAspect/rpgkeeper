@@ -2,7 +2,7 @@
 // Call of Cthulhu Models
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { Supplement } from '../supplement.ts';
+import type { Supplement } from '@rpgk/core';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ export interface CoCWeapon extends Omit<Supplement, 'id'>
     attacks : number;
     ammo : number | null;
     malfunction : number | null;
-    skill : string; // TODO: This is a skill name, should be a reference to a skill
+    skill : string;
 }
 
 export interface CoCWealth

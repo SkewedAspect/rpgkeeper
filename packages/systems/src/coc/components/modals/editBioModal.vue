@@ -125,7 +125,7 @@
 
     // Interfaces
     import type { Character } from '@rpgk/core';
-    import type { CoCSystemDetails, CocBiography } from '@rpgk/core/models/systems';
+    import type { CoCSystemDetails, CocBiography } from '../../models.ts';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

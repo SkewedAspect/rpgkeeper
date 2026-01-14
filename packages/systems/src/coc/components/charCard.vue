@@ -108,7 +108,7 @@
         type CoCCharacteristics,
         type CoCSystemDetails,
         validCoCCharacteristicNames,
-    } from '@rpgk/core/models/systems';
+    } from '../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

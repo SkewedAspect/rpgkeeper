@@ -3,7 +3,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { SupportStatus, type SystemDefinition } from '@rpgk/core';
-import type { CoCSkill, CoCSystemDetails } from '@rpgk/core/models/systems/coc';
+
+// Local models
+import type { CoCSkill, CoCSystemDetails } from './models.ts';
+import { CoCDetailsSchema } from './schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Skill Definitions
@@ -193,7 +196,8 @@ export const cocDefaults : CoCSystemDetails = {
 // System Definition
 //----------------------------------------------------------------------------------------------------------------------
 
-const cocDefinition : SystemDefinition<CoCSystemDetails> = {
+const cocDefinition : SystemDefinition<CoCSystemDetails> & { detailsSchema : typeof CoCDetailsSchema } = {
+    detailsSchema: CoCDetailsSchema,
     id: 'coc',
     name: 'Call of Cthulhu',
     description: 'In Call of Cthulhu, you take on the role of everyday people who become investigators of the '

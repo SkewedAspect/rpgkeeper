@@ -38,7 +38,7 @@
 
     // Interfaces
     import type { Character } from '@rpgk/core';
-    import type { CoCSystemDetails } from '@rpgk/core/models/systems';
+    import type { CoCSystemDetails } from '../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

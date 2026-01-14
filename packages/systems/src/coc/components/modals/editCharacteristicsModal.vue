@@ -79,7 +79,7 @@
     import type {
         CoCCharacteristics,
         CoCSystemDetails,
-    } from '@rpgk/core/models/systems';
+    } from '../../models.ts';
 
     // Utils
     import { startCase } from '@client/lib/utils/misc';
