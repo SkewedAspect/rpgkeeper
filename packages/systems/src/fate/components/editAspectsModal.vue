@@ -97,7 +97,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import type { FateAspect } from '@rpgk/core/models/systems';
+    import type { FateAspect } from '../models.ts';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

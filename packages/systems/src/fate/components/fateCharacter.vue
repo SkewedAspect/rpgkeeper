@@ -51,7 +51,7 @@
 
     // Interfaces
     import type { Character } from '@rpgk/core';
-    import type { FateSystemDetails } from '@rpgk/core/models/systems';
+    import type { FateSystemDetails } from '../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

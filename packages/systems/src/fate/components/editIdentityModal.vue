@@ -76,7 +76,7 @@
 
     // Interfaces
     import type { Character } from '@rpgk/core';
-    import type { FateSystemDetails } from '@rpgk/core/models/systems';
+    import type { FateSystemDetails } from '../models.ts';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

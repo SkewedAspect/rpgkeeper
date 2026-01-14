@@ -3,11 +3,13 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { SupportStatus, type SystemDefinition } from '@rpgk/core';
-import type { FateSystemDetails } from '@rpgk/core/models/systems/fate';
+import type { FateSystemDetails } from './models.ts';
+import { FateDetailsSchema } from './schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const fateDefinition : SystemDefinition<FateSystemDetails> = {
+const fateDefinition : SystemDefinition<FateSystemDetails> & { detailsSchema : typeof FateDetailsSchema } = {
+    detailsSchema: FateDetailsSchema,
     id: 'fate',
     name: 'FATE: Core System',
     description: 'Fate is a generic role-playing game system based on the Fudge gaming system. It has no fixed '
