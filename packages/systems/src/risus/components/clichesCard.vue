@@ -95,7 +95,7 @@
 
     // Interfaces
     import type { Character } from '@rpgk/core';
-    import type { RisusCliche, RisusSystemDetails } from '@rpgk/core/models/systems';
+    import type { RisusCliche, RisusSystemDetails } from '../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

@@ -3,11 +3,17 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { SupportStatus, type SystemDefinition } from '@rpgk/core';
-import type { RisusSystemDetails } from '@rpgk/core/models/systems/risus';
+
+// Models
+import type { RisusSystemDetails } from './models.ts';
+
+// Schema
+import { RisusDetailsSchema } from './schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const risusDefinition : SystemDefinition<RisusSystemDetails> = {
+const risusDefinition : SystemDefinition<RisusSystemDetails> & { detailsSchema : typeof RisusDetailsSchema } = {
+    detailsSchema: RisusDetailsSchema,
     id: 'risus',
     name: 'Risus: The Anything RPG',
     description: 'For some, Risus is a handy "emergency" RPG for spur-of-the-moment one-shots and rapid character '

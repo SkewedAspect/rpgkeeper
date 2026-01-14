@@ -42,7 +42,6 @@
                     label="Advancement Points"
                     label-class="fw-bold"
                 >
-                    <!-- FIXME: The 'number' modifier is broken with <BFormInput> -->
                     <BFormInput
                         v-model.number="char.details.advancementPoints"
                         class="form-control"
@@ -115,7 +114,7 @@
 
     // Interfaces
     import type { Character } from '@rpgk/core';
-    import type { RisusSystemDetails } from '@rpgk/core/models/systems';
+    import type { RisusSystemDetails } from '../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

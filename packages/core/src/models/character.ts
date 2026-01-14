@@ -4,9 +4,12 @@
 
 export type SystemDetails = object;
 
+/**
+ * Base character interface. The `id` is optional for new characters that haven't been saved yet.
+ */
 export interface Character<Details extends SystemDetails = SystemDetails>
 {
-    id : string | null;
+    id ?: string;
     system : string;
     name : string;
     description ?: string;
@@ -19,6 +22,15 @@ export interface Character<Details extends SystemDetails = SystemDetails>
     details : Details;
     created : number;
     updated : number;
+}
+
+/**
+ * A character that has been persisted to the database. The `id` is guaranteed to exist.
+ */
+export interface SavedCharacter<Details extends SystemDetails = SystemDetails>
+    extends Omit<Character<Details>, 'id'>
+{
+    id : string;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -2,6 +2,7 @@
 // @rpgk/systems - Types
 //----------------------------------------------------------------------------------------------------------------------
 
+import type { z } from 'zod';
 import type { Character, SystemDefaults, SystemDefinition } from '@rpgk/core';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -14,10 +15,12 @@ export interface SystemModule<TDetails extends SystemDefaults = SystemDefaults>
     extends SystemDefinition<TDetails>
 {
     /** Vue component for rendering the character sheet (client-only) */
-     
     characterComponent ?: any;
 
-    /** Validate and normalize character details, returning corrected data */
+    /** Zod schema for validating character details on save */
+    detailsSchema ?: z.ZodType<TDetails>;
+
+    /** Validate and normalize character details, returning corrected data (legacy) */
     validateDetails ?: (char : Character<TDetails>) => Character<TDetails>;
 }
 

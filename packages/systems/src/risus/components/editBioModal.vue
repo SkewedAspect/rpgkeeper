@@ -63,7 +63,7 @@
 
     // Interfaces
     import type { Character } from '@rpgk/core';
-    import type { RisusSystemDetails } from '@rpgk/core/models/systems';
+    import type { RisusSystemDetails } from '../models.ts';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

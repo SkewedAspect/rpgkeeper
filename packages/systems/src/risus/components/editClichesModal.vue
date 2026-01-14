@@ -95,7 +95,7 @@
     import { computed, ref } from 'vue';
 
     // Interfaces
-    import type { RisusCliche } from '@rpgk/core/models/systems';
+    import type { RisusCliche } from '../models.ts';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

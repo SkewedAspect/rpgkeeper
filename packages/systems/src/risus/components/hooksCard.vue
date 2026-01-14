@@ -61,7 +61,7 @@
 
     // Interfaces
     import type { Character } from '@rpgk/core';
-    import type { RisusHook, RisusSystemDetails } from '@rpgk/core/models/systems';
+    import type { RisusHook, RisusSystemDetails } from '../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

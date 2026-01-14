@@ -77,7 +77,7 @@
     import { ref } from 'vue';
 
     // Interfaces
-    import type { RisusHook } from '@rpgk/core/models/systems';
+    import type { RisusHook } from '../models.ts';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';
