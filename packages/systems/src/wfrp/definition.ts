@@ -4,11 +4,13 @@
 
 // Models
 import { SupportStatus, type SystemDefinition } from '@rpgk/core/models/system';
-import type { WFRPSystemDetails } from '@rpgk/core/models/systems/wfrp';
+import type { WFRPSystemDetails } from './models.ts';
+import { WFRPDetailsSchema } from './schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-const wfrpDefinition : SystemDefinition<WFRPSystemDetails> = {
+const wfrpDefinition : SystemDefinition<WFRPSystemDetails> & { detailsSchema : typeof WFRPDetailsSchema } = {
+    detailsSchema: WFRPDetailsSchema,
     id: 'wfrp',
     name: 'Warhammer 4th edition',
     description: 'The fourth edition of the original dark fantasy roleplaying game,'

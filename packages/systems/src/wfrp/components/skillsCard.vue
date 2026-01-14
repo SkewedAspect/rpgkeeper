@@ -62,7 +62,7 @@
 
     // Interfaces
     import type { Character } from '@rpgk/core';
-    import type { WFRPSkill, WFRPSystemDetails } from '@rpgk/core/models/systems';
+    import type { WFRPSkill, WFRPSystemDetails } from '../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

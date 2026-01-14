@@ -1,14 +1,23 @@
 //----------------------------------------------------------------------------------------------------------------------
-// System Models
+// WFRP System Models
 //----------------------------------------------------------------------------------------------------------------------
 
-export * from './coc.ts';
-export * from './eote.ts';
-export * from './fate.ts';
-export * from './supplements.ts';
+export interface WFRPStat
+{
+    description : string;
+    value : number;
+}
 
-// Note: Risus models have been moved to @rpgk/systems/risus
-// Note: WFRP models have been moved to @rpgk/systems/wfrp
+export interface WFRPSkill
+{
+    description : string;
+    value : number;
+}
+
+export interface WFRPSystemDetails
+{
+    skills : WFRPSkill[];
+    stats : WFRPStat[];
+}
 
 //----------------------------------------------------------------------------------------------------------------------
-
