@@ -4,7 +4,7 @@
 
 import type { Express } from 'express';
 import passport from 'passport';
-import GoogleStrategy from 'passport-google-oauth20';
+import { Strategy as GoogleStrategy, type Profile, type VerifyCallback } from 'passport-google-oauth20';
 import logging from '@strata-js/util-logging';
 
 // We just need to import this somewhere; here makes sense.
@@ -14,7 +14,7 @@ import './serialization.ts';
 import type { ServerConfig } from '../interfaces/config.ts';
 
 // Managers
-import * as accountMan from '../managers/account.ts';
+import { getManagers } from '../managers/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -26,6 +26,10 @@ export default {
     initialize(serverConfig : ServerConfig, app : Express, devMode = false) : void
     {
         const config = serverConfig.auth.google;
+        if(!config)
+        {
+            throw new Error('Google auth configuration is missing');
+        }
 
         const domain = devMode ? `http://localhost:${ serverConfig.http.port }` : process.env['DOMAIN'];
         const callbackURL = `${ domain }/auth/google/redirect`;
@@ -39,39 +43,46 @@ export default {
                 scope: [ 'profile', 'email' ],
                 state: true,
             },
-            async (_accessToken, _refreshToken, profile, done) =>
+            async (_accessToken : string, _refreshToken : string, profile : Profile, done : VerifyCallback) =>
             {
                 try
                 {
+                    const managers = await getManagers();
+
                     // TODO: Maybe support more than the first email?
-                    const email = profile.emails[0].value;
-                    const photo = profile.photos[0]?.value;
+                    const email = profile.emails?.[0]?.value;
+                    if(!email)
+                    {
+                        throw new Error('No email found in Google profile');
+                    }
+                    const photo = profile.photos?.[0]?.value;
 
                     let account;
-                    try { account = await accountMan.getByEmail(email); }
-                    catch (error)
+                    try { account = await managers.account.getByEmail(email); }
+                    catch (error : unknown)
                     {
-                        if(error.code === 'ERR_NOT_FOUND')
+                        const err = error as Error & { code ?: string };
+                        if(err.code === 'ERR_NOT_FOUND')
                         {
                             account = null;
                         }
                         else
                         {
-                            logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
-                            done(error);
+                            logger.error(`Encountered error during authentication:\n${ err.stack }`, err);
+                            done(err);
                         }
                     }
 
                     if(account)
                     {
-                        account = await accountMan.update(account.id, {
+                        account = await managers.account.update(account.id, {
                             name: account.name ?? profile.displayName ?? email.split('@')[0],
                             avatar: photo,
                         });
                     }
                     else
                     {
-                        account = await accountMan.add({
+                        account = await managers.account.add({
                             name: profile.displayName ?? email.split('@')[0],
                             avatar: photo,
                             email,
@@ -80,10 +91,11 @@ export default {
 
                     done(null, account);
                 }
-                catch (error)
+                catch (error : unknown)
                 {
-                    logger.error(`Encountered error during authentication:\n${ error.stack }`, error);
-                    done(error);
+                    const err = error as Error;
+                    logger.error(`Encountered error during authentication:\n${ err.stack }`, err);
+                    done(err);
                 }
             }
         ));

@@ -11,7 +11,8 @@ import type { DatabaseConfig, ServerConfig } from '../interfaces/config.ts';
 
 const logger = logging.getLogger('dbUtil');
 
-type AfterCreateCallback = (conn : any, done : any) => void;
+type DoneCallback = (err ?: Error | null, conn ?: unknown) => void;
+type AfterCreateCallback = (conn : unknown, done : DoneCallback) => void;
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -22,12 +23,12 @@ let dbInst : Knex | undefined;
 function _buildCustomAfterCreate(config : DatabaseConfig, afterCreate : AfterCreateCallback) : DatabaseConfig
 {
     // Modify the config to enable query tracing or foreign key constraints
-    const _afterCreate = config?.pool?.afterCreate ?? ((_conn, done) => done());
+    const _afterCreate = config?.pool?.afterCreate ?? ((_conn : unknown, done : DoneCallback) => done());
 
     // Create a new 'afterCreate' function that sets up sqlite.
-    const newAfterCreate = (dbConn, done) : void =>
+    const newAfterCreate = (dbConn : unknown, done : DoneCallback) : void =>
     {
-        afterCreate(dbConn, (err) =>
+        afterCreate(dbConn, (err ?: Error | null) =>
         {
             if(err)
             {
@@ -51,26 +52,27 @@ function _buildCustomAfterCreate(config : DatabaseConfig, afterCreate : AfterCre
 
 function _buildSqliteDB(config : DatabaseConfig) : Knex
 {
-    const newConf = _buildCustomAfterCreate(config, (dbConn, done) =>
+    const newConf = _buildCustomAfterCreate(config, (dbConn : unknown, done : DoneCallback) =>
     {
+        const conn = dbConn as any;
         if(config.traceQueries)
         {
             // Turn on tracing
-            dbConn.on('trace', (queryString) =>
+            conn.on('trace', (queryString : string) =>
             {
                 logger.trace('QUERY:', queryString);
             });
         }
 
         // Turn on foreign key constraints and WAL mode
-        dbConn.exec('PRAGMA foreign_keys = ON', (err) =>
+        conn.exec('PRAGMA foreign_keys = ON', (err : Error | null) =>
         {
             if(err)
             {
                 return done(err);
             }
 
-            dbConn.exec('PRAGMA journal_mode = WAL', (err1) =>
+            conn.exec('PRAGMA journal_mode = WAL', (err1 : Error | null) =>
             {
                 done(err1, dbConn);
             });
@@ -84,12 +86,13 @@ function _buildSqliteDB(config : DatabaseConfig) : Knex
 
 function _buildPostgresDB(config : DatabaseConfig) : Knex
 {
-    const newConf = _buildCustomAfterCreate(config, (dbConn, done) =>
+    const newConf = _buildCustomAfterCreate(config, (dbConn : unknown, done : DoneCallback) =>
     {
+        const conn = dbConn as any;
         if(config.traceQueries)
         {
             // Turn on tracing
-            dbConn.on('query', (queryString) =>
+            conn.on('query', (queryString : string) =>
             {
                 logger.trace('QUERY:', queryString);
             });

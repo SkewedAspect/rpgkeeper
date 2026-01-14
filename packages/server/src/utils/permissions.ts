@@ -17,7 +17,7 @@ export async function loadRoles(roles : Role[]) : Promise<void>
     tp.default.loadGroups(roles);
 }
 
-export function hasPerm(user : Account, perm : string) : boolean
+export function hasPerm(user : Account | undefined, perm : string) : boolean
 {
     if(!user)
     {
@@ -27,7 +27,7 @@ export function hasPerm(user : Account, perm : string) : boolean
     return tp.default.hasPerm(user, perm);
 }
 
-export function hasGroup(user : Account, groupName : string) : boolean
+export function hasGroup(user : Account | undefined, groupName : string) : boolean
 {
     if(!user)
     {

@@ -6,7 +6,7 @@ import express from 'express';
 import logging from '@strata-js/util-logging';
 
 // Managers
-import * as accountMan from '../managers/account.ts';
+import { getManagers } from '../managers/index.ts';
 import * as permsMan from '../utils/permissions.ts';
 
 // Validation
@@ -28,7 +28,8 @@ router.get(
     processRequest({ query: AccountValidators.AccountFilter }),
     async (req, resp) =>
     {
-        resp.json((await accountMan.list(req.query)).map((accountObj) =>
+        const managers = await getManagers();
+        resp.json((await managers.account.list(req.query)).map((accountObj) =>
         {
             const {
                 permissions,
@@ -46,8 +47,9 @@ router.get(
     processRequest({ params: AccountValidators.UpdateParams }),
     async (req, resp) =>
     {
+        const managers = await getManagers();
         const user = req.user;
-        const account = await accountMan.get(req.params.accountID);
+        const account = await managers.account.get(req.params.accountID);
 
         const sameOrAdmin = user && (user.id === req.params.accountID || permsMan.hasPerm(
             user,
@@ -80,6 +82,12 @@ router.patch(
     }),
     async (req, resp) =>
     {
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const managers = await getManagers();
         const user = req.user;
         const targetID = req.params.accountID;
 
@@ -95,7 +103,7 @@ router.patch(
         }
 
         // Update the account
-        const newAccount = await accountMan.update(targetID, req.body);
+        const newAccount = await managers.account.update(targetID, req.body);
         resp.json(newAccount);
     }
 );

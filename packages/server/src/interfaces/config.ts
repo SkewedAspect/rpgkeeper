@@ -27,7 +27,7 @@ export interface HTTPConfig
 {
     host ?: string;
     port : number;
-    secure : string;
+    secure : boolean | 'auto';
 }
 
 export interface DatabaseConfig extends Knex.Config

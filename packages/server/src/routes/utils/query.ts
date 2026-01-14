@@ -37,7 +37,8 @@ export type FilterOperation = '>=' | '@>' | '>' | '<=' | '<' | '=';
 export interface FilterToken
 {
     operation : FilterOperation,
-    value : QueryFilterVal
+    value : QueryFilterVal,
+    isArray ?: boolean
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -246,7 +247,7 @@ export function convertQueryToRecord(request : Request) : Record<string, string 
  */
 export function parseQuery(queryObj : Record<string, string | string[]>) : Record<string, FilterToken>
 {
-    const parseTree = {};
+    const parseTree : Record<string, FilterToken> = {};
     for(const [ key, value ] of Object.entries(queryObj))
     {
         // Convert arrays into single strings
@@ -294,7 +295,7 @@ export function parseQuery(queryObj : Record<string, string | string[]>) : Recor
  * @param queryObj
  * @param list
  */
-export function filterByQuery(queryObj : Record<string, string>, list : QueryFilterVal[]) : unknown[]
+export function filterByQuery(queryObj : Record<string, string>, list : Record<string, QueryFilterVal>[]) : unknown[]
 {
     // Build filters
     const filters : Record<string, (modelVal : QueryFilterVal) => boolean> = {};

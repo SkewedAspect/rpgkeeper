@@ -28,6 +28,12 @@ export interface CharacterDBSchema extends Omit<
 export function toDB(character : Character) : Omit<CharacterDBSchema, 'created' | 'updated'>
 {
     const { id, details, accountID, noteID, created, updated, ...rest } = character;
+
+    if(!id)
+    {
+        throw new Error('Cannot convert character to DB format: character has no ID');
+    }
+
     return {
         ...rest,
         character_id: id,
@@ -49,7 +55,7 @@ export function fromDB(character : CharacterDBSchema) : Character
         thumbnail: rest.thumbnail,
         color: rest.color,
         campaign: rest.campaign,
-        details: fromJSON(details) ?? {},
+        details: fromJSON(details ?? '{}') ?? {},
         noteID: note_id,
         accountID: account_id,
         created: fromDBTimestamp(created),

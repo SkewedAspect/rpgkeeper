@@ -54,7 +54,7 @@ export function toDB(notebook : Notebook) : NotebookDBRecord
 {
     return {
         notebook_id: notebook.id,
-        pages: notebook.pages.map(pageToDB),
+        pages: (notebook.pages ?? []).map(pageToDB),
     };
 }
 

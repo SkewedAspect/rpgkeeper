@@ -5,7 +5,7 @@
 import type { IRouter } from 'express';
 
 // Managers
-import * as suppMan from '../../../managers/supplement.ts';
+import { getManagers } from '../../../managers/index.ts';
 
 // Validation
 import * as SuppValidators from '../../../engines/validation/models/supplement.ts';
@@ -24,17 +24,19 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
 
     router.get(path, async(req, resp) =>
     {
+        const managers = await getManagers();
         const query = convertQueryToRecord(req);
         const filters = parseQuery(query);
-        resp.json(await suppMan.list(filters, type, systemPrefix, req.user));
+        resp.json(await managers.supplement.list(filters, type, systemPrefix, req.user));
     });
 
     router.get(`${ path }/:suppID`, processRequest({ params: SuppValidators.RouteParams }), async(req, resp) =>
     {
+        const managers = await getManagers();
         const suppID = parseInt(req.params.suppID);
         if(Number.isFinite(suppID))
         {
-            resp.json(await suppMan.get(suppID, type, systemPrefix, req.user));
+            resp.json(await managers.supplement.get(suppID, type, systemPrefix, req.user));
         }
         else
         {
@@ -49,10 +51,11 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
     router.post(
         path,
         ensureAuthenticated,
-        processRequest({ body: SuppValidators.Supplement.omit({ id: true }) }), 
+        processRequest({ body: SuppValidators.Supplement.omit({ id: true }) }),
         async(req, resp) =>
         {
-            resp.json(await suppMan.add(req.body, type, systemPrefix, req.user));
+            const managers = await getManagers();
+            resp.json(await managers.supplement.add(req.body, type, systemPrefix, req.user));
         }
     );
 
@@ -62,10 +65,11 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         processRequest({ params: SuppValidators.RouteParams, body: SuppValidators.Supplement }),
         async(req, resp) =>
         {
+            const managers = await getManagers();
             const suppID = parseInt(req.params.suppID);
             if(Number.isFinite(suppID))
             {
-                resp.json(await suppMan.update(suppID, req.body, type, systemPrefix, req.user));
+                resp.json(await managers.supplement.update(suppID, req.body, type, systemPrefix, req.user));
             }
             else
             {
@@ -84,10 +88,11 @@ export function buildSupplementRoute(router : IRouter, path : string, type : str
         processRequest({ params: SuppValidators.RouteParams }),
         async(req, resp) =>
         {
+            const managers = await getManagers();
             const suppID = parseInt(req.params.suppID);
             if(Number.isFinite(suppID))
             {
-                resp.json(await suppMan.remove(suppID, type, systemPrefix, req.user));
+                resp.json(await managers.supplement.remove(suppID, type, systemPrefix, req.user));
             }
             else
             {

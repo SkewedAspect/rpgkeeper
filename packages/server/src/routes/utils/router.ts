@@ -127,7 +127,7 @@ export function interceptHTML(response : Response, jsonHandler : JsonHandlerFunc
 {
     response.format({
         html: serveIndex,
-        json(request, resp, next)
+        json(request : Request, resp : Response, next : NextFunction)
         {
             if(!skipAuthCheck || request.isAuthenticated())
             {

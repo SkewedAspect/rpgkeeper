@@ -10,9 +10,27 @@ import { systemRegistry } from '@rpgk/systems/definitions';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export function list() : SystemDefinition[]
+/**
+ * System Resource Access - provides access to registered RPG system definitions.
+ *
+ * Note: Unlike other RAs, this doesn't require a database connection since systems
+ * are registered in memory via the @rpgk/systems package.
+ */
+export class SystemResourceAccess
 {
-    return systemRegistry.getAll();
+    // No db dependency - systems are in-memory from the registry
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    list() : SystemDefinition[]
+    {
+        return systemRegistry.getAll();
+    }
+
+    get(systemID : string) : SystemDefinition | undefined
+    {
+        return systemRegistry.get(systemID);
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------

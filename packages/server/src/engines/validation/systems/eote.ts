@@ -7,8 +7,7 @@ import type { Account } from '@rpgk/core/models/account';
 import type { EoteCharacter, GenesysCharacter } from '@rpgk/core/models/systems/eote';
 
 // Managers
-import * as accountMan from '../../../managers/account.ts';
-import * as suppMan from '../../../managers/supplement.ts';
+import { getManagers } from '../../../managers/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -36,33 +35,34 @@ function isNumbers(array : number[] | SupplementRef[]) : array is number[]
 
 async function validateMotivations(character : GenesysCharacter, account : Account) : Promise<void>
 {
+    const managers = await getManagers();
     const motivations = character.details.motivations;
 
     // Check strength
     if(motivations.strength !== null)
     {
-        motivations.strength = (await suppMan.exists(motivations.strength, 'motivation', 'genesys', account))
-            ? motivations.strength : null;
+        const exists = await managers.supplement.exists(motivations.strength, 'motivation', 'genesys', account);
+        motivations.strength = exists ? motivations.strength : null;
     }
 
     // Check flaw
     if(motivations.flaw !== null)
     {
-        motivations.flaw = (await suppMan.exists(motivations.flaw, 'motivation', 'genesys', account))
+        motivations.flaw = (await managers.supplement.exists(motivations.flaw, 'motivation', 'genesys', account))
             ? motivations.flaw : null;
     }
 
     // Check desire
     if(motivations.desire !== null)
     {
-        motivations.desire = (await suppMan.exists(motivations.desire, 'motivation', 'genesys', account))
+        motivations.desire = (await managers.supplement.exists(motivations.desire, 'motivation', 'genesys', account))
             ? motivations.desire : null;
     }
 
     // Check fear
     if(motivations.fear !== null)
     {
-        motivations.fear = (await suppMan.exists(motivations.fear, 'motivation', 'genesys', account))
+        motivations.fear = (await managers.supplement.exists(motivations.fear, 'motivation', 'genesys', account))
             ? motivations.fear : null;
     }
 }
@@ -86,6 +86,7 @@ async function validateSuppRef(
     account : Account
 ) : Promise<SupplementRef[] | number[]>
 {
+    const managers = await getManagers();
     let wasNums = false;
     if(isNumbers(suppRefs))
     {
@@ -97,7 +98,7 @@ async function validateSuppRef(
 
     await Promise.all(suppRefs.map(async(supp) =>
     {
-        if(!(await suppMan.exists(supp.id, type, systemPrefix, account)))
+        if(!(await managers.supplement.exists(supp.id, type, systemPrefix, account)))
         {
             toRemove.push(supp.id);
         }
@@ -124,7 +125,8 @@ export async function validateGenesysDetails(character : GenesysCharacter) : Pro
 {
     // We get the owner of the character, as that's how we check for validity; not based on the person wanting to
     // retrieve it.
-    const account = await accountMan.get(character.accountID);
+    const managers = await getManagers();
+    const account = await managers.account.get(character.accountID);
 
     // We pull some type shenanigans to keep from casting every key.
     const details = character.details as unknown as CharDetails;
@@ -152,7 +154,8 @@ export async function validateEoteDetails(character : EoteCharacter) : Promise<E
 {
     // We get the owner of the character, as that's how we check for validity; not based on the person wanting to
     // retrieve it.
-    const account = await accountMan.get(character.accountID);
+    const managers = await getManagers();
+    const account = await managers.account.get(character.accountID);
 
     // We pull some type shenanigans to keep from casting every key.
     const details = character.details as unknown as CharDetails;

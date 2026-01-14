@@ -57,7 +57,6 @@ declare module 'vue' {
     BTd: typeof import('bootstrap-vue-next/components/BTable')['BTd']
     BTh: typeof import('bootstrap-vue-next/components/BTable')['BTh']
     BThead: typeof import('bootstrap-vue-next/components/BTable')['BThead']
-    BToastOrchestrator: typeof import('bootstrap-vue-next/components/BToast')['BToastOrchestrator']
     BTooltip: typeof import('bootstrap-vue-next/components/BTooltip')['BTooltip']
     BTr: typeof import('bootstrap-vue-next/components/BTable')['BTr']
     RouterLink: typeof import('vue-router')['RouterLink']

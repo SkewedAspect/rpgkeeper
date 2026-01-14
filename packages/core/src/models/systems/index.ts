@@ -5,8 +5,9 @@
 export * from './coc.ts';
 export * from './eote.ts';
 export * from './fate.ts';
-export * from './risus.ts';
 export * from './supplements.ts';
 export * from './wfrp.ts';
+
+// Note: Risus models have been moved to @rpgk/systems/risus
 
 //----------------------------------------------------------------------------------------------------------------------

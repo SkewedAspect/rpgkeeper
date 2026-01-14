@@ -69,8 +69,8 @@ export interface CoCWeapon extends Omit<Supplement, 'id'>
     damage : string;
     range : string;
     attacks : number;
-    ammo : number;
-    malfunction : number;
+    ammo : number | null;
+    malfunction : number | null;
     skill : string; // TODO: This is a skill name, should be a reference to a skill
 }
 

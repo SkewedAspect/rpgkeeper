@@ -5,8 +5,7 @@
 import express from 'express';
 
 // Managers
-import * as campMan from '../managers/campaign.ts';
-import * as charMan from '../managers/character.ts';
+import { getManagers } from '../managers/index.ts';
 
 // Validation
 import * as CampValidators from '../engines/validation/models/campaign.ts';
@@ -32,6 +31,7 @@ router.get('/', processRequest({ query: CampValidators.CampFilter }), async (req
 {
     interceptHTML(resp, async () =>
     {
+        const managers = await getManagers();
         const query = convertQueryToRecord(req);
 
         // Handle the `account` query parameter specially
@@ -49,7 +49,7 @@ router.get('/', processRequest({ query: CampValidators.CampFilter }), async (req
         }
 
         const filters = parseQuery(query);
-        resp.json(await campMan.list(filters, accountID));
+        resp.json(await managers.campaign.list(filters, accountID));
     });
 });
 
@@ -61,9 +61,15 @@ router.post(
     }),
     async (req, resp) =>
     {
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const managers = await getManagers();
         const camp = { ...req.body };
 
-        resp.json(await campMan.add(req.user.id, camp));
+        resp.json(await managers.campaign.add(req.user.id, camp));
     }
 );
 
@@ -71,7 +77,8 @@ router.get('/:campID', processRequest({ params: CampValidators.CampRouteParams }
 {
     interceptHTML(resp, async () =>
     {
-        resp.json(await campMan.get(req.params.campID));
+        const managers = await getManagers();
+        resp.json(await managers.campaign.get(req.params.campID));
     });
 });
 
@@ -84,16 +91,24 @@ router.patch(
     }),
     async (req, resp) =>
     {
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const managers = await getManagers();
+
         // First, get the campaign
-        const camp = await campMan.get(req.params.campID);
+        const camp = await managers.campaign.get(req.params.campID);
 
         // Allow either the owners, or moderators/admins to modify the campaign
+        const user = req.user;
         const owners = camp.participants.filter((part) => part.role === 'owner');
-        if(owners.some((part) => part.accountID === req.user.id)
-            || permsUtil.hasPerm(req.user, 'campaign/canModifyCamp'))
+        if(owners.some((part) => part.accountID === user.id)
+            || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Update the campaign
-            resp.json(await campMan.update(req.params.campID, req.body));
+            resp.json(await managers.campaign.update(req.params.campID, req.body));
         }
         else
         {
@@ -112,18 +127,20 @@ router.delete(
     processRequest({ params: CampValidators.CampRouteParams }),
     async (req, resp) =>
     {
+        const managers = await getManagers();
         let camp;
         try
         {
             // First, retrieve the campaign
-            camp = await campMan.get(req.params.campID);
+            camp = await managers.campaign.get(req.params.campID);
         }
-        catch (error)
+        catch (error : unknown)
         {
             // If we can't find the campaign, we need to emulate the behavior of the other delete endpoints, and
             // return a 404 with no body. While this isn't technically necessary, I'd prefer the API to remain
             // consistent.
-            if(error.code === 'ERR_NOT_FOUND')
+            const err = error as Error & { code ?: string };
+            if(err.code === 'ERR_NOT_FOUND')
             {
                 resp.status(404)
                     .end();
@@ -135,12 +152,18 @@ router.delete(
             }
         }
 
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const user = req.user;
         const owners = camp.participants.filter((part) => part.role === 'owner');
-        if(owners.some((part) => part.accountID === req.user.id)
-            || permsUtil.hasPerm(req.user, 'campaign/canDeleteCamp'))
+        if(owners.some((part) => part.accountID === user.id)
+            || permsUtil.hasPerm(user, 'campaign/canDeleteCamp'))
         {
             // Delete the campaign
-            resp.json(await campMan.remove(req.params.campID));
+            resp.json(await managers.campaign.remove(req.params.campID));
         }
         else
         {
@@ -159,7 +182,8 @@ router.delete(
 
 router.get('/:campID/character', async (req, resp) =>
 {
-    resp.json(await campMan.getCharacters(req.params.campID));
+    const managers = await getManagers();
+    resp.json(await managers.campaign.getCharacters(req.params.campID));
 });
 
 router.post(
@@ -171,13 +195,14 @@ router.post(
     }),
     async (req, resp) =>
     {
+        const managers = await getManagers();
         const campID = req.params.campID;
         const charID = req.body.characterID;
         const role = req.body.role;
 
         // Ensure the character is owned by a participant in the campaign
-        const camp = await campMan.get(campID);
-        const char = await charMan.get(charID);
+        const camp = await managers.campaign.get(campID);
+        const char = await managers.character.get(charID);
 
         if(!char)
         {
@@ -201,7 +226,7 @@ router.post(
             return;
         }
 
-        resp.json(await campMan.addCharacter(campID, charID, role));
+        resp.json(await managers.campaign.addCharacter(campID, charID, role));
     }
 );
 
@@ -214,8 +239,10 @@ router.patch(
     }),
     async (req, resp) =>
     {
+        const managers = await getManagers();
+
         // Get the campaign
-        const camp = await campMan.get(req.params.campID);
+        const camp = await managers.campaign.get(req.params.campID);
 
         // Verify the character is even in the campaign
         if(!camp.characters.some((char) => char.characterID === req.params.charID))
@@ -229,15 +256,19 @@ router.patch(
             return;
         }
 
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
         // Allow either the owners, or moderators/admins to modify the campaign
+        const user = req.user;
         const owners = camp.participants.filter((part) => part.role === 'owner');
-        if(owners.some((part) => part.accountID === req.user.id) || permsUtil.hasPerm(
-            req.user,
-            'campaign/canModifyCamp'
-        ))
+        if(owners.some((part) => part.accountID === user.id)
+            || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Update the character
-            await campMan.addCharacter(req.params.campID, req.params.charID, req.body.role);
+            await managers.campaign.addCharacter(req.params.campID, req.params.charID, req.body.role);
             resp.status(204)
                 .end();
         }
@@ -260,16 +291,24 @@ router.delete(
     }),
     async (req, resp) =>
     {
-    // Get the campaign
-        const camp = await campMan.get(req.params.campID);
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const managers = await getManagers();
+
+        // Get the campaign
+        const camp = await managers.campaign.get(req.params.campID);
 
         // Allow either the owners, or moderators/admins to modify the campaign
+        const user = req.user;
         const owners = camp.participants.filter((part) => part.role === 'owner');
-        if(owners.some((part) => part.accountID === req.user.id)
-            || permsUtil.hasPerm(req.user, 'campaign/canModifyCamp'))
+        if(owners.some((part) => part.accountID === user.id)
+            || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
-        // Remove the character
-            await campMan.removeCharacter(req.params.campID, req.params.charID);
+            // Remove the character
+            await managers.campaign.removeCharacter(req.params.campID, req.params.charID);
             resp.status(204)
                 .end();
         }
@@ -290,7 +329,8 @@ router.delete(
 
 router.get('/:campID/note', processRequest({ query: CampValidators.CampFilter }), async (req, resp) =>
 {
-    resp.json(await campMan.getNotes(req.params.campID));
+    const managers = await getManagers();
+    resp.json(await managers.campaign.getNotes(req.params.campID));
 });
 
 router.post(
@@ -302,11 +342,12 @@ router.post(
     }),
     async (req, resp) =>
     {
+        const managers = await getManagers();
         const campID = req.params.campID;
         const viewers = req.body.viewers;
         const editors = req.body.editors;
 
-        resp.json(await campMan.addNote(campID, viewers, editors));
+        resp.json(await managers.campaign.addNote(campID, viewers, editors));
     }
 );
 
@@ -319,16 +360,25 @@ router.patch(
     }),
     async (req, resp) =>
     {
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const managers = await getManagers();
+
         // Get the campaign
-        const camp = await campMan.get(req.params.campID);
+        const camp = await managers.campaign.get(req.params.campID);
 
         // Allow either the owners, or moderators/admins to modify the campaign
+        const user = req.user;
         const owners = camp.participants.filter((part) => part.role === 'owner');
-        if(owners.some((part) => part.accountID === req.user.id)
-            || permsUtil.hasPerm(req.user, 'campaign/canModifyCamp'))
+        if(owners.some((part) => part.accountID === user.id)
+            || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Update the note
-            await campMan.updateNote(req.params.campID, req.params.noteID, req.body.viewers, req.body.editors);
+            const { viewers, editors } = req.body;
+            await managers.campaign.updateNote(req.params.campID, req.params.noteID, viewers, editors);
             resp.status(204)
                 .end();
         }
@@ -351,16 +401,24 @@ router.delete(
     }),
     async (req, resp) =>
     {
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const managers = await getManagers();
+
         // Get the campaign
-        const camp = await campMan.get(req.params.campID);
+        const camp = await managers.campaign.get(req.params.campID);
 
         // Allow either the owners, or moderators/admins to modify the campaign
+        const user = req.user;
         const owners = camp.participants.filter((part) => part.role === 'owner');
-        if(owners.some((part) => part.accountID === req.user.id)
-            || permsUtil.hasPerm(req.user, 'campaign/canModifyCamp'))
+        if(owners.some((part) => part.accountID === user.id)
+            || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Remove the note
-            await campMan.removeNote(req.params.campID, req.params.noteID);
+            await managers.campaign.removeNote(req.params.campID, req.params.noteID);
             resp.status(204)
                 .end();
         }
@@ -381,7 +439,8 @@ router.delete(
 
 router.get('/:campID/participant', processRequest({ query: CampValidators.CampFilter }), async (req, resp) =>
 {
-    resp.json(await campMan.getParticipants(req.params.campID));
+    const managers = await getManagers();
+    resp.json(await managers.campaign.getParticipants(req.params.campID));
 });
 
 router.post(
@@ -393,6 +452,7 @@ router.post(
     }),
     async (req, resp) =>
     {
+        const managers = await getManagers();
         const campID = req.params.campID;
         const accountID = req.body.accountID;
         const role = req.body.role;
@@ -414,16 +474,22 @@ router.post(
             return;
         }
 
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
         // Get the campaign
-        const camp = await campMan.get(campID);
+        const camp = await managers.campaign.get(campID);
 
         // Allow either the owners, or moderators/admins to modify the campaign
+        const user = req.user;
         const owners = camp.participants.filter((part) => part.role === 'owner');
-        if(owners.some((part) => part.accountID === req.user.id)
-            || permsUtil.hasPerm(req.user, 'campaign/canModifyCamp'))
+        if(owners.some((part) => part.accountID === user.id)
+            || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Add the participant
-            await campMan.addAccount(campID, accountID, role);
+            await managers.campaign.addAccount(campID, accountID, role);
             resp.status(204)
                 .end();
         }
@@ -447,16 +513,24 @@ router.patch(
     }),
     async (req, resp) =>
     {
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const managers = await getManagers();
+
         // Get the campaign
-        const camp = await campMan.get(req.params.campID);
+        const camp = await managers.campaign.get(req.params.campID);
 
         // Allow either the owners, or moderators/admins to modify the campaign
+        const user = req.user;
         const owners = camp.participants.filter((part) => part.role === 'owner');
-        if(owners.some((part) => part.accountID === req.user.id)
-            || permsUtil.hasPerm(req.user, 'campaign/canModifyCamp'))
+        if(owners.some((part) => part.accountID === user.id)
+            || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Update the participant
-            await campMan.addAccount(req.params.campID, req.params.accountID, req.body.role);
+            await managers.campaign.addAccount(req.params.campID, req.params.accountID, req.body.role);
             resp.status(204)
                 .end();
         }
@@ -479,16 +553,24 @@ router.delete(
     }),
     async (req, resp) =>
     {
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const managers = await getManagers();
+
         // Get the campaign
-        const camp = await campMan.get(req.params.campID);
+        const camp = await managers.campaign.get(req.params.campID);
 
         // Allow either the owners, or moderators/admins to modify the campaign
+        const user = req.user;
         const owners = camp.participants.filter((part) => part.role === 'owner');
-        if(owners.some((part) => part.accountID === req.user.id)
-            || permsUtil.hasPerm(req.user, 'campaign/canModifyCamp'))
+        if(owners.some((part) => part.accountID === user.id)
+            || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Remove the participant
-            await campMan.removeAccount(req.params.campID, req.params.accountID);
+            await managers.campaign.removeAccount(req.params.campID, req.params.accountID);
             resp.status(204)
                 .end();
         }

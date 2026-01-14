@@ -5,7 +5,7 @@
 import express from 'express';
 
 // Managers
-import * as refMan from '../../managers/reference.ts';
+import { getManagers } from '../../managers/index.ts';
 
 // Defaults from @rpgk/systems
 import { cocDefaults, defaultSkills, modernSkills, specializations } from '@rpgk/systems/definitions';
@@ -28,9 +28,10 @@ buildSupplementRoute(router, '/weapons', 'weapon', 'coc');
 
 router.get('/references', async(req, resp) =>
 {
+    const managers = await getManagers();
     const query = convertQueryToRecord(req);
     const filters = parseQuery(query);
-    resp.json(await refMan.list(filters, 'coc_reference'));
+    resp.json(await managers.reference.list(filters, 'coc_reference'));
 });
 
 router.get('/defaults', async(_req, resp) =>

@@ -6,7 +6,7 @@ import express from 'express';
 import logging from '@strata-js/util-logging';
 
 // Managers
-import * as noteMan from '../managers/notebook.ts';
+import { getManagers } from '../managers/index.ts';
 import { hasPerm } from '../utils/permissions.ts';
 
 // Validation
@@ -30,9 +30,10 @@ router.get(
     {
         if(req.isAuthenticated() && await hasPerm(req.user, 'Notes/canViewAll'))
         {
+            const managers = await getManagers();
             const query = convertQueryToRecord(req);
             const filters = { id: query.id, email: query.email, title: query.title };
-            resp.json(await noteMan.list(filters));
+            resp.json(await managers.notebook.list(filters));
         }
         else
         {
@@ -52,8 +53,9 @@ router.post(
     processRequest({ body: NotebookValidators.Notebook.partial({ id: true }) }),
     async(req, resp) =>
     {
+        const managers = await getManagers();
         const pages = req.body.pages;
-        resp.json(await noteMan.add(pages));
+        resp.json(await managers.notebook.add(pages));
     }
 );
 
@@ -62,7 +64,8 @@ router.get(
     processRequest({ params: NotebookValidators.RouteParams }),
     async(req, resp) =>
     {
-        resp.json(await noteMan.get(req.params.noteID));
+        const managers = await getManagers();
+        resp.json(await managers.notebook.get(req.params.noteID));
     }
 );
 
@@ -75,13 +78,14 @@ router.post(
     }),
     async(req, resp) =>
     {
+        const managers = await getManagers();
         const page = req.body;
 
         // We're creating a new page, so we don't allow page id.
         delete page.id;
 
         // Update the note
-        resp.json(await noteMan.addPage(req.params.noteID, page));
+        resp.json(await managers.notebook.addPage(req.params.noteID, page));
     }
 );
 
@@ -94,8 +98,10 @@ router.patch(
     ensureAuthenticated,
     async(req, resp) =>
     {
+        const managers = await getManagers();
+
         // Update the note
-        const newPage = await noteMan.updatePage(req.params.pageID, req.body);
+        const newPage = await managers.notebook.updatePage(req.params.pageID, req.body);
         resp.json(newPage);
     }
 );
@@ -106,8 +112,10 @@ router.delete(
     processRequest({ params: NotebookValidators.RouteParams }),
     async(req, resp) =>
     {
-    // We don't check for existence, so we can be idempotent
-        resp.json(await noteMan.remove(req.params.noteID));
+        const managers = await getManagers();
+
+        // We don't check for existence, so we can be idempotent
+        resp.json(await managers.notebook.remove(req.params.noteID));
     }
 );
 
@@ -117,9 +125,11 @@ router.delete(
     processRequest({ params: NotebookValidators.RouteParams }),
     async(req, resp) =>
     {
+        const managers = await getManagers();
+
         try
         {
-            resp.json(await noteMan.removePage(req.params.pageID));
+            resp.json(await managers.notebook.removePage(req.params.pageID));
         }
         catch (error)
         {

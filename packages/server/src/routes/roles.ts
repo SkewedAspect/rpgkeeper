@@ -7,7 +7,7 @@ import express from 'express';
 import { errorHandler } from './utils/index.ts';
 
 // Managers
-import * as rolesMan from '../managers/role.ts';
+import { getManagers } from '../managers/index.ts';
 
 // Logger
 import logging from '@strata-js/util-logging';
@@ -21,7 +21,8 @@ const router = express.Router();
 
 router.get('/', async(_req, resp) =>
 {
-    resp.json((await rolesMan.list()));
+    const managers = await getManagers();
+    resp.json(await managers.role.list());
 });
 
 //----------------------------------------------------------------------------------------------------------------------

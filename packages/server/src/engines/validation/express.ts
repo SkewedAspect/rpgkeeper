@@ -18,7 +18,7 @@ interface ProcessRequestSchema
 
 export function processRequest(schema : ProcessRequestSchema) : any
 {
-    return async function(req : Request, res : Response, next : NextFunction) : Promise<void>
+    return async function(req : Request, _res : Response, next : NextFunction) : Promise<void>
     {
         const errors : any[] = [];
 
@@ -94,7 +94,7 @@ export function processRequest(schema : ProcessRequestSchema) : any
     };
 }
 
-export function validationErrorHandler(err : any, req : Request, res : Response, next : NextFunction) : void
+export function validationErrorHandler(err : any, _req : Request, res : Response, next : NextFunction) : void
 {
     if(Array.isArray(err))
     {

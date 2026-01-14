@@ -5,7 +5,7 @@
 import passport from 'passport';
 
 // Managers
-import * as accountMan from '../managers/account.ts';
+import { getManagers } from '../managers/index.ts';
 
 // Models
 import type { Account } from '@rpgk/core/models/account';
@@ -21,7 +21,8 @@ passport.deserializeUser(async(id : string, done) =>
 {
     try
     {
-        const account = await accountMan.get(id);
+        const managers = await getManagers();
+        const account = await managers.account.get(id);
         done(null, account);
     }
     catch (error)

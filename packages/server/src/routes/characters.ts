@@ -5,10 +5,8 @@
 import express from 'express';
 
 // Managers
-import * as accountMan from '../managers/account.ts';
-import * as charMan from '../managers/character.ts';
+import { getManagers } from '../managers/index.ts';
 import * as permsMan from '../utils/permissions.ts';
-import sysMan from '../managers/system.ts';
 
 // Validation
 import * as CharValidators from '../engines/validation/models/character.ts';
@@ -31,6 +29,7 @@ router.get('/', processRequest({ query: CharValidators.CharFilter }), async(req,
 {
     interceptHTML(resp, async() =>
     {
+        const managers = await getManagers();
         const query = convertQueryToRecord(req);
 
         // If we pass in `owner`, it'll be an email address, so we need to look that up first, and shove the correct
@@ -48,13 +47,13 @@ router.get('/', processRequest({ query: CharValidators.CharFilter }), async(req,
             if(typeof owner === 'string')
             {
                 owner = owner.toLowerCase();
-                const account = await accountMan.getByEmail(owner);
+                const account = await managers.account.getByEmail(owner);
                 query.accountID = `${ account.id }`;
             }
         }
 
         const filters = parseQuery(query);
-        resp.json(await charMan.list(filters));
+        resp.json(await managers.character.list(filters));
     });
 });
 
@@ -66,12 +65,18 @@ router.post(
     }),
     async(req, resp) =>
     {
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
+        const managers = await getManagers();
         const char = { ...req.body };
-        const system = sysMan.get(char.system);
+        const system = managers.system.get(char.system);
 
         if(system)
         {
-            resp.json(await charMan.add(req.user.id, char));
+            resp.json(await managers.character.add(req.user.id, char));
         }
         else
         {
@@ -92,7 +97,8 @@ router.get(
     {
         interceptHTML(resp, async() =>
         {
-            resp.json(await charMan.get(req.params.charID));
+            const managers = await getManagers();
+            resp.json(await managers.character.get(req.params.charID));
         });
     }
 );
@@ -106,19 +112,27 @@ router.patch(
     }),
     async(req, resp) =>
     {
+        const managers = await getManagers();
+
         // First, retrieve the character
-        const char = await charMan.get(req.params.charID);
+        const char = await managers.character.get(req.params.charID);
 
         // Next, get the system
-        const system = sysMan.get(char.system);
+        const system = managers.system.get(char.system);
+
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
 
         if(system)
         {
             // Allow either the owner, or moderators/admins to modify the character
-            if(char.accountID === req.user.id || permsMan.hasPerm(req.user, `${ char.system }/canModifyChar`))
+            const user = req.user;
+            if(char.accountID === user.id || permsMan.hasPerm(user, `${ char.system }/canModifyChar`))
             {
                 // Update the character
-                resp.json(await charMan.update(req.params.charID, req.body));
+                resp.json(await managers.character.update(req.params.charID, req.body));
             }
             else
             {
@@ -147,18 +161,20 @@ router.delete(
     processRequest({ params: CharValidators.RouteParams }),
     async(req, resp) =>
     {
+        const managers = await getManagers();
         let char;
         try
         {
             // First, retrieve the character
-            char = await charMan.get(req.params.charID);
+            char = await managers.character.get(req.params.charID);
         }
-        catch (error)
+        catch (error : unknown)
         {
             // If we can't find the character, we need to emulate the behavior of the other delete endpoints, and
             // return a 404 with no body. While this isn't technically necessary, I'd prefer the API to remain
             // consistent.
-            if(error.code === 'ERR_NOT_FOUND')
+            const err = error as Error & { code ?: string };
+            if(err.code === 'ERR_NOT_FOUND')
             {
                 resp.status(404).end();
                 return;
@@ -169,11 +185,17 @@ router.delete(
             }
         }
 
+        if(!req.user)
+        {
+            throw new Error('User not authenticated');
+        }
+
         // Allow either the owner, or moderators/admins to delete the character
-        if(char.accountID === req.user.id || permsMan.hasPerm(req.user, `${ char.system }/canDeleteChar`))
+        const user = req.user;
+        if(char.accountID === user.id || permsMan.hasPerm(user, `${ char.system }/canDeleteChar`))
         {
             // Delete the character
-            resp.json(await charMan.remove(req.params.charID));
+            resp.json(await managers.character.remove(req.params.charID));
         }
         else
         {

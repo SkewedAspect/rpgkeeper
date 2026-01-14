@@ -18,7 +18,7 @@ import logging from '@strata-js/util-logging';
 import { Server as SIOServer } from 'socket.io';
 
 // Managers
-import * as rolesMan from './managers/role.ts';
+import { getManagers } from './managers/index.ts';
 import * as permsUtil from './utils/permissions.ts';
 
 // Session Store
@@ -92,7 +92,8 @@ async function main() : Promise<void>
     // Initialize managers
     //------------------------------------------------------------------------------------------------------------------
 
-    const roles = await rolesMan.list();
+    const managers = await getManagers();
+    const roles = await managers.role.list();
     await permsUtil.loadRoles(roles);
 
     //------------------------------------------------------------------------------------------------------------------

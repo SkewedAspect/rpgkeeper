@@ -1,28 +1,37 @@
 //----------------------------------------------------------------------------------------------------------------------
-// System Manager
+// System Sub-Manager
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
 import type { Character, SystemDefinition } from '@rpgk/core';
 
 // Engines
-import systemsEngine from '../engines/system.ts';
+import systemsEngine from '../../engines/system.ts';
 
 // Resource Access
-import * as sysRA from '../resource-access/system.ts';
+import type { EntityResourceAccess } from '../../resource-access/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-class SystemManager
+export class SystemSubManager
 {
+    private entities : EntityResourceAccess;
+
+    constructor(entities : EntityResourceAccess)
+    {
+        this.entities = entities;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
     get systems() : SystemDefinition[]
     {
-        return sysRA.list();
+        return this.entities.system.list();
     }
 
     get(id : string) : SystemDefinition | undefined
     {
-        return sysRA.list().find((sys) => sys.id === id);
+        return this.entities.system.get(id);
     }
 
     async validateCharacterDetails(character : Character) : Promise<Character>
@@ -30,9 +39,5 @@ class SystemManager
         return systemsEngine.validateCharacterDetails(character);
     }
 }
-
-//----------------------------------------------------------------------------------------------------------------------
-
-export default new SystemManager();
 
 //----------------------------------------------------------------------------------------------------------------------

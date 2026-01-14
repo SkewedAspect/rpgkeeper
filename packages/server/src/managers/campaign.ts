@@ -2,10 +2,6 @@
 // Campaign Manager
 //----------------------------------------------------------------------------------------------------------------------
 
-// Managers
-import * as accountMan from './account.ts';
-import * as notebookMan from './notebook.ts';
-
 // Models
 import type {
     Campaign,
@@ -16,143 +12,177 @@ import type {
     CharacterRole,
 } from '@rpgk/core';
 
+// Engines
+import type { NotebookEngine } from '../engines/notebook.ts';
+
 // Resource Access
-import * as campaignRA from '../resource-access/campaign.ts';
+import type { EntityResourceAccess } from '../resource-access/index.ts';
 
 // Utils
 import type { FilterToken } from '../routes/utils/index.ts';
 import { broadcast } from '../utils/sio.ts';
 
+// Sub-Managers (for cross-manager calls)
+import type { AccountSubManager } from './identity/index.ts';
+
 //----------------------------------------------------------------------------------------------------------------------
 
-export async function _getAccountIDFromEmailOrID(maybeEmail ?: string) : Promise<string>
+export class CampaignManager
 {
-    if(maybeEmail?.includes('@'))
+    private entities : EntityResourceAccess;
+    private accountManager : AccountSubManager;
+    private notebookEngine : NotebookEngine;
+
+    constructor(entities : EntityResourceAccess, accountManager : AccountSubManager, notebookEngine : NotebookEngine)
     {
-        // Look up the account ID by email
-        const account = await accountMan.getByEmail(maybeEmail);
-        return account.id;
+        this.entities = entities;
+        this.accountManager = accountManager;
+        this.notebookEngine = notebookEngine;
     }
 
-    // It's already an account ID, probably
-    return maybeEmail;
-}
+    //------------------------------------------------------------------------------------------------------------------
+    // Private Helpers
+    //------------------------------------------------------------------------------------------------------------------
 
-//----------------------------------------------------------------------------------------------------------------------
+    private async getAccountIDFromEmailOrID(maybeEmail ?: string) : Promise<string | undefined>
+    {
+        if(maybeEmail?.includes('@'))
+        {
+            // Look up the account ID by email
+            const account = await this.accountManager.getByEmail(maybeEmail);
+            return account.id;
+        }
 
-export async function get(id : string) : Promise<Campaign>
-{
-    return campaignRA.get(id);
-}
+        // It's already an account ID, probably
+        return maybeEmail;
+    }
 
-export async function getCharacters(campID : string) : Promise<CampaignCharacter[]>
-{
-    return campaignRA.getCharacters(campID);
-}
+    //------------------------------------------------------------------------------------------------------------------
+    // Public API
+    //------------------------------------------------------------------------------------------------------------------
 
-export async function getNotes(campID : string) : Promise<CampaignNote[]>
-{
-    return campaignRA.getNotes(campID);
-}
+    async get(id : string) : Promise<Campaign>
+    {
+        return this.entities.campaign.get(id);
+    }
 
-export async function getParticipants(campID : string) : Promise<CampaignParticipant[]>
-{
-    return campaignRA.getParticipants(campID);
-}
+    async getCharacters(campID : string) : Promise<CampaignCharacter[]>
+    {
+        return this.entities.campaign.getCharacters(campID);
+    }
 
-export async function list(filters : Record<string, FilterToken> = {}, accountID ?: string) : Promise<Campaign[]>
-{
-    accountID = await _getAccountIDFromEmailOrID(accountID);
-    return campaignRA.list(filters, accountID);
-}
+    async getNotes(campID : string) : Promise<CampaignNote[]>
+    {
+        return this.entities.campaign.getNotes(campID);
+    }
 
-export async function add(accountID : string, newCampaign : Omit<Campaign, 'id'>) : Promise<Campaign>
-{
-    const newCamp = await campaignRA.add(accountID, newCampaign);
+    async getParticipants(campID : string) : Promise<CampaignParticipant[]>
+    {
+        return this.entities.campaign.getParticipants(campID);
+    }
 
-    // Broadcast the update
-    await broadcast('/campaign', {
-        type: 'add',
-        resource: newCamp.id,
-        payload: newCamp,
-    });
+    async list(filters : Record<string, FilterToken> = {}, accountID ?: string) : Promise<Campaign[]>
+    {
+        accountID = await this.getAccountIDFromEmailOrID(accountID);
+        return this.entities.campaign.list(filters, accountID);
+    }
 
-    return newCamp;
-}
+    async add(accountID : string, newCampaign : Omit<Campaign, 'id'>) : Promise<Campaign>
+    {
+        const newCamp = await this.entities.campaign.add(accountID, newCampaign);
 
-export async function addAccount(campID : string, accountID : string, role : CampaignRole) : Promise<void>
-{
-    accountID = await _getAccountIDFromEmailOrID(accountID);
-    await campaignRA.addAccount(campID, accountID, role);
-}
+        // Broadcast the update
+        await broadcast('/campaign', {
+            type: 'add',
+            resource: newCamp.id,
+            payload: newCamp,
+        });
 
-export async function removeAccount(campID : string, accountID : string) : Promise<void>
-{
-    accountID = await _getAccountIDFromEmailOrID(accountID);
-    await campaignRA.removeAccount(campID, accountID);
-}
+        return newCamp;
+    }
 
-export async function addCharacter(campID : string, charID : string, role : CharacterRole) : Promise<void>
-{
-    await campaignRA.addCharacter(campID, charID, role);
-}
+    async addAccount(campID : string, accountID : string, role : CampaignRole) : Promise<void>
+    {
+        const resolvedID = await this.getAccountIDFromEmailOrID(accountID);
+        if(!resolvedID)
+        {
+            throw new Error('Account ID is required');
+        }
+        await this.entities.campaign.addAccount(campID, resolvedID, role);
+    }
 
-export async function removeCharacter(campID : string, charID : string) : Promise<void>
-{
-    await campaignRA.removeCharacter(campID, charID);
-}
+    async removeAccount(campID : string, accountID : string) : Promise<void>
+    {
+        const resolvedID = await this.getAccountIDFromEmailOrID(accountID);
+        if(!resolvedID)
+        {
+            throw new Error('Account ID is required');
+        }
+        await this.entities.campaign.removeAccount(campID, resolvedID);
+    }
 
-export async function addNote(
-    campID : string,
-    viewers : CampaignRole[],
-    editors : CampaignRole[]
-) : Promise<void>
-{
-    const notebook = await notebookMan.add();
-    await campaignRA.addNote(campID, notebook.id, viewers, editors);
-}
+    async addCharacter(campID : string, charID : string, role : CharacterRole) : Promise<void>
+    {
+        await this.entities.campaign.addCharacter(campID, charID, role);
+    }
 
-export async function updateNote(
-    campID : string,
-    noteID : string,
-    viewers : CampaignRole[],
-    editors : CampaignRole[]
-) : Promise<void>
-{
-    await campaignRA.addNote(campID, noteID, viewers, editors);
-}
+    async removeCharacter(campID : string, charID : string) : Promise<void>
+    {
+        await this.entities.campaign.removeCharacter(campID, charID);
+    }
 
-export async function removeNote(campID : string, noteID : string) : Promise<void>
-{
-    await campaignRA.removeNote(campID, noteID);
-    await notebookMan.remove(noteID);
-}
+    async addNote(
+        campID : string,
+        viewers : CampaignRole[],
+        editors : CampaignRole[]
+    ) : Promise<void>
+    {
+        const notebook = await this.notebookEngine.add();
+        await this.entities.campaign.addNote(campID, notebook.id, viewers, editors);
+    }
 
-export async function update(campID : string, updateCamp : Partial<Campaign>) : Promise<Campaign>
-{
-    const newCamp = await campaignRA.update(campID, updateCamp);
+    async updateNote(
+        campID : string,
+        noteID : string,
+        viewers : CampaignRole[],
+        editors : CampaignRole[]
+    ) : Promise<void>
+    {
+        await this.entities.campaign.addNote(campID, noteID, viewers, editors);
+    }
 
-    // Broadcast the update
-    await broadcast('/campaign', {
-        type: 'update',
-        resource: campID,
-        payload: newCamp,
-    });
+    async removeNote(campID : string, noteID : string) : Promise<void>
+    {
+        await this.entities.campaign.removeNote(campID, noteID);
+        await this.notebookEngine.remove(noteID);
+    }
 
-    return newCamp;
-}
+    async update(campID : string, updateCamp : Partial<Campaign>) : Promise<Campaign>
+    {
+        const newCamp = await this.entities.campaign.update(campID, updateCamp);
 
-export async function remove(campID : string) : Promise<{ status : 'ok' }>
-{
-    await campaignRA.remove(campID);
+        // Broadcast the update
+        await broadcast('/campaign', {
+            type: 'update',
+            resource: campID,
+            payload: newCamp,
+        });
 
-    // Broadcast the update
-    await broadcast('/campaign', {
-        type: 'remove',
-        resource: campID,
-    });
+        return newCamp;
+    }
 
-    return { status: 'ok' };
+    async remove(campID : string) : Promise<{ status : 'ok' }>
+    {
+        await this.entities.campaign.remove(campID);
+
+        // Broadcast the update
+        await broadcast('/campaign', {
+            type: 'remove',
+            resource: campID,
+        });
+
+        return { status: 'ok' };
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------
