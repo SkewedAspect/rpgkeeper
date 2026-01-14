@@ -3,12 +3,15 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { SupportStatus, type SystemDefinition } from '@rpgk/core';
+
+// Local models
 import type {
     EoteSkill,
     EoteSystemDetails,
     GenesysSkill,
     GenesysSystemDetails,
-} from '@rpgk/core/models/systems/eote';
+} from './models.ts';
+import { EoteSystemDetailsSchema, GenesysSystemDetailsSchema } from './schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Genesys
@@ -117,14 +120,16 @@ const genesysDefaults : GenesysSystemDetails = {
     weapons: [] as any[],
 };
 
-export const genesysDefinition : SystemDefinition<GenesysSystemDetails> = {
-    id: 'genesys',
-    name: 'Genesys',
-    description: 'Genesys is a role playing system designed for flexibility and adaptability, specifically tooled to '
-        + 'work with any setting imaginable.',
-    status: SupportStatus.Beta,
-    defaults: genesysDefaults,
-};
+export const genesysDefinition : SystemDefinition<GenesysSystemDetails>
+    & { detailsSchema : typeof GenesysSystemDetailsSchema } = {
+        detailsSchema: GenesysSystemDetailsSchema,
+        id: 'genesys',
+        name: 'Genesys',
+        description: 'Genesys is a role playing system designed for flexibility and adaptability, '
+            + 'specifically tooled to work with any setting imaginable.',
+        status: SupportStatus.Beta,
+        defaults: genesysDefaults,
+    };
 
 //----------------------------------------------------------------------------------------------------------------------
 // EotE
@@ -191,13 +196,15 @@ const eoteDefaults : EoteSystemDetails = {
     skills: eoteSkills,
 };
 
-export const eoteDefinition : SystemDefinition<EoteSystemDetails> = {
-    id: 'eote',
-    name: 'Edge of the Empire',
-    description: "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.",
-    status: SupportStatus.Beta,
-    defaults: eoteDefaults,
-};
+export const eoteDefinition : SystemDefinition<EoteSystemDetails>
+    & { detailsSchema : typeof EoteSystemDetailsSchema } = {
+        detailsSchema: EoteSystemDetailsSchema,
+        id: 'eote',
+        name: 'Edge of the Empire',
+        description: "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.",
+        status: SupportStatus.Beta,
+        defaults: eoteDefaults,
+    };
 
 // Default export is EotE
 export default eoteDefinition;

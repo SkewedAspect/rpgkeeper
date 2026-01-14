@@ -2,8 +2,14 @@
 // Character Manager
 //----------------------------------------------------------------------------------------------------------------------
 
+import logging from '@strata-js/util-logging';
+
 // Models
 import type { Character, SavedCharacter } from '@rpgk/core';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const logger = logging.getLogger('character-manager');
 
 // Systems
 import { systemRegistry } from '@rpgk/systems/definitions';
@@ -45,6 +51,7 @@ export class CharacterManager
         // If no details provided, nothing to validate
         if(!character.details)
         {
+            logger.debug('Skipping validation: no details provided');
             return;
         }
 
@@ -52,6 +59,7 @@ export class CharacterManager
         const systemId = character.system;
         if(!systemId)
         {
+            logger.debug('Skipping validation: no system ID');
             return;
         }
 
@@ -59,12 +67,14 @@ export class CharacterManager
         const system = systemRegistry.get(systemId);
         if(!system?.detailsSchema)
         {
-            // No schema defined for this system - skip validation
+            logger.debug(`Skipping validation: no schema for system '${ systemId }'`);
             return;
         }
 
         // Validate the details against the schema (throws on failure)
+        logger.debug(`Validating character details for system '${ systemId }'`);
         system.detailsSchema.parse(character.details);
+        logger.debug(`Validation passed for system '${ systemId }'`);
     }
 
     //------------------------------------------------------------------------------------------------------------------

@@ -123,7 +123,7 @@
     import { ref } from 'vue';
 
     // Models
-    import type { EoteOrGenCharacter } from '@rpgk/core/models/systems';
+    import type { EoteOrGenCharacter } from '../../models.ts';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

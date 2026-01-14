@@ -277,7 +277,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteOrGenCharacter, EoteSkill } from '@rpgk/core/models/systems';
+    import type { EoteOrGenCharacter, EoteSkill } from '../../models.ts';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';

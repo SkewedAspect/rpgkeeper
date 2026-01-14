@@ -30,7 +30,7 @@
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
 
     // Models
-    import type { EoteCharacter } from '@rpgk/core/models/systems';
+    import type { EoteCharacter } from '../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';

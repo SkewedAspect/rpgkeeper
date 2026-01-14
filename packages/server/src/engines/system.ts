@@ -5,7 +5,7 @@
 import type { Character } from '@rpgk/core';
 
 // Models
-import type { EoteCharacter, GenesysCharacter } from '@rpgk/core/models/systems/index';
+import type { EoteCharacter, GenesysCharacter } from '@rpgk/systems/definitions';
 
 // Validations
 import { validateEoteDetails, validateGenesysDetails } from './validation/systems/eote.ts';

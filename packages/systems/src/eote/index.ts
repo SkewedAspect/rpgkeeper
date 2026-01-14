@@ -2,8 +2,10 @@
 // EotE / Genesys System Module
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { EoteSystemDetails, GenesysSystemDetails } from '@rpgk/core/models/systems/eote';
 import type { SystemModule } from '../types.ts';
+
+// Local models
+import type { EoteSystemDetails, GenesysSystemDetails } from './models.ts';
 
 import { eoteDefinition, genesysDefinition } from './definition.ts';
 import { EoteCharacter } from './components/index.ts';
@@ -28,5 +30,11 @@ export { eote, genesys };
 
 // Also export definitions separately for server use
 export { eoteDefinition, genesysDefinition } from './definition.ts';
+
+// Re-export models
+export * from './models.ts';
+
+// Re-export schemas
+export * from './schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------

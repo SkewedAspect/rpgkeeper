@@ -218,7 +218,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { EoteOrGenCharacter, EoteSkill } from '@rpgk/core/models/systems';
+    import type { EoteOrGenCharacter, EoteSkill } from '../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

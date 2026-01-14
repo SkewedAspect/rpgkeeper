@@ -62,7 +62,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteForcePower, EoteForcePowerInst } from '@rpgk/core/models/systems';
+    import type { EoteForcePower, EoteForcePowerInst } from '../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';

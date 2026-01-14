@@ -289,7 +289,7 @@
         GenesysCharacter,
         GenesysMotivation,
         GenesysMotivationType,
-    } from '@rpgk/core/models/systems';
+    } from '../../models.ts';
 
     // Managers
     import authMan from '@client/lib/managers/auth';

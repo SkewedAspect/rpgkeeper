@@ -225,7 +225,7 @@
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
 
     // Models
-    import type { EoteOrGenCharacter } from '@rpgk/core/models/systems';
+    import type { EoteOrGenCharacter } from '../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';

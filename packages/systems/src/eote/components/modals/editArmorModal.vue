@@ -160,7 +160,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteArmorRef, EoteOrGenCharacter } from '@rpgk/core/models/systems';
+    import type { EoteArmorRef, EoteOrGenCharacter } from '../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';

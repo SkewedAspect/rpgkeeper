@@ -131,7 +131,7 @@
         EoteForcePower,
         EoteForcePowerInst,
         EoteForcePowerUpgrade,
-        EoteTalentInst } from '@rpgk/core/models/systems';
+        EoteTalentInst } from '../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';

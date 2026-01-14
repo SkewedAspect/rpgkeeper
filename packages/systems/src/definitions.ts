@@ -48,4 +48,12 @@ export {
     specializations,
 } from './coc/definition.ts';
 
+// Export EotE/Genesys models for server use
+export type {
+    EoteCharacter,
+    EoteSystemDetails,
+    GenesysCharacter,
+    GenesysSystemDetails,
+} from './eote/models.ts';
+
 //----------------------------------------------------------------------------------------------------------------------

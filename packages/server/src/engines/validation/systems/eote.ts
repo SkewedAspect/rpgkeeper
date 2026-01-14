@@ -4,7 +4,7 @@
 
 // Models
 import type { Account } from '@rpgk/core/models/account';
-import type { EoteCharacter, GenesysCharacter } from '@rpgk/core/models/systems/eote';
+import type { EoteCharacter, GenesysCharacter } from '@rpgk/systems/definitions';
 
 // Managers
 import { getManagers } from '../../../managers/index.ts';

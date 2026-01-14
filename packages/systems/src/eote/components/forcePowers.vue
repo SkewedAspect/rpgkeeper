@@ -46,7 +46,7 @@
     import { sortBy } from 'lodash';
 
     // Models
-    import type { EoteCharacter, EoteForcePowerInst } from '@rpgk/core/models/systems';
+    import type { EoteCharacter, EoteForcePowerInst } from '../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

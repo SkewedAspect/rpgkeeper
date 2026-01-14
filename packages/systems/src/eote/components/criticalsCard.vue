@@ -74,7 +74,7 @@
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
 
     // Models
-    import type { EoteCritical, EoteOrGenCharacter } from '@rpgk/core/models/systems';
+    import type { EoteCritical, EoteOrGenCharacter } from '../models.ts';
 
     // Managers
     import diceMan from '@client/lib/utils/dice';
@@ -138,7 +138,7 @@
 
             return {
                 value: critical.title,
-                html: `${ bounds }: ${ critical.title } ${ severity }`,
+                text: `${ bounds }: ${ critical.title } ${ severity }`,
             };
         });
     });

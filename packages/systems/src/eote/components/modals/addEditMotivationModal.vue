@@ -126,7 +126,7 @@
     import type {
         EoteQuality,
         GenesysMotivation,
-        GenesysMotivationType } from '@rpgk/core/models/systems';
+        GenesysMotivationType } from '../../models.ts';
 
     // Components
     import EditReference from '@client/components/character/editReference.vue';

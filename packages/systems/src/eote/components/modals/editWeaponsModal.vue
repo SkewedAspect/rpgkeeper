@@ -177,7 +177,7 @@
         EoteCharacter,
         EoteQualityRef,
         EoteWeaponRef,
-    } from '@rpgk/core/models/systems';
+    } from '../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';
