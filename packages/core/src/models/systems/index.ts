@@ -4,11 +4,15 @@
 
 export * from './supplements.ts';
 
-// Note: Risus models have been moved to @rpgk/systems/risus
-// Note: WFRP models have been moved to @rpgk/systems/wfrp
-// Note: Fate models have been moved to @rpgk/systems/fate
-// Note: CoC models have been moved to @rpgk/systems/coc
-// Note: EotE/Genesys models have been moved to @rpgk/systems/eote
+// Note: System models have been moved to @rpgk/systems/{system}
+// - Risus: @rpgk/systems/risus
+// - WFRP: @rpgk/systems/wfrp
+// - Fate: @rpgk/systems/fate
+// - CoC: @rpgk/systems/coc
+// - EotE/Genesys: @rpgk/systems/eote
+// - D&D 3.5: @rpgk/systems/dnd35
+// - Generic: @rpgk/systems/generic
+// - V20: @rpgk/systems/v20
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -1,0 +1,25 @@
+id: dnd35-race-half-orc
+name: Half-Orc
+size: M
+speed: 30
+description: In the wild frontiers, tribes of human and orc barbarians live in uneasy balance, fighting in times of war
+  and trading in times of peace. Half-orcs who are born in the frontier may live with either human or orc parents, but
+  they are nevertheless exposed to both cultures. Some, for whatever reason, leave their homeland and travel to
+  civilized lands, bringing with them the tenacity, courage, and combat prowess that they developed in the wilds.
+traits:
+  - name: Darkvision
+    description: Half-orcs (and orcs) can see in the dark up to 60 feet. Darkvision is black and white only, but it is
+      otherwise like normal sight, and half-orcs can function just fine with no light at all.
+  - name: Orc Blood
+    description: For all effects related to race, a half-orc is considered an orc. Half-orcs, for example, are just as
+      vulnerable to special effects that affect orcs as their orc ancestors are, and they can use magic items that are
+      only usable by orcs.
+  - name: Automatic Languages
+    description: Common and Orc.
+  - name: Bonus Languages
+    description: Draconic, Giant, Gnoll, Goblin, and Abyssal. Smart half-orcs (who are rare) may know the languages of their
+      allies or rivals.
+  - name: Favored Class
+    description: Barbarian. A multiclass half-orc’s barbarian class does not count when determining whether he takes an
+      experience point penalty. Ferocity runs in a half-orc’s veins.
+reference: Player's Handbook

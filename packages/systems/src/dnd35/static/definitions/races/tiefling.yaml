@@ -1,0 +1,26 @@
+id: dnd35-race-tiefling
+name: Tiefling
+size: M
+speed: 30
+description: Tieflings are sneaky, subtle, and generally conniving. They prefer to strike from ambush and usually avoid
+  a fair fight if they can. Many tieflings are indistinguishable from humans. Others have small horns, pointed teeth,
+  red eyes, a whiff of brimstone about them, or even cloven feet. No two tieflings are the same.
+traits:
+  - name: Darkvision
+    description: Darkvision out to 60 feet.
+  - name: Natural Cunning
+    description: Tieflings have a +2 racial bonus on Bluff and Hide checks. Tieflings are naturally cunning.
+  - name: Darkness
+    type: sp
+    description: A tiefling can use darkness once per day (caster level equal to class levels).
+  - name: Infernal Resistance
+    description: Resistance to cold 5, electricity 5, and fire 5.
+  - name: Automatic Languages
+    description: Common and Infernal.
+  - name: Bonus Languages
+    description: Draconic, Dwarven, Elven, Gnome, Goblin, Halfling, Orc.
+  - name: Favored Class
+    description: Rogue. A multiclass tiefling’s rogue class does not count when determining whether she take an experience
+      point penalty for multiclassing. Tieflings have long had to rely on stealth, wit, and skill, and the vocation of
+      rogue comes naturally to them.
+reference: SRD:0

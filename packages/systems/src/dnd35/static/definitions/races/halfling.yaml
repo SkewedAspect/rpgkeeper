@@ -1,0 +1,31 @@
+id: dnd35-race-halfling
+name: Halfling
+size: S
+speed: 20
+description: Halflings are clever, capable opportunists. Halfling individuals and clans find room for themselves
+  wherever they can. Often they are strangers and wanderers, and others react to them with suspicion or curiosity.
+  Depending on the clan, halflings might be reliable, hard-working (if clannish) citizens, or they might be thieves just
+  waiting for the opportunity to make a big score and disappear in the dead of night. Regardless, halflings are cunning,
+  rereferenceful survivors.
+traits:
+  - name: Natural Agility
+    description: "+2 racial bonus on Climb, Jump, and Move Silently checks: Halflings are agile, surefooted, and athletic."
+  - name: Lucky
+    description: "+1 racial bonus on all saving throws: Halflings are surprisingly capable of avoiding mishaps."
+  - name: Fearless
+    description: +2 morale bonus on saving throws against fear. This bonus stacks with the halfling’s +1 bonus on saving
+      throws in general.
+  - name: Natural Marksman
+    description: "+1 racial bonus on attack rolls with a thrown weapon and slings: Throwing and slinging stones is a
+      universal sport among halflings, and they develop especially good aim."
+  - name: Keen Ears
+    description: "+2 racial bonus on Listen checks: Halflings have keen ears."
+  - name: Automatic Languages
+    description: Common and Halfling.
+  - name: Bonus Languages
+    description: Dwarven, Elven, Gnome, Goblin, and Orc. Smart halflings learn the languages of their friends and enemies.
+  - name: Favored Class
+    description: Rogue. A multiclass halfling’s rogue class does not count when determining whether she take an experience
+      point penalty for multiclassing. Halflings have long had to rely on stealth, wit, and skill, and the vocation of
+      rogue comes naturally to them.
+reference: Player's Handbook

@@ -1,0 +1,127 @@
+id: dnd35-class-rogue
+name: Rogue
+description: "Rogues share little in common with each other. Some are stealthy thieves. Others are silver-tongued
+  tricksters. Still others are scouts, infiltrators, spies, diplomats, or thugs. What they share is versatility,
+  adaptability, and rereferencefulness. In general, rogues are skilled at getting what others don’t want them to get:
+  entrance into a locked treasure vault, safe passage past a deadly trap, secret battle plans, a guard’s trust, or some
+  random person’s pocket money."
+features:
+  - name: Weapon and Armor Proficiency
+    description: Rogues are proficient with all simple weapons, plus the hand crossbow, rapier, shortbow, and short sword.
+      Rogues are proficient with light armor, but not with shields.
+  - name: Sneak Attack
+    description: >-
+      If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a
+      vital spot for extra damage. Basically, the rogue’s attack deals extra damage any time her target would be denied
+      a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her
+      target. This extra damage is 1d6 at 1st level, and it increases by 1d6 every two rogue levels thereafter. Should
+      the rogue score a critical hit with a sneak attack, this extra damage is not multiplied.
+
+
+      Ranged attacks can count as sneak attacks only if the target is within 30 feet. A rogue can’t strike with deadly
+      accuracy from beyond that range.
+
+
+      With a sap (blackjack) or an unarmed strike, a rogue can make a sneak attack that deals nonlethal damage instead
+      of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not
+      even with the usual –4 penalty, because she must make optimal use of her weapon in order to execute a sneak
+      attack.
+
+
+      A rogue can sneak attack only living creatures with discernible anatomies—undead, constructs, oozes, plants, and
+      incorporeal creatures lack vital areas to attack. Any creature that is immune to critical hits is not vulnerable
+      to sneak attacks. The rogue must be able to see the target well enough to pick out a vital spot and must be able
+      to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment or striking the limbs
+      of a creature whose vitals are beyond reach.
+  - name: Trapfinding
+    description: >-
+      Rogues (and only rogues) can use the Search skill to locate traps when the task has a Difficulty Class higher than
+      20. Finding a nonmagical trap has a DC of at least 20, or higher if it is well hidden. Finding a magic trap has a
+      DC of 25 + the level of the spell used to create it.
+
+
+      Rogues (and only rogues) can use the Disable Device skill to disarm magic traps. A magic trap generally has a DC
+      of 25 + the level of the spell used to create it. A rogue who beats a trap’s DC by 10 or more with a Disable
+      Device check can study a trap, figure out how it works, and bypass it (with her party) without disarming it.
+  - name: Evasion
+    type: ex
+    description: At 2nd level and higher, a rogue can avoid even magical and unusual attacks with great agility. If she
+      makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save
+      (such as a red dragon’s fiery breath or a _fireball_), she instead takes no damage. Evasion can be used only if
+      the rogue is wearing light armor or no armor. A helpless rogue (such as one who is unconscious or paralysed) does
+      not gain the benefit of evasion.
+  - name: Trap Sense
+    type: ex
+    description: At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus
+      on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise
+      to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5
+      at 15th, and to +6 at 18th level. Trap sense bonuses gained from multiple classes stack.
+  - name: Uncanny Dodge
+    type: ex
+    description: >-
+      Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She
+      retains her Dexterity bonus to AC (if any) even if she is caught flat-footed or struck by an invisible attacker.
+      However, she still loses her Dexterity bonus to AC if immobilized.
+
+
+      If a rogue already has uncanny dodge from a different class (a rogue with at least two levels of barbarian, for
+      example), she auto- matically gains improved uncanny dodge (see below) instead.
+  - name: Improved Uncanny Dodge
+    type: ex
+    description: >-
+      A rogue of 8th level or higher can no longer be flanked; she can react to opponents on opposite sides of her as
+      easily as she can react to a single attacker. This defense denies another rogue the ability to sneak attack the
+      character by flanking her, unless the attacker has at least four more rogue levels than the target does.
+
+
+      If a character already has uncanny dodge (see above) from a second class, the character automatically gains
+      improved uncanny dodge instead, and the levels from the classes that grant uncanny dodge stack to determine the
+      minimum rogue level required to flank the character.
+  - name: Special Abilities
+    type: ex
+    description: >-
+      On attaining 10th level, and at every three levels thereafter (13th, 16th, and 19th), a rogue gains a special
+      ability of her choice from among the following options.
+
+
+      _Crippling Strike (Ex)_: A rogue with this ability can sneak attack opponents with such precision that her blows
+      weaken and hamper them. An opponent damaged by one of her sneak attacks also takes 2 points of Strength damage.
+      Ability points lost to damage return on their own at the rate of 1 point per day for each damaged ability.
+
+
+      _Defensive Roll (Ex)_: The rogue can roll with a potentially lethal blow to take less damage from it than she
+      otherwise would. Once per day, when she would be reduced to 0 or fewer hit points by damage in combat (from a
+      weapon or other blow, not a spell or spe- cial ability), the rogue can attempt to roll with the damage. To use
+      this ability, the rogue must attempt a Reflex saving throw (DC = damage dealt). If the save succeeds, she takes
+      only half damage from the blow; if it fails, she takes full damage. She must be aware of the attack and able to
+      react to it in order to execute her defensive roll— if she is denied her Dexterity bonus to AC, she can’t use this
+      ability. Since this effect would not normally allow a character to make a Reflex save for half damage, the rogue’s
+      evasion ability does not apply to the defensive roll.
+
+
+      _Improved Evasion (Ex)_: This ability works like evasion, except that while the rogue still takes no damage on a
+      successful Reflex saving throw against attacks such as a dragon’s breath weapon or a fireball, henceforth she
+      henceforth takes only half damage on a failed save. A helpless rogue (such as one who is unconscious or paralysed)
+      does not gain the benefit of improved evasion.
+
+
+      _Opportunist (Ex)_: Once per round, the rogue can make an attack of opportunity against an opponent who has just
+      been struck for damage in melee by another character. This attack counts as the rogue’s attack of opportunity for
+      that round. Even a rogue with the Combat Reflexes feat can’t use the opportunist ability more than once per round.
+
+
+      _Skill Mastery_: The rogue becomes so certain in the use of certain skills that she can use them reliably even
+      under adverse conditions. Upon gaining this ability, she selects a number of skills equal to 3 + her Intelligence
+      modifier. When making a skill check with one of these skills, she may take 10 even if stress and distractions
+      would normally prevent her from doing so. A rogue may gain this special ability multiple times, selecting
+      additional skills for it to apply to each time.
+
+
+      _Slippery Mind (Ex)_: This ability represents the rogue’s ability to wriggle free from magical effects that would
+      otherwise control or compel her. If a rogue with slippery mind is affected by an enchantment spell or effect and
+      fails her saving throw, she can attempt it again 1 round later at the same DC. She gets only this one extra chance
+      to succeed on her saving throw.
+
+
+      _Feat_: A rogue may gain a bonus feat in place of a special ability.
+reference: PHB:49

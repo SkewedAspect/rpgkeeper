@@ -1,0 +1,201 @@
+id: dnd35-class-bard
+name: Bard
+description: >-
+  It is said that music has a special magic, and the bard proves that saying true. Wandering across the land, gathering
+  lore, telling stories, working magic with his music, and living on the gratitude of his audience—such is the life of a
+  bard. When chance or opportunity draws them into a conflict, bards serve as diplomats, negotiators, messengers,
+  scouts, and spies.
+
+
+  A bard’s magic comes from the heart. If his heart is good, a bard brings hope and courage to the downtrodden and uses
+  his tricks, music, and magic to thwart the schemes of evildoers. If the nobles of the land are corrupt, the good bard
+  is an enemy of the state, cunningly evading capture and raising the spirits of the oppressed. But music can spring
+  from an evil heart as well. Evil bards forego blatant violence in favor of manipulation, holding sway over the hearts
+  and minds of others and taking what enraptured audiences “willingly” give.
+features:
+  - name: Weapon and Armor Proficiency
+    description: >-
+      A bard is proficient with all simple weapons, plus the longsword, rapier, sap, short sword, shortbow, and whip.
+      Bards are proficient with light armor and shields (except tower shields).
+
+
+      Because the somatic components required for bard spells are relatively simple, a bard can cast bard spells while
+      wearing light armor without incurring the normal arcane spell failure chance. However, like any other arcane
+      spellcaster, a bard wearing medium or heavy armor or using a shield incurs a chance of arcane spell failure if the
+      spell in question has a somatic component (most do). A multiclass bard still incurs the normal arcane spell
+      failure chance for arcane spells received from other classes.
+  - name: Spells
+    description: >-
+      A bard casts arcane spells (the same type of spells available to sorcerers and wizards), which are drawn from the
+      bard spell (page 181) list. He can cast any spell he knows without preparing it ahead of time, the way a wizard or
+      cleric must (see below). Every bard spell has a verbal component (singing, reciting, or music).
+
+      To learn or cast a spell, a bard must have a Charisma score equal to at least 10 + the spell level (Cha 10 for
+      0-level spells, Cha 11 for 1st-level spells, and so forth). The Difficulty Class for a saving throw against a
+      bard’s spell is 10 + the spell level + the bard’s Charisma modifier.
+
+
+      Like other spellcasters, a bard can cast only a certain number of spells of each spell level per day. In addition,
+      he receives bonus spells per day if he has a high Charisma score. When the table indicates that the bard gets 0
+      spells per day of a given spell level (for instance, 1st- level spells for a 2nd-level bard), he gains only the
+      bonus spells he would be entitled to based on his Charisma score for that spell level.
+
+
+      The bard’s selection of spells is extremely limited. A bard begins play knowing four 0-level spells (also called
+      cantrips) of your choice. At most new bard levels, he gains one or more new spells. (Unlike spells per day, the
+      number of spells a bard knows is not affected by his Charisma score; the numbers are fixed.)
+
+
+      Upon reaching 5th level, and at every third bard level after that (8th, 11th, and so on), a bard can choose to
+      learn a new spell in place of one he already knows. In effect, the bard “loses” the old spell in exchange for the
+      new one. The new spell’s level must be the same as that of the spell being exchanged, and it must be at least two
+      levels lower than the highest-level bard spell the bard can cast. For instance, upon reaching 5th level, a bard
+      could trade a single 0-level spell (two spell levels below the highest-level bard spell he can cast, which is 2nd)
+      for a different 0-level spell. At 8th level, he could trade in a single 0-level or 1st-level spell (since he now
+      can cast 3rd-level bard spells) for a different spell of the same level. A bard may swap only a single spell at
+      any given level, and must choose whether or not to swap the spell at the same time that he gains new spells known
+      for the level.
+
+
+      As noted above, a bard need not prepare his spells in advance. He can cast any spell he knows at any time,
+      assuming he has not yet used up his allotment of spells per day for the spell’s level. For example, at 1st level,
+      Gimble the bard can cast two 0-level spells per day for being 1st level. However, he knows four 0-level spells:
+      detect magic, ghost sound, light, and read magic. Thus, on any given day,he can cast some combination of those
+      four spells a total of two times. He does not have to decide ahead of time which spells he’ll cast.
+  - name: Bardic Knowledge
+    description: >-
+      A bard picks up a lot of stray knowledge while wandering the land and learning stories from other bards. He may
+      make a special bardic knowledge check with a bonus equal to his bard level + his Intelligence modifier to see
+      whether he knows some relevant information about local notable people, legendary items, or noteworthy places. (If
+      the bard has 5 or more ranks in Knowledge (history), he gains a +2 bonus on this check.)
+
+
+      | DC | Type of Knowledge | Examples |
+
+      |:--:|-------------------|----------|
+
+      | 10 | Common, known by at least a substantial minority of the local population. | A local mayor’s reputation for
+      drinking; common legends about a powerful place of mystery.|
+
+      | 20 | Uncommon but available, known by only a few people in the area. | A local priest’s shady past; legends
+      about a powerful Magic item. |
+
+      | 25 | Obscure, known by few, hard to come by. | A knight’s family history; legends about a minor place of mystery
+      or magic item |
+
+      | 30 | Extremely obscure, known by very few, possibly forgotten by most who once knew it, possibly known only by
+      those who don’t understand the significance of the knowledge. | A mighty wizard’s childhood nickname; the history
+      of a petty magic item. |
+
+
+      A successful bardic knowledge check will not reveal the powers of a magic item but may give a hint as to its
+      general function. A bard may not take 10 or take 20 on this check; this sort of knowledge is essentially random.
+      The DM can determine the Difficulty Class of the check by referring to the table above.
+  - name: Bardic Music
+    description: >-
+      Once per day per bard level, a bard can use his song or poetics to produce magical effects on those around him
+      (usually including himself, if desired). While these abilities fall under the category of bardic music and the
+      descriptions discuss singing or playing instruments, they can all be activated by reciting poetry, chanting,
+      singing lyrical songs, singing melodies (fa-la-la, and so forth), whistling, playing an instrument, or playing an
+      instrument in combination with some spoken performance. Each ability requires both a minimum bard level and a
+      minimum number of ranks in the Perform skill to qualify; if a bard does not have the required number of ranks in
+      at least one Perform skill, he does not gain the bardic music ability until he acquires the needed ranks.
+
+
+      Starting a bardic music effect is a standard action. Some bardic music abilities require concentration, which
+      means the bard must take a standard action each round to maintain the ability. Even while using bardic music that
+      doesn’t require concentration, a bard cannot cast spells, activate magic items by spell completion (such as
+      scrolls), or activate magic items by magic word (such as wands). Just as for casting a spell with a verbal
+      component (see Components), a deaf bard has a 20% chance to fail when attempting to use bardic music. If he fails,
+      the attempt still counts against his daily limit.
+
+
+      _Countersong (Su)_: A bard with 3 or more ranks in a Perform skill can use his music or poetics to counter magical
+      effects that depend on sound (but not spells that simply have verbal components). Each round of the countersong,
+      he makes a Perform check. Any creature within 30 feet of the bard (including the bard himself ) that is affected
+      by a sonic or language-dependent magical attack (such as a sound burst or command spell) may use the bard’s
+      Perform check result in place of its saving throw if, after the saving throw is rolled, the Perform check result
+      proves to be higher. If a creature within range of the countersong is already under the effect of a noninstan-
+      taneous sonic or language-dependent magical attack, it gains another saving throw against the effect each round it
+      hears the countersong, but it must use the bard’s Perform check result for the save. Countersong has no effect
+      against effects that don’t allow saves. The bard may keep up the countersong for 10 rounds.
+
+
+      _Fascinate (Sp)_: A bard with 3 or more ranks in a Perform skill can use his music or poetics to cause one or more
+      creatures to become fascinated with him. Each creature to be fascinated must be within 90 feet, able to see and
+      hear the bard, and able to pay attention to him. The bard must also be able to see the creature. The distraction
+      of a nearby combat or other dangers prevents the ability from working. For every three levels a bard attains
+      beyond 1st, he can target one additional creature with a single use of this ability (two at 4th level, three at
+      7th level, and so on).
+
+
+      To use the ability, a bard makes a Perform check. His check result is the DC for each affected creature’s Will
+      save against the effect. If a creature’s saving throw succeeds, the bard cannot attempt to fascinate that creature
+      again for 24 hours. If its saving throw fails, the creature sits quietly and listens to the song, taking no other
+      actions, for as long as the bard continues to play and concentrate (up to a maximum of 1 round per bard level).
+      While fascinated, a target takes a –4 penalty on skill checks made as reactions, such as Listen and Spot checks.
+      Any potential threat requires the bard to make another Perform check and allows the creature a new saving throw
+      against a DC equal to the new Perform check result. Any obvious threat, such as someone drawing a weapon, casting
+      a spell, or aiming a ranged weapon at the target, automatically breaks the effect. _Fascinate_ is an enchantment
+      (compulsion), mind-affecting ability.
+
+
+      _Inspire Courage (Su)_: A bard with 3 or more ranks in a Perform skill can use song or poetics to inspire courage
+      in his allies (including himself ), bolstering them against fear and improving their combat abilities. To be
+      affected, an ally must be able to hear the bard sing. The effect lasts for as long as the ally hears the bard sing
+      and for 5 rounds thereafter. An affected ally receives a +1 morale bonus on saving throws against charm and fear
+      effects and a +1 morale bonus on attack and weapon damage rolls. At 8th level, and every six bard levels
+      thereafter, this bonus increases by 1 (+2 at 8th, +3 at 14th, and +4 at 20th). Inspire courage is a mind-affecting
+      ability.
+
+
+      _Inspire Competence (Su)_: A bard of 3rd level or higher with 6 or more ranks in a Perform skill can use his music
+      or poetics to help an ally succeed at a task. The ally must be within 30 feet and able to see and hear the bard.
+      The bard must also be able to see the ally. Depending on the task that the ally has at hand, the bard may use his
+      bardic music to lift the ally’s spirits, to help him or her focus mentally, or in some other way. The ally gets a
+      +2 competence bonus on skill checks with a particular skill as long as he or she continues to hear the bard’s
+      music. The DM may rule that certain uses of this ability are infeasible—chanting to make a rogue move more
+      quietly, for example, is self-defeating. The effect lasts as long as the bard concentrates, up to a maximum of 2
+      minutes. A bard can’t inspire competence in himself. Inspire competence is a mind-affecting ability.
+
+
+      _Suggestion (Sp)_: A bard of 6th level or higher with 9 or more ranks in a Perform skill can make a suggestion (as
+      the spell) to a creature that he has already fascinated (see above). Using this ability does not break the bard’s
+      concentration on the fascinate effect, nor does it allow a second saving throw against the fascinate effect.
+      Making a suggestion doesn’t count against a bard’s daily limit on bardic music performances. A Will saving throw
+      (DC 10 + 1/2 bard’s level + bard’s Cha modifier) negates the effect. This ability affects only a single creature
+      (but see mass suggestion, below). _Suggestion_ is an enchantment (compulsion), mind-affecting, language dependent
+      ability.
+
+
+      _Inspire Greatness (Su)_: A bard of 9th level or higher with 12 or more ranks in a Perform skill can use music or
+      poetics to inspire greatness in himself or a single willing ally within 30 feet, granting him or her extra
+      fighting capability. For every three levels a bard attains beyond 9th, he can target one additional ally with a
+      single use of this ability (two at 12th level, three at 15th, four at 18th). To inspire greatness, a bard must
+      sing and an ally must hear him sing. The effect lasts for as long as the ally hears the bard sing and for 5 rounds
+      thereafter. A creature inspired with greatness gains 2 bonus Hit Dice (d10s), the commensurate number of temporary
+      hit points (apply the target’s Constitution modifier, if any, to these bonus Hit Dice), a +2 competence bonus on
+      attack rolls, and a +1 competence bonus on Fortitude saves. The bonus Hit Dice count as regular Hit Dice for
+      determining the effect of spells such as sleep. Inspire greatness is a mind-affecting ability.
+
+
+      _Song of Freedom (Sp)_: A bard of 12th level or higher with 15 or more ranks in a Perform skill can use music or
+      poetics to create an effect equivalent to the _break enchantment_ spell (caster level equals the character’s bard
+      level). Using this ability requires 1 minute of uninterrupted concentration and music, and it functions on a
+      single target within 30 feet. A bard can’t use _song of freedom_ on himself.
+
+
+      _Inspire Heroics (Su)_: A bard of 15th level or higher with 18 or more ranks in a Perform skill can use music or
+      poetics to inspire tremendous heroism in himself or a single willing ally within 30 feet, allowing that creature
+      to fight bravely even against over- whelming odds. For every three bard levels the character attains beyond 15th,
+      he can inspire heroics in one additional creature. To inspire heroics, a bard must sing and an ally must hear the
+      bard sing for a full round. A creature so inspired gains a +4 morale bonus on saving throws and a +4 dodge bonus
+      to AC. The effect lasts for as long as the ally hears the bard sing and for up to 5 rounds thereafter. Inspire
+      heroics is a mind-affecting ability.
+
+
+      _Mass Suggestion (Sp)_: This ability functions like suggestion, above, except that a bard of 18th level or higher
+      with 21 or more ranks in a Perform skill can make the suggestion simultaneously to any number of creatures that he
+      has already fascinated (see above). _Mass suggestion_ is an enchantment (compulsion), mind-affecting,
+      language-dependent ability.
+reference: PHB:26

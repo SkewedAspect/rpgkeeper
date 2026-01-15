@@ -1,11 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Generic System Model
+// Generic System - Main Entry Point
 //----------------------------------------------------------------------------------------------------------------------
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface GenericSystemDetails
-{
-    // TODO: Add generic system details
-}
+export { default } from './definition.ts';
+export * from './models.ts';
+export * from './schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------

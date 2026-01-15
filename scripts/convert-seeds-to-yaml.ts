@@ -47,6 +47,11 @@ const TABLE_MAP: Record<string, { system: string; type: string; folder: string; 
     genesys_gear: { system: 'genesys', type: 'gear', folder: 'eote', staticSubdir: 'genesys' },
     // CoC - lives in src/coc/static/
     coc_weapon: { system: 'coc', type: 'weapon', folder: 'coc', staticSubdir: '' },
+    // D&D 3.5 - lives in src/dnd35/static/
+    dnd35_class: { system: 'dnd35', type: 'class', folder: 'dnd35', staticSubdir: '' },
+    dnd35_race: { system: 'dnd35', type: 'race', folder: 'dnd35', staticSubdir: '' },
+    dnd35_feat: { system: 'dnd35', type: 'feat', folder: 'dnd35', staticSubdir: '' },
+    dnd35_spell: { system: 'dnd35', type: 'spell', folder: 'dnd35', staticSubdir: '' },
 };
 
 // Reference tables mapped to their output location
@@ -54,6 +59,7 @@ const REFERENCE_MAP: Record<string, { folder: string; staticSubdir: string }> = 
     eote_reference: { folder: 'eote', staticSubdir: 'eote' },
     genesys_reference: { folder: 'eote', staticSubdir: 'genesys' },
     coc_reference: { folder: 'coc', staticSubdir: '' },
+    dnd35_reference: { folder: 'dnd35', staticSubdir: '' },
 };
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -88,11 +94,22 @@ function pluralize(word: string): string
     const irregulars: Record<string, string> = {
         ability: 'abilities',
         quality: 'qualities',
+        class: 'classes',
     };
 
     if(irregulars[word])
     {
         return irregulars[word];
+    }
+
+    // Words ending in s, x, z, ch, sh add 'es'
+    if(word.endsWith('s')
+        || word.endsWith('x')
+        || word.endsWith('z')
+        || word.endsWith('ch')
+        || word.endsWith('sh'))
+    {
+        return `${word}es`;
     }
 
     // Default: just add 's'

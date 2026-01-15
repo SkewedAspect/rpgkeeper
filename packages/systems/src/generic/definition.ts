@@ -4,7 +4,7 @@
 
 // Models
 import { SupportStatus, type SystemDefinition } from '@rpgk/core/models/system';
-import type { GenericSystemDetails } from '@rpgk/core/models/systems/generic';
+import type { GenericSystemDetails } from './models.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 

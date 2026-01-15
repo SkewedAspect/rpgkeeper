@@ -1,0 +1,9 @@
+- abbr: HB
+  name: Homebrew
+  productCode: HB999
+- abbr: PHB
+  name: Player's Handbook
+  productCode: PHB999
+- abbr: SRD
+  name: System Reference Document
+  productCode: SRD999

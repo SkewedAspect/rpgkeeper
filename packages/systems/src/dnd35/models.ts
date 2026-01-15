@@ -2,13 +2,13 @@
 // Dungeons and Dragons 3.5 Models
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { Supplement } from '../supplement.ts';
-
+//----------------------------------------------------------------------------------------------------------------------
+// Library Types (definitions that can be referenced)
 //----------------------------------------------------------------------------------------------------------------------
 
-export interface Dnd35Race extends Supplement
+export interface Dnd35Race
 {
-    id : number;
+    id : string;
     name : string;
     size : 'T' | 'S' | 'M' | 'L' | 'H' | 'G';
     speed ?: number;
@@ -17,11 +17,12 @@ export interface Dnd35Race extends Supplement
         name : string;
         description : string;
     }[];
+    reference ?: string;
 }
 
-export interface Dnd35Class extends Supplement
+export interface Dnd35Class
 {
-    id : number;
+    id : string;
     name : string;
     description ?: string;
     features : {
@@ -29,21 +30,23 @@ export interface Dnd35Class extends Supplement
         type ?: string;
         description : string;
     }[];
+    reference ?: string;
 }
 
-export interface Dnd35Feat extends Supplement
+export interface Dnd35Feat
 {
-    id : number;
+    id : string;
     name : string;
     prerequisite ?: string;
     benefit ?: string;
     normal ?: string;
     special ?: string;
+    reference ?: string;
 }
 
-export interface Dnd35Spell extends Supplement
+export interface Dnd35Spell
 {
-    id : number;
+    id : string;
     name : string;
     school : string;
     subSchool ?: string;
@@ -63,7 +66,12 @@ export interface Dnd35Spell extends Supplement
     spellResistance ?: string;
     description ?: string;
     arcaneFocus ?: string;
+    reference ?: string;
 }
+
+//----------------------------------------------------------------------------------------------------------------------
+// Character Details
+//----------------------------------------------------------------------------------------------------------------------
 
 export interface DnD35SystemDetails
 {

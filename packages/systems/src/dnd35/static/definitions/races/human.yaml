@@ -1,0 +1,18 @@
+id: dnd35-race-human
+name: Human
+size: M
+speed: 30
+description: Most humans are the descendants of pioneers, conquerors, traders, travelers, refugees, and other people on
+  the move. As a result, human lands are home to a mix of people—physically, culturally, religiously, and politically
+  different. Hardy or fine, light-skinned or dark, showy or austere, primitive or civilized, devout or impious, humans
+  run the gamut.
+traits:
+  - name: Automatic Language
+    description: Common.
+  - name: Bonus Language
+    description: Any (other than secret languages, such as Druidic). Humans mingle with all kinds of other folk and thus can
+      learn any language found in an area.
+  - name: Favored Class
+    description: Any. When determining whether a multiclass human takes an experience point penalty, her highest-level class
+      does not count.
+reference: Player's Handbook

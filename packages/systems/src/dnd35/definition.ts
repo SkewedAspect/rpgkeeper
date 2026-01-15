@@ -4,7 +4,7 @@
 
 // Models
 import { SupportStatus, type SystemDefinition } from '@rpgk/core/models/system';
-import type { DnD35SystemDetails } from '@rpgk/core/models/systems/dnd35';
+import type { DnD35SystemDetails } from './models.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -61,14 +61,28 @@ function extractSystemAndType(filePath : string) : { system : string; type : str
         return null;
     }
 
-    // Type is the folder after definitions (minus the trailing 's')
+    // Type is the folder after definitions (minus the plural suffix)
     const typeFolder = parts[definitionsIdx + 1];
-    // Handle irregular plurals: abilities -> ability, qualities -> quality
-    // Then regular plurals: talents -> talent
+    // Handle irregular plurals first
+    const irregularPlurals : Record<string, string> = {
+        abilities: 'ability',
+        qualities: 'quality',
+        classes: 'class',
+        races: 'race',
+    };
+
     let type = typeFolder;
-    if(type.endsWith('ies'))
+    if(irregularPlurals[type])
+    {
+        type = irregularPlurals[type];
+    }
+    else if(type.endsWith('ies'))
     {
         type = type.slice(0, -3) + 'y'; // abilities -> ability
+    }
+    else if(type.endsWith('es'))
+    {
+        type = type.slice(0, -2); // matches -> match
     }
     else if(type.endsWith('s'))
     {

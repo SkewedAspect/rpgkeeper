@@ -1,0 +1,47 @@
+id: dnd35-race-gnome
+name: Gnome
+size: S
+speed: 20
+description: Gnomes are welcome everywhere as technicians, alchemists, and inventors. Despite the demand for their
+  skills, most gnomes prefer to remain among their own kind, living in comfortable burrows beneath rolling, wooded hills
+  where animals abound.
+traits:
+  - name: Low-light Vision
+    description: A gnome can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor
+      illumination. He retains the ability to distinguish color and detail under these conditions.
+  - name: Weapon Familiarity
+    description: Gnomes may treat gnome hooked hammers as martial weapons rather than exotic weapons.
+  - name: Illusory Studies
+    description: "+2 racial bonus on saving throws against illusions: Gnomes are innately familiar with illusions of all kinds."
+  - name: Skilled Illusionist
+    description: Add +1 to the Difficulty Class for all saving throws against illusion spells cast by gnomes. Their innate
+      familiarity with these effects make their illusions more difficult to see through. This adjustment stacks with
+      those from similar effects, such as the Spell Focus feat.
+  - name: Common Enemy
+    description: "+1 racial bonus on attack rolls against kobolds and goblinoids (including goblins, hobgoblins, and
+      bugbears): Gnomes battle these creatures frequently and practice special techniques for fighting them."
+  - name: Giant Hunter
+    description: "+4 dodge bonus to Armor Class against monsters of the giant type (such as ogres, trolls, and hill giants):
+      This bonus represents special training that gnomes undergo, during which they learn tricks that previous
+      generations developed in their battles with giants. Any time a creature loses its Dexterity bonus (if any) to
+      Armor Class, such as when it’s caught flat-footed, it loses its dodge bonus, too. The _Monster Manual_ has
+      information on which creatures are of the giant type."
+  - name: Keen Ears
+    description: "+2 racial bonus on Listen checks: Gnomes have keen ears."
+  - name: Natural Alchemist
+    description: "+2 racial bonus on Craft (alchemy) checks: A gnome’s sensitive nose allows him to monitor alchemical
+      processes by smell."
+  - name: Automatic Languages
+    description: Common and Gnome.
+  - name: Bonus Languages
+    description: Draconic, Dwarven, Elven, Giant, Goblin, and Orc. Gnomes deal more with elves and dwarves than elves and
+      dwarves deal with one another, and they learn the languages of their enemies (kobolds, giants, goblins, and orcs)
+      as well. In addition, a gnome can use speak with a burrowing mammal (a badger, fox, rabbit, or the like, see
+      below). This ability is innate to gnomes.
+  - name: Spell-Like Abilities
+    description: "1/day — _speak with animals_ (burrowing mammal only, duration 1 minute). A gnome with a Charisma score of
+      at least 10 also has the following spell-like abilities: 1/day — _dancing lights_, _ghost sound_,
+      _prestidigitation_. Caster level 1st; save DC 10 + gnome’s Cha modifier + spell level."
+  - name: Favored Class
+    description: Bard. A multiclass gnome’s bard class does not count when determining whether he takes an experience point penalty.
+reference: Player's Handbook

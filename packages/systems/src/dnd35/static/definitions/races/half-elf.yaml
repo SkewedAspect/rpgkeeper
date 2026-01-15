@@ -1,0 +1,45 @@
+id: dnd35-race-half-elf
+name: Half-Elf
+size: M
+speed: 30
+description: >-
+  Humans and elves sometimes wed, the elf attracted to the human’s energy and the human to the elf’s grace. These
+  marriages end quickly as elves count years because a human’s life is so brief, but they leave an enduring
+  legacy—half-elf children.
+
+
+  The life of a half-elf can be hard. If raised by elves, the half-elf seems to grow with astounding speed, reaching
+  maturity within two decades. The half-elf becomes an adult long before she has had time to learn the intricacies of
+  elven art and culture, or even grammar. She leaves behind her childhood friends, becoming physically an adult but
+  culturally still a child by elven standards. Typically, she leaves her elven home, which is no longer familiar, and
+  finds her way among humans.
+
+
+  If, on the other hand, she is raised by humans, the half-elf finds herself different from her peers: more aloof, more
+  sensitive, less ambitious, and slower to mature. Some half-elves try to fit in among humans, while others find their
+  identities in their difference. Most find places for themselves in human lands, but some feel like outsiders all their
+  lives.
+traits:
+  - name: Sleep Immunity
+    description: Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects.
+  - name: Low-light Vision
+    description: A half-elf can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of
+      poor illumination. She retains the ability to distinguish color and detail under these conditions.
+  - name: Keen Senses
+    description: "+1 racial bonus on Listen, Search, and Spot checks: A half-elf does not have the elf’s ability to notice
+      secret doors simply by passing near them. Half-elves have keen senses, but not as keen as those of an elf."
+  - name: Natural Diplomat
+    description: "+2 racial bonus on Diplomacy and Gather Information checks: Half-elves get along naturally with all people."
+  - name: Elven Blood
+    description: For all effects related to race, a half-elf is considered an elf. Half-elves, for example, are just as
+      vulnerable to special effects that affect elves as their elf ancestors are, and they can use magic items that are
+      only usable by elves.
+  - name: Automatic Languages
+    description: Common and Elven.
+  - name: Bonus Languages
+    description: Any (other than secret languages, such as Druidic). Half-elves have all the versatility and broad (if
+      shallow) experience that humans have.
+  - name: Favored Class
+    description: Any. When determining whether a multiclass half-elf takes an experience point penalty, her highest-level
+      class does not count.
+reference: Player's Handbook
