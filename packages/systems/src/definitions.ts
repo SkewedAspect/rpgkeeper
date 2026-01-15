@@ -15,7 +15,6 @@ import { eoteDefinition, genesysDefinition } from './eote/definition.ts';
 import fateDefinition from './fate/definition.ts';
 import genericDefinition from './generic/definition.ts';
 import risusDefinition from './risus/definition.ts';
-import v20Definition from './v20/definition.ts';
 import wfrpDefinition from './wfrp/definition.ts';
 import { systemRegistry } from './registry.ts';
 
@@ -27,7 +26,6 @@ systemRegistry.register(fateDefinition);
 systemRegistry.register(genericDefinition);
 systemRegistry.register(genesysDefinition);
 systemRegistry.register(risusDefinition);
-systemRegistry.register(v20Definition);
 systemRegistry.register(wfrpDefinition);
 
 // Export individual definitions
@@ -37,7 +35,6 @@ export { eoteDefinition, genesysDefinition };
 export { fateDefinition };
 export { genericDefinition };
 export { risusDefinition };
-export { v20Definition };
 export { wfrpDefinition };
 
 // Export CoC data for server routes

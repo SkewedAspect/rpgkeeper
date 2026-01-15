@@ -12,7 +12,6 @@ export * from './supplements.ts';
 // - EotE/Genesys: @rpgk/systems/eote
 // - D&D 3.5: @rpgk/systems/dnd35
 // - Generic: @rpgk/systems/generic
-// - V20: @rpgk/systems/v20
 
 //----------------------------------------------------------------------------------------------------------------------
 
