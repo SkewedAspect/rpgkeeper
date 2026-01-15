@@ -1,0 +1,7 @@
+id: eote-talent-uncanny-reactions
+name: Uncanny Reactions
+description: Add <boost></boost> per rank of Uncanny Reaction to all Vigilance checks.
+activation: p
+ranked: true
+trees: Seer
+reference: E-CRB:145

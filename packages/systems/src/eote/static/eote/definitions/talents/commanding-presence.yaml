@@ -1,0 +1,7 @@
+id: eote-talent-commanding-presence
+name: Commanding Presence
+description: The character removes <setback></setback> per rank of Commanding Presence form his **Leadership** and **Cool** checks.
+activation: p
+ranked: true
+trees: Peacekeeper
+reference: A-CRB:144

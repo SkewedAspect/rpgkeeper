@@ -1,0 +1,10 @@
+id: eote-attachment-stun-pulse
+name: Stun Pulse
+description: A stun pulse attachment deals an electric shock to the target, in addition to its weapon's normal damage.
+  Generally attached to truncheons or bludgeoning weapons, stun pulses are often used by law enforcement to disable
+  suspects without killing them.
+useWith: Any bludgeoning Melee or Brawn weapons.
+baseModifier: Gain Stun 2.
+modOptions: 3 Item Quality (Stun + 1) Mods.
+hpRequired: 1
+reference: F-CRB:194

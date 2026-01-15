@@ -1,0 +1,7 @@
+id: genesys-talent-toughened
+name: Toughened
+description: The character increases his wound threshold by two per rank of Toughened.
+activation: p
+ranked: true
+tier: 1
+reference: G-CRB:75

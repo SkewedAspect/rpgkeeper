@@ -1,0 +1,6 @@
+id: eote-quality-slow-firing
+name: Slow-Firing
+description: After making an attack, the user must wait a number of rounds equal to the Slow-Firing rating before attacking again.
+passive: true
+ranked: true
+reference: E-CRB:157

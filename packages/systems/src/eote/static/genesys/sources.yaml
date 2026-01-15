@@ -1,0 +1,18 @@
+- abbr: G-CRB
+  name: Genesys Core Rulebook
+  productCode: GNS01
+- abbr: G-EPG
+  name: Genesys Expanded Player's Guide
+  productCode: GNS11
+- abbr: HB
+  name: Homebrew
+  productCode: HB999
+- abbr: RoT
+  name: Realms of Terrinoth
+  productCode: GNS03
+- abbr: SotB
+  name: Shadow of the Beanstalk
+  productCode: GNS04
+- abbr: SotC
+  name: Secrets of the Crucible
+  productCode: GNS12

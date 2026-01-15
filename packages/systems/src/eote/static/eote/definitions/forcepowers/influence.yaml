@@ -1,0 +1,39 @@
+id: eote-forcepower-influence
+name: Influence
+description: >-
+  The character may attempt to guide, shape, and even twist the thoughts and feelings of others.
+
+
+  <b>Special rule(<lightside></lightside>/<darkside></darkside> use):</b> When guiding and shaping thoughts, only
+  <forcepoint></forcepoint> generated from <darkside></darkside> may be used to generate negative emotions such as rage,
+  fear, an hatred. Only <forcepoint></forcepoint> generated from <lightside></lightside> may be used to generate
+  positive emotions such as peace, tranquility, and friendliness. Other emotions such as confusion can be created from
+  <forcepoint></forcepoint> generated from either <lightside></lightside> or <darkside></darkside>.
+
+
+  Character may spend <forcepoint></forcepoint> to stress the mind of on living target he is engaged with, inflicting 1
+  strain.
+minRating: 1
+upgrades:
+  strength:
+    available: 1
+    description: When stressing the mind of a target, the character inflicts 2 strain.
+  magnitude:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to increase targets affected equal to Magnitude upgrades purchased.
+  duration:
+    available: 4
+    description: Spend <forcepoint></forcepoint> to increase duration by number of rounds (or minutes) equal to Duration
+      upgrades purchased.
+  range:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to increase power's range by a number of range bands equal to Range
+      upgrades purchased.
+  control:
+    - description: The Force uder may make an <b>opposed Discipline vs. Discipline check</b> combined with an <b>Influence
+        power check</b>. If the user spends <forcepoint></forcepoint> and succeeds on the check, he can force the target
+        to adopt an emotional state or believe something untrue, lasting for 1 round or 5 minutes.
+    - description: When making a Coercion, Charm, Deception, Leadership, or Negotiation check, the Force user may roll an
+        <b>Influence power check</b> as part of his dice pool. He may spend <forcepoint></forcepoint> to gain
+        <success></success> or <advantage></advantage> (user's choice) on the check.
+reference: F-CRB:294

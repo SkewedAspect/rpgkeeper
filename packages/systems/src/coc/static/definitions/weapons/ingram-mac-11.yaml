@@ -1,0 +1,10 @@
+id: coc-weapon-ingram-mac-11
+name: Ingram MAC-11
+damage: 1d10
+range: 15 yards
+attacks: 1 (3) or full auto
+ammo: 32
+malfunction: 96
+notes: Modern
+skill: Firearms (SMG)
+reference: CoC-IH:253

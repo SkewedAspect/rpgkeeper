@@ -1,0 +1,10 @@
+id: coc-weapon-20-gauge-shotgun-2b
+name: 20-gauge Shotgun (2B)
+damage: 2d6 / 1d6 / 1d3
+range: 10/20/50 yards
+attacks: 1 or 2
+ammo: 2
+malfunction: 100
+notes: 1920s
+skill: Firearms (shotgun)
+reference: CoC-IH:252

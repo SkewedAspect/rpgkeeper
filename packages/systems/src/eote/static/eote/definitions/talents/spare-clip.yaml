@@ -1,0 +1,8 @@
+id: eote-talent-spare-clip
+name: Spare Clip
+description: The character does not run out of ammo on a <despair></despair>. Items with the Limited Ammo quality run
+  out of ammo as normal.
+activation: p
+ranked: false
+trees: Gadgeteer, Trader
+reference: E-CRB:143

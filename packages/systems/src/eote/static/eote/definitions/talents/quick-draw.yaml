@@ -1,0 +1,9 @@
+id: eote-talent-quick-draw
+name: Quick Draw
+description: Once per round on the character's turn, he may draw or holster an easily accessible weapon as an
+  incidental. This talent also reduces the amount of time to draw or stow a weapon that usually requires more than one
+  maneuver to properly prepare or stow, by one maneuver.
+activation: ai
+ranked: false
+trees: Assassin, Force Sensitive Exile, Scoundrel
+reference: E-CRB:141

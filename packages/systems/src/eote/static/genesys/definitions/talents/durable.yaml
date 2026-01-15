@@ -1,0 +1,7 @@
+id: genesys-talent-durable
+name: Durable
+description: The character may reduce a Critical Injury result he suffers by 10 per rank of Durable, to a minimum of one.
+activation: p
+ranked: true
+tier: 1
+reference: G-CRB:73

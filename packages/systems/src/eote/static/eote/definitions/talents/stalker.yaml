@@ -1,0 +1,7 @@
+id: eote-talent-stalker
+name: Stalker
+description: The character adds <boost></boost> per rank of Stalker to all Coordination and Stealth checks.
+activation: p
+ranked: true
+trees: Assassin, Scout, Survivalist, Thief
+reference: E-CRB:143

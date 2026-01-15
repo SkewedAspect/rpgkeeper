@@ -1,0 +1,10 @@
+id: coc-weapon-30-06-bolt-action-rifle
+name: .30-06 Bolt-Action Rifle
+damage: 2d6 + 4
+range: 110 yards
+attacks: 1
+ammo: 5
+malfunction: 100
+notes: 1920s, Modern
+skill: Firearms (rifle)
+reference: CoC-IH:252

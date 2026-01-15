@@ -1,0 +1,6 @@
+id: genesys-quality-breach
+name: Breach
+description: Hits ignore one point of vehicle armor for every rating of Breach.
+passive: true
+ranked: true
+reference: G-CRB:86

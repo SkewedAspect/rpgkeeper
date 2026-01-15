@@ -1,0 +1,7 @@
+id: genesys-quality-auto-fire
+name: Auto-Fire
+description: Upgrade the difficulty of the check (<difficulty></difficulty>). If the attack hits, you may trigger an
+  additional weapon hit (<advantage></advantage><advantage></advantage>). This may be triggered multiple times.
+passive: false
+ranked: false
+reference: G-CRB:86

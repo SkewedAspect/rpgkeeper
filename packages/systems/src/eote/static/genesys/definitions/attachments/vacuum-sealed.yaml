@@ -1,0 +1,7 @@
+id: genesys-attachment-vacuum-sealed
+name: Vacuum Sealed
+description: This attachment equips the armor with breathing gear and seals it against vacuum.
+useWith: Any armor.
+modifiers: User may ignore the effects of vacuum or poisonous environments for 1 hour.
+hpRequired: 1
+reference: G-CRB:209

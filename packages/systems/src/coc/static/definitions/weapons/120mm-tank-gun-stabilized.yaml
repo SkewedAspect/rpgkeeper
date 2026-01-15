@@ -1,0 +1,10 @@
+id: coc-weapon-120mm-tank-gun-stabilized
+name: 120mm Tank Gun (stabilized)
+damage: 15d10 / 4 yards
+range: 2,000 yards
+attacks: 1
+ammo: Separate
+malfunction: 100
+notes: Modern
+skill: Artillery
+reference: CoC-IH:254

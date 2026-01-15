@@ -1,0 +1,6 @@
+id: eote-quality-tractor
+name: Tractor
+description: On hit, the target may not move unless it's pilot makes a Piloting check with difficulty equal the Tractor rating.
+passive: true
+ranked: true
+reference: E-CRB:157

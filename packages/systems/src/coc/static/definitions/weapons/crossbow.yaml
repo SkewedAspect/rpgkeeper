@@ -1,0 +1,10 @@
+id: coc-weapon-crossbow
+name: Crossbow
+damage: 1d8 + 2
+range: " yards"
+attacks: 1/2
+ammo: 1
+malfunction: 96
+notes: 1920s, Modern
+skill: Firearms (Bow)
+reference: Coc-IH:250

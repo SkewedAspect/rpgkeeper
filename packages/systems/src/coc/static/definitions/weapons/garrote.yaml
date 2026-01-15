@@ -1,0 +1,10 @@
+id: coc-weapon-garrote
+name: Garrote
+damage: 1d6 + {damageBonus}
+range: Touch
+attacks: 1
+ammo: null
+malfunction: null
+notes: 1920s, Modern
+skill: Fighting (Garrote)
+reference: Coc-IH:250

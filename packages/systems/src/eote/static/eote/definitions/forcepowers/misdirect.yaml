@@ -1,0 +1,34 @@
+id: eote-forcepower-misdirect
+name: Misdirect
+description: >-
+  The Force user creates illusions to fool those around him.
+
+
+  The user may spend <forcepoint></forcepoint> to make a target at up to short range unable to perceive a chosen person
+  or object of silhouette 1 or smaller. Until the beginning of the user's next turn, the target cannot see or sense the
+  hidden person or object.
+minRating: 1
+upgrades:
+  strength:
+    available: 4
+    description: Spend <forcepoint></forcepoint><forcepoint></forcepoint> to increase the silhouette of the object obscured
+      or illusion created by 1 per Strength upgrade purchased.
+  magnitude:
+    available: 2
+    description: Spend <forcepoint></forcepoint> to affect additional targets equal to Presence per rank of Magnitude purchased.
+  duration:
+    available: 1
+    description: Commit <force></force><force></force> to sustain this power while the beguiled target remains in range.
+  range:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to increase power's range by a number of range bands equal to Range
+      upgrades purchased.
+  mastery:
+    available: 1
+    description: Spend <forcepoint></forcepoint><forcepoint></forcepoint> to obscure additional objects or create illusions
+      equal to Cunning plus Deception.
+  control:
+    - description: May use this power to force the target to perceive a single illusory person or object.
+    - description: Commit one or more <force></force>. Add <threat></threat> per <force></force> to all combat checks
+        targeting the force user.
+reference: F-CRB:296

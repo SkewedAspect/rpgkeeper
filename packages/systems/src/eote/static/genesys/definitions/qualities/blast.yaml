@@ -1,0 +1,9 @@
+id: genesys-quality-blast
+name: Blast
+description: If the attack is successful, each character engaged with the original target suffers damage equal to the
+  Blast rating plus the number of <success></success> on the check. If the attack misses, you may trigger Blast
+  (<advantage></advantage><advantage></advantage><advantage></advantage>). The original target and all characters
+  engaged suffer damage equal to the Blast rating.
+passive: false
+ranked: true
+reference: G-CRB:86

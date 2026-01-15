@@ -1,0 +1,10 @@
+id: coc-weapon-25-derringer-1b
+name: .25 Derringer (1B)
+damage: 1d6
+range: 3 yards
+attacks: 1
+ammo: 1
+malfunction: 100
+notes: 1920s
+skill: Firearms (handgun)
+reference: CoC-IH:251

@@ -1,0 +1,6 @@
+id: genesys-quality-inaccurate
+name: Inaccurate
+description: When making an attack with this weapon, add <setback></setback> to the check equal to the Inaccurate rating.
+passive: true
+ranked: true
+reference: G-CRB:87

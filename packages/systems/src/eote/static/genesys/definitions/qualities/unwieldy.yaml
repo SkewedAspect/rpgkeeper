@@ -1,0 +1,7 @@
+id: genesys-quality-unwieldy
+name: Unwieldy
+description: For each point of Agility below the weapon's Unwieldy rating, increase the difficulty of all checks made
+  with the weapon by one.
+passive: true
+ranked: true
+reference: G-CRB:89

@@ -1,0 +1,6 @@
+id: genesys-quality-superior
+name: Superior
+description: Generates automatic <advantage></advantage> on all checks related to its use.
+passive: false
+ranked: false
+reference: G-CRB:88

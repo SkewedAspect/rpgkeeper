@@ -1,0 +1,10 @@
+id: coc-weapon-vickers-303-machine-gun
+name: Vickers .303 Machine Gun
+damage: 2d6 + 4
+range: 110 yards
+attacks: Full auto
+ammo: 250
+malfunction: 99
+notes: 1920s
+skill: Firearms (MG)
+reference: CoC-IH:253

@@ -1,0 +1,8 @@
+id: genesys-attachment-enhance-lifting-servos
+name: Enhance Lifting Servos
+description: Futuristic servos (or other, similar devices) can be worked into suits of hard carapace armor to make them
+  powered and let the user lift and carry far more than they could normally
+useWith: Any 'hard' armor.
+modifiers: Encumbrance Threshold +5, Cumbersome (carried weapons) -1.
+hpRequired: 2
+reference: G-CRB:209

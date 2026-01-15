@@ -1,0 +1,36 @@
+id: eote-forcepower-sense
+name: Sense
+description: >-
+  The Force user can sense the Force interacting with the world around him.
+
+
+  The user may spend <forcepoint></forcepoint> to sense all living things within short range (including sentient and
+  non-sentient beings.)
+
+
+  The user may spend <forcepoint></forcepoint> to sense the current emotional state of one living target with whom he is
+  engaged.
+minRating: 1
+upgrades:
+  strength:
+    available: 1
+    description: When using Sense's ongoing effects, upgrading the pool twice, instead of once.
+  magnitude:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to increase number of targets affected by power equal to Magnitude upgrades
+      purchased.
+  duration:
+    available: 1
+    description: Sense's ongoing effects make be triggered one additional time per round.
+  range:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to increase power's range by a number of range bands equal to Range
+      upgrades purchased.
+  control:
+    - description: "Ongoing effect: Commit <force></force>. Once per round, when an attack targets the Force user, he upgrades
+        the difficulty of the pool once."
+    - description: "Ongoing effect: Commit <force></force>. Once per round, when the Force user makes a combat check, he
+        upgrades the ability of that check once."
+    - description: "Effect: Spend <forcepoint></forcepoint>. The Force user senses the current thoughts of one living target
+        with whom he is engaged."
+reference: F-CRB:304

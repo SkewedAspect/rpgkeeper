@@ -26,4 +26,7 @@ export async function getEntities() : Promise<EntityResourceAccess>
 // Re-export everything from entities
 export * from './entities/index.ts';
 
+// Re-export static database access
+export * as staticRA from './static.ts';
+
 //----------------------------------------------------------------------------------------------------------------------

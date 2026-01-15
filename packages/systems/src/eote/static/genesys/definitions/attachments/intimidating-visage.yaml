@@ -1,0 +1,7 @@
+id: genesys-attachment-intimidating-visage
+name: Intimidating Visage
+description: Warriors from many cultures paint their armor or add imposing face masks to intimidate opponents.
+useWith: Any armor.
+modifiers: Add <success></success> to Coercion checks, and <failure></failure> to Charm checks.
+hpRequired: 0
+reference: G-CRB:209

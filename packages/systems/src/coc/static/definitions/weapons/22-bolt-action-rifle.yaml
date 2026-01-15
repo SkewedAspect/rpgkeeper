@@ -1,0 +1,10 @@
+id: coc-weapon-22-bolt-action-rifle
+name: .22 Bolt-Action Rifle
+damage: 1d6 + 1
+range: 30 yards
+attacks: 1
+ammo: 6
+malfunction: 99
+notes: 1920s, Modern
+skill: Firearms (rifle)
+reference: CoC-IH:252

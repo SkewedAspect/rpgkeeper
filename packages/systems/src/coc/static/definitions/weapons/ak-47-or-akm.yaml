@@ -1,0 +1,10 @@
+id: coc-weapon-ak-47-or-akm
+name: AK-47 or AKM
+damage: 2d6 + 1
+range: 100 yards
+attacks: 1 (2) or full auto
+ammo: 30
+malfunction: 100
+notes: Modern
+skill: Firearms (rifle)
+reference: CoC-IH:253

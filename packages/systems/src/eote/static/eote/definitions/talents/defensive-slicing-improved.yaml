@@ -1,0 +1,9 @@
+id: eote-talent-defensive-slicing-improved
+name: Defensive Slicing (Improved)
+description: When attempting to defend a computer system against intrusion, the character upgrades the difficulty of an
+  opponent's dice pool a number of times equal to his ranks in Defensive Slicing. (_This replaces the usual benefit of
+  Defensive Slicing._)
+activation: p
+ranked: true
+trees: Slicer
+reference: E-CRB:134

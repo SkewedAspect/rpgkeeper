@@ -1,0 +1,10 @@
+id: coc-weapon-m16a2
+name: M16A2
+damage: 2d6
+range: 110 yards
+attacks: 1 (2) or burst 3
+ammo: 30
+malfunction: 97
+notes: Modern
+skill: Firearms (rifle)
+reference: CoC-IH:253

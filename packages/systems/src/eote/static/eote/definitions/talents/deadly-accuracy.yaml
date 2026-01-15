@@ -1,0 +1,9 @@
+id: eote-talent-deadly-accuracy
+name: Deadly Accuracy
+description: Each time the character gains a rank of Deadly Accuracy, he must choose one combat skill. The character may
+  add his basic training ranks in that combat skill as additional damage to one hit of a successful attack made with
+  that skill with non starship/vehicle weapons. He cannot choose the same combat skill twice.
+activation: p
+ranked: true
+trees: Assassin, Gadgeteer, Mercenary Soldier
+reference: E-CRB:134

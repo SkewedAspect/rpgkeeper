@@ -1,0 +1,10 @@
+id: coc-weapon-col-moran-s-air-rifle
+name: Col. Moran's Air Rifle
+damage: 2d6 + 1
+range: 20 yards
+attacks: 1/3
+ammo: 1
+malfunction: 88
+notes: 1920s
+skill: Firearms (rifle)
+reference: CoC-IH:252

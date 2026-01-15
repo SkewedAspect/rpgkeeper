@@ -1,0 +1,10 @@
+id: coc-weapon-38-automatic
+name: .38 Automatic
+damage: 1d10
+range: 15 yards
+attacks: 1 (3)
+ammo: 8
+malfunction: 99
+notes: 1920s, Modern
+skill: Firearms (handgun)
+reference: CoC-IH:251

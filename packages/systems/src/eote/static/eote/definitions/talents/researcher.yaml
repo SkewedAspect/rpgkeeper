@@ -1,0 +1,8 @@
+id: eote-talent-researcher
+name: Researcher
+description: The character removes <setback></setback> per rank of Researcher from all Knowledge checks. Researching
+  takes 50% less time (_this does not increase with multiple ranks of researcher._).
+activation: p
+ranked: true
+trees: Scholar
+reference: E-CRB:141

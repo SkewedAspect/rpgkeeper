@@ -1,0 +1,10 @@
+id: coc-weapon-uzi-smg
+name: Uzi SMG
+damage: 1d10
+range: 20 yards
+attacks: 1 (2) or full auto
+ammo: 32
+malfunction: 98
+notes: Modern
+skill: Firearms (SMG)
+reference: CoC-IH:253

@@ -1,0 +1,10 @@
+id: coc-weapon-sword-light-sharpened-fencing-foil-sword-cane
+name: Sword, light (sharpened fencing foil, sword cane)
+damage: 1d6 + {damageBonus}
+range: Touch
+attacks: 1
+ammo: null
+malfunction: null
+notes: 1920s, Modern
+skill: Fighting (Sword)
+reference: CoC-IH:251

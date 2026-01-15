@@ -1,0 +1,7 @@
+id: genesys-talent-unremarkable
+name: Unremarkable
+description: Other characters add <failure></failure> to any checks made to find or identify your character in a crowd.
+activation: p
+ranked: false
+tier: 1
+reference: G-CRB:73

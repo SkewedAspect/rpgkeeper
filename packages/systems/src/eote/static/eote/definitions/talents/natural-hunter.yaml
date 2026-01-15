@@ -1,0 +1,7 @@
+id: eote-talent-natural-hunter
+name: Natural Hunter
+description: Once per game session, the character may reroll any one Perception or Vigilance check.
+activation: ai
+ranked: false
+trees: Scout
+reference: E-CRB:139

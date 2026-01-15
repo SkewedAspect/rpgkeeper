@@ -1,0 +1,9 @@
+id: eote-talent-dedication
+name: Dedication
+description: Each rank permanently increases a single characteristic of the player's choice by one point. This cannot
+  bring a characteristic above 6.
+activation: p
+ranked: true
+trees: Assassin, Bodyguard, Doctor, Force Sensitive Exile, Fringer, Gadgeteer, Marauder, Mechanic, Outlaw Tech, Pilot,
+  Politico, Scholar, Scoundrel, Scout, Slicer, Mercenary Soldier, Survivalist, Thief, Trader
+reference: E-CRB:134

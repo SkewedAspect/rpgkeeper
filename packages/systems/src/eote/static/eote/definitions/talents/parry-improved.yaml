@@ -1,0 +1,11 @@
+id: eote-talent-parry-improved
+name: Parry (Improved)
+description: Then the character suffers a hit from a **Brawl**, **Melee** or **Lightsaber** combat check and uses the
+  Parry incidental to reduce the damage from that hit, after the attack is resolved, the character may spend
+  <despair></despair> or <threat></threat><threat></threat><threat></threat> to automatically hit the attacker once with
+  a wielded Brawl, Melee, or Lightsaber weapon. This his deals the weapon's base damage plus any damage from applicable
+  talents or abilities. This talent may not be used if the original attack incapacitates the character.
+activation: ai
+ranked: false
+trees: Ataru Striker, Makashi Duelist, Shii-Cho Knight, Soresu Defender
+reference: F-CRB:149

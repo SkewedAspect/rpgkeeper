@@ -1,0 +1,6 @@
+id: genesys-quality-inferior
+name: Inferior
+description: When making checks with this weapon, add <threat></threat> to the check.
+passive: true
+ranked: false
+reference: G-CRB:88

@@ -1,0 +1,10 @@
+id: coc-weapon-44-magnum-revolver
+name: .44 Magnum Revolver
+damage: 1d10 + 1d4 + 2
+range: 15 yards
+attacks: 1 (3)
+ammo: 6
+malfunction: 100
+notes: Modern
+skill: Firearms (handgun)
+reference: CoC-IH:251

@@ -1,0 +1,6 @@
+id: eote-quality-accurate
+name: Accurate
+description: For each level of this quality, the attacker adds <boost></boost> to their combat checks while using this weapon.
+passive: true
+ranked: true
+reference: E-CRB:154

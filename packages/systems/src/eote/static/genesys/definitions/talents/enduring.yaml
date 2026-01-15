@@ -1,0 +1,7 @@
+id: genesys-talent-enduring
+name: Enduring
+description: Character gains +1 soak value per rank of Enduring.
+activation: p
+ranked: true
+tier: 4
+reference: G-CRB:80

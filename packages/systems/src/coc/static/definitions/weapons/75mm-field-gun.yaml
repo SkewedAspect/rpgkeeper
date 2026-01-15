@@ -1,0 +1,10 @@
+id: coc-weapon-75mm-field-gun
+name: 75mm Field Gun
+damage: 10d10 / 2 yards
+range: 500 yards
+attacks: 1/4
+ammo: Separate
+malfunction: 99
+notes: 1920s, Modern
+skill: Artillery
+reference: CoC-IH:254

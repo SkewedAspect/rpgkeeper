@@ -1,0 +1,9 @@
+id: eote-quality-guided
+name: Guided
+description: Can only be triggered (<advantage></advantage><advantage></advantage><advantage></advantage>) if an attack
+  misses. If triggered, the controlling character may make a combat check at the end of the round as an out-of-turn
+  incidental. The difficulty of this combat check is Average (<difficulty></difficulty>); instead of the normal dice
+  pool, use <advantage></advantage> equal to the weapon’s Guided rating. If successful, the attack is resolved normally.
+passive: false
+ranked: false
+reference: E-CRB:156

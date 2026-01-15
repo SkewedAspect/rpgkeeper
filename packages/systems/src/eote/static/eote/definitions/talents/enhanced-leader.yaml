@@ -1,0 +1,9 @@
+id: eote-talent-enhanced-leader
+name: Enhanced Leader
+description: _Force Talent_. When making a Leadership check, the character may add <force></force> no greater than Force
+  rating to the check. The character may spend <force-point></force-point> to add <success></success> or
+  <advantage></advantage> (character's choice) to the result.
+activation: p
+ranked: false
+trees: Peacekeeper
+reference: F-CRB:142

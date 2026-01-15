@@ -1,0 +1,10 @@
+id: coc-weapon-plastique-c-4-4-oz
+name: Plastique (C-4), 4 oz.
+damage: 6d10 / 3 yards
+range: 3 yards
+attacks: In place
+ammo: One use
+malfunction: 99
+notes: Modern
+skill: Demolitions
+reference: CoC-IH:254

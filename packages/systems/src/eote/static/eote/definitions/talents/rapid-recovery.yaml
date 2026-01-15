@@ -1,0 +1,8 @@
+id: eote-talent-rapid-recovery
+name: Rapid Recovery
+description: When this character heals strain after an encounter has concluded, he heals one additional strain per rank
+  in Rapid Recovery.
+activation: p
+ranked: true
+trees: Fringer, Pilot, Scout
+reference: E-CRB:141

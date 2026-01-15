@@ -1,0 +1,8 @@
+id: eote-talent-soft-spot
+name: Soft Spot
+description: After making a successful attack with a non-starship/ vehicle weapon, the character may spend one Destiny
+  Point to add damage equal to his Cunning to one hit of the successful attack.
+activation: ai
+ranked: false
+trees: Scoundrel, Survivalist
+reference: E-CRB:143

@@ -1,0 +1,9 @@
+id: genesys-talent-dodge
+name: Dodge
+description: When targeted by a combat check (ranged or melee) the character may choose to immediately perform a Dodge
+  incidental to suffer a number of strain, then upgrade the difficulty of the combat check by that number. The number of
+  strain suffered cannot exceed his ranks in Dodge.
+activation: ai
+ranked: true
+tier: 3
+reference: G-CRB:78

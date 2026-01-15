@@ -1,0 +1,11 @@
+id: eote-talent-parry
+name: Parry
+description: When the character suffers a hit from a Brawl, Melee, or Lightsaber combat check, after damage is
+  calculated (but before soak is applied, so immediately after step 3 of *Perform a Combat Check*, page 148 F&D), the
+  character may take a Parry incidental. He suffers 3 strain and reduces the damage dealt by that hit from the attack by
+  a number equal to two plus his ranks in Parry. This talent may only be used when the character is wielding a
+  Lightsaber or Melee weapon.
+activation: ai
+ranked: true
+trees: Ataru Striker, Makashi Duelist Niman Disciple, Protector, Shien Expert, Shii-Cho Knight, Soresu Defender
+reference: F-CRB:149

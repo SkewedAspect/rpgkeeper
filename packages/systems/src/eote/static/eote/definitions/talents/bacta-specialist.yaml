@@ -1,0 +1,8 @@
+id: eote-talent-bacta-specialist
+name: Bacta Specialist
+description: Patients under the character's supervision regain one additional wound per rank of Bacta Specialist each
+  time they recover a wound while recovering in a Bacta tank or under supervised medical conditions or long-term care.
+activation: p
+ranked: true
+trees: Doctor
+reference: E-CRB:132

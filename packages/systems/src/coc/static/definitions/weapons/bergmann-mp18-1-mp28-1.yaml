@@ -1,0 +1,10 @@
+id: coc-weapon-bergmann-mp18-1-mp28-1
+name: Bergmann-MP18/1 MP28/1
+damage: 1d10
+range: 20 yards
+attacks: 1 (2) or full auto
+ammo: 20
+malfunction: 96
+notes: 1920s
+skill: Firearms (SMG)
+reference: CoC-IH:253

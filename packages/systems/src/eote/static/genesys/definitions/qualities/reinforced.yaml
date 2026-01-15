@@ -1,0 +1,7 @@
+id: genesys-quality-reinforced
+name: Reinforced
+description: Weapons with the Reinforced quality are immune to Sunder. Armor with this quality makes the wearer's soak
+  immune to the Pierce and Breach qualities.
+passive: true
+ranked: false
+reference: G-CRB:88

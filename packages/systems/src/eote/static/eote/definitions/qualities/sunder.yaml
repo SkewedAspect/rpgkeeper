@@ -1,0 +1,8 @@
+id: eote-quality-sunder
+name: Sunder
+description: "When activated (<advantage></advantage>), choose an item openly wielded by the target. The item is damages
+  one step: minor -> moderate -> major -> destroyed. Sunder maybe activated even if the attack is not successful. Sunder
+  may be activated multiple times in the same attack, but only on the same item."
+passive: false
+ranked: false
+reference: E-CRB:157

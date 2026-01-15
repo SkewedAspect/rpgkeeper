@@ -1,0 +1,10 @@
+id: coc-weapon-fn-minimi-5-56mm
+name: FN Minimi 5.56mm
+damage: 2d6 + 4
+range: 110 yards
+attacks: Full auto
+ammo: 30
+malfunction: 99
+notes: Modern
+skill: Firearms (MG)
+reference: CoC-IH:253

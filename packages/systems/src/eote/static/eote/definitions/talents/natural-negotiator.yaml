@@ -1,0 +1,7 @@
+id: eote-talent-natural-negotiator
+name: Natural Negotiator
+description: Once per game session the character may reroll any one Cool or Negotiation check.
+activation: ai
+ranked: false
+trees: Trader
+reference: E-CRB:139

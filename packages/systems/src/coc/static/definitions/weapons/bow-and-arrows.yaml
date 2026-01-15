@@ -1,0 +1,10 @@
+id: coc-weapon-bow-and-arrows
+name: Bow and Arrows
+damage: 1d6 + ({damageBonus} / 2)
+range: " yards"
+attacks: 1
+ammo: 1
+malfunction: 97
+notes: 1920s, Modern
+skill: Firearms (Bow)
+reference: Coc-IH:250

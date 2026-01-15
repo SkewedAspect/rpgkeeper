@@ -1,0 +1,7 @@
+id: genesys-quality-limited-ammo
+name: Limited Ammo
+description: A weapon with this quality may be used to make a number of attacks equal to its Limited Ammo rating before
+  it must be reloaded with a maneuver. In addition, each shot expends one of a limited number of rounds of ammo.
+passive: true
+ranked: true
+reference: G-CRB:88

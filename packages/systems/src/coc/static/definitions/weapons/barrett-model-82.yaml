@@ -1,0 +1,10 @@
+id: coc-weapon-barrett-model-82
+name: Barrett Model 82
+damage: 2d10 + 1d8 + 6
+range: 250 yards
+attacks: 1
+ammo: 11
+malfunction: 96
+notes: Modern
+skill: Firearms (rifle)
+reference: CoC-IH:253

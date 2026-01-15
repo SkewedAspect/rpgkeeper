@@ -1,0 +1,8 @@
+id: eote-talent-frenzied-attack
+name: Frenzied Attack
+description: When making a Melee or Brawl combat check, the character may suffer a number of strain, then upgrade the
+  ability of his combat check by that number. This number cannot exceed his ranks in Frenzied Attack.
+activation: ai
+ranked: false
+trees: Marauder
+reference: E-CRB:135

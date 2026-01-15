@@ -1,0 +1,10 @@
+id: coc-weapon-taser-dart
+name: Taser (dart)
+damage: 1d3 + stun
+range: 15 feet
+attacks: 1
+ammo: 3
+malfunction: 95
+notes: Modern
+skill: Firearms (Handgun)
+reference: CoC-IH:251

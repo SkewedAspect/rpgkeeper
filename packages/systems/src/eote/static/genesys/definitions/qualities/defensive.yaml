@@ -1,0 +1,6 @@
+id: genesys-quality-defensive
+name: Defensive
+description: Increase the user’s melee defense by its Defensive rating.
+passive: true
+ranked: true
+reference: G-CRB:87

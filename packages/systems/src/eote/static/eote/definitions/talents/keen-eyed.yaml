@@ -1,0 +1,8 @@
+id: eote-talent-keen-eyed
+name: Keen Eyed
+description: Remove <setback></setback> per rank of Keen Eyed from Perception and Vigilance checks. Decrease time to
+  search a specific area by half.
+activation: p
+ranked: true
+trees: Seer
+reference: F-CRB:146

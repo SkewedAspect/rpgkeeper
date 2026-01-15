@@ -1,0 +1,10 @@
+id: eote-attachment-extended-hilt
+name: Extended Hilt
+description: The idea behind the extended hilt modification is to increase the lightsaber’s striking and cutting power
+  by using the leverage of the longer handle and a twohanded grip to help focus the wielder’s strength into the force of
+  the blow.
+useWith: Any lightsaber.
+baseModifier: Gain Superior.
+modOptions: None.
+hpRequired: 1
+reference: F-CRB:197

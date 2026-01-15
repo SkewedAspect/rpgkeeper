@@ -1,0 +1,6 @@
+id: genesys-quality-deflection
+name: Deflection
+description: Increases the user’s ranged defense by its Deflection rating.
+passive: true
+ranked: true
+reference: G-CRB:87

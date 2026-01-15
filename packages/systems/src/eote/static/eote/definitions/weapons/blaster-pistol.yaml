@@ -1,0 +1,13 @@
+id: eote-weapon-blaster-pistol
+name: Blaster Pistol
+description: Most spacers cary standard blaster pistols. They pack enough punch to penetrate plastoid armor, have decent
+  range, and are light enough to carry around at all times.
+skill: Range-Light
+damage: 6
+criticalRating: 3
+range: s
+encumbrance: 1
+rarity: 4
+qualities:
+  - id: 22
+reference: E-CRB:160

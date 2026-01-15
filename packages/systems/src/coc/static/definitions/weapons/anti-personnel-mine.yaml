@@ -1,0 +1,10 @@
+id: coc-weapon-anti-personnel-mine
+name: Anti-Personnel Mine
+damage: 4d10 / 5 yards
+range: 5 yards
+attacks: In place
+ammo: One use
+malfunction: 99
+notes: 1920s, Modern
+skill: Demolitions
+reference: CoC-IH:254

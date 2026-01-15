@@ -1,0 +1,7 @@
+id: eote-talent-lethal-blows
+name: Lethal Blows
+description: The character adds +10 per rank of Lethal Blows to any Critical Injury rolls inflicted on opponents.
+activation: p
+ranked: true
+trees: Assassin, Marauder, Mercenary Soldier
+reference: E-CRB:138

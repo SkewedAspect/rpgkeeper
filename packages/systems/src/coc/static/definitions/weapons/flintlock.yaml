@@ -1,0 +1,10 @@
+id: coc-weapon-flintlock
+name: Flintlock
+damage: 1d6 + 1
+range: 10 yards
+attacks: 1/4
+ammo: 1
+malfunction: 95
+notes: Rare
+skill: Firearms (handgun)
+reference: CoC-IH:251

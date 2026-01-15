@@ -1,0 +1,10 @@
+id: coc-weapon-live-wire-2-volt-charge
+name: Live Wire, 2-volt charge
+damage: 2d8 + stun
+range: Touch
+attacks: 1
+ammo: null
+malfunction: 95
+notes: Modern
+skill: Fighting (Brawl)
+reference: Coc-IH:250

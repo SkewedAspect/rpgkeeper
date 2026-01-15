@@ -1,0 +1,5 @@
+id: eote-ability-infravision
+name: Infravision
+description: Chiss have adapted to be able to see in both the infrared and normal visual spectra. This enables Chiss
+  characters to remove up to <setback></setback> added to checks by lighting conditions.
+reference: EtU:21

@@ -1,0 +1,11 @@
+id: eote-talent-reflect
+name: Reflect
+description: _Force talent_. When the character suffers a hit from a Ranged (Light), Ranged (Heavy), or Gunnery combat
+  check, and after damage is calculated (but before soak is applied, so immediately after step 3 of **Perform a Combat
+  Check**, page 148), if the character is wielding a lightsaber, he may take the Reflect incidental. He suffers 3 strain
+  and reduces the damage dealt by that hit from the attack by a number equal to two plus his ranks in Reflect. This
+  talent may only be used when the character is wielding a Lightsaber weapon.
+activation: p
+ranked: true
+trees: Ataru Striker, Niman Disciple, Protector, Shien Expert, Soresu Defender
+reference: F-CRB:150

@@ -1,0 +1,8 @@
+id: eote-talent-quick-strike
+name: Quick Strike
+description: The character adds <boost></boost> per rank of Quick Strike to his combat checks made against any target
+  that has not yet acted in the encounter.
+activation: p
+ranked: true
+trees: Assassin, Scoundrel, Scout
+reference: E-CRB:141

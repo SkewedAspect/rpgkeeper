@@ -1,0 +1,10 @@
+id: coc-weapon-bullwhip
+name: Bullwhip
+damage: 1d3 + ({damageBonus} / 2)
+range: " feet"
+attacks: 1
+ammo: null
+malfunction: null
+notes: 1920s, Modern
+skill: Fighting (Whip)
+reference: Coc-IH:250

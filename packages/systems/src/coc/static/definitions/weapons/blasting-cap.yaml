@@ -1,0 +1,10 @@
+id: coc-weapon-blasting-cap
+name: Blasting Cap
+damage: 2d10 / 1 yard
+range: 1 yard
+attacks: N/A
+ammo: One use
+malfunction: 100
+notes: 1920s, Modern
+skill: Electrical Repair
+reference: CoC-IH:254

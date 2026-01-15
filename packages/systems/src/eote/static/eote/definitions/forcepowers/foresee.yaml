@@ -1,0 +1,32 @@
+id: eote-forcepower-foresee
+name: Foresee
+description: >-
+  The Force user can feel the Force flowing around everything, seeing what is and what will be.
+
+
+  The user may spend <forcepoint></forcepoint> to gain vague hints of events to come, up to a day into his own, personal
+  future.
+minRating: 1
+upgrades:
+  strength:
+    available: 2
+    description: Spend <forcepoint></forcepoint> to pick out specific details equal to Strength upgrades purchased.
+  magnitude:
+    available: 2
+    description: Spend <forcepoint></forcepoint> to increase targets affected equal to Magnitude upgrades purchased.
+  duration:
+    available: 2
+    description: Spend <forcepoint></forcepoint> to increase the days into the future the user can see equal to Duration
+      upgrades purchased.
+  range:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to increase power's range by a number of range bands equal to Range
+      upgrades purchased.
+  control:
+    - description: When making a skill check to determine Initiative, the user may roll a <b>Foresee power check</b> as part
+        of the pool. He may spend <forcepoint></forcepoint> to gain <success></success> on the check.
+    - description: When performing a <b>Foresee power check</b> as part of an Initiative check, the user may spend
+        <forcepoint></forcepoint> to allow all affected targets to take one free maneuver before the first round of
+        combat begins.
+    - description: Affected targets increase their ranged and melee defense by 2 for the first round of combat.
+reference: F-CRB:290

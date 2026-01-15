@@ -1,0 +1,6 @@
+id: eote-quality-stun
+name: Stun
+description: When activated, it inflicts strain equal to the weapon's Stun rating. It is _not_ reduce by the target's soak.
+passive: false
+ranked: false
+reference: E-CRB:157

@@ -1,0 +1,10 @@
+id: coc-weapon-war-boomerang
+name: War Boomerang
+damage: 1d8 + 1 / 2 {damageBonus}
+range: STR/5 yards
+attacks: 1
+ammo: null
+malfunction: null
+notes: Rare
+skill: Throw
+reference: CoC-IH:251

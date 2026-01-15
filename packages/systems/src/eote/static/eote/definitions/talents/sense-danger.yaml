@@ -1,0 +1,7 @@
+id: eote-talent-sense-danger
+name: Sense Danger
+description: Once per game remove <setback></setback> <setback></setback> from any one check.
+activation: ai
+ranked: false
+trees: Seer
+reference: E-CRB:142

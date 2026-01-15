@@ -1,0 +1,10 @@
+id: coc-weapon-bren-gun
+name: Bren Gun
+damage: 2d6 + 4
+range: 110 yards
+attacks: 1 or full auto
+ammo: 30
+malfunction: 96
+notes: 1920s
+skill: Firearms (MG)
+reference: CoC-IH:253

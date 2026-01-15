@@ -1,0 +1,10 @@
+id: coc-weapon-skorpion-smg
+name: Skorpion SMG
+damage: 1d8
+range: 15 yards
+attacks: 1 (3) or full auto
+ammo: 20
+malfunction: 96
+notes: Modern
+skill: Firearms (SMG)
+reference: CoC-IH:253

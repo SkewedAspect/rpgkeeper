@@ -1,0 +1,7 @@
+id: genesys-quality-pierce
+name: Pierce
+description: Any hits from this weapon ignore a number of points point of soak equal to the weapon’s Pierce rating. If
+  the weapon has more ranks of Pierce than the target's total soak, it completely ignores the target's soak.
+passive: true
+ranked: true
+reference: G-CRB:88

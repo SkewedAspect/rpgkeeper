@@ -1,0 +1,10 @@
+id: coc-weapon-garand-m1-m2-rifle
+name: Garand M1, M2 Rifle
+damage: 2d6 + 4
+range: 110 yards
+attacks: 1
+ammo: 8
+malfunction: 100
+notes: WWII, Later
+skill: Firearms (rifle)
+reference: CoC-IH:252

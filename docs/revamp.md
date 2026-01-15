@@ -12,7 +12,7 @@ Back at it again... again.
 ## In Progress
 
 * [ ] Change FontAwesome imports to [tree-shakable][] version
-* [ ] Migrate to a plain data model (see [Plain Data Model Migration](#plain-data-model-migration) below)
+* [X] Migrate to a plain data model (see [Plain Data Model Migration](#plain-data-model-migration) below)
 * [ ] Character avatar/portrait uploads
     * [ ] Add image cropping UI using [vue-advanced-cropper][]
     * [ ] Store images as blob in database (S3/object storage later)
@@ -108,36 +108,32 @@ export type RisusSystemDetails = z.infer<typeof RisusDetailsSchema>;
 
 Systems by complexity (simple → complex):
 
-1. **Risus** - 5 fields, no supplement refs (proof of concept)
-2. **WFRP** - 2 arrays
-3. **Fate** - Aspects, stress, stunts
-4. **V20** - Attributes (incomplete system)
-5. **CoC** - Biography, skills, backstory, weapons
-6. **DnD35** - Classes, feats, spells, conditions
-7. **EotE/Genesys** - Supplement refs everywhere (most complex)
+1. **Risus** - 5 fields, no supplement refs (proof of concept) ✓
+2. **WFRP** - 2 arrays ✓
+3. **Fate** - Aspects, stress, stunts ✓
+4. **CoC** - Biography, skills, backstory, weapons ✓
+5. **EotE/Genesys** - Supplement refs everywhere (most complex) ✓
 
 ### Checklist
 
 #### Phase 1: Foundation
-- [ ] Create `@rpgk/core/utils/codecs.ts` with common codecs
-- [ ] Add tests for common codecs
-- [ ] Update `@rpgk/core` exports
+- [X] Create `@rpgk/core/utils/codecs.ts` with common codecs
+- [X] Add tests for common codecs
+- [X] Update `@rpgk/core` exports
 
 #### Phase 2: Risus (Proof of Concept)
-- [ ] Move `RisusSystemDetails` interface from core to systems
-- [ ] Create `@rpgk/systems/risus/schema.ts` with Zod schemas
-- [ ] Create `@rpgk/systems/risus/models.ts` (moved interfaces)
-- [ ] Add tests for Risus schema validation
-- [ ] Update Risus exports and definition
-- [ ] Wire up validation in CharacterManager
+- [X] Move `RisusSystemDetails` interface from core to systems
+- [X] Create `@rpgk/systems/risus/schema.ts` with Zod schemas
+- [X] Create `@rpgk/systems/risus/models.ts` (moved interfaces)
+- [X] Add tests for Risus schema validation
+- [X] Update Risus exports and definition
+- [X] Wire up validation in CharacterManager
 
 #### Phase 3: Remaining Systems
-- [ ] WFRP
-- [ ] Fate
-- [ ] V20
-- [ ] CoC
-- [ ] DnD35
-- [ ] EotE/Genesys
+- [X] WFRP
+- [X] Fate
+- [X] CoC
+- [X] EotE/Genesys
 
 #### Phase 4: Supplements (Deferred)
 - [ ] Audit current supplement architecture

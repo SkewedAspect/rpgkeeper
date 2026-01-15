@@ -1,0 +1,10 @@
+id: coc-weapon-45-martini-henry-rifle
+name: .45 Martini-Henry Rifle
+damage: 1d8 + 1d6 + 3
+range: 80 yards
+attacks: 1/3
+ammo: 1
+malfunction: 100
+notes: 1920s
+skill: Firearms (rifle)
+reference: CoC-IH:252

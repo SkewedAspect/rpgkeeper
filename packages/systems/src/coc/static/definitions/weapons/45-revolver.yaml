@@ -1,0 +1,10 @@
+id: coc-weapon-45-revolver
+name: .45 Revolver
+damage: 1d10 + 2
+range: 15 yards
+attacks: 1 (3)
+ammo: 6
+malfunction: 100
+notes: 1920s, Modern
+skill: Firearms (handgun)
+reference: CoC-IH:251

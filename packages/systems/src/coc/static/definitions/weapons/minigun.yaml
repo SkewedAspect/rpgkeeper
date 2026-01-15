@@ -1,0 +1,10 @@
+id: coc-weapon-minigun
+name: Minigun
+damage: 2d6 + 4
+range: 200 yards
+attacks: Full auto
+ammo: 4000
+malfunction: 98
+notes: Modern
+skill: Firearms (MG)
+reference: CoC-IH:253

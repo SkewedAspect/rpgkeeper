@@ -1,0 +1,6 @@
+id: eote-quality-inferior
+name: Inferior
+description: When making checks with this weapon, add <threat></threat> to the check.
+passive: true
+ranked: false
+reference: E-CRB:156

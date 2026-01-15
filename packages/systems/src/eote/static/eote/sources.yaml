@@ -1,0 +1,132 @@
+- abbr: A-BGA
+  name: "[Age of Rebellion] Beginner Game - Adventure Book"
+  productCode: SWA01
+- abbr: A-BGR
+  name: "[Age of Rebellion] Beginner Game - Rulebook"
+  productCode: SWA01
+- abbr: A-CRB
+  name: "[Age of Rebellion] Core Rulebook"
+  productCode: SWA02
+- abbr: BtR
+  name: "[Edge of the Empire] Beyond the Rim"
+  productCode: SWE05
+- abbr: CotG
+  name: "[Force and Destiny] Chronicles of the Gatekeeper"
+  productCode: SWF23
+- abbr: CotGAD
+  name: "[Star Wars Roleplaying] Citizens of the Galaxy Adversary Deck"
+  productCode: uSWR03
+- abbr: DA
+  name: "[Age of Rebellion] Desperate Allies"
+  productCode: SWA31
+- abbr: DC
+  name: "[Edge of the Empire] Dangerous Covenants"
+  productCode: SWE08
+- abbr: DitW
+  name: "[Age of Rebellion] Dead in the Water"
+  productCode: SWA03
+- abbr: DoH
+  name: "[Force and Destiny] Disciples of Harmony"
+  productCode: SWF35
+- abbr: E-BGA
+  name: "[Edge of the Empire] Beginner Game - Adventure Book"
+  productCode: SWE01
+- abbr: E-BGR
+  name: "[Edge of the Empire] Beginner Game - Rulebook"
+  productCode: SWE01
+- abbr: E-CRB
+  name: "[Edge of the Empire] Core Rulebook"
+  productCode: SWE02
+- abbr: EtU
+  name: "[Edge of the Empire] Enter the Unknown"
+  productCode: SWE06
+- abbr: EV
+  name: "[Force and Destiny] Endless Vigil"
+  productCode: SWF30
+- abbr: F-BGA
+  name: "[Force and Destiny] Beginner Game - Adventure Book"
+  productCode: SWF01
+- abbr: F-BGR
+  name: "[Force and Destiny] Beginner Game - Rulebook"
+  productCode: SWF01
+- abbr: F-CRB
+  name: "[Force and Destiny] Core Rulebook"
+  productCode: SWF02
+- abbr: FC
+  name: "[Edge of the Empire] Fly Casual"
+  productCode: SWE12
+- abbr: FH
+  name: "[Edge of the Empire] Far Horizons"
+  productCode: SWE10
+- abbr: FiB
+  name: "[Age of Rebellion] Forged in Battle"
+  productCode: SWA42
+- abbr: FLT
+  name: "[Age of Rebellion] Friends Like These"
+  productCode: SWA41
+- abbr: FO
+  name: "[Age of Rebellion] Fully Operational"
+  productCode: SWA47
+- abbr: GMK
+  name: "[Edge of the Empire] Game Master's Kit"
+  productCode: SWE03
+- abbr: GoD
+  name: "[Force and Destiny] Ghosts of Dathomir"
+  productCode: SWF40
+- abbr: HB
+  name: Homebrew
+  productCode: HB999
+- abbr: HD
+  name: "[Force and Destiny] Hidden Depths"
+  productCode: SWF03
+- abbr: IaRAD
+  name: "[Star Wars Roleplaying] Imperials and Rebels Adversary Deck"
+  productCode: uSWR02
+- abbr: JoY
+  name: "[Edge of the Empire] Jewel of Yavin"
+  productCode: SWE09
+- abbr: KtP
+  name: "[Force and Destiny] Keeping the Peace"
+  productCode: SWF24
+- abbr: LbE
+  name: "[Age of Rebellion] Lead by Example"
+  productCode: SWA36
+- abbr: LoNH
+  name: "[Edge of the Empire] Lords of Nal Hutta"
+  productCode: SWE11
+- abbr: MPQ
+  name: "[Edge of the Empire] Mask of the Pirate Queen"
+  productCode: SWE13
+- abbr: ND
+  name: "[Edge of the Empire] No Disintegrations"
+  productCode: SWE16
+- abbr: NoP
+  name: "[Force and Destiny] Nexus of Power"
+  productCode: SWF29
+- abbr: OaA
+  name: "[Age of Rebellion] Onslaught at Arda I"
+  productCode: SWA04
+- abbr: OS
+  name: "[Age of Rebellion] Operation Shadowpoint"
+  productCode: SWAP01
+- abbr: RaGP
+  name: "[Age of Rebellion] Rescue at Glare Peak"
+  productCode: OP007
+- abbr: SaVAD
+  name: "[Star Wars Roleplaying] Scum and Villainy Adversary Deck"
+  productCode: uSWR01
+- abbr: SM
+  name: "[Edge of the Empire] Special Modifications"
+  productCode: SWE14
+- abbr: SoF
+  name: "[Edge of the Empire] Suns of Fortune"
+  productCode: SWE07
+- abbr: SoR
+  name: "[Age of Rebellion] Strongholds of Resistance"
+  productCode: SWA30
+- abbr: SoT
+  name: "[Age of Rebellion] Stay on Target"
+  productCode: SWA25
+- abbr: SS
+  name: "[Force and Destiny] Savage Spirits"
+  productCode: SWF41

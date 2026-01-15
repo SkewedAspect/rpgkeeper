@@ -1,0 +1,10 @@
+id: coc-weapon-303-lee-enfield
+name: .303 Lee Enfield
+damage: 2d6 + 4
+range: 110 yards
+attacks: 1
+ammo: 10
+malfunction: 100
+notes: 1920s, Modern
+skill: Firearms (rifle)
+reference: CoC-IH:252

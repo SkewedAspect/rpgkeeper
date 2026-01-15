@@ -1,0 +1,8 @@
+id: eote-talent-brilliant-evasion
+name: Brilliant Evasion
+description: Once per encounter may take Brilliant Evasion action. Select 1 opponent and make an *opposed Piloting
+  (Space or Planetary)* check to stop opponent from attacking character for rounds equal to Agility.
+activation: aa
+ranked: false
+trees: Squadron Leader
+reference: E-CRB:132

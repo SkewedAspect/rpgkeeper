@@ -1,0 +1,38 @@
+id: eote-forcepower-bind
+name: Bind
+description: >-
+  The Force user restrains an enemy, preventing the target from acting.
+
+
+  The user may spend <forcepoint></forcepoint> to immobilize a target within short range until the end of the user's
+  next turn.
+minRating: 2
+upgrades:
+  strength:
+    available: 3
+    description: Spend <forcepoint></forcepoint><forcepoint></forcepoint> to disorient the target for a number of rounds
+      equal to the Strength upgrades purchased.
+  magnitude:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to affect 1 additional target within range per rank of Magnitude purchased.
+  duration:
+    available: 1
+    description: Commit <force></force><force></force><force></force> to sustain the ongoing effects of the power on each
+      affected target.
+  range:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to increase the power's range by a number of range bands equal to Range
+      upgrades purchased.
+  control:
+    - description: Spend <forcepoint></forcepoint>; whenever a target affected by Bind takes an action, that target suffers
+        strain equal to Willpower.
+    - description: Spend <forcepoint></forcepoint> to move the target one range band closer or farther away.
+  mastery:
+    available: 1
+    description: When the user is making a <b>Bind power check</b>, if the check was not already opposed, the user may roll
+      an opposed <b>Discipline vs. Discipline check</b> against one target of the power. If no <darkside></darkside>
+      were used to generate <forcepoint></forcepoint> and the user succeeds on the check, he may immediately stagger the
+      target until the end of his next turn. If any <darkside></darkside> were used to generate
+      <forcepoint></forcepoint> and the check succeeds, the target suffers a Critical Injury, adding +10 to the roll per
+      <forcepoint></forcepoint> spent on the check.
+reference: F-CRB:286

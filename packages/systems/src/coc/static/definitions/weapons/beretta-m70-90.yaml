@@ -1,0 +1,10 @@
+id: coc-weapon-beretta-m70-90
+name: Beretta M70/90
+damage: 2d6
+range: 110 yards
+attacks: 1 or full auto
+ammo: 30
+malfunction: 99
+notes: Modern
+skill: Firearms (rifle)
+reference: CoC-IH:253

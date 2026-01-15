@@ -1,0 +1,10 @@
+id: coc-weapon-m79-grenade-launcher
+name: M79 Grenade Launcher
+damage: 3d10 / 2 yards
+range: "20"
+attacks: 1/3
+ammo: 1
+malfunction: 99
+notes: Modern
+skill: Firearms (Heavy)
+reference: CoC-IH:254

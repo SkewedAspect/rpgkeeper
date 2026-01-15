@@ -1,0 +1,8 @@
+id: eote-talent-confidence
+name: Confidence
+description: The character may decrease the difficulty of any **Discipline** check to avoid the effects of fear by one
+  per rank of Confidence. If he decreases the difficulty to zero, he does not have to make a **Discipline** check.
+activation: p
+ranked: true
+trees: Peacekeeper, Sage, Soresu Defender, Starfighter Ace
+reference: E-CRB:133

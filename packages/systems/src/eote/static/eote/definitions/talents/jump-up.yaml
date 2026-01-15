@@ -1,0 +1,7 @@
+id: eote-talent-jump-up
+name: Jump Up
+description: Once per round on the character's turn, the character may stand up from prone or a seated position as an incidental.
+activation: ai
+ranked: false
+trees: Assassin, Fringer, Thief
+reference: E-CRB:138

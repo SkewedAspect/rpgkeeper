@@ -1,0 +1,10 @@
+id: coc-weapon-pipe-bomb
+name: Pipe Bomb
+damage: 1d10 / 3 yards
+range: 3 yards
+attacks: In place
+ammo: One use
+malfunction: 95
+notes: 1920s, Modern
+skill: Demolitions
+reference: CoC-IH:254

@@ -1,0 +1,8 @@
+id: genesys-talent-dedication
+name: Dedication
+description: Each rank permanently increases a single characteristic of the player's choice by one point. This cannot
+  bring a characteristic above 6.
+activation: p
+ranked: true
+tier: 5
+reference: G-CRB:80

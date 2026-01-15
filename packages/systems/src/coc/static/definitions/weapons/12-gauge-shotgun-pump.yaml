@@ -1,0 +1,10 @@
+id: coc-weapon-12-gauge-shotgun-pump
+name: 12-gauge Shotgun (Pump)
+damage: 4d6 / 2d6 / 1d6
+range: 10/20/50 yards
+attacks: 1
+ammo: 5
+malfunction: 100
+notes: Modern
+skill: Firearms (shotgun)
+reference: CoC-IH:252

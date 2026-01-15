@@ -1,0 +1,9 @@
+id: eote-ability-ammonia-breathers
+name: Ammonia Breathers
+description: One notable difference between the two main sub-species of Gand is that one had lungs and one does not.
+  Those that have lungs breathe an ammonia gas mixture. Those without lungs do not respire and gain all necessary
+  metabolic substances through food. When playing a Gand, each player chooses whether he wishes his character to have
+  lungs or not. If he selects to be playing a lungless Gand, his character is immune to suffocation (but not the wounds
+  suffered from being exposed to vacuum). If he chooses to play a gand with lungs, he starts the game with an ammonia
+  respirator, and treats oxygen as a dangerous atmosphere with Rating 8. However, he gains +10 starting XP.
+reference: E-CRB:48

@@ -1,0 +1,62 @@
+id: eote-forcepower-protect-unleash
+name: Protect/Unleash
+description: >-
+  The Force user guides the flow of energy, protecting himself and others or unleashing blasts of power upon his foes.
+
+
+  <b>Protect:</b> The usr makes a <b>Protect power check</b> and rolls an <b>Average
+  (<difficulty></difficulty><difficulty></difficulty>) Discipline check</b> as part of the pool. Spend
+  <forcepoint></forcepoint><forcepoint></forcepoint> to reduce damage from an energy-based weapon that hits himself or
+  an engaged character by amount equal to Willpower plus one per <success></success>. Dark Side Force users may only
+  protect themselves.
+
+
+  <b>Unleash:</b> The user makes an <b>Unleash power check</b> as ranged attack and rolls an <b>Average
+  (<difficulty></difficulty><difficulty></difficulty>) Discipline check</b> for difficulty. If check succeeds and spends
+  <forcepoint></forcepoint><forcepoint></forcepoint>, the attack hits. It has a range of short, a base damage equal to
+  Willpower, and a critical rating of 4. The user gains 1 Conflict.
+minRating: 3
+upgrades:
+  strength:
+    available: 4
+    description: Spend <forcepoint></forcepoint> to decrease damage or add damage equal to ranks of Strength purchased.
+  magnitude:
+    available: 2
+    description: Spend <forcepoint></forcepoint> to affect 1 additional target within range per rank of Magnitude purchased.
+  duration:
+    available: 1
+    description: >-
+      <b>Protect:</b> If not <darkside></darkside> generated <forcepoint></forcepoint> that power reduces damage of all
+      attacks hitting the target.
+
+
+      <b>Unleash:</b> Spend <forcepoint></forcepoint> to give the attack Burn 2.
+  range:
+    available: 2
+    description: Spend <forcepoint></forcepoint><forcepoint></forcepoint> to increase power's range by a number of range
+      bands equal to Range upgrades purchased.
+  mastery:
+    available: 1
+    description: >-
+      <b>Protect:</b> Light side Force users may spend <forcepoint></forcepoint><forcepoint></forcepoint> to reflect all
+      attacks they reduce to 0 damage, deal damage equal to the initial attack to attacker.
+
+
+      <b>Unleash:</b> Dark side Force users may spend <forcepoint></forcepoint> to reduce critical rating of attacks to
+      1.
+  control:
+    - description: |-
+        <b>Protect:</b> Spend <advantage></advantage> to gain defense equal to <advantage></advantage> spent.
+
+        <b>Unleash:</b> Spend <advantage></advantage> to inflict 1 strain on target.
+    - description: |-
+        <b>Protect:</b> Spend <forcepoint></forcepoint> to allow power to protect against all types of attack.
+
+        <b>Unleash:</b> Spend <forcepoint></forcepoint> to give the attack Ensnare 2.
+    - description: >-
+        <b>Protect:</b> Light side Force users may spend 1 Destiny Point to use Protect as an out-of-turn incidental
+        once per session.
+
+
+        <b>Unleash:</b> Dark side Force users may spend 1 Destiny Point to use Unleash as a maneuver once per session.
+reference: F-CRB:300
