@@ -8,6 +8,7 @@ import type { Knex } from 'knex';
 import { AccountResourceAccess } from './account.ts';
 import { CampaignResourceAccess } from './campaign.ts';
 import { CharacterResourceAccess } from './character.ts';
+import { DefinitionResourceAccess } from './definition.ts';
 import { NotebookResourceAccess } from './notebook.ts';
 import { ReferenceResourceAccess } from './reference.ts';
 import { RoleResourceAccess } from './role.ts';
@@ -19,6 +20,7 @@ export {
     AccountResourceAccess,
     CampaignResourceAccess,
     CharacterResourceAccess,
+    DefinitionResourceAccess,
     NotebookResourceAccess,
     ReferenceResourceAccess,
     RoleResourceAccess,
@@ -29,6 +31,7 @@ export {
 // Re-export filter types
 export type { AccountFilters } from './account.ts';
 export type { NotebookFilters } from './notebook.ts';
+export type { DefinitionRecord, NewDefinition } from './definition.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Entity Resource Access Facade
@@ -62,6 +65,7 @@ export class EntityResourceAccess
     readonly account : AccountResourceAccess;
     readonly campaign : CampaignResourceAccess;
     readonly character : CharacterResourceAccess;
+    readonly definition : DefinitionResourceAccess;
     readonly notebook : NotebookResourceAccess;
     readonly reference : ReferenceResourceAccess;
     readonly role : RoleResourceAccess;
@@ -73,6 +77,7 @@ export class EntityResourceAccess
         this.account = new AccountResourceAccess(db);
         this.campaign = new CampaignResourceAccess(db);
         this.character = new CharacterResourceAccess(db);
+        this.definition = new DefinitionResourceAccess(db);
         this.notebook = new NotebookResourceAccess(db);
         this.reference = new ReferenceResourceAccess(db);
         this.role = new RoleResourceAccess(db);
