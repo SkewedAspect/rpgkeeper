@@ -93,7 +93,7 @@
         }
     );
 
-    type Events = (e : 'add', supp : { id : string | number }) => void;
+    type Events = (e : 'add', supp : { id : string }) => void;
 
     const emit = defineEmits<Events>();
 

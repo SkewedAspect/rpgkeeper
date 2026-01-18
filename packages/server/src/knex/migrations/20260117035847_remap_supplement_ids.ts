@@ -446,38 +446,38 @@ export async function up(knex : Knex) : Promise<void>
                 }
             }
 
-            // Remap motivations (Genesys only, filter out unmapped and invalid)
-            if(!isEote && Array.isArray(details.motivations))
+            // Remap motivations (Genesys only)
+            // Motivations are stored as an object: { strength, flaw, desire, fear }
+            // Each value is either a numeric ID (old format) or string ID (new format) or null
+            if(!isEote && details.motivations && typeof details.motivations === 'object' && !Array.isArray(details.motivations))
             {
-                const origLen = details.motivations.length;
-                details.motivations = details.motivations
-                    .map((motiv : { id : number | string; [key : string] : unknown }) =>
-                    {
-                        if(typeof motiv.id === 'number')
-                        {
-                            const newId = mappings.genesysMotivations.get(motiv.id);
-                            if(newId)
-                            {
-                                return { ...motiv, id: newId };
-                            }
-                            return null;
-                        }
-                        return motiv;
-                    })
-                    .filter((motiv : { id : number | string; [key : string] : unknown } | null) : motiv is { id : string; [key : string] : unknown } =>
-                    {
-                        if(motiv === null) { return false; }
-                        if(!isValidSupplementId(String(motiv.id), 'genesys', 'motivation'))
-                        {
-                            console.warn(`Removing orphaned motivation: ${ motiv.id }`);
-                            return false;
-                        }
-                        return true;
-                    });
-
-                if(details.motivations.length !== origLen)
+                const motivationKeys = [ 'strength', 'flaw', 'desire', 'fear' ] as const;
+                for(const key of motivationKeys)
                 {
-                    modified = true;
+                    const motivId = details.motivations[key];
+                    if(typeof motivId === 'number')
+                    {
+                        const newId = mappings.genesysMotivations.get(motivId);
+                        if(newId)
+                        {
+                            details.motivations[key] = newId;
+                            modified = true;
+                        }
+                        else
+                        {
+                            // No mapping found - set to null (orphaned reference)
+                            console.warn(`Removing orphaned motivation (${ key }): ${ motivId }`);
+                            details.motivations[key] = null;
+                            modified = true;
+                        }
+                    }
+                    else if(typeof motivId === 'string' && !isValidSupplementId(motivId, 'genesys', 'motivation'))
+                    {
+                        // Invalid string ID - set to null
+                        console.warn(`Removing invalid motivation (${ key }): ${ motivId }`);
+                        details.motivations[key] = null;
+                        modified = true;
+                    }
                 }
             }
 

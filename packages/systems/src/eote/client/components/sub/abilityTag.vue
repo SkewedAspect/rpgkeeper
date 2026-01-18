@@ -63,7 +63,8 @@
 
     const ability = computed(() =>
     {
-        return supplementStore.get(mode.value, 'ability').find((item) => item.id === props.id);
+        const abilities = supplementStore.get(mode.value, 'ability');
+        return abilities.find((item) => item.id === props.id);
     });
 
     const abilityName = computed(() => ability.value?.name ?? 'Unknown');

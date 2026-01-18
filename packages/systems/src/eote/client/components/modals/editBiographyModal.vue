@@ -192,7 +192,7 @@
         species : string;
         specializations : string;
         forceSensitive : boolean;
-        abilities : number[];
+        abilities : string[];
     }
 
     type Events = (e : 'save', bio : BioObj) => void;

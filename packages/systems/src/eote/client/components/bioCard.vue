@@ -83,7 +83,7 @@
         species : string;
         specializations : string;
         forceSensitive : boolean;
-        abilities : number[];
+        abilities : string[];
     }
 
     interface Props

@@ -48,7 +48,9 @@
                         >
                             <div class="float-end">
                                 <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra" />
-                                <ScopeBadge v-if="getSupp(supp.id)" :supplement="getSupp(supp.id)" />
+                                <template v-if="getSupp(supp.id)">
+                                    <ScopeBadge :supplement="getSupp(supp.id) as GenericSupplement" />
+                                </template>
                                 <BButton
                                     class="ms-2 text-nowrap"
                                     variant="danger"
@@ -73,7 +75,7 @@
             </BCol>
             <BCol>
                 <BCard class="h-100">
-                    <template v-if="currentSelection" #header>
+                    <template v-if="currentSelection && currentSupplement" #header>
                         <slot :instance="supplementInstance" :supplement="currentSupplement" name="header">
                             <div v-if="canModify" class="float-end">
                                 <BButton size="sm" class="mt-1" @click="editSupp(currentSupplement)">
@@ -105,13 +107,13 @@
                         </slot>
                     </template>
                     <div class="d-flex flex-column h-100">
-                        <slot v-if="!currentSelection" name="noSelection">
+                        <slot v-if="!currentSupplement" name="noSelection">
                             <div class="text-center">
                                 <i>Please select an option to view/edit it.</i>
                             </div>
                         </slot>
                         <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
-                            <div v-if="currentSupplement.ranked" class="mb-2">
+                            <div v-if="currentSupplement.ranked && supplementInstance" class="mb-2">
                                 <label>Ranks</label>
                                 <BFormSpinbutton id="sb-inline" v-model="supplementInstance.ranks" inline />
                             </div>
@@ -171,7 +173,7 @@
         label : string;
         labelClass : string;
         available : GenericSupplement[];
-        selected : (GenericSupplementInst | string | number)[];
+        selected : (GenericSupplementInst | string)[];
         maxHeight ?: string;
         sortFn ?: (suppA : Supplement, suppB : Supplement) => number
     }
@@ -186,10 +188,10 @@
 
     const emit = defineEmits<{
         new : [];
-        add : [supp : { id : string | number }];
+        add : [supp : { id : string }];
         edit : [supp : GenericSupplement];
         delete : [supp : GenericSupplement];
-        remove : [supp : { id : string | number }];
+        remove : [supp : { id : string }];
     }>();
 
     //------------------------------------------------------------------------------------------------------------------
@@ -216,7 +218,7 @@
             else
             {
                 // Otherwise assume we're just the id, and wrap ourselves in an object. This is Good Enough™.
-                return { id: supp as string | number } satisfies SupplementInst;
+                return { id: supp } satisfies SupplementInst;
             }
         });
     });
@@ -246,7 +248,11 @@
         const system = current.value?.system;
         if(supplementInstance.value && system)
         {
-            const suppBase = props.available.find((supp) => supp.id === supplementInstance.value.id);
+            const suppBase = props.available.find((supp) => supp.id === supplementInstance.value?.id);
+            if(!suppBase)
+            {
+                return false;
+            }
 
             const hasRight = authMan.hasPerm(`${ system }/canModifyContent`);
             const isOwner = !suppBase.official && suppBase.owner === authMan.account?.id;
@@ -260,24 +266,24 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onAdd(supp : { id : string | number }) : void
+    function onAdd(supp : { id : string }) : void
     {
         emit('add', supp);
     }
 
-    function getSupp(id : string | number | undefined) : GenericSupplement | undefined
+    function getSupp(id : string | undefined) : GenericSupplement | undefined
     {
         if(id)
         {
-            return props.available.filter((supp) => supp.id === id)[0];
+            return props.available.find((supp) => supp.id === id);
         }
 
         return undefined;
     }
 
-    function selectSupp(supp : GenericSupplement | undefined) : void
+    function selectSupp(supp : GenericSupplementInst) : void
     {
-        if(supp && currentSelection.value !== supp.id)
+        if(currentSelection.value !== supp.id)
         {
             currentSelection.value = supp.id;
         }
