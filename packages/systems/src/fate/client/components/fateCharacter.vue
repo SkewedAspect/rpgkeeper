@@ -46,7 +46,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Interfaces
@@ -86,7 +86,8 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
-    const roller = ref<InstanceType<typeof RollsCard> | null>(null);
+    // TODO: Used for dice rolling
+    // const roller = ref<InstanceType<typeof RollsCard> | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -98,10 +99,11 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onRoll(dice : string, name : string) : void
-    {
-        roller.value?.roll();
-    }
+    // TODO: Implement dice rolling
+    // function onRoll(dice : string, name : string) : void
+    // {
+    //     roller.value?.roll();
+    // }
 
     async function onSave() : Promise<void>
     {

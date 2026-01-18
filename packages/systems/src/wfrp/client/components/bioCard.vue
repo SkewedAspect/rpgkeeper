@@ -111,13 +111,14 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onChange() : void
-    {
-        if(!props.readonly)
-        {
-            emit('save');
-        }
-    }
+    // TODO: Implement onChange handler
+    // function onChange() : void
+    // {
+    //     if(!props.readonly)
+    //     {
+    //         emit('save');
+    //     }
+    // }
 
     function openEditModal() : void
     {

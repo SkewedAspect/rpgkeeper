@@ -215,11 +215,9 @@
             {
                 return supp;
             }
-            else
-            {
-                // Otherwise assume we're just the id, and wrap ourselves in an object. This is Good Enough™.
-                return { id: supp } satisfies SupplementInst;
-            }
+
+            // Otherwise assume we're just the id, and wrap ourselves in an object. This is Good Enough™.
+            return { id: supp as string } satisfies SupplementInst;
         });
     });
 

@@ -67,9 +67,9 @@
         return abilities.find((item) => item.id === props.id);
     });
 
-    const abilityName = computed(() => ability.value?.name ?? 'Unknown');
-    const abilityText = computed(() => ability.value?.description ?? 'Unknown ability.');
-    const abilityReference = computed(() => ability.value?.reference ?? '');
+    const abilityName = computed<string>(() => ability.value?.name ?? 'Unknown');
+    const abilityText = computed<string>(() => ability.value?.description ?? 'Unknown ability.');
+    const abilityReference = computed<string>(() => ability.value?.reference ?? '');
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

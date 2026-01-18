@@ -65,7 +65,7 @@
 
     interface Events
     {
-        (e : 'update:stunts', stunts : FateStunt[]);
+        (e : 'update:stunts', stunts : FateStunt[]) : void;
         (e : 'save') : void;
     }
 

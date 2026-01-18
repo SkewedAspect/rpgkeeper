@@ -60,8 +60,9 @@
 
     const char = computed<Character<WFRPSystemDetails>>(() => current.value as any);
 
-    const stats = computed(() => char.value.details.stats);
-    const skills = computed(() => char.value.details.skills);
+    // TODO: Use these computed values in the template
+    // const stats = computed(() => char.value.details.stats);
+    // const skills = computed(() => char.value.details.skills);
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

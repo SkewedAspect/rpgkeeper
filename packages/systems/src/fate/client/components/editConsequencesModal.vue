@@ -243,10 +243,10 @@
         mildDetail2.value = mildConsequence2.value.detail;
         moderateDetail.value = moderateConsequence.value.detail;
         severeDetail.value = severeConsequence.value.detail;
-        mildHealing1.value = mildConsequence1.value.healing;
-        mildHealing2.value = mildConsequence2.value.healing;
-        moderateHealing.value = moderateConsequence.value.healing;
-        severeHealing.value = severeConsequence.value.healing;
+        mildHealing1.value = mildConsequence1.value.healing ?? false;
+        mildHealing2.value = mildConsequence2.value.healing ?? false;
+        moderateHealing.value = moderateConsequence.value.healing ?? false;
+        severeHealing.value = severeConsequence.value.healing ?? false;
 
         // Show the modal
         innerModal.value?.show();

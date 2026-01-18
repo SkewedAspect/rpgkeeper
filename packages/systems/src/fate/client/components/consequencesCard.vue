@@ -100,7 +100,7 @@
 
     interface Events
     {
-        (e : 'update:aspects', aspects : FateAspect[]);
+        (e : 'update:aspects', aspects : FateAspect[]) : void;
         (e : 'save') : void;
     }
 

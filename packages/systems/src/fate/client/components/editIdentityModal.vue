@@ -110,7 +110,7 @@
     function show(char : Character<FateSystemDetails>) : void
     {
         innerIdent.value.name = char.name;
-        innerIdent.value.description = char.description;
+        innerIdent.value.description = char.description ?? '';
         innerIdent.value.refresh = char.details.fatePoints.refresh;
 
         innerModal.value?.show();

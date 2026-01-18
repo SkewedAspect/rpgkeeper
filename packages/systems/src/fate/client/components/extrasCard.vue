@@ -56,7 +56,7 @@
 
     interface Events
     {
-        (e : 'update:extras', extra : string);
+        (e : 'update:extras', extra : string) : void;
         (e : 'save') : void;
     }
 

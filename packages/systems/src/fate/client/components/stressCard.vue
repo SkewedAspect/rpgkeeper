@@ -83,8 +83,12 @@
 
     const stressSlots = [ 1, 2, 3, 4 ];
 
-    const physicalStress = defineModel<FateStress>('physical');
-    const mentalStress = defineModel<FateStress>('mental');
+    const physicalStress = defineModel<FateStress>('physical', {
+        default: () : FateStress => [ false, false, false, false ],
+    });
+    const mentalStress = defineModel<FateStress>('mental', {
+        default: () : FateStress => [ false, false, false, false ],
+    });
 
     interface Props
     {

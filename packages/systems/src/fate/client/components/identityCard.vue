@@ -33,7 +33,7 @@
             label="Description"
             label-class="fw-bold"
         >
-            <MarkdownBlock class="font-sm" :text="char.description" inline />
+            <MarkdownBlock class="font-sm" :text="char.description ?? ''" inline />
         </BFormGroup>
         <BFormGroup
             id="fp-input-group"

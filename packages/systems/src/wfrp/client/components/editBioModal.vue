@@ -95,7 +95,7 @@
     function show(char : Character) : void
     {
         innerBio.value.name = char.name;
-        innerBio.value.description = char.description;
+        innerBio.value.description = char.description ?? '';
 
         innerModal.value?.show();
     }

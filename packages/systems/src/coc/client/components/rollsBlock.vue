@@ -121,12 +121,17 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function roll(diceNum : number, rollName ?: string) : void
+    function roll(diceNum : number | null, rollName ?: string) : void
     {
+        if(diceNum === null)
+        {
+            return;
+        }
+
         const diceRoll = diceUtil.roll(`${ diceNum }${ selectedDice.value }`);
         rolls.value.unshift({
             roll: diceRoll,
-            name: rollName,
+            name: rollName ?? '',
             display: `${ diceRoll.render() } = ${ diceRoll.value }`,
         });
     }

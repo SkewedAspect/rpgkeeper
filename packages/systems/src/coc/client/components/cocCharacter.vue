@@ -81,10 +81,10 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // TODO: Implement dice rolling
-    function onRoll(_dice : string, _name : string) : void
-    {
-        // roller.value.roll(dice, name);
-    }
+    // function onRoll(dice : string, name : string) : void
+    // {
+    //     roller.value.roll(dice, name);
+    // }
 
     async function onSave() : Promise<void>
     {

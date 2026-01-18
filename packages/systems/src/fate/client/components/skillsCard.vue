@@ -66,7 +66,7 @@
 
     interface Events
     {
-        (e : 'update:skills', aspects : FateSkill[]);
+        (e : 'update:skills', aspects : FateSkill[]) : void;
         (e : 'save') : void;
     }
 
