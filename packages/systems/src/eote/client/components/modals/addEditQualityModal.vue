@@ -151,7 +151,7 @@
             reference.value = '';
         }
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
@@ -163,7 +163,7 @@
         ranked.value = false;
         reference.value = '';
 
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     async function onSave() : Promise<void>

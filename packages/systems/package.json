@@ -5,10 +5,12 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./client": "./src/client.ts"
+    "./client": "./src/client.ts",
+    "./eote/models": "./src/eote/models.ts"
   },
   "files": ["src"],
   "scripts": {
+    "lint": "eslint \"src/**/*.{ts,js,vue}\" --max-warnings=0 --no-warn-ignored",
     "lint:types": "vue-tsc --noEmit"
   },
   "dependencies": {

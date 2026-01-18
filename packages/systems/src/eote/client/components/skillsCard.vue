@@ -270,7 +270,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const character = computed<EoteOrGenCharacter>(() => current.value as any);
-    const mode = computed(() => current.value.system);
+    const mode = computed(() => current.value?.system);
     const readonly = computed(() => props.readonly);
 
     const skills = computed<EoteSkill[]>(() => character.value.details.skills);
@@ -306,7 +306,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(character.value);
+        editModal.value?.show(character.value);
     }
 
     function onEditSave(newSkills : EoteSkill[]) : void

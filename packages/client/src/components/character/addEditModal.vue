@@ -247,14 +247,14 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const char = ref<NewChar>({
-        id: null,
+        id: undefined,
         name: '',
         portrait: '',
         thumbnail: '',
         color: '',
         campaign: '',
         description: '',
-        system: null,
+        system: '',
     });
 
     const sysStore = useSystemStore();
@@ -328,7 +328,7 @@
 
         // Populate our char variable
         char.value = {
-            id: id ?? null,
+            id,
             name,
             portrait,
             thumbnail,
@@ -339,12 +339,12 @@
         };
 
         // Now show the modal
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onHidden() : void
@@ -366,7 +366,7 @@
         }
     }
 
-    function validateState(name : string) : boolean
+    function validateState(name : string) : boolean | null
     {
         const { $dirty, $error } = get(v$.value, name);
         return $dirty ? !$error : null;

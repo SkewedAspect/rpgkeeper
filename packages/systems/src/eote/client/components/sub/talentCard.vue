@@ -59,7 +59,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteTalentInst, GenesysTalent } from '../../models.ts';
+    import type { EoteTalentInst, GenesysTalent } from '../../../models.ts';
 
     // Utils
     import { shortID } from '@client/lib/utils/misc';

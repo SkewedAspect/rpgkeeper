@@ -194,12 +194,12 @@
         health.value.strain = char.details.health.strain;
         health.value.strainThreshold = char.details.health.strainThreshold;
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void

@@ -94,7 +94,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(stunts.value);
+        editModal.value?.show(stunts.value);
     }
 
     function onEditSave(newStunts : FateStunt[]) : void

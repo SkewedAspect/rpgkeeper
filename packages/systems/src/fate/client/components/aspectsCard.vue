@@ -151,7 +151,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(aspects.value);
+        editModal.value?.show(aspects.value);
     }
 
     function onEditSave(newAspects : FateAspect[]) : void

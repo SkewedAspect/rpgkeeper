@@ -87,7 +87,7 @@
 
     function openEditModal() : void
     {
-        editTalentsModal.value.show(char.value);
+        editTalentsModal.value?.show(char.value);
     }
 
     function onEditSave(talents : EoteTalentInst[]) : void

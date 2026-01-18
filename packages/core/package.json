@@ -13,6 +13,7 @@
   },
   "files": ["src"],
   "scripts": {
+    "lint": "eslint \"src/**/*.{ts,js}\" --max-warnings=0 --no-warn-ignored",
     "lint:types": "tsc --noEmit"
   },
   "dependencies": {

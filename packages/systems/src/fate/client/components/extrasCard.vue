@@ -85,7 +85,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(extras.value);
+        editModal.value?.show(extras.value);
     }
 
     function onEditSave(newExtras : string) : void

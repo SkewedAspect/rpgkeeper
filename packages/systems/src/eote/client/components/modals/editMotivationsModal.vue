@@ -383,12 +383,12 @@
         originalMotivations.value = { ...char.details.motivations };
         motivations.value = { ...char.details.motivations };
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void
@@ -457,19 +457,19 @@
     function isEditable(motiv : GenesysMotivation) : boolean
     {
         const hasRight = authMan.hasPerm(`${ mode.value }/canModifyContent`);
-        const isOwner = !motiv.official && motiv.owner === authMan.account.id;
+        const isOwner = !motiv.official && motiv.owner === authMan.account?.id;
 
         return isOwner || hasRight;
     }
 
     function addNew(type : GenesysMotivationType) : void
     {
-        addEditMotivModal.value.show({ type });
+        addEditMotivModal.value?.show({ type });
     }
 
     function editMotivation(motiv : GenesysMotivation) : void
     {
-        addEditMotivModal.value.show(motiv);
+        addEditMotivModal.value?.show(motiv);
     }
 
     function delMotivation(motiv : GenesysMotivation) : void
@@ -478,7 +478,7 @@
         delMotiv.value.name = motiv.name;
         delMotiv.value.type = motiv.type;
 
-        delMotivModal.value.show();
+        delMotivModal.value?.show();
     }
 
     function revert(type : GenesysMotivationType) : void

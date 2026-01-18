@@ -33,7 +33,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { EoteCharacter } from '../../models.ts';
+    import type { EoteCharacter } from '../../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

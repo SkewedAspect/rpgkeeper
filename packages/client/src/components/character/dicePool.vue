@@ -210,7 +210,7 @@
         if(!props.disabled)
         {
             editMax.value = poolMax.value ?? 0;
-            editPool.value.show();
+            editPool.value?.show();
         }
     }
 
@@ -221,7 +221,7 @@
 
     function onEditSave() : void
     {
-        poolMax.value = editMax.value;
+        poolMax.value = editMax.value ?? 0;
         poolCurrent.value = Math.min(poolMax.value, poolCurrent.value);
         editMax.value = null;
 

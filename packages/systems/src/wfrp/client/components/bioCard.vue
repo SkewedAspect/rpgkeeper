@@ -121,7 +121,7 @@
 
     function openEditModal() : void
     {
-        bioModal.value.show(char.value);
+        bioModal.value?.show(char.value);
     }
 
     function onEditSave(bio : { name : string, description : string }) : void

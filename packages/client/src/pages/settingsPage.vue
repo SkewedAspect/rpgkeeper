@@ -166,14 +166,17 @@
 
     onBeforeMount(() =>
     {
-        account.value.settings = {
-            // Default settings
-            colorMode: 'auto',
-            systemFilter: 'beta',
+        if(account.value)
+        {
+            account.value.settings = {
+                // Default settings
+                colorMode: 'auto',
+                systemFilter: 'beta',
 
-            // Current settings
-            ...account.value.settings || {},
-        };
+                // Current settings
+                ...account.value.settings || {},
+            };
+        }
 
         // Check to see if we have permissions to see disabled systems.
         if(authMan.hasPerm('Systems/viewDisabled'))

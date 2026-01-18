@@ -157,7 +157,7 @@
 
     function openEditModal() : void
     {
-        editArmorModal.value.show(char.value);
+        editArmorModal.value?.show(char.value);
     }
 
     function onEditSave(newArmor : EoteArmorRef) : void

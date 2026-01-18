@@ -302,7 +302,7 @@
             };
         }
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
@@ -321,7 +321,7 @@
             qualities: [],
         };
 
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     async function onSave() : Promise<void>

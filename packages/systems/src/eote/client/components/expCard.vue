@@ -112,7 +112,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(character.value);
+        editModal.value?.show(character.value);
     }
 
     function onEditSave(exp : Experience) : void

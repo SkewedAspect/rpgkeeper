@@ -186,7 +186,7 @@
     {
         if(account.value && campaign.value)
         {
-            return campaign.value.participants?.some((participant) => participant.accountID === account.value.id);
+            return campaign.value.participants?.some((participant) => participant.accountID === account.value?.id);
         }
 
         return false;
@@ -197,7 +197,7 @@
         if(account.value && campaign.value)
         {
             return campaign.value.participants
-                ?.some((participant) => participant.accountID === account.value.id && participant.role === 'owner');
+                ?.some((participant) => participant.accountID === account.value?.id && participant.role === 'owner');
         }
 
         return false;

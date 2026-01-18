@@ -113,7 +113,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(character.value.details.force);
+        editModal.value?.show(character.value.details.force);
     }
 
     function onEditSave(fp : ForcePool) : void

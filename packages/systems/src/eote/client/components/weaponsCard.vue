@@ -254,18 +254,18 @@
         if(weapon)
         {
             const index = char.value.details.weapons.indexOf(weapon);
-            editWeaponsModal.value.show(weapon, index);
+            editWeaponsModal.value?.show(weapon, index);
         }
         else
         {
-            editWeaponsModal.value.show();
+            editWeaponsModal.value?.show();
         }
     }
 
     function openDeleteModal(weapon : EoteWeaponRef) : void
     {
         delWeapon.value = weapon;
-        delModal.value.show();
+        delModal.value?.show();
     }
 </script>
 

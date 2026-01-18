@@ -38,7 +38,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { GenesysCharacter } from '../../models.ts';
+    import type { GenesysCharacter } from '../../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';

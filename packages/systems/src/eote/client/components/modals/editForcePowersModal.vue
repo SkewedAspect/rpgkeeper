@@ -205,13 +205,13 @@
     function show(character : EoteCharacter) : void
     {
         selectedForcePowers.value = character.details.force.powers;
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
         selectedForcePowers.value = [];
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void
@@ -239,12 +239,12 @@
 
     function onForcePowerNew() : void
     {
-        addEditForcePowersModal.value.show();
+        addEditForcePowersModal.value?.show();
     }
 
     function onForcePowerEdit(forcePower : EoteForcePower) : void
     {
-        addEditForcePowersModal.value.show(forcePower);
+        addEditForcePowersModal.value?.show(forcePower);
     }
 
     function onForcePowerDelete(forcePower : EoteForcePower) : void
@@ -252,7 +252,7 @@
         delForcePower.value.id = forcePower.id;
         delForcePower.value.name = forcePower.name;
 
-        delForcePowersModal.value.show();
+        delForcePowersModal.value?.show();
     }
 
     function onDelForcePowerHidden() : void
@@ -263,7 +263,7 @@
 
     async function onDelForcePowerDelete() : Promise<void>
     {
-        suppSelect.value.clearSelection();
+        suppSelect.value?.clearSelection();
         selectedForcePowers.value = selectedForcePowers.value.filter((item) => item.id !== delForcePower.value.id);
 
         await supplementStore.remove(mode.value, 'forcepower', delForcePower.value.id);

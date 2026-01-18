@@ -120,12 +120,12 @@
     function openAddEditModal(page ?: NotebookPage) : void
     {
         // Show the modal
-        addEditModal.value.show(page);
+        addEditModal.value?.show(page);
     }
 
     function openDelModal(page : NotebookPage) : void
     {
-        delModal.value.show(page);
+        delModal.value?.show(page);
     }
 
     async function onAddEditSave(page) : Promise<void>

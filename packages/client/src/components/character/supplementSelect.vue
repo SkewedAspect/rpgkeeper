@@ -249,7 +249,7 @@
             const suppBase = props.available.find((supp) => supp.id === supplementInstance.value.id);
 
             const hasRight = authMan.hasPerm(`${ system }/canModifyContent`);
-            const isOwner = !suppBase.official && suppBase.owner === authMan.account.id;
+            const isOwner = !suppBase.official && suppBase.owner === authMan.account?.id;
             return isOwner || hasRight;
         }
 

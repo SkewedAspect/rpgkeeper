@@ -32,7 +32,7 @@
     import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Models
-    import type { EoteCharacter } from '../../models.ts';
+    import type { EoteCharacter } from '../../../models.ts';
 
     // Components
     import TalentCard from './talentCard.vue';

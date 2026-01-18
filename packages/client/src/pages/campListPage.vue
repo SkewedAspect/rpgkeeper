@@ -111,13 +111,13 @@
 
     function getCampaignRole(campaign : Campaign) : CampaignRole
     {
-        const role = campaign.participants.find((part) => part.accountID === account.value.id);
+        const role = campaign.participants.find((part) => part.accountID === account.value?.id);
         if(role)
         {
             return role.role;
         }
 
-        console.warn('No role found for account', account.value.id, 'in campaign', campaign.id);
+        console.warn('No role found for account', account.value?.id, 'in campaign', campaign.id);
 
         return 'player';
     }

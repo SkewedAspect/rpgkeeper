@@ -164,12 +164,12 @@
         experience.value.total = char.details.experience.total;
         experience.value.available = char.details.experience.available;
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void

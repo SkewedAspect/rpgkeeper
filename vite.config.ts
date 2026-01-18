@@ -13,11 +13,11 @@ import Components from 'unplugin-vue-components/vite';
 import { BootstrapVueNextResolver } from 'bootstrap-vue-next';
 
 // Interfaces
-import type { ServerConfig } from './packages/server/src/interfaces/config.ts';
+import type { ServerConfig } from '@server/interfaces/config.ts';
 
 // Utils
 import configUtil from '@strata-js/util-config';
-import { getVersion } from './packages/server/src/utils/version.ts';
+import { getVersion } from '@server/utils/version.ts';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Configuration

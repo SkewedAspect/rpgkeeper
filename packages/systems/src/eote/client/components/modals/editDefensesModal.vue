@@ -166,12 +166,12 @@
         defenses.value.melee = char.details.defenses.melee;
         defenses.value.ranged = char.details.defenses.ranged;
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void

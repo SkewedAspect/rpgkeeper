@@ -92,7 +92,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const innerPage = ref<Omit<NotebookPage, 'notebookID'>>({
-        id: null,
+        id: '',
         title: '',
         content: '',
     });
@@ -117,23 +117,23 @@
     {
         if(page)
         {
-            innerPage.value.id = page?.id ?? null;
+            innerPage.value.id = page?.id ?? '';
             innerPage.value.title = page?.title ?? '';
             innerPage.value.content = page?.content ?? '';
         }
         else
         {
-            innerPage.value.id = null;
+            innerPage.value.id = '';
             innerPage.value.title = '';
             innerPage.value.content = '';
         }
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onHidden() : void

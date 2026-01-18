@@ -9,7 +9,7 @@
         header-bg-variant="dark"
         header-text-variant="white"
         :class="classes"
-        :no-body="noBody || null"
+        :no-body="noBody"
     >
         <template #header>
             <slot name="header">

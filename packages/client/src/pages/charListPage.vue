@@ -211,7 +211,7 @@
         if(account.value)
         {
             return charStore.characters
-                .filter((char) => char.accountID == account.value.id)
+                .filter((char) => char.accountID == account.value?.id)
                 .filter((char) =>
                 {
                     return systemsFilter.value.includes(char.system);
@@ -231,7 +231,7 @@
         if(account.value)
         {
             return charStore.recentCharacters
-                .filter((char) => char.accountID == account.value.id)
+                .filter((char) => char.accountID == account.value?.id)
                 .slice(0, 5);
         }
 
@@ -312,7 +312,7 @@
             char = await characterMan.create({});
         }
 
-        addEditModal.value.show(char);
+        addEditModal.value?.show(char);
     }
 
     async function onSave(charUpdate : Partial<Character>) : Promise<void>
@@ -338,7 +338,7 @@
     // Delete Modal
     function openDelCharacter(char) : void
     {
-        delModal.value.show(char);
+        delModal.value?.show(char);
     }
 
     async function onDelete(char : Character<any>) : Promise<void>

@@ -112,7 +112,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(stats.value);
+        editModal.value?.show(stats.value);
     }
 
     function onEditSave(newSkills : WFRPStat[]) : void

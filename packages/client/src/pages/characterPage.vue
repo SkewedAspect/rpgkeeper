@@ -163,7 +163,7 @@
     const bugLink = computed(() =>
     {
         return 'https://github.com/Morgul/rpgkeeper/issues/new?title=[Bug] Unknown system \''
-            + `${ char.value.system }'.&labels=bug`;
+            + `${ char.value?.system }'.&labels=bug`;
     });
 
     //------------------------------------------------------------------------------------------------------------------

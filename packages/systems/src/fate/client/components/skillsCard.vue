@@ -133,7 +133,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(skills.value);
+        editModal.value?.show(skills.value);
     }
 
     function onEditSave(newSkills : FateSkill[]) : void

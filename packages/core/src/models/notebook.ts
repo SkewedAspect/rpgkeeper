@@ -4,7 +4,7 @@
 
 export interface NotebookPage
 {
-    id : string;
+    id ?: string;
     title : string;
     content : string;
     notebookID : string;

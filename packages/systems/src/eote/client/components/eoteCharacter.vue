@@ -140,7 +140,7 @@
     function onRoll(dice : Record<string, number>, name : string) : void
     {
         window.scrollTo(0, 0);
-        roller.value.setDice(dice, name);
+        roller.value?.setDice(dice, name);
     }
 
     async function onSave() : Promise<void>

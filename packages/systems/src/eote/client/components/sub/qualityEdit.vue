@@ -59,7 +59,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteQuality, EoteQualityRef } from '../../models.ts';
+    import type { EoteQuality, EoteQualityRef } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -155,12 +155,12 @@
 
     function onQualityNew() : void
     {
-        addEditQualityModal.value.show();
+        addEditQualityModal.value?.show();
     }
 
     function onQualityEdit(quality : EoteQuality) : void
     {
-        addEditQualityModal.value.show(quality);
+        addEditQualityModal.value?.show(quality);
     }
 
     function onQualityDelete(quality : EoteQuality) : void
@@ -168,7 +168,7 @@
         delQuality.value.id = quality.id;
         delQuality.value.name = quality.name;
 
-        delQualityModal.value.show();
+        delQualityModal.value?.show();
     }
 
     function onDelQualityHidden() : void
@@ -179,7 +179,7 @@
 
     async function onDelQualityDelete() : Promise<void>
     {
-        suppSelect.value.clearSelection();
+        suppSelect.value?.clearSelection();
 
         await supplementStore.remove(mode.value, 'quality', delQuality.value.id);
 

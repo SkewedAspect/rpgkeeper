@@ -8,6 +8,7 @@
   },
   "files": ["src"],
   "scripts": {
+    "lint": "eslint \"src/**/*.{ts,js,vue}\" --max-warnings=0 --no-warn-ignored",
     "lint:types": "vue-tsc --noEmit"
   },
   "dependencies": {

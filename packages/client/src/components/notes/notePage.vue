@@ -60,7 +60,7 @@
 
     const system = computed(() =>
     {
-        return store.current.id;
+        return store.current?.id;
     });
 </script>
 

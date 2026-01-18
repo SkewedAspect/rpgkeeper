@@ -345,12 +345,12 @@
             .sort()
             .map((item) => ({ text: startCase(item), value: item }));
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void

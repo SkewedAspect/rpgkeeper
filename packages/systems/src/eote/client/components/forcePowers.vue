@@ -110,7 +110,7 @@
 
     function openEditModal() : void
     {
-        editForcePowersModal.value.show(char.value);
+        editForcePowersModal.value?.show(char.value);
     }
 
     function onEditSave(powers : EoteForcePowerInst[]) : void

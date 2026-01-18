@@ -170,12 +170,12 @@
         innerBio.value.pronouns = char.details.biography.pronouns;
         innerBio.value.residence = char.details.biography.residence;
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void

@@ -15,9 +15,8 @@
     "db:migrate": "knex migrate:latest",
     "db:setup": "knex migrate:latest && knex seed:run",
     "db:build-static": "npx ts-node --esm packages/systems/scripts/build-static-db.ts",
-    "lint": "eslint \"packages/*/src/**/*.{ts,js,vue}\" --max-warnings=0 --no-warn-ignored",
-    "lint:types": "tsc -p packages/server/tsconfig.json --noEmit",
-    "lint:types:vue": "vue-tsc --noEmit",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:types": "npm run lint:types --workspaces --if-present",
     "prepare": "if-env NODE_ENV=production && exit 0 || husky",
     "test": "tsx node_modules/mocha/bin/mocha \"tests/**/*.spec.ts\""
   },

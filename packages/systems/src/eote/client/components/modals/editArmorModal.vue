@@ -226,14 +226,14 @@
     {
         editArmor.value = char.details.armor;
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
         clear();
 
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void

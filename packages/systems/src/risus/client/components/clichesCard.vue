@@ -157,7 +157,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(cliches.value);
+        editModal.value?.show(cliches.value);
     }
 
     function onEditSave(newCliches : RisusCliche[]) : void

@@ -149,7 +149,7 @@
         return Object.keys(dice.value)
             .filter((die) =>
             {
-                return current.value.system !== 'genesys' || die !== 'force';
+                return current.value?.system !== 'genesys' || die !== 'force';
             });
     });
 

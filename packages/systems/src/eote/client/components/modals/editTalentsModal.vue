@@ -253,12 +253,12 @@
         delTalent.value.id = '';
         delTalent.value.name = '';
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void
@@ -310,12 +310,12 @@
 
     function onTalentNew() : void
     {
-        addEditTalentModal.value.show();
+        addEditTalentModal.value?.show();
     }
 
     function onTalentEdit(talent : GenesysTalent) : void
     {
-        addEditTalentModal.value.show(talent);
+        addEditTalentModal.value?.show(talent);
     }
 
     function onTalentDelete(talent : GenesysTalent) : void
@@ -323,7 +323,7 @@
         delTalent.value.id = talent.id;
         delTalent.value.name = talent.name;
 
-        delTalentModal.value.show();
+        delTalentModal.value?.show();
     }
 
     function onDelTalentHidden() : void
@@ -334,7 +334,7 @@
 
     async function onDelTalentDelete() : Promise<void>
     {
-        suppSelect.value.clearSelection();
+        suppSelect.value?.clearSelection();
         selectedTalents.value = selectedTalents.value.filter((item) => item.id !== delTalent.value.id);
 
         await supplementStore.remove(mode.value, 'talent', delTalent.value.id);

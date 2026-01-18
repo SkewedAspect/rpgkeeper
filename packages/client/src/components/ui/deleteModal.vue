@@ -108,12 +108,12 @@
 
     function show() : void
     {
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     //------------------------------------------------------------------------------------------------------------------

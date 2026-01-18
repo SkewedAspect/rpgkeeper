@@ -3,7 +3,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "lib": ["ES2023"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "strict": true,
@@ -12,7 +12,12 @@
     "verbatimModuleSyntax": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@rpgk/core": ["../core/src/index.ts"],
+      "@rpgk/core/*": ["../core/src/*"],
+      "@client/*": ["../client/src/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

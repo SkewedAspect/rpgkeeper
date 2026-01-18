@@ -31,7 +31,7 @@ class CharacterResourceAccess
 
         // Return a new object that's mixed with the defaults and def
         return {
-            id: null,
+            id: undefined,
             system: '',
             accountID: '',
             noteID: '',

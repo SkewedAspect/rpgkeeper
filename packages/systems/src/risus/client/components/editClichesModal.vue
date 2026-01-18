@@ -139,12 +139,12 @@
         cliches.value = charHooks.map((cliche) => ({ ...cliche }));
 
         // Show the modal
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void

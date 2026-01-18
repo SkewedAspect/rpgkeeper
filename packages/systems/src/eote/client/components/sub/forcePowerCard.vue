@@ -62,7 +62,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteForcePower, EoteForcePowerInst } from '../../models.ts';
+    import type { EoteForcePower, EoteForcePowerInst } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';

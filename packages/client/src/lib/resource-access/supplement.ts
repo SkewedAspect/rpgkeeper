@@ -31,7 +31,7 @@ class SupplementResourceAccess
         key = 'name'
     ) : Promise<T>
     {
-        const params = {};
+        const params : Record<string, string> = {};
         params[key] = `@>${ query }`;
 
         return axios.get(`/api/systems/${ system }/${ path }`, { params })

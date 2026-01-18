@@ -251,12 +251,12 @@
             forceSensitive.value = char.details.force.sensitive;
         }
 
-        innerModal.value.show();
+        innerModal.value?.show();
     }
 
     function hide() : void
     {
-        innerModal.value.hide();
+        innerModal.value?.hide();
     }
 
     function onSave() : void
@@ -295,12 +295,12 @@
 
     function onAbilityNew() : void
     {
-        addEditModal.value.show(undefined);
+        addEditModal.value?.show(undefined);
     }
 
     function onAbilityEdit(ability) : void
     {
-        addEditModal.value.show(ability);
+        addEditModal.value?.show(ability);
     }
 
     function onAbilityDelete(ability) : void
@@ -308,7 +308,7 @@
         delAbility.value.id = ability.id;
         delAbility.value.name = ability.name;
 
-        delModal.value.show();
+        delModal.value?.show();
     }
 
     function onDelAbilityHidden() : void
@@ -319,7 +319,7 @@
 
     async function onDelAbilityDelete() : Promise<void>
     {
-        suppSelect.value.clearSelection();
+        suppSelect.value?.clearSelection();
         selectedAbilities.value.delete(delAbility.value.id);
 
         await supplementStore.remove(mode.value, 'ability', delAbility.value.id);

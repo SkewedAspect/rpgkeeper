@@ -112,7 +112,7 @@
 
     function openEditModal() : void
     {
-        editModal.value.show(hooks.value);
+        editModal.value?.show(hooks.value);
     }
 
     function onEditSave(newHooks : RisusHook[]) : void
