@@ -4,14 +4,18 @@
 
 export interface Supplement
 {
-    id : number;
+    id ?: string;
     name : string;
     owner ?: string;
-    scope : 'public' | 'user';
     official : boolean;
 
-    // There are additional properties to most supplements
+    // Allow additional properties for system-specific supplements
     [ key : string ] : unknown;
+}
+
+export interface SupplementInst
+{
+    id : string;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

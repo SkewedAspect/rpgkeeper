@@ -1,182 +1,220 @@
 //----------------------------------------------------------------------------------------------------------------------
-// EotE/Genesys Validations
+// EotE/Genesys Character Validation
+//
+// Validates referential integrity of supplement references in character data.
+// Called on character save to ensure all referenced supplements exist.
 //----------------------------------------------------------------------------------------------------------------------
 
-// Models
-import type { Account } from '@rpgk/core/models/account';
-import type { EoteCharacter, GenesysCharacter } from '@rpgk/systems/definitions';
+import type { Character, ValidationManagers } from '@rpgk/core';
 
-// Managers
-import { getManagers } from '../../../managers/index.ts';
+// Local models
+import type { EoteSystemDetails, GenesysSystemDetails } from '../models.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
-
-interface SupplementRef { id : number, [ key : string ] : unknown }
-
-interface CharDetails
-{
-    abilities : number[],
-    talents : SupplementRef[],
-    gear : SupplementRef[],
-    force : { powers : SupplementRef[] },
-    armor : {
-        attachments : SupplementRef[],
-        qualities : SupplementRef[]
-    },
-    weapons : { attachments : SupplementRef[], qualities : SupplementRef[] }[]
-}
-
-function isNumbers(array : number[] | SupplementRef[]) : array is number[]
-{
-    return typeof array[0] === 'number';
-}
-
+// Helpers
 //----------------------------------------------------------------------------------------------------------------------
 
-async function validateMotivations(character : GenesysCharacter, account : Account) : Promise<void>
+/**
+ * Validate an array of supplement IDs, removing any that don't exist.
+ */
+async function validateIds(
+    ids : string[],
+    type : string,
+    system : string,
+    managers : ValidationManagers
+) : Promise<string[]>
 {
-    const managers = await getManagers();
-    const motivations = character.details.motivations;
-
-    // Check strength
-    if(motivations.strength !== null)
-    {
-        const exists = await managers.supplement.exists(motivations.strength, 'motivation', 'genesys', account);
-        motivations.strength = exists ? motivations.strength : null;
-    }
-
-    // Check flaw
-    if(motivations.flaw !== null)
-    {
-        motivations.flaw = (await managers.supplement.exists(motivations.flaw, 'motivation', 'genesys', account))
-            ? motivations.flaw : null;
-    }
-
-    // Check desire
-    if(motivations.desire !== null)
-    {
-        motivations.desire = (await managers.supplement.exists(motivations.desire, 'motivation', 'genesys', account))
-            ? motivations.desire : null;
-    }
-
-    // Check fear
-    if(motivations.fear !== null)
-    {
-        motivations.fear = (await managers.supplement.exists(motivations.fear, 'motivation', 'genesys', account))
-            ? motivations.fear : null;
-    }
-}
-
-async function validateSuppRef(
-    suppRefs : number[],
-    type : string,
-    systemPrefix : string,
-    account : Account
-) : Promise<number[]>;
-async function validateSuppRef(
-    suppRefs : SupplementRef[],
-    type : string,
-    systemPrefix : string,
-    account : Account
-) : Promise<SupplementRef[]>;
-async function validateSuppRef(
-    suppRefs : SupplementRef[] | number[],
-    type : string,
-    systemPrefix : string,
-    account : Account
-) : Promise<SupplementRef[] | number[]>
-{
-    const managers = await getManagers();
-    let wasNums = false;
-    if(isNumbers(suppRefs))
-    {
-        wasNums = true;
-        suppRefs = suppRefs.map((id) => ({ id }));
-    }
-
-    const toRemove : number[] = [];
-
-    await Promise.all(suppRefs.map(async(supp) =>
-    {
-        if(!(await managers.supplement.exists(supp.id, type, systemPrefix, account)))
+    const results = await Promise.all(
+        ids.map(async(id) =>
         {
-            toRemove.push(supp.id);
+            const exists = await managers.supplement.exists(id, type, system);
+            return exists ? id : null;
+        })
+    );
+
+    return results.filter((id) : id is string => id !== null);
+}
+
+/**
+ * Validate an array of supplement references, removing any that don't exist.
+ * Generic to preserve the input array's type.
+ */
+async function validateRefs<T extends { id ?: string }>(
+    refs : T[],
+    type : string,
+    system : string,
+    managers : ValidationManagers
+) : Promise<T[]>
+{
+    const results = await Promise.all(
+        refs.map(async(ref) : Promise<T | null> =>
+        {
+            if(ref.id === undefined)
+            {
+                return null;
+            }
+            const exists = await managers.supplement.exists(String(ref.id), type, system);
+            return exists ? ref : null;
+        })
+    );
+
+    return results.filter((ref) => ref !== null) as T[];
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// EotE Validation
+//----------------------------------------------------------------------------------------------------------------------
+
+export async function validateEoteCharacter(
+    character : unknown,
+    managers : unknown
+) : Promise<unknown>
+{
+    const char = character as Character<EoteSystemDetails>;
+    const mgrs = managers as ValidationManagers;
+    const details = char.details;
+    const system = 'eote';
+
+    // Validate abilities (array of IDs)
+    details.abilities = await validateIds(details.abilities, 'ability', system, mgrs);
+
+    // Validate talents (array of refs with id)
+    details.talents = await validateRefs(details.talents, 'talent', system, mgrs);
+
+    // Validate gear (array of refs with id)
+    details.gear = await validateRefs(details.gear, 'gear', system, mgrs);
+
+    // Validate force powers
+    if(details.force?.powers)
+    {
+        details.force.powers = await validateRefs(details.force.powers, 'forcepower', system, mgrs);
+    }
+
+    // Validate armor attachments and qualities
+    if(details.armor)
+    {
+        if(details.armor.attachments)
+        {
+            details.armor.attachments = await validateIds(
+                details.armor.attachments,
+                'attachment',
+                system,
+                mgrs
+            );
         }
-    }));
-
-    // Set the supps to the filtered ones.
-    suppRefs = suppRefs.filter((supp) => !toRemove.includes(supp.id));
-
-    if(wasNums)
-    {
-        return suppRefs.map(({ id }) => id);
+        if(details.armor.qualities)
+        {
+            details.armor.qualities = await validateRefs(details.armor.qualities, 'quality', system, mgrs);
+        }
     }
-    else
+
+    // Validate weapon attachments and qualities
+    if(details.weapons)
     {
-        return suppRefs;
+        await Promise.all(details.weapons.map(async(weapon) =>
+        {
+            if(weapon.attachments)
+            {
+                weapon.attachments = await validateIds(weapon.attachments, 'attachment', system, mgrs);
+            }
+            if(weapon.qualities)
+            {
+                weapon.qualities = await validateRefs(weapon.qualities, 'quality', system, mgrs);
+            }
+        }));
     }
-}
-
-//----------------------------------------------------------------------------------------------------------------------
-// Top-level Validation Functions
-//----------------------------------------------------------------------------------------------------------------------
-
-export async function validateGenesysDetails(character : GenesysCharacter) : Promise<GenesysCharacter>
-{
-    // We get the owner of the character, as that's how we check for validity; not based on the person wanting to
-    // retrieve it.
-    const managers = await getManagers();
-    const account = await managers.account.get(character.accountID);
-
-    // We pull some type shenanigans to keep from casting every key.
-    const details = character.details as unknown as CharDetails;
-
-    // Specific validations
-    await validateMotivations(character, account);
-
-    // General validations
-    details.abilities = await validateSuppRef(details.abilities, 'ability', 'genesys', account);
-    details.talents = await validateSuppRef(details.talents, 'talent', 'genesys', account);
-    details.gear = await validateSuppRef(details.gear, 'gear', 'genesys', account);
-    details.armor.attachments = await validateSuppRef(details.armor.attachments, 'attachment', 'genesys', account);
-    details.armor.qualities = await validateSuppRef(details.armor.qualities, 'quality', 'genesys', account);
-
-    await Promise.all(details.weapons.map(async(weapon) =>
-    {
-        weapon.attachments = await validateSuppRef(weapon.attachments, 'attachment', 'genesys', account);
-        weapon.qualities = await validateSuppRef(weapon.qualities, 'quality', 'genesys', account);
-    }));
 
     return character;
 }
 
-export async function validateEoteDetails(character : EoteCharacter) : Promise<EoteCharacter>
+//----------------------------------------------------------------------------------------------------------------------
+// Genesys Validation
+//----------------------------------------------------------------------------------------------------------------------
+
+export async function validateGenesysCharacter(
+    character : unknown,
+    managers : unknown
+) : Promise<unknown>
 {
-    // We get the owner of the character, as that's how we check for validity; not based on the person wanting to
-    // retrieve it.
-    const managers = await getManagers();
-    const account = await managers.account.get(character.accountID);
+    const char = character as Character<GenesysSystemDetails>;
+    const mgrs = managers as ValidationManagers;
+    const details = char.details;
+    const system = 'genesys';
 
-    // We pull some type shenanigans to keep from casting every key.
-    const details = character.details as unknown as CharDetails;
-
-    // Specific validations
-    details.force.powers = await validateSuppRef(details.force.powers, 'forcepower', 'eote', account);
-
-    // General validations
-    details.abilities = await validateSuppRef(details.abilities, 'ability', 'eote', account);
-    details.talents = await validateSuppRef(details.talents, 'talent', 'eote', account);
-    details.gear = await validateSuppRef(details.gear, 'gear', 'eote', account);
-    details.armor.attachments = await validateSuppRef(details.armor.attachments, 'attachment', 'eote', account);
-    details.armor.qualities = await validateSuppRef(details.armor.qualities, 'quality', 'eote', account);
-
-    await Promise.all(details.weapons.map(async(weapon) =>
+    // Validate motivations (nullable IDs)
+    if(details.motivations)
     {
-        weapon.attachments = await validateSuppRef(weapon.attachments, 'attachment', 'eote', account);
-        weapon.qualities = await validateSuppRef(weapon.qualities, 'quality', 'eote', account);
-    }));
+        const motivations = details.motivations;
 
-    return character;
+        if(motivations.strength !== null)
+        {
+            const exists = await mgrs.supplement.exists(String(motivations.strength), 'motivation', system);
+            motivations.strength = exists ? motivations.strength : null;
+        }
+
+        if(motivations.flaw !== null)
+        {
+            const exists = await mgrs.supplement.exists(String(motivations.flaw), 'motivation', system);
+            motivations.flaw = exists ? motivations.flaw : null;
+        }
+
+        if(motivations.desire !== null)
+        {
+            const exists = await mgrs.supplement.exists(String(motivations.desire), 'motivation', system);
+            motivations.desire = exists ? motivations.desire : null;
+        }
+
+        if(motivations.fear !== null)
+        {
+            const exists = await mgrs.supplement.exists(String(motivations.fear), 'motivation', system);
+            motivations.fear = exists ? motivations.fear : null;
+        }
+    }
+
+    // Validate abilities (array of IDs)
+    details.abilities = await validateIds(details.abilities, 'ability', system, mgrs);
+
+    // Validate talents (array of refs with id)
+    details.talents = await validateRefs(details.talents, 'talent', system, mgrs);
+
+    // Validate gear (array of refs with id)
+    details.gear = await validateRefs(details.gear, 'gear', system, mgrs);
+
+    // Validate armor attachments and qualities
+    if(details.armor)
+    {
+        if(details.armor.attachments)
+        {
+            details.armor.attachments = await validateIds(
+                details.armor.attachments,
+                'attachment',
+                system,
+                mgrs
+            );
+        }
+        if(details.armor.qualities)
+        {
+            details.armor.qualities = await validateRefs(details.armor.qualities, 'quality', system, mgrs);
+        }
+    }
+
+    // Validate weapon attachments and qualities
+    if(details.weapons)
+    {
+        await Promise.all(details.weapons.map(async(weapon) =>
+        {
+            if(weapon.attachments)
+            {
+                weapon.attachments = await validateIds(weapon.attachments, 'attachment', system, mgrs);
+            }
+            if(weapon.qualities)
+            {
+                weapon.qualities = await validateRefs(weapon.qualities, 'quality', system, mgrs);
+            }
+        }));
+    }
+
+    return char;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

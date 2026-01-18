@@ -39,8 +39,11 @@
                 >
                     <template #preview="{ instance, supplement }">
                         <div class="clearfix">
-                            <div v-if="(supplement as BaseTalent).ranked" class="mb-2 float-end">
-                                <label>Ranks</label>
+                            <div
+                                v-if="(supplement as BaseTalent).ranked && getInst(instance.id)"
+                                class="mb-2 float-end"
+                            >
+                                <label class="me-2">Ranks</label>
                                 <BFormSpinbutton v-model="getInst(instance.id)!.ranks" inline />
                             </div>
                             <div class="mb-2">
@@ -156,7 +159,7 @@
         EoteTalentInst,
         GenesysTalent,
         GenesysTalentInst,
-    } from '../../models.ts';
+    } from '../../../models.ts';
 
     // Use type aliases for template casts
     type BaseTalent = GenesysTalent;
@@ -190,7 +193,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const selectedTalents = ref<EoteTalentInst[]>([]);
-    const delTalent = ref<{ id : number | string, name : string }>({
+    const delTalent = ref<{ id : string, name : string }>({
         id: '',
         name: '',
     });
@@ -268,27 +271,21 @@
         return eoteMan.activationEnum[talent.activation] || 'Unknown';
     }
 
-    function getInst(instID : number | string) : EoteTalentInst | undefined
+    function getInst(instID : string) : EoteTalentInst | undefined
     {
-        const id = typeof instID === 'string' ? parseInt(instID, 10) : instID;
-        return selectedTalents.value
-            .find((talentInst) =>
-            {
-                return talentInst.id === id;
-            });
+        return selectedTalents.value.find((talentInst) => talentInst.id === instID);
     }
 
-    function getTalent(talentId : number) : GenesysTalent | undefined
+    function getTalent(talentId : string) : GenesysTalent | undefined
     {
         return talents.value.find((talent) => talent.id === talentId);
     }
 
-    function onTalentAdd(talent : { id ?: number | string }) : void
+    function onTalentAdd(talent : { id ?: string }) : void
     {
         if(!talent.id) { return; }
-        const talentId = typeof talent.id === 'string' ? parseInt(talent.id, 10) : talent.id;
-        const newTalent : EoteTalentInst = { id: talentId };
-        const talentDef = getTalent(talentId);
+        const newTalent : EoteTalentInst = { id: talent.id };
+        const talentDef = getTalent(talent.id);
 
         if(talentDef?.ranked)
         {
@@ -298,11 +295,10 @@
         selectedTalents.value = uniqBy([ ...selectedTalents.value, newTalent ], 'id');
     }
 
-    function onTalentRemove(talent : { id ?: number | string }) : void
+    function onTalentRemove(talent : { id ?: string }) : void
     {
         if(!talent.id) { return; }
-        const talentId = typeof talent.id === 'string' ? parseInt(talent.id, 10) : talent.id;
-        selectedTalents.value = selectedTalents.value.filter((item) => item.id !== talentId);
+        selectedTalents.value = selectedTalents.value.filter((item) => item.id !== talent.id);
     }
 
     function onTalentNew() : void

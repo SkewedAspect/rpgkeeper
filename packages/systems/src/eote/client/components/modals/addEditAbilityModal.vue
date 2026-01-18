@@ -44,8 +44,6 @@
                 <MarkdownEditor v-model:text="description" />
             </BFormGroup>
 
-            <ScopeSelect v-model:scope="scope" v-model:official="official" />
-
             <EditReference v-model:reference="reference" />
 
             <!-- Modal Buttons -->
@@ -71,7 +69,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteAbility, EoteForcePower } from '../../models.ts';
+    import type { EoteAbility, EoteForcePower } from '../../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';
@@ -79,7 +77,6 @@
     // Components
     import MarkdownEditor from '@client/components/ui/markdownEditor.vue';
     import EditReference from '@client/components/character/editReference.vue';
-    import ScopeSelect from '@client/components/character/scopeSelect.vue';
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
@@ -100,8 +97,6 @@
     const name = ref('');
     const description = ref('');
     const reference = ref('');
-    const scope = ref<'public' | 'user'>('user');
-    const official = ref(false);
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -123,8 +118,6 @@
             name.value = ability.name;
             description.value = ability.description;
             reference.value = ability.reference;
-            scope.value = ability.scope;
-            official.value = ability.official;
         }
         else
         {
@@ -132,8 +125,6 @@
             name.value = '';
             description.value = '';
             reference.value = '';
-            scope.value = 'user';
-            official.value = false;
         }
 
         // Show the modal
@@ -154,8 +145,7 @@
                 name: name.value,
                 description: description.value,
                 reference: reference.value,
-                official: official.value,
-                scope: scope.value,
+                official: false,
             });
 
             emit('edit', ability);
@@ -166,8 +156,7 @@
                 name: name.value,
                 description: description.value,
                 reference: reference.value,
-                official: official.value,
-                scope: scope.value,
+                official: false,
             });
 
             emit('add', ability);

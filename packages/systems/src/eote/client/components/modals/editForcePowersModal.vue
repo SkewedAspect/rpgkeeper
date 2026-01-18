@@ -131,7 +131,7 @@
         EoteForcePower,
         EoteForcePowerInst,
         EoteForcePowerUpgrade,
-        EoteTalentInst } from '../../models.ts';
+        EoteTalentInst } from '../../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';
@@ -177,7 +177,7 @@
 
     const selectedForcePowers = ref<EoteForcePowerInst[]>([]);
 
-    const delForcePower = ref<{ id ?: number, name ?: string }>({
+    const delForcePower = ref<{ id ?: string, name ?: string }>({
         id: undefined,
         name: undefined,
     });
@@ -215,12 +215,11 @@
         emit('save', selectedForcePowers.value);
     }
 
-    function onForcePowerAdd(forcePower : { id ?: number | string }) : void
+    function onForcePowerAdd(forcePower : { id ?: string }) : void
     {
         if(!forcePower.id) { return; }
-        const fpId = typeof forcePower.id === 'string' ? parseInt(forcePower.id, 10) : forcePower.id;
         const newForcePower : EoteForcePowerInst = {
-            id: fpId,
+            id: forcePower.id,
             upgrades: { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 },
         };
 
@@ -228,11 +227,10 @@
         selectedForcePowers.value = uniqBy(selectedForcePowers.value, 'id');
     }
 
-    function onForcePowerRemove(forcePower : { id ?: number | string }) : void
+    function onForcePowerRemove(forcePower : { id ?: string }) : void
     {
         if(!forcePower.id) { return; }
-        const fpId = typeof forcePower.id === 'string' ? parseInt(forcePower.id, 10) : forcePower.id;
-        selectedForcePowers.value = selectedForcePowers.value.filter((item) => item.id !== fpId);
+        selectedForcePowers.value = selectedForcePowers.value.filter((item) => item.id !== forcePower.id);
     }
 
     function onForcePowerNew() : void

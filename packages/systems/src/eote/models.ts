@@ -2,8 +2,7 @@
 // Edge of the Empire / Genesys Models
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { Character } from '@rpgk/core';
-import type { Supplement } from '@rpgk/core/models/systems';
+import type { Character, Supplement } from '@rpgk/core';
 import type { BoundedRange } from '@rpgk/core/utils/types';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -26,19 +25,19 @@ interface BaseCriticalInjuryEntry
 
 export interface BaseQualityRef
 {
-    id : number;
+    id : string;
     ranks ?: number;
 }
 
 export interface BaseAbility extends Supplement
 {
-    id ?: number;
+    id ?: string;
     description : string;
 }
 
 export interface BaseTalent extends Supplement
 {
-    id ?: number;
+    id ?: string;
     description : string;
     activation : 'p' | 'ai' | 'aio' | 'am' | 'aa';
     ranked : boolean;
@@ -47,7 +46,7 @@ export interface BaseTalent extends Supplement
 
 export interface BaseTalentInst
 {
-    id : number;
+    id : string;
     ranks ?: number;
     notes ?: string;
 }
@@ -63,7 +62,7 @@ export interface BaseSkill
 
 interface BaseGear extends Supplement
 {
-    id ?: number;
+    id ?: string;
     description : string;
     encumbrance : number;
     rarity : number;
@@ -71,7 +70,7 @@ interface BaseGear extends Supplement
 
 interface BaseAttachment extends Supplement
 {
-    id ?: number;
+    id ?: string;
     description : string;
     useWith : string;
     modifiers : string;
@@ -80,7 +79,7 @@ interface BaseAttachment extends Supplement
 
 export interface BaseQuality extends Supplement
 {
-    id ?: number;
+    id ?: string;
     description : string;
     passive : boolean;
     ranked : boolean;
@@ -88,7 +87,7 @@ export interface BaseQuality extends Supplement
 
 interface BaseArmor extends Supplement
 {
-    id ?: number;
+    id ?: string;
     description : string;
     defense : number;
     soak : number;
@@ -106,14 +105,14 @@ export interface BaseArmorRef
     hardpoints : number;
     encumbrance : number;
     rarity : number;
-    attachments : number[];
+    attachments : string[];
     qualities : BaseQualityRef[];
     notes ?: string;
 }
 
 interface BaseWeapon extends Supplement
 {
-    id ?: number;
+    id ?: string;
     description : string;
     skill : string;
     damage : number;
@@ -134,7 +133,7 @@ export interface BaseWeaponRef
     range : EncounterRange;
     encumbrance : number;
     rarity : number;
-    attachments : number[];
+    attachments : string[];
     qualities : BaseQualityRef[];
     notes ?: string;
 }
@@ -175,7 +174,7 @@ interface BaseSystemDetails
         disoriented : boolean;
     };
     skills : BaseSkill[];
-    abilities : number[];
+    abilities : string[];
     talents : BaseTalentInst[];
     gear : BaseGear[];
     armor : BaseArmorRef;
@@ -218,7 +217,7 @@ export interface EoteAttachment extends Omit<BaseAttachment, 'useWith' | 'modifi
 
 export interface EoteForcePowerInst
 {
-    id : number | string;
+    id : string;
     upgrades : {
         strength : number;
         magnitude : number;
@@ -237,7 +236,7 @@ export interface EoteForcePowerUpgrade
 
 export interface EoteForcePower extends Supplement
 {
-    id ?: number;
+    id ?: string;
     description : string;
     minRating : number;
     upgrades : {
@@ -287,7 +286,7 @@ export type GenesysMotivationType = 'strength' | 'flaw' | 'desire' | 'fear';
 
 export interface GenesysMotivation extends Supplement
 {
-    id ?: number;
+    id ?: string;
     type : GenesysMotivationType;
     description : string;
 }
@@ -296,10 +295,10 @@ export interface GenesysSystemDetails extends BaseSystemDetails
 {
     skills : GenesysSkill[];
     motivations : {
-        strength : number | null;
-        flaw : number | null;
-        desire : number | null;
-        fear : number | null;
+        strength : string | null;
+        flaw : string | null;
+        desire : string | null;
+        fear : string | null;
     };
 }
 

@@ -96,8 +96,6 @@
                 <MarkdownEditor v-model:text="description" height="250px" />
             </BFormGroup>
 
-            <ScopeSelect v-model:scope="scope" v-model:official="official" />
-
             <EditReference v-model:reference="reference" />
 
             <!-- Modal Buttons -->
@@ -126,7 +124,7 @@
     import type {
         EoteOrGenesysTalent,
         EoteTalent,
-    } from '../../models.ts';
+    } from '../../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';
@@ -134,7 +132,6 @@
     // Components
     import EditReference from '@client/components/character/editReference.vue';
     import MarkdownEditor from '@client/components/ui/markdownEditor.vue';
-    import ScopeSelect from '@client/components/character/scopeSelect.vue';
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
@@ -159,8 +156,6 @@
     const tier = ref(1);
     const reference = ref('');
     const ranked = ref(false);
-    const scope = ref<'public' | 'user'>('user');
-    const official = ref(false);
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -199,8 +194,6 @@
             tier.value = talent.tier;
             reference.value = talent.reference;
             ranked.value = talent.ranked;
-            scope.value = talent.scope;
-            official.value = talent.official;
         }
         else
         {
@@ -212,8 +205,6 @@
             tier.value = 1;
             reference.value = '';
             ranked.value = false;
-            scope.value = 'user';
-            official.value = false;
         }
 
         innerModal.value.show();
@@ -237,11 +228,10 @@
                 tier: tier.value,
                 ranked: ranked.value,
                 reference: reference.value,
-                scope: undefined,
                 official: false,
             });
 
-            this.$emit('edit', talent);
+            emit('edit', talent);
         }
         else
         {
@@ -253,11 +243,10 @@
                 tier: tier.value,
                 ranked: ranked.value,
                 reference: reference.value,
-                scope: undefined,
                 official: false,
             });
 
-            this.$emit('add', talent);
+            emit('add', talent);
         }
     }
 

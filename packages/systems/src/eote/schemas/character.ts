@@ -48,7 +48,7 @@ export const BaseCriticalInjuryEntrySchema = z.object({
 });
 
 export const BaseQualityRefSchema = z.object({
-    id: z.number().int(),
+    id: z.string(),
     ranks: z.number().int()
         .optional(),
 });
@@ -64,7 +64,7 @@ export const BaseSkillSchema = z.object({
 });
 
 export const BaseTalentInstSchema = z.object({
-    id: z.number().int(),
+    id: z.string(),
     ranks: z.number().int()
         .optional(),
     notes: z.string().optional(),
@@ -98,7 +98,7 @@ export const BaseArmorRefSchema = z.object({
         .min(0),
     rarity: z.number().int()
         .min(0),
-    attachments: z.array(z.number().int()),
+    attachments: z.array(z.string()),
     qualities: z.array(BaseQualityRefSchema),
     notes: z.string().optional(),
 });
@@ -115,14 +115,13 @@ export const BaseWeaponRefSchema = z.object({
         .min(0),
     rarity: z.number().int()
         .min(0),
-    attachments: z.array(z.number().int()),
+    attachments: z.array(z.string()),
     qualities: z.array(BaseQualityRefSchema),
     notes: z.string().optional(),
 });
 
 export const BaseGearSchema = z.object({
-    id: z.number().int()
-        .optional(),
+    id: z.string().optional(),
     name: z.string(),
     owner: z.string().optional(),
     scope: z.enum([ 'public', 'user' ]),
@@ -192,7 +191,7 @@ export const EoteForcePowerInstUpgradesSchema = z.object({
 });
 
 export const EoteForcePowerInstSchema = z.object({
-    id: z.union([ z.number().int(), z.string() ]),
+    id: z.string(),
     upgrades: EoteForcePowerInstUpgradesSchema,
 });
 
@@ -214,7 +213,7 @@ export const EoteSystemDetailsSchema = z.object({
     defenses: DefensesSchema,
     health: HealthSchema,
     skills: z.array(BaseSkillSchema),
-    abilities: z.array(z.number().int()),
+    abilities: z.array(z.string()),
     talents: z.array(BaseTalentInstSchema),
     gear: z.array(BaseGearSchema),
     armor: BaseArmorRefSchema,
@@ -229,14 +228,10 @@ export const EoteSystemDetailsSchema = z.object({
 export const GenesysMotivationTypeSchema = z.enum([ 'strength', 'flaw', 'desire', 'fear' ]);
 
 export const GenesysMotivationsSchema = z.object({
-    strength: z.number().int()
-        .nullable(),
-    flaw: z.number().int()
-        .nullable(),
-    desire: z.number().int()
-        .nullable(),
-    fear: z.number().int()
-        .nullable(),
+    strength: z.string().nullable(),
+    flaw: z.string().nullable(),
+    desire: z.string().nullable(),
+    fear: z.string().nullable(),
 });
 
 export const GenesysSystemDetailsSchema = z.object({
@@ -247,7 +242,7 @@ export const GenesysSystemDetailsSchema = z.object({
     defenses: DefensesSchema,
     health: HealthSchema,
     skills: z.array(BaseSkillSchema),
-    abilities: z.array(z.number().int()),
+    abilities: z.array(z.string()),
     talents: z.array(BaseTalentInstSchema),
     gear: z.array(BaseGearSchema),
     armor: BaseArmorRefSchema,

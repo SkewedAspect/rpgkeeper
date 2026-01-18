@@ -93,8 +93,6 @@
                 <MarkdownEditor v-model:text="description" />
             </BFormGroup>
 
-            <ScopeSelect v-model:scope="scope" v-model:official="official" />
-
             <EditReference v-model:reference="reference" />
 
             <!-- Modal Buttons -->
@@ -126,11 +124,10 @@
     import type {
         EoteQuality,
         GenesysMotivation,
-        GenesysMotivationType } from '../../models.ts';
+        GenesysMotivationType } from '../../../models.ts';
 
     // Components
     import EditReference from '@client/components/character/editReference.vue';
-    import ScopeSelect from '@client/components/character/scopeSelect.vue';
     import MarkdownEditor from '@client/components/ui/markdownEditor.vue';
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
@@ -153,8 +150,6 @@
     const type = ref<GenesysMotivationType>('strength');
     const description = ref('');
     const reference = ref('');
-    const scope = ref<'public' | 'user'>('user');
-    const official = ref(false);
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -175,8 +170,6 @@
         type.value = motivation.type ?? 'strength';
         description.value = motivation.description ?? '';
         reference.value = motivation.reference ?? '';
-        scope.value = motivation.scope ?? 'user';
-        official.value = motivation.official ?? false;
 
         // Show the modal
         innerModal.value.show();
@@ -197,8 +190,7 @@
                 type: type.value,
                 description: description.value,
                 reference: reference.value,
-                official: official.value,
-                scope: scope.value,
+                official: false,
             });
 
             emit('edit', motivation);
@@ -211,8 +203,7 @@
                 type: type.value,
                 description: description.value,
                 reference: reference.value,
-                official: official.value,
-                scope: scope.value,
+                official: false,
             });
 
             emit('add', motivation);
@@ -224,8 +215,6 @@
         type.value = 'strength';
         description.value = '';
         reference.value = '';
-        scope.value = 'user';
-        official.value = false;
     }
 
     function onCancel() : void
@@ -235,8 +224,6 @@
         type.value = 'strength';
         description.value = '';
         reference.value = '';
-        scope.value = 'user';
-        official.value = false;
     }
 
     //------------------------------------------------------------------------------------------------------------------

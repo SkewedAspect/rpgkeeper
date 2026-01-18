@@ -71,7 +71,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { GenesysCharacter } from '../models.ts';
+    import type { GenesysCharacter } from '../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
@@ -87,10 +87,10 @@
 
     interface Motivations
     {
-        strength : number | null;
-        flaw : number | null;
-        desire : number | null;
-        fear : number | null;
+        strength : string | null;
+        flaw : string | null;
+        desire : string | null;
+        fear : string | null;
     }
 
     interface Props

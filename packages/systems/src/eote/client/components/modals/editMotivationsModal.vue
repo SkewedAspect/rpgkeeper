@@ -289,7 +289,7 @@
         GenesysCharacter,
         GenesysMotivation,
         GenesysMotivationType,
-    } from '../../models.ts';
+    } from '../../../models.ts';
 
     // Managers
     import authMan from '@client/lib/managers/auth';
@@ -309,10 +309,10 @@
 
     interface Motivations
     {
-        strength : number | null;
-        flaw : number | null;
-        desire : number | null;
-        fear : number | null;
+        strength : string | null;
+        flaw : string | null;
+        desire : string | null;
+        fear : string | null;
     }
 
     type Events = (e : 'save', motivations : Motivations) => void;
@@ -337,7 +337,7 @@
         fear: null,
     });
 
-    const delMotiv = ref<{ id ?: number, name : string, type : string }>({
+    const delMotiv = ref<{ id ?: string, name : string, type : string }>({
         id: undefined,
         name: '',
         type: '',
@@ -406,25 +406,24 @@
         };
     }
 
-    function onMotivAdd(supp : { id ?: number | string; type ?: GenesysMotivationType }) : void
+    function onMotivAdd(supp : { id ?: string; type ?: GenesysMotivationType }) : void
     {
         if(!supp.id) { return; }
-        const motivId = typeof supp.id === 'string' ? parseInt(supp.id, 10) : supp.id;
 
         // Look up the full motivation to get its type if not provided
         let motiv : GenesysMotivation | undefined;
         if(!supp.type)
         {
-            motiv = motivationsList.value.find((mot) => mot.id === motivId);
+            motiv = motivationsList.value.find((mot) => mot.id === supp.id);
         }
         else
         {
-            motiv = { id: motivId, type: supp.type } as GenesysMotivation;
+            motiv = { id: supp.id, type: supp.type } as GenesysMotivation;
         }
 
         if(motiv?.type)
         {
-            motivations.value[motiv.type] = motivId;
+            motivations.value[motiv.type] = supp.id;
         }
     }
 
@@ -452,8 +451,7 @@
     function isEditable(motiv : GenesysMotivation) : boolean
     {
         const hasRight = authMan.hasPerm(`${ eoteMan.mode }/canModifyContent`);
-        const isOwner = motiv.scope === 'user'
-            && motiv.owner === authMan.account.id;
+        const isOwner = !motiv.official && motiv.owner === authMan.account.id;
 
         return isOwner || hasRight;
     }

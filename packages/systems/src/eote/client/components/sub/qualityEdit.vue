@@ -93,7 +93,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const delQuality = ref<{ id ?: number, name ?: string }>({
+    const delQuality = ref<{ id ?: string, name ?: string }>({
         id: undefined,
         name: undefined,
     });
@@ -122,17 +122,16 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function getQual(qualityId : number) : EoteQuality | undefined
+    function getQual(qualityId : string) : EoteQuality | undefined
     {
         return allQualities.value.find((qual) => qual.id === qualityId);
     }
 
-    function onQualityAdd(quality : { id ?: number | string }) : void
+    function onQualityAdd(quality : { id ?: string }) : void
     {
         if(!quality.id) { return; }
-        const qualId = typeof quality.id === 'string' ? parseInt(quality.id, 10) : quality.id;
-        const newQual : { id : number, ranks ?: number } = { id: qualId };
-        const qualDef = getQual(qualId);
+        const newQual : { id : string, ranks ?: number } = { id: quality.id };
+        const qualDef = getQual(quality.id);
 
         if(qualDef?.ranked)
         {
@@ -143,11 +142,10 @@
         selectedQualities.value = uniqBy([ ...selectedQualities.value, newQual ], 'id');
     }
 
-    function onQualityRemove(quality : { id ?: number | string }) : void
+    function onQualityRemove(quality : { id ?: string }) : void
     {
         if(!quality.id) { return; }
-        const qualId = typeof quality.id === 'string' ? parseInt(quality.id, 10) : quality.id;
-        selectedQualities.value = selectedQualities.value.filter((qual) => qual.id !== qualId);
+        selectedQualities.value = selectedQualities.value.filter((qual) => qual.id !== quality.id);
     }
 
     function onQualityNew() : void

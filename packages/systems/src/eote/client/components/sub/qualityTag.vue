@@ -53,7 +53,7 @@
 
     interface Props
     {
-        id : number;
+        id : string;
         ranks ?: number
     }
 

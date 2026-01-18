@@ -75,8 +75,6 @@
                         />
                     </BFormGroup>
 
-                    <ScopeSelect v-model:scope="scope" v-model:official="official" />
-
                     <EditReference v-model:reference="reference" />
                 </BCol>
 
@@ -284,7 +282,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteForcePower, EoteQuality } from '../../models.ts';
+    import type { EoteForcePower, EoteQuality } from '../../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';
@@ -292,7 +290,6 @@
     // Components
     import EditReference from '@client/components/character/editReference.vue';
     import MarkdownEditor from '@client/components/ui/markdownEditor.vue';
-    import ScopeSelect from '@client/components/character/scopeSelect.vue';
     import { BModal } from 'bootstrap-vue-next';
 
     // Utils
@@ -329,8 +326,6 @@
     const description = ref('');
     const reference = ref('');
     const upgrades = ref(deepClone(defaultUpgrades));
-    const scope = ref<'public' | 'user'>('user');
-    const official = ref(false);
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -401,12 +396,11 @@
     {
         const forcePowerDef : EoteForcePower = {
             id: undefined,
-            name: this.name,
-            minRating: this.minRating,
-            description: this.description,
-            reference: this.reference,
-            upgrades: deepClone(this.upgrades),
-            scope: undefined,
+            name: name.value,
+            minRating: minRating.value,
+            description: description.value,
+            reference: reference.value,
+            upgrades: deepClone(upgrades.value),
             official: false,
         };
 
@@ -445,13 +439,13 @@
             forcePowerDef.id = id.value;
             const forcePower = await eoteMan.editSup('forcepowers', forcePowerDef);
 
-            this.$emit('edit', forcePower);
+            emit('edit', forcePower);
         }
         else
         {
             const forcePower = await eoteMan.addSup('forcepowers', forcePowerDef);
 
-            this.$emit('add', forcePower);
+            emit('add', forcePower);
         }
     }
 
