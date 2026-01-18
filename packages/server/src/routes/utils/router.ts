@@ -11,6 +11,25 @@ import type { AppError } from '../../errors.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
+/**
+ * Extracts a route parameter as a string.
+ *
+ * In Express 5, req.params values are typed as `string | string[]`.
+ * When using Zod validation via processRequest, params are guaranteed to be strings.
+ * This utility provides type-safe access to those validated params.
+ */
+export function getParam(req : Request, name : string) : string
+{
+    const value = req.params[name];
+    if(Array.isArray(value))
+    {
+        return value[0];
+    }
+    return value;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
 export type MiddlewareFunction = (request : Request, response : Response, next : NextFunction) => void;
 export type ErrorMiddlewareFunction
     = (error : AppError, request : Request, response : Response, next : NextFunction) => void;

@@ -14,7 +14,7 @@ import * as AccountValidators from '../engines/validation/models/account.ts';
 import { processRequest, validationErrorHandler } from '../engines/validation/express.ts';
 
 // Utils
-import { ensureAuthenticated, errorHandler } from './utils/index.ts';
+import { ensureAuthenticated, errorHandler, getParam } from './utils/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -49,9 +49,9 @@ router.get(
     {
         const managers = await getManagers();
         const user = req.user;
-        const account = await managers.account.get(req.params.accountID);
+        const account = await managers.account.get(getParam(req, 'accountID'));
 
-        const sameOrAdmin = user && (user.id === req.params.accountID || permsMan.hasPerm(
+        const sameOrAdmin = user && (user.id === getParam(req, 'accountID') || permsMan.hasPerm(
             user,
             `Accounts/canViewDetails`
         ));
@@ -89,7 +89,7 @@ router.patch(
 
         const managers = await getManagers();
         const user = req.user;
-        const targetID = req.params.accountID;
+        const targetID = getParam(req, 'accountID');
 
         // Ensure the user is modifying their own account, or has the right perm
         if(user.id !== targetID && !permsMan.hasPerm(user, 'Accounts/canModify'))

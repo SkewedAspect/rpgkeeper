@@ -14,7 +14,7 @@ import * as NotebookValidators from '../engines/validation/models/notebook.ts';
 import { processRequest, validationErrorHandler } from '../engines/validation/express.ts';
 
 // Utils
-import { convertQueryToRecord, ensureAuthenticated, errorHandler } from './utils/index.ts';
+import { convertQueryToRecord, ensureAuthenticated, errorHandler, getParam } from './utils/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ router.get(
     async(req, resp) =>
     {
         const managers = await getManagers();
-        resp.json(await managers.notebook.get(req.params.noteID));
+        resp.json(await managers.notebook.get(getParam(req, 'noteID')));
     }
 );
 
@@ -85,7 +85,7 @@ router.post(
         delete page.id;
 
         // Update the note
-        resp.json(await managers.notebook.addPage(req.params.noteID, page));
+        resp.json(await managers.notebook.addPage(getParam(req, 'noteID'), page));
     }
 );
 
@@ -101,7 +101,7 @@ router.patch(
         const managers = await getManagers();
 
         // Update the note
-        const newPage = await managers.notebook.updatePage(req.params.pageID, req.body);
+        const newPage = await managers.notebook.updatePage(getParam(req, 'pageID'), req.body);
         resp.json(newPage);
     }
 );
@@ -115,7 +115,7 @@ router.delete(
         const managers = await getManagers();
 
         // We don't check for existence, so we can be idempotent
-        resp.json(await managers.notebook.remove(req.params.noteID));
+        resp.json(await managers.notebook.remove(getParam(req, 'noteID')));
     }
 );
 
@@ -129,7 +129,7 @@ router.delete(
 
         try
         {
-            resp.json(await managers.notebook.removePage(req.params.pageID));
+            resp.json(await managers.notebook.removePage(getParam(req, 'pageID')));
         }
         catch (error)
         {

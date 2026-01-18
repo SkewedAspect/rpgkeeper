@@ -12,7 +12,14 @@ import * as CampValidators from '../engines/validation/models/campaign.ts';
 import { processRequest, validationErrorHandler } from '../engines/validation/express.ts';
 
 // Utils
-import { convertQueryToRecord, ensureAuthenticated, errorHandler, interceptHTML, parseQuery } from './utils/index.ts';
+import {
+    convertQueryToRecord,
+    ensureAuthenticated,
+    errorHandler,
+    getParam,
+    interceptHTML,
+    parseQuery,
+} from './utils/index.ts';
 import * as permsUtil from '../utils/permissions.ts';
 
 // Logger
@@ -78,7 +85,7 @@ router.get('/:campID', processRequest({ params: CampValidators.CampRouteParams }
     interceptHTML(resp, async () =>
     {
         const managers = await getManagers();
-        resp.json(await managers.campaign.get(req.params.campID));
+        resp.json(await managers.campaign.get(getParam(req, 'campID')));
     });
 });
 
@@ -99,7 +106,7 @@ router.patch(
         const managers = await getManagers();
 
         // First, get the campaign
-        const camp = await managers.campaign.get(req.params.campID);
+        const camp = await managers.campaign.get(getParam(req, 'campID'));
 
         // Allow either the owners, or moderators/admins to modify the campaign
         const user = req.user;
@@ -108,14 +115,14 @@ router.patch(
             || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Update the campaign
-            resp.json(await managers.campaign.update(req.params.campID, req.body));
+            resp.json(await managers.campaign.update(getParam(req, 'campID'), req.body));
         }
         else
         {
             resp.status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                    message: `You are not authorized to update campaign '${ getParam(req, 'campID') }'.`,
                 });
         }
     }
@@ -132,7 +139,7 @@ router.delete(
         try
         {
             // First, retrieve the campaign
-            camp = await managers.campaign.get(req.params.campID);
+            camp = await managers.campaign.get(getParam(req, 'campID'));
         }
         catch (error : unknown)
         {
@@ -163,14 +170,14 @@ router.delete(
             || permsUtil.hasPerm(user, 'campaign/canDeleteCamp'))
         {
             // Delete the campaign
-            resp.json(await managers.campaign.remove(req.params.campID));
+            resp.json(await managers.campaign.remove(getParam(req, 'campID')));
         }
         else
         {
             resp.status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                    message: `You are not authorized to update campaign '${ getParam(req, 'campID') }'.`,
                 });
         }
     }
@@ -183,7 +190,7 @@ router.delete(
 router.get('/:campID/character', async (req, resp) =>
 {
     const managers = await getManagers();
-    resp.json(await managers.campaign.getCharacters(req.params.campID));
+    resp.json(await managers.campaign.getCharacters(getParam(req, 'campID')));
 });
 
 router.post(
@@ -196,7 +203,7 @@ router.post(
     async (req, resp) =>
     {
         const managers = await getManagers();
-        const campID = req.params.campID;
+        const campID = getParam(req, 'campID');
         const charID = req.body.characterID;
         const role = req.body.role;
 
@@ -242,15 +249,17 @@ router.patch(
         const managers = await getManagers();
 
         // Get the campaign
-        const camp = await managers.campaign.get(req.params.campID);
+        const campID = getParam(req, 'campID');
+        const charID = getParam(req, 'charID');
+        const camp = await managers.campaign.get(campID);
 
         // Verify the character is even in the campaign
-        if(!camp.characters.some((char) => char.characterID === req.params.charID))
+        if(!camp.characters.some((char) => char.characterID === charID))
         {
             resp.status(404)
                 .json({
                     type: 'CharacterNotFound',
-                    message: `Character '${ req.params.charID }' not found in campaign '${ req.params.campID }'.`,
+                    message: `Character '${ charID }' not found in campaign '${ campID }'.`,
                 });
 
             return;
@@ -268,7 +277,7 @@ router.patch(
             || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Update the character
-            await managers.campaign.addCharacter(req.params.campID, req.params.charID, req.body.role);
+            await managers.campaign.addCharacter(campID, charID, req.body.role);
             resp.status(204)
                 .end();
         }
@@ -277,7 +286,7 @@ router.patch(
             resp.status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                    message: `You are not authorized to update campaign '${ campID }'.`,
                 });
         }
     }
@@ -299,7 +308,7 @@ router.delete(
         const managers = await getManagers();
 
         // Get the campaign
-        const camp = await managers.campaign.get(req.params.campID);
+        const camp = await managers.campaign.get(getParam(req, 'campID'));
 
         // Allow either the owners, or moderators/admins to modify the campaign
         const user = req.user;
@@ -308,7 +317,7 @@ router.delete(
             || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Remove the character
-            await managers.campaign.removeCharacter(req.params.campID, req.params.charID);
+            await managers.campaign.removeCharacter(getParam(req, 'campID'), getParam(req, 'charID'));
             resp.status(204)
                 .end();
         }
@@ -317,7 +326,7 @@ router.delete(
             resp.status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                    message: `You are not authorized to update campaign '${ getParam(req, 'campID') }'.`,
                 });
         }
     }
@@ -330,7 +339,7 @@ router.delete(
 router.get('/:campID/note', processRequest({ query: CampValidators.CampFilter }), async (req, resp) =>
 {
     const managers = await getManagers();
-    resp.json(await managers.campaign.getNotes(req.params.campID));
+    resp.json(await managers.campaign.getNotes(getParam(req, 'campID')));
 });
 
 router.post(
@@ -343,7 +352,7 @@ router.post(
     async (req, resp) =>
     {
         const managers = await getManagers();
-        const campID = req.params.campID;
+        const campID = getParam(req, 'campID');
         const viewers = req.body.viewers;
         const editors = req.body.editors;
 
@@ -368,7 +377,7 @@ router.patch(
         const managers = await getManagers();
 
         // Get the campaign
-        const camp = await managers.campaign.get(req.params.campID);
+        const camp = await managers.campaign.get(getParam(req, 'campID'));
 
         // Allow either the owners, or moderators/admins to modify the campaign
         const user = req.user;
@@ -378,7 +387,7 @@ router.patch(
         {
             // Update the note
             const { viewers, editors } = req.body;
-            await managers.campaign.updateNote(req.params.campID, req.params.noteID, viewers, editors);
+            await managers.campaign.updateNote(getParam(req, 'campID'), getParam(req, 'noteID'), viewers, editors);
             resp.status(204)
                 .end();
         }
@@ -387,7 +396,7 @@ router.patch(
             resp.status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                    message: `You are not authorized to update campaign '${ getParam(req, 'campID') }'.`,
                 });
         }
     }
@@ -409,7 +418,7 @@ router.delete(
         const managers = await getManagers();
 
         // Get the campaign
-        const camp = await managers.campaign.get(req.params.campID);
+        const camp = await managers.campaign.get(getParam(req, 'campID'));
 
         // Allow either the owners, or moderators/admins to modify the campaign
         const user = req.user;
@@ -418,7 +427,7 @@ router.delete(
             || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Remove the note
-            await managers.campaign.removeNote(req.params.campID, req.params.noteID);
+            await managers.campaign.removeNote(getParam(req, 'campID'), getParam(req, 'noteID'));
             resp.status(204)
                 .end();
         }
@@ -427,7 +436,7 @@ router.delete(
             resp.status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                    message: `You are not authorized to update campaign '${ getParam(req, 'campID') }'.`,
                 });
         }
     }
@@ -440,7 +449,7 @@ router.delete(
 router.get('/:campID/participant', processRequest({ query: CampValidators.CampFilter }), async (req, resp) =>
 {
     const managers = await getManagers();
-    resp.json(await managers.campaign.getParticipants(req.params.campID));
+    resp.json(await managers.campaign.getParticipants(getParam(req, 'campID')));
 });
 
 router.post(
@@ -453,7 +462,7 @@ router.post(
     async (req, resp) =>
     {
         const managers = await getManagers();
-        const campID = req.params.campID;
+        const campID = getParam(req, 'campID');
         const accountID = req.body.accountID;
         const role = req.body.role;
 
@@ -521,7 +530,7 @@ router.patch(
         const managers = await getManagers();
 
         // Get the campaign
-        const camp = await managers.campaign.get(req.params.campID);
+        const camp = await managers.campaign.get(getParam(req, 'campID'));
 
         // Allow either the owners, or moderators/admins to modify the campaign
         const user = req.user;
@@ -530,7 +539,7 @@ router.patch(
             || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Update the participant
-            await managers.campaign.addAccount(req.params.campID, req.params.accountID, req.body.role);
+            await managers.campaign.addAccount(getParam(req, 'campID'), getParam(req, 'accountID'), req.body.role);
             resp.status(204)
                 .end();
         }
@@ -539,7 +548,7 @@ router.patch(
             resp.status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                    message: `You are not authorized to update campaign '${ getParam(req, 'campID') }'.`,
                 });
         }
     }
@@ -561,7 +570,7 @@ router.delete(
         const managers = await getManagers();
 
         // Get the campaign
-        const camp = await managers.campaign.get(req.params.campID);
+        const camp = await managers.campaign.get(getParam(req, 'campID'));
 
         // Allow either the owners, or moderators/admins to modify the campaign
         const user = req.user;
@@ -570,7 +579,7 @@ router.delete(
             || permsUtil.hasPerm(user, 'campaign/canModifyCamp'))
         {
             // Remove the participant
-            await managers.campaign.removeAccount(req.params.campID, req.params.accountID);
+            await managers.campaign.removeAccount(getParam(req, 'campID'), getParam(req, 'accountID'));
             resp.status(204)
                 .end();
         }
@@ -579,7 +588,7 @@ router.delete(
             resp.status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to update campaign '${ req.params.campID }'.`,
+                    message: `You are not authorized to update campaign '${ getParam(req, 'campID') }'.`,
                 });
         }
     }

@@ -13,7 +13,14 @@ import * as CharValidators from '../engines/validation/models/character.ts';
 import { processRequest, validationErrorHandler } from '../engines/validation/express.ts';
 
 // Utils
-import { convertQueryToRecord, ensureAuthenticated, errorHandler, interceptHTML, parseQuery } from './utils/index.ts';
+import {
+    convertQueryToRecord,
+    ensureAuthenticated,
+    errorHandler,
+    getParam,
+    interceptHTML,
+    parseQuery,
+} from './utils/index.ts';
 
 // Logger
 import logging from '@strata-js/util-logging';
@@ -76,7 +83,7 @@ router.post(
 
         if(system)
         {
-            resp.json(await managers.character.add(req.user.id, char));
+            resp.json(await managers.character.add(req.user.id, char, managers));
         }
         else
         {
@@ -98,7 +105,7 @@ router.get(
         interceptHTML(resp, async() =>
         {
             const managers = await getManagers();
-            resp.json(await managers.character.get(req.params.charID));
+            resp.json(await managers.character.get(getParam(req, 'charID')));
         });
     }
 );
@@ -115,7 +122,7 @@ router.patch(
         const managers = await getManagers();
 
         // First, retrieve the character
-        const char = await managers.character.get(req.params.charID);
+        const char = await managers.character.get(getParam(req, 'charID'));
 
         // Next, get the system
         const system = managers.system.get(char.system);
@@ -132,14 +139,14 @@ router.patch(
             if(char.accountID === user.id || permsMan.hasPerm(user, `${ char.system }/canModifyChar`))
             {
                 // Update the character
-                resp.json(await managers.character.update(req.params.charID, req.body));
+                resp.json(await managers.character.update(getParam(req, 'charID') as string, req.body, managers));
             }
             else
             {
                 resp.status(403)
                     .json({
                         type: 'NotAuthorized',
-                        message: `You are not authorized to update character '${ req.params.charID }'.`,
+                        message: `You are not authorized to update character '${ getParam(req, 'charID') }'.`,
                     });
             }
         }
@@ -166,7 +173,7 @@ router.delete(
         try
         {
             // First, retrieve the character
-            char = await managers.character.get(req.params.charID);
+            char = await managers.character.get(getParam(req, 'charID'));
         }
         catch (error : unknown)
         {
@@ -195,14 +202,14 @@ router.delete(
         if(char.accountID === user.id || permsMan.hasPerm(user, `${ char.system }/canDeleteChar`))
         {
             // Delete the character
-            resp.json(await managers.character.remove(req.params.charID));
+            resp.json(await managers.character.remove(getParam(req, 'charID')));
         }
         else
         {
             resp.status(403)
                 .json({
                     type: 'NotAuthorized',
-                    message: `You are not authorized to update character '${ req.params.charID }'.`,
+                    message: `You are not authorized to update character '${ getParam(req, 'charID') }'.`,
                 });
         }
     }
