@@ -106,7 +106,10 @@
 
     function onDelete() : void
     {
-        emit('delete', innerPage.value);
+        if(innerPage.value)
+        {
+            emit('delete', innerPage.value);
+        }
     }
 
     function onCancel() : void

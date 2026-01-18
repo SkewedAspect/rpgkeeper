@@ -119,14 +119,14 @@
 
     const characteristicNames = computed(() =>
     {
-        return Object.keys(characteristics.value);
+        return Object.keys(characteristics.value) as (keyof CoCCharacteristics)[];
     });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function formatCharName(text) : string
+    function formatCharName(text : string) : string
     {
         return startCase(text);
     }
@@ -149,20 +149,6 @@
     function onSave() : void
     {
         emit('save', characteristics.value);
-    }
-
-    function onCancel() : void
-    {
-        characteristics.value = {
-            appearance: 0,
-            constitution: 0,
-            dexterity: 0,
-            education: 0,
-            intelligence: 0,
-            power: 0,
-            size: 0,
-            strength: 0,
-        };
     }
 
     //------------------------------------------------------------------------------------------------------------------

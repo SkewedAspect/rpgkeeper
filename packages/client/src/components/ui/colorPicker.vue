@@ -41,6 +41,10 @@
     // Types
     import type { ColorInput } from '@ctrl/tinycolor';
 
+    // Type for vue-color output which includes hex/hex8 properties
+    interface VueColorHex { hex ?: string, hex8 ?: string }
+    type VueColorOutput = ColorInput & VueColorHex;
+
     // Components
     import { Sketch as SketchPicker } from '@ckpack/vue-color';
     import { BButton } from 'bootstrap-vue-next';
@@ -71,26 +75,29 @@
 
     const emit = defineEmits<Events>();
 
-    const colorBtn = ref<InstanceType<typeof BButton> | null>(null);
+    const colorBtn = ref<HTMLElement | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const internalColor = computed<ColorInput>({
+    const internalColor = computed<VueColorOutput>({
         get() { return props.color; },
-        set(val : ColorInput)
+        set(val : VueColorOutput)
         {
-            if(val['hex'])
+            const colorVal = val as { hex ?: string, hex8 ?: string };
+            if(colorVal.hex)
             {
-                val = val['hex'];
+                emit('update:color', colorVal.hex);
             }
-            else if(val['hex8'])
+            else if(colorVal.hex8)
             {
-                val = val['hex8'];
+                emit('update:color', colorVal.hex8);
             }
-
-            emit('update:color', val as string);
+            else
+            {
+                emit('update:color', val as string);
+            }
         },
     });
 
@@ -100,13 +107,15 @@
         {
             return internalColor.value;
         }
-        else if(internalColor.value['hex'])
+
+        const colorVal = internalColor.value as { hex ?: string, hex8 ?: string };
+        if(colorVal.hex)
         {
-            return internalColor.value['hex'];
+            return colorVal.hex;
         }
-        else if(internalColor.value['hex8'])
+        else if(colorVal.hex8)
         {
-            return internalColor.value['hex8'];
+            return colorVal.hex8;
         }
 
         return '#000';

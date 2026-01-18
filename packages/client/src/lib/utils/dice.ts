@@ -103,18 +103,24 @@ class DiceUtil
     {
         const results = _.mapValues(dice, (count : number, die : string) =>
         {
-            return _.reduce(_.range(count), (dieResults) =>
+            return _.reduce(_.range(count), (dieResults : (string | string[])[]) =>
             {
-                return dieResults.concat(randomChoice(eoteChoices[die]));
-            }, []);
+                const choice = randomChoice((eoteChoices as Record<string, (string | string[] | undefined)[]>)[die]);
+                if(choice !== undefined)
+                {
+                    return dieResults.concat(choice);
+                }
+                return dieResults;
+            }, [] as (string | string[])[]);
         });
 
-        // We concat all the sub results together, and sort them.
+        // We concat all the sub results together, flatten nested arrays, and sort them.
         const sorted = _.chain(eoteDiceSortOrder)
-            .reduce((accum, die) => accum.concat(results[die]), [])
+            .reduce((accum : (string | string[])[], die) => accum.concat(results[die]), [] as (string | string[])[])
+            .flatten()
             .compact()
-            .sortBy((dieResult) => eoteResultsSortOrder.indexOf(dieResult))
-            .value();
+            .sortBy((dieResult : string) => eoteResultsSortOrder.indexOf(dieResult))
+            .value() as string[];
 
         return {
             full: sorted,

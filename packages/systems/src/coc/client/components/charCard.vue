@@ -167,24 +167,24 @@
         emit('save');
     }
 
-    function formatCharName(text) : string
+    function formatCharName(text : string) : string
     {
         return text.slice(0, 3).toUpperCase();
     }
 
-    function getCharacteristic(char) : number
+    function getCharacteristic(charKey : keyof CoCCharacteristics) : number
     {
-        return character.value.details.characteristics[char];
+        return character.value.details.characteristics[charKey];
     }
 
-    function getHalfCharacteristic(char) : number
+    function getHalfCharacteristic(charKey : keyof CoCCharacteristics) : number
     {
-        return Math.floor(character.value.details.characteristics[char] / 2);
+        return Math.floor(character.value.details.characteristics[charKey] / 2);
     }
 
-    function getFifthCharacteristic(char) : number
+    function getFifthCharacteristic(charKey : keyof CoCCharacteristics) : number
     {
-        return Math.floor(character.value.details.characteristics[char] / 5);
+        return Math.floor(character.value.details.characteristics[charKey] / 5);
     }
 </script>
 

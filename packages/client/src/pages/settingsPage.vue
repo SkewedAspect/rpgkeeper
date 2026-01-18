@@ -61,7 +61,7 @@
                     </h5>
                 </template>
 
-                <div class="d-flex gap-2">
+                <div v-if="account.settings" class="d-flex gap-2">
                     <BCard class="w-100">
                         <BFormGroup
                             label="Theme Colors"
@@ -156,8 +156,10 @@
 
     async function save() : Promise<void>
     {
-        // Save the account
-        authMan.saveAccount(account.value);
+        if(account.value)
+        {
+            await authMan.saveAccount(account.value);
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------

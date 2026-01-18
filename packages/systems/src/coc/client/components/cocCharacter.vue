@@ -33,7 +33,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Interfaces
@@ -80,7 +80,8 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onRoll(dice : string, name : string) : void
+    // TODO: Implement dice rolling
+    function onRoll(_dice : string, _name : string) : void
     {
         // roller.value.roll(dice, name);
     }

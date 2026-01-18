@@ -77,7 +77,7 @@ export const useSystemStore = defineStore('systems', {
         },
         find<T extends Record<string, unknown>>(systemID : string) : SystemDefinition<T> | undefined
         {
-            return this.systems.find((system) => system.id === systemID);
+            return this.systems.find((system) => system.id === systemID) as SystemDefinition<T> | undefined;
         },
         setCurrent(systemID ?: string) : void
         {

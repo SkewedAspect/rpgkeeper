@@ -153,7 +153,6 @@
     import campMan from '../lib/managers/campaign';
 
     // Stores
-    import { useAccountStore } from '../lib/resource-access/stores/account';
     import { useCampaignStore } from '../lib/resource-access/stores/campaign';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -161,7 +160,6 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const route = useRoute();
-    const accountStore = useAccountStore();
     const campaignStore = useCampaignStore();
 
     const pageError = ref<Error | null>(null);
@@ -169,8 +167,6 @@
     //------------------------------------------------------------------------------------------------------------------
     // Computed Properties
     //------------------------------------------------------------------------------------------------------------------
-
-    const account = computed(() => accountStore.account);
 
     const campaignID = computed(() : string =>
     {
@@ -180,32 +176,6 @@
     const campaign = computed(() : Campaign | null =>
     {
         return campaignStore.current;
-    });
-
-    const isParticipant = computed(() =>
-    {
-        if(account.value && campaign.value)
-        {
-            return campaign.value.participants?.some((participant) => participant.accountID === account.value?.id);
-        }
-
-        return false;
-    });
-
-    const isOwner = computed(() =>
-    {
-        if(account.value && campaign.value)
-        {
-            return campaign.value.participants
-                ?.some((participant) => participant.accountID === account.value?.id && participant.role === 'owner');
-        }
-
-        return false;
-    });
-
-    const _isAuthorized = computed(() =>
-    {
-        return isParticipant.value || isOwner.value;
     });
 
     //------------------------------------------------------------------------------------------------------------------

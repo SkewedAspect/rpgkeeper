@@ -136,7 +136,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    type Events = (e : 'save', bio : { name : string, description : string }) => void;
+    type Events = (e : 'save', bio : CocBiography & { name : string, description : string }) => void;
 
     const emit = defineEmits<Events>();
 
@@ -163,7 +163,7 @@
     function show(char : Character<CoCSystemDetails>) : void
     {
         innerBio.value.name = char.name;
-        innerBio.value.description = char.description;
+        innerBio.value.description = char.description ?? '';
         innerBio.value.age = char.details.biography.age;
         innerBio.value.birthplace = char.details.biography.birthplace;
         innerBio.value.occupation = char.details.biography.occupation;

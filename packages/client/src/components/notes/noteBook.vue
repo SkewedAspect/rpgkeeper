@@ -123,26 +123,37 @@
         addEditModal.value?.show(page);
     }
 
-    function openDelModal(page : NotebookPage) : void
+    function openDelModal(page ?: NotebookPage) : void
     {
-        delModal.value?.show(page);
+        if(page)
+        {
+            delModal.value?.show(page);
+        }
     }
 
-    async function onAddEditSave(page : NotebookPage) : Promise<void>
+    async function onAddEditSave(page : Omit<NotebookPage, 'notebookID'>) : Promise<void>
     {
+        if(!notes.id)
+        {
+            return;
+        }
+
         if(page?.id)
         {
-            await notebookMan.updatePage(notes.id, page);
+            await notebookMan.updatePage(notes.id, page as NotebookPage);
         }
         else
         {
-            await notebookMan.addPage(notes.id, page);
+            await notebookMan.addPage(notes.id, page as NotebookPage);
         }
     }
 
     async function onDelete(page : NotebookPage) : Promise<void>
     {
-        await notebookMan.deletePage(notes.id, page);
+        if(notes.id)
+        {
+            await notebookMan.deletePage(notes.id, page);
+        }
     }
 
 </script>

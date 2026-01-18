@@ -426,10 +426,19 @@
         else
         {
             // Update the existing character with this partial
-            char = {
-                ...charStore.find(charUpdate.id),
-                ...charUpdate,
-            };
+            const existing = charStore.find(charUpdate.id);
+            if(!existing)
+            {
+                // Character not found, create as new
+                char = await characterMan.create(charUpdate);
+            }
+            else
+            {
+                char = {
+                    ...existing,
+                    ...charUpdate,
+                };
+            }
         }
 
         await characterMan.save(char);
@@ -443,7 +452,10 @@
 
     async function onDelete(char : Character<any>) : Promise<void>
     {
-        return characterMan.delete(char);
+        if(char.id)
+        {
+            return characterMan.delete({ id: char.id });
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------

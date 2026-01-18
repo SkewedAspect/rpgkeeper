@@ -106,7 +106,7 @@
     };
 
     const search = ref('');
-    const suppToAdd = ref<Supplement>(null);
+    const suppToAdd = ref<Supplement | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -123,7 +123,7 @@
                 {
                     alreadyAdded = !!(props.selected as SupplementInst[]).find((item) => item.id === supp.id);
                 }
-                else
+                else if(supp.id)
                 {
                     alreadyAdded = (props.selected as (string | number)[]).includes(supp.id);
                 }
@@ -149,7 +149,7 @@
 
     function addSup() : void
     {
-        if(!suppToAdd.value)
+        if(!suppToAdd.value || !suppToAdd.value.id)
         {
             return;
         }
