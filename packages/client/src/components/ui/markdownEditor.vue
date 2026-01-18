@@ -36,12 +36,9 @@
 
     const props = withDefaults(defineProps<Props>(), { readonly: false, height: '450px' });
 
-    interface Events
-    {
-        (e : 'update:text', text : string);
-    }
-
-    const emit = defineEmits<Events>();
+    const emit = defineEmits<{
+        'update:text' : [text : string];
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Ref

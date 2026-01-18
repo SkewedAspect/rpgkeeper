@@ -128,7 +128,7 @@
         delModal.value?.show(page);
     }
 
-    async function onAddEditSave(page) : Promise<void>
+    async function onAddEditSave(page : NotebookPage) : Promise<void>
     {
         if(page?.id)
         {
@@ -140,7 +140,7 @@
         }
     }
 
-    async function onDelete(page) : Promise<void>
+    async function onDelete(page : NotebookPage) : Promise<void>
     {
         await notebookMan.deletePage(notes.id, page);
     }

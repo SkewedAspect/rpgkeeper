@@ -196,6 +196,8 @@
                 return 'text-primary';
             }
         }
+
+        return '';
     }
 
     function isChecked(index : number) : boolean

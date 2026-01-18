@@ -352,7 +352,7 @@
         emit('hidden');
     }
 
-    function onSave(bvModalEvent) : void
+    function onSave(bvModalEvent : { preventDefault : () => void }) : void
     {
         v$.value.$touch();
 
@@ -372,9 +372,9 @@
         return $dirty ? !$error : null;
     }
 
-    async function pickImageDropBox(prop) : Promise<void>
+    async function pickImageDropBox(prop : 'portrait' | 'thumbnail') : Promise<void>
     {
-        this[prop] = await dropboxUtil.chooseDropboxImage();
+        char.value[prop] = await dropboxUtil.chooseDropboxImage();
     }
 
     //------------------------------------------------------------------------------------------------------------------

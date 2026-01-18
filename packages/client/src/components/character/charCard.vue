@@ -13,7 +13,7 @@
                     {{ character.name }}
                 </h5>
                 <BBadge class="me-1">
-                    {{ getSystem(character.system).name }}
+                    {{ getSystem(character.system)?.name }}
                 </BBadge>
                 <div class="text-muted m-0">
                     <small>{{ character.campaign }}</small>

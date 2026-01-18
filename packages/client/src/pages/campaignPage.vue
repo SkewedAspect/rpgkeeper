@@ -203,7 +203,7 @@
         return false;
     });
 
-    const isAuthorized = computed(() =>
+    const _isAuthorized = computed(() =>
     {
         return isParticipant.value || isOwner.value;
     });

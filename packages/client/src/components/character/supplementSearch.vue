@@ -11,7 +11,7 @@
             placeholder="Search..."
             autocomplete="off"
             :max-matches="1000"
-            :serializer="(s) => s.name"
+            :serializer="serializeSupplement"
             :popper-options="popperOptions"
             show-on-focus
             @hit="onHit"
@@ -22,7 +22,13 @@
                 </BInputGroupText>
             </template>
             <template #append>
-                <BButton class="text-nowrap" variant="primary" title="Add..." @click="addSup()">
+                <BButton
+                    class="text-nowrap"
+                    variant="primary"
+                    title="Add..."
+                    :disabled="!suppToAdd"
+                    @click="addSup()"
+                >
                     <Fa icon="plus" />
                     Add
                 </BButton>
@@ -131,6 +137,11 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
+    function serializeSupplement(supplement : Supplement) : string
+    {
+        return supplement.name;
+    }
+
     function onHit(supp : Supplement) : void
     {
         suppToAdd.value = supp;
@@ -138,6 +149,11 @@
 
     function addSup() : void
     {
+        if(!suppToAdd.value)
+        {
+            return;
+        }
+
         emit('add', { id: suppToAdd.value.id });
         suppToAdd.value = null;
         search.value = '';

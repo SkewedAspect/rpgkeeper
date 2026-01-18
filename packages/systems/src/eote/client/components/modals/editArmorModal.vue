@@ -116,29 +116,24 @@
                 </BFormRow>
 
                 <QualityEdit v-model:qualities="editArmor.qualities" />
-
-                <BFormRow>
-                    <BCol cols="8" offset="2">
-                        <BButton variant="danger" block @click="clear()">
-                            <Fa icon="trash-alt" />
-                            Clear Armor
-                        </BButton>
-                    </BCol>
-                </BFormRow>
             </div>
 
             <!-- Modal Buttons -->
-            <template #ok="{ ok }">
-                <BButton variant="primary" @click="ok">
-                    <Fa icon="save" />
-                    Save
+            <template #footer="{ ok, cancel }">
+                <BButton variant="danger" @click="clear()">
+                    <Fa icon="trash-alt" />
+                    Clear Armor
                 </BButton>
-            </template>
-            <template #cancel="{ cancel }">
-                <BButton variant="secondary" @click="cancel">
-                    <Fa icon="times" />
-                    Cancel
-                </BButton>
+                <div class="ms-auto">
+                    <BButton variant="secondary" class="me-2" @click="cancel">
+                        <Fa icon="times" />
+                        Cancel
+                    </BButton>
+                    <BButton variant="primary" @click="ok">
+                        <Fa icon="save" />
+                        Save
+                    </BButton>
+                </div>
             </template>
         </BModal>
     </div>
@@ -160,7 +155,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteArmorRef, EoteOrGenCharacter, EoteQuality } from '../../../models.ts';
+    import type { EoteArmorRef, EoteOrGenCharacter, EoteQuality, EoteQualityRef } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -190,7 +185,7 @@
         hardpoints: 0,
         encumbrance: 0,
         rarity: 0,
-        qualities: [],
+        qualities: [] as EoteQualityRef[],
     });
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
@@ -224,7 +219,17 @@
 
     function show(char : EoteOrGenCharacter) : void
     {
-        editArmor.value = char.details.armor;
+        // Deep copy to avoid mutating original until save
+        const armor = char.details.armor;
+        editArmor.value = {
+            name: armor.name,
+            defense: armor.defense,
+            soak: armor.soak,
+            hardpoints: armor.hardpoints,
+            encumbrance: armor.encumbrance,
+            rarity: armor.rarity,
+            qualities: [ ...armor.qualities ],
+        };
 
         innerModal.value?.show();
     }

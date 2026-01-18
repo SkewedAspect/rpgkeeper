@@ -126,7 +126,7 @@ export const useSupplementStore = defineStore('supplements', {
             supplement : Omit<T, 'id'>
         ) : Promise<T>
         {
-            const created = await suppRA.add<T>(systemId, type, supplement as Supplement);
+            const created = await suppRA.add<T>(systemId, type, supplement);
 
             // Update local state
             if(!this.data[systemId])

@@ -186,7 +186,7 @@
 
     const emit = defineEmits<{
         new : [];
-        add : [supp : GenericSupplement];
+        add : [supp : { id : string | number }];
         edit : [supp : GenericSupplement];
         delete : [supp : GenericSupplement];
         remove : [supp : { id : string | number }];
@@ -260,12 +260,12 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function onAdd(supp) : void
+    function onAdd(supp : { id : string | number }) : void
     {
         emit('add', supp);
     }
 
-    function getSupp(id) : GenericSupplement | undefined
+    function getSupp(id : string | number | undefined) : GenericSupplement | undefined
     {
         if(id)
         {
@@ -275,7 +275,7 @@
         return undefined;
     }
 
-    function selectSupp(supp) : void
+    function selectSupp(supp : GenericSupplement | undefined) : void
     {
         if(supp && currentSelection.value !== supp.id)
         {
@@ -292,12 +292,12 @@
         currentSelection.value = null;
     }
 
-    function editSupp(supp) : void
+    function editSupp(supp : GenericSupplement) : void
     {
         emit('edit', supp);
     }
 
-    function deleteSupp(supp) : void
+    function deleteSupp(supp : GenericSupplement) : void
     {
         emit('delete', supp);
     }
@@ -307,7 +307,7 @@
         emit('new');
     }
 
-    function removeSupp(supp) : void
+    function removeSupp(supp : GenericSupplementInst) : void
     {
         clearSelection();
         emit('remove', { id: supp.id });

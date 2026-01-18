@@ -275,7 +275,7 @@
 
     function getActivation(talent : { activation ?: string }) : string
     {
-        return activationEnum[talent.activation] || 'Unknown';
+        return talent.activation ? activationEnum[talent.activation] : 'Unknown';
     }
 
     function getInst(instID : string) : EoteTalentInst | undefined

@@ -38,12 +38,16 @@ class SupplementResourceAccess
             .then(({ data }) => data);
     }
 
-    async add<T extends Supplement = Supplement>(system : string, path : string, supplement : Supplement) : Promise<T>
+    async add<T extends Supplement = Supplement>(
+        system : string,
+        path : string,
+        supplement : Omit<Supplement, 'id'>
+    ) : Promise<T>
     {
-        // Make sure there is no id specified.
-        supplement.id = undefined;
+        // Runtime safety: strip any id that might sneak through (e.g., via 'any' casts)
+        const { id, ...safeSupp } = supplement as Supplement;
 
-        return axios.post(`/api/systems/${ system }/${ path }`, supplement)
+        return axios.post(`/api/systems/${ system }/${ path }`, safeSupp)
             .then(({ data }) => data);
     }
 

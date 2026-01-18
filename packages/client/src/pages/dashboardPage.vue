@@ -146,7 +146,7 @@
                                     </h5>
                                     <p class="text-muted m-0">
                                         <BBadge class="me-1">
-                                            {{ getSystem(char.system).name }}
+                                            {{ getSystem(char.system)?.name }}
                                         </BBadge>
                                         <small>{{ char.campaign }}</small>
                                     </p>
@@ -339,7 +339,7 @@
         return systemsMan.getStatusDescription(desc);
     }
 
-    function getStatusIcon(desc : string) : string
+    function getStatusIcon(desc : string) : string | undefined
     {
         switch (desc)
         {
@@ -357,7 +357,7 @@
         }
     }
 
-    function getStatusVariant(desc : string) : keyof BaseColorVariant
+    function getStatusVariant(desc : string) : keyof BaseColorVariant | null
     {
         switch (desc)
         {
@@ -377,7 +377,7 @@
 
     function selectAllSystems() : void
     {
-        systemsFilter.value = [].concat(systems.value.map((sys) => sys.id));
+        systemsFilter.value = systems.value.map((sys) => sys.id);
     }
 
     function selectNoneSystems() : void
@@ -436,7 +436,7 @@
     }
 
     // Delete Modal
-    function openDelCharacter(char) : void
+    function openDelCharacter(char : Character) : void
     {
         delModal.value?.show(char);
     }
