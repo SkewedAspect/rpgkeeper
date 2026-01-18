@@ -11,7 +11,18 @@ import type {
     GenesysSkill,
     GenesysSystemDetails,
 } from './models.ts';
-import { EoteSystemDetailsSchema, GenesysSystemDetailsSchema } from './schema.ts';
+import { EoteSystemDetailsSchema, GenesysSystemDetailsSchema } from './schemas/character.ts';
+
+// Supplement schemas
+import {
+    AbilityDataSchema,
+    AttachmentDataSchema,
+    ForcePowerDataSchema,
+    MotivationDataSchema,
+    QualityDataSchema,
+    TalentDataSchema,
+    WeaponDataSchema,
+} from './schemas/supplements.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Genesys
@@ -129,6 +140,14 @@ export const genesysDefinition : SystemDefinition<GenesysSystemDetails>
             + 'specifically tooled to work with any setting imaginable.',
         status: SupportStatus.Beta,
         defaults: genesysDefaults,
+        supplements: {
+            ability: { schema: AbilityDataSchema },
+            talent: { schema: TalentDataSchema },
+            weapon: { schema: WeaponDataSchema },
+            quality: { schema: QualityDataSchema },
+            attachment: { schema: AttachmentDataSchema },
+            motivation: { schema: MotivationDataSchema },
+        },
     };
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -204,6 +223,14 @@ export const eoteDefinition : SystemDefinition<EoteSystemDetails>
         description: "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.",
         status: SupportStatus.Beta,
         defaults: eoteDefaults,
+        supplements: {
+            ability: { schema: AbilityDataSchema },
+            talent: { schema: TalentDataSchema },
+            weapon: { schema: WeaponDataSchema },
+            quality: { schema: QualityDataSchema },
+            attachment: { schema: AttachmentDataSchema },
+            forcepower: { schema: ForcePowerDataSchema },
+        },
     };
 
 // Default export is EotE

@@ -3,10 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
-import type { Character, SystemDefinition } from '@rpgk/core';
-
-// Engines
-import systemsEngine from '../../engines/system.ts';
+import type { SystemDefinition } from '@rpgk/core';
 
 // Resource Access
 import type { EntityResourceAccess } from '../../resource-access/index.ts';
@@ -32,11 +29,6 @@ export class SystemSubManager
     get(id : string) : SystemDefinition | undefined
     {
         return this.entities.system.get(id);
-    }
-
-    async validateCharacterDetails(character : Character) : Promise<Character>
-    {
-        return systemsEngine.validateCharacterDetails(character);
     }
 }
 

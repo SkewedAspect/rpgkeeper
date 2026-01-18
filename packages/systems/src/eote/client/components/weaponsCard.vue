@@ -95,9 +95,10 @@
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Constants
+    import { rangeEnum } from '../constants';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
@@ -129,6 +130,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
+    const systemStore = useSystemStore();
 
     interface FieldDef
     {
@@ -150,7 +152,7 @@
             key: 'range',
             formatter(range : unknown)
             {
-                return eoteMan.rangeEnum[range as string];
+                return rangeEnum[range as string];
             },
             tdClass: 'text-center',
         },
@@ -170,7 +172,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const char = computed<EoteCharacter>(() => current.value as any);
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
 
     const weapons = computed(() => char.value.details.weapons);

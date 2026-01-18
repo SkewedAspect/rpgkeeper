@@ -22,7 +22,7 @@
 
     interface Props
     {
-        supplement : Pick<Supplement, 'scope' | 'official'>
+        supplement : Pick<Supplement, 'official'>
     }
 
     const props = defineProps<Props>();
@@ -33,40 +33,12 @@
 
     const badgeText = computed(() =>
     {
-        if(props.supplement.scope === 'user')
-        {
-            return 'User';
-        }
-        else if(props.supplement.scope === 'public')
-        {
-            if(props.supplement.official)
-            {
-                return 'Official';
-            }
-            else
-            {
-                return 'Public';
-            }
-        }
-
-        return 'Unknown';
+        return props.supplement.official ? 'Official' : 'Homebrew';
     });
 
     const badgeVariant = computed(() =>
     {
-        if(props.supplement.scope === 'user')
-        {
-            return 'success';
-        }
-        else if(props.supplement.scope === 'public')
-        {
-            if(props.supplement.official)
-            {
-                return 'info';
-            }
-        }
-
-        return 'secondary';
+        return props.supplement.official ? 'info' : 'success';
     });
 
 </script>

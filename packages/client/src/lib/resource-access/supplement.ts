@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // Interfaces
-import type { Supplement } from '@rpgk/core/models/systems';
+import type { Supplement } from '@rpgk/core';
 import type { Reference } from '@rpgk/core/models/reference';
 
 //----------------------------------------------------------------------------------------------------------------------

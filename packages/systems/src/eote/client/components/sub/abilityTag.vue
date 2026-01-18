@@ -33,8 +33,9 @@
 <script lang="ts" setup>
     import { computed } from 'vue';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import Reference from '@client/components/character/referenceBlock.vue';
@@ -51,15 +52,18 @@
 
     const props = defineProps<Props>();
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
 
     const ability = computed(() =>
     {
-        return eoteMan.abilities.find((item) => item.id === props.id);
+        return supplementStore.get(mode.value, 'ability').find((item) => item.id === props.id);
     });
 
     const abilityName = computed(() => ability.value?.name ?? 'Unknown');

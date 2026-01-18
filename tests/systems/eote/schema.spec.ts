@@ -24,7 +24,7 @@ import {
     GenesysMotivationsSchema,
     GenesysSystemDetailsSchema,
     HealthSchema,
-} from '../../../packages/systems/src/eote/schema.ts';
+} from '../../../packages/systems/src/eote/schemas/character.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Data
@@ -48,12 +48,12 @@ const validSkill = {
 };
 
 const validQualityRef = {
-    id: 1,
+    id: 'eote-quality-stun',
     ranks: 2,
 };
 
 const validTalentInst = {
-    id: 5,
+    id: 'eote-talent-adversary',
     ranks: 1,
     notes: 'Picked up during adventure',
 };
@@ -70,7 +70,7 @@ const validArmorRef = {
     hardpoints: 4,
     encumbrance: 4,
     rarity: 6,
-    attachments: [ 1, 2 ],
+    attachments: [ 'eote-attachment-scanner', 'eote-attachment-overlay' ],
     qualities: [ validQualityRef ],
 };
 
@@ -83,7 +83,7 @@ const validWeaponRef = {
     encumbrance: 4,
     rarity: 5,
     attachments: [],
-    qualities: [ { id: 4 } ],
+    qualities: [ { id: 'eote-quality-pierce' } ],
 };
 
 const validGear = {
@@ -120,7 +120,7 @@ const validHealth = {
 };
 
 const validForcePowerInst = {
-    id: 1,
+    id: 'eote-forcepower-sense',
     upgrades: {
         strength: 1,
         magnitude: 0,
@@ -147,7 +147,7 @@ const validEoteDetails = {
     defenses: validDefenses,
     health: validHealth,
     skills: [ validSkill ],
-    abilities: [ 1, 2 ],
+    abilities: [ 'eote-ability-darkvision', 'eote-ability-claws' ],
     talents: [ validTalentInst ],
     gear: [ validGear ],
     armor: validArmorRef,
@@ -156,10 +156,10 @@ const validEoteDetails = {
 };
 
 const validGenesysMotivations = {
-    strength: 1,
-    flaw: 2,
+    strength: 'genesys-motivation-ambition',
+    flaw: 'genesys-motivation-anger',
     desire: null,
-    fear: 3,
+    fear: 'genesys-motivation-death',
 };
 
 const validGenesysDetails = {
@@ -259,7 +259,7 @@ describe('BaseQualityRefSchema', () =>
 
     it('accepts quality without ranks', () =>
     {
-        const result = BaseQualityRefSchema.safeParse({ id: 1 });
+        const result = BaseQualityRefSchema.safeParse({ id: 'eote-quality-blast' });
         expect(result.success).to.be.true;
     });
 });
@@ -274,7 +274,7 @@ describe('BaseTalentInstSchema', () =>
 
     it('accepts talent without optional fields', () =>
     {
-        const result = BaseTalentInstSchema.safeParse({ id: 1 });
+        const result = BaseTalentInstSchema.safeParse({ id: 'eote-talent-grit' });
         expect(result.success).to.be.true;
     });
 });
@@ -484,7 +484,7 @@ describe('GenesysSystemDetailsSchema', () =>
         if(result.success)
         {
             expect(result.data.career).to.equal('Soldier');
-            expect(result.data.motivations.strength).to.equal(1);
+            expect(result.data.motivations.strength).to.equal('genesys-motivation-ambition');
         }
     });
 });

@@ -42,9 +42,8 @@
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
-
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import TalentCard from './talentCard.vue';
@@ -70,6 +69,8 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -78,13 +79,15 @@
     const tier = computed(() => props.tier);
     const readonly = computed(() => props.readonly);
     const character = computed<GenesysCharacter>(() => current.value as any);
+    const mode = computed(() => systemStore.current?.id ?? 'genesys');
+    const talentsList = computed(() => supplementStore.get(mode.value, 'talent'));
 
     const allTalents = computed(() =>
     {
         return character.value.details.talents
             .map((talentInst) =>
             {
-                const talentBase = eoteMan.talents.find(({ id }) => id === talentInst.id);
+                const talentBase = talentsList.value.find(({ id }) => id === talentInst.id);
                 return {
                     ...talentInst,
                     name: talentBase?.name,

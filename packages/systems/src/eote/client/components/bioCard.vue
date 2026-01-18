@@ -64,12 +64,12 @@
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
     import EditModal from './modals/editBiographyModal.vue';
     import AbilityTag from './sub/abilityTag.vue';
-    import eoteMan from '@client/lib/managers/systems/eote';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -103,13 +103,14 @@
 
     const { current } = storeToRefs(useCharacterStore());
     const editModal = ref<InstanceType<typeof EditModal> | null>(null);
+    const systemStore = useSystemStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
     const char = computed<EoteOrGenCharacter>(() => current.value as any);
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
 
     const abilities = computed(() => char.value.details.abilities);
     const species = computed(() => char.value.details.species);

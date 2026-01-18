@@ -1,29 +1,14 @@
 //----------------------------------------------------------------------------------------------------------------------
-// WFRP System Module
+// WFRP System (Server-Safe)
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { SystemModule } from '../types.ts';
+// Definition
+export { wfrpDefinition, wfrpDefinition as default } from './definition.ts';
 
-// Local imports
-import type { WFRPSystemDetails } from './models.ts';
-import { wfrpDefinition } from './definition.ts';
-import { WfrpCharacter } from './components/index.ts';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-const wfrp : SystemModule<WFRPSystemDetails> = {
-    ...wfrpDefinition,
-    characterComponent: WfrpCharacter,
-};
-
-export default wfrp;
-
-// Also export definition separately for server use
-export { wfrpDefinition } from './definition.ts';
-
-// Export models and schemas for external use
+// Models
 export * from './models.ts';
-export * from './schema.ts';
+
+// Note: Schemas are NOT re-exported to avoid naming conflicts.
+// Import directly from './schema.ts' as needed.
 
 //----------------------------------------------------------------------------------------------------------------------
-

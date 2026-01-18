@@ -1,40 +1,15 @@
 //----------------------------------------------------------------------------------------------------------------------
-// EotE / Genesys System Module
+// EotE / Genesys System (Server-Safe)
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { SystemModule } from '../types.ts';
-
-// Local models
-import type { EoteSystemDetails, GenesysSystemDetails } from './models.ts';
-
-import { eoteDefinition, genesysDefinition } from './definition.ts';
-import { EoteCharacter } from './components/index.ts';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-// EotE and Genesys share the same character component
-const eote : SystemModule<EoteSystemDetails> = {
-    ...eoteDefinition,
-    characterComponent: EoteCharacter,
-};
-
-const genesys : SystemModule<GenesysSystemDetails> = {
-    ...genesysDefinition,
-    characterComponent: EoteCharacter,
-};
-
-export default eote;
-
-// Export both systems
-export { eote, genesys };
-
-// Also export definitions separately for server use
+// Definitions
 export { eoteDefinition, genesysDefinition } from './definition.ts';
+export { eoteDefinition as default } from './definition.ts';
 
-// Re-export models
+// Models
 export * from './models.ts';
 
-// Re-export schemas
-export * from './schema.ts';
+// Note: Schemas are NOT re-exported to avoid naming conflicts.
+// Import directly from './schemas/character.ts' or './schemas/supplements.ts' as needed.
 
 //----------------------------------------------------------------------------------------------------------------------

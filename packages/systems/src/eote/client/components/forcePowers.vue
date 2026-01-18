@@ -46,13 +46,12 @@
     import { sortBy } from 'lodash';
 
     // Models
-    import type { EoteCharacter, EoteForcePowerInst } from '../../models.ts';
+    import type { EoteCharacter, EoteForcePower, EoteForcePowerInst } from '../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
-
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
@@ -81,13 +80,17 @@
     const { current } = storeToRefs(useCharacterStore());
     const editForcePowersModal = ref<InstanceType<typeof EditForcePowersModal> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
     const char = computed<EoteCharacter>(() => current.value as any);
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
+    const forcePowersList = computed(() => supplementStore.get<EoteForcePower>(mode.value, 'forcepower'));
 
     const forcePowers = computed(() =>
     {
@@ -95,7 +98,7 @@
             char.value.details.force.powers ?? [],
             (powerInst) =>
             {
-                const powerBase = eoteMan.forcePowers.find((item) => item.id === powerInst.id);
+                const powerBase = forcePowersList.value.find((item) => item.id === powerInst.id);
                 return powerBase?.name ?? 'Unknown';
             }
         );

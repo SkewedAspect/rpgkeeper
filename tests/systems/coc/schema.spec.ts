@@ -17,7 +17,7 @@ import {
     CoCWealthSchema,
     CoCWeaponSchema,
     CocBiographySchema,
-} from '../../../packages/systems/src/coc/schema.ts';
+} from '../../../packages/systems/src/coc/schemas/character.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Data

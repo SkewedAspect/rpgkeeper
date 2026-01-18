@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { z } from 'zod';
-import { jsonCodec } from '@rpgk/core/utils/codecs';
+import { jsonCodec, supplementId, supplementRef } from '@rpgk/core/utils/codecs';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Shared Enums
@@ -51,7 +51,7 @@ export const BaseQualityRefSchema = z.object({
     id: z.string(),
     ranks: z.number().int()
         .optional(),
-});
+}).meta(supplementRef('quality'));
 
 export const BaseSkillSchema = z.object({
     name: z.string(),
@@ -68,7 +68,7 @@ export const BaseTalentInstSchema = z.object({
     ranks: z.number().int()
         .optional(),
     notes: z.string().optional(),
-});
+}).meta(supplementRef('talent'));
 
 export const BaseCharacteristicsSchema = z.object({
     brawn: z.number().int()
@@ -98,7 +98,7 @@ export const BaseArmorRefSchema = z.object({
         .min(0),
     rarity: z.number().int()
         .min(0),
-    attachments: z.array(z.string()),
+    attachments: z.array(supplementId('attachment')),
     qualities: z.array(BaseQualityRefSchema),
     notes: z.string().optional(),
 });
@@ -115,7 +115,7 @@ export const BaseWeaponRefSchema = z.object({
         .min(0),
     rarity: z.number().int()
         .min(0),
-    attachments: z.array(z.string()),
+    attachments: z.array(supplementId('attachment')),
     qualities: z.array(BaseQualityRefSchema),
     notes: z.string().optional(),
 });
@@ -132,7 +132,7 @@ export const BaseGearSchema = z.object({
         .min(0),
     rarity: z.number().int()
         .min(0),
-});
+}).meta(supplementRef('gear'));
 
 export const ExperienceSchema = z.object({
     total: z.number().int()
@@ -193,7 +193,7 @@ export const EoteForcePowerInstUpgradesSchema = z.object({
 export const EoteForcePowerInstSchema = z.object({
     id: z.string(),
     upgrades: EoteForcePowerInstUpgradesSchema,
-});
+}).meta(supplementRef('forcepower'));
 
 export const EoteForceSchema = z.object({
     rating: z.number().int()
@@ -213,7 +213,7 @@ export const EoteSystemDetailsSchema = z.object({
     defenses: DefensesSchema,
     health: HealthSchema,
     skills: z.array(BaseSkillSchema),
-    abilities: z.array(z.string()),
+    abilities: z.array(supplementId('ability')),
     talents: z.array(BaseTalentInstSchema),
     gear: z.array(BaseGearSchema),
     armor: BaseArmorRefSchema,
@@ -228,10 +228,10 @@ export const EoteSystemDetailsSchema = z.object({
 export const GenesysMotivationTypeSchema = z.enum([ 'strength', 'flaw', 'desire', 'fear' ]);
 
 export const GenesysMotivationsSchema = z.object({
-    strength: z.string().nullable(),
-    flaw: z.string().nullable(),
-    desire: z.string().nullable(),
-    fear: z.string().nullable(),
+    strength: supplementId('motivation').nullable(),
+    flaw: supplementId('motivation').nullable(),
+    desire: supplementId('motivation').nullable(),
+    fear: supplementId('motivation').nullable(),
 });
 
 export const GenesysSystemDetailsSchema = z.object({
@@ -242,7 +242,7 @@ export const GenesysSystemDetailsSchema = z.object({
     defenses: DefensesSchema,
     health: HealthSchema,
     skills: z.array(BaseSkillSchema),
-    abilities: z.array(z.string()),
+    abilities: z.array(supplementId('ability')),
     talents: z.array(BaseTalentInstSchema),
     gear: z.array(BaseGearSchema),
     armor: BaseArmorRefSchema,

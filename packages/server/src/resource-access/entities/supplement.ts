@@ -1,32 +1,88 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Supplement Resource Access
+//
+// Handles CRUD operations for user homebrew supplements in the main database.
+// Official supplements are served from static.db via the static resource access module.
 //----------------------------------------------------------------------------------------------------------------------
 
-import { inspect } from 'node:util';
 import type { Knex } from 'knex';
-import logging from '@strata-js/util-logging';
-
-// Models
-import type { Account } from '@rpgk/core/models/account';
-import type { Supplement } from '@rpgk/core';
-
-// Engines
-import supplementEngine from '../../engines/supplement.ts';
-
-// Transforms
-import * as SuppTransforms from '../transforms/supplement.ts';
 
 // Utilities
 import { applyFilters } from '../../knex/utils.ts';
 import type { FilterToken } from '../../routes/utils/index.ts';
+import { shortID } from '../../utils/misc.ts';
 
 // Errors
-import { DuplicateSupplementError, MultipleResultsError, NotFoundError } from '../../errors.ts';
+import { MultipleResultsError, NotFoundError } from '../../errors.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
+// Types
+//----------------------------------------------------------------------------------------------------------------------
 
-const logger = logging.getLogger('supplement router');
+export interface SupplementRecord
+{
+    id : string;
+    system : string;
+    type : string;
+    name : string;
+    owner : string;
+    data : Record<string, unknown>;
+    created ?: string;
+    updated ?: string;
+}
 
+export interface NewSupplement
+{
+    system : string;
+    type : string;
+    name : string;
+    data : Record<string, unknown>;
+}
+
+interface DBSupplementRow
+{
+    supplement_id : string;
+    system : string;
+    type : string;
+    name : string;
+    owner : string;
+    data : string; // JSON string
+    created : string;
+    updated : string;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Transforms
+//----------------------------------------------------------------------------------------------------------------------
+
+function fromDB(row : DBSupplementRow) : SupplementRecord
+{
+    return {
+        id: row.supplement_id,
+        system: row.system,
+        type: row.type,
+        name: row.name,
+        owner: row.owner,
+        data: JSON.parse(row.data),
+        created: row.created,
+        updated: row.updated,
+    };
+}
+
+function toDB(supp : SupplementRecord) : Omit<DBSupplementRow, 'created' | 'updated'>
+{
+    return {
+        supplement_id: supp.id,
+        system: supp.system,
+        type: supp.type,
+        name: supp.name,
+        owner: supp.owner,
+        data: JSON.stringify(supp.data),
+    };
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Resource Access Class
 //----------------------------------------------------------------------------------------------------------------------
 
 export class SupplementResourceAccess
@@ -39,180 +95,186 @@ export class SupplementResourceAccess
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Private Helpers
-    //------------------------------------------------------------------------------------------------------------------
-
-    private applyViewAccessFilter(
-        query : Knex.QueryBuilder,
-        systemPrefix : string,
-        account ?: Account
-    ) : Knex.QueryBuilder
-    {
-        const filter = supplementEngine.getViewAccessFilter(systemPrefix, account);
-
-        if(!filter.canViewAll)
-        {
-            // Apply scoping: public + user's own
-            query = query.where(function()
-            {
-                this.where({ scope: 'public' });
-                if(filter.accountID)
-                {
-                    this.orWhere({ scope: 'user', owner: filter.accountID });
-                }
-            });
-        }
-
-        return query;
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
     // Public API
     //------------------------------------------------------------------------------------------------------------------
 
-    async get(id : number, type : string, systemPrefix : string, account ?: Account) : Promise<Supplement>
+    /**
+     * Get a single supplement by ID.
+     */
+    async get(id : string) : Promise<SupplementRecord>
     {
-        const tableName = `${ systemPrefix }_${ type }`;
-        let query = this.db(`${ tableName } as t`)
-            .select('t.*')
-            .where({ id });
+        const rows = await this.db('supplement')
+            .select('*')
+            .where({ supplement_id: id });
 
-        // Apply view access filtering
-        query = this.applyViewAccessFilter(query, systemPrefix, account);
+        if(rows.length > 1)
+        {
+            throw new MultipleResultsError('supplement');
+        }
+        else if(rows.length === 0)
+        {
+            throw new NotFoundError(`No supplement with id '${ id }' found.`);
+        }
 
-        const supplements = await query;
-        if(supplements.length > 1)
-        {
-            throw new MultipleResultsError(type);
-        }
-        else if(supplements.length === 0)
-        {
-            throw new NotFoundError(`No ${ type } with id '${ id }' found.`);
-        }
-        else
-        {
-            return SuppTransforms.fromDB(supplements[0]);
-        }
+        return fromDB(rows[0]);
     }
 
-    async list(
-        filters : Record<string, FilterToken>,
-        type : string,
-        systemPrefix : string,
-        account ?: Account
-    ) : Promise<Supplement[]>
+    /**
+     * List supplements with optional filters.
+     * If accountID is provided, only returns supplements owned by that account.
+     */
+    async list(filters : Record<string, FilterToken> = {}, accountID ?: string) : Promise<SupplementRecord[]>
     {
-        const tableName = `${ systemPrefix }_${ type }`;
-        let query = this.db(`${ tableName } as t`)
-            .select('t.*');
+        let query = this.db('supplement').select('*');
 
-        // Apply view access filtering
-        query = this.applyViewAccessFilter(query, systemPrefix, account);
+        // If accountID provided, filter to only their supplements
+        if(accountID)
+        {
+            query = query.where({ owner: accountID });
+        }
 
         // Apply any additional filters
         query = applyFilters(query, filters);
 
-        return (await query).map((supp) => SuppTransforms.fromDB(supp));
+        const rows = await query;
+        return rows.map((row : DBSupplementRow) => fromDB(row));
     }
 
-    async exists(id : number, type : string, systemPrefix : string, account ?: Account) : Promise<boolean>
-    {
-        const supp = await this.get(id, type, systemPrefix, account).catch(() => undefined);
-        return !!supp;
-    }
-
-    async add(
-        newSupplement : Supplement,
+    /**
+     * List supplements for a specific system and type.
+     */
+    async listBySystemType(
+        system : string,
         type : string,
-        systemPrefix : string,
-        account ?: Account
-    ) : Promise<Supplement>
+        accountID ?: string
+    ) : Promise<SupplementRecord[]>
     {
-        const tableName = `${ systemPrefix }_${ type }`;
+        let query = this.db('supplement')
+            .select('*')
+            .where({ system, type });
 
-        // Use engine to sanitize and validate
-        const sanitized = supplementEngine.sanitizeForSave(newSupplement, systemPrefix, account);
-        supplementEngine.checkModifyAccess(sanitized, systemPrefix, type, account);
-
-        const supplement = SuppTransforms.toDB(sanitized);
-
-        // Check for duplicate using engine's unique key logic
-        const uniqueKey = supplementEngine.getUniqueKey(supplement);
-        const suppExists = (await this.db(tableName)
-            .select()
-            .where(uniqueKey)).length > 0;
-
-        if(suppExists)
+        if(accountID)
         {
-            logger.warn(
-                'Attempted to add supplement with the same name, scope and owner as an existing one:',
-                inspect(supplement, { depth: null })
-            );
-            throw new DuplicateSupplementError(`${ systemPrefix }/${ type }/${ supplement.name }`);
+            query = query.where({ owner: accountID });
         }
 
-        // Insert the supplement
-        const [ id ] = await this.db(tableName).insert(supplement);
-
-        // Return the inserted supplement
-        return this.get(id, type, systemPrefix, account);
+        const rows = await query;
+        return rows.map((row : DBSupplementRow) => fromDB(row));
     }
 
-    async update(
-        id : number,
-        updateSup : Partial<Supplement>,
+    /**
+     * Search supplements by name.
+     */
+    async search(
+        system : string,
         type : string,
-        systemPrefix : string,
-        account ?: Account
-    ) : Promise<Supplement>
+        searchTerm : string,
+        accountID ?: string
+    ) : Promise<SupplementRecord[]>
     {
-        const existing = await this.get(id, type, systemPrefix, account);
-        const tableName = `${ systemPrefix }_${ type }`;
+        let query = this.db('supplement')
+            .select('*')
+            .where({ system, type })
+            .andWhere('name', 'like', `%${ searchTerm }%`)
+            .orderBy('name');
 
-        // Merge updates with existing
-        const merged = {
-            ...existing,
-            ...updateSup,
+        if(accountID)
+        {
+            query = query.where({ owner: accountID });
+        }
+
+        const rows = await query;
+        return rows.map((row : DBSupplementRow) => fromDB(row));
+    }
+
+    /**
+     * Add a new supplement.
+     */
+    async add(accountID : string, newSupp : NewSupplement) : Promise<SupplementRecord>
+    {
+        const id = `${ newSupp.system }-${ newSupp.type }-${ shortID() }`;
+
+        const record : SupplementRecord = {
             id,
+            system: newSupp.system,
+            type: newSupp.type,
+            name: newSupp.name,
+            owner: accountID,
+            data: newSupp.data,
         };
 
-        // Use engine to sanitize and validate
-        const sanitized = supplementEngine.sanitizeForSave(merged, systemPrefix, account);
-        supplementEngine.checkModifyAccess(sanitized, systemPrefix, type, account);
+        await this.db('supplement').insert(toDB(record));
 
-        const supplement = SuppTransforms.toDB(sanitized);
-
-        // Update the supplement
-        await this.db(tableName)
-            .update(supplement)
-            .where({ id });
-
-        // Return the updated supplement
-        return this.get(id, type, systemPrefix, account);
+        return this.get(id);
     }
 
-    async remove(
-        id : number,
-        type : string,
-        systemPrefix : string,
-        account ?: Account
-    ) : Promise<{ status : 'ok' }>
+    /**
+     * Update an existing supplement.
+     * Only the owner can update their supplements.
+     */
+    async update(
+        id : string,
+        accountID : string,
+        updates : Partial<NewSupplement>
+    ) : Promise<SupplementRecord>
     {
-        const supplement = await this.get(id, type, systemPrefix, account).catch(() => undefined);
-        const tableName = `${ systemPrefix }_${ type }`;
+        const existing = await this.get(id);
 
-        if(supplement)
+        // Verify ownership
+        if(existing.owner !== accountID)
         {
-            // Use engine to check permission
-            supplementEngine.checkModifyAccess(supplement, systemPrefix, type, account);
+            throw new NotFoundError(`No supplement with id '${ id }' found.`);
+        }
 
-            // Delete the supplement
-            await this.db(tableName)
-                .delete()
-                .where({ id });
+        // Merge updates
+        const updated : SupplementRecord = {
+            ...existing,
+            name: updates.name ?? existing.name,
+            data: updates.data ?? existing.data,
+        };
+
+        // Don't allow changing system or type
+        await this.db('supplement')
+            .update({
+                name: updated.name,
+                data: JSON.stringify(updated.data),
+                updated: this.db.fn.now(),
+            })
+            .where({ supplement_id: id });
+
+        return this.get(id);
+    }
+
+    /**
+     * Remove a supplement.
+     * Only the owner can remove their supplements.
+     */
+    async remove(id : string, accountID : string) : Promise<{ status : 'ok' }>
+    {
+        const existing = await this.get(id).catch(() => undefined);
+
+        if(existing && existing.owner !== accountID)
+        {
+            throw new NotFoundError(`No supplement with id '${ id }' found.`);
+        }
+
+        if(existing)
+        {
+            await this.db('supplement')
+                .where({ supplement_id: id })
+                .delete();
         }
 
         return { status: 'ok' };
+    }
+
+    /**
+     * Check if a supplement exists.
+     */
+    async exists(id : string) : Promise<boolean>
+    {
+        const supp = await this.get(id).catch(() => undefined);
+        return !!supp;
     }
 }
 

@@ -107,12 +107,10 @@
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
 
     // Models
     import type { EoteArmorRef, EoteCharacter } from '../../models.ts';
-
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
@@ -139,6 +137,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
+    const systemStore = useSystemStore();
 
     const editArmorModal = ref<InstanceType<typeof EditArmorModal> | null>(null);
 
@@ -147,7 +146,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const char = computed<EoteCharacter>(() => current.value as any);
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
 
     const armor = computed(() => char.value.details.armor);

@@ -48,7 +48,7 @@
                         >
                             <div class="float-end">
                                 <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra" />
-                                <ScopeBadge :supplement="getSupp(supp.id)" />
+                                <ScopeBadge v-if="getSupp(supp.id)" :supplement="getSupp(supp.id)" />
                                 <BButton
                                     class="ms-2 text-nowrap"
                                     variant="danger"
@@ -135,7 +135,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { Supplement, SupplementInst } from '@rpgk/core/models/systems';
+    import type { Supplement, SupplementInst } from '@rpgk/core';
 
     // Managers
     import authMan from '../../lib/managers/auth';
@@ -249,7 +249,7 @@
             const suppBase = props.available.find((supp) => supp.id === supplementInstance.value.id);
 
             const hasRight = authMan.hasPerm(`${ system }/canModifyContent`);
-            const isOwner = suppBase.scope === 'user' && suppBase.owner === authMan.account.id;
+            const isOwner = !suppBase.official && suppBase.owner === authMan.account.id;
             return isOwner || hasRight;
         }
 

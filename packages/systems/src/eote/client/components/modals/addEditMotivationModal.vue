@@ -117,8 +117,9 @@
 <script lang="ts" setup>
     import { computed, ref } from 'vue';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Models
     import type {
@@ -153,10 +154,14 @@
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const mode = computed(() => systemStore.current?.id ?? 'genesys');
     const isEdit = computed(() => !!id.value);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -184,7 +189,7 @@
     {
         if(isEdit.value)
         {
-            const motivation = await eoteMan.editSup('motivations', {
+            const motivation = await supplementStore.update<GenesysMotivation>(mode.value, 'motivation', {
                 id: id.value,
                 name: name.value,
                 type: type.value,
@@ -197,7 +202,7 @@
         }
         else
         {
-            const motivation = await eoteMan.addSup('motivations', {
+            const motivation = await supplementStore.add<GenesysMotivation>(mode.value, 'motivation', {
                 id: id.value,
                 name: name.value,
                 type: type.value,

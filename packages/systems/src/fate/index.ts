@@ -1,29 +1,14 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Fate System Module
+// Fate System (Server-Safe)
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { SystemModule } from '../types.ts';
+// Definition
+export { default as fateDefinition, default } from './definition.ts';
 
-// Local imports
-import type { FateSystemDetails } from './models.ts';
-import fateDefinition from './definition.ts';
-import { FateCharacter } from './components/index.ts';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-const fate : SystemModule<FateSystemDetails> = {
-    ...fateDefinition,
-    characterComponent: FateCharacter,
-};
-
-export default fate;
-
-// Also export definition separately for server use
-export { default as fateDefinition } from './definition.ts';
-
-// Export models and schemas for external use
+// Models
 export * from './models.ts';
-export * from './schema.ts';
+
+// Note: Schemas are NOT re-exported to avoid naming conflicts.
+// Import directly from './schema.ts' as needed.
 
 //----------------------------------------------------------------------------------------------------------------------
-

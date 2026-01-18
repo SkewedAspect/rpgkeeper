@@ -58,7 +58,7 @@ export default {
                     const photo = profile.photos?.[0]?.value;
 
                     let account;
-                    try { account = await managers.account.getByEmail(email); }
+                    try { account = await managers.identity.account.getByEmail(email); }
                     catch (error : unknown)
                     {
                         const err = error as Error & { code ?: string };
@@ -75,14 +75,14 @@ export default {
 
                     if(account)
                     {
-                        account = await managers.account.update(account.id, {
+                        account = await managers.identity.account.update(account.id, {
                             name: account.name ?? profile.displayName ?? email.split('@')[0],
                             avatar: photo,
                         });
                     }
                     else
                     {
-                        account = await managers.account.add({
+                        account = await managers.identity.account.add({
                             name: profile.displayName ?? email.split('@')[0],
                             avatar: photo,
                             email,

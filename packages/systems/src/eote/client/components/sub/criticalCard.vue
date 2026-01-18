@@ -61,8 +61,8 @@
     // Utils
     import { shortID } from '@client/lib/utils/misc';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
 
     // Components
     import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
@@ -90,12 +90,13 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const uuid = ref(shortID());
+    const systemStore = useSystemStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const critical = computed(() => props.critical);
     const readonly = computed(() => props.readonly);
 

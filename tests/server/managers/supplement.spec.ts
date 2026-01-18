@@ -296,7 +296,9 @@ describe('SupplementSubManager', () =>
             expect(result.name).to.equal('New Talent');
             expect(result.official).to.be.false;
             expect(result.owner).to.equal(testAccountID);
-            expect(result.data).to.deep.equal({ tier: 2, ranked: true });
+            // Data is spread at the top level, not nested under 'data'
+            expect((result as Record<string, unknown>).tier).to.equal(2);
+            expect((result as Record<string, unknown>).ranked).to.equal(true);
         });
     });
 
@@ -321,7 +323,8 @@ describe('SupplementSubManager', () =>
             });
 
             expect(updated.name).to.equal('Updated');
-            expect(updated.data).to.deep.equal({ version: 2 });
+            // Data is spread at the top level, not nested under 'data'
+            expect((updated as Record<string, unknown>).version).to.equal(2);
         });
 
         it('should throw error when trying to update an official supplement', async () =>

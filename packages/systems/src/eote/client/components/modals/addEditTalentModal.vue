@@ -126,8 +126,12 @@
         EoteTalent,
     } from '../../../models.ts';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
+
+    // Constants
+    import { activationEnum } from '../../constants';
 
     // Components
     import EditReference from '@client/components/character/editReference.vue';
@@ -159,18 +163,21 @@
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const isEdit = computed(() => id.value !== undefined);
     const activations = computed(() =>
     {
-        return Object.keys(eoteMan.activationEnum)
+        return Object.keys(activationEnum)
             .map((value) =>
             {
-                const text = eoteMan.activationEnum[value];
+                const text = activationEnum[value];
                 return {
                     text,
                     value,
@@ -219,7 +226,7 @@
     {
         if(isEdit.value)
         {
-            const talent = await eoteMan.editSup('talents', {
+            const talent = await supplementStore.update<EoteTalent>(mode.value, 'talent', {
                 id: id.value,
                 name: name.value,
                 description: description.value,
@@ -235,7 +242,7 @@
         }
         else
         {
-            const talent = await eoteMan.addSup('talents', {
+            const talent = await supplementStore.add<EoteTalent>(mode.value, 'talent', {
                 name: name.value,
                 description: description.value,
                 activation: activation.value,

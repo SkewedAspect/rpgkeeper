@@ -165,8 +165,12 @@
     type BaseTalent = GenesysTalent;
     type BaseTalentInst = GenesysTalentInst;
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
+
+    // Constants
+    import { activationEnum } from '../../constants';
 
     // Components
     import SupplementSelect from '@client/components/character/supplementSelect.vue';
@@ -204,12 +208,15 @@
     const addEditTalentModal = ref<InstanceType<typeof AddEditTalentModal> | null>(null);
     const delTalentModal = ref<InstanceType<typeof DeleteModal> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const mode = computed(() => eoteMan.mode);
-    const talents = computed(() => eoteMan.talents);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
+    const talents = computed(() => supplementStore.get<GenesysTalent>(mode.value, 'talent'));
 
     const sortedTalents = computed(() =>
     {
@@ -268,7 +275,7 @@
 
     function getActivation(talent : { activation ?: string }) : string
     {
-        return eoteMan.activationEnum[talent.activation] || 'Unknown';
+        return activationEnum[talent.activation] || 'Unknown';
     }
 
     function getInst(instID : string) : EoteTalentInst | undefined
@@ -330,7 +337,7 @@
         suppSelect.value.clearSelection();
         selectedTalents.value = selectedTalents.value.filter((item) => item.id !== delTalent.value.id);
 
-        await eoteMan.delSup('talents', { id: `${ delTalent.value.id }` });
+        await supplementStore.remove(mode.value, 'talent', delTalent.value.id);
 
         emit('save', selectedTalents.value);
     }

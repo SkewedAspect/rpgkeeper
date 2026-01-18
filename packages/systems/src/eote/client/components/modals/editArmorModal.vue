@@ -160,10 +160,11 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteArmorRef, EoteOrGenCharacter } from '../../../models.ts';
+    import type { EoteArmorRef, EoteOrGenCharacter, EoteQuality } from '../../../models.ts';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import QualityEdit from '../sub/qualityEdit.vue';
@@ -194,12 +195,15 @@
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const mode = computed(() => eoteMan.mode);
-    const qualities = computed(() => eoteMan.qualities);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
+    const qualities = computed(() => supplementStore.get<EoteQuality>(mode.value, 'quality'));
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

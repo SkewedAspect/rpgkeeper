@@ -124,18 +124,17 @@
     import LoadingWidget from '../components/ui/loadingWidget.vue';
     import NoteBook from '../components/notes/noteBook.vue';
 
-    // Systems from @rpgk/systems registry
-    import { systemRegistry } from '@rpgk/systems';
+    // Character components from @rpgk/systems
+    import { characterComponents } from '@rpgk/systems/client';
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    // Get character component from registry
+    // Get character component by system ID
     function getCharacterComponent(systemId : string) : Component | undefined
     {
-        const system = systemRegistry.get(systemId);
-        return system?.characterComponent;
+        return characterComponents[systemId];
     }
 
     const accountStore = useAccountStore();

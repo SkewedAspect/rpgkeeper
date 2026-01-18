@@ -29,7 +29,7 @@ router.get(
     async (req, resp) =>
     {
         const managers = await getManagers();
-        resp.json((await managers.account.list(req.query)).map((accountObj) =>
+        resp.json((await managers.identity.account.list(req.query)).map((accountObj) =>
         {
             const {
                 permissions,
@@ -49,7 +49,7 @@ router.get(
     {
         const managers = await getManagers();
         const user = req.user;
-        const account = await managers.account.get(getParam(req, 'accountID'));
+        const account = await managers.identity.account.get(getParam(req, 'accountID'));
 
         const sameOrAdmin = user && (user.id === getParam(req, 'accountID') || permsMan.hasPerm(
             user,
@@ -103,7 +103,7 @@ router.patch(
         }
 
         // Update the account
-        const newAccount = await managers.account.update(targetID, req.body);
+        const newAccount = await managers.identity.account.update(targetID, req.body);
         resp.json(newAccount);
     }
 );

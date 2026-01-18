@@ -64,8 +64,9 @@
     // Models
     import type { EoteForcePower, EoteForcePowerInst } from '../../models.ts';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
@@ -96,18 +97,22 @@
         { key: 'description' },
     ]);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
+    const forcePowers = computed(() => supplementStore.get<EoteForcePower>(mode.value, 'forcepower'));
 
     const powerBase = computed<EoteForcePower | undefined>(() =>
     {
         if(props.power && props.power.id)
         {
-            return eoteMan.forcePowers.find((forcePower) => forcePower.id === props.power.id);
+            return forcePowers.value.find((forcePower) => forcePower.id === props.power.id);
         }
 
         return undefined;

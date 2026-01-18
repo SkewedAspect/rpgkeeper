@@ -36,8 +36,9 @@
     // Utils
     import { shortID } from '@client/lib/utils/misc';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import Reference from '@client/components/character/referenceBlock.vue';
@@ -60,13 +61,18 @@
 
     const uniqueID = ref(shortID());
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const mode = computed(() => systemStore.current?.id ?? 'genesys');
+
     const motivation = computed(() =>
     {
-        return eoteMan.motivations.find((mot) => `${ mot.id }` === `${ props.id }`);
+        return supplementStore.get(mode.value, 'motivation').find((mot) => `${ mot.id }` === `${ props.id }`);
     });
 
     const motivationName = computed(() =>

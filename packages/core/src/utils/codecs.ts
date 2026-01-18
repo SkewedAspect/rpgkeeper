@@ -7,7 +7,84 @@
 //
 //----------------------------------------------------------------------------------------------------------------------
 
-import { z } from 'zod';
+import { type ZodTypeAny, z } from 'zod';
+
+//----------------------------------------------------------------------------------------------------------------------
+// Supplement Reference Metadata
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Metadata structure for supplement reference fields.
+ * Attached to Zod schemas via .meta() to enable generic validation.
+ * Includes index signature for Zod metadata compatibility.
+ */
+export interface SupplementRefMeta
+{
+    supplementRef : {
+        /** The supplement type (e.g., 'ability', 'talent', 'gear') */
+        type : string;
+        /** The field containing the ID. null = the value itself is the ID */
+        idField : string | null;
+    };
+    /** Index signature for Zod metadata compatibility */
+    [ key : string ] : unknown;
+}
+
+/**
+ * Creates a Zod string schema annotated as a supplement ID reference.
+ * Use for fields that directly contain a supplement ID string.
+ *
+ * @param type - The supplement type this ID references
+ *
+ * @example
+ * ```typescript
+ * // Array of ability IDs
+ * abilities: z.array(supplementId('ability'))
+ * ```
+ */
+export function supplementId(type : string) : z.ZodString
+{
+    return z.string().meta({ supplementRef: { type, idField: null } });
+}
+
+/**
+ * Creates metadata for annotating an object schema as a supplement reference.
+ * Use with .meta() on object schemas that have an 'id' field (or other ID field).
+ *
+ * @param type - The supplement type this object references
+ * @param idField - The field name containing the ID (default: 'id')
+ *
+ * @example
+ * ```typescript
+ * // Array of talent references
+ * talents: z.array(TalentInstSchema.meta(supplementRef('talent')))
+ *
+ * // Custom ID field name
+ * weapons: z.array(WeaponRefSchema.meta(supplementRef('weapon', 'weaponId')))
+ * ```
+ */
+export function supplementRef(type : string, idField = 'id') : SupplementRefMeta
+{
+    return { supplementRef: { type, idField } };
+}
+
+/**
+ * Checks if a schema has supplement reference metadata.
+ */
+export function hasSupplementRefMeta(schema : ZodTypeAny) : boolean
+{
+    const meta = schema.meta?.() as SupplementRefMeta | undefined;
+    return meta?.supplementRef !== undefined;
+}
+
+/**
+ * Gets supplement reference metadata from a schema, if present.
+ */
+export function getSupplementRefMeta(schema : ZodTypeAny) : SupplementRefMeta['supplementRef'] | undefined
+{
+    const meta = schema.meta?.() as SupplementRefMeta | undefined;
+    return meta?.supplementRef;
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // Timestamp Codecs

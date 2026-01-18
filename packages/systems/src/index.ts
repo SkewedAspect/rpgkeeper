@@ -1,34 +1,53 @@
 //----------------------------------------------------------------------------------------------------------------------
-// @rpgk/systems - Main Entry Point (Client)
+// @rpgk/systems - Main Entry Point (Server-Safe)
 //----------------------------------------------------------------------------------------------------------------------
 
-// Export types
-export * from './types.ts';
+import type { SystemDefinition } from '@rpgk/core';
 
-// Export registry
-export { systemRegistry } from './registry.ts';
+// Import all system definitions
+import cocDefinition from './coc/definition.ts';
+import dnd35Definition from './dnd35/definition.ts';
+import { eoteDefinition, genesysDefinition } from './eote/definition.ts';
+import fateDefinition from './fate/definition.ts';
+import genericDefinition from './generic/definition.ts';
+import risusDefinition from './risus/definition.ts';
+import { wfrpDefinition } from './wfrp/definition.ts';
 
-// Import and register all systems
-import coc from './coc/index.ts';
-import { eote, genesys } from './eote';
-import fate from './fate/index.ts';
-import risus from './risus/index.ts';
-import wfrp from './wfrp/index.ts';
-import { systemRegistry } from './registry.ts';
+//----------------------------------------------------------------------------------------------------------------------
+// Systems map - lookup by ID
+//----------------------------------------------------------------------------------------------------------------------
 
-// Register systems
-systemRegistry.register(coc);
-systemRegistry.register(eote);
-systemRegistry.register(fate);
-systemRegistry.register(genesys);
-systemRegistry.register(risus);
-systemRegistry.register(wfrp);
+export const systems : Record<string, SystemDefinition> = {
+    coc: cocDefinition,
+    dnd35: dnd35Definition,
+    eote: eoteDefinition,
+    fate: fateDefinition,
+    generic: genericDefinition,
+    genesys: genesysDefinition,
+    risus: risusDefinition,
+    wfrp: wfrpDefinition,
+};
 
-// Export individual systems for direct access
-export { default as coc } from './coc/index.ts';
-export { eote, genesys } from './eote/index.ts';
-export { default as fate } from './fate/index.ts';
-export { default as risus } from './risus/index.ts';
-export { default as wfrp } from './wfrp/index.ts';
+//----------------------------------------------------------------------------------------------------------------------
+// Export individual definitions for direct imports
+//----------------------------------------------------------------------------------------------------------------------
+
+export { cocDefinition };
+export { dnd35Definition };
+export { eoteDefinition, genesysDefinition };
+export { fateDefinition };
+export { genericDefinition };
+export { risusDefinition };
+export { wfrpDefinition };
+
+//----------------------------------------------------------------------------------------------------------------------
+// Re-export models from each system
+//----------------------------------------------------------------------------------------------------------------------
+
+export * from './coc/index.ts';
+export * from './eote/index.ts';
+export * from './fate/index.ts';
+export * from './risus/index.ts';
+export * from './wfrp/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------

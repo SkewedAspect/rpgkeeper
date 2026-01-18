@@ -61,8 +61,9 @@
     // Models
     import type { EoteQuality, EoteQualityRef } from '../../models.ts';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import SupplementSelect from '@client/components/character/supplementSelect.vue';
@@ -102,11 +103,15 @@
     const delQualityModal = ref<InstanceType<typeof DeleteModal> | null>(null);
     const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const allQualities = computed(() => eoteMan.qualities);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
+    const allQualities = computed(() => supplementStore.get<EoteQuality>(mode.value, 'quality'));
     const selectedQualities = computed({
         get()
         {
@@ -176,7 +181,7 @@
     {
         suppSelect.value.clearSelection();
 
-        await eoteMan.delSup('qualities', { id: `${ delQuality.value.id }` });
+        await supplementStore.remove(mode.value, 'quality', delQuality.value.id);
 
         selectedQualities.value = selectedQualities.value.filter((item) => item.id !== delQuality.value.id);
     }

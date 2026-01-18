@@ -1,26 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
-// CoC System Module
+// CoC System (Server-Safe)
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { SystemModule } from '../types.ts';
-
-// Local models
-import type { CoCSystemDetails } from './models.ts';
-
-import cocDefinition from './definition.ts';
-import { CocCharacter } from './components/index.ts';
-
-//----------------------------------------------------------------------------------------------------------------------
-
-const coc : SystemModule<CoCSystemDetails> = {
-    ...cocDefinition,
-    characterComponent: CocCharacter,
-};
-
-export default coc;
-
-// Also export definition separately for server use
-export { default as cocDefinition } from './definition.ts';
+// Definition
+export { default as cocDefinition, default } from './definition.ts';
 
 // Re-export skill data for use elsewhere
 export {
@@ -32,10 +15,10 @@ export {
     twentiesSkills,
 } from './definition.ts';
 
-// Re-export models
+// Models
 export * from './models.ts';
 
-// Re-export schemas
-export * from './schema.ts';
+// Note: Schemas are NOT re-exported to avoid naming conflicts.
+// Import directly from './schemas/character.ts' or './schemas/supplements.ts' as needed.
 
 //----------------------------------------------------------------------------------------------------------------------

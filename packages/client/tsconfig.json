@@ -19,6 +19,7 @@
       "@rpgk/core": ["../core/src/index.ts"],
       "@rpgk/core/*": ["../core/src/*"],
       "@rpgk/systems": ["../systems/src/index.ts"],
+      "@rpgk/systems/client": ["../systems/src/client.ts"],
       "@rpgk/systems/*": ["../systems/src/*"],
       "@client/*": ["./src/*"]
     }

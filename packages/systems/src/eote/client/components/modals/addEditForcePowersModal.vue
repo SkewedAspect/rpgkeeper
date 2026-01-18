@@ -284,8 +284,9 @@
     // Models
     import type { EoteForcePower, EoteQuality } from '../../../models.ts';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import EditReference from '@client/components/character/editReference.vue';
@@ -329,10 +330,14 @@
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const isEdit = computed(() => id.value !== undefined);
 
     const controlAvailable = computed({
@@ -437,13 +442,13 @@
         if(isEdit.value)
         {
             forcePowerDef.id = id.value;
-            const forcePower = await eoteMan.editSup('forcepowers', forcePowerDef);
+            const forcePower = await supplementStore.update<EoteForcePower>(mode.value, 'forcepower', forcePowerDef);
 
             emit('edit', forcePower);
         }
         else
         {
-            const forcePower = await eoteMan.addSup('forcepowers', forcePowerDef);
+            const forcePower = await supplementStore.add<EoteForcePower>(mode.value, 'forcepower', forcePowerDef);
 
             emit('add', forcePower);
         }

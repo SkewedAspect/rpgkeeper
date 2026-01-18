@@ -170,8 +170,8 @@
     // Models
     import type { EoteOrGenCharacter } from '../../../models.ts';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import SupplementSelect from '@client/components/character/supplementSelect.vue';
@@ -222,11 +222,13 @@
     const delModal = ref<InstanceType<typeof DeleteModal> | null>(null);
     const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
 
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const abilities = computed(() => eoteMan.abilities);
+    const abilities = computed(() => supplementStore.get(mode.value, 'ability'));
     const selectedAbilitiesArray = computed(() => Array.from(selectedAbilities.value));
 
     //------------------------------------------------------------------------------------------------------------------
@@ -320,7 +322,7 @@
         suppSelect.value.clearSelection();
         selectedAbilities.value.delete(delAbility.value.id);
 
-        await eoteMan.delSup('abilities', { id: `${ delAbility.value.id }` });
+        await supplementStore.remove(mode.value, 'ability', delAbility.value.id);
 
         onSave();
     }

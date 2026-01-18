@@ -84,8 +84,9 @@
     // Models
     import type { EoteQuality } from '../../../models.ts';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import EditReference from '@client/components/character/editReference.vue';
@@ -115,10 +116,14 @@
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const isEdit = computed(() => id.value !== undefined);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -165,7 +170,7 @@
     {
         if(isEdit.value)
         {
-            const quality = await eoteMan.editSup('qualities', {
+            const quality = await supplementStore.update<EoteQuality>(mode.value, 'quality', {
                 id: id.value,
                 name: name.value,
                 description: description.value,
@@ -179,7 +184,7 @@
         }
         else
         {
-            const quality = await eoteMan.addSup('qualities', {
+            const quality = await supplementStore.add<EoteQuality>(mode.value, 'quality', {
                 name: name.value,
                 description: description.value,
                 passive: passive.value,

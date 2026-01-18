@@ -54,7 +54,7 @@ router.get('/', processRequest({ query: CharValidators.CharFilter }), async(req,
             if(typeof owner === 'string')
             {
                 owner = owner.toLowerCase();
-                const account = await managers.account.getByEmail(owner);
+                const account = await managers.identity.account.getByEmail(owner);
                 query.accountID = `${ account.id }`;
             }
         }
@@ -79,11 +79,11 @@ router.post(
 
         const managers = await getManagers();
         const char = { ...req.body };
-        const system = managers.system.get(char.system);
+        const system = managers.content.system.get(char.system);
 
         if(system)
         {
-            resp.json(await managers.character.add(req.user.id, char, managers));
+            resp.json(await managers.character.add(req.user.id, char, managers.content.supplement));
         }
         else
         {
@@ -125,7 +125,7 @@ router.patch(
         const char = await managers.character.get(getParam(req, 'charID'));
 
         // Next, get the system
-        const system = managers.system.get(char.system);
+        const system = managers.content.system.get(char.system);
 
         if(!req.user)
         {
@@ -139,7 +139,8 @@ router.patch(
             if(char.accountID === user.id || permsMan.hasPerm(user, `${ char.system }/canModifyChar`))
             {
                 // Update the character
-                resp.json(await managers.character.update(getParam(req, 'charID') as string, req.body, managers));
+                const charID = getParam(req, 'charID');
+                resp.json(await managers.character.update(charID, req.body, managers.content.supplement));
             }
             else
             {

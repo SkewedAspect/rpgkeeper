@@ -293,7 +293,10 @@
 
     // Managers
     import authMan from '@client/lib/managers/auth';
-    import eoteMan from '@client/lib/managers/systems/eote';
+
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import SupplementSearch from '@client/components/character/supplementSearch.vue';
@@ -347,11 +350,15 @@
     const addEditMotivModal = ref<InstanceType<typeof AddEditMotivationModal> | null>(null);
     const delMotivModal = ref<InstanceType<typeof DeleteModal> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const motivationsList = computed(() => eoteMan.motivations);
+    const mode = computed(() => systemStore.current?.id ?? 'genesys');
+    const motivationsList = computed(() => supplementStore.get<GenesysMotivation>(mode.value, 'motivation'));
     const strength = computed(() => motivationsList.value.find((mot) => mot.id === motivations.value.strength));
     const flaw = computed(() => motivationsList.value.find((mot) => mot.id === motivations.value.flaw));
     const desire = computed(() => motivationsList.value.find((mot) => mot.id === motivations.value.desire));
@@ -443,14 +450,13 @@
 
         if(delMotiv.value.id)
         {
-            const delObj = { id: `${ delMotiv.value.id }` };
-            await eoteMan.delSup('motivations', delObj);
+            await supplementStore.remove(mode.value, 'motivation', delMotiv.value.id);
         }
     }
 
     function isEditable(motiv : GenesysMotivation) : boolean
     {
-        const hasRight = authMan.hasPerm(`${ eoteMan.mode }/canModifyContent`);
+        const hasRight = authMan.hasPerm(`${ mode.value }/canModifyContent`);
         const isOwner = !motiv.official && motiv.owner === authMan.account.id;
 
         return isOwner || hasRight;

@@ -41,8 +41,9 @@
 <script lang="ts" setup>
     import { computed } from 'vue';
 
-    // Managers
-    import eoteManager from '../../lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '../../lib/resource-access/stores/systems';
+    import { useSupplementStore } from '../../lib/resource-access/stores/supplements';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -58,6 +59,13 @@
     type Events = (e : 'update:reference', value : string) => void;
 
     const emit = defineEmits<Events>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Stores
+    //------------------------------------------------------------------------------------------------------------------
+
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -80,7 +88,11 @@
         },
     });
 
-    const references = computed(() => eoteManager.references);
+    const references = computed(() =>
+    {
+        const systemId = systemStore.current?.id;
+        return systemId ? supplementStore.getReferences(systemId) : [];
+    });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

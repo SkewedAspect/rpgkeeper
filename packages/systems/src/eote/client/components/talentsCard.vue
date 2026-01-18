@@ -39,9 +39,7 @@
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
-
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
@@ -71,12 +69,14 @@
     const { current } = storeToRefs(useCharacterStore());
     const editTalentsModal = ref<InstanceType<typeof EditTalentsModal> | null>(null);
 
+    const systemStore = useSystemStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
     const char = computed<EoteOrGenCharacter>(() => current.value as any);
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
 
     const subTalent = computed(() => { return mode.value === 'eote' ? EotETalents : GenesysTalents; });

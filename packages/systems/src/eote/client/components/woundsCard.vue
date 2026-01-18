@@ -196,7 +196,7 @@
         </BTooltip>
 
         <BTooltip :target="immobilizedBtn">
-            <span :class="eoteMan.mode + '-system'">
+            <span :class="mode + '-system'">
                 An <b>immobilized</b> character cannot perform maneuvers (including maneuvers purchased via strain or
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
                 by spending <advantage />)
@@ -204,7 +204,7 @@
         </BTooltip>
 
         <BTooltip :target="disorientedBtn">
-            <span :class="eoteMan.mode + '-system'">
+            <span :class="mode + '-system'">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
                 A <b>disoriented</b> character adds <setback /> (setback) to all checks they make.
             </span>
@@ -223,12 +223,10 @@
 
     // Store
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
 
     // Models
     import type { EoteOrGenCharacter } from '../../models.ts';
-
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
@@ -284,6 +282,7 @@
         + 'border-bottom-right-radius: var(--bs-btn-border-radius)';
 
     const { current } = storeToRefs(useCharacterStore());
+    const systemStore = useSystemStore();
 
     const woundsInput = ref<number>(undefined);
     const strainInput = ref<number>(undefined);
@@ -298,7 +297,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const character = computed<EoteOrGenCharacter>(() => current.value as any);
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
 
     const defenses = computed(() => { return character.value.details.defenses; });
@@ -368,7 +367,7 @@
 
     const disorientedText = computed(() =>
     {
-        return `<span class="${ eoteMan.mode }-system">A <b>disoriented</b> character adds <setback></setback> `
+        return `<span class="${ mode.value }-system">A <b>disoriented</b> character adds <setback></setback> `
             + `(setback) to all checks they make.</span>`;
     });
 

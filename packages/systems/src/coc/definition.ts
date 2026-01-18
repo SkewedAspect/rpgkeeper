@@ -6,7 +6,10 @@ import { SupportStatus, type SystemDefinition } from '@rpgk/core';
 
 // Local models
 import type { CoCSkill, CoCSystemDetails } from './models.ts';
-import { CoCDetailsSchema } from './schema.ts';
+import { CoCDetailsSchema } from './schemas/character.ts';
+
+// Supplement schemas
+import { WeaponDataSchema } from './schemas/supplements.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Skill Definitions
@@ -168,7 +171,7 @@ export const cocDefaults : CoCSystemDetails = {
             skill: 'Fighting (Brawl)',
             reference: 'Coc-IH:250',
             official: true,
-            owner: null,
+            owner: undefined,
             scope: 'public',
         },
     ],
@@ -206,6 +209,9 @@ const cocDefinition : SystemDefinition<CoCSystemDetails> & { detailsSchema : typ
         + 'and cosmic monsters from beyond space!',
     defaults: cocDefaults,
     status: SupportStatus.Alpha,
+    supplements: {
+        weapon: { schema: WeaponDataSchema },
+    },
 };
 
 export default cocDefinition;

@@ -27,8 +27,9 @@
 <script lang="ts" setup>
     import { computed } from 'vue';
 
-    // Managers
-    import eoteManager from '../../lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '../../lib/resource-access/stores/systems';
+    import { useSupplementStore } from '../../lib/resource-access/stores/supplements';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -43,6 +44,13 @@
     const props = withDefaults(defineProps<Props>(), { inline: false });
 
     //------------------------------------------------------------------------------------------------------------------
+    // Stores
+    //------------------------------------------------------------------------------------------------------------------
+
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
+    //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
@@ -50,7 +58,15 @@
 
     const abbr = computed(() => props.reference.split(':')[0]);
     const page = computed(() => props.reference.split(':')[1]);
-    const refObj = computed(() => eoteManager.references.find((ref) => ref.abbr === abbr.value));
+    const refObj = computed(() =>
+    {
+        const systemId = systemStore.current?.id;
+        if(!systemId)
+        {
+            return undefined;
+        }
+        return supplementStore.getReferences(systemId).find((ref) => ref.abbr === abbr.value);
+    });
     const name = computed(() => refObj.value?.name);
 </script>
 

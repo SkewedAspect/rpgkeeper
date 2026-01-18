@@ -40,8 +40,9 @@
     // Utils
     import { shortID } from '@client/lib/utils/misc';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import ReferenceBlock from '@client/components/character/referenceBlock.vue';
@@ -65,13 +66,16 @@
 
     const uniqueID = ref(shortID());
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
 
-    const qualities = computed(() => eoteMan.qualities);
+    const qualities = computed(() => supplementStore.get(mode.value, 'quality'));
 
     const quality = computed(() =>
     {

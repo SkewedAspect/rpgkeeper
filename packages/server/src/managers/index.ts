@@ -81,43 +81,6 @@ export class ManagerAccess
         // Create notebook wrapper for route compatibility
         this.notebook = new NotebookManager(notebookEngine);
     }
-
-    //------------------------------------------------------------------------------------------------------------------
-    // Backward Compatibility Aliases
-    //------------------------------------------------------------------------------------------------------------------
-    // These getters maintain the old API: managers.account, managers.role, etc.
-    // Routes can continue using the old paths while new code uses the new structure.
-    //------------------------------------------------------------------------------------------------------------------
-
-    /** @deprecated Use managers.identity.account instead */
-    get account() : AccountSubManager
-    {
-        return this.identity.account;
-    }
-
-    /** @deprecated Use managers.identity.role instead */
-    get role() : RoleSubManager
-    {
-        return this.identity.role;
-    }
-
-    /** @deprecated Use managers.content.system instead */
-    get system() : SystemSubManager
-    {
-        return this.content.system;
-    }
-
-    /** @deprecated Use managers.content.supplement instead */
-    get supplement() : SupplementSubManager
-    {
-        return this.content.supplement;
-    }
-
-    /** @deprecated Use managers.content.reference instead */
-    get reference() : ReferenceSubManager
-    {
-        return this.content.reference;
-    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -133,8 +133,9 @@
         EoteForcePowerUpgrade,
         EoteTalentInst } from '../../../models.ts';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import DicePool from '@client/components/character/dicePool.vue';
@@ -187,12 +188,15 @@
     const delForcePowersModal = ref<InstanceType<typeof DeleteModal> | null>(null);
     const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const mode = computed(() => eoteMan.mode);
-    const forcePowers = computed(() => eoteMan.forcePowers);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
+    const forcePowers = computed(() => supplementStore.get<EoteForcePower>(mode.value, 'forcepower'));
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -262,7 +266,7 @@
         suppSelect.value.clearSelection();
         selectedForcePowers.value = selectedForcePowers.value.filter((item) => item.id !== delForcePower.value.id);
 
-        await eoteMan.delSup('forcepowers', { id: `${ delForcePower.value.id }` });
+        await supplementStore.remove(mode.value, 'forcepower', delForcePower.value.id);
 
         onSave();
     }

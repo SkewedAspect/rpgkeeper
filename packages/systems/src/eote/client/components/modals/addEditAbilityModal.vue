@@ -71,8 +71,9 @@
     // Models
     import type { EoteAbility, EoteForcePower } from '../../../models.ts';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import MarkdownEditor from '@client/components/ui/markdownEditor.vue';
@@ -100,10 +101,14 @@
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const isEdit = computed(() => !!id.value);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -140,7 +145,7 @@
     {
         if(isEdit.value)
         {
-            const ability = await eoteMan.editSup<EoteAbility>('abilities', {
+            const ability = await supplementStore.update<EoteAbility>(mode.value, 'ability', {
                 id: id.value,
                 name: name.value,
                 description: description.value,
@@ -152,7 +157,7 @@
         }
         else
         {
-            const ability = await eoteMan.addSup<EoteAbility>('abilities', {
+            const ability = await supplementStore.add<EoteAbility>(mode.value, 'ability', {
                 name: name.value,
                 description: description.value,
                 reference: reference.value,

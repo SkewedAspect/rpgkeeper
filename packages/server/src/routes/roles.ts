@@ -22,7 +22,7 @@ const router = express.Router();
 router.get('/', async(_req, resp) =>
 {
     const managers = await getManagers();
-    resp.json(await managers.role.list());
+    resp.json(await managers.identity.role.list());
 });
 
 //----------------------------------------------------------------------------------------------------------------------

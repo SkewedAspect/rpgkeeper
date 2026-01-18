@@ -22,7 +22,7 @@ passport.deserializeUser(async(id : string, done) =>
     try
     {
         const managers = await getManagers();
-        const account = await managers.account.get(id);
+        const account = await managers.identity.account.get(id);
         done(null, account);
     }
     catch (error)

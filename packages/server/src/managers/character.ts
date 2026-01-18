@@ -12,11 +12,11 @@ import type { Character, SavedCharacter } from '@rpgk/core';
 const logger = logging.getLogger('character-manager');
 
 // Systems
-import { systemRegistry } from '@rpgk/systems/definitions';
+import { systems } from '@rpgk/systems';
 
 // Engines
-import systemsEngine from '../engines/system.ts';
 import type { NotebookEngine } from '../engines/notebook.ts';
+import { type SupplementExistsChecker, validateSupplementRefs } from '../engines/supplementRefs.ts';
 
 // Resource Access
 import type { EntityResourceAccess } from '../resource-access/index.ts';
@@ -51,7 +51,7 @@ export class CharacterManager
         // If no details provided, nothing to validate
         if(!character.details)
         {
-            logger.debug('Skipping validation: no details provided');
+            logger.debug('Skipping schema validation: no details provided');
             return;
         }
 
@@ -59,22 +59,66 @@ export class CharacterManager
         const systemId = character.system;
         if(!systemId)
         {
-            logger.debug('Skipping validation: no system ID');
+            logger.debug('Skipping schema validation: no system ID');
             return;
         }
 
         // Look up the system and its schema
-        const system = systemRegistry.get(systemId);
+        const system = systems[systemId];
         if(!system?.detailsSchema)
         {
-            logger.debug(`Skipping validation: no schema for system '${ systemId }'`);
+            logger.debug(`Skipping schema validation: no schema for system '${ systemId }'`);
             return;
         }
 
         // Validate the details against the schema (throws on failure)
-        logger.debug(`Validating character details for system '${ systemId }'`);
+        logger.debug(`Validating character details schema for system '${ systemId }'`);
         system.detailsSchema.parse(character.details);
-        logger.debug(`Validation passed for system '${ systemId }'`);
+        logger.debug(`Schema validation passed for system '${ systemId }'`);
+    }
+
+    /**
+     * Validates supplement references in character data using the generic engine.
+     * Called on save to ensure all referenced supplements exist.
+     */
+    private async validateSupplementRefs<T extends Character>(
+        character : T,
+        checker : SupplementExistsChecker
+    ) : Promise<T>
+    {
+        const systemId = character.system;
+        if(!systemId || !character.details)
+        {
+            return character;
+        }
+
+        const system = systems[systemId];
+        if(!system?.detailsSchema)
+        {
+            return character;
+        }
+
+        logger.debug(`Validating supplement references for system '${ systemId }'`);
+        const result = await validateSupplementRefs(
+            character.details,
+            system.detailsSchema,
+            systemId,
+            checker
+        );
+
+        if(result.removedCount > 0)
+        {
+            logger.warn(
+                `Removed ${ result.removedCount } invalid supplement references:`,
+                result.removed.map((ref) => `${ ref.path } (${ ref.type }: ${ ref.id })`).join(', ')
+            );
+        }
+        else
+        {
+            logger.debug('All supplement references valid');
+        }
+
+        return { ...character, details: result.data };
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -83,29 +127,28 @@ export class CharacterManager
 
     async get(id : string) : Promise<SavedCharacter>
     {
-        const character = await this.entities.character.get(id);
-
-        // Validate system-specific details
-        return systemsEngine.validateCharacterDetails(character) as Promise<SavedCharacter>;
+        return this.entities.character.get(id);
     }
 
     async list(filters : Record<string, FilterToken> = {}) : Promise<SavedCharacter[]>
     {
-        const characters = await this.entities.character.list(filters);
-
-        // Validate system-specific details for all characters
-        return Promise.all(
-            characters.map((char) => systemsEngine.validateCharacterDetails(char) as Promise<SavedCharacter>)
-        );
+        return this.entities.character.list(filters);
     }
 
-    async add(accountID : string, newCharacter : Character) : Promise<SavedCharacter>
+    async add(
+        accountID : string,
+        newCharacter : Character,
+        checker : SupplementExistsChecker
+    ) : Promise<SavedCharacter>
     {
         // Validate details schema before saving
         this.validateDetailsSchema(newCharacter);
 
+        // Validate supplement references (removes invalid refs)
+        const validatedChar = await this.validateSupplementRefs(newCharacter, checker);
+
         const notebook = await this.notebookEngine.add();
-        const newChar = await this.entities.character.add(accountID, { ...newCharacter, noteID: notebook.id });
+        const newChar = await this.entities.character.add(accountID, { ...validatedChar, noteID: notebook.id });
 
         // Broadcast the update
         await broadcast('/character', {
@@ -117,24 +160,35 @@ export class CharacterManager
         return newChar;
     }
 
-    async update(charID : string, updateChar : Partial<Character>) : Promise<SavedCharacter>
+    async update(
+        charID : string,
+        updateChar : Partial<Character>,
+        checker : SupplementExistsChecker
+    ) : Promise<SavedCharacter>
     {
+        // Get current character for validation context
+        const current = await this.entities.character.get(charID);
+
+        // Merge update with current for validation purposes
+        const merged = { ...current, ...updateChar } as Character;
+
         // Validate details schema before saving
         if(updateChar.details)
         {
-            // If system not in update, fetch current character to get it
-            if(!updateChar.system)
-            {
-                const current = await this.entities.character.get(charID);
-                this.validateDetailsSchema({ ...updateChar, system: current.system });
-            }
-            else
-            {
-                this.validateDetailsSchema(updateChar);
-            }
+            this.validateDetailsSchema(merged);
         }
 
-        const newChar = await this.entities.character.update(charID, updateChar);
+        // Validate supplement references (removes invalid refs)
+        const validated = await this.validateSupplementRefs(merged, checker);
+
+        // Extract only the fields that were in the update
+        const validatedUpdate : Partial<Character> = {};
+        for(const key of Object.keys(updateChar) as (keyof Character)[])
+        {
+            (validatedUpdate as any)[key] = validated[key];
+        }
+
+        const newChar = await this.entities.character.update(charID, validatedUpdate);
 
         // Broadcast the update
         await broadcast('/character', {

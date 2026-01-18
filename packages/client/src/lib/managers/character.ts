@@ -11,12 +11,10 @@ import type { Account, Character, RPGKMessage, SystemDetails } from '@rpgk/core'
 import { useAccountStore } from '../resource-access/stores/account';
 import { useSystemStore } from '../resource-access/stores/systems';
 import { useCharacterStore } from '../resource-access/stores/characters';
+import { useSupplementStore } from '../resource-access/stores/supplements';
 
 // Managers
 import notesMan from './notebook';
-
-// System Managers
-import eoteMan from './systems/eote';
 
 // Resource Access
 import characterRA from '../resource-access/character';
@@ -134,17 +132,9 @@ class CharacterManager
             // Set the current system
             systemsStore.setCurrent(char.system);
 
-            // Load system specific manager
-            switch (char.system)
-            {
-                case 'eote':
-                case 'genesys':
-                    await eoteMan.load(char);
-                    break;
-
-                default:
-                    break;
-            }
+            // Load supplements for the system
+            const supplementStore = useSupplementStore();
+            await supplementStore.load(char.system);
 
             // Select the notes in the notes manager
             if(char.noteID)

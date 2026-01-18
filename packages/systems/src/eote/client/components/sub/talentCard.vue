@@ -64,8 +64,12 @@
     // Utils
     import { shortID } from '@client/lib/utils/misc';
 
-    // Managers
-    import eoteMan from '@client/lib/managers/systems/eote';
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
+
+    // Constants
+    import { activationEnum } from '../../constants';
 
     // Components
     import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
@@ -89,16 +93,19 @@
 
     const uuid = ref(shortID());
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
     const id = computed(() => `critical-${ uuid.value }`);
     const talent = computed(() => props.talent);
-    const mode = computed(() => eoteMan.mode);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
 
     // We use GenesysTalent here because it's just `TalentBase` exported, and XOR doesn't work how I want.
-    const talents = computed<GenesysTalent[]>(() => eoteMan.talents);
+    const talents = computed<GenesysTalent[]>(() => supplementStore.get(mode.value, 'talent'));
 
     const talentBase = computed<GenesysTalent | undefined>(() =>
     {
@@ -114,7 +121,7 @@
     {
         if(talentBase.value?.name)
         {
-            return eoteMan.activationEnum[talentBase.value?.activation];
+            return activationEnum[talentBase.value?.activation];
         }
 
         return '';

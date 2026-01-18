@@ -35,7 +35,7 @@ import authRouter from './routes/auth.ts';
 import noteRouter from './routes/notebook.ts';
 import campRouter from './routes/campaign.ts';
 import charRouter from './routes/characters.ts';
-import sysRouter from './routes/systems/index.ts';
+import sysRouter from './routes/systems.ts';
 import accountsRouter from './routes/accounts.ts';
 import rolesRouter from './routes/roles.ts';
 import versionRouter from './routes/version.ts';
@@ -93,7 +93,7 @@ async function main() : Promise<void>
     //------------------------------------------------------------------------------------------------------------------
 
     const managers = await getManagers();
-    const roles = await managers.role.list();
+    const roles = await managers.identity.role.list();
     await permsUtil.loadRoles(roles);
 
     //------------------------------------------------------------------------------------------------------------------
