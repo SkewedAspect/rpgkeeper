@@ -1,24 +1,24 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Tests for DefinitionManager
+// Tests for SupplementSubManager
 //----------------------------------------------------------------------------------------------------------------------
 
 /* eslint-disable @typescript-eslint/no-unused-expressions, camelcase */
 
 import { expect } from 'chai';
 import Knex from 'knex';
-import { DefinitionManager } from '../../../packages/server/src/managers/definition.ts';
-import { EntityResourceAccess } from '../../../packages/server/src/resource-access/entities/index.ts';
+import { SupplementSubManager } from '../../../packages/server/src/managers';
+import { EntityResourceAccess } from '../../../packages/server/src/resource-access';
 import * as staticRA from '../../../packages/server/src/resource-access/static.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Setup
 //----------------------------------------------------------------------------------------------------------------------
 
-describe('DefinitionManager', () =>
+describe('SupplementSubManager', () =>
 {
     let db : Knex.Knex;
     let entities : EntityResourceAccess;
-    let manager : DefinitionManager;
+    let manager : SupplementSubManager;
 
     // Test account ID
     const testAccountID = 'test-account-789';
@@ -51,9 +51,9 @@ describe('DefinitionManager', () =>
             settings: '{}',
         });
 
-        await db.schema.createTable('definition', (table) =>
+        await db.schema.createTable('supplement', (table) =>
         {
-            table.string('definition_id').primary();
+            table.string('supplement_id').primary();
             table.string('system').notNullable();
             table.string('type').notNullable();
             table.string('name').notNullable();
@@ -92,7 +92,7 @@ describe('DefinitionManager', () =>
         });
 
         entities = new EntityResourceAccess(db);
-        manager = new DefinitionManager(entities);
+        manager = new SupplementSubManager(entities);
     });
 
     after(async () =>
@@ -103,8 +103,8 @@ describe('DefinitionManager', () =>
 
     beforeEach(async () =>
     {
-        // Clear homebrew definitions between tests
-        await db('definition').delete();
+        // Clear homebrew supplements between tests
+        await db('supplement').delete();
     });
 
     //------------------------------------------------------------------------------------------------------------------
@@ -113,9 +113,9 @@ describe('DefinitionManager', () =>
 
     describe('get()', () =>
     {
-        it('should retrieve an official definition from static.db', async () =>
+        it('should retrieve an official supplement from static.db', async () =>
         {
-            // Use a known official definition from the static database
+            // Use a known official supplement from the static database
             const result = await manager.get('eote-ability-wookie');
 
             expect(result.id).to.equal('eote-ability-wookie');
@@ -126,9 +126,9 @@ describe('DefinitionManager', () =>
             expect(result.owner).to.be.undefined;
         });
 
-        it('should retrieve a homebrew definition', async () =>
+        it('should retrieve a homebrew supplement', async () =>
         {
-            // First create a homebrew definition
+            // First create a homebrew supplement
             const created = await manager.add(testAccountID, {
                 system: 'eote',
                 type: 'ability',
@@ -162,18 +162,18 @@ describe('DefinitionManager', () =>
             });
         });
 
-        it('should list only official definitions when includeHomebrew is false', async () =>
+        it('should list only official supplements when includeHomebrew is false', async () =>
         {
             const results = await manager.list('eote', 'ability', {
                 includeOfficial: true,
                 includeHomebrew: false,
             });
 
-            expect(results.every((def) => def.official)).to.be.true;
-            expect(results.find((def) => def.name === 'Homebrew Ability')).to.be.undefined;
+            expect(results.every((supp) => supp.official)).to.be.true;
+            expect(results.find((supp) => supp.name === 'Homebrew Ability')).to.be.undefined;
         });
 
-        it('should list only homebrew definitions when includeOfficial is false', async () =>
+        it('should list only homebrew supplements when includeOfficial is false', async () =>
         {
             const results = await manager.list('eote', 'ability', {
                 includeOfficial: false,
@@ -181,11 +181,11 @@ describe('DefinitionManager', () =>
                 accountID: testAccountID,
             });
 
-            expect(results.every((def) => !def.official)).to.be.true;
-            expect(results.find((def) => def.name === 'Homebrew Ability')).to.not.be.undefined;
+            expect(results.every((supp) => !supp.official)).to.be.true;
+            expect(results.find((supp) => supp.name === 'Homebrew Ability')).to.not.be.undefined;
         });
 
-        it('should list combined official and homebrew definitions', async () =>
+        it('should list combined official and homebrew supplements', async () =>
         {
             const results = await manager.list('eote', 'ability', {
                 includeOfficial: true,
@@ -193,8 +193,8 @@ describe('DefinitionManager', () =>
                 accountID: testAccountID,
             });
 
-            const officialCount = results.filter((def) => def.official).length;
-            const homebrewCount = results.filter((def) => !def.official).length;
+            const officialCount = results.filter((supp) => supp.official).length;
+            const homebrewCount = results.filter((supp) => !supp.official).length;
 
             expect(officialCount).to.be.greaterThan(0);
             expect(homebrewCount).to.equal(1);
@@ -208,7 +208,7 @@ describe('DefinitionManager', () =>
                 accountID: testAccountID,
             });
 
-            const names = results.map((def) => def.name);
+            const names = results.map((supp) => supp.name);
             const sortedNames = [ ...names ].sort((nameA, nameB) => nameA.localeCompare(nameB));
             expect(names).to.deep.equal(sortedNames);
         });
@@ -230,7 +230,7 @@ describe('DefinitionManager', () =>
             });
         });
 
-        it('should search official definitions', async () =>
+        it('should search official supplements', async () =>
         {
             const results = await manager.search('eote', 'ability', 'Wookie', {
                 includeOfficial: true,
@@ -238,11 +238,11 @@ describe('DefinitionManager', () =>
             });
 
             expect(results.length).to.be.greaterThan(0);
-            expect(results.every((def) => def.official)).to.be.true;
-            expect(results.every((def) => def.name.toLowerCase().includes('wookie'))).to.be.true;
+            expect(results.every((supp) => supp.official)).to.be.true;
+            expect(results.every((supp) => supp.name.toLowerCase().includes('wookie'))).to.be.true;
         });
 
-        it('should search homebrew definitions', async () =>
+        it('should search homebrew supplements', async () =>
         {
             const results = await manager.search('eote', 'ability', 'Force', {
                 includeOfficial: false,
@@ -272,7 +272,7 @@ describe('DefinitionManager', () =>
             });
 
             // Should find homebrew "Force Sensitivity" but not "No Match Here"
-            const homebrewResult = results.find((def) => !def.official);
+            const homebrewResult = results.find((supp) => !supp.official);
             expect(homebrewResult?.name).to.equal('Force Sensitivity');
         });
     });
@@ -283,7 +283,7 @@ describe('DefinitionManager', () =>
 
     describe('add()', () =>
     {
-        it('should create a new homebrew definition', async () =>
+        it('should create a new homebrew supplement', async () =>
         {
             const result = await manager.add(testAccountID, {
                 system: 'eote',
@@ -306,7 +306,7 @@ describe('DefinitionManager', () =>
 
     describe('update()', () =>
     {
-        it('should update a homebrew definition', async () =>
+        it('should update a homebrew supplement', async () =>
         {
             const created = await manager.add(testAccountID, {
                 system: 'eote',
@@ -324,7 +324,7 @@ describe('DefinitionManager', () =>
             expect(updated.data).to.deep.equal({ version: 2 });
         });
 
-        it('should throw error when trying to update an official definition', async () =>
+        it('should throw error when trying to update an official supplement', async () =>
         {
             try
             {
@@ -335,7 +335,7 @@ describe('DefinitionManager', () =>
             }
             catch (err)
             {
-                expect((err as Error).message).to.equal('Cannot modify official definitions.');
+                expect((err as Error).message).to.equal('Cannot modify official supplements.');
             }
         });
     });
@@ -346,7 +346,7 @@ describe('DefinitionManager', () =>
 
     describe('remove()', () =>
     {
-        it('should remove a homebrew definition', async () =>
+        it('should remove a homebrew supplement', async () =>
         {
             const created = await manager.add(testAccountID, {
                 system: 'eote',
@@ -362,7 +362,7 @@ describe('DefinitionManager', () =>
             expect(exists).to.be.false;
         });
 
-        it('should throw error when trying to remove an official definition', async () =>
+        it('should throw error when trying to remove an official supplement', async () =>
         {
             try
             {
@@ -371,7 +371,7 @@ describe('DefinitionManager', () =>
             }
             catch (err)
             {
-                expect((err as Error).message).to.equal('Cannot remove official definitions.');
+                expect((err as Error).message).to.equal('Cannot remove official supplements.');
             }
         });
     });
@@ -382,13 +382,13 @@ describe('DefinitionManager', () =>
 
     describe('exists()', () =>
     {
-        it('should return true for official definition', async () =>
+        it('should return true for official supplement', async () =>
         {
             const exists = await manager.exists('eote-ability-wookie');
             expect(exists).to.be.true;
         });
 
-        it('should return true for homebrew definition', async () =>
+        it('should return true for homebrew supplement', async () =>
         {
             const created = await manager.add(testAccountID, {
                 system: 'eote',
@@ -401,7 +401,7 @@ describe('DefinitionManager', () =>
             expect(exists).to.be.true;
         });
 
-        it('should return false for non-existent definition', async () =>
+        it('should return false for non-existent supplement', async () =>
         {
             const exists = await manager.exists('non-existent-id');
             expect(exists).to.be.false;
@@ -414,7 +414,7 @@ describe('DefinitionManager', () =>
 
     describe('getTypes()', () =>
     {
-        it('should return available definition types for a system', () =>
+        it('should return available supplement types for a system', () =>
         {
             const types = manager.getTypes('eote');
 
