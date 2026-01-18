@@ -13,11 +13,11 @@ import Components from 'unplugin-vue-components/vite';
 import { BootstrapVueNextResolver } from 'bootstrap-vue-next';
 
 // Interfaces
-import type { ServerConfig } from '@server/interfaces/config.ts';
+import type { ServerConfig } from './packages/server/src/interfaces/config.ts';
 
 // Utils
 import configUtil from '@strata-js/util-config';
-import { getVersion } from '@server/utils/version.ts';
+import { getVersion } from './packages/server/src/utils/version.ts';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Configuration
@@ -39,6 +39,7 @@ export default defineConfig({
             '@rpgk/core': resolve(__dirname, 'packages/core/src'),
             '@rpgk/systems': resolve(__dirname, 'packages/systems/src'),
             '@client': resolve(__dirname, 'packages/client/src'),
+            '@server': resolve(__dirname, 'packages/server/src'),
         },
     },
     plugins: [

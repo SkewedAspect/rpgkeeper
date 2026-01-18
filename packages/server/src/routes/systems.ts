@@ -12,20 +12,20 @@ import type { z } from 'zod';
 import logging from '@strata-js/util-logging';
 
 // Managers
-import * as permMan from '../../utils/permissions.ts';
-import { getManagers } from '../../managers/index.ts';
+import * as permMan from '../utils/permissions.ts';
+import { getManagers } from '../managers/index.ts';
 
 // Static data
-import * as staticRA from '../../resource-access/static.ts';
+import * as staticRA from '../resource-access/static.ts';
 
 // Systems
 import { systems } from '@rpgk/systems';
 
 // Validation
-import { processRequest, validationErrorHandler } from '../../engines/validation/express.ts';
+import { processRequest, validationErrorHandler } from '../engines/validation/express.ts';
 
 // Utils
-import { ensureAuthenticated, errorHandler, interceptHTML } from '../utils/index.ts';
+import { ensureAuthenticated, errorHandler, interceptHTML } from './utils/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
