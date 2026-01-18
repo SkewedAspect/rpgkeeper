@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { jsonCodec } from '@rpgk/core/utils/codecs';
 
 // Local models
-import { validCoCCharacteristicNames } from './models.ts';
+import { validCoCCharacteristicNames } from '../models.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Characteristic Names Schema

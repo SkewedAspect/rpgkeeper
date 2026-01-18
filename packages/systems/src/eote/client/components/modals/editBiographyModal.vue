@@ -168,7 +168,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteOrGenCharacter } from '../../models.ts';
+    import type { EoteOrGenCharacter } from '../../../models.ts';
 
     // Managers
     import eoteMan from '@client/lib/managers/systems/eote';
@@ -210,9 +210,9 @@
     const species = ref('');
     const specialization = ref('');
     const forceSensitive = ref(false);
-    const selectedAbilities = ref(new Set<number>());
+    const selectedAbilities = ref(new Set<string>());
 
-    const delAbility = ref<{ id : number | undefined; name : string }>({
+    const delAbility = ref<{ id : string | undefined; name : string }>({
         id: undefined,
         name: '',
     });
