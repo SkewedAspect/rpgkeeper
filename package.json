@@ -4,13 +4,13 @@
   "description": "A site for managing your digital character sheets.",
   "private": true,
   "type": "module",
-  "main": "packages/server/src/server.ts",
+  "main": "src/server/src/server.ts",
   "workspaces": [
-    "packages/*"
+    "src/*"
   ],
   "scripts": {
-    "start": "node ./packages/server/src/server.ts",
-    "dev": "DEBUG=true node ./packages/server/src/server.ts --dev",
+    "start": "node ./src/server/src/server.ts",
+    "dev": "DEBUG=true node ./src/server/src/server.ts --dev",
     "build": "vite build",
     "db:migrate": "knex migrate:latest",
     "db:setup": "knex migrate:latest && knex seed:run",

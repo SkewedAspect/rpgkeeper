@@ -23,12 +23,12 @@
 
         /* Workspace paths */
         "paths": {
-            "@rpgk/core": ["./packages/core/src/index.ts"],
-            "@rpgk/core/*": ["./packages/core/src/*"],
-            "@rpgk/systems": ["./packages/systems/src/index.ts"],
-            "@rpgk/systems/*": ["./packages/systems/src/*"],
-            "@client/*": ["./packages/client/src/*"],
-            "@server/*": ["./packages/server/src/*"]
+            "@rpgk/core": ["./src/core/src/index.ts"],
+            "@rpgk/core/*": ["./src/core/src/*"],
+            "@rpgk/systems": ["./src/systems/src/index.ts"],
+            "@rpgk/systems/*": ["./src/systems/src/*"],
+            "@client/*": ["./src/client/src/*"],
+            "@server/*": ["./src/server/src/*"]
         }
     },
     "include": [

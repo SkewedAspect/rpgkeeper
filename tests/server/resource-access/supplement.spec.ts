@@ -6,7 +6,7 @@
 
 import { expect } from 'chai';
 import Knex from 'knex';
-import { SupplementResourceAccess } from '../../../packages/server/src/resource-access/entities/supplement.ts';
+import { SupplementResourceAccess } from '../../../src/server/src/resource-access/entities/supplement.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Setup

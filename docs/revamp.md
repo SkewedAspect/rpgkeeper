@@ -157,7 +157,7 @@ Restructure the project to use npm workspaces to solve build conflicts and impro
 ```
 rpgkeeper/
 ├── package.json                 # Workspace root
-├── packages/
+├── src/
 │   ├── core/                    # @rpgk/core - Pure TS (tsc)
 │   │   └── src/
 │   │       ├── models/          # Character, Supplement, base interfaces

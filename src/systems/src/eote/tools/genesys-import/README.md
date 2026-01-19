@@ -6,7 +6,7 @@ Imports Genesys sourcebook data from the [SilentArctic GitHub repository](https:
 
 ```bash
 # Navigate to the tool directory
-cd packages/systems/src/eote/tools/genesys-import
+cd src/systems/src/eote/tools/genesys-import
 
 # Install dependencies
 npm install
@@ -32,7 +32,7 @@ npm start -- --dry-run --type=weapon
 Alternatively, from the project root:
 
 ```bash
-npx tsx packages/systems/src/eote/tools/genesys-import/index.ts [options]
+npx tsx src/systems/src/eote/tools/genesys-import/index.ts [options]
 ```
 
 ## Options
@@ -120,11 +120,11 @@ Example: "Quick Strike" becomes `genesys-talent-quick-strike`
 ## Output Directories
 
 Files are written to:
-- `packages/systems/src/eote/static/genesys/supplements/talents/`
-- `packages/systems/src/eote/static/genesys/supplements/qualities/`
-- `packages/systems/src/eote/static/genesys/supplements/weapons/`
-- `packages/systems/src/eote/static/genesys/supplements/attachments/`
-- `packages/systems/src/eote/static/genesys/supplements/abilities/`
+- `src/systems/src/eote/static/genesys/supplements/talents/`
+- `src/systems/src/eote/static/genesys/supplements/qualities/`
+- `src/systems/src/eote/static/genesys/supplements/weapons/`
+- `src/systems/src/eote/static/genesys/supplements/attachments/`
+- `src/systems/src/eote/static/genesys/supplements/abilities/`
 
 ## File Structure
 

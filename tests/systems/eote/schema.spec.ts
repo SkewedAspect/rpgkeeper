@@ -24,7 +24,7 @@ import {
     GenesysMotivationsSchema,
     GenesysSystemDetailsSchema,
     HealthSchema,
-} from '../../../packages/systems/src/eote/schemas/character.ts';
+} from '../../../src/systems/src/eote/schemas/character.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Data

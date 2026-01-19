@@ -12,7 +12,7 @@ import {
     keysToCamel,
     keysToSnake,
     snakeToCamel,
-} from '../../../packages/core/src/utils/codecs.ts';
+} from '../../../src/core/src/utils/codecs.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Timestamp Codecs

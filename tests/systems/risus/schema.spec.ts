@@ -11,7 +11,7 @@ import {
     RisusDetailsSchema,
     RisusHookSchema,
     RisusLuckyShotsSchema,
-} from '../../../packages/systems/src/risus/schema.ts';
+} from '../../../src/systems/src/risus/schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Data

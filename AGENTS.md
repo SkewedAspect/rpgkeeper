@@ -252,8 +252,8 @@ With HTML comment breaks between sections:
 - **Type**: SQLite (better-sqlite3)
 - **Location**: `<PROJECT_ROOT>/db/rpgk.db`
 - **ORM**: Knex.js
-- Migrations: `packages/server/src/knex/migrations/`
-- Seeds: `packages/server/src/knex/seeds/`
+- Migrations: `src/server/src/knex/migrations/`
+- Seeds: `src/server/src/knex/seeds/`
 
 ## Package Dependencies
 
@@ -268,10 +268,10 @@ With HTML comment breaks between sections:
 
 ## Key Files
 
-- `packages/core/src/index.ts` - Core exports and models
-- `packages/server/src/server.ts` - Server entry point
-- `packages/client/src/app.vue` - Root Vue component
-- `packages/systems/src/index.ts` - System definitions
+- `src/core/src/index.ts` - Core exports and models
+- `src/server/src/server.ts` - Server entry point
+- `src/client/src/app.vue` - Root Vue component
+- `src/systems/src/index.ts` - System definitions
 - `eslint.config.js` - Code style rules
 - `knexfile.js` - Database configuration
 - `db/rpgk.db` - SQLite database

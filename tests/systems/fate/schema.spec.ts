@@ -13,7 +13,7 @@ import {
     FateSkillSchema,
     FateStressSchema,
     FateStuntSchema,
-} from '../../../packages/systems/src/fate/schema.ts';
+} from '../../../src/systems/src/fate/schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Data

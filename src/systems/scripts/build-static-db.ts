@@ -100,9 +100,8 @@ function extractSystemAndType(filePath : string) : { system : string; type : str
     const afterStatic = parts[staticIdx + 1];
     if(afterStatic === 'supplements')
     {
-        // No staticSubdir, system is the folder name
-        const srcIdx = parts.indexOf('src');
-        const system = parts[srcIdx + 1];
+        // No staticSubdir, system is the folder before 'static'
+        const system = parts[staticIdx - 1];
         return { system, type };
     }
     else
@@ -114,7 +113,7 @@ function extractSystemAndType(filePath : string) : { system : string; type : str
 
 function extractSystemFromSourcePath(filePath : string) : string
 {
-    // Path pattern: .../src/{folder}/static/{staticSubdir?}/sources.yaml
+    // Path pattern: .../{folder}/static/{staticSubdir?}/sources.yaml
     const parts = filePath.split(path.sep);
     const staticIdx = parts.indexOf('static');
 
@@ -127,9 +126,8 @@ function extractSystemFromSourcePath(filePath : string) : string
     const afterStatic = parts[staticIdx + 1];
     if(afterStatic === 'sources.yaml')
     {
-        // No staticSubdir, system is the folder name
-        const srcIdx = parts.indexOf('src');
-        return parts[srcIdx + 1];
+        // No staticSubdir, system is the folder before 'static'
+        return parts[staticIdx - 1];
     }
     else
     {

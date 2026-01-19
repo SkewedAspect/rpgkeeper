@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { expect } from 'chai';
-import { filterByQuery, parseQuery } from '../../../../packages/server/src/routes/utils/query.ts';
+import { filterByQuery, parseQuery } from '../../../../src/server/src/routes/utils/query.ts';
 
 describe('parseQuery', () =>
 {

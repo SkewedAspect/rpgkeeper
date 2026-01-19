@@ -6,9 +6,9 @@
 
 import { expect } from 'chai';
 import Knex from 'knex';
-import { SupplementSubManager } from '../../../packages/server/src/managers';
-import { EntityResourceAccess } from '../../../packages/server/src/resource-access';
-import * as staticRA from '../../../packages/server/src/resource-access/static.ts';
+import { SupplementSubManager } from '../../../src/server/src/managers';
+import { EntityResourceAccess } from '../../../src/server/src/resource-access';
+import * as staticRA from '../../../src/server/src/resource-access/static.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Setup

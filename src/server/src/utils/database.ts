@@ -169,7 +169,7 @@ export async function runMigrations(runSeeds = true) : Promise<void>
 
     // Run the migrations
     await db.migrate.latest({
-        directory: './packages/server/src/knex/migrations',
+        directory: './src/server/src/knex/migrations',
         loadExtensions: [ '.ts' ],
     });
 
@@ -177,7 +177,7 @@ export async function runMigrations(runSeeds = true) : Promise<void>
     if(runSeeds)
     {
         await db.seed.run({
-            directory: './packages/server/src/knex/seeds',
+            directory: './src/server/src/knex/seeds',
             loadExtensions: [ '.ts' ],
         });
     }

@@ -10,7 +10,7 @@ import {
     WFRPDetailsSchema,
     WFRPSkillSchema,
     WFRPStatSchema,
-} from '../../../packages/systems/src/wfrp/schema.ts';
+} from '../../../src/systems/src/wfrp/schema.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Data

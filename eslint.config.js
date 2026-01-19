@@ -226,10 +226,10 @@ export default [
     {
         // These files deal with databases, and we can't force columns to be camelCase, so we disable the rule here.
         files: [
-            'packages/server/src/resource-access/**/*.ts',
-            'packages/server/src/models/**/*.ts',
-            'packages/server/src/knex/seeds/**/*',
-            'packages/server/src/knex/migrations/**/*',
+            'src/server/src/resource-access/**/*.ts',
+            'src/server/src/models/**/*.ts',
+            'src/server/src/knex/seeds/**/*',
+            'src/server/src/knex/migrations/**/*',
         ],
         rules: {
             camelcase: 'off',
@@ -239,8 +239,8 @@ export default [
     {
         // These are very long strings and wrapping them sucks.
         files: [
-            'packages/server/src/knex/seeds/**/*',
-            'packages/server/src/knex/migrations/**/*',
+            'src/server/src/knex/seeds/**/*',
+            'src/server/src/knex/migrations/**/*',
         ],
         rules: {
             '@stylistic/max-len': 'off',

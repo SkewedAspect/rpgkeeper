@@ -58,7 +58,7 @@ The current system muddles these together. The fix is to separate them completel
 One YAML file per definition, organized by system and type:
 
 ```
-packages/systems/src/
+src/systems/src/
   eote/static/
     eote/                           # EotE-specific content
       sources.yaml                  # Source books metadata
@@ -94,7 +94,7 @@ packages/systems/src/
 Each definition file has an explicit ID:
 
 ```yaml
-# packages/systems/src/eote/static/eote/definitions/talents/durable.yaml
+# src/systems/src/eote/static/eote/definitions/talents/durable.yaml
 id: eote-talent-durable
 name: Durable
 description: The character may reduce a Critical Injury result...
@@ -251,7 +251,7 @@ No in-app tracking of "this became official." It just exists in static now.
 Each system is a fully self-contained module:
 
 ```
-packages/systems/src/eote/
+src/systems/src/eote/
   │
   ├── definition.ts           # System metadata (id, name, status)
   ├── models.ts               # TypeScript interfaces
@@ -290,7 +290,7 @@ packages/systems/src/eote/
 Systems declare what definition types they support:
 
 ```typescript
-// packages/systems/src/eote/library/schemas.ts
+// src/systems/src/eote/library/schemas.ts
 import { z } from 'zod';
 
 export const TalentSchema = z.object({
@@ -319,7 +319,7 @@ export const WeaponSchema = z.object({
 ```
 
 ```typescript
-// packages/systems/src/eote/library/index.ts
+// src/systems/src/eote/library/index.ts
 import { TalentSchema, WeaponSchema, AbilitySchema, GearSchema } from './schemas.ts';
 
 export const libraryDefinitions = {
@@ -338,7 +338,7 @@ export type EoteDefinitionType = keyof typeof libraryDefinitions;
 **No more auto-route building.** Systems export Express routers explicitly:
 
 ```typescript
-// packages/systems/src/eote/library/routes.ts
+// src/systems/src/eote/library/routes.ts
 import { Router } from 'express';
 import { buildLibraryRoutes } from '@rpgk/server/utils/library';
 import { TalentSchema, WeaponSchema } from './schemas.ts';
@@ -367,7 +367,7 @@ But it's just convention. Systems write their own routes. Factory functions are 
 Systems include their own client-side code:
 
 ```typescript
-// packages/systems/src/eote/client/resource-access.ts
+// src/systems/src/eote/client/resource-access.ts
 import { api } from '@rpgk/client/lib/api';
 import type { EoteTalent, EoteWeapon } from '../models.ts';
 
@@ -384,7 +384,7 @@ export async function getTalent(ref: DefinitionRef): Promise<EoteTalent> {
 ```
 
 ```typescript
-// packages/systems/src/eote/client/managers.ts
+// src/systems/src/eote/client/managers.ts
 import * as libraryRA from './resource-access.ts';
 
 export class EoteLibraryManager {
@@ -433,9 +433,9 @@ Everything specific to that game system:
 
 1. ✅ Create static DB build pipeline (YAML → SQLite)
    - `scripts/convert-seeds-to-yaml.ts` - Converts database seeds to YAML
-   - `packages/systems/scripts/build-static-db.ts` - Builds SQLite from YAML
+   - `src/systems/scripts/build-static-db.ts` - Builds SQLite from YAML
    - `npm run db:build-static` - NPM script (outputs to `db/static.db`)
-2. ✅ Add static DB resource access (`packages/server/src/resource-access/static.ts`)
+2. ✅ Add static DB resource access (`src/server/src/resource-access/static.ts`)
 3. ⏳ Add `definitions` table to main DB (UGC)
 4. ⏳ Add `campaign_definitions` junction table
 5. ⏳ Create generic library CRUD utilities

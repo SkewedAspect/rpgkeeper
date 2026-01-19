@@ -13,11 +13,11 @@ import Components from 'unplugin-vue-components/vite';
 import { BootstrapVueNextResolver } from 'bootstrap-vue-next';
 
 // Interfaces
-import type { ServerConfig } from './packages/server/src/interfaces/config.ts';
+import type { ServerConfig } from './src/server/src/interfaces/config.ts';
 
 // Utils
 import configUtil from '@strata-js/util-config';
-import { getVersion } from './packages/server/src/utils/version.ts';
+import { getVersion } from './src/server/src/utils/version.ts';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Configuration
@@ -32,21 +32,21 @@ const config = configUtil.get<ServerConfig>();
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
-    root: 'packages/client/src',
+    root: 'src/client/src',
     publicDir: 'assets',
     resolve: {
         alias: {
-            '@rpgk/core': resolve(__dirname, 'packages/core/src'),
-            '@rpgk/systems': resolve(__dirname, 'packages/systems/src'),
-            '@client': resolve(__dirname, 'packages/client/src'),
-            '@server': resolve(__dirname, 'packages/server/src'),
+            '@rpgk/core': resolve(__dirname, 'src/core/src'),
+            '@rpgk/systems': resolve(__dirname, 'src/systems/src'),
+            '@client': resolve(__dirname, 'src/client/src'),
+            '@server': resolve(__dirname, 'src/server/src'),
         },
     },
     plugins: [
         checker({
             eslint: {
-                lintCommand: 'eslint "packages/client/src/**/*.{ts,js,vue}" '
-                    + '"packages/systems/src/**/client/**/*.{ts,js,vue}" "packages/systems/src/client.ts" '
+                lintCommand: 'eslint "src/client/src/**/*.{ts,js,vue}" '
+                    + '"src/systems/src/**/client/**/*.{ts,js,vue}" "src/systems/src/client.ts" '
                     + '--max-warnings=0',
                 useFlatConfig: true,
             },

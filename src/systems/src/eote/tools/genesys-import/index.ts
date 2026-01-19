@@ -5,7 +5,7 @@
 // and converts it to RPGKeeper's YAML format.
 //
 // Usage:
-//   npx tsx packages/systems/src/eote/tools/genesys-import/index.ts [options]
+//   npx tsx src/systems/src/eote/tools/genesys-import/index.ts [options]
 //
 // Options:
 //   --dry-run       Show what would be written without writing
