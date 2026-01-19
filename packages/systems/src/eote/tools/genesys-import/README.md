@@ -115,16 +115,16 @@ Example: "Quick Strike" becomes `genesys-talent-quick-strike`
 3. **Extract**: Extracts talents, qualities, gear, and abilities from each book
 4. **Convert**: Transforms external format to internal YAML format
 5. **Deduplicate**: Merges items by ID (same item may appear in multiple books)
-6. **Write**: Overwrites YAML files in `static/genesys/definitions/`
+6. **Write**: Overwrites YAML files in `static/genesys/supplements/`
 
 ## Output Directories
 
 Files are written to:
-- `packages/systems/src/eote/static/genesys/definitions/talents/`
-- `packages/systems/src/eote/static/genesys/definitions/qualities/`
-- `packages/systems/src/eote/static/genesys/definitions/weapons/`
-- `packages/systems/src/eote/static/genesys/definitions/attachments/`
-- `packages/systems/src/eote/static/genesys/definitions/abilities/`
+- `packages/systems/src/eote/static/genesys/supplements/talents/`
+- `packages/systems/src/eote/static/genesys/supplements/qualities/`
+- `packages/systems/src/eote/static/genesys/supplements/weapons/`
+- `packages/systems/src/eote/static/genesys/supplements/attachments/`
+- `packages/systems/src/eote/static/genesys/supplements/abilities/`
 
 ## File Structure
 

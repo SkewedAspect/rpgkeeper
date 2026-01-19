@@ -47,22 +47,22 @@ interface Definition
 
 function extractSystemAndType(filePath : string) : { system : string; type : string } | null
 {
-    // Path pattern: .../src/{folder}/static/{staticSubdir?}/definitions/{type}s/{slug}.yaml
+    // Path pattern: .../src/{folder}/static/{staticSubdir?}/supplements/{type}s/{slug}.yaml
     // Examples:
-    //   .../src/eote/static/eote/definitions/talents/durable.yaml -> system: eote, type: talent
-    //   .../src/eote/static/genesys/definitions/talents/foo.yaml -> system: genesys, type: talent
-    //   .../src/coc/static/definitions/weapons/pistol.yaml -> system: coc, type: weapon
+    //   .../src/eote/static/eote/supplements/talents/durable.yaml -> system: eote, type: talent
+    //   .../src/eote/static/genesys/supplements/talents/foo.yaml -> system: genesys, type: talent
+    //   .../src/coc/static/supplements/weapons/pistol.yaml -> system: coc, type: weapon
 
     const parts = filePath.split(path.sep);
-    const definitionsIdx = parts.indexOf('definitions');
+    const supplementsIdx = parts.indexOf('supplements');
 
-    if(definitionsIdx === -1)
+    if(supplementsIdx === -1)
     {
         return null;
     }
 
-    // Type is the folder after definitions (minus the plural suffix)
-    const typeFolder = parts[definitionsIdx + 1];
+    // Type is the folder after supplements (minus the plural suffix)
+    const typeFolder = parts[supplementsIdx + 1];
     // Handle irregular plurals first
     const irregularPlurals : Record<string, string> = {
         abilities: 'ability',
@@ -96,9 +96,9 @@ function extractSystemAndType(filePath : string) : { system : string; type : str
         return null;
     }
 
-    // Check if there's a subfolder after static that's not 'definitions'
+    // Check if there's a subfolder after static that's not 'supplements'
     const afterStatic = parts[staticIdx + 1];
-    if(afterStatic === 'definitions')
+    if(afterStatic === 'supplements')
     {
         // No staticSubdir, system is the folder name
         const srcIdx = parts.indexOf('src');
@@ -234,12 +234,12 @@ async function loadDefinitions(db : Database.Database) : Promise<void>
 {
     console.log('\n📖 Loading definitions...');
 
-    const definitionFiles = await glob('**/static/**/definitions/**/*.yaml', { cwd: SYSTEMS_PATH, absolute: true });
+    const supplementFiles = await glob('**/static/**/supplements/**/*.yaml', { cwd: SYSTEMS_PATH, absolute: true });
     const insertStmt = db.prepare('INSERT INTO definitions (id, system, type, name, content) VALUES (?, ?, ?, ?, ?)');
 
     const counts : Record<string, number> = {};
 
-    for(const filePath of definitionFiles)
+    for(const filePath of supplementFiles)
     {
         const meta = extractSystemAndType(filePath);
         if(!meta)

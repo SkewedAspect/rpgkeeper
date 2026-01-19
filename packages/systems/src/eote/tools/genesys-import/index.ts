@@ -47,8 +47,8 @@ import { BOOK_ABBREVIATIONS } from './utils.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Path to the definitions directory
-const DEFINITIONS_DIR = resolve(__dirname, '../../static/genesys/definitions');
+// Path to the supplements directory
+const SUPPLEMENTS_DIR = resolve(__dirname, '../../static/genesys/supplements');
 
 //----------------------------------------------------------------------------------------------------------------------
 // CLI Argument Parsing
@@ -276,7 +276,7 @@ async function main() : Promise<void>
     // Write talents
     if(!options.type || options.type === 'talent')
     {
-        const talentDir = join(DEFINITIONS_DIR, 'talents');
+        const talentDir = join(SUPPLEMENTS_DIR, 'talents');
         for(const talent of talents)
         {
             await writeYamlFile(talentDir, talent as unknown as YamlWritable, options.dryRun);
@@ -287,7 +287,7 @@ async function main() : Promise<void>
     // Write qualities
     if(!options.type || options.type === 'quality')
     {
-        const qualityDir = join(DEFINITIONS_DIR, 'qualities');
+        const qualityDir = join(SUPPLEMENTS_DIR, 'qualities');
         for(const quality of qualities)
         {
             await writeYamlFile(qualityDir, quality as unknown as YamlWritable, options.dryRun);
@@ -298,7 +298,7 @@ async function main() : Promise<void>
     // Write weapons
     if(!options.type || options.type === 'weapon')
     {
-        const weaponDir = join(DEFINITIONS_DIR, 'weapons');
+        const weaponDir = join(SUPPLEMENTS_DIR, 'weapons');
         for(const weapon of weapons)
         {
             await writeYamlFile(weaponDir, weapon as unknown as YamlWritable, options.dryRun);
@@ -309,7 +309,7 @@ async function main() : Promise<void>
     // Write attachments
     if(!options.type || options.type === 'attachment')
     {
-        const attachmentDir = join(DEFINITIONS_DIR, 'attachments');
+        const attachmentDir = join(SUPPLEMENTS_DIR, 'attachments');
         for(const attachment of attachments)
         {
             await writeYamlFile(attachmentDir, attachment as unknown as YamlWritable, options.dryRun);
@@ -320,7 +320,7 @@ async function main() : Promise<void>
     // Write abilities
     if(!options.type || options.type === 'ability')
     {
-        const abilityDir = join(DEFINITIONS_DIR, 'abilities');
+        const abilityDir = join(SUPPLEMENTS_DIR, 'abilities');
         for(const ability of abilities)
         {
             await writeYamlFile(abilityDir, ability as unknown as YamlWritable, options.dryRun);
