@@ -1,0 +1,5 @@
+id: genesys-ability-mounted-charge
+name: Mounted Charge
+description: This character adds <boost></boost><boost></boost> to its first melee attack after performing a maneuver to
+  engage the target in the same turn.
+reference: RoT

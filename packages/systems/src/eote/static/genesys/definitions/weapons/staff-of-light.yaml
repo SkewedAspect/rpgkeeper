@@ -1,0 +1,21 @@
+id: genesys-weapon-staff-of-light
+name: Staff of Light
+description: Priests of Pollux developed Staffs of Light as an alternative to the messy business of using torches and
+  lamps for illumination. They are short and sturdy lengths of twisted wrought iron topped with a pearlescent jewel that
+  glows with intense white light when a word of command is spoken. Usually the staffs are simply used in place of
+  torches, but adventurers have been known to brandish these magical staffs at foes in order to dazzle them. Those with
+  true magical skills, though, can use them for even greater tasks. A Staff of Light provides illumination out to short
+  range. It is also a magic implement, as described on page 218 of the Genesys Core Rulebook, While using the Staff of
+  Light as their implement, your character can use the Arcana skill to cast Heal spells. In addition, while your
+  character casts a spell adding the Blast effect does not increase the spell's difficulty. Attack spells cast by your
+  character increase their base damage by five.
+skill: Melee (Heavy)
+damage: 2
+criticalRating: 4
+range: en
+encumbrance: 0
+rarity: 9
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 2
+reference: RoT:109

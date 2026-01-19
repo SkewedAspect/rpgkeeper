@@ -1,0 +1,5 @@
+id: genesys-ability-lets-open-the-good-stuff
+name: Let's Open the Good Stuff
+description: When assisting on a knowledge skill check, may add additional <boost></boost><boost></boost> to the check;
+  if so, at the end of the encounter the character who made the check recovers 3 fewer strain (to a minimum of 0).
+reference: SotC

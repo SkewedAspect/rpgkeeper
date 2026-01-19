@@ -1,0 +1,5 @@
+id: genesys-ability-dark-vision
+name: Dark Vision
+description: When making skill checks, this character removes up to <setback></setback><setback></setback> imposed due
+  to concealment (darkness, smoke, and intervening terrain).
+reference: G-CRB

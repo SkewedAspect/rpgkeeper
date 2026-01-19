@@ -1,0 +1,5 @@
+id: genesys-ability-toss
+name: Toss
+description: After making a combat check, this creature may spend <threat></threat> to move the target up to short
+  range, inflict 4 strain, and knock the target prone.
+reference: G-EPG

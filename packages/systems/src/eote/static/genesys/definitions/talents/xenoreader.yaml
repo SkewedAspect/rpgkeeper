@@ -1,0 +1,11 @@
+id: genesys-talent-xenoreader
+name: Xenoreader
+description: "When you purchase this talent for your character, choose one of the following five categories: mammalian,
+  aquatic, insectoid, reptilian, or anomaly (species that do not fit into one of the other categories). When your
+  character makes a social skill check targeting a member of the chosen category, add
+  <advantage></advantage><advantage></advantage> to the results. Each additional time you purchase this talent for your
+  character, you may choose one additional category."
+activation: p
+ranked: true
+tier: 1
+reference: EotI:51

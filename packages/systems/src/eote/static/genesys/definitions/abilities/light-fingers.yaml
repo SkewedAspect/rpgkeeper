@@ -1,0 +1,5 @@
+id: genesys-ability-light-fingers
+name: Light Fingers
+description: After making a melee combat check, may spend <threat></threat> to steal one item of encumbrance 1 or less
+  from the target.
+reference: SotC

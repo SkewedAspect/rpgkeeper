@@ -1,0 +1,8 @@
+id: genesys-ability-rile-them-up
+name: Rile Them Up
+description: Once per encounter, may make an <difficulty></difficulty><difficulty></difficulty> targeting a group of
+  bystanders or other neutral NPCs at medium range; if the check is successful, one of the bystanders (plus one per
+  additional <success></success>) becomes a Human First Extremist; these NPCs form a single minion group and join the
+  ongoing encounter. These NPCs may have been regular people convinced by the rep or they may have been members of Human
+  First all along.
+reference: SotB

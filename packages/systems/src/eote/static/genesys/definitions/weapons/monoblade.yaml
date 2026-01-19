@@ -1,0 +1,18 @@
+id: genesys-weapon-monoblade
+name: Monoblade
+description: "Monoblades are clever, easily concealed weapons that are among the most deadly devices ever created. Built
+  in various lengths and styles, monoblades feature a simple knife or sword hilt that contains a reel of retractable
+  blade media, a static generator, and a powerful capacitor. The reel contains a set length of buckyweave a single
+  molecule thick that, when charged by the static generator in the hilt, stiffens into a wickedly sharp blade.
+  Monoblades can cut through cloth, armor, flesh, and bone with equal ease and are extremely dangerous in the right
+  hands. Models Include: Strelet Arms Razor Edge, Delta Arms M30 Utility Blade."
+skill: Melee
+damage: 1
+criticalRating: 2
+range: en
+encumbrance: 1
+rarity: 3
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 2
+reference: SotB:91

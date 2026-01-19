@@ -1,0 +1,11 @@
+id: genesys-talent-potent-concoctions
+name: Potent Concoctions
+description: When your character makes an Alchemy check that generates <threat></threat>, roll an additional
+  <proficiency></proficiency> and add its results to the pool, in addition to spending the <threat></threat> normally.
+  When your character makes an Alchemy check that generates <difficulty></difficulty>, roll an additional
+  <challenge></challenge> and add its results to the pool, in addition to spending the <difficulty></difficulty>
+  normally. Each of these effects can occur only once per check.
+activation: p
+ranked: false
+tier: 3
+reference: RoT:90

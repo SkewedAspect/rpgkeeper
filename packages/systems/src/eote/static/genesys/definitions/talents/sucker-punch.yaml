@@ -1,0 +1,9 @@
+id: genesys-talent-sucker-punch
+name: Sucker Punch
+description: Your character may use this talent to spend <threat></threat> from a check they make to determine
+  Initiative to make a Brawl combat check against a valid target before the first round of combat begins. If this combat
+  check is successful, your character may activate the Disorient item quality without spending <advantage></advantage>.
+activation: aio
+ranked: false
+tier: 2
+reference: SotC:79

@@ -1,0 +1,20 @@
+id: genesys-weapon-throwing-axe
+name: Throwing Axe
+description: "The rangers of the Dunwarr Mountains are fond of saying that the only thing better than an axe is an axe
+  you can throw at someone. No amount of balancing a hand axe for throwing can make it a truly accurate weapon, but if
+  it hits, it is likely to do some serious damage. Your character can hurl a throwing axe at their foe using the profile
+  in 2-6: Ranged Weapons on page 95, or they can wield one using the following profile: [Table: Melee Stats]"
+skill: Ranged
+damage: 2
+criticalRating: 3
+range: s
+encumbrance: 1
+rarity: 1
+qualities:
+  - id: genesys-quality-inaccurate
+    ranks: 1
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+  - id: genesys-quality-vicious
+    ranks: 1
+reference: RoT:95

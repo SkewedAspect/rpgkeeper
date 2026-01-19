@@ -1,0 +1,10 @@
+id: genesys-talent-electrified
+name: Electrified
+description: This talent costs 3 Æmber. Your character adds the Disorient and Stun item qualities to their unarmed
+  attacks. In addition, Brawl combat checks that target your character add <despair></despair><despair></despair> to
+  their results. <difficulty></difficulty> from a Brawl check your character makes may be spent to deplete this talent.
+  Being electrified may have other narrative effects, at your GM's discretion.
+activation: p
+ranked: false
+tier: 3
+reference: SotC:82

@@ -1,0 +1,20 @@
+id: genesys-weapon-infantry-grenade
+name: Infantry Grenade
+description: "Standard infantry grenades are small explosive devices (often in the form of a sphere or disk for easy
+  throwing). When thrown, they arm themselves automatically, detonating on contact with the target. Nearly all rely on
+  some sort of supercompact explosive combined with microshrapnel and a blinding gas to disorient biological targets.
+  This weapon may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Ranged (Light)
+damage: 7
+criticalRating: 4
+range: s
+encumbrance: 1
+rarity: 3
+qualities:
+  - id: genesys-quality-blast
+    ranks: 7
+  - id: genesys-quality-disorient
+    ranks: 2
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: EotI:111

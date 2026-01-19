@@ -1,7 +1,8 @@
 id: genesys-talent-forager
 name: Forager
-description: The character removes up to <setback></setback><setback></setback> from his skill checks to find food,
-  water, or shelter. Survival checks to forage take half the time.
+description: Your character removes up to <setback></setback><setback></setback> from any skill checks they make to find
+  food, water, or shelter. Checks to forage or search the area that your character makes take half the time they would
+  normally.
 activation: p
 ranked: false
 tier: 1

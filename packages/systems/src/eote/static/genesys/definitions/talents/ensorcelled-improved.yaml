@@ -1,0 +1,12 @@
+id: genesys-talent-ensorcelled-improved
+name: Ensorcelled (Improved)
+description: Your character must have purchased the Ensorcelled talent to benefit from this talent. If your character
+  has at least two ranks in a magic skill, when using the Ensorcelled talent, they may add
+  <success></success><advantage></advantage> to their next social skill check (instead of <advantage></advantage>).
+  After purchasing this talent, your character's appearance is now noticeably changed by their magic. What form this
+  enhancement takes is up to you, with your GM's approval, but it should be based on the magic skill your character
+  possesses as well as the enhancement they originally possessed with the Ensorcelled talent.
+activation: ai
+ranked: false
+tier: 2
+reference: G-EPG:95

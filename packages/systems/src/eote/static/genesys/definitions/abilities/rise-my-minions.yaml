@@ -1,0 +1,6 @@
+id: genesys-ability-rise-my-minions
+name: Rise, My Minions!
+description: Once per session, may make a Hard (depending on the type of minions this character has); for each
+  uncanceled <success></success>, one incapacitated minion within medium range heals all wounds and rejoins the
+  encounter; it may act in the current round.
+reference: G-CRB

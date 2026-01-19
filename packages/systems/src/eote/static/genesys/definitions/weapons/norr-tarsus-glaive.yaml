@@ -1,0 +1,22 @@
+id: genesys-weapon-norr-tarsus-glaive
+name: N'orr Tarsus Glaive
+description: "The morphology of the N'orr gives their warriors unique capabilities on the battlefield, such as longer
+  reach and stronger blows with their forearms. To augment their already formidable combat prowess, their elite Tekklar
+  Elite carry close combat weapons in addition to their rifles and heavy artillery. The tarsus glaive is not truly a
+  polearm, but folds out from a sheath strapped to the foremost part of a N'orr manipulator limbs. It takes advantage of
+  the insectoids' already considerable reach to stab and slash at a farther reach than any \"proper\" glaive. A tarsus
+  glaive requires two hands to wield, unless wielded by a N'orr. When wielded by a N'orr, the tarsus glaive may make
+  melee attacks at short range. The difficulty of these attacks is <difficulty></difficulty><difficulty></difficulty>.
+  This weapon may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Melee
+damage: 4
+criticalRating: 3
+range: en
+encumbrance: 3
+rarity: 8
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: EotI:115

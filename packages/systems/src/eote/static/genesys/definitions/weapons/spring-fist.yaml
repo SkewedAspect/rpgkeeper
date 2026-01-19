@@ -1,0 +1,20 @@
+id: genesys-weapon-spring-fist
+name: Spring-Fist
+description: A spring-fist is essentially a clockwork pair of brass knuckles. At one end is a glove reinforced with
+  metal banding. The rest of the spring-fist is a series of coilsprings connected to a sturdy framework that runs the
+  length of your character's arm. When activated, it lets your character strike with bone-breaking force. However, the
+  springs require time to retighten after each use, hence the Slow-Firing item quality The Slow-Firing quality does not
+  stop your character from making unarmed attacks in the intervening rounds, but they do not benefit from the
+  spring-fist's profile while doing so.
+skill: Brawl
+damage: 4
+criticalRating: 4
+range: en
+encumbrance: 2
+rarity: 5
+qualities:
+  - id: genesys-quality-concussive
+    ranks: 1
+  - id: genesys-quality-slow-firing
+    ranks: 2
+reference: G-CRB:154

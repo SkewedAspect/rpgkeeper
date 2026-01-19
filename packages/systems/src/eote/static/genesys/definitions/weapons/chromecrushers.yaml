@@ -1,0 +1,20 @@
+id: genesys-weapon-chromecrushers
+name: Chromecrushers
+description: "These high-tech boxing gloves were originally invented for use in the new gladiatorial rings that sprang
+  up after androids became commonplace. In shadowy, illegal establishments like Hoyo Rojo, stimmed-up humans pit
+  themselves against bioroids as bets are placed on how long the androids can survive before being beaten into scrap.
+  Chromecrushers have reduced that survival time considerably. These heavy gloves fit powerful burst-discharge actuators
+  over the knuckles, amplifying the power of each punch several times over. Heavy power cables run to a small backpack
+  power supply. The entire rig is light enough that it won't weigh a boxer down, but its bloody origins give this weapon
+  (and its wielders) a dark reputation in civilized circles. Chromecrushers require two hands to wield (since they can
+  only be used in pairs). Models Include: Kaluta Collective Hammerstryke!, Cyberclash Industries Punchmasters."
+skill: Brawl
+damage: 3
+criticalRating: 4
+range: en
+encumbrance: 2
+rarity: 3
+qualities:
+  - id: genesys-quality-linked
+    ranks: 1
+reference: SotB:90

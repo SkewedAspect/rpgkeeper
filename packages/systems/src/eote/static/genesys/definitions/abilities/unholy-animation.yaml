@@ -1,0 +1,4 @@
+id: genesys-ability-unholy-animation
+name: Unholy Animation
+description: When hit by a combat check, spend <difficulty></difficulty> to ignore all damage from the attack.
+reference: G-CRB

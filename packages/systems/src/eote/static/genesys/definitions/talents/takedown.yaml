@@ -1,0 +1,10 @@
+id: genesys-talent-takedown
+name: Takedown
+description: Your character may use this talent to make an opposed Brawl vs. Resilience check targeting one engaged
+  opponent. If the check succeeds, the target is knocked prone and immobilized until the end of your character's next
+  turn. If the target is a minion or rival, your character may spend <threat></threat> to incapacitate (but not kill)
+  the target instead.
+activation: aa
+ranked: false
+tier: 3
+reference: SotB:51

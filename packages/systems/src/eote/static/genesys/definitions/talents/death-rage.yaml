@@ -1,0 +1,9 @@
+id: genesys-talent-death-rage
+name: Death Rage
+description: "Your character adds +2 damage to melee attacks for each I.6-10: Critical Injury Result they are currently
+  suffering. (Your GM may also impose additional penalties on social skill checks your character makes if they are
+  suffering I.6-10: Critical Injury Result due to their frenzied behavior.)"
+activation: p
+ranked: false
+tier: 4
+reference: RoT:91

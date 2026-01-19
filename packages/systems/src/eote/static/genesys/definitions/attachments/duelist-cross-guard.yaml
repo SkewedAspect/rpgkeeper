@@ -1,0 +1,11 @@
+id: genesys-attachment-duelist-cross-guard
+name: Duelist Cross Guard
+description: This attachment represents modifying the cross guard of a sword to better catch and lock the blade of an
+  opponent. This kind of attachment makes sense for the fantasy setting, but could make sense for any setting where
+  dueling with swords is common.
+useWith: This attachment can be applied to any sword, whether one-handed or two-handed.
+modifiers: When an opponent resolves a melee combat check against the wielder, if the check generated at least one
+  uncanceled Despair, the wielder may suffer 1 strain as an out-of-turn incidental to add Despair Despair to the
+  results.
+hpRequired: 1
+reference: G-CRB:207

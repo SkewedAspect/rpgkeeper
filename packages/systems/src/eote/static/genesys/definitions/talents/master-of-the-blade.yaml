@@ -1,0 +1,10 @@
+id: genesys-talent-master-of-the-blade
+name: Master of the Blade
+description: Your character must be a Hacan, a {@archetype Letnev, or a N'orr or have allegiance to the Sardakk N'orr to
+  benefit from this talent.} Your character adds <failure></failure> to the results of all combat checks targeting them
+  while they are wielding a Melee weapon and engaged with multiple enemies (a single minion group counts as multiple
+  enemies for the purposes of this talent).
+activation: p
+ranked: false
+tier: 3
+reference: EotI:54

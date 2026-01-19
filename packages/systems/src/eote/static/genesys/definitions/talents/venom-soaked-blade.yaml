@@ -1,0 +1,8 @@
+id: genesys-talent-venom-soaked-blade
+name: Venom Soaked Blade
+description: When making a Melee (Light) combat check using a poisoned weapon, your character treats it as possessing
+  the Burn item quality.
+activation: p
+ranked: false
+tier: 4
+reference: RoT:91

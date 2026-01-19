@@ -1,0 +1,11 @@
+id: genesys-talent-fly-quiet
+name: Fly Quiet
+description: Once per encounter while controlling a spaceship, your character may use this talent to make a hard
+  (depending on the skill needed to control the vehicle). If the check is successful, the ship vanishes from sensors and
+  cannot be located unless it fires weapons, broadcasts a signal, or performs another activity that reasonably allows
+  others to spot it, or unless an opponent aboard another starship with sensors makes a successful opposed Computers or
+  Operating check} targeting your character
+activation: aa
+ranked: false
+tier: 4
+reference: EotI:57

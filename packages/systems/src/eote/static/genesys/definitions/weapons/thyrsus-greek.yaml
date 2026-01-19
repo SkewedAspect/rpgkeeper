@@ -1,0 +1,21 @@
+id: genesys-weapon-thyrsus-greek
+name: Thyrsus (Greek)
+description: The sacred weapon of Dionysus, the Thyrsus is a rod with a pine cone at the end. Honey drips from the pine
+  cone, and a steel tip is hidden within the cone's scales. This rare, but not unique, weapon can induce a sacred frenzy
+  in its targets, and it has been carried by satyrs, maenads, and the god himself. While wielding the Thyrsus, if your
+  character makes a combat check that would incapacitate a character, the character instead heals all strain, then
+  lashes out in a frenzied, ecstatic rampage for the remainder of the encounter. During their turn, they must make a
+  brawl combat check targeting the closest engaged character (if they are engaged with multiple characters, select the
+  target randomly). If they are not engaged with any character, they move in a random direction performing random
+  nonsensical acts determined by your GM.
+skill: melee (light)
+damage: 2
+criticalRating: 2
+range: en
+encumbrance: 2
+rarity: 7
+qualities:
+  - id: genesys-quality-disorient
+    ranks: 3
+  - id: genesys-quality-stun-damage
+reference: G-EPG:13

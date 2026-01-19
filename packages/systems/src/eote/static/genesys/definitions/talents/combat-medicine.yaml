@@ -1,0 +1,9 @@
+id: genesys-talent-combat-medicine
+name: Combat Medicine
+description: Before making a Medicine check, your character may use this talent to add <success></success> equal to
+  their ranks in Combat Medicine to the results. After the check is resolved, the target suffers 2 strain for each rank
+  your character has in Combat Medicine.
+activation: ai
+ranked: true
+tier: 2
+reference: SotB:48

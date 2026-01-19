@@ -1,0 +1,20 @@
+id: genesys-weapon-twin-letnev-poniards
+name: Twin Letnev Poniards
+description: "Seen throughout the galaxy as militaristic and stalwart, the Letnev possess countless traditions that can
+  seem barbaric to outsiders. One such tradition is the Saliu'strebec, a martial art that uses two poniards while
+  performing slow, methodical movements. Practitioners of this art understand that when sped up, the movement becomes a
+  deadly flurry of attacks. The poniards used in this art are perfectly balanced twin blades that magnetically clip
+  together when not in use. Twin poniards require two hands to wield. This weapon may be modified with 2-1: Cultural
+  Manufacturing Differences."
+skill: Melee
+damage: 3
+criticalRating: 2
+range: en
+encumbrance: 2
+rarity: 8
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+  - id: genesys-quality-linked
+    ranks: 1
+reference: EotI:116

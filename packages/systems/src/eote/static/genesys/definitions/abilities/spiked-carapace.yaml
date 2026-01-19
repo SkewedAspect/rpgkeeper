@@ -1,0 +1,5 @@
+id: genesys-ability-spiked-carapace
+name: Spiked Carapace
+description: When targeted by a melee combat check, may spend <despair></despair><despair></despair><despair></despair>
+  or <difficulty></difficulty> from the results to have the attacker suffer 4 wounds.
+reference: SotC

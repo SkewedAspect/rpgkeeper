@@ -1,0 +1,21 @@
+id: genesys-weapon-ambassadorial-staff
+name: Ambassadorial Staff
+description: "A leftover tradition from the Lazax, wielding this ceremonial staff allows sentients on government or
+  royal business to communicate their importance to others. This device is approximately two meters in length and is
+  normally adorned with the wielder's symbol of office. Traditionally, the Lazax also built discreet electrostatic
+  projectors into the staff, allowing their ambassadors to defend themselves in an emergency. While wielding an
+  ambassadorial staff, a character adds <advantage></advantage> to any social skill checks they make as long as the
+  target is a member of the Galactic Council or someone who recognizes their authority. If the target is neither, the
+  character adds <despair></despair> to their social skill check instead. This weapon requires two hands to wield. This
+  weapon may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Melee
+damage: 2
+criticalRating: 5
+range: en
+encumbrance: 3
+rarity: 3
+qualities:
+  - id: genesys-quality-knockdown
+  - id: genesys-quality-stun
+    ranks: 3
+reference: EotI:115

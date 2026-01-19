@@ -1,0 +1,5 @@
+id: genesys-ability-cyberbyte
+name: Cyberbyte
+description: After making a combat check, may spend <threat></threat> to have the target suffer a hit dealing damage
+  equal to the base damage of one powered weapon the target possesses of the cyber rat's choice.
+reference: SotC

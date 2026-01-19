@@ -1,7 +1,8 @@
 id: genesys-attachment-reinforced-plating
 name: Reinforced Plating
 description: This attachment represents adding extra layers of armor or using stronger materials to reinforce the armor.
-useWith: Any armor that uses hardened plates.
-modifiers: Gain Reinforced equality, Encumbrance +1.
+  This kind of attachment makes sense in any setting.
+useWith: This attachment can be applied to any armor that uses hardened plates for protection.
+modifiers: The armor gains the Reinforced quality. The armor also increases its encoumbrance by 1.
 hpRequired: 2
 reference: G-CRB:209

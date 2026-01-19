@@ -1,0 +1,8 @@
+id: genesys-talent-two-handed-stance
+name: Two-Handed Stance
+description: When performing a combat check with a Ranged (Light) weapon, if your character has nothing in their other
+  hand, they add <advantage></advantage> to the results.
+activation: p
+ranked: false
+tier: 2
+reference: SotB:49

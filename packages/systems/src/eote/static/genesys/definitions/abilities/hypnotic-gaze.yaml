@@ -1,0 +1,6 @@
+id: genesys-ability-hypnotic-gaze
+name: Hypnotic Gaze
+description: This character may make an opposed Charm check} as an action targeting one character within short range. If
+  successful, the target is immobilized for 1 round per <success></success>, and this character may spend
+  <threat></threat> to staggered the target for 1 round.
+reference: RoT

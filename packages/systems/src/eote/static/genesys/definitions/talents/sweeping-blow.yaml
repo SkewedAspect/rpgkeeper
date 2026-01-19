@@ -1,0 +1,10 @@
+id: genesys-talent-sweeping-blow
+name: Sweeping Blow
+description: When your character makes a successful Brawl or Melee combat check against a target with a smaller
+  silhouette than theirs, they may inflict an additional hit on another valid target, dealing damage equal to the
+  original hit. The second target must also be of smaller silhouette than your character, and no more difficult to hit
+  than the initial target.
+activation: ai
+ranked: false
+tier: 3
+reference: SotC:83

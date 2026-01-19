@@ -1,0 +1,9 @@
+id: genesys-talent-forgot-to-count
+name: Forgot to Count?
+description: "When an opponent makes a ranged combat check, you can spend <despair></despair><despair></despair> from
+  that check to use this talent to cause their weapon to run out of ammo (see I.6-3: Spending Threat and Despair in
+  Combat on page 104), as long as the weapon can normally run out of ammunition."
+activation: aio
+ranked: false
+tier: 3
+reference: G-CRB:78

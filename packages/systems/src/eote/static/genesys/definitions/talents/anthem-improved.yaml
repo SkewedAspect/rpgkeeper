@@ -1,0 +1,8 @@
+id: genesys-talent-anthem-improved
+name: Anthem (Improved)
+description: Your character must have purchased the Anthem talent to benefit from this talent. While your character is
+  playing their anthem, enemies within range of its effect who can hear it add <setback></setback> to their checks.
+activation: p
+ranked: false
+tier: 3
+reference: SotC:81

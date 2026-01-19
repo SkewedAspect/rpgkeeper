@@ -1,0 +1,10 @@
+id: genesys-attachment-telescopic-sight
+name: Telescopic Sight
+description: A telescopic sight magnifies a target, allowing the user to shoot targets that they could normally barely
+  be able to see (futuristic versions may use special enhanced optics, rather than simple lenses). This kind of
+  attachment makes sense for the weird war, modern day, science fiction, and space opera settings.
+useWith: This attachment can be applied to any ranged weapon that could logically benefit from the addition of a
+  telescopic sight.
+modifiers: The user reduces the difficulty of ranged combat checks made with this weapon at long and extreme range by 1.
+hpRequired: 1
+reference: G-CRB:208

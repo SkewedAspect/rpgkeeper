@@ -1,0 +1,5 @@
+id: genesys-ability-devour
+name: Devour
+description: When attacking an immobilized or prone target, each uncanceled <success></success> increases the damage
+  dealt by +2 instead of +1.
+reference: EotI

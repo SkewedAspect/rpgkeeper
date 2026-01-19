@@ -1,0 +1,26 @@
+id: genesys-weapon-rotorsword
+name: Rotorsword
+description: This heavy "sword" features a rotating, bladed chain that runs most of the length of the weapon. It is
+  little more than a steam-powered chainsaw held like a two-handed sword. Although a rotorsword is extremely deadly, the
+  impracticality of having to fuel it before battle has prevented it from becoming a mainstay of fighting forces.
+  Additionally, bringing it to a gunfight is still risky We've given this grisly weapon the Vicious, Sunder, and Pierce
+  qualities to represent the horrible damage its heavy rotating blade inflicts. To represent the weight and
+  impracticality of the weapon, we've added Inaccurate and Cumbersome. Rotorswords require two hands to wield (and use
+  the Melee (Heavy) skill if in settings that include that skill).
+skill: Melee
+damage: 3
+criticalRating: 2
+range: en
+encumbrance: 5
+rarity: 7
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-inaccurate
+    ranks: 1
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-sunder
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: G-CRB:154

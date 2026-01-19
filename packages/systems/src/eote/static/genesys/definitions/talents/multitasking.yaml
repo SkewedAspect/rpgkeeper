@@ -1,0 +1,11 @@
+id: genesys-talent-multitasking
+name: Multitasking
+description: Your character must be a Naaz-Rokha or have allegiance to the Naaz-Rokha Alliance to benefit from this
+  talent. Once per encounter, your character may use this talent to exchange two maneuvers for an action. This allows
+  your character to perform two actions during a single turn. Your character must have two maneuvers available to
+  exchange to use this talent. This means that unless your character has two free maneuvers during their turn, they must
+  obtain a second maneuver by spending <advantage></advantage><advantage></advantage> or suffering strain.
+activation: ai
+ranked: false
+tier: 4
+reference: EotI:57

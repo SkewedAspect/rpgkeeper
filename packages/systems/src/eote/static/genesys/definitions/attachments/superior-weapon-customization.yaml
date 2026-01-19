@@ -1,0 +1,8 @@
+id: genesys-attachment-superior-weapon-customization
+name: Superior Weapon Customization
+description: This simply represents the weapon being modified by a master craftsman to be better than other examples of
+  its type. This kind of attachment makes sense for any setting.
+useWith: This attachment can be applied to any weapon.
+modifiers: The weapon gains the Superior quality.
+hpRequired: 1
+reference: G-CRB:208

@@ -1,0 +1,21 @@
+id: genesys-weapon-hunting-rifle
+name: Hunting Rifle
+description: Hunting rifles are nearly as ubiquitous as pistols in developed countries with a long history of hunting
+  and sporting. These rifles have long barrels and are often fitted with long-range telescopic sights to increase their
+  performance and accuracy. The hunting rifle presented here is a double-barreled deer rifle in a standard hunting
+  caliber like .30-06, .308, or 7 mm. You may reduce the damage by one for smaller varmint rifles, or increase it by one
+  for big-game weapons like elephant guns. Most hunting rifles should have the Accurate quality, since they're built for
+  single-shot accuracy. Finally, a hunting rifle can have an internal magazine. These rifles lose the Limited Ammo
+  quality, but increase their price by 100.
+skill: Ranged (Heavy)
+damage: 8
+criticalRating: 3
+range: l
+encumbrance: 4
+rarity: 4
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+  - id: genesys-quality-limited-ammo
+    ranks: 2
+reference: G-CRB:166

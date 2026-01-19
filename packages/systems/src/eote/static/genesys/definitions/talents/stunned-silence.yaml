@@ -1,0 +1,9 @@
+id: genesys-talent-stunned-silence
+name: Stunned Silence
+description: When your character makes a social skill check to inflict strain during a social encounter, they may use
+  this talent to spend <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> to
+  stagger the target for one round.
+activation: ai
+ranked: false
+tier: 4
+reference: SotC:84

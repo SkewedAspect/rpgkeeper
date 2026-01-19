@@ -1,0 +1,8 @@
+id: genesys-talent-cavalier
+name: Cavalier
+description: While riding a mount trained for battle (typically a War Mount [see page 105] or Flying Mount [see page
+  104]), once per round your character may use this talent to direct the mount to perform an action.
+activation: am
+ranked: false
+tier: 3
+reference: RoT:90

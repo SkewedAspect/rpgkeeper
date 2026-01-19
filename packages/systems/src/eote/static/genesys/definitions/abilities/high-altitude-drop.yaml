@@ -1,0 +1,5 @@
+id: genesys-ability-high-altitude-drop
+name: High-Altitude Drop
+description: When falling any distance, may make an <difficulty></difficulty> as an incidental; on a success, this
+  character does not suffer any damage from falling and lands on their feet.
+reference: SotB

@@ -1,0 +1,9 @@
+id: genesys-talent-spire-sense
+name: Spire Sense
+description: Your character always knows which direction the Spire is relative to their current location. Your character
+  can also always retrace their path to a location they previously visited, as long as the physical route has not
+  changed substantially.
+activation: p
+ranked: true
+tier: 1
+reference: SotC:75

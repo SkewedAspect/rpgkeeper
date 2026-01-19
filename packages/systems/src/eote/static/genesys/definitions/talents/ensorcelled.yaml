@@ -1,0 +1,15 @@
+id: genesys-talent-ensorcelled
+name: Ensorcelled
+description: If your character has at least one rank in a magic skill, once per encounter, they may use this talent to
+  add <advantage></advantage> to the result their next social skill check. Additionally, this has a passive narrative
+  effect; your character's appearance is subtly enhanced by their magic. Others do not note it as supernatural, but may
+  be slightly put off. What form this enhancement takes is up to you, with your GM's approval, but it should be based on
+  the magic skill your character possesses (as well as their backstory). A character with the Divine skill may always be
+  flushed with good health, or their eyes may flash red momentarily. A character with the Primal skill may be surrounded
+  by the scent of fresh pine, or their voice may have an intimidating growl. A character with the Arcana skill may have
+  their hair tousled by undetectable winds, or when they wear a hat or hood, their face might be obscured by strangely
+  deep shadows.
+activation: ai
+ranked: false
+tier: 1
+reference: G-EPG:95

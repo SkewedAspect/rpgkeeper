@@ -1,0 +1,21 @@
+id: genesys-weapon-plasma-projector
+name: Plasma Projector
+description: 'Truly nasty weapons, plasma projectors forgo creating bolts of plasma and instead use modified containment
+  fields to project an electromagnetic cone away from the shooter. The plasma the projector sprays into the cone is more
+  diffuse and cooler than the plasma in a standard plasma bolt, but "cooler" is a relative term when dealing with plasma
+  weapons. Anything enveloped in the searing plasma spray is quickly engulfed in hungry flames. This weapon may be
+  modified with 2-1: Cultural Manufacturing Differences.'
+skill: Ranged (Heavy)
+damage: 8
+criticalRating: 3
+range: s
+encumbrance: 4
+rarity: 6
+qualities:
+  - id: genesys-quality-blast
+    ranks: 8
+  - id: genesys-quality-burn
+    ranks: 4
+  - id: genesys-quality-slow-firing
+    ranks: 1
+reference: EotI:110

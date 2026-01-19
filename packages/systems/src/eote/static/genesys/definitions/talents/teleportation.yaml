@@ -1,0 +1,15 @@
+id: genesys-talent-teleportation
+name: Teleportation
+description: If your character has at least one rank in Arcana, once per session, your character may use this talent to
+  make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>. If they
+  succeed, they instantly vanish and reappear in any other location in the world they already know about. Your character
+  may bring up to five allies with them when they teleport, but they must add <setback></setback> to the check for each
+  ally. They may also teleport to different worlds or planes of existence; however, they must upgrade the difficulty of
+  the check once (or more, at your GM's discretion) if they do so. Whenever your character uses this talent, your GM may
+  spend <despair></despair> to have the teleportation miss the location by a range band per <despair></despair> spent,
+  or may spend hhhh or d to have the teleportation go catastrophically wrong (by having a character materialize in a
+  wall, another person, or midair, for instance, with the awful consequences to be determined by your GM).
+activation: aa
+ranked: false
+tier: 4
+reference: G-EPG:97

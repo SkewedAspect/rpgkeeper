@@ -1,0 +1,11 @@
+id: genesys-talent-sustained-fire
+name: Sustained Fire
+description: After making a Ranged (Light), Ranged (Heavy), or Gunnery check, your character may use this talent to
+  spend <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> to add
+  <advantage></advantage> equal to their ranks in Sustained Fire to the results of all Ranged (Light), Ranged (Heavy),
+  or Gunnery checks they make against the same target until the end of the current encounter. The check does not have to
+  be successful to use this talent.
+activation: ai
+ranked: true
+tier: 2
+reference: EotI:54

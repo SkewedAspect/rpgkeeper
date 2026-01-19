@@ -1,0 +1,8 @@
+id: genesys-talent-pyromania
+name: Pyromania
+description: When your character makes a combat check using a weapon with the Burn item quality, the attack inflicts
+  additional damage equal to the weapon's Burn rating. (This does not increase the weapon's base damage).
+activation: p
+ranked: false
+tier: 2
+reference: SotC:79

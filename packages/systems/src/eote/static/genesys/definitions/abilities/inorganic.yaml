@@ -1,0 +1,7 @@
+id: genesys-ability-inorganic
+name: Inorganic
+description: Since bioroids are inorganic, they do not gain the benefits of healing wounds with slap-patch (painkillers)
+  or a Medicine check. Bioroids can heal wounds and strain naturally by resting, as their systems attempt self-repairs.
+  Bioroids can also be "healed" by using the Mechanics skill instead of the Medicine skill, but otherwise following the
+  rules in the Medical Care section on page 116 of the Genesys Core Rulebook.
+reference: SotB

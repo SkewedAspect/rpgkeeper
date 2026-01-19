@@ -1,0 +1,18 @@
+id: genesys-weapon-plasma-pistol
+name: Plasma Pistol
+description: These weapons all fire spherical bolts of high-energy ionized gas. The exact chemicals and technology
+  involved are sure to differ between manufacturers and species, but the result is devastating, superheated energy
+  projectiles. Even the larger weapons in this category have a fairly limited range, since we figure the electromagnetic
+  field generated for each projectile can only maintain its coherency for a short time. The bolts of superheated gas
+  leave flesh sizzling and armor smoldering, hence the Burn quality. The largest weapons - plasma cannons - need time to
+  cool down after each shot (hence the Slow-Firing quality).
+skill: Ranged (Light)
+damage: 10
+criticalRating: 2
+range: s
+encumbrance: 2
+rarity: 4
+qualities:
+  - id: genesys-quality-burn
+    ranks: 1
+reference: G-CRB:184

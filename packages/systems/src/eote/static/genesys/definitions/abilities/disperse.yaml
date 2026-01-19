@@ -1,0 +1,6 @@
+id: genesys-ability-disperse
+name: Disperse!
+description: Once per encounter, as an action, may force all non-NAPD characters within medium range to make an
+  <difficulty></difficulty><difficulty></difficulty> as an out-of-turn incidental; those who fail must spend their next
+  turn moving away from this character or minion group and attempting to leave the encounter if possible.
+reference: SotB

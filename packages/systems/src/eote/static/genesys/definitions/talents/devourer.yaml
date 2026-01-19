@@ -1,0 +1,8 @@
+id: genesys-talent-devourer
+name: Devourer
+description: Once per encounter, if your character is engaged with an incapacitated target that is compatible with their
+  diet, they may use this talent to heal a number of wounds equal to twice their ranks in Devourer.
+activation: am
+ranked: true
+tier: 1
+reference: SotC:74

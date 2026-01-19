@@ -1,0 +1,6 @@
+id: genesys-ability-yee-hah
+name: Yee-hah!
+description: May spend <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> from a
+  successful combat check using their liquid-metal lasso to inflict one hit from the weapon on one other target within
+  short range of the original target, inflicting base damage +1 per <success></success>.
+reference: SotC

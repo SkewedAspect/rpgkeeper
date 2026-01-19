@@ -1,0 +1,9 @@
+id: genesys-talent-dungeoneer
+name: Dungeoneer
+description: After your character makes a Perception, Vigilance, or Knowledge (Adventuring) check to notice, identify,
+  or avoid a threat in a cavern, subterranean ruin, or similar location, your character cancels a number of uncanceled
+  <despair></despair> no greater than your character's ranks in Dungeoneer.
+activation: p
+ranked: true
+tier: 1
+reference: RoT:84

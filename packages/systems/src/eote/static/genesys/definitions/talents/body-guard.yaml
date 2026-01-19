@@ -1,0 +1,9 @@
+id: genesys-talent-body-guard
+name: Body Guard
+description: Once per round, your character may suffer a number of strain no greater than their ranks in Body Guard to
+  use this talent. Choose one ally engaged with your character; until the end of your character's next turn, upgrade the
+  difficulty of all combat checks targeting that ally a number of times equal to the strain suffered.
+activation: am
+ranked: true
+tier: 3
+reference: RoT:90

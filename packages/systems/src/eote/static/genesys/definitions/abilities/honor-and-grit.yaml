@@ -1,0 +1,7 @@
+id: genesys-ability-honor-and-grit
+name: Honor and Grit
+description: When this character exceeds their wound threshold, they can immediately attempt a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of-turn incidental, healing 1
+  wound per <success></success>; if this reduces their current wounds below their wound threshold, this character gets
+  back on their feet to continue fighting.
+reference: G-CRB

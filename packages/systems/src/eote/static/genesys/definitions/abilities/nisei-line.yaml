@@ -1,0 +1,6 @@
+id: genesys-ability-nisei-line
+name: Nisei Line
+description: As an action, may make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>
+  targeting one character within medium range. If successful, this character learns the target's Strength, Flaw, Fear,
+  and Desire motivations and all current goals (in addition to other information at the GM's discretion).
+reference: SotB

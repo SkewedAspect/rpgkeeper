@@ -1,0 +1,15 @@
+id: genesys-talent-teleportation-improved
+name: Teleportation (Improved)
+description: Your character must have purchased the Teleportation talent to benefit from this talent. Your character may
+  use this talent to make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> to create a
+  permanent beacon, glyph, or teleportation circle in a location (how it appears is up to you and your GM, but it should
+  be large and noticeable). When your character uses the Teleportation talent, if they choose to teleport to the
+  location of their beacon, glyph, or teleportation circle, the difficulty of the check is
+  <difficulty></difficulty><difficulty></difficulty> and they do not add <setback></setback> for teleporting additional
+  allies. They also do not upgrade the difficulty of the check to teleport to a different world or plane of existence.
+  Your character can have two glyphs, beacons, or circles established at any one time per rank of Improved
+  Teleportation. If they create any over this limit, one of the originals of your character's choice is destroyed.
+activation: aa
+ranked: true
+tier: 5
+reference: G-EPG:98

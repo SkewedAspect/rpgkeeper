@@ -1,0 +1,6 @@
+id: genesys-ability-power-from-faith
+name: Power from Faith
+description: After making a combat check, may spend <advantage></advantage><advantage></advantage> to add 3 damage to
+  one hit of the attack. After making an opposed social skill check, may spend
+  <advantage></advantage><advantage></advantage> to inflict 3 strain on the target.
+reference: SotC

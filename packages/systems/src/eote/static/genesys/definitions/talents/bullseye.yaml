@@ -1,0 +1,9 @@
+id: genesys-talent-bullseye
+name: Bullseye!
+description: When your character inflicts a Critical Injury with a severity of
+  <difficulty></difficulty><difficulty></difficulty> or higher, or incapacitates a target with their attack, they may
+  use this talent to inflict 3 strain on all characters within short range of the target.
+activation: ai
+ranked: false
+tier: 3
+reference: SotC:81

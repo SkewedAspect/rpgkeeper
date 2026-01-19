@@ -1,0 +1,7 @@
+id: genesys-ability-tempting-lies
+name: Tempting Lies
+description: As an action, may make an opposed Deception check} targeting one opponent within medium range; if
+  successful, target is immobilized until they make a successful
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an action; may
+  spend <threat></threat> from check to cause target to also suffer 8 strain.
+reference: EotI

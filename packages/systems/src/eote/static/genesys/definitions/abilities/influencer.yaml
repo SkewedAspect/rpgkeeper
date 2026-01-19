@@ -1,0 +1,6 @@
+id: genesys-ability-influencer
+name: Influencer
+description: Once per encounter as an action, may make an opposed Discipline check} targeting a character within medium
+  range; if successful, the target must reveal their Fear, Flaw, or Desire publicly (GM's choice) and suffers 1 strain
+  per <advantage></advantage>.
+reference: EotI

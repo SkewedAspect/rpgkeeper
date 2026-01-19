@@ -1,0 +1,13 @@
+id: genesys-weapon-collapsible-baton
+name: Collapsible Baton
+description: Simple but effective, this is a telescoping baton with a weighted tip. A powerful swing can break bones. If
+  you want to do a larger riot-control baton instead, increase the damage by one or two, but increase the encumbrance by
+  the same amount.
+skill: Melee
+damage: 2
+criticalRating: 3
+range: en
+encumbrance: 1
+rarity: 2
+qualities: []
+reference: G-CRB:166

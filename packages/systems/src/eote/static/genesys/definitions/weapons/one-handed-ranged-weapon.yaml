@@ -1,0 +1,13 @@
+id: genesys-weapon-one-handed-ranged-weapon
+name: One-Handed Ranged Weapon
+description: This compact ranged weapon can usually be concealed and may be wielded with a single hand. In many cases,
+  the weapon's ammunition is a bigger burden than the weapon itself. Examples include a sling, a ray pistol, and a small
+  slugthrower.
+skill: Ranged
+damage: 5
+criticalRating: 4
+range: s
+encumbrance: 2
+rarity: 3
+qualities: []
+reference: SotC:138

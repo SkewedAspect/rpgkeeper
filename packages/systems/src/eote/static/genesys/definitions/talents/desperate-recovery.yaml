@@ -1,0 +1,8 @@
+id: genesys-talent-desperate-recovery
+name: Desperate Recovery
+description: Before your character heals strain at the end of an encounter, if their strain is more than half of their
+  strain threshold, they heal two additional strain.
+activation: p
+ranked: false
+tier: 1
+reference: G-CRB:73

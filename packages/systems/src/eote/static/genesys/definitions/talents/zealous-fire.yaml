@@ -1,0 +1,7 @@
+id: genesys-talent-zealous-fire
+name: Zealous Fire
+description: Each time your Game Master spends a Story Point, your character heals 2 strain.
+activation: p
+ranked: false
+tier: 5
+reference: RoT:91

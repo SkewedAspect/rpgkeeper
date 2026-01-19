@@ -1,0 +1,6 @@
+id: genesys-ability-undying
+name: Undying
+description: May spend <despair></despair><despair></despair><despair></despair> from any check made by a PC to return
+  one of these previously defeated characters to an existing minion group, removing damage from the group accordingly.
+  Spend <difficulty></difficulty> to return two individuals to a minion group.
+reference: RoT

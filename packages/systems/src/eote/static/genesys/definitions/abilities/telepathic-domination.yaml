@@ -1,0 +1,6 @@
+id: genesys-ability-telepathic-domination
+name: Telepathic Domination
+description: This character may attempt to telepathically dominate a foe once per encounter as an action, making an
+  opposed Coercion check} targeting one character in short range; if successful, the target is immobilized for 1 round
+  per <success></success>, and this character may spend <threat></threat> to staggered the target for 1 round.
+reference: RoT

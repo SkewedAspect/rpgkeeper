@@ -1,6 +1,9 @@
 id: genesys-quality-prepare
 name: Prepare
-description: The user must perform a number of preparation maneuvers equal to the item's Prepare rating before using the item.
+description: Items with this quality require time to set up before being used. The user must perform a number of
+  preparation maneuvers equal to the item's Prepare rating before using the item (if the item is a weapon, "using" it
+  would be making attacks with the weapon). At your GM's discretion, moving with the item, being knocked prone with the
+  item, or other disruptions may require the user to perform the preparation maneuvers again before using the item.
 passive: true
-ranked: true
+ranked: false
 reference: G-CRB:88

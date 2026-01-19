@@ -1,0 +1,5 @@
+id: genesys-ability-ancestral-gaze
+name: Ancestral Gaze
+description: While within short range of a Dwarf Ancestral Specter, living Dwarves add <success></success> to their
+  combat checks and <threat></threat> if the opponent is a dragon.
+reference: RoT

@@ -1,0 +1,7 @@
+id: genesys-ability-mind-bleed
+name: Mind Bleed
+description: As an action, may make an opposed Discipline check} against one living target within medium range. If
+  successful, the target suffers 2 wounds and 2 strain per <success></success>, and this character may spend
+  <advantage></advantage><advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> to
+  inflict a Critical Injury.
+reference: G-CRB

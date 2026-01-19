@@ -1,0 +1,4 @@
+id: genesys-ability-close-ranks
+name: Close Ranks
+description: While within short range of another minion group of the same type, both groups gain 1 melee defense.
+reference: SotC

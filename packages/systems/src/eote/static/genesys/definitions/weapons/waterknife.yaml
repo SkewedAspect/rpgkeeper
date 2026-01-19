@@ -1,0 +1,25 @@
+id: genesys-weapon-waterknife
+name: Waterknife
+description: 'Waterknives are heavy industrial cutting tools designed for precision work on heat-sensitive materials.
+  Instead of a sharp blade or a jet of superheated plasma, waterknives use a high-pressure stream of abrasive blasting
+  media suspended in a viscous liquid. The liquid lubricates and cools the materials being cut, and the blasting medium—
+  typically subminiature quartz pellets or powdered synthetic diamond—does the actual cutting. Although many waterknives
+  are so big and bulky that they need to be fixed in place, modern versions can be miniaturized enough to be carried
+  around as a large and wet power saw. These portable versions are occasionally repurposed into ersatz and extremely
+  vicious close-combat weapons. A waterknife requires two hands to wield. Models Include: HHI "Neptune" Hydro Suspension
+  Cutting System.'
+skill: Melee
+damage: 10
+criticalRating: 3
+range: en
+encumbrance: 4
+rarity: 4
+qualities:
+  - id: genesys-quality-prepare
+    ranks: 1
+  - id: genesys-quality-sunder
+  - id: genesys-quality-unwieldy
+    ranks: 3
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: SotB:91

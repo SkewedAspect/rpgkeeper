@@ -1,0 +1,14 @@
+id: genesys-weapon-brass-knuckles
+name: Brass Knuckles
+description: "Brass knuckles are very simple weapons: chunks of brass designed to slip over your fingers and add power
+  to your punches. Brass knuckles really are simple weapons, and this profile could also represent a roll of quarters."
+skill: Brawl
+damage: 1
+criticalRating: 4
+range: en
+encumbrance: 1
+rarity: 1
+qualities:
+  - id: genesys-quality-disorient
+    ranks: 3
+reference: G-CRB:166

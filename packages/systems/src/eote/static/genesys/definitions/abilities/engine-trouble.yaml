@@ -1,0 +1,6 @@
+id: genesys-ability-engine-trouble
+name: Engine Trouble
+description: While within short range of a starship, may make an <difficulty></difficulty><difficulty></difficulty> as
+  an action; if successful, this character (or minion group) attaches to the engine housing and inflicts a Critical Hit
+  on the starship, adding +10 per <advantage></advantage> to the result.
+reference: EotI

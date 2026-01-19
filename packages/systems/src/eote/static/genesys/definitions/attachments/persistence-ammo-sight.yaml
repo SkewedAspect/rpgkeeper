@@ -1,0 +1,12 @@
+id: genesys-attachment-persistence-ammo-sight
+name: Persistence Ammo Sight
+description: Persistence ammo utilizes miniaturized guidance and maneuvering fields to enable projectiles to strike a
+  target they originally missed. Depending on the projectile fired, this maneuvering is performed via microdirectional
+  fins, maneuvering verniers, or alteration of magnetic energy fields. Once a target is designated by the system's
+  scope, any projectiles that miss their target circle back around to attempt a second strike.
+useWith: This attachment may be used with any ranged weapon that fires solid projectiles.
+modifiers: This weapon gains the Guided item quality. When your character makes a combat check with this weapon, your GM
+  may spend Despair Despair to cause this weapon to run out of ammo. This attachment cannot be combined with any bonus
+  from another scope or sight.
+hpRequired: 3
+reference: EotI:128

@@ -1,7 +1,8 @@
 id: genesys-attachment-rare-metals
 name: Rare Metals
-description: Many fantasy settings feature rare, nearly magical metals that can be used to create superior armor.
-useWith: Chain or plate armor.
-modifiers: Armor Encumbrance -2, one fewer <setback></setback> on Stealth checks.
+description: Many fantasy settings feature rare, nearly magical metals that can be used to create superior armor. This
+  kind of attachment makes sense in fantasy settings.
+useWith: This attachment can be applied to chain or plate armor.
+modifiers: The armor reduces its encumbrance by 2, and it adds one fewer setback to Stealth checks.
 hpRequired: 2
 reference: G-CRB:209

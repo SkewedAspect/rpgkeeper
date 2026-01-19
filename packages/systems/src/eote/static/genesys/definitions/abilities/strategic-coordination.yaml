@@ -1,0 +1,7 @@
+id: genesys-ability-strategic-coordination
+name: Strategic Coordination
+description: Once per encounter, may make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>; if successful,
+  until the end of the encounter, all allies in the encounter may perform an additional move maneuver on their turn
+  without downgrading their action or suffering strain but they still may only perform two maneuvers during their turn.
+reference: G-EPG

@@ -1,6 +1,7 @@
 id: genesys-quality-inferior
 name: Inferior
-description: When making checks with this weapon, add <threat></threat> to the check.
+description: An Inferior item is a lackluster example of its kind, representing shoddy and poor craftsmanship. An
+  Inferior item generates automatic <despair></despair> on all checks related to its use.
 passive: true
 ranked: false
 reference: G-CRB:88

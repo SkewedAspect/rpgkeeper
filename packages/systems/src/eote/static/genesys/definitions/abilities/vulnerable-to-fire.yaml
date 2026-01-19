@@ -1,0 +1,4 @@
+id: genesys-ability-vulnerable-to-fire
+name: Vulnerable to Fire
+description: Hits from fire or a weapon with the Burn item quality ignore this character's soak.
+reference: G-EPG

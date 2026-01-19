@@ -1,0 +1,8 @@
+id: genesys-talent-flicker-step
+name: Flicker Step
+description: When your character casts a spell using the Arcana skill, they may use this talent to spend aaa or t to
+  instantly vanish and reappear at any location within long range.
+activation: ai
+ranked: false
+tier: 4
+reference: G-EPG:97

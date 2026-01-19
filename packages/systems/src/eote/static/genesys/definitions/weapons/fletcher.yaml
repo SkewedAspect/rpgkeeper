@@ -1,0 +1,22 @@
+id: genesys-weapon-fletcher
+name: Fletcher
+description: "Fletchers are a modern, high-tech take on the tried-andtrue shotgun. About the size of a combat shotgun,
+  fletchers are heavy, short-barreled weapons that fire canisters of 2mm NEXT flechettes. Upon firing, the canister
+  disintegrates and unleashes hundreds of razor-sharp darts that tear through armor, flesh, and bone as if they were old
+  rags. While popular in the military, the NAPD has deemed them too vicious for police work. However, plenty of orgcrime
+  outfits prefer these weapons as an intimidating enforcement tool. Models Include: Strelet Arms FX09, NEXT XR11
+  Shredder."
+skill: Ranged (Heavy)
+damage: 4
+criticalRating: 2
+range: m
+encumbrance: 3
+rarity: 5
+qualities:
+  - id: genesys-quality-blast
+    ranks: 4
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: SotB:86

@@ -1,0 +1,4 @@
+id: genesys-ability-stampede
+name: Stampede
+description: For every 3 minions in this minion group, add <boost></boost> to any Brawl checks.
+reference: SotC

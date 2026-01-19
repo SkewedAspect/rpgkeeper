@@ -1,0 +1,5 @@
+id: genesys-ability-drain-vigor
+name: Drain Vigor
+description: As an incidental, at the start of their turn, characters engaged with this character must make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> or suffer 3 strain.
+reference: SotC

@@ -1,0 +1,9 @@
+id: genesys-talent-fires-of-conviction
+name: Fires of Conviction
+description: Your character must be a Gashlai or a {@archetype N'orr or have allegiance to the Yin Brotherhood, the
+  Argent Flight, or the The Keleres of the Council to benefit from this talent.} Your character rerolls failed fear
+  checks.
+activation: p
+ranked: false
+tier: 1
+reference: EotI:50

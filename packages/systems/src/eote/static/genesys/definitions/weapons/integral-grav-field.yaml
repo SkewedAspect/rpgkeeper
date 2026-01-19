@@ -1,0 +1,17 @@
+id: genesys-weapon-integral-grav-field
+name: Integral Grav-Field
+description: This weapon is only available to Titan characters through the Integral Weapon talent. When your character
+  uses this weapon to attack a target with a lower silhouette than your character, the Knockdown quality triggers
+  without spending <advantage></advantage>.
+skill: Brawl
+damage: 5
+criticalRating: 3
+range: en
+encumbrance: 0
+rarity: 0
+qualities:
+  - id: genesys-quality-concussive
+    ranks: 1
+  - id: genesys-quality-knockdown
+  - id: genesys-quality-superior
+reference: EotI:58

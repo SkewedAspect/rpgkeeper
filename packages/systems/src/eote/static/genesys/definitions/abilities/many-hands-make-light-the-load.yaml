@@ -1,0 +1,6 @@
+id: genesys-ability-many-hands-make-light-the-load
+name: Many Hands Make Light the Load
+description: While providing Assist on a Mechanics check to repair a vehicle, increase the hull trauma or system strain
+  repaired by 2; if the check is to repair a Critical Hit, reduce the difficulty of the check by 1, to a minimum of
+  <difficulty></difficulty>; this is in addition to the other benefits of Assist.
+reference: G-EPG

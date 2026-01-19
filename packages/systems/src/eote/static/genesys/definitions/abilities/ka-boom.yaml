@@ -1,0 +1,5 @@
+id: genesys-ability-ka-boom
+name: Ka-boom!
+description: May spend <threat></threat> on a combat check to activate the Blast item quality and have the quality
+  affect all characters within short range of the target.
+reference: SotC

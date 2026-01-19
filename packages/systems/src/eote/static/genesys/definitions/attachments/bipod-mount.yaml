@@ -1,0 +1,11 @@
+id: genesys-attachment-bipod-mount
+name: Bipod Mount
+description: A bipod (a folding, two-legged stand) can be attached to the barrel of a firearm. The legs stabilize the
+  firearm and take up some of its weight. This kind of attachment makes sense for the weird war, modern day, science
+  fiction, and space opera settings.
+useWith: This attachment can be applied to any Ranged (Heavy) or Gunnery weapon.
+modifiers: If the user spends one preperation to deploy the bipod, the weapon's Cumbersome or Unwieldy qualities are
+  reduced by 2, to a minimum of 0, and the weapon's encumbrance is reduced by 2, to a minimum of 0, while the user fires
+  from a crouched or prone position (or can brace the bipod against something solid).
+hpRequired: 1
+reference: G-CRB:207

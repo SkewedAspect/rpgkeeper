@@ -1,7 +1,21 @@
 id: genesys-quality-auto-fire
 name: Auto-Fire
-description: Upgrade the difficulty of the check (<difficulty></difficulty>). If the attack hits, you may trigger an
-  additional weapon hit (<advantage></advantage><advantage></advantage>). This may be triggered multiple times.
+description: A weapon with Auto-fire can be set to shoot in rapid succession and potentially spray an area with bolts,
+  flechettes, slugs, or other types of projectiles. The advantage in using Auto-fire is that it has the chance to hit
+  multiple targets or to hit a single target multiple times. As attacking with a weapon on Auto-fire is generally less
+  accurate, the attacker must increase the difficulty of the combat check by <difficulty></difficulty>. The user may
+  choose not to use the Auto-fire quality on a weapon; in this case, they cannot trigger the quality but also do not
+  suffer the aforementioned penalty. If the attack hits, the attacker can trigger Auto-fire by spending
+  <advantage></advantage><advantage></advantage>. Auto-fire can be triggered multiple times. Each time the attacker
+  triggers Auto-fire, it deals an additional hit to the target. Each of these counts as an additional hit from that
+  weapon, and each hit deals base damage plus the number of <success></success> on the check. These additional hits can
+  be allocated to the original target, or to other targets within range of the weapon. If the attacker wishes to hit
+  multiple targets, they must decide to do so before making the check. Furthermore, if they wish to hit multiple
+  targets, their initial target must always be the target with the highest difficulty and highest defense (if this is
+  two separate targets, the GM chooses which is the initial target). The initial hit must always be against the initial
+  target. Subsequent hits generated can be allocated to any of the other designated targets. Auto-fire weapons can also
+  activate one Critical Injury for each hit generated on the attack, per the normal rules; the Critical Injury must be
+  applied to the target of the specific hit.
 passive: false
 ranked: false
 reference: G-CRB:86

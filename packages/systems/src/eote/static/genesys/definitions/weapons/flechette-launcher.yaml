@@ -1,0 +1,18 @@
+id: genesys-weapon-flechette-launcher
+name: Flechette Launcher
+description: The flechette launcher is a larger, heavier version of the Flechette Pistol, similar to a shotgun in that
+  it fires larger bursts of flechettes (hence the Blast and higher Vicious quality).
+skill: Ranged (Heavy)
+damage: 4
+criticalRating: 2
+range: m
+encumbrance: 3
+rarity: 5
+qualities:
+  - id: genesys-quality-blast
+    ranks: 4
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: G-CRB:175

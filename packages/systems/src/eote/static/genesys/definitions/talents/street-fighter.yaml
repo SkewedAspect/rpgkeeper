@@ -1,0 +1,8 @@
+id: genesys-talent-street-fighter
+name: Street Fighter
+description: When your character disorients or knocks their target prone when making a Brawl combat check, they may use
+  this talent to cause the target to suffer wounds equal to your character's ranks in Skulduggery.
+activation: ai
+ranked: false
+tier: 1
+reference: SotB:45

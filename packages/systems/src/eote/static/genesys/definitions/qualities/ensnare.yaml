@@ -1,12 +1,11 @@
 id: genesys-quality-ensnare
 name: Ensnare
-description: >-
-  When activated, one target hit by the attack is immobilized for a number of rounds equal to the weapon's Ensnare
-  rating. The quality may be triggered multiple times if multiple targets are hit by the attack.
-
-
-  An ensnared target may use an action to attempt to break free with a
-  Hard(<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Athletics check.
+description: A weapon with Ensnare binds a foe and restricts their movements. When Ensnare is triggered, one target hit
+  by the attack becomes immobilized (see page 114) for a number of rounds equal to the weapon's Ensnare rating. An
+  immobilized target cannot perform maneuvers. If multiple targets suffer hits from a weapon with Ensnare, the quality
+  may be triggered multiple times, affecting a different target each time. An Ensnared target may perform an action to
+  attempt a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> Athletics check on their turn to
+  break free from the effect.
 passive: false
-ranked: true
+ranked: false
 reference: G-CRB:87

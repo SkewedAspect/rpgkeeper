@@ -1,0 +1,5 @@
+id: genesys-ability-direct-access
+name: Direct Access
+description: When jacking in from within the same building as the target server, automatically succeeds when making an
+  access system check.
+reference: SotB

@@ -1,0 +1,8 @@
+id: genesys-talent-shameless
+name: Shameless
+description: When your character fails a social skill check to inflict strain during a social encounter, they do no
+  suffer 2 strain (as describe on page 123 of the Core Rulebook).
+activation: p
+ranked: false
+tier: 3
+reference: SotC:82

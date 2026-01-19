@@ -1,0 +1,16 @@
+id: genesys-weapon-beam-pistol
+name: Beam Pistol
+description: "Used by all cultures throughout the galaxy, the beam pistol provides an accurate means of offense with
+  limited range and low cost. Beam pistols can slice through light armor and tend to be simple and intuitive to use,
+  making them the go-to sidearm for many individuals looking for personal protection and many military forces. This
+  weapon may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Ranged (Light)
+damage: 4
+criticalRating: 3
+range: m
+encumbrance: 2
+rarity: 3
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 2
+reference: EotI:108

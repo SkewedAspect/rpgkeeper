@@ -1,0 +1,12 @@
+id: genesys-attachment-torso-combat-harness
+name: Torso Combat Harness
+description: Torso combat harnesses allow users to stabilize heavy weapons by supporting some of the weight with their
+  own body. They consist of a harness worn by the user and attached to the weapon via a powered and articulated "arm."
+  The whole arrangement is incredibly unwieldy for untrained users, but it lets someone carry a laser cannon while not
+  wearing an exosuit.
+useWith: This attachment can be applied to any smart ranged weapon.
+modifiers: As long as the harness is attached to your character, the weapon's Cumbersome qualities are reduced by 4 to a
+  minimum of 0, and the weapon's encumbrance is reduced by 2, to a minimum of 0. The weapon gains the Unwieldy quality,
+  or increases any existing Unwieldy quality by 1.
+hpRequired: 3
+reference: SotB:112

@@ -1,0 +1,10 @@
+id: genesys-talent-templar-improved
+name: Templar (Improved)
+description: "Your character must have purchased the Templar talent to benefit from this talent. When your character
+  casts the single Divine spell per encounter granted by the Templar talent, they do not add <setback></setback> for
+  wearing heavy armor (armor with +2 soak or higher), using a shield, or not having at least one hand free (see III.2-3:
+  Penalties When Casting Spells, on page 210 of the Genesys Core Rulebook)."
+activation: p
+ranked: false
+tier: 2
+reference: RoT:89

@@ -1,0 +1,7 @@
+id: genesys-talent-runic-lore
+name: Runic Lore
+description: Knowledge (Lore) and Runes are now career skills for your character.
+activation: p
+ranked: false
+tier: 2
+reference: RoT:89

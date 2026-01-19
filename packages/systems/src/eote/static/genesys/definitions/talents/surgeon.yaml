@@ -1,0 +1,7 @@
+id: genesys-talent-surgeon
+name: Surgeon
+description: When your character makes a Medicine check to heal wounds, the target heals one additional wound per rank of Surgeon.
+activation: p
+ranked: true
+tier: 1
+reference: G-CRB:74

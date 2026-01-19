@@ -1,0 +1,5 @@
+id: genesys-ability-unnatural-resilience
+name: Unnatural Resilience
+description: After suffering a Critical Injury, may spend one Story Point to reduce the Critical Injury result by -50;
+  if this reduces the Critical Injury result to less than 01, the failed experiment does not suffer a Critical Injury.
+reference: G-EPG

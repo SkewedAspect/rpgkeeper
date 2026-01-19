@@ -1,0 +1,26 @@
+id: genesys-weapon-revolver
+name: Revolver
+description: "This is our profile for a standard revolver. Like the knife's, this profile is general enough that it
+  could work for a sixshooter out of the 1800s, a sidearm in a steampunk universe, or something straight out of our own
+  era. The weapon is a Ranged weapon, hence it uses the Ranged skill. Of course, if your setting breaks up Ranged into
+  multiple skills, this would probably use Ranged (Light) since it's a pistol used in one hand. The damage reflects
+  this: good damage for a pistol, but not comparable to a military rifle's. The same goes for the Crit rating. Rolling
+  <advantage></advantage><advantage></advantage><advantage></advantage><advantage></advantage> on a check is a bit less
+  likely, so it's going to take a skilled shot to make this weapon effective. We gave this a range of medium, which is
+  typically the maximum range for pistols (some pistols are only useful at short range). The weapon's a bit bigger and
+  bulkier than the knife, hence the higher encumbrance value of 2. Its cost reflects the higher cost of firearms, but it
+  should still be fairly easy to find one. It also has one item quality, since revolvers tend to be accurate sidearms.
+  You may be surprised that we didn't give it the Limited Ammo quality (for its six shots). However, we find in games
+  that combat encounters tend to average around three to five rounds. If a weapon is unlikely to run out of ammo before
+  combat ends, we recommend that it's not worth tracking ammo and that you should use the rules in the Tracking Ammo
+  sidebar on page 89."
+skill: Ranged
+damage: 6
+criticalRating: 4
+range: m
+encumbrance: 2
+rarity: 4
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+reference: G-CRB:91

@@ -1,0 +1,9 @@
+id: genesys-talent-battle-casting
+name: Battle Casting
+description: "Your character does not add <setback></setback> to magic skill checks for wearing heavy armor (armor with
+  +2 soak or higher), using a shield, or not having at least one hand free (see III.2-3: Penalties When Casting Spells,
+  on page 210 of the Genesys Core Rulebook)."
+activation: p
+ranked: false
+tier: 3
+reference: RoT:90

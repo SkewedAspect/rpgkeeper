@@ -1,0 +1,11 @@
+id: genesys-attachment-equipment-mount
+name: Equipment Mount
+description: A person has only so many hands to hold weapons and equipment. Equipment mounts allow the wearer to attach
+  a small weapon or piece of equipment to their armored suit, allowing that item to be ready to use at a moment's
+  notice.
+useWith: This attachment can be applied to any armor. This attachment may be purchased and applied multiple times to the
+  same suit of armor, taking up 1 hard point each time.
+modifiers: Your character may mount one weapon or piece of equipment to their armor, allowing them to draw or ready that
+  item as an incidental while wearing the armor. The mounted item may not have an encumbrance value higher than 2.
+hpRequired: 1
+reference: EotI

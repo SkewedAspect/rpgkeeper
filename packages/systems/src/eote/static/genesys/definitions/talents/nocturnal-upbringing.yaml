@@ -1,0 +1,9 @@
+id: genesys-talent-nocturnal-upbringing
+name: Nocturnal Upbringing
+description: When you take this talent, your character gains Perception or Stealth as a career skill. In addition, your
+  character may remove <setback></setback> added to their checks due to concealment (darkness, smoke, and intervening
+  terrain).
+activation: p
+ranked: false
+tier: 1
+reference: EotI:50

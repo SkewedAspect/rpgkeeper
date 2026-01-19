@@ -1,0 +1,6 @@
+id: genesys-ability-crush
+name: Crush
+description: While engaged with a vehicle, this creature may make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an action; if the check is successful,
+  the vehicle suffers a Critical Hit and may not move during the following round.
+reference: G-EPG

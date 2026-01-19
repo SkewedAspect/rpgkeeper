@@ -1,0 +1,9 @@
+id: genesys-talent-disenfrancisto
+name: Disenfrancisto
+description: When you take this talent, your character gains Streetwise or Survival (your choice) as a career skill. In
+  addition, once per session your character may collect a small favor from any other disenfrancisto, even if they do not
+  owe your character a favor.
+activation: p
+ranked: false
+tier: 1
+reference: SotB:45

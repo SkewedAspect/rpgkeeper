@@ -1,0 +1,9 @@
+id: genesys-talent-master
+name: Master
+description: When you purchase this talent for your character, choose one skill. Once per round, your character may
+  suffer 2 strain to use this talent to reduce the difficulty of the next check they make using that skill by two, to a
+  minimum of <difficulty></difficulty>.
+activation: ai
+ranked: false
+tier: 5
+reference: G-CRB:81

@@ -1,0 +1,10 @@
+id: genesys-talent-net-search
+name: Net Search
+description: When your character has access to the Network, they can use this talent to upgrade the ability of the next
+  Knowledge check they make that turn twice, and the difficulty of the check once. <difficulty></difficulty> means that
+  they learn some seemingly relevant and believable information that turns out to be completely (and possibly
+  maliciously) false.
+activation: am
+ranked: false
+tier: 1
+reference: SotB:45

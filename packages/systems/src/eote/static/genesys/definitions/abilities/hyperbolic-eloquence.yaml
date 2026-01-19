@@ -1,0 +1,7 @@
+id: genesys-ability-hyperbolic-eloquence
+name: Hyperbolic Eloquence
+description: Once per encounter, may make an <difficulty></difficulty><difficulty></difficulty> targeting one character
+  as an action; if successful, target adds <failure></failure><despair></despair> to the results of their next social
+  skill check; may spend <advantage></advantage><advantage></advantage> to affect an additional target or
+  <threat></threat> to cause all targets to add <failure></failure><failure></failure> instead of <failure></failure>.
+reference: EotI

@@ -1,0 +1,9 @@
+id: genesys-ability-bone-chilling-roar
+name: Bone-Chilling Roar
+description: Once per encounter, may suffer 3 strain and spend a maneuver to force all other characters within long
+  range (or within earshot) to make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of-turn
+  incidental. If they fail, they must use their maneuver to move farther away; if they fail with <despair></despair>,
+  they must also downgrade their action to an additional maneuver to move even farther away. If you're using the fear
+  rules found on page 243 of the Genesys Core Rulebook, this can be a fear check instead.
+reference: SotB

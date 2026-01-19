@@ -1,8 +1,7 @@
 id: genesys-talent-quick-draw
 name: Quick Draw
-description: Once per round on the character's turn, he may draw or holster an easily accessible weapon as an
-  incidental. This talent also reduces the amount of time to draw or stow a weapon that usually requires more than one
-  maneuver to properly prepare or stow, by one maneuver.
+description: Once per round on your character's turn, they may use this talent to draw or holster an easily accessible
+  weapon or item as an incidental. Quick Draw also reduces a weapon's Prepare rating by one, to a minimum of one.
 activation: ai
 ranked: false
 tier: 1

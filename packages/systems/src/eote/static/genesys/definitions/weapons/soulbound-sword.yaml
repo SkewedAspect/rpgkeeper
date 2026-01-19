@@ -1,0 +1,33 @@
+id: genesys-weapon-soulbound-sword
+name: Soulbound Sword
+description: Necromancers can bind the spirits of fearsome warriors within cursed blades. These soulbound swords have a
+  sinister appearance, with morbid detailing such as skull-shaped pommels and guards made from carved bone. The black
+  blades are slightly iridescent, and if an observer watches closely, they may be able to discern the shifting ghost
+  trapped within. Bearers of these swords are said to benefit from some of the skill of the warrior spirit they carry,
+  and the blades' merest touch often proves fatal. The grim reputation and appearance of Soulbound Swords also serves to
+  inspire dread in their bearers' foes. While wielding or wearing a Soulbound Sword your character reduces their strain
+  threshold by two. As an incidental, while wielding a Soulbound Sword your character can allow it to assist them; they
+  make an immediate <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>, and all engaged
+  characters make an identical fear check as an out-of-turn incidental. Assuming your character doesn't drop the sword
+  in terror, they count as having four ranks in Melee (Heavy) for attacks using the Soulbound Sword for the duration of
+  the encounter. If your character already has four ranks or more in Melee (Heavy), they instead add
+  <boost></boost><boost></boost> to attacks using the sword. If your character fails the fear check with
+  <difficulty></difficulty>, the spirit within the blade possesses them entirely for the rest of the encounter, or
+  longer at your GM's discretion. Your and your GM should work together to determine your character’s actions while
+  possessed.
+skill: Melee (Heavy)
+damage: 6
+criticalRating: 2
+range: en
+encumbrance: 3
+rarity: 10
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+  - id: genesys-quality-pierce
+    ranks: 1
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-superior
+  - id: genesys-quality-unwieldy
+    ranks: 3
+reference: RoT:109

@@ -1,0 +1,20 @@
+id: genesys-weapon-prismatic-staff
+name: Prismatic Staff
+description: "Prismatic Staffs were crafted by the students of Timmorran under his guidance. Their purpose was to
+  provide the wizards with badges of office as well as a degree of personal protection. They are impressive artifacts:
+  long shafts of silver topped with crystal orbs that display a shifting kaleidoscope of rainbow colors. A bewildering
+  lightshow can be projected from the orbs, the intensity of which dazzles unwary opponents. A Prismatic Staff is a
+  magic implement, as described on page 218 of the Genesys Core Rulebook. When your character casts a spell while using
+  a Prismatic Staff, the first Range effect added to the spell does not increase the spell's difficulty. In addition,
+  Attack spells cast by your character increase their base damage by three and gain the Disorient and Concussive 2 item
+  qualities."
+skill: Melee (Heavy)
+damage: 2
+criticalRating: 4
+range: en
+encumbrance: 2
+rarity: 8
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+reference: RoT:109

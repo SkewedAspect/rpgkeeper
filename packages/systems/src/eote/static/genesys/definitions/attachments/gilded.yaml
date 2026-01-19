@@ -1,0 +1,8 @@
+id: genesys-attachment-gilded
+name: Gilded
+description: Though it serves no practical purpose, many nobles like to adorn their armor with gold leaf. It certainly
+  makes the wearer seem impressive, but acts as a lure for every bandit within eyesight.
+useWith: This attachment can be applied to any armor.
+modifiers: While wearing this armor, your character adds boost to Charm, Negotiation, and Leadership checks.
+hpRequired: 0
+reference: RoT:107

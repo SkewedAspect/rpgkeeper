@@ -1,0 +1,17 @@
+id: genesys-weapon-halberd
+name: Halberd
+description: A halberd is a basic infantry weapon, basically an axe blade mounted on a long pole. It requires two hands
+  to wield and is pretty heavy, but it's cheap, it keeps an opponent at arm's length, and the cutting head can shear
+  through armor.
+skill: Melee (Heavy)
+damage: 3
+criticalRating: 3
+range: en
+encumbrance: 5
+rarity: 3
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+  - id: genesys-quality-pierce
+    ranks: 3
+reference: G-CRB:144

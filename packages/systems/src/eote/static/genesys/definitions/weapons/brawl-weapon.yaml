@@ -1,0 +1,12 @@
+id: genesys-weapon-brawl-weapon
+name: Brawl Weapon
+description: The most elemental of weapons, Brawl weapons, such as brass knuckles and katars, are generally worn around
+  a hand, tendril, or other manipulator. Using one essentially is the same as punching someone, just with more damage.
+skill: Brawl
+damage: 0
+criticalRating: 5
+range: en
+encumbrance: 1
+rarity: 1
+qualities: []
+reference: SotC:138

@@ -1,0 +1,22 @@
+id: genesys-weapon-graviton-pulse-cannon
+name: Graviton Pulse Cannon
+description: "Graviton pulse cannons are rare and esoteric weapons that use ruinous amounts of energy to fire a pulsed
+  beam of gravitons at a target. The sudden localized increase of gravitational energy can pin soldiers in place, break
+  bones and collapse lungs, and wreak havoc on the delicate mechanisms inside of armor plate. This weapon may be
+  modified with 2-1: Cultural Manufacturing Differences."
+skill: Gunnery
+damage: 3
+criticalRating: 1
+range: ex
+encumbrance: 10
+rarity: 9
+qualities:
+  - id: genesys-quality-breach
+    ranks: 3
+  - id: genesys-quality-ensnare
+    ranks: 3
+  - id: genesys-quality-prepare
+    ranks: 2
+  - id: genesys-quality-slow-firing
+    ranks: 2
+reference: EotI:108

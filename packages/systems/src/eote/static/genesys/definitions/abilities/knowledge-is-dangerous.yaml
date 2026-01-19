@@ -1,0 +1,5 @@
+id: genesys-ability-knowledge-is-dangerous
+name: Knowledge is Dangerous
+description: Adds <success></success><despair></despair> to the results of Knowledge (Science) checks other characters
+  make in the encounter.
+reference: SotC

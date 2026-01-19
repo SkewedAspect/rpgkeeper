@@ -1,0 +1,9 @@
+id: genesys-talent-close-combatant
+name: Close Combatant
+description: When you purchase this talent, your character gains Brawl or Melee (your choice as a career skill. In
+  addition, once per session your character may use this talent to remove <setback></setback> from a melee combat check
+  they make.
+activation: ai
+ranked: false
+tier: 1
+reference: SotC:74

@@ -1,0 +1,23 @@
+id: genesys-weapon-particle-grenade
+name: Particle Grenade
+description: This grenade releases a blast of highly energized particles that disrupt the nervous systems of most
+  organic creatures. For this sci-fi take on the classic stun grenade, we figured the particles have a potent enough
+  effect to leave the target dazed even once they regain control of their body, represented by a higher Disorient rating
+  in addition to Concussive.
+skill: Ranged (Light)
+damage: 6
+criticalRating: 4
+range: s
+encumbrance: 1
+rarity: 5
+qualities:
+  - id: genesys-quality-blast
+    ranks: 3
+  - id: genesys-quality-concussive
+    ranks: 1
+  - id: genesys-quality-disorient
+    ranks: 3
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+  - id: genesys-quality-stun-damage
+reference: G-CRB:184

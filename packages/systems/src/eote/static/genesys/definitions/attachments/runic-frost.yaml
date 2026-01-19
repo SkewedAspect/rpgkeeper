@@ -1,0 +1,7 @@
+id: genesys-attachment-runic-frost
+name: Runic Frost
+description: This runic inscription coats the weapon with icy chill that saps strength from those it strikes.
+useWith: This attachment can be applied to any melee weapon.
+modifiers: The weapon gains the Ensnare item quality.
+hpRequired: 1
+reference: RoT:107

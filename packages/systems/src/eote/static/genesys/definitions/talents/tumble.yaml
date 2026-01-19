@@ -1,0 +1,7 @@
+id: genesys-talent-tumble
+name: Tumble
+description: Once per round on your character's turn, they may suffer 2 strain to disengage from all engaged adversaries.
+activation: ai
+ranked: false
+tier: 1
+reference: RoT:87

@@ -1,0 +1,20 @@
+id: genesys-weapon-gauss-rifle
+name: Gauss Rifle
+description: A gauss rifle uses an electromagnetic rail or coil to hurl a metal projectile over a long distance at
+  incredible speed. The main drawback of this weapon is that it takes some time to recharge its capacitors after firing,
+  so we gave it Slow-Firing (it's also important to do this for balance reasons, since this weapon is very powerful). We
+  gave it Cumbersome as well, so a character needs to be strong to carry it around, or must use a bipod (see page 207).
+skill: Ranged (Heavy)
+damage: 10
+criticalRating: 2
+range: ex
+encumbrance: 5
+rarity: 6
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-pierce
+    ranks: 5
+  - id: genesys-quality-slow-firing
+    ranks: 1
+reference: G-CRB:175

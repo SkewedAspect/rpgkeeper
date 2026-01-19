@@ -1,0 +1,12 @@
+id: genesys-talent-aethersprite-improved
+name: Aethersprite (Improved)
+description: Your character must have purchased the Aethersprite talent to benefit from this talent. If your character
+  made a successful check to use the Aethersprite talent during the current encounter, you may spend a Story Point to
+  have your character use this talent to make themselves and up to five allies invisible to any electronic sensors for a
+  number of rounds equal to your character's ranks in Computers. This works on any electronic monitoring or surveillance
+  systems, such as cameras, heat and motion sensors, and even microradar pulses. It also affects any nonsentient drones
+  or robots that are linked with the network affected by Aethersprite.
+activation: am
+ranked: false
+tier: 3
+reference: EotI:54

@@ -1,0 +1,6 @@
+id: genesys-ability-hot-tempered
+name: Hot Tempered
+description: While a Stone-Dweller Orc's strain exceeds half of their strain threshold, they add
+  <setback></setback><setback></setback> to all social skill checks and add 1 to the damage of one hit of each melee
+  attack they make.
+reference: RoT

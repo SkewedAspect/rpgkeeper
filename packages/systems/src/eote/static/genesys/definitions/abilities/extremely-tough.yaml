@@ -1,0 +1,6 @@
+id: genesys-ability-extremely-tough
+name: Extremely Tough
+description: Once per session after your character is hit by an attack, you may spend a Story Point to double their soak
+  while resolving the damage dealt by that attack. Their soak is doubled before being reduced by item qualities such as
+  Breach or Pierce.
+reference: EotI

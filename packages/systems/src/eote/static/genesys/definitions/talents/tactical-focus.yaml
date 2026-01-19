@@ -1,0 +1,8 @@
+id: genesys-talent-tactical-focus
+name: Tactical Focus
+description: When performing a combat check with a Ranged (Heavy) weapon, if your character did not perform a maneuver
+  to ready or stow a weapon or item during this turn, they add <advantage></advantage> to the results.
+activation: p
+ranked: false
+tier: 2
+reference: SotB:49

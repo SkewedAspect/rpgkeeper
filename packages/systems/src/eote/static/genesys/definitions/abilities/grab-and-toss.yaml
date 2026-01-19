@@ -1,0 +1,7 @@
+id: genesys-ability-grab-and-toss
+name: Grab and Toss
+description: After making a failed combat check, may spend
+  <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> to choose one silhouette 1
+  or 0 character within short range and move them up to one range band in any direction; the character is knocked prone
+  and suffers 4 strain.
+reference: EotI

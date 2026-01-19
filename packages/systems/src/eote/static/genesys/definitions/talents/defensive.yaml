@@ -1,0 +1,7 @@
+id: genesys-talent-defensive
+name: Defensive
+description: Each rank of Defensive increases your character's melee defense and ranged defense by one.
+activation: p
+ranked: true
+tier: 4
+reference: G-CRB:80

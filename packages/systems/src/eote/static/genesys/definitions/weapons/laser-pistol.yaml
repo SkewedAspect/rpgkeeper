@@ -1,0 +1,21 @@
+id: genesys-weapon-laser-pistol
+name: Laser Pistol
+description: "The first mass-produced energy weapon to enter the market was a laser pistol—NEXT's PL840.a, to be
+  exact—and laser pistols have been the most iconic energy weapon ever since. Popular with senior military brass,
+  exotic-weapon collectors, and those who live or work in space, laser pistols are the latest word in self-defense
+  sidearms. Using a high-capacity rechargeable power cell, laser pistols are semiautomatic weapons that produce a nearly
+  invisible beam of searing, coherent light instead of firing a projectile. They are exceptionally accurate over short
+  distances and are shockingly effective against unarmored and lightly armored opponents. Models Include: Argus 78P,
+  NEXT PL1000 Blaster."
+skill: Ranged (Light)
+damage: 6
+criticalRating: 3
+range: s
+encumbrance: 1
+rarity: 8
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+  - id: genesys-quality-burn
+    ranks: 1
+reference: SotB:87

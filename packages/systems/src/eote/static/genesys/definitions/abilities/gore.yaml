@@ -1,0 +1,6 @@
+id: genesys-ability-gore
+name: Gore
+description: After making a successful combat check using its vicious axe, this character may spend
+  <advantage></advantage><advantage></advantage> or <threat></threat> to inflict one hit with its bloody horns on the
+  target or another target this character is engaged with, dealing base damage +1 damage per <success></success>.
+reference: G-EPG

@@ -1,0 +1,6 @@
+id: genesys-ability-can-opener
+name: Can Opener
+description: May select an engaged vehicle and make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>; if successful, a silhouette 0 hole is
+  opened in the vehicle's hull and it suffers a Hull Damaged Critical Hit.
+reference: EotI

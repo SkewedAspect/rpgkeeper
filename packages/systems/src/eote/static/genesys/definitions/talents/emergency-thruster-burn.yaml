@@ -1,0 +1,9 @@
+id: genesys-talent-emergency-thruster-burn
+name: Emergency Thruster Burn
+description: Once per round while controlling a starship that requires the Operating skill to direct, your character may
+  use this talent to increase or decrease its speed by 1, to a minimum of 0 or a maximum of the starship's max speed.
+  The starship suffers 2 system strain.
+activation: ai
+ranked: false
+tier: 1
+reference: EotI:50

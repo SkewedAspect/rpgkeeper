@@ -1,0 +1,15 @@
+id: genesys-talent-remote-personal-wormhole
+name: Remote Personal Wormhole
+description: Your character must be a Creuss or have allegiance to the Ghosts of Creuss to benefit from this talent.
+  Once per session, your character may use this talent to instantly teleport to another location that they can see or
+  have previously visited. If the location is within extreme range, they do not have to make a skill check. If the
+  location is beyond extreme range, your character must make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> when they use this talent. They may
+  teleport up to 100 kilometers per <success></success>, or spend <threat></threat> to be able to teleport up to 1,000
+  kilometers per <success></success> instead. If your character teleports 100 kilometers or more, they are staggered for
+  a number of rounds equal to the number of kilometers teleported divided by 10 (rounding up). They may spend
+  <advantage></advantage> to reduce the number of rounds they are staggered by one per <advantage></advantage> spent.
+activation: am
+ranked: false
+tier: 5
+reference: EotI:58

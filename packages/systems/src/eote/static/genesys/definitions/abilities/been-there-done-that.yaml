@@ -1,0 +1,5 @@
+id: genesys-ability-been-there-done-that
+name: Been There, Done That
+description: When providing assistance, this character adds <success></success><advantage></advantage> to the results
+  instead of <boost></boost>).
+reference: G-EPG

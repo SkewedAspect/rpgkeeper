@@ -1,0 +1,6 @@
+id: genesys-ability-power-from-the-fallen
+name: Power from the Fallen
+description: While engaged with a non-demon character, increase this character's Brawn by one for each Critical Injury
+  the non-demon character is currently suffering to a maximum of 5 (this also increases the damage of this character's
+  claws and teeth and this character's soak value).
+reference: SotC

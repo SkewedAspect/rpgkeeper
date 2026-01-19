@@ -1,0 +1,7 @@
+id: genesys-talent-haughty-demeanor
+name: Haughty Demeanor
+description: Other characters add <despair></despair> to social skill checks targeting your character.
+activation: p
+ranked: false
+tier: 2
+reference: SotB:48

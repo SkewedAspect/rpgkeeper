@@ -1,0 +1,13 @@
+id: genesys-attachment-bmi-linked-trigger
+name: BMI-Linked Trigger
+description: BMI-equipped runners are fond of saying that there's nothing faster than the speed of thought. Some
+  mercenaries and pistols for hire apply this literally, getting a BMI linked to the firing mechanism of their weapon.
+  Being able to fire a pistol with a mental command is faster than pulling the trigger, but it takes training to avoid
+  doing so with a stray thought.
+useWith: This attachment can be applied to any What's a Smart Weapon? ranged weapon.
+modifiers: Your character must have a Brain Machine Interface, skulljack, or spinal modem installed to benefit from this
+  attachment. When your character makes the first combat check with this weapon in an encounter, add Success Despair to
+  the results. Your character can also use mental commands to fire this weapon even if they are not holding it, as long
+  as the weapon is within long range.
+hpRequired: 1
+reference: SotB:111

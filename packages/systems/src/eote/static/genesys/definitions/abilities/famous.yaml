@@ -1,0 +1,6 @@
+id: genesys-ability-famous
+name: Famous
+description: Once per encounter, may spend a Story Point to force one opponent with earshot to make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of-turn incidental. If they fail
+  they must fulfill one of this character's requests, such as let them past a checkpoint, stop attacking them, etc.
+reference: SotB

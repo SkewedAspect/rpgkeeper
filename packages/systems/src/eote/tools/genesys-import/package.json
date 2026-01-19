@@ -1,0 +1,20 @@
+{
+    "name": "@rpgk/genesys-import",
+    "version": "1.0.0",
+    "description": "Import tool for Genesys sourcebook data from SilentArctic repository",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "start": "tsx index.ts",
+        "import": "tsx index.ts",
+        "import:dry-run": "tsx index.ts --dry-run"
+    },
+    "dependencies": {
+        "simple-git": "^3.30.0",
+        "yaml": "^2.8.1"
+    },
+    "devDependencies": {
+        "tsx": "^4.19.4",
+        "@types/node": "^22.15.21"
+    }
+}

@@ -1,0 +1,16 @@
+id: genesys-weapon-beam-rifle
+name: Beam Rifle
+description: "Primarily used by various armed forces, beam rifles use their bulky frame to support larger charge packs.
+  Their searing beam cuts right through most body armor; the dazzling flash of massed laser fire was a horrifying sight
+  throughout the galaxy during the Twilight Wars. This weapon may be modified with 2-1: Cultural Manufacturing
+  Differences."
+skill: Ranged (Heavy)
+damage: 5
+criticalRating: 3
+range: l
+encumbrance: 4
+rarity: 4
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 3
+reference: EotI:108

@@ -42,20 +42,39 @@ export const QualityDataSchema = BaseSupplementDataSchema.extend({
 });
 
 //----------------------------------------------------------------------------------------------------------------------
-// Talent Schema
+// Talent Schemas
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
- * Talents (character abilities that can be purchased)
+ * Base talent fields shared by both systems
  */
-export const TalentDataSchema = BaseSupplementDataSchema.extend({
+const BaseTalentFields = {
     /**
      * Activation type:
      * p=passive, ai=active incidental, aio=active incidental once, am=active maneuver, aa=active action
      */
     activation: z.enum([ 'p', 'ai', 'aio', 'am', 'aa' ]).default('p'),
     ranked: z.boolean().default(false),
+};
+
+/**
+ * EotE Talents (have talent trees)
+ */
+export const EoteTalentDataSchema = BaseSupplementDataSchema.extend({
+    ...BaseTalentFields,
     trees: z.string().default(''),
+});
+
+/**
+ * Genesys Talents (have tiers instead of trees)
+ */
+export const GenesysTalentDataSchema = BaseSupplementDataSchema.extend({
+    ...BaseTalentFields,
+    tier: z.number()
+        .int()
+        .min(1)
+        .max(5)
+        .default(1),
 });
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -95,16 +114,27 @@ export const WeaponDataSchema = BaseSupplementDataSchema.extend({
 });
 
 //----------------------------------------------------------------------------------------------------------------------
-// Attachment Schema
+// Attachment Schemas
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
- * Attachments (weapon/armor modifications)
+ * EotE Attachments (weapon/armor modifications with mod options)
  */
-export const AttachmentDataSchema = BaseSupplementDataSchema.extend({
+export const EoteAttachmentDataSchema = BaseSupplementDataSchema.extend({
     useWith: z.string().default(''),
     baseModifier: z.string().default(''),
     modOptions: z.string().default(''),
+    hpRequired: z.number()
+        .int()
+        .default(0),
+});
+
+/**
+ * Genesys Attachments (weapon/armor modifications - no mod options)
+ */
+export const GenesysAttachmentDataSchema = BaseSupplementDataSchema.extend({
+    useWith: z.string().default(''),
+    modifiers: z.string().default(''),
     hpRequired: z.number()
         .int()
         .default(0),
@@ -144,6 +174,7 @@ export const ForcePowerDataSchema = BaseSupplementDataSchema.extend({
         duration: ForcePowerUpgradeSchema.optional(),
         range: ForcePowerUpgradeSchema.optional(),
         control: z.array(ForcePowerControlSchema).optional(),
+        mastery: ForcePowerUpgradeSchema.optional(),
     })
         .passthrough()
         .default({}),
@@ -167,19 +198,19 @@ export const MotivationDataSchema = BaseSupplementDataSchema.extend({
 
 export const EoteSupplementSchemas = {
     ability: AbilityDataSchema,
-    talent: TalentDataSchema,
+    talent: EoteTalentDataSchema,
     weapon: WeaponDataSchema,
     quality: QualityDataSchema,
-    attachment: AttachmentDataSchema,
+    attachment: EoteAttachmentDataSchema,
     forcepower: ForcePowerDataSchema,
 } as const;
 
 export const GenesysSupplementSchemas = {
     ability: AbilityDataSchema,
-    talent: TalentDataSchema,
+    talent: GenesysTalentDataSchema,
     weapon: WeaponDataSchema,
     quality: QualityDataSchema,
-    attachment: AttachmentDataSchema,
+    attachment: GenesysAttachmentDataSchema,
     motivation: MotivationDataSchema,
 } as const;
 

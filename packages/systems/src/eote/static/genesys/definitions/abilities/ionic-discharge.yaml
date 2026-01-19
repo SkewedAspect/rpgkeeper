@@ -1,0 +1,6 @@
+id: genesys-ability-ionic-discharge
+name: Ionic Discharge
+description: After making a successful melee attack, may spend <advantage></advantage><advantage></advantage> to reduce
+  all damage dealt to 0 and cause one piece of equipment the target is holding to cease functioning for the rest of the
+  encounter.
+reference: EotI

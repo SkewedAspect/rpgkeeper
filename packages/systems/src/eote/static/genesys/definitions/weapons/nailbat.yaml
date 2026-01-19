@@ -1,0 +1,14 @@
+id: genesys-weapon-nailbat
+name: Nailbat
+description: A nailbat is a length of wood with nails, spikes, or barbed wire driven into it or wrapped around it to
+  increase its bloodiness. It's a simple but vicious weapon.
+skill: melee
+damage: 3
+criticalRating: 3
+range: en
+encumbrance: 2
+rarity: 2
+qualities:
+  - id: genesys-quality-vicious
+    ranks: 1
+reference: G-EPG:34

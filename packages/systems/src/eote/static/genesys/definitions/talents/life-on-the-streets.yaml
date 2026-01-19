@@ -1,0 +1,9 @@
+id: genesys-talent-life-on-the-streets
+name: Life on the Streets
+description: When you take this talent, your character gains Skulduggery or Deception as a career skill. In addition,
+  when using one of these skills to obtain wealth (whether by stealing something, lying about the worth of an item, or
+  other duplicitous means), your character may spend <advantage></advantage><advantage></advantage> to heal 3 strain.
+activation: p
+ranked: false
+tier: 1
+reference: EotI:50

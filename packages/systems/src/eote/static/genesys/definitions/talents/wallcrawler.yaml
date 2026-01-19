@@ -1,0 +1,9 @@
+id: genesys-talent-wallcrawler
+name: Wallcrawler
+description: Your character can move across vertical surfaces as easily as horizontal surfaces. In addition, when your
+  character attempts to reduce the damage taken from falling, reduce the difficulty of the Athletics or Coordination
+  check by one.
+activation: p
+ranked: false
+tier: 2
+reference: SotC:81

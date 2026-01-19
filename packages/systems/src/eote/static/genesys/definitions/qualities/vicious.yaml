@@ -1,7 +1,8 @@
 id: genesys-quality-vicious
 name: Vicious
-description: When an attack with this weapon results in a Critical Injury, add 10 times the Vicious rating to the result
-  rolled on the critical injury table.
+description: When an attack with this weapon results in a Critical Injury or Hit, the character adds ten times the
+  Vicious rating to the Critical roll. With Vicious 3, for example, you would add +30 to the resulting Critical Injury
+  or Hit result.
 passive: true
-ranked: true
+ranked: false
 reference: G-CRB:89

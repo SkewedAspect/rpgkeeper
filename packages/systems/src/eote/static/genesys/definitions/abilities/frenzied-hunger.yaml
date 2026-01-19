@@ -1,0 +1,6 @@
+id: genesys-ability-frenzied-hunger
+name: Frenzied Hunger
+description: After making a successful combat check, may spend <threat></threat> to inflict an additional hit on any
+  number of other engaged opponents, dealing base damage +1 per <success></success>; after doing so this character
+  suffers 3 strain for each additional opponent hit.
+reference: SotC

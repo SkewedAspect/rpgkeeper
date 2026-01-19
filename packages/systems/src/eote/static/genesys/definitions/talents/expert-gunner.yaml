@@ -1,0 +1,9 @@
+id: genesys-talent-expert-gunner
+name: Expert Gunner
+description: When your character makes a Gunnery check, they may suffer 3 strain to use this talent to reduce the number
+  of <advantage></advantage> needed to activate any of their weapon's item qualities by 1, to a minimum of 1, until the
+  end of the turn.
+activation: ai
+ranked: false
+tier: 3
+reference: EotI:54

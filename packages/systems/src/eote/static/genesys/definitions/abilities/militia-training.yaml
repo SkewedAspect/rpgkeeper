@@ -1,0 +1,5 @@
+id: genesys-ability-militia-training
+name: Militia Training
+description: Burrow Gnomes add <boost></boost> to all combat checks that target characters who have a larger silhouette
+  than they do.
+reference: RoT

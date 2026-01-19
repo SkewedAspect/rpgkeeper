@@ -1,0 +1,9 @@
+id: genesys-talent-ingenious-solution
+name: Ingenious Solution
+description: Once per session, before making a check your character may use this talent to substitute a Knowledge skill
+  of their choice instead of the skill the check would normally require. You should explain how your character's
+  ingenious solution made this possible-in laypeople's terms, anyway.
+activation: ai
+ranked: false
+tier: 4
+reference: SotC:84

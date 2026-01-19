@@ -1,0 +1,8 @@
+id: genesys-talent-inspiring-rhetoric-supreme
+name: Inspiring Rhetoric (Supreme)
+description: Your character must have purchased the Inspiring Rhetoric talent to benefit from this talent. Your
+  character may choose to suffer 1 strain to use the Inspiring Rhetoric talent as a maneuver, instead of as an action.
+activation: ai
+ranked: false
+tier: 4
+reference: G-CRB:80

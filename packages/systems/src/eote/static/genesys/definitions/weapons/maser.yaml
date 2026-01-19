@@ -1,0 +1,32 @@
+id: genesys-weapon-maser
+name: Maser
+description: "Masers—also known as microwave lasers—emit nearly invisible beams of focused microwaves instead of
+  visible-spectrum light. Masers can be tuned to excite water molecules in their targets; this can't hurt targets in
+  metallic armor but is utterly lethal to everyone else. Originally used for long-range, high-output communications and
+  specialized industrial uses (such as \"baking\" lunar rocks to vaporize and release water molecules trapped inside),
+  many were converted into weapons during the Lunar Insurrection. Most domes and fortified bunkers were constructed of a
+  combination of composites and pressed lunar rock, both of which allow focused microwaves to pass right through. Since
+  the Insurrection, purpose-built maser weapons have been produced in small numbers by NEXT for military use. While
+  still not as efficient or accurate as a laser, masers are nevertheless extremely deadly short-range anti-personnel
+  weapons. While they can't penetrate sheets of metal, they do tend to short out unshielded electronics. When your
+  character makes a combat check with a maser against a target that is covered or primarily composed of metal (what
+  armor falls into this category is up to your GM, but generally should include plasteel carapace and exosuits), the
+  maser loses the Breach item quality for the duration of the check. When your character makes a combat check with a
+  maser targeting a vehicle, your character may spend <advantage></advantage><advantage></advantage> on a successful
+  check to inflict 5 system strain. Models Include: NEXT MX-990 Maser Cannon"
+skill: Gunnery
+damage: 5
+criticalRating: 3
+range: s
+encumbrance: 6
+rarity: 6
+qualities:
+  - id: genesys-quality-breach
+    ranks: 1
+  - id: genesys-quality-cumbersome
+    ranks: 5
+  - id: genesys-quality-unwieldy
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 5
+reference: SotB:89

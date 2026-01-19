@@ -1,0 +1,9 @@
+id: genesys-talent-implacable
+name: Implacable
+description: When another character targets your character with a social skill check, your character reduces any strain
+  they suffer as a result of that heck by 1 per rank of Implacable. Your character's ranks in Implacable cannot exceed
+  their Presence.
+activation: p
+ranked: true
+tier: 2
+reference: SotC:79

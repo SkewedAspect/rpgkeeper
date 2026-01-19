@@ -1,0 +1,13 @@
+id: genesys-weapon-stake
+name: Stake
+description: Though they are akward weapons, stakes are quite potent against certain otherwise invulnerable creatures.
+skill: melee
+damage: 1
+criticalRating: 5
+range: en
+encumbrance: 1
+rarity: 0
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 1
+reference: G-EPG:23

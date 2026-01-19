@@ -1,0 +1,9 @@
+id: genesys-attachment-ynfernael-corruption
+name: Ynfernael Corruption
+description: Pacts with dark powers may confer baleful powers unto otherwise mundane weaponry. Ynfernael daemons can
+  infuse nearly any weapon with a measure of their unnatural strength… for a price.
+useWith: This attachment can be applied to any weapon.
+modifiers: The weapon increases its base damage by 2; whenever your character suffers strain while wielding or wearing
+  this weapon, they increase the strain suffered by 1.
+hpRequired: 1
+reference: RoT:107

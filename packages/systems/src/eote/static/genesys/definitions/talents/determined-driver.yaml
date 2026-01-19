@@ -1,0 +1,9 @@
+id: genesys-talent-determined-driver
+name: Determined Driver
+description: You may spend a Story Point to use this talent to have your character heal system strain on a vehicle they
+  are currently driving, piloting, or operating equal to their ranks in Driving, Piloting, or Operating (choose the
+  skill used to direct the vehicle).
+activation: ai
+ranked: false
+tier: 2
+reference: SotB:48

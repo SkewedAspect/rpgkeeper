@@ -1,0 +1,8 @@
+id: genesys-talent-customer-service-experience
+name: Customer Service Experience
+description: After your character makes a Charm check, they may suffer 1 strain to use this talent to cancel
+  <despair></despair> equal to your character's ranks in Customer Service Experience.
+activation: ai
+ranked: true
+tier: 1
+reference: SotB:45

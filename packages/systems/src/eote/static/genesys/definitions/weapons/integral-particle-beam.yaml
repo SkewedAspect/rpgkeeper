@@ -1,0 +1,14 @@
+id: genesys-weapon-integral-particle-beam
+name: Integral Particle Beam
+description: This weapon is only available to Titan characters through the Integral Weapon talent.
+skill: Ranged (Heavy)
+damage: 10
+criticalRating: 2
+range: m
+encumbrance: 0
+rarity: 0
+qualities:
+  - id: genesys-quality-superior
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: EotI:58

@@ -1,0 +1,8 @@
+id: genesys-talent-block
+name: Block
+description: Your character must have purchased the Parry. While wielding a shield, your character may use the Parry
+  talent to reduce damage from ranged attacks as well as melee attacks targeting your character.
+activation: aio
+ranked: false
+tier: 2
+reference: RoT:87

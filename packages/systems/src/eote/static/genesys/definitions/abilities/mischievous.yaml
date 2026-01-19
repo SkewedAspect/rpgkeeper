@@ -1,0 +1,5 @@
+id: genesys-ability-mischievous
+name: Mischievous
+description: As a maneuver, may distract one character at short range; that character adds <setback></setback> to their
+  next check for each member in this minion group.
+reference: SotC

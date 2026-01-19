@@ -1,0 +1,19 @@
+id: genesys-weapon-blazer
+name: Blazer
+description: "Blazers, or beam weapons operating in the infrared spectrum, are less discriminate but just as dangerous
+  as other beam weapons. Considered crude by most militaries, blazers lack any sort of tight beam focus and tend to
+  expend their energy across the surface of their target. This makes them less effective against armor, but they can
+  inflict catastrophic heating damage on exposed skin and delicate materials. They also have larger power packs that
+  make these weapons bulkier. This weapon may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Ranged (Light)
+damage: 7
+criticalRating: 3
+range: s
+encumbrance: 3
+rarity: 3
+qualities:
+  - id: genesys-quality-inaccurate
+    ranks: 1
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: EotI:108

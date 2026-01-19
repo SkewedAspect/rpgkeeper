@@ -1,0 +1,18 @@
+id: genesys-weapon-pike
+name: Pike
+description: "Essentially very long, two-handed spears, pikes are the ultimate defensive weapons. Their reach (between
+  ten and twenty feet) means they can be used to attack a foe long before the foe can bring their own weapon to bear.
+  However, pikes are nearly useless in close quarters. The Lorimor Empire fields companies of pikes: soldiers who are
+  trained to stand shoulder to shoulder and create a bristling hedgehog of spearheads four or five layers deep. A pike
+  can be used to make melee attacks against targets at short range (the difficulty remains
+  <difficulty></difficulty><difficulty></difficulty>), but it cannot be used to attack engaged targets."
+skill: Melee (Heavy)
+damage: 4
+criticalRating: 4
+range: s
+encumbrance: 4
+rarity: 2
+qualities:
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: RoT:93

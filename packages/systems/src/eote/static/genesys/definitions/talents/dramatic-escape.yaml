@@ -1,0 +1,11 @@
+id: genesys-talent-dramatic-escape
+name: Dramatic Escape
+description: Once per session, your character may spend a Story Point to use this talent to escape from a dangerous,
+  unpleasant, or awkward situation. The means by which they accomplish this, and where they escape to, should depend on
+  the narrative, but your character takes no further part in the encounter or scene. After the encounter is complete or
+  the situation is safe (as defined based on the situation), your character rejoins their companions via appropriate, if
+  not necessarily plausible, means.
+activation: ai
+ranked: false
+tier: 4
+reference: SotC:83

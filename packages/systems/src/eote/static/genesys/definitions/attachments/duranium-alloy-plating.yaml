@@ -1,0 +1,10 @@
+id: genesys-attachment-duranium-alloy-plating
+name: Duranium Alloy Plating
+description: Alloyed duranium is often used in dreadnought hull armor, and much smaller plates can be slipped into or
+  layered atop personal protective gear for added protection. The only problem is that any duranium alloy is incredibly
+  heavy.
+useWith: This attachment may be applied to any armor.
+modifiers: Increase the soak provided by the armor by 1. Increase the armor's encumbrance value by 3. The armor gains
+  the Cumbersome item quality.
+hpRequired: 2
+reference: EotI:130

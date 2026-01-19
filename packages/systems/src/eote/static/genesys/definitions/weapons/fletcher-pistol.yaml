@@ -1,0 +1,19 @@
+id: genesys-weapon-fletcher-pistol
+name: Fletcher Pistol
+description: "Roughly the size of a 9mm pistol, the fletcher pistol is the smallest member of the mass driver family.
+  Chambered for the 2mm NEXT flechette, these slim pistols are the go-to weapons for people interested in target
+  shooting and personal protection, along with plenty of police and prisec outfits. They are also popular with special
+  operatives, assassins, private investigators, and orgcrime enforcers. Models Include: NEXT XP5 Needlegun, Argus
+  Stiletto."
+skill: Ranged (Light)
+damage: 4
+criticalRating: 2
+range: m
+encumbrance: 1
+rarity: 4
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: SotB:86

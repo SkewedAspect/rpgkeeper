@@ -1,0 +1,12 @@
+id: genesys-talent-beastmaster
+name: Beastmaster
+description: Your character must have purchased the Animal Companion. Your character may have two animal companions with
+  a combined silhouette no greater than your character's ranks in Animal Companion. Your character spends on maneuver to
+  allow both to perform an action and a maneuver and resolves each companion's turn individually, choosing the order in
+  which they activate. One or both of your character's animal companions can instead be a minion group of animals with a
+  combined silhouette no greater than your character's ranks in Animal Companion. For this purpose, treat every two
+  silhouette 0 animals as silhouette 1.
+activation: p
+ranked: false
+tier: 5
+reference: SotC:84

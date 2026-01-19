@@ -1,0 +1,6 @@
+id: genesys-ability-legion-fighter
+name: Legion Fighter
+description: While engaged with an opponent, may spend a maneuver to add <success></success><success></success> to the
+  results of the next melee combat check an ally makes targeting that opponent before the start of this character's next
+  turn.
+reference: EotI

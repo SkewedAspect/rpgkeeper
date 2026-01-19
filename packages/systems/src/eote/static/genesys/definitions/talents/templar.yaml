@@ -1,0 +1,7 @@
+id: genesys-talent-templar
+name: Templar
+description: Divine is now a career skill for your character. They can only cast one spell using this skill per encounter.
+activation: p
+ranked: false
+tier: 1
+reference: RoT:87

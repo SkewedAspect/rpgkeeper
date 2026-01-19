@@ -1,0 +1,9 @@
+id: genesys-talent-dual-blow
+name: Dual Blow
+description: When resolving a combined check to attack with two weapons in melee or ranged combat, your character may
+  suffer 3 strain to use this talent to hit with the secondary weapon (instead of spending
+  <advantage></advantage><advantage></advantage>).
+activation: ai
+ranked: false
+tier: 3
+reference: EotI:54

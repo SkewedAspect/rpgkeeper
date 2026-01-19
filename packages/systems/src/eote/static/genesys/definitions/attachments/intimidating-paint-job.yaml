@@ -1,0 +1,10 @@
+id: genesys-attachment-intimidating-paint-job
+name: Intimidating Paint Job
+description: While the blank faceplate of an exosuit or carapace helmet can be disconcerting, it's still not as
+  frightening as a good old fashioned skull or demonic face spray painted or holographically projected over the plasteel
+  or cloth.
+useWith: This attachment can be applied to any armor.
+modifiers: When wearing this armor, your character adds Success to Coercion checks they make, and Failure to Charm
+  checks they make.
+hpRequired: 0
+reference: SotB:109

@@ -1,0 +1,16 @@
+id: genesys-weapon-leaf-spring-sword
+name: Leaf-Spring Sword
+description: If you setting has lots of abandoned vehicles, characters can rip the leaf sprins froma truck's suspension
+  and, with time and effort, straighten and sharpen them. The resulting sword is a heavier version of a regular sword.
+skill: melee
+damage: 3
+criticalRating: 2
+range: en
+encumbrance: 2
+rarity: 3
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 2
+  - id: genesys-quality-defensive
+    ranks: 1
+reference: G-EPG:34

@@ -1,0 +1,9 @@
+id: genesys-talent-inspiring-rhetoric
+name: Inspiring Rhetoric
+description: Your character may use this talent to make an <difficulty></difficulty><difficulty></difficulty>. For each
+  <success></success> the check generates, one ally within short range heals one strain. For each
+  <advantage></advantage>, one ally benefiting from Inspiring Rhetoric heals one additional strain.
+activation: aa
+ranked: false
+tier: 2
+reference: G-CRB:76

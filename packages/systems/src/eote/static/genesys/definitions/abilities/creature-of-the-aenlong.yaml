@@ -1,0 +1,5 @@
+id: genesys-ability-creature-of-the-aenlong
+name: Creature of the Aenlong
+description: This creature reduces the difficulty of Arcana checks by one, to a minimum of <difficulty></difficulty>,
+  and the base damage of their Attack spells is increased by three.
+reference: RoT

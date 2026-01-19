@@ -1,0 +1,20 @@
+id: genesys-weapon-greataxe
+name: Greataxe
+description: Almost any hand weapon can be found as a great weapon, although swords and axes are the most common. As you
+  see from their stat lines, great weapons are devastating, but require impressive physical strength to swing (the
+  greataxe) or coordination to keep their blade in the right place (the greatsword). The greataxe and greatsword also
+  have some of the characteristics of their smaller cousins (Defensive and Vicious, respectively).
+skill: Melee (Heavy)
+damage: 4
+criticalRating: 3
+range: en
+encumbrance: 4
+rarity: 4
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 1
+reference: G-CRB:144

@@ -1,0 +1,5 @@
+id: genesys-ability-ambush-predator
+name: Ambush Predator
+description: When attacking a target that has not yet acted during the current encounter, this creature adds
+  <boost></boost><boost></boost> to its combat checks.
+reference: G-EPG

@@ -1,0 +1,13 @@
+id: genesys-attachment-variable-form-weapon
+name: Variable-Form Weapon
+description: "[Table: Bladed Defensive Weapon Stats] [Table: Blunt Offensive Weapon Stats] Combatants may need a
+  close-quarters weapon one minute and a ranged weapon the next. Many have found ways to cause their weapon to change
+  from one type of weapon to another. Some ranged weapons may be equipped with simple blades, but the most advanced of
+  these variable-form weapons can actually re-form into a melee weapon at the wielder's command."
+useWith: This attachment may be used with any Ranged (Light) or Ranged (Heavy) weapon.
+modifiers: When this attachment is installed, your character chooses one of the following secondary weapons. Once per
+  turn while wielding the weapon, your character may cause it to change into a melee form or back into its ranged form
+  as an incidental. While the weapon is in its melee form, your character can make a Melee combat check using the chosen
+  profile.
+hpRequired: 3
+reference: EotI:128

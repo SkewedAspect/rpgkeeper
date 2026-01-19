@@ -1,0 +1,5 @@
+id: genesys-ability-someone-looking-over-them
+name: Someone Looking Over Them
+description: Reduce any damage inflicted on this character by half before applying soak, and reduce any damage inflicted
+  on friendly character within short range by two before applying soak.
+reference: SotC

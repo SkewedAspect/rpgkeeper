@@ -1,0 +1,9 @@
+id: genesys-talent-primacy
+name: Primacy
+description: Your character must be a Letnev or a {@archetype Winnu or have allegiance to the Barony of Letnev to
+  benefit from this talent.} Once per session when making a skill check not linked to Presence, your character may use
+  this talent to upgrade the ability of the check a number of times equal to their Presence rating.
+activation: ai
+ranked: false
+tier: 3
+reference: EotI:55

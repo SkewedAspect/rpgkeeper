@@ -1,0 +1,22 @@
+id: genesys-weapon-jug-of-blessed-water
+name: Jug of Blessed Water
+description: Water, when blessed or sanctified by holy individuals, can be an effective weapon against certain creatures
+  of the night. When it comes in contact with the undead, it burns their flesh like a powerful acid. Otherwise, it can
+  quench the thirst of an irreverent hunter. This weapon is only effective against undead creatures. Against all other
+  targets, it should be treated as normal water.
+skill: brawl
+damage: 6
+criticalRating: 2
+range: en
+encumbrance: 1
+rarity: 6
+qualities:
+  - id: genesys-quality-breach
+    ranks: 1
+  - id: genesys-quality-burn
+    ranks: 1
+  - id: genesys-quality-inaccurate
+    ranks: 2
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: G-EPG:22

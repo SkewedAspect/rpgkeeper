@@ -1,0 +1,9 @@
+id: genesys-talent-null-gravity-adept
+name: Null Gravity Adept
+description: When you take this talent, your character gains Athletics or Coordination as a career skill. In addition,
+  when making a check using one of these skills in a gravity environment, your character may spend
+  <advantage></advantage><advantage></advantage> to heal 3 strain.
+activation: p
+ranked: false
+tier: 1
+reference: EotI:51

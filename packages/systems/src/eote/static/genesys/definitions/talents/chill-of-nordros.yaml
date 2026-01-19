@@ -1,0 +1,9 @@
+id: genesys-talent-chill-of-nordros
+name: Chill of Nordros
+description: Your character cannot take this talent if they have taken the Flames of Kellos talent. When casting an
+  Attack spell, your character may add the Ice effect without increasing the difficulty. Your character can never add
+  the Fire effect.
+activation: ai
+ranked: false
+tier: 2
+reference: RoT:88

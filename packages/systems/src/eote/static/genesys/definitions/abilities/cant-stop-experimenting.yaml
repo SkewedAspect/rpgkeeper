@@ -1,0 +1,6 @@
+id: genesys-ability-cant-stop-experimenting
+name: Can't Stop Experimenting!
+description: While this character is present in an encounter, the GM may spend <difficulty></difficulty> from any check
+  to force all other characters to make a Hard as an out-of-turn incidental. Anyone who fails suffers 4 wounds and 4
+  strain.
+reference: SotC

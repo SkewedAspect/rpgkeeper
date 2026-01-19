@@ -1,0 +1,15 @@
+id: genesys-weapon-zipguns-and-pipe-rifles
+name: Zipguns and Pipe Rifles
+description: These weapons are common among the desperate and destitute. They are handmade guns made from pipes, scrap
+  metal, reclaimed wood, and other scavenged materials (hence their lower damage and inferior quality).
+skill: ranged (light)
+damage: 5
+criticalRating: 4
+range: s
+encumbrance: 1
+rarity: 2
+qualities:
+  - id: genesys-quality-inferior
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: G-EPG:35

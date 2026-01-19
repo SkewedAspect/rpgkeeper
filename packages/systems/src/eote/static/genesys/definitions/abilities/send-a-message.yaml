@@ -1,0 +1,6 @@
+id: genesys-ability-send-a-message
+name: Send a Message
+description: When this character incapacitates an enemy, may suffer 2 strain to force all opponents within medium range
+  to make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> (see fear, page 243 of the
+  Genesys Core Rulebook).
+reference: EotI

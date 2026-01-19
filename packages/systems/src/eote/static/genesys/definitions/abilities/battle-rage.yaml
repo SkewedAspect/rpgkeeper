@@ -1,0 +1,5 @@
+id: genesys-ability-battle-rage
+name: Battle Rage
+description: When making a melee attack, an orc can choose to add <setback></setback> to the check to add +2 to the
+  damage dealt by one hit of that attack.
+reference: G-CRB

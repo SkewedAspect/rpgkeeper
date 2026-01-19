@@ -1,0 +1,10 @@
+id: genesys-attachment-spikes
+name: Spikes
+description: Particularly unscrupulous warriors sometimes add sharp spikes or barbs to their armor, especially to
+  gauntlets, vambraces, and pauldrons. In the press of a melee, they can use a shoulder check or a wild swing to slash
+  or even impale an opponent.
+useWith: This attachment can be applied to plate armor.
+modifiers: If your character is targeted by a melee combat check while wearing this armor, you may spend hhh or d to
+  cause the attacker to suffer 3 wounds.
+hpRequired: 2
+reference: RoT:108

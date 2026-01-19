@@ -210,7 +210,7 @@ export interface EoteOrGenesysTalent extends BaseTalent
 
 export type EoteTalentInst = BaseTalentInst;
 
-export interface EoteAttachment extends Omit<BaseAttachment, 'useWith' | 'modifiers'>
+export interface EoteAttachment extends Omit<BaseAttachment, 'modifiers'>
 {
     baseModifier : string;
     modOptions : string;

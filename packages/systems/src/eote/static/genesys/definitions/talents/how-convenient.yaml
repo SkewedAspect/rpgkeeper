@@ -1,0 +1,10 @@
+id: genesys-talent-how-convenient
+name: How Convenient!
+description: Once per session, your character may use this talent to make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>. If successful, one device involved in the
+  current encounter (subject to your GM's approval) spontaneously fails. This can be because of your character's
+  actions, or it can simply be incredibly convenient timing!
+activation: aa
+ranked: false
+tier: 4
+reference: G-CRB:80

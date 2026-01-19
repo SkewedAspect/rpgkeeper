@@ -1,8 +1,11 @@
 id: genesys-quality-linked
 name: Linked
-description: On a successful attack, the weapon deals one hit. The wielder may spend
-  <advantage></advantage><advantage></advantage> to gain an additional hit, and may do so a number of times equal to the
-  weapon’s Linked rating. Additional hits from the Linked weapon may only be applied against the original target.
+description: Some weapons are designed to fire together at the same target (turrets housing multiple guns are a good
+  example of this). When a character fires a linked weapon, on a successful attack, the weapon deals one hit. The
+  wielder may spend <advantage></advantage><advantage></advantage> to gain an additional hit, and may do so a number of
+  times equal to the weapon's Linked rating. Additional hits from the Linked weapon may only be applied against the
+  original target. Each hit deals the weapon's base damage plus damage equal to the <success></success> scored on the
+  check.
 passive: false
-ranked: true
+ranked: false
 reference: G-CRB:88

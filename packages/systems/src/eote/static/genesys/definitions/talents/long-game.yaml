@@ -1,0 +1,10 @@
+id: genesys-talent-long-game
+name: Long Game
+description: When your character purchases this talent, they increase the number of benchmarks they need to complete
+  their current agenda and any future agendas they choose by 2 (see page 64). When they complete an agenda, they double
+  the received rewards (if the rewards are difficult to quantify, your GM determines what an appropriate increase is).
+  The rest of the party does not double any XP rewards they receive when your character completes their agenda.
+activation: p
+ranked: false
+tier: 2
+reference: EotI:53

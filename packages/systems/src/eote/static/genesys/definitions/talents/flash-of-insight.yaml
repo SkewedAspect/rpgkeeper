@@ -1,0 +1,9 @@
+id: genesys-talent-flash-of-insight
+name: Flash of Insight
+description: When your character generates <threat></threat> on a knowledge skill check, roll
+  <boost></boost><boost></boost> and add the results to the check, in addition to spending the <threat></threat> as
+  usual.
+activation: p
+ranked: false
+tier: 2
+reference: RoT:88

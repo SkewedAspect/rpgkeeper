@@ -1,7 +1,9 @@
 id: genesys-quality-disorient
 name: Disorient
-description: When activated, one target hit by the attack is disoriented for a number of rounds equal to the weapon's
-  Disorient rating. The quality may be triggered multiple times if multiple targets are hit by the attack.
+description: A weapon with Disorient can daze an opponent. When Disorient is triggered, one target hit by the attack is
+  disoriented (see page 114) for a number of rounds equal to the weapon's Disorient rating. A disoriented target adds
+  <setback></setback> to all skill checks they perform. If multiple targets suffer hits from a weapon with Disorient,
+  the quality may be triggered multiple times, affecting a different target each time.
 passive: false
-ranked: true
+ranked: false
 reference: G-CRB:87

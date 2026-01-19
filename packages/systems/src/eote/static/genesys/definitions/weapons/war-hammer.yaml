@@ -1,0 +1,22 @@
+id: genesys-weapon-war-hammer
+name: War Hammer
+description: Some say the Dwarves of Forge first carried hammers to war when they took up their smithing tools to
+  overthrow the Dragonlord Avox. Although this is almost assuredly a fanciful tale, many Dwarves (both those who live in
+  Forge and those who live in the Dunwarr Mountains) wield these oversized mauls in battle. A proper war hammer must be
+  balanced for combat, and even then, only the strongest warriors can carry it. A single, thunderous blow from a war
+  hammer can leave any foe stunned and reeling—if the blow doesn't slay them outright!
+skill: Melee (Heavy)
+damage: 5
+criticalRating: 4
+range: en
+encumbrance: 4
+rarity: 3
+qualities:
+  - id: genesys-quality-concussive
+    ranks: 1
+  - id: genesys-quality-cumbersome
+    ranks: 4
+  - id: genesys-quality-inaccurate
+    ranks: 1
+  - id: genesys-quality-knockdown
+reference: RoT:94

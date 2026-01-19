@@ -1,0 +1,31 @@
+id: genesys-weapon-bulwark-shield
+name: Bulwark Shield
+description: The shape and design of shields varies wildly from culture to culture. The warriors of Al-Kalim prefer
+  light, round shields of bronze, while the barbarians of Isheim wield wooden shields covered in tough hide. The knights
+  of Terrinoth, of course, use shields crafted from iron or steel, often emblazoned with their barony's heraldry.
+  Whatever their shape or material, shields can deflect arrows or blades and, in a pinch, can be used to bash a foe's
+  face in. Large shields are sturdier and heavier than standard ones, and provide more protection. The Dunwarr Dwarves
+  use large shields exclusively (to the point of mocking anything smaller), and those baronies that can afford it often
+  equip their companies of spearmen with large shields as well. Bulwark shields are quite huge, tall enough to protect
+  knights from shoulder to shins and almost as wide as they are tall. They are particularly useful for protection from
+  missile fire, allowing a warrior to close with archers while avoiding being peppered by arrows.
+skill: Melee (Light)
+damage: 2
+criticalRating: 5
+range: en
+encumbrance: 3
+rarity: 3
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 4
+  - id: genesys-quality-defensive
+    ranks: 2
+  - id: genesys-quality-deflection
+    ranks: 3
+  - id: genesys-quality-inaccurate
+    ranks: 2
+  - id: genesys-quality-knockdown
+    ranks: 1
+  - id: genesys-quality-reinforced
+    ranks: 1
+reference: RoT:93

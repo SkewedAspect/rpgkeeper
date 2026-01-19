@@ -1,0 +1,27 @@
+id: genesys-weapon-thorite-decay-bomb
+name: Thorite Decay Bomb
+description: "Designed by Clan of Saar cooperatives to assist in mining operations and later reengineered as a weapon,
+  the thorite decay bomb creates a radioactive wave of superheated gases comparable to plasma bolts that incinerates
+  anything it touches. However, the long-term effects of nausea, weakness, and acute radiation poisoning are what make
+  it useful as a horrific weapon of war. When triggered, the Blast quality of this weapon hits all characters within
+  short range, rather than all engaged characters. A character who suffers damage from a thorite decay bomb reduces
+  their wound threshold by 4 and their strain threshold by 4. Their thresholds may be restored to normal with a
+  successful <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>. Otherwise, after a week, the
+  character may make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>. Each
+  <success></success> increases their wound threshold and strain threshold by 1, up to their original wound and strain
+  thresholds. This check may be repeated every subsequent week until the thresholds have returned to normal. This weapon
+  may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Ranged (Light)
+damage: 14
+criticalRating: 3
+range: s
+encumbrance: 1
+rarity: 6
+qualities:
+  - id: genesys-quality-blast
+    ranks: 14
+  - id: genesys-quality-disorient
+    ranks: 5
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: EotI:111

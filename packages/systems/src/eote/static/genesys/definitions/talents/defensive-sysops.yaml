@@ -1,0 +1,10 @@
+id: genesys-talent-defensive-sysops
+name: Defensive Sysops
+description: When attempting to defend a computer system against intrusion (or when someone attempts to hack a computer
+  owned or programmed by your character) your character adds <setback></setback><setback></setback> to their opponent's
+  checks. If your character has access to the computer system when the intrusion takes place, they are automatically
+  aware of the intrusion.
+activation: p
+ranked: false
+tier: 1
+reference: G-CRB:73

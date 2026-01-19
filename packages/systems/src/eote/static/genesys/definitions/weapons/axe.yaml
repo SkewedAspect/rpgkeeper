@@ -1,0 +1,14 @@
+id: genesys-weapon-axe
+name: Axe
+description: Axes are vicious weapons that can leave painful, incapacitating wounds. Therefore, we gave them the Vicious
+  quality so that any Critical Injuries your character inflicts will be worse than expected.
+skill: Melee (Light)
+damage: 3
+criticalRating: 3
+range: en
+encumbrance: 2
+rarity: 1
+qualities:
+  - id: genesys-quality-vicious
+    ranks: 1
+reference: G-CRB:144

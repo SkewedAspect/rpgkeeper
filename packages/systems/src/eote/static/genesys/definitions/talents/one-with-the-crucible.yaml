@@ -1,0 +1,9 @@
+id: genesys-talent-one-with-the-crucible
+name: One With the Crucible
+description: This talent costs 1 Æmber. When your character makes a check to recover strain at the end of an encounter,
+  they may use this talent to spend <advantage></advantage><advantage></advantage><advantage></advantage> or
+  <threat></threat> move a Story Point from the GM pool to the player pool.
+activation: ai
+ranked: false
+tier: 2
+reference: SotC:79

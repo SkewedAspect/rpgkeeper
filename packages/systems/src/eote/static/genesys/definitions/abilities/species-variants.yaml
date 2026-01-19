@@ -1,0 +1,8 @@
+id: genesys-ability-species-variants
+name: Species Variants
+description: Your character can start the game either as an air-breathing Hylar or as a water-breathing Hylar. If they
+  start the game as an air-breathing Hylar, they can also function normally in all oxygen atmospheres. If they start the
+  game as a water-breathing Hylar, they gain 5 additional starting XP. However, if exposed to the air, they follow the
+  rules for drowning (see page 111 of the Core Rulebook). They also start the game with a sealed environmental suit (see
+  page 117).
+reference: EotI

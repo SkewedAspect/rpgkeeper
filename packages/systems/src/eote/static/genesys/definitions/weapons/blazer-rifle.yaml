@@ -1,0 +1,19 @@
+id: genesys-weapon-blazer-rifle
+name: Blazer Rifle
+description: "The largest blazers tend to be bulky, snub-nosed carbines with a bit more range and power then blazer
+  pistols. These weapons are popular among pirates, criminal enforcers, and anyone else who relies on fear as a weapon.
+  Most arms manufacturers have found it pointless to make any infrared beam weapons larger than this, since the
+  inability to penetrate armor nullifies any minor damage boost. This weapon may be modified with 2-1: Cultural
+  Manufacturing Differences."
+skill: Ranged (Heavy)
+damage: 8
+criticalRating: 3
+range: m
+encumbrance: 4
+rarity: 3
+qualities:
+  - id: genesys-quality-inaccurate
+    ranks: 1
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: EotI:108

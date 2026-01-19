@@ -1,0 +1,7 @@
+id: genesys-ability-destroy-terrain
+name: Destroy Terrain
+description: When engaged with a silhouette 2 or smaller terrain feature that is providing cover or obstructs
+  movement—such as a section of fence, foxhole, door, or sandbagged emplacement—this character may spend an action and
+  make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>; if the check succeeds the terrain
+  feature is destroyed and no longer provides cover or obstructs movement.
+reference: G-EPG

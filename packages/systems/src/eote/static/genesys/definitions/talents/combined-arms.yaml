@@ -1,0 +1,8 @@
+id: genesys-talent-combined-arms
+name: Combined Arms
+description: While your character is engaged with an enemy, your GM or fellow players may not spend
+  <difficulty></difficulty> to cause your character to be hit by an ally's ranged attack.
+activation: p
+ranked: false
+tier: 2
+reference: EotI:52

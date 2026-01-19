@@ -1,11 +1,12 @@
 id: genesys-talent-parry-improved
 name: Parry (Improved)
-description: Then the character suffers a hit from a **Brawl**, **Melee** or **Lightsaber** combat check and uses the
-  Parry incidental to reduce the damage from that hit, after the attack is resolved, the character may spend
-  <despair></despair> or <threat></threat><threat></threat><threat></threat> to automatically hit the attacker once with
-  a wielded Brawl, Melee, or Lightsaber weapon. This his deals the weapon's base damage plus any damage from applicable
-  talents or abilities. This talent may not be used if the original attack incapacitates the character.
-activation: ai
+description: Your character must have purchased the Parry talent to benefit from this talent. When your character
+  suffers a hit from a melee combat check and uses Parry to reduce the damage from that hit, after the attack is
+  resolved, you may spend <difficulty></difficulty> or <despair></despair><despair></despair><despair></despair> from
+  the attacker's check to use this talent. Then, your character automatically hits the attacker once with a Brawl or
+  Melee weapon your character is wielding. The hit deals the weapon's base damage, plus any damage from applicable
+  talents or abilities. Your character can't use this talent if the original attack incapacitates them.
+activation: aio
 ranked: false
 tier: 3
 reference: G-CRB:79

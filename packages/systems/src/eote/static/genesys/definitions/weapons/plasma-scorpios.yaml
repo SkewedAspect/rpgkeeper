@@ -1,0 +1,22 @@
+id: genesys-weapon-plasma-scorpios
+name: Plasma Scorpios
+description: "The largest plasma weapons have the electromagnetic field generators necessary to fling larger plasma
+  bolts over longer distances. When they detonate, their plasma blast is often enough to eliminate whole squads of enemy
+  soldiers. The trade-off is their extreme bulkiness; they often require a tripod and time to deploy This weapon may be
+  modified with 2-1: Cultural Manufacturing Differences."
+skill: Gunnery
+damage: 10
+criticalRating: 2
+range: l
+encumbrance: 8
+rarity: 7
+qualities:
+  - id: genesys-quality-blast
+    ranks: 10
+  - id: genesys-quality-burn
+    ranks: 1
+  - id: genesys-quality-cumbersome
+    ranks: 5
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: EotI:110

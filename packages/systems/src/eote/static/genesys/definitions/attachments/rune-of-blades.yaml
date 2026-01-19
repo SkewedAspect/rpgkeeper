@@ -1,0 +1,12 @@
+id: genesys-attachment-rune-of-blades
+name: Rune of Blades
+description: A rune of blades is almost always found with a specially made sword or knife. It is a simple and effective
+  runebound shard that increases the potency of a bladed weapon by magically honing the edge. Like sunburst runes, runes
+  of blades are in high demand among members of the military and can be commandeered from private individuals for war
+  efforts and related campaigns. Some Dragonkin and other intelligent creatures have made use of the runes to retain the
+  sharpness of their claws, though wooden edges and points are not affected by the runes.
+useWith: This attachment can be applied to any bladed weapon.
+modifiers: When this weapon inflicts a Critical Injury, it inflicts the Bleeding Out Critical Injury instead of one
+  determined through rolling for the result.
+hpRequired: 1
+reference: RoT:106

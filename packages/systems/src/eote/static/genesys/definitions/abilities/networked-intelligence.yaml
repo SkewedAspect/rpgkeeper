@@ -1,0 +1,6 @@
+id: genesys-ability-networked-intelligence
+name: Networked Intelligence
+description: A robot adds automatic <success></success> to its Intellect- and Willpower-based checks for each other
+  friendly character of the same species within medium range—to a maximum of
+  <success></success><success></success><success></success>.
+reference: G-CRB

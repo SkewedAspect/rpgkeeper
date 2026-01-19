@@ -1,0 +1,9 @@
+id: genesys-talent-bloodhound
+name: Bloodhound
+description: When your character makes a check to follow another character's trail (whether their physical tracks or a
+  trail of information), you may use this talent to add <success></success> no greater than your character's ranks in
+  Streetwise or Survival, as appropriate for the environment, to the check results.
+activation: ai
+ranked: false
+tier: 3
+reference: SotC:81

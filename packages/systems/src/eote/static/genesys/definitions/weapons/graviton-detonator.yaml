@@ -1,0 +1,26 @@
+id: genesys-weapon-graviton-detonator
+name: Graviton Detonator
+description: "Restricted due to its devastating nature, a graviton detonator uses complex machinery to create a
+  short-lived pulse of gravitons in a localized area, drastically increasing the weight of everything nearby. The weapon
+  itself collapses into a pellet of neutronium that then almost instantly decays, releasing a vicious (and deadly) burst
+  of radiation. The Ensnare item quality of this weapon activates without spending <advantage></advantage>, affecting
+  all targets within short range of the graviton detonator. This weapon may be modified with 2-1: Cultural Manufacturing
+  Differences."
+skill: Ranged (Light)
+damage: 5
+criticalRating: 1
+range: s
+encumbrance: 1
+rarity: 8
+qualities:
+  - id: genesys-quality-blast
+    ranks: 4
+  - id: genesys-quality-breach
+    ranks: 2
+  - id: genesys-quality-ensnare
+    ranks: 2
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: EotI:111

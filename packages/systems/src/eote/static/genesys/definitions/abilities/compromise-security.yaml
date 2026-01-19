@@ -1,0 +1,6 @@
+id: genesys-ability-compromise-security
+name: Compromise Security
+description: Once per encounter, may make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>
+  to take control of a security system (such as a sealed door, alarm system, or automated weapon) as an action for the
+  remainder of the encounter, and may spend <threat></threat> to immediately use this system as an incidental.
+reference: EotI

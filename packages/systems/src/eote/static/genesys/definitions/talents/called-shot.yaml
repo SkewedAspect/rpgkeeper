@@ -1,0 +1,9 @@
+id: genesys-talent-called-shot
+name: Called Shot
+description: When your character uses the aim maneuver to target a specific item carried by an opponent or a specific
+  part of an opponent (see page 99 of the Genesys Core Rulebook), they do not add any <setback></setback> to the check
+  as a part of performing the maneuver.
+activation: p
+ranked: false
+tier: 2
+reference: EotI:52

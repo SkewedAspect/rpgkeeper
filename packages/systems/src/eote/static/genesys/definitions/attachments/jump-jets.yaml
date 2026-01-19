@@ -1,0 +1,9 @@
+id: genesys-attachment-jump-jets
+name: Jump Jets
+description: Maneuvering jets are a necessity in microgravity environments, but short range "jump jets" also let users
+  fly briefly (and deploy from high altitude combat drops) while on Earth.
+useWith: This attachment can be applied to any armor with a rigid external carapace.
+modifiers: When wearing this armor, once per encounter your character may activate the jump jets as an incidental. Until
+  the end of your character's next turn, they may flying and do not suffer damage from falling.
+hpRequired: 2
+reference: SotB:110

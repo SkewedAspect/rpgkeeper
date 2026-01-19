@@ -1,0 +1,5 @@
+id: genesys-ability-relentless
+name: Relentless
+description: After making a successful combat check against a target, add <boost></boost> to the next combat check this
+  character makes against the same target.
+reference: SotC

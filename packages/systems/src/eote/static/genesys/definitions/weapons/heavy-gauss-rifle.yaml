@@ -1,0 +1,22 @@
+id: genesys-weapon-heavy-gauss-rifle
+name: Heavy Gauss Rifle
+description: "These powerful weapons are designed to destroy armor and fortifications at the edge of visual range. Heavy
+  Gauss rifles are 25mm smoothbore weapons similar to a number of older light armored-vehicle cannons in both intended
+  role and ballistic characteristics. Standard load is an inert ferrous penetrator with a buckyfilm-coated hardened
+  tungsten tip. Very technically, Heavy Gauss rifles can be human-portable (with the aid of a tripod or load-bearing
+  system), but more often are carried by exosuits. Models Include: Cantor LACR-01 Gauss-Effect Anti-Armor Cannon, NEXT
+  CG70(H) Anti-Armor Gauss Rifle."
+skill: Gunnery
+damage: 15
+criticalRating: 2
+range: ex
+encumbrance: 7
+rarity: 5
+qualities:
+  - id: genesys-quality-breach
+    ranks: 1
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-slow-firing
+    ranks: 1
+reference: SotB:88

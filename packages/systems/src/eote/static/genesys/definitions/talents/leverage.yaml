@@ -1,0 +1,12 @@
+id: genesys-talent-leverage
+name: Leverage
+description: Once per encounter, you may spend a Story Point to have your character use this talent to target another
+  character within hearing range. If your character knows the target's Flaw or Fear Motivation, the target must spend
+  their next turn performing one action of your character's choice. If this occurs during a narrative encounter, this
+  can be a single discrete task instead. At your GM's discretion, certain actions or tasks may be too unrealistic for
+  the target to perform (such as harming themself or betraying a beloved family member). In addition, the target becomes
+  more hostile toward your character in the future.
+activation: am
+ranked: false
+tier: 2
+reference: EotI:53

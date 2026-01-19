@@ -1,0 +1,7 @@
+id: genesys-ability-prideful-roar
+name: Prideful Roar
+description: As a maneuver, a Pridelord can unleash a prideful roar. All other Singhara in the encounter remove
+  <setback></setback> from checks until the end of the Pridelord's next turn. In addition, enemies within medium range
+  of the Pridelord must make an <difficulty></difficulty><difficulty></difficulty> as per page 243 of the Genesys Core
+  Rulebook.
+reference: RoT

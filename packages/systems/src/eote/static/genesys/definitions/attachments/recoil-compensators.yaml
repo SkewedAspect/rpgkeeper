@@ -1,0 +1,9 @@
+id: genesys-attachment-recoil-compensators
+name: Recoil Compensators
+description: By using smartlinked gyrostabilizers and gas vents, recoil compensators make weapons more accurate and
+  easier to handle. While recoil compensators are typically added to automatic weapons or high-accuracy, long-range
+  rifles, nearly any slugthrower can benefit from this system.
+useWith: This attachment can be applied to any What's a Smart Weapon? slugthrower weapon.
+modifiers: The weapon decreases its Inaccurate item quality by 1, to a minimum of 0.
+hpRequired: 1
+reference: SotB:111

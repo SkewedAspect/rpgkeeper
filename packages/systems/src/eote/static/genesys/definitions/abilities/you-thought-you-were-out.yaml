@@ -1,0 +1,5 @@
+id: genesys-ability-you-thought-you-were-out
+name: You Thought You Were Out...
+description: When making a Coercion check to maintain a favor after calling it in, the check is an
+  <difficulty></difficulty><difficulty></difficulty> instead of an opposed check.
+reference: SotB

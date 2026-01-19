@@ -1,0 +1,9 @@
+id: genesys-ability-mind-shaper
+name: Mind Shaper
+description: As an action, a psionic may make an opposed Discipline versus Vigilance check targeting one living creature
+  within medium range. If the check succeeds, the psionic may cause the target to adopt an emotional state of the
+  psionic's choice for the next minute (or one round of structured time). <advantage></advantage> or <threat></threat>
+  may be spent to increase the duration by one round (and may be spent multiple times). However, if the check fails or
+  generates <despair></despair><despair></despair><despair></despair> or <difficulty></difficulty>, the target realizes
+  their emotions are being manipulated.
+reference: G-CRB

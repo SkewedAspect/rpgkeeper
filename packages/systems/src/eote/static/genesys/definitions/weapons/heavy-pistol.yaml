@@ -1,0 +1,13 @@
+id: genesys-weapon-heavy-pistol
+name: Heavy Pistol
+description: Heavy pistols are the big, bulky hand cannons that show up in movies in the hands of cops on the edge or
+  great big heroes. Their damage and Critical rating can also be adjusted up or down by one (but not more) to reflect
+  larger or smaller calibers.
+skill: Ranged (Light)
+damage: 6
+criticalRating: 3
+range: m
+encumbrance: 1
+rarity: 3
+qualities: []
+reference: G-CRB:166

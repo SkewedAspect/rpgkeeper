@@ -1,0 +1,16 @@
+id: genesys-weapon-bow
+name: Bow
+description: The primitive appearance of the bow and longbow belies their effectiveness. In the hands of a skilled
+  archer, a bow can volley arrows into targets quickly and at range. Nocking an arrow and drawing a bow takes virtually
+  no time for a trained user, so we don't think bows need Prepare or any other qualities to reflect that. However, bows
+  do require a certain innate skill and coordination to use, hence the Unwieldy quality.
+skill: Ranged
+damage: 7
+criticalRating: 3
+range: m
+encumbrance: 2
+rarity: 2
+qualities:
+  - id: genesys-quality-unwieldy
+    ranks: 2
+reference: G-CRB:144

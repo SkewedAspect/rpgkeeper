@@ -1,0 +1,8 @@
+id: genesys-talent-apothecary
+name: Apothecary
+description: When a patient under your character's care heals wounds from natural rest, they heal additional wounds
+  equal to twice your character's ranks in Apothecary.
+activation: p
+ranked: true
+tier: 1
+reference: RoT:84

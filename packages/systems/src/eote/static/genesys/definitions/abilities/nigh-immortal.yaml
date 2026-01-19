@@ -1,0 +1,5 @@
+id: genesys-ability-nigh-immortal
+name: Nigh-Immortal
+description: After making a check, may spend <threat></threat> to heal all wounds on one defeated minion from this group
+  (returning it to the group with all wounds healed).
+reference: EotI

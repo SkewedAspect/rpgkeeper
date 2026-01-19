@@ -1,0 +1,12 @@
+id: genesys-talent-lets-talk-this-over
+name: Let's Talk This Over
+description: Once per game session, when a combat encounter against one or more sentient beings is about to begin, the
+  character make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>.
+  If successful, the combat encounter instead becomes a social encounter, with the PCs attempting to convince their
+  opposition to back down, come around to their viewpoint, or accept a compromise. The GM is the final arbiter of how
+  the situation resolves without violence (or how the combat encounter continues if the character's check is
+  unsuccessful).
+activation: aio
+ranked: false
+tier: 5
+reference: RoT:91

@@ -1,0 +1,6 @@
+id: genesys-ability-radioactive
+name: Radioactive
+description: At the end of an encounter in which a target was hit by a combat check from this character, that target
+  must make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> or suffer one level of
+  radiation (See A Certain Glow, EPG page 29).
+reference: G-EPG

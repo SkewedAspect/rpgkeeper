@@ -1,0 +1,10 @@
+id: genesys-talent-ccrysusian-methodology
+name: Ccrysusian Methodology
+description: Once per session when your character is targeted by a social skill check, they may use this talent to
+  reduce any strain they suffer by an amount equal to their ranks in Negotiation, to a minimum amount of strain of 1.
+  Each additional rank of Ccrysusian Methodology increases the number of times your character can use this talent each
+  session by 1.
+activation: aio
+ranked: true
+tier: 3
+reference: EotI:54

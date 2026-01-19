@@ -1,0 +1,10 @@
+id: genesys-talent-quick-witted
+name: Quick Witted
+description: Once per encounter, after another character makes a social skill check, your character may use this talent
+  to make an <difficulty></difficulty><difficulty></difficulty>. If successful, you may add a number of
+  <success></success> or <advantage></advantage> (your choice) equal to your character's ranks in Charm to the other
+  character's check. If your character fails, your character suffers 3 strain.
+activation: aio
+ranked: false
+tier: 4
+reference: SotB:51

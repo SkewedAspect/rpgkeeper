@@ -1,0 +1,5 @@
+id: genesys-ability-aerial-thief
+name: Aerial Thief
+description: May spend <threat></threat> when making a check to determine Initiative to steal one randomly determined
+  item of encumbrance 2 or less from the character who generated the least <success></success> on their check.
+reference: SotC

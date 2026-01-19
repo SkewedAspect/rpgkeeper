@@ -1,0 +1,5 @@
+id: genesys-ability-discrete-saboteur
+name: Discrete Saboteur
+description: May spend <threat></threat> from a check this character makes to cause one piece of equipment or a vehicle
+  to break and become unusable for the remainder of the encounter.
+reference: EotI

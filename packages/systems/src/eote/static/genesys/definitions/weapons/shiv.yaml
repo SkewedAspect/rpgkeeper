@@ -1,0 +1,14 @@
+id: genesys-weapon-shiv
+name: Shiv
+description: Shivs are homemade knives made from anything that can be sharpened to a point, such as an eating utensil,
+  piece of scrap meta, glass shard, or toothbrush. Your character can make a shiv out of nearly any piece of scrap.
+skill: melee
+damage: 1
+criticalRating: 4
+range: en
+encumbrance: 1
+rarity: 3
+qualities:
+  - id: genesys-quality-vicious
+    ranks: 1
+reference: G-EPG:35

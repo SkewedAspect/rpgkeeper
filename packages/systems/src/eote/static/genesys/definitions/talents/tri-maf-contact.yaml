@@ -1,0 +1,9 @@
+id: genesys-talent-tri-maf-contact
+name: Tri-Maf Contact
+description: When you take this talent, your character gains Melee or Skulduggery (your choice) as a career skill. In
+  addition, once per session your character may collect a small favor from a member of a single orgcrime group (chosen
+  when you take this talent), even if they do not owe your character a favor.
+activation: p
+ranked: false
+tier: 1
+reference: SotB:45

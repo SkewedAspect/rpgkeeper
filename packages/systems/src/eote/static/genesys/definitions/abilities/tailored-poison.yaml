@@ -1,0 +1,6 @@
+id: genesys-ability-tailored-poison
+name: Tailored Poison
+description: Once per encounter before making a Ranged check, as a maneuver this character can apply a tailored poison
+  to an arrow; if the check succeeds, the attack inflicts additional damage equal to the target's highest characteristic
+  and gains the Disorient quality.
+reference: RoT

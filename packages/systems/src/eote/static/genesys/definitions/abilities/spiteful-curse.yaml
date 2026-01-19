@@ -1,0 +1,5 @@
+id: genesys-ability-spiteful-curse
+name: Spiteful Curse
+description: Add <boost></boost><boost></boost> to magic actions that target a character who has previously inflicted
+  wounds on this character during this encounter.
+reference: RoT

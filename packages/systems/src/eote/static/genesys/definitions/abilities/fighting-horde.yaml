@@ -1,0 +1,5 @@
+id: genesys-ability-fighting-horde
+name: Fighting Horde
+description: When this character attacks an opponent engaged with an ally, remove <setback></setback><setback></setback>
+  from the pool.
+reference: EotI

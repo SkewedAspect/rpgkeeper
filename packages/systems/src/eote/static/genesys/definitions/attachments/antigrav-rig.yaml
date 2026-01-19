@@ -1,0 +1,12 @@
+id: genesys-attachment-antigrav-rig
+name: Antigrav Rig
+description: An antigrav rig allows its wearer to defy gravity in minor yet useful ways. While not powerful enough to
+  provide the wearer with true flight, it allows them to leap great distances and slows their descent when they fall
+  from a great height.
+useWith: This attachment can be applied to any armor.
+modifiers: When wearing this armor, as a maneuver, your character may move to any point within short range, even
+  vertically. Once per encounter, the antigrav rig can be activated to allow your character to leap to any point within
+  medium range as a maneuver, or activated as an out-ofturn incidental to reduce your character's falling distance by
+  two range bands.
+hpRequired: 3
+reference: EotI:128

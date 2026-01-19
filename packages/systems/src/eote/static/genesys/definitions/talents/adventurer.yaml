@@ -1,0 +1,7 @@
+id: genesys-talent-adventurer
+name: Adventurer
+description: Athletics and Knowledge (Adventuring) are now career skills for your character.
+activation: p
+ranked: false
+tier: 2
+reference: RoT:87

@@ -1,0 +1,5 @@
+id: genesys-ability-eyeless-sight
+name: Eyeless Sight
+description: This character does not add <setback></setback> to checks due to concealment (darkness, smoke, and
+  intervening terrain), and are immune to abilities or Critical Injuries that affect a creature's sight.
+reference: RoT

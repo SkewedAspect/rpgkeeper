@@ -1,0 +1,4 @@
+id: genesys-ability-critical-number
+name: Critical Number
+description: Adds <advantage></advantage> to combat checks if there are two or more members in the minion group.
+reference: SotC

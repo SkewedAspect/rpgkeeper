@@ -1,0 +1,8 @@
+id: genesys-talent-dirty-tricks
+name: Dirty Tricks
+description: After your character inflicts a Critical Injury on an adversary, they may use this talent to upgrade the
+  difficulty of that adversary's next check.
+activation: ai
+ranked: false
+tier: 2
+reference: RoT:88

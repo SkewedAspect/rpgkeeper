@@ -1,0 +1,8 @@
+id: genesys-talent-contingency-plan
+name: Contingency Plan
+description: Once per session, after you spend a Story Point as part of a check your character makes, if that check was
+  unsuccessful then you may use this talent to move a Story Point from the GM pool to the player pool.
+activation: ai
+ranked: false
+tier: 3
+reference: SotC:81

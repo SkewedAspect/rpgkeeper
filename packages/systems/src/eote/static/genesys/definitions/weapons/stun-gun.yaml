@@ -1,0 +1,19 @@
+id: genesys-weapon-stun-gun
+name: Stun Gun
+description: The name "stun gun" is a bit of a misnomer; it's a hand-held device with protruding electrodes. Push the
+  electrodes into an opponent, and they get shocked. That's why the weapon has damage that can't be modified by your
+  character's Brawn (you don't hit people with a stun gun; you just touch them with it), and any similar weapon should
+  follow a similar profile. Obviously, the Stun Damage quality is another must, and we added the Stun quality to
+  represent some people suffering worse effects than others from the electric shock. We also gave it a Critical rating;
+  after all, an electric shock can occasionally do lasting damage!
+skill: Melee
+damage: 6
+criticalRating: 6
+range: en
+encumbrance: 1
+rarity: 1
+qualities:
+  - id: genesys-quality-stun
+    ranks: 3
+  - id: genesys-quality-stun-damage
+reference: G-CRB:166

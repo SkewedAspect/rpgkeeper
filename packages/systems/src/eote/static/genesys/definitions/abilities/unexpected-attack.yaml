@@ -1,0 +1,4 @@
+id: genesys-ability-unexpected-attack
+name: Unexpected Attack
+description: If this character has not been yet been identified as a threat, they use Stealth to determine Initiative.
+reference: RoT

@@ -1,0 +1,10 @@
+id: genesys-talent-future-sight
+name: Future Sight
+description: Your character must have allegiance to The Nomad to benefit from this talent. Once per session, after
+  performing an action (and seeing the results of any check made as a part of that action), your character may use this
+  talent to cancel the results of that action and perform a different action instead. (Narratively, the first action did
+  not occur, and your character only performed the second action.)
+activation: ai
+ranked: false
+tier: 4
+reference: EotI:57

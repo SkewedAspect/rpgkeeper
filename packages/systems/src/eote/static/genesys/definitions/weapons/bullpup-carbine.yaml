@@ -1,0 +1,21 @@
+id: genesys-weapon-bullpup-carbine
+name: Bullpup Carbine
+description: "Although assault rifles remain the go-to infantry weapon for most militaries, many PMCs and corporate
+  security outfits prefer to use the more compact and accurate \"bullpup\" weapons. Around since the beginning of the
+  twenty-first century, the nickname refers to any firearm that has the action and clip behind the trigger, which allows
+  for an easier to handle weapon. Although the first bullpup weapons tended to have some balance (and therefore
+  accuracy) issues, modern smart systems eliminate this problem, letting wielders take full advantage of a shorter gun
+  that's easy to swing around. Shorter ranged by nature, bullpup carbines tend to be used in enclosed spaces, and by
+  criminals and security officers who like being able to hide an assault weapon in a briefcase. Models Include: Strelet
+  Arms S101.b MCW, Kalashnikov AK-X2 Carbine."
+skill: Ranged (Heavy)
+damage: 7
+criticalRating: 3
+range: m
+encumbrance: 3
+rarity: 7
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+  - id: genesys-quality-auto-fire
+reference: SotB:82

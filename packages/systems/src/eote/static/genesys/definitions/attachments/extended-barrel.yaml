@@ -1,0 +1,10 @@
+id: genesys-attachment-extended-barrel
+name: Extended Barrel
+description: This attachment extends the barrel (or makes similar modifications) to make the weapon fire farther. This
+  kind of attachment makes sense for the weird war, modern day, science fiction, and space opera settings.
+useWith: This attachment can be applied to any Ranged (Light), Ranged (Heavy), or Gunnery weapons (you may exclude
+  weapons such as grenades, or weapons that fire self-propelled ammo such as missile launchers).
+modifiers: The weapon's range increases by one range band, to a maximum of extreme range. The weapon gains the
+  Cumbersome quality, or increases its existing Cumbersome quality by 2.
+hpRequired: 2
+reference: G-CRB:207

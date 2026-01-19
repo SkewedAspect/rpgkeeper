@@ -1,0 +1,13 @@
+id: genesys-talent-hard-headed-improved
+name: Hard Headed (Improved)
+description: Your character must have purchased the Hard Headed talent to benefit from this talent. Your character may
+  use the Hard Headed talent to recover from being incapacitated due to exceeding their strain threshold. On their next
+  turn after having become incapacitated, they may make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>,
+  even though an incapacitated character is normally unable to perform actions. If they succeed, they decrease their
+  strain to one less that their strain threshold. The difficulty of this check decreases by per additional rank of Hard
+  Headed, to a minimum of {@difficulty easy).
+activation: aa
+ranked: false
+tier: 3
+reference: SotC:82

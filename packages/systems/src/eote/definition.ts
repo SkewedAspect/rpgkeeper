@@ -16,11 +16,13 @@ import { EoteSystemDetailsSchema, GenesysSystemDetailsSchema } from './schemas/c
 // Supplement schemas
 import {
     AbilityDataSchema,
-    AttachmentDataSchema,
+    EoteAttachmentDataSchema,
+    EoteTalentDataSchema,
     ForcePowerDataSchema,
+    GenesysAttachmentDataSchema,
+    GenesysTalentDataSchema,
     MotivationDataSchema,
     QualityDataSchema,
-    TalentDataSchema,
     WeaponDataSchema,
 } from './schemas/supplements.ts';
 
@@ -142,10 +144,10 @@ export const genesysDefinition : SystemDefinition<GenesysSystemDetails>
         defaults: genesysDefaults,
         supplements: {
             ability: { schema: AbilityDataSchema },
-            talent: { schema: TalentDataSchema },
+            talent: { schema: GenesysTalentDataSchema },
             weapon: { schema: WeaponDataSchema },
             quality: { schema: QualityDataSchema },
-            attachment: { schema: AttachmentDataSchema },
+            attachment: { schema: GenesysAttachmentDataSchema },
             motivation: { schema: MotivationDataSchema },
         },
     };
@@ -225,10 +227,10 @@ export const eoteDefinition : SystemDefinition<EoteSystemDetails>
         defaults: eoteDefaults,
         supplements: {
             ability: { schema: AbilityDataSchema },
-            talent: { schema: TalentDataSchema },
+            talent: { schema: EoteTalentDataSchema },
             weapon: { schema: WeaponDataSchema },
             quality: { schema: QualityDataSchema },
-            attachment: { schema: AttachmentDataSchema },
+            attachment: { schema: EoteAttachmentDataSchema },
             forcepower: { schema: ForcePowerDataSchema },
         },
     };

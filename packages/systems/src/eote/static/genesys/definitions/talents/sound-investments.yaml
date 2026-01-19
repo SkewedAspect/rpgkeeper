@@ -1,0 +1,10 @@
+id: genesys-talent-sound-investments
+name: Sound Investments
+description: At the beginning of each game session, your character receives aurei equal to their ranks in Sound
+  Investments times 100. How your character earns this money is up to you and your GM and could represent actual
+  business investments, an inheritance, a legal or illegal side business, or even bribes or blackmail money. Your GM can
+  also decide that the current events of the adventure may make those funds temporarily unavailable.
+activation: p
+ranked: true
+tier: 2
+reference: EotI:54

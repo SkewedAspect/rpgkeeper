@@ -1,0 +1,21 @@
+id: genesys-weapon-grenade-lobber
+name: Grenade Lobber
+description: We've given this grenade launcher a profile reflecting a standard grenade. If you use a different kind of
+  grenade (such as the particle grenade), change the damage and Crit ratings accordingly, and add the relevant qualities
+  (you wouldn't change the launcher's Limited Ammo quality, for instance). Although this weapon is similar to a
+  modern-day grenade launcher, sophisticated targeting systems help the user fire at the right trajectory to hit even
+  distant targets, hence the long range and Accurate quality.
+skill: Gunnery
+damage: 8
+criticalRating: 4
+range: l
+encumbrance: 5
+rarity: 5
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 2
+  - id: genesys-quality-blast
+    ranks: 6
+  - id: genesys-quality-limited-ammo
+    ranks: 6
+reference: G-CRB:184

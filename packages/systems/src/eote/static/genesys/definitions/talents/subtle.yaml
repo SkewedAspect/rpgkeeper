@@ -1,0 +1,10 @@
+id: genesys-talent-subtle
+name: Subtle
+description: When making a social skill check, your character can use this talent to spend <advantage></advantage> to
+  convey to one other character a simple message that has nothing to do with what your character is actually saying. The
+  means by which you convey this message is up to you and your GM, but could include body language, subtle gestures,
+  double entendres, or references to shared experiences.
+activation: ai
+ranked: false
+tier: 1
+reference: EotI:51

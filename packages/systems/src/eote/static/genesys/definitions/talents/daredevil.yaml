@@ -1,0 +1,9 @@
+id: genesys-talent-daredevil
+name: Daredevil
+description: When your character generates <difficulty></difficulty> on an Athletics, Coordination, Piloting, or Riding
+  check, roll <proficiency></proficiency> and add the results to the check, in additional to the
+  <difficulty></difficulty> being spent as normal.
+activation: p
+ranked: false
+tier: 3
+reference: SotC:82

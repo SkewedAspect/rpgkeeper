@@ -1,0 +1,20 @@
+id: genesys-weapon-collapsible-blade
+name: Collapsible Blade
+description: "Occasionally there is a need for a the keleres of the council to possess an easily accessible weapon while
+  still engaging in delicate political investigations or negotiations. A collapsible blade looks like an unassuming cube
+  of metal when not in use. However, when deployed, the cube quickly unfolds into a short, serviceable blade with a
+  basic hilt. Your character must spend a maneuver to collapse their collapsible blade. While the blade is collapsed,
+  those searching the character add <setback></setback> to any checks made to find the collapsible blade. This weapon
+  may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Melee
+damage: 3
+criticalRating: 2
+range: en
+encumbrance: 2
+rarity: 2
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: EotI:115

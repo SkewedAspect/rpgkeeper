@@ -1,0 +1,9 @@
+id: genesys-attachment-hair-trigger
+name: Hair Trigger
+description: A "hair trigger" represents a modification that allows the user to fire a weapon very quickly, although
+  this can be at the expense of accuracy. This kind of attachment makes sense for the weird war, modern day, science
+  fiction, and space opera settings.
+useWith: This attachment can be applied to any pistol.
+modifiers: When the user makes the first combat check with this weapon in an encounter, add Success Despair to the results.
+hpRequired: 1
+reference: G-CRB:207

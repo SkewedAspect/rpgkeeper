@@ -1,0 +1,23 @@
+id: genesys-weapon-powder-charge
+name: Powder Charge
+description: A typical powder charge consists consists of a sack, bottle, or other container packed with gunpowder and
+  detonated with a fuse. Various other sharp and deadly materials are often added to the charge to give it a little
+  extra viciousness. However, these weapons are heavy and hard to throw, and may go off in your character's hands. When
+  your character uses a powder charge, your GM may spend hhhh or d to have the weapon fail to explode, or to explode
+  prematurely and deal its base damage to all engaged targets (including your character).
+skill: ranged (heavy)
+damage: 12
+criticalRating: 3
+range: s
+encumbrance: 2
+rarity: 4
+qualities:
+  - id: genesys-quality-blast
+    ranks: 9
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+  - id: genesys-quality-prepare
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: G-EPG:35

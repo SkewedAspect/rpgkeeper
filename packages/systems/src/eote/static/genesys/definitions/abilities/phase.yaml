@@ -1,0 +1,4 @@
+id: genesys-ability-phase
+name: Phase
+description: Can ignore terrain penalties and move through solid matter (but cannot end their turn inside solid matter).
+reference: SotC

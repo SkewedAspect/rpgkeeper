@@ -1,0 +1,28 @@
+id: genesys-weapon-portable-missile-launcher
+name: Portable Missile Launcher
+description: The weapon presented here represents one of the countless shoulder-fired anti-aircraft missiles used
+  throughout the world, such as the Stinger missile. Their extreme range and Guided quality reflect the fact that they
+  are long-ranged anti-vehicle weapons. They, of course, only hold one missile at a time and need a few moments to set
+  up, so the Limited Ammo and Prepare qualities are a must for these weapons (reloads for these launchers should cost
+  half of the weapon's initial cost). If you want to create an anti-armor weapon like a TOW, the Breach should be
+  increased to 5 and Prepare to 2.
+skill: Gunnery
+damage: 20
+criticalRating: 2
+range: ex
+encumbrance: 8
+rarity: 8
+qualities:
+  - id: genesys-quality-blast
+    ranks: 1
+  - id: genesys-quality-breach
+    ranks: 2
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-guided
+    ranks: 3
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: G-CRB:166

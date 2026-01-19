@@ -1,0 +1,9 @@
+id: genesys-talent-dissonance
+name: Dissonance
+description: While wielding a musical instrument, your character may use this talent to make an average. For each
+  <success></success> the check generates, one enemy of the player's choosing within medium range suffers 1 wound. For
+  each <advantage></advantage>, one enemy affected by Dissonance suffers 1 additional wound.
+activation: aa
+ranked: false
+tier: 3
+reference: RoT:90

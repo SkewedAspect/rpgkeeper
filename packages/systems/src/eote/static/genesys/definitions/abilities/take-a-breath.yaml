@@ -1,0 +1,5 @@
+id: genesys-ability-take-a-breath
+name: Take a Breath
+description: Once per encounter, may suffer 2 strain as an out-of-turn incidental during an ally's turn; the ally loses
+  a maneuver and either heals 6 strain or may reroll a fear check they just failed.
+reference: G-EPG

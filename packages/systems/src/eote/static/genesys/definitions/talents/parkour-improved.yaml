@@ -1,0 +1,9 @@
+id: genesys-talent-parkour-improved
+name: Parkour! (Improved)
+description: Your character must have purchased the Parkour! talent to benefit from this talent. Once per round, when
+  using the Parkour! talent, your character may suffer 4 strain instead of 1 strain to move to any location within
+  medium range instead of short range. All other restrictions of Parkour! apply to this movement.
+activation: ai
+ranked: false
+tier: 4
+reference: SotB:51

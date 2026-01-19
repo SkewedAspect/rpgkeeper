@@ -1,0 +1,8 @@
+id: genesys-attachment-enhanced-focal-lenses
+name: Enhanced Focal Lenses
+description: Increasing the thickness of a beam weapon's focal prisms or lenses can keep the beam tightly focused over
+  longer distances, effectively boosting its range.
+useWith: This attachment can be applied to any Ranged (Heavy) or Gunnery beam weapons.
+modifiers: The weapon's range increases by one range band, to a maximum of extreme range. The weapon's base damage decreases by 1.
+hpRequired: 1
+reference: EotI:127

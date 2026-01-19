@@ -1,0 +1,11 @@
+id: genesys-talent-snare
+name: Snare
+description: Once per session, your character may use this talent to make a hard. If they succeed, once before the end
+  of the encounter, you may spend a Story Point to force one character in the encounter to make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an incidental.
+  If they fail, they are staggered until the end of their next turn, plus one additional turn per
+  <despair></despair><despair></despair>.
+activation: aa
+ranked: false
+tier: 3
+reference: SotB:50

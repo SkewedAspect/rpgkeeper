@@ -1,0 +1,9 @@
+id: genesys-talent-deadeye
+name: Deadeye
+description: "After your character inflicts a I.6-10: Critical Injury Result with a ranged weapon and rolls the result,
+  your character may suffer 2 strain to use this talent. Then, you may select any I.6-10: Critical Injury Result of the
+  same severity to apply to the target instead."
+activation: ai
+ranked: false
+tier: 4
+reference: G-CRB:79

@@ -1,0 +1,6 @@
+id: genesys-ability-ghostly
+name: Ghostly
+description: This creature may move over or through terrain (including doors and walls) without penalty; halve the
+  damage dealt to this character before applying soak, unless the attack came from a magical source such as a spell or
+  legendary weapon.
+reference: G-EPG

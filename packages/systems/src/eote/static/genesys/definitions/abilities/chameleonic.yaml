@@ -1,0 +1,6 @@
+id: genesys-ability-chameleonic
+name: Chameleonic
+description: May spend a Story Point to add <success></success><success></success> to the results of any Stealth check
+  this character makes or to add <failure></failure><failure></failure> to the results of a Vigilance or Perception
+  check another character makes to detect this character.
+reference: EotI

@@ -1,0 +1,25 @@
+id: genesys-weapon-heavy-fletcher
+name: Heavy Fletcher
+description: "Heavy fletchers are designed to do one thing: destroy large groups of infantry. These huge smoothbore
+  cannons are the largest flechette weapons produced, and they are rarely seen outside of military bases. They fire a
+  250mm-canister round packed with thousands of 2mm NEXT flechettes, similar to those fired by standard fletchers. The
+  canisters disintegrate upon firing, releasing the flechettes and tearing enemy formations to shreds in seconds. When
+  using a heavy fletcher, your character may spend one fewer <advantage></advantage> to trigger the Blast quality
+  (<advantage></advantage> if the attack is successful, or <advantage></advantage><advantage></advantage> if the attack
+  fails). Models Include: NEXT HF10, Skorpios Suit-portable Needle Cannon."
+skill: Gunnery
+damage: 6
+criticalRating: 2
+range: m
+encumbrance: 6
+rarity: 5
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-blast
+    ranks: 6
+  - id: genesys-quality-pierce
+    ranks: 4
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: SotB:88

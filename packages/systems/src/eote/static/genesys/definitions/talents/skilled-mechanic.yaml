@@ -1,0 +1,8 @@
+id: genesys-talent-skilled-mechanic
+name: Skilled Mechanic
+description: When your character makes a check to repair hull trauma or system strain, they repair 1 additional hull
+  trauma or system strain per rank of Skilled Mechanic.
+activation: p
+ranked: true
+tier: 1
+reference: EotI:51

@@ -1,0 +1,12 @@
+id: genesys-talent-combat-command
+name: Combat Command
+description: When your character makes a check to determine Initiative order (as described on page 95 of the Genesys
+  Core Rulebook), they may make a <difficulty></difficulty> instead of using Cool or Vigilance. If your character does
+  so, they may spend <threat></threat> from the check to add <success></success> to the results of all allies' checks
+  made during the first round of the combat encounter. Your GM may determine that you cannot use this talent if your
+  character is in no logical position to give orders, such as if they have no means of communicating with allies or are
+  working with individuals who have no interest in listening to your character.
+activation: ai
+ranked: false
+tier: 4
+reference: EotI:56

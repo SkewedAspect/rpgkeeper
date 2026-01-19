@@ -1,0 +1,10 @@
+id: genesys-talent-grenadier
+name: Grenadier
+description: When your character makes a ranged combat check with a weapon that has the Blast item quality, you may
+  spend one Story Point to use this talent to trigger the weapon's Blast quality, instead of spending
+  <advantage></advantage> (even if the attack misses). In addition, your character treats grenades as having a range of
+  medium.
+activation: ai
+ranked: false
+tier: 3
+reference: G-CRB:78

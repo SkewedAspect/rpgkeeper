@@ -1,0 +1,16 @@
+id: genesys-weapon-sword-cane
+name: Sword Cane
+description: "A sword cane fits this setting quite well: a deadly weapon concealed in aristocratic accessories. The
+  blade remains hidden in the cane, while the hilt is disguised as the cane's top. The sword cane has the Defensive
+  quality (as do most swords), and it has a special rule to reflect how easy it is to hide. Those searching a character
+  add <setback></setback> to any Perception checks they make to find the sword inside the cane."
+skill: Melee
+damage: 1
+criticalRating: 2
+range: en
+encumbrance: 1
+rarity: 3
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+reference: G-CRB:154

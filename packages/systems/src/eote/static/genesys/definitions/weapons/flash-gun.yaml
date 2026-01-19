@@ -1,0 +1,20 @@
+id: genesys-weapon-flash-gun
+name: Flash Gun
+description: Flash guns are a varied collection of weapons—submachine guns, automatic rifles, machine guns—fitted with
+  propulsion units powered by Illirium batteries that give them unparalleled rates of fire and stopping power. The
+  lingering effects of the energy propulsion system tend to rattle enemy troops they don't kill outright. This flash gun
+  is based off of a basic submachine gun, while flash technology provides the Disorient and Pierce item qualities. Other
+  flash guns can be created by using the rifle or pistol stats and adding Disorient and Pierce.
+skill: Ranged (Heavy)
+damage: 6
+criticalRating: 3
+range: m
+encumbrance: 4
+rarity: 7
+qualities:
+  - id: genesys-quality-auto-fire
+  - id: genesys-quality-disorient
+    ranks: 2
+  - id: genesys-quality-pierce
+    ranks: 2
+reference: G-CRB:154

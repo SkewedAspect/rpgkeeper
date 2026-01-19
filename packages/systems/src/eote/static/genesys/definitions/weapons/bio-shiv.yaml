@@ -1,0 +1,22 @@
+id: genesys-weapon-bio-shiv
+name: Bio-Shiv
+description: "Originally designed by the Yssaril Tribes and created from its owner's DNA, the bio-shiv consists of
+  genetic material spliced with flexible polymers that give it the appearance of a thin, bonelike lattice. The weapon is
+  normally \"sheathed\" in a specially created pocket along the wearer's arm or leg. While within the wearer's body, the
+  material is as flexible as any tissue and cannot be detected on most scanners. Even the pocket appears to be an old
+  scar. However, when drawn, the weapon hardens into a sharp, thin knife. The shiv can even be \"resheathed\" (albeit a
+  painful process), and as it is reinserted into the skin, it returns to its malleable state While the bio-shiv is
+  sheathed, those searching the character add <failure></failure><failure></failure><failure></failure> to the results
+  of any checks made to find the bio-shiv. This weapon may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Melee
+damage: 1
+criticalRating: 3
+range: en
+encumbrance: 0
+rarity: 5
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: EotI:115

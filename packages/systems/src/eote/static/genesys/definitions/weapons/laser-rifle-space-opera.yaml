@@ -1,0 +1,16 @@
+id: genesys-weapon-laser-rifle-space-opera
+name: Laser Rifle (Space Opera)
+description: These weapons fire beams of energy, which is really all the explanation you need in a space opera setting.
+  Unlike the laser weapons presented in the hard science fiction setting on page 175, we assume these weapons are
+  sophisticated enough that diffusion over distance isn't a problem. We also decided that the focused beams of these
+  weapons can easily punch holes in armor, hence the Pierce (or even Breach) quality.
+skill: Ranged (Heavy)
+damage: 6
+criticalRating: 3
+range: l
+encumbrance: 4
+rarity: 4
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 4
+reference: G-CRB:184

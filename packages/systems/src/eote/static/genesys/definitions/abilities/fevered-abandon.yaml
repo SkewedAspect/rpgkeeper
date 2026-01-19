@@ -1,0 +1,6 @@
+id: genesys-ability-fevered-abandon
+name: Fevered Abandon
+description: All characters of this same type within medium range add <success></success><advantage></advantage> to
+  combat checks they make; all opponents add <success></success> to all combat checks targeting a character of this same
+  type within medium range.
+reference: EotI

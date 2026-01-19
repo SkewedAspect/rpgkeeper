@@ -1,0 +1,21 @@
+id: genesys-weapon-sniper-rifle
+name: Sniper Rifle
+description: While they vary by service and country, all sniper rifles are designed to fire high-caliber, high-velocity
+  rounds over long distances. The sniper rifle entry here is a basic dedicated sniper rifle like the U.S. Army's M24
+  rifle. The range is extreme to represent its ability to reach farther than even regular hunting rifles. Sniper rifles
+  possess the Accurate and Pierce qualities to reflect their excellent balance and specialized rounds. They do, however,
+  have a smaller magazine, hence the Limited Ammo quality.
+skill: Ranged (Heavy)
+damage: 9
+criticalRating: 2
+range: ex
+encumbrance: 4
+rarity: 6
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 2
+  - id: genesys-quality-limited-ammo
+    ranks: 4
+  - id: genesys-quality-pierce
+    ranks: 2
+reference: G-CRB:166

@@ -1,0 +1,18 @@
+id: genesys-weapon-stun-baton
+name: Stun Baton
+description: This is supposed to be a slightly more futuristic version of a police riot club, a weapon that shocks
+  opponents into submission. One thing to note is that even though this is a Melee weapon, it doesn't add your
+  character's Brawn to the damage (signified by the lack of a "+" before the damage value). Since the weapon discharges
+  an electric shock whenever it touches an opponent, how hard your character swings it doesn't matter. Also, this weapon
+  is non-lethal, so it has the Stun Damage quality.
+skill: Melee
+damage: 6
+criticalRating: 4
+range: en
+encumbrance: 1
+rarity: 2
+qualities:
+  - id: genesys-quality-disorient
+    ranks: 3
+  - id: genesys-quality-stun-damage
+reference: G-CRB:175

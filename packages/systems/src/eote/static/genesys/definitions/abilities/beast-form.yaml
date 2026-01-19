@@ -1,0 +1,12 @@
+id: genesys-ability-beast-form
+name: Beast Form
+description: When the cursed shifter transforms into Beast Form, they heal all strain they are currently suffering,
+  increase their brawn and agility by one to a maximum of 5, and reduce their intellect and willpower by one to a
+  minimum of 1. Their unarmed attacks deal +3 damage and have a Critical rating of 2. All opponents must halve the
+  damage dealt to a cursed shifter in Beast Form before applying soak, unless the weapon is made of silver or uses
+  silver ammunition. Finally, the cursed shifter must make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of-turn incidental when they
+  transform. If they succeed, they may act normally, but if they fail, they give in to their animal instincts and must
+  attack anyone around them with frenzied savagery (you should discuss the specifics of how they act with your GM, and
+  it is up to your GM if they can make another attempt to regain control).
+reference: G-EPG

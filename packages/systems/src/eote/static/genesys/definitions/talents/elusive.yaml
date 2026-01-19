@@ -1,0 +1,9 @@
+id: genesys-talent-elusive
+name: Elusive
+description: When another character makes a check to follow your character's trail (whether physical tracks or a trail
+  of information), your character may use this talent to add <failure></failure> no greater than their ranks in
+  Streetwise or Survival, as appropriate to the environment, to the check results.
+activation: aio
+ranked: false
+tier: 3
+reference: SotC:82

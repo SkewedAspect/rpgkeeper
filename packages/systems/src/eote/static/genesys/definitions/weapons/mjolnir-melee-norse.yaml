@@ -1,0 +1,22 @@
+id: genesys-weapon-mjolnir-melee-norse
+name: Mjolnir (Melee) (Norse)
+description: This hammer is so heavy that it would take a strong person two hands to swing, but the dwarves forging it
+  were distracted by Loki and only made the shaft long enough for a single-hand grip. Thor himself can only wield the
+  hammer in one hand thanks to the Jarngreiper gauntlets. When making a combat check using Mjolnir, your character
+  increases the damage dealt by +2 per <success></success> (rather than by +1). When your character makes a ranged
+  combat check with Mjolnir, they may spend aa or t to have it return to their hand at the beginning of their next turn.
+  See Mjolnir (Ranged) (Norse).
+skill: Melee (Light)
+damage: 8
+criticalRating: 4
+range: en
+encumbrance: 10
+rarity: 10
+qualities:
+  - id: genesys-quality-concussive
+    ranks: 2
+  - id: genesys-quality-cumbersome
+    ranks: 6
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-superior
+reference: G-EPG:12

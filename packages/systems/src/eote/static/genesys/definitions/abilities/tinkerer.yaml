@@ -1,0 +1,5 @@
+id: genesys-ability-tinkerer
+name: Tinkerer
+description: With access to any sort of tools or parts, may make an <difficulty></difficulty><difficulty></difficulty>.
+  If successful, creates an item with rarity equal to the number of <success></success>.
+reference: SotB

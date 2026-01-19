@@ -1,0 +1,9 @@
+id: genesys-talent-reckless-charge
+name: Reckless Charge
+description: After using a maneuver to move engage an adversary, your character may suffer 2 strain to use this talent.
+  They then add <success></success><success></success><despair></despair><despair></despair> to the results of the next
+  Brawl, Melee (Light), or Melee (Heavy) combat check they make this turn.
+activation: ai
+ranked: false
+tier: 2
+reference: RoT:89

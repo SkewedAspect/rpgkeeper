@@ -1,0 +1,8 @@
+id: genesys-attachment-ballistic-plates
+name: Ballistic Plates
+description: Ballistic armor plates are a popular after-market add on for mercenaries and members of the NAPD SWAT Team.
+  The plascrete plates may be heavy, but they help deflect shots and blows, and absorb damage from direct hits.
+useWith: This attachment can be applied to any combat armor.
+modifiers: The wearer increases their ranged defense by 1. The armor also increases its encumbrance by 1.
+hpRequired: 1
+reference: SotB:109

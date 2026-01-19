@@ -1,0 +1,7 @@
+id: genesys-talent-well-organized
+name: Well Organized
+description: Your character increase their encumbrance threshold by two per rank of Well Organized.
+activation: p
+ranked: true
+tier: 1
+reference: SotC:78

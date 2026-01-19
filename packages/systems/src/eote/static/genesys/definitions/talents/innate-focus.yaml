@@ -1,0 +1,10 @@
+id: genesys-talent-innate-focus
+name: Innate Focus
+description: While not using a magic implement, your character increases the base damage of all Attack spells they cast
+  by two. In addition, when casting a spell while not using a magic implement, your character may use this talent to
+  decrease the difficulty of the check by one. If they do so, they increase the strain suffered for casting the spell by
+  one.
+activation: ai
+ranked: false
+tier: 3
+reference: G-EPG:97

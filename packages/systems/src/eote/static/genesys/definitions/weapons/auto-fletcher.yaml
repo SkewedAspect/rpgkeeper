@@ -1,0 +1,20 @@
+id: genesys-weapon-auto-fletcher
+name: Auto-Fletcher
+description: "Most fletcher pistols are semiautomatic and fire one dart with every pull of the trigger. A few
+  more-expensive models are select-fire and marketed as machine pistols or light SMGs. These automatic weapons trade
+  their accuracy for the ability to fill a space with darts rather than a single pinpoint strike. Their needles tend to
+  have a bit less stopping power, a trade-off for being able to fire dozens a second. Models Include: Skorpios MP1
+  Flechette Machine Pistol."
+skill: Ranged (Light)
+damage: 3
+criticalRating: 2
+range: m
+encumbrance: 2
+rarity: 5
+qualities:
+  - id: genesys-quality-auto-fire
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: SotB:86

@@ -1,0 +1,6 @@
+id: genesys-ability-informed
+name: Informed
+description: When providing assistance to friendly characters who are making a knowledge skill, Skulduggery, or
+  Streetwise check, this character instead adds
+  <success></success><success></success><despair></despair><despair></despair> to the results of the check.
+reference: SotC

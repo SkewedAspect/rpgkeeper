@@ -1,6 +1,7 @@
 id: genesys-quality-inaccurate
 name: Inaccurate
-description: When making an attack with this weapon, add <setback></setback> to the check equal to the Inaccurate rating.
+description: Inaccurate weapons are less likely to be accurate or precise. When making an attack with an Inaccurate
+  weapon, add <setback></setback> to the check equal to the Inaccurate rating.
 passive: true
-ranked: true
+ranked: false
 reference: G-CRB:87

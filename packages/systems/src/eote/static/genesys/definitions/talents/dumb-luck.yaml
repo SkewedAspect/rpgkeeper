@@ -1,0 +1,9 @@
+id: genesys-talent-dumb-luck
+name: Dumb Luck
+description: "Once per session, you may spend a Story Point to use this talent after your character suffers a I.6-10:
+  Critical Injury Result but before the result is rolled. Their opponent must roll two results, and you select which
+  applies to your character."
+activation: ai
+ranked: false
+tier: 3
+reference: SotB:49

@@ -1,0 +1,10 @@
+id: genesys-talent-trick-of-the-light
+name: Trick of the Light
+description: When making a combat check with a laser or maser weapon, your character may use this talent to spend
+  <advantage></advantage> to inflict one additional hit with this weapon, dealing base damage plus damage equal to the
+  total number of <success></success> scored on the check. This hit may target the original target or another target
+  within short range of the original target.
+activation: ai
+ranked: false
+tier: 5
+reference: SotB:52

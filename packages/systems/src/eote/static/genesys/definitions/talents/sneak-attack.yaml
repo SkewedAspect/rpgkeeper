@@ -1,0 +1,8 @@
+id: genesys-talent-sneak-attack
+name: Sneak Attack
+description: When your character makes a Melee check, they use Cunning instead of Brawn. If they add their Brawn rating
+  to a weapon's base damage, they add their Cunning rating instead.
+activation: p
+ranked: false
+tier: 2
+reference: EotI:53

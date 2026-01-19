@@ -1,0 +1,18 @@
+id: genesys-weapon-grazer
+name: Grazer
+description: "Gamma-ray lasers are the most energy-intensive beam weapons available to most of the galaxy. The highly
+  focused pulsed grazer beam can pass right through heavy armor layers, wreaking havoc on the delicate circuitry or
+  living tissue beneath. They require precision to use well, though, and thus grazer pistols tend to be a favored weapon
+  of military officers and gunslingers. After your character makes a combat check with this weapon, your GM may spend
+  <despair></despair><despair></despair> to have it run out of ammo. This weapon may be modified with 2-1: Cultural
+  Manufacturing Differences."
+skill: Ranged (Light)
+damage: 3
+criticalRating: 2
+range: m
+encumbrance: 2
+rarity: 5
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 5
+reference: EotI:108

@@ -1,0 +1,5 @@
+id: genesys-ability-giant-stomp
+name: Giant Stomp!
+description: Brawl attacks that this character makes have a Critical rating of 3, and if they inflict Critical Injuries
+  +40 is added to the resulting Critical Injury result.
+reference: RoT

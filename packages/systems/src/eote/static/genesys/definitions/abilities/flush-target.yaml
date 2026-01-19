@@ -1,0 +1,6 @@
+id: genesys-ability-flush-target
+name: Flush Target
+description: After making a combat check targeting a character in cover, may spend
+  <advantage></advantage><advantage></advantage> or <threat></threat> to force the character to immediately move out of
+  cover as an out-of-turn incidental.
+reference: G-EPG

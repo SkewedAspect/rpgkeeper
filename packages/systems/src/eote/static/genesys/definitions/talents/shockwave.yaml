@@ -1,0 +1,9 @@
+id: genesys-talent-shockwave
+name: Shockwave
+description: Your character treats Melee (Heavy) weapons as possessing the Blast item quality with a rating equal to
+  your character's ranks in Melee (Heavy). Your character does not suffer damage from their weapon's Blast quality (but
+  allies do!).
+activation: p
+ranked: false
+tier: 3
+reference: RoT:90

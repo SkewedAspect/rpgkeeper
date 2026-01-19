@@ -1,0 +1,7 @@
+id: genesys-talent-tavern-brawler
+name: Tavern Brawler
+description: Your character adds <advantage></advantage> to Brawl checks and combat checks using improvised weapons.
+activation: p
+ranked: false
+tier: 1
+reference: RoT:87

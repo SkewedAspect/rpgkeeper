@@ -1,0 +1,5 @@
+id: genesys-ability-liquid-defenses
+name: Liquid Defenses
+description: Halve the damage dealt to this character before applying soak, unless the weapon has the Blast or Burn
+  quality (regardless of whether the quality is activated). This character never suffers damage from its own attacks.
+reference: SotC

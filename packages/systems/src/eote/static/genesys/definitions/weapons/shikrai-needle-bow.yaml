@@ -1,0 +1,29 @@
+id: genesys-weapon-shikrai-needle-bow
+name: Shikrai Needle Bow
+description: "The Shikrai needle bow is an ancient yet deadly weapon used by skilled Shikrai hunters. The bow itself is
+  a simple but durable weapon that may be made from any number of common and durable alloys. What is truly unique about
+  the weapon is the arrows it fires. Each is crafted from a strand of pure bellidrium that has been molecularly bonded
+  together. The bellidrium reacts in such a way as to create a virtually unbreakable shaft with a nearly frictionless
+  surface tapering down to a molecularly sharp needle point. Only at the rear of the arrow, where the bonding process is
+  interrupted to allow for the connection of stabilizing fins, can the arrow be grasped without slipping from one's
+  fingers. The arrow can penetrate most forms of body armor with relatively minor force (although the narrow profile
+  means it does surprisingly little damage when it hits). The bow and its arrows have no mechanisms of any kind, which
+  makes them completely undetectable by all modern scanning devices. The shots are also completely silent, which may
+  allow your character to make ranged combat checks while remaining hidden at your GM's discretion. Arrows can be
+  recovered after firing if your character spends a few minutes gathering them up. New arrows can be purchased in
+  quivers of ten, with a cost of 500 aurei per quiver. This weapon may be modified with 2-1: Cultural Manufacturing
+  Differences."
+skill: Ranged (Heavy)
+damage: 1
+criticalRating: 1
+range: m
+encumbrance: 2
+rarity: 8
+qualities:
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+  - id: genesys-quality-pierce
+    ranks: 6
+  - id: genesys-quality-unwieldy
+    ranks: 3
+reference: EotI:110

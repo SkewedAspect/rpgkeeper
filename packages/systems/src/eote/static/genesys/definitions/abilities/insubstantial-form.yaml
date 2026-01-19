@@ -1,0 +1,8 @@
+id: genesys-ability-insubstantial-form
+name: Insubstantial Form
+description: Creuss do not gain the benefits of healing wounds with dermal sealer (painkillers) or Medicine checks.
+  Creuss do heal wounds and strain naturally by resting. In addition, when they make a check to heal strain at the end
+  of an encounter, they may spend <advantage></advantage> to heal 1 wound (and may spend multiple
+  <advantage></advantage> to do so), and they may spend <advantage></advantage> equal to a Critical Injury's severity
+  (or <threat></threat>) to heal a Critical Injury.
+reference: EotI

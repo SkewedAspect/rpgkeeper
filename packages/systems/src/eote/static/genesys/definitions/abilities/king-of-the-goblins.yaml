@@ -1,0 +1,5 @@
+id: genesys-ability-king-of-the-goblins
+name: King of the Goblins!
+description: Upgrade the difficulty of combat checks targeting this character once for each minion group of goblins
+  within short range of them. If the check fails, one individual minion is defeated.
+reference: RoT

@@ -1,7 +1,7 @@
 id: genesys-talent-quick-strike
 name: Quick Strike
-description: The character adds <boost></boost> per rank of Quick Strike to his combat checks made against any target
-  that has not yet acted in the encounter.
+description: Your character adds <boost></boost> for each rank of Quick Strike to any combat checks they make against
+  any targets that have not yet taken their turn in the current encounter.
 activation: p
 ranked: true
 tier: 1

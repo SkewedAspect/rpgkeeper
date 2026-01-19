@@ -1,0 +1,11 @@
+id: genesys-talent-mercantile-savant
+name: Mercantile Savant
+description: Your character must be a Naaz-Rokha or a {@archetype Hacan or have allegiance to the Emirates of Hacan to
+  benefit from this talent.} Once per session, you may spend a Story Point to reduce the price of one item or service
+  that your character is attempting to purchase by 50% or increase the monetary value of a mission reward by 50%. The
+  specifics of how your character accomplishes this is up to you and your GM but could include negotiation, calling in
+  favors, or even intimidation.
+activation: ai
+ranked: false
+tier: 3
+reference: EotI:55

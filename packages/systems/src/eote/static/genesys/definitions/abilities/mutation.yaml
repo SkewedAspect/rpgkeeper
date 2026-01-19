@@ -1,0 +1,9 @@
+id: genesys-ability-mutation
+name: Mutation
+description: "Before spending starting experience, choose one of the following abilities for your mutant character: -
+  Flyer: Your mutant character can fly. See page 100 of the Genesys Core Rulebook for details on flying. - Amphibious:
+  Your mutant character can breathe underwater and move through water without penalty. - Scaly Hide: Increase your
+  mutant character's soak by +1. - Multiple Limbs: Your mutant character gains an additional free maneuver per turn.
+  They still may not perform more than two maneuvers during their turn. - Natural Weapons: Your mutant character's
+  unarmed attacks have their damage increased by +2 and have a Critical rating of 3."
+reference: G-EPG

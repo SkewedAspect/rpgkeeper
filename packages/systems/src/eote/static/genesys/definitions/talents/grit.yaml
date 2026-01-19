@@ -1,6 +1,6 @@
 id: genesys-talent-grit
 name: Grit
-description: Each rank of Grit increases a character's strain threshold by one.
+description: Each rank of Grit increases your character's strain threshold by one.
 activation: p
 ranked: true
 tier: 1

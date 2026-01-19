@@ -1,0 +1,7 @@
+id: genesys-ability-into-shadow
+name: Into Shadow
+description: After making any check, may spend <advantage></advantage><advantage></advantage> or <threat></threat> to
+  hide in shadows or cover within short range as a maneuver; this character does not reveal themself until they make a
+  combat check (or perform another action that would reasonably cause them to be spotted), but they can be revealed if
+  another character spends an action to make a successful opposed Perception versus Stealth check}.
+reference: EotI

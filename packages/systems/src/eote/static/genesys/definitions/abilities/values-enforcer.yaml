@@ -1,0 +1,5 @@
+id: genesys-ability-values-enforcer
+name: Values Enforcer
+description: When making any social skill or combat check targeting an opponent of the church, add
+  <success></success><despair></despair> to the result.
+reference: SotB

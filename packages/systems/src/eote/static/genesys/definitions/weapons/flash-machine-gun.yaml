@@ -1,0 +1,25 @@
+id: genesys-weapon-flash-machine-gun
+name: Flash Machine Gun
+description: The flash machine gun (the A6a) uses the same Illirium batteries as the flash gun to propel its rounds, but
+  it shoots larger bullets at a higher rate of fire. Bulky and finicky, these new weapons are extremely good at pinning
+  down enemy formations or scything through occult horrors. They are big and bulky enough that only the strongest
+  individuals can wield them without a tripod or other support.
+skill: Gunnery
+damage: 10
+criticalRating: 2
+range: l
+encumbrance: 8
+rarity: 9
+qualities:
+  - id: genesys-quality-auto-fire
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-disorient
+    ranks: 2
+  - id: genesys-quality-inaccurate
+    ranks: 1
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: G-CRB:154

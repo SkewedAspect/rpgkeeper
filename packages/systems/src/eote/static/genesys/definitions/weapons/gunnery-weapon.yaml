@@ -1,0 +1,11 @@
+id: genesys-weapon-gunnery-weapon
+name: Gunnery Weapon
+description: These are the big guns, like neutronium mortars and bangpowder cannons. Many are found mounted on vehicles.
+skill: Ranged
+damage: 10
+criticalRating: 3
+range: l
+encumbrance: 5
+rarity: 5
+qualities: []
+reference: SotC:138

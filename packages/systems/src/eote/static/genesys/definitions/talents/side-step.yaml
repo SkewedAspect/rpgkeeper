@@ -1,9 +1,8 @@
 id: genesys-talent-side-step
-name: Side step
-description: Once per round on the character's turn, the character may perform a Side Step maneuver to try to avoid
-  incoming ranged attacks. He then suffers a number of strain no greater than his ranks in Side Step. Until the start of
-  the character's turn, upgrade the difficulty of all ranged combat checks targeting the character a number of times
-  equal to the strain suffered by the character.
+name: Side Step
+description: Once per round, your character may suffer a number of strain no greater than their ranks in Side Step to
+  use this talent. Until the end of your character's next turn, upgrade the difficulty of all ranged combat checks
+  targeting your character a number of times equal to the strain suffered.
 activation: am
 ranked: true
 tier: 2

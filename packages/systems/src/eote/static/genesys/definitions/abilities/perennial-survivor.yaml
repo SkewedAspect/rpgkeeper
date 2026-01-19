@@ -1,0 +1,5 @@
+id: genesys-ability-perennial-survivor
+name: Perennial Survivor
+description: When a phyll suffers a Critical Injury, they only add +5 to the results for each Critical Injury they are
+  currently suffering from, rather than +10. They also ignore the effects of the Vicious quality when hit by an attack.
+reference: SotC

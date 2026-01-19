@@ -1,7 +1,10 @@
 id: genesys-attachment-deflective-plating
 name: Deflective Plating
-description: This attachment applies angled plates or mildly reflective surfaces to help deflect incoming ranged attacks.
-useWith: Any armor.
-modifiers: Ranged Defense +1.
+description: This attachment applies angled plates or mildly reflective surfaces to help deflect incoming ranged
+  attacks. This kind of attachment makes sense in fantasy, science fiction, and space opera settings (in the past, armor
+  might be designed to deflect arrows or throwing knives, while in the future, it could reflect lasers or energy
+  blasts).
+useWith: This attachment can be applied to any armor.
+modifiers: Wearer increases their ranged defense by 1.
 hpRequired: 1
 reference: G-CRB:209

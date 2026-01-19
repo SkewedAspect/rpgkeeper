@@ -1,0 +1,25 @@
+id: genesys-weapon-hacan-dune-spear
+name: Hacan Dune Spear
+description: "[Table: Ranged Stats] A noble weapon of a bygone age, the Hacan dune spear is a long gyro-spear that has a
+  highly sophisticated electromagnetic tube built into the shaft, allowing it to be used as a powerful ranged weapon.
+  The gyros in the butt and haft help keep what would otherwise be an unwieldy weapon perfectly balanced for thrusting,
+  stabbing, and shooting. The dune spear was only used by some of the Hacan trading clans, but as the Hacan spread
+  across the galaxy, the iconic weapon came to be associated with the Hacan people as a whole. Traditionally, a Hacan
+  was expected to craft their own dune spear and learn the complex arts of ferrocasting and electromagnetic smithing in
+  the process; however, few Hacan today still remember these ancient arts. Most dune spears still in existence are
+  centuries old, finely constructed with folded terridium alloys and decorated with polished ivory finishes and ruby
+  inlays. But a few crafters still make dune spears and even teach the craft to those eager to learn. The dune spear may
+  be used as either a Melee or as a Ranged (Heavy) weapon with the profiles listed in Table 2-3 (shown above). This
+  weapon requires two hands to wield (in either configuration). This weapon may be modified with 2-1: Cultural
+  Manufacturing Differences."
+skill: Melee
+damage: 3
+criticalRating: 4
+range: en
+encumbrance: 3
+rarity: 7
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+  - id: genesys-quality-superior
+reference: EotI:115

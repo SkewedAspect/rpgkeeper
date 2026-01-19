@@ -1,0 +1,13 @@
+id: genesys-talent-aethersprite
+name: Aethersprite
+description: Once per encounter, if your character has access to a computer network, they may use this talent to make an
+  <difficulty></difficulty><difficulty></difficulty>. If successful, they reduce the difficulty of all further Computers
+  and Skulduggery checks to use or manipulate the system or linked subsystems (such as electronic locks on doors) by 1
+  for the remainder of the encounter. If this would reduce a check's difficulty to <difficulty></difficulty>, the
+  character can choose instead to succeed without making the check. Any <difficulty></difficulty> from this or
+  subsequent checks that involve the system must be spent to alert the system's controllers to your character's
+  intrusion.
+activation: aa
+ranked: false
+tier: 2
+reference: EotI:52

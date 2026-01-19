@@ -1,0 +1,20 @@
+id: genesys-weapon-auto-rotary-gun
+name: Auto-Rotary Gun
+description: This is a multi-barrel machine gun, like a real-world Gatling or Maxim gun. However, rather than achieving
+  its high rate of fire through hand cranking or recoil operation, the steampunk auto-rotary gun is driven by a steam
+  engine. This results in a rather large and heavy weapon that consumes a voracious amount of ammunition and coal (which
+  take some time to arrange before firing, represented by the Prepare quality). For obvious reasons, this weapon has the
+  Auto-fire and Cumbersome qualities.
+skill: Ranged (Heavy)
+damage: 11
+criticalRating: 3
+range: l
+encumbrance: 7
+rarity: 6
+qualities:
+  - id: genesys-quality-auto-fire
+  - id: genesys-quality-cumbersome
+    ranks: 4
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: G-CRB:154

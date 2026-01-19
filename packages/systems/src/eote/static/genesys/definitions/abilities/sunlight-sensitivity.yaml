@@ -1,0 +1,5 @@
+id: genesys-ability-sunlight-sensitivity
+name: Sunlight Sensitivity
+description: While exposed to direct sunlight, this character reduces all of their characteristics by 2 and halves their
+  Wound Threshold and Strain Threshold.
+reference: G-EPG

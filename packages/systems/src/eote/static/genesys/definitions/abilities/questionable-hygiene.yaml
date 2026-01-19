@@ -1,0 +1,6 @@
+id: genesys-ability-questionable-hygiene
+name: Questionable Hygiene
+description: When making a Medicine check, must spend <despair></despair><despair></despair><despair></despair> or
+  <difficulty></difficulty> to decrease the target's strain and wound threshold by 2 each until the end of the current
+  session.
+reference: SotB

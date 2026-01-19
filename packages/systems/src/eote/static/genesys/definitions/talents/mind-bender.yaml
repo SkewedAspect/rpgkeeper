@@ -1,0 +1,17 @@
+id: genesys-talent-mind-bender
+name: Mind Bender
+description: Your character must be a Druaa or have allegiance to the Naalu Collective to benefit from this talent. Once
+  per session, your character may spend a Story Point to use this talent to make an opposed Discipline check} targeting
+  one creature within medium range. If successful, your character may cause the target to adopt an emotional state of
+  your character's choice for the remainder of the current encounter (or one hour in narrative gameplay). Your character
+  may spend <advantage></advantage><advantage></advantage> or <threat></threat> to have the target unquestionably
+  believe one piece of information of your character's choice for the remainder of the encounter, even if it is untrue.
+  (Your character may do this multiple times, and they may even do this if the check fails.) At the end of the current
+  encounter, at your GM's discretion the target may or may not continue to believe any information inserted in their
+  mind, depending on how outlandish it is in the face of reality. However, if the check fails with
+  <despair></despair><despair></despair><despair></despair> or <difficulty></difficulty>, the target knows that someone
+  attempted to manipulate their mind.
+activation: am
+ranked: false
+tier: 3
+reference: EotI:55

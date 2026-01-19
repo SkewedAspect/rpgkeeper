@@ -1,0 +1,24 @@
+id: genesys-weapon-serpent-dagger
+name: Serpent Dagger
+description: This dagger has a sweeping blade and a hilt formed in the shape of a striking viper. Bold adventurers
+  recovered it from the Labyrinth of Ruin, but scholars imagine that its origin was in Al-Kalim or even the Ru. Through
+  sorcerous means, the blade constantly sweats a deadly poison, so that a mere scratch can lead to a painful death. If
+  your character successfully hits a target with the Serpent Dagger you may spend <advantage></advantage> to poison the
+  target, who must immediately make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of-turn
+  incidental or suffer 8 wounds and 8 strain. You can spend hhh or d on the target's check to force the target to repeat
+  the check at the beginning of their next turn, as the poison continues to work itself through their blood.
+skill: Melee (Light)
+damage: 2
+criticalRating: 2
+range: en
+encumbrance: 1
+rarity: 8
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 1
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-superior
+  - id: genesys-quality-unwieldy
+    ranks: 4
+reference: RoT:109

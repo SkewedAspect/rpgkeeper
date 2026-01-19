@@ -1,0 +1,9 @@
+id: genesys-talent-lucky-strike
+name: Lucky Strike
+description: When your character purchases this talent, choose one characteristic. After your character makes a
+  successful combat check, you may spend one Story Point to use this talent to add damage equal to your character's
+  ranks in that characteristic to one hit of the combat check.
+activation: ai
+ranked: false
+tier: 2
+reference: G-CRB:76

@@ -1,0 +1,25 @@
+id: genesys-weapon-micro-missile-launcher
+name: Micro-Missile Launcher
+description: One thing we can expect in the future is the further miniaturization of computers, which leads us to the
+  micromissile launcher. This portable weapon fires miniature missiles that lock onto a target, pursue it, and detonate.
+  The tracking ability comes with the Guided quality (and the time to lock onto a target is represented by the Prepare
+  quality). As with the Gauss Rifle, a weapon this powerful needs drawbacks to compensate, which are the weapon's high
+  Cumbersome rating and encumbrance.
+skill: Gunnery
+damage: 12
+criticalRating: 4
+range: l
+encumbrance: 5
+rarity: 6
+qualities:
+  - id: genesys-quality-blast
+    ranks: 1
+  - id: genesys-quality-cumbersome
+    ranks: 4
+  - id: genesys-quality-guided
+    ranks: 3
+  - id: genesys-quality-limited-ammo
+    ranks: 3
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: G-CRB:175

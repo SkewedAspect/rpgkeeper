@@ -1,0 +1,13 @@
+id: genesys-talent-dormant-personality-overlay
+name: Dormant Personality Overlay
+description: When your character purchases this talent, select three skills that your character has one or no ranks in.
+  Once per session, you may spend a Story Point to have your character use this talent. Until the end of the current
+  encounter, they count as having four ranks in each of the selected skills and one fewer rank in all other skills. They
+  also suffer 1 strain at the beginning of each of their turns. If they are incapacitated, the effects of this talent
+  end. At your discretion, your character may also undergo some narrative personality shifts, such as not recognizing
+  friends and family, behaving coldly and logically instead of in a friendly and relaxed manner, or constantly muttering
+  a coded phrase under their breath.
+activation: ai
+ranked: false
+tier: 4
+reference: EotI:57

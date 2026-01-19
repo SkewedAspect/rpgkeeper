@@ -1,0 +1,10 @@
+id: genesys-talent-challenge
+name: Challenge!
+description: Once per encounter, your character may use this talent to choose a number of adversaries within short range
+  no greater than your character's ranks in Challenge! (a minion group counts as a single adversary for this purpose).
+  Until the encounter ends or your character is incapacitated, these adversaries add <boost></boost> to combat checks
+  targeting your character and <setback></setback><setback></setback> to combat checks targeting other characters.
+activation: am
+ranked: true
+tier: 1
+reference: RoT:84

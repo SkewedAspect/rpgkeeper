@@ -1,0 +1,11 @@
+id: genesys-talent-expert-scrapper
+name: Expert Scrapper
+description: Your character must be a Saar or have allegiance to the Clan of Saar or the Mentak Coalition to benefit
+  from this talent. Once per encounter while engaged with a vehicle, your character can use this talent to make a
+  Mechanics check with a difficulty equal to the vehicle's silhouette. The vehicle suffers 1 hull trauma per
+  <success></success>, and one Critical Hit per <advantage></advantage><advantage></advantage><advantage></advantage> or
+  <threat></threat>.
+activation: aa
+ranked: false
+tier: 3
+reference: EotI:54

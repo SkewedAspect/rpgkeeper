@@ -1,0 +1,12 @@
+id: genesys-talent-elementalist-improved
+name: Elementalist (Improved)
+description: "Your character must have purchased the Elementalist talent to benefit from this talent. When your
+  character purchases this talent, they gain one of the following abilities based on the element they selected when they
+  purchased Elementalist: they cannot be knocked prone or staggered (earth), they cannot be immobilized and can breathe
+  underwater (water), they cannot be disoriented and can fly using the hovering guidelines in the Flying sidebar on page
+  100 of the Genesys Core Rulebook (air), or they are immune to fire - including ignoring damage from attacks with the
+  Burn item quality and from other fire-based attacks (fire)."
+activation: p
+ranked: false
+tier: 3
+reference: G-EPG:96

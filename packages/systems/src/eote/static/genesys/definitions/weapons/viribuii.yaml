@@ -1,0 +1,19 @@
+id: genesys-weapon-viribuii
+name: Viribuii
+description: "Viribuii are essentially a slim set of exoskeletal supports that fit over the shoulders and down the arms
+  of the wearer. Originally designed to aid in manual labor by a Lazax corporation, they spread throughout the Imperium
+  until they were ubiquitous nearly everywhere. Unsurprisingly, they became popular as weapons when people realized that
+  they were almost unnoticeable under clothing. Many viribuii in use today are designed solely as weapons, and some take
+  advantage of the inbuilt power pack to power electrodes that can deliver punishing shocks. While wearing a viribuii, a
+  character adds <success></success><success></success> to the results of all Athletics checks. This weapon may be
+  modified with 2-1: Cultural Manufacturing Differences."
+skill: Brawl
+damage: 3
+criticalRating: 5
+range: en
+encumbrance: 3
+rarity: 5
+qualities:
+  - id: genesys-quality-stun
+    ranks: 4
+reference: EotI:114

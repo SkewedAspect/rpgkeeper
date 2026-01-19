@@ -1,0 +1,18 @@
+id: genesys-weapon-naalu-mind-blade
+name: Naalu Mind Blade
+description: "Rarely seen outside Naalu rituals, the mind blade is a weapon found only in the deepest caverns of the
+  naalu collective religious sects. Sought by many underworld collectors, the blades fetch small fortunes for
+  adventurers foolish enough to seek out these antiquities. Although scientists are unsure how these devices work, few
+  of the blades make it off Druaa and Maaluuk, and even fewer have ended up in a lab. When determining the base damage
+  of this weapon, add the wielder's Willpower rating in addition to their Brawn. This weapon may be modified with 2-1:
+  Cultural Manufacturing Differences."
+skill: Melee
+damage: 2
+criticalRating: 3
+range: en
+encumbrance: 3
+rarity: 10
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 2
+reference: EotI:115

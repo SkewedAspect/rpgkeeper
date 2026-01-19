@@ -1,0 +1,10 @@
+id: genesys-attachment-shortened-barrel
+name: Shortened Barrel
+description: While any weapon's barrel can be shortened with proper application of hacksaw, plasma cutter, or file, most
+  professionals purchase purpose-built barrels to replace the standard items that came with their weapons. Weapons with
+  shortened barrels enable a quicker draw, at the cost of range.
+useWith: This attachment can be applied to any Ranged (Light) weapon.
+modifiers: Your character may draw this weapon as an incidental rather than as a maneuver. The range of this weapon
+  changes to short.
+hpRequired: 1
+reference: SotB:111

@@ -1,0 +1,19 @@
+id: genesys-weapon-dainsleif-norse
+name: Dainsleif (Norse)
+description: Engraved with runes of hunger and power, Dainsleif is a vicious longsword with a short hilt and a heavy
+  steel pommel. Increase the difficulty of checks to heal any Critical Injury inflicted by Dainsleif by two, to a
+  maximum of
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>.
+skill: Melee (Light)
+damage: 5
+criticalRating: 2
+range: en
+encumbrance: 2
+rarity: 10
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-vicious
+    ranks: 4
+reference: G-EPG:12

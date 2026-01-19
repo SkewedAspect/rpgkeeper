@@ -1,0 +1,10 @@
+id: genesys-talent-where-did-i-put-that
+name: Where Did I Put That?
+description: Once per session, your character may use this talent to make an
+  <difficulty></difficulty><difficulty></difficulty>. If successful, they may choose one item that has been lost,
+  misplaced, or left behind during a previous encounter and then find the item on their person or in an easily
+  accessible location
+activation: aa
+ranked: false
+tier: 1
+reference: EotI:51

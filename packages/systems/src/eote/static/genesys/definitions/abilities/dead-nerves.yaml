@@ -1,0 +1,5 @@
+id: genesys-ability-dead-nerves
+name: Dead Nerves
+description: Your character removes <setback></setback><setback></setback> added to any checks they make due to fatigue
+  or injuries (including Critical Injuries).
+reference: G-CRB

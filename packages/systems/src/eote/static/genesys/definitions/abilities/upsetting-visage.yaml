@@ -1,0 +1,6 @@
+id: genesys-ability-upsetting-visage
+name: Upsetting Visage
+description: This character adds <setback></setback><setback></setback> to all Charm and Leadership checks it makes and
+  adds <boost></boost><boost></boost> to all Coercion checks it makes; if the check inflicts strain, the target suffers
+  2 additional strain.
+reference: EotI

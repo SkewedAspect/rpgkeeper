@@ -1,0 +1,5 @@
+id: genesys-ability-mutating
+name: Mutating
+description: "At the start of each encounter, may suffer 1 wound to gain one species feature generated at random from
+  1-8: Species Features."
+reference: SotC

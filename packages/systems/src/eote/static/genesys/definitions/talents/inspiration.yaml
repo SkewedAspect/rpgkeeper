@@ -1,0 +1,12 @@
+id: genesys-talent-inspiration
+name: Inspiration
+description: Once per encounter, you may spend a Story Point to have your character use this talent to target another
+  character within hearing range, and tell them to perform a specific task. If your character knows the target's
+  Strength or Desire Motivation, the target may reroll up to three dice of their choice during the next check they make
+  to perform that task during the current encounter. This talent does not force the target to perform the designated
+  task (it simply benefits them if they do so). In addition, the target becomes less hostile toward your character in
+  the future.
+activation: am
+ranked: false
+tier: 2
+reference: EotI:53
