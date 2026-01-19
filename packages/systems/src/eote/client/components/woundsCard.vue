@@ -236,12 +236,6 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    interface CriticalInjury
-    {
-        name : string;
-        value : number;
-    }
-
     interface Wounds
     {
         wounds : number;
@@ -271,8 +265,8 @@
     const { current } = storeToRefs(useCharacterStore());
     const systemStore = useSystemStore();
 
-    const woundsInput = ref<number>(undefined);
-    const strainInput = ref<number>(undefined);
+    const woundsInput = ref<number | undefined>(undefined);
+    const strainInput = ref<number | undefined>(undefined);
 
     const staggeredBtn = ref<HTMLElement | null>(null);
     const immobilizedBtn = ref<HTMLElement | null>(null);
@@ -438,10 +432,11 @@
     function soakWounds() : void
     {
         const soak = defenses.value.soak || 0;
-        if(woundsInput.value > soak)
+        const wounds = woundsInput.value ?? 0;
+        if(wounds > soak)
         {
             // Safety check; can never be less than 0.
-            const woundsRemaining = Math.max(0, woundsInput.value - soak);
+            const woundsRemaining = Math.max(0, wounds - soak);
 
             // Apply the rest as normal wounds
             dealWounds(woundsRemaining);
@@ -452,7 +447,7 @@
     {
         wounds = wounds || woundsInput.value || 0;
 
-        if(wounds && this.health.wounds)
+        if(wounds && health.value.wounds)
         {
             health.value.wounds -= wounds;
             health.value.wounds = Math.max(0, health.value.wounds);
@@ -487,10 +482,11 @@
     function soakStrain() : void
     {
         const soak = defenses.value.soak || 0;
-        if(strainInput.value > soak)
+        const strain = strainInput.value ?? 0;
+        if(strain > soak)
         {
             // Safety check; can never be less than 0.
-            const strainRemaining = Math.max(0, strainInput.value - soak);
+            const strainRemaining = Math.max(0, strain - soak);
 
             // Apply the rest as normal strain
             dealStrain(strainRemaining);
@@ -501,7 +497,7 @@
     {
         strain = strain || strainInput.value || 0;
 
-        if(strain && this.health.strain)
+        if(strain && health.value.strain)
         {
             health.value.strain -= strain;
             health.value.strain = Math.max(0, health.value.strain);

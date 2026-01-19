@@ -37,6 +37,9 @@
 <script lang="ts" setup>
     import { computed, ref } from 'vue';
 
+    // Models
+    import type { EoteQuality } from '../../../models.ts';
+
     // Utils
     import { shortID } from '@client/lib/utils/misc';
 
@@ -75,7 +78,7 @@
 
     const mode = computed(() => systemStore.current?.id ?? 'eote');
 
-    const qualities = computed(() => supplementStore.get(mode.value, 'quality'));
+    const qualities = computed(() => supplementStore.get<EoteQuality>(mode.value, 'quality'));
 
     const quality = computed(() =>
     {

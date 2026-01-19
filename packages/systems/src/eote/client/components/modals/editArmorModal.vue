@@ -152,7 +152,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { EoteArmorRef, EoteOrGenCharacter, EoteQualityRef } from '../../../models.ts';
@@ -187,7 +187,7 @@
         qualities: [] as EoteQualityRef[],
     });
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef('innerModal');
 
     const systemStore = useSystemStore();
 

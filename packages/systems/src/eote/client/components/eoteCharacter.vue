@@ -71,7 +71,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, useTemplateRef } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Stores
@@ -116,7 +116,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
-    const roller = ref<InstanceType<typeof RollsCard> | null>(null);
+    const roller = useTemplateRef('roller');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

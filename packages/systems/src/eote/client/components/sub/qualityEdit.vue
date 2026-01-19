@@ -18,7 +18,7 @@
         >
             <template #preview="{ instance, supplement }">
                 <div>
-                    <div v-if="supplement.ranked" class="mb-2 float-end">
+                    <div v-if="supplement.ranked && instance" class="mb-2 float-end">
                         <label>Ranks</label>
                         <BFormSpinbutton
                             id="sb-inline"
@@ -36,7 +36,7 @@
                 <MarkdownBlock :text="supplement.description" inline />
                 <Reference
                     class="float-end mt-2"
-                    :reference="supplement.reference"
+                    :reference="supplement.reference ?? ''"
                 />
             </template>
         </SupplementSelect>
@@ -56,7 +56,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { EoteQuality, EoteQualityRef } from '../../../models.ts';
@@ -101,7 +101,7 @@
 
     const addEditQualityModal = ref<InstanceType<typeof AddEditQualityModal> | null>(null);
     const delQualityModal = ref<InstanceType<typeof DeleteModal> | null>(null);
-    const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
+    const suppSelect = useTemplateRef('suppSelect');
 
     const systemStore = useSystemStore();
     const supplementStore = useSupplementStore();
@@ -135,7 +135,8 @@
     function onQualityAdd(quality : { id ?: string }) : void
     {
         if(!quality.id) { return; }
-        const newQual : { id : string, ranks ?: number } = { id: quality.id };
+
+        const newQual : EoteQualityRef = { id: quality.id };
         const qualDef = getQual(quality.id);
 
         if(qualDef?.ranked)
@@ -181,7 +182,10 @@
     {
         suppSelect.value?.clearSelection();
 
-        await supplementStore.remove(mode.value, 'quality', delQuality.value.id);
+        if(delQuality.value.id)
+        {
+            await supplementStore.remove(mode.value, 'quality', delQuality.value.id);
+        }
 
         selectedQualities.value = selectedQualities.value.filter((item) => item.id !== delQuality.value.id);
     }

@@ -283,7 +283,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type {
@@ -347,9 +347,9 @@
         type: '',
     });
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
-    const addEditMotivModal = ref<InstanceType<typeof AddEditMotivationModal> | null>(null);
-    const delMotivModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+    const innerModal = useTemplateRef('innerModal');
+    const addEditMotivModal = useTemplateRef('addEditMotivModal');
+    const delMotivModal = useTemplateRef('delMotivModal');
 
     const systemStore = useSystemStore();
     const supplementStore = useSupplementStore();
@@ -414,20 +414,12 @@
         };
     }
 
-    function onMotivAdd(supp : { id ?: string; type ?: GenesysMotivationType }) : void
+    function onMotivAdd(supp : { id ?: string }) : void
     {
         if(!supp.id) { return; }
 
-        // Look up the full motivation to get its type if not provided
-        let motiv : GenesysMotivation | undefined;
-        if(!supp.type)
-        {
-            motiv = motivationsList.value.find((mot) => mot.id === supp.id);
-        }
-        else
-        {
-            motiv = { id: supp.id, type: supp.type } as GenesysMotivation;
-        }
+        // Look up the full motivation to get its type
+        const motiv = motivationsList.value.find((mot) => mot.id === supp.id);
 
         if(motiv?.type)
         {

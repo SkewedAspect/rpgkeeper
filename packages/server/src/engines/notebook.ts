@@ -51,7 +51,7 @@ export class NotebookEngine
         // Broadcast the add
         await broadcast('/notebook', {
             type: 'add',
-            resource: newNotebook.id,
+            resource: newNotebook.id ?? '',
             payload: newNotebook,
         });
 
@@ -65,7 +65,7 @@ export class NotebookEngine
         // Broadcast the add
         await broadcast('/notebook/page', {
             type: 'add',
-            resource: newPage.id,
+            resource: newPage.id ?? '',
             payload: newPage,
         });
 

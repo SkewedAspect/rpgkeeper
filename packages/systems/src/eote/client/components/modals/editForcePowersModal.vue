@@ -42,8 +42,9 @@
                         </div>
                         <h5>Upgrades</h5>
                         <BTable
+                            v-if="instance"
                             class="font-sm"
-                            :items="getUpgrades(instance as EoteForcePowerInst, supplement as EoteForcePower)"
+                            :items="getUpgrades(instance, supplement)"
                             :fields="upgradeFields"
                             thead-class="d-none"
                             small
@@ -59,13 +60,13 @@
                                 <b>{{ sentenceCase(data.value as string) }}</b>
                                 <DicePool
                                     v-model:current="data.item.purchased"
-                                    :max="(supplement as EoteForcePower).upgrades[data.value as string]?.available || 1"
+                                    :max="getUpgradeMax(supplement, data.value as string)"
                                     size="1x"
                                     no-edit
                                     no-auto-save
                                     @update:current="onUpgradeModify(
                                         { item: data.item, value: data.value as string },
-                                        instance as EoteForcePowerInst
+                                        instance
                                     )"
                                 />
                             </template>
@@ -75,7 +76,7 @@
                         </BTable>
                         <ReferenceBlock
                             class="float-end mt-2"
-                            :reference="supplement.reference"
+                            :reference="supplement.reference ?? ''"
                         />
                     </template>
                 </SupplementSelect>
@@ -123,7 +124,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type {
@@ -182,10 +183,10 @@
         name: undefined,
     });
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
-    const addEditForcePowersModal = ref<InstanceType<typeof AddEditForcePowersModal> | null>(null);
-    const delForcePowersModal = ref<InstanceType<typeof DeleteModal> | null>(null);
-    const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
+    const innerModal = useTemplateRef('innerModal');
+    const addEditForcePowersModal = useTemplateRef('addEditForcePowersModal');
+    const delForcePowersModal = useTemplateRef('delForcePowersModal');
+    const suppSelect = useTemplateRef('suppSelect');
 
     const systemStore = useSystemStore();
     const supplementStore = useSupplementStore();
@@ -221,6 +222,7 @@
     function onForcePowerAdd(forcePower : { id ?: string }) : void
     {
         if(!forcePower.id) { return; }
+
         const newForcePower : EoteForcePowerInst = {
             id: forcePower.id,
             upgrades: { strength: 0, magnitude: 0, duration: 0, range: 0, control: [], mastery: 0 },
@@ -265,7 +267,10 @@
         suppSelect.value?.clearSelection();
         selectedForcePowers.value = selectedForcePowers.value.filter((item) => item.id !== delForcePower.value.id);
 
-        await supplementStore.remove(mode.value, 'forcepower', delForcePower.value.id);
+        if(delForcePower.value.id)
+        {
+            await supplementStore.remove(mode.value, 'forcepower', delForcePower.value.id);
+        }
 
         onSave();
     }
@@ -275,16 +280,18 @@
         instance : EoteForcePowerInst
     ) : void
     {
+        const instUpgrades = instance.upgrades as Record<string, number | number[]>;
+
         // Are we an array'd upgrade, or not?
         if(item.index === undefined)
         {
             // Simple upgrade case, just update the instance
-            instance.upgrades[value] = item.purchased;
+            instUpgrades[value] = item.purchased;
         }
         else
         {
             // More complicated, we have to mess with the purchased array
-            let purchased = instance.upgrades[value];
+            let purchased = instUpgrades[value] as number[];
             if(item.purchased)
             {
                 // We add `item.index` to the list of purchased upgrades
@@ -293,19 +300,22 @@
             else
             {
                 // We have to remove `item.index` from the list of purchased upgrades
-                purchased = purchased.filter((instIdx) => instIdx !== item.index);
+                purchased = purchased.filter((instIdx : number) => instIdx !== item.index);
             }
 
-            instance.upgrades[value] = purchased;
+            instUpgrades[value] = purchased;
         }
     }
 
     function getUpgrades(instance : EoteForcePowerInst, supplement : EoteForcePower) : UpgradeInst[]
     {
-        return Object.keys(supplement.upgrades).reduce((upgrades : UpgradeInst[], name) =>
+        const suppUpgrades = supplement.upgrades as Record<string, unknown>;
+        const instUpgrades = instance.upgrades as Record<string, unknown>;
+
+        return Object.keys(suppUpgrades).reduce((upgrades : UpgradeInst[], name) =>
         {
-            const upgrade : (EoteForcePowerUpgrade | { description : string }[]) = supplement.upgrades[name];
-            const upgradeInst : number | number[] = instance.upgrades[name];
+            const upgrade = suppUpgrades[name] as (EoteForcePowerUpgrade | { description : string }[]);
+            const upgradeInst = instUpgrades[name] as number | number[];
 
             if(Array.isArray(upgrade) && Array.isArray(upgradeInst))
             {
@@ -333,9 +343,15 @@
         }, []);
     }
 
-    function sentenceCase(text) : string
+    function sentenceCase(text : string) : string
     {
         return startCase(text);
+    }
+
+    function getUpgradeMax(supplement : EoteForcePower, upgradeName : string) : number
+    {
+        const upgrades = supplement.upgrades as Record<string, { available ?: number } | undefined>;
+        return upgrades[upgradeName]?.available || 1;
     }
 
     //------------------------------------------------------------------------------------------------------------------

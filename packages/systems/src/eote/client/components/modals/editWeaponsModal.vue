@@ -165,7 +165,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Stores
@@ -234,7 +234,7 @@
         qualities: [],
     });
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef('innerModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

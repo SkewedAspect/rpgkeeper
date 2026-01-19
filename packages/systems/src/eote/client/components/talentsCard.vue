@@ -31,7 +31,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, useTemplateRef } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Models
@@ -67,7 +67,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
-    const editTalentsModal = ref<InstanceType<typeof EditTalentsModal> | null>(null);
+    const editTalentsModal = useTemplateRef('editTalentsModal');
 
     const systemStore = useSystemStore();
 

@@ -71,17 +71,17 @@ export function sortBy(key : string) : (a : Record<string, any>, b : Record<stri
  *
  * @return Returns a copy of the array without duplicates.
  */
-export function uniqBy<T extends Record<string, unknown>>(arr : T[], iteratee : string | ((item : T) => unknown)) : T[]
+export function uniqBy<T>(arr : T[], iteratee : keyof T | ((item : T) => unknown)) : T[]
 {
     const iter = (item : T) : unknown =>
     {
-        if(typeof iteratee === 'string')
+        if(typeof iteratee === 'function')
         {
-            return item[iteratee];
+            return iteratee(item);
         }
         else
         {
-            return iteratee(item);
+            return item[iteratee];
         }
     };
 

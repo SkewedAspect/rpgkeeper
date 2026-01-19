@@ -8,7 +8,7 @@ import type { Notebook, NotebookPage } from '@rpgk/core/models/notebook';
 
 export interface NotePageDBRecord
 {
-    page_id : number;
+    page_id ?: number;
     note_id : string;
     title : string;
     content : string;
@@ -43,7 +43,7 @@ export function fromDB(record : NotebookDBRecord) : Notebook
 export function pageToDB(page : NotebookPage) : NotePageDBRecord
 {
     return {
-        page_id: parseInt(page.id),
+        page_id: page.id ? parseInt(page.id) : undefined,
         note_id: page.notebookID,
         title: page.title,
         content: page.content,

@@ -39,30 +39,30 @@
                     @delete="onTalentDelete"
                 >
                     <template #preview="{ instance, supplement }">
-                        <div class="clearfix">
+                        <div v-if="instance && supplement" class="clearfix">
                             <div
-                                v-if="(supplement as BaseTalent).ranked && getInst(instance.id)"
+                                v-if="supplement.ranked && instance.id && getInst(instance.id)"
                                 class="mb-2 float-end"
                             >
                                 <label class="me-2">Ranks</label>
                                 <BFormSpinbutton v-model="getInst(instance.id)!.ranks" inline />
                             </div>
                             <div class="mb-2">
-                                <i>{{ getActivation(supplement as BaseTalent) }}</i>
+                                <i>{{ getActivation(supplement) }}</i>
                             </div>
-                            <MarkdownBlock :text="(supplement as BaseTalent).description" inline />
+                            <MarkdownBlock :text="supplement.description" inline />
                             <Reference
                                 class="float-end mt-2"
-                                :reference="supplement.reference"
+                                :reference="supplement.reference ?? ''"
                             />
                         </div>
                         <div class="font-sm">
                             <hr>
                             <div class="float-end">
                                 <BButton
-                                    v-if="!editInstance"
+                                    v-if="!editInstance && instance"
                                     size="sm"
-                                    @click="editInstanceNotes(instance as BaseTalentInst)"
+                                    @click="editInstanceNotes(instance)"
                                 >
                                     <Fa icon="edit" />
                                     Edit Notes
@@ -73,19 +73,19 @@
                                 <template #footer>
                                     <div class="text-end">
                                         <BButton
-                                            v-if="editInstance"
+                                            v-if="editInstance && instance"
                                             class="me-2"
                                             size="sm"
-                                            @click="saveInstanceNotes(instance as BaseTalentInst, true)"
+                                            @click="saveInstanceNotes(instance, true)"
                                         >
                                             <Fa icon="times" />
                                             Cancel Notes
                                         </BButton>
                                         <BButton
-                                            v-if="editInstance"
+                                            v-if="editInstance && instance"
                                             variant="success"
                                             size="sm"
-                                            @click="saveInstanceNotes(instance as BaseTalentInst)"
+                                            @click="saveInstanceNotes(instance)"
                                         >
                                             <Fa icon="save" />
                                             Save Notes
@@ -94,22 +94,24 @@
                                 </template>
                             </BCard>
                             <MarkdownBlock
-                                v-else-if="(instance as BaseTalentInst).notes"
-                                :text="(instance as BaseTalentInst).notes!"
+                                v-else-if="instance?.notes"
+                                :text="instance.notes"
                                 inline
                             />
                             <i v-else>No notes.</i>
                         </div>
                     </template>
                     <template #preview-title="{ instance, supplement }">
-                        <div v-if="mode === 'genesys'" class="float-end me-2">
-                            <span class="text-muted">Tier {{ supplement.tier }}</span>
-                        </div>
-                        {{ supplement.name }}
-                        <span v-if="supplement.ranked">{{ instance.ranks }}</span>
+                        <template v-if="supplement">
+                            <div v-if="mode === 'genesys'" class="float-end me-2">
+                                <span class="text-muted">Tier {{ supplement.tier }}</span>
+                            </div>
+                            {{ supplement.name }}
+                            <span v-if="supplement.ranked && instance">{{ instance.ranks }}</span>
+                        </template>
                     </template>
                     <template #selection-extra="{ supplement }">
-                        <BBadge v-if="mode === 'genesys'" class="me-1">
+                        <BBadge v-if="mode === 'genesys' && supplement" class="me-1">
                             Tier {{ supplement.tier }}
                         </BBadge>
                     </template>
@@ -151,7 +153,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
     import { sortBy } from 'lodash';
 
     // Models
@@ -159,12 +161,7 @@
         EoteOrGenCharacter,
         EoteTalentInst,
         GenesysTalent,
-        GenesysTalentInst,
     } from '../../../models.ts';
-
-    // Use type aliases for template casts
-    type BaseTalent = GenesysTalent;
-    type BaseTalentInst = GenesysTalentInst;
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -202,12 +199,12 @@
         id: '',
         name: '',
     });
-    const editInstance = ref<EoteTalentInst>(undefined);
+    const editInstance = ref<EoteTalentInst | undefined>(undefined);
 
-    const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
-    const addEditTalentModal = ref<InstanceType<typeof AddEditTalentModal> | null>(null);
-    const delTalentModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+    const suppSelect = useTemplateRef('suppSelect');
+    const innerModal = useTemplateRef('innerModal');
+    const addEditTalentModal = useTemplateRef('addEditTalentModal');
+    const delTalentModal = useTemplateRef('delTalentModal');
 
     const systemStore = useSystemStore();
     const supplementStore = useSupplementStore();
@@ -292,6 +289,7 @@
     function onTalentAdd(talent : { id ?: string }) : void
     {
         if(!talent.id) { return; }
+
         const newTalent : EoteTalentInst = { id: talent.id };
         const talentDef = getTalent(talent.id);
 
@@ -321,7 +319,7 @@
 
     function onTalentDelete(talent : GenesysTalent) : void
     {
-        delTalent.value.id = talent.id;
+        delTalent.value.id = talent.id ?? '';
         delTalent.value.name = talent.name;
 
         delTalentModal.value?.show();
@@ -345,6 +343,11 @@
 
     function editInstanceNotes(instance : EoteTalentInst) : void
     {
+        // Ensure notes is initialized to empty string for v-model binding
+        if(instance.notes === undefined)
+        {
+            instance.notes = '';
+        }
         editInstance.value = instance;
     }
 
@@ -353,7 +356,10 @@
         if(!cancel)
         {
             const inst = getInst(instance.id);
-            inst.notes = editInstance.value.notes;
+            if(inst && editInstance.value)
+            {
+                inst.notes = editInstance.value.notes;
+            }
         }
 
         editInstance.value = undefined;

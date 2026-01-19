@@ -87,7 +87,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Models
@@ -164,8 +164,8 @@
         /* TODO: Add in weapon modification support. */
     ]);
 
-    const editWeaponsModal = ref<InstanceType<typeof EditWeaponsModal> | null>(null);
-    const delModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+    const editWeaponsModal = useTemplateRef('editWeaponsModal');
+    const delModal = useTemplateRef('delModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

@@ -32,7 +32,7 @@
     import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Models
-    import type { EoteCharacter } from '../../../models.ts';
+    import type { EoteCharacter, EoteTalent } from '../../../models.ts';
 
     // Components
     import TalentCard from './talentCard.vue';
@@ -65,7 +65,7 @@
 
     const character = computed<EoteCharacter>(() => current.value as any);
     const mode = computed(() => systemStore.current?.id ?? 'eote');
-    const talentsList = computed(() => supplementStore.get(mode.value, 'talent'));
+    const talentsList = computed(() => supplementStore.get<EoteTalent>(mode.value, 'talent'));
 
     const talents = computed(() =>
     {

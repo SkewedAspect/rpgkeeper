@@ -56,7 +56,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, useTemplateRef } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Interfaces
@@ -102,7 +102,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
-    const editModal = ref<InstanceType<typeof EditModal> | null>(null);
+    const editModal = useTemplateRef('editModal');
     const systemStore = useSystemStore();
 
     //------------------------------------------------------------------------------------------------------------------

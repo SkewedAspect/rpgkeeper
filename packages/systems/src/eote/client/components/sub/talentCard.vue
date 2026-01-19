@@ -105,7 +105,7 @@
     const mode = computed(() => systemStore.current?.id ?? 'eote');
 
     // We use GenesysTalent here because it's just `TalentBase` exported, and XOR doesn't work how I want.
-    const talents = computed<GenesysTalent[]>(() => supplementStore.get(mode.value, 'talent'));
+    const talents = computed(() => supplementStore.get<GenesysTalent>(mode.value, 'talent'));
 
     const talentBase = computed<GenesysTalent | undefined>(() =>
     {

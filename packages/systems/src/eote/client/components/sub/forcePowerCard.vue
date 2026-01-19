@@ -21,7 +21,7 @@
             >
                 <template #cell(name)="data">
                     <b>
-                        {{ sentenceCase(data.value) }}
+                        {{ sentenceCase(data.value as string) }}
                         <span v-if="data.item.purchased > 1">({{ data.item.purchased }})</span>
                     </b>
                 </template>
@@ -30,7 +30,7 @@
                 </template>
             </BTableLite>
             <div class="clearfix">
-                <ReferenceBlock class="float-end mt-2" :reference="powerBase?.reference" />
+                <ReferenceBlock class="float-end mt-2" :reference="powerBase?.reference ?? ''" />
             </div>
         </BCollapse>
     </BCard>
@@ -92,7 +92,22 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const visible = ref(false);
-    const upgradeFields = ref([
+
+    interface TableField
+    {
+        key : string;
+        class ?: string;
+    }
+
+    interface UpgradeItem
+    {
+        name : string;
+        description ?: string;
+        index ?: number;
+        purchased : number;
+    }
+
+    const upgradeFields = ref<TableField[]>([
         { key: 'name', class: 'text-nowrap' },
         { key: 'description' },
     ]);
@@ -118,33 +133,47 @@
         return undefined;
     });
 
-    const upgrades = computed(() =>
+    const upgrades = computed<UpgradeItem[]>(() =>
     {
-        const populatedUpgrades = Object.keys(powerBase.value.upgrades).reduce((upgradeList, name) =>
+        if(!powerBase.value)
         {
-            const upgrade = powerBase.value.upgrades[name];
-            const upgradeInst = props.power.upgrades[name];
+            return [];
+        }
+
+        const baseUpgrades = powerBase.value.upgrades as Record<string, unknown>;
+        const instUpgrades = props.power.upgrades as Record<string, unknown>;
+
+        const populatedUpgrades = Object.keys(baseUpgrades).reduce<UpgradeItem[]>((upgradeList, name) =>
+        {
+            const upgrade = baseUpgrades[name];
+            const upgradeInst = instUpgrades[name];
 
             if(Array.isArray(upgrade))
             {
                 // If it's an array (i.e. `control`) we just add them as individual upgrades, all with the same
                 // name. This is find, because we don't assume the name is unique. Also, we add the `index`
                 // property, because that tells us which control item we've purchased.
-                upgradeList = upgradeList.concat(upgrade.map((up, index) =>
+                const upgradeItems = upgrade.map((up : { description ?: string }, index : number) =>
                 {
-                    const purchased = upgradeInst.includes(index) ? 1 : 0;
+                    const purchased = Array.isArray(upgradeInst) && upgradeInst.includes(index) ? 1 : 0;
                     return {
                         ...up,
                         name,
                         index,
                         purchased,
                     };
-                }));
+                });
+                upgradeList = upgradeList.concat(upgradeItems);
             }
-            else
+            else if(upgrade && typeof upgrade === 'object')
             {
                 // In the simple case, we just push the upgrade with the name.
-                upgradeList.push({ ...upgrade, name, purchased: upgradeInst });
+                const upgradeObj = upgrade as { description ?: string };
+                upgradeList.push({
+                    ...upgradeObj,
+                    name,
+                    purchased: typeof upgradeInst === 'number' ? upgradeInst : 0,
+                });
             }
 
             return upgradeList;
@@ -157,7 +186,7 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function sentenceCase(text) : string
+    function sentenceCase(text : string) : string
     {
         return startCase(text);
     }

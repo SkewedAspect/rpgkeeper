@@ -122,13 +122,25 @@
     const { current } = storeToRefs(useCharacterStore());
 
     const pendingRollName = ref('');
-    const rollResult = ref({
+    const rollResult = ref<{ full : string[], uncancelled : string[], name : string }>({
         full: [],
         uncancelled: [],
         name: '',
     });
 
-    const dice = ref({
+    interface DicePool
+    {
+        proficiency : number;
+        ability : number;
+        boost : number;
+        challenge : number;
+        difficulty : number;
+        setback : number;
+        force : number;
+        [ key : string ] : number;
+    }
+
+    const dice = ref<DicePool>({
         proficiency: 0,
         ability: 0,
         boost: 0,
@@ -155,7 +167,7 @@
 
     const diceDisplay = computed(() =>
     {
-        const rollArray = diceUtil.eoteDiceSortOrder.reduce((accum, die) =>
+        const rollArray = diceUtil.eoteDiceSortOrder.reduce<string[]>((accum, die) =>
         {
             // Make an array with the string name of the die repeated `dice[die]` times.
             return accum.concat(Array(dice.value[die]).fill(die));
@@ -233,7 +245,7 @@
         rollName = rollName || pendingRollName.value;
 
         rollResult.value = {
-            ...diceUtil.rollEotE(this.dice),
+            ...diceUtil.rollEotE(dice.value),
             name: rollName,
         };
 

@@ -42,27 +42,24 @@
                     <BListGroup v-if="selectedSupplements.length > 0" flush class="overflow-auto">
                         <BListGroupItem
                             v-for="supp in selectedSupplements"
-                            :key="supp.id"
-                            :variant=" supp.id === currentSelection ? 'primary' : null"
-                            @click="selectSupp(supp)"
+                            :key="supp.instance.id"
+                            :variant=" supp.instance.id === currentSelection ? 'primary' : null"
+                            @click="selectSupp(supp.instance)"
                         >
                             <div class="float-end">
-                                <slot :instance="supp" :supplement="getSupp(supp.id)" name="selection-extra" />
-                                <template v-if="getSupp(supp.id)">
-                                    <ScopeBadge :supplement="getSupp(supp.id) as GenericSupplement" />
-                                </template>
+                                <slot :instance="supp.instance" :supplement="supp.supplement" name="selection-extra" />
+                                <ScopeBadge v-if="supp.supplement" :supplement="supp.supplement" />
                                 <BButton
                                     class="ms-2 text-nowrap"
                                     variant="danger"
                                     title="Remove"
-                                    @click.prevent.stop="removeSupp(supp)"
+                                    @click.prevent.stop="removeSupp(supp.instance)"
                                 >
                                     <Fa icon="times" />
                                 </BButton>
                             </div>
                             <div class="pt-2">
-                                {{ getSupp(supp.id)?.name }}
-                                <span v-if="getSupp(supp.id)?.ranked">{{ supp.ranks }}</span>
+                                {{ supp.supplement?.name }}
                             </div>
                         </BListGroupItem>
                     </BListGroup>
@@ -100,7 +97,6 @@
                                         name="preview-title"
                                     >
                                         {{ currentSupplement.name }}
-                                        <span v-if="currentSupplement.ranked">{{ supplementInstance?.ranks }}</span>
                                     </slot>
                                 </h4>
                             </div>
@@ -113,14 +109,13 @@
                             </div>
                         </slot>
                         <slot v-else :instance="supplementInstance" :supplement="currentSupplement" name="preview">
-                            <div v-if="currentSupplement.ranked && supplementInstance" class="mb-2">
-                                <label>Ranks</label>
-                                <BFormSpinbutton id="sb-inline" v-model="supplementInstance.ranks" inline />
-                            </div>
-                            <MarkdownBlock :text="currentSupplement.description" inline />
+                            <MarkdownBlock
+                                :text="currentSupplement.description ?? 'No description.'"
+                                inline
+                            />
                             <div class="text-end mt-auto">
                                 <h5><ScopeBadge :supplement="currentSupplement" /></h5>
-                                <ReferenceBlock :reference="currentSupplement.reference" />
+                                <ReferenceBlock :reference="currentSupplement.reference ?? ''" />
                             </div>
                         </slot>
                     </div>
@@ -132,7 +127,7 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<script lang="ts" setup>
+<script lang="ts" setup generic="TSupplement extends Supplement, TInstance extends SupplementInst">
     import { computed, ref } from 'vue';
     import { storeToRefs } from 'pinia';
 
@@ -155,25 +150,12 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
-    // TODO: Can't figure out how to define generic Supplements, so we define something a little better.
-    // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
-    interface GenericSupplement extends Supplement
-    {
-        [key : string] : any;
-    }
-
-    // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
-    interface GenericSupplementInst extends SupplementInst
-    {
-        [key : string] : any;
-    }
-
     interface Props
     {
         label : string;
         labelClass : string;
-        available : GenericSupplement[];
-        selected : (GenericSupplementInst | string)[];
+        available : TSupplement[];
+        selected : (TInstance | string)[];
         maxHeight ?: string;
         sortFn ?: (suppA : Supplement, suppB : Supplement) => number
     }
@@ -182,16 +164,25 @@
         defineProps<Props>(),
         {
             maxHeight: '300px',
-            sortFn: (suppA : Supplement, suppB : Supplement) => suppA.name.localeCompare(suppB.name),
+            sortFn: undefined,
         }
     );
 
     const emit = defineEmits<{
         new : [];
-        add : [supp : { id : string }];
-        edit : [supp : GenericSupplement];
-        delete : [supp : GenericSupplement];
-        remove : [supp : { id : string }];
+        add : [supp : TInstance];
+        edit : [supp : TSupplement];
+        delete : [supp : TSupplement];
+        remove : [supp : TInstance];
+    }>();
+
+    defineSlots<{
+        'suggestion-extra' : (props : { supplement : TSupplement }) => unknown;
+        'selection-extra' : (props : { instance : TInstance; supplement : TSupplement | undefined }) => unknown;
+        'header' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
+        'preview-title' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
+        'noSelection' : () => unknown;
+        'preview' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
     }>();
 
     //------------------------------------------------------------------------------------------------------------------
@@ -205,23 +196,35 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const selectedSupplements = computed<GenericSupplementInst[]>(() =>
+    interface SelectedWithSupplement
     {
-        // Normalize the selected supplements to an array of objects with `id`.
-        return props.selected.map((supp) =>
+        instance : TInstance;
+        supplement : TSupplement | undefined;
+    }
+
+    const selectedSupplements = computed<SelectedWithSupplement[]>(() =>
+    {
+        // Normalize the selected supplements to an array of objects with `id`, paired with their supplement.
+        return props.selected.map((supp) : SelectedWithSupplement =>
         {
             // If we have an object with `id`, assume we're in the right format
             if(typeof supp === 'object' && supp.id)
             {
-                return supp;
+                return {
+                    instance: supp,
+                    supplement: props.available.find((avail) => avail.id === supp.id),
+                };
             }
 
             // Otherwise assume we're just the id, and wrap ourselves in an object. This is Good Enough™.
-            return { id: supp as string } satisfies SupplementInst;
+            return {
+                instance: { id: supp } as TInstance,
+                supplement: props.available.find((avail) => avail.id === supp),
+            };
         });
     });
 
-    const currentSupplement = computed(() =>
+    const currentSupplement = computed<TSupplement | undefined>(() =>
     {
         if(currentSelection.value)
         {
@@ -231,14 +234,20 @@
         return undefined;
     });
 
-    const supplementInstance = computed(() =>
+    const supplementInstance = computed<TInstance | undefined>(() =>
     {
         if(currentSelection.value)
         {
-            return selectedSupplements.value.find((supp) => supp.id === currentSelection.value);
+            const found = selectedSupplements.value.find((supp) => supp.instance.id === currentSelection.value);
+            return found?.instance;
         }
 
         return undefined;
+    });
+
+    const sortFn = computed<(suppA : Supplement, suppB : Supplement) => number>(() =>
+    {
+        return props.sortFn ?? ((suppA, suppB) => suppA.name.localeCompare(suppB.name));
     });
 
     const canModify = computed(() =>
@@ -266,20 +275,10 @@
 
     function onAdd(supp : { id : string }) : void
     {
-        emit('add', supp);
+        emit('add', supp as TInstance);
     }
 
-    function getSupp(id : string | undefined) : GenericSupplement | undefined
-    {
-        if(id)
-        {
-            return props.available.find((supp) => supp.id === id);
-        }
-
-        return undefined;
-    }
-
-    function selectSupp(supp : GenericSupplementInst) : void
+    function selectSupp(supp : TInstance) : void
     {
         if(currentSelection.value !== supp.id)
         {
@@ -296,12 +295,12 @@
         currentSelection.value = null;
     }
 
-    function editSupp(supp : GenericSupplement) : void
+    function editSupp(supp : TSupplement) : void
     {
         emit('edit', supp);
     }
 
-    function deleteSupp(supp : GenericSupplement) : void
+    function deleteSupp(supp : TSupplement) : void
     {
         emit('delete', supp);
     }
@@ -311,10 +310,10 @@
         emit('new');
     }
 
-    function removeSupp(supp : GenericSupplementInst) : void
+    function removeSupp(supp : TInstance) : void
     {
         clearSelection();
-        emit('remove', { id: supp.id });
+        emit('remove', supp);
     }
 
     //------------------------------------------------------------------------------------------------------------------

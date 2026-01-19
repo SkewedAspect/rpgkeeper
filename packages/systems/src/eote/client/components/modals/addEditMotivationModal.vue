@@ -116,7 +116,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -152,7 +152,7 @@
     const description = ref('');
     const reference = ref('');
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef('innerModal');
 
     const systemStore = useSystemStore();
     const supplementStore = useSupplementStore();

@@ -33,6 +33,9 @@
 <script lang="ts" setup>
     import { computed, ref } from 'vue';
 
+    // Models
+    import type { GenesysMotivation } from '../../../models.ts';
+
     // Utils
     import { shortID } from '@client/lib/utils/misc';
 
@@ -72,7 +75,7 @@
 
     const motivation = computed(() =>
     {
-        return supplementStore.get(mode.value, 'motivation').find((mot) => `${ mot.id }` === `${ props.id }`);
+        return supplementStore.get<GenesysMotivation>(mode.value, 'motivation').find((mot) => mot.id === props.id);
     });
 
     const motivationName = computed(() =>
@@ -87,16 +90,9 @@
         return text;
     });
 
-    const motivationText = computed(() =>
+    const motivationText = computed<string>(() =>
     {
-        if(motivation.value && motivation.value.description)
-        {
-            return motivation.value.description;
-        }
-        else
-        {
-            return 'Unknown motivation.';
-        }
+        return motivation.value?.description ?? 'Unknown motivation.';
     });
 
     const motivationReference = computed(() =>

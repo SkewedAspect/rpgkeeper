@@ -45,7 +45,7 @@
                         </BFormGroup>
                     </BCol>
                 </BFormRow>
-                <BFormRow>
+                <BFormRow class="align-items-end mt-2">
                     <BCol>
                         <BFormGroup
                             label="Species"
@@ -68,9 +68,8 @@
                         <BFormGroup
                             label="Force Sensitive"
                             label-class="fw-bold"
-                            label-for="species-input"
+                            label-for="force-sensitive-input"
                             label-sr-only
-                            style="margin-top: 2.4rem"
                         >
                             <BFormCheckbox
                                 v-model="forceSensitive"
@@ -83,7 +82,7 @@
                     </BCol>
                 </BFormRow>
 
-                <BFormRow>
+                <BFormRow class="mt-2">
                     <BCol xs="12">
                         <BFormGroup
                             label="Career"
@@ -124,6 +123,7 @@
 
                 <SupplementSelect
                     ref="suppSelect"
+                    class="mt-2"
                     label="Abilities"
                     label-class="fw-bold"
                     :available="abilities"
@@ -166,7 +166,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { EoteAbility, EoteOrGenCharacter } from '../../../models.ts';
@@ -221,7 +221,7 @@
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
     const addEditModal = ref<InstanceType<typeof AddEditAbilityModal> | null>(null);
     const delModal = ref<InstanceType<typeof DeleteModal> | null>(null);
-    const suppSelect = ref<InstanceType<typeof SupplementSelect> | null>(null);
+    const suppSelect = useTemplateRef('suppSelect');
 
     const supplementStore = useSupplementStore();
 
@@ -229,7 +229,7 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const abilities = computed(() => supplementStore.get(mode.value, 'ability'));
+    const abilities = computed(() => supplementStore.get<EoteAbility>(mode.value, 'ability'));
     const selectedAbilitiesArray = computed(() => Array.from(selectedAbilities.value));
 
     //------------------------------------------------------------------------------------------------------------------
@@ -284,7 +284,7 @@
         forceSensitive.value = false;
     }
 
-    function onAbilityAdd(ability : EoteAbility) : void
+    function onAbilityAdd(ability : { id ?: string }) : void
     {
         if(ability.id)
         {
@@ -292,7 +292,7 @@
         }
     }
 
-    function onAbilityRemove(ability : EoteAbility) : void
+    function onAbilityRemove(ability : { id ?: string }) : void
     {
         if(ability.id)
         {

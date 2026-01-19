@@ -38,7 +38,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { GenesysCharacter } from '../../../models.ts';
+    import type { GenesysCharacter, GenesysTalent } from '../../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
@@ -80,7 +80,7 @@
     const readonly = computed(() => props.readonly);
     const character = computed<GenesysCharacter>(() => current.value as any);
     const mode = computed(() => systemStore.current?.id ?? 'genesys');
-    const talentsList = computed(() => supplementStore.get(mode.value, 'talent'));
+    const talentsList = computed(() => supplementStore.get<GenesysTalent>(mode.value, 'talent'));
 
     const allTalents = computed(() =>
     {

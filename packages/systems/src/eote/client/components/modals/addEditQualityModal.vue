@@ -80,7 +80,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { EoteQuality } from '../../../models.ts';
@@ -115,7 +115,7 @@
     const passive = ref(false);
     const ranked = ref(false);
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef('innerModal');
 
     const systemStore = useSystemStore();
     const supplementStore = useSupplementStore();

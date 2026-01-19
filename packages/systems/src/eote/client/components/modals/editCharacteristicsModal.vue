@@ -99,7 +99,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { EoteCharacteristics, EoteOrGenCharacter } from '../../../models.ts';
@@ -132,7 +132,7 @@
         presence: 0,
     });
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef('innerModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

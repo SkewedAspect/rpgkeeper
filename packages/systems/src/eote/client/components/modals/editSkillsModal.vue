@@ -274,7 +274,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { EoteOrGenCharacter, EoteSkill } from '../../../models.ts';
@@ -311,7 +311,7 @@
     const skills = ref<EoteSkill[]>([]);
     const characteristics = ref<CharacteristicOption[]>([]);
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef('innerModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

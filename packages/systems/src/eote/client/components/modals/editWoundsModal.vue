@@ -146,7 +146,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { ref } from 'vue';
+    import { ref, useTemplateRef } from 'vue';
 
     // Models
     import type { EoteOrGenCharacter } from '../../../models.ts';
@@ -182,7 +182,7 @@
         strainThreshold: 0,
     });
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef('innerModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

@@ -6,6 +6,7 @@ export interface Supplement
 {
     id ?: string;
     name : string;
+    description ?: string;
     owner ?: string;
     official : boolean;
     reference ?: string;

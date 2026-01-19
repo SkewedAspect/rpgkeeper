@@ -421,34 +421,37 @@
         };
 
         // Filter out upgrades
-        if(forcePowerDef.upgrades.strength.available === 0)
+        if(forcePowerDef.upgrades.strength?.available === 0)
         {
             forcePowerDef.upgrades.strength = undefined;
         }
 
-        if(forcePowerDef.upgrades.magnitude.available === 0)
+        if(forcePowerDef.upgrades.magnitude?.available === 0)
         {
             forcePowerDef.upgrades.magnitude = undefined;
         }
 
-        if(forcePowerDef.upgrades.duration.available === 0)
+        if(forcePowerDef.upgrades.duration?.available === 0)
         {
             forcePowerDef.upgrades.duration = undefined;
         }
 
-        if(forcePowerDef.upgrades.range.available === 0)
+        if(forcePowerDef.upgrades.range?.available === 0)
         {
             forcePowerDef.upgrades.range = undefined;
         }
 
-        if(forcePowerDef.upgrades.mastery.available === 0)
+        if(forcePowerDef.upgrades.mastery?.available === 0)
         {
             forcePowerDef.upgrades.mastery = undefined;
         }
 
         // Filter out blank control entries
-        forcePowerDef.upgrades.control = forcePowerDef.upgrades.control
-            .filter((control) => control.description && control.description.length > 0);
+        if(forcePowerDef.upgrades.control)
+        {
+            forcePowerDef.upgrades.control = forcePowerDef.upgrades.control
+                .filter((control) => control.description && control.description.length > 0);
+        }
 
         if(isEdit.value)
         {

@@ -31,7 +31,7 @@
 
     interface Props
     {
-        text : string;
+        text ?: string;
         block ?: boolean;
         inline ?: boolean;
     }
@@ -39,6 +39,7 @@
     const props = withDefaults(
         defineProps<Props>(),
         {
+            text: '',
             block: false,
             inline: false,
         }

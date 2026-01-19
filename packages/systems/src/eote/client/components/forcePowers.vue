@@ -41,7 +41,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, useTemplateRef } from 'vue';
     import { storeToRefs } from 'pinia';
     import { sortBy } from 'lodash';
 
@@ -78,7 +78,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
-    const editForcePowersModal = ref<InstanceType<typeof EditForcePowersModal> | null>(null);
+    const editForcePowersModal = useTemplateRef('editForcePowersModal');
 
     const systemStore = useSystemStore();
     const supplementStore = useSupplementStore();
