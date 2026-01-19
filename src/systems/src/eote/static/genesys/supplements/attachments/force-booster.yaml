@@ -4,7 +4,7 @@ description: A force booster is a microthrust booster installed in a wrist mount
   booster activates when the tool is at the apex of its swing, maximizing the force of the strike. When applied to
   combat weapons, the results are no less impressive. Users must be careful, however, because they can swing too hard
   and injure themselves.
-useWith: This attachment may be used with any axe, hammer, or similar Melee weapon.
+useWith: weapon
 modifiers: The weapon's base damage increases by 2, and it gains the Vicious item quality or increases its existing
   Vicious quality by 1. When your character makes a combat check with this weapon, your GM may spend Despair Despair or
   Difficulty to cause your character to lose control of the weapon and have it land in a location of the GM's choice

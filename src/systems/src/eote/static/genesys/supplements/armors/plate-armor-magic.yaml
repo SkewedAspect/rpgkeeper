@@ -1,0 +1,12 @@
+id: genesys-armor-plate-armor-magic
+name: Plate Armor (Magic)
+description: The addition of shielding enchantments worked directly into a suit of plate armor provides a supernatural
+  level of protection, hence the high defense and soak. It also is lighter and less restrictive than other types of
+  armor, so it has none of regular plate's penalties.
+defense: 2
+soak: 2
+hardpoints: 0
+encumbrance: 3
+rarity: 8
+qualities: []
+reference: G-CRB:145

@@ -2,7 +2,7 @@ id: genesys-attachment-runic-thunder
 name: Runic Thunder
 description: When its weapon strikes a foe, this rune carving flashes white like a bolt of lightning. The deafening boom
   of thunder comes a half-second later, staggering the foe with concussive force.
-useWith: This attachment can be applied to any weapon.
+useWith: weapon
 modifiers: The weapon gains the Concussive item quality.
 hpRequired: 2
 reference: RoT:107

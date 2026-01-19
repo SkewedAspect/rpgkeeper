@@ -3,7 +3,7 @@ name: Enhanced Lifting Servos
 description: Futuristic servos (or other, similar devices) can be worked into suits of hard carapace armor to make them
   powered and let the user lift and carry far more than they could normally. This kind of attachment makes sense in
   science fiction and space opera settings.
-useWith: This attachment can be applied to any armor composed of a hardened carapace.
+useWith: armor
 modifiers: When wearing this armor, the user increases their encumbrance threshold by 5. The user reduces the rating of
   the Cumbersome quality of any carried weapons by 1, to a minimum of 1.
 hpRequired: 2

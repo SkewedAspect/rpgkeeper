@@ -1,0 +1,14 @@
+id: genesys-armor-insulated-garb
+name: Insulated Garb
+description: This covers any sort of outfit designed to protect the wearer from hostile environments. It may incorporate
+  cotton, rubber, asbestos, lead, or pretty much anything that does, or might, protect against a particular hazard. In
+  addition to its soak, insulated garb provides <boost></boost><boost></boost> to any Resilience checks made to resist
+  environmental extremes appropriate to the garb. If you need insulated garb, an air mask (below) is probably also a
+  good call.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 3
+rarity: 2
+qualities: []
+reference: G-CRB:155

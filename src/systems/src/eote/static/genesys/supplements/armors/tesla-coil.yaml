@@ -1,0 +1,12 @@
+id: genesys-armor-tesla-coil
+name: Tesla Coil
+description: The Matriarchy pioneered Tesla coils as personal force fields. Made largely of glass and alloy and worn on
+  a belt or strap, they project a crackling electric field to deflect enemy fire (represented by the item's defense
+  rating).
+defense: 2
+soak: 0
+hardpoints: 0
+encumbrance: 2
+rarity: 8
+qualities: []
+reference: G-CRB:162

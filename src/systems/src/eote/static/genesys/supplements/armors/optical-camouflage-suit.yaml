@@ -1,0 +1,16 @@
+id: genesys-armor-optical-camouflage-suit
+name: Optical Camouflage Suit
+description: "Rare and expensive, optical camouflage suits are wonders of modern stealth technology. Known colloquially
+  as \"invisibility cloaks,\" these suits combine a sophisticated holographic imaging suite, sound baffles, and
+  radiation shielding to make the wearer incredibly hard to see or pick up on sensors. The holographic imagers project a
+  composite image of the wearer's surroundings on the suit, allowing them to blend into the background, while the other
+  systems muffle noises and hide the wearer's body heat. Someone trying to spot your character upgrades the difficulty
+  of their check once if your character is wearing an active optical camouflage suit. Models Include: ProTek Chameleon,
+  Argus Mk II Infiltrator Suit, U.S. Army Model 30 Active Camouflage Suit."
+defense: 2
+soak: 0
+hardpoints: 1
+encumbrance: 2
+rarity: 7
+qualities: []
+reference: SotB:93

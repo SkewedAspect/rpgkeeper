@@ -1,0 +1,15 @@
+id: genesys-armor-elite-shock-armor
+name: Elite Shock Armor
+description: Elite shock armor is the kind of horribly effective, horribly expensive armor that governments and armies
+  only give to their very best soldiers. These might be marines assigned to board enemy starships, commando raiders sent
+  behind enemy lines on the most dangerous missions, or the elite bodyguards of powerful emperors and rulers. When
+  wearing this armor, characters increase their Brawn by 1, to a maximum of 5 (this does increase their soak value) and
+  count their encumbrance capacity as 10+Brawn. This armor is also environmentally sealed, meaning that it counts as a
+  space suit (see the next page).
+defense: 1
+soak: 2
+hardpoints: 0
+encumbrance: 5
+rarity: 6
+qualities: []
+reference: G-CRB:186

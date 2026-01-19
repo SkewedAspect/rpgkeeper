@@ -1,0 +1,13 @@
+id: genesys-armor-sports-pads
+name: Sports Pads
+description: The various shoulder, chest, arm, groin, and leg protection used in pre apocalypse sports can, in a pinch,
+  make decent armor. Sports pads are often paired with heavy clothing, but just as often are accessorized with spikes,
+  feathers, and motorcycle boots. The combination of shock absorbers and hard pads gives this armor both defense and
+  soak.
+defense: 1
+soak: 1
+hardpoints: 0
+encumbrance: 2
+rarity: 3
+qualities: []
+reference: G-EPG:35

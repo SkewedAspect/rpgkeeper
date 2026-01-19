@@ -3,7 +3,7 @@ name: Enhanced Optics Suite
 description: This attachment builds numerous optical enhancements into the helmet of the wearer's armor. Most of the
   common suites include passive night vision, thermal imaging, digital zoom, vid recording, and polarized filters.
   Advanced models can even include ultrasound or radar imaging systems.
-useWith: This attachment can be applied to any armor that includes a helmet.
+useWith: armor
 modifiers: Removes setback added to your character's checks due to smoke or darkness.
 hpRequired: 1
 reference: SotB:109

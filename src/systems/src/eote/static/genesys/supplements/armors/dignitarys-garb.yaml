@@ -1,0 +1,16 @@
+id: genesys-armor-dignitarys-garb
+name: Dignitary's Garb
+description: 'Although what qualifies as "impressive" varies from culture to culture, most people find that as long as
+  the clothing is expensive and has some sort of ostentatious ornamentation, it tends to do the trick. The the keleres
+  of the council sometimes augment their official clothing with the symbol of their organization, either worked into a
+  physical insignia, embroidered into cloth, or holoprojected across the surface. After making a social skill check, the
+  wearer may remove <despair></despair><despair></despair> from the results, as long as the target or targets of the
+  check recognize the authority of the organization the wearer represents. This armor may be modified with 2-1: Cultural
+  Manufacturing Differences.'
+defense: 0
+soak: 0
+hardpoints: 1
+encumbrance: 1
+rarity: 4
+qualities: []
+reference: EotI:116

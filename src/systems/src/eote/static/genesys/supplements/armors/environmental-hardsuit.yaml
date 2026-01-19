@@ -1,0 +1,19 @@
+id: genesys-armor-environmental-hardsuit
+name: Environmental Hardsuit
+description: 'Produced by a number of manufacturers, environmental hardsuits allow individuals to work in extremely
+  hazardous conditions in relative safety. While they come in a variety of designs, most hardsuits share a common suite
+  of features. A general, multipurpose hardsuit consists of a tight, one-piece, ballistic fibermesh bodysuit crafted
+  with special chemweaves to protect the wearer from limited exposure to nuclear, chemical, and biological agents. Worn
+  over the bodysuit is a collection of fitted, high-impact polycarbonate and light alloy plates like those found in riot
+  armor or lower-end carapace suits. Comprising the "hard" part of the hardsuit, these plates are often equipped with
+  temperature-regulating systems and impact-resistant gel, and they offer good industrial protection. Most suits include
+  heavy gloves, sturdy boots, and a helmet with an integral respirator. While wearing an environmental hardsuit, your
+  character adds <success></success> to Resilience checks they make to resist hazardous environmental conditions. Models
+  Include: Cal-X Mk II Sheol HazMat Suit, Weyland Salamander EV Suit.'
+defense: 0
+soak: 1
+hardpoints: 2
+encumbrance: 4
+rarity: 4
+qualities: []
+reference: SotB:93

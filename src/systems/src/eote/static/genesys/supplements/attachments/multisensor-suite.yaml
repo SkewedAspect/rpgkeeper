@@ -5,7 +5,7 @@ description: A multisensor suite equips a helmet with an assortment of optical a
   detect frequencies beyond most beings' auditory range. These sensor suites are invaluable for combat operations in
   darkened or obscured environments, providing explorers with a host of scanning options without requiring a
   quintisensor.
-useWith: This attachment can be applied to any armor with a helmet.
+useWith: armor
 modifiers: When wearing this armor, your character may remove setback added to skill checks they make due to concealment
   (darkness, smoke, and intervening terrain) that obscure vision or sound.
 hpRequired: 1

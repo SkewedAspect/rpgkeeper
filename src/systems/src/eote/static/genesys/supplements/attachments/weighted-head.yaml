@@ -2,8 +2,7 @@ id: genesys-attachment-weighted-head
 name: Weighted Head
 description: Adding extra weight to the head of a blunt weapon lets the wielder strike with greater impact and do more
   damage. This kind of attachment makes sense in any setting.
-useWith: This attachment can be applied to any close combat weapon that deals bludgeoning or crushing damage (not one
-  with a cutting edge).
+useWith: weapon
 modifiers: The weapon increases its damage by 2. The weapon gains the Cumbersome quality, or increases its existing
   Cumbersome quality by 1.
 hpRequired: 1

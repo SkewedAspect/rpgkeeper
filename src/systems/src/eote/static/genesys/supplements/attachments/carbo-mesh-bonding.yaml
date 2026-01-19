@@ -3,7 +3,7 @@ name: Carbo-Mesh Bonding
 description: Carbo-mesh bonding is a strengthening technique that layers a carbon mesh onto a weapon to improve its
   tensile strength and heat dissipation. This hypercarbon mesh is chemically bonded to the item, leaving a faint grid
   pattern on its surface.
-useWith: This attachment may be applied to any weapon.
+useWith: weapon
 modifiers: The weapon gains the Reinforced item quality.
 hpRequired: 1
 reference: EotI:125

@@ -5,7 +5,7 @@ description: A favorite of sharpshooters and sport hunters, a BTD smart system i
   long-range laser sight, and even a weather satellite uplink to provide real-time ballistic data. It connects to a
   cybereye, HUD, or smartgoggles and displays range to target, windage, bullet drop, and other data important to
   long-range shooting.
-useWith: This attachment can be applied to any What's a Smart Weapon? Ranged (Heavy) or Gunnery weapon.
+useWith: weapon
 modifiers: The user reduces the difficulty of ranged combat checks made with this weapon at ranges greater than medium
   by 2, to a minimum of Average. This bonus cannot be combined with any other bonus from a different scope or sight.
 hpRequired: 3

@@ -3,7 +3,7 @@ name: Targeting Reticle
 description: This simple smart system displays a small targeting reticle in a character's cybereye, HUD, or
   smartgoggles. This feature increases a shooter's accuracy, although it cannot be combined with any other sighting
   system and is only moderately useful at longer ranges.
-useWith: This attachment can be applied to any What's a Smart Weapon? ranged weapon.
+useWith: weapon
 modifiers: The weapon gains the Accurate item quality or increases its existing Accurate rating by 1. (If the weapon has
   the Inaccurate item quality, it reduces that quality's rating by 1, to a minimum of 0, instead.) This bonus cannot be
   combined with any other bonus from a different scope or sight.

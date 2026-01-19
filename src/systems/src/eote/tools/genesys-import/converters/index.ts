@@ -13,6 +13,9 @@ export type { InternalQuality } from './quality.ts';
 export { convertWeapon, convertWeapons, isWeapon } from './weapon.ts';
 export type { InternalWeapon, InternalQualityRef } from './weapon.ts';
 
+export { convertArmor, convertArmors, isArmor } from './armor.ts';
+export type { InternalArmor } from './armor.ts';
+
 export { convertAttachment, convertAttachments, isAttachment } from './attachment.ts';
 export type { InternalAttachment } from './attachment.ts';
 

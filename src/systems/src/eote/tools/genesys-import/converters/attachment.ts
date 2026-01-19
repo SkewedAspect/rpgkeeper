@@ -216,11 +216,14 @@ export function convertAttachment(attachment : ExternalAttachment, bookFile : st
 {
     const parsed = parseAttachmentDescription(attachment.description);
 
+    // Use the 'class' field as the primary source for useWith, fall back to parsed description
+    const useWith = attachment.class ?? parsed.useWith;
+
     return {
         id: generateId('attachment', attachment.name),
         name: attachment.name,
         description: parsed.description,
-        useWith: parsed.useWith,
+        useWith,
         modifiers: parsed.modifiers,
         hpRequired: attachment.hardPoints,
         reference: formatReference(bookFile, attachment.page),

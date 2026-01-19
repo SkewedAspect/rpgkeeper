@@ -1,0 +1,12 @@
+id: genesys-armor-homespun-armor
+name: Homespun Armor
+description: Homespun armor is a makeshift full suit of armor composed of salvaged and recycled materials. Each suit is
+  handmade and typically includes various types of hides and leather, old rubber, metal plates, and anything else the
+  builder thinks might offer them a defensive edge.
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 3
+rarity: 4
+qualities: []
+reference: G-EPG:35

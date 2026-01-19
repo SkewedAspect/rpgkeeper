@@ -3,7 +3,7 @@ name: Vacuum Seals
 description: These vacuum seals fill the gaps between the protective plates and pads of existing armor and come with a
   short-term air supply. Vacuum-sealed armor can keep a trooper alive and functional in space or any hostile atmosphere
   for a short time.
-useWith: This attachment can be applied to any armor that covers the entire body and includes a helmet.
+useWith: armor
 modifiers: The armor is now vacuum sealed, granting the wearer immunity to the hazardous effects of vacuum or of fire,
   acid, and corrosive atmospheres or water and swimming environments. This protection lasts for one hour. If the wearer
   has not reached an area with breathable atmosphere, they begin to suffocate (see Suffocation on page 112 of the

@@ -1,0 +1,18 @@
+id: genesys-armor-space-suit
+name: Space Suit
+description: "Civilian space suits are designed for comfort and ease of mobility, as well as for survival in vacuum.
+  They are generally made of a tough but flexible cloth with an internal gel-armor layer that dissipates impacts. The
+  gel also instantly hardens when exposed to vacuum, which means the suit has self-sealing capabilities against small
+  breaches. Mag-boots and a limited-mobility pack complete the setup, and the whole outfit is light and small enough
+  that it can be worn by fighter pilots, spacewalking construction workers, or passengers whose ship has suffered a
+  catastrophic decompression. A space suit has enough air, water, and power to keep your character alive in vacuum for
+  up to three days. The limited-mobility pack and mag-boots allow your character to move in zero-gravity environments
+  without treating them as difficult and impassable terrain. This armor may be modified with 2-1: Cultural Manufacturing
+  Differences."
+defense: 1
+soak: 1
+hardpoints: 0
+encumbrance: 3
+rarity: 2
+qualities: []
+reference: EotI:118

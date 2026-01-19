@@ -1,0 +1,12 @@
+id: genesys-armor-flak-vest
+name: Flak Vest
+description: In modern times, most militaries, police departments, and people in a war zone use flak vests. These are
+  made from lightweight polymers and ballistic fabrics and provide decent protection from small arms and shrapnel (as
+  represented by the vest's soak value).
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 3
+rarity: 5
+qualities: []
+reference: G-CRB:168

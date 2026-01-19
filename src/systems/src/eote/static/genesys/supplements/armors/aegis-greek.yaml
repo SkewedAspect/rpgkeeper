@@ -1,0 +1,18 @@
+id: genesys-armor-aegis-greek
+name: Aegis (Greek)
+description: "The Aegis is the armor of the gods: a skin of golden scales worn off one shoulder, with the head of a
+  Gorgon attached to the front. While the Gorgon's severed head no longer turns those who look at it into stone, it does
+  strike fear into enemies and inspire courage in allies. While wearing the Aegis, your character and any allies within
+  medium range add <success></success> to any discipline and leadership checks they make. Any enemies within medium
+  range must make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>
+  at the start of their next turn as an incidental. If they fail, they are immobilized until the end of the round, plus
+  one additional round per <despair></despair>. If they succeed, they do not need to make this check again. (If your
+  group is using the Fear rules found on page 243 of the Core Rulebook, this can be a fear check instead.)"
+defense: 0
+soak: 3
+hardpoints: 0
+encumbrance: 3
+rarity: 10
+qualities:
+  - id: genesys-quality-reinforced
+reference: G-EPG:13

@@ -1,0 +1,13 @@
+id: genesys-armor-cogsuit
+name: Cogsuit
+description: A cogsuit is a suit of makeshift armor assembled from scavenged armor plates and machine parts (which
+  sometimes include cogs). Such armor is common among pirates and other riffraff. However, these days the name is also
+  often used for specially made armor worn by adventurers and agents of the Imperial Crown. Units in the military use a
+  variant of the cogsuit that provides equivalent protection but looks much more professional.
+defense: 1
+soak: 1
+hardpoints: 0
+encumbrance: 3
+rarity: 3
+qualities: []
+reference: G-CRB:155

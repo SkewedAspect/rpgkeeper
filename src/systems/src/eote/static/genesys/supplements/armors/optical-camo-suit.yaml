@@ -1,0 +1,14 @@
+id: genesys-armor-optical-camo-suit
+name: Optical Camo Suit
+description: An optical camo suit plays with the idea that holographic projectors and other similar technologies will,
+  in the future, allow people to wear armor that "cloaks" them and makes them invisible to the naked eye. Our optical
+  camo suit doesn't quite go that far, but it does use holoprojectors to blur and obscure the wearer, making them much
+  harder to hit (hence the defense value). Unfortunately, the complicated projector tech doesn't do much if someone
+  manages to land a lucky blow, which is why this armor has no soak value.
+defense: 2
+soak: 0
+hardpoints: 0
+encumbrance: 2
+rarity: 7
+qualities: []
+reference: G-CRB:176

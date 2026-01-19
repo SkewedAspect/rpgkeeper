@@ -1,0 +1,14 @@
+id: genesys-armor-illirium-bg-42-vest
+name: Illirium BG-42 Vest
+description: One of the factors that has allowed the Union to match its supernatural foes in the field is the rare and
+  powerful element known as Illirium. Illirium batteries power Union flash guns, and Illirium-reinforced armor vests not
+  only can absorb bullets (hence the soak value), but can temporarily be energized to create a force field. When wearing
+  a BG-42 vest, once per encounter as an incidental, your character may activate the force field to gain melee and
+  ranged defense 2 until the end of their next turn.
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 4
+rarity: 6
+qualities: []
+reference: G-CRB:162

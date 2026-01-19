@@ -1,0 +1,15 @@
+id: genesys-armor-admiral-arthurs-astounding-amplimotive-armor
+name: Admiral Arthur's Astounding Amplimotive Armor
+description: This is a large, heavy suit of armor. The thick metal plating completely covers the wearer, although the
+  helmet may be easily removable or have a hinged faceplate. This armor provides the best protection possible short of
+  an actual tank, but it is far too heavy for anyone to support. That's where Admiral Arthur Schilling's patented
+  steampowered amplimotive architecture comes in. By way of a complex system of gears and hydraulics, the armor responds
+  to and enhances each movement by the wearer. A character wearing this armor increases both their silhouette and Brawn
+  by one. (This does increase your character's soak accordingly.)
+defense: 1
+soak: 2
+hardpoints: 0
+encumbrance: 3
+rarity: 9
+qualities: []
+reference: G-CRB:155

@@ -4,7 +4,7 @@ description: This attachment consists of an interwoven lattice of sensors and mi
   interior of the armor. The sensors monitor the wearer's vital signs. When the system detects that the wearer has lost
   consciousness, it releases a dose of dermal sealer at the point of injury. The system stores three doses of dermal
   sealer, which can be replenished from a standard dermal sealer device.
-useWith: This attachment can be used with any armor.
+useWith: armor
 modifiers: Once per encounter when wearing this armor, your character may administer one dose of dermal sealer to
   themself as an incidental. The wearer may even do this on their turn while incapacitated (this overrides the normal
   rules about not performing actions, maneuvers, or incidentals while incapacitated). After this system has administered

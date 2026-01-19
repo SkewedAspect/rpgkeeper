@@ -1,0 +1,13 @@
+id: genesys-armor-ghillie-suit
+name: Ghillie Suit
+description: Ghillie suits are simple camouflage suits that conceal snipers and forward observers. A suit is little more
+  than a baggy shirt and pair of trousers covered in countless strips of fabric, clumps of grass, and other detritus.
+  Since ghillie suits are designed to obscure rather than protect, they have a single point of defense but no soak.
+  Characters trying to spot someone wearing a ghillie suit upgrade the difficulty of their check once.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 1
+rarity: 4
+qualities: []
+reference: G-CRB:168

@@ -4,8 +4,7 @@ description: This scope provides an enhanced view of distant targets, allowing t
   distances with less difficulty. The technology is conceptually similar to the simple telescopic lenses of ancient
   history, but the mag-scope uses powerful electronics to enhance the view and even compensate for poor lighting
   conditions somewhat.
-useWith: This attachment can be used with any ranged weapon that could logically benefit from the addition of a
-  telescopic sight.
+useWith: weapon
 modifiers: Your character reduces the difficulty of ranged combat checks made with this weapon at long and extreme range
   by 1. Your character may remove setback added to combat checks they make with this weapon due to concealment
   (darkness, smoke, and intervening terrain) that obscure vision.

@@ -2,8 +2,7 @@ id: genesys-attachment-enhanced-weight
 name: Enhanced Weight
 description: Although trends tend towards lighter weapons, some benefit from a bit more heft. Custom armorers can
   replace striking surfaces with denser materials that are just as durable, allowing them to strike with more impact.
-useWith: This attachment can be applied to any close combat weapon that deals bludgeoning or crushing damage (not one
-  with a cutting edge).
+useWith: weapon
 modifiers: The weapon increases its damage by 2. The weapon gains the Cumbersome quality, or increases its existing
   Cumbersome quality by 1.
 hpRequired: 1

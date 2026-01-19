@@ -9,7 +9,7 @@
 //
 // Options:
 //   --dry-run       Show what would be written without writing
-//   --type=TYPE     Only import specific type (talent, quality, weapon, attachment, ability)
+//   --type=TYPE     Only import specific type (talent, quality, weapon, armor, attachment, ability)
 //   --book=ABBR     Only import from specific book (CRB, EPG, RoT, SotB, SotC, EotI)
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -26,11 +26,13 @@ import { fetchAndLoadBooks } from './fetcher.ts';
 // Converters
 import {
     convertAllAbilities,
+    convertArmors,
     convertAttachments,
     convertQualities,
     convertTalents,
     convertWeapons,
     type InternalAbility,
+    type InternalArmor,
     type InternalAttachment,
     type InternalQuality,
     type InternalTalent,
@@ -204,6 +206,7 @@ async function main() : Promise<void>
     const allTalents : InternalTalent[] = [];
     const allQualities : InternalQuality[] = [];
     const allWeapons : InternalWeapon[] = [];
+    const allArmors : InternalArmor[] = [];
     const allAttachments : InternalAttachment[] = [];
     const allAbilities : InternalAbility[] = [];
 
@@ -235,6 +238,14 @@ async function main() : Promise<void>
             allWeapons.push(...weapons);
         }
 
+        // Convert armors from gear
+        if(!options.type || options.type === 'armor')
+        {
+            const armors = convertArmors(book.gear, filename);
+            console.log(`  - Armors: ${ armors.length }`);
+            allArmors.push(...armors);
+        }
+
         // Convert attachments from gear
         if(!options.type || options.type === 'attachment')
         {
@@ -261,12 +272,14 @@ async function main() : Promise<void>
     const talents = deduplicateById(allTalents);
     const qualities = deduplicateById(allQualities);
     const weapons = deduplicateById(allWeapons);
+    const armors = deduplicateById(allArmors);
     const attachments = deduplicateById(allAttachments);
     const abilities = deduplicateById(allAbilities);
 
     console.log(`  - Talents: ${ allTalents.length } -> ${ talents.length }`);
     console.log(`  - Qualities: ${ allQualities.length } -> ${ qualities.length }`);
     console.log(`  - Weapons: ${ allWeapons.length } -> ${ weapons.length }`);
+    console.log(`  - Armors: ${ allArmors.length } -> ${ armors.length }`);
     console.log(`  - Attachments: ${ allAttachments.length } -> ${ attachments.length }`);
     console.log(`  - Abilities: ${ allAbilities.length } -> ${ abilities.length }`);
 
@@ -304,6 +317,17 @@ async function main() : Promise<void>
             await writeYamlFile(weaponDir, weapon as unknown as YamlWritable, options.dryRun);
         }
         console.log(`  - Wrote ${ weapons.length } weapon files`);
+    }
+
+    // Write armors
+    if(!options.type || options.type === 'armor')
+    {
+        const armorDir = join(SUPPLEMENTS_DIR, 'armors');
+        for(const armor of armors)
+        {
+            await writeYamlFile(armorDir, armor as unknown as YamlWritable, options.dryRun);
+        }
+        console.log(`  - Wrote ${ armors.length } armor files`);
     }
 
     // Write attachments

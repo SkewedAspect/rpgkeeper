@@ -1,0 +1,12 @@
+id: genesys-armor-padded-armor
+name: Padded Armor
+description: Padded armor consists of thick, quilted layers of cloth, and resembles a winter coat more than a piece of
+  armor. However, the thick padding can blunt blows and offer some protection for the wearer. Padded armor is most
+  common in the northern realms of Isheim and in Daqan's poorest baronies, where warriors can afford little better.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 2
+rarity: 2
+qualities: []
+reference: RoT:96

@@ -6,7 +6,7 @@ description: "[Table: Decksweeper Module Stats] Ship-boarding actions are some o
   nothing more than a simple canister, this tube is packed with monofilament razor shrapnel backed with a powerful
   concussive charge. When a decksweeper module is fired, the concussion and shrapnel can kill or incapacitate anyone in
   a wide cone in front of it."
-useWith: This attachment can be used with any Ranged (Heavy) weapon.
+useWith: weapon
 modifiers: "After a decksweeper module is installed on your character's weapon, your character may fire the weapon using
   the following secondary weapon profile: Ranged (Heavy); Damage 6; Critical 4; Range (Short); Blast, Concussive,
   Limited Ammo, Vicious. The weapon increases any Cumbersome or Unwieldy item qualities it already has by 1 and

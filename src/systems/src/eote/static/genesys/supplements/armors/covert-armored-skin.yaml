@@ -1,0 +1,16 @@
+id: genesys-armor-covert-armored-skin
+name: Covert Armored Skin
+description: "This skintight body armor operates by bending light around the wearer, masking both bioelectric fields and
+  heat signatures. Microscopic light/wave deflectors turn the wearer into a shimmering blur, and more advanced models
+  even contain active auditory baffler systems that turn loud screams into muffled whispers. The only drawback is the
+  scant armored protection, meaning the wearer's best defense is to not get hit in the first place. While wearing covert
+  armored skin, your character adds <success></success><success></success> to the results of Stealth checks they make
+  and adds <setback></setback><setback></setback> to any Perception or Vigilance checks other characters make to find or
+  notice them. This armor may be modified with 2-1: Cultural Manufacturing Differences."
+defense: 2
+soak: 0
+hardpoints: 0
+encumbrance: 1
+rarity: 4
+qualities: []
+reference: EotI:118

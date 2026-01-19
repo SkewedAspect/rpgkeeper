@@ -1,0 +1,13 @@
+id: genesys-armor-echo-garment
+name: Echo Garment
+description: "Any garment can receive an echo treatment, which toughens the clothing without relying on bulky materials
+  or armor plates. The treatment coats fabrics with flexible polymers that bond with and strengthen clothing fibers at a
+  molecular level. The process is an effective means of providing some basic, but discreet, virtually invisible
+  protection. This armor may be modified with 2-1: Cultural Manufacturing Differences."
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 1
+rarity: 1
+qualities: []
+reference: EotI:116

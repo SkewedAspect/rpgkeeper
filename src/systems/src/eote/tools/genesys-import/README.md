@@ -40,7 +40,7 @@ npx tsx src/systems/src/eote/tools/genesys-import/index.ts [options]
 | Option | Description |
 |--------|-------------|
 | `--dry-run` | Show what would be written without writing files |
-| `--type=TYPE` | Only import specific type: `talent`, `quality`, `weapon`, `attachment`, `ability` |
+| `--type=TYPE` | Only import specific type: `talent`, `quality`, `weapon`, `armor`, `attachment`, `ability` |
 | `--book=ABBR` | Only import from specific book (see book abbreviations below) |
 
 ## Supported Data Types
@@ -50,6 +50,7 @@ npx tsx src/systems/src/eote/tools/genesys-import/index.ts [options]
 | `talent` | talent | Direct mapping with activation type conversion |
 | `quality` | quality | Ranked detection from description text |
 | `gear` (type="weapon") | weapon | Filtered from gear array, maps skills and qualities |
+| `gear` (type="armor") | armor | Filtered from gear array, maps defense, soak, qualities |
 | `gear` (type="attachment") | attachment | Parses useWith and modifiers from description |
 | `adversaryAbility` / `archetypeAbility` | ability | Combined into single ability type |
 
@@ -123,6 +124,7 @@ Files are written to:
 - `src/systems/src/eote/static/genesys/supplements/talents/`
 - `src/systems/src/eote/static/genesys/supplements/qualities/`
 - `src/systems/src/eote/static/genesys/supplements/weapons/`
+- `src/systems/src/eote/static/genesys/supplements/armors/`
 - `src/systems/src/eote/static/genesys/supplements/attachments/`
 - `src/systems/src/eote/static/genesys/supplements/abilities/`
 
@@ -140,6 +142,7 @@ genesys-import/
 │   ├── talent.ts         # Talent converter
 │   ├── quality.ts        # Quality converter
 │   ├── weapon.ts         # Weapon converter
+│   ├── armor.ts          # Armor converter
 │   ├── attachment.ts     # Attachment converter
 │   └── ability.ts        # Ability converter
 └── README.md             # This file

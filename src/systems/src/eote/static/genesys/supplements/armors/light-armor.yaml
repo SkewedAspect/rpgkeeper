@@ -1,0 +1,10 @@
+id: genesys-armor-light-armor
+name: Light Armor
+description: ""
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 2
+rarity: 2
+qualities: []
+reference: SotC:143

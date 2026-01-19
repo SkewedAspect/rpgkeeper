@@ -1,0 +1,21 @@
+id: genesys-armor-sealed-environmental-suit
+name: Sealed Environmental Suit
+description: "A sealed environmental suit is a catchall for the armor needed by certain species to survive outside of
+  their highly unusual environments. The design depends on the species involved. The Hylar, for example, prefer suits
+  with huge fishbowl helmets for maximum visibility and multiple legs and manipulator arms. The Gashlai need stout
+  containment suits that can withstand the fiery pressure of their volatile bodies, allowing others to stand being near
+  them. And the Creuss prefer sculpted and ornately filigreed armor that obscures them behind featureless helmets.
+  However, all suits follow the same basic designs. A sealed environmental suit must be designed for a specific species
+  (chosen when it is purchased). While wearing it, the wearer may survive in hostile environments indefinitely (at the
+  GM's discretion, as some environments such as the crushing depths of a gas giant or the burning glare of a star are
+  too much for any equipment to resist). In addition, while wearing a sealed environmental suit, the user increases
+  their wound threshold by 2. However, these suits tend to be bulky, and impose <setback></setback> on Athletics,
+  Coordination, and Stealth checks that the wearer makes. They may impose <setback></setback> on other checks at the
+  GM's discretion. This armor may be modified with 2-1: Cultural Manufacturing Differences."
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 5
+rarity: 3
+qualities: []
+reference: EotI:117

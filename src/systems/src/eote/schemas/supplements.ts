@@ -114,6 +114,32 @@ export const WeaponDataSchema = BaseSupplementDataSchema.extend({
 });
 
 //----------------------------------------------------------------------------------------------------------------------
+// Armor Schema
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Armor
+ */
+export const ArmorDataSchema = BaseSupplementDataSchema.extend({
+    defense: z.number()
+        .int()
+        .default(0),
+    soak: z.number()
+        .int()
+        .default(0),
+    hardpoints: z.number()
+        .int()
+        .default(0),
+    encumbrance: z.number()
+        .int()
+        .default(0),
+    rarity: z.number()
+        .int()
+        .default(0),
+    qualities: z.array(WeaponQualityRefSchema).default([]),
+});
+
+//----------------------------------------------------------------------------------------------------------------------
 // Attachment Schemas
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -200,6 +226,7 @@ export const EoteSupplementSchemas = {
     ability: AbilityDataSchema,
     talent: EoteTalentDataSchema,
     weapon: WeaponDataSchema,
+    armor: ArmorDataSchema,
     quality: QualityDataSchema,
     attachment: EoteAttachmentDataSchema,
     forcepower: ForcePowerDataSchema,
@@ -209,6 +236,7 @@ export const GenesysSupplementSchemas = {
     ability: AbilityDataSchema,
     talent: GenesysTalentDataSchema,
     weapon: WeaponDataSchema,
+    armor: ArmorDataSchema,
     quality: QualityDataSchema,
     attachment: GenesysAttachmentDataSchema,
     motivation: MotivationDataSchema,

@@ -3,7 +3,7 @@ name: Integrated Deflector Shield
 description: This attachment consists of a power cell and a lattice of projector strips woven into the armor's surface
   or laid underneath its protective plates. When activated, the lattice projects an energy shield around the wearer.
   Constant attacks can overload the field quickly, causing it to short out until repairs can be made.
-useWith: This attachment can be applied to any armor.
+useWith: armor
 modifiers: Increase the defense of the armor by 2. When your character is targeted by a combat check while wearing this
   armor, the attacker may spend Advantage Advantage Advantage or Threat to cause the armor to become damaged one step
   (see Item Maintenance on page 89 of the Genesys Core Rulebook) and this attachment to no longer increase the armor's

@@ -1,0 +1,14 @@
+id: genesys-armor-durable-clothing
+name: Durable Clothing
+description: "Durable clothing is exactly what it sounds like: sturdy, wellcrafted articles of clothing that provide a
+  bit of protection and can stand up to the wear and tear of modern life. These typical, workaday outfits worn by the
+  majority of New Angelinos range from synthleather jackets and denim jeans to sturdy mechanics' coveralls and military
+  surplus jumpsuits. While they won't stop a bullet or turn a monoblade, a suit of durable clothing is definitely better
+  than nothing. Models Include: Various models."
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 1
+rarity: 1
+qualities: []
+reference: SotB:93

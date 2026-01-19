@@ -3,7 +3,7 @@ name: Under-Barrel Shotgun
 description: "Modern firearms sometimes have secondary weapons attached under the barrel, allowing the wielder to
   effectively carry two weapons in one. This kind of attachment makes sense for the modern day, science fiction, and
   space opera settings. [Table: Shotgun Stats]"
-useWith: This attachment can be applied to any rifle-sized Ranged (Heavy) weapons.
+useWith: weapon
 modifiers: The weapon can fire using the associated secondary profile.
 hpRequired: 2
 reference: G-CRB:208

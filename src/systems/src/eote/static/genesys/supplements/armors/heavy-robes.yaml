@@ -1,0 +1,11 @@
+id: genesys-armor-heavy-robes
+name: Heavy Robes
+description: Swirling robes in the midst of combat can entangle an attacker's weapon and make it hard for an attacker to
+  pinpoint your vital areas. To represent this, robes don't provide any soak but do add defense.
+defense: 1
+soak: 0
+hardpoints: 0
+encumbrance: 1
+rarity: 0
+qualities: []
+reference: G-CRB:145

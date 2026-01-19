@@ -1,0 +1,26 @@
+id: genesys-armor-personal-exosuit
+name: Personal Exosuit
+description: "Exosuits are powered exoskeletons wrapped in heavy composite armor and fitted with vehicle-class weapons
+  that turn an individual soldier into a one-person tank squadron. That's how exosuit manufacturers like to describe
+  their products, at any rate. While \"one-person tank squadron\" might be ad-agency hyperbole, exosuits are still
+  exceptionally powerful pieces of battlefield equipment. While some exosuits are large enough to qualify as small,
+  bipedal vehicles, many are smaller and designed to be armor that is worn, rather than piloted. The exoskeletons are
+  adjustable for fit and are typically composed of myomer synthetic muscle fibers and nanohydraulics wrapped around a
+  buckyweave-reinforced composite frame. Powered by high-output twelve-hour battery packs—themselves tended by a kinetic
+  capture regenerative charging system— the frame increases a wearer's strength and durability. Their composite armor
+  plates can shrug off nearly all small arms fire, and they are fully environmentally sealed. Wearing an exosuit
+  increases the wearer's Brawn by 1 (this bonus also increases the wearer's soak, but it is not included in the soak
+  increase in 2-5: Clothing and Armor) and the wearer's wound threshold by 4. The suit's sensor suite removes
+  <setback></setback><setback></setback> from any Perception, Vigilance, or combat skill checks caused by concealment
+  (darkness, smoke, and intervening terrain) that your character makes. If an exosuit loses power or otherwise ceases to
+  function, its encumbrance value immediately becomes 12 and the wearer loses all the benefits of the sensor suite and
+  the Brawn increase (including the additional soak from the higher Brawn). Getting into or out of an unpowered suit
+  takes five minutes without assistance, or roughly two minutes with assistance. Models Include: Heliodyne Sampson
+  Infantry Suit, Weyland Consortium \"Roughneck\" Heavy Labor Exosuit, Argus \"Ranger\" Mk IV Reconnaissance Exo."
+defense: 0
+soak: 3
+hardpoints: 4
+encumbrance: 5
+rarity: 6
+qualities: []
+reference: SotB:94

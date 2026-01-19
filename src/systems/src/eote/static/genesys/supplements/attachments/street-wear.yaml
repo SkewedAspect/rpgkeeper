@@ -3,7 +3,7 @@ name: Street Wear
 description: While some armor is unmistakably military in appearance, other armor can be tailored to look
   indistinguishable from street clothing with the right flare and cut.While some armor is unmistakably military in
   appearance, other armor can be tailored to look indistinguishable from street clothing with the right flare and cut.
-useWith: This attachment can be applied to optical camouflage, environmental hardsuit, and light body armor.
+useWith: armor
 modifiers: This armor looks like normal clothing. Anyone searching your character adds setback to Perception checks to
   notice that they are wearing armor.
 hpRequired: 0

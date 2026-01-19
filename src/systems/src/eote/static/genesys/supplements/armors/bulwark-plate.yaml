@@ -1,0 +1,17 @@
+id: genesys-armor-bulwark-plate
+name: Bulwark Plate
+description: "Some militaries train and equip units for defensive combat, while others (such as the Xxcha Companion
+  Guard) fight slowly and methodically even when on the offense. These units tend to be equipped with armor colloquially
+  known as bulwark plate. The armor is very heavy and thick, even compared to that of powered elite shock suits. Bulwark
+  plate is inevitably powered, but even so, it keeps the wearer from moving faster than a walk, as its strength
+  enhancers simply compensate for the armor's sheer mass. But it also allows the wearer to shrug off any attacks not
+  designed to take out tanks. While wearing bulwark plate, your character may only perform one maneuver on their turn.
+  The armor is very bulky and imposes <setback></setback><setback></setback> on Athletics, Coordination, and Stealth
+  checks. This armor may be modified with 2-1: Cultural Manufacturing Differences."
+defense: 1
+soak: 4
+hardpoints: 2
+encumbrance: 6
+rarity: 5
+qualities: []
+reference: EotI:118

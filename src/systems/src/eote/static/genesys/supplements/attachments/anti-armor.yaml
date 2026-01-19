@@ -4,7 +4,7 @@ description: "Foot soldiers regularly find themselves in combat against heavily 
   vehicles. Several cultures have devised methods for personal weapons to have the force necessary to pierce the armor
   of their foes. These advancements vary by weapon, but the results are the same: the weapon is able to punch through
   opponents' defenses with impressive results."
-useWith: This attachment may be used with any Ranged (Heavy) weapon.
+useWith: weapon
 modifiers: The weapon's damage decreases by 2, and it gains the Breach and Slow-Firing item qualities. It also gains
   Cumbersome or increases its existing Cumbersome rating by 1, whichever is greater. Finally, the weapon's encumbrance
   increases by 2.

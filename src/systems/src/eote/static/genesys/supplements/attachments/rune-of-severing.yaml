@@ -2,7 +2,7 @@ id: genesys-attachment-rune-of-severing
 name: Rune of Severing
 description: A sword or knife with this rune inscription unerringly seeks out a foe's vitals for a killing blow. When an
   enemy falls gasping to the floor, the rune glows faintly with a deep crimson hue.
-useWith: This attachment can be applied to any bladed melee weapon.
+useWith: weapon
 modifiers: The weapon gains the Vicious item quality.
 hpRequired: 2
 reference: RoT:107

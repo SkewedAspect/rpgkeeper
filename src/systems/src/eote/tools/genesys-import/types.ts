@@ -247,9 +247,23 @@ export interface ExternalAttachment extends ExternalGearBase
 }
 
 /**
+ * Armor from external source
+ */
+export interface ExternalArmor extends ExternalGearBase
+{
+    type : 'armor';
+    defense : number | string;
+    soak : number | string;
+    encumbrance : number;
+    hardPoints ?: number;
+    special ?: QualityReference[];
+    restricted ?: boolean;
+}
+
+/**
  * Union type for all gear
  */
-export type ExternalGear = ExternalWeapon | ExternalAttachment | ExternalGearBase;
+export type ExternalGear = ExternalWeapon | ExternalAttachment | ExternalArmor | ExternalGearBase;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Ability Types

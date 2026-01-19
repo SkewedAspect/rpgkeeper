@@ -4,7 +4,7 @@ description: This attachment applies angled plates or mildly reflective surfaces
   attacks. This kind of attachment makes sense in fantasy, science fiction, and space opera settings (in the past, armor
   might be designed to deflect arrows or throwing knives, while in the future, it could reflect lasers or energy
   blasts).
-useWith: This attachment can be applied to any armor.
+useWith: armor
 modifiers: Wearer increases their ranged defense by 1.
 hpRequired: 1
 reference: G-CRB:209

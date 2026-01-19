@@ -3,8 +3,7 @@ name: Compact Reconstruction
 description: Skilled weaponsmiths are able to take the components of larger firearms and reconfigure them to fit into a
   smaller casing or shell. This reduces the size and bulk of a firearm, allowing for ease of carrying and usage. This
   conversion does have a tendency to reduce the weapon's effective power.
-useWith: This attachment may be applied to any Ranged (Light) or Ranged (Heavy) weapon without the Cumbersome or
-  Unwieldy item quality.
+useWith: weapon
 modifiers: Add setback to checks made to detect or find the weapon. Reduce the weapon's encumbrance value by 2, to a
   minimum of 1, and reduce its damage by 1, to a minimum of 1.
 hpRequired: 1

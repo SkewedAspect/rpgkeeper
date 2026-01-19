@@ -4,7 +4,7 @@ description: Target-selection systems are smart systems that are designed to gre
   fire. The system consists of an integrated Identify Friend or Foe (IFF) system that identifies allies through a
   variety of biometric and visual sensors. The system takes a moment to scan its surroundings and the participants in a
   combat, but once it does so, it refuses to allow its weapon to fire when the shot could hit a friendly.
-useWith: This attachment can be applied to any What's a Smart Weapon? ranged weapon.
+useWith: weapon
 modifiers: Your character may spend a maneuver during an encounter to activate the target-selection system. If they do,
   for the remainder of the encounter, your GM cannot spend Difficulty from their combat checks to cause the attack to
   hit an ally engaged with their original target.
