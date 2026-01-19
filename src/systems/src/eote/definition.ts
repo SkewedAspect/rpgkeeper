@@ -11,21 +11,30 @@ import type {
     GenesysSkill,
     GenesysSystemDetails,
 } from './models.ts';
-import { EoteSystemDetailsSchema, GenesysSystemDetailsSchema } from './schemas/character.ts';
+import { EoteSystemDetailsSchema } from './schemas/eote/character.ts';
+import { GenesysSystemDetailsSchema } from './schemas/genesys/character.ts';
 
-// Supplement schemas
+// Shared Supplement schemas
 import {
     AbilityDataSchema,
     ArmorDataSchema,
+    QualityDataSchema,
+    WeaponDataSchema,
+} from './schemas/shared/supplements.ts';
+
+// EotE Supplement schemas
+import {
     EoteAttachmentDataSchema,
     EoteTalentDataSchema,
     ForcePowerDataSchema,
+} from './schemas/eote/supplements.ts';
+
+// Genesys Supplement schemas
+import {
     GenesysAttachmentDataSchema,
     GenesysTalentDataSchema,
     MotivationDataSchema,
-    QualityDataSchema,
-    WeaponDataSchema,
-} from './schemas/supplements.ts';
+} from './schemas/genesys/supplements.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Genesys

@@ -1,9 +1,11 @@
 //----------------------------------------------------------------------------------------------------------------------
-// Edge of the Empire / Genesys Schemas
+// Shared Character Schemas
+//
+// These schemas are used by both EotE and Genesys character details.
 //----------------------------------------------------------------------------------------------------------------------
 
 import { z } from 'zod';
-import { jsonCodec, supplementId, supplementRef } from '@rpgk/core/utils/codecs';
+import { supplementId, supplementRef } from '@rpgk/core/utils/codecs';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Shared Enums
@@ -31,7 +33,7 @@ export const SkillTypeSchema = z.enum([
 export const ActivationTypeSchema = z.enum([ 'p', 'ai', 'aio', 'am', 'aa' ]);
 
 //----------------------------------------------------------------------------------------------------------------------
-// Base Schemas (shared between EotE and Genesys)
+// Base Schemas
 //----------------------------------------------------------------------------------------------------------------------
 
 export const BaseCriticalInjurySchema = z.object({
@@ -165,96 +167,5 @@ export const HealthSchema = z.object({
     immobilized: z.boolean(),
     disoriented: z.boolean(),
 });
-
-//----------------------------------------------------------------------------------------------------------------------
-// EotE-Specific Schemas
-//----------------------------------------------------------------------------------------------------------------------
-
-export const EoteForcePowerUpgradeSchema = z.object({
-    available: z.number().int()
-        .min(0),
-    description: z.string(),
-});
-
-export const EoteForcePowerInstUpgradesSchema = z.object({
-    strength: z.number().int()
-        .min(0),
-    magnitude: z.number().int()
-        .min(0),
-    duration: z.number().int()
-        .min(0),
-    range: z.number().int()
-        .min(0),
-    control: z.array(z.number().int()),
-    mastery: z.number().int()
-        .min(0),
-});
-
-export const EoteForcePowerInstSchema = z.object({
-    id: z.string(),
-    upgrades: EoteForcePowerInstUpgradesSchema,
-}).meta(supplementRef('forcepower'));
-
-export const EoteForceSchema = z.object({
-    rating: z.number().int()
-        .min(0),
-    committed: z.number().int()
-        .min(0),
-    powers: z.array(EoteForcePowerInstSchema),
-    sensitive: z.boolean(),
-});
-
-export const EoteSystemDetailsSchema = z.object({
-    career: z.string(),
-    species: z.string(),
-    specialization: z.string().optional(),
-    characteristics: BaseCharacteristicsSchema,
-    experience: ExperienceSchema,
-    defenses: DefensesSchema,
-    health: HealthSchema,
-    skills: z.array(BaseSkillSchema),
-    abilities: z.array(supplementId('ability')),
-    talents: z.array(BaseTalentInstSchema),
-    gear: z.array(BaseGearSchema),
-    armor: BaseArmorRefSchema,
-    weapons: z.array(BaseWeaponRefSchema),
-    force: EoteForceSchema,
-});
-
-//----------------------------------------------------------------------------------------------------------------------
-// Genesys-Specific Schemas
-//----------------------------------------------------------------------------------------------------------------------
-
-export const GenesysMotivationTypeSchema = z.enum([ 'strength', 'flaw', 'desire', 'fear' ]);
-
-export const GenesysMotivationsSchema = z.object({
-    strength: supplementId('motivation').nullable(),
-    flaw: supplementId('motivation').nullable(),
-    desire: supplementId('motivation').nullable(),
-    fear: supplementId('motivation').nullable(),
-});
-
-export const GenesysSystemDetailsSchema = z.object({
-    career: z.string(),
-    species: z.string(),
-    characteristics: BaseCharacteristicsSchema,
-    experience: ExperienceSchema,
-    defenses: DefensesSchema,
-    health: HealthSchema,
-    skills: z.array(BaseSkillSchema),
-    abilities: z.array(supplementId('ability')),
-    talents: z.array(BaseTalentInstSchema),
-    gear: z.array(BaseGearSchema),
-    armor: BaseArmorRefSchema,
-    weapons: z.array(BaseWeaponRefSchema),
-    motivations: GenesysMotivationsSchema,
-});
-
-//----------------------------------------------------------------------------------------------------------------------
-// Codecs for JSON serialization
-//----------------------------------------------------------------------------------------------------------------------
-
-export const EoteDetailsCodec = jsonCodec(EoteSystemDetailsSchema);
-export const GenesysDetailsCodec = jsonCodec(GenesysSystemDetailsSchema);
 
 //----------------------------------------------------------------------------------------------------------------------

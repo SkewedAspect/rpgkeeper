@@ -5,6 +5,8 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 
 import { expect } from 'chai';
+
+// Shared character schemas
 import {
     BaseArmorRefSchema,
     BaseCharacteristicsSchema,
@@ -15,16 +17,24 @@ import {
     BaseTalentInstSchema,
     BaseWeaponRefSchema,
     DefensesSchema,
+    ExperienceSchema,
+    HealthSchema,
+} from '../../../src/systems/src/eote/schemas/shared/character.ts';
+
+// EotE character schemas
+import {
     EoteDetailsCodec,
     EoteForcePowerInstSchema,
     EoteForceSchema,
     EoteSystemDetailsSchema,
-    ExperienceSchema,
+} from '../../../src/systems/src/eote/schemas/eote/character.ts';
+
+// Genesys character schemas
+import {
     GenesysDetailsCodec,
     GenesysMotivationsSchema,
     GenesysSystemDetailsSchema,
-    HealthSchema,
-} from '../../../src/systems/src/eote/schemas/character.ts';
+} from '../../../src/systems/src/eote/schemas/genesys/character.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Test Data
