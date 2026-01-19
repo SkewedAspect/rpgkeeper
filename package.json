@@ -18,7 +18,10 @@
     "lint": "npm run lint --workspaces --if-present",
     "lint:types": "npm run lint:types --workspaces --if-present",
     "prepare": "if-env NODE_ENV=production && exit 0 || husky",
-    "test": "tsx node_modules/mocha/bin/mocha \"tests/**/*.spec.ts\""
+    "test": "tsx node_modules/mocha/bin/mocha \"tests/**/*.spec.ts\"",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ui": "playwright test --ui"
   },
   "repository": "Morgul/rpgkeeper",
   "author": "Christopher S. Case <chris.case@g33xnexus.com>",
@@ -62,6 +65,7 @@
     "@fortawesome/pro-solid-svg-icons": "^7.1.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@morgul/vue-bootstrap-autocomplete": "^3.0.0-beta.0",
+    "@playwright/test": "^1.57.0",
     "@stylistic/eslint-plugin": "^5.6.1",
     "@types/better-sqlite3": "^7.6.13",
     "@types/chai": "^5.2.3",

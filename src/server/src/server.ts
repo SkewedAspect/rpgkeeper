@@ -26,6 +26,7 @@ import { ConnectSessionKnexStore } from 'connect-session-knex';
 
 // Auth
 import GoogleAuth from './auth/google.ts';
+import DevAuth from './auth/dev.ts';
 
 // Interfaces
 import type { ServerConfig } from './interfaces/config.ts';
@@ -143,6 +144,12 @@ async function main() : Promise<void>
 
     // Set up our authentication support
     GoogleAuth.initialize(config, app, devMode);
+
+    // Dev-only test authentication (for E2E tests)
+    if(devMode)
+    {
+        DevAuth.initialize(app);
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // Routing
