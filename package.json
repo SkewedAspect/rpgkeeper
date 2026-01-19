@@ -14,7 +14,7 @@
     "build": "vite build",
     "db:migrate": "knex migrate:latest",
     "db:setup": "knex migrate:latest && knex seed:run",
-    "db:build-static": "npx ts-node --esm packages/systems/scripts/build-static-db.ts",
+    "db:build-static": "npm run build:static-db --workspace=@rpgk/systems",
     "lint": "npm run lint --workspaces --if-present",
     "lint:types": "npm run lint:types --workspaces --if-present",
     "prepare": "if-env NODE_ENV=production && exit 0 || husky",
