@@ -23,6 +23,15 @@
                 Profile
             </BDropdownItem>
             <BDropdownDivider />
+            <BDropdownItem :href="bugURL" target="_blank">
+                <Fa icon="bug" />
+                Report a Bug
+            </BDropdownItem>
+            <BDropdownItem :href="feedbackURL" target="_blank">
+                <Fa icon="comment-alt-lines" />
+                Leave Feedback
+            </BDropdownItem>
+            <BDropdownDivider />
             <BDropdownItem @click="signOut()">
                 <Fa icon="sign-out" />
                 Sign Out
@@ -68,6 +77,9 @@
 
     const store = useAccountStore();
     const { account } = storeToRefs(store);
+
+    const bugURL = 'https://github.com/Morgul/rpgkeeper/issues/new?labels=bug,needs%20review&title=[Bug Report]%20';
+    const feedbackURL = 'https://github.com/Morgul/rpgkeeper/issues/new?labels=feedback&title=[Feedback]%20';
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

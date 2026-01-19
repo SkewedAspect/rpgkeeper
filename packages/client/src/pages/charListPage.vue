@@ -3,143 +3,144 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <BContainer id="char-list" class="pb-0">
-        <BFormRow>
-            <BCol cols="12" class="mb-3">
-                <!-- Characters Card -->
-                <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
-                    <template #header>
-                        <div class="d-flex">
-                            <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
-                                <Fa class="me-1" icon="users" />
-                                <span class="d-none d-md-inline">Characters</span>
-                            </h5>
-                            <BInputGroup class="flex-fill ms-auto" style="max-width: 400px">
-                                <BFormInput v-model="charFilter" placeholder="Search Characters..." />
-                                <template #append>
-                                    <BButton variant="primary">
-                                        <Fa icon="search" />
-                                    </BButton>
-                                </template>
-                            </BInputGroup>
+    <div id="char-list" class="container">
+        <!-- Characters Card -->
+        <BCard
+            header-bg-variant="dark"
+            header-text-variant="white"
+            class="shadow-sm char-card"
+            no-body
+        >
+            <template #header>
+                <div class="d-flex">
+                    <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
+                        <Fa class="me-1" icon="users" />
+                        <span class="d-none d-md-inline">Characters</span>
+                    </h5>
+                    <BInputGroup class="flex-fill ms-auto" style="max-width: 400px">
+                        <BFormInput v-model="charFilter" placeholder="Search Characters..." />
+                        <template #append>
+                            <BButton variant="primary">
+                                <Fa icon="search" />
+                            </BButton>
+                        </template>
+                    </BInputGroup>
 
-                            <!-- System Filter Dropdown -->
-                            <BDropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right>
-                                <template #button-content>
-                                    <Fa icon="filter" />
-                                    Systems
-                                </template>
+                    <!-- System Filter Dropdown -->
+                    <BDropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right>
+                        <template #button-content>
+                            <Fa icon="filter" />
+                            Systems
+                        </template>
 
-                                <template v-for="(group, groupIndex) in groupedSystems" :key="groupIndex">
-                                    <BDropdownDivider v-if="groupIndex > 0" />
-                                    <BDropdownForm class="system-filter-checkbox">
-                                        <BFormCheckbox
-                                            v-for="system in group"
-                                            :key="system.id"
-                                            v-model="systemsFilter"
-                                            :value="system.id"
-                                            class="block-labels"
-                                            @click.stop
-                                        >
-                                            <div class="text-nowrap d-flex w-100" @click.stop>
-                                                <div class="me-3">
-                                                    {{ system.name }}
-                                                </div>
-                                                <div class="ms-auto">
-                                                    <BBadge
-                                                        v-if="system.status && system.status !== 'stable'"
-                                                        :variant="getStatusVariant(system.status)"
-                                                        :title="getStatusDescription(system.status)"
-                                                    >
-                                                        <Fa :icon="getStatusIcon(system.status)" />
-                                                        {{ getStatusDisplay(system.status) }}
-                                                    </BBadge>
-                                                </div>
-                                            </div>
-                                        </BFormCheckbox>
-                                    </BDropdownForm>
-                                </template>
-                                <BDropdownDivider />
-                                <BDropdownItem style="pointer-events: none">
-                                    <div style="pointer-events: all" @click.stop="selectAllSystems()">
-                                        <Fa icon="check-square" />
-                                        Select All
-                                    </div>
-                                </BDropdownItem>
-                                <BDropdownItem style="pointer-events: none">
-                                    <div style="pointer-events: all" @click.stop="selectNoneSystems()">
-                                        <Fa :icon="['far', 'square']" />
-                                        Select None
-                                    </div>
-                                </BDropdownItem>
-                            </BDropdown>
-                        </div>
-                    </template>
-
-                    <!-- List of Characters -->
-                    <div v-if="charsLoading" class="card-body">
-                        <LoadingWidget />
-                    </div>
-
-                    <BListGroup v-else-if="characters.length > 0" flush>
-                        <BListGroupItem v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
-                            <div class="d-flex">
-                                <CharThumbnail :char="char" />
-                                <div class="ms-2 flex-column d-flex justify-content-center flex-fill">
-                                    <h5 class="mb-1">
-                                        {{ char.name }}
-                                    </h5>
-                                    <p class="text-muted m-0">
-                                        <BBadge class="me-1">
-                                            {{ getSystem(char.system)?.name }}
-                                        </BBadge>
-                                        <small>{{ char.campaign }}</small>
-                                    </p>
-                                </div>
-                                <div
-                                    class="me-2 flex-column d-flex justify-content-center flex-nowrap"
-                                    style="flex: 0 0 auto"
+                        <template v-for="(group, groupIndex) in groupedSystems" :key="groupIndex">
+                            <BDropdownDivider v-if="groupIndex > 0" />
+                            <BDropdownForm class="system-filter-checkbox">
+                                <BFormCheckbox
+                                    v-for="system in group"
+                                    :key="system.id"
+                                    v-model="systemsFilter"
+                                    :value="system.id"
+                                    class="block-labels"
+                                    @click.stop
                                 >
-                                    <CloseButton title="Edit User" @click.prevent.stop="openAddEditModal(char)">
-                                        <Fa icon="user-edit" size="xl" />
-                                    </CloseButton>
-                                </div>
-                                <div
-                                    class="ms-2 flex-column d-flex justify-content-center flex-nowrap"
-                                    style="flex: 0 0 auto"
-                                >
-                                    <CloseButton
-                                        class="btn-close"
-                                        title="Delete Character"
-                                        @click.prevent.stop="openDelCharacter(char)"
-                                    >
-                                        <Fa icon="trash-alt" size="xl" />
-                                    </CloseButton>
-                                </div>
+                                    <div class="text-nowrap d-flex w-100" @click.stop>
+                                        <div class="me-3">
+                                            {{ system.name }}
+                                        </div>
+                                        <div class="ms-auto">
+                                            <BBadge
+                                                v-if="system.status && system.status !== 'stable'"
+                                                :variant="getStatusVariant(system.status)"
+                                                :title="getStatusDescription(system.status)"
+                                            >
+                                                <Fa :icon="getStatusIcon(system.status)" />
+                                                {{ getStatusDisplay(system.status) }}
+                                            </BBadge>
+                                        </div>
+                                    </div>
+                                </BFormCheckbox>
+                            </BDropdownForm>
+                        </template>
+                        <BDropdownDivider />
+                        <BDropdownItem style="pointer-events: none">
+                            <div style="pointer-events: all" @click.stop="selectAllSystems()">
+                                <Fa icon="check-square" />
+                                Select All
                             </div>
-                        </BListGroupItem>
-                    </BListGroup>
+                        </BDropdownItem>
+                        <BDropdownItem style="pointer-events: none">
+                            <div style="pointer-events: all" @click.stop="selectNoneSystems()">
+                                <Fa :icon="['far', 'square']" />
+                                Select None
+                            </div>
+                        </BDropdownItem>
+                    </BDropdown>
+                </div>
+            </template>
 
-                    <div v-else class="card-body">
-                        <h6 class="text-center text-muted">
-                            No Characters found.
-                        </h6>
-                    </div>
+            <!-- List of Characters -->
+            <div v-if="charsLoading" class="card-body">
+                <LoadingWidget />
+            </div>
 
-                    <div class="card-body text-end">
-                        <BButton variant="primary" @click="openAddEditModal()">
-                            <Fa icon="user-plus" />
-                            New Character
-                        </BButton>
+            <BListGroup v-else-if="characters.length > 0" flush class="char-list">
+                <BListGroupItem v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
+                    <div class="d-flex">
+                        <CharThumbnail :char="char" />
+                        <div class="ms-2 flex-column d-flex justify-content-center flex-fill">
+                            <h5 class="mb-1">
+                                {{ char.name }}
+                            </h5>
+                            <p class="text-muted m-0">
+                                <BBadge class="me-1">
+                                    {{ getSystem(char.system)?.name }}
+                                </BBadge>
+                                <small>{{ char.campaign }}</small>
+                            </p>
+                        </div>
+                        <div
+                            class="me-2 flex-column d-flex justify-content-center flex-nowrap"
+                            style="flex: 0 0 auto"
+                        >
+                            <CloseButton title="Edit User" @click.prevent.stop="openAddEditModal(char)">
+                                <Fa icon="user-edit" size="xl" />
+                            </CloseButton>
+                        </div>
+                        <div
+                            class="ms-2 flex-column d-flex justify-content-center flex-nowrap"
+                            style="flex: 0 0 auto"
+                        >
+                            <CloseButton
+                                class="btn-close"
+                                title="Delete Character"
+                                @click.prevent.stop="openDelCharacter(char)"
+                            >
+                                <Fa icon="trash-alt" size="xl" />
+                            </CloseButton>
+                        </div>
                     </div>
-                </BCard>
-            </BCol>
-        </BFormRow>
+                </BListGroupItem>
+            </BListGroup>
+
+            <div v-else class="card-body">
+                <h6 class="text-center text-muted">
+                    No Characters found.
+                </h6>
+            </div>
+
+            <div class="card-body text-end">
+                <BButton variant="primary" @click="openAddEditModal()">
+                    <Fa icon="user-plus" />
+                    New Character
+                </BButton>
+            </div>
+        </BCard>
 
         <!-- Modals -->
         <AddEditModal ref="addEditModal" @save="onSave" />
         <DeleteModal ref="delModal" @delete="onDelete" />
-    </BContainer>
+    </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -147,6 +148,29 @@
 <style lang="scss">
     #char-list {
         padding: 16px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        min-height: 0;
+
+        .char-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .list-group {
+            flex: 1;
+            overflow-y: auto;
+            min-height: 0;
+        }
+
+        .card-body {
+            flex: 0 0 auto;
+        }
 
         .system-filter-checkbox {
             label {

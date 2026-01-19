@@ -68,7 +68,7 @@ const router = createRouter({
         { path: '/about', name: 'about', component: AboutPage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
         { path: '/characters', name: 'character-list', component: CharListPage },
-        { path: '/characters/:id', name: 'character', component: CharacterPage },
+        { path: '/characters/:id', name: 'character', component: CharacterPage, meta: { hideFooter: true } },
         { path: '/settings', name: 'settings', component: SettingsPage },
 
         // Campaign routes (feature flagged)

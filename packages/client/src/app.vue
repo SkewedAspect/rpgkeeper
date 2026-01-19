@@ -5,10 +5,10 @@
 <template>
     <div id="app">
         <SiteHeader />
-        <!-- Padding div for the fixed header. We do this so every page doesn't have to know about the height. -->
-        <div style="height: 60px;" />
-        <RouterView />
-        <SiteFooter />
+        <main id="main-content">
+            <RouterView />
+        </main>
+        <SiteFooter v-if="showFooter" />
         <BOrchestrator />
     </div>
 </template>
@@ -17,14 +17,26 @@
 
 <style lang="scss">
     #app {
-        height: calc(100% - 64px);
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding-top: 50px; // Account for fixed navbar
+        overflow: hidden;
+    }
+
+    #main-content {
+        flex: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
     }
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { watch } from 'vue';
+    import { computed, watch } from 'vue';
+    import { useRoute } from 'vue-router';
 
     // Stores
     import { useAccountStore } from './lib/resource-access/stores/account';
@@ -35,7 +47,10 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
+    const route = useRoute();
     const accountStore = useAccountStore();
+
+    const showFooter = computed(() => !route.meta.hideFooter);
 
     //------------------------------------------------------------------------------------------------------------------
     // Watchers

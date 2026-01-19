@@ -24,7 +24,18 @@
                     Characters
                 </BNavItem>
             </BNavbarNav>
-            <BNavbarNav v-b-color-mode="'light'" class="ms-auto">
+            <BNavbarNav v-b-color-mode="'light'" class="ms-auto align-items-center">
+                <BNavItem to="/about" title="About" class="icon-link">
+                    <Fa icon="circle-info" size="lg" />
+                </BNavItem>
+                <BNavItem
+                    href="https://github.com/Morgul/rpgkeeper"
+                    target="_blank"
+                    title="Github Project"
+                    class="icon-link"
+                >
+                    <Fa :icon="['fab', 'github']" size="lg" />
+                </BNavItem>
                 <LoginBtn />
             </BNavbarNav>
         </BCollapse>
@@ -39,6 +50,14 @@
             margin-top: -5px;
             width: 30px;
             height: 30px;
+        }
+
+        .icon-link .nav-link {
+            color: rgba(255, 255, 255, 0.55);
+
+            &:hover, &:focus {
+                color: rgba(255, 255, 255, 0.75);
+            }
         }
 	}
 </style>

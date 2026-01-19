@@ -3,16 +3,16 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <BContainer id="dashboard" class="pb-0">
-        <div v-if="recentCharacters.length > 0" class="my-2">
+    <div id="dashboard" class="container">
+        <div v-if="recentCharacters.length > 0" class="my-2 flex-shrink-0">
             <h3>Recent Characters</h3>
             <div class="d-flex gap-2 flex-wrap">
                 <CharCard v-for="char in recentCharacters" :key="char.id" :character="char" class="flex-fill" />
             </div>
         </div>
-        <BFormRow :class="recentCharacters.length == 0 ? 'mt-3' : ''">
+        <div class="dash-row" :class="recentCharacters.length == 0 ? 'mt-3' : ''">
             <!-- Campaigns Column -->
-            <BCol v-if="features.campaigns" cols="12" lg="6" class="mb-3">
+            <div v-if="features.campaigns" class="dash-col">
                 <ListCard
                     icon="notebook"
                     title="Campaigns"
@@ -61,12 +61,12 @@
                         </div>
                     </template>
                 </ListCard>
-            </BCol>
+            </div>
 
             <!-- Characters Column -->
-            <BCol cols="12" :lg="features.campaigns ? 6 : 12" class="mb-3">
+            <div class="dash-col">
                 <!-- Characters Card -->
-                <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm h-100" no-body>
+                <BCard header-bg-variant="dark" header-text-variant="white" class="shadow-sm dash-card" no-body>
                     <template #header>
                         <div class="d-flex">
                             <h5 class="align-items-center d-flex text-nowrap m-0 me-2 flex-grow-0 flex-shrink-0 w-auto">
@@ -140,7 +140,7 @@
                         <LoadingWidget />
                     </div>
 
-                    <BListGroup v-else-if="characters.length > 0" id="char-list" flush>
+                    <BListGroup v-else-if="characters.length > 0" class="dash-list" flush>
                         <BListGroupItem v-for="char in characters" :key="char.id" :to="`/characters/${ char.id }`">
                             <div class="d-flex">
                                 <CharThumbnail :char="char" />
@@ -192,27 +192,55 @@
                         </BButton>
                     </div>
                 </BCard>
-            </BCol>
-        </BFormRow>
+            </div>
+        </div>
 
         <!-- Modals -->
         <AddEditModal ref="addEditModal" @save="onSave" />
         <DeleteModal ref="delModal" @delete="onDelete" />
-    </BContainer>
+    </div>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <style lang="scss">
     #dashboard {
-        max-height: calc(100vh - 156px);
-        padding-left: 16px;
-        padding-right: 16px;
+        padding: 16px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
+        min-height: 0;
 
-        #char-list {
-            max-height: calc(100vh - 460px);
+        .dash-row {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            gap: 16px;
+        }
+
+        .dash-col {
+            flex: 1;
+            display: flex;
+            min-height: 0;
+        }
+
+        .dash-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .list-group {
+            flex: 1;
             overflow-y: auto;
+            min-height: 0;
+        }
+
+        .card-body {
+            flex: 0 0 auto;
         }
 
         .system-filter-checkbox {
