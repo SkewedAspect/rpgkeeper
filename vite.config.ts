@@ -50,8 +50,7 @@ export default defineConfig({
             },
             typescript: true,
             root: process.cwd(),
-            // Not quite ready to work through these errors yet
-            // vueTsc: true,
+            vueTsc: true,
         }),
         vue({
             template: {
