@@ -63,12 +63,9 @@
     interface Props
     {
         character : Character;
-        compact ?: boolean;
     }
 
-    const props = withDefaults(defineProps<Props>(), {
-        compact: false,
-    });
+    const props = defineProps<Props>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

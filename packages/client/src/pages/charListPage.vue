@@ -156,7 +156,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, onMounted, ref } from 'vue';
+    import { computed, onMounted, ref, useTemplateRef } from 'vue';
     import { storeToRefs } from 'pinia';
     import { useRouter } from 'vue-router';
     import type { BaseColorVariant } from 'bootstrap-vue-next';
@@ -192,8 +192,8 @@
     const charFilter = ref('');
     const systemsFilter = ref<string[]>([]);
 
-    const addEditModal = ref<InstanceType<typeof AddEditModal> | null>(null);
-    const delModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+    const addEditModal = useTemplateRef<InstanceType<typeof AddEditModal>>('addEditModal');
+    const delModal = useTemplateRef<InstanceType<typeof DeleteModal>>('delModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -247,38 +247,12 @@
 
     function getStatusIcon(desc : string) : string | undefined
     {
-        switch (desc)
-        {
-            case 'dev':
-                return 'exclamation-triangle';
-
-            case 'beta':
-                return 'info-circle';
-
-            case 'disabled':
-                return 'exclamation-triangle';
-
-            default:
-                return undefined;
-        }
+        return systemsMan.getStatusIcon(desc);
     }
 
     function getStatusVariant(desc : string) : keyof BaseColorVariant | null
     {
-        switch (desc)
-        {
-            case 'dev':
-                return ('warning' as const);
-
-            case 'beta':
-                return 'info';
-
-            case 'disabled':
-                return 'danger';
-
-            default:
-                return null;
-        }
+        return systemsMan.getStatusVariant(desc);
     }
 
     function selectAllSystems() : void

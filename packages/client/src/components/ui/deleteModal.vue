@@ -52,7 +52,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, useTemplateRef } from 'vue';
     import { capitalize } from 'lodash';
 
     // Components
@@ -84,7 +84,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef<InstanceType<typeof BModal>>('innerModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

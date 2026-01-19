@@ -67,7 +67,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { NotebookPage } from '@rpgk/core';
@@ -98,7 +98,7 @@
     });
 
     // Component Refs
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef<InstanceType<typeof BModal>>('innerModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

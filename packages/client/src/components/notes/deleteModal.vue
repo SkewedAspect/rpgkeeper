@@ -56,7 +56,7 @@
 <script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { ref } from 'vue';
+    import { ref, useTemplateRef } from 'vue';
 
     // Managers
     import type { NotebookPage } from '@rpgk/core';
@@ -81,7 +81,7 @@
 
     // Component Refs
     const innerPage = ref<NotebookPage | null>(null);
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef<InstanceType<typeof BModal>>('innerModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

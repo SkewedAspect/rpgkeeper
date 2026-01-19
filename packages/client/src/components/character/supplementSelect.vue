@@ -21,7 +21,7 @@
                                 @add="onAdd"
                             >
                                 <template #suggestion-extra="{ supplement }">
-                                    <slot :supplement="supplement" name="suggestion-extra" />
+                                    <slot :supplement="(supplement as TSupplement)" name="suggestion-extra" />
                                 </template>
                                 <template #append-extra>
                                     <BButton

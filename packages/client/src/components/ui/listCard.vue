@@ -53,6 +53,9 @@
         }
     );
 
+    // Note: defineSlots is not used here because this component uses dynamic slot pass-through
+    // with `v-for="(_, name) in $slots"` which cannot be statically typed.
+
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------

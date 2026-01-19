@@ -62,6 +62,7 @@
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
+    // Using `any` for generic character handling - the details vary by system
     interface Events
     {
         (e : 'hidden') : void;

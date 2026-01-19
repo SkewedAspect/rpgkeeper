@@ -48,11 +48,13 @@ export function startCase(str : string) : string
  *
  * @returns Returns`1`, `-1`, or `0`, depending on how the object sorts.
  */
-export function sortBy(key : string) : (a : Record<string, any>, b : Record<string, any>) => number
+export function sortBy<T extends Record<string, unknown>>(key : keyof T) : (a : T, b : T) => number
 {
-    return (aObj : Record<string, any>, bObj : Record<string, any>) =>
+    return (aObj : T, bObj : T) =>
     {
-        return (aObj[key] > bObj[key]) ? 1 : ((bObj[key] > aObj[key]) ? -1 : 0);
+        const aVal = aObj[key];
+        const bVal = bObj[key];
+        return (aVal > bVal) ? 1 : ((bVal > aVal) ? -1 : 0);
     };
 }
 

@@ -201,7 +201,7 @@
 
 <script lang="ts" setup>
     import { get } from 'lodash';
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
     import { useVuelidate } from '@vuelidate/core';
     import { maxLength, minLength, required } from '@vuelidate/validators';
 
@@ -228,6 +228,7 @@
     // Types
     //------------------------------------------------------------------------------------------------------------------
 
+    // Using `any` for generic character handling - the details vary by system
     type NewChar = Omit<Character<any>, 'details' | 'accountID' | 'noteID' | 'created' | 'updated'>;
 
     //------------------------------------------------------------------------------------------------------------------
@@ -259,7 +260,7 @@
 
     const sysStore = useSystemStore();
 
-    const innerModal = ref<InstanceType<typeof BModal> | null>(null);
+    const innerModal = useTemplateRef<InstanceType<typeof BModal>>('innerModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -311,8 +312,8 @@
         },
     };
 
-    // TODO: Cast it to an any so we don't get spurious errors, but this is pretty bad...
-    // @see: https://github.com/vuelidate/vuelidate/issues/925
+    // Vuelidate has known TypeScript inference issues with rules/state matching.
+    // Using `any` is the recommended workaround. See: https://github.com/vuelidate/vuelidate/issues/925
     const v$ : any = useVuelidate(rules, char as any);
 
     //------------------------------------------------------------------------------------------------------------------

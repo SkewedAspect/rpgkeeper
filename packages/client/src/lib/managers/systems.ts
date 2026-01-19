@@ -2,6 +2,8 @@
 // SystemsManager
 //----------------------------------------------------------------------------------------------------------------------
 
+import type { BaseColorVariant } from 'bootstrap-vue-next';
+
 // Interfaces
 import type { SystemDefinition } from '@rpgk/core';
 
@@ -24,6 +26,7 @@ class SystemsManager
         await store.load();
     }
 
+    // Using `any` for generic system handling - the defaults vary by system
     getSystem(systemID : string) : SystemDefinition<any> | undefined
     {
         const store = useSystemStore();
@@ -69,6 +72,42 @@ class SystemsManager
 
             default:
                 return 'Unknown status.';
+        }
+    }
+
+    getStatusIcon(desc : string) : string | undefined
+    {
+        switch (desc)
+        {
+            case 'dev':
+                return 'exclamation-triangle';
+
+            case 'beta':
+                return 'info-circle';
+
+            case 'disabled':
+                return 'exclamation-triangle';
+
+            default:
+                return undefined;
+        }
+    }
+
+    getStatusVariant(desc : string) : keyof BaseColorVariant | null
+    {
+        switch (desc)
+        {
+            case 'dev':
+                return 'warning';
+
+            case 'beta':
+                return 'info';
+
+            case 'disabled':
+                return 'danger';
+
+            default:
+                return null;
         }
     }
 }

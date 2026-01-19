@@ -91,16 +91,9 @@
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
-<style lang="scss" scoped>
-    #pool {
-    }
-</style>
-
-<!--------------------------------------------------------------------------------------------------------------------->
-
 <script lang="ts" setup>
     import { range } from 'lodash';
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Components
     import { BModal } from 'bootstrap-vue-next';
@@ -146,7 +139,7 @@
     const editMax = ref<number | null>(null);
 
     // Component Refs
-    const editPool = ref<InstanceType<typeof BModal> | null>(null);
+    const editPool = useTemplateRef<InstanceType<typeof BModal>>('editPool');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed

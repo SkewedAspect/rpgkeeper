@@ -71,8 +71,8 @@ class CharacterResourceAccess
             owner = accountStore.account?.email ?? '';
         }
 
-        const { data } = await axios.get('/api/characters', { params: { owner } });
-        return data.map((def : any) => this._buildOrUpdateModel(def));
+        const { data } = await axios.get<Partial<Character>[]>('/api/characters', { params: { owner } });
+        return data.map((def) => this._buildOrUpdateModel(def));
     }
 
     async saveCharacter<

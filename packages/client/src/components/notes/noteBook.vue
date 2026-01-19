@@ -31,7 +31,7 @@
                             <span class="d-none d-md-inline">Edit</span>
                         </BButton>
                         <BButton class="ms-2" :disabled="!currentPage" @click="openDelModal(currentPage)">
-                            <Fa icon="trash-alt" fixed-widt />
+                            <Fa icon="trash-alt" fixed-width />
                             <span class="d-none d-md-inline">Delete</span>
                         </BButton>
                     </BButtonToolbar>
@@ -75,7 +75,7 @@
 <script lang="ts" setup>
     //------------------------------------------------------------------------------------------------------------------
 
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { NotebookPage } from '@rpgk/core';
@@ -96,8 +96,8 @@
     const notes = useNotebookStore();
     const pageIndex = ref(0);
 
-    const addEditModal = ref<InstanceType<typeof AddEditModal> | null>(null);
-    const delModal = ref<InstanceType<typeof DeleteModal> | null>(null);
+    const addEditModal = useTemplateRef<InstanceType<typeof AddEditModal>>('addEditModal');
+    const delModal = useTemplateRef<InstanceType<typeof DeleteModal>>('delModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
