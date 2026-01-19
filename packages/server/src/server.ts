@@ -100,7 +100,7 @@ async function main() : Promise<void>
 
     const store = new ConnectSessionKnexStore({
         sidFieldName: config.auth.session.key,
-        knex: await getDB() as any,
+        knex: await getDB(),
         createTable: true,
 
         // Clear expired sessions. (1 hour)

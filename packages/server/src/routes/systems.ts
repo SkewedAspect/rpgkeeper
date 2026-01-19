@@ -25,7 +25,7 @@ import { systems } from '@rpgk/systems';
 import { processRequest, validationErrorHandler } from '../engines/validation/express.ts';
 
 // Utils
-import { ensureAuthenticated, errorHandler, interceptHTML } from './utils/index.ts';
+import { ensureAuthenticated, errorHandler, getParam, interceptHTML } from './utils/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ function buildSupplementRoutes(
     systemRouter.get(`${ path }/:id`, async(req, resp) =>
     {
         const managers = await getManagers();
-        const supplement = await managers.content.supplement.get(req.params.id, req.user?.id);
+        const supplement = await managers.content.supplement.get(getParam(req, 'id'), req.user?.id);
         resp.json(supplement);
     });
 
@@ -117,7 +117,7 @@ function buildSupplementRoutes(
                 data: req.body,
             };
 
-            const updated = await managers.content.supplement.update(req.params.id as string, req.user.id, updates);
+            const updated = await managers.content.supplement.update(getParam(req, 'id'), req.user.id, updates);
             resp.json(updated);
         }
     );
@@ -134,7 +134,7 @@ function buildSupplementRoutes(
             }
 
             const managers = await getManagers();
-            const result = await managers.content.supplement.remove(req.params.id as string, req.user.id);
+            const result = await managers.content.supplement.remove(getParam(req, 'id'), req.user.id);
             resp.json(result);
         }
     );

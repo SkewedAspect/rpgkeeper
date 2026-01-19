@@ -14,6 +14,20 @@ const logger = logging.getLogger('dbUtil');
 type DoneCallback = (err ?: Error | null, conn ?: unknown) => void;
 type AfterCreateCallback = (conn : unknown, done : DoneCallback) => void;
 
+// SQLite connection interface for methods we use in afterCreate callbacks.
+// This covers both sqlite3 (callback-based) and better-sqlite3 (sync) drivers.
+interface SqliteConnection
+{
+    on ?: (event : string, callback : (data : string) => void) => void;
+    exec : ((sql : string, callback : (err : Error | null) => void) => void) | ((sql : string) => void);
+}
+
+// PostgreSQL connection interface for methods we use in afterCreate callbacks.
+interface PgConnection
+{
+    on ?: (event : string, callback : (data : string) => void) => void;
+}
+
 // ---------------------------------------------------------------------------------------------------------------------
 
 let dbInst : Knex | undefined;
@@ -54,8 +68,8 @@ function _buildSqliteDB(config : DatabaseConfig) : Knex
 {
     const newConf = _buildCustomAfterCreate(config, (dbConn : unknown, done : DoneCallback) =>
     {
-        const conn = dbConn as any;
-        if(config.traceQueries)
+        const conn = dbConn as SqliteConnection;
+        if(config.traceQueries && conn.on)
         {
             // Turn on tracing
             conn.on('trace', (queryString : string) =>
@@ -88,8 +102,8 @@ function _buildPostgresDB(config : DatabaseConfig) : Knex
 {
     const newConf = _buildCustomAfterCreate(config, (dbConn : unknown, done : DoneCallback) =>
     {
-        const conn = dbConn as any;
-        if(config.traceQueries)
+        const conn = dbConn as PgConnection;
+        if(config.traceQueries && conn.on)
         {
             // Turn on tracing
             conn.on('query', (queryString : string) =>

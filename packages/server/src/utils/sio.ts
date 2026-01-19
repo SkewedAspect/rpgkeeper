@@ -13,12 +13,12 @@ let sio : Server | undefined;
 
 //----------------------------------------------------------------------------------------------------------------------
 
-export async function setSIOInstance(sioServer : Server) : Promise<void>
+export function setSIOInstance(sioServer : Server) : void
 {
     sio = sioServer;
 }
 
-export async function broadcast(namespace : string, message : RPGKMessage) : Promise<void>
+export function broadcast(namespace : string, message : RPGKMessage) : void
 {
     if(sio)
     {

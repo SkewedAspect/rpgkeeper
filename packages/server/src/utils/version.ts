@@ -44,9 +44,10 @@ async function _getAppName() : Promise<string>
         {
             appName = (JSON.parse(pgkText)).name;
         }
-        catch (err : any)
+        catch (err : unknown)
         {
-            logger.warn(`Failed to parse version from 'package.json':`, err.stack);
+            const stack = err instanceof Error ? err.stack : String(err);
+            logger.warn(`Failed to parse version from 'package.json':`, stack);
             appName = '0.0.0';
         }
     }
@@ -64,9 +65,10 @@ async function _getVersion() : Promise<string>
         {
             version = (JSON.parse(pgkText)).version;
         }
-        catch (err : any)
+        catch (err : unknown)
         {
-            logger.warn(`Failed to parse version from 'package.json':`, err.stack);
+            const stack = err instanceof Error ? err.stack : String(err);
+            logger.warn(`Failed to parse version from 'package.json':`, stack);
             version = '0.0.0';
         }
     }

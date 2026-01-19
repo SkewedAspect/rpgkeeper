@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
+import logging from '@strata-js/util-logging';
 
 // Managers
 import { getManagers } from '../managers/index.ts';
@@ -21,9 +22,6 @@ import {
     parseQuery,
 } from './utils/index.ts';
 import * as permsUtil from '../utils/permissions.ts';
-
-// Logger
-import logging from '@strata-js/util-logging';
 
 //----------------------------------------------------------------------------------------------------------------------
 

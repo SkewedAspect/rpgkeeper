@@ -92,7 +92,7 @@ export class CampaignManager
         const newCamp = await this.entities.campaign.add(accountID, newCampaign);
 
         // Broadcast the update
-        await broadcast('/campaign', {
+        broadcast('/campaign', {
             type: 'add',
             resource: newCamp.id,
             payload: newCamp,
@@ -162,7 +162,7 @@ export class CampaignManager
         const newCamp = await this.entities.campaign.update(campID, updateCamp);
 
         // Broadcast the update
-        await broadcast('/campaign', {
+        broadcast('/campaign', {
             type: 'update',
             resource: campID,
             payload: newCamp,
@@ -176,7 +176,7 @@ export class CampaignManager
         await this.entities.campaign.remove(campID);
 
         // Broadcast the update
-        await broadcast('/campaign', {
+        broadcast('/campaign', {
             type: 'remove',
             resource: campID,
         });

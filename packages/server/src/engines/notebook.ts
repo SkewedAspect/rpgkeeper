@@ -49,7 +49,7 @@ export class NotebookEngine
         const newNotebook = await this.entities.notebook.add(pages);
 
         // Broadcast the add
-        await broadcast('/notebook', {
+        broadcast('/notebook', {
             type: 'add',
             resource: newNotebook.id ?? '',
             payload: newNotebook,
@@ -63,7 +63,7 @@ export class NotebookEngine
         const newPage = await this.entities.notebook.addPage(notebookID, page);
 
         // Broadcast the add
-        await broadcast('/notebook/page', {
+        broadcast('/notebook/page', {
             type: 'add',
             resource: newPage.id ?? '',
             payload: newPage,
@@ -77,7 +77,7 @@ export class NotebookEngine
         const newPage = await this.entities.notebook.updatePage(pageID, pageUpdate);
 
         // Broadcast the update
-        await broadcast('/notebook/page', {
+        broadcast('/notebook/page', {
             type: 'update',
             resource: pageID,
             payload: newPage,
@@ -91,7 +91,7 @@ export class NotebookEngine
         await this.entities.notebook.remove(notebookID);
 
         // Broadcast the removal
-        await broadcast('/notebook', {
+        broadcast('/notebook', {
             type: 'remove',
             resource: notebookID,
         });
@@ -104,7 +104,7 @@ export class NotebookEngine
         await this.entities.notebook.removePage(pageID);
 
         // Broadcast the removal
-        await broadcast('/notebook/page', {
+        broadcast('/notebook/page', {
             type: 'remove',
             resource: pageID,
         });

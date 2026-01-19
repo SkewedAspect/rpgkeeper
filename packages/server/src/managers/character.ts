@@ -7,10 +7,6 @@ import logging from '@strata-js/util-logging';
 // Models
 import type { Character, SavedCharacter } from '@rpgk/core';
 
-//----------------------------------------------------------------------------------------------------------------------
-
-const logger = logging.getLogger('character-manager');
-
 // Systems
 import { systems } from '@rpgk/systems';
 
@@ -24,6 +20,10 @@ import type { EntityResourceAccess } from '../resource-access/index.ts';
 // Utils
 import type { FilterToken } from '../routes/utils/index.ts';
 import { broadcast } from '../utils/sio.ts';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const logger = logging.getLogger('character-manager');
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -151,7 +151,7 @@ export class CharacterManager
         const newChar = await this.entities.character.add(accountID, { ...validatedChar, noteID: notebook.id });
 
         // Broadcast the update
-        await broadcast('/character', {
+        broadcast('/character', {
             type: 'add',
             resource: newChar.id,
             payload: newChar,
@@ -185,13 +185,14 @@ export class CharacterManager
         const validatedUpdate : Partial<Character> = {};
         for(const key of Object.keys(updateChar) as (keyof Character)[])
         {
-            (validatedUpdate as any)[key] = validated[key];
+            // Use Record type for dynamic property assignment
+            (validatedUpdate as Record<keyof Character, unknown>)[key] = validated[key];
         }
 
         const newChar = await this.entities.character.update(charID, validatedUpdate);
 
         // Broadcast the update
-        await broadcast('/character', {
+        broadcast('/character', {
             type: 'update',
             resource: charID,
             payload: newChar,
@@ -207,7 +208,7 @@ export class CharacterManager
         await this.notebookEngine.remove(char.noteID);
 
         // Broadcast the update
-        await broadcast('/character', {
+        broadcast('/character', {
             type: 'remove',
             resource: charID,
         });

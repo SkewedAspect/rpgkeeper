@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import express from 'express';
+import logging from '@strata-js/util-logging';
 
 // Managers
 import { getManagers } from '../managers/index.ts';
@@ -22,8 +23,8 @@ import {
     parseQuery,
 } from './utils/index.ts';
 
-// Logger
-import logging from '@strata-js/util-logging';
+//----------------------------------------------------------------------------------------------------------------------
+
 const logger = logging.getLogger('characters router');
 
 //----------------------------------------------------------------------------------------------------------------------
