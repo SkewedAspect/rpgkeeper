@@ -262,6 +262,13 @@ export default [
         rules: {
             // Overrides for Vue rules to supersede the default rules
             '@stylistic/indent': 'off',
+            '@stylistic/max-len': 'off',
+            'vue/max-len': [ 'error', {
+                code: 120,
+                template: 1000,
+                ignoreHTMLAttributeValues: true,
+                ignoreHTMLTextContents: true,
+            } ],
             '@typescript-eslint/no-unused-vars': 'off',
 
             // Style
