@@ -17,7 +17,8 @@
     "lint:types": "tsc --noEmit"
   },
   "dependencies": {
-    "rpgdicejs": "^2.0.3"
+    "rpgdicejs": "^2.0.3",
+    "zod": "^4.2.1"
   },
   "devDependencies": {}
 }

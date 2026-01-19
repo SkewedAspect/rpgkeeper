@@ -169,10 +169,16 @@ export function jsonCodec<T extends z.ZodType>(schema : T) : z.ZodCodec<z.ZodStr
 
 /**
  * Converts a camelCase string to snake_case.
+ * Handles acronyms intelligently (e.g., 'accountID' → 'account_id', 'parseJSON' → 'parse_json').
  */
 export function camelToSnake(str : string) : string
 {
-    return str.replace(/[A-Z]/g, (letter) => `_${ letter.toLowerCase() }`);
+    return str
+        // Handle transitions from lowercase/digit to uppercase
+        .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+        // Handle transitions from uppercase to uppercase followed by lowercase (e.g., 'XMLParser' → 'XML_Parser')
+        .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+        .toLowerCase();
 }
 
 /**

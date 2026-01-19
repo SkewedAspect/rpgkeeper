@@ -162,7 +162,6 @@ describe('camelToSnake', () =>
 {
     it('converts camelCase to snake_case', () =>
     {
-        expect(camelToSnake('accountID')).to.equal('account_i_d');
         expect(camelToSnake('noteId')).to.equal('note_id');
         expect(camelToSnake('createdAt')).to.equal('created_at');
     });
@@ -177,9 +176,21 @@ describe('camelToSnake', () =>
         expect(camelToSnake('already_snake')).to.equal('already_snake');
     });
 
-    it('handles consecutive capitals', () =>
+    it('handles acronyms at end of string', () =>
     {
-        expect(camelToSnake('parseJSON')).to.equal('parse_j_s_o_n');
+        expect(camelToSnake('accountID')).to.equal('account_id');
+        expect(camelToSnake('parseJSON')).to.equal('parse_json');
+    });
+
+    it('handles acronyms at start of string', () =>
+    {
+        expect(camelToSnake('XMLParser')).to.equal('xml_parser');
+        expect(camelToSnake('HTMLElement')).to.equal('html_element');
+    });
+
+    it('handles multiple acronyms', () =>
+    {
+        expect(camelToSnake('convertHTMLToJSON')).to.equal('convert_html_to_json');
     });
 });
 
