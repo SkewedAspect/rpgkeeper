@@ -9,4 +9,5 @@ modifiers: When wearing this armor, as an incidental, your character may choose 
   Vigilance checks, and all combat checks for the remainder of the encounter and must add setback to all other checks
   until the end of the encounter. If they do so, at the end of the encounter they suffer 8 strain.
 hpRequired: 2
+qualities: []
 reference: EotI:129

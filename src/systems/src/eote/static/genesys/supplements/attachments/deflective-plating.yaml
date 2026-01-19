@@ -7,4 +7,5 @@ description: This attachment applies angled plates or mildly reflective surfaces
 useWith: armor
 modifiers: Wearer increases their ranged defense by 1.
 hpRequired: 1
+qualities: []
 reference: G-CRB:209

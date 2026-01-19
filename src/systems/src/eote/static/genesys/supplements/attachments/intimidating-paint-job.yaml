@@ -7,4 +7,5 @@ useWith: armor
 modifiers: When wearing this armor, your character adds Success to Coercion checks they make, and Failure to Charm
   checks they make.
 hpRequired: 0
+qualities: []
 reference: SotB:109

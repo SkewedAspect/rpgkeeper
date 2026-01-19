@@ -9,4 +9,5 @@ modifiers: If the user spends two preparation to deploy the tripod, the weapon's
   be moved (except to pivot on the tripod mount) once it has been set up. The user must spend two preparation to take
   the tripod down.
 hpRequired: 2
+qualities: []
 reference: G-CRB:208

@@ -6,4 +6,5 @@ description: Armor with this rune always seems to be tucked into a dark corner, 
 useWith: armor
 modifiers: While wearing this armor your character adds boost to Stealth checks they make and gains +2 ranged defense.
 hpRequired: 1
+qualities: []
 reference: RoT:108

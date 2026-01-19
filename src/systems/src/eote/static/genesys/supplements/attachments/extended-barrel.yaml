@@ -6,4 +6,6 @@ useWith: weapon
 modifiers: The weapon's range increases by one range band, to a maximum of extreme range. The weapon gains the
   Cumbersome quality, or increases its existing Cumbersome quality by 2.
 hpRequired: 2
+qualities:
+  - id: genesys-quality-cumbersome
 reference: G-CRB:207

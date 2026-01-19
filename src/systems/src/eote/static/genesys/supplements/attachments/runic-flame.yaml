@@ -6,4 +6,5 @@ description: The runic flame is designed to be used in conjunction with a close 
 useWith: weapon
 modifiers: The weapon gains the Burn item quality.
 hpRequired: 1
+qualities: []
 reference: RoT:106

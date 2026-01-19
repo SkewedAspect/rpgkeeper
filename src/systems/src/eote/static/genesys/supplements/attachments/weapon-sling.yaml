@@ -5,4 +5,5 @@ description: A sling helps a user carry a particularly heavy weapon by taking up
 useWith: weapon
 modifiers: The weapon decreases its encumbrance by 2.
 hpRequired: 1
+qualities: []
 reference: G-CRB:209

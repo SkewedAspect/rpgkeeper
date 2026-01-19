@@ -5,8 +5,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import type { ExternalGear, ExternalAttachment, VaryingDisplay, VaryingDisplayItem } from '../types.ts';
-import { generateId, formatReference } from '../utils.ts';
+import { generateId, formatReference, qualityNameToId } from '../utils.ts';
 import { convertVaryingDisplay } from './description.ts';
+import { fixTypos } from './typos.ts';
+import type { InternalQualityRef } from './weapon.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Internal Attachment Type
@@ -20,6 +22,7 @@ export interface InternalAttachment
     useWith : string;
     modifiers : string;
     hpRequired : number;
+    qualities : InternalQualityRef[];
     reference : string;
 }
 
@@ -47,6 +50,7 @@ interface ParsedAttachmentData
     description : string;
     useWith : string;
     modifiers : string;
+    rawModifiers : string;
 }
 
 /**
@@ -106,6 +110,43 @@ function cleanExtractedText(text : string) : string
 }
 
 /**
+ * Extract quality references from raw text containing {@quality Name} or {@quality Name|Rank} tags
+ */
+function extractQualityRefs(rawText : string) : InternalQualityRef[]
+{
+    const qualities : InternalQualityRef[] = [];
+    const qualityRegex = /\{@quality\s+([^|}]+)(?:\|(\d+))?\}/gi;
+
+    let match;
+    while((match = qualityRegex.exec(rawText)) !== null)
+    {
+        const name = match[1].trim();
+        const rankStr = match[2];
+
+        const ref : InternalQualityRef = {
+            id: qualityNameToId(name),
+        };
+
+        if(rankStr)
+        {
+            const rank = parseInt(rankStr, 10);
+            if(!isNaN(rank) && rank > 0)
+            {
+                ref.ranks = rank;
+            }
+        }
+
+        // Avoid duplicates
+        if(!qualities.some((q) => q.id === ref.id))
+        {
+            qualities.push(ref);
+        }
+    }
+
+    return qualities;
+}
+
+/**
  * Extract a field value from a list item string
  * Returns null if the pattern doesn't match
  */
@@ -139,6 +180,7 @@ function parseAttachmentDescription(description : VaryingDisplay) : ParsedAttach
         description: '',
         useWith: '',
         modifiers: '',
+        rawModifiers: '',
     };
 
     if(!description || !Array.isArray(description))
@@ -160,9 +202,12 @@ function parseAttachmentDescription(description : VaryingDisplay) : ParsedAttach
         {
             for(const listItem of item.items)
             {
-                // Convert list item to string
-                const itemText = typeof listItem === 'string'
+                // Get raw text (for quality extraction) and converted text (for field extraction)
+                const rawText = typeof listItem === 'string'
                     ? listItem
+                    : JSON.stringify(listItem);
+                const itemText = typeof listItem === 'string'
+                    ? cleanExtractedText(listItem)
                     : convertVaryingDisplay([ listItem ]);
 
                 // Try to extract known fields
@@ -178,6 +223,8 @@ function parseAttachmentDescription(description : VaryingDisplay) : ParsedAttach
                 else if(modifiers !== null)
                 {
                     result.modifiers = modifiers;
+                    // Preserve raw text for quality extraction
+                    result.rawModifiers = rawText;
                 }
                 else if(hpRequired === null && models === null)
                 {
@@ -219,13 +266,17 @@ export function convertAttachment(attachment : ExternalAttachment, bookFile : st
     // Use the 'class' field as the primary source for useWith, fall back to parsed description
     const useWith = attachment.class ?? parsed.useWith;
 
+    // Extract qualities from the raw modifiers text (before tag conversion)
+    const qualities = extractQualityRefs(parsed.rawModifiers);
+
     return {
         id: generateId('attachment', attachment.name),
         name: attachment.name,
-        description: parsed.description,
+        description: fixTypos(parsed.description),
         useWith,
-        modifiers: parsed.modifiers,
+        modifiers: fixTypos(parsed.modifiers),
         hpRequired: attachment.hardPoints,
+        qualities,
         reference: formatReference(bookFile, attachment.page),
     };
 }

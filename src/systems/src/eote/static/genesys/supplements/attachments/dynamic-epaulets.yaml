@@ -6,4 +6,5 @@ description: Often used by field commanders, dynamic epaulets modify armor desig
 useWith: armor
 modifiers: When wearing this armor, your character adds Success to the results of all Leadership checks they make.
 hpRequired: 1
+qualities: []
 reference: EotI:130

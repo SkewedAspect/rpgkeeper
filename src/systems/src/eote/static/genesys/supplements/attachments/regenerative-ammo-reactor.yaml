@@ -6,4 +6,5 @@ description: A common terror among frontline soldiers is the threat of their wea
 useWith: weapon
 modifiers: Difficulty may not be spent to cause this weapon to run out of ammo.
 hpRequired: 1
+qualities: []
 reference: EotI:128

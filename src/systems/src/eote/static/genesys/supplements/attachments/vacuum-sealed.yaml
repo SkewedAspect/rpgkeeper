@@ -6,4 +6,5 @@ useWith: armor
 modifiers: While wearing this armor, the user may ignore the effects of vacuum or poionous atmospheric environments for
   up to one hour.
 hpRequired: 1
+qualities: []
 reference: G-CRB:209

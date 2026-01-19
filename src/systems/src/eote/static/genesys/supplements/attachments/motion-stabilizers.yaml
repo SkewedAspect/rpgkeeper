@@ -6,4 +6,5 @@ useWith: weapon
 modifiers: The weapon's Cumbersome and Unwieldy item qualities decrease by 1, to a minimum of 1, and its encumbrance
   value decreases by 3, to a minimum of 1.
 hpRequired: 2
+qualities: []
 reference: EotI:128

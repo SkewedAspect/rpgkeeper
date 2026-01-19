@@ -4,4 +4,5 @@ description: This runic inscription coats the weapon with icy chill that saps st
 useWith: weapon
 modifiers: The weapon gains the Ensnare item quality.
 hpRequired: 1
+qualities: []
 reference: RoT:107

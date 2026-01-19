@@ -12,4 +12,5 @@ modifiers: "After a decksweeper module is installed on your character's weapon, 
   Limited Ammo, Vicious. The weapon increases any Cumbersome or Unwieldy item qualities it already has by 1 and
   increases its encumbrance by 1. Reloads cost 25 aurei."
 hpRequired: 2
+qualities: []
 reference: EotI:127

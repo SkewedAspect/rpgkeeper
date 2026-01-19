@@ -9,4 +9,5 @@ modifiers: The weapon's damage decreases by 2, and it gains the Breach and Slow-
   Cumbersome or increases its existing Cumbersome rating by 1, whichever is greater. Finally, the weapon's encumbrance
   increases by 2.
 hpRequired: 3
+qualities: []
 reference: EotI:126

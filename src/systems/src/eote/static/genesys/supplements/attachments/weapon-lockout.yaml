@@ -7,4 +7,5 @@ modifiers: This weapon cannot be fired except by its designated user. Unlocking 
   "acquired" weapon with an active lockout requires your character to make a Daunting. Your GM may spend hhh or d from
   this check to permanently disable the locked weapon, rendering it useless.
 hpRequired: 1
+qualities: []
 reference: SotB:112

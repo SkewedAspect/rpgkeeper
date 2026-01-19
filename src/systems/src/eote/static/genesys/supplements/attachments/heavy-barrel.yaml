@@ -7,4 +7,5 @@ description: The weapon's standard barrel, emitter, projector, or capacitors are
 useWith: weapon
 modifiers: The weapon increases its base damage by 2 and gains the Inaccurate quality.
 hpRequired: 2
+qualities: []
 reference: EotI:127

@@ -22,4 +22,6 @@ export type { InternalAttachment } from './attachment.ts';
 export { convertAbility, convertAbilities, convertAllAbilities } from './ability.ts';
 export type { InternalAbility } from './ability.ts';
 
+export { fixTypos } from './typos.ts';
+
 //----------------------------------------------------------------------------------------------------------------------

@@ -7,4 +7,6 @@ useWith: armor
 modifiers: When wearing this armor, the user increases their encumbrance threshold by 5. The user reduces the rating of
   the Cumbersome quality of any carried weapons by 1, to a minimum of 1.
 hpRequired: 2
+qualities:
+  - id: genesys-quality-cumbersome
 reference: G-CRB:209

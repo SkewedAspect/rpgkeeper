@@ -5,4 +5,5 @@ description: A sword or knife with this rune inscription unerringly seeks out a 
 useWith: weapon
 modifiers: The weapon gains the Vicious item quality.
 hpRequired: 2
+qualities: []
 reference: RoT:107

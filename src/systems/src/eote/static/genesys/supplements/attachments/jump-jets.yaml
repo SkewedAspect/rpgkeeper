@@ -6,4 +6,5 @@ useWith: armor
 modifiers: When wearing this armor, once per encounter your character may activate the jump jets as an incidental. Until
   the end of your character's next turn, they may flying and do not suffer damage from falling.
 hpRequired: 2
+qualities: []
 reference: SotB:110

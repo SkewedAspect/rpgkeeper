@@ -6,4 +6,5 @@ description: "Modern firearms sometimes have secondary weapons attached under th
 useWith: weapon
 modifiers: The weapon can fire using the associated secondary profile.
 hpRequired: 2
+qualities: []
 reference: G-CRB:208

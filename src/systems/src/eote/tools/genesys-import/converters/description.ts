@@ -7,6 +7,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import type { VaryingDisplay, VaryingDisplayItem } from '../types.ts';
+import { fixTypos } from './typos.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Dice Symbol Mapping
@@ -229,8 +230,10 @@ export function convertVaryingDisplay(description : VaryingDisplay) : string
     }
 
     const parts = description.map(convertItem).filter(Boolean);
-    return parts.join(' ').replace(/\s+/g, ' ')
+    const text = parts.join(' ').replace(/\s+/g, ' ')
         .trim();
+
+    return fixTypos(text);
 }
 
 /**

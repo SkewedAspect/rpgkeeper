@@ -7,4 +7,5 @@ useWith: armor
 modifiers: Your character may mount one weapon or piece of equipment to their armor, allowing them to draw or ready that
   item as an incidental while wearing the armor. The mounted item may not have an encumbrance value higher than 2.
 hpRequired: 1
+qualities: []
 reference: EotI

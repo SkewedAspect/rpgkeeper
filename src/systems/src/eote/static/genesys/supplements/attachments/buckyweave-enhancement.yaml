@@ -5,4 +5,5 @@ description: Buckyweave enhancement reinforces an armor suit with a fantasticall
 useWith: armor
 modifiers: The armor gains the Reinforced item quality.
 hpRequired: 2
+qualities: []
 reference: SotB:109

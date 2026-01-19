@@ -5,4 +5,5 @@ description: Many fantasy settings feature rare, nearly magical metals that can 
 useWith: armor
 modifiers: The armor reduces its encumbrance by 2, and it adds one fewer setback to Stealth checks.
 hpRequired: 2
+qualities: []
 reference: G-CRB:209

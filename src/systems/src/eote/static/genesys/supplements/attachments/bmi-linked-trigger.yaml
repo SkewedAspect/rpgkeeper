@@ -10,4 +10,5 @@ modifiers: Your character must have a Brain Machine Interface, skulljack, or spi
   the results. Your character can also use mental commands to fire this weapon even if they are not holding it, as long
   as the weapon is within long range.
 hpRequired: 1
+qualities: []
 reference: SotB:111

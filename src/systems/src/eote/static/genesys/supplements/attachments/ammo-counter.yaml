@@ -6,4 +6,5 @@ description: One of the simplest smart systems available, an ammo counter displa
 useWith: weapon
 modifiers: While your character is using this weapon, your GM cannot spend h or d to cause it to run out of ammo.
 hpRequired: 1
+qualities: []
 reference: SotB:110

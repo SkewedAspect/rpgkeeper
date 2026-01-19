@@ -7,4 +7,5 @@ useWith: weapon
 modifiers: When your character makes their first combat check with this weapon in an encounter, add Success Despair to
   the results.
 hpRequired: 1
+qualities: []
 reference: EotI:128

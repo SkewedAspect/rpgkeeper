@@ -7,4 +7,5 @@ useWith: armor
 modifiers: If your character is targeted by a melee combat check while wearing this armor, you may spend hhh or d to
   cause the attacker to suffer 3 wounds.
 hpRequired: 2
+qualities: []
 reference: RoT:108

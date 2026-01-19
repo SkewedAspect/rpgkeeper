@@ -5,4 +5,5 @@ description: Ironbound runebound shards are highly desirable for military effort
 useWith: armor
 modifiers: The armor increases its defense by 1 and soak by 1.
 hpRequired: 2
+qualities: []
 reference: RoT:108

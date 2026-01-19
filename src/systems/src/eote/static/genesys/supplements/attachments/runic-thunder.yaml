@@ -5,4 +5,5 @@ description: When its weapon strikes a foe, this rune carving flashes white like
 useWith: weapon
 modifiers: The weapon gains the Concussive item quality.
 hpRequired: 2
+qualities: []
 reference: RoT:107

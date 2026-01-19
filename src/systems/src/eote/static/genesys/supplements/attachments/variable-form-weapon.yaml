@@ -10,4 +10,5 @@ modifiers: When this attachment is installed, your character chooses one of the 
   as an incidental. While the weapon is in its melee form, your character can make a Melee combat check using the chosen
   profile.
 hpRequired: 3
+qualities: []
 reference: EotI:128

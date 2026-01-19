@@ -6,4 +6,5 @@ description: A telescopic sight magnifies a target, allowing the user to shoot t
 useWith: weapon
 modifiers: The user reduces the difficulty of ranged combat checks made with this weapon at long and extreme range by 1.
 hpRequired: 1
+qualities: []
 reference: G-CRB:208

@@ -9,4 +9,5 @@ useWith: weapon
 modifiers: When this weapon inflicts a Critical Injury, it inflicts the Bleeding Out Critical Injury instead of one
   determined through rolling for the result.
 hpRequired: 1
+qualities: []
 reference: RoT:106

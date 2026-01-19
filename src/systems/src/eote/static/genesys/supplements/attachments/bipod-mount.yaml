@@ -8,4 +8,7 @@ modifiers: If the user spends one preperation to deploy the bipod, the weapon's 
   reduced by 2, to a minimum of 0, and the weapon's encumbrance is reduced by 2, to a minimum of 0, while the user fires
   from a crouched or prone position (or can brace the bipod against something solid).
 hpRequired: 1
+qualities:
+  - id: genesys-quality-cumbersome
+  - id: genesys-quality-unwieldy
 reference: G-CRB:207

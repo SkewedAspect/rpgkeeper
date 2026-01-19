@@ -5,4 +5,5 @@ description: Increasing the thickness of a beam weapon's focal prisms or lenses 
 useWith: weapon
 modifiers: The weapon's range increases by one range band, to a maximum of extreme range. The weapon's base damage decreases by 1.
 hpRequired: 1
+qualities: []
 reference: EotI:127

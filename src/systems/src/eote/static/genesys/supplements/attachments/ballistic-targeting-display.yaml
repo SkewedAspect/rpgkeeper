@@ -9,4 +9,5 @@ useWith: weapon
 modifiers: The user reduces the difficulty of ranged combat checks made with this weapon at ranges greater than medium
   by 2, to a minimum of Average. This bonus cannot be combined with any other bonus from a different scope or sight.
 hpRequired: 3
+qualities: []
 reference: SotB:110

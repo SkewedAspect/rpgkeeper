@@ -10,4 +10,5 @@ modifiers: Once per encounter when wearing this armor, your character may admini
   rules about not performing actions, maneuvers, or incidentals while incapacitated). After this system has administered
   three doses, it must be replenished, which requires three dermal sealers and five minutes of work.
 hpRequired: 1
+qualities: []
 reference: EotI:130

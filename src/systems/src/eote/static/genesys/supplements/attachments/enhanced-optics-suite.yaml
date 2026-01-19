@@ -6,4 +6,5 @@ description: This attachment builds numerous optical enhancements into the helme
 useWith: armor
 modifiers: Removes setback added to your character's checks due to smoke or darkness.
 hpRequired: 1
+qualities: []
 reference: SotB:109

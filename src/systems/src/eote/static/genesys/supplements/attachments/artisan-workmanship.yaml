@@ -5,4 +5,5 @@ description: Although most of the weapons in the galaxy are made by large corpor
 useWith: weapon
 modifiers: This weapon gains the Superior item quality.
 hpRequired: 1
+qualities: []
 reference: EotI:126

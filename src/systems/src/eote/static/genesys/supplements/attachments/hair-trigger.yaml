@@ -6,4 +6,5 @@ description: A "hair trigger" represents a modification that allows the user to 
 useWith: weapon
 modifiers: When the user makes the first combat check with this weapon in an encounter, add Success Despair to the results.
 hpRequired: 1
+qualities: []
 reference: G-CRB:207

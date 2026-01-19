@@ -5,4 +5,6 @@ description: Adding jagged sawteeth to a bladed weapon means the wounds it makes
 useWith: weapon
 modifiers: The weapon gains the Vicious quality, or increases any existing Vicious quality by 1.
 hpRequired: 1
+qualities:
+  - id: genesys-quality-vicious
 reference: G-CRB:208

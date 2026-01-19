@@ -75,6 +75,7 @@ interface BaseAttachment extends Supplement
     useWith : string;
     modifiers : string;
     hpRequired : BoundedRange<0, 50>;
+    qualities : BaseQualityRef[];
 }
 
 export interface BaseQuality extends Supplement

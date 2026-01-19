@@ -9,4 +9,5 @@ modifiers: As long as the harness is attached to your character, the weapon's Cu
   minimum of 0, and the weapon's encumbrance is reduced by 2, to a minimum of 0. The weapon gains the Unwieldy quality,
   or increases any existing Unwieldy quality by 1.
 hpRequired: 3
+qualities: []
 reference: SotB:112

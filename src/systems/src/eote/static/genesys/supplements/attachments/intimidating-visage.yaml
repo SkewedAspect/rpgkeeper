@@ -6,4 +6,5 @@ useWith: armor
 modifiers: When wearing this armor, the user adds Success to Coercion checks they make, and automatic Failure to Charm
   checks they make.
 hpRequired: 0
+qualities: []
 reference: G-CRB:209

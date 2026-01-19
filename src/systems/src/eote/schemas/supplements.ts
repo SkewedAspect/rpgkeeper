@@ -164,6 +164,7 @@ export const GenesysAttachmentDataSchema = BaseSupplementDataSchema.extend({
     hpRequired: z.number()
         .int()
         .default(0),
+    qualities: z.array(WeaponQualityRefSchema).default([]),
 });
 
 //----------------------------------------------------------------------------------------------------------------------

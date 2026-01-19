@@ -7,4 +7,5 @@ useWith: weapon
 modifiers: Add setback to checks made to detect or find the weapon. Reduce the weapon's encumbrance value by 2, to a
   minimum of 1, and reduce its damage by 1, to a minimum of 1.
 hpRequired: 1
+qualities: []
 reference: EotI:127

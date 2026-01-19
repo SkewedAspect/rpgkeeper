@@ -9,4 +9,5 @@ modifiers: This weapon gains the Guided item quality. When your character makes 
   may spend Despair Despair to cause this weapon to run out of ammo. This attachment cannot be combined with any bonus
   from another scope or sight.
 hpRequired: 3
+qualities: []
 reference: EotI:128

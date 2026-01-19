@@ -6,4 +6,5 @@ description: Carbo-mesh bonding is a strengthening technique that layers a carbo
 useWith: weapon
 modifiers: The weapon gains the Reinforced item quality.
 hpRequired: 1
+qualities: []
 reference: EotI:125

@@ -6,4 +6,6 @@ useWith: weapon
 modifiers: The weapon increases its damage by 2. The weapon gains the Cumbersome quality, or increases its existing
   Cumbersome quality by 1.
 hpRequired: 1
+qualities:
+  - id: genesys-quality-cumbersome
 reference: G-CRB:209

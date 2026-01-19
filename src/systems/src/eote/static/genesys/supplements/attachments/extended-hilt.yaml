@@ -7,4 +7,5 @@ useWith: weapon
 modifiers: The weapon can now be wielded with two hands if it could not already. Your character adds Advantage to the
   results of combat checks they make with this weapon, provided they use two hands to wield it.
 hpRequired: 1
+qualities: []
 reference: EotI:127

@@ -9,4 +9,5 @@ useWith: armor
 modifiers: When wearing this armor, your character may remove setback added to skill checks they make due to concealment
   (darkness, smoke, and intervening terrain) that obscure vision or sound.
 hpRequired: 1
+qualities: []
 reference: EotI:130

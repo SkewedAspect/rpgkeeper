@@ -5,4 +5,5 @@ description: Ballistic armor plates are a popular after-market add on for mercen
 useWith: armor
 modifiers: The wearer increases their ranged defense by 1. The armor also increases its encumbrance by 1.
 hpRequired: 1
+qualities: []
 reference: SotB:109

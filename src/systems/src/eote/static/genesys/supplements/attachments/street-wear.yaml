@@ -7,4 +7,5 @@ useWith: armor
 modifiers: This armor looks like normal clothing. Anyone searching your character adds setback to Perception checks to
   notice that they are wearing armor.
 hpRequired: 0
+qualities: []
 reference: SotB:110

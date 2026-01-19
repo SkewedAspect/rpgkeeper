@@ -7,4 +7,5 @@ useWith: weapon
 modifiers: Your character may draw this weapon as an incidental rather than as a maneuver. The range of this weapon
   changes to short.
 hpRequired: 1
+qualities: []
 reference: SotB:111

@@ -5,4 +5,5 @@ description: Whether through means of runic inscription on the weapon or by alch
 useWith: weapon
 modifiers: The weapon gains the Blast item quality.
 hpRequired: 1
+qualities: []
 reference: RoT:106

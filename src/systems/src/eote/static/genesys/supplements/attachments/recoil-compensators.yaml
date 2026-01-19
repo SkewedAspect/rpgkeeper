@@ -6,4 +6,5 @@ description: By using smartlinked gyrostabilizers and gas vents, recoil compensa
 useWith: weapon
 modifiers: The weapon decreases its Inaccurate item quality by 1, to a minimum of 0.
 hpRequired: 1
+qualities: []
 reference: SotB:111

@@ -9,4 +9,5 @@ modifiers: Your character reduces the difficulty of ranged combat checks made wi
   by 1. Your character may remove setback added to combat checks they make with this weapon due to concealment
   (darkness, smoke, and intervening terrain) that obscure vision.
 hpRequired: 1
+qualities: []
 reference: EotI:127

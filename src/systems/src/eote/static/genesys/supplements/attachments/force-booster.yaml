@@ -11,4 +11,5 @@ modifiers: The weapon's base damage increases by 2, and it gains the Vicious ite
   within medium range (if the check was successful, your character loses control of the weapon after hitting their
   target).
 hpRequired: 1
+qualities: []
 reference: EotI:127
