@@ -45,7 +45,9 @@ export default defineConfig({
     plugins: [
         checker({
             eslint: {
-                lintCommand: 'eslint "packages/{client,systems}/src/**/*.{ts,js,vue}" --max-warnings=0',
+                lintCommand: 'eslint "packages/client/src/**/*.{ts,js,vue}" '
+                    + '"packages/systems/src/**/client/**/*.{ts,js,vue}" "packages/systems/src/client.ts" '
+                    + '--max-warnings=0',
                 useFlatConfig: true,
             },
             typescript: true,
