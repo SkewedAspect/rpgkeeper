@@ -151,7 +151,7 @@
             if(Array.isArray(upgrade))
             {
                 // If it's an array (i.e. `control`) we just add them as individual upgrades, all with the same
-                // name. This is find, because we don't assume the name is unique. Also, we add the `index`
+                // name. This is fine, because we don't assume the name is unique. Also, we add the `index`
                 // property, because that tells us which control item we've purchased.
                 const upgradeItems = upgrade.map((up : { description ?: string }, index : number) =>
                 {

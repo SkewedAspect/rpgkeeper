@@ -33,7 +33,7 @@ import {
 const genesysSkills : GenesysSkill[] = [
     // General
     { name: 'Alchemy', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
-    { name: 'Astrocartogrphy', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
+    { name: 'Astrocartography', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
     { name: 'Athletics', characteristic: 'brawn', ranks: 0, career: false, type: 'general' },
     { name: 'Computers', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
     { name: 'Cool', characteristic: 'presence', ranks: 0, career: false, type: 'general' },

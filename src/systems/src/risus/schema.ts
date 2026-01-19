@@ -19,7 +19,7 @@ export const RisusHookSchema = z.object({
 /**
  * Schema for a Risus cliche (skill/archetype).
  */
-export const RisusCliqueSchema = z.object({
+export const RisusClicheSchema = z.object({
     /** The number of dice for this cliche (permanent value) */
     value: z.number()
         .int()
@@ -64,7 +64,7 @@ export const RisusDetailsSchema = z.object({
         .int()
         .min(0),
     /** The character's cliches (skills/archetypes) */
-    cliches: z.array(RisusCliqueSchema),
+    cliches: z.array(RisusClicheSchema),
     /** The character's hooks (flaws/complications) */
     hooks: z.array(RisusHookSchema),
     /** Lucky shots - one-time bonuses for dire situations */
@@ -90,8 +90,8 @@ export const RisusDetailsCodec = jsonCodec(RisusDetailsSchema);
 /** Type inferred from RisusHookSchema */
 export type RisusHookFromSchema = z.infer<typeof RisusHookSchema>;
 
-/** Type inferred from RisusCliqueSchema */
-export type RisusCliqueFromSchema = z.infer<typeof RisusCliqueSchema>;
+/** Type inferred from RisusClicheSchema */
+export type RisusClicheFromSchema = z.infer<typeof RisusClicheSchema>;
 
 /** Type inferred from RisusDetailsSchema */
 export type RisusDetailsFromSchema = z.infer<typeof RisusDetailsSchema>;

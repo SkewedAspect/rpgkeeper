@@ -336,11 +336,6 @@
         return undefined;
     });
 
-    // const staggeredText = computed(() =>
-    // {
-    //     return `A <b>staggered</b> character cannot perform actions (including downgrading actions to maneuvers).`;
-    // });
-
     const immobilizedText = computed(() =>
     {
         return ``;
