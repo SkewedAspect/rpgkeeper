@@ -105,7 +105,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const mode = computed(() => systemStore.current?.id ?? 'eote');
-    const readonly = computed(() => props.readonly);
+    // Note: readonly prop is available via props.readonly if needed
     const forcePowers = computed(() => supplementStore.get<EoteForcePower>(mode.value, 'forcepower'));
 
     const powerBase = computed<EoteForcePower | undefined>(() =>

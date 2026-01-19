@@ -12,6 +12,7 @@
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
+            @hidden="onCancel"
         >
             <!-- Modal Header -->
             <template #header="{ cancel }">
@@ -125,6 +126,9 @@
         EoteOrGenesysTalent,
         EoteTalent,
     } from '../../../models.ts';
+    import type { BoundedRange } from '@rpgk/core/utils/types';
+
+    type TalentActivation = 'p' | 'ai' | 'aio' | 'am' | 'aa';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -152,12 +156,12 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const id = ref<number | undefined>(undefined);
+    const id = ref<string | undefined>(undefined);
     const name = ref('');
     const description = ref('');
-    const activation = ref('');
+    const activation = ref<TalentActivation | ''>('');
     const trees = ref('');
-    const tier = ref(1);
+    const tier = ref<BoundedRange<1, 5>>(1 as BoundedRange<1, 5>);
     const reference = ref('');
     const ranked = ref(false);
 
@@ -197,9 +201,9 @@
             name.value = talent.name;
             description.value = talent.description;
             activation.value = talent.activation;
-            trees.value = talent.trees;
+            trees.value = talent.trees ?? '';
             tier.value = talent.tier;
-            reference.value = talent.reference;
+            reference.value = talent.reference ?? '';
             ranked.value = talent.ranked;
         }
         else
@@ -230,7 +234,7 @@
                 id: id.value,
                 name: name.value,
                 description: description.value,
-                activation: activation.value,
+                activation: (activation.value || 'p') as TalentActivation,
                 trees: trees.value,
                 tier: tier.value,
                 ranked: ranked.value,
@@ -245,7 +249,7 @@
             const talent = await supplementStore.add<EoteTalent>(mode.value, 'talent', {
                 name: name.value,
                 description: description.value,
-                activation: activation.value,
+                activation: (activation.value || 'p') as TalentActivation,
                 trees: trees.value,
                 tier: tier.value,
                 ranked: ranked.value,
@@ -264,7 +268,7 @@
         description.value = '';
         activation.value = '';
         trees.value = '';
-        tier.value = 1;
+        tier.value = 1 as BoundedRange<1, 5>;
         reference.value = '';
         ranked.value = false;
     }

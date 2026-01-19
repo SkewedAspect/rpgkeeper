@@ -242,19 +242,6 @@
         value : number;
     }
 
-    interface Health
-    {
-        wounds : number;
-        woundThreshold : number;
-        strain : number;
-        strainThreshold : number;
-        criticalInjuries : CriticalInjury[];
-        stimsUsed : number;
-        staggered : boolean;
-        immobilized : boolean;
-        disoriented : boolean;
-    }
-
     interface Wounds
     {
         wounds : number;

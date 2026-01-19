@@ -10,7 +10,7 @@
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
-            size="xxl"
+            size="xl"
             @ok="onSave"
         >
             <!-- Modal Header -->
@@ -130,8 +130,7 @@
         EoteCharacter,
         EoteForcePower,
         EoteForcePowerInst,
-        EoteForcePowerUpgrade,
-        EoteTalentInst } from '../../../models.ts';
+        EoteForcePowerUpgrade } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';

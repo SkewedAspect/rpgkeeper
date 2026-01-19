@@ -12,6 +12,7 @@
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
+            @hidden="onCancel"
         >
             <!-- Modal Header -->
             <template #header="{ cancel }">
@@ -69,7 +70,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteAbility, EoteForcePower } from '../../../models.ts';
+    import type { EoteAbility } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -94,7 +95,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const id = ref<number>(null);
+    const id = ref<string | undefined>(undefined);
     const name = ref('');
     const description = ref('');
     const reference = ref('');
@@ -122,11 +123,11 @@
             id.value = ability.id;
             name.value = ability.name;
             description.value = ability.description;
-            reference.value = ability.reference;
+            reference.value = ability.reference ?? '';
         }
         else
         {
-            id.value = null;
+            id.value = undefined;
             name.value = '';
             description.value = '';
             reference.value = '';
@@ -170,7 +171,7 @@
 
     function onCancel() : void
     {
-        id.value = null;
+        id.value = undefined;
         name.value = '';
         description.value = '';
         reference.value = '';

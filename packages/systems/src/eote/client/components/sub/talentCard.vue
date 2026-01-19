@@ -29,7 +29,7 @@
                     </div>
                     <MarkdownBlock :text="talentBase?.description" inline />
                     <div class="clearfix">
-                        <Reference class="float-end mt-2 mb-2" :reference="talentBase?.reference" />
+                        <Reference class="float-end mt-2 mb-2" :reference="talentBase?.reference ?? ''" />
                     </div>
                     <div v-if="talent.notes">
                         <hr class="mt-1 mb-1">

@@ -12,6 +12,7 @@
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
+            @hidden="onCancel"
         >
             <!-- Modal Header -->
             <template #header="{ cancel }">
@@ -123,7 +124,6 @@
 
     // Models
     import type {
-        EoteQuality,
         GenesysMotivation,
         GenesysMotivationType } from '../../../models.ts';
 
@@ -146,7 +146,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const id = ref<number>(null);
+    const id = ref<string | undefined>(undefined);
     const name = ref('');
     const type = ref<GenesysMotivationType>('strength');
     const description = ref('');
@@ -170,7 +170,7 @@
 
     function show(motivation : Partial<GenesysMotivation>) : void
     {
-        id.value = motivation.id ?? null;
+        id.value = motivation.id ?? undefined;
         name.value = motivation.name ?? '';
         type.value = motivation.type ?? 'strength';
         description.value = motivation.description ?? '';
@@ -215,7 +215,7 @@
         }
 
         // Clear
-        id.value = null;
+        id.value = undefined;
         name.value = '';
         type.value = 'strength';
         description.value = '';
@@ -224,7 +224,7 @@
 
     function onCancel() : void
     {
-        id.value = null;
+        id.value = undefined;
         name.value = '';
         type.value = 'strength';
         description.value = '';

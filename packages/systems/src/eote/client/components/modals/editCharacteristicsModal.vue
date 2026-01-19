@@ -12,6 +12,7 @@
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
+            @hidden="onCancel"
         >
             <!-- Modal Header -->
             <template #header="{ cancel }">
@@ -139,14 +140,14 @@
 
     const characteristicNames = computed(() =>
     {
-        return Object.keys(characteristics.value);
+        return Object.keys(characteristics.value) as (keyof EoteCharacteristics)[];
     });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function formatCharName(text) : string
+    function formatCharName(text : string) : string
     {
         return startCase(text);
     }

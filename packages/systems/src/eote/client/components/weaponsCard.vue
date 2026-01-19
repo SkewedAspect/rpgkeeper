@@ -228,7 +228,10 @@
 
     function onDelWeaponDelete() : void
     {
-        removeWeapon(delWeapon.value);
+        if(delWeapon.value)
+        {
+            removeWeapon(delWeapon.value);
+        }
     }
 
     function onAdd(weapon : EoteWeaponRef) : void

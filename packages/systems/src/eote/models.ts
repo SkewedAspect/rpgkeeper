@@ -41,7 +41,7 @@ export interface BaseTalent extends Supplement
     description : string;
     activation : 'p' | 'ai' | 'aio' | 'am' | 'aa';
     ranked : boolean;
-    tier : BoundedRange<1, 5>
+    tier : BoundedRange<1, 5>;
 }
 
 export interface BaseTalentInst
@@ -186,6 +186,7 @@ interface BaseSystemDetails
 //----------------------------------------------------------------------------------------------------------------------
 
 export type EoteCharacteristics = BaseCharacteristics;
+export type EoteCriticalInjury = BaseCriticalInjury;
 export type EoteCritical = BaseCriticalInjuryEntry;
 export type EoteAbility = BaseAbility;
 export type EoteSkill = BaseSkill;

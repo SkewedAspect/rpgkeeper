@@ -336,13 +336,13 @@
         emit('roll', dice, item.name);
     }
 
-    function range(num) : number[]
+    function range(num : number) : number[]
     {
         const rangeArray = Array(num).fill(0);
         return rangeArray.map((_, index) => index);
     }
 
-    function formatCharName(text) : string
+    function formatCharName(text : string) : string
     {
         return startCase(text);
     }

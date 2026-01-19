@@ -97,7 +97,8 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const characteristics = ref([
+    type CharacteristicKey = keyof EoteCharacteristics;
+    const characteristics = ref<CharacteristicKey[]>([
         'brawn',
         'agility',
         'intellect',
@@ -135,12 +136,12 @@
         emit('save');
     }
 
-    function formatCharName(text) : string
+    function formatCharName(text : string) : string
     {
         return startCase(text);
     }
 
-    function getCharacteristic(char) : number
+    function getCharacteristic(char : CharacteristicKey) : number
     {
         return character.value.details.characteristics[char];
     }

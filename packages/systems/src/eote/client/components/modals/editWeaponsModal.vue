@@ -171,13 +171,11 @@
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
-    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Models
     import type {
         EncounterRange,
         EoteCharacter,
-        EoteQuality,
         EoteQualityRef,
         EoteWeaponRef,
     } from '../../../models.ts';
@@ -221,7 +219,6 @@
 
     const { current } = storeToRefs(useCharacterStore());
     const systemStore = useSystemStore();
-    const supplementStore = useSupplementStore();
 
     const weapIndex = ref(-1);
     const weapon = ref<EoteWeaponRef | undefined>(undefined);
@@ -245,7 +242,7 @@
 
     const char = computed<EoteCharacter>(() => current.value as any);
     const mode = computed(() => systemStore.current?.id ?? 'eote');
-    const qualities = computed(() => supplementStore.get<EoteQuality>(mode.value, 'quality'));
+    // Note: qualities computed was unused - QualityEdit component fetches its own data
 
     const isAdd = computed(() => !weapon.value);
     const skillNames = computed(() => char.value.details.skills.map((skill) => skill.name).sort());

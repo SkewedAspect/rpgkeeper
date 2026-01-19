@@ -296,18 +296,20 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const newSkill = ref({
+    type SkillType = 'general' | 'combat' | 'magic' | 'social' | 'knowledge';
+    interface CharacteristicOption { text : string; value : string }
+
+    const newSkill = ref<Partial<EoteSkill>>({
         name: '',
         career: false,
-        characteristic: '',
-        type: '',
+        characteristic: '' as EoteSkill['characteristic'],
+        type: '' as SkillType,
         ranks: 0,
-
     });
 
     const mode = ref('eote');
     const skills = ref<EoteSkill[]>([]);
-    const characteristics = ref([]);
+    const characteristics = ref<CharacteristicOption[]>([]);
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -317,7 +319,7 @@
 
     const isAddValid = computed(() =>
     {
-        return isFinite(newSkill.value.ranks)
+        return isFinite(newSkill.value.ranks ?? NaN)
             && !!newSkill.value.name
             && !!newSkill.value.characteristic
             && !!newSkill.value.type;
@@ -367,7 +369,7 @@
     function addSkill () : void
     {
         // Split skills list into each section
-        const skillsSplit = {
+        const skillsSplit : Record<SkillType, EoteSkill[]> = {
             general: skills.value.filter((skill) => skill.type === 'general'),
             magic: skills.value.filter((skill) => skill.type === 'magic'),
             combat: skills.value.filter((skill) => skill.type === 'combat'),
@@ -376,10 +378,14 @@
         };
 
         // Add new skill to the right type list
-        skillsSplit[newSkill.value.type].push(newSkill.value);
+        const skillType = newSkill.value.type as SkillType;
+        if(skillType && newSkill.value.name && newSkill.value.characteristic)
+        {
+            skillsSplit[skillType].push(newSkill.value as EoteSkill);
+        }
 
         // Rebuild skills list in proper order
-        skills.value = [].concat(
+        skills.value = ([] as EoteSkill[]).concat(
             skillsSplit.general,
             skillsSplit.magic,
             skillsSplit.combat,
@@ -391,8 +397,8 @@
         newSkill.value = {
             name: '',
             career: false,
-            characteristic: '',
-            type: '',
+            characteristic: '' as EoteSkill['characteristic'],
+            type: '' as SkillType,
             ranks: 0,
         };
     }
@@ -414,11 +420,11 @@
 
     function moveSkillDown(index : number) : void
     {
-        if(index < this.skills.length)
+        if(index < skills.value.length)
         {
             const start = index;
             const end = index + 1;
-            this.skills.splice(end, 0, this.skills.splice(start, 1)[0]);
+            skills.value.splice(end, 0, skills.value.splice(start, 1)[0]);
         }
     }
 

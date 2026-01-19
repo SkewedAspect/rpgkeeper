@@ -12,6 +12,7 @@
             no-close-on-backdrop
             size="xl"
             @ok="onSave"
+            @hidden="onCancel"
         >
             <!-- Modal Header -->
             <template #header="{ cancel }">
@@ -168,7 +169,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteOrGenCharacter } from '../../../models.ts';
+    import type { EoteAbility, EoteOrGenCharacter } from '../../../models.ts';
 
     // Stores
     import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
@@ -240,14 +241,14 @@
         mode.value = char.system;
 
         name.value = char.name;
-        description.value = char.description;
+        description.value = char.description ?? '';
         career.value = char.details.career;
         species.value = char.details.species;
         selectedAbilities.value = new Set(char.details.abilities);
 
         if(char.system === 'eote')
         {
-            specialization.value = char.details.specialization;
+            specialization.value = char.details.specialization ?? '';
             forceSensitive.value = char.details.force.sensitive;
         }
 
@@ -283,14 +284,20 @@
         forceSensitive.value = false;
     }
 
-    function onAbilityAdd(ability) : void
+    function onAbilityAdd(ability : EoteAbility) : void
     {
-        selectedAbilities.value.add(ability.id);
+        if(ability.id)
+        {
+            selectedAbilities.value.add(ability.id);
+        }
     }
 
-    function onAbilityRemove(ability) : void
+    function onAbilityRemove(ability : EoteAbility) : void
     {
-        selectedAbilities.value.delete(ability.id);
+        if(ability.id)
+        {
+            selectedAbilities.value.delete(ability.id);
+        }
     }
 
     function onAbilityNew() : void
@@ -298,12 +305,12 @@
         addEditModal.value?.show(undefined);
     }
 
-    function onAbilityEdit(ability) : void
+    function onAbilityEdit(ability : EoteAbility) : void
     {
         addEditModal.value?.show(ability);
     }
 
-    function onAbilityDelete(ability) : void
+    function onAbilityDelete(ability : EoteAbility) : void
     {
         delAbility.value.id = ability.id;
         delAbility.value.name = ability.name;
@@ -320,9 +327,11 @@
     async function onDelAbilityDelete() : Promise<void>
     {
         suppSelect.value?.clearSelection();
-        selectedAbilities.value.delete(delAbility.value.id);
-
-        await supplementStore.remove(mode.value, 'ability', delAbility.value.id);
+        if(delAbility.value.id)
+        {
+            selectedAbilities.value.delete(delAbility.value.id);
+            await supplementStore.remove(mode.value, 'ability', delAbility.value.id);
+        }
 
         onSave();
     }

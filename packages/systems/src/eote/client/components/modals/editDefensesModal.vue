@@ -12,6 +12,7 @@
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
+            @hidden="onCancel"
         >
             <!-- Modal Header -->
             <template #header="{ cancel }">

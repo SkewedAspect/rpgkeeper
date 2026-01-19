@@ -10,8 +10,9 @@
             header-text-variant="white"
             no-close-on-esc
             no-close-on-backdrop
-            size="xxl"
+            size="xl"
             @ok="onSave"
+            @hidden="onCancel"
         >
             <!-- Modal Header -->
             <template #header="{ cancel }">
@@ -282,7 +283,17 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteForcePower, EoteQuality } from '../../../models.ts';
+    import type { EoteForcePower, EoteForcePowerUpgrade } from '../../../models.ts';
+
+    interface ForcePowerUpgrades
+    {
+        strength : EoteForcePowerUpgrade;
+        magnitude : EoteForcePowerUpgrade;
+        duration : EoteForcePowerUpgrade;
+        range : EoteForcePowerUpgrade;
+        control : { description : string }[];
+        mastery : EoteForcePowerUpgrade;
+    }
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -299,12 +310,12 @@
 
     //------------------------------------------------------------------------------------------------------------------
 
-    const defaultUpgrades = {
+    const defaultUpgrades : ForcePowerUpgrades = {
         strength: { available: 0, description: '' },
         magnitude: { available: 0, description: '' },
         duration: { available: 0, description: '' },
         range: { available: 0, description: '' },
-        control: [],
+        control: [] as { description : string }[],
         mastery: { available: 0, description: '' },
     };
 
@@ -321,12 +332,12 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const id = ref<number>(undefined);
+    const id = ref<string | undefined>(undefined);
     const minRating = ref(0);
     const name = ref('');
     const description = ref('');
     const reference = ref('');
-    const upgrades = ref(deepClone(defaultUpgrades));
+    const upgrades = ref<ForcePowerUpgrades>(deepClone(defaultUpgrades));
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -373,7 +384,7 @@
             name.value = forcePower.name;
             minRating.value = forcePower.minRating;
             description.value = forcePower.description;
-            reference.value = forcePower.reference;
+            reference.value = forcePower.reference ?? '';
             upgrades.value = {
                 ...deepClone(defaultUpgrades),
                 ...forcePower.upgrades,

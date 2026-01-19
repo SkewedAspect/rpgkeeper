@@ -12,6 +12,7 @@
             no-close-on-backdrop
             size="lg"
             @ok="onSave"
+            @hidden="onCancel"
         >
             <!-- Modal Header -->
             <template #header="{ cancel }">
@@ -107,7 +108,7 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const id = ref<number>(undefined);
+    const id = ref<string | undefined>(undefined);
     const name = ref('');
     const description = ref('');
     const reference = ref('');
@@ -139,7 +140,7 @@
             description.value = quality.description;
             passive.value = !!quality.passive;
             ranked.value = !!quality.ranked;
-            reference.value = quality.reference;
+            reference.value = quality.reference ?? '';
         }
         else
         {

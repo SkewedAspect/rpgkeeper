@@ -33,6 +33,9 @@
 <script lang="ts" setup>
     import { computed } from 'vue';
 
+    // Models
+    import type { EoteAbility } from '../../../models.ts';
+
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
     import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
@@ -63,7 +66,7 @@
 
     const ability = computed(() =>
     {
-        const abilities = supplementStore.get(mode.value, 'ability');
+        const abilities = supplementStore.get<EoteAbility>(mode.value, 'ability');
         return abilities.find((item) => item.id === props.id);
     });
 

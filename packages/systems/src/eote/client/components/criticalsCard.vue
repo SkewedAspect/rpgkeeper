@@ -52,14 +52,15 @@
 
         <hr class="mt-2 mb-2">
 
-        <CriticalCard
-            v-for="(critical, index) in currentCriticals"
-            :key="index"
-            class="mt-2"
-            :critical="findCritical(critical.name)"
-            :readonly="readonly"
-            @remove="removeCritical(index)"
-        />
+        <template v-for="(critical, index) in currentCriticals" :key="index">
+            <CriticalCard
+                v-if="findCritical(critical.name)"
+                class="mt-2"
+                :critical="findCritical(critical.name)!"
+                :readonly="readonly"
+                @remove="removeCritical(index)"
+            />
+        </template>
     </RpgkCard>
 </template>
 
@@ -74,7 +75,7 @@
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
 
     // Models
-    import type { EoteCritical, EoteOrGenCharacter } from '../../models.ts';
+    import type { EoteCritical, EoteCriticalInjury, EoteOrGenCharacter } from '../../models.ts';
 
     // Managers
     import diceMan from '@client/lib/utils/dice';
@@ -105,8 +106,8 @@
     const { current } = storeToRefs(useCharacterStore());
 
     const selectedCritical = ref(diceMan.eoteCriticals[0].title);
-    const currentCriticals = ref([]);
-    const rollBonus = ref(undefined);
+    const currentCriticals = ref<EoteCriticalInjury[]>([]);
+    const rollBonus = ref<number | undefined>(undefined);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -163,7 +164,7 @@
         );
     }
 
-    function findCritical(criticalName) : EoteCritical
+    function findCritical(criticalName : string) : EoteCritical | undefined
     {
         return criticals.value.find((crit) => crit.title === criticalName);
     }
@@ -185,7 +186,7 @@
     {
         currentCriticals.value.splice(index, 1);
         character.value.details.health.criticalInjuries = currentCriticals.value;
-        return this.saveChar();
+        saveChar();
     }
 
     function rollCritical(bonus = 0) : void

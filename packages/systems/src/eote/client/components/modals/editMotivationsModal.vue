@@ -12,6 +12,7 @@
             no-close-on-backdrop
             size="xl"
             @ok="onSave"
+            @hidden="onCancel"
         >
             <!-- Modal Header -->
             <template #header="{ cancel }">
@@ -340,7 +341,7 @@
         fear: null,
     });
 
-    const delMotiv = ref<{ id ?: string, name : string, type : string }>({
+    const delMotiv = ref<{ id ?: string, name : string, type : GenesysMotivationType | '' }>({
         id: undefined,
         name: '',
         type: '',
@@ -445,7 +446,11 @@
 
     async function onDelMotivDelete() : Promise<void>
     {
-        motivations.value[delMotiv.value.type] = null;
+        const motivType = delMotiv.value.type as GenesysMotivationType;
+        if(motivType)
+        {
+            motivations.value[motivType] = null;
+        }
         emit('save', motivations.value);
 
         if(delMotiv.value.id)
