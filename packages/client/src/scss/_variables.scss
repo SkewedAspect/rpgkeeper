@@ -51,6 +51,14 @@ $theme-colors-text: (
 // Fonts
 //----------------------------------------------------------------------------------------------------------------------
 
+$font-size-root: 14px !default;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Navbar
+//----------------------------------------------------------------------------------------------------------------------
+
+$navbar-padding-y: 4px !default;
+
 $font-family-sans-serif: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
 Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 "Noto Color Emoji" !default;

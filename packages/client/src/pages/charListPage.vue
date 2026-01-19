@@ -26,35 +26,39 @@
                             <!-- System Filter Dropdown -->
                             <BDropdown id="filterSystems" class="ms-2 flex-grow-0 flex-shrink-0 w-auto" right>
                                 <template #button-content>
-                                    <Fa icon="cog" />
+                                    <Fa icon="filter" />
+                                    Systems
                                 </template>
 
-                                <BDropdownForm class="system-filter-checkbox">
-                                    <BFormCheckbox
-                                        v-for="system in systems"
-                                        :key="system.id"
-                                        v-model="systemsFilter"
-                                        :value="system.id"
-                                        class="block-labels"
-                                        @click.stop
-                                    >
-                                        <div class="text-nowrap d-flex w-100" @click.stop>
-                                            <div class="me-3">
-                                                {{ system.name }}
+                                <template v-for="(group, groupIndex) in groupedSystems" :key="groupIndex">
+                                    <BDropdownDivider v-if="groupIndex > 0" />
+                                    <BDropdownForm class="system-filter-checkbox">
+                                        <BFormCheckbox
+                                            v-for="system in group"
+                                            :key="system.id"
+                                            v-model="systemsFilter"
+                                            :value="system.id"
+                                            class="block-labels"
+                                            @click.stop
+                                        >
+                                            <div class="text-nowrap d-flex w-100" @click.stop>
+                                                <div class="me-3">
+                                                    {{ system.name }}
+                                                </div>
+                                                <div class="ms-auto">
+                                                    <BBadge
+                                                        v-if="system.status && system.status !== 'stable'"
+                                                        :variant="getStatusVariant(system.status)"
+                                                        :title="getStatusDescription(system.status)"
+                                                    >
+                                                        <Fa :icon="getStatusIcon(system.status)" />
+                                                        {{ getStatusDisplay(system.status) }}
+                                                    </BBadge>
+                                                </div>
                                             </div>
-                                            <div class="ms-auto">
-                                                <BBadge
-                                                    v-if="system.status && system.status !== 'stable'"
-                                                    :variant="getStatusVariant(system.status)"
-                                                    :title="getStatusDescription(system.status)"
-                                                >
-                                                    <Fa :icon="getStatusIcon(system.status)" />
-                                                    {{ getStatusDisplay(system.status) }}
-                                                </BBadge>
-                                            </div>
-                                        </div>
-                                    </BFormCheckbox>
-                                </BDropdownForm>
+                                        </BFormCheckbox>
+                                    </BDropdownForm>
+                                </template>
                                 <BDropdownDivider />
                                 <BDropdownItem style="pointer-events: none">
                                     <div style="pointer-events: all" @click.stop="selectAllSystems()">
@@ -205,6 +209,14 @@
     });
 
     const systems = computed(() => sysStore.filteredSystems);
+
+    const groupedSystems = computed(() =>
+    {
+        const statusOrder = [ 'stable', 'beta', 'dev', 'disabled' ];
+        return statusOrder
+            .map((status) => systems.value.filter((sys) => sys.status === status))
+            .filter((group) => group.length > 0);
+    });
 
     const characters = computed(() =>
     {
