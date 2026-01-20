@@ -6,7 +6,7 @@
     <div id="quality-edit">
         <SupplementSelect
             ref="suppSelect"
-            label="Qualities"
+            :label="label"
             label-class="fw-bold"
             :available="allQualities"
             :selected="selectedQualities"
@@ -82,9 +82,12 @@
     interface Props
     {
         qualities : EoteQualityRef[];
+        label ?: string;
     }
 
-    const props = defineProps<Props>();
+    const props = withDefaults(defineProps<Props>(), {
+        label: 'Qualities',
+    });
 
     type Events = (e : 'update:qualities', qualities : EoteQualityRef[]) => void;
 

@@ -41,11 +41,26 @@
                         label-class="fw-bold"
                         label-for="name-input"
                     >
-                        <BFormInput
+                        <VueBootstrapAutocomplete
                             id="name-input"
                             v-model="editWeapon.name"
-                            type="text"
-                        />
+                            :data="availableWeapons"
+                            :serializer="(w : EoteWeapon) => w.name"
+                            :max-matches="1000"
+                            placeholder="Search or enter name..."
+                            show-on-focus
+                            @hit="onWeaponTemplateHit"
+                        >
+                            <template #append>
+                                <BButton
+                                    variant="outline-secondary"
+                                    title="Browse weapons..."
+                                    @click="openBrowseModal"
+                                >
+                                    <Fa icon="search" />
+                                </BButton>
+                            </template>
+                        </VueBootstrapAutocomplete>
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
@@ -73,7 +88,7 @@
                     </BFormGroup>
                 </BFormRow>
 
-                <BFormRow>
+                <BFormRow class="mt-2">
                     <BFormGroup
                         class="flex-fill pe-1 w-25"
                         label="Damage"
@@ -149,6 +164,53 @@
                 </BButton>
             </template>
         </BModal>
+
+        <!-- Browse Weapons Modal -->
+        <SupplementBrowserModal
+            ref="browseModal"
+            title="Browse Weapons"
+            :supplements="availableWeapons"
+            @select="onBrowseSelect"
+            @add-new="onAddNewWeapon"
+            @edit="onEditWeaponSupplement"
+        >
+            <template #preview="{ supplement }">
+                <div class="mb-2">
+                    <strong>Skill:</strong> {{ supplement.skill }}
+                    <span class="ms-3"><strong>Range:</strong> {{ rangeEnum[supplement.range] }}</span>
+                </div>
+                <div class="mb-2">
+                    <strong>Damage:</strong> {{ supplement.damage }}
+                    <span class="ms-3"><strong>Critical:</strong> {{ supplement.criticalRating }}</span>
+                </div>
+                <div class="mb-2">
+                    <strong>Encumbrance:</strong> {{ supplement.encumbrance }}
+                    <span class="ms-3"><strong>Rarity:</strong> {{ supplement.rarity }}</span>
+                </div>
+                <hr>
+                <MarkdownBlock :text="supplement.description ?? 'No description.'" inline />
+                <div class="text-end mt-auto pt-3">
+                    <h5><ScopeBadge :supplement="supplement" /></h5>
+                    <ReferenceBlock :reference="supplement.reference ?? ''" />
+                </div>
+            </template>
+        </SupplementBrowserModal>
+
+        <!-- Add/Edit Weapon Supplement Modal -->
+        <AddEditWeaponModal
+            ref="addEditWeaponModal"
+            @add="onWeaponSupplementAdded"
+            @edit="onWeaponSupplementEdited"
+        />
+
+        <!-- Confirm Overwrite Modal -->
+        <ConfirmOverwriteModal
+            ref="confirmOverwriteModal"
+            title="Overwrite Weapon"
+            message="Overwrite current weapon values?"
+            description="This will replace all fields with the selected template values. Any changes you've made will be lost."
+            @confirm="onConfirmOverwrite"
+        />
     </div>
 </template>
 
@@ -171,12 +233,14 @@
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Models
     import type {
         EncounterRange,
         EoteCharacter,
         EoteQualityRef,
+        EoteWeapon,
         EoteWeaponRef,
     } from '../../../models.ts';
 
@@ -186,7 +250,14 @@
     // Components
     import QualityEdit from '../sub/qualityEdit.vue';
     import { BModal } from 'bootstrap-vue-next';
+    import { VueBootstrapAutocomplete } from '@morgul/vue-bootstrap-autocomplete';
     import CloseButton from '@client/components/ui/closeButton.vue';
+    import SupplementBrowserModal from '@client/components/character/supplementBrowserModal.vue';
+    import ConfirmOverwriteModal from '@client/components/ui/confirmOverwriteModal.vue';
+    import AddEditWeaponModal from './addEditWeaponModal.vue';
+    import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
+    import ScopeBadge from '@client/components/character/scopeBadge.vue';
+    import ReferenceBlock from '@client/components/character/referenceBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -219,6 +290,7 @@
 
     const { current } = storeToRefs(useCharacterStore());
     const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
 
     const weapIndex = ref(-1);
     const weapon = ref<EoteWeaponRef | undefined>(undefined);
@@ -234,7 +306,12 @@
         qualities: [],
     });
 
+    const pendingTemplate = ref<EoteWeapon | null>(null);
+
     const innerModal = useTemplateRef('innerModal');
+    const browseModal = ref<{ show : () => void; hide : () => void } | null>(null);
+    const addEditWeaponModal = useTemplateRef<InstanceType<typeof AddEditWeaponModal>>('addEditWeaponModal');
+    const confirmOverwriteModal = useTemplateRef<InstanceType<typeof ConfirmOverwriteModal>>('confirmOverwriteModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -242,7 +319,6 @@
 
     const char = computed<EoteCharacter>(() => current.value as any);
     const mode = computed(() => systemStore.current?.id ?? 'eote');
-    // Note: qualities computed was unused - QualityEdit component fetches its own data
 
     const isAdd = computed(() => !weapon.value);
     const skillNames = computed(() => char.value.details.skills.map((skill) => skill.name).sort());
@@ -257,9 +333,102 @@
         });
     });
 
+    const availableWeapons = computed(() => supplementStore.get<EoteWeapon>(mode.value, 'weapon'));
+
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
+
+    function formHasValues() : boolean
+    {
+        // Don't check name since that's what the user types to search
+        return !!(
+            editWeapon.value.skill
+            || editWeapon.value.damage > 0
+            || editWeapon.value.criticalRating > 0
+            || editWeapon.value.encumbrance > 0
+            || editWeapon.value.rarity > 0
+            || editWeapon.value.qualities.length > 0
+        );
+    }
+
+    function applyTemplate(template : EoteWeapon) : void
+    {
+        editWeapon.value = {
+            weaponID: undefined,
+            name: template.name,
+            skill: template.skill,
+            damage: template.damage,
+            criticalRating: template.criticalRating,
+            range: template.range,
+            encumbrance: template.encumbrance,
+            rarity: template.rarity,
+            qualities: [ ...(template.qualities ?? []) ],
+        };
+    }
+
+    function onWeaponTemplateHit(template : EoteWeapon) : void
+    {
+        if(formHasValues())
+        {
+            pendingTemplate.value = template;
+            confirmOverwriteModal.value?.show();
+        }
+        else
+        {
+            applyTemplate(template);
+        }
+    }
+
+    function openBrowseModal() : void
+    {
+        browseModal.value?.show();
+    }
+
+    function onBrowseSelect(template : EoteWeapon) : void
+    {
+        if(formHasValues())
+        {
+            pendingTemplate.value = template;
+            confirmOverwriteModal.value?.show();
+        }
+        else
+        {
+            applyTemplate(template);
+        }
+    }
+
+    function onConfirmOverwrite() : void
+    {
+        if(pendingTemplate.value)
+        {
+            applyTemplate(pendingTemplate.value);
+            pendingTemplate.value = null;
+        }
+    }
+
+    function onAddNewWeapon() : void
+    {
+        browseModal.value?.hide();
+        addEditWeaponModal.value?.show();
+    }
+
+    function onWeaponSupplementAdded(newWeapon : EoteWeapon) : void
+    {
+        // Optionally auto-apply the new weapon to the form
+        applyTemplate(newWeapon);
+    }
+
+    function onEditWeaponSupplement(weaponSupp : EoteWeapon) : void
+    {
+        addEditWeaponModal.value?.show(weaponSupp);
+    }
+
+    function onWeaponSupplementEdited(updatedWeapon : EoteWeapon) : void
+    {
+        // Optionally auto-apply the updated weapon to the form
+        applyTemplate(updatedWeapon);
+    }
 
     function show(newWeapon ?: EoteWeaponRef, index ?: number) : void
     {
@@ -361,6 +530,7 @@
     {
         weapIndex.value = -1;
         weapon.value = undefined;
+        pendingTemplate.value = null;
         editWeapon.value = {
             weaponID: undefined,
             name: undefined,
