@@ -53,11 +53,12 @@
                         >
                             <template #append>
                                 <BButton
-                                    variant="outline-secondary"
+                                    variant="secondary"
                                     title="Browse weapons..."
                                     @click="openBrowseModal"
                                 >
                                     <Fa icon="search" />
+                                    Browse Weapons
                                 </BButton>
                             </template>
                         </VueBootstrapAutocomplete>
