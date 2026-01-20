@@ -1,0 +1,10 @@
+id: coc-weapon-m4
+name: M4
+damage: 2d6
+range: 90 yards
+attacks: 1 (2) or burst 3
+ammo: 30
+malfunction: 97
+notes: Modern
+skill: Firearms (rifle)
+reference: CoC-IH:253

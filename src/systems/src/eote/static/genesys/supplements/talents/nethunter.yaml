@@ -1,0 +1,8 @@
+id: genesys-talent-nethunter
+name: Nethunter
+description: When your character successfully traces another character during a Network encounter, your character gains
+  one additional trace.
+activation: p
+ranked: false
+tier: 2
+reference: SotB:48

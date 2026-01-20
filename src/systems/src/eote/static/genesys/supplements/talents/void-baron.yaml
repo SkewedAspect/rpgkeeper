@@ -1,0 +1,8 @@
+id: genesys-talent-void-baron
+name: Void Baron
+description: After making a Piloting check, your character may spend <advantage></advantage><advantage></advantage> or
+  <threat></threat> from the results to use this talent to make a combat check as a maneuver.
+activation: ai
+ranked: false
+tier: 5
+reference: EotI:58

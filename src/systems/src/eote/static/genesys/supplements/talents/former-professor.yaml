@@ -1,0 +1,9 @@
+id: genesys-talent-former-professor
+name: Former Professor
+description: When you take this talent, your character gains one Knowledge skill (of your choice) as a career skill. In
+  addition, once per session your character may collect a small favor from a member of an institute of higher learning,
+  even if they do not owe your character a favor.
+activation: p
+ranked: false
+tier: 1
+reference: SotB:45

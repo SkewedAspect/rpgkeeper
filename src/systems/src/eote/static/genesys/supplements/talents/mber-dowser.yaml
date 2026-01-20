@@ -1,0 +1,8 @@
+id: genesys-talent-mber-dowser
+name: Æmber Dowser
+description: Your character may use this talent to make a hard to determine the direction of the nearest source of raw
+  Æmber withing extreme range. Your character may spend <threat></threat> to determine the distance as well.
+activation: aa
+ranked: false
+tier: 3
+reference: SotC:81

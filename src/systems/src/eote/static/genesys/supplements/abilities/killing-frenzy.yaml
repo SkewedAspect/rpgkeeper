@@ -1,0 +1,5 @@
+id: genesys-ability-killing-frenzy
+name: Killing Frenzy
+description: This character adds <boost></boost><boost></boost> to all Melee combat checks, but attackers add
+  <boost></boost> to all combat checks targeting this character.
+reference: RoT

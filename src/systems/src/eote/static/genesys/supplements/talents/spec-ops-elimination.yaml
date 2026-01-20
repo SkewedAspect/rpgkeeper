@@ -1,0 +1,12 @@
+id: genesys-talent-spec-ops-elimination
+name: Spec Ops Elimination
+description: Your character must be a Human or {@archetype Yssaril or have allegiance to the Federation of Sol to
+  benefit from this talent.} After your character makes a successful combat check against a target who is unaware of
+  their presence, your character may use this talent to inflict a Critical Injury on the target without spending
+  <advantage></advantage> or <threat></threat>. Your character may still inflict only one Critical Injury per hit, but
+  they may spend additional <advantage></advantage> equal to the attack's Critical rating or <threat></threat> to
+  increase the severity of the Critical Injury as normal.
+activation: ai
+ranked: false
+tier: 3
+reference: EotI:55

@@ -1,0 +1,20 @@
+id: genesys-weapon-praetorian-defender
+name: Praetorian Defender
+description: "Pioneered by the Winnu, the praetorian is a popular weapon for the bodyguards of dignitaries. Though
+  otherwise an accurate heavy beam pistol, the praetorian's bulky stock beneath its barrel houses a microtargeting
+  savant. Your character may program the praetorian defender to recognize up to three different characters (each takes
+  roughly a minute to program). When your character shoots at a target engaged with any of your allies, the GM may never
+  spend <difficulty></difficulty> to hit one of the characters programmed into the pistol. This weapon may be modified
+  with 2-1: Cultural Manufacturing Differences."
+skill: Ranged (Light)
+damage: 4
+criticalRating: 3
+range: m
+encumbrance: 3
+rarity: 7
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+  - id: genesys-quality-pierce
+    ranks: 2
+reference: EotI:109

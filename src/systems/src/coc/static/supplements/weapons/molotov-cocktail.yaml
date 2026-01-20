@@ -1,0 +1,10 @@
+id: coc-weapon-molotov-cocktail
+name: Molotov Cocktail
+damage: 2d6 + burn
+range: "{strength} / 5 yards"
+attacks: 1/2
+ammo: 1
+malfunction: 95
+notes: 1920s, Modern
+skill: Throw
+reference: CoC-IH:254

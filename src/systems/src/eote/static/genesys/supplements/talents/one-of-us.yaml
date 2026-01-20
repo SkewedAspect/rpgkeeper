@@ -1,0 +1,11 @@
+id: genesys-talent-one-of-us
+name: One of Us!
+description: "Select one organization from Chapter 2: Organizations (or create a new one with your GM's permission).
+  Your character becomes a known and devout follower of that organization, and adds <advantage></advantage> per rank of
+  One of Us! to social skill checks they make targeting its members. If your character is discovered acting in a manner
+  antithetical to the organization's interest, though, your GM may instead add <despair></despair> or other penalties to
+  such checks."
+activation: p
+ranked: true
+tier: 1
+reference: SotC:75

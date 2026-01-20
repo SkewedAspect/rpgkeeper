@@ -1,0 +1,10 @@
+id: genesys-talent-mutation
+name: Mutation
+description: "This talent cost 3 Æmber plus Æmber equal to your character's current ranks in this talent. When your
+  character purchases a rank in Mutation, they gain one randomly generated species feature from 1-8: Species Features,
+  on page 47 (SotC). If you generate a feature your character already possesses, reroll the result. Your character's
+  ranks in Mutation cannot exceed their ranks in Resilience."
+activation: p
+ranked: true
+tier: 1
+reference: SotC:75

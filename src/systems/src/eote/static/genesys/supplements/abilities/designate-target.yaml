@@ -1,0 +1,6 @@
+id: genesys-ability-designate-target
+name: Designate Target
+description: As an action, may make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>
+  targeting one structure or location within extreme range; if successful, decrease the difficulty of allied starships'
+  attacks against that target by 2, to a minimum of <difficulty></difficulty>, until the end of the round.
+reference: EotI

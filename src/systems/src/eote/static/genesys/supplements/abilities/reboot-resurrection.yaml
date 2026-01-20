@@ -1,0 +1,7 @@
+id: genesys-ability-reboot-resurrection
+name: Reboot Resurrection
+description: May make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an action; if
+  successful, one L1Z1X rival or nemesis within medium range heals 5 wounds plus 1 additional wound per
+  <success></success>, or may add one L1Z1X minion to a minion group that has lost at least one minion during the
+  current encounter.
+reference: EotI

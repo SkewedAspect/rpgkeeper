@@ -1,0 +1,19 @@
+id: genesys-weapon-sledgehammer
+name: Sledgehammer
+description: "The sledgehammer wouldn't be worth mentioning if it weren't for the Human First fanatics who turned it
+  into a symbol and a weapon. During the first protests against android labor, rioters bludgeoned many bioroids and
+  clones to death with simple tools, the sledgehammer being chief among them. For Human First, the symbolism was
+  perfect. The sledgehammer is a tool representing a hard, honest day's work; it is a dangerous weapon; and best of all,
+  it is impossible to regulate or outlaw. A sledgehammer requires two hands to wield. Models Include: Various models and
+  homemade versions."
+skill: Melee
+damage: 4
+criticalRating: 4
+range: en
+encumbrance: 4
+rarity: 2
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 2
+  - id: genesys-quality-knockdown
+reference: SotB:92

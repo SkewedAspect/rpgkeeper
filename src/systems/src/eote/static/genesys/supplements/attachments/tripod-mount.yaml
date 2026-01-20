@@ -1,0 +1,13 @@
+id: genesys-attachment-tripod-mount
+name: Tripod Mount
+description: Like a bipod, the tripod mount is a set of three folding legs that deploy from the center of the weapon to
+  provide a stable stand to fire from. This kind of attachment makes sense for the weird war, modern day, science
+  fiction, and space opera settings.
+useWith: weapon
+modifiers: If the user spends two preparation to deploy the tripod, the weapon's Cumbersome or Unwieldy qualities are
+  reduced by 3, to a minimum of 0, and the weapon's encumbrance is reduced by 4, to a minimum of 0. The weapon may not
+  be moved (except to pivot on the tripod mount) once it has been set up. The user must spend two preparation to take
+  the tripod down.
+hpRequired: 2
+qualities: []
+reference: G-CRB:208

@@ -1,0 +1,7 @@
+id: genesys-ability-you-can-all-burn
+name: You Can All Burn
+description: Once per encounter, may suffer 3 wounds as an action to force all characters within short range to make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of-turn incidental; they suffer
+  8 wounds if they fail, and they suffer one Critical Injury per
+  <despair></despair><despair></despair><despair></despair> or <difficulty></difficulty>.
+reference: EotI

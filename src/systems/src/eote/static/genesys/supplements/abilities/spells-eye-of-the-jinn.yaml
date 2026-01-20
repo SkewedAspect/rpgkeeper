@@ -1,0 +1,7 @@
+id: genesys-ability-spells-eye-of-the-jinn
+name: "Spells: Eye of the Jinn"
+description: This character chooses one target within medium range and makes an
+  <difficulty></difficulty><difficulty></difficulty>; if the check is successful, until the end of this character's next
+  turn, after the target makes a check, this character may choose one type of die in the pool and reroll all of the dice
+  of that type; can sustain the effects of this spell by performing a concentrate maneuver.
+reference: G-EPG

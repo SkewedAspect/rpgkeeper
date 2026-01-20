@@ -1,0 +1,13 @@
+id: genesys-attachment-multisensor-suite
+name: Multisensor Suite
+description: A multisensor suite equips a helmet with an assortment of optical and audio enhancements. Its sensors grant
+  the wearer sight in the thermographic, starlight, ultraviolet, infrared, and radio wave spectra. Its audio sensors can
+  detect frequencies beyond most beings' auditory range. These sensor suites are invaluable for combat operations in
+  darkened or obscured environments, providing explorers with a host of scanning options without requiring a
+  quintisensor.
+useWith: armor
+modifiers: When wearing this armor, your character may remove setback added to skill checks they make due to concealment
+  (darkness, smoke, and intervening terrain) that obscure vision or sound.
+hpRequired: 1
+qualities: []
+reference: EotI:130

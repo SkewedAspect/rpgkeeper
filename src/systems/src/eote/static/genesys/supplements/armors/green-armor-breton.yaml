@@ -1,0 +1,15 @@
+id: genesys-armor-green-armor-breton
+name: Green Armor (Breton)
+description: Worn by the Green Knight of Arthurian legend, the Green Armor is a suit of heavy plate mail forged from
+  some unidentifiable deep-green metal. The armor makes the wearer effectively immortal and invulnerable. It is said
+  that some wearers can even lose their head or limb, pick it up, and effortlessly reattach it. While wearing the Green
+  Armor, Critical Injuries cannot be inflicted on your character. In addition, whenever your character would suffer
+  wounds, they suffer strain instead. If your character exceeds their strain threshold, they are not incapacitated.
+  However, they must concede victory to the enemy combatant and leave the encounter as quickly as possible.
+defense: 1
+soak: 4
+hardpoints: 0
+encumbrance: 4
+rarity: 10
+qualities: []
+reference: G-EPG:14

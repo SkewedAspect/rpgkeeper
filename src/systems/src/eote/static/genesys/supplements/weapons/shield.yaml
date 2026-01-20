@@ -1,0 +1,24 @@
+id: genesys-weapon-shield
+name: Shield
+description: "Whether crafted from wood, steel, or hide, shields are common among warriors of all cultures and skill
+  levels for a simple reason: they keep you alive. The utility of a shield for blocking and parrying blows cannot be
+  overstated, and thus shields are a staple of most ancient cultures. We represented these elements of a shield by
+  giving it the Defensive and Deflection qualities. It also has the Knockdown quality, since nothing beats a shield for
+  bowling someone off their feet. However, a shield can't be used to hit someone as easily as a sword or axe, hence the
+  Inaccurate quality."
+skill: Melee (Light)
+damage: 0
+criticalRating: 6
+range: en
+encumbrance: 2
+rarity: 1
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+  - id: genesys-quality-deflection
+    ranks: 1
+  - id: genesys-quality-inaccurate
+    ranks: 1
+  - id: genesys-quality-knockdown
+    ranks: 1
+reference: G-CRB:144

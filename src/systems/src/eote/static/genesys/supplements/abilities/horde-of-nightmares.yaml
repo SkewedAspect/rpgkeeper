@@ -1,0 +1,6 @@
+id: genesys-ability-horde-of-nightmares
+name: Horde of Nightmares
+description: If an opponent in the encounter makes a fear check because of an ally of this character, add
+  <setback></setback> to the check for each minion group that shares a type with this character that is present in the
+  encounter.
+reference: EotI

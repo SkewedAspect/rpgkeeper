@@ -1,0 +1,65 @@
+id: eote-forcepower-heal-harm
+name: Heal/Harm
+description: >-
+  The Force user bolsters his ally with renewed vigor or saps his foe of vital energy.
+
+
+  <b>Heal (light side Force user only):</b> Spend <forcepoint></forcepoint> to heal a number of wounds equal to
+  Intellect from an engaged living creature (including user).
+
+
+  <b>Harm:</b> Spend <forcepoint></forcepoint> to inflict a number of wounds equal to Intellect (ignoring soak) on an
+  engaged living target. The user gains 1 Conflict.
+minRating: 1
+upgrades:
+  strength:
+    available: 2
+    description: >-
+      <b>Heal:</b> Spend <forcepoint></forcepoint> to increase wounds healed by 1 per rank of Strength upgrades
+      purchased.
+
+
+      <b>Harm:</b> Spend <forcepoint></forcepoint> to increase wounds inflicted by 1 per rank of Strength upgrades
+      purchased.
+  magnitude:
+    available: 3
+    description: Spend <forcepoint></forcepoint><forcepoint></forcepoint> to affect 1 additional target within the range per
+      rank of Magnitude purchased.
+  range:
+    available: 2
+    description: Spend <forcepoint></forcepoint> to increase power's range by a number of range bands equal to Range
+      upgrades purchased.
+  mastery:
+    available: 1
+    description: >-
+      <b>Heal:</b> Once per session, spend
+      <forcepoint></forcepoint><forcepoint></forcepoint><forcepoint></forcepoint><forcepoint></forcepoint> to restore 1
+      target who died after end of user's last turn to life.
+
+
+      <b>Harm:</b> Once per session, when this power kills a target, may restore one engaged character who died this
+      encounter to life. Each character gains 7 Conflict.
+  control:
+    - description: >-
+        <b>Heal:</b> If no <darkside></darkside> generated <forcepoint></forcepoint>, target heals strain equal to
+        wounds healed.
+
+
+        <b>Harm:</b> If any <darkside></darkside> were used to generate <forcepoint></forcepoint>, user heals strain
+        equal to wounds inflicted.
+    - description: >-
+        <b>Heal:</b> Spend <forcepoint></forcepoint> to remove one status effect from target.
+
+
+        <b>Harm:</b> The user may spend <forcepoint></forcepoint> to heal wounds equal to wounds inflicted on target.
+        Healed Character gains 1 Conflict.
+    - description: >-
+        <b>Heal:</b> May make a <b>Heal power check</b> combined with a <b>Hard
+        (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Medicine check</b>. If check
+        succeeds, one target who heals wounds also heals one Critical Injury.
+
+
+        <b>Harm:</b> May make a <b>Harm power check</b> combined with an <b>opposed Medicine vs. Resilience check</b>.
+        If check succeeds, one target who suffers wounds also suffers one Critical Injury (adding +10 to the roll per
+        <advantage></advantage><advantage></advantage>).
+reference: F-CRB:292

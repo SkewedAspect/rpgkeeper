@@ -1,0 +1,16 @@
+id: genesys-armor-light-body-armor
+name: Light Body Armor
+description: "Light body armor is a catchall term for a collection of armored vests, flak jackets, and other
+  lightweight, noncarapace, nonmilitary armor. It provides basic protection to the torso and often to forearms and
+  shins, and it is typically paired with a simple, open-faced helmet to protect the head. Primitive and cheap—and often
+  cheaply made—light body armor is rarely, if ever, worn by combat troops or mercenaries. Its primary users are
+  civilians in war zones, criminals, and security personnel on a budget. Some athletes in particularly dangerous sports,
+  such as hopper racing or snowboarding, wear stylized variants of light body armor. Models Include: OV-1 Bulletproof
+  Vest."
+defense: 0
+soak: 2
+hardpoints: 1
+encumbrance: 2
+rarity: 5
+qualities: []
+reference: SotB:94

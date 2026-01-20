@@ -1,0 +1,9 @@
+id: genesys-talent-pommel-smash
+name: Pommel Smash
+description: After making a Melee combat check with a weapon that requires two hands to wield, your character may suffer
+  3 strain to use this talent to cause one engaged opponent of silhouette 2 or less to become staggered (unable to
+  perform actions) until the end of your character's next turn.
+activation: am
+ranked: false
+tier: 4
+reference: EotI:57

@@ -1,0 +1,19 @@
+id: genesys-weapon-flail
+name: Flail
+description: Another weapon that originated as a peasant's tool, a flail has a long, two-handed haft linked to a heavy
+  striking head with a length of leather or chain. Although it hits hard, this implement makes a better grain thresher
+  than a weapon. Still, farmers across Terrinoth may take up a flail when they have nothing better to wield.
+skill: Melee (Heavy)
+damage: 4
+criticalRating: 3
+range: en
+encumbrance: 4
+rarity: 3
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 1
+reference: RoT:92

@@ -1,0 +1,9 @@
+id: genesys-attachment-rare-metals
+name: Rare Metals
+description: Many fantasy settings feature rare, nearly magical metals that can be used to create superior armor. This
+  kind of attachment makes sense in fantasy settings.
+useWith: armor
+modifiers: The armor reduces its encumbrance by 2, and it adds one fewer setback to Stealth checks.
+hpRequired: 2
+qualities: []
+reference: G-CRB:209

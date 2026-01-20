@@ -1,0 +1,12 @@
+id: genesys-weapon-slug-pistol
+name: Slug Pistol
+description: Despite thousands of years of innovation, handguns and rifles that chemically propel solid metal bullets
+  remain a mainstay of fighting forces. These are common among poorer and less technologically advanced forces.
+skill: Ranged (Light)
+damage: 6
+criticalRating: 4
+range: s
+encumbrance: 1
+rarity: 1
+qualities: []
+reference: G-CRB:184

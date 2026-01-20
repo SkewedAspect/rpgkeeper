@@ -1,0 +1,10 @@
+id: coc-weapon-12-gauge-shotgun-2b
+name: 12-gauge Shotgun (2B)
+damage: 4d6 / 2d6 / 1d6
+range: 10/20/50 yards
+attacks: 1 or 2
+ammo: 2
+malfunction: 100
+notes: 1920s, Modern
+skill: Firearms (shotgun)
+reference: CoC-IH:252

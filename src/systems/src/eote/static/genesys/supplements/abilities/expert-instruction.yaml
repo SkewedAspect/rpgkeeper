@@ -1,0 +1,5 @@
+id: genesys-ability-expert-instruction
+name: Expert Instruction
+description: When this character performs the assist maneuver, upgrade the ability of the check once instead of adding
+  <boost></boost>.
+reference: SotB

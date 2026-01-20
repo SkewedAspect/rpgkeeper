@@ -1,0 +1,6 @@
+id: genesys-ability-never-alone
+name: Never Alone
+description: May spend <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> on
+  checks this character makes to determine Initiative to have one additional adversary of the same type appear at long
+  range. This new character also makes a check to determine Initiative.
+reference: SotC

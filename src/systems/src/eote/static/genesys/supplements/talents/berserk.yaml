@@ -1,0 +1,11 @@
+id: genesys-talent-berserk
+name: Berserk
+description: Once per encounter, your character may use this talent. Until the end of the encounter or until they are
+  incapacitated, your character adds <success></success><advantage></advantage><advantage></advantage> to all melee
+  combat checks they make. However, opponents add <success></success> to all combat checks targeting your character.
+  While berserk, your character cannot make ranged combat checks. At the end of the encounter (or when they are
+  incapacitated), your character suffers 6 strain.
+activation: am
+ranked: false
+tier: 2
+reference: G-CRB:75

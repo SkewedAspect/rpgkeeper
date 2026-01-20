@@ -1,0 +1,10 @@
+id: genesys-attachment-serrated-edge
+name: Serrated Edge
+description: Adding jagged sawteeth to a bladed weapon means the wounds it makes are particularly brutal and damaging.
+  This kind of attachment makes sense for any setting.
+useWith: weapon
+modifiers: The weapon gains the Vicious quality, or increases any existing Vicious quality by 1.
+hpRequired: 1
+qualities:
+  - id: genesys-quality-vicious
+reference: G-CRB:208

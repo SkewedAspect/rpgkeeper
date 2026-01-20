@@ -1,0 +1,5 @@
+id: genesys-ability-blood-call
+name: Blood Call
+description: When this character damages a target using their fangs or a magic attack, they heal wounds equal to the
+  wounds inflicted.
+reference: G-EPG

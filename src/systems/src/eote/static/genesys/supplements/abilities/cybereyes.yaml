@@ -1,0 +1,5 @@
+id: genesys-ability-cybereyes
+name: Cybereyes
+description: May see in infrared and may remove up to <setback></setback><setback></setback> added to this character's
+  check due to concealment (darkness, smoke, and intervening terrain).
+reference: SotB

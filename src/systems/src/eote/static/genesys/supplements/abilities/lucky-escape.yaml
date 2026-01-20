@@ -1,0 +1,6 @@
+id: genesys-ability-lucky-escape
+name: Lucky Escape
+description: When this character would be defeated due to exceeding their wound threshold or strain threshold, or for
+  any reason, they may spend 1 Story Point to instead escape in a suitably fortunate and cowardly fashion. All other
+  adversaries in the encounter are immediately defeated.
+reference: RoT

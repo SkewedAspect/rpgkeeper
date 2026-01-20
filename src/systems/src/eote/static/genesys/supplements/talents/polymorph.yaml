@@ -1,0 +1,9 @@
+id: genesys-talent-polymorph
+name: Polymorph
+description: If your character has at least one rank in the Arcana or Divine skill, they can cast the transform spell.
+  However, they can use the spell to only transform into magical or supernatural creatures (such as dragons, angels,
+  demons, or elementals).
+activation: p
+ranked: false
+tier: 4
+reference: G-EPG:97

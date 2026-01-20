@@ -1,0 +1,10 @@
+id: genesys-talent-master-of-illusion
+name: Master of Illusion
+description: After your character makes a successful Mask spell to create an illusion, you may spend a Story Point to
+  have your character use this talent to make the illusion last until the end of the encounter, without performing
+  concentrate, and not need to remain within the spell's range after being cast. You may spend two Story Points to make
+  the illusion last until the end of the session instead.
+activation: ai
+ranked: false
+tier: 3
+reference: G-EPG:97

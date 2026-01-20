@@ -1,0 +1,16 @@
+id: genesys-weapon-katar
+name: Katar
+description: Most scholars agree that katars did not originate in Terrinoth. Their best guess is that these push daggers
+  originally came from the jungles of Zanaga or far-off Al-Kalim, before the design found popularity among the rogues
+  who haunt the back alleys of Orris, Riverwatch, and Nerekhall. The broad, stabbing blade and horizontal grip allow
+  cutthroats to dispatch their victims with a burst of swift, powerful thrusts.
+skill: Brawl
+damage: 1
+criticalRating: 2
+range: en
+encumbrance: 1
+rarity: 4
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+reference: RoT:92

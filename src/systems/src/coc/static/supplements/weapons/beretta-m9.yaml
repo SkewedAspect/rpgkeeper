@@ -1,0 +1,10 @@
+id: coc-weapon-beretta-m9
+name: Beretta M9
+damage: 1d10
+range: 15 yards
+attacks: 1 (3)
+ammo: 15
+malfunction: 98
+notes: Modern
+skill: Firearms (handgun)
+reference: CoC-IH:251

@@ -1,0 +1,15 @@
+id: genesys-weapon-staff
+name: Staff
+description: Cheap to buy (or make from fallen branches), staffs can be found across Terrinoth, where they often serve
+  as walking sticks or prods to move herds along. Those expert in their use, though, can use them to defend against many
+  of the fell creatures that lurk across wilderness areas.
+skill: Melee (Heavy)
+damage: 2
+criticalRating: 4
+range: en
+encumbrance: 2
+rarity: 0
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+reference: RoT:94

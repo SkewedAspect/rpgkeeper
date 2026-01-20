@@ -1,0 +1,14 @@
+id: genesys-weapon-repeating-rifle
+name: Repeating Rifle
+description: This profile covers any rifle that holds multiple cartridges. It could be bolt or lever action, and fed by
+  an internal or external magazine, but these subtle differences don't affect the profile. It can't fire quickly enough
+  to warrant the Auto-fire quality. However, you might describe an attack that deals significant damage or a Critical
+  Injury as multiple bullets striking the target.
+skill: Ranged (Heavy)
+damage: 8
+criticalRating: 3
+range: l
+encumbrance: 4
+rarity: 4
+qualities: []
+reference: G-CRB:154

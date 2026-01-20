@@ -1,0 +1,27 @@
+id: genesys-weapon-death-ray
+name: Death Ray
+description: Death rays are guns that fire a beam of energy with (as you might have guessed) deadly results. Each death
+  ray is unique, the product of a deranged inventor or brainfried galvanist. The exact nature of the energy beam and its
+  creation vary depending on the inventor. More than one inventor has claimed to have created their death ray for
+  peaceful purposes, and that the existence of such a weapon will mean an end to war. Of course, it's actually only
+  resulted in a death-ray arms race. Our death ray fires a beam of electricity, radiated ions, charged aether, or
+  what-have-you in an erratic path, like that of a lightning bolt. This is why we've given it short range and the
+  Inaccurate quality. In addition, it must recharge between shots, represented by Slow-Firing. It's still exceedingly
+  deadly, of course. Having a Critical rating of 1 means that this thing could be very dangerous when used against
+  player characters, so if you're a GM, think long and hard before you give this to an NPC!
+skill: Ranged (Heavy)
+damage: 12
+criticalRating: 1
+range: s
+encumbrance: 5
+rarity: 10
+qualities:
+  - id: genesys-quality-breach
+    ranks: 2
+  - id: genesys-quality-inaccurate
+    ranks: 2
+  - id: genesys-quality-slow-firing
+    ranks: 1
+  - id: genesys-quality-vicious
+    ranks: 5
+reference: G-CRB:154

@@ -1,0 +1,10 @@
+id: genesys-talent-shepherding-command
+name: Shepherding Command
+description: Your character must be an Xxcha or a {@archetype Titan or have allegiance to the Titans of Ul or the Xxcha
+  Kingdom to benefit from this talent.} Once per encounter when an ally within short range is targeted by an attack,
+  your character may reduce the damage dealt by that attack by your character's ranks in Leadership before the damage is
+  reduced by soak.
+activation: aio
+ranked: false
+tier: 2
+reference: EotI:53

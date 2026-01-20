@@ -1,0 +1,5 @@
+id: genesys-ability-aquatic
+name: Aquatic
+description: This creature suffers no penalties for moving through water and can breathe underwater, but cannot move or
+  survive on land.
+reference: G-EPG

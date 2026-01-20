@@ -1,0 +1,18 @@
+id: genesys-weapon-submachine-gun
+name: Submachine Gun
+description: "Submachine guns (SMGs) use pistol-caliber ammunition and a high rate of fire to provide a whole lot of
+  damage capacity in a small, easy-to-use package. They are popular among criminals, police, and special forces
+  operators the world over. The SMG presented in II.4-1: Modern Weapons on page 166 is a typical 9mm weapon that might
+  be used by a metropolitan police force or carried by a drug lord's bodyguard. It deals the same damage as a light
+  pistol, since they share calibers. It can fire full auto, so it has the Auto-fire quality. Even when it doesn't fire
+  on full auto, we imagine each \"shot\" is actually several bullets, and so we gave it a lower Critical rating to
+  represent the sheer amount of lead it puts in the air."
+skill: Ranged (Light)
+damage: 5
+criticalRating: 3
+range: m
+encumbrance: 2
+rarity: 6
+qualities:
+  - id: genesys-quality-auto-fire
+reference: G-CRB:166

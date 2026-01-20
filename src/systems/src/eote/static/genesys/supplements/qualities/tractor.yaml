@@ -1,0 +1,12 @@
+id: genesys-quality-tractor
+name: Tractor
+description: Instead of firing searing beams of laser fire or crackling ion discharges, this weapon fires relatively
+  harmless electromagnetic beams that ensnare ships and hold them fast in space. Tractor beams, like all weapons, are
+  fired at their target using the appropriate skill check with all suitable modifiers. Once the weapon hits its target,
+  the target may not move unless its pilot makes a successful Piloting check with a difficulty equal to the tractor
+  beam's rating. If the target is an individual character, the character is immobilized while the beam is active.
+  (Weapons with the Tractor quality are only going to show up in science fiction settings, and probably only the more
+  fanciful sci-fi settings! However, they are such a staple in those settings that we included the quality here.)
+passive: true
+ranked: false
+reference: G-CRB:89

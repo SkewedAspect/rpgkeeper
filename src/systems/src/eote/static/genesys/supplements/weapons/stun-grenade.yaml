@@ -1,0 +1,22 @@
+id: genesys-weapon-stun-grenade
+name: Stun Grenade
+description: "Stun grenades fall into that gray area of \"ostensibly non-lethal but may still incapacitate or kill a
+  target\" that's shared by so many less lethal weapons. They employ a high-intensity sonic pulse combined with an
+  electric capacitor discharge to disorient and confuse enemy combatants. Stun grenades can be set to detonate on
+  contact or set with a timer to detonate up to three rounds after being activated. Setting the timer can be done as an
+  incidental. Models Include: NEXT M7 Sandman Flash-Bang Grenade."
+skill: Ranged (Light)
+damage: 8
+criticalRating: 5
+range: s
+encumbrance: 1
+rarity: 4
+qualities:
+  - id: genesys-quality-blast
+    ranks: 3
+  - id: genesys-quality-disorient
+    ranks: 3
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+  - id: genesys-quality-stun-damage
+reference: SotB:90

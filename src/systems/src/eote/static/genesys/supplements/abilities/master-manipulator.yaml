@@ -1,0 +1,5 @@
+id: genesys-ability-master-manipulator
+name: Master Manipulator
+description: If this character knows a character's Desire or Fear Motivation, they downgrade the difficulty of all
+  Deception and Leadership checks targeting the character twice.
+reference: EotI

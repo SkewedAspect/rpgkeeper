@@ -1,0 +1,7 @@
+id: eote-talent-armor-master-improved
+name: Armor Master (Improved)
+description: When wearing armor with a soak value of two or higher, the character increases his defense by one.
+activation: p
+ranked: false
+trees: Gadgeteer
+reference: E-CRB:132

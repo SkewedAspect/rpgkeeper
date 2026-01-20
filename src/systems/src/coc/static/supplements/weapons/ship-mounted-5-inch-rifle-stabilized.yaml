@@ -1,0 +1,10 @@
+id: coc-weapon-ship-mounted-5-inch-rifle-stabilized
+name: Ship-mounted 5-inch rifle, stabilized
+damage: 12d10 / 4 yards
+range: 3,000 yards
+attacks: 1
+ammo: Auto-magazine
+malfunction: 98
+notes: Modern
+skill: Artillery
+reference: CoC-IH:254

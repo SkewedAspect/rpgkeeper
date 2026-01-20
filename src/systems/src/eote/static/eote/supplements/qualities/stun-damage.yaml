@@ -1,0 +1,6 @@
+id: eote-quality-stun-damage
+name: Stun Damage
+description: A weapon with this quality can only deal strain damage. (This is still reduced by soak.)
+passive: false
+ranked: false
+reference: E-CRB:157

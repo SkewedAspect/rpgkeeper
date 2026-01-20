@@ -1,0 +1,24 @@
+id: genesys-weapon-assault-cannon
+name: Assault Cannon
+description: This is the evolution of modern day autocannons and heavy machine guns. It may or may not feature multiple
+  rotating barrels, or use explosive or armor-piercing shells, but the end result is much the same, since we are
+  assuming the explosive radius isn't enough to justify the Blast quality. Instead, the Pierce and Vicious qualities
+  combine with high damage to make a weapon that's probably overkill against infantry and enough to threaten light
+  vehicles.
+skill: Gunnery
+damage: 15
+criticalRating: 3
+range: l
+encumbrance: 6
+rarity: 3
+qualities:
+  - id: genesys-quality-auto-fire
+  - id: genesys-quality-cumbersome
+    ranks: 4
+  - id: genesys-quality-inaccurate
+    ranks: 1
+  - id: genesys-quality-pierce
+    ranks: 3
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: G-CRB:184

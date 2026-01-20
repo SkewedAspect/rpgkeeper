@@ -1,0 +1,11 @@
+id: genesys-attachment-extended-hilt
+name: Extended Hilt
+description: This attachment extends the area where a wielder can grip their weapon, offering more freedom for precision
+  and control. An extended hilt also allows the wielder to have a wider grip when wielding a weapon with two hands,
+  adding both leverage and precision to their attacks.
+useWith: weapon
+modifiers: The weapon can now be wielded with two hands if it could not already. Your character adds Advantage to the
+  results of combat checks they make with this weapon, provided they use two hands to wield it.
+hpRequired: 1
+qualities: []
+reference: EotI:127

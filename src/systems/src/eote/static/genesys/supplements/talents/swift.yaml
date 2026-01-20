@@ -1,0 +1,8 @@
+id: genesys-talent-swift
+name: Swift
+description: Your character does not suffer the penalties for moving through Hazards and Difficult Terrain (they move
+  through Hazards and Difficult Terrain at normal speed without spending additional maneuvers).
+activation: p
+ranked: false
+tier: 1
+reference: G-CRB:75

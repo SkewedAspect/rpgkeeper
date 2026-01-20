@@ -1,0 +1,11 @@
+id: genesys-talent-distinctive-style
+name: Distinctive Style
+description: "When making a Computers check to hack a system or break into a secured network, before rolling, your
+  character may use this talent to add <success></success><success></success><despair></despair><despair></despair> to
+  the results. If you are using the optional hacking rules on page 232 and your check generates
+  <despair></despair><despair></despair>, your GM should spend it on the I Know You! option in III.2-22: Spending
+  Symbols in Hacking Encounters on page 234 of the Genesys Core Rulebook."
+activation: ai
+ranked: false
+tier: 3
+reference: G-CRB:78

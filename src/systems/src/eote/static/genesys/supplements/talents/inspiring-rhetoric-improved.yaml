@@ -1,0 +1,9 @@
+id: genesys-talent-inspiring-rhetoric-improved
+name: Inspiring Rhetoric (Improved)
+description: Your character must have purchased the Inspiring Rhetoric talent to benefit from this talent. Allies
+  affected by your character's Inspiring Rhetoric add <boost></boost> to all skill checks they make for a number of
+  rounds equal to your character's ranks in Leadership.
+activation: p
+ranked: false
+tier: 3
+reference: G-CRB:78

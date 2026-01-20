@@ -1,0 +1,14 @@
+id: genesys-talent-against-all-odds
+name: Against All Odds
+description: "Once per session, after your character makes a check, they may use this talent to select one of the
+  following types of results: <failure></failure>, <despair></despair>, or <difficulty></difficulty>. If they select
+  <failure></failure>, they then remove all <failure></failure> and add an equal number of <success></success> to the
+  results. If they select <despair></despair>, they then remove all <despair></despair> and add an equal number of
+  <advantage></advantage> to the results. If they select <difficulty></difficulty>, they then remove all
+  <difficulty></difficulty> and add an equal number of <threat></threat> to the results. As part of using this talent,
+  you must describe the awe-inspiring way in which your character overcomes any obstacles present in order to perform
+  this feat."
+activation: ai
+ranked: false
+tier: 5
+reference: EotI:57

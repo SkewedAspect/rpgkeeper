@@ -1,0 +1,8 @@
+id: eote-talent-grit
+name: Grit
+description: Each rank of Grit increases a character's strain threshold by one.
+activation: p
+ranked: true
+trees: Assassin Bodyguard, Doctor, Fringer, Mechanic, Outlaw Tech, Pilot, Politico, Scout, Slicer, Mercenary Soldier,
+  Scholar, Survivalist, Thief, Trader
+reference: E-CRB:136

@@ -1,23 +1,27 @@
 {
-    "compilerOptions": {
-        "composite": true,
-        "target": "ES2023",
-        "rootDir": "..",
-        "outDir": "../../dist",
-        "skipLibCheck": true,
-        "module": "NodeNext",
-        "moduleResolution": "NodeNext",
-
-        // Overrides
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-    },
-    "files": [
-        "./server.ts",
-        "express-shim.d.ts"
-    ],
-    "include": [
-        "../common/**/*.ts",
-        "**/*.ts",
-    ]
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2023"],
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@rpgk/core": ["../core/src/index.ts"],
+      "@rpgk/core/*": ["../core/src/*"],
+      "@rpgk/systems": ["../systems/src/index.ts"],
+      "@rpgk/systems/*": ["../systems/src/*"],
+      "@server/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

@@ -1,0 +1,10 @@
+id: coc-weapon-browning-auto-rifle-m1918
+name: Browning Auto Rifle M1918
+damage: 2d6 + 4
+range: 90 yards
+attacks: 1 (2) or full auto
+ammo: 20
+malfunction: 100
+notes: 1920s
+skill: Firearms (MG)
+reference: CoC-IH:253

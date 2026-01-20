@@ -1,0 +1,20 @@
+id: genesys-weapon-magno-thumper
+name: Magno-Thumper
+description: "Produced originally by the Yin Brotherhood, this highly concealable snub-nosed coilgun serves as a weapon
+  of last resort. Small, even by pistol standards, the magno-thumper has a wide barrel and a sizable power reserve that
+  allow it to fling a heavy slug with devastating results. Unfortunately, the tiny size of the weapon means that after
+  that shot, it needs to be reloaded with a new slug and power pack. The cost of the reload is 10 aurei. This weapon may
+  be modified with 2-1: Cultural Manufacturing Differences."
+skill: Ranged (Light)
+damage: 7
+criticalRating: 5
+range: s
+encumbrance: 1
+rarity: 4
+qualities:
+  - id: genesys-quality-concussive
+    ranks: 1
+  - id: genesys-quality-knockdown
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: EotI:110

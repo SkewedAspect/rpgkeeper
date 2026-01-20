@@ -1,0 +1,5 @@
+id: genesys-ability-tenacious
+name: Tenacious
+description: After a Sunderlands Orc hits a character with a successful combat check, they add <boost></boost> to combat
+  checks targeting the same character until the end of the encounter.
+reference: RoT

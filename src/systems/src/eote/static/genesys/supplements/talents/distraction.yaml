@@ -1,0 +1,10 @@
+id: genesys-talent-distraction
+name: Distraction!
+description: Your character may use this talent to make an average. For each <success></success> the check generates,
+  one adversary of your choice within short range becomes disoriented. Your character may spend <advantage></advantage>
+  from the check to inflict 1 strain on an affected adversary and may spend <threat></threat> from the check to stagger
+  a minion or rival within short range.
+activation: aa
+ranked: false
+tier: 2
+reference: SotC:78

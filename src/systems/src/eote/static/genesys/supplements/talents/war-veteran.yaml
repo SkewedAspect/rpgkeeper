@@ -1,0 +1,9 @@
+id: genesys-talent-war-veteran
+name: War Veteran
+description: When you take this talent, your character gains Athletics or Resilience as a career skill. In addition,
+  when healing strain after a combat encounter, your character may spend <advantage></advantage><advantage></advantage>
+  to heal 3 strain.
+activation: p
+ranked: false
+tier: 1
+reference: EotI:51

@@ -1,0 +1,10 @@
+id: genesys-attachment-regenerative-ammo-reactor
+name: Regenerative Ammo Reactor
+description: A common terror among frontline soldiers is the threat of their weapon running dry in the middle of a
+  battle. Microreactors are prohibitively expensive (even the microentropic field taps recently designed by the
+  Naaz-Rokha), but they can be installed into a weapon to provide a more lasting source of power.
+useWith: weapon
+modifiers: Difficulty may not be spent to cause this weapon to run out of ammo.
+hpRequired: 1
+qualities: []
+reference: EotI:128

@@ -1,0 +1,8 @@
+id: genesys-talent-wraithbane
+name: Wraithbane
+description: Your character counts the Critical rating of their weapon as one lower to a minimum of 1 when making an
+  attack targeting an undead adversary.
+activation: p
+ranked: false
+tier: 2
+reference: RoT:89

@@ -1,0 +1,27 @@
+id: eote-forcepower-enhance
+name: Enhance
+description: >-
+  When making an Athletics check, the Force user may roll an <b>Enhance power check</b> as part of the pool.
+
+
+  The user may spend <forcepoint></forcepoint> to gain <success></success> or <advantage></advantage> (user's choice) on
+  the check.
+minRating: 2
+upgrades:
+  range:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to increase the power's range by a number of range bands equal to Range
+      upgrades purchased.
+  control:
+    - description: Enhance can be used with the Coordination skill.
+    - description: Enhance can be used with the Piloting (Planetary) skill.
+    - description: Enhance can be used with the Piloting (Space) skill.
+    - description: "Ongoing effect: Commit <force></force>. The user increases his Agility characteristic by 1 (to a maximum of 6)."
+    - description: Enhance can be used with the Resilience skill.
+    - description: Enhance can be used with the Brawl skill.
+    - description: "Ongoing effect: Commit <force></force>. The user increases his Brawn characteristic by 1 (to a maximum of 6)."
+    - description: "Take a Force Leap action: Make an <b>Enhance power check</b>. The user may spend <forcepoint></forcepoint>
+        to jump horizontally to any location in short range."
+    - description: When performing a Force Leap, the user can jump vertically in addition to jumping horizontally.
+    - description: The user can perform a Force Leap as a maneuver instead of an action.
+reference: F-CRB:288

@@ -1,0 +1,8 @@
+id: genesys-talent-born-in-the-saddle
+name: Born in the Saddle
+description: Once per encounter, your character may use this talent to add <success></success> equal to their ranks in
+  Riding to a single check (using any skill) they make while mounted on beast or vehicle.
+activation: ai
+ranked: false
+tier: 3
+reference: SotC:81

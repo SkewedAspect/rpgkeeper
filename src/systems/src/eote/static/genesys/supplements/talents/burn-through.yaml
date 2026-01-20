@@ -1,0 +1,8 @@
+id: genesys-talent-burn-through
+name: Burn Through
+description: After making a successful break ice action, your character may suffer 3 strain to use this talent. If they
+  do, they may perform a second override ice action on the same system as an incidental.
+activation: ai
+ranked: false
+tier: 4
+reference: SotB:51

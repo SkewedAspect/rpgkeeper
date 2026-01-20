@@ -1,0 +1,7 @@
+id: eote-talent-force-rating
+name: Force Rating
+description: Gain a +1 Force Rating.
+activation: p
+ranked: true
+trees: Force Sensitive Exile
+reference: E-CRB:135

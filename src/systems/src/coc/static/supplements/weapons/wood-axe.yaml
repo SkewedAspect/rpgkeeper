@@ -1,0 +1,10 @@
+id: coc-weapon-wood-axe
+name: Wood Axe
+damage: 1d8 + 2 + {damageBonus}
+range: Touch
+attacks: 1
+ammo: null
+malfunction: null
+notes: 1920s, Modern
+skill: Fighting (Axe)
+reference: CoC-IH:251

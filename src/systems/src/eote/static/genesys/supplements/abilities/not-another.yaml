@@ -1,0 +1,6 @@
+id: genesys-ability-not-another
+name: Not Another!
+description: In an encounter with any number of this character type, the GM may spend
+  <despair></despair><despair></despair> from any check made by a PC to add one adversary to an existing minion group,
+  or spend <difficulty></difficulty> to add a new minion group of three individuals to the encounter.
+reference: RoT

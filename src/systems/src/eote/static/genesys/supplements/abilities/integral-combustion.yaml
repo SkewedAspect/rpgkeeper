@@ -1,0 +1,9 @@
+id: genesys-ability-integral-combustion
+name: Integral Combustion
+description: When a non-Gashlai is engaged with a Gashlai, they are exposed to a fire with a rating of 5 (see page 111
+  of the Core Rulebook). Gashlai do not suffer damage from weapons with the Burn item quality (whether or not the
+  quality is activated). When a Gashlai who is not wearing a sealed environmental suit is present in any environment
+  that does not have temperatures between 400 and 2,000 degrees Celsius, they suffer 1 strain at the end of each of
+  their turns. If this causes them to exceed their strain threshold, they suffer one Critical Injury at the end of each
+  of their turns as well, until they are able to return to a habitable environment.
+reference: EotI

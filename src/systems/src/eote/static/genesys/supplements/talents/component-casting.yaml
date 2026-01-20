@@ -1,0 +1,11 @@
+id: genesys-talent-component-casting
+name: Component Casting
+description: When your character casts a spell, they may use this talent to consume a physical item and add
+  <boost></boost> to the check. The item does not have to be expensive or rare, but it does have to be thematically
+  appropriate for the spell, available to your character, and subject to your GM's approval. Some examples include a
+  match or bit of sulphur for an Attack spell with the Burn quality, a piece of glass for a Predict spell, or a scrap of
+  bandage for a Heal spell.
+activation: ai
+ranked: false
+tier: 1
+reference: G-EPG:95

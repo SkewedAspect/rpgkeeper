@@ -1,0 +1,6 @@
+id: genesys-ability-claw-sweep
+name: Claw Sweep
+description: The creature may spend <advantage></advantage> from a Brawl check to hit an additional engaged opponent
+  that would be no more difficult to attack than the original target, dealing base damage +1 damage per
+  <success></success>.
+reference: RoT

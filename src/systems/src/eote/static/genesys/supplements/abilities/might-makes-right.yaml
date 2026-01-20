@@ -1,0 +1,6 @@
+id: genesys-ability-might-makes-right
+name: Might Makes Right
+description: After this character inflicts a Critical Injury, decrease the difficulty of all Coercion and Leadership
+  checks they make by one, to a minimum of <difficulty></difficulty>, until the end of the encounter; this ability may
+  be triggered multiple times.
+reference: G-EPG

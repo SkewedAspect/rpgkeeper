@@ -1,0 +1,5 @@
+id: genesys-ability-feel-the-pain
+name: Feel the Pain
+description: When targeted by a melee combat check, may spend <despair></despair><despair></despair> or
+  <difficulty></difficulty> to cause the attacker to suffer 3 strain.
+reference: SotC

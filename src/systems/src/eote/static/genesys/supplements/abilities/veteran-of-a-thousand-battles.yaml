@@ -1,0 +1,5 @@
+id: genesys-ability-veteran-of-a-thousand-battles
+name: Veteran of a Thousand Battles
+description: When this character makes a check to determine Initiative order, <advantage></advantage> on the check
+  counts as <success></success>.
+reference: SotC

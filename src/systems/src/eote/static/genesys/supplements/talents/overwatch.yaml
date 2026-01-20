@@ -1,0 +1,11 @@
+id: genesys-talent-overwatch
+name: Overwatch
+description: Once per round when an opponent attacks an ally who is within long range of your character, you may spend
+  one Story Point and <despair></despair> or <difficulty></difficulty> to have your character use this talent to
+  automatically hit the opponent with a ranged weapon your character is wielding, if the opponent is within the weapon's
+  range. The hit deals the weapon's base damage plus additional damage equal to your character's ranks in the skill used
+  to wield the weapon.
+activation: aio
+ranked: false
+tier: 5
+reference: EotI:58

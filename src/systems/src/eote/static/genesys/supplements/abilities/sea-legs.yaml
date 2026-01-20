@@ -1,0 +1,5 @@
+id: genesys-ability-sea-legs
+name: Sea Legs
+description: This character does not add <setback></setback> to checks due to unstable footing on a ship or boat, or in
+  a similar environment.
+reference: RoT

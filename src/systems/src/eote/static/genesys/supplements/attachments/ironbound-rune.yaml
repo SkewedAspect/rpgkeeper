@@ -1,0 +1,9 @@
+id: genesys-attachment-ironbound-rune
+name: Ironbound Rune
+description: Ironbound runebound shards are highly desirable for military efforts. These shards work only with metal
+  armor, though, and have no effect on padded armor made from leather or textiles.
+useWith: armor
+modifiers: The armor increases its defense by 1 and soak by 1.
+hpRequired: 2
+qualities: []
+reference: RoT:108

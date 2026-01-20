@@ -1,0 +1,7 @@
+id: genesys-talent-tickets-to-the-gun-show
+name: Tickets to the Gun Show
+description: When making a Coercion check, your character may use this talent to use Brawn instead of Willpower.
+activation: ai
+ranked: false
+tier: 2
+reference: SotC:80

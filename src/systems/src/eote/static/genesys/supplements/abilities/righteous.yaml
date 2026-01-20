@@ -1,0 +1,6 @@
+id: genesys-ability-righteous
+name: Righteous
+description: Once per session when your character is targeted by a skill check (this includes combat checks and social
+  skill checks), you may spend a Story Point to add <failure></failure><failure></failure><failure></failure> to the
+  results.
+reference: EotI

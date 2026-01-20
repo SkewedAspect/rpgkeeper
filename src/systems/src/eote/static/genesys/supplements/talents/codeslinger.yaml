@@ -1,0 +1,8 @@
+id: genesys-talent-codeslinger
+name: Codeslinger
+description: When your character performs the activate program maneuver in a hacking encounter, they can choose not to
+  deactivate one other active icebreaker. They may have two icebreakers active at once.
+activation: p
+ranked: false
+tier: 2
+reference: SotB:48

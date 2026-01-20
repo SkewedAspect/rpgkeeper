@@ -1,0 +1,10 @@
+id: coc-weapon-galil-assault-rifle
+name: Galil Assault Rifle
+damage: 2d6
+range: 110 yards
+attacks: 1 or full auto
+ammo: 20
+malfunction: 98
+notes: Modern
+skill: Firearms (rifle)
+reference: CoC-IH:253

@@ -1,0 +1,23 @@
+id: genesys-weapon-monofilament-grenade
+name: Monofilament Grenade
+description: "These modern fragmentation grenades are among the most vicious weapons produced today. Roughly the size of
+  a clenched fist, these grenades consist of an explosive core wrapped in nearly a kilometer of monofilament and encased
+  in a carbon-metallic shell. Upon detonation, the shell shatters, and the explosive spreads a deadly cloud of
+  razor-sharp monofilament wire shards that can tear opponents to bloody shreds in seconds. Monofilament grenades can be
+  set to detonate on contact or set with a timer to detonate up to three rounds after being activated. Setting the timer
+  can be done as an incidental. Models Include: Taejo Technologies Mk IV Fragmentation Grenade, Springfield M11
+  M-Grenade."
+skill: Ranged (Light)
+damage: 7
+criticalRating: 3
+range: s
+encumbrance: 1
+rarity: 4
+qualities:
+  - id: genesys-quality-blast
+    ranks: 7
+  - id: genesys-quality-vicious
+    ranks: 2
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: SotB:90

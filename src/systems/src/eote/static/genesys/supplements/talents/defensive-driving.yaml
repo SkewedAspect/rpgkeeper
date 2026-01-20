@@ -1,0 +1,10 @@
+id: genesys-talent-defensive-driving
+name: Defensive Driving
+description: Increase the defense of any vehicle your character pilots by one per rank of Defensive Driving. The
+  specifics of this talent require the optional vehicle rules, on page 220. If your game does not use these rules, this
+  talent adds <setback></setback> per rank to combat checks targeting your character's vehicle or your character while
+  piloting it.
+activation: p
+ranked: true
+tier: 4
+reference: G-CRB:80

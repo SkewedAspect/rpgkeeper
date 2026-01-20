@@ -1,0 +1,35 @@
+id: eote-forcepower-seek
+name: Seek
+description: >-
+  The Force user allows the will of the Force to lead the way to something lost or forgotten.
+
+
+  The user map spend <forcepoint></forcepoint><forcepoint></forcepoint> to gain insight into the general location or
+  direction of a person or object that he knows about, regardless of current distance.
+
+
+  The user may spend <forcepoint></forcepoint> and succeed at an <b>Average
+  (<difficulty></difficulty><difficulty></difficulty>) Vigilance check</b> (or <b>opposed Vigilance vs. Discipline
+  check</b>) to see through illusions.
+minRating: 1
+upgrades:
+  strength:
+    available: 2
+    description: Spend <forcepoint></forcepoint> to eliminate 1 Force-based illusion per Strength upgrade purchased.
+  magnitude:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to gain one additional detail per Magnitude upgrade purchased.
+  duration:
+    available: 1
+    description: Commit <force></force> to continue tracking target even when it moves.
+  mastery:
+    available: 1
+    description: Make <b>Seek power check</b> and spend
+      <forcepoint></forcepoint><forcepoint></forcepoint><forcepoint></forcepoint> to add <triumph></triumph> to combat
+      checks against one target for remainder of encounter.
+  control:
+    - description: "Ongoing effect: Commit <force></force>. Upgrade the ability of your Vigilance and Perception checks once."
+    - description: Spend <forcepoint></forcepoint> to track one additional target.
+    - description: "Ongoing effect: Commit <force></force><force></force><force></force>. The user's attacks gain Pierce with
+        rating equal to Cunning plus ranks in Perception."
+reference: F-CRB:302

@@ -1,0 +1,7 @@
+id: genesys-talent-finesse
+name: Finesse
+description: When making a Brawl or Melee (Light) check, your character may use Agility instead of Brawn.
+activation: ai
+ranked: false
+tier: 1
+reference: RoT:84

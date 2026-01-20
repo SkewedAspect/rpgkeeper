@@ -1,0 +1,12 @@
+id: genesys-armor-plate-armor
+name: Plate Armor
+description: Plate armor absorbs a considerable amount of damage, and the angled plates can turn aside blows entirely.
+  Hence, the armor both has a high soak value and provides some defense. Plate armor is heavy and very noisy. Your
+  character adds <setback></setback><setback></setback> to Stealth checks they make while wearing it.
+defense: 1
+soak: 2
+hardpoints: 0
+encumbrance: 4
+rarity: 6
+qualities: []
+reference: G-CRB:145

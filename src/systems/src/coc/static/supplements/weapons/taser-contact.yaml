@@ -1,0 +1,10 @@
+id: coc-weapon-taser-contact
+name: Taser (contact)*
+damage: 1d3 + stun
+range: Touch
+attacks: 1
+ammo: Varies
+malfunction: 97
+notes: Modern
+skill: Fighting (Brawl)
+reference: CoC-IH:251

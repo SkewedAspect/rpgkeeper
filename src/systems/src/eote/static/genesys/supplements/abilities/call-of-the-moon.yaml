@@ -1,0 +1,9 @@
+id: genesys-ability-call-of-the-moon
+name: Call of the Moon
+description: When the full moon rises, this character transforms into a monstrous wolf or giant hunting cat as an
+  out-of-turn incidental; they heal all strain they are currently suffering, increase their Brawn and Agility by one to
+  a maximum of 5, and reduce their Intellect and Willpower by one to a minimum of 1; all opponents must halve the damage
+  dealt to this character while transformed before applying soak, unless their weapon is made of silver or uses silver
+  ammunition; the transformation lasts until the following dawn or until this character is incapacitated due to
+  exceeding their wound threshold.
+reference: G-EPG

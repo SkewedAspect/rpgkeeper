@@ -1,0 +1,11 @@
+id: genesys-armor-leather-armor
+name: Leather Armor
+description: Leather armor, whether soft or boiled and hardened, might absorb some of the impact from a blow, but it
+  won't turn a blade entirely. That's why we've given it a low soak value, but no defense.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 2
+rarity: 3
+qualities: []
+reference: G-CRB:145

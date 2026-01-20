@@ -1,0 +1,31 @@
+id: genesys-weapon-guided-missile-launcher
+name: Guided Missile Launcher
+description: 'Guided missile launchers are among the largest, most destructive human-portable weapons available. These
+  reusable missile tubes fire powerful anti-aircraft and anti-armor missiles and can be equipped with all manner of
+  standard and special warheads. Most guided missile launchers share the same general design principles as their
+  ancestors from the twentieth and twenty-first centuries. What sets these modern versions apart is the range and
+  "intelligence" of the warhead. These days, a shoulder-fired missile can travel hundreds of kilometers, while its smart
+  sensors can recognize a vehicle by the unique profile of its exhaust emissions or the electromagnetic signature of its
+  hoverfoil rotors. Modern guided missile launchers can be fired and operated by a single person, although they tend to
+  be bulky enough that the operator needs to be either fairly strong or wearing a powered exosuit. Models Include:
+  Strelet Arms L101 Shooting Star Shoulder-Fired Missile Launcher.'
+skill: Gunnery
+damage: 20
+criticalRating: 3
+range: ex
+encumbrance: 6
+rarity: 8
+qualities:
+  - id: genesys-quality-blast
+    ranks: 10
+  - id: genesys-quality-breach
+    ranks: 2
+  - id: genesys-quality-cumbersome
+    ranks: 5
+  - id: genesys-quality-guided
+    ranks: 4
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: SotB:88

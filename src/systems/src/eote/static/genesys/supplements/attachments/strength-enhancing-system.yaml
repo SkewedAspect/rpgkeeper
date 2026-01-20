@@ -1,0 +1,11 @@
+id: genesys-attachment-strength-enhancing-system
+name: Strength-Enhancing System
+description: Strength-enhancing systems use exosuit technology to turn any hardsuit into a makeshift suit of powered
+  armor. Using polyfiber muscle clusters and microhydraulics, an SES allows the user to lift and carry more mass than
+  usual for longer distances and periods of time.
+useWith: armor
+modifiers: When wearing this armor, your character increases their encumbrance threshold by 5, and adds Success to any
+  Brawn-based checks they make.
+hpRequired: 2
+qualities: []
+reference: SotB:110

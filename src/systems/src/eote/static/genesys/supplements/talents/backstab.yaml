@@ -1,0 +1,10 @@
+id: genesys-talent-backstab
+name: Backstab
+description: Your character may use this talent to attack an unaware adversary using a Melee (Light) weapon. A Backstab
+  is a melee attack, and follows the normal rules for performing a combat check (see page 101 of the Genesys Core
+  Rulebook), using the character's Skulduggery skill instead of Melee (Light). If the check succeeds, each uncanceled
+  <success></success> adds +2 damage (instead of the normal +1).
+activation: aa
+ranked: false
+tier: 3
+reference: RoT:89

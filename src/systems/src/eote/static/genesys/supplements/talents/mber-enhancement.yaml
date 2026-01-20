@@ -1,0 +1,9 @@
+id: genesys-talent-mber-enhancement
+name: Æmber Enhancement
+description: This talent costs 6 Æmber. When your character purchases this talent, choose two characteristics. Once per
+  session, your character may consume 2 Æmber to use this talent to increase one of the chosen characteristics by one
+  until the end of the current encounter or scene. This may increase a characteristic to a maximum of six.
+activation: am
+ranked: false
+tier: 5
+reference: SotC:84

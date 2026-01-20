@@ -1,0 +1,23 @@
+id: genesys-weapon-light-machine-gun
+name: Light Machine Gun
+description: "Though machine guns have largely been replaced by heavy fletchers in most modern militaries, they still
+  see use in some prisec outfits and military groups in less-developed countries. Modern machine guns fire heavy,
+  caseless slugs and typically come with gyro-stabilization units to help absorb their punishing recoil. They also rely
+  on high thermovalent plastics and metal matrix composites to disperse the incredible heat that builds up with extended
+  firing, meaning they keep shooting even when their barrels literally glow red. Models Include: Degtyarev
+  Collective-Plant Kord 40.r 10mm, Springfield M20 Machine Gun"
+skill: Gunnery
+damage: 10
+criticalRating: 3
+range: l
+encumbrance: 6
+rarity: 6
+qualities:
+  - id: genesys-quality-auto-fire
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: SotB:89

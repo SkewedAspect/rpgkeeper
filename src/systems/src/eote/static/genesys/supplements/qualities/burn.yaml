@@ -1,0 +1,14 @@
+id: genesys-quality-burn
+name: Burn
+description: Weapons with Burn inflict damage over time. When Burn is triggered, one target hit by the attack continues
+  to suffer the weapon's base damage each round for a number of rounds equal to the weapon's Burn rating. Apply damage
+  at the start of each of the target's turns. If multiple targets suffer hits from a weapon with Burn, the quality may
+  be triggered multiple times, affecting a different target each time. A victim might be able to stop the damage by
+  performing an action to roll around and make a Coordination check. The difficulty is
+  <difficulty></difficulty><difficulty></difficulty> on hard surfaces such as the floor of a building, or an
+  <difficulty></difficulty> on grass or soft ground. Jumping into a body of water stops the damage immediately. Both
+  situations assume the flame is from actual combustion rather than a chemical reaction. With the latter, there is
+  usually little the victim can do.
+passive: false
+ranked: false
+reference: G-CRB:87

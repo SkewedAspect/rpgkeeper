@@ -226,10 +226,10 @@ export default [
     {
         // These files deal with databases, and we can't force columns to be camelCase, so we disable the rule here.
         files: [
-            'src/server/resource-access/**/*.ts',
-            'src/server/models/**/*.ts',
-            'src/server/knex/seeds/**/*',
-            'src/server/knex/migrations/**/*',
+            'src/server/src/resource-access/**/*.ts',
+            'src/server/src/models/**/*.ts',
+            'src/server/src/knex/seeds/**/*',
+            'src/server/src/knex/migrations/**/*',
         ],
         rules: {
             camelcase: 'off',
@@ -239,8 +239,8 @@ export default [
     {
         // These are very long strings and wrapping them sucks.
         files: [
-            'src/server/knex/seeds/**/*',
-            'src/server/knex/migrations/**/*',
+            'src/server/src/knex/seeds/**/*',
+            'src/server/src/knex/migrations/**/*',
         ],
         rules: {
             '@stylistic/max-len': 'off',
@@ -262,6 +262,13 @@ export default [
         rules: {
             // Overrides for Vue rules to supersede the default rules
             '@stylistic/indent': 'off',
+            '@stylistic/max-len': 'off',
+            'vue/max-len': [ 'error', {
+                code: 120,
+                template: 1000,
+                ignoreHTMLAttributeValues: true,
+                ignoreHTMLTextContents: true,
+            } ],
             '@typescript-eslint/no-unused-vars': 'off',
 
             // Style

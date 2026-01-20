@@ -1,0 +1,7 @@
+id: genesys-ability-inorganic-robot
+name: Inorganic (Robot)
+description: Since robots are inorganic, they do not gain the benefits of recovering wounds with painkiller or a
+  Medicine check. Robots can recover wounds and strain naturally by resting, as their systems attempt self-repairs.
+  Robots can also be "healed" by using the Mechanics skill instead of the Medicine skill, but otherwise following the
+  guidelines detailed on page 116. A robot also increases its soak by one.
+reference: G-CRB

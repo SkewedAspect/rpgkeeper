@@ -1,0 +1,10 @@
+id: coc-weapon-model-1882-gatling-gun
+name: Model 1882 Gatling Gun
+damage: 2d6 + 4
+range: 100 yards
+attacks: Full auto
+ammo: 200
+malfunction: 96
+notes: 1920s, Rare
+skill: Firearms (MG)
+reference: CoC-IH:253

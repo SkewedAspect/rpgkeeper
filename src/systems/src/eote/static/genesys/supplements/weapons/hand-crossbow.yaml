@@ -1,0 +1,17 @@
+id: genesys-weapon-hand-crossbow
+name: Hand Crossbow
+description: A favorite weapon for assassins and bounty hunters, these small crossbows can easily fit under a cloak or
+  can even be mounted on a reinforced glove. As such, they are frowned upon by many Town Watch members across Terrinoth,
+  who view anyone they find carrying one with automatic suspicion.
+skill: Ranged
+damage: 5
+criticalRating: 2
+range: s
+encumbrance: 3
+rarity: 5
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 1
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: RoT:94

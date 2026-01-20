@@ -1,0 +1,7 @@
+id: eote-talent-natural-programmer
+name: Natural Programmer
+description: Oncer per game session, the character may reroll any one Computers or Astrogation check.
+activation: ai
+ranked: false
+trees: Slicer
+reference: E-CRB:139

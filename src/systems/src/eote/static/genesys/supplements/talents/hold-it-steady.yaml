@@ -1,0 +1,9 @@
+id: genesys-talent-hold-it-steady
+name: Hold it Steady
+description: Before performing a combat check using a weapon with the Auto-fire quality, your character may use this
+  talent to use the Auto-fire quality without increasing the difficulty of the combat check. If they do so, each time
+  they trigger an additional hit during the attack, they suffer 2 strain.
+activation: aio
+ranked: false
+tier: 3
+reference: SotB:50

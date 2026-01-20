@@ -1,0 +1,8 @@
+id: genesys-talent-pain-dont-hurt
+name: Pain Don't Hurt
+description: This talent costs 2 Æmber. Once per session, your character may consume 1 Æmber to use this talent to
+  reduce all damage they suffer by one plus their ranks in Resilience until the end of the following round.
+activation: am
+ranked: false
+tier: 4
+reference: SotC:84

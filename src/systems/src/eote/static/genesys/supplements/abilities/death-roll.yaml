@@ -1,0 +1,6 @@
+id: genesys-ability-death-roll
+name: Death Roll
+description: When this character makes a successful Brawl combat check against an immobilized target, it may inflict a
+  Critical Injury without spending <advantage></advantage> or <threat></threat>; it may still spend
+  <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> to add +10 to the results.
+reference: G-EPG

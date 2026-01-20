@@ -1,0 +1,5 @@
+id: genesys-ability-fungal-form
+name: Fungal Form
+description: Reduce any damage from hits targeting this character by 3 unless the Burn item quality has been activated
+  as a part of this attack.
+reference: SotC

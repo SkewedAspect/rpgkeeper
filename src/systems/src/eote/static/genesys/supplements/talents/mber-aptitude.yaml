@@ -1,0 +1,7 @@
+id: genesys-talent-mber-aptitude
+name: Æmber Aptitude
+description: Æmbercraft and Knowledge (Æmber) are now career skills for your character.
+activation: p
+ranked: false
+tier: 2
+reference: SotC:78

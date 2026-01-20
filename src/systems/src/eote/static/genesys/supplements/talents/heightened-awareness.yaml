@@ -1,0 +1,8 @@
+id: genesys-talent-heightened-awareness
+name: Heightened Awareness
+description: Allies within short range of your character add <boost></boost> to their Perception and Vigilance checks.
+  Allies engaged with your character add <boost></boost><boost></boost> instead.
+activation: p
+ranked: false
+tier: 2
+reference: G-CRB:76

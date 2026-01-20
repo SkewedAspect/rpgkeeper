@@ -1,0 +1,7 @@
+id: genesys-talent-conduit
+name: Conduit
+description: Once per encounter, your character may spend a Story Point to perform a magic action as a maneuver.
+activation: ai
+ranked: false
+tier: 4
+reference: RoT:91

@@ -1,0 +1,8 @@
+id: eote-talent-conditioned
+name: Conditioned
+description: The character removes <setback></setback> per rank of Conditioned from his Atheletics and Coordination
+  checks. He reduces the damage and strain suffered from falling by 1 rank per Coordination.
+activation: p
+ranked: true
+trees: Ataru Striker, Chien Expert, Shii-Cho Knight
+reference: F-CRB:141

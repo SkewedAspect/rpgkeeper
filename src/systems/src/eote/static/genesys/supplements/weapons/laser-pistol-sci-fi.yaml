@@ -1,0 +1,19 @@
+id: genesys-weapon-laser-pistol-sci-fi
+name: Laser Pistol (Sci-Fi)
+description: Laser weapons fire a beam of coherent light, causing damage through intense, searing heat. In this setting,
+  we're assuming that handheld lasers are still being refined, so these early models have some drawbacks. One issue with
+  laser weapons is beam diffusion over long distances, which is why our laser weapons are relatively short ranged. These
+  lasers don't have a lot of penetration, since they expend their energy on the surface of whatever they hit, so no
+  Pierce. But they are very accurate and can light targets on fire, hence the Accurate and Burn qualities.
+skill: Ranged (Light)
+damage: 6
+criticalRating: 3
+range: s
+encumbrance: 2
+rarity: 7
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+  - id: genesys-quality-burn
+    ranks: 1
+reference: G-CRB:175

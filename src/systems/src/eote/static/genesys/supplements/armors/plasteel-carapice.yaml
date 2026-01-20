@@ -1,0 +1,12 @@
+id: genesys-armor-plasteel-carapice
+name: Plasteel Carapice
+description: Made from semifuturistic materials, a suit of plasteel carapace armor completely covers your character from
+  head to toe, and with the right attachments can even be environmentally sealed. The armor has a rigid outer shell that
+  deflects or blocks incoming attacks (represented by the reasonably high soak value and a defense value).
+defense: 1
+soak: 1
+hardpoints: 0
+encumbrance: 4
+rarity: 5
+qualities: []
+reference: G-CRB:176

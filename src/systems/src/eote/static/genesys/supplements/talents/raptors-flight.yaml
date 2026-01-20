@@ -1,0 +1,13 @@
+id: genesys-talent-raptors-flight
+name: Raptor's Flight
+description: Your character must be a Druaa or {@archetype Shikrai or have allegiance to the Argent Flight to benefit
+  from this talent.} Once per encounter while piloting a vehicle, your character may make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> to use this talent. If successful, your
+  character may change the speed of the vehicle they are piloting to any other speed the vehicle is capable of reaching.
+  Your character can also spend <advantage></advantage><advantage></advantage> from the results to increase the
+  difficulty of combat checks targeting their vehicle by 1 and decrease the difficulty of combat checks made by themself
+  or other occupants of their vehicle by 1 until the start of your character's next turn.
+activation: aa
+ranked: false
+tier: 3
+reference: EotI:55

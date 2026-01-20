@@ -1,0 +1,15 @@
+id: genesys-talent-aethersprite-supreme
+name: Aethersprite (Supreme)
+description: Your character must have purchased the Aethersprite talent to benefit from this talent. If your character
+  made a successful Aethersprite check during the current encounter, your character may use this talent to make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>. If they succeed, they falsify a major
+  distraction in the system. The particulars of the distraction are up to you and your GM, but they should be
+  significant enough that any opponents ignore your characters and leave key installations unguarded or unlocked as they
+  work furiously to deal with the distraction or flee for their lives. (Examples might include a major reactor meltdown,
+  an enemy battlefleet entering local space, or poisonous nerve gas being leaked into the facility.) At your GM's
+  discretion, certain actions that your character undertakes may cause opponents to attempt to deal with them, such as
+  actively attacking an opponent or shouting that your character is the one who initiated the distraction.
+activation: aa
+ranked: false
+tier: 4
+reference: EotI:56

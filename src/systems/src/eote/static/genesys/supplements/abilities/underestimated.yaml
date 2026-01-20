@@ -1,0 +1,4 @@
+id: genesys-ability-underestimated
+name: Underestimated
+description: When making an opposed check, clones add <advantage></advantage> to the results.
+reference: SotB

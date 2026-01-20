@@ -1,0 +1,11 @@
+id: genesys-talent-angle-the-shields
+name: Angle the Shields
+description: While piloting a starship of silhouette 4 or greater, your character may make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> to use this talent. If they succeed, their
+  starship suffers system strain no greater than their ranks in this talent, and until the end of their next turn,
+  whenever their starship is targeted by a combat check, remove <setback></setback> from the dice pool equal to the
+  system strain suffered and add an equal number of <failure></failure> to the results.
+activation: aa
+ranked: true
+tier: 2
+reference: EotI:52

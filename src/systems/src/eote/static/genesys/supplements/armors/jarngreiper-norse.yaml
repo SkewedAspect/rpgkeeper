@@ -1,0 +1,13 @@
+id: genesys-armor-jarngreiper-norse
+name: Jarngreiper (Norse)
+description: The dwarves forged these iron gauntlets for Thor so that he would have the strength to wield his hammer one
+  handed. Even by themselves, the gauntlets can make the wearer into a fearsome weapon, greatly increasing the
+  individual's arm and grip strength, as well as protecting their hands and forearms from harm. While wearing
+  Jarngreiper, your character increases their Brawn by two, to a maximum of 6.
+defense: 3
+soak: 0
+hardpoints: 0
+encumbrance: 1
+rarity: 10
+qualities: []
+reference: G-EPG:14

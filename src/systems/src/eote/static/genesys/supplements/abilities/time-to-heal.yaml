@@ -1,0 +1,6 @@
+id: genesys-ability-time-to-heal
+name: Time to Heal
+description: If this character is caring for a character who is benefiting from natural rest, the resting character
+  heals 2 wounds each night and decreases the difficulty of any Resilience checks they make to heal Critical Injuries by
+  1, to a minimum of <difficulty></difficulty>.
+reference: G-EPG

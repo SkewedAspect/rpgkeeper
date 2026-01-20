@@ -1,0 +1,10 @@
+id: genesys-attachment-twilight-rune
+name: Twilight Rune
+description: Armor with this rune always seems to be tucked into a dark corner, along with its wearer, even when worn in
+  the brightest sunlight. In actual darkness, the wearer becomes a akin to a wraith, able to slip past the most alert
+  sentries.
+useWith: armor
+modifiers: While wearing this armor your character adds boost to Stealth checks they make and gains +2 ranged defense.
+hpRequired: 1
+qualities: []
+reference: RoT:108

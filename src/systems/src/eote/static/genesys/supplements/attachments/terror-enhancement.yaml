@@ -1,0 +1,14 @@
+id: genesys-attachment-terror-enhancement
+name: Terror Enhancement
+description: Making armor look more frightening has long been a tactic of most cultures in the galaxy. However, modern
+  technology has allowed these theatrics to be taken to new heights. Simple paintings of blood or skulls (or another
+  species' equivalent) on helmets or chest plates is just the beginning. True terror enhancements use holographics to
+  create the effect of ominous lighting, subtle infrasonic projectors to create feelings of unease, and pheromone
+  dispensers to affect species whose primary sense is smell.
+useWith: armor
+modifiers: When wearing this attachment, your character adds Success to any Coercion checks they make and Failure to any
+  Charm or Stealth checks they make. Once per session, you may spend a Story Point to force one character within short
+  range of your character to make a Hard, with the overall results adjudicated by your GM.
+hpRequired: 1
+qualities: []
+reference: EotI:131

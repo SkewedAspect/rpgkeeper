@@ -1,0 +1,14 @@
+id: genesys-weapon-pistol
+name: Pistol
+description: A recent improvement on traditional pistols, pistol revolvers allow for multiple shots-a useful feature
+  when facing a horde of supernaturally resilient creatures.
+skill: ranged (light)
+damage: 6
+criticalRating: 4
+range: m
+encumbrance: 2
+rarity: 2
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+reference: G-EPG:23

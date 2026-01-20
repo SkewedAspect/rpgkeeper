@@ -1,0 +1,5 @@
+id: genesys-ability-arterial-strike
+name: Arterial Strike
+description: When this character inflicts a Critical Injury with a Melee combat check, spend a Story Point to inflict
+  the Bleeding Out Critical Injury instead of rolling a result.
+reference: G-EPG

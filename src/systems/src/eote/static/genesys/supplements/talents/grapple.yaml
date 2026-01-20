@@ -1,0 +1,8 @@
+id: genesys-talent-grapple
+name: Grapple
+description: Your character may suffer 2 strain to use this talent. Until the start of your character's next turn,
+  enemies must spend two maneuvers to disengage from your character.
+activation: ai
+ranked: false
+tier: 2
+reference: RoT:88

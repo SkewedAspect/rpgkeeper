@@ -1,0 +1,18 @@
+id: genesys-weapon-sling
+name: Sling
+description: Basically a leather cup attached to two lengths of cord, a sling is dirt cheap and its ammunition (any
+  roughly spherical rock) even more so. A sling is more likely to be carried by shepherds and street urchins than by
+  seasoned warriors, but a few adventurers keep one tucked away in a pouch as a weapon of desperation. d or h cannot be
+  spent to cause a sling to run out of ammo.
+skill: Ranged
+damage: 4
+criticalRating: 4
+range: m
+encumbrance: 0
+rarity: 0
+qualities:
+  - id: genesys-quality-disorient
+    ranks: 2
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: RoT:95

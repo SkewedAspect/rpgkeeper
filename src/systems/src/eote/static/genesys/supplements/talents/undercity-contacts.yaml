@@ -1,0 +1,9 @@
+id: genesys-talent-undercity-contacts
+name: Undercity Contacts
+description: Once per session, you may spend one Story Point use this talent to let your character learn if a character
+  of your choice is in New Angeles, and if so, what district. At your GM's discretion, the information may take up to an
+  hour to come back to your character.
+activation: ai
+ranked: false
+tier: 2
+reference: SotB:49

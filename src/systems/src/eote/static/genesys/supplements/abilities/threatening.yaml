@@ -1,0 +1,5 @@
+id: genesys-ability-threatening
+name: Threatening
+description: When providing assistance on another character's Coercion checks, add <success></success> to results for
+  each minion in the group beyond the first.
+reference: SotB

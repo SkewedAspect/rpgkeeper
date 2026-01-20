@@ -1,0 +1,5 @@
+id: genesys-ability-and-stay-down
+name: And Stay Down
+description: When making a Brawl or Melee combat check targeting a prone opponent, add
+  <success></success><advantage></advantage><advantage></advantage> to the results.
+reference: SotB

@@ -1,0 +1,9 @@
+id: genesys-talent-strength-of-faith
+name: Strength of Faith
+description: Once per session, your character may use this talent to add <success></success> equal to their ranks in
+  Discipline and <advantage></advantage> equal to their ranks in Willpower to the results of the next Divine skill check
+  they make during this turn.
+activation: am
+ranked: false
+tier: 4
+reference: G-EPG:97

@@ -1,0 +1,8 @@
+id: eote-quality-linked
+name: Linked
+description: On a successful attack, the weapon deals one hit. The wielder may spend
+  <advantage></advantage><advantage></advantage> to gain an additional hit, and may do so a number of times equal to the
+  weapon’s Linked rating. Additional hits from the Linked weapon may only be applied against the original target.
+passive: false
+ranked: true
+reference: E-CRB:156

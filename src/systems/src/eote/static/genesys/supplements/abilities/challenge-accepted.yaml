@@ -1,0 +1,5 @@
+id: genesys-ability-challenge-accepted
+name: Challenge Accepted!
+description: Once per session, may spend a Story Point to count as having 3 ranks in any skill that they do not possess
+  until the end of the encounter.
+reference: SotC

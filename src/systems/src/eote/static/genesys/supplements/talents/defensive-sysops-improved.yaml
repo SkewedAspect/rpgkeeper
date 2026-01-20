@@ -1,0 +1,9 @@
+id: genesys-talent-defensive-sysops-improved
+name: Defensive Sysops (Improved)
+description: Your character must have purchased the Defensive Sysops talent to benefit from this talent. Before adding
+  <setback></setback><setback></setback> from Defensive Sysops to a check, use this talent to add
+  <failure></failure><despair></despair> to the results of the check instead.
+activation: ai
+ranked: false
+tier: 2
+reference: G-CRB:76

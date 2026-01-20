@@ -1,0 +1,17 @@
+id: genesys-weapon-dagger
+name: Dagger
+description: "Nearly everyone in Terrinoth carries a knife at their belt; it is a useful tool for any number of mundane
+  tasks. Daggers, on the other hand, are designed purely for killing. Their thin, razor-sharp blades tend to be
+  perfectly balanced so they can be thrown with the flick of a wrist just as easily as they can slit an unwary throat.
+  Your character can stab or slash with a dagger using the profile in 2-5: Melee Weapons on page 94, or they can throw
+  one using the following profile: [Table: Thrown Stats]"
+skill: Melee (Light)
+damage: 2
+criticalRating: 3
+range: en
+encumbrance: 1
+rarity: 1
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+reference: RoT:92

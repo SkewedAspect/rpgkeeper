@@ -1,0 +1,6 @@
+id: genesys-ability-multitentacled
+name: Multitentacled
+description: After making a successful combat check, may spend 3 strain to inflict one additional hit with its tentacle
+  weapon against one other target within short range that is no more difficult to hit than original target, dealing base
+  damage +1 per <success></success>; it may do so up to three times per turn.
+reference: G-EPG

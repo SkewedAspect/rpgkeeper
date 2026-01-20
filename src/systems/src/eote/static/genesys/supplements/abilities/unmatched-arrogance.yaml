@@ -1,0 +1,5 @@
+id: genesys-ability-unmatched-arrogance
+name: Unmatched Arrogance
+description: When a Letnev makes a Leadership or Coercion check, they add <success></success> to the results. When a
+  Letnev makes a Charm or Negotiation check, they add <despair></despair> to the results.
+reference: EotI

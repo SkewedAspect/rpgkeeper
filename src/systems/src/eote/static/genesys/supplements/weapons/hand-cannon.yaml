@@ -1,0 +1,22 @@
+id: genesys-weapon-hand-cannon
+name: Hand Cannon
+description: A hand cannon is quite literally a breech-loading, largebore pistol that operates much like its larger kin.
+  The weapon is typically used for big-game hunting, and its effects on a human target are predictably devastating. The
+  term is also sometimes applied to oversized revolvers with similar stopping power. While hand cannons of all makes
+  generally take the form of a large pistol, the recoil is such that all but the largest and strongest individuals are
+  advised to place both hands firmly on the grip before pulling the trigger. Someone firing a hand cannon probably has
+  to brace themself to deal with the significant recoil, which we've represented with the Prepare quality. It has to
+  reload, so characters only get one shot (but that's usually enough).
+skill: Ranged (Light)
+damage: 9
+criticalRating: 3
+range: m
+encumbrance: 3
+rarity: 0
+qualities:
+  - id: genesys-quality-knockdown
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: G-CRB:154

@@ -1,0 +1,10 @@
+id: genesys-ability-genetic-payload
+name: Genetic Payload
+description: Once per encounter as an action, may make an opposed Brawl check} targeting one engaged nonmechanical
+  opponent; if successful, the target must make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> at the end of the current encounter; if
+  they fail, they suffer 2 wounds and must make the check again every five minutes until they succeed or they exceed
+  their wound threshold, at which point the target becomes a Mahact thrall clone (if they are a PC, they are effectively
+  dead at this point); this effect may also be ended with a successful
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>.
+reference: EotI

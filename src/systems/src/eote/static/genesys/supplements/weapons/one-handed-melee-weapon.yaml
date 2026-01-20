@@ -1,0 +1,12 @@
+id: genesys-weapon-one-handed-melee-weapon
+name: One-Handed Melee Weapon
+description: This represents the most basic of handheld weapons, and could be a truncheon or a standard knife. It is
+  compact, relatively easy to conceal, and convenient to carry.
+skill: Melee
+damage: 1
+criticalRating: 4
+range: en
+encumbrance: 1
+rarity: 2
+qualities: []
+reference: SotC:138

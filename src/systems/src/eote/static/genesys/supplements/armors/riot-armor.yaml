@@ -1,0 +1,14 @@
+id: genesys-armor-riot-armor
+name: Riot Armor
+description: A staple of police departments the world over, riot armor is designed to protect from stones, bottles,
+  shrapnel, and small-arms fire. The suit includes a helmet with eye protection and a large polycarbonate shield for
+  deflecting blows and pushing crowds. We represent this with the higher defense and moderate soak, since the armor
+  deflects hits better than it stops bullets. Your character must use one hand to carry the riot shield. If they do not,
+  the armor's defense drops to 1.
+defense: 2
+soak: 1
+hardpoints: 0
+encumbrance: 5
+rarity: 6
+qualities: []
+reference: G-CRB:168

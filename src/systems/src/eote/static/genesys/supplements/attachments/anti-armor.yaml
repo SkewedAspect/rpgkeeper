@@ -1,0 +1,13 @@
+id: genesys-attachment-anti-armor
+name: Anti-Armor
+description: "Foot soldiers regularly find themselves in combat against heavily armored opponents and light armored
+  vehicles. Several cultures have devised methods for personal weapons to have the force necessary to pierce the armor
+  of their foes. These advancements vary by weapon, but the results are the same: the weapon is able to punch through
+  opponents' defenses with impressive results."
+useWith: weapon
+modifiers: The weapon's damage decreases by 2, and it gains the Breach and Slow-Firing item qualities. It also gains
+  Cumbersome or increases its existing Cumbersome rating by 1, whichever is greater. Finally, the weapon's encumbrance
+  increases by 2.
+hpRequired: 3
+qualities: []
+reference: EotI:126

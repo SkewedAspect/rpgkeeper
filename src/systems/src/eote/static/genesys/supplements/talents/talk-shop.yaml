@@ -1,0 +1,8 @@
+id: genesys-talent-talk-shop
+name: Talk Shop
+description: Your character may use this talent when making a Charm check targeting an engineer, mechanic, scientist, or
+  similar individual to count their ranks of Charm as equal to their ranks in Knowledge (Science) or Mechanics.
+activation: ai
+ranked: false
+tier: 1
+reference: SotC:78

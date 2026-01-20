@@ -1,0 +1,10 @@
+id: genesys-attachment-motion-stabilizers
+name: Motion Stabilizers
+description: Motion stabilizers are any sort of technology used to arrest unwanted motion on a weapon. They may do so by
+  utilizing motion restrictors, antigrav emitter pods, or even a harness worn by the wielder
+useWith: weapon
+modifiers: The weapon's Cumbersome and Unwieldy item qualities decrease by 1, to a minimum of 1, and its encumbrance
+  value decreases by 3, to a minimum of 1.
+hpRequired: 2
+qualities: []
+reference: EotI:128

@@ -1,0 +1,5 @@
+id: genesys-ability-fear-of-failure
+name: Fear of Failure
+description: When an allied character or allied vehicle within medium range is incapacitated or destroyed, this
+  character suffers 1 strain and adds <boost></boost> to checks they make until the end of the next round.
+reference: EotI

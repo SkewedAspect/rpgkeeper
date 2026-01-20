@@ -1,0 +1,5 @@
+id: eote-ability-human
+name: Human
+description: Humans start the game with one rank in two different non-career skills of their choice. They may not train
+  these skills above rank two at character creation.
+reference: E-CRB:48

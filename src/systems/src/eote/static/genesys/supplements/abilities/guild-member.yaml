@@ -1,0 +1,4 @@
+id: genesys-ability-guild-member
+name: Guild Member
+description: When performing a check related to their specific guild, this character upgrades the ability of the check twice.
+reference: RoT

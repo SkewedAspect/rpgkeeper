@@ -1,0 +1,7 @@
+id: genesys-ability-regenerative-balm
+name: Regenerative Balm
+description: As an action, may apply a balm to one engaged character, allowing the target to make an
+  <difficulty></difficulty><difficulty></difficulty> check as an out-of-turn incidental; for each <success></success>,
+  the target heals one Critical Injury; if successful, the target also heals 2 wounds at the start of each of their
+  turns for the remainder of the encounter.
+reference: EotI

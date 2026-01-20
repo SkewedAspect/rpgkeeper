@@ -1,0 +1,10 @@
+id: genesys-attachment-dynamic-epaulets
+name: Dynamic Epaulets
+description: Often used by field commanders, dynamic epaulets modify armor design to draw attention and help them
+  inspire those around them. Functional as well as cosmetic, this attachment includes enhancements that augment the
+  wearer's communications devices, as well as speakers that allow their voice to carry over the din of battle.
+useWith: armor
+modifiers: When wearing this armor, your character adds Success to the results of all Leadership checks they make.
+hpRequired: 1
+qualities: []
+reference: EotI:130

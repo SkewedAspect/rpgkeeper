@@ -1,0 +1,5 @@
+id: genesys-ability-quiet-code
+name: Quiet Code
+description: When making a Computer (Hacking) check, <despair></despair> may not be spent to alert other users to this
+  character's presence.
+reference: SotB

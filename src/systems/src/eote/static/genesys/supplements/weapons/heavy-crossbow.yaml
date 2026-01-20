@@ -1,0 +1,21 @@
+id: genesys-weapon-heavy-crossbow
+name: Heavy Crossbow
+description: Built for sieges and large battles, heavy crossbows have the power to punch a quarrel through a breastplate
+  at a hundred paces. They are, however, cumbersome weapons. Some heavy crossbows even have siege bucklers attached just
+  before the limbs, which only increases their weight. Recently, some of the baronies have begun fielding soldiers clad
+  in plate mail and armed with heavy crossbows. The weight of their equipment makes them almost immobile, but they are
+  nearly impervious to return fire and can hit nearly any target on the battlefield.
+skill: Ranged
+damage: 8
+criticalRating: 2
+range: l
+encumbrance: 4
+rarity: 5
+qualities:
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-pierce
+    ranks: 3
+  - id: genesys-quality-prepare
+    ranks: 2
+reference: RoT:94

@@ -1,0 +1,9 @@
+id: eote-talent-master-slicer
+name: Master Slicer
+description: Oncer per round, the character may perform a Master Slicer incidental to suffer two strain and decrease the
+  difficulty of the next Computers or other slicing-related check by one, to a minimum of **Easy
+  (<difficulty></difficulty>)**
+activation: ai
+ranked: false
+trees: Slicer
+reference: E-CRB:139

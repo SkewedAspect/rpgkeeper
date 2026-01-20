@@ -1,0 +1,4 @@
+id: genesys-ability-templar-cybernetic-implant
+name: Templar Cybernetic Implant
+description: Once per encounter as a maneuver, may make a <difficulty></difficulty> to heal 1 wound per <success></success>.
+reference: SotB

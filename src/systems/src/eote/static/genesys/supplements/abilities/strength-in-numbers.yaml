@@ -1,0 +1,6 @@
+id: genesys-ability-strength-in-numbers
+name: Strength In Numbers
+description: Adds <boost></boost> to combat checks when there are at least two other friendly nemeses, rivals, or minion
+  groups engaged in the encounter. Add <setback></setback> to combat checks when there are no other friendly nemeses,
+  rivals, or minion groups engaged in the encounter.
+reference: G-CRB

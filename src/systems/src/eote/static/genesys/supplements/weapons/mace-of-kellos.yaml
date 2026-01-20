@@ -1,0 +1,20 @@
+id: genesys-weapon-mace-of-kellos
+name: Mace of Kellos
+description: Priests of Kellos once ordered the forging of a flanged mace. They performed a series of warlike rituals on
+  the weapon and imbued it with the spirit of their god’s wrathful aspect. When the mace is hefted in anger, the head of
+  the weapon bursts into flames that scorch the foe. The Mace of Kellos is a magic implement as per page 218 of the
+  Genesys Core Rulebook, and allows your character to use it to cast spells using the Divine skill. When casting a spell
+  using the Mace of Kellos, your character adds <boost></boost><boost></boost> to the check. In addition, when the
+  spellcaster casts an Attack spell, adding the Fire, Close Combat, and Holy effects do not increase its difficulty.
+skill: Melee (Light)
+damage: 4
+criticalRating: 3
+range: en
+encumbrance: 2
+rarity: 10
+qualities:
+  - id: genesys-quality-burn
+    ranks: 2
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-superior
+reference: RoT:109

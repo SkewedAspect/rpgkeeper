@@ -1,0 +1,9 @@
+id: genesys-ability-incorporeal
+name: Incorporeal
+description: Your character lacks corporeal presence. When your character makes Brawn- or Agility-based checks, increase
+  the difficulty by two. When a corporeal character makes a Brawn- or Agility-based check targeting your character,
+  increase the difficulty by two. Your character increases their soak by their Willpower (in addition to their Brawn).
+  Your character can move through most mundane types of difficult and impassable terrain without penalty (but cannot
+  stop inside solid surfaces). None of the preceding effects of this rule apply while your character is wearing armor.
+  In addition, your character does not need to eat, breathe, or sleep.
+reference: SotC

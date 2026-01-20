@@ -1,0 +1,7 @@
+id: genesys-ability-neurotoxin
+name: Neurotoxin
+description: If this creature inflicts wounds with a combat check, the target must make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>; upon failure, the target suffers 5
+  wounds, plus 1 strain per <despair></despair>; <difficulty></difficulty> means the target must make another Resilience
+  check at the same difficulty at the start of their next turn or suffer the same effects.
+reference: G-EPG

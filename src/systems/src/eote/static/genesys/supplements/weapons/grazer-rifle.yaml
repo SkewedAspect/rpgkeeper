@@ -1,0 +1,17 @@
+id: genesys-weapon-grazer-rifle
+name: Grazer Rifle
+description: "Rifle-sized grazers are expensive and deadly weapons, meaning most militaries tend to purchase them for
+  elite forces and commando teams. They also suffer the same problem with power requirements that other grazers do,
+  tending to burn through power supplies rapidly. After your character makes a combat check with this weapon, your GM
+  may spend <despair></despair><despair></despair> to have it run out of ammo. This weapon may be modified with 2-1:
+  Cultural Manufacturing Differences."
+skill: Ranged (Heavy)
+damage: 4
+criticalRating: 2
+range: l
+encumbrance: 4
+rarity: 5
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 5
+reference: EotI:109

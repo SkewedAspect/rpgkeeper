@@ -1,0 +1,7 @@
+id: eote-ability-inorganic
+name: Inorganic
+description: Does not gain the benefits of recovering with a bacta tank, stimpack, or Medicine check. Inorganic
+  characters do recover naturally from resting, as their systems attempt self-repairs. Otherwise inorganic characters
+  need to be tended with a Mechanics check, using the same difficulties and results of Medicine checks for organic
+  beings. Due to their resilient metallic construction droids tart the game with one rank in the Enduring ability.
+reference: E-CRB:47

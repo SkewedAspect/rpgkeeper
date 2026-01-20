@@ -1,0 +1,9 @@
+id: genesys-talent-rapid-reaction
+name: Rapid Reaction
+description: Your character may suffer a number of strain to use this talent to add an equal number of
+  <success></success> to a Vigilance or Cool check they make to determine Initiative order. The number may not exceed
+  your character's ranks in Rapid Reaction.
+activation: aio
+ranked: true
+tier: 1
+reference: G-CRB:74

@@ -1,0 +1,5 @@
+id: genesys-ability-sweep-attack
+name: Sweep Attack
+description: May spend <threat></threat> on a successful melee combat check to inflict one hit dealing the weapon's base
+  damage on everyone (except this character!) engaged with the target.
+reference: G-CRB

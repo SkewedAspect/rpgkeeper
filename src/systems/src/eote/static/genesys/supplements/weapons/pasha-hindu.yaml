@@ -1,0 +1,23 @@
+id: genesys-weapon-pasha-hindu
+name: Pasha (Hindu)
+description: An infinitely looping cord, the Pasha twists and writhes in the hand like a living thing. The Pasha is
+  commonly depicted as being held by the Hindu god Ganesha, representing his power to create and remove obstacles. Your
+  character may use the Pasha to attack targets at short range. The difficulty of this combat check is still
+  <difficulty></difficulty><difficulty></difficulty>. If the attack is successful, your character may activate the
+  ensnare item quality without spending <advantage></advantage>. A character ensnared by the Pasha must make a
+  successful
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>
+  to break free (instead of the Hard[<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>] check
+  normally associated with the ensnare quality).
+skill: Melee (Heavy)
+damage: 2
+criticalRating: 1
+range: s
+encumbrance: 1
+rarity: 9
+qualities:
+  - id: genesys-quality-ensnare
+    ranks: 3
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-stun-damage
+reference: G-EPG:12

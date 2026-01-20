@@ -1,0 +1,9 @@
+id: genesys-attachment-buckyweave-enhancement
+name: Buckyweave Enhancement
+description: Buckyweave enhancement reinforces an armor suit with a fantastically expensive, quad-layer buckyweave
+  fabric to drastically increase its protective qualities.
+useWith: armor
+modifiers: The armor gains the Reinforced item quality.
+hpRequired: 2
+qualities: []
+reference: SotB:109

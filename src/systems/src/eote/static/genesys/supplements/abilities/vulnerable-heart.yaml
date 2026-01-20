@@ -1,0 +1,5 @@
+id: genesys-ability-vulnerable-heart
+name: Vulnerable Heart
+description: When this character suffers a Critical Injury from a weapon made of wood, such as a stake or crossbow bolt,
+  they add +40 to the Critical Injury result.
+reference: G-EPG

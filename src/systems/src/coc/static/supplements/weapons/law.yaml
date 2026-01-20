@@ -1,0 +1,10 @@
+id: coc-weapon-law
+name: LAW*
+damage: 8d10 / 1 yard
+range: 150 yards
+attacks: 1
+ammo: 1
+malfunction: 98
+notes: Modern
+skill: Firearms (Heavy)
+reference: CoC-IH:254

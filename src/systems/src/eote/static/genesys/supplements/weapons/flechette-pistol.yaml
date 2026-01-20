@@ -1,0 +1,19 @@
+id: genesys-weapon-flechette-pistol
+name: Flechette Pistol
+description: The flechette pistol uses electromagnetic coils to fire bursts of tiny metal spears called flechettes.
+  These benefit from significant penetrative power and can sometimes punch straight through an opponent (represented by
+  the Pierce quality), but they don't have a great deal of stopping power (hence the lower damage). Since each shot is
+  actually a burst of several flechettes, the low Crit rating and Vicious quality represent the high chance of internal
+  damage.
+skill: Ranged (Light)
+damage: 4
+criticalRating: 2
+range: s
+encumbrance: 1
+rarity: 5
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: G-CRB:175

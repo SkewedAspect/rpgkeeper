@@ -1,0 +1,15 @@
+id: genesys-talent-telekinesis
+name: Telekinesis
+description: This talent costs 2 Æmber plus Æmber equal to your character's current ranks in this talent. Your character
+  can manipulate objects and affect other characters within short range (as if they were engaged) using their mind
+  instead of their physical body. When they do, any required skill checks linked to Brawn or Agility instead use
+  Willpower. Similarly, to determine the encumbrance your character can telepathically lift or move use their Willpower
+  in place of Brawn. Telekinetic movement is generally too slow and imprecise to effectively wield a weapon, but your
+  character can lash out with mental force to make a Brawl combat check within short range. This attack has a base
+  damage equal to your character's Willpower instead of Brawn and gains no benefit from weapons. The range of your
+  character's telekinesis increases by one range band for each additional rank of this talent. <difficulty></difficulty>
+  from a check your character makes using telekinesis may be spent to deplete this talent.
+activation: p
+ranked: false
+tier: 2
+reference: SotC:80

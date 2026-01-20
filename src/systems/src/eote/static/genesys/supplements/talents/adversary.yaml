@@ -1,0 +1,8 @@
+id: genesys-talent-adversary
+name: Adversary
+description: Player characters cannot benefit from this talent. Upgrade the difficulty of all combat checks targeting
+  this character once per rank of Adversary.
+activation: p
+ranked: true
+tier: 1
+reference: G-CRB:131

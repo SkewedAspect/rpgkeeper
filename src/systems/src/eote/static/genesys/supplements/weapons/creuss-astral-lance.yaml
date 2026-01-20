@@ -1,0 +1,19 @@
+id: genesys-weapon-creuss-astral-lance
+name: Creuss Astral Lance
+description: "As rare as the armor Creuss wear, a Creuss astral lance is both exquisite and deadly. Molded from minerals
+  formed in the swirling energies of these beings' dimension, this weapon glows with a delicate blue or green hue as
+  wisps of energy curl across its surface. Due to its composition, the astral lance can phase through armor and hides to
+  damage the internal organs of an opponent or, in some cases, breach the exterior of lightly armored vehicles. This
+  weapon requires two hands to wield. This weapon may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Melee
+damage: 3
+criticalRating: 4
+range: en
+encumbrance: 4
+rarity: 9
+qualities:
+  - id: genesys-quality-breach
+    ranks: 1
+  - id: genesys-quality-unwieldy
+    ranks: 3
+reference: EotI:115

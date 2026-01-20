@@ -1,0 +1,13 @@
+id: genesys-attachment-mag-scope
+name: Mag-Scope
+description: This scope provides an enhanced view of distant targets, allowing the wielder to make shots at long
+  distances with less difficulty. The technology is conceptually similar to the simple telescopic lenses of ancient
+  history, but the mag-scope uses powerful electronics to enhance the view and even compensate for poor lighting
+  conditions somewhat.
+useWith: weapon
+modifiers: Your character reduces the difficulty of ranged combat checks made with this weapon at long and extreme range
+  by 1. Your character may remove setback added to combat checks they make with this weapon due to concealment
+  (darkness, smoke, and intervening terrain) that obscure vision.
+hpRequired: 1
+qualities: []
+reference: EotI:127

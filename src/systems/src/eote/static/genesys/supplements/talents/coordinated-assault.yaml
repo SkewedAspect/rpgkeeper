@@ -1,0 +1,10 @@
+id: genesys-talent-coordinated-assault
+name: Coordinated Assault
+description: Once per turn, your character may use this talent to have a number of allies engaged with your character
+  equal to your ranks in Leadership add <advantage></advantage> to all combat checks they make until the end of your
+  character's next turn. The range of this talent increases by one band per rank of Coordinated Assault beyond the
+  first.
+activation: am
+ranked: true
+tier: 2
+reference: G-CRB:75

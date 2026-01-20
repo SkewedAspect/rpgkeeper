@@ -1,0 +1,6 @@
+id: genesys-ability-supersonic
+name: Supersonic
+description: After spending two maneuvers to move through the air, as an action may make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>; if successful, all other characters
+  within medium range of this character's final location suffer 5 strain.
+reference: SotC

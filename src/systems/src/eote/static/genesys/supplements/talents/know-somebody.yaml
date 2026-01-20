@@ -1,0 +1,8 @@
+id: genesys-talent-know-somebody
+name: Know Somebody
+description: Once per session, when attempting to purchase a legally available item, your character may use this talent
+  to reduce its rarity by one per rank of Know Somebody.
+activation: ai
+ranked: true
+tier: 1
+reference: G-CRB:74

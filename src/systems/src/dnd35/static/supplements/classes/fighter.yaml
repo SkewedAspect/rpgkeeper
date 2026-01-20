@@ -1,0 +1,21 @@
+id: dnd35-class-fighter
+name: Fighter
+description: The questing knight, the conquering overlord, the king’s champion, the elite foot soldier, the hardened
+  mercenary, and the bandit king— all are fighters. Fighters can be stalwart defenders of those in need, cruel
+  marauders, or gutsy adventurers. Some are among the land’s best souls, willing to face death for the greater good.
+  Others are among the worst, with no qualms about killing for private gain, or even for sport. Fighters who are not
+  actively adventuring may be soldiers, guards, bodyguards, champions, or criminal enforcers. An adventuring fighter
+  might call himself a warrior, a mercenary, a thug, or simply an adventurer.
+features:
+  - name: Weapon and Armor Proficiency
+    description: A fighter is proficient with all simple and martial weapons and with all armor (heavy, medium, and light)
+      and shields (including tower shields).
+  - name: Bonus Feats
+    description: At 1st level, a fighter gets a bonus combat-oriented feat in addition to the feat that any 1st-level
+      character gets and the bonus feat granted to a human character. The fighter gains an additional bonus feat at 2nd
+      level and every two fighter levels thereafter (4th, 6th, 8th, 10th, 12th, 14th, 16th, 18th, and 20th). These bonus
+      feats must be drawn from the feats noted as fighter bonus feats in the PHB. A fighter must still meet all
+      prerequisites for a bonus feat, including ability score and base attack bonus minimums. These bonus feats are in
+      addition to the feat that a character of any class gets from advancing levels. A fighter is not limited to the
+      list of fighter bonus feats when choosing these feats.
+reference: PHB:37

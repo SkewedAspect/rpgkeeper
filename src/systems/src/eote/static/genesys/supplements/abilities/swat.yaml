@@ -1,0 +1,7 @@
+id: genesys-ability-swat
+name: Swat
+description: After making a successful combat check with its fists against a target of silhouette 2 or smaller, may
+  spend <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> to fling the target
+  up to medium range in a direction of this character's choosing; on the target's next turn, it suffers the effects of
+  falling from short range (see page 112 of the Genesys Core Rulebook)).
+reference: EotI

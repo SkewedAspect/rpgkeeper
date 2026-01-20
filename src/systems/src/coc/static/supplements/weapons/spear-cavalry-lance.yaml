@@ -1,0 +1,10 @@
+id: coc-weapon-spear-cavalry-lance
+name: Spear (cavalry lance)
+damage: 1d8 + 1
+range: Touch
+attacks: 1
+ammo: null
+malfunction: null
+notes: 1920s, Modern
+skill: Fighting (Spear)
+reference: Coc-IH:250

@@ -1,0 +1,121 @@
+id: dnd35-class-druid
+name: Druid
+description: The fury of a storm, the gentle strength of the morning sun, the cunning of the fox, the power of the
+  bear—all these and more are at the druid’s command. The druid however, claims no mastery over nature. That claim, she
+  says, is the empty boast of a city dweller. The druid gains her power not by ruling nature but by being at one with
+  it. To trespassers in a druid’s sacred grove, and to those who feel her wrath, the distinction is overly fine.
+features:
+  - name: Weapon and Armor Proficiency
+    description: >-
+      Druids are proficient with the following weapons: club, dagger, dart, quarterstaff, scimitar, sickle, shortspear,
+      sling, and spear. They are also proficient with all natural attacks (claw, bite, and so forth) of any form they
+      assume with wild shape (see below).
+
+
+      Druids are proficient with light and medium armor but are prohibited from wearing metal armor; thus, they may wear
+      only padded, leather, or hide armor. (A druid may also wear wooden armor that has been altered by the _ironwood_
+      spell so that it functions as though it were steel. Druids are proficient with shields (except tower shields) but
+      must use only wooden ones.
+
+
+      A druid who wears prohibited armor or carries a prohibited shield is unable to cast druid spells or use any of her
+      supernatural or spelllike class abilities while doing so and for 24 hours thereafter.
+  - name: Spells
+    description: >-
+      A druid casts divine spells (the same type of spells available to the cleric, paladin, and ranger), which are
+      drawn from the druid spell list. Her alignment may restrict her from casting certain spells opposed to her moral
+      or ethical beliefs; see Chaotic, Evil, Good, and Lawful Spells, below. A druid must choose and prepare her spells
+      in advance (see below).
+
+
+      To prepare or cast a spell, the druid must have a Wisdom score equal to at least 10 + the spell level (Wis 10 for
+      0-level spells, Wis 11 for 1st-level spells, and so forth). The Difficulty Class for a saving throw against a
+      druid’s spell is 10 + the spell level + the druid’s Wisdom modifier.
+
+
+      Like other spellcasters, a druid can cast only a certain number of spells of each spell level per day. Her base
+      daily spell allotment is given on Table 3–8: The Druid. In addition, she receives bonus spells per day if she has
+      a high Wisdom score (see Table 1–1: Ability Modifiers and Bonus Spells, page8). She does not have access to any
+      domain spells or granted powers, as a cleric does.
+
+
+      A druid prepares and casts spells the way a cleric does, though she cannot lose a prepared spell to cast a cure
+      spell in its place (but see Spontaneous Casting, below). A druid may prepare and cast any spell on the druid spell
+      list (page 189), provided that she can cast spells of that level, but she must choose which spells to prepare
+      during her daily meditation.
+  - name: Spontaneous Casting
+    description: A druid can channel stored spell energy into summoning spells that she hasn’t prepared ahead of time. She
+      can “lose” a prepared spell in order to cast any _summon nature’s ally_ spell of the same level or lower. For
+      example, a druid who has prepared _repel vermin_ (a 4th-level spell) may lose _repel vermin_ in order to cast
+      _summon nature’s ally_ IV (also a 4th-level spell).
+  - name: Chaotic, Evil, Good, and Lawful Spells
+    description: A druid can’t cast spells of an alignment opposed to her own or her deity’s (if she has one). For example,
+      a neutral good druid cannot cast evil spells. Spells associated with particular alignments are indicated by the
+      chaos, evil, good, and law descriptors in their spell descriptions.
+  - name: Bonus Languages
+    description: >-
+      A druid’s bonus language options include Sylvan, the language of woodland creatures. This choice is in addition to
+      the bonus languages available to the character because of her race.
+
+
+      A druid also knows Druidic, a secret language known only to druids, which she learns upon becoming a 1st-level
+      druid. Druidic is a free language for a druid; that is, she knows it in addition to her regular allotment of
+      languages and it doesn’t take up a language slot. Druids are forbidden to teach this language to nondruids.
+      Druidic has its own alphabet.
+  - name: Animal Companion
+    type: ex
+    description: >-
+      A druid may begin play with an animal companion selected from the following list: badger, camel, dire rat, dog,
+      riding dog, eagle, hawk, horse (light or heavy), owl, pony, snake (Small or Medium viper), or wolf. If the DM’s
+      campaign takes place wholly or partly in an aquatic environment, the DM may add the following creatures to the
+      druid’s list of options: crocodile, porpoise, Medium shark, and squid. This animal is a loyal companion that
+      accompanies the druid on her adventures as appropriate for its kind.
+
+
+      A 1st-level druid’s companion is completely typical for its kind except as noted in the sidebar on page 36. As a
+      druid advances in level, the animal’s power increases as shown on the table in the sidebar.
+
+
+      If a druid releases her companion from service, she may gain a new one by performing a ceremony requiring 24
+      uninterrupted hours of prayer. This ceremony can also replace an animal companion that has perished.
+
+
+      A druid of 4th level or higher may select from alternative lists of animals (see the sidebar). Should she select
+      an animal companion from one of these alternative lists, the creature gains abilities as if the character’s druid
+      level were lower than it actually is. Subtract the value indicated in the appropriate list header from the
+      character’s druid level and compare the result with the druid level entry on the table in the sidebar to determine
+      the animal companion’s powers. (If this adjustment would reduce the druid’s effective level to 0 or lower, she
+      can’t have that animal as a companion.) For example, a 6th-level druid could select a leopard as an animal
+      companion. The leopard would have characteristics and special abilities as if the druid were 3rd level (taking
+      into account the –3 adjustment) instead of 6th level.
+  - name: Nature Sense
+    type: ex
+    description: A druid gains a +2 bonus on Knowledge (nature) and Survival checks.
+  - name: Wild Empathy
+    type: ex
+    description: >-
+      A druid can use body language, vocaliza- tions, and demeanor to improve the attitude of an animal (such as a bear
+      or a monitor lizard). This ability functions just like a Diplomacy check made to improve the attitude of a person
+      (see Chapter 4: Skills). The druid rolls 1d20 and adds her druid level and her Charisma modifier to determine the
+      wild empathy check result. The typical domestic animal has a starting attitude of indifferent, while wild animals
+      are usually unfriendly.
+
+
+      To use wild empathy, the druid and the animal must be able to study each other, which means that they must be
+      within 30 feet of one another under normal conditions. Generally, influencing an animal in this way takes 1 minute
+      but, as with influencing people, it might take more or less time.
+
+
+      A druid can also use this ability to influence a magical beast with an Intelligence score of 1 or 2 (such as a
+      basilisk or a girallon), but she takes a –4 penalty on the check.
+  - name: Woodland Stride
+    type: ex
+    description: Starting at 2nd level, a druid may move through any sort of undergrowth (such as natural thorns, briars,
+      overgrown areas, and similar terrain) at her normal speed and with- out taking damage or suffering any other
+      impairment. However, thorns, briars, and overgrown areas that have been magically manipulated to impede motion
+      still affect her.
+  - name: Trackless Step
+    type: ex
+    description: Starting at 3rd level, a druid leaves no trail in natural surroundings and cannot be tracked. She may
+      choose to leave a trail if so desired.
+reference: PHB:33

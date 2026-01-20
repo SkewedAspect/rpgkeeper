@@ -1,0 +1,4 @@
+id: genesys-ability-focus-fire
+name: Focus Fire
+description: When making a combat check, add <advantage></advantage> to the results for every other character in the minion group.
+reference: SotB

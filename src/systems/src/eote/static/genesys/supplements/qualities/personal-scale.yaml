@@ -1,0 +1,8 @@
+id: genesys-quality-personal-scale
+name: Personal Scale
+description: "This quality exists only for vehicle weapons. We use this quality when we want to put small-scale weapons
+  on a vehicle, such as the machine guns on the side of a combat helicopter, or a grenade launcher on an APC. The
+  quality has the following rule: this vehicle weapon's entire profile uses personal scale instead of planetary scale."
+passive: true
+ranked: false
+reference: G-CRB:225

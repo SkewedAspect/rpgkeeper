@@ -1,0 +1,9 @@
+id: genesys-talent-scathing-tirade
+name: Scathing Tirade
+description: Your character may use this talent to make an <difficulty></difficulty><difficulty></difficulty>. For each
+  <success></success> the check generates, one enemy within short range suffers 1 strain. For each
+  <advantage></advantage>, one enemy affected by Scathing Tirade suffers 1 additional strain.
+activation: aa
+ranked: false
+tier: 2
+reference: G-CRB:77

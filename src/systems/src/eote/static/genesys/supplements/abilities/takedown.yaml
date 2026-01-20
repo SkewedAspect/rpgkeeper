@@ -1,0 +1,6 @@
+id: genesys-ability-takedown
+name: Takedown
+description: As an action, may make an <difficulty></difficulty><difficulty></difficulty> targeting one engaged
+  opponent; if successful, target is knocked prone, suffers 4 strain, and may not stand from prone during their next
+  turn.
+reference: SotB

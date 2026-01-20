@@ -1,0 +1,7 @@
+id: genesys-talent-precision
+name: Precision
+description: When making a Brawl or Ranged check, your character may use Cunning instead of Brawn and Agility.
+activation: ai
+ranked: false
+tier: 1
+reference: RoT:84

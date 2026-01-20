@@ -1,0 +1,11 @@
+id: genesys-attachment-quick-discharge-capacitors
+name: Quick-Discharge Capacitors
+description: Self-styled gunslingers prefer any modification that allows them to fire their weapon more rapidly, even if
+  accuracy suffers. Adding extra capacitors that can release stored energy in a single burst adds to the weight of a
+  shot but can disrupt the weapon's circuitry.
+useWith: weapon
+modifiers: When your character makes their first combat check with this weapon in an encounter, add Success Despair to
+  the results.
+hpRequired: 1
+qualities: []
+reference: EotI:128

@@ -1,0 +1,8 @@
+id: genesys-talent-jump-up
+name: Jump Up
+description: Once per round during your character's turn, your character may use this talent to stand from a prone or
+  seated position as an incidental.
+activation: ai
+ranked: false
+tier: 1
+reference: G-CRB:73

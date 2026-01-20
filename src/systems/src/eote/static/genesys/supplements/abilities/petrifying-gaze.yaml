@@ -1,0 +1,8 @@
+id: genesys-ability-petrifying-gaze
+name: Petrifying Gaze
+description: As an action, may make an opposed Cool check} targeting one character within medium range to immobilized
+  the target until the end of this character's next turn, plus one additional turn for each
+  <success></success><success></success>; may spend
+  <advantage></advantage><advantage></advantage><advantage></advantage> to staggered target until the end of this
+  character's next turn and may spend <threat></threat> to turn target to stone.
+reference: G-EPG

@@ -1,0 +1,19 @@
+{
+  "name": "@rpgk/server",
+  "version": "1.0.0",
+  "description": "RPGKeeper Express server application",
+  "type": "module",
+  "exports": {
+    ".": "./src/server.ts"
+  },
+  "files": ["src"],
+  "scripts": {
+    "lint": "eslint \"src/**/*.{ts,js}\" --max-warnings=0 --no-warn-ignored",
+    "lint:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@rpgk/core": "*",
+    "@rpgk/systems": "*"
+  },
+  "devDependencies": {}
+}

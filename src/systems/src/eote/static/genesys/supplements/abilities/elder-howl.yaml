@@ -1,0 +1,7 @@
+id: genesys-ability-elder-howl
+name: Elder Howl
+description: Once per session, may spend an action to force all opponents within long range to make an
+  <difficulty></difficulty>; increase the difficulty of this check by 1 for each other minion group, rival, or nemesis
+  of this character's same type in the current encounter, to a maximum of
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>.
+reference: EotI

@@ -1,0 +1,14 @@
+id: genesys-quality-blast
+name: Blast
+description: The weapon has a large spread, an explosive blast, or a similar area of effect, like a detonated grenade or
+  a warhead fired from a missile launcher. If the attack is successful and Blast activates, each character (friend or
+  foe) engaged with the original target suffers a hit dealing damage equal to the Blast quality's rating, plus damage
+  equal to the total <success></success> scored on the check. In a relatively small and enclosed area, the Game Master
+  might decide that everyone in the room suffers damage. If the Blast quality doesn't activate, the ordnance still
+  detonates, but bad luck or poor aim on the part of the firer (or quick reactions on the part of the targets) means the
+  explosion may not catch anyone else in its radius. However, the user may also trigger Blast if the attack misses by
+  spending <advantage></advantage><advantage></advantage><advantage></advantage>. In this case, the original target and
+  every target engaged with the original target suffers a hit dealing damage equal to the Blast rating of the weapon.
+passive: false
+ranked: false
+reference: G-CRB:86

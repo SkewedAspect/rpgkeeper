@@ -1,0 +1,6 @@
+id: eote-quality-superior
+name: Superior
+description: Generates automatic <advantage></advantage> on all checks related to its use.
+passive: false
+ranked: false
+reference: E-CRB:157

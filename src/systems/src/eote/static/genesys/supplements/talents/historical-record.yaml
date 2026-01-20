@@ -1,0 +1,9 @@
+id: genesys-talent-historical-record
+name: Historical Record
+description: Your character must be a Winnu or have allegiance to the Empyrean or The Nomad to benefit from this talent.
+  Once per session before making a knowledge skill check or Astrocartography check, your character may use this talent
+  to succeed on the check with <success></success><success></success><success></success>.
+activation: ai
+ranked: false
+tier: 1
+reference: EotI:50

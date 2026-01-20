@@ -1,0 +1,5 @@
+id: genesys-ability-poof
+name: Poof!
+description: Once per encounter, may make an opposed Stealth check} against an opponent within short range to vanish
+  from the encounter. Must reappear at long range of that opponent at the start of this character's next turn.
+reference: SotC

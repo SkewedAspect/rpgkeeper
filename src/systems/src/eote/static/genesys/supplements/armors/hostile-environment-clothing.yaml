@@ -1,0 +1,20 @@
+id: genesys-armor-hostile-environment-clothing
+name: Hostile Environment Clothing
+description: "Adventure seekers, explorers, and scientists regularly risk life and limb to uncover the hidden mysteries
+  of the galaxy, such as the acid rains on Equid Torn or the crystal sandstorms of Orcovis III. Hostile environment
+  clothing offers several styles and features, from partial biosuits made of hardened, nonporous materials to heated
+  jackets for the cold. Manufactured using a carbon-fiber weave and augmented with a variety of systems, such as cooling
+  vanes, heating coils, or corrosion-resistant coating, this clothing can withstand semihostile environments and offers
+  limited protection against attacks. A character purchases hostile environment clothing to protect against a specific
+  hostile environment (usually cold, heat, or a corrosive atmosphere). Wearers of this clothing remove
+  <setback></setback><setback></setback> from any Survival or Resilience checks they make due to the specific hostile
+  environment. They also reduce the rating of hazards related to that environment by 2, to a minimum of 0 (see Fire,
+  Acid, and Corrosive Atmospheres on page 111 of the Genesys Core Rulebook). This armor may be modified with 2-1:
+  Cultural Manufacturing Differences."
+defense: 0
+soak: 1
+hardpoints: 2
+encumbrance: 3
+rarity: 3
+qualities: []
+reference: EotI:116

@@ -1,0 +1,8 @@
+id: eote-quality-burn
+name: Burn
+description: One target hit by the attack continues to suffer the weapon's base damage for a number of rounds equal to
+  the Burn rating. If multiple targets suffer hits from a weapon with Burn, the quality may be triggered multiple times,
+  affecting a different target each time.
+passive: false
+ranked: true
+reference: E-CRB:155

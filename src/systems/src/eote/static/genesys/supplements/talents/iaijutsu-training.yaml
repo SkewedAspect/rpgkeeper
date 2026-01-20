@@ -1,0 +1,8 @@
+id: genesys-talent-iaijutsu-training
+name: Iaijutsu Training
+description: The first time during an encounter that your character draws a Melee weapon, increase the weapon's damage
+  by 2 for the remainder of the turn.
+activation: p
+ranked: false
+tier: 1
+reference: SotB:45

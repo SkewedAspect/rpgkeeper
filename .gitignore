@@ -19,3 +19,7 @@ node_modules
 # Database
 *.sqlite
 *.db*
+
+# Playwright
+/playwright-report/
+/test-results/

@@ -1,0 +1,5 @@
+id: genesys-ability-tactical-direction
+name: Tactical Direction
+description: May spend a maneuver to direct one friendly minion group within medium range; that group may immediately
+  perform a maneuver as an out-of-turn incidental or add <boost></boost> to the next check it makes.
+reference: G-CRB

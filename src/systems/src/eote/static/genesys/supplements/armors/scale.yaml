@@ -1,0 +1,14 @@
+id: genesys-armor-scale
+name: Scale
+description: Something of a compromise between leather and chainmail armor, scale armor consists of hundreds of tiny
+  metal scales attached to a leather jerkin. It is easier to forge than chainmail, but the scales and the leather
+  combined make the armor heavy and unwieldy. Many spear companies mustered by the Barons wear scale armor reinforced
+  with greaves and a breastplate. The rattling of hundreds of scales is fairly noisy, so your character adds
+  <setback></setback> to Stealth checks they make while wearing it.
+defense: 0
+soak: 2
+hardpoints: 1
+encumbrance: 4
+rarity: 4
+qualities: []
+reference: RoT:97

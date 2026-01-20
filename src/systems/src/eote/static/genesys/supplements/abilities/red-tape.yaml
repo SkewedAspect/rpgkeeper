@@ -1,0 +1,8 @@
+id: genesys-ability-red-tape
+name: Red Tape
+description: Once per encounter, as an action, make an opposed Knowledge check} targeting one character in the
+  encounter; if successful, the target increases the difficulty of all social skill checks they make by two, to a
+  maximum of
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>,
+  until the end of the encounter.
+reference: G-EPG

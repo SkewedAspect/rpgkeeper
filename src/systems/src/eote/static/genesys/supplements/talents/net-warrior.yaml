@@ -1,0 +1,10 @@
+id: genesys-talent-net-warrior
+name: Net Warrior
+description: While accessing a system using a brain-machine interface (BMI), your character may use this talent to make
+  an opposed Computers (Hacking) versus Computers (Sysops) check targeting one other character on the system that they
+  are aware of. The target suffers 1 strain per <success></success>, and if they are using a BMI, they also suffer 1
+  wound per <success></success>.
+activation: aa
+ranked: false
+tier: 3
+reference: SotB:50

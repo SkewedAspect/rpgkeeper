@@ -1,0 +1,13 @@
+id: genesys-talent-overheat
+name: Overheat
+description: Your character must be a Hylar or {@archetype Gashlai or have allegiance to the Embers of Muaat or the
+  Universities of Jol-Nar to benefit from this talent.} When making a check while using a piece of equipment (such as
+  operating a vehicle, searching with a scanner, or attacking with a weapon), your character may use this talent to add
+  <success></success><advantage></advantage> to the results. If they do so, after the check is resolved, the equipment
+  becomes damaged one step (from undamaged to minor, from minor to moderate, from moderate to major, or from major to
+  destroyed; see page 89 of the Core Rulebook). If the equipment is a part of a vehicle, the vehicle suffers 2 system
+  strain instead.
+activation: ai
+ranked: false
+tier: 2
+reference: EotI:53

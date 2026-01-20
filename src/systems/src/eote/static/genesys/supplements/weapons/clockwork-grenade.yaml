@@ -1,0 +1,23 @@
+id: genesys-weapon-clockwork-grenade
+name: Clockwork Grenade
+description: Our steampunk take on the common hand grenade is a bulky canister containing a simple boiler heated by
+  combining two chemicals. When the user vigorously cranks the device, the chemicals combine, generating ferocious heat.
+  This builds a massive amount of steam pressure, giving the user has a few moments to throw the grenade before the
+  canister fragments. The explosive pressure flings the metal shards in all directions at high velocity, and splatter
+  from the chemicals may burn the targets as well (represented by the Burn quality). Because the whole device is
+  horribly unstable, if the user generates <difficulty></difficulty> on the check, the device blows up in their hand,
+  and they suffer an automatic hit dealing the weapon's base damage.
+skill: Ranged (Light)
+damage: 8
+criticalRating: 3
+range: s
+encumbrance: 1
+rarity: 6
+qualities:
+  - id: genesys-quality-blast
+    ranks: 5
+  - id: genesys-quality-burn
+    ranks: 1
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: G-CRB:154

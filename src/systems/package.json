@@ -1,0 +1,24 @@
+{
+  "name": "@rpgk/systems",
+  "version": "1.0.0",
+  "description": "RPG system definitions and Vue components for RPGKeeper",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts",
+    "./eote/models": "./src/eote/models.ts"
+  },
+  "files": ["src"],
+  "scripts": {
+    "build:static-db": "npx tsx scripts/build-static-db.ts",
+    "lint": "eslint \"src/**/*.{ts,js,vue}\" --max-warnings=0 --no-warn-ignored",
+    "lint:types": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@rpgk/core": "*"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {}
+}

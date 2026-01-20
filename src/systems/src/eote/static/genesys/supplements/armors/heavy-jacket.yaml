@@ -1,0 +1,16 @@
+id: genesys-armor-heavy-jacket
+name: Heavy Jacket
+description: This is our profile for the heavy jacket. This is general enough to represent a piece of clothing that
+  would fit into a number of eras. The jacket has no defense, because it has no elements that would deflect a blow. It
+  adds +1 soak to your character, which is in line with heavy clothing, but not at the level of military or police
+  armor. The price is what you'd expect to pay for a rugged, well-made jacket. It also isn't a problem to carry
+  (remember that when the jacket's worn, that encumbrance drops down to 0). However, besides cosmetic customizations, a
+  jacket doesn't do much, so there aren't any other special rules. Finally, jackets are really easy to find, leading to
+  the low rarity.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 1
+rarity: 1
+qualities: []
+reference: G-CRB:92

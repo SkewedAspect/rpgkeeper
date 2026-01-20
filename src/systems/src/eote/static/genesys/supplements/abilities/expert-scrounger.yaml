@@ -1,0 +1,5 @@
+id: genesys-ability-expert-scrounger
+name: Expert Scrounger
+description: While this character is present in an encounter, add <boost></boost><boost></boost> to checks friendly
+  characters make to search an area.
+reference: SotC

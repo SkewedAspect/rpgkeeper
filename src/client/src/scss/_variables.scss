@@ -1,0 +1,66 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Theme Variable Overrides
+//
+// Note: Mixins, or referencing other Bootstrap variables does not work here. You must copy in everything you need
+// first. Avoid the temptation to simply import Bootstrap's `_variables.scss` file, as that will override our overrides.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+// Theme Options
+$enable-caret: true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-prefers-reduced-motion-media-query: false;
+$enable-grid-classes: true;
+$enable-print-styles: true;
+$enable-validation-icons: true;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Colors
+//----------------------------------------------------------------------------------------------------------------------
+
+// Theme colors
+$primary: #FF9900 !default;
+$secondary: #6C757D !default;
+$success: #009900 !default;
+$info: #a977ff !default;
+$warning: #E48800 !default;
+$danger: #D03619 !default;
+$light: #EEF0F3 !default;
+$dark: #424242 !default;
+
+// Other Color definitions
+$white: #FFFFFF !default;
+$gray-200: #EEF0F3 !default;
+
+// Text Color Overrides (buttons, badges, etc.)
+$theme-colors-text: (
+    primary: #FFFFFF,
+    secondary: #FFFFFF,
+    success: #FFFFFF,
+    info: #FFFFFF,
+    warning: #FFFFFF,
+    danger: #FFFFFF,
+    light: #000000,
+    dark: #FFFFFF
+);
+
+//----------------------------------------------------------------------------------------------------------------------
+// Fonts
+//----------------------------------------------------------------------------------------------------------------------
+
+$font-size-root: 14px !default;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Navbar
+//----------------------------------------------------------------------------------------------------------------------
+
+$navbar-padding-y: 4px !default;
+
+$font-family-sans-serif: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+"Noto Color Emoji" !default;
+
+//----------------------------------------------------------------------------------------------------------------------

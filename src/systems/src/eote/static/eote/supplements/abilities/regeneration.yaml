@@ -1,0 +1,7 @@
+id: eote-ability-regeneration
+name: Regeneration
+description: Whenever a Trandoshan would recover one or more wounds from natural rest or recuperation in a Bacta tank,
+  he recovers one additional wound. He does not recover one additional wound when receiving first aid or then using a
+  stimpack. Trandoshans can regrow lost limbs as well, though it usually takes at least a month before the limb is
+  usable.
+reference: E-CRB:51

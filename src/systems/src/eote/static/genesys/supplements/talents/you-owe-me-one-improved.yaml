@@ -1,0 +1,9 @@
+id: genesys-talent-you-owe-me-one-improved
+name: You Owe Me One (Improved)
+description: Your character must have purchased the You Owe Me One talent to benefit from this talent. Once per session,
+  you may spend two Story Points to use You Owe Me One to have one NPC in the current encounter owe your character a big
+  favor instead of a favor. If the big favor is not resolved by the end of the encounter, it is forgotten.
+activation: ai
+ranked: false
+tier: 4
+reference: SotB:52

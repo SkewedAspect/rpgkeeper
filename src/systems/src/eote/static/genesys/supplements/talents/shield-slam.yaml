@@ -1,0 +1,9 @@
+id: genesys-talent-shield-slam
+name: Shield Slam
+description: When your character uses a shield to attack a minion or rival, you may spend
+  <advantage></advantage><advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> to
+  stagger the target until the end of the target's next turn.
+activation: ai
+ranked: false
+tier: 1
+reference: RoT:84

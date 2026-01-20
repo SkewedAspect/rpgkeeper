@@ -1,0 +1,5 @@
+id: genesys-ability-sniffer-programs
+name: Sniffer Programs
+description: Add <setback></setback><setback></setback> to any opponent's checks made on a system the SYNC Globalsec
+  agent has control of.
+reference: SotB

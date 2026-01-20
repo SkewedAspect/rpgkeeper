@@ -1,0 +1,12 @@
+id: eote-attachment-heating-system
+name: Heating System
+description: Like thermal shielding, cold shielding is installed in armor to protect the wearer against dangerously low
+  temperatures and frigid environments. Equipped with small, efficient heating elements and double insulated against the
+  cold, this attachment allows a wearer to survive in places where the ambient temperature can be dozens of degrees
+  below freezing.
+useWith: Any armor that covers the entire body, and can be sealed.
+baseModifier: Reduce Resilience check difficulty against cold. Removes up to <setback></setback><setback></setback>
+  added to checks by cold.
+modOptions: None
+hpRequired: 1
+reference: E-CRB:194

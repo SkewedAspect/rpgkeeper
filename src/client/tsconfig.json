@@ -1,22 +1,30 @@
 {
-    "compilerOptions": {
-        "composite": true,
-        "rootDir": "..",
-        "outDir": "../../dist",
-        "skipLibCheck": true,
-        "module": "ESNext",
-        "target": "ESNext",
-        "lib": ["ESNext", "DOM", "DOM.Iterable"],
-        "moduleResolution": "bundler",
-
-        // Overrides
-        "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true
-    },
-    "include": [
-        "../common/**/*.ts",
-        "**/*.ts",
-        "**/*.vue",
-        "components.d.ts"
-    ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@rpgk/core": ["../core/src/index.ts"],
+      "@rpgk/core/*": ["../core/src/*"],
+      "@rpgk/systems": ["../systems/src/index.ts"],
+      "@rpgk/systems/client": ["../systems/src/client.ts"],
+      "@rpgk/systems/eote/models": ["../systems/src/eote/models.ts"],
+      "@rpgk/systems/*": ["../systems/src/*"],
+      "@client/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

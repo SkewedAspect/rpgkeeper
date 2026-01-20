@@ -1,0 +1,8 @@
+id: eote-talent-street-smarts
+name: Street Smarts
+description: The character removes <setback></setback> per rank of Street Smarts from his Streetwise and Knowledge
+  (Underworld) checks.
+activation: p
+ranked: true
+trees: Shadow, Shien Expert
+reference: E-CRB:144

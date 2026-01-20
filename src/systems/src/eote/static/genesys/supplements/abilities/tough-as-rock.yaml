@@ -1,0 +1,6 @@
+id: genesys-ability-tough-as-rock
+name: Tough as Rock
+description: Decrease the difficulty to heal any Critical Injuries a sylicate is suffering from by one (Hard becomes
+  Average, Average becomes Easy, and so on). A sylicate doesn't suffer the normal penalties for making a Medicine check
+  to heal their own wounds or Critical Injuries.
+reference: SotC

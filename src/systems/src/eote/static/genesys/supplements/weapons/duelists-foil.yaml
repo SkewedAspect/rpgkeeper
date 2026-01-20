@@ -1,0 +1,16 @@
+id: genesys-weapon-duelists-foil
+name: Duelist's Foil
+description: A duelist foil is an ideal weapon for an upper-crust individual. Although it is not as sturdy as a saver,
+  the needle-thin blade can pierce through most armor. When a duelist foil is used to make a combat check, your GM may
+  spend <despair></despair><despair></despair> to cause it to become damaged one step (see page 89 of the Core
+  Rulebook).
+skill: melee
+damage: 1
+criticalRating: 2
+range: en
+encumbrance: 1
+rarity: 2
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 3
+reference: G-EPG:22

@@ -1,0 +1,9 @@
+id: genesys-talent-loot-first
+name: Loot First
+description: Once per session, your character may use this talent to spend any number of <advantage></advantage> from a
+  check they make to gain 100 Æmbits for each <advantage></advantage> spent this way. You must explain how the check
+  gave your character the opportunity to "find" this money.
+activation: ai
+ranked: false
+tier: 2
+reference: SotC:79

@@ -1,0 +1,7 @@
+id: genesys-talent-basic-military-training
+name: Basic Military Training
+description: Athletics, Ranged (Heavy), and Resilience are now career skills for your character.
+activation: p
+ranked: false
+tier: 2
+reference: G-CRB:75

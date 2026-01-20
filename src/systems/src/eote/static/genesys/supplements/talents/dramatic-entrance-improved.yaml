@@ -1,0 +1,9 @@
+id: genesys-talent-dramatic-entrance-improved
+name: Dramatic Entrance (Improved)
+description: Your character must have purchased the Dramatic Entrance talent to benefit from this talent. When your
+  character uses Dramatic Entrance, they may choose to have all allies in the encounter heal 2 strain or to have all
+  enemies in the encounter suffer 2 strain.
+activation: aio
+ranked: false
+tier: 4
+reference: SotC:83

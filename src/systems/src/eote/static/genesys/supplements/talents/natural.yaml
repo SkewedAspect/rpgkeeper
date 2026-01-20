@@ -1,0 +1,8 @@
+id: genesys-talent-natural
+name: Natural
+description: When your character purchases this talent, choose two skills. Once per session, your character may use this
+  talent to reroll one skill check that uses one of those two skills.
+activation: ai
+ranked: false
+tier: 3
+reference: G-CRB:79

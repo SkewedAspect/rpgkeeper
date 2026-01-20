@@ -1,0 +1,7 @@
+id: genesys-talent-basic-combat-training
+name: Basic Combat Training
+description: When you take this talent, your character gains Brawl, Ranged (Heavy), or Ranged (Light) as a career skill.
+activation: p
+ranked: false
+tier: 1
+reference: EotI:50

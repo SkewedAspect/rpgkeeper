@@ -1,0 +1,13 @@
+id: genesys-attachment-balanced-hilt
+name: Balanced Hilt
+description: This attachment represents modifying a melee weapon's balance (particularly around the hilt or haft) to
+  make it easier to control. This kind of attachment makes sense for any setting (even futuristic combat knives can
+  benefit from being finely weighted or balanced).
+useWith: weapon
+modifiers: The weapon gains the Accurate quality, or increases any existing Accurate quality by 1. (If the weapon has
+  the Inaccurate quality, it reduces that quality's rating by 1 to a minimum of 0, instead.)
+hpRequired: 3
+qualities:
+  - id: genesys-quality-accurate
+  - id: genesys-quality-inaccurate
+reference: G-CRB:207

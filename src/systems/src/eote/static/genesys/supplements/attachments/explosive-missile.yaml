@@ -1,0 +1,9 @@
+id: genesys-attachment-explosive-missile
+name: Explosive Missile
+description: Whether through means of runic inscription on the weapon or by alchemical agents applied to each arrow or
+  bolt, a weapon with this attachment launches projectiles that explode on impact.
+useWith: weapon
+modifiers: The weapon gains the Blast item quality.
+hpRequired: 1
+qualities: []
+reference: RoT:106

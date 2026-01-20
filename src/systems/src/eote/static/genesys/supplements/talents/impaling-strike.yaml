@@ -1,0 +1,8 @@
+id: genesys-talent-impaling-strike
+name: Impaling Strike
+description: When your character inflicts a Critical Injury with a melee weapon, until the end of the target's next turn
+  they may use this talent to immobilized the target (in addition to the other effects of the Critical Injury).
+activation: ai
+ranked: false
+tier: 2
+reference: RoT:88

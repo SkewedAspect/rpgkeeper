@@ -1,0 +1,8 @@
+id: genesys-talent-justice-of-the-citadel
+name: Justice of the Citadel
+description: Once per round on your character's turn, your character may suffer 3 strain to use this talent to add
+  damage equal to their ranks in Discipline to one hit of a successful melee attack.
+activation: ai
+ranked: false
+tier: 3
+reference: RoT:90

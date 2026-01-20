@@ -1,0 +1,15 @@
+id: genesys-weapon-sword
+name: Sword
+description: Designed to let the wielder block and parry blows, swords can be defensive, as well as offensive. To
+  reflect this, swords get Defensive. Their sharp blades also make it easier to inflict Critical Injuries, giving them a
+  better Critical rating.
+skill: Melee (Light)
+damage: 3
+criticalRating: 2
+range: en
+encumbrance: 1
+rarity: 2
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+reference: G-CRB:144

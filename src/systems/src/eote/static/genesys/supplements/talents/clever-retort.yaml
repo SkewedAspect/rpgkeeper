@@ -1,0 +1,8 @@
+id: genesys-talent-clever-retort
+name: Clever Retort
+description: Once per encounter, your character may use this talent to add automatic
+  <despair></despair><despair></despair> to another character's social skill check.
+activation: aio
+ranked: false
+tier: 1
+reference: G-CRB:73

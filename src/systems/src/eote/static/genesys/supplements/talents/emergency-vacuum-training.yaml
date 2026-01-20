@@ -1,0 +1,9 @@
+id: genesys-talent-emergency-vacuum-training
+name: Emergency Vacuum Training
+description: Your character does not count zero-gravity environments as difficult and impassable terrain. When your
+  character is exposed to vacuum without protective gear, they may hold their breath for a number of rounds equal to
+  twice their Brawn and only suffer 2 wounds for each round they are exposed to vacuum.
+activation: p
+ranked: false
+tier: 1
+reference: EotI:50

@@ -1,0 +1,11 @@
+id: genesys-talent-bought-info
+name: Bought Info
+description: When making any knowledge skill check, your character can instead use this talent to spend an amount of
+  currency equal to fifty times the difficulty of the check and automatically succeed on the knowledge check with one
+  uncanceled <success></success> (instead of rolling). At your GM's discretion, your character may not be able to use
+  Bought Info if the information is particularly sensitive or difficult to find, or buying it doesn't make narrative
+  sense.
+activation: aa
+ranked: false
+tier: 1
+reference: G-CRB:72

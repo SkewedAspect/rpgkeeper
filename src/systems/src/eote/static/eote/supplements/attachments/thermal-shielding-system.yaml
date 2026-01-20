@@ -1,0 +1,11 @@
+id: eote-attachment-thermal-shielding-system
+name: Thermal Shielding System
+description: Utilizing both active and passive cooling systems, along with an insulated body glove and special coatings
+  on the armor plates, this attachment allows a wearer to withstand dangerously high temperatures. This thermal
+  shielding is proof against open flames, molten rock and steel, intense heat, and even some forms of radiation.
+useWith: Any armor that covers the entire body, and can be sealed.
+baseModifier: Reduce Resilience check difficulty against fire and heat. Removes up to
+  <setback></setback><setback></setback> added to checks by heat or fire.
+modOptions: None
+hpRequired: 1
+reference: E-CRB:194

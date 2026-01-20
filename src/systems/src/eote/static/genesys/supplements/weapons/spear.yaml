@@ -1,0 +1,20 @@
+id: genesys-weapon-spear
+name: Spear
+description: "Spears are perfect for fighting in tight formation, where soldiers can't swing a sword or axe without
+  hitting one of their fellows. Thus, foot soldiers of the baronies tend to train with spear and shield in the art of
+  forming a defensive wall of thrusting spear tips. Standard spears are too heavy to be wielded in one hand or thrown.
+  \"Light\" spears (sometimes called javelins) on the other hand can be wielded one-handed and consist of a thick,
+  four-foot-long wooden shaft topped by a heavy iron spearhead. These spears are also light enough to be thrown over
+  short distances; the Orcs of the Broken Plains often use thrown spears to skewer their prey while hunting. Your
+  character can thrust or stab with a light spear using the profile in 2-5: Melee Weapons, or they can throw one using
+  the following profile: [Table: Thrown Stats]"
+skill: Melee (Heavy)
+damage: 3
+criticalRating: 3
+range: en
+encumbrance: 3
+rarity: 2
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+reference: RoT:93

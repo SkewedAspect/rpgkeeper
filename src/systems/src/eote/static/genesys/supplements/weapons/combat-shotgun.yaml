@@ -1,0 +1,25 @@
+id: genesys-weapon-combat-shotgun
+name: Combat Shotgun
+description: "Whereas civilian shotguns are built for sporting and hunting, these weapons are built for military use. A
+  typical combat shotgun is a light, short-barreled, magazine-fed weapon used by government and prisec forces. Primarily
+  chambered in 12- and 20-gauge, combat shotguns are select-fire weapons that can fire a single round, fire a three-shot
+  burst, or empty an entire magazine with a pull of the trigger. A combat shotgun's major drawbacks are their savage
+  kick and their nasty tendency to jam during automatic fire. The kick is easily contained by integrated smart recoil
+  dampers, but even modern weapon development hasn't solved the jamming issue. Your Game Master may spend
+  <despair></despair><despair></despair> generated on a combat check using a combat shotgun to jam the weapon. A jammed
+  weapon cannot be fired. Clearing a jam requires a maneuver. Models Include: HHI Model 8, Cantor XK Jackhammer."
+skill: Ranged (Heavy)
+damage: 8
+criticalRating: 3
+range: s
+encumbrance: 4
+rarity: 5
+qualities:
+  - id: genesys-quality-auto-fire
+  - id: genesys-quality-blast
+    ranks: 5
+  - id: genesys-quality-inaccurate
+    ranks: 1
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: SotB:82

@@ -1,0 +1,7 @@
+id: genesys-ability-master-of-the-lightning
+name: Master of the Lightning
+description: Once per encounter, may make a Hard as an action; if successful, one target within long range suffers 10
+  damage to their strain threshold (+1 damage per <success></success>) and a Critical Injury; may spend
+  <advantage></advantage><advantage></advantage> or <threat></threat> to inflict the same damage and a Critical Injury
+  on an additional target within long range.
+reference: G-EPG

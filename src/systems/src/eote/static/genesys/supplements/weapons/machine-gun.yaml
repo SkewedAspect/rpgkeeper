@@ -1,0 +1,23 @@
+id: genesys-weapon-machine-gun
+name: Machine Gun
+description: Machine guns are large, heavy, often crew-served weapons. Depending on the type, a machine gun can be
+  anything from a medium-weight, man-portable squad-support weapon to a heavy, turret-mounted .50 cal. The machine gun
+  presented here can be used for any of the medium-caliber squad-support weapons like the M60, M249, or MG4. They're
+  designed to be carried in the field, but they still have a high encumbrance (check out page 207 for rules for a bipod
+  or tripod for this weapon). Heavier machine guns can have their damage increased by two, although you should increase
+  their encumbrance and Cumbersome rating by two as well.
+skill: Gunnery
+damage: 10
+criticalRating: 3
+range: l
+encumbrance: 6
+rarity: 6
+qualities:
+  - id: genesys-quality-auto-fire
+  - id: genesys-quality-cumbersome
+    ranks: 2
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: G-CRB:166

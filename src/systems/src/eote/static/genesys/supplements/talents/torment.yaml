@@ -1,0 +1,8 @@
+id: genesys-talent-torment
+name: Torment
+description: If their target is disoriented, staggered, or prone, your character may add <boost></boost> to social skill
+  checks they make to inflict strain and combat checks.
+activation: p
+ranked: false
+tier: 1
+reference: SotC:78

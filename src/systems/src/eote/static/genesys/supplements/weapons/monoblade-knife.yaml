@@ -1,0 +1,16 @@
+id: genesys-weapon-monoblade-knife
+name: Monoblade Knife
+description: This is an age-old weapon with a futuristic twist, a knife given an impossibly sharp edge through materials
+  sciences. This is just like the knife on page 91, except that this knife has a better Crit rating and the Pierce
+  quality; it can cut through tough materials and is more likely to inflict deadly wounds. If you want to make a
+  monoblade sword (or katana), up the damage to +3, give it the Defensive 1 quality, and multiply the price by 2.
+skill: Melee
+damage: 1
+criticalRating: 2
+range: en
+encumbrance: 1
+rarity: 3
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 2
+reference: G-CRB:175

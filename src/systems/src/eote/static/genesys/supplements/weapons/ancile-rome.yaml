@@ -1,0 +1,19 @@
+id: genesys-weapon-ancile-rome
+name: Ancile (Rome)
+description: The Ancile is a large leather shield that fell from heaven and was brought to Rome, where it served to
+  protect the city from outside harm. It was said that as long as the Ancile remained in Rome, the city would never
+  fall. When your character wields this shield, all engaged allies increase their melee and ranged defense by 3.
+skill: Melee (Light)
+damage: 1
+criticalRating: 4
+range: en
+encumbrance: 2
+rarity: 10
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 3
+  - id: genesys-quality-deflection
+    ranks: 3
+  - id: genesys-quality-knockdown
+  - id: genesys-quality-reinforced
+reference: G-EPG:12

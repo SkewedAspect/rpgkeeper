@@ -1,0 +1,25 @@
+id: genesys-weapon-charged-crystal-katana
+name: Charged Crystal Katana
+description: "A strange anachronism even by melee weapon standards, the charged crystal katana is as much a work of art
+  as it is a weapon. Carried by certain factions of the yakuza and other aspiring swordsmen, a CCK blade is constructed
+  from a milky rose electroconductive crystalline lattice instead of folded steel or advanced alloys. A small power cell
+  in the weapon's hilt sends an electrical charge through the blade, causing the crystals to align, which makes it
+  almost indestructible and causes the blade to become nearly transparent. Hard to master and incredibly rare, charged
+  crystal katanas are owned by only the wealthiest and most dedicated individuals. Although a charged crystal katana
+  requires only one hand to wield, while wielded in both hands, it gains the Vicious 2 item quality. Models Include:
+  None—each blade is handmade and unique."
+skill: Melee
+damage: 3
+criticalRating: 2
+range: en
+encumbrance: 3
+rarity: 10
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+  - id: genesys-quality-pierce
+    ranks: 3
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-unwieldy
+    ranks: 3
+reference: SotB:91

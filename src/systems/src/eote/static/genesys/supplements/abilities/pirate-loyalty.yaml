@@ -1,0 +1,6 @@
+id: genesys-ability-pirate-loyalty
+name: Pirate Loyalty
+description: If this group has two or more minions, and they generate <despair></despair><despair></despair> or
+  <difficulty></difficulty> during a check, the minion group splits into two minion groups, roughly in half (generating
+  a new NPC Initiative slot if needed).
+reference: EotI

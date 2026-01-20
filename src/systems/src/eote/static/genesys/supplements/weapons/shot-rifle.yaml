@@ -1,0 +1,14 @@
+id: genesys-weapon-shot-rifle
+name: Shot Rifle
+description: "Shot rifles follow the same design principles as shot pistols. However, their longer barrel means they
+  tend to have better accuracy over longer distances, and their size means they have more room for ammunition. This
+  weapon may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Ranged (Heavy)
+damage: 7
+criticalRating: 4
+range: m
+encumbrance: 3
+rarity: 1
+qualities:
+  - id: genesys-quality-auto-fire
+reference: EotI:111

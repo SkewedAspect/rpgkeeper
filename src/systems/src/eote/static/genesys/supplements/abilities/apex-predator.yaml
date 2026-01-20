@@ -1,0 +1,8 @@
+id: genesys-ability-apex-predator
+name: Apex Predator
+description: At the start of their first turn in the encounter, all opponents must make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of-turn incidental. If they
+  fail, they are immobilized until the start of their next turn. If they fail with <despair></despair>, they are
+  staggered until the start of their next turn instead. If you're using the fear rules (see page 243), this counts as a
+  fear check, and other effects may apply as well.
+reference: G-CRB

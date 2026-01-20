@@ -1,0 +1,6 @@
+id: genesys-ability-pack-tactics
+name: Pack Tactics
+description: When this creature's minion group consists of at least two minions and is engaged with a target, they can
+  spend a maneuver to prevent the target from disengaging from the minion group until the end of their next turn and to
+  add <advantage></advantage><advantage></advantage> to their next combat check against that target.
+reference: G-EPG

@@ -1,0 +1,6 @@
+id: genesys-ability-focused-heat
+name: Focused Heat
+description: While your character is wielding a gear (including their unarmed attacks), that weapon gains the Burn item
+  quality if it did not already have the Burn item quality. When making a combat check with a gear, your character may
+  suffer 3 strain to trigger the Burn quality without spending <advantage></advantage>.
+reference: EotI

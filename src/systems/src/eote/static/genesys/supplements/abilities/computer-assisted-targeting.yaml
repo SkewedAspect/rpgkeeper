@@ -1,0 +1,5 @@
+id: genesys-ability-computer-assisted-targeting
+name: Computer-Assisted Targeting
+description: After using the aim maneuver and making a ranged attack, add <success></success> to the results instead of
+  adding <boost></boost> to the pool.
+reference: EotI

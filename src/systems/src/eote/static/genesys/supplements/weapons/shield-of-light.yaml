@@ -1,0 +1,23 @@
+id: genesys-weapon-shield-of-light
+name: Shield of Light
+description: The Shield of Light is a blessed item that is holy to the priesthood of Kellos. It is a large heater shield
+  decorated with a bold sunburst design in red and gold. When it is wielded in battle, rays of golden light stream from
+  the boss that become impossibly brilliant when struck. While wielding the Shield of Light, if your character suffers a
+  hit from a melee combat check, after the attack is resolved you may spend hh or d from the attacker's check to inflict
+  the Blinded Critical Injury result on the attacker.
+skill: Melee (Light)
+damage: 0
+criticalRating: 6
+range: en
+encumbrance: 2
+rarity: 9
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 3
+  - id: genesys-quality-deflection
+    ranks: 3
+  - id: genesys-quality-inaccurate
+    ranks: 2
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-knockdown
+reference: RoT:109

@@ -1,0 +1,9 @@
+id: genesys-talent-elementalist-supreme
+name: Elementalist (Supreme)
+description: Your character must have purchased the Elementalist (Improved). When your character casts an augment,
+  barrier, or transform spell, they may use this talent to choose to have the targets of the spell gain the ability your
+  character gained when they purchased Elementalist (Improved) for the spell's duration.
+activation: ai
+ranked: false
+tier: 4
+reference: G-EPG:97

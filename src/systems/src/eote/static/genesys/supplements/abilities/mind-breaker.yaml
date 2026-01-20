@@ -1,0 +1,8 @@
+id: genesys-ability-mind-breaker
+name: Mind Breaker
+description: As an action, a psionic may make an opposed Discipline versus Resilience check targeting one living
+  creature within medium range. If the check succeeds, the psionic causes the target to suffer 1 strain, plus 1
+  additional strain per <success></success><success></success> generated on the check.
+  <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> may be spent to cause the
+  target to suffer 1 wound as well.
+reference: G-CRB

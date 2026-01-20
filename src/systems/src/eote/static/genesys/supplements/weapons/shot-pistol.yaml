@@ -1,0 +1,14 @@
+id: genesys-weapon-shot-pistol
+name: Shot Pistol
+description: "Shot weapons are the most common projectile weapons found throughout the galaxy. They use a wide range of
+  propellants and ammunition, from archaic explosive chemical propellants to electromagnetic coil launchers. Whatever
+  their design, most tend to be cheap and durable, if less powerful than an equivalent beam weapon. This weapon may be
+  modified with 2-1: Cultural Manufacturing Differences."
+skill: Ranged (Light)
+damage: 6
+criticalRating: 4
+range: s
+encumbrance: 1
+rarity: 1
+qualities: []
+reference: EotI:111

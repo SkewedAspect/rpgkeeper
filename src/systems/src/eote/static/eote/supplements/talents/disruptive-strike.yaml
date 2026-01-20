@@ -1,0 +1,10 @@
+id: eote-talent-disruptive-strike
+name: Disruptive Strike
+description: _Force talent_. The character may take a Disruptive Strike action, making a Lightsaber (Cunning) combat
+  check against one engaged target and adding <force></force> no greater that Force rating to the check. The character
+  may spend <force-point></force-point> to add <failure></failure> to the target's next combat check made during this
+  encounter.
+activation: aa
+ranked: false
+trees: Shien Expert
+reference: F-CRB:142

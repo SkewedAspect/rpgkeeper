@@ -1,0 +1,9 @@
+id: genesys-talent-know-it-all
+name: Know-It-All
+description: Before making a Knowledge skill check, your character may use this talent to add a number of
+  <boost></boost> no greater than their Intellect. PCs and nemesis-level allies witnessing the check suffer strain equal
+  to the number <boost></boost> added.
+activation: ai
+ranked: false
+tier: 2
+reference: SotC:79

@@ -1,0 +1,26 @@
+id: genesys-weapon-plasma-cutter
+name: Plasma Cutter
+description: "Plasma cutters are powerful cutting tools designed for use in shipbuilding, spacecraft manufacturing,
+  heavy fabrication, and other industrial applications. Powered by a lightweight electrical generator, these tools
+  create a high-intensity electrical arc that makes thermal plasma by reacting with a stream of pressurized carrier gas
+  (generally argon). The powerful plasma jet can cut or weld almost any metal or alloy, making it both versatile and
+  indispensable. Many modern plasma cutters are designed to be portable and come with straps or purpose-built backpacks
+  for carrying and storage. A standard unit consists of a power pack, a cutting head, an array of tips for different
+  jobs, and a reinforced power cable. Like the HHI Neptune waterknife, many of these tools were repurposed by Lunar and
+  Martian rebels into deadly melee weapons and used in ship boarding, hand-to-hand fighting, and for carving up
+  bioroids. A plasma cutter requires two hands to wield. Models Include: HHI PX830 Portable Plasma Torch."
+skill: Melee
+damage: 12
+criticalRating: 3
+range: en
+encumbrance: 5
+rarity: 5
+qualities:
+  - id: genesys-quality-burn
+    ranks: 2
+  - id: genesys-quality-prepare
+    ranks: 1
+  - id: genesys-quality-sunder
+  - id: genesys-quality-unwieldy
+    ranks: 2
+reference: SotB:91

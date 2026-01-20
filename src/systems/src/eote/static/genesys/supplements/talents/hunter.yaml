@@ -1,0 +1,7 @@
+id: genesys-talent-hunter
+name: Hunter
+description: Knowledge (Geography), Ranged, and Survival are now career skills for your character.
+activation: p
+ranked: false
+tier: 2
+reference: RoT:88

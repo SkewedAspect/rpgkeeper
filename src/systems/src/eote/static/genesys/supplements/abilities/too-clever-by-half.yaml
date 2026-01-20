@@ -1,0 +1,6 @@
+id: genesys-ability-too-clever-by-half
+name: Too Clever by Half
+description: Once per session before your character makes a skill check with <boost></boost> in the dice pool, you may
+  spend a Story Point to double the number of <boost></boost> currently in the dice pool. If your character fails the
+  check, they suffer 6 strain in addition to any other penalties.
+reference: G-EPG

@@ -1,0 +1,9 @@
+id: genesys-talent-power-chord
+name: Power Chord
+description: Your character may use this talent and a musical instrument to make an
+  <difficulty></difficulty><difficulty></difficulty>. For each <success></success> the check generates, all allies
+  withing short range heal 1 strain.
+activation: aa
+ranked: false
+tier: 3
+reference: SotC:82

@@ -1,0 +1,12 @@
+id: genesys-attachment-shockskin-lattice
+name: Shockskin Lattice
+description: Shockskin is a nasty surprise in hand-to-hand combat. It covers armor's surface in a mesh of threads that
+  can stun an opponent. When the threads are struck, they send a biodisruptive pulse through the attacker's limb. These
+  pulses are also triggered when the armor's wearer performs strikes of their own with their arms, legs, or body.
+useWith: armor
+modifiers: When wearing this armor and targeted by a Brawl check, your character may spend Despair Despair Despair or
+  Difficulty to cause the attacker to suffer 4 strain. When your character makes a Brawl check while wearing this armor,
+  they may spend Advantage Advantage to cause the target to suffer 4 strain.
+hpRequired: 1
+qualities: []
+reference: EotI:131

@@ -1,0 +1,9 @@
+id: genesys-talent-sharp-tongue-improved
+name: Sharp Tongue (Improved)
+description: Your character must have purchased the Sharp Tongue talent to benefit from this talent. When your character
+  inflicts a critical remark in a social encounter, they may for the target to capitulate (see page 122 of the Core
+  Rulebook).
+activation: p
+ranked: false
+tier: 5
+reference: SotC:84

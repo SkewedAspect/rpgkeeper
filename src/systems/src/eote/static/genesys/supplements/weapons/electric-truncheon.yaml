@@ -1,0 +1,17 @@
+id: genesys-weapon-electric-truncheon
+name: Electric Truncheon
+description: Electric truncheons are nasty, ostensibly non-lethal weapons designed for crowd control. Think of them as
+  clubs that also shock their targets on contact. The Disorient quality reflects the truncheon's electrical charge. The
+  charge is not necessarily enough to be lethal, hence the Stun Damage quality (but a powerful shock can still kill
+  someone, so the weapon has a Critical rating).
+skill: Melee
+damage: 2
+criticalRating: 3
+range: en
+encumbrance: 1
+rarity: 5
+qualities:
+  - id: genesys-quality-disorient
+    ranks: 3
+  - id: genesys-quality-stun-damage
+reference: G-CRB:161

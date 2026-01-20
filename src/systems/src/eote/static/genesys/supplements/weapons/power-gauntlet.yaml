@@ -1,0 +1,21 @@
+id: genesys-weapon-power-gauntlet
+name: Power Gauntlet
+description: "Power gauntlets are intimidating weapons typically used by police forces and criminal enforcers. Basically
+  the hand and forearm of an exosuit, a power gauntlet encases a wearer's arm to just below the forearm in heavy,
+  articulated power armor. A rechargeable power pack provides ample power to a thick, energized alloy shield mounted
+  over the knuckles that delivers a punishing kinetic attack with every punch. While they are considered \"less lethal\"
+  weapons, it is easy to deal significant damage to a target without really trying. Models Include: Argus PowerFist
+  Powered Gauntlet, Mars Manufacturing MX-01 Crusher."
+skill: Brawl
+damage: 4
+criticalRating: 4
+range: en
+encumbrance: 3
+rarity: 6
+qualities:
+  - id: genesys-quality-concussive
+    ranks: 2
+  - id: genesys-quality-knockdown
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: SotB:90

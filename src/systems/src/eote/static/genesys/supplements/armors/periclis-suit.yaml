@@ -1,0 +1,25 @@
+id: genesys-armor-periclis-suit
+name: Periclis Suit
+description: "Several species must wear armored suits to interact or even survive in the wider galaxy. The Creuss,
+  Hylar, and Gashlai are all well-known for needing environmental protections in an oxygen atmosphere, but there are
+  dozens of other species as well. Since each species has its own unique physiology and environmental requirements, this
+  protection is inevitably produced on each species' homeworld. However, in the last decade, several noted armorers who
+  have set up shop on Mecatol Rex have begun producing bespoke environmental protection gear for these species. The most
+  popular is the Periclis suit, produced by the Herbedar Cooperative. Each must be made to individual specifications and
+  thus is horrendously expensive, but anyone who owns a Periclis suit agrees that the results are worth it. A Periclis
+  suit must be crafted to the exact specifications of the wearer, a process that generally takes two weeks. Each suit
+  allows the wearer to survive in nearly any environment, including water and swimming and in vacuum, indefinitely (the
+  suit includes nutrient recyclers that help keep the wearer alive, although the sustenance they provide is not
+  particularly enjoyable). Note that these suits are not bulky enough to impose additional <setback></setback> on
+  certain checks. In addition, because each suit must be made to order, the Herbedar Cooperative does not like spending
+  time and resources making them for species who can survive perfectly well in oxygen/nitrogen atmospheres. For any
+  character who is not a Gashlai, water-breathing Hylar, or Creuss, the cost of the suit doubles (to 4,000 aurei) and
+  the time to construct it increases to 6 weeks. This armor may be modified with 2-1: Cultural Manufacturing
+  Differences."
+defense: 2
+soak: 2
+hardpoints: 3
+encumbrance: 3
+rarity: 8
+qualities: []
+reference: EotI:116

@@ -1,0 +1,8 @@
+id: eote-quality-concussive
+name: Concussive
+description: One target hit by the attack is staggered for a number of rounds equal to the Concussive rating. If
+  multiple targets suffer hits from a weapon with Concussive, the quality may be triggered multiple times, affecting a
+  different target each time.
+passive: false
+ranked: false
+reference: E-CRB:155

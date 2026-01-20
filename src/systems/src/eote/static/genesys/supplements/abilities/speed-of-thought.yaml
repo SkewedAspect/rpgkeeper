@@ -1,0 +1,5 @@
+id: genesys-ability-speed-of-thought
+name: Speed of Thought
+description: Add <success></success><success></success> to all checks this character and any allies within medium range
+  make to determine Initiative.
+reference: EotI

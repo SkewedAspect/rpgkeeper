@@ -1,0 +1,10 @@
+id: coc-weapon-mark-i-lewis-gun
+name: Mark I Lewis Gun
+damage: 2d6 + 4
+range: 110 yards
+attacks: Full auto
+ammo: 47
+malfunction: 96
+notes: 1920s
+skill: Firearms (MG)
+reference: CoC-IH:253

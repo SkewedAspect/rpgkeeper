@@ -1,0 +1,29 @@
+id: genesys-weapon-ruyi-jingu-bang-chinese
+name: Ruyi Jingu Bang (Chinese)
+description: "Sun Wukong, the Monkey King, is a warrior, shapeshifter, and trickster who stole immortality from the
+  inhabitants of the Heavens (several times over), defied the Kings of Hell, and undertook a legendary journey to
+  protect the monk Tang Sanzang from flesh-eating demons. Sun Wukong's arsenal of mythical artifacts is extensive, but
+  his favored weapon is one as versatile as he is: the staff called Ruyi Jingu Bang. Given to him by the dragon-king Ao
+  Kuang, this pillar of iron was used in ancient days as a measuring stick for the primordial sea. When he took
+  possession of it, Sun Wukong found that it could be transformed in size, shrinking to fit behind his ear or stretching
+  across vast distances, or even split into multiple copies of itself. Ruyi Jingu Bang recognizes a worthy user,
+  emitting a glow when in the presence of such an individual; others cannot lift it, let alone wield it. When making a
+  combat check using Ruyi Jingu Bang, your character may target any opponent within extreme range, increasing the
+  difficulty of the check once for each range band beyond short range. As an action, your character may plant Ruyi Jingu
+  in place and set its size at any silhouette from 0 to 6 and its encumbrance at any value from 1 to 1000, alter either
+  of these values, or remove it."
+skill: melee (heavy)
+damage: 6
+criticalRating: 4
+range: en
+encumbrance: 0
+rarity: 10
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 2
+  - id: genesys-quality-deflection
+    ranks: 2
+  - id: genesys-quality-knockdown
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-superior
+reference: G-EPG:13

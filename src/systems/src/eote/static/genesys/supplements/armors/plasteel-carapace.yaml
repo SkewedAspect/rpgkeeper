@@ -1,0 +1,16 @@
+id: genesys-armor-plasteel-carapace
+name: Plasteel Carapace
+description: "Carapace armor is the heaviest nonpowered armor available on the market. Consisting of interlocking
+  composite armor plates over a reinforced unisuit, this armor is the go-to for high-end prisec outfits and the U.S.
+  military. Carapace protects against most small arms, energy weapons, and even shrapnel splinters and low-yield
+  explosives. Some suits are environmentally sealed to protect the wearer against nuclear, biological, and chemical
+  agents. As these suits are military hardware, there are a number of regulations against civilians purchasing and
+  wearing them (which doesn't stop most orgcrime outfits in the slightest). Models Include: AMR Defense \"Crusader\"
+  Infantry Armor, Garda \"Hussar\" Hardsuit."
+defense: 1
+soak: 2
+hardpoints: 3
+encumbrance: 4
+rarity: 5
+qualities: []
+reference: SotB:95

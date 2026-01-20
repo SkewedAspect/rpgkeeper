@@ -1,0 +1,195 @@
+<!----------------------------------------------------------------------------------------------------------------------
+  -- forcePowerCard
+  --------------------------------------------------------------------------------------------------------------------->
+
+<template>
+    <BCard v-if="power && powerBase" class="eote-force-power-card" no-body>
+        <template #header>
+            <div :class="{ closed: !visible, open: visible }" @click="visible = !visible">
+                <b>{{ powerBase?.name ?? 'Unknown' }}</b>
+                <Fa class="text-muted mt-1 fa-pull-right collapse-icon" icon="chevron-right" />
+            </div>
+        </template>
+        <BCollapse id="`force-power-${ forcePower.id }`" v-model="visible" :class="`${ mode }-system m-2`">
+            <MarkdownBlock class="font-xs" :text="powerBase?.description" inline />
+            <BTableLite
+                class="font-xs mt-3 mb-0"
+                :items="upgrades"
+                :fields="upgradeFields"
+                thead-class="d-none"
+                small
+            >
+                <template #cell(name)="data">
+                    <b>
+                        {{ sentenceCase(data.value as string) }}
+                        <span v-if="data.item.purchased > 1">({{ data.item.purchased }})</span>
+                    </b>
+                </template>
+                <template #cell(description)="data">
+                    <MarkdownBlock :text="data.value as string" inline />
+                </template>
+            </BTableLite>
+            <div class="clearfix">
+                <ReferenceBlock class="float-end mt-2" :reference="powerBase?.reference ?? ''" />
+            </div>
+        </BCollapse>
+    </BCard>
+</template>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<style lang="scss">
+    .eote-force-power-card {
+        .card-header {
+            border-bottom: none;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .collapse-icon {
+            transition: transform 0.25s ease-in-out;
+        }
+
+        .open > .collapse-icon {
+            transform: rotate(90deg);
+        }
+    }
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<script lang="ts" setup>
+    import { computed, ref } from 'vue';
+
+    // Models
+    import type { EoteForcePower, EoteForcePowerInst } from '../../../models.ts';
+
+    // Stores
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
+
+    // Components
+    import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
+    import ReferenceBlock from '@client/components/character/referenceBlock.vue';
+
+    // Utils
+    import { startCase } from '@client/lib/utils/misc';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Component Definition
+    //------------------------------------------------------------------------------------------------------------------
+
+    interface Props
+    {
+        power : EoteForcePowerInst;
+        readonly : boolean;
+    }
+
+    const props = defineProps<Props>();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const visible = ref(false);
+
+    interface TableField
+    {
+        key : string;
+        class ?: string;
+    }
+
+    interface UpgradeItem
+    {
+        name : string;
+        description ?: string;
+        index ?: number;
+        purchased : number;
+    }
+
+    const upgradeFields = ref<TableField[]>([
+        { key: 'name', class: 'text-nowrap' },
+        { key: 'description' },
+    ]);
+
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
+    // Note: readonly prop is available via props.readonly if needed
+    const forcePowers = computed(() => supplementStore.get<EoteForcePower>(mode.value, 'forcepower'));
+
+    const powerBase = computed<EoteForcePower | undefined>(() =>
+    {
+        if(props.power && props.power.id)
+        {
+            return forcePowers.value.find((forcePower) => forcePower.id === props.power.id);
+        }
+
+        return undefined;
+    });
+
+    const upgrades = computed<UpgradeItem[]>(() =>
+    {
+        if(!powerBase.value)
+        {
+            return [];
+        }
+
+        const baseUpgrades = powerBase.value.upgrades as Record<string, unknown>;
+        const instUpgrades = props.power.upgrades as Record<string, unknown>;
+
+        const populatedUpgrades = Object.keys(baseUpgrades).reduce<UpgradeItem[]>((upgradeList, name) =>
+        {
+            const upgrade = baseUpgrades[name];
+            const upgradeInst = instUpgrades[name];
+
+            if(Array.isArray(upgrade))
+            {
+                // If it's an array (i.e. `control`) we just add them as individual upgrades, all with the same
+                // name. This is fine, because we don't assume the name is unique. Also, we add the `index`
+                // property, because that tells us which control item we've purchased.
+                const upgradeItems = upgrade.map((up : { description ?: string }, index : number) =>
+                {
+                    const purchased = Array.isArray(upgradeInst) && upgradeInst.includes(index) ? 1 : 0;
+                    return {
+                        ...up,
+                        name,
+                        index,
+                        purchased,
+                    };
+                });
+                upgradeList = upgradeList.concat(upgradeItems);
+            }
+            else if(upgrade && typeof upgrade === 'object')
+            {
+                // In the simple case, we just push the upgrade with the name.
+                const upgradeObj = upgrade as { description ?: string };
+                upgradeList.push({
+                    ...upgradeObj,
+                    name,
+                    purchased: typeof upgradeInst === 'number' ? upgradeInst : 0,
+                });
+            }
+
+            return upgradeList;
+        }, []);
+
+        return populatedUpgrades.filter((upgrade) => upgrade.purchased > 0);
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function sentenceCase(text : string) : string
+    {
+        return startCase(text);
+    }
+</script>
+
+<!--------------------------------------------------------------------------------------------------------------------->

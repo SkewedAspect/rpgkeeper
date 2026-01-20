@@ -1,0 +1,26 @@
+id: genesys-weapon-shotgun
+name: Shotgun
+description: "When you really want to make an impression in a firefight, a shotgun is a great way to go. Pulling a
+  pistol from a hidden pocket just doesn't have the same dramatic effect as, say, drawing a lever-action 10 gauge out of
+  a box of roses in slow motion. The flat thump of the report, the muzzle flash, the shocking recoil, even the loud
+  clack-clack noise of working a pump action make these weapons an assault on everyone's senses, and also is what makes
+  them so popular in action movies! The stat line in II.4-1: Modern Armor is for a basic pump or semiautomatic hunting
+  weapon with buckshot. Shotguns possess the Blast quality due to the cloud of shot they fire and the Knockdown quality
+  due to the concussion of their blast (and, honestly, the Rule of Cool). The basic shotgun stat line also assumes a
+  magazine-fed weapon. If you wanted to have a simple break-action single- or double-barreled shotgun, you would give
+  the weapon the Limited Ammo quality. Sawed-off shotguns have their encumbrance reduced by two, and they gain the
+  Inaccurate quality. If you really want to dress up a scene, a character wielding a shotgun could add <boost></boost>
+  to any Coercion checks, especially if they rack the slide and glare menacingly at the target."
+skill: Ranged (Heavy)
+damage: 8
+criticalRating: 3
+range: s
+encumbrance: 3
+rarity: 3
+qualities:
+  - id: genesys-quality-blast
+    ranks: 4
+  - id: genesys-quality-knockdown
+  - id: genesys-quality-vicious
+    ranks: 2
+reference: G-CRB:166

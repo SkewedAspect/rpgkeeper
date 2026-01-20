@@ -1,0 +1,18 @@
+id: genesys-weapon-sword-of-peleus-greek
+name: Sword of Peleus (Greek)
+description: Peleus's sword, crafted by Hephaestus, god of the forge, is said to guarantee the wielder victory in
+  combat. When wielding the Sword of Peleus, your character reduces any wounds they suffer as a result of a combat check
+  to 0. However, whenever your character is hit by an attack while they wield the Sword of Peleus, they suffer 2 strain.
+skill: melee (light)
+damage: 2
+criticalRating: 2
+range: en
+encumbrance: 2
+rarity: 10
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 2
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-sunder
+  - id: genesys-quality-superior
+reference: G-EPG:13

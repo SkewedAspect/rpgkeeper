@@ -1,0 +1,5 @@
+id: genesys-ability-telepresence
+name: Telepresence
+description: Can operate independently, or can be controlled directly by an operator via wireless link; if being
+  controlled, this character counts as having ranks in any skill equal to the controller's ranks in that skill.
+reference: G-CRB

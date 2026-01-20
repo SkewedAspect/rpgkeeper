@@ -1,0 +1,9 @@
+id: genesys-quality-knockdown
+name: Knockdown
+description: When Knockdown is triggered, one target hit by the attack is knocked prone. If multiple targets suffer hits
+  from a weapon with Knockdown, the quality may be triggered multiple times, affecting a different target each time.
+  Unless specified otherwise, Knockdown requires <advantage></advantage><advantage></advantage> to trigger, plus one
+  additional <advantage></advantage> per silhouette of the target beyond 1.
+passive: false
+ranked: false
+reference: G-CRB:88

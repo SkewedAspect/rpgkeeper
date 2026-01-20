@@ -1,0 +1,17 @@
+id: genesys-armor-concealed-buckyweave
+name: Concealed Buckyweave
+description: "Visible body armor isn't exactly what most people wear while strolling down the slidewalks of New Angeles.
+  Well-heeled New Angelinos who are looking for a bit of protection often wear stylish clothing reinforced with a
+  concealed layer of buckyweave and energy-dispersion fiber mesh to provide basic protection from small arms and light
+  energy weapons. Just about any type of clothing can be tailored with this reinforcing layer, and quite a few shops are
+  willing to discreetly add it to the clothes they already sell—for a substantial fee. Concealed buckyweave clothing
+  looks like normal clothing. Anyone searching your character adds <setback></setback><setback></setback> to any
+  Perception checks they make to find the concealed buckyweave between the fabric layers. Models Include: Various
+  models."
+defense: 1
+soak: 1
+hardpoints: 2
+encumbrance: 1
+rarity: 4
+qualities: []
+reference: SotB:93

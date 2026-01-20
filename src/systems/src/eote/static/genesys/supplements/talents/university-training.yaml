@@ -1,0 +1,9 @@
+id: genesys-talent-university-training
+name: University Training
+description: Your character must be a Hylar or have allegiance to the Universities of Jol-Nar to benefit from this
+  talent. Once per encounter, your character may use this talent to make a check with a skill that is linked to
+  Intellect as a maneuver, rather than an action, and add <success></success> to the results.
+activation: am
+ranked: false
+tier: 3
+reference: EotI:55

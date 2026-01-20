@@ -1,0 +1,11 @@
+id: genesys-attachment-lifter-pods
+name: Lifter Pods
+description: Lifter pods were originally designed for use by factory and construction workers, but many soldiers have
+  also found them handy. Their microemitter grav-panels provide stability by making minor adjustments to the wearer's
+  balance and relieving the pressure and strain of heavy loads.
+useWith: armor
+modifiers: When wearing armor with this attachment, your character increases their encumbrance threshold by 4 and
+  decreases the Cumbersome and Unwieldy ratings of any items they carry by 1.
+hpRequired: 2
+qualities: []
+reference: EotI:130

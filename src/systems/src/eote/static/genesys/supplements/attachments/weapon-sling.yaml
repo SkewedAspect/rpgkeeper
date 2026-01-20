@@ -1,0 +1,9 @@
+id: genesys-attachment-weapon-sling
+name: Weapon Sling
+description: A sling helps a user carry a particularly heavy weapon by taking up part of the weight. This kind of
+  attachment makes sense for any setting.
+useWith: weapon
+modifiers: The weapon decreases its encumbrance by 2.
+hpRequired: 1
+qualities: []
+reference: G-CRB:209

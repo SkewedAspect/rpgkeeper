@@ -1,0 +1,27 @@
+id: eote-forcepower-move
+name: Move
+description: >-
+  The Force user can move small objects via the power of the Force.
+
+
+  The user may spend <forcepoint></forcepoint> to move one object of silhouette 0 that is within short range up to this
+  maximum range. The default maximum range is short range.
+minRating: 1
+upgrades:
+  strength:
+    available: 4
+    description: Spend <forcepoint></forcepoint> to increase silhouette able to be targeted equal to Strength upgrades purchased.
+  magnitude:
+    available: 4
+    description: Spend <forcepoint></forcepoint> to increase targets affected equal to Magnitude upgrades purchased.
+  range:
+    available: 3
+    description: Spend <forcepoint></forcepoint> to increase power's range by a number of range bands equal to Range
+      upgrades purchased.
+  control:
+    - description: The Force user can hurl objects to damage targets, by making a <b>ranged combat check</b> combined with a
+        <b>Move power check</b>, dealing damage equal to 10 times silhouette.
+    - description: The Force user can pull objects out of secure mountings or out of an opponent's grasp.
+    - description: The character can perform fine manipulation of items, allowing him to do whatever he could normally do with
+        his hands via this power at this power's range.
+reference: F-CRB:298

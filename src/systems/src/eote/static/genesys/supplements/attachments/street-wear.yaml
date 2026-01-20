@@ -1,0 +1,11 @@
+id: genesys-attachment-street-wear
+name: Street Wear
+description: While some armor is unmistakably military in appearance, other armor can be tailored to look
+  indistinguishable from street clothing with the right flare and cut.While some armor is unmistakably military in
+  appearance, other armor can be tailored to look indistinguishable from street clothing with the right flare and cut.
+useWith: armor
+modifiers: This armor looks like normal clothing. Anyone searching your character adds setback to Perception checks to
+  notice that they are wearing armor.
+hpRequired: 0
+qualities: []
+reference: SotB:110

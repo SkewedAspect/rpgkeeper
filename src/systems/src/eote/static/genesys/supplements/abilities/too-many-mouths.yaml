@@ -1,0 +1,5 @@
+id: genesys-ability-too-many-mouths
+name: Too Many Mouths
+description: This character can make a combined check to attack with any number of its weapons, and only needs to spend
+  <advantage></advantage> to hit with each additional weapon.
+reference: RoT

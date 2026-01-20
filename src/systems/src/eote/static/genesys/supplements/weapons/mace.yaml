@@ -1,0 +1,11 @@
+id: genesys-weapon-mace
+name: Mace
+description: Maces are simple weapons, so they didn't get any item qualities. Instead, they are cheaper than other weapons.
+skill: Melee (Light)
+damage: 3
+criticalRating: 4
+range: en
+encumbrance: 2
+rarity: 1
+qualities: []
+reference: G-CRB:144

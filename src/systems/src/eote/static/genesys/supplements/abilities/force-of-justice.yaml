@@ -1,0 +1,5 @@
+id: genesys-ability-force-of-justice
+name: Force of Justice
+description: Characters within short range of this character add <boost></boost> to their combat checks provided those
+  characters are acting to uphold local laws.
+reference: SotC

@@ -1,0 +1,9 @@
+id: genesys-talent-undercity-contacts-improved
+name: Undercity Contacts (Improved)
+description: Your character must have purchased the Undercity Contacts talent to benefit from this talent. When you use
+  Undercity Contacts, you may choose to spend two Story Points instead of one. If you do, your character learns the
+  target's specific location.
+activation: ai
+ranked: false
+tier: 3
+reference: SotB:51

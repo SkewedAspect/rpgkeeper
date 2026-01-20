@@ -1,0 +1,9 @@
+id: genesys-talent-back-to-back
+name: Back-to-Back
+description: While engaged with one or more allies, your character and allies they are engaged with add <boost></boost>
+  to combat checks. If one or more allies engaged with your character also have Back-to-Back, the effects are cumulative
+  to a maximum of <boost></boost><boost></boost>.
+activation: p
+ranked: false
+tier: 4
+reference: RoT:91

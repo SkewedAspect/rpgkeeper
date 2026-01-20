@@ -1,0 +1,9 @@
+id: genesys-talent-years-on-the-force
+name: Years on the Force
+description: When you take this talent, your character gains Perception or Ranged (Light) as a career skill. In
+  addition, once per session your character may collect a small favor from a current or former member of the NAPD or New
+  Angeles city government, even if they do no owe your character a favor.
+activation: p
+ranked: false
+tier: 1
+reference: SotB:47

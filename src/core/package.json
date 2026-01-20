@@ -1,0 +1,24 @@
+{
+  "name": "@rpgk/core",
+  "version": "1.0.0",
+  "description": "Core domain models and types for RPGKeeper",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./models": "./src/models/index.ts",
+    "./models/*": "./src/models/*.ts",
+    "./models/systems": "./src/models/systems/index.ts",
+    "./models/systems/*": "./src/models/systems/*.ts",
+    "./utils/*": "./src/utils/*.ts"
+  },
+  "files": ["src"],
+  "scripts": {
+    "lint": "eslint \"src/**/*.{ts,js}\" --max-warnings=0 --no-warn-ignored",
+    "lint:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "rpgdicejs": "^2.0.3",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {}
+}

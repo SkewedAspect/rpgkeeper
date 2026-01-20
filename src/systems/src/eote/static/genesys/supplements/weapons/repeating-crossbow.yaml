@@ -1,0 +1,18 @@
+id: genesys-weapon-repeating-crossbow
+name: Repeating Crossbow
+description: Nobody is quite sure who first invented this outlandish weapon, but most are quick to blame it on the
+  Gnomes. A repeating crossbow has two pairs of limbs and strings that allow it to fire multiple shots in rapid
+  succession. However, the lengthy reloading time makes many warriors wonder if the overcomplicated mechanism is really
+  worth the fuss.
+skill: Ranged
+damage: 6
+criticalRating: 2
+range: s
+encumbrance: 3
+rarity: 7
+qualities:
+  - id: genesys-quality-linked
+    ranks: 2
+  - id: genesys-quality-prepare
+    ranks: 2
+reference: RoT:94

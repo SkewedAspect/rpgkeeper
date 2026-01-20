@@ -1,0 +1,9 @@
+id: genesys-talent-you-owe-me-one
+name: You Owe Me One
+description: Once per session, you may spend two Story Points to use this talent to have one NPC in the current
+  encounter owe your character a favor. If the favor is not resolved by the end of the encounter, it is forgotten. It's
+  up to you and your GM to determine exactly why the NPC owes your character a favor.
+activation: ai
+ranked: false
+tier: 3
+reference: SotB:51

@@ -1,0 +1,11 @@
+id: genesys-attachment-weapon-lockout
+name: Weapon Lockout
+description: When installed in a smart-capable weapon, a lockout prevents anyone but the weapon's owner from using it.
+  Most lockouts use a sophisticated combination of biometrics and palm-print sensors integrated into the grip.
+useWith: weapon
+modifiers: This weapon cannot be fired except by its designated user. Unlocking and reprogramming a stolen or otherwise
+  "acquired" weapon with an active lockout requires your character to make a Daunting. Your GM may spend hhh or d from
+  this check to permanently disable the locked weapon, rendering it useless.
+hpRequired: 1
+qualities: []
+reference: SotB:112

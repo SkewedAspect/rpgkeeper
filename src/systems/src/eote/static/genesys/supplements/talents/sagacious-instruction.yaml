@@ -1,0 +1,9 @@
+id: genesys-talent-sagacious-instruction
+name: Sagacious Instruction
+description: When you take this talent, your character gains Astrocartography or any one knowledge skill as a career
+  skill. In addition, when making a skill check to navigate to an unknown system or to learn new information, your
+  character may spend <advantage></advantage><advantage></advantage> to heal 3 strain.
+activation: p
+ranked: false
+tier: 1
+reference: EotI:51

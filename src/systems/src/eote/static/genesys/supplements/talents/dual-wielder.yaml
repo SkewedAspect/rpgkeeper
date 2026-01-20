@@ -1,0 +1,8 @@
+id: genesys-talent-dual-wielder
+name: Dual Wielder
+description: Once per round, your character may use this talent to decrease the difficulty of the next combined combat
+  check (see Two-Weapon Combat, on page 108) they make during the same turn by one.
+activation: am
+ranked: false
+tier: 2
+reference: G-CRB:76

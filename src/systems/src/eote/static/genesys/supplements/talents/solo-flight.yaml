@@ -1,0 +1,9 @@
+id: genesys-talent-solo-flight
+name: Solo Flight
+description: Before making an Operating check, your character may use this talent to increase the difficulty of the
+  check by 1 and use the Piloting skill to make the check, instead of the Operating skill. In addition, if the vehicle
+  requires multiple pilots, your character may operate the vehicle alone when they use this talent.
+activation: ai
+ranked: false
+tier: 3
+reference: EotI:55

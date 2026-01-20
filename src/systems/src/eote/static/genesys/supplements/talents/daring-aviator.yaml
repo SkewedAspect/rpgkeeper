@@ -1,0 +1,9 @@
+id: genesys-talent-daring-aviator
+name: Daring Aviator
+description: Before your character makes a Driving or Piloting check, they may add a number of <despair></despair> to
+  the results to use this talent to add an equal number of <success></success>. The number may not exceed your
+  character's ranks in Daring Aviator.
+activation: ai
+ranked: true
+tier: 2
+reference: G-CRB:75

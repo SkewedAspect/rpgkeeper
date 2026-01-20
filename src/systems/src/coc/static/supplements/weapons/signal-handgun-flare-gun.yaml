@@ -1,0 +1,10 @@
+id: coc-weapon-signal-handgun-flare-gun
+name: Signal Handgun (Flare gun)
+damage: 1d10 + 1d3 burn
+range: "10"
+attacks: 1/2
+ammo: 1
+malfunction: 100
+notes: 1920s, Modern
+skill: Firearms (HG)
+reference: CoC-IH:254

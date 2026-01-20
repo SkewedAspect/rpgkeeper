@@ -1,0 +1,7 @@
+id: eote-talent-convincing-demeanor
+name: Convincing Demeanor
+description: Remove <setback></setback> per rank of Convincing Demeanor from any Deception or Skulduggery check.
+activation: p
+ranked: true
+trees: Force Sensitive Exile, Scoundrel, Trader
+reference: E-CRB:133

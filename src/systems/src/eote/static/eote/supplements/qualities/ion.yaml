@@ -1,0 +1,7 @@
+id: eote-quality-ion
+name: Ion
+description: Damage is dealt as system strain (usually on vehicles.) Armor and soak still reduce damage. Droids take ion
+  damage as strain.
+passive: true
+ranked: false
+reference: E-CRB:156

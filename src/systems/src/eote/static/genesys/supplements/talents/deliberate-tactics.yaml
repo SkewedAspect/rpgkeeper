@@ -1,0 +1,11 @@
+id: genesys-talent-deliberate-tactics
+name: Deliberate Tactics
+description: Your character must be a Titan or an {@archetype Xxcha or have allegiance to the Titans of Ul or the Xxcha
+  Kingdom to benefit from this talent.} During a combat encounter, your character may choose to take either no maneuvers
+  or no actions during their turn to use this talent. If they do, they reduce all strain suffered to 0 (both voluntary
+  and involuntary) until the start of their next turn and add <advantage></advantage><advantage></advantage> to combat
+  checks they make until the start of their next turn.
+activation: ai
+ranked: false
+tier: 3
+reference: EotI:54

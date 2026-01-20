@@ -1,0 +1,9 @@
+id: genesys-talent-precision-strike
+name: Precision Strike
+description: When making a Brawl or Melee combat check, your character may use this talent to remove a number of
+  <boost></boost> from the dice pool no greater than their ranks in Precision Strike and suffer 1 strain per
+  <boost></boost> removed, then add an equal number of <success></success> to the results of the check.
+activation: ai
+ranked: true
+tier: 2
+reference: EotI:53

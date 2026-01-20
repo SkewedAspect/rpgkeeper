@@ -1,0 +1,9 @@
+id: genesys-talent-goes-to-eleven
+name: Goes to Eleven
+description: Your character increases the range of their musical talents by one range band per rank of Goes to Eleven. A
+  musical talent is any talent that requires your character to "use a musical instrument" to activate it. Narratively,
+  you should explain how your character augmented or amplified their instrument.
+activation: p
+ranked: true
+tier: 2
+reference: SotC:79

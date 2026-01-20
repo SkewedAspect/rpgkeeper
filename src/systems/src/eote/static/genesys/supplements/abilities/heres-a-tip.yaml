@@ -1,0 +1,6 @@
+id: genesys-ability-heres-a-tip
+name: Here's a Tip
+description: Other characters may spend <threat></threat> from social skill checks they make targeting this character to
+  add <boost></boost> to other social skill checks they make until the end of the session or until they leave this
+  location.
+reference: SotC

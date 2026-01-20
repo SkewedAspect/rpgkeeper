@@ -1,0 +1,7 @@
+id: genesys-ability-em-flood
+name: EM Flood
+description: May make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an action; if
+  successful, all characters with a communications device within long range suffer 2 strain per <success></success>; may
+  spend <advantage></advantage><advantage></advantage> or <threat></threat> to staggered one affected character for one
+  round.
+reference: EotI

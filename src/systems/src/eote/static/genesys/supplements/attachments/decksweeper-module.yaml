@@ -1,0 +1,16 @@
+id: genesys-attachment-decksweeper-module
+name: Decksweeper Module
+description: "[Table: Decksweeper Module Stats] Ship-boarding actions are some of the most dangerous tasks stellar
+  marines perform. To provide a little extra firepower and a means of clearing cramped quarters without causing a
+  catastrophic hull breach, some troopers take to attaching an additional one-shot weapon to their gun. Appearing to be
+  nothing more than a simple canister, this tube is packed with monofilament razor shrapnel backed with a powerful
+  concussive charge. When a decksweeper module is fired, the concussion and shrapnel can kill or incapacitate anyone in
+  a wide cone in front of it."
+useWith: weapon
+modifiers: "After a decksweeper module is installed on your character's weapon, your character may fire the weapon using
+  the following secondary weapon profile: Ranged (Heavy); Damage 6; Critical 4; Range (Short); Blast, Concussive,
+  Limited Ammo, Vicious. The weapon increases any Cumbersome or Unwieldy item qualities it already has by 1 and
+  increases its encumbrance by 1. Reloads cost 25 aurei."
+hpRequired: 2
+qualities: []
+reference: EotI:127

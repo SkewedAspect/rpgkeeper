@@ -1,0 +1,6 @@
+id: genesys-ability-consuming-swarm
+name: Consuming Swarm
+description: May spend a maneuver to make an opposed Coordination check} targeting one engaged opponent to immobilized
+  that opponent until the end of its next turn. At the start of its next turn, the opponent suffers 3 wounds, and the
+  swarm heals 3 wounds.
+reference: G-CRB

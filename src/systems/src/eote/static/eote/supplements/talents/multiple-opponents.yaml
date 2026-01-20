@@ -1,0 +1,8 @@
+id: eote-talent-multiple-opponents
+name: Multiple Opponents
+description: The character adds <boost></boost> to his Brawl, Melee and Lightsaber combat checks when engaged with
+  multiple opponents. This includes single groups of multiple minions.
+activation: p
+ranked: false
+trees: Shii-Cho Knight
+reference: F-CRB:147

@@ -1,0 +1,32 @@
+id: dnd35-race-elf
+name: Elf
+size: M
+speed: 30
+description: Elves mingle freely in human lands, always welcome yet never at home there. They are well known for their
+  poetry, dance, song, lore, and magical arts. Elves favor things of natural and simple beauty. When danger threatens
+  their woodland homes, however, elves reveal a more martial side, demonstrating skill with sword, bow, and battle
+  strategy.
+traits:
+  - name: Sleep Immunity
+    description: Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects.
+  - name: Low-light Vision
+    description: An elf can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor
+      illumination. She retains the ability to distinguish color and detail under these conditions.
+  - name: Weapon Proficiency
+    description: Elves receive the Martial Weapon Proficiency feats for the longsword, rapier, longbow (including composite
+      longbow), and shortbow (including composite shortbow) as bonus feats. Elves esteem the arts of swordplay and
+      archery, so all elves are familiar with these weapons.
+  - name: Keen Senses
+    description: +2 racial bonus on Listen, Search, and Spot checks. An elf who merely passes within 5 feet of a secret or
+      concealed door is entitled to a Search check to notice it as if she were actively looking for it. An elf’s senses
+      are so keen that she practically has a sixth sense about hidden portals.
+  - name: Automatic Languages
+    description: Common and Elven.
+  - name: Bonus Languages
+    description: Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan. Elves commonly know the languages of their enemies and of
+      their friends, as well as Draconic, the language commonly found in ancient tomes of secret knowledge.
+  - name: Favored Class
+    description: Wizard. A multiclass elf’s wizard class does not count when determining whether she takes an experience
+      point penalty for multiclassing. Wizardry comes naturally to elves—indeed, they sometimes claim to have invented
+      it, and fighter/wizards are especially common among them.
+reference: Player's Handbook

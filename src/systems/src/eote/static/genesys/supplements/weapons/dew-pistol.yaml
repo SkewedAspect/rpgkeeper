@@ -1,0 +1,17 @@
+id: genesys-weapon-dew-pistol
+name: DEW Pistol
+description: Currently rare and experimental, directed energy weapons (DEWs) project highly focused energy (light,
+  electricity, or more esoteric energy), rather than solid projectiles, at a target. Directed energy weapons are equal
+  in power to lasers from other settings, but they tend to have a shorter range and to dissipate on the surface of a
+  target (no Pierce quality). They more than make up for that by regularly setting targets on fire (via the Burn
+  quality).
+skill: Ranged (Light)
+damage: 6
+criticalRating: 3
+range: s
+encumbrance: 4
+rarity: 8
+qualities:
+  - id: genesys-quality-burn
+    ranks: 1
+reference: G-CRB:154

@@ -1,0 +1,6 @@
+id: genesys-ability-just-a-scratch
+name: Just a Scratch
+description: When making a check to recover strain at the end of an encounter, a mutant may use resilience instead of
+  discipline or cool. In addition, a mutant may spend <advantage></advantage><advantage></advantage> from that check to
+  heal 1 wound (and they may do so multiple times).
+reference: G-EPG

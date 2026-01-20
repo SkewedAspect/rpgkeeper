@@ -1,0 +1,6 @@
+id: genesys-ability-enhanced-genetic-modifications
+name: Enhanced Genetic Modifications
+description: Once per session when your character uses one of their g-mods to modify a check, you may spend a Story
+  Point to add <success></success> equal to your character's ranks in Resilience to the results (in addition to any
+  other affects the g-mod has).
+reference: SotB

@@ -1,0 +1,9 @@
+id: genesys-talent-easy-prey
+name: Easy Prey
+description: Your character may suffer 3 strain to use this talent. Until the start of your character's next turn, your
+  character and allies within short range add <boost></boost><boost></boost> to combat checks against immobilized
+  targets.
+activation: am
+ranked: false
+tier: 3
+reference: RoT:90

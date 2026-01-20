@@ -1,0 +1,8 @@
+id: genesys-talent-painkiller-specialization
+name: Painkiller Specialization
+description: When your character uses painkiller (or their equivalent, depending on the setting), the target heals one
+  additional wound per rank of Painkiller Specialization. The sixth painkiller and beyond each day still has no effect.
+activation: p
+ranked: true
+tier: 3
+reference: G-CRB:79

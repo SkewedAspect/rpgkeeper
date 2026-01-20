@@ -1,0 +1,8 @@
+id: genesys-talent-data-miner
+name: Data Miner
+description: Once per session before making a knowledge skill check, your character may use this talent to use the
+  Computers skill to make the check instead of a knowledge skill.
+activation: ai
+ranked: false
+tier: 1
+reference: EotI:50

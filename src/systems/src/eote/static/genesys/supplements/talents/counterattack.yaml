@@ -1,0 +1,9 @@
+id: genesys-talent-counterattack
+name: Counterattack
+description: Your character must have purchased the Parry (Improved). When your character uses the Parry (Improved)
+  talent to hit an attacker, they may also activate an item quality of the weapon they used as if they had generated
+  <advantage></advantage><advantage></advantage> on a combat check using that weapon.
+activation: aio
+ranked: false
+tier: 3
+reference: RoT:90

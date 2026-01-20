@@ -1,0 +1,8 @@
+id: genesys-talent-natural-communion
+name: Natural Communion
+description: When your character uses the Conjure magic action, the spell gains the Summon Ally effect without
+  increasing the difficulty. All creatures your character summons must be naturally occurring animals native to the area
+activation: p
+ranked: false
+tier: 2
+reference: RoT:88

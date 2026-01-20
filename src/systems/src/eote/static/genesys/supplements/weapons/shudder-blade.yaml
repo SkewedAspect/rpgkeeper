@@ -1,0 +1,18 @@
+id: genesys-weapon-shudder-blade
+name: Shudder Blade
+description: This weapon is essentially a combat knife with a carbon alloy blade that vibrates at an ultrasonic
+  frequency, allowing it to slice through even the strongest materials. These traits are represented with the Pierce and
+  Vicious qualities as well as a good Crit rating, giving the weapon a chance to inflict significant injuries on even
+  armored targets.
+skill: Melee
+damage: 2
+criticalRating: 2
+range: en
+encumbrance: 1
+rarity: 5
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 3
+reference: G-CRB:184

@@ -1,0 +1,9 @@
+id: genesys-talent-diplomatic-instruction
+name: Diplomatic Instruction
+description: When you take this talent, your character gains Leadership or Negotiation as a career skill. In addition,
+  when using one of these skills to convince their allies to undertake a particular task in a social encounter, your
+  character may spend <advantage></advantage><advantage></advantage> to heal 3 strain.
+activation: p
+ranked: false
+tier: 1
+reference: EotI:50

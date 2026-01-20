@@ -1,0 +1,7 @@
+id: eote-talent-tricky-target
+name: Tricky Target
+description: Count vehicle or starship piloted as having a silhouette 1 lower when being attacked.
+activation: p
+ranked: false
+trees: Squadron Leader
+reference: E-CRB:145

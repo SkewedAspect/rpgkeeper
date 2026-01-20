@@ -1,0 +1,6 @@
+id: eote-quality-deflection
+name: Deflection
+description: Increases the user’s ranged defense by its Deflection rating.
+passive: true
+ranked: true
+reference: E-CRB:156

@@ -1,0 +1,10 @@
+id: coc-weapon-claymore-mine
+name: Claymore Mine
+damage: 6d6 / 20 yards
+range: 20 yards
+attacks: In place
+ammo: One use
+malfunction: 99
+notes: Modern
+skill: Demolitions
+reference: CoC-IH:254

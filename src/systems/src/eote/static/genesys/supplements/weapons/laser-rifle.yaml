@@ -1,0 +1,21 @@
+id: genesys-weapon-laser-rifle
+name: Laser Rifle
+description: "Laser rifles fall somewhere between assault rifles and mass drivers in the modern weapons market. More
+  accurate than equivalent slugthrowers and more efficient than Gauss rifles, laser rifles are a compromise between the
+  two. They are typically semiautomatic, although select-fire versions do exist, and they are most commonly used by
+  assassins, sharpshooters, and support gunners. They produce lots of heat when fired, which makes their shots difficult
+  to conceal or mask, but they more than make up for it with solid combat performance and ease of use. Although many
+  organizations still use some variation of a slugthrower, laser rifles have become the iconic weapon of the U.S. Space
+  Expeditionary Corps. Models Include: NEXT L12 Laser Rifle, Argus 180R"
+skill: Ranged (Heavy)
+damage: 8
+criticalRating: 3
+range: m
+encumbrance: 4
+rarity: 8
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+  - id: genesys-quality-burn
+    ranks: 1
+reference: SotB:87

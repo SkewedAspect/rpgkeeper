@@ -1,0 +1,4 @@
+id: genesys-ability-darkvision
+name: Darkvision
+description: When making skill checks, remove up to <setback></setback><setback></setback> due to darkness.
+reference: RoT

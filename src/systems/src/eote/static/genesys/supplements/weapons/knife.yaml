@@ -1,0 +1,21 @@
+id: genesys-weapon-knife
+name: Knife
+description: This is our profile for a standard knife. The profile is general enough that this could work for a knife
+  carried in the belt of a medieval noble, a weapon bought at a sporting goods store today, or part of the gear of an
+  interstellar soldier of the future. Since the weapon is a Melee weapon, it uses the Melee skill. The damage it can
+  deal depends on the Brawn of the user, so it has a "+" next to the damage entry to signify that you'd add your
+  character's Brawn rating to the number to figure out its base damage. +1 damage means it does not do a great deal of
+  damage, which is appropriate for a knife. A Crit rating of 3 is what we consider our "average" Crit value. Rolling
+  <advantage></advantage><advantage></advantage><advantage></advantage> on a check is not too unlikely for a skilled
+  user. And because this is a close combat weapon, it can only be used against enemies your character is engaged with
+  (hence the range of "engaged"). A knife is small, so we gave it an encumbrance value of 1. A knife is cheap and easy
+  to find, hence the inexpensive price and low rarity. It also has no special item qualities, because again, it's a
+  simple knife.
+skill: Melee
+damage: 1
+criticalRating: 3
+range: en
+encumbrance: 1
+rarity: 1
+qualities: []
+reference: G-CRB:91

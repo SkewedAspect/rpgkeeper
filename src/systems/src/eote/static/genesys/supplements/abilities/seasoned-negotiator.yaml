@@ -1,0 +1,6 @@
+id: genesys-ability-seasoned-negotiator
+name: Seasoned Negotiator
+description: Whenever this character would suffer strain after making or opposing a Negotiation skill check, they suffer
+  1 less, to a minimum of 0. When inflicting strain as part of a Negotiation skill check, they inflict one additional
+  strain.
+reference: SotC

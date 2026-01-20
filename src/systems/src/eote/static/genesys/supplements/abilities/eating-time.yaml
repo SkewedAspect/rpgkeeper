@@ -1,0 +1,7 @@
+id: genesys-ability-eating-time
+name: Eating Time
+description: As an action, may make an opposed Survival check} targeting one character at short range; if successful,
+  this character may perform one additional maneuver during its turns for the remainder of the encounter without
+  suffering strain (it still may only perform two maneuvers during its turn); the target loses its free maneuver during
+  its turn for the remainder of the encounter.
+reference: SotC

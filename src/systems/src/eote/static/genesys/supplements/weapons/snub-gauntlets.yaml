@@ -1,0 +1,19 @@
+id: genesys-weapon-snub-gauntlets
+name: Snub Gauntlets
+description: "Coming in a pair and made of lightweight materials like lodinium microweave, snub gauntlets provide the
+  wearer with added stopping power in hand-to-hand combat. Each gauntlet produces a constant kinetic charge that is
+  amplified when it connects with a solid surface, producing a focused blast of kinetic energy. A character making a
+  combat check with a snub gauntlet may trigger the Knockdown item quality by spending <advantage></advantage>. This
+  weapon may be modified with 2-1: Cultural Manufacturing Differences."
+skill: Brawl
+damage: 2
+criticalRating: 3
+range: en
+encumbrance: 1
+rarity: 4
+qualities:
+  - id: genesys-quality-disorient
+    ranks: 3
+  - id: genesys-quality-linked
+    ranks: 1
+reference: EotI:114

@@ -1,0 +1,10 @@
+id: genesys-talent-dramatic-entrance
+name: Dramatic Entrance
+description: Once per session, your character may spend a Story Point to use this talent to enter a scene or encounter
+  they are not currently participating in at an opportune time, no matter how unlikely their arrival. If the scene is a
+  combat encounter or otherwise uses Initiative order, your character adds a new PC Initiative slot at the top of the
+  Initiative order.
+activation: aio
+ranked: false
+tier: 3
+reference: SotC:82

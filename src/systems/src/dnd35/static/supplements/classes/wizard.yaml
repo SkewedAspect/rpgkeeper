@@ -1,0 +1,68 @@
+id: dnd35-class-wizard
+name: Wizard
+description: >-
+  A few unintelligible words and fleeting gestures carry more power than a battleaxe, when they are the words and
+  gestures of a wizard. These simple acts make magic seem easy, but they only hint at the time the wizard must spend
+  poring over her spellbook preparing each spell for casting, and the years before that spent in apprenticeship to learn
+  the arts of magic.
+
+
+  Wizards depend on intensive study to create their magic. They examine musty old tomes, debate magical theory with
+  their peers, and practice minor magics whenever they can. For a wizard, magic is not a talent but a difficult,
+  rewarding art.
+features:
+  - name: Weapon and Armor Proficiency
+    description: Wizards are proficient with the club, dagger, heavy crossbow, light crossbow, and quarterstaff, but not
+      with any type of armor or shield. Armor of any type interferes with a wizard’s movements, which can cause her
+      spells with somatic components to fail.
+  - name: Spells
+    description: >-
+      A wizard casts arcane spells (the same type of spells available to sorcerers and bards), which are drawn from the
+      sorcerer/wizard spell list. A wizard must choose and prepare her spells ahead of time (see below).
+
+
+      To learn, prepare, or cast a spell, the wizard must have an Intelligence score equal to at least 10 + the spell
+      level (Int 10 for 0-level spells, Int 11 for 1st-level spells, and so forth). The Difficulty Class for a saving
+      throw against a wizard’s spell is 10 + the spell level + the wizard’s Intelligence modifier.
+
+
+      Like other spellcasters, a wizard can cast only a certain number of spells of each spell level per day. In
+      addition, she receives bonus spells per day if she has a high Intelligence score.
+
+
+      Unlike a bard or sorcerer, a wizard may know any number of spells. She must choose and prepare her spells ahead of
+      time by getting a good night’s sleep and spending 1 hour studying her spellbook. While studying, the wizard
+      decides which spells to prepare.
+  - name: Bonus Languages
+    description: A wizard may substitute Draconic for one of the bonus languages available to the character because of her
+      race. Many ancient tomes of magic are written in Draconic, and apprentice wizards often learn it as part of their
+      studies.
+  - name: Familiar
+    description: A wizard can obtain a familiar in exactly the same manner as a sorcerer can. See the sorcerer description
+      and the accompanying Familiars sidebar for details.
+  - name: Scribe Scroll
+    description: At 1st level, a wizard gains Scribe Scroll as a bonus feat. This feats enables her to create magic schools.
+  - name: Bonus Feats
+    description: >-
+      At 5th, 10th, 15th, and 20th level, a wizard gains a bonus feat. At each such opportunity, she can choose a
+      metamagic feat, an item creation feat, or Spell Mastery. The wizard must still meet all prerequisites for a bonus
+      feat, including caster level minimums.
+
+
+      These bonus feats are in addition to the feat that a character of any class gets every three levels. The wizard is
+      not limited to the categories of item creation feats, metamagic feats, or Spell Mastery when choosing these feats.
+  - name: Spellbooks
+    description: >-
+      A wizard must study her spellbook each day to prepare her spells. She cannot prepare any spell not recorded in her
+      spellbook, except for read magic, which all wizards can prepare from memory.
+
+
+      A wizard begins play with a spellbook containing all 0-level wizard spells (except those from her prohibited
+      school or schools, if any; plus three 1st-level spells of your choice. For each point of Intelligence bonus the
+      wizard has, the spellbook holds one additional 1st-level spell of your choice. At each new wizard level, she gains
+      two new spells of any spell level or levels that she can cast (based on her new wizard level) for her spellbook.
+      For example, when a wizard attains 5th level, she can cast 3rd-level spells. At this point, she can add two new
+      3rd-level spells to her spellbook, or one 2nd-level spell and one 3rd-level spell, or any combination of two
+      spells between 1st and 3rd level. At any time, a wizard can also add spells found in other wizards’ spellbooks to
+      her own.
+reference: PHB:55

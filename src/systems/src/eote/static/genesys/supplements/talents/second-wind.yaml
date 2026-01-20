@@ -1,0 +1,7 @@
+id: genesys-talent-second-wind
+name: Second Wind
+description: Once per encounter, your character may use this talent to heal an amount of strain equal to their ranks in Second Wind.
+activation: ai
+ranked: true
+tier: 1
+reference: G-CRB:74

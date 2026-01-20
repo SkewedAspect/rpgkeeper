@@ -1,0 +1,8 @@
+id: genesys-talent-duelist
+name: Duelist
+description: Your character adds <boost></boost> to their melee combat checks while engaged with a single opponent. Your
+  character adds <setback></setback> to their melee combat checks while engaged with three or more opponents.
+activation: p
+ranked: false
+tier: 1
+reference: G-CRB:73

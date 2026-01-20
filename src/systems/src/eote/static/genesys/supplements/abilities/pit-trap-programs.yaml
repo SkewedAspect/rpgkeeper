@@ -1,0 +1,5 @@
+id: genesys-ability-pit-trap-programs
+name: Pit Trap Programs
+description: May make an opposed Computers (Hacking) versus Computers (Sysops) check targeting another user on a system;
+  if successful, that user is staggered for one round per <success></success>.
+reference: SotB

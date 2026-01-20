@@ -1,0 +1,4 @@
+id: genesys-ability-max-throttle
+name: Max Throttle
+description: When piloting or driving a vehicle, its max speed is increased by 1
+reference: SotB

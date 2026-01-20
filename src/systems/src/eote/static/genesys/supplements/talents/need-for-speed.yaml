@@ -1,0 +1,8 @@
+id: genesys-talent-need-for-speed
+name: Need for Speed
+description: When your character spends <advantage></advantage> to heal strain as part of a Piloting or Riding check
+  while their vehicles' current speed is 3 or higher, they heal one strain for each speed above 2.
+activation: p
+ranked: false
+tier: 1
+reference: SotC:75

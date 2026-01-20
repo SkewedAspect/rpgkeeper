@@ -1,0 +1,10 @@
+id: genesys-talent-field-commander
+name: Field Commander
+description: Your character may use this talent to make an <difficulty></difficulty><difficulty></difficulty>. If
+  successful, a number of allies equal to your character's Presence may immediately suffer 1 strain to perform one
+  maneuver (out of turn). If there are any questions as to which allies take their maneuvers first, your character is
+  the final arbiter.
+activation: aa
+ranked: false
+tier: 3
+reference: G-CRB:78

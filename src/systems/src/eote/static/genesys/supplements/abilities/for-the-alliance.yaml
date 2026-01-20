@@ -1,0 +1,7 @@
+id: genesys-ability-for-the-alliance
+name: For the Alliance!
+description: When making a combat skill check, this character may spend <advantage></advantage> to let a member of their
+  crew in the current encounter immediately perform a maneuver as an out-of-turn incidental; this character may instead
+  spend <advantage></advantage><advantage></advantage><advantage></advantage> or <threat></threat> to let up to three
+  crew members in the current encounter perform an immediate action as an out-of-turn incidental.
+reference: SotC

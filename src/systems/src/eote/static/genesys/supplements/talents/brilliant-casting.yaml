@@ -1,0 +1,8 @@
+id: genesys-talent-brilliant-casting
+name: Brilliant Casting
+description: When your character casts a spell, you may spend one Story Point to use this talent to add
+  <advantage></advantage> equal to your character's ranks in Knowledge to the results.
+activation: ai
+ranked: false
+tier: 2
+reference: G-EPG:95

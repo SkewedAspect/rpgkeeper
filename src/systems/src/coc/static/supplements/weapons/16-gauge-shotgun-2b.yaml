@@ -1,0 +1,10 @@
+id: coc-weapon-16-gauge-shotgun-2b
+name: 16-gauge Shotgun (2B)
+damage: 2d6 + 2 / 1d6 + 1 / 1d4
+range: 10/20/50 yards
+attacks: 1 or 2
+ammo: 2
+malfunction: 100
+notes: 1920s
+skill: Firearms (shotgun)
+reference: CoC-IH:252

@@ -1,0 +1,9 @@
+id: genesys-talent-faerie-finesse
+name: Faerie Finesse
+description: Your character add <success></success> to the results of social skill checks they make targeting faeries
+  and pixies and to modify or reprogram the same. In addition, when a faerie or pixie acting under your character's
+  instructions provides assistance, it adds on additional <boost></boost> to the check.
+activation: p
+ranked: false
+tier: 1
+reference: SotC:74

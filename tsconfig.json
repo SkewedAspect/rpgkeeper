@@ -9,23 +9,30 @@
 
         /* Bundler mode */
         "moduleResolution": "bundler",
-        "isolatedModules": true,
+        "verbatimModuleSyntax": true,
         "esModuleInterop": true,
         "noEmit": true,
         "jsx": "preserve",
+        "allowImportingTsExtensions": true,
 
         /* Linting */
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+
+        /* Workspace paths */
+        "paths": {
+            "@rpgk/core": ["./src/core/src/index.ts"],
+            "@rpgk/core/*": ["./src/core/src/*"],
+            "@rpgk/systems": ["./src/systems/src/index.ts"],
+            "@rpgk/systems/*": ["./src/systems/src/*"],
+            "@client/*": ["./src/client/src/*"],
+            "@server/*": ["./src/server/src/*"]
+        }
     },
     "include": [
-        "src",
-        "vite.config.ts"
-    ],
-    "references": [
-        { "path": "./src/server/tsconfig.json" },
-        { "path": "./src/client/tsconfig.json" },
+        "vite.config.ts",
+        "knexfile.ts"
     ]
 }

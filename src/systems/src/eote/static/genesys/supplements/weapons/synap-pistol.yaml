@@ -1,0 +1,21 @@
+id: genesys-weapon-synap-pistol
+name: Synap Pistol
+description: "Synap pistols, also known as Gandhi guns, are detuned energy weapons designed for detaining suspects
+  without killing them. Using a low-powered \"tracking laser,\" these weapons fire off a bioelectric charge that
+  disrupts a human or android's synapses and leaves them paralyzed or unconscious. Unfortunately, a small percentage of
+  people hit with Synap pistols go into cardiac arrest due to the energy discharge, but the weapons still remain
+  incredibly popular as a (mostly) non-lethal way to defend ones self and incapacitate suspects. Models Include: NEXT
+  Syn-stun Pistol, Strelet Arms \"Incapacitator.\""
+skill: Ranged (Light)
+damage: 5
+criticalRating: 6
+range: s
+encumbrance: 1
+rarity: 2
+qualities:
+  - id: genesys-quality-disorient
+    ranks: 4
+  - id: genesys-quality-stun
+    ranks: 3
+  - id: genesys-quality-stun-damage
+reference: SotB:87

@@ -1,0 +1,13 @@
+id: genesys-attachment-recurve-limbs
+name: Recurve Limbs
+description: Making the limbs of a bow or crossbow curve away from the wielder increases the penetrating power of the
+  bow's shots, even if it also makes the bow larger and more difficult to wield. This kind of attachment makes sense for
+  fantasy settings.
+useWith: weapon
+modifiers: The weapon gains the Pierce quality, or increases any existing Pierce quality by 1. The weapon also gains the
+  Unwieldy quality, or increases any existing Unwieldy quality by 1.
+hpRequired: 1
+qualities:
+  - id: genesys-quality-pierce
+  - id: genesys-quality-unwieldy
+reference: G-CRB:208

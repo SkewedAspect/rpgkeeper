@@ -1,0 +1,18 @@
+id: genesys-weapon-crossbow
+name: Crossbow
+description: Crossbows can never match the effectiveness of a wellcrafted bow in the hands of a talented archer, but
+  they are simple to use and powerful. The strength of a crossbow's mechanism is represented by the Pierce quality. The
+  downside of a crossbow is the additional time it takes to ready it for firing versus simply nocking an arrow, hence
+  the Prepare quality.
+skill: Ranged
+damage: 7
+criticalRating: 2
+range: m
+encumbrance: 3
+rarity: 4
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 2
+  - id: genesys-quality-prepare
+    ranks: 1
+reference: G-CRB:145

@@ -1,0 +1,13 @@
+id: genesys-attachment-augmentation-network
+name: Augmentation Network
+description: These rigs are installed in heavier armor and monitor the wearer's physical and psychological condition.
+  They use electrochemical stimulants that make the wearer more alert and heighten their reflexes. The rig is not
+  without drawbacks; soldiers who use an augmentation network become impatient and unfocused, and they often suffer
+  profound exhaustion after use.
+useWith: armor
+modifiers: When wearing this armor, as an incidental, your character may choose to add boost to Perception checks,
+  Vigilance checks, and all combat checks for the remainder of the encounter and must add setback to all other checks
+  until the end of the encounter. If they do so, at the end of the encounter they suffer 8 strain.
+hpRequired: 2
+qualities: []
+reference: EotI:129

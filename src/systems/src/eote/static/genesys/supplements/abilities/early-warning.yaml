@@ -1,0 +1,4 @@
+id: genesys-ability-early-warning
+name: Early Warning
+description: Adds <boost></boost> to its operator's checks to determine Initiative.
+reference: SotB

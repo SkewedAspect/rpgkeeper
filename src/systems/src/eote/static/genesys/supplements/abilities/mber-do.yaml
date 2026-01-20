@@ -1,0 +1,5 @@
+id: genesys-ability-mber-do
+name: Æmber-Do
+description: Once per encounter, may spend a Story Point before making a skill check to double this character's Brawn
+  value and require 1 fewer <advantage></advantage> to activate any item quality for that check.
+reference: SotC

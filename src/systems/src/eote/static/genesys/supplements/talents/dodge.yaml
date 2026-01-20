@@ -1,0 +1,9 @@
+id: genesys-talent-dodge
+name: Dodge
+description: When your character is targeted by a combat check (ranged or melee), they may suffer a number of strain no
+  greater than their ranks in Dodge to use this talent. Then, upgrade the difficulty of the combat check targeting your
+  character a number of times equal to the strain suffered.
+activation: aio
+ranked: true
+tier: 3
+reference: G-CRB:78

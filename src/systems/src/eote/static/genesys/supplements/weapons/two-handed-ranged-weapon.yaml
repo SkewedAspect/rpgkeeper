@@ -1,0 +1,12 @@
+id: genesys-weapon-two-handed-ranged-weapon
+name: Two-Handed Ranged Weapon
+description: These weapons are bulky, noticeable, and inconvenient to carry. They are also extremely effective and a
+  first choice when serious combat becomes likely. Examples include a longbow, a blunderbuss, and a blaster rifle.
+skill: Ranged
+damage: 6
+criticalRating: 4
+range: m
+encumbrance: 3
+rarity: 3
+qualities: []
+reference: SotC:138

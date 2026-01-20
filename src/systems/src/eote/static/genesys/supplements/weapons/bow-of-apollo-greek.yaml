@@ -1,0 +1,20 @@
+id: genesys-weapon-bow-of-apollo-greek
+name: Bow of Apollo (Greek)
+description: "Apollo's bow was said to be so accurate, the god could not miss a shot. In addition, the merest graze from
+  an arrow could bring on a terrible plaugue. Before your character makes a combat check using the Bow of Apollo, remove
+  all <setback></setback> from the pool. When a character suffers a Critical Injury from the Bow of Apollo, your
+  character must choose to inflict the Debilitating Illness Crifical Injury if the target is not already suffering from
+  this Critical Injury. Debilitating Illness (Hard
+  [<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>] Severity): The target's wound threshold
+  and strain threshold are halved (rounding up) until this Critical Injury is healed."
+skill: Ranged
+damage: 10
+criticalRating: 2
+range: ex
+encumbrance: 4
+rarity: 10
+qualities:
+  - id: genesys-quality-reinforced
+  - id: genesys-quality-unwieldy
+    ranks: 3
+reference: G-EPG:12

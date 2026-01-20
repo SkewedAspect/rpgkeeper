@@ -1,0 +1,13 @@
+id: genesys-weapon-cavalry-saber
+name: Cavalry Saber
+description: Cavalry sabers are single-edged swords with curbed blades designed to deliver sweeping, punishing strikes.
+skill: melee
+damage: 3
+criticalRating: 3
+range: en
+encumbrance: 1
+rarity: 2
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+reference: G-EPG:22

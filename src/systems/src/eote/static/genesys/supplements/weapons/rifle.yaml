@@ -1,0 +1,21 @@
+id: genesys-weapon-rifle
+name: Rifle
+description: "A rifle is any long-range, magazine-fed, semiautomatic weapon used for hunting, sporting, or combat. This
+  category includes everything from small varmint rifles to antique battle rifles from the distant past to modern,
+  high-end biggame and sniper rifles. A standard hunting or marksman rifle is a semiautomatic weapon about a meter and a
+  half long and made of lightweight alloys and composites. Like shotguns, rifles are nominally sold for sport shooting
+  or hunting, but since there aren't many opportunities for either in New Angeles (outside of a limited number of
+  shooting ranges), most end up used by police sharpshooters and criminals. Of course, rich risties may also own antique
+  or even artistic pieces, with furniture carved from exotic woods or precious minerals. These rifles can be incredibly
+  valuable, and even become a target for heists. Models Include: Gewehrwerks AG GR14, Skorpios Model 14 Police Marksman
+  Rifle."
+skill: Ranged (Heavy)
+damage: 8
+criticalRating: 3
+range: l
+encumbrance: 4
+rarity: 4
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+reference: SotB:83

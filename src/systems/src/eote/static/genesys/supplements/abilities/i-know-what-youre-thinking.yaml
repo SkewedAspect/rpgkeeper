@@ -1,0 +1,8 @@
+id: genesys-ability-i-know-what-youre-thinking
+name: I Know What You're Thinking
+description: When targeting an opponent with a social skill check, downgrade the difficulty a number of times equal to
+  the number of <challenge></challenge> in the pool (effectively replacing all <challenge></challenge> with
+  <difficulty></difficulty>). When targeted by a social skill check, downgrade the ability of the check a number of
+  times equal to the number of <proficiency></proficiency> in the pool (effectively replacing all
+  <proficiency></proficiency> with <ability></ability>).
+reference: G-CRB

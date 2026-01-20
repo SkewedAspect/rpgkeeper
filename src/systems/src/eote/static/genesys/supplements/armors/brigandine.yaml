@@ -1,0 +1,13 @@
+id: genesys-armor-brigandine
+name: Brigandine
+description: Many bards, rogues, and nobles in Terrinoth prefer brigandine armor, which consists of small iron or steel
+  plates riveted between two layers of fabric. The resulting armor looks like a bulky tunic, but it can absorb or
+  deflect blows better than boiled leather. The fabric can be embroidered or decorated, which appeals to the vanity of
+  many in the nobility (and quite a few scoundrels and rogues as well).
+defense: 1
+soak: 1
+hardpoints: 1
+encumbrance: 2
+rarity: 5
+qualities: []
+reference: RoT:96

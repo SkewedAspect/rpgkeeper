@@ -1,0 +1,14 @@
+id: eote-attachment-optical-camouflage-system
+name: Optical Camouflage System
+description: Popular with both military scouts and assassins, optical camouflage systems are a wonder of modern stealth
+  technology. Using a series of phased array optical projectors combined with sound baffling equipment and thermal and
+  radiation shielding, Merr-Sonn's "Ghost" OCS can render a wearer nearly invisible to the naked eye The PAO projectors
+  allow the wearer to blend in with his surroundings by mimicking them, similar to an animal with active camouflage
+  abilities, and the different radiation shields hide the wearer's body heat as well as any electromagnetic radiation
+  from other sensors or communications gear. For all of its utility, however, this system is incredibly fragile and is
+  not recommended for combat.
+useWith: Any armor.
+baseModifier: Upgrade all Stealth check twice.
+modOptions: Innate Talent (Master of Shadows) Mod, 1 Skill (Stealth) Mod
+hpRequired: 2
+reference: E-CRB:195

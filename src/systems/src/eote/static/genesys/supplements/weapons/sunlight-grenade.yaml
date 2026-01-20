@@ -1,0 +1,17 @@
+id: genesys-weapon-sunlight-grenade
+name: Sunlight Grenade
+description: There was no need for devices to mimic the effects of full daylight until the discovery that it is
+  repugnant to those who haunt the night. Though sunlight grenades are difficult to create, these inventions have proven
+  deadly to some things that science cannot explain. When a sunlight grenade explodes, until the end of the current
+  round, it acts as direct sunlight on all characters within medium range. Characters in cover who have the Sunlight
+  Sensitivity ability suffer 3 wounds and 6 strain instead of the ability's normal effects.
+skill: ranged (light)
+damage: 0
+criticalRating: 0
+range: s
+encumbrance: 1
+rarity: 4
+qualities:
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: G-EPG:23

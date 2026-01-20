@@ -1,0 +1,9 @@
+id: genesys-talent-bad-breath-improved
+name: Bad Breath (Improved)
+description: Your character must have purchased the Bad Breath talent to benefit from this talent. Your character's Bad
+  Breath weapon profile gains a second item quality from the list included in that talent's description, with a rating
+  equal to your character's ranks in Bad Breath.
+activation: p
+ranked: false
+tier: 3
+reference: SotC:81

@@ -1,0 +1,5 @@
+id: genesys-ability-rotating-formation
+name: Rotating Formation
+description: While a vehicle piloted by this character is within short range of any other allied vehicles, increase its
+  defense by 2.
+reference: EotI

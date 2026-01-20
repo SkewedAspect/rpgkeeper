@@ -1,0 +1,10 @@
+id: genesys-talent-laugh-it-off
+name: Laugh it Off
+description: When your character is targeted by a social check that they may use this talent to spend
+  <despair></despair><despair></despair><despair></despair> or <difficulty></difficulty> to reduce any strain the check
+  inflicts by a number equal to their ranks in Charm. If they do, the character who targeted them suffers an amount of
+  strain equal to the amount of strain reduced.
+activation: aio
+ranked: false
+tier: 3
+reference: SotB:50

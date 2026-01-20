@@ -1,0 +1,11 @@
+id: genesys-attachment-razor-edge
+name: Razor Edge
+description: This attachment represents sharpening a blade to a razor edge, then reinforcing or treating that edge so
+  that it can withstand repeated blows. This kind of attachment makes sense for any setting.
+useWith: weapon
+modifiers: The weapon gains the Pierce quality, or increases any existing Pierce quality by 1. The weapon also decreases
+  its Crit rating by 1, to a minimum of 1.
+hpRequired: 1
+qualities:
+  - id: genesys-quality-pierce
+reference: G-CRB:208

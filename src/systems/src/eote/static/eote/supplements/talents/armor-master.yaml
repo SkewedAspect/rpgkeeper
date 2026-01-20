@@ -1,0 +1,7 @@
+id: eote-talent-armor-master
+name: Armor Master
+description: When wearing armor, the character increases his total soak value by one.
+activation: p
+ranked: false
+trees: Gadgeteer
+reference: E-CRB:132

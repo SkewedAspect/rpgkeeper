@@ -1,0 +1,11 @@
+id: genesys-talent-knack-for-it
+name: Knack for It
+description: When you purchase this talent for your character, select one skill. Your character removes
+  <setback></setback><setback></setback> from any checks they make using this skill. Each additional time you purchase
+  this talent for your character, select two additional skills. Your character also removes
+  <setback></setback><setback></setback> from any checks they make using these skills. You cannot select combat or magic
+  skills when choosing skills for this talent.
+activation: p
+ranked: true
+tier: 1
+reference: G-CRB:73

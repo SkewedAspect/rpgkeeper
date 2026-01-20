@@ -1,0 +1,5 @@
+id: genesys-ability-tough-to-convince
+name: Tough to Convince
+description: When another character targets this character with an opposed skill check, the difficulty is set by this
+  character's Brawn instead of the usual characteristic.
+reference: SotC

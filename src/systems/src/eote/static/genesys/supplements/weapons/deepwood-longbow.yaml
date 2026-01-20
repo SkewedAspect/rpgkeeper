@@ -1,0 +1,22 @@
+id: genesys-weapon-deepwood-longbow
+name: Deepwood Longbow
+description: The longbows of the Latari Deepwood Archers are of little use to an amateur archer, for they take a great
+  deal of strength and skill to use. However, in the hands of a strong and experienced archer, they are deadly weapons
+  indeed. Their range and hitting power is greater than that of mundane bows, and their construction is so solid that
+  warping and breaking is unheard of. While in a natural, open-air environment above ground, the Deepwood Longbow gains
+  the Accurate item quality.
+skill: Ranged
+damage: 8
+criticalRating: 2
+range: ex
+encumbrance: 4
+rarity: 6
+qualities:
+  - id: genesys-quality-accurate
+    ranks: 1
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-superior
+  - id: genesys-quality-unwieldy
+    ranks: 3
+reference: RoT:109

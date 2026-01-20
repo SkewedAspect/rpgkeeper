@@ -1,0 +1,12 @@
+id: genesys-talent-web-of-knowledge
+name: Web of Knowledge
+description: Once per session your character may make an average during a Network encounter. If you succeed, your
+  character knows the names, strengths, and other qualities of all ice (active or deactivated) on one system that you
+  currently have access to, as well as all other characters (sysops and runners) that currently are accessing that
+  system. Your character may spend <advantage></advantage><advantage></advantage><advantage></advantage> or
+  <threat></threat> from this check (whether or not they succeeded) to add <success></success> to all Computer checks
+  involving that system that they make for the remainder of the encounter.
+activation: aa
+ranked: false
+tier: 5
+reference: SotB:52

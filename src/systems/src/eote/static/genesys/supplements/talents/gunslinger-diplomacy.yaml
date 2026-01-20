@@ -1,0 +1,9 @@
+id: genesys-talent-gunslinger-diplomacy
+name: Gunslinger Diplomacy
+description: If your character is armed, they may use this talent to conspicuously display their weapon and add
+  <success></success><success></success><despair></despair> to the results of the next social skill check they make this
+  turn. This may have additional narrative repercussions at your GM's discretion.
+activation: am
+ranked: false
+tier: 2
+reference: EotI:53

@@ -1,0 +1,10 @@
+id: genesys-talent-not-even-in-death
+name: Not Even in Death
+description: Your character must be a N'orr or a {@archetype Shikrai or have allegiance to the Argent Flight or the
+  Sardakk N'orr to benefit from this talent.} When your character would be incapacitated by suffering wounds that exceed
+  their wound threshold, you may spend a Story Point to have your character use this talent to immediately make a combat
+  check with a weapon they are currently wielding.
+activation: aio
+ranked: false
+tier: 3
+reference: EotI:55

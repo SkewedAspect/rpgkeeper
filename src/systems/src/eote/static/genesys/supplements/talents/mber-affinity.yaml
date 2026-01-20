@@ -1,0 +1,9 @@
+id: genesys-talent-mber-affinity
+name: Æmber Affinity
+description: The first time each encounter your character makes an Æmbercraft check or makes a check to use an
+  Æmber-based item and generates <difficulty></difficulty>, cancel that <difficulty></difficulty> from the results of
+  the check.
+activation: p
+ranked: false
+tier: 3
+reference: SotC:81

@@ -1,0 +1,7 @@
+id: eote-talent-adversary
+name: Adversary
+description: Upgrade the difficulty of any combat check targeting this character once per rank of Adversary.
+activation: p
+ranked: true
+trees: NPC only
+reference: E-CRB:132

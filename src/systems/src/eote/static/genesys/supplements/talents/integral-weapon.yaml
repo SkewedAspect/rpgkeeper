@@ -1,0 +1,11 @@
+id: genesys-talent-integral-weapon
+name: Integral Weapon
+description: "Your character must be a Titan to benefit from this talent. When you select this talent, choose one of the
+  following weapons: an integral particle beam or an integral grav-field for one fist. Your character is equipped with
+  the weapon you choose. Either weapon requires one free hand to use (as it is a part of your character's palm or hand).
+  It cannot be disarmed or damaged, but a Critical Injury that affects your character's arm may cause it to become
+  unusable temporarily or permanently at your GM's discretion."
+activation: p
+ranked: false
+tier: 5
+reference: EotI:58

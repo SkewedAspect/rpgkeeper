@@ -1,0 +1,9 @@
+id: genesys-talent-scathing-tirade-improved
+name: Scathing Tirade (Improved)
+description: Your character must have purchased the Scathing Tirade talent to benefit from this talent. Enemies affected
+  by your character's Scathing Tirade add <setback></setback> to all skill checks they make for a number of rounds equal
+  to your character's ranks in Coercion.
+activation: p
+ranked: false
+tier: 3
+reference: G-CRB:79

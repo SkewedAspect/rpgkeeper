@@ -1,0 +1,6 @@
+id: genesys-ability-poisoner
+name: Poisoner
+description: As an incidental, may apply poison to all weapons. A character wounded by a poisoned weapon must make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of-turn incidental or suffer 4
+  additional wounds, and must check again on their next turn if the check generates <difficulty></difficulty>.
+reference: RoT

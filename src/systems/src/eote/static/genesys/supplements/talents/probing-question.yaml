@@ -1,0 +1,8 @@
+id: genesys-talent-probing-question
+name: Probing Question
+description: If your character knows an opponent's Flaw or Fear motivation, when your character inflicts strain on that
+  opponent using a social skill, the opponent suffers 3 additional strain.
+activation: p
+ranked: false
+tier: 2
+reference: SotB:49

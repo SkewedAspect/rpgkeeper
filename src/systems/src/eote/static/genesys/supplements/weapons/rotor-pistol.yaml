@@ -1,0 +1,20 @@
+id: genesys-weapon-rotor-pistol
+name: Rotor Pistol
+description: Something like the Gatling gun of the nineteenth century, a rotor pistol consists of a number of barrels
+  that rotate rapidly in order to achieve a high rate of fire. Unlike a Gatling gun, though, a rotor pistol isn't hand
+  cranked; it is fired with a pull of the trigger. This is achieved by means of a quartz-galvanite battery that
+  unleashes a single strong pulse of electricity that sends the gun's mechanisms into motion. After firing, you have to
+  not only completely reload the internal magazine of the pistol, but also replace the battery. The Limited Ammo quality
+  doesn't mean a rotor pistol only holds one bullet, of course, but that a single burst of fire consumes all its
+  ammunition.
+skill: Ranged (Light)
+damage: 5
+criticalRating: 4
+range: s
+encumbrance: 2
+rarity: 7
+qualities:
+  - id: genesys-quality-auto-fire
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: G-CRB:154

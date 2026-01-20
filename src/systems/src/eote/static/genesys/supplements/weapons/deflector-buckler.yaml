@@ -1,0 +1,21 @@
+id: genesys-weapon-deflector-buckler
+name: Deflector Buckler
+description: "Deflector cuffs produce a deflector buckler by generating a variable-frequency energy shield in a small
+  circle centered on the wearer's wrist. The shield can successfully deflect high-energy projectiles and beams, although
+  it has a harder time stopping comparatively slow-moving attacks like those made with most melee weapons. The edge of
+  the shield can also deliver nasty burns and gashes to those hit by it. This weapon may be modified with 2-1: Cultural
+  Manufacturing Differences."
+skill: Brawl
+damage: 1
+criticalRating: 4
+range: en
+encumbrance: 1
+rarity: 6
+qualities:
+  - id: genesys-quality-defensive
+    ranks: 1
+  - id: genesys-quality-deflection
+    ranks: 2
+  - id: genesys-quality-vicious
+    ranks: 1
+reference: EotI:114

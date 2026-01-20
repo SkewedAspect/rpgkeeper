@@ -1,0 +1,11 @@
+id: genesys-attachment-heavy-barrel
+name: Heavy Barrel
+description: The weapon's standard barrel, emitter, projector, or capacitors are modified to give the weapon the ability
+  to fire a more powerful blast. Whatever form it takes, the heavy barrel attachment has a tendency to destabilize the
+  weapon, making it harder for the shooter to land an accurate shot. Few can argue with the impactful results, however,
+  when the weapon strikes true.
+useWith: weapon
+modifiers: The weapon increases its base damage by 2 and gains the Inaccurate quality.
+hpRequired: 2
+qualities: []
+reference: EotI:127

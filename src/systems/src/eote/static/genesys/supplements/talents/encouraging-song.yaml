@@ -1,0 +1,9 @@
+id: genesys-talent-encouraging-song
+name: Encouraging Song
+description: While equipped with a musical instrument, your character may use this talent to make an average. For each
+  <success></success> the check generates, one ally within medium range adds <boost></boost> to their next skill check.
+  For each <advantage></advantage>, one ally benefiting from Encouraging Song heals 1 strain.
+activation: aa
+ranked: false
+tier: 2
+reference: RoT:88

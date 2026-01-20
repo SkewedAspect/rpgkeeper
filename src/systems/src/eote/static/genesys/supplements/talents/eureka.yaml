@@ -1,0 +1,11 @@
+id: genesys-talent-eureka
+name: Eureka!
+description: When your character makes an Æmbercraft check that generates <threat></threat>, roll an additional
+  <proficiency></proficiency> and add it to the results of the check in addition to spending the <threat></threat>
+  normally. When your character makes an Æmbercraft check that generates <difficulty></difficulty>, roll an additional
+  <challenge></challenge> and add it to the results of the check in addition to spending the <difficulty></difficulty>
+  normally. (Both of these effects may occur multiple times during a check.)
+activation: p
+ranked: false
+tier: 3
+reference: SotC:82

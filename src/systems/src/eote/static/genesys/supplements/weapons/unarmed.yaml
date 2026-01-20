@@ -1,0 +1,13 @@
+id: genesys-weapon-unarmed
+name: Unarmed
+description: When a character makes an unarmed combat check using Brawl, the attack has a base damage of their Brawn
+  rating, a range of engaged, a Critical rating of 5, and the Knockdown item quality.
+skill: Brawl
+damage: 0
+criticalRating: 5
+range: en
+encumbrance: 0
+rarity: 0
+qualities:
+  - id: genesys-quality-knockdown
+reference: G-CRB:109

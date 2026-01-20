@@ -1,0 +1,4 @@
+id: genesys-ability-always-prepared
+name: Always Prepared
+description: When a survivor makes a check to heal strain at the end of an encounter, they heal 1 additional strain.
+reference: G-EPG

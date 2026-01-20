@@ -1,0 +1,9 @@
+id: genesys-talent-masterful-casting
+name: Masterful Casting
+description: When your character casts a spell, they may use this talent to spend <threat></threat> to trigger up to
+  three different qualities or spell effects instead of one. These qualities or spell effects must be ones that can be
+  triggered by spending a or t.
+activation: ai
+ranked: false
+tier: 4
+reference: G-EPG:97

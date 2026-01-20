@@ -1,0 +1,9 @@
+id: genesys-talent-favor-of-the-fae
+name: Favor of the Fae
+description: Your character cannot take this talent if they have taken the Dominion of the Dimora talent. When casting
+  an Attack spell, your character may add the Manipulative effect without increasing the difficulty. Your character can
+  never add the Impact effect.
+activation: ai
+ranked: false
+tier: 2
+reference: RoT:88

@@ -1,0 +1,8 @@
+id: genesys-talent-big-guns
+name: Big Guns
+description: Your character's encumbrance threshold is 10 plus their Brawn, instead of 5 plus their Brawn. Your
+  character reduces the Cumbersome rating of any weapon she carries by 1, to a minimum of 3.
+activation: p
+ranked: false
+tier: 2
+reference: SotB:47

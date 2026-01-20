@@ -1,0 +1,9 @@
+id: genesys-talent-sharp-tongue
+name: Sharp Tongue
+description: Your character reduces the number of <advantage></advantage> they must spend to inflict a critical remark
+  in a social encounter by their ranks in Sharp Tongue, to a minimum of one <advantage></advantage>. (See page 123 of
+  the Genesys Core Rulebook.)
+activation: p
+ranked: false
+tier: 2
+reference: SotC:79

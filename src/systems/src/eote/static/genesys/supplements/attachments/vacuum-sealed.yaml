@@ -1,0 +1,10 @@
+id: genesys-attachment-vacuum-sealed
+name: Vacuum Sealed
+description: This attachment equips the armor with breathing gear and seals it against vacuum. This kind of attachment
+  makes sense in the science fiction and space opera settings.
+useWith: armor
+modifiers: While wearing this armor, the user may ignore the effects of vacuum or poionous atmospheric environments for
+  up to one hour.
+hpRequired: 1
+qualities: []
+reference: G-CRB:209

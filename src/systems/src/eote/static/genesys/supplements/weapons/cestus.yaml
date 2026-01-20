@@ -1,0 +1,16 @@
+id: genesys-weapon-cestus
+name: Cestus
+description: Some say that cestuses came from the fighting pits of the Torue Albes, where brawlers still bludgeon each
+  other senseless to the delight of drunken spectators. Though these weapons are no match for a proper sword, some
+  adventurers prefer these heavy leather gloves with iron-studded knuckles. A wellthrown punch can still break bones and
+  lay out an opponent, and wearing a pair of cestus draws a lot less attention than carrying a naked blade.
+skill: Brawl
+damage: 1
+criticalRating: 4
+range: en
+encumbrance: 2
+rarity: 1
+qualities:
+  - id: genesys-quality-disorient
+    ranks: 3
+reference: RoT:92

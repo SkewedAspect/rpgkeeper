@@ -1,0 +1,12 @@
+id: genesys-talent-beam-fighter
+name: Beam Fighter
+description: While using a beam weapon with the Pierce item quality, your character may use this talent to cause the
+  weapon to lose that quality. If they do, after your character makes a ranged combat check before the end of their
+  turn, they may assign a number of additional hits from their weapon equal to the value of the Pierce item quality that
+  the weapon lost. Each hit deals damage equal to the weapon's base damage plus the number of <success></success> scored
+  on the check. Each hit must be assigned to a different target within short range of another target (each minion in a
+  minion group counts as a target for the purposes of this talent).
+activation: am
+ranked: false
+tier: 4
+reference: EotI:56

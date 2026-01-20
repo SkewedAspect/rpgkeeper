@@ -1,0 +1,21 @@
+id: genesys-weapon-razor-whip
+name: Razor Whip
+description: Razor whips are made of flexible, braided alloy with razor-sharp blades embedded within. They can shred
+  through armor and flesh (the Pierce quality) and can be used to entangle targets (the Ensnare quality). Whips also
+  tend to have a special rule allowing wielders to attack targets that are farther away. A razor whip can be used to
+  make melee attacks against targets at short range. The difficulty for this attack is
+  <difficulty></difficulty><difficulty></difficulty>.
+skill: Melee
+damage: 1
+criticalRating: 3
+range: s
+encumbrance: 1
+rarity: 7
+qualities:
+  - id: genesys-quality-ensnare
+    ranks: 1
+  - id: genesys-quality-pierce
+    ranks: 3
+  - id: genesys-quality-unwieldy
+    ranks: 3
+reference: G-CRB:161

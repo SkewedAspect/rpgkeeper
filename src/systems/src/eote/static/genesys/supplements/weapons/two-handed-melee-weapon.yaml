@@ -1,0 +1,13 @@
+id: genesys-weapon-two-handed-melee-weapon
+name: Two-Handed Melee Weapon
+description: This weapon's relative bulk makes it easily noticed, and the wielder must use both hands to manipulate it
+  effectively. The weapon is large enough that transporting it is awkward, so few carry such arms unless they expect to
+  put them to use. Examples include a large club, a staff of stout titanwood, and a basic polearm.
+skill: Melee
+damage: 2
+criticalRating: 4
+range: en
+encumbrance: 2
+rarity: 2
+qualities: []
+reference: SotC:138

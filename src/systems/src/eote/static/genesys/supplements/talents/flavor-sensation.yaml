@@ -1,0 +1,10 @@
+id: genesys-talent-flavor-sensation
+name: Flavor Sensation
+description: When your character prepares a meal, they may use this talent to make an average. If they succeed,
+  characters who partake in the meal heal strain equal to <success></success> the check generates and upgrade the
+  ability of the next check they make once. At your GM's discretion, your character may use a different skill
+  appropriate to the situation an your characters' preferred methods of cooking.
+activation: aa
+ranked: false
+tier: 2
+reference: SotC:79

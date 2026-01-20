@@ -1,0 +1,9 @@
+id: genesys-talent-face-of-the-wild
+name: Face of the Wild
+description: When your character casts a transform spell on themself using the Primal skill, you may spend a Story Point
+  to have them use this talent to maintain the effects of the spell until the end of the encounter, without performing
+  concentrate.
+activation: ai
+ranked: false
+tier: 3
+reference: G-EPG:97

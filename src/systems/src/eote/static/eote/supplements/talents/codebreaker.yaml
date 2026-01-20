@@ -1,0 +1,9 @@
+id: eote-talent-codebreaker
+name: Codebreaker
+description: The character removes <setback></setback> from any attempt to break codes, or decrypt communications equal
+  to his ranks in Codebreaker. In addition, the character decreases the difficulty of Computer or Intellect checks made
+  to break codes or decrypt communications by one. (_This does not increase with additional ranks of Codebreaker._)
+activation: p
+ranked: true
+trees: Scholar, Slicer
+reference: E-CRB:133

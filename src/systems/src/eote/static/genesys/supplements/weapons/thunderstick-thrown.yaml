@@ -1,0 +1,20 @@
+id: genesys-weapon-thunderstick-thrown
+name: Thunderstick (thrown)
+description: Thundersticks are simple and brutal weapons that are little more than an explosive charge tied to the end
+  of a long pole. While typically thrown like jabelins, they can be wielded as melee weapons in dire circumstances. When
+  your character makes a combat check with a thunderstick, your GM may spend hh or d to have your character suffer 4
+  wounds.
+skill: ranged (light)
+damage: 8
+criticalRating: 3
+range: s
+encumbrance: 3
+rarity: 5
+qualities:
+  - id: genesys-quality-blast
+    ranks: 4
+  - id: genesys-quality-breach
+    ranks: 1
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: G-EPG

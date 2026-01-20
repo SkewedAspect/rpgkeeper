@@ -1,0 +1,5 @@
+id: eote-ability-trandoshans
+name: Trandoshans
+description: Trandoshans begin the game with one rank in Perception. They still may not train Perception about rank 2
+  during character creation.
+reference: E-CRB:51

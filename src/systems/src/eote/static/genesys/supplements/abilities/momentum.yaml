@@ -1,0 +1,5 @@
+id: genesys-ability-momentum
+name: Momentum
+description: If this character performed a move maneuver, they add +3 to the damage of one hit of any successful Brawl
+  or Melee checks they make during the same turn.
+reference: G-EPG

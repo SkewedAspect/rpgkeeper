@@ -1,0 +1,10 @@
+id: genesys-attachment-runic-flame
+name: Runic Flame
+description: The runic flame is designed to be used in conjunction with a close combat weapon. Swords with apertures in
+  the pommel or the guard for such runic attachments are not uncommon in the armories of wealthy members of the
+  military.
+useWith: weapon
+modifiers: The weapon gains the Burn item quality.
+hpRequired: 1
+qualities: []
+reference: RoT:106

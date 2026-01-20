@@ -1,0 +1,8 @@
+id: genesys-talent-resourceful-mechanic
+name: Resourceful Mechanic
+description: When your character makes a Mechanics check to repair system strain or hull trauma on a vehicle, they
+  repair one additional system strain or hull trauma per rank of Resourceful Mechanic.
+activation: p
+ranked: true
+tier: 1
+reference: SotB:45

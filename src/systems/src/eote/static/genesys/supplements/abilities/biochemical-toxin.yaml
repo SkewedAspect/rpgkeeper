@@ -1,0 +1,6 @@
+id: genesys-ability-biochemical-toxin
+name: Biochemical Toxin
+description: When a character makes a check while engaged with this character, may spend
+  <despair></despair><despair></despair><despair></despair> or <difficulty></difficulty> to cause the character to
+  suffer the Bleeding Out Critical Injury.
+reference: EotI

@@ -1,0 +1,4 @@
+id: genesys-ability-office-drone
+name: Office Drone
+description: When this character makes a social skill check, they add <advantage></advantage><despair></despair> to the result.
+reference: SotB

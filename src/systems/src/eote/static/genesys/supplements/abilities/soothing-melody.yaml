@@ -1,0 +1,6 @@
+id: genesys-ability-soothing-melody
+name: Soothing Melody
+description: Once per encounter, may make an Average. If the check is successful, characters in the encounter remove 1
+  strain per <success></success> and this character adds <boost></boost> to social skill checks they make until the end
+  of the encounter.
+reference: SotC

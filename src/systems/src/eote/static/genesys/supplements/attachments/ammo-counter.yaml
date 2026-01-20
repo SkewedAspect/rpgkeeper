@@ -1,0 +1,10 @@
+id: genesys-attachment-ammo-counter
+name: Ammo Counter
+description: One of the simplest smart systems available, an ammo counter displays in a shooter's cybereye - or in a
+  pair of smartgoggles or an HUD - a weapon's maximum and current number of shots. Thus avoiding that unexpected "beep"
+  or "click" of an empty mag.
+useWith: weapon
+modifiers: While your character is using this weapon, your GM cannot spend h or d to cause it to run out of ammo.
+hpRequired: 1
+qualities: []
+reference: SotB:110

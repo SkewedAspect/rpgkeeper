@@ -1,0 +1,13 @@
+id: genesys-armor-personal-force-field
+name: Personal Force Field
+description: Force fields are a mainstay of space opera sci-fi, although in many settings they are primarily or
+  exclusively used to protect ships and other large targets. The sophisticated technology and high power draw mean that
+  personal force fields are rare and expensive. Mechanically, a high defense is less predictable than soak, but has the
+  potential to cause otherwise successful attacks to fail.
+defense: 3
+soak: 0
+hardpoints: 0
+encumbrance: 1
+rarity: 8
+qualities: []
+reference: G-CRB:186

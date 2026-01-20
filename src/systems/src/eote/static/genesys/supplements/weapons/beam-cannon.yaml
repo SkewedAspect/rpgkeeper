@@ -1,0 +1,20 @@
+id: genesys-weapon-beam-cannon
+name: Beam Cannon
+description: "The most portable of the heavy weapons used by forces throughout the galaxy, the beam cannon focuses an
+  emitter array into a single, pinpoint burst of energy powerful enough to disable vehicles. This high-energy output
+  means beam cannons are universally heavy and bulky weapons. This weapon may be modified with 2-1: Cultural
+  Manufacturing Differences."
+skill: Gunnery
+damage: 9
+criticalRating: 3
+range: ex
+encumbrance: 7
+rarity: 6
+qualities:
+  - id: genesys-quality-breach
+    ranks: 2
+  - id: genesys-quality-cumbersome
+    ranks: 4
+  - id: genesys-quality-slow-firing
+    ranks: 1
+reference: EotI:108

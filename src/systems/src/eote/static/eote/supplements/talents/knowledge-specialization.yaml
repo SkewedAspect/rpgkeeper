@@ -1,0 +1,9 @@
+id: eote-talent-knowledge-specialization
+name: Knowledge Specialization
+description: When the character first aquires this talent, they may choose one Knowledge Skill. When making checks with
+  that skill, they may spend <triumph></triumph> to gain additional <success></success> equal to their ranks in
+  Knowledge Specialization.
+activation: ai
+ranked: true
+trees: Sage
+reference: F-CRB:146

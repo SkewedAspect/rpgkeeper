@@ -1,0 +1,12 @@
+id: genesys-armor-chainmail
+name: Chainmail
+description: Chainmail is good at absorbing a hit and dispersing the force over a broader area. We've represented such
+  armor with a solid soak value, but no defense. Mail armor is somewhat noisy, so your character adds
+  <setback></setback> to Stealth checks they make while wearing it.
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 3
+rarity: 4
+qualities: []
+reference: G-CRB:145

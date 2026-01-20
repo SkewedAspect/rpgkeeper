@@ -1,0 +1,10 @@
+id: genesys-armor-heavy-armor
+name: Heavy Armor
+description: ""
+defense: 1
+soak: 3
+hardpoints: 0
+encumbrance: 3
+rarity: 4
+qualities: []
+reference: SotC:143

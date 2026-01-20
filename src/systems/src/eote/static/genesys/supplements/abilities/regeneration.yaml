@@ -1,0 +1,4 @@
+id: genesys-ability-regeneration
+name: Regeneration
+description: At the beginning of its turn, this creature automatically heals wounds equal to its ranks in Regeneration.
+reference: G-CRB

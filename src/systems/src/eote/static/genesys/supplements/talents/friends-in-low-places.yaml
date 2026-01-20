@@ -1,0 +1,12 @@
+id: genesys-talent-friends-in-low-places
+name: Friends in Low Places
+description: Your character must be a Saar or have allegiance to the Mentak Coalition, the Clan of Saar, or The Nomad to
+  benefit from this talent. Once per session when on a populated world, your character may make an
+  <difficulty></difficulty> to use this talent. If they succeed, they obtain one item with a rarity no greater than
+  twice the number of <success></success> scored on the check, or they obtain an equivalent service from a pirate or
+  pirate crew. If the check generates <despair></despair> or <difficulty></difficulty>, your character must pay the cost
+  of the item or service within one week of obtaining it.
+activation: aa
+ranked: false
+tier: 2
+reference: EotI:52

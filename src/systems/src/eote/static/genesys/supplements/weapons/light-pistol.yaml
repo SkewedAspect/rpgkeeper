@@ -1,0 +1,14 @@
+id: genesys-weapon-light-pistol
+name: Light Pistol
+description: "The light pistol listing is for a basic, medium-caliber pistol: a 9 mm or .38 caliber weapon, for example.
+  If you want, say, a .22 caliber pistol, you could reduce the damage by one and increase the Critical rating by one. If
+  it's a cheap, disposable \"Saturday night special\" kind of gun, maybe give it a rank or two in the Inaccurate or
+  Inferior qualities instead."
+skill: Ranged (Light)
+damage: 5
+criticalRating: 4
+range: s
+encumbrance: 1
+rarity: 3
+qualities: []
+reference: G-CRB:166

@@ -1,0 +1,8 @@
+id: genesys-ability-spells-endless-dance
+name: "Spells: Endless Dance"
+description: This character chooses one target within short range and makes an
+  <difficulty></difficulty><difficulty></difficulty>; upon success, the target is immobilized, suffers 1 strain and 1
+  wound at the start of their turn, and adds <setback></setback><setback></setback> to all checks they make; on their
+  turn, the target may make a Daunting check to end these effects; can sustain the effects of this spell by performing
+  the concentrate maneuver.
+reference: G-EPG

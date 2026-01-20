@@ -1,0 +1,16 @@
+id: eote-talent-reflect-improved
+name: Reflect (Improved)
+description: >-
+  _Force Talent_. When the character suffers a hit from a a **Ranged (light)**, **Ranged (Heavy)**, or **Gunnery**
+  combat check and used the Reflect incidental to reduce the damage from that hit, after the attack is resolved, the
+  character may spend <despair></despair> or <threat></threat><threat></threat><threat></threat> to automatically hit
+  one target within medium range, dealing the same damage as the hit from the initial ranged attack.
+
+
+  The ranged attack's hit must be one that is able to be reflected and redirected (generally only blaster weapons or
+  other energy attacks fall into this category anything else is subject to GM oversight). This talent may not be used if
+  the original attack incapacitates the character.
+activation: aio
+ranked: false
+trees: Shien Expert, Soresu Defender
+reference: F-CRB:150

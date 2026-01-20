@@ -1,0 +1,6 @@
+id: genesys-ability-sacrifice
+name: Sacrifice
+description: After inflicting wounds on a living creature (whether an enemy or ally), this character adds
+  <boost></boost> to their next magic skill check; after killing a living creature, this character instead upgrades the
+  ability of their next magic skill check once.
+reference: RoT

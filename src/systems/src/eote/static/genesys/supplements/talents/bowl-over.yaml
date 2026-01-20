@@ -1,0 +1,8 @@
+id: genesys-talent-bowl-over
+name: Bowl Over
+description: When your character makes a melee attack after engaging a target, your weapon gains the Knockdown item
+  quality. If the weapon already has Knockdown, your may activate the quality without spending <advantage></advantage>.
+activation: p
+ranked: false
+tier: 2
+reference: SotC:78

@@ -1,0 +1,6 @@
+id: genesys-ability-swallow
+name: Swallow
+description: May make an opposed Brawl to swallow an engaged target. If the check is successful, swallowed characters
+  are immobilized and suffer 6 damage at the start of each round but can escape if this character is killed or by making
+  a successful <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>.
+reference: RoT

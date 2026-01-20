@@ -1,0 +1,9 @@
+id: genesys-ability-irresistible-song
+name: Irresistible Song
+description: As an action, this character may make an <difficulty></difficulty><difficulty></difficulty>. If the check
+  is successful, all characters within long range who can hear this character's song suffer 1 strain per
+  <success></success>. This character may spend <advantage></advantage><advantage></advantage> to immobilized one
+  affected character until the end of the following round, and spend <threat></threat> to staggered one affected
+  character until the end of the following round. While a character is staggered by Irresistible Song, they must spend
+  all of their maneuvers to move closer to this character.
+reference: RoT

@@ -1,0 +1,17 @@
+id: genesys-weapon-military-pick
+name: Military Pick
+description: Military picks have a superficial resemblance to mining picks, but they are usually smaller, and only a
+  single spike protrudes from the head. As the knights of the Daqan Baronies increasingly began to wear plate mail and
+  breastplates, blacksmiths started crafting these weapons to give opponents a way to punch through their heavy armor.
+  Needless to say, many members of the nobility consider these weapons a "cheat," designed to give commoners an
+  underhanded way to murder their betters.
+skill: Melee (Light)
+damage: 1
+criticalRating: 2
+range: en
+encumbrance: 3
+rarity: 2
+qualities:
+  - id: genesys-quality-pierce
+    ranks: 2
+reference: RoT:93

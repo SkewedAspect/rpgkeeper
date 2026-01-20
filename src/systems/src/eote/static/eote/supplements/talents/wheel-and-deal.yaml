@@ -1,0 +1,8 @@
+id: eote-talent-wheel-and-deal
+name: Wheel and Deal
+description: When he sells goods to a reputable merchant or business, the character gains an additional 10% more credits
+  per rank of Wheel and Deal (based on the original sell price of the good or item.)
+activation: p
+ranked: true
+trees: Trader
+reference: E-CRB:145

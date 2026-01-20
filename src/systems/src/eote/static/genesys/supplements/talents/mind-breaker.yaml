@@ -1,0 +1,13 @@
+id: genesys-talent-mind-breaker
+name: Mind Breaker
+description: Your character must be a Druaa or have allegiance to the Naalu Collective to benefit from this talent. Once
+  per session, your character may spend a Story Point to use this talent to make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>. Whether the check succeeds or fails, all
+  living opponents within medium range suffer strain equal to your character's Willpower rating. For every
+  <success></success>, one opponent of your character's choice within medium range suffers a Compromised Critical
+  Injury. Your character may spend <advantage></advantage> to increase the strain suffered by all opponents by 1 per
+  <advantage></advantage> spent.
+activation: aa
+ranked: false
+tier: 5
+reference: EotI:58

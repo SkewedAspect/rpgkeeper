@@ -1,0 +1,12 @@
+id: genesys-armor-infantry-combat-armor
+name: Infantry Combat Armor
+description: The combat armor used by foot soldiers of various interplanetary governments is pretty similar across the
+  galaxy, providing a solid soak value with minimal encumbrance. If you are using the hard point customization rules
+  (see page 206), infantry combat armor has three hard points (instead of the usual one).
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 2
+rarity: 5
+qualities: []
+reference: G-CRB:186

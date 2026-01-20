@@ -1,0 +1,9 @@
+id: genesys-talent-hard-boiled
+name: Hard Boiled
+description: When your character makes a check to recover strain at the end of an encounter (as describe on page 117 of
+  the Genesys Core Rulebook), your character may make a <difficulty></difficulty> instead of Discipline or Cool. If your
+  character does so, they heal 1 strain per <success></success> and 1 wound per <advantage></advantage>.
+activation: ai
+ranked: false
+tier: 3
+reference: SotB:50

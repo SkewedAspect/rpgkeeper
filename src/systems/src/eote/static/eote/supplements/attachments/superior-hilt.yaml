@@ -1,0 +1,9 @@
+id: eote-attachment-superior-hilt
+name: Superior Hilt
+description: While most lightsabers are austere and utilitarian, some Jedi have been known to personalize their weapons
+  to better suit their tastes and styles.
+useWith: Any lightsaber.
+baseModifier: Gain Superior.
+modOptions: None.
+hpRequired: 1
+reference: F-CRB:200

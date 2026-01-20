@@ -1,0 +1,20 @@
+id: genesys-weapon-meteop-launcher
+name: Meteop Launcher
+description: Meteops are small, dome-shaped explosive devices that are, essentially, high-powered anti-personnel
+  weapons. They are fired from bulky, single-shot launchers and are typically used to break up enemy formations or clear
+  rooms and vehicles. The launchers themselves are heavy and awkward, which gives them the Cumbersome quality. The
+  meteop munitions provide the raw damage, low Crit rating, and high Blast quality.
+skill: Gunnery
+damage: 12
+criticalRating: 2
+range: m
+encumbrance: 6
+rarity: 7
+qualities:
+  - id: genesys-quality-blast
+    ranks: 8
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-limited-ammo
+    ranks: 1
+reference: G-CRB:154

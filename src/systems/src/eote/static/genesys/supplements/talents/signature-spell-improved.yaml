@@ -1,0 +1,8 @@
+id: genesys-talent-signature-spell-improved
+name: Signature Spell (Improved)
+description: Your character must have purchased the Signature Spell talent to benefit from this talent. When your
+  character casts their signature spell, reduce the difficulty of the check by two instead of one.
+activation: p
+ranked: false
+tier: 4
+reference: RoT:91

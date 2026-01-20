@@ -1,0 +1,10 @@
+id: coc-weapon-brass-knuckles
+name: Brass Knuckles
+damage: 1d3 + 1 + {damageBonus}
+range: Touch
+attacks: 1
+ammo: null
+malfunction: null
+notes: 1920s, Modern
+skill: Fighting (Brawl)
+reference: Coc-IH:250

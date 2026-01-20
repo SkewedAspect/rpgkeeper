@@ -1,0 +1,8 @@
+id: eote-talent-nobody-s-fool
+name: Nobody's Fool
+description: The difficulty of any Charm, Coercion, or Deception checks attempted against the character is upgraded once
+  for each rank of Nobody's Fool.
+activation: p
+ranked: true
+trees: Politico, Trader
+reference: E-CRB:139

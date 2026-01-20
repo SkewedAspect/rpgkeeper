@@ -1,0 +1,9 @@
+id: genesys-talent-special-use-permit
+name: Special Use Permit
+description: Your character does not treat any Ranged (Heavy) weapons as restricted (R). This also means your character
+  can carry a Ranged (Heavy) weapon that normally would be restricted in public without being arrested. However, they
+  can still be arrested for using such a weapon in an unlawful manner.
+activation: p
+ranked: false
+tier: 2
+reference: SotB:49

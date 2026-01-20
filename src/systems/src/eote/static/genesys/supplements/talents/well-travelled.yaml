@@ -1,0 +1,7 @@
+id: genesys-talent-well-travelled
+name: Well-Travelled
+description: Knowledge (Geography), Negotiation, and Vigilance are now career skills for your character.
+activation: p
+ranked: false
+tier: 2
+reference: RoT:89

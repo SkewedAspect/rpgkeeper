@@ -1,0 +1,8 @@
+id: genesys-talent-one-with-nature
+name: One with Nature
+description: When in the wilderness, your character may make a <difficulty></difficulty>, instead of Discipline or Cool,
+  to recover strain at the end of an encounter (see page 117).
+activation: ai
+ranked: false
+tier: 1
+reference: G-CRB:74

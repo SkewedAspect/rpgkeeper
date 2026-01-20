@@ -1,0 +1,6 @@
+id: genesys-ability-animal-adversary
+name: Animal Adversary
+description: <difficulty></difficulty> may be spent on a failed check this character makes during a turn in which they
+  direct their animal companion to have the companion make a combat check as an out-of-turn action targeting this
+  character. <threat></threat> may be spent on this combat check to also have the animal run away.
+reference: SotC

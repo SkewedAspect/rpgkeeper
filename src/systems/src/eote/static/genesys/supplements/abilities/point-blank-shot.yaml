@@ -1,0 +1,5 @@
+id: genesys-ability-point-blank-shot
+name: Point Blank Shot
+description: When making a Ranged combat check targeting an opponent the this character is engaged with, increase the
+  difficulty once (instead of twice).
+reference: RoT

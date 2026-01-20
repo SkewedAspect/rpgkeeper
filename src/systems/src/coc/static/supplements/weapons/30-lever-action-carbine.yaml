@@ -1,0 +1,10 @@
+id: coc-weapon-30-lever-action-carbine
+name: .30 Lever-Action Carbine
+damage: 2d6
+range: 50 yards
+attacks: 1
+ammo: 6
+malfunction: 98
+notes: 1920s, Modern
+skill: Firearms (rifle)
+reference: CoC-IH:252

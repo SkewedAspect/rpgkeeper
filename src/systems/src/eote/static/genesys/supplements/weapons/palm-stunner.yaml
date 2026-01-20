@@ -1,0 +1,21 @@
+id: genesys-weapon-palm-stunner
+name: Palm Stunner
+description: "A palm stunner is a small, inconspicuous item that delivers a powerful stunning jolt to a target on
+  contact. Roughly one centimeter square and only a few millimeters thick, palm stunners are held in the palm and
+  secured by a strap across the back of the hand. They are powered by a high-yield capacitor that dumps all of its
+  charge on impact with a solid surface, then takes a couple of minutes to recharge off the integral micro-charger.
+  Activated with a punch or an open-handed slap, palm stunners make for exceptional self-defense weapons. Models
+  Include: Personal Defense Industries Stun-R 900, NEXT Palm Protector"
+skill: Brawl
+damage: 5
+criticalRating: 5
+range: en
+encumbrance: 0
+rarity: 3
+qualities:
+  - id: genesys-quality-disorient
+    ranks: 2
+  - id: genesys-quality-slow-firing
+    ranks: 2
+  - id: genesys-quality-stun-damage
+reference: SotB:90

@@ -1,0 +1,26 @@
+id: genesys-weapon-sliver-rocket-launcher
+name: Sliver Rocket Launcher
+description: A sliver rocket launcher is named for the appearance of its narrow, supersonic projectiles. Sliver rockets
+  don't have an explosive payload, but their armor-piercing warheads are immensely effective against even the toughest
+  vehicles. We've given the weapon Breach to account for the devastating effects of impact against both vehicles and
+  flesh.
+skill: Gunnery
+damage: 15
+criticalRating: 2
+range: ex
+encumbrance: 7
+rarity: 6
+qualities:
+  - id: genesys-quality-breach
+    ranks: 4
+  - id: genesys-quality-cumbersome
+    ranks: 3
+  - id: genesys-quality-guided
+    ranks: 4
+  - id: genesys-quality-limited-ammo
+    ranks: 3
+  - id: genesys-quality-prepare
+    ranks: 1
+  - id: genesys-quality-vicious
+    ranks: 5
+reference: G-CRB:184

@@ -1,0 +1,19 @@
+id: genesys-weapon-assault-rifle
+name: Assault Rifle
+description: While clattering, hard-hitting assault rifles are ostensibly military weapons, they can and often do fall
+  into the hands of gangs, crime syndicates, and insurgents. The assault rifle presented here is a basic AR- or
+  AK-pattern rifle like those carried throughout the world. The Auto-Fire quality is the primary thing that separates
+  these weapons from other types of rifles, although they can be fired on semiautomatic as well (your character may
+  choose whether or not to use Auto-fire). Assault rifles do roughly the same damage as other "long guns." Many
+  militaries make carbine versions of their assault rifles, such as the U.S. military's Colt M4. They're more compact
+  than full-sized rifles and a bit easier to wield. Carbines change their range to medium, but decrease their
+  encumbrance by one.
+skill: Ranged (Heavy)
+damage: 8
+criticalRating: 3
+range: l
+encumbrance: 4
+rarity: 7
+qualities:
+  - id: genesys-quality-auto-fire
+reference: G-CRB:166

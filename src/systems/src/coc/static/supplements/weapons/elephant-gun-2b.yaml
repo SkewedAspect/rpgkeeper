@@ -1,0 +1,10 @@
+id: coc-weapon-elephant-gun-2b
+name: Elephant Gun (2B)
+damage: 3d6 + 4
+range: 100 yards
+attacks: 1 or 2
+ammo: 2
+malfunction: 100
+notes: 1920s, Modern
+skill: Firearms (rifle)
+reference: CoC-IH:252

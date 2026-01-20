@@ -1,0 +1,8 @@
+id: genesys-ability-subtle-death
+name: Subtle Death
+description: When making a Brawl check, may spend <advantage></advantage><advantage></advantage> or <threat></threat> to
+  apply a dose of contact poison to the target; the target must immediately make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an incidental; if they fail, they
+  suffer 5 wounds plus 1 wound per <despair></despair>; <difficulty></difficulty> means they must make the check again
+  at the start of their next turn, as the poison remains in their system.
+reference: SotB

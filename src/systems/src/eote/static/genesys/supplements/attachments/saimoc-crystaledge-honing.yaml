@@ -1,0 +1,11 @@
+id: genesys-attachment-saimoc-crystaledge-honing
+name: Saimoc Crystaledge Honing
+description: Letnev forces have developed a process to grind up and bond saimoc crystals to the edges of bladed weapons.
+  The microscopic honing process seeds an edge with millions of sharp, serrated points. The effectiveness of "saimoc
+  honing" has spread to other cultures as well. The cost of the honing process is prohibitive, but for those who can
+  afford it, the result is a fine, deadly blade that can carve through virtually anything or anyone.
+useWith: weapon
+modifiers: The weapon gains the Vicious item quality or raises its existing Vicious by 2, and it gains the Sunder item quality.
+hpRequired: 1
+qualities: []
+reference: EotI:128
