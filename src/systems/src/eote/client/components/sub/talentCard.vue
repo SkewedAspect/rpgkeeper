@@ -7,7 +7,7 @@
         <template #header>
             <div class="text-nowrap text-center">
                 <b>{{ talentBase?.name }}</b>
-                <span v-if="talentBase.ranked" class="fw-bold">{{ talent.ranks }}</span>
+                <span v-if="talentBase.ranked" class="fw-bold ms-1">{{ talent.ranks }}</span>
                 <span v-if="mode === 'genesys'">
                     (Tier {{ talentBase?.tier }})
                 </span>
@@ -17,7 +17,7 @@
                 <template #title>
                     <div :class="`${ mode }-system`">
                         {{ talentBase?.name }}
-                        <span v-if="talentBase?.ranked">{{ talent.ranks }}</span>
+                        <span v-if="talentBase?.ranked" class="ms-1">{{ talent.ranks }}</span>
                         <span v-if="mode === 'genesys'">
                             (Tier {{ talentBase?.tier }})
                         </span>
