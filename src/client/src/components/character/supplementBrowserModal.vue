@@ -28,6 +28,7 @@
             <SupplementBrowser
                 ref="browser"
                 :supplements="supplements"
+                :selected-ids="selectedIds"
                 :max-height="maxHeight"
                 :sort-fn="sortFn"
                 @select="onSelect"
@@ -97,6 +98,7 @@
     {
         title ?: string;
         supplements : TSupplement[];
+        selectedIds ?: string[];
         maxHeight ?: string;
         sortFn ?: (suppA : TSupplement, suppB : TSupplement) => number;
     }
@@ -105,6 +107,7 @@
         defineProps<Props>(),
         {
             title: 'Browse Supplements',
+            selectedIds: () => [],
             maxHeight: '400px',
             sortFn: undefined,
         }

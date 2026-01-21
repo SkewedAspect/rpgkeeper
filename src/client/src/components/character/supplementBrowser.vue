@@ -41,6 +41,9 @@
                             </div>
                             <div class="ms-2 flex-shrink-0">
                                 <slot :supplement="supp" name="list-item-extra" />
+                                <BBadge v-if="isAlreadyAdded(supp)" variant="secondary" class="me-1">
+                                    Added
+                                </BBadge>
                                 <ScopeBadge :supplement="supp" />
                             </div>
                         </BListGroupItem>
@@ -118,6 +121,7 @@
     interface Props
     {
         supplements : TSupplement[];
+        selectedIds ?: string[];
         maxHeight ?: string;
         sortFn ?: (suppA : TSupplement, suppB : TSupplement) => number;
     }
@@ -125,6 +129,7 @@
     const props = withDefaults(
         defineProps<Props>(),
         {
+            selectedIds: () => [],
             maxHeight: '400px',
             sortFn: undefined,
         }
@@ -170,6 +175,11 @@
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
+
+    function isAlreadyAdded(supp : TSupplement) : boolean
+    {
+        return props.selectedIds.includes(supp.id ?? '');
+    }
 
     function selectSupplement(supp : TSupplement) : void
     {

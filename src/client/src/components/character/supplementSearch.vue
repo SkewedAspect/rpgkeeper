@@ -22,16 +22,7 @@
                 </BInputGroupText>
             </template>
             <template #append>
-                <BButton
-                    class="text-nowrap"
-                    variant="primary"
-                    title="Add..."
-                    :disabled="!suppToAdd"
-                    @click="addSup()"
-                >
-                    <Fa icon="plus" />
-                    Add
-                </BButton>
+                <slot name="append-extra" />
             </template>
             <template #suggestion="{ data, htmlText }">
                 <div class="float-end">
@@ -45,7 +36,6 @@
                 <span v-html="htmlText" />
             </template>
         </VueBootstrapAutocomplete>
-        <slot name="append-extra" />
     </div>
 </template>
 
@@ -99,7 +89,7 @@
 
     defineSlots<{
         'suggestion-extra' : (props : { supplement : Supplement }) => unknown;
-        'append-extra' : () => unknown;
+        'append-extra' : (props : object) => unknown;
     }>();
 
     //------------------------------------------------------------------------------------------------------------------
@@ -111,7 +101,6 @@
     };
 
     const search = ref('');
-    const suppToAdd = ref<Supplement | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -149,19 +138,11 @@
 
     function onHit(supp : Supplement) : void
     {
-        suppToAdd.value = supp;
-    }
-
-    function addSup() : void
-    {
-        if(!suppToAdd.value || !suppToAdd.value.id)
+        if(supp?.id)
         {
-            return;
+            emit('add', { id: supp.id });
+            search.value = '';
         }
-
-        emit('add', { id: suppToAdd.value.id });
-        suppToAdd.value = null;
-        search.value = '';
     }
 </script>
 
