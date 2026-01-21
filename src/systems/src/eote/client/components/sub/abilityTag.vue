@@ -44,6 +44,9 @@
     import Reference from '@client/components/character/referenceBlock.vue';
     import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
 
+    // Utils
+    import { normalizeReference } from '@client/lib/utils/misc';
+
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
@@ -72,7 +75,7 @@
 
     const abilityName = computed<string>(() => ability.value?.name ?? 'Unknown');
     const abilityText = computed<string>(() => ability.value?.description ?? 'Unknown ability.');
-    const abilityReference = computed<string>(() => ability.value?.reference ?? '');
+    const abilityReference = computed<string>(() => normalizeReference(ability.value?.reference));
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

@@ -133,6 +133,9 @@
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
+    // Utils
+    import { normalizeReference } from '@client/lib/utils/misc';
+
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
@@ -174,7 +177,7 @@
         name.value = motivation.name ?? '';
         type.value = motivation.type ?? 'strength';
         description.value = motivation.description ?? '';
-        reference.value = motivation.reference ?? '';
+        reference.value = normalizeReference(motivation.reference);
 
         // Show the modal
         innerModal.value?.show();

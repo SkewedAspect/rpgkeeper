@@ -15,6 +15,7 @@
     .eote-reference {
         font-size: 0.8rem;
         font-style: italic;
+        margin-right: 2px;
 
         &.inline {
             display: inline-block;
@@ -37,7 +38,7 @@
 
     interface Props
     {
-        reference : string;
+        reference : string | string[];
         inline ?: boolean;
     }
 
@@ -56,8 +57,18 @@
 
     const isInline = computed(() => props.inline);
 
-    const abbr = computed(() => props.reference.split(':')[0]);
-    const page = computed(() => props.reference.split(':')[1]);
+    // Normalize reference to first string if array
+    const firstRef = computed(() =>
+    {
+        if(Array.isArray(props.reference))
+        {
+            return props.reference[0] ?? '';
+        }
+        return props.reference;
+    });
+
+    const abbr = computed(() => firstRef.value.split(':')[0]);
+    const page = computed(() => firstRef.value.split(':')[1]);
     const refObj = computed(() =>
     {
         const systemId = systemStore.current?.id;

@@ -197,10 +197,13 @@
     const name = ref('');
     const skill = ref('');
     const damage = ref(0);
+    const addSkill = ref(false);
     const criticalRating = ref(0);
     const range = ref<EncounterRange>('m');
     const encumbrance = ref(0);
+    const hardpoints = ref(0);
     const rarity = ref(0);
+    const restricted = ref(false);
     const description = ref('');
     const reference = ref('');
 
@@ -237,10 +240,13 @@
         name.value = '';
         skill.value = '';
         damage.value = 0;
+        addSkill.value = false;
         criticalRating.value = 0;
         range.value = 'm';
         encumbrance.value = 0;
+        hardpoints.value = 0;
         rarity.value = 0;
+        restricted.value = false;
         description.value = '';
         reference.value = '';
     }
@@ -253,12 +259,15 @@
             name.value = weapon.name;
             skill.value = weapon.skill;
             damage.value = weapon.damage;
+            addSkill.value = weapon.addSkill ?? false;
             criticalRating.value = weapon.criticalRating;
             range.value = weapon.range;
             encumbrance.value = weapon.encumbrance;
+            hardpoints.value = weapon.hardpoints ?? 0;
             rarity.value = weapon.rarity;
+            restricted.value = weapon.restricted ?? false;
             description.value = weapon.description;
-            reference.value = weapon.reference ?? '';
+            reference.value = Array.isArray(weapon.reference) ? weapon.reference[0] ?? '' : weapon.reference ?? '';
         }
         else
         {
@@ -279,10 +288,13 @@
             name: name.value,
             skill: skill.value,
             damage: damage.value,
+            addSkill: addSkill.value,
             criticalRating: criticalRating.value,
             range: range.value,
             encumbrance: encumbrance.value,
+            hardpoints: hardpoints.value,
             rarity: rarity.value,
+            restricted: restricted.value,
             description: description.value,
             reference: reference.value,
             qualities: [],

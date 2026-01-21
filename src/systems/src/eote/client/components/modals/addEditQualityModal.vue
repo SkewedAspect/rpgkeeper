@@ -95,6 +95,9 @@
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
+    // Utils
+    import { normalizeReference } from '@client/lib/utils/misc';
+
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
@@ -140,7 +143,7 @@
             description.value = quality.description;
             passive.value = !!quality.passive;
             ranked.value = !!quality.ranked;
-            reference.value = quality.reference ?? '';
+            reference.value = normalizeReference(quality.reference);
         }
         else
         {
