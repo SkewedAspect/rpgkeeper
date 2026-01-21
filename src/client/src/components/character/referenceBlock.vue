@@ -55,6 +55,13 @@
         inline ?: boolean;
     }
 
+    interface ParsedReference
+    {
+        abbr : string;
+        page : string | undefined;
+        name : string | undefined;
+    }
+
     const props = withDefaults(defineProps<Props>(), { inline: false });
 
     //------------------------------------------------------------------------------------------------------------------
@@ -67,13 +74,6 @@
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
-
-    interface ParsedReference
-    {
-        abbr : string;
-        page : string | undefined;
-        name : string | undefined;
-    }
 
     const parsedRefs = computed<ParsedReference[]>(() =>
     {
