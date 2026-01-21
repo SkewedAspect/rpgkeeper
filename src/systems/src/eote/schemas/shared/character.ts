@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 import { z } from 'zod';
-import { supplementId, supplementRef } from '@rpgk/core/utils/codecs';
+import { supplementRef } from '@rpgk/core/utils/codecs';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Shared Enums
@@ -55,6 +55,10 @@ export const BaseQualityRefSchema = z.object({
         .optional(),
 }).meta(supplementRef('quality'));
 
+export const BaseAttachmentRefSchema = z.object({
+    id: z.string(),
+}).meta(supplementRef('attachment'));
+
 export const BaseSkillSchema = z.object({
     name: z.string(),
     characteristic: CharacteristicNameSchema,
@@ -100,7 +104,7 @@ export const BaseArmorRefSchema = z.object({
         .min(0),
     rarity: z.number().int()
         .min(0),
-    attachments: z.array(supplementId('attachment')),
+    attachments: z.array(BaseAttachmentRefSchema),
     qualities: z.array(BaseQualityRefSchema),
     notes: z.string().optional(),
 });
@@ -117,7 +121,7 @@ export const BaseWeaponRefSchema = z.object({
         .min(0),
     rarity: z.number().int()
         .min(0),
-    attachments: z.array(supplementId('attachment')),
+    attachments: z.array(BaseAttachmentRefSchema),
     qualities: z.array(BaseQualityRefSchema),
     notes: z.string().optional(),
 });

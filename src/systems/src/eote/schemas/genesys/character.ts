@@ -8,6 +8,7 @@ import { jsonCodec, supplementId } from '@rpgk/core/utils/codecs';
 // Shared Schemas
 import {
     BaseArmorRefSchema,
+    BaseAttachmentRefSchema,
     BaseCharacteristicsSchema,
     BaseGearSchema,
     BaseSkillSchema,
@@ -32,6 +33,14 @@ export const GenesysMotivationsSchema = z.object({
 });
 
 //----------------------------------------------------------------------------------------------------------------------
+// Genesys-Specific Ref Schemas
+//----------------------------------------------------------------------------------------------------------------------
+
+export const GenesysAttachmentRefSchema = BaseAttachmentRefSchema;
+export const GenesysArmorRefSchema = BaseArmorRefSchema;
+export const GenesysWeaponRefSchema = BaseWeaponRefSchema;
+
+//----------------------------------------------------------------------------------------------------------------------
 // System Details Schema
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -46,8 +55,8 @@ export const GenesysSystemDetailsSchema = z.object({
     abilities: z.array(supplementId('ability')),
     talents: z.array(BaseTalentInstSchema),
     gear: z.array(BaseGearSchema),
-    armor: BaseArmorRefSchema,
-    weapons: z.array(BaseWeaponRefSchema),
+    armor: GenesysArmorRefSchema,
+    weapons: z.array(GenesysWeaponRefSchema),
     motivations: GenesysMotivationsSchema,
 });
 

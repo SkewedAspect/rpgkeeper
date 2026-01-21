@@ -47,6 +47,9 @@
                     <BTh>
                         Upgrades
                     </BTh>
+                    <BTh>
+                        Attachments
+                    </BTh>
                 </BTr>
             </BThead>
             <BTbody>
@@ -66,16 +69,27 @@
                     <BTd class="text-center">
                         {{ armor.rarity }}
                     </BTd>
-                    <BTd class="text-nowrap w-25">
+                    <BTd class="text-nowrap">
                         <QualityTag
                             v-for="quality in armor.qualities"
                             :id="quality.id"
                             :key="quality.id"
                             :ranks="quality.ranks"
                         />
-                        <h5 v-if="armor.qualities.length === 0" class="mt-2 text-center">
-                            No Upgrades.
-                        </h5>
+                        <span v-if="armor.qualities.length === 0" class="text-muted">
+                            None
+                        </span>
+                    </BTd>
+                    <BTd class="text-nowrap">
+                        <AttachmentTag
+                            v-for="att in armor.attachments"
+                            :id="att.id"
+                            :key="att.id"
+                            :activated-mods="att.activatedMods"
+                        />
+                        <span v-if="armor.attachments.length === 0" class="text-muted">
+                            None
+                        </span>
                     </BTd>
                 </BTr>
             </BTbody>
@@ -115,6 +129,7 @@
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
     import QualityTag from './sub/qualityTag.vue';
+    import AttachmentTag from './sub/attachmentTag.vue';
     import EditArmorModal from './modals/editArmorModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------

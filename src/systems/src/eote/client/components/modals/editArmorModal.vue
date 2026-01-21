@@ -136,7 +136,25 @@
                     </BFormGroup>
                 </BFormRow>
 
-                <QualityEdit v-model:qualities="editArmor.qualities" class="mt-2" />
+                <BTabs class="mt-3" content-class="mt-2">
+                    <BTab title="Qualities" active>
+                        <QualityEdit v-model:qualities="editArmor.qualities" />
+                    </BTab>
+                    <BTab>
+                        <template #title>
+                            Attachments
+                            <BBadge :variant="attachmentHpVariant" class="ms-1">
+                                {{ attachmentHpUsed }} / {{ editArmor.hardpoints }} HP
+                            </BBadge>
+                        </template>
+                        <AttachmentEdit
+                            v-model:attachments="editArmor.attachments"
+                            :total-hardpoints="editArmor.hardpoints"
+                            use-with="armor"
+                            :show-hardpoints-summary="false"
+                        />
+                    </BTab>
+                </BTabs>
             </div>
 
             <!-- Modal Buttons -->
@@ -229,7 +247,13 @@
     import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
-    import type { EoteArmor, EoteArmorRef, EoteOrGenCharacter, EoteQualityRef } from '../../../models.ts';
+    import type {
+        EoteArmor,
+        EoteArmorRef,
+        EoteAttachmentRef,
+        EoteOrGenCharacter,
+        EoteQualityRef,
+    } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -237,7 +261,8 @@
 
     // Components
     import QualityEdit from '../sub/qualityEdit.vue';
-    import { BModal } from 'bootstrap-vue-next';
+    import AttachmentEdit from '../sub/attachmentEdit.vue';
+    import { BBadge, BModal, BTab, BTabs } from 'bootstrap-vue-next';
     import { VueBootstrapAutocomplete } from '@morgul/vue-bootstrap-autocomplete';
     import CloseButton from '@client/components/ui/closeButton.vue';
     import SupplementBrowserModal from '@client/components/character/supplementBrowserModal.vue';
@@ -266,7 +291,7 @@
         hardpoints: 0,
         encumbrance: 0,
         rarity: 0,
-        attachments: [] as string[],
+        attachments: [] as EoteAttachmentRef[],
         qualities: [] as EoteQualityRef[],
     });
 
@@ -286,6 +311,30 @@
 
     const mode = computed(() => systemStore.current?.id ?? 'eote');
     const availableArmors = computed(() => supplementStore.get<EoteArmor>(mode.value, 'armor'));
+
+    const attachmentHpUsed = computed(() =>
+    {
+        const allAttachments = supplementStore.get(mode.value, 'attachment');
+        return editArmor.value.attachments.reduce((total, attRef) =>
+        {
+            const attachment = allAttachments.find((att) => att.id === attRef.id);
+            return total + ((attachment as { hpRequired ?: number })?.hpRequired ?? 0);
+        }, 0);
+    });
+
+    const attachmentHpVariant = computed(() =>
+    {
+        if(attachmentHpUsed.value > editArmor.value.hardpoints)
+        {
+            return 'danger';
+        }
+        else if(attachmentHpUsed.value === editArmor.value.hardpoints && editArmor.value.hardpoints > 0)
+        {
+            return 'warning';
+        }
+        return 'secondary';
+    });
+
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
