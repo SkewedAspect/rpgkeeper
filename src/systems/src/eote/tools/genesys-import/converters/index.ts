@@ -11,7 +11,7 @@ export { convertQuality, convertQualities } from './quality.ts';
 export type { InternalQuality } from './quality.ts';
 
 export { convertWeapon, convertWeapons, isWeapon } from './weapon.ts';
-export type { InternalWeapon, InternalQualityRef } from './weapon.ts';
+export type { InternalWeapon } from './weapon.ts';
 
 export { convertArmor, convertArmors, isArmor } from './armor.ts';
 export type { InternalArmor } from './armor.ts';
@@ -23,5 +23,8 @@ export { convertAbility, convertAbilities, convertAllAbilities } from './ability
 export type { InternalAbility } from './ability.ts';
 
 export { fixTypos } from './typos.ts';
+
+// Re-export shared types from utils
+export type { InternalQualityRef } from '../utils.ts';
 
 //----------------------------------------------------------------------------------------------------------------------

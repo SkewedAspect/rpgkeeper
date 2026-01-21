@@ -4,8 +4,6 @@
 // Builds talent tree and source information from Specialization XML data
 //----------------------------------------------------------------------------------------------------------------------
 
-/* eslint-disable id-length */
-
 import type { XmlSpecialization } from '../types.ts';
 import {
     ensureArray,
@@ -107,7 +105,7 @@ export function buildTalentTreeMap(specializations : XmlSpecialization[]) : Tale
                             }
 
                             // Add source if we have one and it's not already tracked
-                            if(specSource && !existing.sources.some((s) => s.reference === specSource.reference))
+                            if(specSource && !existing.sources.some((src) => src.reference === specSource.reference))
                             {
                                 existing.sources.push(specSource);
                             }
@@ -142,15 +140,15 @@ const CORE_BOOK_PRIORITY : Record<string, number> = {
  */
 function sortReferences(refs : string[]) : string[]
 {
-    return [ ...refs ].sort((a, b) =>
+    return [ ...refs ].sort((refA, refB) =>
     {
-        const aPrefix = a.split(':')[0];
-        const bPrefix = b.split(':')[0];
+        const prefixA = refA.split(':')[0];
+        const prefixB = refB.split(':')[0];
 
-        const aPriority = CORE_BOOK_PRIORITY[aPrefix] ?? 99;
-        const bPriority = CORE_BOOK_PRIORITY[bPrefix] ?? 99;
+        const priorityA = CORE_BOOK_PRIORITY[prefixA] ?? 99;
+        const priorityB = CORE_BOOK_PRIORITY[prefixB] ?? 99;
 
-        return aPriority - bPriority;
+        return priorityA - priorityB;
     });
 }
 

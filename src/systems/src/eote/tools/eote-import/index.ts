@@ -16,8 +16,6 @@
 //                   - merge:   Update existing files but preserve descriptions
 //----------------------------------------------------------------------------------------------------------------------
 
-/* eslint-disable no-console, no-await-in-loop, prefer-template */
-
 import { dirname, join, resolve } from 'node:path';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
@@ -188,7 +186,7 @@ async function writeYamlFile(
     {
         if(options.dryRun)
         {
-            console.log(`[DRY-RUN] Would skip (exists): ${ filePath }`);
+            console.info(`[DRY-RUN] Would skip (exists): ${ filePath }`);
         }
         return { written: 0, skipped: 1, merged: 0 };
     }
@@ -208,7 +206,7 @@ async function writeYamlFile(
     if(options.dryRun)
     {
         const action = wasMerged ? 'merge' : 'write';
-        console.log(`[DRY-RUN] Would ${ action }: ${ filePath }`);
+        console.info(`[DRY-RUN] Would ${ action }: ${ filePath }`);
         return { written: wasMerged ? 0 : 1, skipped: 0, merged: wasMerged ? 1 : 0 };
     }
 
@@ -221,6 +219,31 @@ async function writeYamlFile(
 //----------------------------------------------------------------------------------------------------------------------
 // Deduplication
 //----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Write multiple items to a directory, collecting statistics.
+ * Sequential writes are intentional to provide predictable CLI output and avoid overwhelming the filesystem.
+ */
+async function writeItemsToDirectory<T extends { id : string }>(
+    items : T[],
+    dir : string,
+    options : CliOptions
+) : Promise<WriteResult>
+{
+    const stats : WriteResult = { written: 0, skipped: 0, merged: 0 };
+
+    for(const item of items)
+    {
+        // Sequential writes are intentional for CLI feedback and filesystem stability
+        // eslint-disable-next-line no-await-in-loop
+        const result = await writeYamlFile(dir, item as YamlWritable, options);
+        stats.written += result.written;
+        stats.skipped += result.skipped;
+        stats.merged += result.merged;
+    }
+
+    return stats;
+}
 
 /**
  * Deduplicate items by ID, keeping the first occurrence
@@ -248,31 +271,31 @@ async function main() : Promise<void>
 {
     const options = parseArgs(process.argv.slice(2));
 
-    console.log('='.repeat(80));
-    console.log('EotE/AoR/FaD Data Import Tool');
-    console.log('='.repeat(80));
+    console.info('='.repeat(80));
+    console.info('EotE/AoR/FaD Data Import Tool');
+    console.info('='.repeat(80));
 
     if(options.dryRun)
     {
-        console.log('Running in DRY-RUN mode (no files will be written)');
+        console.info('Running in DRY-RUN mode (no files will be written)');
     }
 
-    console.log(`Import mode: ${ options.mode }`);
+    console.info(`Import mode: ${ options.mode }`);
     if(options.mode === 'append')
     {
-        console.log('  (Only new files will be created, existing files preserved)');
+        console.info('  (Only new files will be created, existing files preserved)');
     }
     else if(options.mode === 'merge')
     {
-        console.log('  (Existing files will be updated but descriptions preserved)');
+        console.info('  (Existing files will be updated but descriptions preserved)');
     }
 
     // Fetch and load data
-    console.log('\nFetching repository...');
+    console.info('\nFetching repository...');
     const data = await fetchAndLoadData();
 
     // Convert data
-    console.log('\nConverting data...');
+    console.info('\nConverting data...');
 
     let armors : InternalArmor[] = [];
     let weapons : InternalWeapon[] = [];
@@ -283,13 +306,13 @@ async function main() : Promise<void>
     if(!options.type || options.type === 'armor')
     {
         armors = convertArmors(data.armors);
-        console.log(`  - Converted ${ armors.length } armors`);
+        console.info(`  - Converted ${ armors.length } armors`);
     }
 
     if(!options.type || options.type === 'weapon')
     {
         weapons = convertWeapons(data.weapons);
-        console.log(`  - Converted ${ weapons.length } weapons`);
+        console.info(`  - Converted ${ weapons.length } weapons`);
     }
 
     if(!options.type || options.type === 'talent')
@@ -302,37 +325,37 @@ async function main() : Promise<void>
         enrichTalentsWithTreeInfo(talents, treeMap, keyMap);
 
         const specCount = data.specializations.length;
-        console.log(`  - Converted ${ talents.length } talents (with tree info from ${ specCount } specializations)`);
+        console.info(`  - Converted ${ talents.length } talents (with tree info from ${ specCount } specializations)`);
     }
 
     if(!options.type || options.type === 'attachment')
     {
         attachments = convertAttachments(data.attachments);
-        console.log(`  - Converted ${ attachments.length } attachments`);
+        console.info(`  - Converted ${ attachments.length } attachments`);
     }
 
     if(!options.type || options.type === 'quality')
     {
         qualities = convertQualities(data.qualities);
-        console.log(`  - Converted ${ qualities.length } qualities`);
+        console.info(`  - Converted ${ qualities.length } qualities`);
     }
 
     // Deduplicate
-    console.log('\nDeduplicating...');
+    console.info('\nDeduplicating...');
     armors = deduplicateById(armors);
     weapons = deduplicateById(weapons);
     talents = deduplicateById(talents);
     attachments = deduplicateById(attachments);
     qualities = deduplicateById(qualities);
 
-    console.log(`  - Armors: ${ armors.length }`);
-    console.log(`  - Weapons: ${ weapons.length }`);
-    console.log(`  - Talents: ${ talents.length }`);
-    console.log(`  - Attachments: ${ attachments.length }`);
-    console.log(`  - Qualities: ${ qualities.length }`);
+    console.info(`  - Armors: ${ armors.length }`);
+    console.info(`  - Weapons: ${ weapons.length }`);
+    console.info(`  - Talents: ${ talents.length }`);
+    console.info(`  - Attachments: ${ attachments.length }`);
+    console.info(`  - Qualities: ${ qualities.length }`);
 
     // Write files
-    console.log('\nWriting files...');
+    console.info('\nWriting files...');
 
     // Helper to format stats
     const formatStats = (stats : WriteResult) : string =>
@@ -346,77 +369,37 @@ async function main() : Promise<void>
 
     if(!options.type || options.type === 'armor')
     {
-        const armorDir = join(SUPPLEMENTS_DIR, 'armors');
-        const stats : WriteResult = { written: 0, skipped: 0, merged: 0 };
-        for(const armor of armors)
-        {
-            const result = await writeYamlFile(armorDir, armor as unknown as YamlWritable, options);
-            stats.written += result.written;
-            stats.skipped += result.skipped;
-            stats.merged += result.merged;
-        }
-        console.log(`  - Processed ${ armors.length } armor files ${ formatStats(stats) }`);
+        const stats = await writeItemsToDirectory(armors, join(SUPPLEMENTS_DIR, 'armors'), options);
+        console.info(`  - Processed ${ armors.length } armor files ${ formatStats(stats) }`);
     }
 
     if(!options.type || options.type === 'weapon')
     {
-        const weaponDir = join(SUPPLEMENTS_DIR, 'weapons');
-        const stats : WriteResult = { written: 0, skipped: 0, merged: 0 };
-        for(const weapon of weapons)
-        {
-            const result = await writeYamlFile(weaponDir, weapon as unknown as YamlWritable, options);
-            stats.written += result.written;
-            stats.skipped += result.skipped;
-            stats.merged += result.merged;
-        }
-        console.log(`  - Processed ${ weapons.length } weapon files ${ formatStats(stats) }`);
+        const stats = await writeItemsToDirectory(weapons, join(SUPPLEMENTS_DIR, 'weapons'), options);
+        console.info(`  - Processed ${ weapons.length } weapon files ${ formatStats(stats) }`);
     }
 
     if(!options.type || options.type === 'talent')
     {
-        const talentDir = join(SUPPLEMENTS_DIR, 'talents');
-        const stats : WriteResult = { written: 0, skipped: 0, merged: 0 };
-        for(const talent of talents)
-        {
-            const result = await writeYamlFile(talentDir, talent as unknown as YamlWritable, options);
-            stats.written += result.written;
-            stats.skipped += result.skipped;
-            stats.merged += result.merged;
-        }
-        console.log(`  - Processed ${ talents.length } talent files ${ formatStats(stats) }`);
+        const stats = await writeItemsToDirectory(talents, join(SUPPLEMENTS_DIR, 'talents'), options);
+        console.info(`  - Processed ${ talents.length } talent files ${ formatStats(stats) }`);
     }
 
     if(!options.type || options.type === 'attachment')
     {
-        const attachmentDir = join(SUPPLEMENTS_DIR, 'attachments');
-        const stats : WriteResult = { written: 0, skipped: 0, merged: 0 };
-        for(const attachment of attachments)
-        {
-            const result = await writeYamlFile(attachmentDir, attachment as unknown as YamlWritable, options);
-            stats.written += result.written;
-            stats.skipped += result.skipped;
-            stats.merged += result.merged;
-        }
-        console.log(`  - Processed ${ attachments.length } attachment files ${ formatStats(stats) }`);
+        const stats = await writeItemsToDirectory(attachments, join(SUPPLEMENTS_DIR, 'attachments'), options);
+        console.info(`  - Processed ${ attachments.length } attachment files ${ formatStats(stats) }`);
     }
 
     if(!options.type || options.type === 'quality')
     {
-        const qualityDir = join(SUPPLEMENTS_DIR, 'qualities');
-        const stats : WriteResult = { written: 0, skipped: 0, merged: 0 };
-        for(const quality of qualities)
-        {
-            const result = await writeYamlFile(qualityDir, quality as unknown as YamlWritable, options);
-            stats.written += result.written;
-            stats.skipped += result.skipped;
-            stats.merged += result.merged;
-        }
-        console.log(`  - Processed ${ qualities.length } quality files ${ formatStats(stats) }`);
+        const stats = await writeItemsToDirectory(qualities, join(SUPPLEMENTS_DIR, 'qualities'), options);
+        console.info(`  - Processed ${ qualities.length } quality files ${ formatStats(stats) }`);
     }
 
-    console.log('\n' + '='.repeat(80));
-    console.log('Import complete!');
-    console.log('='.repeat(80));
+    console.info(`\n${ '='.repeat(80) }`);
+    console.info('Import complete!');
+    console.info('='.repeat(80));
 }
 
 //----------------------------------------------------------------------------------------------------------------------

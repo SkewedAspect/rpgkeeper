@@ -4,8 +4,6 @@
 // Handles cloning the OggDudes-Custom-Dataset-SW repository and parsing XML files
 //----------------------------------------------------------------------------------------------------------------------
 
-/* eslint-disable no-console, no-await-in-loop */
-
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { access, readFile, readdir, rm } from 'node:fs/promises';
@@ -117,24 +115,24 @@ export async function ensureRepo() : Promise<string>
 
         if(isRepo)
         {
-            console.log('Repository exists, pulling latest changes...');
+            console.info('Repository exists, pulling latest changes...');
             const repoGit = simpleGit(TEMP_DIR);
             await repoGit.pull();
-            console.log('Repository updated.');
+            console.info('Repository updated.');
             return TEMP_DIR;
         }
         else
         {
             // Directory exists but isn't a git repo, remove it
-            console.log('Removing invalid directory...');
+            console.info('Removing invalid directory...');
             await rm(TEMP_DIR, { recursive: true, force: true });
         }
     }
 
     // Clone the repository
-    console.log(`Cloning repository to ${ TEMP_DIR }...`);
+    console.info(`Cloning repository to ${ TEMP_DIR }...`);
     await git.clone(REPO_URL, TEMP_DIR, [ '--depth', '1' ]);
-    console.log('Repository cloned.');
+    console.info('Repository cloned.');
 
     return TEMP_DIR;
 }
@@ -216,21 +214,17 @@ export async function loadSpecializations(repoPath : string) : Promise<XmlSpecia
     const files = await readdir(specDir);
     const xmlFiles = files.filter((file) => file.endsWith('.xml'));
 
-    const specializations : XmlSpecialization[] = [];
-
-    for(const file of xmlFiles)
-    {
-        const filePath = join(specDir, file);
-        const content = await readFile(filePath, 'utf-8');
-        const doc = xmlParser.parse(content) as SpecializationDocument;
-
-        if(doc.Specialization)
+    const parseResults = await Promise.all(
+        xmlFiles.map(async (file) =>
         {
-            specializations.push(doc.Specialization);
-        }
-    }
+            const filePath = join(specDir, file);
+            const content = await readFile(filePath, 'utf-8');
+            const doc = xmlParser.parse(content) as SpecializationDocument;
+            return doc.Specialization ?? null;
+        })
+    );
 
-    return specializations;
+    return parseResults.filter((spec) : spec is XmlSpecialization => spec !== null);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -258,28 +252,28 @@ export async function fetchAndLoadData() : Promise<LoadedData>
 {
     const repoPath = await ensureRepo();
 
-    console.log('\nLoading XML files...');
+    console.info('\nLoading XML files...');
 
     const armors = await loadArmors(repoPath);
-    console.log(`  - Loaded ${ armors.length } armors`);
+    console.info(`  - Loaded ${ armors.length } armors`);
 
     const weapons = await loadWeapons(repoPath);
-    console.log(`  - Loaded ${ weapons.length } weapons`);
+    console.info(`  - Loaded ${ weapons.length } weapons`);
 
     const talents = await loadTalents(repoPath);
-    console.log(`  - Loaded ${ talents.length } talents`);
+    console.info(`  - Loaded ${ talents.length } talents`);
 
     const attachments = await loadAttachments(repoPath);
-    console.log(`  - Loaded ${ attachments.length } attachments`);
+    console.info(`  - Loaded ${ attachments.length } attachments`);
 
     const qualities = await loadQualities(repoPath);
-    console.log(`  - Loaded ${ qualities.length } qualities`);
+    console.info(`  - Loaded ${ qualities.length } qualities`);
 
     const skills = await loadSkills(repoPath);
-    console.log(`  - Loaded ${ skills.length } skills`);
+    console.info(`  - Loaded ${ skills.length } skills`);
 
     const specializations = await loadSpecializations(repoPath);
-    console.log(`  - Loaded ${ specializations.length } specializations`);
+    console.info(`  - Loaded ${ specializations.length } specializations`);
 
     return { armors, weapons, talents, attachments, qualities, skills, specializations };
 }

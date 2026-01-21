@@ -1,9 +1,8 @@
 //----------------------------------------------------------------------------------------------------------------------
-
 // Utility Functions
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { ExternalActivation, ExternalRange } from './types.ts';
+import type { ExternalActivation, ExternalRange, QualityReference } from './types.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Book Abbreviation Mapping
@@ -160,6 +159,80 @@ export function mapSkillName(skill : { name : string; source ?: string }) : stri
 export function qualityNameToId(name : string) : string
 {
     return `genesys-quality-${ slugify(name) }`;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Array Helpers
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Ensure a value is an array, returning empty array if undefined or not an array
+ */
+export function ensureArray<T>(value : T[] | undefined) : T[]
+{
+    return Array.isArray(value) ? value : [];
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Numeric Parsing
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Parse a numeric value that may be a string (e.g., "+2") or number
+ */
+export function parseNumericValue(value : string | number | undefined) : number
+{
+    if(value === undefined || value === null)
+    {
+        return 0;
+    }
+
+    if(typeof value === 'number')
+    {
+        return value;
+    }
+
+    const parsed = parseInt(value, 10);
+    return isNaN(parsed) ? 0 : parsed;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Quality Reference Conversion
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Internal quality reference type
+ */
+export interface InternalQualityRef
+{
+    id : string;
+    ranks ?: number;
+}
+
+/**
+ * Convert external quality references to internal format
+ */
+export function convertQualityRefs(qualities : QualityReference[] | undefined) : InternalQualityRef[]
+{
+    if(!qualities || !Array.isArray(qualities))
+    {
+        return [];
+    }
+
+    return qualities.map((quality) =>
+    {
+        const ref : InternalQualityRef = {
+            id: qualityNameToId(quality.name),
+        };
+
+        const ranks = quality.ranks ?? quality.value;
+        if(ranks !== undefined && ranks > 0)
+        {
+            ref.ranks = ranks;
+        }
+
+        return ref;
+    });
 }
 
 //----------------------------------------------------------------------------------------------------------------------

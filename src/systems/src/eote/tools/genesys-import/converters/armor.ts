@@ -1,13 +1,17 @@
 //----------------------------------------------------------------------------------------------------------------------
-
-/* eslint-disable id-length, sort-imports */
 // Armor Converter
 //----------------------------------------------------------------------------------------------------------------------
 
 import type { ExternalArmor, ExternalGear } from '../types.ts';
-import { generateId, formatReference, qualityNameToId } from '../utils.ts';
+import {
+    type InternalQualityRef,
+    convertQualityRefs,
+    ensureArray,
+    formatReference,
+    generateId,
+    parseNumericValue,
+} from '../utils.ts';
 import { convertVaryingDisplay } from './description.ts';
-import type { InternalQualityRef } from './weapon.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Internal Armor Types
@@ -44,52 +48,6 @@ export function isArmor(gear : ExternalGear) : gear is ExternalArmor
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
- * Parse numeric value (can be string like "+2" or number)
- */
-function parseNumericValue(value : string | number | undefined) : number
-{
-    if(value === undefined || value === null)
-    {
-        return 0;
-    }
-
-    if(typeof value === 'number')
-    {
-        return value;
-    }
-
-    // Handle strings like "+2" (Brawn-based bonuses)
-    const parsed = parseInt(value, 10);
-    return isNaN(parsed) ? 0 : parsed;
-}
-
-/**
- * Convert quality references to internal format
- */
-function convertQualityRefs(qualities : ExternalArmor['special']) : InternalQualityRef[]
-{
-    if(!qualities || !Array.isArray(qualities))
-    {
-        return [];
-    }
-
-    return qualities.map((quality) =>
-    {
-        const ref : InternalQualityRef = {
-            id: qualityNameToId(quality.name),
-        };
-
-        const ranks = quality.ranks ?? quality.value;
-        if(ranks !== undefined && ranks > 0)
-        {
-            ref.ranks = ranks;
-        }
-
-        return ref;
-    });
-}
-
-/**
  * Convert an external armor to internal format
  */
 export function convertArmor(armor : ExternalArmor, bookFile : string) : InternalArmor
@@ -111,19 +69,11 @@ export function convertArmor(armor : ExternalArmor, bookFile : string) : Interna
 /**
  * Filter and convert armors from gear array
  */
-export function convertArmors(
-    gear : ExternalGear[] | undefined,
-    bookFile : string
-) : InternalArmor[]
+export function convertArmors(gear : ExternalGear[] | undefined, bookFile : string) : InternalArmor[]
 {
-    if(!gear || !Array.isArray(gear))
-    {
-        return [];
-    }
-
-    return gear
+    return ensureArray(gear)
         .filter(isArmor)
-        .map((a) => convertArmor(a, bookFile));
+        .map((armor) => convertArmor(armor, bookFile));
 }
 
 //----------------------------------------------------------------------------------------------------------------------

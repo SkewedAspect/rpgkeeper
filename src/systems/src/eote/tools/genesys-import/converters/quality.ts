@@ -1,11 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
-
-/* eslint-disable id-length, sort-imports */
 // Quality Converter
 //----------------------------------------------------------------------------------------------------------------------
 
 import type { ExternalQuality } from '../types.ts';
-import { generateId, formatReference } from '../utils.ts';
+import { ensureArray, formatReference, generateId } from '../utils.ts';
 import { convertVaryingDisplay } from './description.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -64,17 +62,9 @@ export function convertQuality(external : ExternalQuality, bookFile : string) : 
 /**
  * Convert multiple qualities from a book
  */
-export function convertQualities(
-    qualities : ExternalQuality[] | undefined,
-    bookFile : string
-) : InternalQuality[]
+export function convertQualities(qualities : ExternalQuality[] | undefined, bookFile : string) : InternalQuality[]
 {
-    if(!qualities || !Array.isArray(qualities))
-    {
-        return [];
-    }
-
-    return qualities.map((q) => convertQuality(q, bookFile));
+    return ensureArray(qualities).map((quality) => convertQuality(quality, bookFile));
 }
 
 //----------------------------------------------------------------------------------------------------------------------

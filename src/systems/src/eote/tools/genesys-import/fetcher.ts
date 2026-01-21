@@ -4,8 +4,6 @@
 // Handles cloning and pulling the SilentArctic repository
 //----------------------------------------------------------------------------------------------------------------------
 
-/* eslint-disable no-console, no-await-in-loop */
-
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { access, readFile, rm } from 'node:fs/promises';
@@ -49,24 +47,24 @@ export async function ensureRepo() : Promise<string>
 
         if(isRepo)
         {
-            console.log('Repository exists, pulling latest changes...');
+            console.info('Repository exists, pulling latest changes...');
             const repoGit = simpleGit(TEMP_DIR);
             await repoGit.pull();
-            console.log('Repository updated.');
+            console.info('Repository updated.');
             return TEMP_DIR;
         }
         else
         {
             // Directory exists but isn't a git repo, remove it
-            console.log('Removing invalid directory...');
+            console.info('Removing invalid directory...');
             await rm(TEMP_DIR, { recursive: true, force: true });
         }
     }
 
     // Clone the repository
-    console.log(`Cloning repository to ${ TEMP_DIR }...`);
+    console.info(`Cloning repository to ${ TEMP_DIR }...`);
     await git.clone(REPO_URL, TEMP_DIR, [ '--depth', '1' ]);
-    console.log('Repository cloned.');
+    console.info('Repository cloned.');
 
     return TEMP_DIR;
 }
@@ -92,11 +90,13 @@ export async function loadAllBooks(repoPath : string) : Promise<Map<string, Exte
 {
     const books = new Map<string, ExternalBook>();
 
+    // Sequential loading is intentional for CLI progress feedback
     for(const filename of BOOK_FILES)
     {
         try
         {
-            console.log(`Loading ${ filename }...`);
+            console.info(`Loading ${ filename }...`);
+            // eslint-disable-next-line no-await-in-loop -- Sequential for CLI progress feedback
             const book = await loadBook(repoPath, filename);
             books.set(filename, book);
         }
