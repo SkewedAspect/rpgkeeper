@@ -1,0 +1,10 @@
+id: eote-talent-improvised-detonation-improved
+name: Improvised Detonation (Improved)
+description: Reduce the difficulty of Improvise Detonation to **Average
+  (<difficulty></difficulty><difficulty></difficulty>) and increase damage to twice ranks in Mechanics.
+activation: p
+ranked: false
+forceTalent: false
+trees: Demolitionist
+reference:
+  - DC:32

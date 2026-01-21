@@ -1,0 +1,10 @@
+id: eote-talent-loom
+name: Loom
+description: When an ally engaged with the character makes a successful Charm, Deception, or Negotiation check, the
+  character adds <advantage></advantage> per rank in Coercion to the ally's check.
+activation: p
+ranked: false
+forceTalent: false
+trees: Enforcer
+reference:
+  - DC:32

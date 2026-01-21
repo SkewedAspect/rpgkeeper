@@ -1,0 +1,10 @@
+id: eote-talent-thats-how-its-done
+name: That's How It's Done
+description: May suffer 1 strain on successful skill check to add <advantage></advantage> to the same skill check made
+  by a number of allies equally to Willpower within short range during the next round.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Instructor
+reference:
+  - LbE:34

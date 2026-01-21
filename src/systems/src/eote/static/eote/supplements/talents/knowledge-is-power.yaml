@@ -1,0 +1,9 @@
+id: eote-talent-knowledge-is-power
+name: Knowledge is Power
+description: Once per session, when making a check count Force rating as being equal to ranks in Knowledge (Lore).
+activation: ai
+ranked: false
+forceTalent: true
+trees: Advisor, Magus
+reference:
+  - F-CRB:103

@@ -1,0 +1,21 @@
+id: eote-weapon-relby-k23-blaster-pistol
+name: Relby-K23 Blaster Pistol
+description: The BlasTech Industries Relby-K23 blaster pistol is a sidearm banned from civilian purchase and used by
+  agents of the Galactic Empire. It is known for its low refraction index, which results in minimal beam dispersion when
+  the blaster is fired. The beam produced by this blaster pistol inflicts excruciating pain upon beings who have the
+  misfortune of being hit by it. The only known drawback of the Relby-K23 is its faulty safety.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-stun-setting
+reference:
+  - JoY:12

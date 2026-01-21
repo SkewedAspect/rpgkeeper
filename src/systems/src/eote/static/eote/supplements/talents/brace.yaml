@@ -1,0 +1,12 @@
+id: eote-talent-brace
+name: Brace
+description: Perform the Brace maneuver to remove <setback></setback> per rank of Brace from next Action. This may only
+  remove <setback></setback> added by environmental circumstances.
+activation: am
+ranked: true
+forceTalent: false
+trees: Bodyguard, Clone Trooper, Gadgeteer, Gunner, Heavy, Outlaw Tech, Scholar, Sharpshooter
+reference:
+  - E-CRB:132
+  - A-CRB:143
+  - RotS:37

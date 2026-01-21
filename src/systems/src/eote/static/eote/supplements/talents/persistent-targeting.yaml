@@ -1,0 +1,10 @@
+id: eote-talent-persistent-targeting
+name: Persistent Targeting
+description: After making one or more successful combat checks against a target, add <boost></boost> to combat checks
+  against that same target for the remainder of the encounter.
+activation: p
+ranked: false
+forceTalent: false
+trees: Retired Clone Trooper
+reference:
+  - DoR:114

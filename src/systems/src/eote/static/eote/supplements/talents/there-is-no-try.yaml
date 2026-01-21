@@ -1,0 +1,10 @@
+id: eote-talent-there-is-no-try
+name: There Is No Try
+description: Once per session before an ally rolls the dice for a check, the character may spend a Destiny Point to
+  allow the ally to automatically succeed at the check with one <success></success> and no other results.
+activation: aio
+ranked: false
+forceTalent: true
+trees: Master
+reference:
+  - CotR:44

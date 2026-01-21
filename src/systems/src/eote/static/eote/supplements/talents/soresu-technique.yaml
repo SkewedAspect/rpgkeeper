@@ -1,7 +1,9 @@
 id: eote-talent-soresu-technique
 name: Soresu Technique
-description: _Force Talent_. When making a **Lightsaber** skill check, the character may use Intellect instead of Brawn.
+description: When making a Lightsaber skill check, the character may use Intellect instead of Brawn.
 activation: p
 ranked: false
+forceTalent: true
 trees: Soresu Defender
-reference: F-CRB:152
+reference:
+  - F-CRB:152

@@ -1,0 +1,25 @@
+id: eote-armor-eod-mk-ii-armor
+name: EOD-Mk II Armor
+description: >-
+  Creshaldyne EOD-Mk II Armor
+
+  EOD-Mk II armor by Creshaldyne is one of the most popular explosives disposal suits in the galaxy. Made to
+  Creshaldyne's exacting standards, the EOD-Mk II is a heavy, bulky, awkward suit of armor designed to protect an
+  Engineer from blast, shock, and shrapnel while working with explosive compounds and devices. These suits are
+  constructed of thick overlapping plates covered with reinforced polycarb mesh. They also include extra integrated hard
+  plates backed by ballistic gel pads at the knees, groin, chest, and elbows. A tall, stiff collar of gel-backed hard
+  plates covered by poly mesh protects the neck, and the head is protected by a sealed, full-face helmet. Like most
+  bomb-disposal suits, the EOD-Mk II does not come with gloves in order to maximize an explosive ordnance disposal (EOD)
+  trooper's dexterity and precision. While this gives the wearer maximum hand mobility, it leaves the hands and forearms
+  unprotected from accidental blasts.
+
+  Due to its extremely thick padding and ponderous form, characters wearing EOD-Mk II armor lose their free movement.
+defense: 0
+soak: 4
+hardpoints: 0
+encumbrance: 8
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - FO:42

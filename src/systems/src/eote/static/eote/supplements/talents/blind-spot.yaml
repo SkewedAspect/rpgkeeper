@@ -1,0 +1,11 @@
+id: eote-talent-blind-spot
+name: Blind Spot
+description: The character and allies within short range add automatic <advantage></advantage> to combat checks they
+  make while benefiting from cover.
+activation: p
+ranked: false
+forceTalent: false
+trees: Trailblazer, Warleader
+reference:
+  - KtP:30
+  - FiB:34

@@ -1,0 +1,30 @@
+id: eote-weapon-shaped-thermal-grenade
+name: Shaped Thermal Grenade
+description: |-
+  A favorite of marines and special forces, the shaped
+  thermal grenade is a shaped sequencer charge capable of vaporizing virtually any target. It uses similar
+  technology to a thermal detonator, but focuses the
+  blast in a single direction to maximize damage to a
+  specific object. Both the Empire and Rebellion use
+  the shaped thermal grenade to obliterate structures
+  and punch through heavy armor. However, the sheer
+  cost of these deadly explosives means that they are
+  deployed sparingly, at least by supply-conscious organizations like the Alliance to Restore the Republic.
+skill: Ranged (Light)
+damage: 20
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 5
+reference:
+  - FiB:47

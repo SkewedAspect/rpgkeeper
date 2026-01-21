@@ -1,0 +1,18 @@
+id: eote-armor-p-14-hazardous-industry-suit
+name: P-14 Hazardous Industry Suit
+description: >-
+  SoroSuub P-14 Hazardous Industry Suit
+      Hazardous industry suits, common from manufacturers across the galaxy, allow technical experts and laborers alike to deal with workshop or factory conditions dangerous to most living species. Some models, like the Soro-Suub P-14, are heavily reinforced enough to even provide limited protection against a blaster bolt, and they all feature extraordinary protection against heat, radiation, fumes and other perils of working with damaged or poorly maintained machinery. A hazardous industry suit creates an environmental seal when the helmet is worn and is good for up to eight hours of protection from hostile atmospheres, deadly radiation or even direct exposure to the void. Finally, the suit's special chemical coating insulates the wearer from burns and shocks. However, their extraordinary protection comes at the cost of mobility, as hazardous industry suits are extremely bulky, with barely more than the range of motion needed to wield a hydrospanner effectively.
+  The hazardous industry suit counts as a breath mask (see page 179 of the **Edge of The Empire Core Rulebook**).
+  Further, the wearer adds <boost></boost><boost></boost> to Resilience checks to resist heat, cold, radiation and other
+  hostile environmental conditions. The wearer does not suffer the effects of the Burn or Disorient item qualities. When
+  the wearer suffers strain in order to take an extra maneuver, he suffers 1 additional strain.
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 7
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - SM:48

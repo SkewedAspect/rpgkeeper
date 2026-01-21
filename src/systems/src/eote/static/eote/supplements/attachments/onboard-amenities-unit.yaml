@@ -1,0 +1,16 @@
+id: eote-attachment-onboard-amenities-unit
+name: Onboard Amenities Unit
+description: A smuggler's vessel is usually his home, and thus tends to be stocked with familiar comforts. For some,
+  this means keeping a refrigeration unit full of some favorite food, while for others it can mean well-furnished
+  compartment full of libations, alcoholic or otherwise. Whatever the specifics, a ship with an onboard amenities unit
+  allows its inhabitants to offer hospitality to any guests aboard their vessel.
+useWith: vehicle
+hpRequired: 1
+rarity: 3
+baseModifier: Upgrades ability of Charm, Deception, and Negotiation checks while aboard once.
+modOptions: []
+reference:
+  - FC:63
+includedModels:
+  - Gosiea Industries RefresherPlus
+  - TaggeCo. Chill-compartment

@@ -1,0 +1,11 @@
+id: eote-talent-resist-questioning-improved
+name: Resist Questioning (Improved)
+description: When one ally within short range is targeted by an opposed social skill check, the character may perform
+  Resist Questioning to affect this check instead. If the check fails, may spend <despair></despair> to indicate the
+  ally provided false information to foe.
+activation: p
+ranked: false
+forceTalent: false
+trees: Interrogator
+reference:
+  - CaM:31

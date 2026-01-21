@@ -1,0 +1,23 @@
+id: eote-attachment-nishalorite-stone
+name: Nishalorite Stone
+description: >-
+  Nishalorite stones are found on worlds with particularly strong magnetic fields. Usually dark gray or blue-black in
+  color, and possessing powerful magnetic properties, these stones are often used in electronics and magnetic navigation
+  equipment. once properly cleaned and refined, they also make for excellent lightsaber crystals, as discovered
+  generations ago by a wandering Jedi Seeker.
+
+  While installed in a lightsaber, this stone creates a dense crackling blade with a subdued color that intensifies in
+  the direction of a planet's magnetic north. It can detect natural and artificially generated magnetic fields such as
+  those produced by generators of powerful electronic systems.
+useWith: weapon
+hpRequired: 2
+rarity: 8
+baseModifier: Damage set to 7; Critical set to 3; Breach 1; Sunder 1; Add automatic <advantage></advantage> to checks
+  made to location position, navigate terrain, or find power sources or active technology.
+modOptions:
+  - Gain Full Stop (immediately bring vehicle to stop)
+  - Disorient +1
+  - Disorient +1
+  - Vicious +1
+reference:
+  - SS:52

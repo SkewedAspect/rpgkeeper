@@ -1,0 +1,41 @@
+id: eote-armor-armored-drop-suit
+name: Armored Drop Suit
+description: >-
+  Mobility is often a decisive element in any engagement. Combatants from common killers-for-hire to Imperial
+  stormtroopers know that taking a good position and controlling the flow of combat can be better protection than a
+  durasteel blast door. Most armor designs factor this in to some degree, foregoing absolutely maximized plating or
+  coverage to allow normal mobility, but a few suits go above and beyond the concept of allowing “normal mobility.”
+
+  Armored drop suits are a type of light laminate body armor constructed around a powerful repulsorift unit,
+
+  allowing the wearer to fly between firing positions or
+
+  spots of cover, or to rain down attacks from above.
+
+  The arrangement of fabric and composite plating of
+
+  the armor in such suits minimizes air resistance and
+
+  improves maneuverability, while still offering respectable protection against incoming fire.
+
+  As a maneuver, the wearer of an armored drop suit
+
+  can engage his flight systems to function as a Silhouette 0, Speed 2, Handling + 2, System Strain Threshold 5 vehicle
+  that; requires Piloting [Planetary] to
+
+  operate. Further, while the flight systems are engaged
+
+  and the wearer is conscious to guide himself down, he
+
+  does not suffer damage from falling.
+        
+  _Note:  A vehicle version of this armor exists with the same name._
+defense: 1
+soak: 1
+hardpoints: 2
+encumbrance: 6
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - ND:49

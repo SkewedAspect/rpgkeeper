@@ -1,0 +1,17 @@
+id: eote-weapon-stun-club
+name: Stun Club
+description: A stun club is a melee weapon that could stun an opponent.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 2
+reference:
+  - JoY:13

@@ -1,0 +1,11 @@
+id: eote-talent-skilled-slicer
+name: Skilled Slicer
+description: When making a Computers check may spend <triumph></triumph> to make further Computers checks within this
+  system as maneuvers.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Slicer
+reference:
+  - E-CRB:142
+  - A-CRB:156

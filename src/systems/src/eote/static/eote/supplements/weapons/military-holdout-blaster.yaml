@@ -1,0 +1,28 @@
+id: eote-weapon-military-holdout-blaster
+name: Military Holdout Blaster
+description: >-
+  Diplomats rarely fare as well as their allies in extended firefights or brawls, but sometimes, a single shot might be
+  sufficient to enable escape from a perilous situation. Many governments, therefore, outfit representatives with more
+  powerful versions of the oft-employed holdout blasters. Like the civilian variants, such weapons can be easily hidden
+  and drawn quickly, allowing the user to get off an unexpected shot at a critical moment. Military models, by contrast,
+  typically fire a more powerful blast, at the cost of limited ammunition capacity.
+
+  Add <setback></setback> to a character's Perception checks to find a military holdout blaster on a person's body.
+  During combat, GMs may make a military holdout blaster run out of ammunition by spending
+  <threat></threat><threat></threat><threat></threat>. This is in addition to the standard spending of
+  <despair></despair>, as discussed on page 218 of the **Age of Rebellion** Core Rulebook.
+
+  **Models include:** Czerka Arms 411, BlasTech C-91.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - DA:44

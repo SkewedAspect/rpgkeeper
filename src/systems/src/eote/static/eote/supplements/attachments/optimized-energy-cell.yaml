@@ -1,0 +1,17 @@
+id: eote-attachment-optimized-energy-cell
+name: Optimized Energy Cell
+description: >-
+  An optimized energy cell or expanded gas reserve allows a blaster to achieve a much higher number of shots before
+  needing to reload, thanks to more efficient use of resources. Such modifications are often the result of excessive
+  tinkering, rather than off-the-shelf models. This attachment can be applied to any energy weapon.
+
+  **Models Include:
+   Czerka Arms Model 4 Expanded Gas Reservoir, Blastech X-3 Extended Energy Cell
+useWith: weapon
+hpRequired: 1
+rarity: 5
+baseModifier: When GM spends <despair></despair> or <threat></threat> to cause the weapon to run out of ammo, it
+  requires an additional <threat></threat>.
+modOptions: []
+reference:
+  - SM:54

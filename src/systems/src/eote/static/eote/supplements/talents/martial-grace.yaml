@@ -1,0 +1,9 @@
+id: eote-talent-martial-grace
+name: Martial Grace
+description: Once per round, suffers 2 strain to add damage equal to ranks in Coordination to next Brawl check made this turn.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Martial Artist, Steel Hand Adept
+reference:
+  - ND:35

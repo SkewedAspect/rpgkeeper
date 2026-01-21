@@ -1,0 +1,20 @@
+id: eote-weapon-detonite-charge
+name: Detonite Charge
+description: Detonite is a powerful explosive used for demolitions work—and for sabotage. A detonite charge is not a
+  weapon per se, and is not intended for use in combat situations. However, detonite charges are often used to set
+  traps, and some sentients mine the site of an expected confrontation to gain the advantage. Detonite requires a
+  trigger mechanism to set off, and each charge comes with a simple trigger that can be detonated via comlink or timer
+  (times can be from one hour to one second).
+skill: Mechanics
+damage: 10
+addSkill: true
+criticalRating: 0
+range: s
+encumbrance: 2
+hardpoints: 0
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - DC:55
+  - FO:41

@@ -1,0 +1,28 @@
+id: eote-weapon-dl-19c-blaster-pistol
+name: DL-19C Blaster Pistol
+description: >-
+  BlasTech DL-19C Blaster Pistol
+
+  BlasTech's venerable DL-18 is one of the more common blaster pistols across the galaxy, and has been a considerable
+  success for BlasTech for years. The DL-19C is a mcuh more specialised weapon, targeted at a niche market of weapon
+  hobbyists, perfectionists and others who want the ability to adjust every aspect of the weapon to their personal
+  taste, from the sensitivity of the trigger, to the shape of the barrel, to the energy outflow from the charge pack.
+  While these guns are produced in limited number, discerning firearms enthusiasts often recognise each other based on
+  possession of this weapon.
+
+  When a character applies the Jury Rigged talent to this weapon, he may select one additional option from the talent's
+  list and apply it to the weapon. The character cannot select the same option twice.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 1
+hardpoints: 4
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+    ranks: 1
+reference:
+  - SM:44

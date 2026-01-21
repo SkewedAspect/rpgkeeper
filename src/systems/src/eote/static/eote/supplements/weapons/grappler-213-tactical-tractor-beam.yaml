@@ -1,0 +1,18 @@
+id: eote-weapon-grappler-213-tactical-tractor-beam
+name: Grappler 213 Tactical Tractor Beam
+description: A tactical tractor beam is a relatively small and low powered tractor beam system. While not strong enough
+  to control an enemy craft's movement while it is able to maneuver, the tactical tractor beam can slow it down, reduce
+  its maneuverability and disrupt its attacks. Some pilots find these devices provide an invaluable edge in dogfighting,
+  but others believe the distraction they cause is more trouble than benefit.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - DC:62

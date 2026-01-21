@@ -1,7 +1,9 @@
 id: eote-talent-shien-technique
 name: Shien Technique
-description: _Force talent_. When making a Lightsaber skill check, the character may use Cunning instead of Brawn.
+description: When making a check using the Lightsaber skill, the character may use Cunning instead of Brawn.
 activation: p
 ranked: false
+forceTalent: true
 trees: Shien Expert
-reference: F-CRB:151
+reference:
+  - F-CRB:151

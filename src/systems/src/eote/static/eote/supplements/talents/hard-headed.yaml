@@ -1,0 +1,13 @@
+id: eote-talent-hard-headed
+name: Hard Headed
+description: When staggered or disoriented, perform the Hard Headed action; make a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Discipline
+  check** to remove status. Difficulty reduced per rank of Hard Headed.
+activation: aa
+ranked: true
+forceTalent: false
+trees: Archaeologist, Bodyguard, Colossus, Force Adherent, Marshal, Mechanic, Saboteur
+reference:
+  - E-CRB:136
+  - A-CRB:148
+  - KoF:30

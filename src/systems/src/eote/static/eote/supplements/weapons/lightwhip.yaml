@@ -1,0 +1,33 @@
+id: eote-weapon-lightwhip
+name: Lightwhip
+description: >-
+  Lightwhips are, perhaps, the rarest and most bizarre of the numerous lightsaber veriants. Highly modified lightsabers,
+  lightwhips consist of a short lightsaber haft built from alloys or composites laced with either cortosis or phrik.
+  Their internals are modified in such a way that the plasma's continment field is more flexible, allowing each emitter
+  to create thin, snaking, fluid blades several meters in length. These modifications also have an unintended side
+  effect of reducing the raw damage output and striking capabilities. Once active, lightwhips can both deal damage and
+  capture or entangle an opponent. Due to the instability of the energy blades, though, lightwhips are extraordinarily
+  hard to master and can be more of a danger to their users than their opponents.
+
+  When the character using a lightwhip makes a successful Lightsaber combat check, she may spend
+  <advantage></advantage><advantage></advantage> or <triumph></triumph> to prevent her opponent from using the Parry
+  incidental to reduce damage. A user may not add lightsaber crystal attachments to a lightwhip, and cannot use a
+  lightwhip to parry or reflect attacks.
+skill: Lightsaber
+damage: 4
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 5
+  - id: eote-quality-unwieldy
+    ranks: 4
+reference:
+  - EV:42

@@ -1,0 +1,20 @@
+id: eote-armor-reinforced-environment-gear
+name: Reinforced Environment Gear
+description: >-
+  Produced by a number of companies, such as Pretormin Environmental and Gandorthral Atmospherics. reinforced
+  environment gear is essentially improved adverse environment gear. These suits are especially popular among colonists,
+  who not only must brave strange and hazardous planetary conditions, but who are also more prone to injury from falls
+  or unstable environmental formations.
+
+  The reinforced environment suits allows a wearer to ignore <setback></setback> imposed by environmental conditions,
+  and also reduces Critical Injuries suffered from falling by 20. The suit also includes a filter, granting
+  <boost></boost> to Resilience checks to resist toxic atmospheres or airborne toxins.
+defense: 0
+soak: 1
+hardpoints: 2
+encumbrance: 2
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - FH:44

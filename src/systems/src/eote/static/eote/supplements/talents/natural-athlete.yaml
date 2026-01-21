@@ -1,0 +1,10 @@
+id: eote-talent-natural-athlete
+name: Natural Athlete
+description: Once per session, may reroll any 1 Athletics or Coordination check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Courier, Performer
+reference:
+  - FH:33
+  - CaM:31

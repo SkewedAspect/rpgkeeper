@@ -1,0 +1,19 @@
+id: eote-attachment-integrated-scanner
+name: Integrated Scanner
+description: A scanner incorporated into a weapon allows the user to keep a rifle readied while constantly monitoring
+  the surrounding area for danger. Specialized units might detect life signs, movement, or the energy cells of weapons.
+  The battlefield awareness added by such a device can make the difference between victory and defeat. This attachment
+  can be applied to any Ranged (Heavy) weapon.
+useWith: weapon
+hpRequired: 2
+rarity: 5
+baseModifier: Weapon incorporates a general-purpose scanner.; Wielder adds automatic
+  <advantage></advantage><advantage></advantage> to Initiative checks while weapon is drawn.
+modOptions:
+  - Remove <setback></setback> from Initiative checks
+  - Remove <setback></setback> from Initiative checks
+reference:
+  - SM:54
+includedModels:
+  - Carbanti United Electronics Mk. II Omni-Scope
+  - CryonCorp "Heads-Up" Scanner Suite

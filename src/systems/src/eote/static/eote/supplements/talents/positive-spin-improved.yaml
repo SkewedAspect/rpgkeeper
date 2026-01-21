@@ -1,0 +1,11 @@
+id: eote-talent-positive-spin-improved
+name: Positive Spin (Improved)
+description: Once per session, if no PC's Duty triggered, make a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Charm check**
+  with the difficulty decreased once rank of Positive Spin to have one PC's Duty trigger.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Propagandist
+reference:
+  - DA:34

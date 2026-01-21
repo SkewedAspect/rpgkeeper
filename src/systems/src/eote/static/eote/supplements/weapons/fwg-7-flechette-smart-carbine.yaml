@@ -1,0 +1,31 @@
+id: eote-weapon-fwg-7-flechette-smart-carbine
+name: FWG-7 Flechette Smart Carbine
+description: >-
+  FWG-7 Flechette Carbine
+
+  An example of Malaxan Firepower Incorporated's successful FWG line of flechette weapons the FWG-7 provides all the
+  power and versatility of a flechette weapon in a lightweight, easy-to-handle package. A heavier version of the FWG-5
+  smart pistol, the FWG-7 is a sturdy, short-barreled carbine built primarily from reinforced polycarbonates and
+  advanced alloys. Like its smaller cousin, the FWG-7 fires small-caliber canisters packed with dozens of razor-sharp
+  flechettes instead of solid slugs or blaster bolts. Each canister is equipped with a single-use microrepulsor and a
+  simple guidance system that allows the canisters to home in on, and even pursue, targets. Once a shot reaches its
+  target, the canister explodes and releases a cloud of flechettes that deal a shocking amount of damage to unarmored
+  opponents and can even pierce plastoid armor.
+skill: Ranged (Heavy)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 5
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-guided
+    ranks: 2
+  - id: eote-quality-pierce
+    ranks: 3
+reference:
+  - KoF:40

@@ -1,0 +1,10 @@
+id: eote-attachment-paramilitary-walker
+name: Paramilitary Walker
+description: Converts a walker to a paramilitary vehicle.
+useWith: vehicle
+hpRequired: 0
+rarity: 0
+baseModifier: -1 Handling; +2 Armor; -2 System Strain Threshold; Adds a forward medium laser cannon
+modOptions: []
+reference:
+  - DC:71

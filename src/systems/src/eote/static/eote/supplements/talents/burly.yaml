@@ -1,0 +1,11 @@
+id: eote-talent-burly
+name: Burly
+description: Reduce any wielded weapon's Cumbersome quality and Encumbrance rating by a number equal to ranks in Burly
+  to a minimum of 1.
+activation: p
+ranked: true
+forceTalent: false
+trees: Heavy
+reference:
+  - DC:32
+  - FiB:34

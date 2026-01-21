@@ -1,0 +1,11 @@
+id: eote-talent-heroic-resilience
+name: Heroic Resilience
+description: Immediately after being hit by an attack but before suffering damage, spend 1 Destiny Point to increase
+  soak by ranks in Resilience.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Heavy
+reference:
+  - DC:32
+  - FiB:35

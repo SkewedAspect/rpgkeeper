@@ -1,0 +1,10 @@
+id: eote-talent-selective-detonation
+name: Selective Detonation
+description: When using a weapon with the Blast quality spend <advantage></advantage> to exclude 1 target that would be
+  affected by the explosion, up to ranks in Selective Detonation.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Demolitionist, Saboteur
+reference:
+  - A-CRB:155

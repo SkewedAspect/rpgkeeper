@@ -1,0 +1,24 @@
+id: eote-weapon-bolanet
+name: Bola/Net
+description: |-
+  Bola or Net
+  Sometimes a bounty hunter has to capture a foe alive rather than dead. Bolas and nets are both used to entangle a victim so that he can be approached and secured—usually for delivery to an authority or criminal organization. Both weapons are designed to be thrown or launched over short distances to ensnare an opponent. Although a stun weapon is easier to use, bolas and nets do have several advantages. Their low-tech construction means they are unlikely to show up on weapons scanners, and stun weapons have sometimes been known to deal lasting damage to a target.
+  Bolas and nets rely on the Ensnare quality of the weapons to incapacitate the user, meaning they require more than simply a successful hit. Due to the great deal of skill required, only those who are very talented or extremely desperate tend to use bolas or nets. Most individuals rely on the stun setting of a blaster to bring their target down.
+  The user may spend a <triumph></triumph> to ensure the victim is so entangled that he may not make any maneuvers, and his only action each turn is a **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Athletics check** to free himself.
+skill: Ranged (Light)
+damage: 2
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 2
+rarity: 2
+restricted: false
+qualities:
+  - id: eote-quality-knockdown
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-ensnare
+    ranks: 3
+reference:
+  - E-CRB:164

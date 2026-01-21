@@ -1,0 +1,15 @@
+id: eote-attachment-overcharged-shields
+name: Overcharged Shields
+description: Most shield arrays have the potential to generate a stronger field. However, this has the potential to
+  damage the array itself, leaving the ship with no protection. Despite the risks. some shipboard engineers modify the
+  shields to allow for increased output with only a few moments' tinkering in the midst of combat, banking on the extra
+  defense to allow them to escape or defeat the enemy before suffering the repercussions.
+useWith: vehicle
+hpRequired: 1
+rarity: 4
+baseModifier: Once per encounter, can make an **Average(<difficulty></difficulty><difficulty></difficulty>) Mechanics
+  check** to overcharge shields, adding 2 to all defense zones for 1 round + 1 round per <advantage></advantage>. If
+  <threat></threat><threat></threat> or <despair></despair> is rolled, shields burn out and stop working until repaired.
+modOptions: []
+reference:
+  - FO:61

@@ -1,0 +1,19 @@
+id: eote-attachment-zophis-crystal
+name: Zophis Crystal
+description: In ancient days, the Outer Rim world of Zoph was well traveled by the Jedi, and some Padawans would sojourn
+  to the distant world to seek their kyber crystal. As Ilum increased in prominence for the Jedi Order, such visits
+  waned. Now, the world is held by Separatist forces, who would not look kindly upon Jedi crystal seekers. However, some
+  records remain of the unusual kyber crystals gathered on that world, whose unique resonance made for devastating, if
+  unstable, blades. A lightsaber fitted with a Zophis crystal can carve through durasteel plating with ease, but it is
+  vulnerable to fluctuations in power from the crystal core.
+useWith: weapon
+hpRequired: 2
+rarity: 10
+baseModifier: Damage set to 8; Critical set to 2; Breach 2; Sunder 1; Vicious 1; When Sunder quality is activated,
+  damage suffered is increased by one step.; <threat></threat><threat></threat><threat></threat> or <despair></despair>
+  may be spent to disable the weapon until the wielder's next turn.
+modOptions:
+  - +1 Damage
+  - +1 Damage
+reference:
+  - RotS:64

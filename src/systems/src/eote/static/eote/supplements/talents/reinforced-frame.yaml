@@ -1,0 +1,10 @@
+id: eote-talent-reinforced-frame
+name: Reinforced Frame
+description: "Signature Vehicle gains Massive 1: when making an attack targeting the ship or vehicle, the Critical
+  rating of any weapon used counts as 1 higher."
+activation: p
+ranked: false
+forceTalent: false
+trees: Rigger
+reference:
+  - SoT:33

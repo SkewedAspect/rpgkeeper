@@ -1,0 +1,18 @@
+id: eote-attachment-energy-overclock-setting
+name: Energy Overclock Setting
+description: As deadly and dangerous as they are, vibroweapons can be even deadlier with the inclusion of an overclock
+  setting. By replacing several internal components with precision analogs, a qualified technician can exponentially
+  increase the speed and frequency of a vibroblade's blade action. The result is a vibroweapon that can be charged for
+  amplified cutting power, but at the expense of causing unpredictable power fluctuations. This attachment can be
+  applied to any vibroweapon and any other powered Melee or Brawl weapon.
+useWith: weapon
+hpRequired: 3
+rarity: 5
+baseModifier: Once per turn, spend a maneuver to add Vicious +3 to weapon until end of round.
+  <threat></threat><threat></threat><threat></threat> or <despair></despair> causes weapon to cease functioning until
+  end of encounter.
+modOptions:
+  - Add automatic <advantage></advantage> to combat checks with this weapon
+  - Activate as an incidental instead of a maneuver
+reference:
+  - KtP:53

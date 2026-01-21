@@ -1,0 +1,34 @@
+id: eote-weapon-heavy-repeating-blaster
+name: Heavy Repeating Blaster
+description: >-
+  These deadly weapons are designed to destroy light machinery, armored targets, or opponents in light cover. Heavy
+  repeating blasters (such as the E-Web blaster favored by Imperial stormtroopers) are truly support weapons. They are
+  set up on tripods and powered by portable generators. They require a two-man team, with one soldier serving as the
+  gunner and the other handling the generator and power couplings. In military units, the second operator often monitors
+  a communications array attached to the generator for selection of targets.
+
+  Heavy repeaters are far too unwieldy to fire effectively without a tripod, unless the bearer has truly remarkable
+  strength. Setting up a tripod weapon requires the crew to spend three actions. The cost of the weapon includes a
+  tripod such as the one found on page 193.
+
+  **Models Include**: BlasTech E-Web Repeating Blaster.
+skill: Gunnery
+damage: 15
+addSkill: false
+criticalRating: 2
+range: l
+encumbrance: 9
+hardpoints: 4
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 5
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - E-CRB:162
+  - A-CRB:176

@@ -1,0 +1,12 @@
+id: eote-talent-overbalance
+name: Overbalance
+description: Whenever an enemy engaged with the character makes a combat check, after the attack is resolved, the
+  character may spend <despair></despair> or <threat></threat><threat></threat><threat></threat> to stagger the attacker
+  until the end of the attacker's next turn.
+activation: p
+ranked: false
+forceTalent: false
+trees: Martial Artist, Warden
+reference:
+  - KtP:31
+  - ND:35

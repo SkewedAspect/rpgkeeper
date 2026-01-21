@@ -1,0 +1,26 @@
+id: eote-weapon-blast-knuckles
+name: Blast Knuckles
+description: >-
+  This unusual weapon consists of a heavy, armored glove incorporating what amounts to a light blaster pistol on the
+  back of the wearer's hand. Impact-sensitive plating across the knuckles fires the blaster when the wearer lands a
+  punch, delivering a devastating blast. While these weapons are undeniably effective, they are also dangerous for the
+  wielder. Despite the fact that the impact-plating supposedly also shields the user, only the very brave or very
+  reckless embrace the idea of a blaster impact just scant centimeters from their fingers. Even the toughest fighters
+  can only withstand repeated blaster impacts on their knuckles for so long.
+
+  When using blast knuckles, every successful hit inflicts 1 strain on the wielder (in addition to any strain suffered
+  due to check results). Blast knuckles cannot deal damage to a target's strain threshold.
+skill: Brawl
+damage: 4
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-inaccurate
+    ranks: 1
+reference:
+  - DC:48

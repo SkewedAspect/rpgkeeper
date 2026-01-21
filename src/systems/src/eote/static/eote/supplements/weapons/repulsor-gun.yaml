@@ -1,0 +1,22 @@
+id: eote-weapon-repulsor-gun
+name: Repulsor Gun
+description: >-
+  Bored Technicians sometimes take a repulsor engine, add a charge capacitor and simple trigger mechinism and use it to
+  amuse themselves during  lean periods.  Most often used to knock over empty caf containers, the repulsor gun still
+  packs a mean punch.
+
+  On a <despair></despair> result, the repulsor gun backfires; the user is knocked prone and suffers the disoriented
+  condition for 2 rounds.
+skill: Ranged (Heavy)
+damage: 3
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 5
+hardpoints: 0
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-knockdown
+reference:
+  - SM:46

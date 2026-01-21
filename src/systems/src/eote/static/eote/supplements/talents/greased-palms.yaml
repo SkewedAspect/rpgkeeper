@@ -1,0 +1,10 @@
+id: eote-talent-greased-palms
+name: Greased Palms
+description: Before making a social check, may spend up to 50 credits per rank of Greased Palms to upgrade the ability
+  of the check once for every 50 spent.
+activation: am
+ranked: true
+forceTalent: false
+trees: Entrepreneur, Pirate, Quartermaster
+reference:
+  - A-CRB:148

@@ -1,0 +1,10 @@
+id: eote-talent-master-grenadier
+name: Master Grenadier
+description: Decrease the <advantage></advantage> cost to activate the Blast quality on any weapon used by 1 to a minimum of 1.
+activation: p
+ranked: false
+forceTalent: false
+trees: Demolitionist, Saboteur, Sapper
+reference:
+  - A-CRB:151
+  - DC:32

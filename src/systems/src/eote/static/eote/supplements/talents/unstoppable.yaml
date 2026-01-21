@@ -1,0 +1,10 @@
+id: eote-talent-unstoppable
+name: Unstoppable
+description: If a Critical Injury roll is 1 or reduced to 1, do not receive the critical injury.
+activation: p
+ranked: false
+forceTalent: false
+trees: Colossus, Commando
+reference:
+  - A-CRB:159
+  - KoF:31

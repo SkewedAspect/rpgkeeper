@@ -1,0 +1,6 @@
+id: eote-quality-increase-defense-mod
+name: Increase Defense Mod
+description: Increases Defense value by 1
+passive: true
+ranked: false
+reference: []

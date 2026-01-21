@@ -1,0 +1,19 @@
+id: eote-weapon-mass-driver-cannon
+name: Mass-Driver Cannon
+description: ""
+skill: Gunnery
+damage: 7
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - FiB:57

@@ -1,0 +1,10 @@
+id: eote-talent-mind-bleed
+name: Mind Bleed
+description: When attacked, the character may choose to suffer strain no greater than the number of wounds suffered from
+  the attack. If he does so, the attacker then suffers a number of wounds equal to the strain suffered by the character.
+activation: aio
+ranked: false
+forceTalent: true
+trees: Ascetic
+reference:
+  - DoH:29

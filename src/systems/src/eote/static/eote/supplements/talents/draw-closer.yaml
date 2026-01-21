@@ -1,0 +1,11 @@
+id: eote-talent-draw-closer
+name: Draw Closer
+description: Perform Draw Closer action; make a Lightsaber (Willpower) combat check against one silhouette 1 target
+  within medium range, adding [FO] no greater than Force rating to check. Spend <forcepoint></forcepoint> to move target
+  one range band closer or to add <success></success> to check.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Niman Disciple
+reference:
+  - F-CRB:142

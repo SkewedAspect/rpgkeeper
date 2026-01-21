@@ -1,0 +1,13 @@
+id: eote-talent-barrel-roll
+name: Barrel Roll
+description: When a vehicle or starship the character is piloting suffers a hit from a combat check, after damage is
+  calculated but before armor is applied, the character may take a Barrel Roll incidental. Their ship suffers 3 system
+  strain, and the damage of that hit is reduced by an amount equal to their ranks in the Piloting skill used for that
+  vehicle. This talent may only be used once per attack and only when the character is piloting a vehicle or starship of
+  silhouette 3 or less.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Clone Pilot
+reference:
+  - RotS:37

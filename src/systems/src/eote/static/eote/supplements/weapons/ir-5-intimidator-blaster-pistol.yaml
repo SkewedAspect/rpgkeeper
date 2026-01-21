@@ -1,0 +1,22 @@
+id: eote-weapon-ir-5-intimidator-blaster-pistol
+name: IR-5 "Intimidator" Blaster Pistol
+description: For those who operate on the edge of the law, firepower can be a valuable commodity. The Merr-Sonn
+  Munitions IR-5 "Intimidator" can provide that in spades. Though slightly less powerful than most comparably-sized
+  blaster pistols, the IR-5 has a rate of fire equivalent to that of a repeating blaster, a feature that earned the
+  Intimidator its nickname. Restricted throughout the Corellian Sector, the IR-5 can nonetheless be found on the hip of
+  many fringers who call Corellia home.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 2
+hardpoints: 2
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-inaccurate
+    ranks: 1
+reference:
+  - DC:41

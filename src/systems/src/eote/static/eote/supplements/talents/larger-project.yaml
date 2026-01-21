@@ -1,0 +1,10 @@
+id: eote-talent-larger-project
+name: Larger Project
+description: Signature Vehicle can have a silhouette 1 larger per rank of Larger Project.
+activation: p
+ranked: true
+forceTalent: false
+trees: Modder, Rigger
+reference:
+  - SoT:32
+  - SM:34

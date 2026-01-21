@@ -1,0 +1,9 @@
+id: eote-talent-master-of-the-order
+name: Master of the Order
+description: The character may spend two Destiny Points during a single action.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Master
+reference:
+  - CotR:41

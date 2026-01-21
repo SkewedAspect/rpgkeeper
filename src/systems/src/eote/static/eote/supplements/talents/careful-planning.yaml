@@ -1,0 +1,10 @@
+id: eote-talent-careful-planning
+name: Careful Planning
+description: Once per session, may introduce a "fact" into the narrative as if a Destiny Point had been spent.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Republic Navy Officer, Scientist, Strategist, Warleader
+reference:
+  - A-CRB:144
+  - RotS:38

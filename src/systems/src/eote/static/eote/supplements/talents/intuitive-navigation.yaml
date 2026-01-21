@@ -1,0 +1,11 @@
+id: eote-talent-intuitive-navigation
+name: Intuitive Navigation
+description: When performing an Astrogation or Knowledge (Outer Rim) skill check, the character may roll [FO] no greater
+  than his Force rating. The character may spend <forcepoint></forcepoint> to ass <success></success> or
+  <advantage></advantage> (character's choice) to the result.
+activation: p
+ranked: false
+forceTalent: true
+trees: Navigator
+reference:
+  - SS:30

@@ -1,0 +1,23 @@
+id: eote-weapon-grapnel-harpoon-launcher
+name: Grapnel-Harpoon Launcher
+description: Commonly thought of as tools for climbing or lifting cargo, the weapons division of Pharr Co. instead
+  produces grapnel launchers with the balance and targeting capablities necessary for combat use, allowing their users
+  entangle opponents in a binding cord. Although sometimes used by thieves who don't like the idea of their victems
+  fighting back, these grapnel guns see more use by bounty hunters or even law enforcement agents, assisting in the
+  capture of their quarries. Although viewed as a non-lethal option, the magnetic firing mechanism of a grapnel is
+  powerful enough to inflict injuries on the targets it ensnares. Generally, such wounds are superficial, and thus don't
+  threaten the target's life—or more importantly, the bounty hunter's chances of getting paid in full.
+skill: Ranged (Light)
+damage: 3
+addSkill: false
+criticalRating: 5
+range: m
+encumbrance: 2
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 5
+reference:
+  - ND:45

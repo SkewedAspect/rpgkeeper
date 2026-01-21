@@ -1,0 +1,9 @@
+id: eote-talent-natural-instructor
+name: Natural Instructor
+description: Once per session, may reroll one Discipline or Leadership check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Instructor
+reference:
+  - LbE:33

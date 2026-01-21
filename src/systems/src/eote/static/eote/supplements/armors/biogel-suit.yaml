@@ -1,0 +1,25 @@
+id: eote-armor-biogel-suit
+name: Biogel Suit
+description: >-
+  During martial arts training, both students and teachers put themselves at risk as they work through the process of
+  education. A wayward strike can cause grievous injury, particularly when a participant is practicing at full speed or
+  training with weapons. Steps must be taken to mitigate this risk, so that safety can be increased during the training
+  process. While some argue that this decreases the sense of risk felt during training, the effective counterargument
+  states that not every simulation has to be life threatening, particularly the earliest ones.
+
+  Biogel suits are semi-translucent, organic body gloves that completely encase the wearer. They provide protection
+  against attacks such that while the defender can still feel an impact, the risk of injury is substantially reduced.
+  However the suits are bulky, which can limit wearers' flexibility as well as their ability to dodge an attack or
+  strike at full strength.
+
+  The armor gains +1 soak when the wearer suffers damage from Brawl weapons or bludgeoning Melee weapons. A character
+  adds <setback></setback> to any Brawn- or Agility-based checks while wearing this armor.
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 6
+rarity: 1
+restricted: false
+qualities: []
+reference:
+  - DoH:45

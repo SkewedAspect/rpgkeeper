@@ -1,0 +1,11 @@
+id: eote-talent-better-luck-next-time
+name: Better Luck Next Time
+description: Take a Better Luck Next Time action; make a
+  **Hard(<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Cool check** to force a competitor
+  to suffer a major misfortune.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Racer
+reference:
+  - EV:30

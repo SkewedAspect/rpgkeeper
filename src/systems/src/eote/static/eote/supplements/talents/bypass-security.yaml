@@ -1,8 +1,11 @@
 id: eote-talent-bypass-security
 name: Bypass Security
-description: Remove <setback></setback> equal to the character's ranks in Bypass Security  from Skulduggery or Computers
-  skills checks made to disable a security device, or open a locked door.
+description: Remove <setback></setback> per rank of Bypass Security from checks made to disable a security device or
+  open a locked door.
 activation: p
 ranked: true
-trees: Slider, Trader
-reference: E-CRB:133
+forceTalent: false
+trees: Skip Tracer, Sleeper Agent, Slicer, Thief
+reference:
+  - E-CRB:133
+  - A-CRB:144

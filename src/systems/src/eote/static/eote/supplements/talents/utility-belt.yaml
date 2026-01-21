@@ -1,0 +1,12 @@
+id: eote-talent-utility-belt
+name: Utility Belt
+description: Spend 1 Destiny Point to perform a Utility Belt incidental; produce a previously undocumented item or
+  weapon (with restrictions) from a tool belt or a satchel.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Cyber Tech, Outlaw Tech, Sapper, Scavenger, Scientist, Scout
+reference:
+  - E-CRB:145
+  - A-CRB:159
+  - RotS:43

@@ -1,0 +1,23 @@
+id: eote-weapon-kal-dagger
+name: Kal Dagger
+description: The traditional accompaniment to the beskad, the kal is a short, deadly dagger typically wielded in a
+  user's off hand. Forged entirely from beskar, the weapon consists of an elongated hexagonal blade with a rectangular
+  cutout running along its center. The hilt is bare metal and has no crossguard, although the notch where the blade
+  meets the hilt does provide some protection for the user's hand. While not as deadly as the beskad, the kal is still a
+  formidable weapon in the hands of a skilled user.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-cortosis
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - CotR:54

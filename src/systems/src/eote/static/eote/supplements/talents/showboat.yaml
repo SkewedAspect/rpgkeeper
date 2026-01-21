@@ -1,0 +1,10 @@
+id: eote-talent-showboat
+name: Showboat
+description: When making a check in a starship or vehicle, may suffer 2 strain to gain <triumph></triumph> on success or
+  <despair></despair> on failure.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Hotshot
+reference:
+  - SoT:33

@@ -1,0 +1,22 @@
+id: eote-attachment-sapith-gem
+name: Sapith Gem
+description: Said to originate from a strange and mysterious world called Lwhekk in the Unknown Regions, sapith gems are
+  similar to krayt dragon pearls in that they were formed when rocks containing a kyber crystal were consumed by a great
+  beast. In this case, the beast was a massive volice worm, which died out long before the present day. Thus, the only
+  way to find these vanishingly rare crystals is to dig them out from the fossilized remains of a volice worm. Shaped
+  like serpent scales, these smooth, lustrous crystals have an incredibly complex internal structure, which magnifies
+  the intensity of any light that passes through them. When installed in a lightsaber, a sapith gem creates a powerful,
+  intense beam that can pierce nearly anything with ease. A sapith gem is a lightsaber crystal.
+useWith: weapon
+hpRequired: 2
+rarity: 10
+baseModifier: Damage set to 7; Critical set to 2; Breach 1; Sunder 1
+modOptions:
+  - Breach +1
+  - +1 Damage
+  - +1 Damage
+  - -1 Critical
+reference:
+  - F-CRB:200
+includedModels:
+  - None

@@ -1,0 +1,25 @@
+id: eote-weapon-mon-calamari-battle-baton
+name: Mon Calamari Battle Baton
+description: >-
+  The Mon Calamari battle baton is a simple energy weapon in the shape of a ribbed scepter. Wielded as a symbol of
+  status by Mon Cal officers, the baton provides an effective sidearm in an unassuming package. The ribs along the
+  length of the baton indicate the wielder’s rank, which provides a visual indication
+
+  of status to those nearby. More elaborate and decorative battle batons exist, but these are reserved for royalty and
+  often incorporate precious metals, gems, and krakana pearls.
+
+  Many Mon Calamari officers in the Rebel Alliance, including Admiral Ackbar, continue to carry the battle batons they
+  were issued on Mon Cala.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 1
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - SoR:105

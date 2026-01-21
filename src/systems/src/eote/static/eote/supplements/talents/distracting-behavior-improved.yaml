@@ -1,0 +1,10 @@
+id: eote-talent-distracting-behavior-improved
+name: Distracting Behavior (Improved)
+description: The Distracting Behavior maneuver inflicts <threat></threat><threat></threat> on NPC's checks when NPC's
+  target character's allies.
+activation: p
+ranked: false
+forceTalent: false
+trees: Performer
+reference:
+  - FH:33

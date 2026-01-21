@@ -1,0 +1,35 @@
+id: eote-weapon-glx-firelance
+name: GLX Firelance
+description: >-
+  Blaster Rifle
+
+  Introduced during the waning years of the Galactic Republic, SoroSuub's GLX Firelance is one of the company's most
+  popular models of blaster rifle. The product of a long and extensive spate of market research among professional
+  soldiers, the weapon was developed to provide a simple, reliable, high performance blaster with most of the power of a
+  sull-sized blaster rifle in a package the weight and size of a carbine. The GLX was an immediate success, especially
+  among bounty hunters and mercenaries. It was so popular, in fact that SoroSuub marketed the GLX as "the most effective
+  weapon available for freelance law enforcement agents". Orders poured in from all across the galaxy, and  the rifle
+  soon became one of SoroSuub's best-selling products.
+
+  The rifle itself is a tradtionally-styled, compact weapon closer in size and weight to a blaster carbine than as a
+  full-sized blaster rifle. It has a short barrel with an integral flash hide, a top-mounted carrying handle that
+  extends the length of the reciever, allowing easier carrying by those with larger hands or in bulky armor, and a solid
+  stock with built-in recoil compensators. The GLX features a select-fire system that allows the weapon to operate in
+  single-shot or automatic mode, and its stun setting is the most powerful in its class—able to render even the toughest
+  opponents or most dangerous creatures insensible.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 3
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-disorient
+    ranks: 2
+  - id: eote-quality-stun-setting
+reference:
+  - EV:40

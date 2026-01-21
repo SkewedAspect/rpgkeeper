@@ -1,0 +1,10 @@
+id: eote-talent-superior-reflexes
+name: Superior Reflexes
+description: Gain +1 melee damage.
+activation: p
+ranked: false
+forceTalent: false
+trees: Big-Game Hunter, Force Adherent, Force Sensitive Exile, Quartermaster
+reference:
+  - E-CRB:144
+  - A-CRB:157

@@ -1,0 +1,13 @@
+id: eote-talent-known-schematic
+name: Known Schematic
+description: Once per session, may perform the Known Schematic maneuver; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Knowledge (Education) check**. Success
+  grants familiarity with a building or ship's design.
+activation: am
+ranked: false
+forceTalent: false
+trees: Commodore, Imperial Academy Cadet, Outlaw Tech, Republic Navy Officer, Sapper, Shipwright
+reference:
+  - E-CRB:138
+  - A-CRB:151
+  - RotS:40

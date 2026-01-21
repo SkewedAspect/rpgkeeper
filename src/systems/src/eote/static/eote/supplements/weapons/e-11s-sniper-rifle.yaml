@@ -1,0 +1,45 @@
+id: eote-weapon-e-11s-sniper-rifle
+name: E-11S Sniper Rifle
+description: >-
+  Developed from the venerable E-11 blaster rifle, BlasTech's E-11s was designed primarily as a dedicated marksman's
+  rifle for use by the Galactic Empire. A large, sleek, and deadly-looking weapon, the E-11s is nearly as long as a
+  grown human is tall, with a shroud-ed barrel that makes up fully half of its length. Excellent balance and
+  precision-fit components help compensate for this, however, and the E-11 s is quite easy to carry and shoot for a
+  weapon of its size. The E-1Is is incredibly popular among the Empire's scout and reconnaissance forces, whose missions
+  typically see them operating in conditions where the long range and pinpoint accuracy of a dedicated sniper weapon can
+  be used to their fullest potential. In the field, the E-11s grants a small reconnaissance squad incredible reach and
+  allows them to project their force at ranges unmatched by most military units. Officially, the E-11 s carries a
+  restricted rating, limiting it to governmental, military, and law-enforcement use only. That being said, more than a
+  few of these powerful rifles have fallen out of the backs of speeder trucks, so to speak. Those that have found their
+  way into civilian hands make for excellent hunting and sniping weapons, and their performance nearly makes up for the
+  serious risks involved in owning them.
+
+  E-11s rifles are equipped with relatively light-weight, matte-finish composite furniture that absorbs light, a fixed
+  stock, and a powerful multioptical telescopic sight. The rifle's firing mechanism uses a supercharged actuating
+  module, upgraded exciter, and extremely volatile, highly compressed blaster gasses to increase the range and
+  penetration of the blaster bolt. This extra power has the added side effect of reducing refraction and beam
+  degradation, allowing it to maintain both its penetration and stopping power at incredible range. While this makes for
+  a powerful weapon, especially in the hands of a talented marksman, it also makes for a weapon that consumes quite a
+  bit of energy and as such has a limited ammunition capacity (a rarity in blasters). These rifles also emit an enormous
+  amount of heat when firing, thanks to their supercharged firing systems. To compensate for this, the E-11 s has a slow
+  rate of fire to allow for cool-down, and the barrel is insulated with a triple-redundant nitrogen cooling system.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 6
+hardpoints: 3
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - EtU:38

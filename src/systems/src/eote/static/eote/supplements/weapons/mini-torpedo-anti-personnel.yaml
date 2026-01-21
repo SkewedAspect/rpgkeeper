@@ -1,0 +1,25 @@
+id: eote-weapon-mini-torpedo-anti-personnel
+name: Mini-Torpedo, Anti-Personnel
+description: >-
+  Anti-personnel mini-torpedoes function similarly to fragmentation grenades. They are designed to provide a ranged
+  explosive combined
+
+  with a deadly area of effect. These mini-torpedoes are the standard type in use by most Mon Calamari units.
+
+  _For use with the Mon Cal Defenses Mini-Torpedo Launcher_
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 2
+range: l
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-limited-ammo
+    ranks: 2
+reference:
+  - SoR:107

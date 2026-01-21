@@ -1,0 +1,11 @@
+id: eote-talent-force-protection
+name: Force Protection
+description: Perform the Force Protection maneuver; suffer 1 strain and commit [FO] up to ranks of Force Protection.
+  Increase soak by number of [FO] committed until beginning of next turn. Suffer 1 strain every turn [FO] remains
+  committed.
+activation: am
+ranked: true
+forceTalent: true
+trees: Ascetic, Protector
+reference:
+  - F-CRB:143

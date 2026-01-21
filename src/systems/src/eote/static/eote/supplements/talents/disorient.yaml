@@ -1,9 +1,12 @@
 id: eote-talent-disorient
 name: Disorient
-description: After hitting with a combat check, the character may spend <advantage></advantage><advantage></advantage>
-  to disorient his foe (see page 230). Disoriented targets add <setback></setback> to all skill checks. The target is
-  disoriented for a number of rounds equal to the attacker's ranks in Disorient.
+description: After hitting with combat check, may spend <advantage></advantage><advantage></advantage> to disorient
+  target for number of rounds equal to ranks in Disorient.
 activation: p
 ranked: true
-trees: Gadgeteer, Scout
-reference: E-CRB:135
+forceTalent: false
+trees: Force Sensitive Outcast, Force-Sensitive Outcast, Gadgeteer, Scout, Trailblazer
+reference:
+  - E-CRB:135
+  - A-CRB:146
+  - RotS:39

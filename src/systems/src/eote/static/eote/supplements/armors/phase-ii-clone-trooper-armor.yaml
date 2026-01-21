@@ -1,0 +1,25 @@
+id: eote-armor-phase-ii-clone-trooper-armor
+name: Phase II Clone Trooper Armor
+description: >-
+  Throughout the course of the Clone Wars, clone troopers have assumed a broad range of different battlefield roles. It
+  has become increasingly obvious that the armor employed at the start of the conflict was insufficiently adaptable to
+  the varying requirements of these roles. To remedy this situation, the Grand Army of the Republic gradually rolled out
+  a new model of armor to all clone troopers.
+
+  The new armor incorporates a much greater level of modularity and adaptability so that individual clones can modify it
+  as best suits their preferences and requirements. These improvements necessitate some cutbacks in basic systems,
+  including the removal of the armor's internal life-support system. Modular components are available to replace all
+  omitted functions, so clone troopers can always reconfigure their armor to incorporate those features necessary for a
+  particular battlefield role.
+
+  Phase II clone trooper armor includes an integrated comlink with scrambler capable of using all standard Republic
+  communications protocols.
+defense: 0
+soak: 2
+hardpoints: 4
+encumbrance: 4
+rarity: 6
+restricted: true
+qualities: []
+reference:
+  - CotR:57

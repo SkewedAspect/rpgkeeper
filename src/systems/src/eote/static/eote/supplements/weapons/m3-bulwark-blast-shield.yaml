@@ -1,0 +1,26 @@
+id: eote-weapon-m3-bulwark-blast-shield
+name: M3 Bulwark Blast Shield
+description: Typically carried by riot or military police, or security in particularly rowdy ports, blast shields are as
+  much a weapon as a protective device. Roughly as tall as a full-grown clone, the M3 Bulwark is a curved sheet of
+  reinforced plasteel that can be strapped to one arm. A small, narrow viewport is sot in the top of the shield, which
+  allows the user to see while using it. Thanks to its shape and the inherent strength of plasteel, the Bulwark can
+  shrug off most small-arms and light blaster rifle fire, as well as shrapnel and splinters from grenades and other
+  explosive devices.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 6
+range: en
+encumbrance: 6
+hardpoints: 1
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-defensive
+    ranks: 2
+  - id: eote-quality-deflection
+    ranks: 2
+reference:
+  - RotS:53

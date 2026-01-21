@@ -1,0 +1,11 @@
+id: eote-talent-speaks-binary
+name: Speaks Binary
+description: When directing NPC droids, may grant them <boost></boost> per rank of Speaks Binary on checks.
+activation: p
+ranked: true
+forceTalent: false
+trees: Droid Specialist, Droid Tech, Outlaw Tech, Scholar, Scientist, Separatist Commander
+reference:
+  - E-CRB:143
+  - A-CRB:157
+  - SM:35

@@ -1,0 +1,34 @@
+id: eote-weapon-hh-50-heavy-blaster-pistol
+name: HH-50 Heavy Blaster Pistol
+description: >-
+  BlasTech's HH-50 is a heavy, double-barreled, large-frame blaster pistol designed mainly for hunting large and
+  dangerous animals. Nearly the size of a blaster carbine, and sharing a number of parts and systems with the Clone
+  Wars-era DC-15 blaster carbine, the HH-50 is the largest, heaviest, highest-output blaster pistol currently produced
+  by BlasTech. Popular with beast riders, vehicle crews, and cavalry scouts, the HH-50 packs a blaster rifle's worth of
+  stopping power into a relatively small and easy to use package. Using a patented dual-circuit galven pattern, an
+  overcharged X-citer, and a powerful mix of blaster gases, the HH-50 fires both barrels with one pull of the trigger,
+  allowing it to pierce the thickest hide. The downside to all of this stopping power is that the HH-50 is incredibly
+  inefficient, even for a heavy blaster pistol, and tends to run its blaster gas chamber dry at the most inopportune
+  times.
+
+  During combat, Game Masters may make an HH-50 run out of ammunition by spending <threat></threat><threat></threat>.
+  This is in addition to the standard spending of <despair></despair>. In addition, the Game Master can spend
+  <threat></threat><threat></threat><threat></threat> or <despair></despair> to force an HH-50 to overheat, damaging it
+  by one step as if stuck by a weapon with the Sunder quality (see page 170 of the **Age of Rebellion** Core Rulebook).
+skill: Ranged (Light)
+damage: 7
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 3
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+  - id: eote-quality-linked
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - SoT:41

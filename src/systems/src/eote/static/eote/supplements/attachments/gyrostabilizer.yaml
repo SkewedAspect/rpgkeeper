@@ -1,0 +1,20 @@
+id: eote-attachment-gyrostabilizer
+name: Gyrostabilizer
+description: A gyrostabilizer, or repulsorlift harness, artificially reduces the weight of  the weapon, allowing a user
+  to heft and aim a heavy weapon with decreased difficulty. With such a modification, a single combatant can operate a
+  weapon that normally requires a team of two. These sophisticated devices are comparatively expensive and rare, and
+  thus are seldom seen outside of elite forces. This attachment can be applied to any Ranged (Heavy) or Gunnery Weapon.
+useWith: weapon
+hpRequired: 2
+rarity: 6
+baseModifier: -1 Cumbersome
+modOptions:
+  - -1 Cumbersome
+  - -1 Cumbersome
+  - -1 Cumbersome
+  - Gain Barrage (add damage per rank)
+reference:
+  - SM:54
+includedModels:
+  - TaggeCo Type 2 Repulsorlift Harness
+  - BlasTech Mk. IV Gyrostabilization Unit

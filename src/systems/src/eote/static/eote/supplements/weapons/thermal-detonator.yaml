@@ -1,0 +1,39 @@
+id: eote-weapon-thermal-detonator
+name: Thermal Detonator
+description: >-
+  These insidious devices are the size of frag grenades, but have a thermite-baradium casing surrounding a baradium
+  core. On detonation, the resulting fusion reaction creates a particle wave that disintegrates everything in the blast.
+  Most authorities ban thermal detonators because of baradium's instability. One detonator can level a building.
+
+  When using a thermal detonator, any <despair></despair> result on the check means the detonator explodes prematurely.
+  The wielder takes full damage from the weapon unless he can perform an additional maneuver to try to get clear; in
+  this case, he only suffers the Blast damage.
+
+  Thermal detonators can be set to detonate on impact or set with a timer to detonate up to 3 rounds after being
+  activated at the beginning of the attacker's action. Some also have a pressure switch that, once pressed, detonates
+  immediately upon release. Thermal detonators are so potent that their Blast quality affects everyone within short
+  range of the original target.
+
+  **Models Include**: Merr-Sonn Class-A Thermal Detonator.
+skill: Ranged (Light)
+damage: 20
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-blast
+    ranks: 15
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 4
+reference:
+  - E-CRB:165
+  - A-CRB:180
+  - F-CRB:170

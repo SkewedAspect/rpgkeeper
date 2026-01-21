@@ -1,0 +1,9 @@
+id: eote-talent-domesticated
+name: Domesticated
+description: Difficulty for training this beast is not upgraded.
+activation: p
+ranked: false
+forceTalent: false
+trees: ""
+reference:
+  - SoT:85

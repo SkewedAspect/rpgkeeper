@@ -1,0 +1,10 @@
+id: eote-talent-supreme-overcharge
+name: Supreme Overcharge
+description: May perform the Overcharge action on any number of installed cybernetics. On <despair></despair>, one
+  overcharged cybernetic shorts out.
+activation: p
+ranked: false
+forceTalent: false
+trees: Cyber Tech
+reference:
+  - SM:35

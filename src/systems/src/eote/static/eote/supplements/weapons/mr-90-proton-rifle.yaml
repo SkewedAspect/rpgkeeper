@@ -1,0 +1,37 @@
+id: eote-weapon-mr-90-proton-rifle
+name: MR-90 Proton Rifle
+description: >-
+  Proton rifles are heavy, powerful, long-range weapons originalIy designed for big-game hunting. Unlike a typical
+  blaster rifle, which uses volatile Tibanna gas and XCiter technology to produce searing plasma blasts, proton rifles
+  use tiny, baradium-fed particle accelerators to create densely charged particle beams. When they strike a target,
+  proton rifles' beams deliver a powerful kinetic blast that knocks lighter targets off their feet and can stagger even
+  the toughest, meanest prey.
+
+  Merr-Sonn's MR-90 is one of the best proton rifles on the market. Marketed toward wealthy, image-conscious big-game
+  hunters, these handsome rifles are equipped with numerous shooting aids to improve their overall performance. They
+  feature an integrated gyroscopic balancing system that assists in balance and handling, a multi-optic telescopic sighl
+  that allows a shooter to target prey in nearly all conditions, and a charge setting that trades the weapon's
+  ammunition capacity for a single, devastating blast. Despite the fact that the MR-90 is marketed as an upscale hunting
+  rifle for aristocratic adventurers, many military and paramilitary forces throughout the galaxy have adopted it as a
+  dedicated anti-materiel weapon and high-powered sniper rifle.
+
+  As a maneuver, a character using an MR-90 can set the weapon to its charge setting, which allows the shooter to expend
+  all of the rifle's energy in a single, devastating blast. Once charged, the MR-90 counts as having the Breach 1 and
+  Concussive 2 item qualities. After the charged beam is fired, the weapon runs out of ammunition.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 2
+range: ex
+encumbrance: 6
+hardpoints: 2
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-knockdown
+reference:
+  - KoF:40

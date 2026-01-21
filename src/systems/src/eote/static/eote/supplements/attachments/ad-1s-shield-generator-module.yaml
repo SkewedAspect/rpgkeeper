@@ -1,0 +1,22 @@
+id: eote-attachment-ad-1s-shield-generator-module
+name: (AD-1S) Shield Generator Module
+description: |-
+  Shield Generator Module  forAD-1S
+  Many fightercraft lack
+  shields, including most of the Galactic Empire's TIE
+  series. Of course, many pilots view going into battle
+  without shields as a sure sign of a death wish. Soldiers
+  of fortune and others who fight for credits rather than
+  ideology tend to prefer the thought of living to get paid
+  to the prospect of dying gloriously for some intangible
+  ideal, and so the highly customizable AD-1 S can be
+  fitted with shield generators to improve its durability.
+useWith: vehicle
+hpRequired: 3
+rarity: 6
+baseModifier: +1 Defense Zone
+modOptions:
+  - +1 Defense Zone
+  - +1 Defense Zone
+reference:
+  - SM:63

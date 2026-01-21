@@ -1,0 +1,10 @@
+id: eote-talent-power-from-pain
+name: Power From Pain
+description: Once per session as an incidental, may spend 1 Destiny Point to gain +1 Force rating for each Critical
+  Injury character is suffering until the end of the encounter.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Colossus
+reference:
+  - KoF:31

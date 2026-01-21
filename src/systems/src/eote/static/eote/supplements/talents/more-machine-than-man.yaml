@@ -1,0 +1,9 @@
+id: eote-talent-more-machine-than-man
+name: More Machine Than Man
+description: Increase cybernetic implant cap by 1 per rank of More Machine than Man.
+activation: p
+ranked: true
+forceTalent: false
+trees: Cyber Tech
+reference:
+  - SM:34

@@ -1,0 +1,10 @@
+id: eote-talent-walk-the-walk
+name: Walk the Walk
+description: The character may spend 1 Destiny Point to add damage equal to his ranks in Streetwise to one hit of a
+  successful Brawl check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Enforcer
+reference:
+  - DC:33

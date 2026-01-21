@@ -1,0 +1,10 @@
+id: eote-talent-stand-firm-improved
+name: Stand Firm! (Improved)
+description: Allies affected by Stand Firm! also increase their strain threshold by an amount equal to the character's
+  Presence rating. (Multiple uses of this talent are not cumulative.)
+activation: p
+ranked: false
+forceTalent: false
+trees: General
+reference:
+  - CotR:44

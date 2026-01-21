@@ -1,0 +1,27 @@
+id: eote-weapon-s-1-vamblade-single
+name: S-1 Vamblade (Single)
+description: >-
+  Falling somewhere between brass knuckles and a sword, vamblades are dagger-length blades extending from durasteel
+  vambraces, which provide a degree of protection to the wielder's forearms in a knife fight, as well as mounting the
+  blade itself. The S-1 from Prax Arms includes a magnetic locking mechanism, allowing the user to retract or extend the
+  blade with a simple flick of his wrist. When retracted, the blade can easily be hidden under a heavy coat, robe, or
+  similar garb, making these weapons a favorite of assassins.
+
+  Wrist blades are designed to be worn as a pair, and open up a whole range of combat options when used thus by a
+  properly-trained fighter. When used as a pair, wrist blades gain the Sunder and Accurate 1 weapon qualities. (This
+  applies even if they are not used with two weapon combat rules to gain an additional hit.) Vamblades cannot deal
+  damage to a target's strain threshold.
+skill: Brawl
+damage: 1
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+reference:
+  - DC:48

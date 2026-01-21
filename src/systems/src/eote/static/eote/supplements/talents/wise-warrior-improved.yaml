@@ -1,0 +1,10 @@
+id: eote-talent-wise-warrior-improved
+name: Wise Warrior (Improved)
+description: When performing the Wise Warrior incidental, one ally at short range may use the same characteristic for
+  the next combat check the ally makes before the end of the character's next turn.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Teacher
+reference:
+  - DoH:30

@@ -1,0 +1,29 @@
+id: eote-weapon-shock-boots
+name: Shock Boots
+description: >-
+  SHOCK BOOTS
+
+  Though shock gloves are fairly common among criminals and law enforcement personnel alike, shock boots are a specialty
+  item crafted for those who are determined not to be caught defenseless under any circumstances. A solid kick from
+  these boots activates the miniature power generators and electrical circuitry in their soles, delivering a paralyzing
+  shock to an opponent. Generally indistinguishable from normal boots, few notice shock boots' dangerous capabilities
+  until it's too late.
+
+  Shock boots are worn on the feet, and thus do not require a hand to wield. Add <setback></setback> to a character's
+  Perception checks to notice that shock boots are a weapon rather than merely normal footwear.
+skill: Brawl
+damage: 0
+addSkill: false
+criticalRating: 5
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 3
+  - id: eote-quality-stun
+    ranks: 3
+reference:
+  - FC:45

@@ -1,0 +1,19 @@
+id: eote-attachment-grenade-cling
+name: Grenade Cling
+description: While some anti-vehicle explosive devices and some concussion grenades are equipped with an electromagnetic
+  clamp as a standard feature, such capabilities are rare among anti-personnel grenades. With the addition of an
+  electromagnet, adhesive polymer, plastoid webbing, or any of a dozen other measures, nearly any grenade or bomb can be
+  made to latch onto its target, preventing escape and ensuring its destruction. The attachment can be added to any
+  grenade or explosive device.
+useWith: weapon
+hpRequired: 0
+rarity: 2
+baseModifier: Grenade immediately adheres to its target and requires an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Athletics check** to remove.
+modOptions:
+  - Increase damage by 1 to stuck targets
+  - Increase damage by 1 to stuck targets
+  - Increase difficulty to remove adhered grenade once
+  - Increase difficulty to remove adhered grenade once
+reference:
+  - FO:52

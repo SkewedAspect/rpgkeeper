@@ -1,0 +1,35 @@
+id: eote-weapon-ks-23-hammer
+name: KS-23 Hammer
+description: >-
+  The KS-23 is yet another popular slugthrowing design by Czerka Arms. A rarity even among the already scarce
+  slugthrowing class of weapons, the KS-23 fires a canister of small explosive pellets instead of a single long-range,
+  precision slug. When fired, these pellets scatter from the barrel to fill a wide area with as much destructive
+  potential as possible. Brutally effective at short and medium ranges, this weapon is known unofficially as the
+  "Hammer."
+
+  The KS-23 was initially produced as a hunting weapon to take down extremely hardy beasts like the krayt dragon or
+  rancor. They are roughly the size of a blaster carbine, with a large-caliber smoothbore barrel, a sturdy action, and
+  composite stocks and furniture. The ammunition is stored in a tubular, five-round magazine that runs under the barrel,
+  and the firing mechanism is self-loading and uses the weapon's recoil for power. An extremely unsubtle weapon, the
+  KS-23 is loud and has a powerful recoil thanks to the large-bore, high-powered ammunition it fires.
+
+  Thanks to its rugged construction and powerful ammunition, the KS-23 has gained a wide following in the Outer Rim.
+  Easy to maintain and repair and built from high-quality, resilient materials, the Hammer stands up exceedingly well to
+  the kinds of abuse equipment suffers in the wild places of the galaxy. Used primarily by big-game hunters, these
+  weapons have also found their way into the armories of explorers, smugglers, pirates, and even some planetary
+  law-enforcement agencies who appreciate their power and utility.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 5
+hardpoints: 4
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-knockdown
+reference:
+  - EtU:41

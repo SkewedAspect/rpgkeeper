@@ -1,0 +1,25 @@
+id: eote-weapon-ryyk-blade
+name: Ryyk Blade
+description: >-
+  The traditional melee weapon of the Wookiees, a Ryyk blade is a heavy, single-edged sword useful for clearing away
+  both brush and enemies in the thick jungles of Kashyyyk. Though the weapon has changed little over the millennia, many
+  Wookiees prefer the weapon of their ancestors to more technologically-advanced vibro-weapons.
+
+  The damage from the Superior quality is included in the profile.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 3
+hardpoints: 3
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-superior
+reference:
+  - DC:48

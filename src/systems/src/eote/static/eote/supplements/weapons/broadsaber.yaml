@@ -1,0 +1,32 @@
+id: eote-weapon-broadsaber
+name: Broadsaber
+description: >-
+  Through specialized focusing lenses and emitters, this lightsaber hilt produces a blade that is broader and flatter
+  than a standard lightsaber's cylindrical blade, lending it a profile closer to that of a traditional metal sword. This
+  form provides a larger overall surface for the massless plasma blade, while forgoing the advantages or a truly
+  omnidirectional cutting edge. Broadsabers never gained much popularity among the Jedi Order, with many masters
+  dismissing the variant as less elegant than other lightsabers. However, broad sabers lend themselves well to the
+  techniques of Shii-Cho, grounded as those are in traditional swordplay, and so the variant found some use among
+  masters of Form I.
+
+  This weapon's profile represents a broadsaber hilt containing an unmodded Ilum crystal. This crystal occupies two of
+  the weapon's hard points.
+
+  When installing a lightsaber crystal into a broadsaber, increase the damage of that lightsaber crystal by 1.
+skill: Lightsaber
+damage: 7
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 2
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-sunder
+  - id: eote-quality-unwieldy
+    ranks: 3
+reference:
+  - KoF:43

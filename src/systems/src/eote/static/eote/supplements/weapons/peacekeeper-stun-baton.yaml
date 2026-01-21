@@ -1,0 +1,33 @@
+id: eote-weapon-peacekeeper-stun-baton
+name: '"Peacekeeper" Stun Baton'
+description: >-
+  Czerka "Peacekeeper" Stun Baton
+
+  Czerka Arms sells "Peacekeeper" stun batons to law enforcement organizations across the galaxy, but they also see
+  substantial sales to private buyers. While primarily marketed as a non-lethal weapon ideal for peacekeeping or
+  self-defense, the truth is that the weapons are heavy lengths of metal with powerful shock capabilities that augment
+  their use as bludgeons rather than raplacing them.
+
+  While the goal of most similar weapons is to subdue with a minimum of force or damage, anyone dropped by "Peacemaker"
+  batons is likely to feel the effects afterward. This has led to a number of more conscientious groups blacklisting the
+  weapons or discontinuing their use, but many others have no such compunctions. Some Imperial governers have placed
+  mass orders for the weapons to keep their populations in line, while many bounty hunters have turned to the weapons as
+  an option that allows them to skirt laws or circumvent clients' requests regarding use of force or lethal weaponry.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 3
+hardpoints: 2
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-disorient
+    ranks: 2
+  - id: eote-quality-stun
+    ranks: 3
+reference:
+  - ND:48

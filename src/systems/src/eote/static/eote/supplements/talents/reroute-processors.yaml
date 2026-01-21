@@ -1,0 +1,12 @@
+id: eote-talent-reroute-processors
+name: Reroute Processors
+description: Once per encounter, may take a Reroute Processors action, make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Computers check** to reduce one of a droid's characteristics by 1
+  and increase another of its characteristics by 1.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Droid Specialist, Droid Tech
+reference:
+  - SM:35
+  - FO:31

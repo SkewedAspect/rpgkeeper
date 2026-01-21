@@ -1,0 +1,10 @@
+id: eote-talent-makashi-finish
+name: Makashi Finish
+description: Take the Makashi Finish action; Perform a Lightsaber (Presence) combat check against engaged target, adding
+  [FO] no greater than Force rating. Spend <forcepoint></forcepoint> to add +10 to any resulting Critical Injury rolls.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Makashi Duelist
+reference:
+  - F-CRB:146

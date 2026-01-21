@@ -1,0 +1,10 @@
+id: eote-talent-overwhelming-aura-improved
+name: Overwhelming Aura (Improved)
+description: Characters affected by Overwhelming Aura add automatic <failure></failure> to fear checks the character
+  causes and automatic <success></success> to fear checks not caused by the character.
+activation: p
+ranked: false
+forceTalent: true
+trees: Prophet
+reference:
+  - UP:33

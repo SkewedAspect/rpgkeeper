@@ -1,0 +1,13 @@
+id: eote-attachment-multi-band-comlink
+name: Multi-Band Comlink
+description: It is common practice to incorporate a long-range comlink into a helmet. Many military or otherwise
+  advanced helmets include a comlink as standard, and it is a fairly simple procedure to attach one to nearly any
+  helmet. Some helmet comlinks are activated by tapping a button on the exterior of the helmet or somewhere else on the
+  armor, while others are activated by voice or even a particular head motion.
+useWith: armor
+hpRequired: 0
+rarity: 1
+baseModifier: A long range comlink is integrated into helmet.
+modOptions: []
+reference:
+  - DC:53

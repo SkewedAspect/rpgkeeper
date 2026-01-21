@@ -1,0 +1,11 @@
+id: eote-talent-diplomatic-immunity
+name: Diplomatic Immunity
+description: Once per encounter, the character may perform the Diplomatic Immunity incidental. The character spends one
+  Destiny Point and adversaries cannot choose the character as the target of a combat check until after the end of the
+  character's next turn. This effect ends if the character makes a combat check.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Senator
+reference:
+  - CotR:38

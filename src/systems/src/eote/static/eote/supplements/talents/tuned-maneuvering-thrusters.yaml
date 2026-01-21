@@ -1,0 +1,9 @@
+id: eote-talent-tuned-maneuvering-thrusters
+name: Tuned Maneuvering Thrusters
+description: Increase the handling of Signature Vehicle by 1 per rank of Tuned Maneuvering Thrusters.
+activation: p
+ranked: true
+forceTalent: false
+trees: Rigger
+reference:
+  - SoT:33

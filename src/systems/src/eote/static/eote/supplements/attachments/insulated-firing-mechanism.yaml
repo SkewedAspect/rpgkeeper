@@ -1,0 +1,22 @@
+id: eote-attachment-insulated-firing-mechanism
+name: Insulated Firing Mechanism
+description: >-
+  One of the most insidious dangers of the battlefield comes not from the foes compatants face, but from the risks of
+  their own gear failing. Regular maintenance and examination of weapons under heavy use is a must for soldiers and
+  mercenaries alike, but sometimes modification of a weapon can make the concerns less grave. By removing complex,
+  failure-prone regulatory circuitry and replacing it with more basic analog systems, blasters become easier to maintain
+  and less prone to failure or damage.
+
+  This attachment can be installed on any personal-scale blaster weapon.
+useWith: weapon
+hpRequired: 1
+rarity: 7
+baseModifier: Increases <advantage></advantage> or <threat></threat> cost of any effect that damages the weapon (such as
+  Sunder) by one.; Prepare 1; Repairs to the weapon cost half as much.
+modOptions:
+  - Prepare +1
+reference:
+  - RotS:62
+includedModels:
+  - Czerka Part Replacement Kit NX3-4r
+  - BlasTech "My First Blaster" Safety Kit

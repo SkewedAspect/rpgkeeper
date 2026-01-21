@@ -1,0 +1,11 @@
+id: eote-talent-high-g-training
+name: High-G Training
+description: When a starship or vehicle being piloted would suffer system strain, may suffer strain up to ranks in
+  High-G Training to prevent an equal amount of system strain.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Clone Pilot, Hotshot
+reference:
+  - SoT:32
+  - RotS:39

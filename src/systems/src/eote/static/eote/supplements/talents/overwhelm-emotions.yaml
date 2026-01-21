@@ -1,0 +1,10 @@
+id: eote-talent-overwhelm-emotions
+name: Overwhelm Emotions
+description: May add [FO] per Force Rating to Charm, Coercion, or Deception checks. [LI] and [DA] add
+  <success></success> to some checks and <failure></failure> to others.
+activation: p
+ranked: false
+forceTalent: true
+trees: Force Sensitive Exile
+reference:
+  - E-CRB:141

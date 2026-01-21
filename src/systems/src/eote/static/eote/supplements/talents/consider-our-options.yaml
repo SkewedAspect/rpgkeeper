@@ -1,0 +1,14 @@
+id: eote-talent-consider-our-options
+name: Consider our Options
+description: The character may take the Consider Our Options action, makings **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Negotiation check.** If the check
+  succeeds, until the start of the character's next turn, any enemy who attacks the character suffers 2 strain, plus 1
+  strain per additional <success></success><success></success> on the character's check, before resolving the attack.
+  (If this strain causes an adversary to become incapacitated, the GM may determine that adversary simply bows out of
+  the fight.) The effect ends immediately if the character inflicts damage on an enemy.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Republic Representative
+reference:
+  - RotS:38

@@ -1,9 +1,13 @@
 id: eote-talent-dodge
 name: Dodge
-description: When targeted by a combat check (ranged or melee) the character may choose to immediately perform a Dodge
-  incidental to suffer a number of strain, then upgrade the difficulty of the combat check by that number. The number of
-  strain suffered cannot exceed his ranks in Dodge.
-activation: ai
+description: When targeted by combat check, may perform a Dodge incidental to suffer a number of strain no greater than
+  ranks of Dodge, then upgrade the difficulty of the check by that number.
+activation: aio
 ranked: true
-trees: "Assassin, Doctor, Fringer, Politico, Thief, "
-reference: E-CRB:135
+forceTalent: false
+trees: Ambassador, Assassin, Ataru Striker, Doctor, Force Adherent, Fringer, Gunslinger, Infiltrator, Medic, Performer,
+  Politico, Propagandist, Seer, Sentry, Shadow, Steel Hand Adept, Thief, Trailblazer
+reference:
+  - E-CRB:135
+  - A-CRB:146
+  - F-CRB:142

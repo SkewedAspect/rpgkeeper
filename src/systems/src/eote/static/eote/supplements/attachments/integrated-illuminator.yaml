@@ -1,0 +1,17 @@
+id: eote-attachment-integrated-illuminator
+name: Integrated Illuminator
+description: Operating in darkness is never ideal, but there are several ways to compensate for one's lack of night
+  vision. The simplest, perhaps, is to integrate a simple spotlight, similar in most respects to a high-power glow rod,
+  along the length of a ranged weapon's barrel. In addition to providing illumination in dark conditions, high-powered
+  spotlights have the potential to blind enemies. This attachment can be applied to any ranged weapon that could
+  logically benefit from a spotlight.
+useWith: weapon
+hpRequired: 1
+rarity: 4
+baseModifier: Removes up to <setback></setback><setback></setback> due to darkness on targets within short range.
+modOptions:
+  - Increase spotlight range to medium
+  - Disorient +1
+  - Disorient +1
+reference:
+  - KtP:54

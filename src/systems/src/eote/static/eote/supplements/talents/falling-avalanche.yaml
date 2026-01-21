@@ -1,0 +1,9 @@
+id: eote-talent-falling-avalanche
+name: Falling Avalanche
+description: Suffer 2 strain to add damage equal to Brawn to next Lightsaber combat check made that turn.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Armorer, Shien Expert
+reference:
+  - F-CRB:142

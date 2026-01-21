@@ -1,0 +1,33 @@
+id: eote-weapon-philaxian-phase-knife
+name: Philaxian Phase-Knife
+description: >-
+  Developed originally by an obscure cadre of artificers, these blades were popular amongst cutpurses and assassins
+  before Republic scouts discovered Philaxia. Once the population obtained technology such as vibroblades and other
+  modern conveniences phase-knives fell out of favour. The weapons may have remained an unremarked oddity had a
+  wandering Jedi not stumbled across one decades later.
+
+  Philaxian phase-knives appear as no more than knife-hilts in their inactive state. When activated, however, they
+  project a molecular shield that forms a weightless but solid "blade". The blade is sharper than comparable vibroblade,
+  but its unique balance makes it very difficult to wield. The user can also adjust the size and shape of the blade on
+  the fly; certain shapes make it surprisingly good as a thrown weapon.
+
+  When used with the Saber Throw talent, a character may spend <advantage></advantage><advantage></advantage> or
+  <triumph></triumph> (instead of <forcepoint></forcepoint>) to have the phase-knife return to her hand. A user may not
+  add lightsaber crystal attachments to a phase-knife. Anyone searching a character carrying a deactivated phase-knife
+  adds <setback></setback> to the Perception check ti find the weapon.
+skill: Lightsaber
+damage: 1
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 4
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - EV:43

@@ -1,0 +1,20 @@
+id: eote-attachment-pommel-cap
+name: Pommel Cap
+description: Force users, especially those walking a path closely attuned to the light side of the Force, often seek
+  non-lethal means for incapacitating their opponents. The pommel cap provides just such a solution. The pommel cap is a
+  small, weighted knob or other similar piece attached to the base of a lightsaber's hilt. The increased weight and
+  reinforcement provided by the pommel cap make pommel strikes with the lightsaber more effective, and less likely to
+  damage the lightsaber itself, than a strike with a bare hilt. The pommel cap not only enhances the ability of a Force
+  user to provide a stunning blow, but it can also be used to store small items of necessity-most often an additional
+  backup power cell, though any number of small items can prove useful to a Force user in need. The pommel cap screws
+  into the base of a lightsaber, and competent wielders often incorporate its use into their fighting style as a matter
+  of course. This attachment can be applied to lightsabers or any Melee weapon with a hilt.
+useWith: weapon
+hpRequired: 1
+rarity: 2
+baseModifier: Stun 2
+modOptions:
+  - Stun +1
+  - Stun +1
+reference:
+  - DoH:51

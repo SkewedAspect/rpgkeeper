@@ -1,0 +1,23 @@
+id: eote-attachment-reactive-plating
+name: Reactive Plating
+description: Reactive plating is a modification that attaches small explosive panels to the armors exterior plates. When
+  hit by an attack, the explosives are designed to detonate outward, absorbing some of the attacks kinetic energy with
+  the counter-explosion. It is not typically used on a personal scale, but microrepulsors and other, similar
+  technologies allow it to be integrated into certain heavier varieties of personal armor and to function at
+  considerable effectiveness without harming the wearer in the process. Employed properly, reactive armor can even
+  deflect or dampen blows from weapons that would cleave through other defenses, like lightsabers. Besides the
+  considerable weight it adds to any set of armor, an unfortunate side-effect of reactive armor is that it destroys
+  itself as it protects the individual inside. It causes the armor to degrade far more rapidly than it would have
+  otherwise would, which means that the wearer must repair it far more often. This attachment can only be applied to
+  armor with a soak of 2 or higher.
+useWith: armor
+hpRequired: 2
+rarity: 6
+baseModifier: First time wearer is hit each encounter, reduce damage by 10. After, armor suffers minor damage and must
+  be repaired to function again.
+modOptions:
+  - -1 Encumbrance
+  - -1 Encumbrance
+  - -1 Encumbrance
+reference:
+  - KtP:57

@@ -1,0 +1,14 @@
+id: eote-attachment-deflective-plating
+name: Deflective Plating
+description: Hulls featuring these protective plates give a trade off between defense and maneuverability
+useWith: vehicle
+hpRequired: 4
+rarity: 5
+baseModifier: Changes armor to 2 and handling to -2; Armor set to 2; Handling set to -2
+modOptions:
+  - +1 Armor
+  - +1 Armor
+  - +1 Fore Defense
+  - +1 Hull Trauma Threshold (per Silhouette)
+reference:
+  - FO:83

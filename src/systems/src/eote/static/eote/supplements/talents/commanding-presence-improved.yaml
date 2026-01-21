@@ -1,0 +1,10 @@
+id: eote-talent-commanding-presence-improved
+name: Commanding Presence (Improved)
+description: Once per session, may take Commanding Presence action; make an opposed **Cool vs. Discipline** check to
+  force target to leave the encounter.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Figurehead
+reference:
+  - LbE:33

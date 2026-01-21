@@ -1,0 +1,19 @@
+id: eote-attachment-reinforced-magnetic-shielding
+name: Reinforced Magnetic Shielding
+description: A delicately tuned magnetic field maintains the coherency of a lightsaber's plasma beam. Though this
+  modification increases the strength of a lightsaber's magnetic shielding, the blade takes on some of the qualities of
+  a solid weapon. With this modification, the wielder gives up some of the lightsaber's legendary penetrative capacity
+  in order to deliver punishing electromagnetic impacts.
+useWith: weapon
+hpRequired: 1
+rarity: 5
+baseModifier: Remove Breach quality; Concussive 1; Knockdown 1; Pierce 1
+modOptions:
+  - Concussive +1
+  - Disorient +1
+  - Disorient +1
+  - Pierce +1
+reference:
+  - KoF:48
+includedModels:
+  - None

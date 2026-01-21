@@ -1,0 +1,27 @@
+id: eote-weapon-vibrorang-ranged
+name: Vibrorang (Ranged)
+description: >-
+  Vibrorang
+
+  Seen in some of the more remote areas of the galaxy, especially in rougher and more aggressive resistance movements,
+  vibrorangs are throwing weapons containing ultrasonic vibroblade technology. They can be hurled in long, curving arcs
+  that can often catch targets by surprise.
+   If a ranged attack with a vibrorang is unsuccessful, the user may spend <advantage></advantage><advantage></advantage> to have it safely return to his possession. It can also be used in melee combat with the following profile: (Melee; Damage +2; Critical 2; Range [Engaged], Inaccurate 1, Pierce 2, Vicious 1).
+skill: Ranged (Light)
+damage: 4
+addSkill: false
+criticalRating: 2
+range: m
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - DoR:118

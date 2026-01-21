@@ -1,0 +1,9 @@
+id: eote-talent-powerful-blast
+name: Powerful Blast
+description: Increase Blast damage dealt by explosives, explosive weapons, and grenades by +1 per rank of Powerful Blast.
+activation: p
+ranked: true
+forceTalent: false
+trees: Demolitionist, Retired Clone Trooper, Saboteur, Sapper
+reference:
+  - A-CRB:154

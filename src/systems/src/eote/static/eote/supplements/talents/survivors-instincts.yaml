@@ -1,0 +1,10 @@
+id: eote-talent-survivors-instincts
+name: Survivor's Instincts
+description: Once per session when the character suffers a Critical injury spend 1 Destiny Point. Then the attacker must
+  roll two results for the Critical Injury and the player choose which will apply to their character.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Clone Veteran, Nightsister
+reference:
+  - CotR:21

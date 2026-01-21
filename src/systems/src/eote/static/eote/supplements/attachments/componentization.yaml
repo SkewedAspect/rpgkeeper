@@ -1,0 +1,20 @@
+id: eote-attachment-componentization
+name: Componentization
+description: This mod allows a weapon to be broken down into a number of innocuous-looking pieces so that it can be
+  smuggled into and out of places where weapons are not allowed or are highly regulated. When broken down, a
+  componentized weapon looks like a collection of basic tools, comlinks, glow rods, datapad styluses, and other items
+  any individual might be expected to carry. Each part also functions as that item as well. It takes two maneuvers to
+  assemble or disassemble a weapon with this mod. Loss of or damage to a component ruins the weapon, and another will
+  have to be acquired and modified. This attachment can be applied to any weapon with an encumbrance of 2 or less.
+useWith: weapon
+hpRequired: 2
+rarity: 5
+baseModifier: Allows a weapon to be broken into pieces and disguised as other items. A character must make a
+  **Formidable
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)
+  Mechanics** or **Skulduggery check** to deduce the items are weapon parts.
+modOptions: []
+reference:
+  - CaM:56
+includedModels:
+  - Various models

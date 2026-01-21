@@ -1,0 +1,24 @@
+id: eote-weapon-lightfoil-hilt
+name: Lightfoil Hilt
+description: >-
+  Lightfoils are small lightsabers with hilts comparable in size to those of shotos. Lightfoils differ from shotos in
+  that they feature slimmer, longer blades. While shotos are often used in pairs, lightfoils are designed for use alone,
+  having a small grip that accommodates a single hand. The first lightfoils were said to have been creations of the
+  early Sith. They likely arose alongside the Makashi form, as the weapons are perfectly suited to dueling. Among the
+  Jedi, lightfoils largely fell out of use in favor of shotos by the time of the Clone Wars.
+
+  When installing a lightsaber crystal into a lightfoil, reduce the damage of that lightsaber crystal by 1.
+skill: Lightsaber
+damage: 0
+addSkill: false
+criticalRating: 0
+range: en
+encumbrance: 1
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 2
+reference:
+  - KoF:44

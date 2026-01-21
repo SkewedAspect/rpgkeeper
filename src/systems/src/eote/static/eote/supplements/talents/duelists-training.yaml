@@ -1,0 +1,9 @@
+id: eote-talent-duelists-training
+name: Duelist's Training
+description: Add <boost></boost> to Melee and Lightsaber checks when engaged with only one opponent.
+activation: p
+ranked: false
+forceTalent: false
+trees: Makashi Duelist
+reference:
+  - F-CRB:142

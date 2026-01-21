@@ -1,0 +1,10 @@
+id: eote-talent-intuitive-strike
+name: Intuitive Strike
+description: When making a combat check with a planetary scale weapon, add [FO] no greater than Force rating to the
+  check. Spend <forcepoint></forcepoint><forcepoint></forcepoint> to add <success></success> or <advantage></advantage>.
+activation: p
+ranked: false
+forceTalent: true
+trees: Starfighter Ace
+reference:
+  - F-CRB:145

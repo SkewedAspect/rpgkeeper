@@ -1,0 +1,24 @@
+id: eote-weapon-long-bow
+name: Long Bow
+description: Much less technically sophisticated than a blaster, a longbow remains a deadly weapon in properly trained
+  hands. The quiet twang of a bowstring also does not carry nearly as far as the firing sounds of a blaster or
+  slugthrower. In a primitive environment, characters separated from technological resources can fashion arrows from
+  natural materials far more easily than they can develop a charging system for an energy weapon.
+skill: Ranged (Heavy)
+damage: 5
+addSkill: false
+criticalRating: 5
+range: l
+encumbrance: 5
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 1
+reference:
+  - NoP:102

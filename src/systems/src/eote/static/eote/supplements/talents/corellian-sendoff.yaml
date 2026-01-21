@@ -1,0 +1,11 @@
+id: eote-talent-corellian-sendoff
+name: Corellian Sendoff
+description: Take a Corellian Sendoff action targeting two ships or vehicles at Close range; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Cool check** to cause the targets to
+  suffer a minor collision.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Hotshot
+reference:
+  - SoT:32

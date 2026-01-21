@@ -1,0 +1,11 @@
+id: eote-talent-biggest-fan
+name: Biggest Fan
+description: Once per session, may take a Biggest Fan action; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Charm check** to turn one NPC into the
+  character's biggest fan.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Performer
+reference:
+  - FH:32

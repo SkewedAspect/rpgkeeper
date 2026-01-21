@@ -1,0 +1,11 @@
+id: eote-talent-inside-person
+name: Inside Person
+description: Once per session the character may spend a Destiny Point to establish he has been undercover in an
+  identified enemy base or large vehicle. For the remainder of the session, add automatic
+  <advantage></advantage><advantage></advantage> to checks he or his allies make that are associated with that location.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Sleeper Agent
+reference:
+  - CaM:31

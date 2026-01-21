@@ -1,0 +1,20 @@
+id: eote-weapon-skz-sporting-blaster-rifle
+name: SKZ Sporting Blaster Rifle
+description: The Corellian Arms SKZ Sporting Blaster is a popular civilian weapon used for hunting and self-defense. A
+  relatively compact and simple design that has been in production for centuries, the SKZ doesn't have the power of
+  military grade blaster rifles, but has good range and is capable of bringing down all but the largest game. The SKZ
+  comes with a rail system for easily adding attachments and can be quickly broken down into three parts for transport
+  in a small case.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 4
+range: l
+encumbrance: 3
+hardpoints: 4
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - SoF:96

@@ -1,0 +1,13 @@
+id: eote-talent-exceed-specifications
+name: Exceed Specifications
+description: "Before making a check using an item, the character may take the Exceed Specifications incidental, adding
+  <boost></boost> to the check. The GM may spend <threat></threat><threat></threat> on the check to damage the item one
+  step, or <despair></despair> to damage it beyond usability (see **Table 5-4: Repairing Gear** in any core rulebook).
+  <threat></threat> or <despair></despair> may have additional consequences depending on the nature of the item, at the
+  GM's discretion."
+activation: ai
+ranked: false
+forceTalent: false
+trees: Scavenger
+reference:
+  - RotS:39

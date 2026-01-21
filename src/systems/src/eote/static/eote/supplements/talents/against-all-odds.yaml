@@ -1,0 +1,11 @@
+id: eote-talent-against-all-odds
+name: Against All Odds
+description: When incapacitated, perform Against All Odds action, making **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Resilience check** with [FO] equal to
+  Force rating. Heal wounds equal to <success></success>, spend <forcepoint></forcepoint> to add <success></success>.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Aggressor
+reference:
+  - F-CRB:138

@@ -1,0 +1,25 @@
+id: eote-armor-beast-hide-armor
+name: Beast-Hide Armor
+description: >-
+  Blasters and other advanced weapons can make a mockery of even the most sophisticated armor. Perhaps it is because of
+  this that some warriors use the same primitive armors that have been used across the galaxy for countless millennia.
+  For some individuals, their choice of armor is made to send a message rather than for practical purposes. Armor made
+  from the tanned hides or heavy furs of wild beasts and covered in claws and teeth is a common sight on many backwater
+  worlds, but is also worn by some spacers who wish to demonstrate their own ferocity. Whether worn as a reminder of
+  home or crafted from the skin of a ferocious animal slain during their travels, such a suit of armor marks the wearer
+  as a predator among predators.
+
+  When wearing beast-hide armor, the character gains automatic <advantage></advantage> on Coercion checks and automatic
+  <threat></threat> on Charm checks. The GM may determine that this armor provides different benefits or detriments
+  depending on the situation. The wearer of the armor may be barred from high society events on Coruscant, but
+  automatically invited to similar events on a Rim world, for example.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 3
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - DC:49
+  - SS:44

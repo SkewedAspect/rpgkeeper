@@ -1,0 +1,12 @@
+id: eote-talent-exceed-specifications-supreme
+name: Exceed Specifications (Supreme)
+description: If the character's check benefitting from the Exceed Specifications incidental generates
+  <triumph></triumph>, they may damage the item one step to roll one additional <proficiency></proficiency> and add it
+  to the check results. If the check generates <despair></despair> roll <challenge></challenge> and add it to the check
+  results.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Scavenger
+reference:
+  - RotS:39

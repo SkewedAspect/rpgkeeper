@@ -1,0 +1,11 @@
+id: eote-talent-resourceful-refit
+name: Resourceful Refit
+description: May perform the Resourceful Refit action, make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Mechanics check** to scavenge an old attachment to construct a
+  new one, reducing its price by that of the dismantled attachment.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Modder
+reference:
+  - SM:35

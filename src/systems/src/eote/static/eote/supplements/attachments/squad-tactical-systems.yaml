@@ -1,0 +1,20 @@
+id: eote-attachment-squad-tactical-systems
+name: Squad Tactical Systems
+description: Sensor and comm systems are common installations on armor, but some groups take the practice a step
+  further, equipping all their members with uniform packages designed to work in tandem. Squads of clone troopers and
+  planetary militia are the most common users of these systems, but even groups of bounty hunters sometimes avail
+  themselves of the advantages provided by operating in tandem. These sensor packages share information with all other
+  nearby squad members equipped with the same gear, enhancing awareness and communication. This attachment may be
+  installed in the helmet of any armor.
+useWith: armor
+hpRequired: 1
+rarity: 5
+baseModifier: Add <boost></boost> to Perception and Vigilance checks while within medium range of one or more allies
+  also using armor with this attachment.; Includes integrated comlink.
+modOptions:
+  - Add <boost></boost> to Perception checks
+  - Add <boost></boost> to Vigilance checks
+reference:
+  - RotS:65
+includedModels:
+  - Fabritech Mk.II “Crosslink” Sensors

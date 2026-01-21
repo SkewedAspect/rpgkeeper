@@ -1,0 +1,11 @@
+id: eote-talent-natural-outdoorsman
+name: Natural Outdoorsman
+description: Once per session, may reroll any 1 Resilience or Survival check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Beast Rider, Commando, Hermit, Pathfinder, Survivalist, Tactician
+reference:
+  - E-CRB:139
+  - A-CRB:153
+  - F-CRB:148

@@ -1,0 +1,14 @@
+id: eote-quality-cortosis-quality
+name: Cortosis Quality
+description: >-
+  Cortosis is an ore found primarily in the Outer Rim. It is extremely rare and valuable, and was used primarily during
+  the Clone Wars against the Jedi knights. There are two varieties of Cortosis ore. The rarest versions can actually
+  short out a lightsaber’s blade, causing it to fail temporarily. The far more common Cortosis ore is still a miraculous
+  substance, because when molded into armor, it forms an interlocking molecular bond that is extremely resistant to
+  energy weapons.
+
+  Weapons with the Cortosis quality are immune to the Sunder quality. Armor with the Cortosis quality makes the wearer’s
+  soak immune to the Pierce and Breach qualities.
+passive: true
+ranked: false
+reference: []

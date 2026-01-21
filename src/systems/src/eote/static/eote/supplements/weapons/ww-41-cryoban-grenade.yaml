@@ -1,0 +1,35 @@
+id: eote-weapon-ww-41-cryoban-grenade
+name: WW-41 CryoBan Grenade
+description: >-
+  Merr-Sonn WW-41 CryoBan Grenade
+
+  CryoBan is one of a number of chemical compounds used in the carbon freezing process. In its processed form, it
+  creates intense, damaging cold by absorbing all heat in a given area. The WW-41 CryoBan grenade by Merr-Sonn was
+  initially designed as an emergency fire-suppression tool and was used to put out fires aboard ships and space
+  stations. The grenades resemble short, tapering batons with a ring at the smaller end. When they detonate, WW-41
+  grenades spray everything in their blast radius with supercooled CryoBan. These grenades also make excellent area
+  denial weapons, as they can harm living organisms through shock, frostbite, and nerve damage.
+
+  A character using a CryoBan grenade adds <boost></boost> to attempts to put out a fire.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-disorient
+    ranks: 3
+  - id: eote-quality-ensnare
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - FO:40

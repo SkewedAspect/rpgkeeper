@@ -1,0 +1,26 @@
+id: eote-weapon-hbt-4-hunting-blaster
+name: HBt-4 Hunting Blaster
+description: >-
+  Herloss HBt-4 Hunting Blaster
+
+  Larger and heavier than most other sporting blaster rifles, the Herloss HBt-4 hunting blaster packs a very heavy punch
+  for a civilian blaster. Designed for hunting big game and the large, aggressive predators of the Outer Rim, the HBt-4
+  forgoes the long range of many sporting rifles in favor of a more concentrated blast that disperses relatively
+  quickly. The HBt-4 is most commonly found on rough terrain or tropical worlds with heavy vegetation, where its shorter
+  range is not a handicap. The hunting blaster has also found a place aboard some light freighters where its ready
+  firepower provides an extra sense of security.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 5
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 2
+  - id: eote-quality-stun-setting
+reference:
+  - FC:44

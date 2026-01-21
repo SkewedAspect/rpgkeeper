@@ -1,0 +1,43 @@
+id: eote-weapon-cr-8-takedown-rifle
+name: CR-8 Takedown Rifle
+description: >-
+  Corellian Arms CR-8 Takedown Rifle
+
+  The CR-8 is a high-performance blaster rifle designed for use by CorSec snipers and secret agents. Built to exacting
+  specifications by Corellian Arms, the CR-8 is a long, deadly looking weapon designed for pinpoint accuracy at very
+  long ranges. Just shy of two meters in length, the CR-8 is equipped with a precision barrel, lightweight, matte finish
+  composite furniture, and a highpowered sight. It also features an integrated energy damper that reduces its report and
+  muzzle flash. The weapon's firing system uses a supercharged actuator, upgraded XCiter, and a high-output proprietary
+  blaster gas. These modifications increase power and reduce beam refraction and degradation, allowing the weapon to
+  accurately hit targets at ranges well beyond normal blaster rifle range. The downside is that the weapon produces an
+  inordinate amount of heat, which it must offset with a low rate of fire.
+
+  Perhaps the CR-8's most unique aspect is its transportability, the weapon is designed to be broken down into its core
+  components quickly  and easily. with just a few moments of work, the CR-8 can be disassembled into five separate
+  components: berrel, stock, reciever, sight, and energy damper. Obstensibly, this feature was added to the weapon to
+  assist in carrying and storing it. As an added side effect, however, the takedown feature makes these weapons
+  extremely easy to hide and very attractive for professional killers. A CR-8 is nearly impossible to find when hidden,
+  thanks to the takedown feature and its unique finish.
+
+  When a CR-8 is properly broken down and concealed add <setback></setback><setback></setback> to a character's
+  Perception checks made to find it on a person's body.
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 4
+hardpoints: 1
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-accurate
+    ranks: 2
+  - id: eote-quality-prepare
+    ranks: 2
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - SS:40

@@ -1,0 +1,11 @@
+id: eote-talent-terrify-improved
+name: Terrify (Improved)
+description: Reduce the difficulty of Terrify's check to **Average
+  (<difficulty></difficulty><difficulty></difficulty>)** and may spend <triumph></triumph> to stagger an affected
+  target.
+activation: p
+ranked: false
+forceTalent: true
+trees: Aggressor
+reference:
+  - F-CRB:153

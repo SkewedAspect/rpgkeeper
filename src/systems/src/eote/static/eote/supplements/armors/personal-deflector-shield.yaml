@@ -1,0 +1,24 @@
+id: eote-armor-personal-deflector-shield
+name: Personal Deflector Shield
+description: >-
+  Though rare, bulky, and difficult to use, personal deflector shields are one of the few defenses that can stand up to
+  blaster fire. Deflector shields use limited ray/particle shielding that deflects and blocks incoming projectiles. They
+  are difficult to use because the power drain is extraordinary, meaning they only work for a limited length of time.
+  When the wielder is using a personal deflector shield, the GM can spend any <despair></despair> the wielder generates
+  to have the shield run out of power for the remainder of the encounter.
+
+  The shield has enough power to last about ten minutes. Recharging a deflector shield requires three hours and
+  electrical facilities.
+
+  Modern galactic companies do not generally produce personal deflector shields. The technology to make one that does
+  not emit enough radiation to kill an organic user is very rare, and those that exist are almost always custom-built.
+defense: 2
+soak: 0
+hardpoints: 0
+encumbrance: 3
+rarity: 8
+restricted: false
+qualities: []
+reference:
+  - E-CRB:170
+  - A-CRB:185

@@ -1,0 +1,10 @@
+id: eote-talent-guns-blazing
+name: Guns Blazing
+description: As an incidental, suffer 2 Strain to avoid increasing the difficulty of a Ranged (Light) check to attack
+  with two weapons.
+activation: ai
+ranked: false
+forceTalent: false
+trees: ARC Trooper, Gunslinger
+reference:
+  - FC:33

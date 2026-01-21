@@ -1,0 +1,26 @@
+id: eote-weapon-lightning-22-ion-grenade
+name: Lightning 22 Ion Grenade
+description: The detonation of an ion grenade is much like the blast of an ion gun. The advantage of an ion grenade is
+  that all droids caught in the blast radius are affected, allowing the user to disable multiple mechanical targets at
+  once. Great care must be taken in the vicinity of important technology. Many starship captains refuse to allow ion
+  grenades aboard their vessel, even when providing transport to heavily armed mercenaries.
+skill: Ranged (Light)
+damage: 10
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 7
+  - id: eote-quality-disorient
+    ranks: 5
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-stundamagedroid
+reference:
+  - DC:46
+  - KoF:44

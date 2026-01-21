@@ -1,0 +1,11 @@
+id: eote-talent-rain-of-death
+name: Rain of Death
+description: Perform the Rain of Death maneuver to ignore the increased difficulty due to the Auto-fire quality of
+  attacks made this turn.
+activation: am
+ranked: false
+forceTalent: false
+trees: Heavy
+reference:
+  - DC:32
+  - FiB:35

@@ -1,0 +1,39 @@
+id: eote-weapon-vac-attack-mk-127-concealable-disc-launcher-arc-mode
+name: Vac Attack Mk-127 Concealable Disc Launcher (Arc Mode)
+description: >-
+  Vac Attack Mk-127 Concealable Disc Launcher
+
+  Initially designed by the Vacutech Combine—which ran out of capital and declared bankruptcy during the development of
+  this weapon thanks to Imperial meddling—the Vac Attack is a small projectile launcher worn around the wrist like a
+  chrono. It fires bursts of small, extremely sharp discs that can shred armor and flesh like a flechette. The weapon's
+  spread can be adjusted so that it fires all of its discs in a single line or in a broad arc that can catch multiple
+  targets. Entirely silent and easily concealable, the Mk-127 is often used for jobs in which silence and stealth are
+  paramount.
+
+  Changing the weapon's spread from single to arc requires a maneuver and grants the weapon the Blast 6 item quality. If
+  Blast is activated, the weapon's supply of discs is exhausted in the shot. When worn on both wrists, Mk-127s can be
+  fired as if they were a single weapon with a regular combat check, gaining the Linked 2 quality. Noticing that an
+  individual is wearing one or a pair of these weapons requires a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check**. At the Game Master's
+  discretion, the discs can be coated with various toxins. Reloads for the Mk-127 contain four discs and cost 100
+  credits.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 1
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - CaM:39

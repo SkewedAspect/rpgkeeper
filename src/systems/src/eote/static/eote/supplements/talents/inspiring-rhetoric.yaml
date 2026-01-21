@@ -1,0 +1,13 @@
+id: eote-talent-inspiring-rhetoric
+name: Inspiring Rhetoric
+description: Take the Inspiring Rhetoric action; making an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Leadership check**. Each <success></success>, 1 ally within close
+  range recovers 1 strain. Spend <advantage></advantage> to cause 1 affected ally to recover 1 additional strain.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Ambassador, Charmer, Figurehead, Politico, Prophet, Senator, Ship Captain
+reference:
+  - E-CRB:137
+  - A-CRB:149
+  - UP:32

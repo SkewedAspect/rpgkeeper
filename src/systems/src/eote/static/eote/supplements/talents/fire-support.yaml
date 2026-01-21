@@ -1,0 +1,10 @@
+id: eote-talent-fire-support
+name: Fire Support
+description: After the character makes a successful combat check using a vehicle weapon, the next ally to make a check
+  adds <boost></boost> equal to the character's ranks of Fire Support.
+activation: p
+ranked: true
+forceTalent: false
+trees: Clone Pilot
+reference:
+  - RotS:39

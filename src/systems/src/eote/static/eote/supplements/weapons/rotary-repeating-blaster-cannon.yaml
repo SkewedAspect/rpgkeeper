@@ -1,0 +1,18 @@
+id: eote-weapon-rotary-repeating-blaster-cannon
+name: Rotary Repeating Blaster Cannon
+description: The rotary blaster cannon, is a blaster cannon used by the Grand Army of the Republic during the Clone Wars.
+skill: Gunnery
+damage: 15
+addSkill: false
+criticalRating: 2
+range: ex
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-inaccurate
+    ranks: 1
+reference:
+  - OaA:54

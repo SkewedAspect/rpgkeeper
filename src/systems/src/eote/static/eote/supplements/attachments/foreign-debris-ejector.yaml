@@ -1,0 +1,22 @@
+id: eote-attachment-foreign-debris-ejector
+name: Foreign Debris Ejector
+description: Podracing attracts a wide range of pilots, from those who delight in testing their skill against fellow
+  speed enthusiasts to those who are only interested in winning, no matter what it takes. For the latter, one method is
+  not to boost their own vehicles performance but to instead hamper their opponents Podracers. Using concealed
+  compartments (known more informally as "dirty trick kits"), pilots can release small nails, reactive chemicals or
+  other debris-designed to foul the engines of a training vehicle, slowing it down or even knocking it out of the
+  running. Though illegal, when used out of the sight of officials these compartments can decide the fate of many a
+  race.
+useWith: vehicle
+hpRequired: 1
+rarity: 3
+baseModifier: Ejects debris into the air behind podracer. Any racer within close range and behind must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Piloting (Planetary) check** to avoid
+  debris. Failure reduces speed by 1 for 2 rounds, plus 1 round per <threat></threat>.
+  <threat></threat><threat></threat><threat></threat> or <despair></despair> can inflict Critical Hit on target
+  vehicle.; May only be used once per race.
+modOptions: []
+reference:
+  - EV:58
+includedModels:
+  - Various (pilots and their crew typically craft them secretly)

@@ -1,0 +1,10 @@
+id: eote-talent-steady-aim
+name: Steady Aim
+description: The character does not lose the benefits of the Aim maneuver if he performs other maneuvers (including
+  moving) or actions. He does lose the benefits of the Aim maneuver if the encounter ends.
+activation: p
+ranked: false
+forceTalent: false
+trees: Retired Clone Trooper
+reference:
+  - DoR:116

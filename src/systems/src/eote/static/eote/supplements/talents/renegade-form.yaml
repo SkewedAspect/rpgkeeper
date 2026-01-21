@@ -1,0 +1,10 @@
+id: eote-talent-renegade-form
+name: Renegade Form
+description: When the character purchases this talent, they choose one characteristic. They may use this characteristic
+  in place of Brawn when making Lightsaber checks
+activation: ai
+ranked: false
+forceTalent: true
+trees: Force Sensitive Outcast, Force-Sensitive Outcast
+reference:
+  - RotS:42

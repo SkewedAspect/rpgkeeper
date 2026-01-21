@@ -1,0 +1,21 @@
+id: eote-armor-koromondian-half-vest
+name: Koromondian Half-Vest
+description: >-
+  Referred to snidely as "bounty hunter insurance" by cynics across the galaxy, the Koromondian half-vest is a common
+  variation of the Mk 45 protective vest produced by the Koromondian PDS, Inc. The vest is designed to protect the
+  wearer from ambushes and sudden attacks from unexpected directions. However, its durability is sch that it quickly
+  loses its  protective qualities as it absorbs damage. Despite this drawback, its low cost endears it to bounty
+  hunters, paramilitary forces, security firms and anyone else short on credits.
+
+  Whenever a character wearing a Koromondian half-vest suffers a Critical Injury, the armor suffers minor damage (or
+  becomes damaged by one additional step if it is already damaged, as described on page 166 of the Force and Destiny
+  core rulebook.)
+defense: 1
+soak: 1
+hardpoints: 0
+encumbrance: 3
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - KtP:49

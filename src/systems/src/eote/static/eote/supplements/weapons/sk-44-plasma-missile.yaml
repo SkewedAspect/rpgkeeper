@@ -1,0 +1,25 @@
+id: eote-weapon-sk-44-plasma-missile
+name: SK-44 Plasma Missile
+description: When primed, a store of high-energy gas within the plasma warhead is converted into a highly volatile
+  plasma state. The operation of a plasma missile is actually very similar to that of a blaster, and the resulting
+  detonation is not unlike the impact of a blaster bolt, albeit magnified tenfold. The trade-off of this weapon is that
+  the unstable warhead detonates after a brief flight time whether it hits its target or not, making the effective range
+  relatively short.
+skill: Gunnery
+damage: 16
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 0
+hardpoints: 0
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 14
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+reference:
+  - DC:42

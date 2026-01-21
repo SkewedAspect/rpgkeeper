@@ -1,0 +1,25 @@
+id: eote-weapon-fyr-assault-carbine
+name: FYR Assault Carbine
+description: >-
+  This slugthrower offering from a relatively obscure manufacturer is notable for its high rate of fire. While certainly
+  an effective weapon, its biggest advantage is perhaps also its greatest downfall, as the automatic weapon's high fire
+  rate highlights the problems of ammunition capacity inherent in all slugthrower weapons. In order to make use of the
+  weapon during any sort of extended engagement or operation, the user must weigh himself down with large quantities of
+  ammunition, and reload often.
+
+  The GM may spend <threat></threat><threat></threat> to cause a PC's assault carbine to run out of ammo.
+skill: Ranged (Heavy)
+damage: 6
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 4
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-inaccurate
+    ranks: 1
+reference:
+  - DC:45

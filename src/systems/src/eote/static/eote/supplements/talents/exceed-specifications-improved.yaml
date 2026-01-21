@@ -1,0 +1,10 @@
+id: eote-talent-exceed-specifications-improved
+name: Exceed Specifications (Improved)
+description: When the character takes the Exceed Specifications incidental, upgrade the ability of the check once
+  instead of adding <boost></boost>.
+activation: p
+ranked: false
+forceTalent: false
+trees: Scavenger
+reference:
+  - RotS:39

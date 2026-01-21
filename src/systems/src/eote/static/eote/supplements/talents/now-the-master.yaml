@@ -1,0 +1,10 @@
+id: eote-talent-now-the-master
+name: Now the Master
+description: Once per session, choose one talent or Force power that any character in the current encounter possesses.
+  Gain that talent or Force power until the end of the encounter.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Teacher
+reference:
+  - DoH:29

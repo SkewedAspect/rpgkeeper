@@ -1,0 +1,24 @@
+id: eote-armor-ht-77-cold-assault-armor
+name: HT-77 Cold Assault Armor
+description: >-
+  The HT-77 pattern of clone armor is a specialized suit designed for operation in cold environments, such as polar
+  regions or planets far from the light of their local sun. Although all clones are trained in its use, it is primarily
+  issued to divisions specialized in tactics and operations for such environments. Featuring additional thermal seals
+  and insulating flaps, cold assault armor greatly enhances the basic temperature-regulating functions of a standard
+  clone bodysuit. Furthermore, the sensory apparatuses installed in HT-77 helmets are designed to deal with issues
+  arising from cold-weather conditions. The visor lenses are treated to resist reflected glare from snow and to avoid
+  frosting over when exposed to moisture, and the audio feedback and comlink systems dampen the sound of high winds and
+  other interference.
+
+  HT-77 cold assault armor comes with a built-in comlink, and it adds <boost></boost><boost></boost> to the wearer's
+  checks to avoid adverse effects from exposure to cold temperatures and weather. Additionally, the wearer removes
+  <setback></setback> imposed by cold-weather conditions on their Perception checks.
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 6
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - RotS:57

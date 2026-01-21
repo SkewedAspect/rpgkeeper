@@ -1,0 +1,10 @@
+id: eote-talent-extended-reach
+name: Extended Reach
+description: While armed with a two-handed melee weapon, may suffer one strain to make a Melee combat check with that
+  weapon targeting an enemy at up to short range (rather than engaged range).
+activation: ai
+ranked: false
+forceTalent: false
+trees: Force Adherent
+reference:
+  - DoR:112

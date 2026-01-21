@@ -1,0 +1,23 @@
+id: eote-weapon-acp-array-gun
+name: ACP Array Gun
+description: A favorite weapon of pirates, the somewhat crude-looking Arakyd Accelerated Charged Particle Array Gun is a
+  short-range blaster useful for clearing the halls and corridors of starships. With a specialized galven coil and
+  prismatic crystal array at the end of the actuating module, blasts from an ACP Array split into a wide spray pattern
+  on exiting the barrel. Though only effective at short ranges, in the narrow passageways and closed spaces of a
+  starship, these weapons can be devastating and are frequently employed by shock troops and pirates during boarding
+  actions.
+skill: Ranged (Heavy)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 3
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 5
+  - id: eote-quality-stun-setting
+reference:
+  - DC:42

@@ -1,0 +1,24 @@
+id: eote-weapon-jammer-missile
+name: Jammer Missile
+description: This countermeasure follows but does not attempt to impact the target vehicle. Instead, it fires a jamming
+  beam at the vehicle (see Jamming Beam, below) If the initial combat check is successful, the missile follows the
+  target at close range for one round per <success></success>. The missile adds <setback></setback><setback></setback>
+  to the target's **Gunnery, Piloting, and Computers checks** (when the pilot is scanning with sensors). The missile's
+  limited fuel means it self-destructs after 3 rounds. The missile can be shot down, but it has a silhouette of 1. Any
+  damage destroys it.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-guided
+    ranks: 4
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - DC:60

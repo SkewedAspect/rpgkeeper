@@ -1,0 +1,26 @@
+id: eote-weapon-shield-gauntlet
+name: Shield Gauntlet
+description: >-
+  Shield gauntlets are specialized defensive items popularized by the Kilian Rangers of Kilia IV. Appearing to be little
+  more than a high-tech gauntlet, a shield gauntlet projects a protective, concave energy field of indistinct
+  coloration. Though these unique items are used primarily by members of the Kilian Rangers, both as a defensive item
+  and as a reminder of their oath to defend themselves and their families, a handful of shield gauntlets have found
+  their way into the hands of collectors, black marketeers, and Force sensitives.
+
+  A shield gauntlet counts as a Lightsaber weapon for the purposes of the Reflect talent (see page 150 of the Force and
+  Destiny core rulebook).
+skill: Brawl
+damage: 1
+addSkill: true
+criticalRating: 5
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-deflection
+    ranks: 2
+  - id: eote-quality-stun-damage
+reference:
+  - KtP:44

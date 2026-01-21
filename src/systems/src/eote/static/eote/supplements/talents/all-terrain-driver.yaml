@@ -1,0 +1,10 @@
+id: eote-talent-all-terrain-driver
+name: All-Terrain Driver
+description: Do not suffer usual penalties for driving through different terrain when using Piloting (Planetary).
+activation: p
+ranked: false
+forceTalent: false
+trees: Driver, Operator
+reference:
+  - A-CRB:142
+  - ND:34

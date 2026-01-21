@@ -1,0 +1,20 @@
+id: eote-armor-mk-iii-flak-vest
+name: Mk. III Flak Vest
+description: >-
+  The Mk. III flak vest from Pacnorval Defense Systems is a basic jacket consisting of light durasteel plates under
+  layered ballistic fabric. Flak vests are designed to protect against shrapnel and heat such as that created by frag
+  grenades, and offer only limited protection against
+
+  direct hits. Flak vests are almost useless against blasters, and as such are seldom seen outside of security forces
+  expecting little resistance and backwater worlds.
+
+  This armor gains +1 soak when the wearer suffers damage from the Blast quality.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 3
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - DC:49

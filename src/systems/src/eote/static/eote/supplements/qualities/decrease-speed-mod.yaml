@@ -1,0 +1,6 @@
+id: eote-quality-decrease-speed-mod
+name: Decrease Speed Mod
+description: Decreases Speed by 1
+passive: true
+ranked: false
+reference: []

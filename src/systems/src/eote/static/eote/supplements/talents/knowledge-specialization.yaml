@@ -1,9 +1,12 @@
 id: eote-talent-knowledge-specialization
 name: Knowledge Specialization
-description: When the character first aquires this talent, they may choose one Knowledge Skill. When making checks with
-  that skill, they may spend <triumph></triumph> to gain additional <success></success> equal to their ranks in
-  Knowledge Specialization.
-activation: ai
+description: When acquired, choose 1 Knowledge skill. When making that skill check, may spend <triumph></triumph> result
+  to gain additional successes equal to ranks in Knowledge Specialization.
+activation: p
 ranked: true
-trees: Sage
-reference: F-CRB:146
+forceTalent: false
+trees: Analyst, Archaeologist, Imperial Academy Cadet, Sage, Scholar, Scientist, Strategist
+reference:
+  - E-CRB:138
+  - A-CRB:150
+  - F-CRB:146

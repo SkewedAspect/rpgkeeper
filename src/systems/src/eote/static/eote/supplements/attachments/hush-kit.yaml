@@ -1,0 +1,17 @@
+id: eote-attachment-hush-kit
+name: Hush Kit
+description: Hush kits were originally designed to muffle the sound of ion and rocket engines around urban spaceports.
+  Installed on a starship's engines, these devices dramatically reduces the sound engines produce. Shortly after their
+  introduction, though, it became apparent that hush kits also make it easier to sneak ships and speeders into and out
+  of places they don't belong. They have since become common among criminals, scouts, and intelligence agents. This
+  attachment can be applied to any starship or vehicle.
+useWith: vehicle
+hpRequired: 1
+rarity: 6
+baseModifier: Adds <setback></setback><setback></setback> to all checks to detect this ship audibly while it is in atmosphere.
+modOptions: []
+reference:
+  - CaM:63
+includedModels:
+  - Incom 44L2 "Whisperer" Hush Kit
+  - SoroSuub "Slipstream" Stage Ill Hush Kit

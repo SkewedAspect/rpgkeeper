@@ -1,0 +1,14 @@
+id: eote-talent-for-the-republic
+name: For the Republic!
+description: Once per encounter when an ally is incapacitated or killed, the character may perform the For the Republic!
+  incidental. The character makes a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Leadership
+  check.** If the check succeeds, the ally is not incapacitated or killed until the end of the following round, instead.
+  If the character's wounds or strain are reduced below their threshold before the end of the next round, they are not
+  incapacitated.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Clone Officer
+reference:
+  - RotS:39

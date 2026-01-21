@@ -1,0 +1,10 @@
+id: eote-talent-natural-rogue
+name: Natural Rogue
+description: Once per session, may reroll any 1 Skulduggery or Stealth check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Gambler, Infiltrator, Pirate, Thief
+reference:
+  - E-CRB:139
+  - A-CRB:153

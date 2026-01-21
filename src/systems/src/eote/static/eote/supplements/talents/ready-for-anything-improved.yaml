@@ -1,0 +1,10 @@
+id: eote-talent-ready-for-anything-improved
+name: Ready for Anything (Improved)
+description: When making Cool or Vigilance checks to determine Initiative order, may spend <triumph></triumph> to add
+  <success></success> equal to ranks in Ready for Anything.
+activation: p
+ranked: false
+forceTalent: false
+trees: Strategist
+reference:
+  - KtP:34

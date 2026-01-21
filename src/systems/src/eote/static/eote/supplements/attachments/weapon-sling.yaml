@@ -1,0 +1,20 @@
+id: eote-attachment-weapon-sling
+name: Weapon Sling
+description: Slings are lengths of hide or synthetic fabric designed to allow easy handling of long arms like blaster
+  rifles and slugthrower rifles. They come in a dizzying array of styles, from the simple adjustable single-strap sling
+  for carrying a weapon off the shoulder to multi-strap slings made of specialized materials that allow for any number
+  of custom sling configurations. These attachments can only be used with Ranged (Heavy) weapons.
+useWith: weapon
+hpRequired: 1
+rarity: 0
+baseModifier: Cumbersome
+modOptions:
+  - Gain Quick Draw (draw/holster as incidental)
+reference:
+  - E-CRB:193
+  - A-CRB:205
+  - F-CRB:195
+includedModels:
+  - Custom-tooled Bantha hide sling
+  - Tactical three-point sling
+  - Quick-release one-point drop sling

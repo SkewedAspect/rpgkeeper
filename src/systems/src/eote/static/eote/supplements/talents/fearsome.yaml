@@ -1,9 +1,10 @@
 id: eote-talent-fearsome
 name: Fearsome
 description: When an adversary becomes engaged with the character, the character may force the adversary to make a fear
-  check (see page 326), with the difficulty equal to the character's ranks in Fearsome. At the GM's discretion, some
-  adversaries may be immune to this talent based on the type ov adversary or ongoing circumstances.
+  check, with the difficulty equal to the character's ranks in Fearsome.
 activation: p
 ranked: true
-trees: Aggressor
-reference: F-CRB:142
+forceTalent: false
+trees: Aggressor, Enforcer, Prophet, Warden
+reference:
+  - F-CRB:142

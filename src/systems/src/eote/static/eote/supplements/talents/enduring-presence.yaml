@@ -1,0 +1,10 @@
+id: eote-talent-enduring-presence
+name: Enduring Presence
+description: Once per session the character may upgrade a Mass Combat check even if the character is not present or is
+  prevented from communicating with their troops.
+activation: p
+ranked: false
+forceTalent: false
+trees: Clone Commander
+reference:
+  - CotR:39

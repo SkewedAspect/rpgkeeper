@@ -1,0 +1,10 @@
+id: eote-talent-superhuman-reflexes
+name: Superhuman Reflexes
+description: Once per session, after generating <despair></despair> on a Piloting check cancel the <despair></despair>
+  and add <success></success> equal to ranks in Cool.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Racer
+reference:
+  - EV:31

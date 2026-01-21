@@ -1,0 +1,11 @@
+id: eote-attachment-swoop-speed-modification
+name: Swoop Speed Modification
+description: Boosts the engines of a swoop and also removes excess weight from the chassis.
+useWith: vehicle
+hpRequired: 2
+rarity: 2
+baseModifier: +1 Speed; -1 Hull Trauma Threshold
+modOptions:
+  - +1 System Strain Threshold
+reference:
+  - SoF

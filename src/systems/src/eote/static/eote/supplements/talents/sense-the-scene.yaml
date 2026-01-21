@@ -1,0 +1,12 @@
+id: eote-talent-sense-the-scene
+name: Sense the Scene
+description: Perform the Sense the Scene action; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check** and add [FO] no
+  greater than Force rating. If successful, spend <forcepoint></forcepoint> to identify the emotional characteristics of
+  one person involved in the crime.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Investigator
+reference:
+  - EV:31

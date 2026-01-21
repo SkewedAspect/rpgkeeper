@@ -1,0 +1,11 @@
+id: eote-talent-resist-questioning
+name: Resist Questioning
+description: When targeted by an opposed social skill check, the character may suffer 2 strain to perform the Resist
+  Questioning out-of-turn incidental, adding <setback></setback> to the check. If the check fails, may spend
+  <despair></despair> to indicate he has provided false information to foe.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Interrogator, Senator
+reference:
+  - CaM:31

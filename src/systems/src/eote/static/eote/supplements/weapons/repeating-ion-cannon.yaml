@@ -1,0 +1,23 @@
+id: eote-weapon-repeating-ion-cannon
+name: Repeating Ion Cannon
+description: Although the repeating cannon is less powerful than other ion weapons, its high rate of fire can provide a
+  great advantage when employed against close formations of starfighters or the point defense systems of capital ships.
+  While each pulse carries a lesser charge, the overall energy requirements of a repeating ion cannon rival or exceed
+  even the most powerful traditional ion cannons. As a perhaps ironic result, after ignoring an Engineer's warnings, a
+  number of captains have found their own ship drifting helplessly alongside the disabled enemy, its systems overloaded
+  and drained.
+skill: Gunnery
+damage: 4
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-ion
+  - id: eote-quality-linked
+    ranks: 4
+reference:
+  - FO:63

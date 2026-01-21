@@ -1,0 +1,17 @@
+id: eote-weapon-geonosian-blaster-carbine
+name: Geonosian Blaster Carbine
+description: The Geonosian carbine was the carbine version of the Geonosian sonic blaster. It worked on the same
+  principles, firing sonic blasts as opposed to blaster bolts.
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 2
+range: m
+encumbrance: 3
+hardpoints: 4
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - Long Arm o:33

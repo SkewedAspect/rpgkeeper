@@ -1,0 +1,20 @@
+id: eote-armor-cargo-clothing
+name: Cargo Clothing
+description: >-
+  Cargo Apparel
+
+  Having the right tools for the job can be crucial to performing any task. And some individuals believe that the best
+  approach to life is to have the right tools for any eventuality. While not helpful with large objects such as blaster
+  rifles, cargo clothing enables a character to carry an impressive array of small devices.
+
+  A character wearing cargo clothing may carry up to three items of encumbrance 1 or lower without those items counting
+  toward his encumbrance value.
+defense: 0
+soak: 0
+hardpoints: 0
+encumbrance: 1
+rarity: 0
+restricted: false
+qualities: []
+reference:
+  - DA:47

@@ -1,0 +1,10 @@
+id: eote-talent-unarmed-parry
+name: Unarmed Parry
+description: May Parry while unarmed Reduce strain cost to Parry while unarmed by 1 (to a minimum of 1).
+activation: p
+ranked: false
+forceTalent: false
+trees: Martial Artist, Steel Hand Adept
+reference:
+  - ND:36
+  - KoF:31

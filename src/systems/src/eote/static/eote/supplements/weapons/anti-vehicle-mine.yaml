@@ -1,0 +1,32 @@
+id: eote-weapon-anti-vehicle-mine
+name: Anti-Vehicle Mine
+description: >-
+  Anti-vehicle mines are large, heavy explosive devices designed to destroy walkers, speeders, and other landborne
+  vehicles. When deployed, they are buried in shallow pits and covered with soil, leaves, duracrete, or other
+  camouflaging agents. They feature both an adjustable pressure switch that can be set to detonate at a certain weight
+  threshold and a proximity sensor that detects the presence of repulsor fields. When triggered, either by weight or by
+  a landspeeder passing over them, their precision-shaped anti-armor charge detonates, damaging the typically soft
+  underbellies of armored vehicles. Anti-vehicle mines are usually deployed in groups, depending on their intended use,
+  and are used to protect fortifications and encampments as well as to deny vehicle access to battlefields and sensitive
+  areas. While quite deadly, anti-vehicle mines present little danger to personnel, as even at their most sensitive
+  setting, they require the weight of a vehicle or the presence of a repulsor field to activate.
+
+  **Models Include:** Merr-Sonn AV70, SoroSuub Model 12 Repulsor Mine.
+skill: Mechanics
+damage: 25
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-blast
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - A-CRB:179

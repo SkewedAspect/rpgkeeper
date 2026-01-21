@@ -1,0 +1,17 @@
+id: eote-attachment-power-unit
+name: Power Unit
+description: |-
+  This portable power can recharge a
+  depleted piece of equipment as an action, or a droid
+  or larger piece of machinery in two hours. Once per encounter, it can allow the wearer of the backpack to
+  ignore an “out of ammo" <despair></despair> result in the same manner
+  as an extra reload (see page 197 of the **Age of Rebellion** Core Rulebook).
+useWith: weapon
+hpRequired: 1
+rarity: 3
+baseModifier: May recharge a depleted piece of equipment as an action, or a droid or larger piece of machinery in two
+  hours.; Once per encounter, wearer may ignore an "out of ammo" <despair></despair> result in the same manner as an
+  Extra Reload.
+modOptions: []
+reference:
+  - FiB:55

@@ -1,0 +1,26 @@
+id: eote-weapon-beskad
+name: Beskad
+description: Beskads are traditional Mandalorian sabers forged from beskar, or Mandalorian iron. Based on an ancient
+  Taung design, these heavy, single-handed short swords are often unfavorably compared to the common machete. They have
+  a broad, single-edged blade about the length of a grown human's arm mounted to a simple hilt with a rectangular
+  crossguard. The blade's cutting edge curves sharply to a point, and its opposite side runs straight from hilt to tip.
+  Designed to crack armor, these powerful blades are used like the humble machetes to which they are compared - to
+  deliver short, powerful slashes.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 2
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-cortosis
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 3
+reference:
+  - CotR:53

@@ -1,0 +1,10 @@
+id: eote-talent-animal-empathy
+name: Animal Empathy
+description: When making checks to handle or tame animals, add [FO] no greater than Force rating to the check. Spend
+  <forcepoint></forcepoint> to add <success></success> or <advantage></advantage> to the check.
+activation: p
+ranked: false
+forceTalent: true
+trees: Pathfinder
+reference:
+  - F-CRB:139

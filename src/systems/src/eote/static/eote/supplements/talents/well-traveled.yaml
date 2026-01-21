@@ -1,0 +1,10 @@
+id: eote-talent-well-traveled
+name: Well Traveled
+description: Knowledge (Core Worlds) and Knowledge (Outer Rim) become career skills.
+activation: p
+ranked: false
+forceTalent: false
+trees: Courier, Recruit, Separatist Commander, Teacher
+reference:
+  - A-CRB:159
+  - DoH:30

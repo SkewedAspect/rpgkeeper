@@ -1,0 +1,10 @@
+id: eote-talent-get-the-drop
+name: Get The Drop
+description: Once per session, the character and any number of allies in the encounter may add <success></success> equal
+  to the character's rank in Stealth to their checks to determine initiative.
+activation: ai
+ranked: false
+forceTalent: false
+trees: ARC Trooper
+reference:
+  - CotR:21

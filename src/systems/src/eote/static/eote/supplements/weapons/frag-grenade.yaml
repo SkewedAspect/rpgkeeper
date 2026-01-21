@@ -1,0 +1,35 @@
+id: eote-weapon-frag-grenade
+name: Frag Grenade
+description: >-
+  A great variety of grenades can be found throughout the galaxy, from hand-made explosives created with organic shells
+  on primitive worlds to mass-produced metallic casings filled with jagged shards of metal. All fulfill the same basic
+  purpose—to cause as much damage and mayhem as possible over a large area.
+
+  Frag grenades are very effective against unarmored targets, rending exposed flesh and causing massive concussive
+  damage to soft tissues. They are significantly dampened by armor, such as that worn by Imperial stormtroopers. Those
+  who wonder why the Empire's foot soldiers wear armor that cannot stop blaster fire have likely never seen them emerge
+  from the smoke and ruin of a frag grenade unharmed.
+
+  Frag grenades can be set to detonate on impact or set with a timer to detonate up to 3 rounds after being activated at
+  the beginning of the attacker's action. Some also have a "dead man's" or pressure switch that, once pressed, detonates
+  immediately upon release.
+
+  **Models Include**: Merr-Sonn C-22.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - E-CRB:165
+  - A-CRB:178
+  - F-CRB:170

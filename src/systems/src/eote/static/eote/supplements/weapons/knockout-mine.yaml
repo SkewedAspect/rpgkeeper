@@ -1,0 +1,29 @@
+id: eote-weapon-knockout-mine
+name: Knockout Mine
+description: >-
+  Brennkeyes Syndicate Knockout Mine
+
+  Another favorite tool for nonlethal personnel control, knockout charges such as Brennkeyes Syndicate safety mines
+  allow the user to safely concentrate on other tasks while being assured early warning in the case of unwanted
+  guests—at least, those who need to breath. Smaller and more easily concealed than their lethal counterparts, the mines
+  are typically placed at head height and triggered via laser tripwire. Upon detonation, a knockout mine releases a
+  flash of light and a neuroparalytic that halts organics who inhale it.
+
+  A character hit by a knockout mine must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)  Resilience check**. If he fails, he
+  becomes immobilized until the end of the encounter.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-stun-damage
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DA:45

@@ -1,0 +1,20 @@
+id: eote-armor-alliance-engineers-helmet-and-vest
+name: Alliance Engineer's Helmet and Vest
+description: >-
+  Similar to helmets worn by civilian engineers and construction workers, an Alliance engineer's helmet is made of
+  sturdy, lightweight, fiber-reinforced polycarbonate and fitted with a shock-absorbing gel liner. They can be equipped
+  with an optional flexible visor to protect the face and eyes from flying debris. These helmets are usually worn in
+  conjunction with similarly sturdy protective vests made of reinforced cloth. While such helmet and vests are perhaps
+  not the most effective armor, they have been known to turn a blaster bolt or shrapnel from a grenade.
+
+  While wearing an Alliance engineer's helmet and vest, the character counts as having 1 rank (or one additional rank)
+  in the Durable talent.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 1
+rarity: 1
+restricted: false
+qualities: []
+reference:
+  - FO:42

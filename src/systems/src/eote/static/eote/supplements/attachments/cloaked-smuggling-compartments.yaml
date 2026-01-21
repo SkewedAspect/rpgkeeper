@@ -1,0 +1,16 @@
+id: eote-attachment-cloaked-smuggling-compartments
+name: Cloaked Smuggling Compartments
+description: An improvement on secret compartments used by smugglers throughout the galaxy, cloaked smuggling
+  compartments are even more difficult to discover than more "standard" models. Lined with nightshadow, cloaked
+  smuggling compartments can foil all but the most sensitive sensor scans.
+useWith: vehicle
+hpRequired: 1
+rarity: 4
+baseModifier: +1 Hidden Compartment Encumbrance; Increases difficulty of checks made to find compartment by 3.
+modOptions:
+  - +1 Hidden Compartment Encumbrance
+  - +1 Hidden Compartment Encumbrance
+reference:
+  - FC:63
+includedModels:
+  - Arakyd Industries Nightshadow compartment liners

@@ -1,0 +1,11 @@
+id: eote-talent-skilled-teacher
+name: Skilled Teacher
+description: If an ally at short range has lower ranks in a skill than the character, the character may perform a
+  Skilled Teacher incidental to suffer a number of strain no greater than ranks of Skilled Teacher, then add an equal
+  number of <success></success> to ally's next check.
+activation: aio
+ranked: true
+forceTalent: false
+trees: Teacher
+reference:
+  - DoH:30

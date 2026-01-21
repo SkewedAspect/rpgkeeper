@@ -1,0 +1,27 @@
+id: eote-weapon-neuronic-whip
+name: Neuronic Whip
+description: >-
+  Used by slavers across the galaxy to keep their "merchandise" in line, the neuronic whip is a terrible weapon banned
+  on many worlds. A powerful electrical charge runs the length of this cruel wire whip, discharging when it strikes its
+  target and sending painful impulses racing through its victim's nerve cells. The whip emits an ominous low humming
+  sound when charged, exploding like the crack of a gunshot when it comes into contact its unfortunate target.
+
+  This weapon can be used to make melee attacks against targets at up to short range (the difficulty remains **Average
+  <difficulty></difficulty><difficulty></difficulty>**).
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 4
+  - id: eote-quality-ensnare
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - LoNH:104

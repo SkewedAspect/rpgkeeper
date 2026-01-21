@@ -1,0 +1,23 @@
+id: eote-armor-adverse-environmental-gear
+name: Adverse Environmental Gear
+description: >-
+  Anyone traveling outside the civilized planets of the galaxy should make a point of packing some form of hostile
+  environment gear. Clothing for hot, desert environments often includes voluminous robes, goggles, headwraps,
+  self-cooling packs, and water recyclers. Clothing for cold environments often consists of insulated parkas, quilted
+  and layered pants, ice-goggles, and head-gear.
+
+  Characters with this gear may ignore <setback></setback> imposed by the environment they find themselves in. The gear
+  must be appropriate to the environment at hand.
+
+  **Models Include:** Pretormin Environmental Froz 350 and ScorSear 200 complete gear sets.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 2
+rarity: 1
+restricted: false
+qualities: []
+reference:
+  - E-CRB:169
+  - A-CRB:184
+  - F-CRB:178

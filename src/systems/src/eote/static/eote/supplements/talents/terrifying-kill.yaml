@@ -1,0 +1,9 @@
+id: eote-talent-terrifying-kill
+name: Terrifying Kill
+description: The character may spend 1 Destiny Point to take the Terrifying Kill mane.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Executioner
+reference:
+  - SS:31

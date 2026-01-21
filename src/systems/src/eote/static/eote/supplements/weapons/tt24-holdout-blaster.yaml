@@ -1,0 +1,17 @@
+id: eote-weapon-tt24-holdout-blaster
+name: TT24 Holdout Blaster
+description: TT24 holdout blaster is a make of Hold-out blaster available during the Galactic Civil War between the
+  Galactic Empire and the Alliance to Restore the Republic. The blasters can be set to a stun setting if needed.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - Beyond the:26

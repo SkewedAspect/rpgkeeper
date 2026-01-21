@@ -1,0 +1,10 @@
+id: eote-talent-stim-application-supreme
+name: Stim Application (Supreme)
+description: When performing their Stim Application Action, spend <triumph></triumph> to increase an additional Characteristic by 1.
+activation: p
+ranked: false
+forceTalent: false
+trees: Doctor, Medic
+reference:
+  - E-CRB:143
+  - A-CRB:157

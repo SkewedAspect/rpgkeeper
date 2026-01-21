@@ -1,0 +1,10 @@
+id: eote-talent-clanker-killer-improved
+name: Clanker Killer (Improved)
+description: Decrease the critical rating of Brawl and melee attacks targeting droids by 1 per rank of Clanker Killer,
+  to a minimum of 1.
+activation: p
+ranked: false
+forceTalent: false
+trees: Clone Veteran
+reference:
+  - CotR:37

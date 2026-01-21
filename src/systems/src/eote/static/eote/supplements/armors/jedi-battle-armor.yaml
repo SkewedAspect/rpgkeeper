@@ -1,0 +1,22 @@
+id: eote-armor-jedi-battle-armor
+name: Jedi Battle Armor
+description: >-
+  When the Jedi battled Sith warriors in ancient days, many wore suits of armor to protect themselves from the weapons
+  of their enemies.  Crafted by some of the best armorsmiths in the galaxy, these suits of battle armor were extremely
+  resistant to cutting edges and baster fire alike. They were also quite cumbersome, and each one was custom forged for
+  its wearer. Though hundreds of such suits were made, only a handful have survived to the present day in anything
+  resembling usable condition, and all specimens are still fitted to their wearers of old.
+
+  A character wearing Jedi battle armor fitted for somebody else adds <setback></setback><setback></setback> to all
+  Combat checks. A suit of Jedi battle armor can be fitted to a new wearer with a Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check that takes an hour to
+  complete. Jedi battle armor is eligible to be sealed against the vacuum and other hazardous environments.
+defense: 1
+soak: 2
+hardpoints: 5
+encumbrance: 5
+rarity: 9
+restricted: true
+qualities: []
+reference:
+  - KtP:47

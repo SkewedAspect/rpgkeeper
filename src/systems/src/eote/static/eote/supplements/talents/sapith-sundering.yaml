@@ -1,0 +1,10 @@
+id: eote-talent-sapith-sundering
+name: Sapith Sundering
+description: May add [FO] up to Force rating to Brawl checks; the attack gains the Sunder quality, and character may
+  spend <forcepoint></forcepoint> generated one the check as <advantage></advantage> to activate the Sunder quality.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Steel Hand Adept
+reference:
+  - KoF:31

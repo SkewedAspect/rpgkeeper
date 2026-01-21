@@ -1,0 +1,31 @@
+id: eote-weapon-vibrosword
+name: Vibrosword
+description: >-
+  Many galactic civilizations have long taken to improving the simple but effective blade with induced ultra-sonic
+  vibrations. The high frequency vibrations of the cutting edge greatly improve the sharpness of the weapon, allowing it
+  to carve through most materials with ease.
+
+  There are many variations of vibroblade, but the vibrosword is fairly common amongst those who fancy themselves
+  duelists.
+
+  **Models Include**: Merr-Sonn Damask-4 Duelist Sword.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 3
+hardpoints: 3
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - E-CRB:167
+  - A-CRB:182
+  - F-CRB:175

@@ -1,0 +1,25 @@
+id: eote-attachment-physiological-enhancement-system
+name: Physiological Enhancement System
+description: >-
+  These advanced, custom-tailored systems provide medical diagnostics, ergonomic adjustments, and powered support
+  systems tuned to the wearer’s motor functions. Stress and pain are greatly reduced by heart-rate regulation and
+  temperature-control systems, and common physical tasks require considerably less effort. These benefits come at a
+  significant cost, as the systems involved require careful calibration to the wearer’s specific needs and physique.
+
+  Although physiological support systems are normally tailored to individual physiology, they can be produced for clones
+  using a standardized template, greatly reducing the cost. As such, the first cost listed is for clones, while the
+  second, higher price is for a custom support system. This attachment may only be installed on fully enclosed suits of
+  armor, such as laminate, clone trooper, or heavy battle armor.
+useWith: armor
+hpRequired: 2
+rarity: 7
+baseModifier: Reduce strain suffered involuntarily by 1, to minimum of 1.; Adds <boost></boost> to all Athletics,
+  Coordination, and Resilience checks.
+modOptions:
+  - Add <boost></boost> to Athletics checks
+  - Add <boost></boost> to Coordination checks
+  - Add <boost></boost> to Resilience checks
+reference:
+  - RotS:65
+includedModels:
+  - Creshaldyne Industries LV-2 “Bio-Strong” Support Suite

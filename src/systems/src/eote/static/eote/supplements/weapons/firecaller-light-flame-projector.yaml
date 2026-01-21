@@ -1,0 +1,35 @@
+id: eote-weapon-firecaller-light-flame-projector
+name: '"Firecaller" Light Flame Projector'
+description: >-
+  Merr-Sonn's "Firecaller" model flame projectors have inspired almost as much fear and revulsion among those who have
+  encountered them as disruptors, despite the long and infamous history of disintegrators. Under a galactic government
+  more concerned with sapient rights and well-being than the Empire, authorities might have banned these dreadful
+  weapons already; some individual planetary governments have taken that step on their own. As such, Firecallers have
+  tremendous appeal to criminals, bounty hunters, and those who are drawn towards such a repuation.
+
+  The reason for the Firecallers' infamy lies in its unconventional fuel, an accelerite derivative abandoned by the
+  company's starship designers as too unstable for use in their work. The highly flammable chemical substance burns at
+  an incredibly high temperature and for an extended period compared to the typical fuels used in flame projectors.
+  Although each blast from these weapons releases only a small spray of the chemical in order to prevent dangerous
+  blowback, even this limited exposure causes devastating wounds over time as it burns its way through armor and
+  protective gear to inflict terrible harm on now-exposed flesh.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 4
+hardpoints: 1
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 2
+  - id: eote-quality-burn
+    ranks: 2
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 3
+reference:
+  - ND:44

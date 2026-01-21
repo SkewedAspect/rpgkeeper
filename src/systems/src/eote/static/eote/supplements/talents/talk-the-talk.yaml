@@ -1,0 +1,11 @@
+id: eote-talent-talk-the-talk
+name: Talk the Talk
+description: When making a Knowledge skill check, the character may spend 1 Destiny Point to substitute Knowledge
+  (Underworld) or Streetwise for the required skill.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Enforcer, Investigator
+reference:
+  - DC:33
+  - EV:31

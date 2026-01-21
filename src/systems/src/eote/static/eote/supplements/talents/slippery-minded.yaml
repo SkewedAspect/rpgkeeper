@@ -1,0 +1,11 @@
+id: eote-talent-slippery-minded
+name: Slippery Minded
+description: If under the effects of a Force power, perform the Slippery Minded action; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Deception check** to immediately end
+  effects of power.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Ascetic, Shadow
+reference:
+  - F-CRB:152

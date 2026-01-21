@@ -1,0 +1,10 @@
+id: eote-talent-overwhelming-aura
+name: Overwhelming Aura
+description: Commit [FO]. Add <advantage></advantage> to social checks equal to [FO] committed. Add <threat></threat> to
+  equal [FO] committed to enemy social checks in short range.
+activation: am
+ranked: true
+forceTalent: true
+trees: Prophet
+reference:
+  - UP:33

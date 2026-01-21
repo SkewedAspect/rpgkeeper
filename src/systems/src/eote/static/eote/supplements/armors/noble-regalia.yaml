@@ -1,0 +1,18 @@
+id: eote-armor-noble-regalia
+name: Noble Regalia
+description: >-
+  Although often inconvenient to wear, severely limiting to movement, and historically archaic, few things command
+  innate respect as much as the traditional attire of a planet's nobility. Varying from culture to culture, noble
+  regalia typically incorporates multiple layers of ornate, expensive clothing. Although a casual observer might not
+  recognize the wearer's exact rank or title, noble regalia nonetheless conveys a degree of aristocratic importance.
+
+  The wearer downgrades the difficulty of social checks to interact with other nobility and their subordinates once.
+defense: 0
+soak: 0
+hardpoints: 3
+encumbrance: 1
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - DA:49

@@ -1,0 +1,11 @@
+id: eote-talent-no-escape
+name: No Escape
+description: May spend <advantage></advantage><advantage></advantage> from a Coercion check or
+  <threat></threat><threat></threat> from a foe's Discipline check; that target cannot perform a free maneuver during
+  his next turn.
+activation: p
+ranked: false
+forceTalent: true
+trees: Warden
+reference:
+  - KtP:30

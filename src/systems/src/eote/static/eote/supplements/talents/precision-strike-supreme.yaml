@@ -1,0 +1,11 @@
+id: eote-talent-precision-strike-supreme
+name: Precision Strike (Supreme)
+description: Once per session, when inflicting a Critical Injury with an unarmed attack, may suffer 3 strain to change
+  the result to any **Hard (<difficulty></difficulty>)(<difficulty></difficulty>)(<difficulty></difficulty>)** Critical
+  Injury.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Martial Artist
+reference:
+  - ND:36

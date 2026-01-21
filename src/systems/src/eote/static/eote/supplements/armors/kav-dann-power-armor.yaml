@@ -1,0 +1,35 @@
+id: eote-armor-kav-dann-power-armor
+name: Kav-Dann Power Armor
+description: >-
+  Developed by the various interests and groups in secret on Nubia following the Empire's rise to prominence. Kav-Dann
+  series power armor is named after a reptilian predator native to the world. Though intended for sale to the Rebel
+  Alliance, the Imperial presence on Nubia has prevented meaningful distribution of the experimental suit. Available at
+  a premium price, especially considering its clandestine status. Kav-Dann power armor presents a highly customizable
+  canvas for individuals involved in high-risk combat situations.
+
+  Bulky and intimidating, Kav-Dann power armor presents a fully sealed chassis that is impervious to most adverse
+  environments, including open space. The suit comes equipped with few amenities by default. The Nubian engineers who
+  created the Kav-Dann power armor intended for major modifications and upgrades to be made by the buyer, which both
+  reduces the expense of the suit and decreases manufacturing time.
+
+  Like many other varieties of powered armor, a Kav-Dann suit is spaceworthy and includes a full life-support suite that
+  can be modified for most alien physiologies. A wearer can survive for four hours in a vacuum or unbreathable
+  atmosphere, and gains <boost></boost> to checks to resist the effects of radiation. The helmet incorporates the
+  long-range comlink and a basic visual package that allows for the wearer to remove <setback></setback> caused by
+  darkness, smoke or other environmental factors that might affect vision from all Perception, Vigilance, and Combat
+  checks.
+
+  Kav-Dann power armor increases the wearer's Brawn by 1 so long as it remains powered, though this bonus does not
+  increase the user's soak or wound threshold. The listed encumbrance of 4 reflects the bulk of the armor when powered.
+  If the suit loses power for any reason, the encumbrance increases to 12, defense is reduced to -, and the bonus to
+  Brawn is lost. Donning a suit of Kav-Dann power armor takes ten minutes, though this time can be halved if the wearer
+  is assisted.
+defense: 2
+soak: 2
+hardpoints: 6
+encumbrance: 4
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - KtP:48

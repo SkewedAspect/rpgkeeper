@@ -1,0 +1,42 @@
+id: eote-attachment-briefing-auditorium
+name: Briefing Auditorium
+description: |-
+  Most dedicated warships, especially those in service
+  with the Imperial Navy, have special compartments set
+  aside for the briefing and debriefing of fighter, gunboat,
+  and shuttle pilots, ground vehicle drivers, and ground
+  combat forces. Before and after missions, pilots, soldiers,
+  and support staff gather in these large, well-lit
+  compartments to be briefed on their missions by a
+  senior officer, or to report on their missions and learn
+  how their success or failure affected the larger strategic
+  situation. Typically located close to hangars, barracks,
+  or berth decks, a standard briefing auditorium features
+  plenty of seating, access to power and shipboard networks
+  for datapads, a lectern or speaking platform, and
+  audio/video/holo equipment. These rooms and equipment
+  allow senior officers to issue orders en masse and
+  to make sure that all of their subordinates are properly
+  prepared for the mission at hand.
+  While the Alliance to Restore the Republic fields some
+  dedicated warships, either decommissioned vessels
+  from the Clone Wars or stolen Imperial Navy vessels,
+  most Alliance ships began life as civilian vessels and
+  were militarized in an ad hoc fashion to fit the needs
+  of specific Rebel cells or fleets. Ships of silhouette 5 or
+  larger can be fitted with a briefing auditorium, giving
+  Commanders a venue in which to issue orders personally
+  and en masse to the troops and pilots under their
+  command.
+useWith: vehicle
+hpRequired: 1
+rarity: 0
+baseModifier: Characters briefed in this auditorium prior to a mission remove <setback></setback> due to known mission
+  conditions from skill checks for the duration of the mission.
+modOptions:
+  - Add <advantage></advantage> to Leadership checks made by characters within the briefing auditorium
+  - Add <advantage></advantage> to Leadership checks made by characters within the briefing auditorium
+reference:
+  - LbE:58
+includedModels:
+  - None

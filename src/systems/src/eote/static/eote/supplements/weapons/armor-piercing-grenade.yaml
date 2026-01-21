@@ -1,0 +1,39 @@
+id: eote-weapon-armor-piercing-grenade
+name: Armor Piercing Grenade
+description: >-
+  Armor-Piercing Grenade
+
+  Armor-piercing grenades, commonly known as AP grenades, are offensive grenades designed to give an individual trooper
+  respectable anti-armor capabilities. Used as both anti-armor and anti-materiel weapons, most AP grenades use precisely
+  calibrated shaped charges housed in specially designed casings to focus all of their explosive force on one small
+  area. This allows them to be deployed against armored vehicles or structures with little collateral damage to the
+  surrounding area. Despite their tightly focused area of effect, AP grenades still have a decent blast area. One or two
+  tossed into a squad of Imperial stormtroopers or other soldiers in heavy armor can cause more damage than a whole
+  handful of frag grenades.
+
+  Many AP grenades, especially those designed specifically for anti-armor and anti-materiel work, are equipped with
+  either a magnetic or chemical adhesive system that allows them to be placed on walls, floors, and vehicle hulls for
+  pinpoint demolitions and targeted sabotage.
+
+  Like frag grenades, AP grenades can be set to detonate on impact, set with a timer to detonate up to 3 rounds after
+  being activated, or use a pressure detonator.
+
+  **Models Include:** Merr-Sonn Model 9 Armor Piercing Grenade, Merr-Sonn "Door Buster" Anti-Materiel Grenade.
+skill: Ranged (Light)
+damage: 13
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 3
+reference:
+  - A-CRB:179

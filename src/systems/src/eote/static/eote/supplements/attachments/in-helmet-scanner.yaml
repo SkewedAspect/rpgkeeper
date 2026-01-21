@@ -1,0 +1,20 @@
+id: eote-attachment-in-helmet-scanner
+name: In-Helmet Scanner
+description: An in-helmet scanner provides the usefulness of a general purpose scanner in a heads-up display splashed
+  across the inside of the users helmet. This feeds the user a constant stream of information about the surrounding
+  environment. Depending on the specific model, an in-helmet scanner can indicate the presence of life forms or droids
+  and display heat signatures, radiation sources, acoustic emissions, and more. Many can also scan and listen to nearby
+  comlink frequencies. In-helmet scanners can be added to any helmet.
+useWith: armor
+hpRequired: 1
+rarity: 4
+baseModifier: Adds a general purpose scanner to the user’s helmet. The scanner allows the user to remove
+  <setback></setback> imposed on any checks due to darkness or environmental conditions such as smoke or fog. It also
+  allows the user to detect heat sources and motion within medium range.
+modOptions: []
+reference:
+  - F-CRB:201
+includedModels:
+  - CryonCorp GoScan
+  - CUE Optical Information System (Mobile)
+  - Chedak Mk. 7 HUD-INFO

@@ -1,8 +1,11 @@
 id: eote-talent-second-wind
 name: Second Wind
-description: Once per encounter the character may use a Second Wind incidental to recover an amount of strain equal to
-  his ranks in Second Wind.
+description: Once per encounter, may use Second Wind incidental to heal strain equal to ranks in Second Wind.
 activation: ai
-ranked: false
-trees: Peacekeeper, Shii-Cho Knight
-reference: E-CRB:142
+ranked: true
+forceTalent: false
+trees: Courier, Enforcer, Mercenary Soldier, Peacekeeper, Performer, Recruit, Saboteur, Shii-Cho Knight
+reference:
+  - E-CRB:142
+  - A-CRB:155
+  - F-CRB:151

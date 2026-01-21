@@ -1,0 +1,26 @@
+id: eote-weapon-mini-torpedo-stun
+name: Mini-Torpedo, Stun
+description: >-
+  Combining a concussive blast with a series of blinding flashes, stun mini-torpedoes are especially effective
+  underwater.
+        
+  _For use with the Mon Cal Defenses Mini-Torpedo Launcher_
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 2
+range: l
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-concussive
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - SoR:107

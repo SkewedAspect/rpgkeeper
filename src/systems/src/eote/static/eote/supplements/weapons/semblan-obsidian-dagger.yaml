@@ -1,0 +1,27 @@
+id: eote-weapon-semblan-obsidian-dagger
+name: Semblan Obsidian Dagger
+description: >-
+  Like many items made by the Vurk, Semblan daggers tend to serve at least two functions. First, they are utilitarian
+  knives, used as both tools and weapons. Second, the blade's iconic design has served as a meditation aid for centuries
+  of Vurk sages.
+
+  In their most iconic examples, the dagger's blade curves back and forth as it tapers to a point. Vurk sages hold that
+  these gentle undulations mirror the duality of their homeworld. The curving edges hearken to the planet's shallow
+  seas, while obsidian inlays evoke the planet's volcanoes. For centuries, they would mediate on this contrast,
+  searching for harmony. Even if other species lack that cultural context, studying the dagger still has uses.
+
+  When a Vurk makes a Discipline check at the end of an encounter to heal strain, they heal one additional strain as
+  long as they are holding a Semblan dagger. At the GM's discretion, non-Vurk characters can also benefit from this if
+  they have a thorough grounding in Vurk culture and the mentality to appreciate the meditative properties.
+skill: Melee
+damage: 0
+addSkill: false
+criticalRating: 1
+range: en
+encumbrance: 1
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - UP:50

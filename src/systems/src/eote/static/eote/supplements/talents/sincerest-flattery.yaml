@@ -1,0 +1,10 @@
+id: eote-talent-sincerest-flattery
+name: Sincerest Flattery
+description: Once per encounter when the character makes a check using a skill that another character has previously
+  used during the encounter, they add <boost></boost><boost></boost>.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Padawan
+reference:
+  - RotS:42

@@ -1,0 +1,17 @@
+id: eote-attachment-anq-36-tracking-computer
+name: ANQ 3.6 Tracking Computer
+description: The Anq 3.6 is a computer/fire control system that allows the Pathfinder's sensor operator to coordinate
+  fire amongst all ship weapons. The sensor operator must designate one target and make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Computers check**. If he succeeds, all combat checks made by ship
+  weapons against his designated target upgrade the ability of their check once. If he has
+  <success></success><success></success><success></success> or <triumph></triumph> on his check, he may designate an
+  additional target.
+useWith: vehicle
+hpRequired: 1
+rarity: 6
+baseModifier: Choose one target and make **Average (<difficulty></difficulty><difficulty></difficulty>) Computers
+  check**. If successful, combat checks against target are upgraded once.
+  <success></success><success></success><success></success> or <triumph></triumph> allows additional target.
+modOptions: []
+reference:
+  - EtU:60

@@ -1,0 +1,25 @@
+id: eote-weapon-ancient-sword
+name: Ancient Sword
+description: >-
+  Some say the earliest precursors to the Jedi wielded true swords, not lightsabers, in their battles against evil These
+  weapons possessed strikingly shaped blades and a unique balance that made them difficult to master for those used to
+  wielding more mundane weapons. Some whisper that those early Force-sensitive warriors could somehow imbue these
+  weapons with the Force, making them stronger, keener, and more deadly. Whatever the truth of these rumors, there are
+  still examples of such swords in the galaxy today. Some are artfully crafted replicas or commissioned by specific
+  warriors, while a Few are treasured heirlooms preserved from the mists of the distant past.
+
+  **Models Include:** None.
+skill: Lightsaber
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 3
+hardpoints: 1
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+reference:
+  - F-CRB:172

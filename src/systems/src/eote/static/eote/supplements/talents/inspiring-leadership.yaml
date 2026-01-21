@@ -1,0 +1,11 @@
+id: eote-talent-inspiring-leadership
+name: Inspiring Leadership
+description: Take the Inspiring Leadership action by making an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Leadership check**. If successful, a number of allies not
+  exceeding his rating in Presence within short range add automatic <success></success> to their next skill check.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Ship Captain
+reference:
+  - DoR:113

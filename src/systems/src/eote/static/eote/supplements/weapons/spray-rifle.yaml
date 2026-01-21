@@ -1,0 +1,36 @@
+id: eote-weapon-spray-rifle
+name: Spray Rifle
+description: >-
+  Loronar Spray Rifle
+
+  The Loronar spray rifle fires a highly pressurized stream of fluid. The fluid affects its target by carrying a
+  powerful sedative suspended in an organic solvent. That substance is easily absorbed through the skin, carrying the
+  sedative directly into the target's bloodstream. In addition to penetrating the skin of almost all known species, the
+  fluid is capable of penetrating many types of armor, including ones designed to be environmentally sealed. This makes
+  the spray rifle a useful weapon against targets wearing equipment that could stop an airborne sedative. However,
+  because the stream must be carefully targeted, it is less effective against crowds than a non-lethal gas attack.
+
+  The spray rifle's ammunition is stored in a transparent metallic canister, which attaches as a clip. The weapon also
+  has a one-liter cylindrical tank that stores the compressed air used to propel its payload. This is normally refilled
+  from a preasure canister after firing three to four canisters of ammunition.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 0
+range: m
+encumbrance: 4
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-burn
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 3
+  - id: eote-quality-prepare
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - DoH:43

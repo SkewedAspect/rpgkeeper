@@ -1,0 +1,9 @@
+id: eote-talent-toughened-improved
+name: Toughened (Improved)
+description: Once per session, may heal wounds equal to ranks in Toughened.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Colossus
+reference:
+  - KoF:31

@@ -1,0 +1,9 @@
+id: eote-talent-leverage
+name: Leverage
+description: The character removes <setback></setback> per rank of Leverage from their Cool and Negotiation checks.
+activation: p
+ranked: true
+forceTalent: false
+trees: Republic Representative
+reference:
+  - RotS:40

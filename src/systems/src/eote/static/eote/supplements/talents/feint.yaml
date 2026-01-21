@@ -1,0 +1,11 @@
+id: eote-talent-feint
+name: Feint
+description: Spend <triumph></triumph> or <advantage></advantage><advantage></advantage><advantage></advantage>
+  generated on a missed melee attack to upgrade difficulty of opponent's next attack targeting character by ranks in
+  Feint.
+activation: p
+ranked: true
+forceTalent: false
+trees: Makashi Duelist
+reference:
+  - F-CRB:142

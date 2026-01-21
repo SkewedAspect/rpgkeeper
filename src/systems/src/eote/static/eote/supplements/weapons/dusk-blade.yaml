@@ -1,0 +1,22 @@
+id: eote-weapon-dusk-blade
+name: Dusk Blade
+description: The mysterious Nightsisters use a number of bladed weapons, the most common of which is a deadly short
+  sword. Carried both in battle and for ceremonial purposes, this weapon has a curved, single-edged blade similar to
+  that of a scimitar or cutlass. The blade is broad at the tip and tapers toward the hilt, then flares out again where
+  it meets the minimal handguard. It has a short, one-handed hilt and a guard on the outer edge below the cutting edge.
+  Lightweight, flexible, and easy to handle, these swords are lethal in the hands of a trained user.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 1
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-superior
+reference:
+  - CotR:54

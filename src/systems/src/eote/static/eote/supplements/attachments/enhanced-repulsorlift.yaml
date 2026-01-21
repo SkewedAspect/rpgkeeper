@@ -1,0 +1,16 @@
+id: eote-attachment-enhanced-repulsorlift
+name: Enhanced Repulsorlift
+description: As one might well guess from their name, speeders are swift craft by nature. For some pilots, however,
+  there is no such thing as a enough speed. Enhancements and modifications to repulsorlift systems can often coax extra
+  acceleration out of factory-standard models, despite the fact that manufacturers caution against making such dangerous
+  customizations to their vehicles. The attachment can be applied to any airspeeder or landspeeder.
+useWith: vehicle
+hpRequired: 1
+rarity: 3
+baseModifier: +1 Speed; -1 Handling
+modOptions:
+  - Gain Defensive Driving (increase defense while piloting)
+reference:
+  - SM:65
+includedModels:
+  - Ubrikkian Transports Ultralift 2000

@@ -1,7 +1,11 @@
 id: eote-talent-well-rounded
 name: Well Rounded
-description: The character chooses any two skills. They permanently become career skills.
+description: Choose any 2 skills. They permanently become career skills.
 activation: p
 ranked: true
-trees: Politico, Scholar
-reference: E-CRB:145
+forceTalent: false
+trees: Archaeologist, Medic, Padawan, Politico, Propagandist, Scholar, Shadow, Sleeper Agent, Teacher
+reference:
+  - E-CRB:145
+  - A-CRB:159
+  - F-CRB:153

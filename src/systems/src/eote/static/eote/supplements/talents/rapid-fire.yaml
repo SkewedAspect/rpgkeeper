@@ -1,0 +1,10 @@
+id: eote-talent-rapid-fire
+name: Rapid Fire
+description: May add the Auto-fire item quality to a Ranged (Light) combat check. After resolving the attack, the weapon
+  runs out of ammo.
+activation: ai
+ranked: false
+forceTalent: false
+trees: ARC Trooper
+reference:
+  - CotR:21

@@ -1,0 +1,9 @@
+id: eote-talent-spur-supreme
+name: Spur (Supreme)
+description: When activating and maintaining Spur, the beast only suffers 1 strain instead of 2.
+activation: p
+ranked: false
+forceTalent: false
+trees: Beast Rider
+reference:
+  - SoT:33

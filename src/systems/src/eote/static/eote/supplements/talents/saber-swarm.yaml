@@ -1,0 +1,10 @@
+id: eote-talent-saber-swarm
+name: Saber Swarm
+description: Perform the Saber Swarm maneuver; suffer 1 strain to make next Lightsaber (Agility) combat check this turn
+  gain the Linked item quality equal to Force rating during check.
+activation: am
+ranked: false
+forceTalent: true
+trees: Ataru Striker
+reference:
+  - F-CRB:151

@@ -1,0 +1,11 @@
+id: eote-talent-iron-body
+name: Iron Body
+description: Remove <setback></setback> per rank of Iron Body from Coordination and Resilience checks. Reduce the
+  critical rating of unarmed attacks by 1 per rank of Iron Body (to a minimum of 1).
+activation: p
+ranked: true
+forceTalent: false
+trees: Martial Artist, Steel Hand Adept
+reference:
+  - ND:34
+  - KoF:31

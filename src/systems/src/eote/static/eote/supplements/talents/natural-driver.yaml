@@ -1,0 +1,9 @@
+id: eote-talent-natural-driver
+name: Natural Driver
+description: Once per session, may reroll any 1 Piloting (Planetary) or Gunnery check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Driver
+reference:
+  - A-CRB:153

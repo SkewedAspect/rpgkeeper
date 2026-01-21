@@ -1,0 +1,22 @@
+id: eote-weapon-m8-combat-knife
+name: M8 Combat Knife
+description: Made for the GAR by Merr-Sonn, the M8 is based on Merr-Sonn's popular Treppus-2 vibroknife. The M8 hias a
+  long, single-edged, clip-point blade with a serrated back edge. The handle is made from a flat-black polycarbonate,
+  and the grip is covered in a textured material that provides comfort and extra grip. Every clone is issued an M8 for
+  use in the field, and the knife has gained wide renown as both a tool and a weapon.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 1
+reference:
+  - RotS:54

@@ -1,0 +1,41 @@
+id: eote-weapon-lj-40-concussion-carbine
+name: LJ-40 Concussion Carbine
+description: >-
+  Arakyd LJ-40 Concussion Carbine
+
+  Like many tools and weapons combat engineers use, the LJ-40 began life as a field-expedient modification of an
+  existing weapon. A squad from the 92nd Coruscant Engineers received a shipment of powerful
+
+  and deadly LJ-50 concussion rifles accidentally. The squad's armorer, seeing that with modification the weapons would
+  be perfect for breaching walls and scattering enemy troops, cut the rifles down into makeshift carbines. The
+  undeniable effectiveness of the carbines impressed the squad's superior officer. Word eventually reached Arakyd
+  Industries, which immediately put the LJ-40 into production to sell alongside the already popular LJ-50.
+
+  The production-model LJ-40 has a folding skeleton stock and shortened barrel. Engineers and vehicle crews love the
+  weapon for its light weight, ease of use, and destructive potential. As with all carbines, the LJ-40 suffers from a
+  lack of range and poor long-range
+
+  accuracy, but since most military engineers engage the enemy at short ranges, this does not diminish the LJ-40's
+  effectiveness.
+
+  All <setback></setback> added to a combat check due to the target's cover are removed when using the LJ-40. Additional
+  ammunition costs 40 credits for magazine of 3 rounds.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 4
+hardpoints: 1
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-knockdown
+  - id: eote-quality-limited-ammo
+    ranks: 3
+reference:
+  - FO:38

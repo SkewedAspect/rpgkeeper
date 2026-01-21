@@ -1,0 +1,29 @@
+id: eote-weapon-dh-17c-short-carbine
+name: DH-17c Short Carbine
+description: >-
+  BlasTech DH-17c Short Carbine
+
+  Blurring the line between blaster pistol and blaster carbine, the DH-17c short carbine is a relatively new addition to
+  the venerable DH-17 product line. A shortened version of the DH-17 blaster rifle, it features a snub-nosed barrel cast
+  in the same silvery color as the weapon's receiver. Its primary selling point, aside from the small size, is its
+  various fire modes. Along with the standard semi-automatic and non-lethal Stun settings, this carbine has an automatic
+  setting, giving shooters an extra and unexpected edge in combat.
+
+  While these carbines are not sold with any accessories from the factory, they are often customized with optics and
+  folding stocks to increase their performance and usability. A number of Alliance Army engineering units have adopted
+  the short carbine as their official-issue weapon, as its size and versatility gives the Engineers the ability to
+  switch between working and fighting more easily than with heavier weapons.
+skill: Ranged (Heavy)
+damage: 4
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-stun-setting
+reference:
+  - FO:39

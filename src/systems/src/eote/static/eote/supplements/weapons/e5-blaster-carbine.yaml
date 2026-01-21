@@ -1,0 +1,36 @@
+id: eote-weapon-e5-blaster-carbine
+name: E5 Blaster Carbine
+description: >-
+  The E5 by Baktoid Armor Workshop is a carbine version of their venerable E-5 blaster rifle. Lighter and shorter than
+  its full-sized cousin, the E5 was released in the beginning months of the Clone Wars and saw wide use among vehicle
+  crews and special operatives of the Confederacy of Independent Systems. This weapon was also issued to B1 battle
+  droids, and is the weapon with which those droids are most associated. Like its larger cousin the E-5 blaster rifle,
+  the E5 carbine was based on an earlier BlasTech design which was reverse-engineered by weaponsmiths at Baktoid Armor
+  Workshop for use with their 00M, B1, and BX series droids. It's a relatively reliable blaster that provides
+  respectable stopping power in a small, easy-to-handle package. In addition to its lightened frame and shortened
+  barrel, the E5 also features a foldable stock that further increases its usability. As they were largely designed for
+  use by droids, vehicle crews, and rear-echelon troops, E5 carbines suffer from a few noticeable drawbacks. They are
+  relatively inaccurate over long distances, and thanks to cost-cutting during development, many of their systems are
+  built of substandard materials, making them comparatively fragile and prone to overheating during heavy use. While not
+  particularly liked or well-respected weapons, E5 carbines are cheap and readily available, having been built by the
+  hundreds of thousands during the Clone Wars. This makes them very attractive to more cash-strapped members of the
+  Rebel Alliance.
+
+  During combat, the Game Master can spend <threat></threat><threat></threat><threat></threat> or <despair></despair> to
+  force an E5 to overheat, damaging it by one step as if stuck by a weapon with the Sunder quality (see page 170 of the
+  **Age of Rebellion** Core Rulebook).
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 4
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+  - id: eote-quality-inaccurate
+    ranks: 1
+reference:
+  - SoT:41

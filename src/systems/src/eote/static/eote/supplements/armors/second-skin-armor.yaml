@@ -1,0 +1,21 @@
+id: eote-armor-second-skin-armor
+name: Second Skin Armor
+description: >-
+  Like most types of armored clothing, second skin armor offers moderate protection while still enabling easy movement
+  and flexibility. Unlike most forms, though, this variant remains remarkably thin and can often even be hidden under a
+  layer of looser, non-protective clothes, making it almost undetectable. The lightweight nature of second skin armor,
+  however, carries a correspondingly higher cost without offering a measurable increase in protection.
+
+  Add <setback></setback><setback></setback> to a character's Perception checks to notice second skin armor on the
+  wearer.
+
+  **Models include:** Preparix Second Skin, Aylixe/Krongbing Undershield.
+defense: 1
+soak: 1
+hardpoints: 0
+encumbrance: 2
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - DA:49

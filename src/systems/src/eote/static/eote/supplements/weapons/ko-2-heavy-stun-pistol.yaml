@@ -1,0 +1,27 @@
+id: eote-weapon-ko-2-heavy-stun-pistol
+name: KO-2 Heavy Stun Pistol
+description: >-
+  Palandrix KO-2 Heavy Stun Pistol
+
+  Known colloquially as a "coma pistol", the Palandrix KO-2 stands head and shoulders above other stun pistols in both
+  power and range. Though as large as a typical heavy blaster pistol, the KO-2 is streamlined and lightweight due to the
+  use of orbital alloys and high-density plastics in its construction. Given its size, the weapon is an intimidating
+  sight in the hands of a trained professional.
+
+  Primarily used by law enforcement organizations requiring an effective, non-lethal alternative to traditional blaster
+  weapons, the KO-2 is generally seen only in the Core Worlds. The weapon has only recently seen use in the Outer RIm,
+  and is generally harder to find the farther one gets from the galactic center. despire its relative obscurity, the
+  KO-2 continues to gain high marks for effectiveness and reliability.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 2
+hardpoints: 3
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-stun-damage
+reference:
+  - KtP:42

@@ -1,0 +1,23 @@
+id: eote-attachment-spread-barrel
+name: Spread Barrel
+description: Commonly applied to blaster rifles and carbines, BlasTech's "Scattergun" Spread Barrel is a common
+  modification among spacers and fringers. Designed with close-quarters combat in mind, this attachment replaces a
+  blaster's stock barrel with one shorter, bulkier, broader, and equipped with a built-in flash hider. Using a stepped
+  array of prismatic crystals located at the end of the barrel as well as a reconfigured galven pattern, this barrel
+  splits the blaster's beam into a number of smaller beams that exit the barrel in a spray pattern. Used in a tightly
+  packed space, these beams can strike multiple targets with one pull of the trigger. The trade-off for this, however,
+  is a reduction in the weapon's range. This attachment can only be applied to blaster rifles and blaster carbines.
+useWith: weapon
+hpRequired: 2
+rarity: 4
+baseModifier: -1 Range Band; Blast 4
+modOptions:
+  - Blast +1
+  - Blast +1
+reference:
+  - E-CRB:191
+  - A-CRB:203
+includedModels:
+  - BlasTech 8405 "Scattergun" Spread Barrel
+  - SoroSuub 800 "Blunderbuss" barrel
+  - Arakyd Model 70 "Chain Lightning" Spread Barrel

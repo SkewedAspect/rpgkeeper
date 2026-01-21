@@ -1,0 +1,11 @@
+id: eote-talent-dead-to-rights
+name: Dead to Rights
+description: Spend 1 Destiny Point to add additional damage equal to half Agility (rounded up) to one hit of successful
+  attack made with ship or vehicle-mounted weaponry.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Hotshot, Pilot
+reference:
+  - E-CRB:134
+  - A-CRB:145

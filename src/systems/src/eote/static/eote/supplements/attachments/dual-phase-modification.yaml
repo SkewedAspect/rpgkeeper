@@ -1,0 +1,16 @@
+id: eote-attachment-dual-phase-modification
+name: Dual-Phase Modification
+description: Considered antiquated and outdated by the time of the Clone Wars, the dual-phase modification is an
+  artifact of an older, more violent time. Designed to catch an opponent off guard, this modification allows the wielder
+  to change the length of a lightsaber's blade with the push of a button. This causes an opponent's guard to falter
+  momentarily as he adjusts to the new blade length, allowing the Jedi to press the advantage while his opponent is
+  confused.
+useWith: weapon
+hpRequired: 2
+rarity: 6
+baseModifier: May change blade length once per encounter as an incidental. Next attack that turn ignores target's melee defense.
+modOptions: []
+reference:
+  - F-CRB:197
+includedModels:
+  - None

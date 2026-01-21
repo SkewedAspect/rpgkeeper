@@ -1,0 +1,11 @@
+id: eote-talent-redundant-systems
+name: Redundant Systems
+description: Once per session, may take a Redundant Systems action; make an **Easy (<difficulty></difficulty>) Mechanics
+  check** to harvest components from a functioning device to repair a broken one without breaking the first device.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Droid Tech, Mechanic
+reference:
+  - E-CRB:141
+  - A-CRB:154

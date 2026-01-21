@@ -1,0 +1,30 @@
+id: eote-weapon-stun-grenade
+name: Stun Grenade
+description: >-
+  Stun grenades use sonic waves, concussion shocks, and other methods to stun their targets.
+
+  Like frag grenades, stun grenades can be set to detonate on impact or set with a timer to detonate up to 3 rounds
+  after being activated. Stun grenades rarely have pressure detonators.
+
+  **Models Include**: Merr-Sonn C-10 Stun Grenade.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-disorient
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - E-CRB:165
+  - A-CRB:179
+  - F-CRB:170

@@ -1,10 +1,12 @@
 id: eote-talent-saber-throw
 name: Saber Throw
-description: _Force talent_. The character may take the Saber Throw action, making a Lightsaber combat check as a ranged
-  attack at one target within medium range, adding <force></force> no greater than his Force rating to the check. The
-  character must spend <force-point></force-point> and succeed on the check to hit is target; he may spend
-  <force-point></force-point> to have his weapon return to his hand after resolving the attack.
+description: Perform Saber Throw action; make Lightsaber combat check as ranged attack at target within medium range,
+  adding [FO] no greater than Force rating. Must spend <forcepoint></forcepoint> and succeed to hit target; spend
+  <forcepoint></forcepoint> to have weapon return to hand.
 activation: aa
 ranked: false
-trees: Ataru Striker, Shien Expert
-reference: F-CRB:151
+forceTalent: true
+trees: Armorer, Ataru Striker, Knight, Sentry, Shien Expert
+reference:
+  - F-CRB:151
+  - RotS:42

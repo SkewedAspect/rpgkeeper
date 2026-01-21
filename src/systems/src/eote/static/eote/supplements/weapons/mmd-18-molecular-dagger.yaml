@@ -1,0 +1,25 @@
+id: eote-weapon-mmd-18-molecular-dagger
+name: MMD-18 Molecular Dagger
+description: >-
+  The MMD-18 is a larger, more durable version of Xana Exotic Arms' MSW-9 molecular stiletto. Roughly the size of a
+  combat knife, the MMD-18 has a long and thin double-edged, crystalline matrix blade set into a simple polycarbonate
+  handle with a short, straight quillon. The edges of the blade are honed to mono-molecular thickness, allowing them to
+  cut through even the thickest armor. While this dagger is sturdier than the MSW-9, a wrong move or an awkward blow can
+  still shatter the blade relatively easily.
+
+  Due to their inherent fragility, any combat check made while wielding one of these blades that generates either
+  <threat></threat><threat></threat><threat></threat> or <despair></despair> shatters the blade.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 2
+reference:
+  - CaM:40

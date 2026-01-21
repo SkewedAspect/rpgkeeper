@@ -1,0 +1,25 @@
+id: eote-armor-katarn-class-commando-armor
+name: Katarn-Class Commando Armor
+description: >-
+  _Katarn_ - Class Commando Armor
+
+  Clone commandos often accept missions that have a particularly high risk assessment and require extended independent
+  operations. _Katarn_-class commando armor was designed with these conditions in mind.  Its imposing form is named
+  after a deadly predator native to the planet Kashyyyk, and its capabilities live up to that name.
+
+  Its duraplast construction provides good protection from most weapons, while its insulated bodysuit grants the wearer
+  protection from heat, cold, radiation, and most known toxins. A six-hour air supply enables the wearer to function in
+  hostile environments, including the vacuum of space. Integrated scanners and communications suites enable the wearer
+  to track hostiles while keeping in touch with allies.
+
+  The armor's backpack is modular, enabling it to incorporate modifications suited to battlefield needs, such as
+  survival gear, additional oxygen supplies, and field electronics.
+defense: 1
+soak: 2
+hardpoints: 3
+encumbrance: 4
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - CotR:56

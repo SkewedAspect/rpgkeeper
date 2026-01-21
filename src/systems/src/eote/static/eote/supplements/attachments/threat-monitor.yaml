@@ -1,0 +1,20 @@
+id: eote-attachment-threat-monitor
+name: Threat Monitor
+description: A threat monitor is a suite of motion detectors, electroreceptors, and photoreceptors that constantly
+  monitors the armor wearer's vicinity and, through directional auditory or electrical cues, warns the wearer of
+  imminent threats and incoming attacks. While many find threat monitors somewhat annoying to wear, they can provide a
+  critical edge in life-or-death situations. This attachment can only be used on armor and is typically integrated into
+  the helmet, visor, or another place where the user can easily see it at all times.
+useWith: armor
+hpRequired: 1
+rarity: 4
+baseModifier: Add <advantage></advantage> to Initiative checks
+modOptions:
+  - Gain Quick Strike (add <boost></boost> vs targets that haven't acted)
+  - Add <advantage></advantage> to Initiative checks
+  - Add <advantage></advantage> to Initiative checks
+reference:
+  - LoNH:106
+includedModels:
+  - Atlas Corp Pan-directional Alert Scanner
+  - Galactic Electronics Z-12 Threat Assessor

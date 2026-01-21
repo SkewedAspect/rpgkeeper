@@ -1,0 +1,24 @@
+id: eote-attachment-hilt-masking-kit
+name: Hilt Masking Kit
+description: >-
+  Often, openly carrying a lightsaber causes undue comment and notice. Owners of such a weapon may have many reasons to
+  want a subtler presence, yet still keep their lightsaber by their side. Perhaps they must enter an area known to be
+  under heavy Imperial scrutiny, or the mere presence of an obvious weapon may sour delicate negotiations. Whatever the
+  reason, Force users may make use of a hilt-masking kit to disguise their weapon.
+
+  Just as each lightsaber is unique to its user, so too is each hilt-masking kit; there is no "universal" kit. The needs
+  of the moment, or the personal tastes of the Force user, dictate what form each kit takes. Sometimes a hilt may be
+  disguised as a cane; at other time it could be hidden as a part of a more mundane weapon like a blaster rifle; it may
+  even appear to be something much more ordinary, like  a pair of microbinoculars. The cost, rarity, and encumbrance of
+  a hilt-masking kit are the same as that of the item it is meant to look like. Whatever form the masking takes, it
+  provides two important qualities: it looks as little like a lightsaber as possible, and it provides quick and easy
+  access to the full weapon when needed.
+useWith: weapon
+hpRequired: 1
+rarity: 0
+baseModifier: Adds <failure></failure><failure></failure> to any attempt to find or identify the lightsaber as a lightsaber.
+modOptions:
+  - Increase number of <failure></failure> by 1
+  - Increase number of <failure></failure> by 1
+reference:
+  - DoH:50

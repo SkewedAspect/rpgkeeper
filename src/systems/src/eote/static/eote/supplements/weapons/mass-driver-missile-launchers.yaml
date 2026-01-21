@@ -1,0 +1,27 @@
+id: eote-weapon-mass-driver-missile-launchers
+name: Mass Driver Missile Launchers
+description: A mass driver is a type of projectile cannon. They inflict damage by hurling projectiles at high
+  velocities, which imparts kinetic energy and force to the target upon impact. Damage is thus a result of the mass of
+  the projectile and its velocity.
+skill: Gunnery
+damage: 14
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 10
+  - id: eote-quality-slow-firing
+    ranks: 2
+reference:
+  - DC:70

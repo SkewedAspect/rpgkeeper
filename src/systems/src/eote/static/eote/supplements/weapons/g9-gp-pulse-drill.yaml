@@ -1,0 +1,36 @@
+id: eote-weapon-g9-gp-pulse-drill
+name: G9-GP Pulse Drill
+description: >-
+  Makers of the venerable G2-GE beamdrill, Karflo Corporation is a Corporate Sector-based conglomerate with interests in
+  industrial mining, droid production, and planetary exploration. Their G-series beamdrills are used throughout the
+  galaxy in industries as widely varied as computer production and deep-space asteroid mining. They use
+  variable-strength continuous-beam plasma projectors to burn through earth, stone, metals, and nearly any organic or
+  inorganic substance in their path. They can perform any kind of cutting or burning task, from gently melting
+  lightweight polymers to vaporizing waste materials and industrial byproducts. Recently, Karflo Corporation has been
+  exploring smaller, more portable versions of their powerful beamdrills for use by planetary explorers and
+  archaeologists. Their first attempt at this market is the G9-GP Pulse Drill.
+
+  The G9-GP is a handheld, low-powered, precision beamdrill designed for work in excavation and light duty mining. They
+  appear as long, bulky rods with a tank at one end and a variable-angle plasma cutter at the other. The beam emitted by
+  the G9-GP is a rapidly pulsing plasma beam around a millimeter thick with an adjustable range that allows it to cut
+  through relatively thick material. While they are primarily tools, their plasma beams make excellent improvised
+  weapons in an emergency, and more than a few explorers have had their lives or limbs saved from a surprise attack by
+  quick application of the pulse drill.
+skill: Melee
+damage: 5
+addSkill: false
+criticalRating: 4
+range: en
+encumbrance: 5
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-inaccurate
+    ranks: 1
+reference:
+  - EtU:43

@@ -1,0 +1,12 @@
+id: eote-talent-debilitating-shot
+name: Debilitating Shot
+description: Upon successful attack with a starship or vehicle weapon, may spend
+  <advantage></advantage><advantage></advantage> to reduce the maximum speed of the target by 1 until the end of the
+  next round.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Gunner, Operator, Shipwright
+reference:
+  - A-CRB:145
+  - ND:34

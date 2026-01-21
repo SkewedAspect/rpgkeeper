@@ -1,0 +1,23 @@
+id: eote-weapon-holdout-blaster
+name: Holdout Blaster
+description: >-
+  The smallest of blasters are easy to conceal but still pack a powerful punch. What they sacrifice most is range, due
+  to their short barrel and lesser charge. Add <setback></setback> to a character's Perception check when attempting to
+  find a hold-out pistol on a person's body.
+
+  **Models Include**: Imperial Army Scout Trooper Blaster Pistol, Merr-Sonn 02 Holdout.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - E-CRB:161
+  - A-CRB:174
+  - F-CRB:167

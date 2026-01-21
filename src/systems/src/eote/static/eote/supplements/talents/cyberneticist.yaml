@@ -1,0 +1,10 @@
+id: eote-talent-cyberneticist
+name: Cyberneticist
+description: Remove <setback></setback> per rank of Cyberneticist from checks to build, repair, and install cybernetic
+  implants . Cybernetics cost 50% less.
+activation: p
+ranked: true
+forceTalent: false
+trees: Cyber Tech
+reference:
+  - SM:34

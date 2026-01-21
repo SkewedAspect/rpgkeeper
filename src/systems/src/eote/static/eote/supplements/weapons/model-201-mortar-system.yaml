@@ -1,0 +1,37 @@
+id: eote-weapon-model-201-mortar-system
+name: Model 201 Mortar System
+description: >-
+  The Model 201 mortar is a portable light artillery system used by specialized clone artillery troopers. Built by
+  Merr-Sonn, the Model 201 is a smoothbore weapon that uses an electromagnetic mass-driver system to launch
+  large-caliber shells over long distances. The shells are fired in an arc instead of a direct line, which makes the 201
+  the weapon of choice for striking enemies behind heavy cover. Primarily a support weapon, the GAR usually deploys the
+  201 behind the front lines.
+
+  The weapon consists of three parts—the launcher, a heavy bipod, and the ammunition magazine—and is operated by a
+  specially trained mortar team. A mortar team consists of three clones: one to carry the weapon, one to carry the
+  bipod, and one to carry the ammo. Working together, a mortar team can keep up an incredible rate of fire, and a good
+  mortar team can be a trooper squad's best friend in the field.
+
+  The Model 201 can only be used at medium range or further due to the arc of its shells.
+skill: Gunnery
+damage: 15
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 10
+hardpoints: 1
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 12
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 5
+  - id: eote-quality-prepare
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - RotS:53

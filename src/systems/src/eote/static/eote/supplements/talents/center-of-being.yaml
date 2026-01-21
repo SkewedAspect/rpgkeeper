@@ -1,0 +1,10 @@
+id: eote-talent-center-of-being
+name: Center of Being
+description: Take a Center of Being maneuver. Until the beginning of next turn, attacks against the character increase
+  their critical rating by 1 per rank of Center of Being.
+activation: am
+ranked: true
+forceTalent: true
+trees: Master, Niman Disciple, Protector, Shii-Cho Knight
+reference:
+  - F-CRB:140

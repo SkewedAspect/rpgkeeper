@@ -1,0 +1,32 @@
+id: eote-weapon-nightsister-energy-bow
+name: Nightsister Energy Bow
+description: >-
+  The Nightsisters of Dathomir have always been an organization shrouded in secrecy, an organization of
+  warrior-assassins dedicated to the dark side. Their shamans have been said to practice magicks strange to the Jedi and
+  even the Sith, and their warriors are most famous for wielding weapons that are in equal parts strange and deadly.
+  While their order is rumored to have been destroyed at the end of the Clone Wars by those few who ever knew of its
+  existence, artifacts of their culture remain.
+
+  Among these is the energy bows, which uses an energized string to launch a deadly bolt of plasma that can penetrate
+  all but the thickest armor with pinpoint accuracy. The bow string feeds into a grip that protects the user's hands
+  from the crackling plasma, though it is still a treacherous weapon in the hands of an imprecise user. As with a
+  lightsaber, a user who lets the Force guide each bolt can be extraordinarily lethal with this bow, landing miraculous
+  shots and bringing down with almost unmatched ease.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 2
+range: m
+encumbrance: 4
+hardpoints: 2
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-pierce
+    ranks: 4
+  - id: eote-quality-unwieldy
+    ranks: 3
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - SS:40

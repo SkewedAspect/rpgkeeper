@@ -1,0 +1,9 @@
+id: eote-talent-clever-commander
+name: Clever Commander
+description: May use ranks in Knowledge (Warfare) to upgrade Mass Combat checks instead of ranks in Leadership.
+activation: p
+ranked: false
+forceTalent: false
+trees: Clone Commander, Strategist
+reference:
+  - LbE:33

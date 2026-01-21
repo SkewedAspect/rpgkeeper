@@ -1,0 +1,12 @@
+id: eote-talent-improvised-concoction
+name: Improvised Concoction
+description: Once per session, as an action, make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Knowledge (Xenology) check**, adding
+  [FO] no greater than Force rating to create 1 dose of a poison or drug with rarity of Intellect + <success></success>
+  + <forcepoint></forcepoint> spent or lower.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Alchemist
+reference:
+  - UP:32

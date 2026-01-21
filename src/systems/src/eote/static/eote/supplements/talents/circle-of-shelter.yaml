@@ -1,0 +1,10 @@
+id: eote-talent-circle-of-shelter
+name: Circle of Shelter
+description: When an engaged ally suffers a hit, may use Parry or Reflect incidental against the hit.
+activation: p
+ranked: false
+forceTalent: true
+trees: Knight, Protector
+reference:
+  - F-CRB:140
+  - RotS:38

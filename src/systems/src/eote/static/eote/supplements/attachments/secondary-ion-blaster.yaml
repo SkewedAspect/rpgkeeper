@@ -1,0 +1,18 @@
+id: eote-attachment-secondary-ion-blaster
+name: Secondary Ion Blaster
+description: A secondary ion blaster provides an extra level of offense for those expecting run-ins with droids. Many
+  Technicians prefer to take enemy droids intact, the better to "recruit" them or even scavenge for parts later. An ion
+  blaster mounted alongside another weapon provides just that option. This attachment can be used with any Ranged
+  (Heavy) weapon.
+useWith: weapon
+hpRequired: 2
+rarity: 6
+baseModifier: Adds an ion blaster to the weapon.; Cumbersome 1
+modOptions:
+  - +1 Damage
+  - +1 Damage
+reference:
+  - SM:56
+includedModels:
+  - SoroSuub Droid Defender
+  - BlasTech Model 9 Under-Barrel Ion Blaster

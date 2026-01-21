@@ -1,0 +1,10 @@
+id: eote-attachment-paramilitary-wheeledtracked
+name: Paramilitary Wheeled/Tracked
+description: Converts a wheeled or tracked vehicle to a paramilitary vehicle.
+useWith: vehicle
+hpRequired: 0
+rarity: 0
+baseModifier: -1 Handling; +3 Armor; +2 Hull Trauma Threshold; -1 System Strain Threshold; Adds a medium laser cannon turret
+modOptions: []
+reference:
+  - DC:71

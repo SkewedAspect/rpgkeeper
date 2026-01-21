@@ -1,0 +1,12 @@
+id: eote-talent-essential-kill
+name: Essential Kill
+description: When making a non-Gunnery combat check, the character may add [FO] no greater than his Force rating to the
+  check. The character may spend <forcepoint></forcepoint> to add <advantage></advantage> or
+  <forcepoint></forcepoint><forcepoint></forcepoint><forcepoint></forcepoint> to add <triumph></triumph> (character's
+  choice) to the result.
+activation: p
+ranked: false
+forceTalent: true
+trees: Executioner
+reference:
+  - SS:30

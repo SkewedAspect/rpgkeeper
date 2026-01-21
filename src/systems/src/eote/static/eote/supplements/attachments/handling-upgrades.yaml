@@ -1,0 +1,20 @@
+id: eote-attachment-handling-upgrades
+name: Handling Upgrades
+description: Podracer handling upgrades encompass a wide array of systems and technologies designed to make Podracers
+  easier to pilot. These upgrades can be tiny, variable pitch jets and movable repulsor fields to brute force
+  counterweights that slide into special compartments to counteract inertia. While such upgrades do increase a
+  Podracer's handling capabilities, no amount of modification is likely to likely to make the exceedingly fast and
+  fragile race vehicle easy enough to handle for a human pilot.
+useWith: vehicle
+hpRequired: 1
+rarity: 6
+baseModifier: +1 Handling
+modOptions:
+  - +1 Handling
+  - +1 Handling
+reference:
+  - EV:59
+includedModels:
+  - Incom ETX Mk. I Etheric Rudder
+  - Slayn & Korpil Vitus-Series Attitude Thrusters
+  - Bespid Motors PinPoint II Targeted Repulsor Generator

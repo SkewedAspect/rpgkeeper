@@ -1,0 +1,10 @@
+id: eote-talent-informant
+name: Informant
+description: Once per session, may reveal a contact who can shed light on a chosen subject.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Propagandist, Skip Tracer
+reference:
+  - DA:33
+  - ND:34

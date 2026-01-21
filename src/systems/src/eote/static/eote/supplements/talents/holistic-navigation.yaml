@@ -1,0 +1,10 @@
+id: eote-talent-holistic-navigation
+name: Holistic Navigation
+description: When making an Astrogation skill check, the character may spend one Destiny Point to remove
+  <despair></despair>, or to remove <threat></threat> equal to his ranks in Perception.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Navigator
+reference:
+  - SS:30

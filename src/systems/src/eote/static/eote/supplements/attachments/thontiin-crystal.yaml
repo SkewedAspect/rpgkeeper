@@ -1,0 +1,23 @@
+id: eote-attachment-thontiin-crystal
+name: Thontiin Crystal
+description: Although long recognized as kyber crystals, thontiin crystals were unheard of as lightsaber cores until
+  recently. Instead, these crystals have been utilized for their unique properties as healing aids, capable of assisting
+  a Jedi healer in easing the pain of a patient and making their treatment easier. The needs of the war have brought
+  these crystals closer to the front lines. After one young Knight’s lightsaber suffered disastrous damage in battle,
+  they attempted to replace their ruined crystal from Ilum with a thontiin crystal. In doing so, the Knight discovered
+  that the crystals’ healing properties were focused through a carried lightsaber in new ways, allowing the bearer to
+  fight through debilitating pain. The healers of the Jedi Order are reluctant to see these sacred artifacts turned into
+  weapons, but the desperate circumstances of the war have caused a handful of them to be repurposed in this manner
+  nevertheless.
+useWith: weapon
+hpRequired: 2
+rarity: 9
+baseModifier: Damage set to 6; Critical set to 2; Breach 1; Sunder 1; Once per encounter, ignore effects of an **Easy
+  (<difficulty></difficulty>)** Critical Injury.
+modOptions:
+  - +1 Damage
+  - +1 Damage
+  - +1 Damage
+  - -1 Critical
+reference:
+  - RotS:63

@@ -1,0 +1,12 @@
+id: eote-talent-swift
+name: Swift
+description: Do not suffer usual penalties for moving through difficult terrain.
+activation: p
+ranked: false
+forceTalent: false
+trees: ARC Trooper, Big-Game Hunter, Courier, Navigator, Pathfinder, Retired Clone Trooper, Steel Hand Adept,
+  Survivalist, Tactician, Warleader
+reference:
+  - E-CRB:144
+  - A-CRB:158
+  - F-CRB:153

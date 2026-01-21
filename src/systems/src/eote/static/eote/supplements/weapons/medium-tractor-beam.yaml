@@ -1,0 +1,21 @@
+id: eote-weapon-medium-tractor-beam
+name: Medium Tractor Beam
+description: Tractor beams are modified shield generators that project a beam of energy that can ensnare starships. Used
+  on orbital shipyards, planetary starports, space stations, and many starships, tractor beams are commonly used to
+  guide vessels safely into slips and docking bays, as well as to handle cargo. When mounted to warships, they can be
+  used offensively to capture enemy vessels and draw them into docking bays for ease of boarding.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-tractor
+    ranks: 4
+reference:
+  - E-CRB:230
+  - A-CRB:240

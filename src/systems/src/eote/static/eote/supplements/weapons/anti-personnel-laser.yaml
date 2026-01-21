@@ -1,0 +1,18 @@
+id: eote-weapon-anti-personnel-laser
+name: Anti-Personnel Laser
+description: ""
+skill: Gunnery
+damage: 1
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-blast
+    ranks: 1
+reference:
+  - FiB:62

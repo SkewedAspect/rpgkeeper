@@ -1,0 +1,18 @@
+id: eote-attachment-under-barrel-flame-projector
+name: Under-Barrel Flame Projector
+description: Uncommon but highly effective, the Firestorm by Czerka is a small, under-barrel flame projector designed to
+  give an infantryman extra punch at short range. Illegal on many worlds and classified as a terror weapon, these
+  weapons are typically used by only the most desperate or callous individuals. This attachment can only be applied to
+  rifle-sized weapons.
+useWith: weapon
+hpRequired: 2
+rarity: 5
+baseModifier: Adds a flame projector to the weapon.; Cumbersome 1
+modOptions: []
+reference:
+  - E-CRB:192
+  - A-CRB:204
+includedModels:
+  - Czerka "Firestorm" Under-barrel Flame Projector
+  - Merr-Sonn XR14 Sunsear Flame Projector
+  - SoroSuub "Inferno" Auxiliary Flamer

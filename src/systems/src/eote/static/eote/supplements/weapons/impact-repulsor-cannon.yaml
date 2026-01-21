@@ -1,0 +1,38 @@
+id: eote-weapon-impact-repulsor-cannon
+name: '"Impact" Repulsor Cannon'
+description: >-
+  Nova Design "Impact" Repulsor Cannon
+
+  Despite the ubiquity of repulsorlift technology across the galaxy, the  particular variant of design that resulted in
+  repulsor cannons rarely sees production or use outside of specialty weapon manufacturers such as Nova Design Arms.
+  Produced by a company specializing in unusual armaments as an alternative to stun or riot blasters, the weapons have a
+  reputation as inferior options for a non-lethal weapon. The gravitic disruptions the weapons create are capable of
+  disabling a target from nearly any action if focused properly, but this disabling effect only lasts as long as the
+  weapons remain focused on their targets.
+
+  Some cunning bounty hunters have adopted these weapons as tools to disable a target while partners or associates move
+  in with binders for a clean capture. As such, lone hunters rarely use this weapon, but it is a relatively common sight
+  in the hands of bounty hunters who regularly work with a posse, especially as a backup weapon or a specialist tool
+  they bring along only for specific jobs. It enables bounty hunter teams to use various unconventional tactics to bring
+  in difficult targets, so it has a popular following in spite of its limitations.
+skill: Ranged (Heavy)
+damage: 3
+addSkill: false
+criticalRating: 6
+range: m
+encumbrance: 5
+hardpoints: 1
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 3
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-knockdown
+  - id: eote-quality-prepare
+    ranks: 1
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - ND:45

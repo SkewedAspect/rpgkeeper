@@ -1,0 +1,27 @@
+id: eote-weapon-hunter-killer-concussion-missile-launcher
+name: Hunter Killer Concussion Missile Launcher
+description: A concussion missile is a short-range, winged or wingless anti-vehicle missile generally deployed by
+  starship or vehicle mounted launchers. There are a wide range of concussion missiles, varying in speed,
+  maneuverability, and destructive capability.
+skill: Gunnery
+damage: 7
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-guided
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - SoF:107

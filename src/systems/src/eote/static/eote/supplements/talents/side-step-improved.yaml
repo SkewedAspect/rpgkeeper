@@ -1,0 +1,13 @@
+id: eote-talent-side-step-improved
+name: Side Step (Improved)
+description: When the character performs a Side Step maneuver, until the start of their next turn, they may spend
+  <threat></threat><threat></threat><threat></threat> or <despair></despair> from a combat check targeting them to
+  inflict one hit on that attacker from a Ranged (Heavy) or Ranged (Light) weapon the character is currently wielding.
+  The hit deals its base damage plus any damage from applicable talents or abilities. This talent may not be used if the
+  original attack incapacitates the character.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Death Watch Warrior
+reference:
+  - CotR:43

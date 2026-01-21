@@ -1,0 +1,23 @@
+id: eote-weapon-selonian-shard-shooter
+name: Selonian Shard Shooter
+description: A peculiar weapon, the Selonian shard shooter is a relatively compact slugthrower that fires razor-sharp
+  crystalline ammunition. Instead of a chemical propellant, the shard shooter uses a sophisticated electromagnetic
+  propulsion system to accelerate the shards down its barrel at tremendous velocity. The weapon fires in bursts,
+  unleashing a storm of lethal shards at its target, capable of penetrating modern armor and the shredding flesh and
+  bone beneath. Since this weapon is only produced on Selonia, finding the shard ammunition outside of the Corellian
+  System is next to impossible.
+skill: Ranged (Heavy)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 4
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-pierce
+    ranks: 1
+reference:
+  - SoF:97

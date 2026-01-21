@@ -1,0 +1,22 @@
+id: eote-weapon-combat-knife
+name: Combat Knife
+description: >-
+  Vicious combatants rely on sharp blades to slice and gash their foes. They're also far easier to conceal than a
+  firearm and just as deadly if the user is skilled in its use.
+
+  Knives are seen as the weapons of commoners, thieves, and assassins, so carrying one in plain sight may cause social
+  stigma in polite company, or add to a rogue's presence in more wretched hives of scum and villainy.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 1
+restricted: false
+qualities: []
+reference:
+  - E-CRB:166
+  - A-CRB:181
+  - F-CRB:172

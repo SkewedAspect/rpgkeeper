@@ -1,0 +1,26 @@
+id: eote-weapon-8-gauge-scatter-gun
+name: 8-Gauge Scatter Gun
+description: >-
+  Adostic Arms 8-Gauge Scatter Gun
+
+  A powerful, large-bore slugthrower produced by Adostic Arms, their 8-gauge scatter gun fires a hail of small steel
+  pellets. Though based on primitive slugthrower technology, the weapon's bestial stopping power rivals that of a heavy
+  blaster pistol. Made of modern, lightweight materials, the scatter gun incorporates a sophisticated recoil system to
+  reduce the weapon's big kick when fired. Many smugglers and free traders prefer these weapons to blasters for their
+  ability to spray the narrow corridors and airlocks of starships without fear of accidentally penetrating the hull of
+  the vessel.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 6
+range: s
+encumbrance: 3
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 3
+  - id: eote-quality-knockdown
+reference:
+  - FC:44

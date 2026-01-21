@@ -1,0 +1,10 @@
+id: eote-talent-disciple-of-lore
+name: Disciple of Lore
+description: Once per round, may suffer 1 strain to decrease the difficulty of next Knowledge (Lore) check a number of
+  times equal to ranks in Disciple of Lore.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Force Adherent
+reference:
+  - DoR:112

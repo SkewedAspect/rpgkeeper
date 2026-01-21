@@ -1,8 +1,10 @@
 id: eote-talent-situational-awareness
 name: Situational Awareness
-description: Allies within short range of the vehicle add <boost></boost> to their Perception and Vigilance checks.
-  Allies within close range add <boost></boost><boost></boost> instead.
+description: Allies with short range of the vehicle add <boost></boost> to their Perception and Vigilance checks. Allies
+  within close range add <boost></boost><boost></boost> instead.
 activation: p
 ranked: false
+forceTalent: false
 trees: Squadron Leader
-reference: A-CRB:156
+reference:
+  - A-CRB:156

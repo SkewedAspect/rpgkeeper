@@ -1,0 +1,17 @@
+id: eote-armor-banal-apparel
+name: Banal Apparel
+description: >-
+  Stealth equipment can render a person literally invisible to the naked eye, but sometimes simply fading into the crowd
+  offers a more elegant and effective solution. Banal apparel is specifically chosen to encourage a wandering eye to
+  continue to wander, allowing the wearer to hide in plain sight simply by avoiding attention.
+
+  Opposing characters upgrade the difficulty of any checks made to identify the wearer once.
+defense: 0
+soak: 0
+hardpoints: 0
+encumbrance: 0
+rarity: 0
+restricted: false
+qualities: []
+reference:
+  - DA:47

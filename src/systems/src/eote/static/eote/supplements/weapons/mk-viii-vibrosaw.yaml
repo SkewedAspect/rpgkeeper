@@ -1,0 +1,44 @@
+id: eote-weapon-mk-viii-vibrosaw
+name: Mk. VIII Vibrosaw
+description: >-
+  Creel Wood Logging Corporation is a small, privately owned logging concern founded solely for the harvesting the of
+  the highly sought-after Greel trees from the third and fourth planets of the PH System. Greels are hardy, ancient
+  trees that produce an extremely dense, deep-crimson hardwood. Thanks to the resilience of the trees and the difficulty
+  of harvesting them, GWLC developed special tools to aid in logging and processing. Working closely with a number of
+  precision industrial toolmakers from the Corporate Sector, GWLC produced a line of saws, heavy equipment, specialized
+  heavy-lift speedertrucks, and other assorted logging machinery for their personal use, and eventually they sold them
+  to the general public. Marketed mainly to industrial logging concerns, many of these tools are also used in the
+  surveying and exploration of newly discovered planets, especially those with dense and thorny flora. One of the more
+  common GWLC tools is the Mk. VIII Vibrosaw.
+
+  Loud and extremely challenging to use, the Mk. VIII is a heavy vibrosaw that can cut through the toughest undergrowth
+  or fell the tallest trees. They are heavy, awkward brutes that, in the hands of the inexperienced or inattentive, can
+  cause more damage to the user than to the surrounding flora. The Mk. VIII consists of a blocky chassis containing the
+  saw's controls, two SureGrip handles, a power pack, a drive motor, and a vibrofield generator. The blade mounted to
+  the front of the chassis is long and thin, ringed by a rotating, high-speed, diamond-toothed chain whose already
+  impressive cutting ability is further augmented by a powerful vibrofield. Although not designed as such, the Mk. VIII
+  can be used as a weapon in an emergency, its blade slicing through flesh and bone as easily as root and branch.
+  Caution must be used when doing so, however, as even the slightest miscalculation or misstep can result in the user
+  receiving gruesome injuries from his own saw.
+
+  If the user generates <despair></despair> when using the Mk. VIII as a weapon, he hits himself with the attack instead
+  of his target (even if the attack would normally miss). The Mk. VIII requires two hands to use.
+skill: Melee
+damage: 4
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 6
+hardpoints: 3
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 5
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - EtU:43

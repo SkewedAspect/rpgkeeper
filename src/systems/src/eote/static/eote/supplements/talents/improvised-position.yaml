@@ -1,0 +1,11 @@
+id: eote-talent-improvised-position
+name: Improvised Position
+description: The character may make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** to construct a secure
+  position. This provides cover for the group and its vehicles.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Sapper
+reference:
+  - FO:31

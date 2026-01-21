@@ -1,0 +1,10 @@
+id: eote-talent-imbue-item
+name: Imbue Item
+description: Take the Imbue Item maneuver; suffer 1 strain and commit [FO] to grant one weapon, piece of armor, or item
+  an improvement while [FO] remains committed. Suffer 1 strain every round [FO] remains committed.
+activation: am
+ranked: false
+forceTalent: true
+trees: Armorer, Artisan
+reference:
+  - F-CRB:145

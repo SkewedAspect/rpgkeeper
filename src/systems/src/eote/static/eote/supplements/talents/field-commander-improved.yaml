@@ -1,0 +1,12 @@
+id: eote-talent-field-commander-improved
+name: Field Commander (Improved)
+description: Field Commander action affects allies equal to double Presence, and may spend <triumph></triumph> to allow
+  allies to suffer 1 strain and perform 1 free action instead.
+activation: p
+ranked: false
+forceTalent: false
+trees: Clone Officer, Instructor, Mercenary Soldier, Peacekeeper, Separatist Commander, Squadron Leader, Tactician
+reference:
+  - E-CRB:135
+  - A-CRB:146
+  - F-CRB:143

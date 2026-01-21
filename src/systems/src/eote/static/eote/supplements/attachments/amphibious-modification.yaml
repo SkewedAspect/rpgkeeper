@@ -1,0 +1,16 @@
+id: eote-attachment-amphibious-modification
+name: Amphibious Modification
+description: Most starships, speeders and other vehicles not specifically designed for it are unfit for usage
+  underwater. Starships are typically not hydrodynamic, and hills designed for zero gravity and atmospheric use can
+  suffer damage from deep-sea pressure. However, with the addition of turbines, modifications to the engines and
+  reinforcement of the structure  almost any vehicle can be made seaworthy. This attachment can be applied to any
+  vehicle or starship that can enter an atmosphere.
+useWith: vehicle
+hpRequired: 1
+rarity: 5
+baseModifier: Vehicle can operate underwater without penalty.
+modOptions: []
+reference:
+  - SM:65
+includedModels:
+  - Various Custom Models

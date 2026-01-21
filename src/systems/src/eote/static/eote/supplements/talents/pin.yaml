@@ -1,0 +1,10 @@
+id: eote-talent-pin
+name: Pin
+description: Take Pin action; make an **Opposed athletics check** to immobilize an engaged opponent until the end of the
+  character's next turn. Spend <triumph></triumph> to extend duration one round.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Archaeologist
+reference:
+  - EtU:30

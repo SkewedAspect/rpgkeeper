@@ -1,0 +1,6 @@
+id: eote-quality-increase-ranged-defense-mod
+name: Increase Ranged Defense Mod
+description: Increases Ranged Defense value by 1
+passive: true
+ranked: false
+reference: []

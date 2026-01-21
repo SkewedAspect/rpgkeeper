@@ -1,0 +1,26 @@
+id: eote-armor-tailored-armored-jacket
+name: Tailored Armored Jacket
+description: >-
+  Kamperdine Clothing Specialists is a small boutique manufacturer of custom clothing items based out of the Core Worlds
+  region. Specializing in the use of fine and exotic beast hides, Kamperdine can produce a stylish and rugged piece of
+  clothing from the skin of nearly any known creature in the galaxy. Their line of custom tailored armored jackets are
+  their most popular and most expensive product. Tailored to each customer's exact specifications, no two of these
+  highly sought-after jackets are alike. Kamperdine can create a jacket to perfectly fit nearly any sentient species
+  that wears clothes, and their client list is a who's who of politicians, entertainers, military and government
+  officials, and various other flavors of galactic VIP. A custom Kamperdine jacket makes an incredible first impression,
+  and is a sign that its wearer is an individual of impeccable taste. Kamperdine jackets are rarely found on the open
+  market, and most individuals who purchase one go to their graves in them. They must be ordered directly from
+  Kamperdine months in advance of their desired delivery date.
+
+  Kamperdine Armored Jackets are each tailored to a specific wearer. When worn by that wearer, they add
+  <advantage></advantage> to any successful Charm, Deception, or Negotiation checks the character makes (the GM may
+  decide that the bonus does not apply in certain situations, such as dealings over a comlink).
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 1
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - FH:44

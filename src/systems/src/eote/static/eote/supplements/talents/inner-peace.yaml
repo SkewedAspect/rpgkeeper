@@ -1,0 +1,10 @@
+id: eote-talent-inner-peace
+name: Inner Peace
+description: Once per encounter, convert a number of dark side Destiny Points equal to ranks in Inner Peace to light
+  side Destiny Points and reduce Conflict gained this session.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Juyo Berserker
+reference:
+  - KoF:31

@@ -1,0 +1,31 @@
+id: eote-weapon-msw-12-nanodagger
+name: MSW-12 NanoDagger
+description: >-
+  Xana Exotic Arms MSW-12 NanoDagger
+
+  Another MSW-series mono-molecular blade offering by Xana Exotic Arms, the MSW-12 NanoDagger is a larger, deadlier
+  version of the MSW-9 Molecular Stiletto. Resembling a common combat or ability blade, the NanoDagger's blade is made
+  of a synthetic crystaline matrix embedded with super dense alloys that resist wear, chipping, blunting, and breakage.
+  It has a mono-molecular edge that can slice through some of the toughest materials, and it can cause vicious, slow
+  heating wounds on most being in the galaxy. Despite its reinforcement, like all mono-molecular blades produced by
+  Xana, the NanoDagger's blade has an alarming tendancy to break under certain conditions.
+
+  The GM may spend <threat></threat><threat></threat><threat></threat> or <despair></despair> from any combat check made
+  with this weapon to have it become damaged one step (from undamaged to minor, minor to moderate, moderate to major,
+  etc.) as described on page 166 of the **Force and Destiny** Core Rulebook.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 5
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - SS:44

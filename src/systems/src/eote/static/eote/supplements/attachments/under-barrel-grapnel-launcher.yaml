@@ -1,0 +1,21 @@
+id: eote-attachment-under-barrel-grapnel-launcher
+name: Under-Barrel Grapnel Launcher
+description: Often seen among mercenary and special operations forces, an under-barrel grapnel launcher provides a quick
+  way to scale sheer surfaces in the midst of a combat situation or during a covert infiltration. A durasteel hook,
+  possibly with a mono-molecular point, can find purchase on nearly any surface, while a spool of synthrope or liquid
+  cable provides up to 100 meters of length. A powerful motor automatically retracts the cable, pulling the user up -
+  though holding onto any passengers who are along for the ride is a more difficult matter, and requires some effort on
+  part of the user. This attachment can be used with any Ranged (Light) or Ranged (Heavy) weapons that could logically
+  have a grapnel launcher mounted on it.
+useWith: weapon
+hpRequired: 2
+rarity: 3
+baseModifier: As an action, may make an **Average (<difficulty></difficulty><difficulty></difficulty>) Ranged (Light)
+  check** to secure grappling hook to an object within medium range and reel in cord.; May pull another character aloft
+  by making an **Average (<difficulty></difficulty><difficulty></difficulty>) Athletics check**.
+modOptions: []
+reference:
+  - SM:56
+includedModels:
+  - Merr-Sonn KR-2 Auxiliary Grapnel
+  - TaggeCo "Skysailer" Grapnel Launcher

@@ -1,0 +1,11 @@
+id: eote-talent-hyperspace-assault
+name: Hyperspace Assault
+description: The character may use Astrogation or Knowledge (Warfare) to determine their Initiative during an encounter
+  in which they are piloting or commanding a starship. If they do so, they may spend <triumph></triumph> from the check
+  to choose the starting locations of all allied ships in the encounter.
+activation: p
+ranked: false
+forceTalent: false
+trees: Republic Navy Officer
+reference:
+  - RotS:39

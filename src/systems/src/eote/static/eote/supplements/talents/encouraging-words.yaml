@@ -1,0 +1,11 @@
+id: eote-talent-encouraging-words
+name: Encouraging Words
+description: After an engaged ally fails a check, may suffer 1 strain to assist that ally's next check this encounter as
+  an out of turn incidental.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Advocate, Instructor, Ship Captain, Teacher
+reference:
+  - DA:33
+  - DoH:28

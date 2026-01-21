@@ -1,0 +1,10 @@
+id: eote-talent-koiogran-turn
+name: Koiogran Turn
+description: When an opponent has gained the advantage on a starship or vehicle being piloted, may perform a Koiogran
+  Turn maneuver to remove the effects.
+activation: am
+ranked: false
+forceTalent: false
+trees: Hotshot
+reference:
+  - SoT:32

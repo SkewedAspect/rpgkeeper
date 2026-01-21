@@ -1,0 +1,27 @@
+id: eote-weapon-vx-czerhander-vibro-greatsword
+name: VX "Czerhander" Vibro-Greatsword
+description: >-
+  The Czerka model VX is similar to other vibroswords, but with a much longer, heavier blade and an extended hilt
+  accommodating a two-handed grip. Many skilled swordsmen favor the "Czerhander," which rivals a vibro-ax for hitting
+  power, while granting the wielder greater control. The well-balanced blade allows for effective parrying, despite its
+  size and weight.
+
+  A vibro-greatsword requires two hands to wield.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - DC:48

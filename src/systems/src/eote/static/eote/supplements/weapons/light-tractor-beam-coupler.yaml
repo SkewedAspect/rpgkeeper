@@ -1,0 +1,17 @@
+id: eote-weapon-light-tractor-beam-coupler
+name: Light Tractor Beam Coupler
+description: ""
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 1
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-tractor
+    ranks: 1
+reference:
+  - FC

@@ -1,0 +1,21 @@
+id: eote-armor-capari-series-padded-beast-armor
+name: Capari-Series Padded Beast Armor
+description: >-
+  Lighter and more flexible than the heavy Destri-series armor, Capari-series padded beast armor by Piccatech Ltd.
+  offers an excellent balance between protection and wearability. Similar in construction to TaggeCo.'s Protector X LEO
+  armor, Capari armor consists of heavy-duty synthetic textiles woven with energy absorbing foil-fiber armorweave. The
+  armor is backed with thin polycarbonate armor plates situated in strategic locations at the animal's neck, shoulders,
+  chest, back, and legs. While it offers lighter protection than the heavy Destri-series, the Capari-series is easier to
+  wear than its heavier cousin and does not limit a creature's speed or range of motion.
+
+  Padded beast armor can only be equipped to bestial riding animals. In addition to its other effects. using it allows
+  the character to ride the beast without suffering the bareback riding penalties discussed on page 81.
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 4
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - SoT:43

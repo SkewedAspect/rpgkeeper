@@ -1,0 +1,9 @@
+id: eote-talent-natural-trooper
+name: Natural Trooper
+description: Once per game session, the character may reroll any one Gunnery or Ranged (Heavy) check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Clone Trooper
+reference:
+  - RotS:40

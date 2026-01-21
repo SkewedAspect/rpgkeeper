@@ -1,0 +1,36 @@
+id: eote-weapon-shoto
+name: Shoto
+description: >-
+  Essentially miniaturized lightsabers, shotos are one of the more common lightsaber variants. A lightsaber created for
+  duelists. the shoto was initially designed as an offhand weapon for individuals who practiced the two-handed Jar'Kai
+  school of lightsaber combat. As they grew in popularity, shotos were adopted as a primary weapon by Jedi and Sith
+  whose small statures made the use of a standard-sized lightsaber difficult or impossible. Some, especially students of
+  the Ataru school, forsook standard-sized lightsabers altogether, instead wielding two shotos. This allowed these
+  individuals to make good use of the acrobatic forms inherent in Ataru to deliver quicker and more accurate blows than
+  an individual wielding a single full-sized lightsaber or even a lightsaber/shoto combination. Perhaps the most famous
+  shoto user was the Jedi Master Yoda, who carried a green-bladed shoto which he used to shocking effect.
+
+  This lightsaber is a basic shoto hilt containing an unmodded Ilum lightsaber crystal (see page 197). This crystal
+  occupies two of the weapon's hard points.
+
+  When installing a lightsaber crystal into a shoto, reduce the damage of that lightsaber crystal by 1.
+
+  **Models Include:** None; each of these weapons is individually constructed.
+skill: Lightsaber
+damage: 5
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 3
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-sunder
+reference:
+  - F-CRB:177
+  - RotS:54

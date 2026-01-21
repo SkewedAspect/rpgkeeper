@@ -1,0 +1,15 @@
+id: eote-armor-heavy-robes
+name: Heavy Robes
+description: Many Jedi wear thick robes, sometimes with ceremonial significance, and sometimes simply to protect
+  themselves against the elements in the course of their work. These robes are little more than layers of reinforced
+  fabrics, largely incapable of stopping incoming attacks, but the voluminous profile they provide can offer limited
+  protection by obscuring vital areas or even a Jedi's general silhouette.
+defense: 1
+soak: 0
+hardpoints: 0
+encumbrance: 1
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - RotS:56

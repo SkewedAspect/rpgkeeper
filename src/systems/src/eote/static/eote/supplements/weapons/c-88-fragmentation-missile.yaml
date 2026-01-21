@@ -1,0 +1,23 @@
+id: eote-weapon-c-88-fragmentation-missile
+name: C-88 Fragmentation Missile
+description: Designed for use against infantry rather than vehicles, a fragmentation missile functions much like a
+  typical frag grenade, scattering shards of metal over a wide area, shredding tissue and shattering bone. Frag missiles
+  are absolutely deadly to unarmored or lightly armored targets, and pose a considerable threat even to those protected
+  by battle armor.
+skill: Gunnery
+damage: 12
+addSkill: false
+criticalRating: 4
+range: ex
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 12
+  - id: eote-quality-guided
+    ranks: 3
+reference:
+  - DC:42
+  - KoF:46

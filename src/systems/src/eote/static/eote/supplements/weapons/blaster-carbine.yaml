@@ -1,0 +1,27 @@
+id: eote-weapon-blaster-carbine
+name: Blaster Carbine
+description: >-
+  The rifle or carbine blaster is the typical firearm of soldiers and heavy security forces around the galaxy. Their
+  longer barrels propel bolts much farther than blaster pistols, and their heavier cartridges typically trigger a more
+  powerful blast of particles.
+
+  Stormtroopers in service of the Empire carry E-11 blaster rifles with folding stocks. At short range, the rifle can be
+  fired one-handed—just as if it were a heavy pistol. The stock is extended when firing at more distant targets so that
+  the trooper can better stabilize his aim.
+
+  **Models Include**: E-11 Blaster Rifle (multiple manufacturers), BlasTech A280 Blaster Rifle.
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 4
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - E-CRB:162
+  - A-CRB:175
+  - F-CRB:168

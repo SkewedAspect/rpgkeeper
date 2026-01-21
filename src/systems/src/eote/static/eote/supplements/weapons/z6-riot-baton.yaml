@@ -1,0 +1,23 @@
+id: eote-weapon-z6-riot-baton
+name: Z6 Riot Baton
+description: This extendable cudgel integrates a set of conductor contact vanes that can effectively subdue a target.
+  The Z6 model was designed to partially collapse. This enables the wielder to carrier it at the waist with minimal
+  inconvenience. When activated, the same power supply triggers an energy field that stabilizes the baton at its full
+  ninety-centimeter size. In addition to serving as a shock prod, the energy field is capable of deflecting an attack
+  from a plasma weapon, such as a lightsaber.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 5
+range: en
+encumbrance: 2
+hardpoints: 1
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-cortosis
+  - id: eote-quality-disorient
+    ranks: 2
+  - id: eote-quality-stun-damage
+reference:
+  - DoH:44

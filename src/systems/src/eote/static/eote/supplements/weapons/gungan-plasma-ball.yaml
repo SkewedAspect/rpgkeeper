@@ -1,0 +1,23 @@
+id: eote-weapon-gungan-plasma-ball
+name: Gungan Plasma Ball
+description: Plasma balls are the predominant ammunition for Gungan weaponry. Loaded with a fluid-like plasma, the
+  ordnance bursts upon impact with the target, discharging its payload. Plasma balls vary in size, with versions roughly
+  twenty centimeters in diameter associated with most handheld weapons. They are especially dangerous to droids and
+  mechanical devices.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-burn
+    ranks: 1
+  - id: eote-quality-ion
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - NoP:102

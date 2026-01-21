@@ -1,0 +1,72 @@
+id: eote-weapon-reciprocating-quad-blaster-cannon
+name: Reciprocating Quad Blaster Cannon
+description: >-
+  What is essentially a downscaled version of an anti-starfighter emplacement, the reciprocating quad blaster
+
+  cannon is the heaviest personal weapon in Merr-Sonn
+
+  Munitions’ entire arsenal. Developed during the Clone
+
+  Wars, the “cip-quad” saw use by heavy weapons experts
+
+  in elite divisions of the Grand Army of the Republic, such
+
+  as the ARC Troopers. During the Galactic Civil War, most
+
+  cip-quads are issued to Imperial heavy infantry supporting the Hell’s Hammers, an elite vanguard armor
+
+  regiment. Few are acquired by the Rebellion, as they are
+
+  nigh impossible to claim from fallen Hammers, and are
+
+  rare and expensive on the black market.
+
+  A reciprocating quad blaster cannon assembly uses
+
+  a special pneumatic harness to secure and steady
+
+  the weapon in front of the wearer. Further, a wielder
+
+  generally equips a portable fusion generator (usually worn on the back) power the cannon. Dozens of
+
+  micro-repulsors placed along the cip-quad mitigate
+
+  some of the immense weight of the cannon, and inertial compensators reduce the intense recoil. Despite
+
+  the built-in support, those inexperienced in the weapon's operation can suffer grievous recoil injuries if its
+
+  sensitive compensators are not precisely calibrated.
+
+  This weapon can only be used in Auto-fire mode.
+
+  The GM may spend <despair></despair> or <threat></threat><threat></threat><threat></threat><threat></threat> from a
+  combat
+
+  check with this weapon to have the wielder suffer a
+
+  Critical Injury with -50 to the roll, to a minimum of
+
+  one (see **Table 6-10: Critical Injury Result** on page
+
+  231 of the **Age of Rebellion** Core Rulebook).
+skill: Gunnery
+damage: 10
+addSkill: false
+criticalRating: 2
+range: l
+encumbrance: 8
+hardpoints: 4
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 4
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-prepare
+    ranks: 2
+reference:
+  - FiB:45

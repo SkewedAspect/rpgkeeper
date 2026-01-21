@@ -1,0 +1,26 @@
+id: eote-weapon-aurateran-boomerang
+name: Aurateran Boomerang
+description: >-
+  Although Auraterans have access to modern energy weapons, the simple but reliable boomerang is still a popular weapon
+  for local hunters and trappers. The weapon takes skill to use, and many an enthusiastic amateur has lost her boomerang
+  by throwing it into a tree or off a cliff. But if thrown correctly, the boomerang either hits its target or spins
+  around in mid-air, then hitting the original target on the return flight or landing in the user’s hand.
+
+  If retrieved, a thrown boomerang can be used again. A character may spend <advantage></advantage> on a missed attack
+  (including an attack made with the Guided quality) to have the boomerang return to the user’s hand.
+skill: Ranged (Light)
+damage: 4
+addSkill: false
+criticalRating: 5
+range: m
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-guided
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - NoP:102

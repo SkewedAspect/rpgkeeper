@@ -1,0 +1,10 @@
+id: eote-talent-vaapad-control
+name: Vaapad Control
+description: When making a Lightsaber combat check, the character may suffer 1 strain to downgrade the difficulty of
+  this check a number of times equal to the number of light side Destiny Points in the Destiny pool.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Juyo Berserker
+reference:
+  - KoF:31

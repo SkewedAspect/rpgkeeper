@@ -1,0 +1,21 @@
+id: eote-attachment-unstable-kyber-crystal
+name: Unstable Kyber Crystal
+description: >-
+  The Kyber crystal is the heart of a lightsaber, but as with the hearts of organic beings, there can be imperfections.
+  There are many opportunities between mining and use for a crystal to become unstable. It could develop hairline
+  fractures in initial transit. Its wielder might subject it to extreme stress in use. Either way, power can begin to
+  leak out of the crystal itself.
+
+  Under normal circumstances, these imperfections will not affect a lightsaber's performance. With the right knowledge,
+  however, a Force user can harness the leaking energy for their own ends. By performing a lengthy ritual with the
+  lightsaber, a Mystic can draw some of its power into themselves for a time.
+useWith: weapon
+hpRequired: 2
+rarity: 10
+baseModifier: Damage set to 6; Critical set to 2; Breach 1; Sunder 1; As maneuver, increase Force rating by 1. This
+  persists until using the extra [FO] to fuel Force talent or Force power. However, GM may spend
+  <threat></threat><threat></threat><threat></threat><threat></threat> or <despair></despair> to cause lightsaber to
+  sputter and fail, if this happens may not reignite lightsaber for one hour.
+modOptions: []
+reference:
+  - UP:55

@@ -1,0 +1,16 @@
+id: eote-attachment-magnetic-weapon-tether
+name: Magnetic Weapon Tether
+description: A magnetic weapon tether is a relatively simple modification that consists of a small magnetic device built
+  into the weapon. The magnetic weapon tether allows the wielder to snap the weapon back to a readied position with a
+  press of a button, rather than having to scramble to retrieve it. While many Force users might scoff at this ability -
+  after all, why use a device for what they can do with the force anyway - others prefer to have the extra layer or
+  safety, or wish to avoid using their Force powers openly in places where the Empire's presence is strong. This
+  attachment can be applied to any weapon wielded in one hand that could logically benefit from a weapon tether.
+useWith: weapon
+hpRequired: 1
+rarity: 2
+baseModifier: Wielder may recover engaged weapon as incidental.
+modOptions:
+  - Gain Quick Draw (draw/holster as incidental)
+reference:
+  - KtP:54

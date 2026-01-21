@@ -1,0 +1,11 @@
+id: eote-talent-nobodys-fool-improved
+name: Nobody's Fool (Improved)
+description: When targeted by a Charm, Coercion, or Deception check, the character may spend <despair></despair> or
+  <threat></threat><threat></threat><threat></threat> from the check to inflict strain on the opponent equal to the
+  character's ranks in Nobody's Fool.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Master, Senator
+reference:
+  - CotR:42

@@ -1,0 +1,32 @@
+id: eote-weapon-slugthrower-rifle
+name: Slugthrower Rifle
+description: >-
+  A larger version of the slugthrower pistol, the slugthrower rifle also uses chemical reactions to fire a solid
+  projectile "slug" at high velocities towards a target. Slugthrower rifles sport much longer and larger barrels than
+  pistols, and can fire larger slugs over longer distances. However, they still suffer from poor accuracy and
+  penetration, not to mention requiring uncommon ammunition that may either be hand-made and unreliable or prohibitively
+  expensive.
+
+  However, many primitive and nomadic cultures use slugthrower rifles, often of some homemade variant. One such example
+  are the Tusken Raiders of Tatooine. The primitive and violent nomads have little access to the kind of gas used by
+  blasters and even less to XCiter technology. They are able to occasionally capture ammunition in raids on the planet's
+  moisture farms, however, and use the rounds in their crude, long-range sniper rifles. These weapons are quite
+  effective against the lone settlers, diminutive Jawas, and womp rats that share their harsh desert.
+
+  **Models Include**: Dresselian Projectile Rifle, Czerka Arms 6-2Aug2 Hunting Rifle.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 5
+range: m
+encumbrance: 5
+hardpoints: 1
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 2
+reference:
+  - E-CRB:164
+  - A-CRB:177
+  - F-CRB:169

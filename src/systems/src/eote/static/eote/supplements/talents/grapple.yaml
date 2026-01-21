@@ -1,0 +1,11 @@
+id: eote-talent-grapple
+name: Grapple
+description: Once per round, the character may perform the Grapple maneuver. Until the beginning of the character's next
+  turn, enemies must spend two maneuvers instead of one maneuver to move from engaged range to short range of him.
+activation: am
+ranked: false
+forceTalent: false
+trees: Martial Artist, Warden
+reference:
+  - KtP:30
+  - ND:34

@@ -1,0 +1,12 @@
+id: eote-talent-know-somebody
+name: Know Somebody
+description: Once per session, when attempting to purchase a legally available item, reduce its rarity by 1 per rank of
+  Know Somebody.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Advisor, Entrepreneur, Modder, Quartermaster, Trader
+reference:
+  - E-CRB:138
+  - A-CRB:150
+  - F-CRB:146

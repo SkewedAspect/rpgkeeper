@@ -1,0 +1,17 @@
+id: eote-attachment-ad-1s-sublight-boost-thrusters
+name: (AD-1S) Sublight Boost Thrusters
+description: |-
+  Sublight Boost Thrusters for AD-1S
+  The craft’s engines can
+  be equipped with sublight boosters, which considerably increase their output. Flying at higher speeds
+  also makes the vehicle harder to handle in rough conditions such as asteroid fields, but when outrunning a
+  patrol boat or pirate vessel, it can be the difference
+  between life and death.
+useWith: vehicle
+hpRequired: 2
+rarity: 7
+baseModifier: +1 Speed; -1 Handling
+modOptions:
+  - +1 Speed
+reference:
+  - SM:63

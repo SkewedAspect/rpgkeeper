@@ -1,0 +1,32 @@
+id: eote-weapon-g2-concussion-grenade
+name: G2 Concussion Grenade
+description: >-
+  Concussion grenades are powerful hand-held bombs that release a debilitating shock wave over the surrounding area. The
+  detonation of a concussion grenade is strong enough to maim or even kill an unarmored target, while the shock wave
+  released can incapacitate any foes within the grenade's blast radius. Some concussion grenades are designed to simply
+  kill, while others focus on incapacitation. The G2 is an example of the latter, designed to disorient any foes it does
+  not eliminate.
+
+  If the user activates a concussion grenade's Disorient quality, the Disorient quality affects all characters at short
+  range from the target (even if they are not damaged by the weapon).
+skill: Ranged (Light)
+damage: 10
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-concussive
+    ranks: 2
+  - id: eote-quality-disorient
+    ranks: 5
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DC:46
+  - KoF:44

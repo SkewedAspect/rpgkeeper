@@ -1,0 +1,15 @@
+id: eote-armor-skakoan-pressure-suit
+name: Skakoan Pressure Suit
+description: Skakoans require methane to live, and wear special pressure suits to emulate the conditions on Skako. They
+  start the game with a specialized pressure suit with methane respirator, which counts as armor with indefinite
+  supplies of methane. The suit has + 2 soak, encumbrance of 3, 3 hard points, cannot acquired unless on Skako (at a
+  price equivalent to laminate armor), and cannot be worn by other species.
+defense: 0
+soak: 2
+hardpoints: 3
+encumbrance: 3
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - FO:23

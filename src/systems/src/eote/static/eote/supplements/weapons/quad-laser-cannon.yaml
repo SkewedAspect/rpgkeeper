@@ -1,0 +1,23 @@
+id: eote-weapon-quad-laser-cannon
+name: Quad Laser Cannon
+description: Quad lasers are dedicated anti-starfighter-weapons consisting of four small-caliber laser cannons linked to
+  a single firing mechanism and slaved to a sophisticated fire-control system. They fire four laser blasts with every
+  pull of the trigger, and can quite easily fill the space around a ship with enough kilojoules of energy to destroy
+  even the toughest starfighter or patrol boat.
+skill: Gunnery
+damage: 5
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-linked
+    ranks: 3
+reference:
+  - E-CRB:230
+  - A-CRB:240

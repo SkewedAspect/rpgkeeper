@@ -1,0 +1,11 @@
+id: eote-talent-natural-leader
+name: Natural Leader
+description: Once per session, may reroll any 1 Cool or Leadership check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Figurehead, Peacekeeper, Republic Navy Officer, Tactician
+reference:
+  - A-CRB:153
+  - F-CRB:148
+  - RotS:40

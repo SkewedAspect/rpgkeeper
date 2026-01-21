@@ -1,0 +1,10 @@
+id: eote-talent-shroud
+name: Shroud
+description: The character may spend 1 Destiny Point to make himself undetectable via Force powers and make his own
+  powers go unnoticed for the remainder of the encounter.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Hermit, Shadow
+reference:
+  - F-CRB:151

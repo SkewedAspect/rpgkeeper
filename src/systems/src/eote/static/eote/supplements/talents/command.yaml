@@ -1,0 +1,13 @@
+id: eote-talent-command
+name: Command
+description: Add <boost></boost> per rank of Command when making Leadership checks. Affected targets add <boost></boost>
+  to Discipline checks for next 24 hours.
+activation: p
+ranked: true
+forceTalent: false
+trees: Clone Officer, Commodore, Figurehead, General, Imperial Academy Cadet, Mercenary Soldier, Peacekeeper, Republic
+  Navy Officer, Separatist Commander, Squadron Leader, Strategist
+reference:
+  - E-CRB:133
+  - A-CRB:144
+  - F-CRB:140

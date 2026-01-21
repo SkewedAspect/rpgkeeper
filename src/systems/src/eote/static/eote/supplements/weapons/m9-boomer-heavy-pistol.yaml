@@ -1,0 +1,32 @@
+id: eote-weapon-m9-boomer-heavy-pistol
+name: M9 "Boomer" Heavy Pistol
+description: >-
+  Czerka M9 "Boomer" Heavy Pistol
+
+  Known colloquially as the "hand cannon," Czerka's Cz M9 "Boomer" is a standout in the heavy pistol market. Designed to
+  cram as much killing power in as small a package as possible, the Boomer is a thick, squat, large-caliber slugthrowing
+  pistol. Instead of standard metal slugs, however, the Boomer fires small, fin-stabilized grenades from a detachable
+  box magazine. The Boomer's grenades give the shooter respectable anti-personnel capabilities. The downside to all this
+  firepower is a limited payload and a weapon that is often inaccurate and difficult to use.
+
+  During combat, GMs may make this weapon run out of ammunition by spending
+  <threat></threat><threat></threat><threat></threat>. This is in addition to the standard spending of
+  <despair></despair>.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 5
+  - id: eote-quality-cumbersome
+    ranks: 2
+  - id: eote-quality-inaccurate
+    ranks: 1
+reference:
+  - FO:39

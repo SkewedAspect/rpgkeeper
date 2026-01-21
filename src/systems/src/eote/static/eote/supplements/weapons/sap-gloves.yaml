@@ -1,0 +1,26 @@
+id: eote-weapon-sap-gloves
+name: Sap Gloves
+description: >-
+  Sap gloves are produced by a number of companies throughout the galaxy. Made in a variety of styles for nearly every
+  imaginable species, they are simply a pair of gloves with heavy plates, alloy pellets, sand, or some other dense,
+  weighty material sewn into the fingers and back of the hand. Relatively innocuous when worn, sap gloves amplify a
+  wearer's punch and act almost like brass knuckles. Sap gloves are popular among law enforcement and intelligence
+  services throughout the galaxy, and their use is extremely common in the criminal underworld.
+
+  Spotting sap gloves on an individual requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception
+  check**.
+skill: Brawl
+damage: 2
+addSkill: true
+criticalRating: 5
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-concussive
+    ranks: 1
+reference:
+  - CaM:40

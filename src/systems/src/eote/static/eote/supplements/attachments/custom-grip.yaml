@@ -1,0 +1,17 @@
+id: eote-attachment-custom-grip
+name: Custom Grip
+description: A skilled tinkerer can tailor a weapon to perfectly fit its wielder's hand. A custom grip is crafted to
+  uniquely match its owner, allowing the weapon to act as an extension of the wielder's body. While the weapon fits
+  perfectly in the hands of its owner, others who try to use it find the grip uncomfortable or the weapon off-balance. A
+  finely customized grip is the hallmark of a master weaponsmith. This attachment can be applied to any weapon with a
+  handle.
+useWith: weapon
+hpRequired: 1
+rarity: 6
+baseModifier: -1 Setback; Anyone other than owner adds <setback></setback><setback></setback> to combat checks using this weapon.
+modOptions:
+  - Accurate +1
+reference:
+  - SM:54
+includedModels:
+  - None

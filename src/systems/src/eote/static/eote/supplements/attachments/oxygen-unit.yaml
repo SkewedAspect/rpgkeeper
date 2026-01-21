@@ -1,0 +1,13 @@
+id: eote-attachment-oxygen-unit
+name: Oxygen Unit
+description: |-
+  This unit can provide an additional
+  twelve hours of oxygen when connected to any
+  rebreather, breath mask, or environmentally sealed suit
+useWith: weapon
+hpRequired: 1
+rarity: 3
+baseModifier: Adds additional twelve hours of oxygen when connected to any rebreather, breath mask, or sealed suit.
+modOptions: []
+reference:
+  - FiB:55

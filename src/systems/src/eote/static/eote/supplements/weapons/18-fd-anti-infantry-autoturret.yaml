@@ -1,0 +1,86 @@
+id: eote-weapon-18-fd-anti-infantry-autoturret
+name: 1.8 FD Anti-Infantry Autoturret
+description: >-
+  Atgar SpaceDefense 1.8 FD Anti-Infantry Autoturret
+
+  Atgar SpaceDefense has been a major developer of
+
+  weaponry for some time, but in recent years, its prominence on the battlefield has diminished. Atgar’s most
+
+  notable contribution to military hardware, the 1.4 FD
+
+  P-Tower anti-vehicle laser cannon, was designed to
+
+  defend ground outposts from the advance of enemy
+
+  repulsorcraft, light armor, and mechanized infantry.
+
+  Its incredible range and ability to operate effectively
+
+  in nearly any environment ensured its widespread use
+
+  for years, but the P-Tower’s lackluster onboard targeting computer, inability to penetrate heavier armor,
+
+  and limited protection for its operator saw it replaced
+
+  by more capable models.
+
+  While organizations such as the Rebel Alliance have
+
+  kept the P-Tower in service, Atgar SpaceDefense has
+
+  sought to breathe new life into unsold inventory by reusing some of the parts from the P-Tower in a new antiinfantry
+  weapon: the 1.8 FD Anti-Infantry Autoturret.
+
+  Ostensibly a new product, the 1.8 FD recycles a
+
+  great deal of hardware from the P-Tower, but serves a
+
+  very different battlefield function. While it can be used
+
+  to engage light vehicles, its true purpose is suppressing enemy infantry without putting one’s own troops at
+
+  risk. Thanks to its innate ability to be connected to an
+
+  Atgar artillery remote, it lets a small group of defenders effectively engage much larger numbers of foes
+
+  without leaving the safety of cover. Though extremely
+
+  weighty, this emplacement is considerably lighter than
+
+  a P-Tower, allowing squads of infantry to reposition it
+
+  in the field with the help of a light speeder or loader
+
+  droid. However, this comes at the cost of ammunition
+
+  capacity, and so the 1.8 FD can only fire a few salvos
+
+  before depleting its energy reserves.
+
+  While attached to a suitable power source (such as
+
+  a base’s power grid or a similarly-sized generator), this
+
+  weapon loses the Limited Ammo 8 quality. Wiring the
+
+  weapon into a power source requires several minutes
+
+  and an **Easy (<difficulty></difficulty>) Mechanics check**.
+skill: Gunnery
+damage: 17
+addSkill: false
+criticalRating: 2
+range: ex
+encumbrance: 25
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-limited-ammo
+    ranks: 8
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - FiB:45

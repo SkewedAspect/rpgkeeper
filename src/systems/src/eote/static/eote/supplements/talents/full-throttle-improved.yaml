@@ -1,0 +1,12 @@
+id: eote-talent-full-throttle-improved
+name: Full Throttle (Improved)
+description: Suffer 1 strain to attempt Full Throttle as a maneuver and decrease its difficulty to **Average
+  (<difficulty></difficulty><difficulty></difficulty>)**.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Driver, Pilot, Racer
+reference:
+  - E-CRB:136
+  - A-CRB:148
+  - EV:30

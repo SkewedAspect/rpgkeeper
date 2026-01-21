@@ -1,0 +1,19 @@
+id: eote-attachment-xciter-overcharge
+name: XCiter Overcharge
+description: A common—and dangerous—modification among espionage agents, an XCiter Overcharge allows an individual to
+  empty a blaster's energy cell in a single, extremely powerful shot. This increases the output for an emergency kick,
+  but it runs the risk of destroying the weapon and harming the user. While typically applied to holdout blasters, this
+  attachment can be applied to any personal blaster weapon.
+useWith: weapon
+hpRequired: 2
+rarity: 7
+baseModifier: As an incidental, shooters may overcharge the XCiter on their blaster. This gives the weapon to Prepare 1
+  item quality and increases the damage on the next attack by 4. Once it is fired the weapon runs out of ammo and must
+  be recharged.; GMs may spend <threat></threat><threat></threat><threat></threat> or <despair></despair> from any
+  combat check involving an overcharged shot with this weapon to cause the weapon to explode and deal full damage to the
+  shooter.
+modOptions: []
+reference:
+  - CaM:57
+includedModels:
+  - BlasTech "Nova" Overcharge System

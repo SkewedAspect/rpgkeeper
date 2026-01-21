@@ -1,0 +1,10 @@
+id: eote-talent-iron-soul
+name: Iron Soul
+description: When carrying items that total 2 encumbrance or less, at the end of each encounter heal all strain the
+  character is suffering.
+activation: p
+ranked: false
+forceTalent: false
+trees: Ascetic
+reference:
+  - DoH:28

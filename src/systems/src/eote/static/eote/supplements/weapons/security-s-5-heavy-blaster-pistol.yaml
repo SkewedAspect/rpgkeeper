@@ -1,0 +1,28 @@
+id: eote-weapon-security-s-5-heavy-blaster-pistol
+name: Security S-5 Heavy Blaster Pistol
+description: >-
+  A pistol designed and manufactured by Theed Arms on Naboo, the Security S-5 is a reliable, versatile weapon. During
+  the Clone Wars, it was a preferred weapon of the Royal Naboo Security Forces, and it remains a popular choice for
+  private security groups, bodyguards and other blaster conoisseurs. Its under-barrel dart launcher can be configured to
+  launch solid projectiles of various sorts; on eparticularly common choice is a grappling hook attached to a cable,
+  which wielders can use to anchor themselves to nearby objects, swing across gaps, and safely descend into drops.
+
+  As an action, a character may make an Average (<difficulty></difficulty><difficulty></difficulty>) Ranged (Light)
+  check to secure the grappling hook to an object within medium range. On success, as an action, he may reel in the
+  cord, pullin ghimself to the object (or, if the object is unsecured and lighter than he is, pulling it to him). A
+  character may use the grappling hook to pull another character aloft with him; if he does, he must make an Average
+  (<difficulty></difficulty><difficulty></difficulty>) Athletics check to avoid losing his grip on either his partner or
+  his gun.
+skill: Ranged (Light)
+damage: 7
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 1
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - KtP:43

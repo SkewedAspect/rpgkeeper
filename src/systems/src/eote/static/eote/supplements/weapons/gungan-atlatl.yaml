@@ -1,0 +1,28 @@
+id: eote-weapon-gungan-atlatl
+name: Gungan Atlatl
+description: >-
+  A Gungan warrior could throw one of her signature plasma balls like a grenade (and often do), but a Gungan atlatl
+  gives the weapon a greater range and aids in accuracy. The atlatl also protects the wielder from inadvertent
+  discharges. These weapons are traditionally carved from nonconductive hardwoods.
+
+  Atlatls throw Gungan plasma balls **(see Table 3-1: Ranged Weapons)**, giving them greater range. An atlatl must have
+  a supply of plasma balls for ammunition.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 2
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-burn
+    ranks: 1
+  - id: eote-quality-ion
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - NoP:102

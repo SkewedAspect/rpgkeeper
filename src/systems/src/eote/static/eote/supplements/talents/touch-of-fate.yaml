@@ -1,0 +1,11 @@
+id: eote-talent-touch-of-fate
+name: Touch of Fate
+description: Once per session, add <boost></boost><boost></boost> to any 1 check.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Force Sensitive Emergent, Force Sensitive Exile, Starfighter Ace
+reference:
+  - E-CRB:145
+  - A-CRB:158
+  - F-CRB:153

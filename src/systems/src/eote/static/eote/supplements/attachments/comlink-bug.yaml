@@ -1,0 +1,15 @@
+id: eote-attachment-comlink-bug
+name: Comlink Bug
+description: Comlink bugs are tiny listening devices implanted into an otherwise normal comlink. When active, they allow
+  an operator to listen in on whatever is being broadcast over a specific comlink. These devices detect both incoming
+  and outgoing signals and can record entire conversations. As they are active listening devices, comlink bugs can be
+  detected with proper equipment, such as a surveillance scanner.
+useWith: weapon
+hpRequired: 0
+rarity: 4
+baseModifier: Broadcasts all incoming and outgoing signals from a comlink to a remote listener at medium range.
+modOptions: []
+reference:
+  - CaM:59
+includedModels:
+  - Various models

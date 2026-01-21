@@ -1,10 +1,16 @@
 id: eote-attachment-vacuum-sealed
 name: Vacuum Sealed
-description: "Full body armor can be designed to be sealed against a vacuum, allowing the user to operate in space. This
+description: Full body armor can be designed to be sealed against a vacuum, allowing the user to operate in space. This
   modification provides the armor with enough air and insulation to survive for up to 10 minutes, and obviously also
-  protects against adverse atmospheric environments. "
-useWith: Laminate or battle armor.
-baseModifier: User may ignore the effects of vacuum or poisonous environments for 10 minutes.
-modOptions: None
+  protects against adverse atmospheric environments. This can only be applied to laminate or battle armor.
+useWith: armor
 hpRequired: 1
-reference: E-CRB:195
+rarity: 3
+baseModifier: Allows the user to ignore the effects of vacuum or poisonous atmospheric environments for up to 10 minutes.
+modOptions: []
+reference:
+  - E-CRB:195
+  - A-CRB:207
+  - KtP:57
+includedModels:
+  - Numerous Variants

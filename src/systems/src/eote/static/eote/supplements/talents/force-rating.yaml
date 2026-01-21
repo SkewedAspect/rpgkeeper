@@ -1,7 +1,14 @@
 id: eote-talent-force-rating
 name: Force Rating
-description: Gain a +1 Force Rating.
+description: Gain +1 Force Rating.
 activation: p
 ranked: true
-trees: Force Sensitive Exile
-reference: E-CRB:135
+forceTalent: true
+trees: Advisor, Aggressor, Alchemist, Arbiter, Armorer, Artisan, Ascetic, Executioner, Force Sensitive Emergent, Force
+  Sensitive Exile, Force Sensitive Outcast, Force-Sensitive Outcast, General, Healer, Hermit, Hunter, Investigator,
+  Knight, Magus, Master, Navigator, Nightsister, Niman Disciple, Padawan Survivor, Padawan, Pathfinder, Peacekeeper,
+  Prophet, Protector, Racer, Sage, Seer, Sentry, Shadow, Starfighter Ace, Steel Hand Adept, Teacher, Warden, Warleader
+reference:
+  - E-CRB:135
+  - A-CRB:147
+  - F-CRB:143

@@ -1,0 +1,10 @@
+id: eote-talent-mental-bond
+name: Mental Bond
+description: May perform the Mental Bond action. Commit [FO]. While committed, may communicate with bonded animal at
+  long range and see and hear through its senses.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Pathfinder
+reference:
+  - F-CRB:147

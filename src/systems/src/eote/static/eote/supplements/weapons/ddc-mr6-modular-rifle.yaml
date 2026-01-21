@@ -1,0 +1,28 @@
+id: eote-weapon-ddc-mr6-modular-rifle
+name: DDC-MR6 Modular Rifle
+description: >-
+  A modular rifle that the Drearian Defense Conglomerate designed for the Confederacy of Independent Systems during the
+  Clone Wars, the MR6 comes with an electromagnetic rail system that enables the user to reconfigure the weapon quickly
+  for different situations. The "rails" (actually electromagnetic strips along the body of the rifle) allow a user to
+  quickly swap attachments even in the heat of battle. Due to the high cost of the weapon, the Seperatists never
+  purchased more than an experimental manufacturing run before moving on to cheaper alternatives. Nontheless, a few of
+  these rare guns remain in circulation, in the hands of collectors or mercenaries who need a versatile weapon that
+  fulfills a wide variety of needs.
+
+  A character may make an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check** to add or
+  remove an attachment to a DDC-MR6 as an action rather than spending the usual time required to remove attachment (see
+  **Removing Attachments**, on page 93).
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 6
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+    ranks: 1
+reference:
+  - SM:44

@@ -1,0 +1,24 @@
+id: eote-weapon-mark-v-sand-panther-hunting-rifle
+name: Mark V "Sand Panther" Hunting Rifle
+description: Coveted by big game hunters who can afford the steep price, the Coronet Arms Mark V "Sand Panther" is a
+  superb rifle with excellent range, accuracy, and stopping power. Like other Coronet Arms designs, the Mark V is
+  precisely tooled, with handcrafted stocks made of golden creshik wood imported from Tralus. The rifle's exceptionally
+  long barrel allows the weapon to be accurate, even at extreme ranges. Due to the length and caliber of the barrel, the
+  Mark V is somewhat cumbersome and has a considerable recoil when fired, which is somewhat dampened by a pneumatic
+  recoil buffer built in to the rifle's firing mechanism.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 5
+range: l
+encumbrance: 5
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 2
+reference:
+  - SoF:97

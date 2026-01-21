@@ -1,0 +1,12 @@
+id: eote-talent-outdoorsman
+name: Outdoorsman
+description: Remove <setback></setback> per rank of Outdoorsman from checks to move through terrain or manage
+  environmental effects. Decrease overland travel times by half.
+activation: p
+ranked: true
+forceTalent: false
+trees: Beast Rider, Big-Game Hunter, Clone Veteran, Pathfinder, Recruit, Survivalist, Tactician, Trailblazer
+reference:
+  - E-CRB:141
+  - A-CRB:154
+  - F-CRB:149

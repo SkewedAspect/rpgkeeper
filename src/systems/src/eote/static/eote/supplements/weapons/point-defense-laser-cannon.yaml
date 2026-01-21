@@ -1,0 +1,19 @@
+id: eote-weapon-point-defense-laser-cannon
+name: Point Defense Laser Cannon
+description: A point-defense cannon is a kind of fast-tracking starship emplacement, typically laser cannons or ion
+  cannons, that are used to defend large starships against smaller starfighters. Point-defense cannons are also used to
+  defend against missiles.
+skill: Gunnery
+damage: 5
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+reference:
+  - Age of Reb:186

@@ -1,0 +1,24 @@
+id: eote-weapon-incendiary-micro-rocket
+name: Incendiary Micro-Rocket
+description: Incendiary warheads are loaded with flammable chemical mixtures that offer the devastating effects of a
+  flame projector at in a miniaturized package. Ruthless bounty hunters have used incendiary rockets to pliterally smoke
+  their targets out of their hiding places. The risk of losing the bounty in the ensuing fire is considerable, and many
+  consider the inevitable collateral damage highly unprofessional, but none deny the fear that the tactic inspires.
+skill: Ranged (Heavy)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-burn
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:46

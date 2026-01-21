@@ -1,0 +1,14 @@
+id: eote-attachment-whisperthrust-engine
+name: Whisperthrust Engine
+description: Produced by Rendili StarDrive, the WhisperThrust Engine is a sublight drive that uses special supercooled
+  gases and baffles to reduce a starship's sensor signature. Outlawed by the Empire, Rendili still man-ages to sell
+  these engines through its prominent position in the Corporate Sector Authority.
+useWith: vehicle
+hpRequired: 1
+rarity: 7
+baseModifier: Increases the difficulty of checks to detect this vessel by two while it is traveling at speed 3 or lower.
+modOptions: []
+reference:
+  - FC:63
+includedModels:
+  - Rendili StarDrive WhisperThrust engine

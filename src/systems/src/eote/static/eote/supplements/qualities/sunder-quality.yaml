@@ -1,0 +1,12 @@
+id: eote-quality-sunder-quality
+name: Sunder Quality
+description: >-
+  When activated, the attacker chooses one item openly wielded by the target (such as a weapon, shield, or item on a
+  belt). That item is damaged one step: to Minor if undamaged, from Minor to Moderate, or from Moderate to Major. If a
+  weapon already suffering Major damage is the target of a successful Sunder, it is destroyed.
+
+  Sunder requires <advantage></advantage> to activate. If activated multiple times in the same attack, each can be
+  applied against the same weapon, potentially taking a weapon from undamaged to destroyed in a single attack.
+passive: false
+ranked: false
+reference: []

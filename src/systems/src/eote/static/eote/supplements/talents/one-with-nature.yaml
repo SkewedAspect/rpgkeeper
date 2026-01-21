@@ -1,0 +1,11 @@
+id: eote-talent-one-with-nature
+name: One with Nature
+description: When in the wilderness, the character may make a **Simple (-) Survival check** instead of Discipline or
+  Cool to recover strain at the end of an encounter.
+activation: p
+ranked: false
+forceTalent: false
+trees: Hermit, Trailblazer
+reference:
+  - SS:31
+  - FiB:35

@@ -1,0 +1,30 @@
+id: eote-weapon-idx-9-ion-stunner
+name: IDX-9 Ion Stunner
+description: >-
+  Tenloss IDX-9 Ion Stunner
+
+  An ion stunner disrupts living beings' neural pathways as well as the electronic components of droids and other
+  technological devices. This offers an effective and non-lethal solution for security personnel dealing with threats
+  from living beings as well as droids. However, because ion stunners can affect electronic sensors, criminals often use
+  these weapons to disable security measures. Different governmental agencies take different legal views of these
+  devices because of their alternative uses. All ion stunners incorporate distinctive dish on the barrel, required to
+  focus the ionic flash on a target.
+
+  The Tenloss IDX-9 intergrates a collpsible focusing dish. This modification enables the sidearm to be worn in a normal
+  blaster holster. However, when drawn and its safety disabled, the dish expands, assuming the weapon's characteristic
+  profile. The conversation between holstered and active mode is instant, though most weapon jams with the Tenloss model
+  are due to difficulties with this specialized focusing dish.
+skill: Ranged (Light)
+damage: 7
+addSkill: false
+criticalRating: 0
+range: m
+encumbrance: 1
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-ion
+  - id: eote-quality-stun-damage
+reference:
+  - DoH:42

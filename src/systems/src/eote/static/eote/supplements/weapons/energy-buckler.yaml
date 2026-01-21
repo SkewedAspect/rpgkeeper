@@ -1,0 +1,31 @@
+id: eote-weapon-energy-buckler
+name: Energy Buckler
+description: >-
+  An energy buckler consists of a metallic disc worn on the wielder's wrist. Once active, the disk projects a small,
+  circular shield that can be used to block melee attacks. Given the nature of the energy shield, it can also be used a
+  s a melee weapon to bash targets with a stunning blow. Though an active energy buckletr projects of a relatively
+  nondescript circular energy field, the projecter disks themselves are often decorated to appear as mundane jewelry. An
+  energy buckler has steep power requirements and can only be used for a short period of time before it must be
+  recharged.
+
+  When the wielder is using an energy buckler, the GM can spend any <despair></despair> the wielder generates on a
+  combat check to have the energy buckler run out of power; it ceases to function until the end of the encounter or
+  until recharged.
+skill: Melee
+damage: 0
+addSkill: false
+criticalRating: 5
+range: en
+encumbrance: 2
+hardpoints: 1
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-deflection
+    ranks: 1
+reference:
+  - KtP:45

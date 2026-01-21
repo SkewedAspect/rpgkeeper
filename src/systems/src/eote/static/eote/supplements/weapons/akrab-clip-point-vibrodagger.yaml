@@ -1,0 +1,24 @@
+id: eote-weapon-akrab-clip-point-vibrodagger
+name: aKraB Clip-Point Vibrodagger
+description: |-
+  Diehard survival enthusiasts from Toprawa created
+  the 'aKraB clip-point vibrodagger to slip between the
+  armor plates of big game, allowing for up-close precision kills. Engineered to penetrate thick, armored
+  hides, the vibrodagger’s ability to penetrate laminate
+  armor with ease makes it perfect for taking out stormtroopers silently.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 3
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - FiB:48

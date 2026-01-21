@@ -1,0 +1,13 @@
+id: eote-quality-linked-quality
+name: Linked Quality
+description: >-
+  Some weapons, like the laser cannons fitted to the Z-95 Headhunter, are designed to fire together at the same target.
+  This increases the possibility of a hit as well as the damage dealt. When firing a linked weapon, on a successful
+  attack, the weapon deals one hit.
+
+  The wielder may spend <advantage></advantage><advantage></advantage> to gain an additional hit, and may do so a number
+  of times equal to the weapon’s linked rating. Additional hits from linked weapons may only be applied against the
+  original target. Each hit deals the weapon’s base damage plus total <success></success> scored on the check.
+passive: false
+ranked: true
+reference: []

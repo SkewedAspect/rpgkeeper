@@ -1,0 +1,22 @@
+id: eote-armor-heavy-battle-armor
+name: Heavy Battle Armor
+description: >-
+  Certain heavy stormtroopers, bounty hunters, and even droids are fitted with heavy armor. Ostensibly, heavy armor
+  protects against most normal blaster shots, but in the arms race of offense versus defense, the offensive power of a
+  good blaster is still far ahead of most anything a humanoid can wear.
+
+  Heavy battle armor can be sealed and provide the same benefits as full-body laminate armor as above, or it can take
+  the form of a heavy vest and blast helmet.
+
+  **Models Include:** Mandalorian Shock Trooper Armor.
+defense: 1
+soak: 2
+hardpoints: 4
+encumbrance: 6
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - E-CRB:170
+  - A-CRB:184
+  - KtP:47

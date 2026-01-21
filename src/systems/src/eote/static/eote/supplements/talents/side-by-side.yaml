@@ -1,0 +1,11 @@
+id: eote-talent-side-by-side
+name: Side by Side
+description: While the character is wielding a lightsaber and engaged with one or more allies also wielding a
+  lightsaber, add <threat></threat> to all combat checks that target the character or those allies. (If multiple allied
+  characters in the engagement possess this talent, the effects are cumulative.)
+activation: p
+ranked: false
+forceTalent: true
+trees: Knight
+reference:
+  - RotS:42

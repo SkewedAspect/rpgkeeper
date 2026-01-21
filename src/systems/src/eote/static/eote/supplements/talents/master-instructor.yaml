@@ -1,0 +1,11 @@
+id: eote-talent-master-instructor
+name: Master Instructor
+description: Once per round as an out of turn incidental, may suffer 2 strain to allow ally to use character's ranks in
+  Discipline for next Discipline check an ally makes.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Instructor, Teacher
+reference:
+  - LbE:33
+  - DoH:29

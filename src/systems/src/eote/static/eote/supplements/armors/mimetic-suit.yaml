@@ -1,0 +1,24 @@
+id: eote-armor-mimetic-suit
+name: Mimetic Suit
+description: >-
+  A combination of highly advanced materials and applied sciences, mimetic suits are the apex of personal cloaking
+  technology. Able to bend light around the wearer to make him virtually invisible, the suit also contains sound
+  dampeners, as well as electromagnetic and heat shielding, to make him even stealthier. While other stealth suits rely
+  principally on special materials, mimetic suits must actually be energized in order to cloak the wearer, and they
+  require a small power pack, generally affixed to the belt, to function properly. The power packs are usually only good
+  for an hour of continuous use before they need to be switched out or recharged. Illegal to own and difficult to
+  obtain, mimetic suits are much sought after by criminals, thieves, and assassins throughout the galaxy.
+
+  Upgrade the ability of Stealth checks the wearer makes while wearing a mimetic suit twice while it is active. The GM
+  may spend <threat></threat><threat></threat><threat></threat> or <despair></despair> on any Stealth check the wearer
+  makes while the suit is active to have the battery run out of energy, causing the suit to stop functioning until it is
+  replaced.
+defense: 1
+soak: 1
+hardpoints: 2
+encumbrance: 2
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - FC:47

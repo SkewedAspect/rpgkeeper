@@ -1,0 +1,12 @@
+id: eote-talent-smart-handling
+name: Smart Handling
+description: Once per session, take the Smart Handling action; making a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Knowledge (Education) check**. Until the
+  start of the next round the ship's handling increases by 2 plus an amount equal to <advantage></advantage> scored on
+  the check to a maximum handling of +4.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Shipwright
+reference:
+  - FO:31

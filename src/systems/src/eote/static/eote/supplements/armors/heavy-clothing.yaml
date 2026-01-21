@@ -1,0 +1,16 @@
+id: eote-armor-heavy-clothing
+name: Heavy Clothing
+description: A good leather jacket, technician's jumpsuit, or thick woolen cloak won't stop much damage, but it's
+  certainly better than nothing. Most characters living on the edge of the Empire favor heavy clothing for everyday
+  wear.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 1
+rarity: 0
+restricted: false
+qualities: []
+reference:
+  - E-CRB:169
+  - A-CRB:185
+  - F-CRB:180

@@ -1,0 +1,32 @@
+id: eote-armor-hunters-trophy-armor
+name: Hunter's Trophy Armor
+description: >-
+  Bounty hunters who specialize in wild mammals and
+
+  dangerous beasts sometimes make a habit of collecting trophies to show off their accomplishments. These trophies, from
+  horns and teeth to hides and pelts, may end up on display in the bounty hunter's homes or ships, or these hunters
+  might put them to more practical use. These hunters sometimes commission gear
+
+  made from the trophies they have collected, gathering the toughened hides of whatever nigh-unstoppable creatures they
+  have defeated so that their prey's resilience passes on to them.
+
+  A character wearing trophy armor suffers <setback></setback> to Charm checks, but gains <boost></boost><boost></boost>
+  to Coercion checks due to the armor's intimidating appearance. At the GM's discretion, Charm checks made to impress or
+  persuade other character of the wearer's prowess may receive <boost></boost><boost></boost> instead of
+  <setback></setback>.
+
+  Trophy armor has two Prices and Availabilities on **Table 2-4: Armor**. Use the first price listed ([R] 2,000/9) if a
+  character is attempting to purchase an existing suit of trophy armor outright, and the second price listed ([R]
+  1,000/6) if a character has already procured a suitable hide and wishes to have it fashioned into trophy armor by an
+  artisan.
+        
+  _Note:  If making your own suit from owned hides, price/rarity drops to 1000/6._
+defense: 0
+soak: 2
+hardpoints: 1
+encumbrance: 4
+rarity: 9
+restricted: true
+qualities: []
+reference:
+  - ND:49

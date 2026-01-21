@@ -1,0 +1,22 @@
+id: eote-weapon-ee-3-blaster-carbine
+name: EE-3 Blaster Carbine
+description: The rugged and reliable EE-3 blaster carbine is one of BlasTech's most popular nonmilitary weapons.
+  Designed primarily for law enforcement and private security forces, the EE-3 is a short, lightweight carbine based on
+  an older full-sized BlasTech rifle. It has a short, heavily shrouded barrel and comes equipped with a pistol grip, a
+  solid stock, and an optical sight. The EE-3 is also a select-fire weapon and can fire single shots or automatic
+  bursts, an oddity for this class of weapon. Due to its standard features, low price, and solid BlasTech construction,
+  the EE-3 is extremely popular with bounty hunters and paramilitary groups.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-stun-setting
+reference:
+  - CotR:52

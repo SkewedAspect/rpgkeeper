@@ -1,0 +1,19 @@
+id: eote-armor-sakiyan-shadowsuit
+name: Sakiyan Shadowsuit
+description: >-
+  Woven from the silk of the umbraspider, Sakiyan shadowsuits are used by assassins who wish to remain unseen. The silk
+  has unusual properties, refracting and absorbing light in a way that makes the umbraspiders webs virtually invisible.
+  The Sakiyans have put this extraordinary material to use in crafting body gloves that make the wearer almost
+  impossible to see except in bright light. Chemists working for Ayelixe/Krongbing Textiles were able to synthesize
+  shadowsilk by studying the properties of Defel fur, but Sakiyans contend that the silk of the umbraspider is superior.
+
+  A Sakiyan shadowsuit grants <boost></boost><boost></boost> to Stealth checks.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 1
+rarity: 8
+restricted: false
+qualities: []
+reference:
+  - LoNH:105

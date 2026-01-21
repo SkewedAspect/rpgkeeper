@@ -1,0 +1,9 @@
+id: eote-talent-repair-patch-specialization
+name: Repair Patch Specialization
+description: Whenever using an emergency repair patch, the target heals an additional wound per rank of Repair Patch Specialization.
+activation: p
+ranked: true
+forceTalent: false
+trees: Droid Specialist
+reference:
+  - FO:31

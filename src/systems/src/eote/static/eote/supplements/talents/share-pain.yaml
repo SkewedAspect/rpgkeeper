@@ -1,0 +1,10 @@
+id: eote-talent-share-pain
+name: Share Pain
+description: May perform the Share Pain incidental when bonded animal suffers wounds. Reduce wounds suffered to half,
+  then character suffers wounds equal to number reduced.
+activation: aio
+ranked: false
+forceTalent: true
+trees: Pathfinder
+reference:
+  - F-CRB:151

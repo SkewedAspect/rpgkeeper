@@ -1,0 +1,10 @@
+id: eote-talent-blackmail
+name: Blackmail
+description: When an NPC exceeds his strain threshold, may spend 1 Destiny Point to convince that NPC to perform a
+  single task of choice instead.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Advocate
+reference:
+  - DA:32

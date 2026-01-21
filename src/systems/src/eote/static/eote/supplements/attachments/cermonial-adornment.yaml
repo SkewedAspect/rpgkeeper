@@ -1,0 +1,20 @@
+id: eote-attachment-cermonial-adornment
+name: Cermonial Adornment
+description: >-
+  Diplomats and their retinues typically avoid armor and weapons, the better to clearly signal their sincerity. However,
+  at times, even diplomacy is dangerous enough to warrant looking into personal protection. Those who seek a compromise
+  between protecting their lives and putting others at easy sometimes don ornamented armor with a ceremonial style that
+  downplays its combat-oriented nature. The best armor of this type is as functional as it is beautiful, but usually
+  brings an attendant cost in mobility due to the elaborate decorations over the protective wear.
+
+  This attachment may be installed on any armor, although the GM may alter its effects for particularly intimidating or
+  heavy armor.
+useWith: armor
+hpRequired: 0
+rarity: 4
+baseModifier: Removes <setback></setback><setback></setback> from social skill checks due to wearing armor in socially
+  inappropriate situations.; Adds <setback></setback> to Coordination checks.
+modOptions:
+  - Remove <setback></setback> from Coordination checks
+reference:
+  - RotS:65

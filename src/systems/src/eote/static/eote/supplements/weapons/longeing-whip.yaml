@@ -1,0 +1,24 @@
+id: eote-weapon-longeing-whip
+name: Longeing Whip
+description: Used for guiding riderless beasts and driving teams of creatures, a longeing whip is an essential piece of
+  a beast rider's kit. Made by companies such as Piccatech Ltd. and Xenovet, longeing whips typically consist of a hide
+  or synthetic textile-wrapped composite haft between one and two meters in length. A thin, flexible lash extends from
+  the haft another two meters and is used mainly to make noise to recall a wandering or distracted beast to its duty.
+  Although mainly a tool, a longeing whip also makes a decent improvised weapon, especially in the hands of an
+  experienced user. Its length and flexibility allows a user to keep a threat at a comfortable distance, and the lash
+  can be used to distract and even entangle an assailant.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 5
+range: s
+encumbrance: 3
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 2
+  - id: eote-quality-stun-damage
+reference:
+  - SoT:41

@@ -1,0 +1,26 @@
+id: eote-weapon-vibroknucklers
+name: Vibroknucklers
+description: >-
+  For those who like to let their fists do the talking, a set of vibroknucklers can ensure the last word. Worn like the
+  more common brass knuckles, a small blade running the length of the wearer's knuckles vibrates at an ultrasonic rate
+  when the user clenches his fist. Without changing his fighting style, a brawler equipped with vibroknucklers can
+  easily inflict horrific and fatal wounds with simple punches.
+
+  Add <setback></setback> to attempts to locate vibroknucklers concealed about an individual's body. Vibroknucklers
+  cannot deal damage to a target's strain threshold.
+skill: Brawl
+damage: 1
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 0
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - DC:48

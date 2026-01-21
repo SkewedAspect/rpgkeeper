@@ -1,0 +1,37 @@
+id: eote-weapon-ion-torpedo-launcher
+name: Ion Torpedo Launcher
+description: >-
+  The rarely seen ion torpedo fills a specialized niche that a great many ship commanders and engineers overlook.
+  Lacking the destructive potential of proton torpedoes while inflicting more substantial physical damage than other ion
+  weapons, the ion torpedo might provide the perfect solution for a captain who wishes to end a battle quickly but still
+  take the enemy vessel (mostly) intact.
+
+  An ion torpedo is designed to release a powerful energy pulse only after puncturing a ship's hull. Consequently,
+  powerful deflector shields or thick armor can greatly mitigate the weapon's effectiveness. Still, a well-placed ion
+  torpedo can hamstring nearly any ship, ensuring that this specialized ordnance sees continued use by the Alliance,
+  particularly on sensitive missions to disable or capture experimental Imperial vessels.
+
+  Additional ion torpedoes cost 400 credits for a set of four.
+skill: Gunnery
+damage: 10
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 5
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-guided
+    ranks: 2
+  - id: eote-quality-ion
+  - id: eote-quality-limited-ammo
+    ranks: 4
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - FO:62

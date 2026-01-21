@@ -1,0 +1,10 @@
+id: eote-talent-master-doctor
+name: Master Doctor
+description: Once per round, suffer 2 strain to decrease the difficulty of a Medicine check by 1.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Doctor, Medic
+reference:
+  - E-CRB:138
+  - A-CRB:151

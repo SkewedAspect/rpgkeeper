@@ -1,0 +1,31 @@
+id: eote-weapon-rps-6-rocket-launcher
+name: RPS-6 Rocket Launcher
+description: >-
+  Built by Sienar, the RPS-6 is the GAR's primary infantry portable shoulder fired missile launcher. A flexible,
+  versatile weapon, the RPS-6 can fire a variety of different missiles, from frag and armor piercing to plasma and EMP
+  missiles. Equipped with a sophisticated optics system and fed from a seven-round magazine, the RPS-6 is highly
+  effective against both ground and air targets in the hands of a well-trained clone trooper.
+
+  If attacking a target of silhouette 2 or greater, an RPS-6 adds <boost></boost> if the user performs an aim maneuver.
+skill: Gunnery
+damage: 22
+addSkill: false
+criticalRating: 2
+range: ex
+encumbrance: 8
+hardpoints: 4
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 14
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 4
+  - id: eote-quality-guided
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 7
+reference:
+  - RotS:53

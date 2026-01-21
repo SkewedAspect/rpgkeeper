@@ -1,0 +1,28 @@
+id: eote-armor-timber-cuirass
+name: Timber Cuirass
+description: >-
+  Before the Empire, Tholothian Defense Forces looked the same as their offworld counterparts. Guards wore synthetic
+  body armor and wielded transparisteel riot shields. When deadly force was necessary, they carried a variety of
+  blasters to do the job. While beautiful and poignant, traditional equipment lacked the practicality of offworld gear.
+  In the years following the Clone Wars, the Empire sought to tighten its grip over the Outer Rim. Though it took years
+  to make it there, the full brunt of Imperial force finally made its way to Tholoth.
+
+  Imperial blockades drove the cost of importing weapons and body armor beyond feasibility. Anything deemed contraband
+  entering the system was immediately seized. Factories mass-producing weapons were co-opted by the Empire. Traditional
+
+  weaponsmiths became the sale reliable source of arms and armaments. Before the Empire, Tholothians took their heritage
+  for granted. Now that it is their last weapon against the Empire, Tholothians have embraced it with open arms.
+
+  The Timber Cuirass has become one of the planet's best products-a modern update for ancient Tholothian armor. Armorers
+  crafted the classic cuirass from a single living piece of Heartwood. Generally, a noble would commission it as soon as
+  they came of age, as the process could take decades. The cuirass must be shaped and refined while still growing as
+  part of the tree. On completion, the resulting armor is as strong as durasteel, but only a fraction of the weight.
+defense: 1
+soak: 2
+hardpoints: 1
+encumbrance: 4
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - UP:51

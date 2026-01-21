@@ -1,0 +1,11 @@
+id: eote-talent-one-with-the-universe
+name: One With The Universe
+description: Once per session, mediate, then perform One with the Universe action; make **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Astrogation check**. If successful, add [LI] to all Force power
+  checks in next encounter. If successful with <threat></threat>, add [DA] instead.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Navigator, Sage
+reference:
+  - F-CRB:149

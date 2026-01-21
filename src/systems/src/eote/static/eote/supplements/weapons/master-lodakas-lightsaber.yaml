@@ -1,0 +1,47 @@
+id: eote-weapon-master-lodakas-lightsaber
+name: Master Lodaka's Lightsaber
+description: >-
+  In the galaxy at large, if Lothal is known at all, it is as an Imperial world home to a Sienar Fleet Systems
+  production line for TIE fighters. Some Imperials also know it as a source of Rebel activity. But for generations of
+  Jedi, the planet was known for its hidden temple, which safeguarded a Force-shrouded source of the kyber crystals
+  utilized in lightsaber construction.
+
+  Hidden deep within the temple are the remains of the Rodian Jedi Lodaka. An unparalleled master of the third form of
+  lightsaber dueling, Soresu, the Rodian was unusual among Jedi for also spending much of her time mastering a
+  discipline not often thought of in conjunction with the order: physics. Specifically, Lodaka was fascinated by the
+  material properties of the various crystals used in lightsaber construction, and she took a disciplined, reasoned
+  approach to their study. A true scientist, she made careful, controlled experiments with many forms of crystals, both
+  natural and manufactured, concentrating her efforts on modifications in the form of chemical coatings. She theorized
+  that the effects of the different forms of crystals used in lightsabers could be enhanced by manipulating the
+  crystalline structure of the base crystal. Although she used modern grav-field projectors and micromanipulators to
+  conduct her experiments, it is thought she only achieved success when she manipulated the crystals on a molecular
+  level using the Force.
+
+  All of Lodaka’s notes and papers were either destroyed or taken when the Jedi Temple on Coruscant was overrun
+  following the implementation of Order 66. Only one of the crystals she modified is thought to still exist, and it is
+  the one in her own lightsaber, which remains with her body on Lothal. It represented Lodaka’s finest work, as the
+  particular modification she applied at least partially addressed a problem that had vexed lightsaber wielders for
+  thousands of years.
+
+  Master Lodaka’s Lightsaber is a weapon with the following profile: (Lightsaber; Damage 10; Critical 1; Range
+  [Engaged]; Breach 1, Sunder, Vicious 2).
+
+  Master Lodaka’s Lightsaber has an encumbrance of 1 and zero hard points. Attacks made with this lightsaber ignore the
+  Cortosis quality. It also cannot be shut down due to contact with refined cortosis.
+skill: Lightsaber
+damage: 10
+addSkill: false
+criticalRating: 1
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - NoP:112

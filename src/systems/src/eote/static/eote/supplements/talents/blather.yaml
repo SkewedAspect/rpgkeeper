@@ -1,0 +1,13 @@
+id: eote-talent-blather
+name: Blather
+description: The character may take the Blather action, making a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Charm** or **Deception check**. If the
+  check is successful, one adversary per <success></success> within medium range is disoriented for a number of rounds
+  equal to the character's presence rating. The character may spend <triumph></triumph> from the check to stagger one
+  affected target for one round.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Senator
+reference:
+  - CotR:37

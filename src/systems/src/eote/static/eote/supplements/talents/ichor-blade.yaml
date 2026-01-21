@@ -1,0 +1,15 @@
+id: eote-talent-ichor-blade
+name: Ichor Blade
+description: When the character purchases this talent, choose one Melee or Brawl weapon they possess that does not
+  feature electronic or other high-tech parts. (For example, they could choose a sword or staff, but not a vibroknife or
+  electrostaff.) The weapon gains the Cortosis and Pierce 2 item qualities and reduces its critical rating by one to a
+  minimum of 1. In addition, any other character adds <setback></setback> to checks they make to use this weapon. If the
+  weapon is ever lost or destroyed, the character can apply Ichor Blade to a new weapon. If the weapon leaves the
+  character's possession for longer than a single scene or encounter, it loses all effects of this talent until the
+  character reacquires it.
+activation: p
+ranked: false
+forceTalent: false
+trees: Nightsister
+reference:
+  - CotR:40

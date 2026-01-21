@@ -1,0 +1,10 @@
+id: eote-talent-time-to-go
+name: Time to Go
+description: The character may spend 1 Destiny Point to perform a Move maneuver as an incidental to attempt to move into
+  cover or out of the blast range of a weapon or explosion.
+activation: am
+ranked: false
+forceTalent: false
+trees: Demolitionist, Saboteur
+reference:
+  - A-CRB:158

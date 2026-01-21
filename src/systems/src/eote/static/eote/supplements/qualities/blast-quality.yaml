@@ -1,0 +1,18 @@
+id: eote-quality-blast-quality
+name: Blast Quality
+description: >-
+  The weapon has a large spread, an explosive blast, or similar area of effect, like the detonation of a grenade or a
+  warhead fired from a missile launcher. If the attack is successful and Blast activates, each character (friend or foe)
+  Engaged with the original target suffers wounds equal to the weapon’s Blast rating (plus an additional wound per
+  Success as usual).
+
+  In a relatively small and enclosed area, the Game Master might decide that everyone in the room suffers damage.
+
+  If the Blast quality doesn’t activate, the ordnance still detonates, but bad luck or poor aim on the part of the firer
+  (or quick reactions on the part of the victims) means the explosion may not catch anyone else in its radius. However,
+  the user may also trigger Blast if the attack misses, by spending
+  <advantage></advantage><advantage></advantage><advantage></advantage>. In this case, the original target and every
+  target engaged with the original target suffers damage equal to the Blast rating of the weapon.
+passive: true
+ranked: true
+reference: []

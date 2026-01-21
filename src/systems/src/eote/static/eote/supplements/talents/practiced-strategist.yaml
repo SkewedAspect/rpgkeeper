@@ -1,0 +1,10 @@
+id: eote-talent-practiced-strategist
+name: Practiced Strategist
+description: Once per session, make an **opposed knowledge(Warfare) check** against a leader of enemy forces to gain a
+  narrative advantage.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Clone Commander
+reference:
+  - CotR:21

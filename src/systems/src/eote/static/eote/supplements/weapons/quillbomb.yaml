@@ -1,0 +1,46 @@
+id: eote-weapon-quillbomb
+name: Quillbomb
+description: >-
+  Thisspiasians once viewed the giant ystervark as both worthy foe and revered delicacy. Xenoarchaeologists even
+  theorize the Blood Monarchy grew from ritual hunts of these creatures. Extinct in modern times, the beast's brutality
+  left a lasting impression on Thisspias. For centuries, engineers sought to emulate its defensive plating and toxic
+  spines.
+
+  In keeping with this motif, ancient warrior-sages created weapons in the beast's image. Their blend of metalwork and
+  the Force even parallels that of modern alchemists. For 250 years, poisoned ystervark spears were the Royal Guard's
+  most iconic weapon. As the Blood Monarchy's public influence fell, so too did the ystervark's. While Thisspiasians
+  still respect both, the call for such weapons has diminished. Before the rise of the Empire, only the Quillbomb
+  retained its mass appeal.
+
+  The device is not much larger than a closed fist, and wicked-looking spines litter its surface. On detonation, these
+  spines rip through armor, burrowing deep into flesh. Each spine carries a dose of synthetic toxin, inspired by the
+  ancient ystervark's venom. With its weak payload, the bomb is less focused on raw explosive power. Rather, it relies
+  on driving at least one spine intact into a victim's body. The contagions used are often as quick as they are
+  debilitating. One spine is enough to immediately impair motor functions. Any more will cause excruciating pain.
+
+  With the Blood Monarchy outlawed by the Empire, the Quillbomb is taking on a new life as a symbol of resistance.
+  Rebels searching for urban weaponry have revitalized the production of these ancient weapons. The bombs are harder to
+  detect than conventional explosives, perfect for saboteurs. Storm troopers are beginning to dread missions to quash
+  Thisspiasian resistance. Once the subject of mockery, the Quillbomb's body count continues to rise. True to form, the
+  bomb has damaged both body and mind of the Imperial war machine. Though nowhere close in size to the ancient
+  ystervark, these bombs would do it proud.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 3
+reference:
+  - UP:48

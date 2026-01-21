@@ -1,0 +1,10 @@
+id: eote-talent-natural-pilot
+name: Natural Pilot
+description: Once per session, may reroll any Piloting (Space) or Gunnery check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Pilot
+reference:
+  - E-CRB:139
+  - A-CRB:153

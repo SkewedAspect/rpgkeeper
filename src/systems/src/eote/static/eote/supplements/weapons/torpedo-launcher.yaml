@@ -1,0 +1,25 @@
+id: eote-weapon-torpedo-launcher
+name: Torpedo Launcher
+description: ""
+skill: Gunnery
+damage: 6
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 0
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-guided
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - SoR:117

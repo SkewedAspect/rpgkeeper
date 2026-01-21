@@ -1,0 +1,9 @@
+id: eote-talent-corellian-sendoff-improved
+name: Corellian Sendoff (Improved)
+description: When performing a Corellian Sendoff, the targets suffer a major collision instead.
+activation: p
+ranked: false
+forceTalent: false
+trees: Hotshot
+reference:
+  - SoT:32

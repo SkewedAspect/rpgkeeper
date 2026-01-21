@@ -1,0 +1,11 @@
+id: eote-talent-plausible-deniability
+name: Plausible Deniability
+description: Remove <setback></setback> per rank of Plausible Deniability from all Coercion and Deception checks.
+activation: p
+ranked: true
+forceTalent: false
+trees: Advisor, Advocate, Aggressor, Agitator, Charmer, Entrepreneur, Politico, Prophet, Senator
+reference:
+  - E-CRB:141
+  - A-CRB:154
+  - F-CRB:149

@@ -1,0 +1,27 @@
+id: eote-weapon-dc-12u-beam-rifle
+name: DC-12U Beam Rifle
+description: >-
+  BlasTech's DC-12U is an uncommon weapon designed for underwater operations. Built for the GAR's clone dive troopers,
+  the DC-12U was developed from the C290, an older BlasTech blaster rifle built for use in wet, humid, or swampy
+  environments. It's a heavy, two-barreled weapon equipped with a collapsing stock and an integrated under-barrel mount.
+  It fires two low-output blaster bolts with one pull of the trigger and is devastating in the right hands. Thanks to
+  its particular mix of blaster gases and the special focusing elements used to optimize underwater performance. the
+  DC-1 2U fires blue bolts instead of the typical red bolts fired by most weapons. 
+
+  The under-barrel mount typically mounts a high-powered flashlight that removes <setback></setback> due to darkness
+  from any combat checks made with the weapon. When outside of an aquatic environment, the DC-12U has the Inaccurate 2
+  item quality.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 3
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-linked
+    ranks: 1
+reference:
+  - CotR:51

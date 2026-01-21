@@ -1,0 +1,10 @@
+id: eote-talent-insight
+name: Insight
+description: Perception and Discipline become career skills.
+activation: p
+ranked: false
+forceTalent: true
+trees: Force Sensitive Emergent, Force Sensitive Exile
+reference:
+  - E-CRB:137
+  - A-CRB:149

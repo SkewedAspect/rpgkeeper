@@ -1,0 +1,21 @@
+id: eote-armor-fabricators-protective-gear
+name: Fabricator's Protective Gear
+description: >-
+  Worn by welders, machinists, tinkerers, and mechanics throughout the galaxy, fabricators' protective gear is a
+  catchall term for a varied collection of heavy padded clothing. These outfits are designed to offer protection from
+  industrial mishaps as well as combat explosions. Most come complete with a full coverall , heavy gloves, dark-tinted
+  goggles or face mask, and a reinforced apron. While not as effective as real combat armor, they can still protect an
+  individual from the blast effects from splinters and shrapnel.
+
+  This armor allows the wearer to ignore the effects of fires or acids of rating 1 or 2. It has a soak value of 3
+  against damage from weapons with the Blast quality, but only when that quality is activated and used to inflict damage
+  on the wearer. It provides only 1 point of soak against all other damage that was not inflicted through that quality.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 1
+rarity: 1
+restricted: false
+qualities: []
+reference:
+  - FO:43

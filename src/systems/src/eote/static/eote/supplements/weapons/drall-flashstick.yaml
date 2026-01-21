@@ -1,0 +1,22 @@
+id: eote-weapon-drall-flashstick
+name: Drall Flashstick
+description: Used almost exclusively by the Drall constabulary, the flashstick is a non-lethal weapon used to subdue
+  criminals and other undesirables. A small metal baton, the flashstick emits a brilliant, coruscating flash of light
+  when striking a target, which is capable of temporarily blinding and stunning its mark. The flashstick is particularly
+  effective against Drall, Defel, Selonians, and Sullustans, whose eyes are sensitive to light; the weapon has virtually
+  no effect on species who don't rely on visual senses, such as the blind Miraluka and the troglodytic Cthon.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 0
+range: en
+encumbrance: 2
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 3
+  - id: eote-quality-stun-damage
+reference:
+  - SoF:98

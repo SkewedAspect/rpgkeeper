@@ -1,0 +1,9 @@
+id: eote-talent-steady-nerves
+name: Steady Nerves
+description: Remove <setback></setback> per rank of Steady Nerves from Cool or Skulduggery checks.
+activation: p
+ranked: true
+forceTalent: false
+trees: Demolitionist
+reference:
+  - DC:33

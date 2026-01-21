@@ -1,0 +1,11 @@
+id: eote-talent-true-aim
+name: True Aim
+description: Once per round, may perform a True Aim maneuver to gain benefits of aiming and upgrade combat check once
+  per rank of True Aim.
+activation: am
+ranked: true
+forceTalent: false
+trees: Gunner, Mercenary Soldier, Sharpshooter
+reference:
+  - E-CRB:145
+  - A-CRB:158

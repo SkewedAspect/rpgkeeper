@@ -1,0 +1,16 @@
+id: eote-attachment-combat-tested
+name: Combat Tested
+description: Over the course of numerous battles, combatants can make a variety of minor personalizations and tweaks to
+  their gear, from notches for successful missions or targets destroyed carved into the butts of rifles, to the
+  attachment of trophies taken from enemy droids or the battlefield. Weapons customized in this way become comforting
+  reminders of victories past, helping their wielders stay calm under fire and in tough situations, Such
+  personalizations can be installed on any weapon that the owner has used through extended periods of combat, as
+  determined by the GM.
+useWith: weapon
+hpRequired: 0
+rarity: 3
+baseModifier: Add <boost></boost> to Discipline checks.
+modOptions:
+  - Add <boost></boost> to check to resist fear.
+reference:
+  - RotS:62

@@ -1,0 +1,32 @@
+id: eote-weapon-trailbreaker-poleaxe
+name: Trailbreaker Poleaxe
+description: >-
+  LaserHone Trailbreaker Poleaxe
+
+  LaserHone's Trailbreaker is a versatile piece of equipment designed for exploration, search and rescue, and wilderness
+  survival. Each consists of a long, thin, low-profile axe blade mounted to a sturdy fibermesh reinforced plasteel haft
+  roughly two meters in length. It is popular among scouts and explorers who appreciate its utility both as a tool and
+  as a weapon. The Trailbreaker's length and sturdy build make it both a fine walking staff and an excellent tool for
+  prying, propping, and levering large objects. The head of the axe, sporting a finely honed, monomolecular edge, can
+  cut through undergrowth, small trees, and even flesh and bone with relative ease. In the right hands, the Trailbreaker
+  is an extremely potent, versatile tool, and its popularity increases with every sale.
+
+  The Trailbreaker poleaxe requires two hands to use.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 5
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-unwieldy
+    ranks: 2
+reference:
+  - SS:43

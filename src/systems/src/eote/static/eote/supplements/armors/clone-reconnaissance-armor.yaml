@@ -1,0 +1,20 @@
+id: eote-armor-clone-reconnaissance-armor
+name: Clone Reconnaissance Armor
+description: >-
+  Often, clone troopers need to operate in environments and situations where stealth is vital. Troopers tend to use
+  clone reconnaissance armor for such missions. Its lighter weight, increased flexibility, and enhanced sensor suite aid
+  soldiers during independent operations. Prior to each mission in a new environment, troopers typically repaint these
+  suits with camouflage that integrates colors and patters typical of the terrain where they expect to deploy.
+
+  Characters wearing clone reconnaissance armor add <boost></boost> to Stealth checks they make. These suits incorporate
+  visors with integrated thermal and low-light sensors, allowing wearers to remove <setback></setback> from visual
+  Perception checks they make.
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 3
+rarity: 6
+restricted: true
+qualities: []
+reference:
+  - CotR:56

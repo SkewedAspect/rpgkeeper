@@ -1,0 +1,24 @@
+id: eote-weapon-tangle-gun
+name: Tangle Gun
+description: Another non-lethal offering from Merr-Sonn, the Tangle Gun 7 is the latest word in crowd control weaponry.
+  The Tangle Gun 7 is a carbine-sized rifle with a short, wide-mouthed barrel and polycarbonate furniture that is light
+  and easy to handle. The weapon fires a small pellet of naorstrachem, a sticky and extremely flexible
+  atmosphere-reactive synthetic memory material. Encased in a shell that falls away once the pellet is fired, the pellet
+  explosively expands into a broad, fast moving net upon contact with atmosphere. Once the net makes contact with a
+  target, the being's body heat causes the net to quickly contract, immobilizing him completely. Once entangled, the
+  target must be cut from the webbing. While the Tangle Gun 7 is advertised as non-lethal, occasionally the net tightens
+  so quickly and with such force that it causes lasting harm.
+skill: Ranged (Heavy)
+damage: 1
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 2
+hardpoints: 1
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 3
+reference:
+  - FH:41

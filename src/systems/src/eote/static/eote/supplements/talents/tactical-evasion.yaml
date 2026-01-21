@@ -1,0 +1,10 @@
+id: eote-talent-tactical-evasion
+name: Tactical Evasion
+description: Upgrade the difficulty of ranged combat checks targeting the character a number of times equal to the
+  number of maneuvers they performed to move during this round.
+activation: p
+ranked: false
+forceTalent: false
+trees: ARC Trooper
+reference:
+  - CotR:21

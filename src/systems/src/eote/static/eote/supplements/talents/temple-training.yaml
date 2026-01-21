@@ -1,0 +1,10 @@
+id: eote-talent-temple-training
+name: Temple Training
+description: Before making a Lightsaber skill check, the character may spend one Destiny Point to add damage to the
+  attack equal to their ranks in Knowledge (Lore).
+activation: ai
+ranked: false
+forceTalent: true
+trees: Padawan Survivor
+reference:
+  - RotS:43

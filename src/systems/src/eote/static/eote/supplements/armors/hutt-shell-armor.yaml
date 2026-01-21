@@ -1,0 +1,20 @@
+id: eote-armor-hutt-shell-armor
+name: Hutt Shell Armor
+description: >-
+  Crafted especially for the Shell Hutts of Circumtore, these massive exoskeletons are fashioned from segmented
+  cylinders of durasteel. Freed from the need for any sort of physical exertion by the repulsorlifts and powerful
+  servomechanisms built into their armored suits, the gluttonous Shell Hutts grow to be tremendously corpulent, even by
+  Hutt standards, necessitating ever-larger suits of armor. Shell armor allows its wearer to hover up to five meters
+  above the ground.
+
+  Hutt Shell Armor allows a Hutt to ignore the effects of the Awkward and Ponderous abilities (if he possesses either or
+  both of these). Further, the wearer does not have to spend additional maneuvers when navigating difficult terrain.
+defense: 2
+soak: 2
+hardpoints: 4
+encumbrance: 6
+rarity: 9
+restricted: true
+qualities: []
+reference:
+  - LoNH:104

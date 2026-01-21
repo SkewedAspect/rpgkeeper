@@ -1,0 +1,19 @@
+id: eote-armor-performers-attire
+name: Performer's Attire
+description: >-
+  Many diplomats perform not only on the political stage, but on actual stages as well. Artistic performance often
+  requires more freedom of movement than speechgiving, however. Often colorful or sporting dazzling patterns, this type
+  of clothing draws attention to the wearer as he dances, sings, or otherwise entertains. Although offering practically
+  no defenses, the attire does allow unequaled freedom of movement and typically formfitting material prevents
+  accidentally snagging or becoming caught on environmental hazards.
+
+  A character wearing performer's attire adds <boost></boost> to checks to perform or otherwise attract attention.
+defense: 0
+soak: 0
+hardpoints: 0
+encumbrance: 0
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - DA:49

@@ -1,0 +1,10 @@
+id: eote-talent-djem-so-deflection
+name: Djem So Deflection
+description: After using Reflect, may spend 1 Destiny Point to perform Move maneuver as out-of-turn incidental to close
+  distance with or engage opponent.
+activation: aio
+ranked: false
+forceTalent: true
+trees: Shien Expert
+reference:
+  - F-CRB:142

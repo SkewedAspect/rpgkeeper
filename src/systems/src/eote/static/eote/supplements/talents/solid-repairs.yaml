@@ -1,0 +1,11 @@
+id: eote-talent-solid-repairs
+name: Solid Repairs
+description: The character repairs +1 hull trauma per rank of Solid Repairs whenever he repairs a starship or vehicle.
+activation: p
+ranked: true
+forceTalent: false
+trees: Artisan, Commodore, Mechanic, Outlaw Tech, Shipwright, Starfighter Ace
+reference:
+  - E-CRB:143
+  - A-CRB:156
+  - F-CRB:152

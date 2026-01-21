@@ -1,0 +1,17 @@
+id: eote-attachment-clone-polarized-electrobinoculars
+name: Clone Polarized Electrobinoculars
+description: Some clone troopers mount a pair of electrobinoculars to their helmet on a visor. These can be quickly
+  lowered to the helmet's viewport to observe a distant target. The standard set of polarized electrobinoculars includes
+  light filtering as well as image sharpening and stabilization. The Grand Army of the Republic-issue are battle
+  hardened and every bit as durable as the other components of clone trooper armor.
+useWith: armor
+hpRequired: 1
+rarity: 4
+baseModifier: Adds <boost></boost> to all sight-based Perception checks.; Removes <setback></setback> from Perception
+  checks due to distance or low-light conditions.
+modOptions:
+  - Add <boost></boost> to Perception checks
+reference:
+  - CotR:62
+includedModels:
+  - Ziko 50C Macrovisor

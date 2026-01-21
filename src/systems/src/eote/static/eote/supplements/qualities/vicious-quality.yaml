@@ -1,0 +1,7 @@
+id: eote-quality-vicious-quality
+name: Vicious Quality
+description: When this weapon scores a critical injury or hit, the character adds ten times the Vicious rating to the
+  critical roll. With Vicious 3, for example, the victim adds +30 to his critical hit result.
+passive: true
+ranked: true
+reference: []

@@ -1,0 +1,41 @@
+id: eote-weapon-model-14-stalker-vibrospear
+name: Model 14 "Stalker" Vibrospear
+description: >-
+  Mer-Sonn Model 14 "Stalker" Vibrospear
+
+  The Stalker is Merr-Sonn Munitions' answer to LaserHone's surprisingly popular Huntsman Vibrospear. Like its
+  competitor, the Stalker is a long, sturdy vibrospear nearly as tall as a grown Wookiee, and is designed for hunting
+  large, particularly dangerous wild game. It has a strong, flexible reinforced plasteel haft over two meters long,
+  capped bt a leaf-shaped blade capable of piercing the toughest hide or thickest armor. Beneath the blade are two short
+  barbs that extend for a few centimeters perpendicular from the haft. These barbs are desinged to stop wounded
+  creatures from charging up the weapons haft after they are stabbed, and this attacking the user while in their death
+  throes.
+
+  While it is lighter and decidedly cheaper than LaserHone's weaponm the Stalker suffers from a few drawbacks. In an
+  effort to keep weight and cost down, Merr-Sonn used the standard model vibrofield generator found in all of their
+  vibro weapons and equipped the Stalker with only the simplest noise-reduction system. This means that while the
+  vibrofield generator's sound output is greatly reduced it makes enough noise to alert most creatures to the user's
+  presence, which makes hunting with the weapon a challenge. Despite this, the Stalker's popularlity continues to grow
+  and it is seen as an affordable alternative to its heavier more expensive competition.
+
+  The Stalker vibrospear requires two hands to use. The GM may spend <threat></threat><threat></threat> from any combat
+  check with this weapon to have it produce a loud noise, spooking nearby animals, alerting foes and adding
+  <setback></setback><setback></setback> to the user's next Survival check in this area to hunt or track prey.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - SS:43

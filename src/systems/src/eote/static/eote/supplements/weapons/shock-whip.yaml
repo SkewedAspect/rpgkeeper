@@ -1,0 +1,21 @@
+id: eote-weapon-shock-whip
+name: Shock Whip
+description: The shock whip has been a mainstay of the Zygerrian Slave Empire for thousands of years. When it is
+  activated, the flexible metal wires woven through the whip pulse with electrified energy, causing intense pain and
+  muscle spasms on contact. While the whip can only ensnare one target at a time, the target takes continuous damage
+  each round the target remains ensnared. This weapon can be used to make melee attacks against targets at short range.
+skill: Melee
+damage: 4
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 3
+hardpoints: 2
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 3
+  - id: eote-quality-stun-damage
+reference:
+  - FLT:60

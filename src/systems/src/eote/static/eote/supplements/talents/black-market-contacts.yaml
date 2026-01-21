@@ -1,9 +1,10 @@
 id: eote-talent-black-market-contacts
 name: Black Market Contacts
-description: When looking to purchase illegal, exotic, or black market goods, the character may decrease an item's
-  rarity by one level per rank in Black Market Goods. For each level an item's rarity is decreased, it's cost increases
-  by 50% of its base cost.
+description: When purchasing illegal goods, may reduce rarity by 1 per rank of Black Market Contacts, increasing cost by
+  50 percent of base cost per reduction.
 activation: ai
 ranked: true
-trees: Scoundrel, Thief, Trader
-reference: E-CRB:132
+forceTalent: false
+trees: Enforcer, Pirate, Rigger, Scoundrel, Thief, Trader
+reference:
+  - E-CRB:132

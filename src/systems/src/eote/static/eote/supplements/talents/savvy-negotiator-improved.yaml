@@ -1,0 +1,11 @@
+id: eote-talent-savvy-negotiator-improved
+name: Savvy Negotiator (Improved)
+description: Make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Negotiation
+  check** to convince one bystander per rank of Savvy Negotiator to see one of an opponent's points as maliciously
+  unreasonable.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Arbiter
+reference:
+  - DoH:30

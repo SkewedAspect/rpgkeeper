@@ -1,0 +1,24 @@
+id: eote-weapon-mk4-heavy-frag-grenade
+name: Mk.4 Heavy Frag Grenade
+description: Sporting a stronger detonite charge and larger surface area than other frag grenades, Golan Arms' heavy
+  fragmentation grenade yields a consequently larger and more powerful blast, with a greater quantity of shrapnel
+  dispersed over a wider area. Typically, only very large and physically strong individuals carry heavy frag grenades in
+  lieu of standard models, as the increased bulk and weight is a not-inconsiderable hindrance for most users.
+skill: Ranged (Light)
+damage: 9
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 7
+  - id: eote-quality-cumbersome
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DC:46

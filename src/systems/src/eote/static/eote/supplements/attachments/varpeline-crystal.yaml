@@ -1,0 +1,23 @@
+id: eote-attachment-varpeline-crystal
+name: Varpeline Crystal
+description: >-
+  Varpeline crystals are hard, super dense minerals found on the Outer Rim worlds of Mearalis II. Ranging in color from
+  white to a rich gold, they are scattered throughout Mearalis II's extensive mountain ranges. When properly worked,
+  varpeline crystals can be used to slice through nearly any substance known in the galaxy. While they are typically
+  used in industrial cutting machinery or precision fabrication instruments, these stones are occasionally used to great
+  effect as lightsaber crystals.
+
+  When installed in a lightsaber, this crystal produces a blade that emits a short, sharp ringing tone when it strikes
+  an object. A lightsaber equipped with a varpeline  crystal can often cut through the thickest armor or toughest
+  materials, and have a disturbing tendency to dismember living targets.
+useWith: weapon
+hpRequired: 2
+rarity: 9
+baseModifier: Damage set to 8; Critical set to 3; Breach 1; Vicious 1; Sunder 1; When spending <triumph></triumph> to
+  inflict Critical Injury, may spend additional <triumph></triumph> to automatically inflict Maimed Critical Injury.
+modOptions:
+  - Vicious +1
+  - Vicious +1
+  - +1 Damage
+reference:
+  - SS:52

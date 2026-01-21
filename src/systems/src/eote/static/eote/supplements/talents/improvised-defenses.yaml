@@ -1,0 +1,10 @@
+id: eote-talent-improvised-defenses
+name: Improvised Defenses
+description: May make an **Average (<difficulty></difficulty><difficulty></difficulty>) Survival check** to fashion
+  small defenses. It providing cover for up to 4 characters for the rest of encounter.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Sapper
+reference:
+  - FO:30
