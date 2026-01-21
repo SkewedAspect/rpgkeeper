@@ -5,5 +5,5 @@ description: A weapon with Disorient can daze an opponent. When Disorient is tri
   <setback></setback> to all skill checks they perform. If multiple targets suffer hits from a weapon with Disorient,
   the quality may be triggered multiple times, affecting a different target each time.
 passive: false
-ranked: false
+ranked: true
 reference: G-CRB:87

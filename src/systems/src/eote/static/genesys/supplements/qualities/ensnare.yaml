@@ -7,5 +7,5 @@ description: A weapon with Ensnare binds a foe and restricts their movements. Wh
   attempt a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> Athletics check on their turn to
   break free from the effect.
 passive: false
-ranked: false
+ranked: true
 reference: G-CRB:87

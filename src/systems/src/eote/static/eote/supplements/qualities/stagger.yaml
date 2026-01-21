@@ -1,9 +1,0 @@
-id: eote-quality-stagger
-name: Stagger
-description: ""
-passive: true
-ranked: false
-reference:
-  - E-CRB:157
-  - A-CRB:171
-  - F-CRB:164

@@ -4,5 +4,5 @@ description: A weapon with Stun can deal strain to the target. When the Stun qua
   equal to the weapon's Stun rating. Since this is strain, and not strain damage, it is not reduced by the target's
   soak.
 passive: false
-ranked: false
+ranked: true
 reference: G-CRB:88

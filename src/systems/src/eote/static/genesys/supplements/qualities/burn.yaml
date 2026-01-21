@@ -10,5 +10,5 @@ description: Weapons with Burn inflict damage over time. When Burn is triggered,
   situations assume the flame is from actual combustion rather than a chemical reaction. With the latter, there is
   usually little the victim can do.
 passive: false
-ranked: false
+ranked: true
 reference: G-CRB:87
