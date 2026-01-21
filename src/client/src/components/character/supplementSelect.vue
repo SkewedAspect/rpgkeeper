@@ -25,16 +25,25 @@
                                 </template>
                                 <template #append-extra>
                                     <BButton
-                                        class="ms-2 text-nowrap"
-                                        variant="success"
-                                        title="Add New..."
-                                        @click="addNew()"
+                                        class="text-nowrap"
+                                        variant="secondary"
+                                        :title="`Browse ${ label }...`"
+                                        @click="openBrowseModal()"
                                     >
-                                        <Fa icon="plus" />
-                                        New
+                                        <Fa icon="search" />
+                                        Browse {{ label }}
                                     </BButton>
                                 </template>
                             </SupplementSearch>
+                            <BButton
+                                class="ms-2 text-nowrap"
+                                variant="success"
+                                title="Add New..."
+                                @click="addNew()"
+                            >
+                                <Fa icon="plus" />
+                                New
+                            </BButton>
                         </div>
                     </template>
 
@@ -122,13 +131,36 @@
                 </BCard>
             </BCol>
         </BFormRow>
+
+        <!-- Modals -->
+        <SupplementBrowserModal
+            ref="browseModal"
+            :supplements="available"
+            :selected-ids="selectedIds"
+            @select="onBrowseSelect"
+            @add-new="addNew"
+        />
     </BFormGroup>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
+<style lang="scss" scoped>
+    .supplement-select {
+        :deep(.list-group-item.list-group-item-primary) {
+            --bs-list-group-active-bg: var(--bs-primary);
+            --bs-list-group-active-border-color: var(--bs-primary);
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+            color: var(--bs-white);
+        }
+    }
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
 <script lang="ts" setup generic="TSupplement extends Supplement, TInstance extends SupplementInst">
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Models
@@ -142,6 +174,7 @@
 
     // Components
     import SupplementSearch from './supplementSearch.vue';
+    import SupplementBrowserModal from './supplementBrowserModal.vue';
     import MarkdownBlock from '../ui/markdownBlock.vue';
     import ReferenceBlock from './referenceBlock.vue';
     import ScopeBadge from './scopeBadge.vue';
@@ -191,6 +224,7 @@
 
     const currentSelection = ref();
     const { current } = storeToRefs(useCharacterStore());
+    const browseModal = useTemplateRef('browseModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -248,6 +282,18 @@
     const sortFn = computed<(suppA : Supplement, suppB : Supplement) => number>(() =>
     {
         return props.sortFn ?? ((suppA, suppB) => suppA.name.localeCompare(suppB.name));
+    });
+
+    const selectedIds = computed<string[]>(() =>
+    {
+        return props.selected.map((item) =>
+        {
+            if(typeof item === 'object' && item.id)
+            {
+                return item.id;
+            }
+            return String(item);
+        });
     });
 
     const canModify = computed(() =>
@@ -308,6 +354,19 @@
     function addNew() : void
     {
         emit('new');
+    }
+
+    function openBrowseModal() : void
+    {
+        browseModal.value?.show();
+    }
+
+    function onBrowseSelect(supp : TSupplement) : void
+    {
+        if(supp?.id)
+        {
+            emit('add', { id: supp.id } as TInstance);
+        }
     }
 
     function removeSupp(supp : TInstance) : void

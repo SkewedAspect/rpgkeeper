@@ -273,7 +273,7 @@
     const pendingTemplate = ref<EoteArmor | null>(null);
 
     const innerModal = useTemplateRef('innerModal');
-    const browseModal = ref<{ show : () => void; hide : () => void } | null>(null);
+    const browseModal = useTemplateRef<{ show : () => void; hide : () => void }>('browseModal');
     const addEditArmorModal = useTemplateRef<InstanceType<typeof AddEditArmorModal>>('addEditArmorModal');
     const confirmOverwriteModal = useTemplateRef<InstanceType<typeof ConfirmOverwriteModal>>('confirmOverwriteModal');
 
