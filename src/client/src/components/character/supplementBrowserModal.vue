@@ -67,7 +67,7 @@
                         <Fa icon="times" />
                         Cancel
                     </BButton>
-                    <BButton variant="primary" :disabled="!selectedSupplement" @click="onConfirmSelect">
+                    <BButton variant="primary" :disabled="!canSelect" @click="onConfirmSelect">
                         <Fa icon="check" />
                         Select
                     </BButton>
@@ -108,7 +108,7 @@
         {
             title: 'Browse Supplements',
             selectedIds: () => [],
-            maxHeight: '400px',
+            maxHeight: '600px',
             sortFn: undefined,
         }
     );
@@ -142,6 +142,16 @@
     const canEdit = computed(() =>
     {
         return selectedSupplement.value && !selectedSupplement.value.official;
+    });
+
+    const isAlreadyAdded = computed(() =>
+    {
+        return props.selectedIds.includes(selectedSupplement.value?.id ?? '');
+    });
+
+    const canSelect = computed(() =>
+    {
+        return selectedSupplement.value && !isAlreadyAdded.value;
     });
 
     //------------------------------------------------------------------------------------------------------------------
