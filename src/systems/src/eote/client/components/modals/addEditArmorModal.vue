@@ -167,6 +167,9 @@
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
+    // Utils
+    import { normalizeReference } from '@client/lib/utils/misc';
+
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
@@ -187,6 +190,7 @@
     const hardpoints = ref(0);
     const encumbrance = ref(0);
     const rarity = ref(0);
+    const restricted = ref(false);
     const description = ref('');
     const reference = ref('');
 
@@ -215,6 +219,7 @@
         hardpoints.value = 0;
         encumbrance.value = 0;
         rarity.value = 0;
+        restricted.value = false;
         description.value = '';
         reference.value = '';
     }
@@ -230,8 +235,9 @@
             hardpoints.value = armor.hardpoints;
             encumbrance.value = armor.encumbrance;
             rarity.value = armor.rarity;
+            restricted.value = armor.restricted ?? false;
             description.value = armor.description;
-            reference.value = armor.reference ?? '';
+            reference.value = normalizeReference(armor.reference);
         }
         else
         {
@@ -255,6 +261,7 @@
             hardpoints: hardpoints.value,
             encumbrance: encumbrance.value,
             rarity: rarity.value,
+            restricted: restricted.value,
             description: description.value,
             reference: reference.value,
             qualities: [],

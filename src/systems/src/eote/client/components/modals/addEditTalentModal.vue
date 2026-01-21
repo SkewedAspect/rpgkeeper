@@ -143,6 +143,9 @@
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
+    // Utils
+    import { normalizeReference } from '@client/lib/utils/misc';
+
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
@@ -164,6 +167,7 @@
     const tier = ref<BoundedRange<1, 5>>(1 as BoundedRange<1, 5>);
     const reference = ref('');
     const ranked = ref(false);
+    const forceTalent = ref(false);
 
     const innerModal = ref<InstanceType<typeof BModal> | null>(null);
 
@@ -202,9 +206,10 @@
             description.value = talent.description;
             activation.value = talent.activation;
             trees.value = talent.trees ?? '';
-            tier.value = talent.tier;
-            reference.value = talent.reference ?? '';
+            tier.value = (talent as { tier ?: BoundedRange<1, 5> }).tier ?? (1 as BoundedRange<1, 5>);
+            reference.value = normalizeReference(talent.reference);
             ranked.value = talent.ranked;
+            forceTalent.value = talent.forceTalent ?? false;
         }
         else
         {
@@ -216,6 +221,7 @@
             tier.value = 1;
             reference.value = '';
             ranked.value = false;
+            forceTalent.value = false;
         }
 
         innerModal.value?.show();
@@ -238,6 +244,7 @@
                 trees: trees.value,
                 tier: tier.value,
                 ranked: ranked.value,
+                forceTalent: forceTalent.value,
                 reference: reference.value,
                 official: false,
             });
@@ -253,6 +260,7 @@
                 trees: trees.value,
                 tier: tier.value,
                 ranked: ranked.value,
+                forceTalent: forceTalent.value,
                 reference: reference.value,
                 official: false,
             });
@@ -271,6 +279,7 @@
         tier.value = 1 as BoundedRange<1, 5>;
         reference.value = '';
         ranked.value = false;
+        forceTalent.value = false;
     }
 
     //------------------------------------------------------------------------------------------------------------------

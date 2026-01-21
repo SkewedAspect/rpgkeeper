@@ -306,6 +306,7 @@
 
     // Utils
     import { deepClone } from '@client/lib/utils';
+    import { normalizeReference } from '@client/lib/utils/misc';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -384,7 +385,7 @@
             name.value = forcePower.name;
             minRating.value = forcePower.minRating;
             description.value = forcePower.description;
-            reference.value = forcePower.reference ?? '';
+            reference.value = normalizeReference(forcePower.reference);
             upgrades.value = {
                 ...deepClone(defaultUpgrades),
                 ...forcePower.upgrades,

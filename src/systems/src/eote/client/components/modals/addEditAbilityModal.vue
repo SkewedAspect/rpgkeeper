@@ -82,6 +82,9 @@
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
+    // Utils
+    import { normalizeReference } from '@client/lib/utils/misc';
+
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
@@ -123,7 +126,7 @@
             id.value = ability.id;
             name.value = ability.name;
             description.value = ability.description;
-            reference.value = ability.reference ?? '';
+            reference.value = normalizeReference(ability.reference);
         }
         else
         {

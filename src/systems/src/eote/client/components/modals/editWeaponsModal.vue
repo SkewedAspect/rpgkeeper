@@ -176,22 +176,24 @@
             @edit="onEditWeaponSupplement"
         >
             <template #preview="{ supplement }">
-                <div class="mb-2">
-                    <strong>Skill:</strong> {{ supplement.skill }}
-                    <span class="ms-3"><strong>Range:</strong> {{ rangeEnum[supplement.range] }}</span>
+                <div class="weapon-stats d-flex flex-wrap mb-2">
+                    <span class="me-4"><strong>Skill:</strong> {{ supplement.skill }}</span>
+                    <span class="me-4"><strong>Range:</strong> {{ rangeEnum[supplement.range] }}</span>
+                    <span class="me-4"><strong>Damage:</strong> {{ supplement.damage }}</span>
+                    <span><strong>Critical:</strong> {{ supplement.criticalRating }}</span>
                 </div>
-                <div class="mb-2">
-                    <strong>Damage:</strong> {{ supplement.damage }}
-                    <span class="ms-3"><strong>Critical:</strong> {{ supplement.criticalRating }}</span>
+                <div class="weapon-stats d-flex flex-wrap mb-2">
+                    <span class="me-4"><strong>Encumbrance:</strong> {{ supplement.encumbrance }}</span>
+                    <span><strong>Rarity:</strong> {{ supplement.rarity }}</span>
                 </div>
-                <div class="mb-2">
-                    <strong>Encumbrance:</strong> {{ supplement.encumbrance }}
-                    <span class="ms-3"><strong>Rarity:</strong> {{ supplement.rarity }}</span>
+                <hr class="my-2">
+                <div class="weapon-description flex-grow-1 overflow-auto">
+                    <MarkdownBlock :text="supplement.description ?? 'No description.'" inline />
                 </div>
-                <hr>
-                <MarkdownBlock :text="supplement.description ?? 'No description.'" inline />
-                <div class="text-end mt-auto pt-3">
-                    <h5><ScopeBadge :supplement="supplement" /></h5>
+                <div class="text-end mt-auto pt-2">
+                    <h5 class="mb-1">
+                        <ScopeBadge :supplement="supplement" />
+                    </h5>
                     <ReferenceBlock :reference="supplement.reference ?? ''" />
                 </div>
             </template>
@@ -221,6 +223,13 @@
     #weapModal {
         .modal-content {
             overflow: initial !important;
+        }
+    }
+
+    .edit-weapons-modal {
+        .weapon-description {
+            max-height: 250px;
+            overflow-y: auto;
         }
     }
 </style>
@@ -269,11 +278,14 @@
         weaponID ?: number;
         name ?: string;
         skill ?: string;
-        damage : number
+        damage : number;
+        addSkill : boolean;
         criticalRating : number;
         range : EncounterRange;
         encumbrance : number;
+        hardpoints : number;
         rarity : number;
+        restricted : boolean;
         qualities : EoteQualityRef[];
     }
 
@@ -300,10 +312,13 @@
         name: undefined,
         skill: undefined,
         damage: 0,
+        addSkill: false,
         criticalRating: 0,
         range: 'm',
         encumbrance: 0,
+        hardpoints: 0,
         rarity: 0,
+        restricted: false,
         qualities: [],
     });
 
@@ -360,10 +375,13 @@
             name: template.name,
             skill: template.skill,
             damage: template.damage,
+            addSkill: template.addSkill ?? false,
             criticalRating: template.criticalRating,
             range: template.range,
             encumbrance: template.encumbrance,
+            hardpoints: template.hardpoints ?? 0,
             rarity: template.rarity,
+            restricted: template.restricted ?? false,
             qualities: [ ...(template.qualities ?? []) ],
         };
     }
@@ -445,10 +463,13 @@
                 name: newWeapon.name,
                 skill: newWeapon.skill,
                 damage: newWeapon.damage,
+                addSkill: newWeapon.addSkill ?? false,
                 criticalRating: newWeapon.criticalRating,
                 range: newWeapon.range,
                 encumbrance: newWeapon.encumbrance,
+                hardpoints: newWeapon.hardpoints ?? 0,
                 rarity: newWeapon.rarity,
+                restricted: newWeapon.restricted ?? false,
                 qualities: newWeapon.qualities,
             };
         }
@@ -461,10 +482,13 @@
                 name: undefined,
                 skill: undefined,
                 damage: 0,
+                addSkill: false,
                 criticalRating: 0,
                 range: 'm',
                 encumbrance: 0,
+                hardpoints: 0,
                 rarity: 0,
+                restricted: false,
                 qualities: [],
             };
         }
@@ -481,10 +505,13 @@
             name: undefined,
             skill: undefined,
             damage: 0,
+            addSkill: false,
             criticalRating: 0,
             range: 'm',
             encumbrance: 0,
+            hardpoints: 0,
             rarity: 0,
+            restricted: false,
             qualities: [],
         };
 
@@ -499,10 +526,13 @@
                 name: editWeapon.value.name ?? '',
                 skill: editWeapon.value.skill ?? '',
                 damage: editWeapon.value.damage,
+                addSkill: editWeapon.value.addSkill,
                 criticalRating: editWeapon.value.criticalRating,
                 range: editWeapon.value.range,
                 encumbrance: editWeapon.value.encumbrance,
+                hardpoints: editWeapon.value.hardpoints,
                 rarity: editWeapon.value.rarity,
+                restricted: editWeapon.value.restricted,
                 attachments: [],
                 qualities: editWeapon.value.qualities,
             };
@@ -516,10 +546,13 @@
                 name: editWeapon.value.name ?? weapon.value.name,
                 skill: editWeapon.value.skill ?? weapon.value.skill,
                 damage: editWeapon.value.damage,
+                addSkill: editWeapon.value.addSkill,
                 criticalRating: editWeapon.value.criticalRating,
                 range: editWeapon.value.range,
                 encumbrance: editWeapon.value.encumbrance,
+                hardpoints: editWeapon.value.hardpoints,
                 rarity: editWeapon.value.rarity,
+                restricted: editWeapon.value.restricted,
                 qualities: editWeapon.value.qualities,
             };
 
@@ -537,10 +570,13 @@
             name: undefined,
             skill: undefined,
             damage: 0,
+            addSkill: false,
             criticalRating: 0,
             range: 'm',
             encumbrance: 0,
+            hardpoints: 0,
             rarity: 0,
+            restricted: false,
             qualities: [],
         };
     }

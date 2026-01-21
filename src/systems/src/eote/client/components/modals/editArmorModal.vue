@@ -168,21 +168,21 @@
             @edit="onEditArmorSupplement"
         >
             <template #preview="{ supplement }">
-                <div class="mb-2">
-                    <strong>Defense:</strong> {{ supplement.defense }}
-                    <span class="ms-3"><strong>Soak:</strong> {{ supplement.soak }}</span>
+                <div class="armor-stats d-flex flex-wrap mb-2">
+                    <span class="me-4"><strong>Defense:</strong> {{ supplement.defense }}</span>
+                    <span class="me-4"><strong>Soak:</strong> {{ supplement.soak }}</span>
+                    <span class="me-4"><strong>Hardpoints:</strong> {{ supplement.hardpoints }}</span>
+                    <span class="me-4"><strong>Encumbrance:</strong> {{ supplement.encumbrance }}</span>
+                    <span><strong>Rarity:</strong> {{ supplement.rarity }}</span>
                 </div>
-                <div class="mb-2">
-                    <strong>Hardpoints:</strong> {{ supplement.hardpoints }}
+                <hr class="my-2">
+                <div class="armor-description flex-grow-1 overflow-auto">
+                    <MarkdownBlock :text="supplement.description ?? 'No description.'" inline />
                 </div>
-                <div class="mb-2">
-                    <strong>Encumbrance:</strong> {{ supplement.encumbrance }}
-                    <span class="ms-3"><strong>Rarity:</strong> {{ supplement.rarity }}</span>
-                </div>
-                <hr>
-                <MarkdownBlock :text="supplement.description ?? 'No description.'" inline />
-                <div class="text-end mt-auto pt-3">
-                    <h5><ScopeBadge :supplement="supplement" /></h5>
+                <div class="text-end mt-auto pt-2">
+                    <h5 class="mb-1">
+                        <ScopeBadge :supplement="supplement" />
+                    </h5>
                     <ReferenceBlock :reference="supplement.reference ?? ''" />
                 </div>
             </template>
@@ -212,6 +212,13 @@
     #armorModal {
         .modal-content {
             overflow: initial !important;
+        }
+    }
+
+    .edit-armor-modal {
+        .armor-description {
+            max-height: 250px;
+            overflow-y: auto;
         }
     }
 </style>
