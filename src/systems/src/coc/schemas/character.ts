@@ -103,9 +103,10 @@ export const CoCWeaponSchema = z.object({
     // Weapon-specific fields
     damage: z.string(),
     range: z.string(),
-    attacks: z.number().int()
-        .min(0),
-    ammo: z.number().int()
+    attacks: z.union([ z.string(), z.number() ])
+        .transform((val) => String(val)),
+    ammo: z.union([ z.string(), z.number() ])
+        .transform((val) => String(val))
         .nullable(),
     malfunction: z.number().int()
         .nullable(),
