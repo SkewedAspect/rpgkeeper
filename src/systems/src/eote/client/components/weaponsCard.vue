@@ -40,6 +40,16 @@
                 />
             </template>
 
+            <!-- Attachments Slot -->
+            <template #cell(attachments)="data">
+                <AttachmentTag
+                    v-for="att in (data.value as EoteAttachmentRef[])"
+                    :id="att.id"
+                    :key="att.id"
+                    :activated-mods="att.activatedMods"
+                />
+            </template>
+
             <!-- Buttons Slot -->
             <template #cell(buttons)="data">
                 <BButton size="sm" @click="openAddEditModal(data.item)">
@@ -91,7 +101,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { EoteCharacter, EoteQualityRef, EoteWeaponRef } from '../../models.ts';
+    import type { EoteAttachmentRef, EoteCharacter, EoteQualityRef, EoteWeaponRef } from '../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
@@ -103,6 +113,7 @@
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
     import QualityTag from './sub/qualityTag.vue';
+    import AttachmentTag from './sub/attachmentTag.vue';
     import DeleteModal from '@client/components/ui/deleteModal.vue';
     import EditWeaponsModal from './modals/editWeaponsModal.vue';
 
@@ -159,9 +170,8 @@
         { key: 'encumbrance', label: 'Enc.', headerTitle: 'Weapon Encumbrance', tdClass: 'text-center' },
         { key: 'rarity', label: 'Rar.', headerTitle: 'Weapon Rarity', tdClass: 'text-center' },
         { key: 'qualities', label: 'Special', headerTitle: 'Weapon Qualities' },
+        { key: 'attachments', label: 'Attachments', headerTitle: 'Weapon Attachments' },
         { key: 'buttons', label: '', thStyle: 'min-width: 80px' },
-
-        /* TODO: Add in weapon modification support. */
     ]);
 
     const editWeaponsModal = useTemplateRef('editWeaponsModal');

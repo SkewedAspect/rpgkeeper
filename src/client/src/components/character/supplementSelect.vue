@@ -135,11 +135,16 @@
         <!-- Modals -->
         <SupplementBrowserModal
             ref="browseModal"
+            :title="browseTitle ?? `Browse ${ label }`"
             :supplements="available"
             :selected-ids="selectedIds"
             @select="onBrowseSelect"
             @add-new="addNew"
-        />
+        >
+            <template v-if="$slots['browse-preview']" #preview="{ supplement }">
+                <slot :supplement="supplement" name="browse-preview" />
+            </template>
+        </SupplementBrowserModal>
     </BFormGroup>
 </template>
 
@@ -190,7 +195,8 @@
         available : TSupplement[];
         selected : (TInstance | string)[];
         maxHeight ?: string;
-        sortFn ?: (suppA : Supplement, suppB : Supplement) => number
+        sortFn ?: (suppA : Supplement, suppB : Supplement) => number;
+        browseTitle ?: string;
     }
 
     const props = withDefaults(
@@ -198,6 +204,7 @@
         {
             maxHeight: '300px',
             sortFn: undefined,
+            browseTitle: undefined,
         }
     );
 
@@ -216,6 +223,7 @@
         'preview-title' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
         'noSelection' : () => unknown;
         'preview' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
+        'browse-preview' : (props : { supplement : TSupplement }) => unknown;
     }>();
 
     //------------------------------------------------------------------------------------------------------------------

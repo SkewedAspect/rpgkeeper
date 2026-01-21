@@ -91,7 +91,8 @@
 
                 <BFormRow class="mt-2">
                     <BFormGroup
-                        class="flex-fill pe-1 w-25"
+                        class="flex-fill pe-1"
+                        style="width: 20%"
                         label="Damage"
                         label-class="fw-bold"
                         label-for="skill-damage"
@@ -105,7 +106,8 @@
                         />
                     </BFormGroup>
                     <BFormGroup
-                        class="flex-fill ps-1 pe-1 w-25"
+                        class="flex-fill ps-1 pe-1"
+                        style="width: 20%"
                         label="Critical"
                         label-class="fw-bold"
                         label-for="skill-critical"
@@ -119,7 +121,8 @@
                         />
                     </BFormGroup>
                     <BFormGroup
-                        class="flex-fill ps-1 pe-1 w-25"
+                        class="flex-fill ps-1 pe-1"
+                        style="width: 20%"
                         label="Encumb."
                         label-class="fw-bold"
                         label-for="skill-encumbrance"
@@ -133,7 +136,23 @@
                         />
                     </BFormGroup>
                     <BFormGroup
-                        class="flex-fill ps-1 w-25"
+                        class="flex-fill ps-1 pe-1"
+                        style="width: 20%"
+                        label="Hardpoints"
+                        label-class="fw-bold"
+                        label-for="skill-hardpoints"
+                    >
+                        <BFormInput
+                            id="skill-hardpoints"
+                            v-model.number="editWeapon.hardpoints"
+                            type="number"
+                            min="0"
+                            step="0"
+                        />
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1"
+                        style="width: 20%"
                         label="Rarity"
                         label-class="fw-bold"
                         label-for="skill-rarity"
@@ -148,7 +167,25 @@
                     </BFormGroup>
                 </BFormRow>
 
-                <QualityEdit v-model:qualities="editWeapon.qualities" />
+                <BTabs class="mt-3" content-class="mt-2">
+                    <BTab title="Qualities" active>
+                        <QualityEdit v-model:qualities="editWeapon.qualities" />
+                    </BTab>
+                    <BTab>
+                        <template #title>
+                            Attachments
+                            <BBadge :variant="attachmentHpVariant" class="ms-1">
+                                {{ attachmentHpUsed }} / {{ editWeapon.hardpoints }} HP
+                            </BBadge>
+                        </template>
+                        <AttachmentEdit
+                            v-model:attachments="editWeapon.attachments"
+                            :total-hardpoints="editWeapon.hardpoints"
+                            use-with="weapon"
+                            :show-hardpoints-summary="false"
+                        />
+                    </BTab>
+                </BTabs>
             </div>
 
             <!-- Modal Buttons -->
@@ -248,6 +285,8 @@
     // Models
     import type {
         EncounterRange,
+        EoteAttachment,
+        EoteAttachmentRef,
         EoteCharacter,
         EoteQualityRef,
         EoteWeapon,
@@ -259,6 +298,7 @@
 
     // Components
     import QualityEdit from '../sub/qualityEdit.vue';
+    import AttachmentEdit from '../sub/attachmentEdit.vue';
     import { BModal } from 'bootstrap-vue-next';
     import { VueBootstrapAutocomplete } from '@morgul/vue-bootstrap-autocomplete';
     import CloseButton from '@client/components/ui/closeButton.vue';
@@ -287,6 +327,7 @@
         rarity : number;
         restricted : boolean;
         qualities : EoteQualityRef[];
+        attachments : EoteAttachmentRef[];
     }
 
     interface Events
@@ -320,6 +361,7 @@
         rarity: 0,
         restricted: false,
         qualities: [],
+        attachments: [],
     });
 
     const pendingTemplate = ref<EoteWeapon | null>(null);
@@ -350,6 +392,30 @@
     });
 
     const availableWeapons = computed(() => supplementStore.get<EoteWeapon>(mode.value, 'weapon'));
+
+    const attachmentHpUsed = computed(() =>
+    {
+        const attachments = supplementStore.get<EoteAttachment>(mode.value, 'attachment');
+        return editWeapon.value.attachments.reduce((total, attRef) =>
+        {
+            const att = attachments.find((item) => item.id === attRef.id);
+            return total + (att?.hpRequired ?? 0);
+        }, 0);
+    });
+
+    const attachmentHpVariant = computed(() =>
+    {
+        if(attachmentHpUsed.value > editWeapon.value.hardpoints)
+        {
+            return 'danger';
+        }
+        else if(attachmentHpUsed.value === editWeapon.value.hardpoints && editWeapon.value.hardpoints > 0)
+        {
+            return 'warning';
+        }
+
+        return 'secondary';
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -383,6 +449,7 @@
             rarity: template.rarity,
             restricted: template.restricted ?? false,
             qualities: [ ...(template.qualities ?? []) ],
+            attachments: [],
         };
     }
 
@@ -471,6 +538,7 @@
                 rarity: newWeapon.rarity,
                 restricted: newWeapon.restricted ?? false,
                 qualities: newWeapon.qualities,
+                attachments: [ ...(newWeapon.attachments ?? []) ],
             };
         }
         else
@@ -490,6 +558,7 @@
                 rarity: 0,
                 restricted: false,
                 qualities: [],
+                attachments: [],
             };
         }
 
@@ -513,6 +582,7 @@
             rarity: 0,
             restricted: false,
             qualities: [],
+            attachments: [],
         };
 
         innerModal.value?.hide();
@@ -533,7 +603,7 @@
                 hardpoints: editWeapon.value.hardpoints,
                 rarity: editWeapon.value.rarity,
                 restricted: editWeapon.value.restricted,
-                attachments: [],
+                attachments: editWeapon.value.attachments,
                 qualities: editWeapon.value.qualities,
             };
 
@@ -553,6 +623,7 @@
                 hardpoints: editWeapon.value.hardpoints,
                 rarity: editWeapon.value.rarity,
                 restricted: editWeapon.value.restricted,
+                attachments: editWeapon.value.attachments,
                 qualities: editWeapon.value.qualities,
             };
 
@@ -578,6 +649,7 @@
             rarity: 0,
             restricted: false,
             qualities: [],
+            attachments: [],
         };
     }
 

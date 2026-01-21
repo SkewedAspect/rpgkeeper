@@ -8,6 +8,7 @@ import { jsonCodec, supplementId, supplementRef } from '@rpgk/core/utils/codecs'
 // Shared Schemas
 import {
     BaseArmorRefSchema,
+    BaseAttachmentRefSchema,
     BaseCharacteristicsSchema,
     BaseGearSchema,
     BaseSkillSchema,
@@ -57,6 +58,23 @@ export const EoteForceSchema = z.object({
 });
 
 //----------------------------------------------------------------------------------------------------------------------
+// EotE-Specific Ref Schemas
+//----------------------------------------------------------------------------------------------------------------------
+
+export const EoteAttachmentRefSchema = BaseAttachmentRefSchema.extend({
+    activatedMods: z.array(z.number().int()
+        .min(0)).optional(),
+});
+
+export const EoteArmorRefSchema = BaseArmorRefSchema.extend({
+    attachments: z.array(EoteAttachmentRefSchema),
+});
+
+export const EoteWeaponRefSchema = BaseWeaponRefSchema.extend({
+    attachments: z.array(EoteAttachmentRefSchema),
+});
+
+//----------------------------------------------------------------------------------------------------------------------
 // System Details Schema
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -72,8 +90,8 @@ export const EoteSystemDetailsSchema = z.object({
     abilities: z.array(supplementId('ability')),
     talents: z.array(BaseTalentInstSchema),
     gear: z.array(BaseGearSchema),
-    armor: BaseArmorRefSchema,
-    weapons: z.array(BaseWeaponRefSchema),
+    armor: EoteArmorRefSchema,
+    weapons: z.array(EoteWeaponRefSchema),
     force: EoteForceSchema,
 });
 
