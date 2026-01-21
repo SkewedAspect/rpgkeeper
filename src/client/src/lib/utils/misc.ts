@@ -12,6 +12,30 @@ const nanoID = customAlphabet(alphanumeric, 10);
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
+ * Normalize a reference that could be a string or array of strings to a single string.
+ * Returns the first reference if given an array, or the string itself.
+ *
+ * @param reference - The reference(s) to normalize
+ * @returns The first/only reference as a string, or empty string if undefined
+ */
+export function normalizeReference(reference : string | string[] | undefined) : string
+{
+    if(!reference)
+    {
+        return '';
+    }
+
+    if(Array.isArray(reference))
+    {
+        return reference[0] ?? '';
+    }
+
+    return reference;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
  * This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid.
  *
  * @returns Returns a unique string id.
