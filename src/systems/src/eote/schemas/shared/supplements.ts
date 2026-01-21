@@ -13,10 +13,11 @@ import { z } from 'zod';
 /**
  * Base schema for all supplements - just description and reference.
  * Most supplement types extend this.
+ * Reference can be a single string or array of strings (multiple source books).
  */
 export const BaseSupplementDataSchema = z.object({
     description: z.string().default(''),
-    reference: z.string().default(''),
+    reference: z.union([ z.string(), z.array(z.string()) ]).default(''),
 }).passthrough();
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -66,6 +67,8 @@ export const WeaponDataSchema = BaseSupplementDataSchema.extend({
     damage: z.number()
         .int()
         .default(0),
+    /** If true, damage is added to the skill's characteristic (e.g., Brawn for Melee) */
+    addSkill: z.boolean().default(false),
     criticalRating: z.number()
         .int()
         .default(0),
@@ -74,9 +77,13 @@ export const WeaponDataSchema = BaseSupplementDataSchema.extend({
     encumbrance: z.number()
         .int()
         .default(0),
+    hardpoints: z.number()
+        .int()
+        .default(0),
     rarity: z.number()
         .int()
         .default(0),
+    restricted: z.boolean().default(false),
     qualities: z.array(WeaponQualityRefSchema).default([]),
 });
 
@@ -103,6 +110,7 @@ export const ArmorDataSchema = BaseSupplementDataSchema.extend({
     rarity: z.number()
         .int()
         .default(0),
+    restricted: z.boolean().default(false),
     qualities: z.array(WeaponQualityRefSchema).default([]),
 });
 
