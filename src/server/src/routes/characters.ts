@@ -91,8 +91,7 @@ router.post(
             resp.status(422)
                 .json({
                     type: 'InvalidCharacter',
-                    message: "The character with id '${ char.id }' has an invalid or unknown system "
-                    + `${ char.system }'.`,
+                    message: `The character with id '${ char.id }' has an invalid or unknown system ${ char.system }'.`,
                 });
         }
     }
@@ -179,19 +178,14 @@ router.delete(
         }
         catch (error : unknown)
         {
-            // If we can't find the character, we need to emulate the behavior of the other delete endpoints, and
-            // return a 404 with no body. While this isn't technically necessary, I'd prefer the API to remain
-            // consistent.
+            // If we can't find the character, return a 404 with no body for API consistency.
             const err = error as Error & { code ?: string };
             if(err.code === 'ERR_NOT_FOUND')
             {
                 resp.status(404).end();
                 return;
             }
-            else
-            {
-                throw error;
-            }
+            throw error;
         }
 
         if(!req.user)
