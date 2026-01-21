@@ -1,0 +1,11 @@
+id: eote-talent-altered-deal
+name: Altered Deal
+description: Once per session may take the Altered Deal action and make **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Coercion check** to radically change a
+  previously made deal or bargain to the character's advantage.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Pirate
+reference:
+  - DoR:111

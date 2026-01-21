@@ -1,0 +1,29 @@
+id: eote-weapon-stealth-vibroknife
+name: Stealth Vibroknife
+description: >-
+  Popular among all manner of individuals from nobles to vagabonds, vibroblades are effective cutting edges that, when
+  powered, can easily slice through light armor. Compared to traditional melee weapons, a vibroweapon can be smaller,
+  but still extremely deadly. Many corporations have sought to fill this niche by producing vibroknives with a bare
+  minimum of technology—essentially a naked blade with a thin handle and miniaturized motivator. Such blades can be
+  correspondingly more dangerous to wield, but they offer the advantage of being easily hidden and difficult to detect.
+
+  Add <setback></setback><setback></setback> to a character's Perception checks to find a stealth vibroknife on a
+  person's body.
+
+  **Models include:** Palandrix Compact Utility Blade.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - DA:46

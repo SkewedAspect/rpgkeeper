@@ -1,0 +1,23 @@
+id: eote-weapon-ves-700-pulse-rifle
+name: VES-700 Pulse Rifle
+description: >-
+  Corondexx VES-700 Pulse Rifle
+
+  Often used by urban riot police and bounty hunters, the Corondexx VES-700 pulse rifle has also found a place aboard
+  many of the light freighters roaming the galaxy. Firing a rapid series of micro-bursts in a wide blast pattern, the
+  pulse rifle is particularly effective in closed spaces, such as the corridors of a starship.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 4
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-stun-setting
+reference:
+  - FC:44

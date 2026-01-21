@@ -1,0 +1,12 @@
+id: eote-talent-expert-tracker
+name: Expert Tracker
+description: Remove <setback></setback> per rank of Expert Tracker from checks to find tracks or track targets. Decrease
+  time to track a target by half.
+activation: p
+ranked: true
+forceTalent: false
+trees: Beast Rider, Big-Game Hunter, Hunter, Navigator, Nightsister, Seer, Sharpshooter, Skip Tracer, Survivalist, Trailblazer
+reference:
+  - E-CRB:135
+  - A-CRB:146
+  - F-CRB:142

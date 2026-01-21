@@ -1,0 +1,10 @@
+id: eote-talent-respected-scholar
+name: Respected Scholar
+description: May downgrade difficulty of checks to interact with institutes of learning by one level per rank of Respected Scholar.
+activation: p
+ranked: true
+forceTalent: false
+trees: Archaeologist, Scholar, Scientist, Teacher
+reference:
+  - E-CRB:142
+  - A-CRB:155

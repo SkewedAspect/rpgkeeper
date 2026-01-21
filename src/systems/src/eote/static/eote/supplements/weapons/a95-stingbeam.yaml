@@ -1,0 +1,26 @@
+id: eote-weapon-a95-stingbeam
+name: A95 Stingbeam
+description: >-
+  Czerka Arms A95 Stingbeam
+
+  Small, easily-concealed energy weapons, stingbeams are among the smallest blasters available. Tiny enough to fit in
+  the palm of the hand, stingbeams work along similar principles to a blaster, but instead of firing a beam of energized
+  particles down a barrel, they focus the blast along a needle-like rod that protrudes between the user's fingers.
+  Stingbeams can kill at close range, but their blasts quickly lose cohesion over distance.
+
+  Add <setback></setback><setback></setback> to a character's Perception checks to find a stingbeam on a person's body.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - FC:42

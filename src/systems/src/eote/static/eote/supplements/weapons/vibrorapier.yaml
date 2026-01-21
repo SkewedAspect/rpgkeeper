@@ -1,0 +1,22 @@
+id: eote-weapon-vibrorapier
+name: Vibrorapier
+description: A long, slender-bladed vibrosword, a vibrorapier is extremely well-balanced and suited for professional
+  artists of the blade. Designed primarily for thrusting, the vibrorapier can penetrate virtually any armor, making it
+  an exceptionally deadly blade in the hands of trained sword-wielder. Unlike other vibroblades, which emit an audible
+  hum, vibrorapiers are completely silent, making them useful for those who rely on stealth to survive.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 2
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 5
+reference:
+  - FC:46

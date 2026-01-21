@@ -1,0 +1,10 @@
+id: eote-talent-disciplined-soul
+name: Disciplined Soul
+description: Spend one Destiny Point after making a Discipline check to spend a number of <threat></threat> not
+  exceeding ranks in Knowledge (Lore) as <advantage></advantage>.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Force Adherent
+reference:
+  - DoR:112

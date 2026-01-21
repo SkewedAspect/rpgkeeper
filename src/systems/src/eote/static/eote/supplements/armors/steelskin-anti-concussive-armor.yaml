@@ -1,0 +1,21 @@
+id: eote-armor-steelskin-anti-concussive-armor
+name: '"Steelskin" Anti-Concussive Armor'
+description: >-
+  "Steelskin" Anti-Concussive Armor
+
+
+  Some of the heaviest non-powered personal armor on the market, Steelskin armor is illegal on most worlds and sure to
+  draw significant attention in even the roughest of Outer Rim settlements. The sheer weight of the armor deters many
+  potential users, and only the most physically able of warriors can wear it for any amount of time. 
+
+
+  All Brawn and Agility based checks while wearing Steelskin armor gain <setback></setback>. Whenever the bearer is
+  staggered or disoriented from a weapon quality, reduce the rounds staggered or disoriented by 1.
+defense: 0
+soak: 3
+hardpoints: 1
+encumbrance: 8
+rarity: 7
+restricted: true
+qualities: []
+reference: DC

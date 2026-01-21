@@ -1,0 +1,13 @@
+id: eote-talent-stim-application
+name: Stim Application
+description: Take the Stim Application Action; make an **Average (<difficulty></difficulty><difficulty></difficulty>)
+  Medicine check**. If successful 1 engaged ally increases 1 characteristic by 1 for the remained of the encounter and
+  suffers 4 strain.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Alchemist, Doctor, Medic
+reference:
+  - E-CRB:143
+  - A-CRB:157
+  - UP:33

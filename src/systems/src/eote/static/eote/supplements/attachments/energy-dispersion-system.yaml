@@ -1,10 +1,15 @@
 id: eote-attachment-energy-dispersion-system
 name: Energy Dispersion System
 description: This minute metallic wiring is designed to distribute electrical shocks across the armor while grounding
-  the user against the energy, reducing the potency of such attacks. It protects against electricity as well as weapons’
-  Stun settings, although it does not effectively disperse blaster fire.
-useWith: Any Armor.
-baseModifier: When soaking Strain, +2 soak.
-modOptions: None
+  the user against the energy, reducing the potency of such attacks. It protects against electricity as well as weapons'
+  Stun settings, although it does not effectively disperse blaster fire. This attachment can be installed on any armor.
+useWith: armor
 hpRequired: 1
-reference: F-CRB:201
+rarity: 4
+baseModifier: When reducing strain damage by soak, count soak as two higher
+modOptions: []
+reference:
+  - F-CRB:201
+includedModels:
+  - Atlas Corp Model 88 Electric Shield
+  - Merr-Sonn AEGIS Nanoarray

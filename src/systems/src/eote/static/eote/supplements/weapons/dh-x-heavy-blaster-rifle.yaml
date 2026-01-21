@@ -1,0 +1,22 @@
+id: eote-weapon-dh-x-heavy-blaster-rifle
+name: DH-X Heavy Blaster Rifle
+description: The DH-X from BlasTech is a powerful weapon favored by mercenary soldiers with an appreciation for heavy
+  weaponry. Amongst the largest heavy blaster rifles manufactured by BlasTech, the DH-X can drop most targets with a
+  single shot. However, the power increase means a slower rate of fire. As such, the DH-X fills an important niche
+  between blaster rifles and repeating blasters.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 7
+hardpoints: 4
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 2
+reference:
+  - DC:43

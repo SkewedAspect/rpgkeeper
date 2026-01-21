@@ -1,0 +1,18 @@
+id: eote-weapon-connor-net-mine
+name: Connor Net Mine
+description: Designed to envelop and ionize a single ship, Conner nets have been known to catch even skilled pilots off-guard.
+skill: Mechanics
+damage: 20
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-ion
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:64

@@ -1,0 +1,20 @@
+id: eote-armor-jedi-temple-guard-armor
+name: Jedi Temple Guard Armor
+description: >-
+  The Jedi Temple Guard were some of the best fighters the Jedi Order had to offer, sworn to protect the temple to the
+  end. The armor they wore was as imposing as it was effective. Temple Guard armor consists of brown armored robes a
+  helmet and an impassive, emotionless mask. Anonymity was as important to a Jedi Temple Guard as combat skill, and they
+  were sworn to be completely impartial in the execution of their duty. Though the records state that all members of the
+  Jedi Temple Guard were slain by Darth Vader and the 501st Legion troops he lead, some of their battlegear survives in
+  private collections and lost corners of the galaxy.
+
+  The armored mask contains a helmet comlink and an in-helmet scanner.
+defense: 2
+soak: 1
+hardpoints: 3
+encumbrance: 4
+rarity: 10
+restricted: true
+qualities: []
+reference:
+  - KtP:48

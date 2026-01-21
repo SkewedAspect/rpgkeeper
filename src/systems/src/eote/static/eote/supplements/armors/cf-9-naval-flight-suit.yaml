@@ -1,0 +1,29 @@
+id: eote-armor-cf-9-naval-flight-suit
+name: CF-9 Naval Flight Suit
+description: >-
+  CF-9 Republic Naval Flight Suit
+
+  Clones assigned to operate starfighters, combat airspeeders, and similar vehicles are not typically issued full
+  bodysuits of armor like their brethren in the infantry. Instead, the Republic Navy has developed new flight suits
+  appropriate for combat missions. The CF-9 model flight suit was an attempt to offer everything a pilot needed for
+  missions without exacerbating the already substantial cost of supplying fighter wings. The project has been a mixed
+  success in both regards, but it serves well enough to satisfy the Senate.
+
+  The CF-9 is lightly armored—just enough to provide basic protection in case the wearer is separated from their craft
+  and to improve survival chances in the case of a crash or ejection. It lacks many of the features of full armor,
+  relying instead on basic subsystems, an environmental seal, and the communication systems of the piloted craft rather
+  than having such features built in. The suit's design instead focuses on regulating a clone's physiology during combat
+  maneuvers, through its specialised respirator and other systems.
+
+  CF-9 flight suits include a built-in respirator. Characters wearing CF-9 Republic naval flight suits remove up to
+  <setback></setback> from Piloting (Space) and Piloting (Planetary) checks added due to the danger or physical stress
+  of the action.
+defense: 1
+soak: 1
+hardpoints: 2
+encumbrance: 3
+rarity: 6
+restricted: true
+qualities: []
+reference:
+  - RotS:56

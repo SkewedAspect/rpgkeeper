@@ -1,0 +1,23 @@
+id: eote-attachment-water-reclamation-suit
+name: Water Reclamation Suit
+description: >-
+  Water reclamation systems are popular with scouts and hermits, especially those living or working on arid worlds.
+  Produced by a variety of wilderness outfitters, like Survival Equipment Inc. and Gandorthral Atmospherics, these
+  systems collect a body's waste moisture and distill it for drinking. Typically, the consist of a tight bodysuit worn
+  under a suit of armor, that covers a wearer to the neck, wrists, and ankles, along with a matching pair of gloves and
+  a filtermask that covers the mouth and nose.
+
+  Made from layers of synthetic fibermesh, the suit wicks sweat away from the skin and purifies it by means of
+  integrated filtration media. It also collects waste moisture from the mouth and nose by means of the filtermask. The
+  water is then collected in pouches spread across the suit and can either be decanted into a larger container or drunk
+  straight from the suit by means of a long, flexible tube connected to the suit's back. Adding a Water Reclamation
+  System to a suit of armor allows an individual to operate much longer in desolate environments without fear of running
+  out of water. This attachment can be applied to any armor that could logically integrate the necessary pouches and
+  tubing.
+useWith: armor
+hpRequired: 2
+rarity: 4
+baseModifier: Upgrades ability of Resilience and Survival checks made in dry or hot environments due to scarcity of water twice.
+modOptions: []
+reference:
+  - SS:52

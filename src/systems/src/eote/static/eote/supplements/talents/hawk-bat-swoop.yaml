@@ -1,0 +1,11 @@
+id: eote-talent-hawk-bat-swoop
+name: Hawk Bat Swoop
+description: Take the Hawk Bat Swoop action. Perform a Lightsaber (Agility) combat check against target within short
+  range, adding [FO] no greater than Force rating. Spend <forcepoint></forcepoint> to engage target and spend
+  <forcepoint></forcepoint> to add <advantage></advantage> to check.
+activation: aa
+ranked: true
+forceTalent: true
+trees: Ataru Striker
+reference:
+  - F-CRB:144

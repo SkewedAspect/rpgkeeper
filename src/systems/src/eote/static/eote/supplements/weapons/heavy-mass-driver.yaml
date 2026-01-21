@@ -1,0 +1,20 @@
+id: eote-weapon-heavy-mass-driver
+name: Heavy Mass Driver
+description: This big cannon throws a solid durasteel penetrator at hypersonic speeds over extreme distances and, with
+  proper targeting data, can hit targets beyond visual range.
+skill: Gunnery
+damage: 8
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - KoF:56

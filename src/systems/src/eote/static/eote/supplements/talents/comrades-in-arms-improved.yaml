@@ -1,0 +1,10 @@
+id: eote-talent-comrades-in-arms-improved
+name: Comrades in Arms (Improved)
+description: Spend <advantage></advantage><advantage></advantage><advantage></advantage> or <triumph></triumph> from
+  Comrades in Arms check to also gain +1 soak or give one affected ally +1 soak.
+activation: p
+ranked: false
+forceTalent: false
+trees: Retired Clone Trooper
+reference:
+  - DoR:111

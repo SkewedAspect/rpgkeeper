@@ -1,0 +1,27 @@
+id: eote-weapon-medium-flak-cannon
+name: Medium Flak Cannon
+description: The concept behind flak cannons dates back to the earliest days of powered flight, and is among the
+  simplest, most effective anti-fightercraft weapon systems in use today. Using a powerful mass driver, a flak cannon
+  fires a large-caliber shell packed with thousands of dangerous, tiny objects such as shrapnel, micro-explosive
+  pellets, or inert durasteel flechettes. Flak shells burst at a set distance and spread their contents in a dense cloud
+  that can tear small, lightly armored airspeeders or starfighters to shreds in an instant.
+skill: Gunnery
+damage: 5
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-slow-firing
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 4
+reference:
+  - SoT:49
+  - LbE:53
+  - RotS:78

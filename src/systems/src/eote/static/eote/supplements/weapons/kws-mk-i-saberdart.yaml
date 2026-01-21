@@ -1,0 +1,35 @@
+id: eote-weapon-kws-mk-i-saberdart
+name: KWS Mk I Saberdart
+description: >-
+  Kaminoan Weaponsmiths, a subsidiary of Kaminoan Armorsmiths Ltd., is a small weapons producer based on the watery
+  planet of Kamino. Its products are all essentially handmade, produced in msall numbers byu highly trained craftsmen
+  and sold in limited runs. The company is relatively unknown outside of certain circles—namely bounty hunters and
+  professional killers—but among its select cliente. it has a reputation for well-made, high-quality products.
+
+  Perhaps their most popular product is the Mk. I Saberdart. The Saberdart, a name that applies to both the dart itself
+  and its launcher, is a tiny, roughly triangualr durasteel alloy dart fired via compressed air. The dart has three
+  hooked barbs surrouding a central cylinder tipped withy an incredibly sharp needle. Within the central core of the
+  dart is a small, fillable chamber used to deliver toxins and poisons to targets at range. Saberdarts can be used to
+  deliver anything tranquillizers to deadly neurotoxins such as Fex-M3 and Malkite themfar. They are silent, deadly,
+  obscure and largely untraceable, which makes them a perfect weapon for assassins.
+
+  Saberdart launchers have lightweight barrels that propel their darts via compressed gas. Dart launchers can be built
+  into gloves, pieces of armor, other weapons, even innocuous pieces of everyday gear like datapads and glowrods.
+
+  Saberdarts may be loaded with 1 dose of synthetic neuroparalytic (see page 181 of the **Force and Destiny** Core
+  Rulebook), or any other poison the GM, deems appropriate. Whenever the wielder successfully attacks a target with the
+  weapon (even if she deals no damage), the target also suggers the effects of being exposed to the poison.
+skill: Ranged (Light)
+damage: 1
+addSkill: false
+criticalRating: 0
+range: l
+encumbrance: 1
+hardpoints: 1
+rarity: 9
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - EV:41

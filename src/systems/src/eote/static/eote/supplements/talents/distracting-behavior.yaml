@@ -1,0 +1,11 @@
+id: eote-talent-distracting-behavior
+name: Distracting Behavior
+description: Make a Distracting Behavior maneuver and suffer strain no greater than ranks in Cunning. Until the
+  beginning of next turn, equal number of NPC's suffer <threat></threat> on checks. Range increases with additional
+  ranks.
+activation: am
+ranked: true
+forceTalent: false
+trees: Performer
+reference:
+  - FH:32

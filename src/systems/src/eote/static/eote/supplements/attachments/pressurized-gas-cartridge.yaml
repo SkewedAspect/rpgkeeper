@@ -1,0 +1,16 @@
+id: eote-attachment-pressurized-gas-cartridge
+name: Pressurized Gas Cartridge
+description: While a spray injector does not typically expel its contents with sufficient force to inflict serious harm,
+  there is no particular reason it cannot do so if a tinkerer is willing to change out the factory-standard gas
+  cartridge for one with a bit more kick. Needless to say, making such an alteration voids the multi-goo gun's warranty.
+useWith: weapon
+hpRequired: 1
+rarity: 2
+baseModifier: Damage set to 5
+modOptions:
+  - Burn +1
+  - Burn +1
+  - Disorient +1
+  - Disorient +1
+reference:
+  - SM:45

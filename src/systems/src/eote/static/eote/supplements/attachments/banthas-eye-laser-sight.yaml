@@ -1,0 +1,14 @@
+id: eote-attachment-banthas-eye-laser-sight
+name: "\"Bantha's Eye\" Laser Sight"
+description: An extremely simple gun sight, a laser sight emits a low-power light beam to place a visible "dot" that
+  marks the weapon's precise target. A laser sight can help even an amateur shooter hit a target. One drawback to this
+  upgrade is that the laser can alert an otherwise unaware target to the shooter. For these reasons, laser sights are
+  rarely used by sharpshooters and snipers. This attachment can be used with any Ranged (Light) or Ranged (Heavy) weapon
+  that do not possess the Blast quality.
+useWith: weapon
+hpRequired: 1
+rarity: 5
+baseModifier: Add <advantage></advantage> to combat checks
+modOptions: []
+reference:
+  - DC:52

@@ -1,0 +1,10 @@
+id: eote-talent-power-of-darkness
+name: Power of Darkness
+description: Once per session, may perform the Power of Darkness maneuver. Increase wound threshold and strain threshold
+  by 1 per Dark Side Destiny point currently in the Destiny pool until the end of the encounter.
+activation: am
+ranked: false
+forceTalent: true
+trees: Magus
+reference:
+  - UP:33

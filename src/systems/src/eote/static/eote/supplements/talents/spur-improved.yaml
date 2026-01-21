@@ -1,0 +1,10 @@
+id: eote-talent-spur-improved
+name: Spur (Improved)
+description: Suffer 1 strain to attempt Spur as a maneuver and decrease its difficult to **Average
+  (<difficulty></difficulty><difficulty></difficulty>).**
+activation: am
+ranked: false
+forceTalent: false
+trees: Beast Rider
+reference:
+  - SoT:33

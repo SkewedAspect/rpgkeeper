@@ -1,0 +1,25 @@
+id: eote-weapon-d-29-repulsor-rifle
+name: D-29 Repulsor Rifle
+description: >-
+  SakTek D-29 Repulsor Rifle
+
+  Manufactured by the Sakiyan corporation SakTek, this unusual personal weapon uses a repulsor generator to blast its
+  target with a wave of concussive force. Employing essentially the same technology as a tractor beam, the D-29 fires an
+  invisible ray of electromagnetic energy that violently pushes a target away, knocking down, disorienting, and stunning
+  creatures without directly causing any serious lasting damage.
+skill: Gunnery
+damage: 8
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 3
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 3
+  - id: eote-quality-knockdown
+  - id: eote-quality-stun-damage
+reference:
+  - LoNH:102

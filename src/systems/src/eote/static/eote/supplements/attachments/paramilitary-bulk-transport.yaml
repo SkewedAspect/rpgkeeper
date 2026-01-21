@@ -1,0 +1,11 @@
+id: eote-attachment-paramilitary-bulk-transport
+name: Paramilitary Bulk Transport
+description: Converts a bulk transport to a paramilitary vehicle.
+useWith: vehicle
+hpRequired: 0
+rarity: 0
+baseModifier: -1 Handling; +2 Defense Zone; +2 Armor; +5 Hull Trauma Threshold; -5 System Strain Threshold; Adds two
+  heavy laser cannon turrets
+modOptions: []
+reference:
+  - DC:71

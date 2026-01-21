@@ -1,0 +1,11 @@
+id: eote-talent-master-of-shadows
+name: Master of Shadows
+description: Once per round, suffer 2 strain to decrease difficulty of next Stealth or Skulduggery check by one.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Assassin, Infiltrator, Padawan Survivor, Shadow, Thief
+reference:
+  - E-CRB:138
+  - A-CRB:151
+  - F-CRB:146

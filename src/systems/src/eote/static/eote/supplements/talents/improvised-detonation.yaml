@@ -1,0 +1,13 @@
+id: eote-talent-improvised-detonation
+name: Improvised Detonation
+description: Once per session, make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** to perform the
+  Improvised Detonation action and build an explosive device, dealing damage equal to ranks in Intellect + ranks in
+  Mechanics + <success></success>.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Demolitionist, Sapper
+reference:
+  - DC:32
+  - FO:30

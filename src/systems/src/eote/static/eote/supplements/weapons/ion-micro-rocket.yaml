@@ -1,0 +1,27 @@
+id: eote-weapon-ion-micro-rocket
+name: Ion Micro-Rocket
+description: >-
+  Bounties on droids are not common, but they are frequently profitable, as any droid considered irreplaceable enough to
+  mark in such a fashion is often extremely valuable. As such, some bounty hunters invest in ion pulse warheads for
+  their micro-rockets, which can disable droids without permanent damage. The power of an ion rocket can can even create
+  a power surge in unshielded non-sentient equipment that burns out capacitors or damages circuits.
+
+  The Sunder quality of an ion micro-rocket can only be activated to damage powered equipment, such as sensors,
+  blasters, or vibro-blades. It cannot be used to damage items that operate without power, as they have no circuitry to
+  disrupt.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-ion
+  - id: eote-quality-sunder
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:47

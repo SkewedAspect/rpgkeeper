@@ -1,0 +1,12 @@
+id: eote-talent-incite-distraction
+name: Incite Distraction
+description: While in a crowd, may perform the Incite Distraction action to make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Deception check**. If successful, enemies treat the area as
+  difficult terrain. The character may spend <triumph></triumph> to make the location impassable terrain to them
+  instead.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Courier
+reference:
+  - CaM:30

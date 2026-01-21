@@ -1,0 +1,10 @@
+id: eote-talent-natural-brawler
+name: Natural Brawler
+description: Once per session, may reroll any 1 Brawl or Melee check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Infiltrator, Marauder, Martial Artist
+reference:
+  - E-CRB:139
+  - A-CRB:153

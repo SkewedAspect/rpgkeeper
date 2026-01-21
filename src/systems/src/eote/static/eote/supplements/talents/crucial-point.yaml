@@ -1,0 +1,10 @@
+id: eote-talent-crucial-point
+name: Crucial Point
+description: Once per session, the character may introduce to negotiations and one potential concession that an opponent
+  will do nearly anything to obtain.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Arbiter
+reference:
+  - DoH:28

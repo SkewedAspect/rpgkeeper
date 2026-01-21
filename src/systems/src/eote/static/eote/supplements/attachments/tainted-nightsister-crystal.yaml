@@ -1,0 +1,17 @@
+id: eote-attachment-tainted-nightsister-crystal
+name: Tainted Nightsister Crystal
+description: The Nightsisters rose and fell as a faction untouched by the conflicts between Jedi and Sith. As such, they
+  had little time to adopt the iconic lightsabers as their weapons of choice. This has not stopped dark side Mystics
+  from trying to fuse Nightsister magic with Sith weaponry. Most experiments yield no fruit, but some have made for
+  particularly terrifying advancements. Tainted Nightsister crystals were once pure Kyber crystals. Soaking them in
+  Dathomiri Waters of Life perverts their connection to the Force. The resulting blade emits a choking, putrid green
+  smoke when active.
+useWith: weapon
+hpRequired: 2
+rarity: 10
+baseModifier: Damage set to 6; Critical set to 2; Breach 1; Sunder 1; Disorient 3; Vicious 4
+modOptions:
+  - +1 Damage
+  - Disorient +1
+reference:
+  - UP:55

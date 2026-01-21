@@ -1,0 +1,12 @@
+id: eote-talent-trust-the-captain
+name: Trust the Captain
+description: May take the Trust the Captain action by making a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Leadership check**. If successful, for
+  the rest of the encounter allies within short range increase their ranks in Discipline by an amount equal to ranks in
+  Trust the Captain.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Ship Captain
+reference:
+  - DoR:116

@@ -1,0 +1,22 @@
+id: eote-armor-clone-dive-armor
+name: Clone Dive Armor
+description: >-
+  Some battlefronts are on worlds such as Mon Cala, where clone troopers must fight while swimming through the depths.
+  Clones are as ill suited for such environments as any other humans and they require armor that protects them from the
+  ocean's pressure while also providing breathable air and assisting with aquatic maneuverability. By necessity, these
+  suits are made of lighter-weight materials so that the wearer retains some degree of buoyancy. They also incorporate
+  an underwater propulsion system, fins, and sensors for underwater visibility.
+
+  Clone dive armor provides twelve hours of oxygen. During this time, the wearer also has fresh water, nutrition
+  supplements, and other biological necessities. While wearing clone dive armor, a character does not suffer movement
+  penalties for moving through water and removes up to one <setback></setback> from Perception checks due to underwater
+  conditions.
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 3
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - CotR:56

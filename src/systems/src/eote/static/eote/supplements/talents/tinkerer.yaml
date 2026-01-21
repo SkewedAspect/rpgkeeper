@@ -1,0 +1,11 @@
+id: eote-talent-tinkerer
+name: Tinkerer
+description: May add 1 additional hard point to a number of items equal to ranks in Tinkerer. Each item may only be modified once.
+activation: p
+ranked: true
+forceTalent: false
+trees: Armorer, Gadgeteer, Modder, Outlaw Tech, Scavenger, Scientist
+reference:
+  - E-CRB:145
+  - A-CRB:158
+  - RotS:43

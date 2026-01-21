@@ -1,0 +1,23 @@
+id: eote-armor-armored-clothing
+name: Armored Clothing
+description: >-
+  This category of armor covers light vests, jackets, or pants plated with plastoid or ceramic pads, sometimes with mesh
+  energy-dispersion layers. This armor type is very light but covers the most important vital organs. These plates are
+  mostly undetectable as long as the clothing is reasonably bulky. An **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Perception check** detects that a person's clothing is plated.
+
+  However, the plates woven into the fabric do not just provide absorption against blows, they also serve to deflect
+  some shots away from vital areas entirely.
+
+  **Models Include:** Tenloss Syndicate "ShadowStalker" Assassin Gear.
+defense: 1
+soak: 1
+hardpoints: 1
+encumbrance: 3
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - E-CRB:169
+  - A-CRB:184
+  - F-CRB:178

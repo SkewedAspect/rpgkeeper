@@ -1,0 +1,10 @@
+id: eote-talent-double-or-nothing-supreme
+name: Double or Nothing (Supreme)
+description: When performing the Double or Nothing incidental, also double the number of <triumph></triumph> and
+  <despair></despair>.
+activation: p
+ranked: false
+forceTalent: false
+trees: Gambler
+reference:
+  - FC:32

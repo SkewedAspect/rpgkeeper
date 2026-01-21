@@ -1,0 +1,28 @@
+id: eote-weapon-shockprod-staff
+name: Shockprod Staff
+description: >-
+  The shockprod staff is the universally recognized symbol of the ancient tradition of Gand findsmen. Roughly as tall as
+  a full-grown Gand, the shockprod staff is constructed of various alloys and equipped with a small, high-output power
+  cell that generates a strong stun field. The top of the staff branches into a "V" shape. Electrodes at the tip of each
+  branch focus the stun field and can be used to trap individuals or herd them wherever a findsman needs them to go. The
+  staff can also fire a bolt of energy up to a few meters away, allowing the user to catch targets unaware or
+  incapacitate particularly dangerous marks at a safe distance. Shockprod staffs are handmade by Gand findsmen and
+  presented to new findsmen when they are initiated. Those that are available on the galactic arms market have been
+  stolen, or looted from fallen Gands.
+
+  A shockprod staff requires two hands to wield.
+skill: Melee
+damage: 7
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 4
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 2
+  - id: eote-quality-stun-setting
+reference:
+  - KoF:43

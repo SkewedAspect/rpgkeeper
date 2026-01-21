@@ -1,0 +1,33 @@
+id: eote-weapon-the-darksaber
+name: The Darksaber
+description: >-
+  This ancient weapon is unlike any other known lightsaber. Its hilt emits a thin curved blade of utter blackness with a
+  halo of white energy, rather than the colorful glowing blades of other lightsabers. Legend has that the first
+  Mandalorian Jedi fashioned it centuries ago. Many have used it over the ages, from the Jedi of old to the Mandalorians
+  who stole it from their temple and made it a symbol of House Vizla. Recently, it has been sighted on Dathomir and has
+  come into the possession of Sabine Wren-a descendant of that House. Whether she knows the significance of her newest
+  weapon, or what she might do it she does, remains to be seen.
+
+  The Darksaber is a unique item and has the following profile: (Lightsaber; Damage 6; Critical 2; Range [Engaged];
+  Accurate 1, Breach 1, Defensive 1, Sunder). The crystal has all of its mods applied and the hilt has no hard points.
+  While the user openly displays the weapon, add automatic <success></success><advantage></advantage> to social skill
+  checks that character makes against Mandalorian characters.
+skill: Lightsaber
+damage: 6
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-sunder
+reference:
+  - DoR:79

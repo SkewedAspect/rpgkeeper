@@ -1,0 +1,18 @@
+id: eote-weapon-beamdrill
+name: Beamdrill
+description: Beamdrills are high powered, precision mining tools that use intense pulses of energy to mine minerals such
+  as nova crystals and other ores.
+skill: Gunnery
+damage: 5
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+reference:
+  - SoF:107

@@ -1,0 +1,19 @@
+id: eote-attachment-blaster-suppressor
+name: Blaster Suppressor
+description: Though generally not as loud as slugthrowers, blasters usually emit an audible crack or zap upon being
+  fired. While military scouts and snipers are usually more concerned that a blaster bolt flash might give away their
+  position or disrupt their night vision, those who operate in the galactic underworld often find the report of a
+  blaster to be more troublesome. In order to address this issue, several arms manufacturers produce sound suppressors
+  for a blaster muzzle, making the blaster virtually silent. This attachment can only be used with blaster pistols.
+useWith: weapon
+hpRequired: 1
+rarity: 5
+baseModifier: Adds <setback></setback><setback></setback> to Perception or Vigilance checks made to locate a concealed
+  shooter firing silenced blaster.
+modOptions: []
+reference:
+  - LoNH:106
+  - SoR:110
+includedModels:
+  - Merr-Sohn DS9 Blast Suppressor
+  - Czerka "Whispershot" Silencer

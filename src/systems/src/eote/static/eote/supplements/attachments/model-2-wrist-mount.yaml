@@ -1,0 +1,14 @@
+id: eote-attachment-model-2-wrist-mount
+name: Model 2 Wrist Mount
+description: Originally developed to allow species without opposable thumbs to use pistols, a wrist mount ensures that
+  the user always has a weapon ready while keeping his hands free. Many users choose wrist mounts as a way to pack
+  further firepower, while it is simply an aesthetic choice for some. Wrist-mounted weapons can be fired with a
+  pressure-sensitive palm trigger, a particular wrist motion, or even by neural link. This attachment can be applied to
+  any Ranged (Light) weapon.
+useWith: weapon
+hpRequired: 2
+rarity: 5
+baseModifier: Weapon can be worn on the wrist, freeing user's hands.
+modOptions: []
+reference:
+  - DC:52

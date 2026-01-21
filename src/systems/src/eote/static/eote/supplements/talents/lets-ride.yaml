@@ -1,0 +1,12 @@
+id: eote-talent-lets-ride
+name: Let's Ride
+description: Once per round, may mount or dismount a vehicle or beast, or enter a cockpit or weapon station on a
+  vehicle, as an incidental.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Beast Rider, Clone Pilot, Operator, Pilot, Scout, Squadron Leader
+reference:
+  - E-CRB:138
+  - A-CRB:151
+  - RotS:40

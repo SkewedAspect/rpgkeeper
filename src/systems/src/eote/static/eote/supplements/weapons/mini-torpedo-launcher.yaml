@@ -1,0 +1,36 @@
+id: eote-weapon-mini-torpedo-launcher
+name: Mini-Torpedo Launcher
+description: >-
+  Mon Cal Defenses Mini-Torpedo Launcher
+
+  The Mon Cal Defenses mini-torpedo launcher is a portable weapon designed exclusively for sub-aquatic combat
+  situations. Based on a design that was originally only integrated into suits of heavy armor, the portable version is
+  small enough to be considered a squad support weapon.
+
+  Featuring an integrated two-torpedo magazine, the mini-torpedo launcher is capable of using standard anti-personnel
+  mini-torpedoes, as well as specialized torpedoes depending on combat requirements. Though unguided, the torpedoes are
+  extremely accurate, especially in the hands of a skilled operator.
+
+  The mini-torpedo launcher can only be used effectively underwater. All combat checks to operate it outside of the
+  water have their difficulty upgraded twice. The profile provided with this weapon is for the default torpedoes.
+  Specialized torpedoes can be loaded into the launcher. While these torpedoes are loaded, they replace the damage,
+  critical rating, range, and item qualities of the original weapon with their own. Regardless of what is loaded in the
+  launcher, it maintains the Cumbersome quality.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 2
+range: l
+encumbrance: 4
+hardpoints: 4
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-cumbersome
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 2
+reference:
+  - SoR:107

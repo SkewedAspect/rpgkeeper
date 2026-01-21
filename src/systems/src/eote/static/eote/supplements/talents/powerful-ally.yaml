@@ -1,0 +1,10 @@
+id: eote-talent-powerful-ally
+name: Powerful Ally
+description: The character may spend a Destiny Point to use the basic version of a Force power their have not purchased
+  or to apply the effects of a single unpurchased control upgrade to a power their have purchased.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Master
+reference:
+  - CotR:42

@@ -1,0 +1,18 @@
+id: eote-attachment-reinforced-gauntlets
+name: Reinforced Gauntlets
+description: Additional armor plating on the hands is a valuable upgrade for those who favor heavier armor, as well as
+  those who do welding jobs on starships and desire to keep all of their fingers. Not only does such extra plating
+  provide additional protection, but it ensures that the wearer is never unarmed; after all, the gauntlets are heavy
+  enough to shatter bones when used to deliver a punch. It also helps protect the user's hands in case they are ever
+  stuck closing a blast door or shocked by a loose wiring while performing battlefield repairs. This attachment can be
+  applied to any  armor with soak 2 or higher.
+useWith: armor
+hpRequired: 2
+rarity: 2
+baseModifier: May use gauntlets as a melee weapon.
+modOptions:
+  - Gain Durable (reduce Critical Injury severity)
+reference:
+  - SM:58
+includedModels:
+  - Various models

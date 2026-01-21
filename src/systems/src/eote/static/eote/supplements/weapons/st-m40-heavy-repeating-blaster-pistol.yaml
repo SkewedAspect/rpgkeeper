@@ -1,0 +1,27 @@
+id: eote-weapon-st-m40-heavy-repeating-blaster-pistol
+name: ST-M40 Heavy Repeating Blaster Pistol
+description: >-
+  The ST-M40 is a repeating blaster pistol based loosely on Merr-Sonn's best-selling DD6. Somewhere between a heavy
+  blaster pistol and a blaster carbine, the ST-M40 is a medium-sized weapon with a short, heavily shrouded barrel and a
+  folding shoulder stock. In combat, the ST-M40 features a select-fire setting that allows it to be fired as a
+  single-shot, semiautomatic weapon or in full auto. Although its short barrel and auto-fire setting have a deleterious
+  effect on the weapon's accuracy, the ST-M40 is wildly popular among special operations teams and vehicle crews for its
+  size, durability, and ease of use.
+
+  During combat, GMs may make this weapon run out of ammunition by spending <threat></threat><threat></threat>. This is
+  in addition to the standard spending of <despair></despair>.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 2
+hardpoints: 2
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-inacurate
+    ranks: 1
+reference:
+  - CaM:39

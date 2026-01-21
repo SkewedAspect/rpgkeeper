@@ -1,0 +1,9 @@
+id: eote-talent-beast-of-burden
+name: Beast of Burden
+description: Add 1 per rank to the mount's encumbrance threshold.
+activation: p
+ranked: true
+forceTalent: false
+trees: ""
+reference:
+  - SoT:83

@@ -1,0 +1,31 @@
+id: eote-weapon-dc-15-blaster-rifle
+name: DC-15 Blaster Rifle
+description: >-
+  The DC-15 was, before the introduction of the DC-15A carbine, the standard issue longarm of the GAR. Roughly as long
+  as a clone is tall, these weapons are heavy, poorly balanced, and extremely difficult to use anywhere but in a wide
+  open battlefield. They tend to suffer beam cohesion issues after sustained fire, which negatively affects their short-
+  to medium-range accuracy and they are generally unpleasant weapons to deal with on a daily basis.
+
+  Despite these glaring flaws, the DC-15 remains surprisingly popular among the clone ranks for one simple reason: raw
+  power. The DC-15 is one of the most powerful heavy blaster rifles in current use. It can punch through laminate armor
+  at 1,000 meters, and at closer ranges it can destroy lightly armored vehicles. It rarely overheats or needs to be
+  reloaded, is extremely reliable, and can be serviced with the bare minimum of tools In the field. Many clone marksmen
+  have adopted it as their primary weapon, fitting it with long-range optical systems and gyrostabilization units to
+  increase combat effectiveness.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 6
+hardpoints: 4
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - RotS:51

@@ -1,0 +1,20 @@
+id: eote-attachment-enhanced-prison-lockup
+name: Enhanced Prison Lockup
+description: A prisoner lockup is an aftermarket modification that provides a ship with a comprehensive prisoner
+  handling and transporting system. It includes two cells that hold one human-sized individual each, with sufficient
+  life support and basic necessities. The kit also includes numerous security systems for the lockup itself an the ship
+  at large. Cameras and motion sensors are installed and powerful electronic locks are fitted to hatches and doors
+  throughout the ship. This attachment can be installed on any vessel capable of carrying prisoners.
+useWith: vehicle
+hpRequired: 3
+rarity: 7
+baseModifier: Full incarceration and security suite for 2 prisoners.
+modOptions:
+  - Support for one additional prisoner.
+  - Support for one additional prisoner.
+  - Support for one additional prisoner.
+  - Support for one additional prisoner.
+reference:
+  - ND:64
+includedModels:
+  - Various models

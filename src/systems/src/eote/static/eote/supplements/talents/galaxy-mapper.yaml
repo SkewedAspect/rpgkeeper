@@ -1,0 +1,11 @@
+id: eote-talent-galaxy-mapper
+name: Galaxy Mapper
+description: Remove <setback></setback> per rank of Galaxy Mapper from Astrogation checks. Astrogation checks take half normal time.
+activation: p
+ranked: true
+forceTalent: false
+trees: Commodore, Fringer, Navigator, Operator, Pilot, Republic Navy Officer, Starfighter Ace
+reference:
+  - E-CRB:136
+  - A-CRB:148
+  - F-CRB:144

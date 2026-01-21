@@ -1,0 +1,15 @@
+id: eote-attachment-ad-1s-fine-tuned-microthrusters
+name: (AD-1S) Fine-Tuned Microthrusters
+description: >-
+  Fine-Tuned Microthrusters for AD-1S
+
+  The AD-1 S is already a relatively maneuverable craft, but installing and personalizing an array of small vector
+  adjustment thrusters allows it to compete with many of the galaxy's nimblest starfighters.
+useWith: vehicle
+hpRequired: 2
+rarity: 6
+baseModifier: +1 Handling
+modOptions:
+  - +1 Handling
+reference:
+  - SM:63

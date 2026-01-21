@@ -1,0 +1,11 @@
+id: eote-attachment-paramilitary-light-freighter
+name: Paramilitary Light Freighter
+description: Converts a light freighter to a paramilitary vehicle.
+useWith: vehicle
+hpRequired: 0
+rarity: 0
+baseModifier: -1 Handling; +1 Defense Zone; +1 Armor; +2 Hull Trauma Threshold; -2 System Strain Threshold; Adds two
+  quad laser cannon turrets
+modOptions: []
+reference:
+  - DC:71

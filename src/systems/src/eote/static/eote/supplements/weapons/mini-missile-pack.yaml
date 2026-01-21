@@ -1,0 +1,22 @@
+id: eote-weapon-mini-missile-pack
+name: Mini-Missile Pack
+description: The missile bank launcher is a self-contained missile battery that holds eight to ten missiles designed to
+  fire as a group or cluster. The bank fires half of its payload at a time. The missiles or rockets are designed to fire
+  in a spread pattern. They depend on quantity far more than the accuracy of the individual weapons. The Arakyd Missile
+  Pack typically faces a specific firing arc, selected at the time of installation. A turret-mounted variation requires
+  an additional hard point. Standard missile banks may be mounted to vehicles of silhouette 2 or greater. Mini-missile
+  variants may be mounted to a vehicle of silhouette 2.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 2
+reference:
+  - DC:60

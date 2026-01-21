@@ -1,0 +1,24 @@
+id: eote-weapon-nova40-plasma-grenade
+name: NOVA40 Plasma Grenade
+description: A plasma grenade contains a store of blaster gas comparable to the load of a blaster pistol. When primed,
+  an XCiter unit converts the gas to a highly energetic state. After three to sixty seconds, as selected by the user,
+  the grenade activates the gas with a laser charge, detonating in highly explosive fashion. The resulting explosion is
+  very similar in appearance and effect to a blaster bolt, but more powerful than even a heavy blaster and dispersed
+  over a much larger area.
+skill: Ranged (Light)
+damage: 12
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 10
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DC:46
+  - KoF:45

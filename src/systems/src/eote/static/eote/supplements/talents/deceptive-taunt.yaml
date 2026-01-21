@@ -1,0 +1,10 @@
+id: eote-talent-deceptive-taunt
+name: Deceptive Taunt
+description: Once per session, may make Deceptive Taunt action. Make opposed Deception check. If successful, one
+  adversary must attack the character during adversary's next turn.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Performer
+reference:
+  - FH:32

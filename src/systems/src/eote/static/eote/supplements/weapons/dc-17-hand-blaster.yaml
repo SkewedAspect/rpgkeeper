@@ -1,0 +1,26 @@
+id: eote-weapon-dc-17-hand-blaster
+name: DC-17 Hand Blaster
+description: >-
+  The standard-issue sidearm of the GAR, BlasTech's DC-17 is one of the most rugged and reliable blaster pistols
+  produced. Typically issued to vehicle crews, weapon teams, and officers, these heavy blaster pistols pack incredible
+  stopping power into a relatively small package. They are lightweight and well balanced, and they have a very
+  respectable rate of fire. Recently, ARC troopers and other special forces teams have taken to carrying the DC-17 as a
+  backup weapon and for close-quarters combat.
+
+  Game Masters may spend <threat></threat><threat></threat><threat></threat> (in addition to <despair></despair>) to
+  make a DC-17 run out of ammo during combat.
+skill: Ranged (Light)
+damage: 7
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 2
+hardpoints: 3
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - RotS:51

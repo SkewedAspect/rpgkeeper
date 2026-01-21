@@ -1,0 +1,20 @@
+id: eote-attachment-hardened-circuits
+name: Hardened Circuits
+description: The demands put on a ship or vehicle's electrical system, both by the systems connected to it and by daily
+  wear-and-tear, are enormous. Anything that draws power from a ship or vehicle's reactor, from the pilot's datapad
+  charger to the onboard weapon systems, puts strain on every cable, every breaker, every bus plate between the system
+  and the power source. Hardened circuits covers a variety of electrical transmission gear that, when installed, improve
+  a vehicle or ship's power system and allow it to handle heavier-than-normal power loads.
+useWith: vehicle
+hpRequired: 2
+rarity: 5
+baseModifier: +2 System Strain Threshold
+modOptions:
+  - +1 System Strain Threshold
+  - +1 System Strain Threshold
+reference:
+  - SoT:64
+includedModels:
+  - Santhe/Sienar Model 30 Heavy-Duty Dielectric Power Bus
+  - Fabritech Triple-Phase Thermal-Magnetic Circuit Breakers
+  - Corellian Engineering Corporation SF/6 Hybrid Switchgear Module

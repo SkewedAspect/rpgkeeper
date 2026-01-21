@@ -1,0 +1,12 @@
+id: eote-talent-shortcut-improved
+name: Shortcut (Improved)
+description: When engaging in a chase or race, may suffer 2 strain to add <success></success> equal to ranks in Shortcut
+  to the check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Navigator, Operator, Racer
+reference:
+  - SS:31
+  - EV:31
+  - ND:36

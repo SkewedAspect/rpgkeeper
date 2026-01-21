@@ -1,0 +1,12 @@
+id: eote-talent-shortcut
+name: Shortcut
+description: During a chase; add <boost></boost> per rank in Shortcut to any checks made to catch or escape an opponent.
+activation: p
+ranked: true
+forceTalent: false
+trees: Courier, Hotshot, Navigator, Operator, Racer, Scout, Thief
+reference:
+  - E-CRB:142
+  - A-CRB:155
+  - SS:31
+  - EV:31

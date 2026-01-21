@@ -1,0 +1,17 @@
+id: eote-attachment-augmented-buffer
+name: Augmented Buffer
+description: This uncommon upgrade installs redundant systems within the electronics of an airspeeder, allowing it to be
+  pushed beyond standard limits without risk of overload. Most teams find it simpler to replace any damaged components
+  between races, ensuring that a pilot has fresh equipment for each race, rather than risk over-complicating the
+  vehicle's systems. Augmented buffer may only be attached to vehicles of silhouette 2 or lower.
+useWith: vehicle
+hpRequired: 0
+rarity: 6
+baseModifier: +1 System Strain Threshold
+modOptions:
+  - +1 System Strain Threshold
+  - +1 System Strain Threshold
+reference:
+  - JoY:47
+includedModels:
+  - None

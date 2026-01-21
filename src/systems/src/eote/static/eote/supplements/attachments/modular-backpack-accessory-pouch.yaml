@@ -1,0 +1,13 @@
+id: eote-attachment-modular-backpack-accessory-pouch
+name: Modular Backpack Accessory Pouch
+description: The Mk. IV Modular Backpack increases the user's encumbrance threshold by 3, plus an additional 1 point of
+  encumbrance threshold for each accessory pouch to a maximum of 3.
+useWith: weapon
+hpRequired: 0
+rarity: 1
+baseModifier: +1 Encumbrance Threshold
+modOptions:
+  - +1 Encumbrance Threshold
+  - +1 Encumbrance Threshold
+reference:
+  - EtU:51

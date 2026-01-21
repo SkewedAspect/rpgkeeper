@@ -1,0 +1,11 @@
+id: eote-talent-planet-mapper
+name: Planet Mapper
+description: Remove <setback></setback> per rank of Planet Mapper from Streetwise or Survival checks used for navigation
+  on a world. Such checks also take half normal time.
+activation: p
+ranked: true
+forceTalent: false
+trees: Navigator, Operator
+reference:
+  - SS:31
+  - ND:35

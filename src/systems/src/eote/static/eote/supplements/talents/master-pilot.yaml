@@ -1,8 +1,11 @@
 id: eote-talent-master-pilot
 name: Master Pilot
-description: Oncer per round when piloting a starship (a ship piloted by using the Piloting (Space) skill), the
-  character may voluntarily suffer two strain to perform any action as a maneuver instead.
+description: Once per round when piloting a starship, may suffer 2 strain to perform any action as a maneuver.
 activation: ai
 ranked: false
-trees: Pilot
-reference: E-CRB:138
+forceTalent: false
+trees: Clone Pilot, Pilot
+reference:
+  - E-CRB:138
+  - A-CRB:151
+  - RotS:40

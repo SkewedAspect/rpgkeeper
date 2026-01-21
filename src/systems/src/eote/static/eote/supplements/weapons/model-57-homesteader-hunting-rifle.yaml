@@ -1,0 +1,26 @@
+id: eote-weapon-model-57-homesteader-hunting-rifle
+name: Model 57 "Homesteader" Hunting Rifle
+description: Czerka Arms Model 57 "Homesteader" Hunting RifleWith a reputation for sturdy, reliable, no nonsense
+  products, Czerka Arms has produced slugthrowers for the civilian and millitary market for millenia. The Model 57,
+  known colloquially as the "Homesteader" is one of Czerka Arms' "Legacy Arms" series slugthrower rifles. Built with the
+  explorer, scout, and survivalist in mind, the Homesteader is one of the finest slugthrowing hunting rifles on the
+  market. The Model 57 has a touch, semi-automatic feed system designed to withstand the rigors of hard use in a variety
+  of harsh environments and can maintain its performance even after bing buried in sand or submerged in water for
+  extended periods. While it is heavier than most weapons of its class, owing to sturdy construction and natural wood
+  stocks the Homesteader remains popular due to its reliablity and accuracy and generous factory service plans.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 5
+range: l
+encumbrance: 5
+hardpoints: 4
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 2
+reference:
+  - SS:41

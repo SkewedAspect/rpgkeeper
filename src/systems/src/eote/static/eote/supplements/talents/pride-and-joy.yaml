@@ -1,0 +1,10 @@
+id: eote-talent-pride-and-joy
+name: Pride and Joy
+description: Choose one starship or vehicle character owns with a silhouette or 4 or higher; it becomes his 'Pride and
+  Joy' vessel. He upgrades the ability of all social skill checks he makes while within short range of the vessel once.
+activation: p
+ranked: false
+forceTalent: false
+trees: Ship Captain
+reference:
+  - DoR:115

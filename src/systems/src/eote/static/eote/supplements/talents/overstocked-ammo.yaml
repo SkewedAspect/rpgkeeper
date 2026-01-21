@@ -1,0 +1,10 @@
+id: eote-talent-overstocked-ammo
+name: Overstocked Ammo
+description: Increase the value of the Limited Ammo quality of any weapons mounted on Signature Vehicle by 1 per rank of
+  Overstocked Ammo.
+activation: p
+ranked: true
+forceTalent: false
+trees: Rigger
+reference:
+  - SoT:33

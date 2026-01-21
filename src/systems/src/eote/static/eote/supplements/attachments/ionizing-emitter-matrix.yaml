@@ -1,0 +1,14 @@
+id: eote-attachment-ionizing-emitter-matrix
+name: Ionizing Emitter Matrix
+description: Few droids can stand up to a lightsaber, but some heavily reinforced droid models have been known to fight
+  through the destruction of their limbs and even some of their core systems to achieve their objectives. Some Jedi have
+  taken to tuning their lightsabers specifically to deal with these foes, the better to bring the war to a close by
+  disabling the droid armies. With the right modifications, a lightsaber can be made to emit a low-level ion pulse as it
+  strikes, although such modulation reduces its overall energy output.
+useWith: weapon
+hpRequired: 2
+rarity: 6
+baseModifier: Damage +2 versus droids and vehicles.; Damage -1 versus organic and other targets.
+modOptions: []
+reference:
+  - RotS:63

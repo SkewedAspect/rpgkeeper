@@ -1,0 +1,12 @@
+id: eote-attachment-final-word-secondary-missile-system
+name: '"Final Word" Secondary Missile System'
+description: This uncommon attachment provides the user with the option for a single explosive attack, useful either as
+  a last resort or as an opening salvo. The attachment holds a single rocket. This attachment can be used with any rifle
+  that uses the Ranged (Heavy) skill.
+useWith: weapon
+hpRequired: 3
+rarity: 6
+baseModifier: Enables weapon to fire rockets, using missile's profile.; Cumbersome 2; +3 Encumbrance
+modOptions: []
+reference:
+  - DC:52

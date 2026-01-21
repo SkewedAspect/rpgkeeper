@@ -1,0 +1,33 @@
+id: eote-weapon-hic-mercy-grenade
+name: HIC "Mercy" Grenade
+description: >-
+  Goseia HIC "Mercy" Grenade
+
+  When discovered in a compromising position, an operative might prefer a nonlethal means to disable foes, particularly
+  if those foes are left with little beyond a clouded recollection of events. Goseia Heavy Industries Concern "Mercy"
+  grenades—more often called nightmare grenades in the criminal underworld—fill this need, emitting a hallucinogenic gas
+  that distorts perceptions, provokes intense visual illusions, impairs memory, and creates intense feelings of paranoia
+  and dread. Nightmare grenades are generally held to be less reliable than their explosive counterparts because the
+  effect of the gas varies wildly, and because species that do not need to breath are unaffected by them.
+
+  A character hit by a "Mercy" grenade must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Resilience check**. If he fails the
+  check, he later has an incomplete or inaccurate memory of events that transpire during that encounter. Additionally,
+  he becomes disoriented for 1 round per <threat></threat> on the check.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 5
+  - id: eote-quality-stun-damage
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DA:45

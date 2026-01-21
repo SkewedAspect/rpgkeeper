@@ -1,0 +1,16 @@
+id: eote-attachment-light-armored-hull
+name: Light Armored Hull
+description: The improved armor in this hull increases survivability.
+useWith: vehicle
+hpRequired: 3
+rarity: 4
+baseModifier: Changes armor to 1 and handling to -1; Armor set to 1; Handling set to -1
+modOptions:
+  - +1 Armor
+  - +1 Armor
+  - +1 Encumbrance Capacity (per Silhouette)
+  - +1 Passenger Capacity (per Silhouette)
+  - +1 Passenger Capacity (per Silhouette)
+  - +1 Handling
+reference:
+  - FO:83

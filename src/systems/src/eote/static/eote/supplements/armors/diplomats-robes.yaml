@@ -1,0 +1,18 @@
+id: eote-armor-diplomats-robes
+name: Diplomat's Robes
+description: >-
+  A diplomat's robes—whether Senatorial attire, Ambassadorial dress, or similar attire—clearly indicate that the wearer
+  is a person of importance. Other characters often become more cautious or polite when interacting with the wearer,
+  sometimes allowing the diplomat to access restricted areas and information.
+
+  A character wearing diplomat's robes adds <boost></boost> to social checks related to claiming diplomatic authority,
+  accessing classified data, and using organizational status to bypass normal protocol.
+defense: 0
+soak: 0
+hardpoints: 0
+encumbrance: 2
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - DA:47

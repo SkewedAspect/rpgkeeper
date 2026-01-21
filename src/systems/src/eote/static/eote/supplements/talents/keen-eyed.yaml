@@ -4,5 +4,7 @@ description: Remove <setback></setback> per rank of Keen Eyed from Perception an
   search a specific area by half.
 activation: p
 ranked: true
-trees: Seer
-reference: F-CRB:146
+forceTalent: false
+trees: Hunter, Investigator, Pathfinder, Seer
+reference:
+  - F-CRB:146

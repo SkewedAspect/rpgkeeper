@@ -1,0 +1,21 @@
+id: eote-weapon-truncheon
+name: Truncheon
+description: Truncheons may be made of metal, wood, bone or other materials, but all fulfill the same basic
+  function—bruising flesh, breaking bones, and cracking skulls. Police forces around the galaxy use truncheons to
+  intimidate and control protesters or petty thieves. Enlightened areas prefer this to lethal force.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 5
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 1
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 2
+reference:
+  - E-CRB:167
+  - A-CRB:182
+  - F-CRB:174

@@ -1,0 +1,10 @@
+id: eote-talent-guardian-of-the-republic
+name: Guardian of the Republic
+description: After the character uses Parry or Reflect to reduce damage to an ally, that ally cannot be targeted by
+  combat checks for the remainder of the round.
+activation: p
+ranked: false
+forceTalent: true
+trees: Knight
+reference:
+  - RotS:39

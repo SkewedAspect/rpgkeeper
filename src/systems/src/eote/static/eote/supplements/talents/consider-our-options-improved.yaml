@@ -1,0 +1,11 @@
+id: eote-talent-consider-our-options-improved
+name: Consider our Options (Improved)
+description: When the character takes the Consider Our Options action, the character may choose to have the effects also
+  apply to attacks that target the character’s allies who are within short range. The effects end for all characters if
+  the character or an affected ally inflict damage on an enemy.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Republic Representative
+reference:
+  - RotS:38

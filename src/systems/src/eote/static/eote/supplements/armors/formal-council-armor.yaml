@@ -1,0 +1,26 @@
+id: eote-armor-formal-council-armor
+name: Formal Council Armor
+description: >-
+  In rare circumstances, Jedi were called in to treat with societies for which status and associated symbols played a
+  significant factor in negotiations. Some cultures maintain intricate systems of etiquette or strictly enforce caste
+  systems. Other cultures engage in ostentatious demonstrations of wealth among their ruling classes. These societies
+  expected any negotiator from the Republic to conform to their standards. In these circumstances a Jedi might don a
+  suit of formal Council armor to aid in the critical first impression.
+
+  Never common, these ornate suits of armor are now almost unknown. While they were comparable in function to far more
+  common armored robes, they incorporated a variety of inlays and artistic flourishes-as well as a range of semiprecious
+  metals and gemstones. Each suit was custom crafted, integration different designs.
+
+  A character wearing former Council armor adds automatic <advantage></advantage><advantage></advantage> to Negotiation
+  checks when interacting with individuals who hold Jedi in high regard. At the GM's discretion, the character may add
+  automatic <advantage></advantage><advantage></advantage> to Coercion checks when interacting with individuals who hate
+  or fear the Jedi (such as representatives of the Galactic Empire).
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 5
+rarity: 10
+restricted: true
+qualities: []
+reference:
+  - DoH:45

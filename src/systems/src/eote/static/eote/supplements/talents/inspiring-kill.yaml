@@ -1,0 +1,13 @@
+id: eote-talent-inspiring-kill
+name: Inspiring Kill
+description: The character may spend one Destiny Point to perform an Inspiring Kill maneuver immediately after
+  conducting a successful attack in which the target is incapacitated or suffers a Critical Injury. The character rolls
+  [FO] no greater than their Force rating, and may spend <forcepoint></forcepoint> to heal 2 strain from allies within
+  medium range (and may do so multiple times). If the rules for Morality in **Force and Destiny** are in use, a
+  character who has purchased this talent gains 1 Conflict at the beginning of each game session.
+activation: am
+ranked: false
+forceTalent: true
+trees: General
+reference:
+  - CotR:40

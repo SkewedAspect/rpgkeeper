@@ -3,5 +3,9 @@ name: Tricky Target
 description: Count vehicle or starship piloted as having a silhouette 1 lower when being attacked.
 activation: p
 ranked: false
-trees: Squadron Leader
-reference: E-CRB:145
+forceTalent: false
+trees: Clone Pilot, Driver, Pilot, Squadron Leader, Starfighter Ace
+reference:
+  - E-CRB:145
+  - A-CRB:158
+  - F-CRB:153

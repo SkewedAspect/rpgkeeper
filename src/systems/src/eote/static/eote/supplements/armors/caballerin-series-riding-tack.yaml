@@ -1,0 +1,22 @@
+id: eote-armor-caballerin-series-riding-tack
+name: Caballerin-Series Riding Tack
+description: >-
+  No matter how tame and biddable a creature is, and how much a rider believes he can trust his mount, a good set of
+  riding tack is an indispensable part of a beast rider's accoutrement. Made in a variety of styles for nearly every
+  known beast able to be domesticated in the galaxy, Piccatech Ltd.'s Caballerin-series beast tack is the industry
+  leader in beast-riding equipment. A full set of riding tack includes a sturdy saddle tailored to both the beast and
+  the type of riding expected, stirrups, headgear (bridle, halter, bit, etc), and breastplate. If the tack is purchased
+  for a working animal as opposed to a riding animal, a harness is substituted for the saddle, and allows a creature to
+  pull or carry vast amounts of cargo.
+
+  Tack can only be equipped to bestial riding animals. Using it allows the character to ride the beast without suffering
+  the bareback riding penalties discussed on page 81.
+defense: 0
+soak: 0
+hardpoints: 0
+encumbrance: 2
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - SoT:42

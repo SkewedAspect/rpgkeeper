@@ -1,0 +1,11 @@
+id: eote-talent-twisted-words
+name: Twisted Words
+description: When an incoming social check generates <threat></threat><threat></threat> or <despair></despair>, may
+  suffer 1 strain as an incidental to inflict strain equal to ranks in Coercion on speaker.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Advocate, Prophet
+reference:
+  - DA:34
+  - UP:33

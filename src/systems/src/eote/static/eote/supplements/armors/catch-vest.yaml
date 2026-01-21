@@ -1,0 +1,19 @@
+id: eote-armor-catch-vest
+name: Catch Vest
+description: >-
+  Worn by many Corellians who live on the fringe, the innocuous catch vest has saved the lives of many free traders.
+  Made of tightly woven energy-absorbing fibers, the catch vest is able to partially diffuse blaster shots.
+  Indistinguishable from regular clothing, the catch vest is an excellent choice for those wishing to add some extra
+  protection without advertising the fact.
+
+  Catch vests have a soak value of 2 against damage from energy-based weapons only; they provide only 1 point of soak
+  against all other forms of damage.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 1
+rarity: 3
+restricted: false
+qualities: []
+reference:
+  - SoF:99

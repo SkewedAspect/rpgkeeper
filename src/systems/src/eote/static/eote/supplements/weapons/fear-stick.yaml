@@ -1,0 +1,23 @@
+id: eote-weapon-fear-stick
+name: Fear Stick
+description: |-
+  Subtlety and discretion can be critical to effective use of a weapon. An easily disguised or concealed armament can be used as a means of last resort or might even be overlooked by opponents as something innocuous. Such weapons offer a vital opportunity to a defender who is otherwise unarmed.
+  The fear stick is only the size of a stylus or a hypodermic injector. Because it is not powered, weapon scanners calibrated for energy weapons do not detect it. Further, its payload is similar to many common pharmaceuticals, so it is unlikely to trigger a reaction to chemical scanners. The weapon injects a potent neurologic compound. This triggers a powerful fear response, sometimes leaving foes incapable of coherent thought or even incapacitating them entirely.
+  Add <setback></setback><setback></setback> to Perception checks to find a fear stick on a wearer's body. On a successful hit with a fear stick, the attacker may spend <triumph></triumph> to force a living target to make a **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) fear check**. Fear sticks have no effect on droids or nonliving organisms.
+skill: Mechanics
+damage: 5
+addSkill: false
+criticalRating: 0
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - DoH:44

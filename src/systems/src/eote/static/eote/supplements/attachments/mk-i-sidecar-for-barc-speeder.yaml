@@ -1,0 +1,12 @@
+id: eote-attachment-mk-i-sidecar-for-barc-speeder
+name: Mk I Sidecar for BARC Speeder
+description: The addition of a Mk I Sidecar increases a BARC speeder's passenger capacity and encumbrance at the cost of
+  handling.  The sidecar can mount a light repeating blaster -- this weapon uses personal scale, not planetary scale
+  (Fire Arc Forward; Damage 11; Critical 3; Range [Long]; Auto-fire; Pierce 1).
+useWith: vehicle
+hpRequired: 0
+rarity: 0
+baseModifier: +1 Passenger Capacity; +5 Encumbrance Capacity
+modOptions: []
+reference:
+  - CotR:65

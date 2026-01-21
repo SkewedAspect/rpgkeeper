@@ -1,0 +1,26 @@
+id: eote-weapon-high-explosive-missile
+name: High-Explosive Missile
+description: >-
+  High-explosive missiles use powerful shaped-charge warheads that give infantry long-range light anti-armor
+  capabilities, While they are primarily designed to destroy armored vehicles, HE missiles are also very effective
+  against fortifications and weapon empiacements.
+
+  **Models Include:** Kirgo Blastworks AA4 Light Anti-Armor Missile, SoroSuub Mk VIII Lancer AA Missile.
+skill: Gunnery
+damage: 18
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 0
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-breach
+    ranks: 2
+  - id: eote-quality-guided
+    ranks: 2
+reference:
+  - KoF:46

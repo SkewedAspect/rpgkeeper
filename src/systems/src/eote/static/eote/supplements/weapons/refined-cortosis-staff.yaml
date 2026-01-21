@@ -1,0 +1,35 @@
+id: eote-weapon-refined-cortosis-staff
+name: Refined Cortosis Staff
+description: >-
+  From the basic, utilitarian staff of a nerf herder to high-tech weapons used to subdue unruly mobs, staffs are
+  ubiquitous throughout the galaxy. However, what would normally be a simple and common tool can be modified into a
+  uniquely effective weapon against Force users through the use of refined cortosis. In most forms. cortosis ore resists
+  and absorbs energy, allowing items to withstand blows from weapons that would normally shatter them. However,
+  specifically refined cortosis has a unique secondary effect: it can short out lightsaber blades on contact, Working
+  with this refined cortosis is extremely difficult due to the properties of the ore, and even making a simple weapon
+  like a staff is inordinately expensive. However, such weapons can prove a deadly advantage if someone has to face down
+  a lightsaber-wielding enemy.
+
+  When a character armed with a lightsaber makes a combat check targeting an opponent armed with a refined cortosis
+  staff, <threat></threat><threat></threat><threat></threat> or <despair></despair> can be spent to cause the lightsaber
+  to short out and deactivate after the combat check has been resolved. When a character armed with a refined cortosis
+  staff makes a combat check targeting a character armed with a lightsaber, the attacking character may spend
+  <advantage></advantage><advantage></advantage><advantage></advantage> or <triumph></triumph> to cause the lightsaber
+  to short out and deactivate after the combat check has been resolved. The lightsaber may be reactivated as an
+  incidental, but it may not be reactivated until after the last Initiative slot during the next round. Cortosis staffs
+  require two hands to use.
+
+  **Models Include:** Various models.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 5
+range: en
+encumbrance: 4
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-cortosis
+reference:
+  - F-CRB:173

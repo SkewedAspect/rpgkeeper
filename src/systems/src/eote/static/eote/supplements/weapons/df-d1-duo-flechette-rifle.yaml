@@ -1,0 +1,39 @@
+id: eote-weapon-df-d1-duo-flechette-rifle
+name: DF-D1 Duo-Flechette Rifle
+description: >-
+  Salus DF-D1 Duo-Flechette Rifle
+       
+  One of the most notorious weapons in the galaxy, the Salus DF-D1 duo-flechette rifle has earned something of a bad
+  reputation due to use by indiscriminate assassins and bounty hunters. Given the weapon’s massive flechette spread and
+  the high number grievous injuries it causes (especially in densely populated locales), collateral damage and
+  unforeseen fatalities are almost guaranteed. Both local and Imperial law enforcement view the mere act of carrying a
+  duo-flechette rifle as a serious crime; they have a tendency to shoot first and ask questions later when confronted
+  with one.
+
+  When activated, the DF-D1 fires twin canisters of needlelike flechettes from its stubby dual barrels. The flechettes
+  lose speed quickly, ensuring the weapon’s range leaves something to be desired. Despite this shortcoming, the
+  flechettes disperse into large clouds capable of affecting several targets at once.
+
+  The DF-D1 is available in both personal and powered armor versions, and it is the primary weapon of the Leviathan
+  series of powered armor. Both versions are identical for all intents and purposes, but the powered armor version is
+  stripped down and incapable of individual use outside the armor’s systems.
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 3
+hardpoints: 3
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 5
+  - id: eote-quality-linked
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - SoR:106

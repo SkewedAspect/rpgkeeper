@@ -1,0 +1,25 @@
+id: eote-weapon-entrenching-tool-improvised
+name: Entrenching Tool (Improvised)
+description: >-
+  In appearance and function, this useful tool is little more than a small shovel or spade, though common military
+  versions feature a collapsible or foldable shaft for compact storage. Soldiers across the galaxy use this ubiquitous
+  device to dig latrines, foxholes, and other makeshift entrenchments, and occasionally to neutralize alien fauna.
+  Though the design seems simple, the edge of an entrenching tool is razor-sharp and made from hardened durasteel,
+  making it a dangerous weapon.
+
+  Besides allowing the user to dig holes and entrenchments, the Imperial Army Entrenching Tool counts as a small
+  improvised weapon that deals +2 damage instead of + 1, has a Crit Rating of 4, and does not break due to
+  <despair></despair> or <threat></threat>.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 1
+restricted: false
+qualities:
+  - id: eote-quality-inferior
+reference:
+  - DC:59

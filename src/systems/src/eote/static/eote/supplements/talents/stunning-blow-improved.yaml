@@ -1,0 +1,11 @@
+id: eote-talent-stunning-blow-improved
+name: Stunning Blow (Improved)
+description: When dealing strain damage with Melee or Brawl checks, may spend <triumph></triumph> to stagger target for
+  1 round per <triumph></triumph>
+activation: ai
+ranked: false
+forceTalent: false
+trees: Gadgeteer, Infiltrator
+reference:
+  - E-CRB:144
+  - A-CRB:157

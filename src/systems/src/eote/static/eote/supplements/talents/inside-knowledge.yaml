@@ -1,0 +1,12 @@
+id: eote-talent-inside-knowledge
+name: Inside Knowledge
+description: Once per session while in an enemy facility or vessel, may perform the Inside Knowledge action, make a
+  **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Skulduggery check**. Character
+  may then find a single personal scale item with a rarity no greater than Cunning plus 2 previously stashed here, or
+  gain a narrative benefit.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Sleeper Agent
+reference:
+  - CaM:30

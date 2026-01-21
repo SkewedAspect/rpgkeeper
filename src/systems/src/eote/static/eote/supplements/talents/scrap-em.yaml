@@ -1,0 +1,11 @@
+id: eote-talent-scrap-em
+name: Scrap 'Em!
+description: After making a successful combat check, the character may suffer 2 strain to perform the Scrap 'em!
+  incidental. The character selects a number of allies no greater than their ranks in Leadership. Those allies Add
+  <boost></boost> to their combat checks against the character's target until the start of the character's next turn.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Clone Officer
+reference:
+  - RotS:42

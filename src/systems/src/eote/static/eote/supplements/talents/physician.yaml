@@ -1,0 +1,10 @@
+id: eote-talent-physician
+name: Physician
+description: When making a Medicine check to help a character heal wounds, the target heals 1 additional strain per rank
+  of Physician.
+activation: p
+ranked: true
+forceTalent: false
+trees: Healer, Protector
+reference:
+  - F-CRB:149

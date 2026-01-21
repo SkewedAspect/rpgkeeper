@@ -1,0 +1,21 @@
+id: eote-attachment-integrated-holsters
+name: Integrated Holsters
+description: By mounting their holsters into the framework of their armor, combatants can ensure no one can catch them
+  unarmed. Not only does the wearer have easy access to these weapons at all times, but powered servos an other systems
+  can be set up to assist the wearer in drawing or stowing these weapons more rapidly. A character with  a fully tooled
+  set of integrated holsters has access to a hidden arsenal that can overwhelm most foes.
+useWith: armor
+hpRequired: 2
+rarity: 4
+baseModifier: Holster (Encumbrance 3 weapon)
+modOptions:
+  - Add <setback></setback> to Perception checks to find stored weapons
+  - Add <setback></setback> to Perception checks to find stored weapons
+  - Holster (Encumbrance 3 weapon)
+  - Holster (Encumbrance 3 weapon)
+  - Holster (Encumbrance 3 weapon)
+  - Gain Quick Draw (draw/holster as incidental)
+reference:
+  - ND:52
+includedModels:
+  - BlasTech "Personal Armory" Gear

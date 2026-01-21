@@ -1,0 +1,25 @@
+id: eote-weapon-great-lightsaber-hilt
+name: Great Lightsaber Hilt
+description: >-
+  Great lightsabers are oversized lightsabers built for use by individuals with large, powerful frames. Heavy, often
+  awkward and difficult-to-use weapons, they feature reinforced hilts with heavy-duty power and emitter systems that
+  produce blades in excess of two meters long. Their heavier hilts and more powerful blades, combined with the natural
+  strength of their intended users, make these massive lightsabers even more potent and deadly than their smaller
+  cousins. Because great Ilghtsabers are built for large and powerful beings, individuals of human size or smaller find
+  it difficult to wield one with any kind of effectiveness.
+
+  When installing a lightsaber crystal into a great lightsaber, increase the damage of that lightsaber crystal by 1.
+skill: Lightsaber
+damage: 0
+addSkill: false
+criticalRating: 0
+range: en
+encumbrance: 2
+hardpoints: 5
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+reference:
+  - KoF:44

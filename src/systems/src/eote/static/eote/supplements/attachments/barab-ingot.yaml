@@ -1,0 +1,21 @@
+id: eote-attachment-barab-ingot
+name: Barab Ingot
+description: Rare variants of kyber crystals unique to the heavily irradiated world Barab I, home of the saurian Barabel
+  people, Barab ingots are among the various crystals used in lightsabers. Found in small clusters in mountainous
+  regions, Barab ingots are hot to the touch and glow with a fierce inner light. When installed in a lightsaber, they
+  create a searing, fiery blade that bums so fiercely that it nearly loses cohesion. A lightsaber with an installed
+  Barab ingot is slightly radioactive, and with a particularly good or lucky strike can set a target alight. A Barab
+  ingot is a lightsaber crystal.
+useWith: weapon
+hpRequired: 2
+rarity: 8
+baseModifier: Damage set to 8; Critical set to 3; Breach 1; Burn 1; Sunder 1
+modOptions:
+  - Burn +1
+  - Burn +1
+  - Vicious +1
+  - Vicious +1
+reference:
+  - F-CRB:196
+includedModels:
+  - None

@@ -1,0 +1,9 @@
+id: eote-talent-trained-mount
+name: Trained Mount
+description: Add <boost></boost> per rank to a rider's Survival checks while mounted on this mount.
+activation: p
+ranked: true
+forceTalent: false
+trees: ""
+reference:
+  - SoT:83

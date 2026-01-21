@@ -1,0 +1,33 @@
+id: eote-weapon-ok-98-blaster-carbine
+name: OK-98 Blaster Carbine
+description: >-
+  The OK-98 is unique in that the weapon features slots for two power packs. An onboard computer automatically switches
+  to the second power pack once the first is depleted, so that a user reloads half as frequently as with a typical
+  blaster. Because blasters require such infrequent reloading in the first place, this feature proved to be of secondary
+  concern to most buyers, who were put off by the weapon's extra weight in comparison to similarly sized carbines. As a
+  result, the OK-98 sold poorly and SoroSuub discontinued production of the model after only six years. The weapon has
+  since found new life on the black market thanks to an illegal modification that allows it to draw from both packs
+  simultaneously. This does enhance the damage output of the weapon, but also wears out several components in a
+  comparably short time. The modification is fairly sensitive, and a poorly-modified weapon can be quite dangerous to
+  the user.
+
+  A character using an OK-98 can ignore the first "out of ammo" <despair></despair> result during a combat, just as with
+  an extra power pack, without expending a maneuver.
+
+  A modified OK-98 (requiring an **Easy (<difficulty></difficulty>) Mechanics check**) increases weapon damage by 2,
+  replacing the option to ignore the first "out of ammo" result. The GM can spend <despair></despair> to have a modified
+  OK-98 catastrophically overheat and explode, inflicting one hit from the weapon (dealing base damage) on the user and
+  destroying the weapon after the attack has been resolved.
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 4
+hardpoints: 3
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - DC:43

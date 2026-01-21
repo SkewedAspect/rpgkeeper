@@ -1,0 +1,9 @@
+id: eote-talent-animal-bond
+name: Animal Bond
+description: Develop long-term bond with single animal of silhouette no greater than half Force rating rounded down.
+activation: p
+ranked: false
+forceTalent: true
+trees: Hermit, Pathfinder
+reference:
+  - F-CRB:138

@@ -1,0 +1,31 @@
+id: eote-weapon-coral-pike
+name: Coral Pike
+description: >-
+  Mon Calamari Coral Pike
+
+  The coral pike is an ancient weapon of the Mon Calamari people. Despite its status as a ceremonial weapon, the coral
+  pike is an effective Melee weapon that combines elements of a force pike with Mon Calamari craftsmanship. Coral pike
+  blades are crafted from a particularly dense breed of coral native only to Mon Cala. Once a craftsperson has defined
+  the general shape of the blade, it is sharpened to a nearly monomolecular edge using precise lasers. The result is a
+  unique weapon with an edge that never dulls.
+
+  Every coral pike is made by hand, and no two are exactly alike. They are often carved with symbols
+
+  denoting Mon Calamari rank and familial ties. For individuals who are considered friends of the Mon Calamari people,
+  the gift of a coral pike is a great honor and represents an eternal bond that transcends species.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 3
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+reference:
+  - SoR:108

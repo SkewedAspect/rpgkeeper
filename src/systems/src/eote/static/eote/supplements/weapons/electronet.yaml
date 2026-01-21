@@ -1,0 +1,26 @@
+id: eote-weapon-electronet
+name: Electronet
+description: Electronets were once preferred by the Republic Scout Service when capturing newly discovered animals on
+  alien worlds. They have since become popular with bounty hunters and law enforcers the galaxy over. Constructed of
+  duracord with interwoven stun threads or beads, electrones can be manually draped over targets to ensnare them They
+  are also capable of being loaded into net guns for ranged applications, or used as ground traps by canny hunters.
+  Traditional activation of an electronet is accomplished with a handheld transmitter to avoid unintenionally stunning
+  the user. Alternatively, a user might wear insulated glives to protect against the nets incapacitating charge.
+skill: Melee
+damage: 6
+addSkill: false
+criticalRating: 6
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 5
+  - id: eote-quality-knockdown
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - KtP:44

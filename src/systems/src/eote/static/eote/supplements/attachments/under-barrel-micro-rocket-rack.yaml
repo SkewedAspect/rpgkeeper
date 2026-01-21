@@ -1,0 +1,19 @@
+id: eote-attachment-under-barrel-micro-rocket-rack
+name: Under-Barrel Micro-Rocket Rack
+description: Micro-rockets can be fired in a plethora of ways, and some hunters mount them on their other weapons,
+  giving these arms a deadly secondary fire mode (see **Micro-Rockets** on page 46). This attachment can be installed on
+  any ranged weapon.
+useWith: weapon
+hpRequired: 3
+rarity: 6
+baseModifier: Enables weapon to fire loaded micro-rockets.; Cumbersome 1
+modOptions:
+  - Limited Ammo +1
+  - Limited Ammo +1
+  - -1 Setback
+  - -1 Setback
+reference:
+  - ND:51
+includedModels:
+  - Blastech "Finisher" Rocket Rack
+  - TaggeCo Under-Barrel Rocket Battery

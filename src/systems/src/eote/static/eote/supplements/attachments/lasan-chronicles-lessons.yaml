@@ -1,0 +1,30 @@
+id: eote-attachment-lasan-chronicles-lessons
+name: Lasan Chronicles Lessons
+description: >-
+  Lasan Chronicles Bonuses
+
+  Life since the fall of the Republic has grown difficult for the Lasat. The Empire exterminated them in droves, a
+  gruesome example to those who seek to rebel. Many Lasat now search for meaning in an existence that seems to only want
+  them destroyed. Many turn to their species’ most ancient teachings in hopes of finding some parallels, some guidance
+  for a people adrift. One of the most frequent resources for this study has been the Chronicles of the Three. This
+  collection of ancient parables follows the three Lasan mythic archetypes: the Child, the Fool, and the Warrior.
+
+  When a character studies the Chronicles, they may use Perception, Knowledge (Lore), or Discipline to decipher it. They
+  must then spend an hour studying the Chronicles, succeeding at a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) check** of the appropriate skill at the
+  end of it. Depending on their chosen skill, they receive a unique bonus that can be used once during the remainder of
+  the session. Knowledge (Lore) grants the Perspicacity of the Child, whose desire to learn outstrips all else. The
+  character may add <boost></boost> to any one Knowledge skill check they make. Perception gives them the Insight of the
+  Fool: in knowing nothing, they see everything. Once, when making a combat skill check, they may re-roll one
+  <ability></ability> of their choice. Using Discipline leaves them with the Purpose of the Warrior, whose devotion and
+  aim overcomes all obstacles. They may re-roll one <setback></setback> on a single skill check they make.
+useWith: weapon
+hpRequired: 0
+rarity: 0
+baseModifier: ""
+modOptions:
+  - "**Perspicacity of the Child**: During current session, may add <boost></boost> to any one knowledge skill check"
+  - "**Insight of the Fool**: During current session, may re-roll one <ability></ability> for any one combat check"
+  - "**Purpose of the Warrior**: During current session, may remove <setback></setback> on a single skill check"
+reference:
+  - UP:52

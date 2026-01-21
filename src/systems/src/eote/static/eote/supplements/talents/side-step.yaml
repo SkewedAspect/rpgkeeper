@@ -1,10 +1,13 @@
 id: eote-talent-side-step
-name: Side step
-description: Once per round on the character's turn, the character may perform a Side Step maneuver to try to avoid
-  incoming ranged attacks. He then suffers a number of strain no greater than his ranks in Side Step. Until the start of
-  the character's turn, upgrade the difficulty of all ranged combat checks targeting the character a number of times
-  equal to the strain suffered by the character.
+name: Side Step
+description: Once per round, may perform Side Step maneuver and suffer a number of strain to upgrade difficulty of all
+  incoming ranged attacks by an equal number for the next round. Strain suffered this way cannot exceed ranks in Side
+  Step.
 activation: am
 ranked: true
-trees: Hunter, Shien Expert
-reference: E-CRB:142
+forceTalent: false
+trees: Bodyguard, Death Watch Warrior, Heavy, Hunter, Mercenary Soldier, Outlaw Tech, Scoundrel, Shien Expert, Tactician
+reference:
+  - E-CRB:142
+  - A-CRB:156
+  - F-CRB:151

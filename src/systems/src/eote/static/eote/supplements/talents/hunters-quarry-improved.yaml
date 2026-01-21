@@ -1,0 +1,10 @@
+id: eote-talent-hunters-quarry-improved
+name: Hunter's Quarry (Improved)
+description: Suffer 2 strain to perform Hunter's Quarry action as a maneuver.
+activation: p
+ranked: false
+forceTalent: false
+trees: Big-Game Hunter, Executioner
+reference:
+  - EtU:30
+  - SS:30

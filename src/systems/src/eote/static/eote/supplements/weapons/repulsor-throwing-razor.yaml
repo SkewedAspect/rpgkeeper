@@ -1,0 +1,31 @@
+id: eote-weapon-repulsor-throwing-razor
+name: Repulsor Throwing Razor
+description: >-
+  A peculiar and deadly weapon originating in the gladiatorial arenas of Rodia, the repulsor throwing razor combines
+  ancient and modern technology. This Rheshalva Interstellar Armaments weapon is a serrated, crescent-shaped blade
+  designed to be thrown at its target. The weapon incorporates a miniature repulsor engine to extend its range and help
+  guide it toward its target. A homing beacon in the weapon allows it to fly back to the user, although throwing razors
+  are often purchased in pairs in case something prevents one from returning. While these weapons are most often used by
+  Rodian bounty hunters, their flash and effectiveness have not gone unnoticed by other mercenaries and fighters, who
+  have acquired throwing razors for their own use.
+   A character can spend <advantage></advantage><advantage></advantage> on a missed attack with a throwing razor to have it return to their hand at the beginning of their next turn.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 2
+hardpoints: 1
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-guided
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - KoF:41

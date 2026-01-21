@@ -1,0 +1,11 @@
+id: eote-talent-precision-strike-improved
+name: Precision Strike (Improved)
+description: Once per round, when inflicting a Critical Injury with a Brawl or Melee weapon, may suffer 2 strain to
+  change the result to any **Average (<difficulty></difficulty><difficulty></difficulty>)** Critical injury.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Martial Artist, Steel Hand Adept
+reference:
+  - ND:35
+  - KoF:31

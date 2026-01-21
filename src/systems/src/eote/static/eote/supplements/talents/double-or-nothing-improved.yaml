@@ -1,0 +1,10 @@
+id: eote-talent-double-or-nothing-improved
+name: Double or Nothing (Improved)
+description: When performing the Double or Nothing incidental, after canceling opposing symbols, also double the amount
+  of remaining <success></success>.
+activation: p
+ranked: false
+forceTalent: false
+trees: Gambler
+reference:
+  - FC:32

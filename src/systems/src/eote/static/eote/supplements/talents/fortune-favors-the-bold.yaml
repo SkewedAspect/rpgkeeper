@@ -1,0 +1,9 @@
+id: eote-talent-fortune-favors-the-bold
+name: Fortune Favors the Bold
+description: Once per session as an incidental, suffer 2 strain to flip one dark side Destiny Point to light side.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Gambler
+reference:
+  - FC:32

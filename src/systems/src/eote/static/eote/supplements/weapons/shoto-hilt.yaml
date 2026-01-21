@@ -1,0 +1,35 @@
+id: eote-weapon-shoto-hilt
+name: Shoto Hilt
+description: >-
+  Shoto
+
+  The soul of each lightsaber is its crystal. The Jedi of old tested their younglings by sending them to search for
+  their lightsaber crystals. The process was as much a spiritual journey as a physical search, with the trainees
+  confronting their inner demons as part of the process. In finding a crystal, they bonded with it in a way that
+  transcended the physical realm.
+
+  The hilt of the lightsaber, on the other hand, is a primarily mechanical system. Individuals can customize a hilt,
+  adding ornamentation or additional functionality just as they can with any weapon or item. In this way, an individual
+  can make a unique hilt that is truly his, but it is still simply an item.
+
+  Provided here are the hilts for the lightsabers listed in this chapter. Each requires a crystal to become a true
+  weapon (otherwise they deal no damage, have no critical rating, and do not have many of their item qualities).
+  However, a PC wanting to construct their own lightsabers should start with a hilt. If the PC wants to construct his
+  own hilt out of available materials, the GM can still have him make a check to find the hilt, based on its rarity, and
+  pay the cost. This represents the PC finding and paying for the raw materials. Then it is simply a matter of spending
+  a few hours putting the materials together to build the hilt—no checks are necessary.
+skill: Lightsaber
+damage: 0
+addSkill: false
+criticalRating: 0
+range: en
+encumbrance: 1
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+reference:
+  - F-CRB:177
+  - RotS:54

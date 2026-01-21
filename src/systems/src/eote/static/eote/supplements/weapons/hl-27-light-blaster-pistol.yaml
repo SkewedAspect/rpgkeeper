@@ -1,0 +1,22 @@
+id: eote-weapon-hl-27-light-blaster-pistol
+name: HL-27 Light Blaster Pistol
+description: The HL-27 is a sterling example of the superior craftsmanship of weapons produced by Coronet Arms. Favored
+  by the well-heeled of Corellia and those who wish to carry a first-rate blaster without necessarily announcing that
+  they are armed, the HL-27 is an excellent choice for those who prefer discretion to bellicose valor without
+  sacrificing firepower. It is not uncommon for CorSec agents who can afford them to carry the HL-27 in preference to
+  the standard CDEF blaster pistol.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - SoF:94

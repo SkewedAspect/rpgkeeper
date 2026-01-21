@@ -1,8 +1,9 @@
 id: eote-talent-parry-supreme
 name: Parry (Supreme)
-description: _Force Talent_. If the user did not make a combat check during his previous turn, the suffers 1 strain when
-  taking the Parry incidental, instead of 3.
+description: If the user did not make a combat check during his previous turn, may suffer 1 strain to use Parry.
 activation: p
 ranked: false
+forceTalent: true
 trees: Soresu Defender
-reference: F-CRB:149
+reference:
+  - F-CRB:149

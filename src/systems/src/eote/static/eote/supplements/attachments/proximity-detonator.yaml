@@ -1,0 +1,15 @@
+id: eote-attachment-proximity-detonator
+name: Proximity Detonator
+description: "Although certain models of mines include proximity detonators as standard, some desire this feature for
+  grenades and other explosive devices. A proximity detonator adds an alternative trigger method: rather than detonating
+  via a timer or on impact, the grenade only detonates when it detects the movement of a being or creature nearby. With
+  the addition of a proximity detonator, a simple frag grenade becomes a deadly trap. A well-placed concussion grenade
+  can incapacitate an entire squad of pursuing stormtroopers, giving Rebels better chances for escape. This weapon
+  attachment can be applied to any grenade or explosive device."
+useWith: weapon
+hpRequired: 0
+rarity: 3
+baseModifier: Weapon detonates when a silhouette 1 or higher creature comes within short or engaged range, as determined when placed.
+modOptions: []
+reference:
+  - FO:52

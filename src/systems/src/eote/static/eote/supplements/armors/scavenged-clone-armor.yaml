@@ -1,0 +1,23 @@
+id: eote-armor-scavenged-clone-armor
+name: Scavenged Clone Armor
+description: >-
+  Bounty hunters, pirates, and other misfits often seek out the heavy protection of laminate armor and heavy bodysuits,
+  only to find the expensive construction of the gear they seek to be a significant obstacle. However, the battlefields
+  of the Clone Wars have proven to be a veritable treasure trove of military-grade gear for scavengers, and the durable
+  armor of the clone troopers has made scavenging laminate plating nearly an industry unto itself.
+
+  The scavenged suits are even more ill-fitting than standard clone armor, and they sometimes draw unwanted Republic
+  attention, but for many, affordable protection of such quality is worth the other issues. Due to the piecemeal nature
+  of its construction and the difficulty of adapting the specific fit of clone armor, all wearers of scavenged clone
+  armor suffer <setback></setback> to Coordination and Stealth checks while wearing it. Characters wearing scavenged
+  clone armor may suffer one or more <setback></setback> on interactions with Republic officials and representatives, at
+  the GM's discretion.
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 5
+rarity: 4
+restricted: true
+qualities: []
+reference:
+  - RotS:58

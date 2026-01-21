@@ -1,0 +1,11 @@
+id: eote-talent-ichor-transfusion
+name: Ichor Transfusion
+description: Once per encounter, the character may perform the Ichor Transfusion maneuver. The character may heal any
+  number of their current wounds by suffering that number of strain +1. The character may instead heal any number of
+  their current strain by suffering that number of wounds +1.
+activation: am
+ranked: false
+forceTalent: false
+trees: Nightsister
+reference:
+  - CotR:40

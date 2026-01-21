@@ -1,0 +1,26 @@
+id: eote-attachment-lightsaber-hilt-construction-modifications
+name: Lightsaber Hilt Construction Modifications
+description: Use this attachment to reflect the results of a lightsaber hilt construction check, as required.
+useWith: weapon
+hpRequired: 0
+rarity: 0
+baseModifier: ""
+modOptions:
+  - +1 Hard Points
+  - +1 Hard Points
+  - +1 Hard Points
+  - +1 Hard Points
+  - -1 Hard Points
+  - -1 Hard Points
+  - -1 Hard Points
+  - -1 Hard Points
+  - -1 Encumbrance
+  - -1 Encumbrance
+  - -1 Encumbrance
+  - -1 Encumbrance
+  - +1 Encumbrance
+  - +1 Encumbrance
+  - +1 Encumbrance
+  - +1 Encumbrance
+reference:
+  - Force and :23

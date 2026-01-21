@@ -1,0 +1,28 @@
+id: eote-weapon-panic-pistol
+name: Panic Pistol
+description: >-
+  War is a stressful pastime. Most sentient beings unaccustomed to battle choke up when an enemy charges them with a
+  sword. Sometimes there isn't enough room or enough time to line up a shot. Weaponsmiths designed panic pistols-a kind
+  of overpowered slugthrower-to solve such problems.
+
+  They provide a quick and definitive answer to anyone getting too close. This is not to say they do so with elegance.
+  The weapons malfunction with more regularity than other, more standard slugthrowers. While its power is on par with a
+  blaster, a panic pistol still isn't a sustainable alternative to melee weapons. A fighter with a broken weapon doesn't
+  have much advantage over anyone.
+
+  While at engaged range, a character wielding a panic pistol does not add the +1 difficulty modifier for ranged attacks
+  in melee. However, the GM may spend <threat></threat><threat></threat> to damage the weapon.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 5
+range: m
+encumbrance: 1
+hardpoints: 0
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-inaccurate
+    ranks: 1
+reference:
+  - UP:48

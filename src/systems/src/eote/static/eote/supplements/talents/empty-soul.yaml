@@ -1,0 +1,9 @@
+id: eote-talent-empty-soul
+name: Empty Soul
+description: If the character is carrying items that total 2 encumbrance or less add [LI][DA] to Force power checks.
+activation: p
+ranked: false
+forceTalent: true
+trees: Ascetic
+reference:
+  - DoH:28

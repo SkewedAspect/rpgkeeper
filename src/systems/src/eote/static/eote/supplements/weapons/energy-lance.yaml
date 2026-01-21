@@ -1,0 +1,33 @@
+id: eote-weapon-energy-lance
+name: Energy Lance
+description: >-
+  Mon Calamari Energy Lance
+     
+  Wielded by the Mon Calamari Knights during the Clone Wars, energy lances are designed to be used from atop a mount.
+  Essentially force pikes equipped with electromagnetic pulse generators, they are primarily intended for use against
+  droids and vehicles. Despite this specialization, they are perfectly capable of inflicting grievous damage on organic
+  targets.
+
+  Former members of the Mon Calamari Knights still carry their lances with them, especially when fighting mounted
+  against droids and vehicles. Reflecting the strict requirements of knighthood among the Mon Cal, these lances are
+  symbols of their duty and commitment to their people.
+
+  If he is mounted, the wielder of an energy lance may use his steed’s Brawn rating to determine the damage of this
+  weapon instead of his own Brawn rating. If the wielder is not mounted, the weapon has the Cumbersome 3 quality.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 3
+reference:
+  - SoR:108
+  - SS:44

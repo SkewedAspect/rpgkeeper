@@ -1,0 +1,24 @@
+id: eote-armor-akt-mountaineer-armor
+name: A/KT Mountaineer Armor
+description: >-
+  Another offering from the utilitarians at the Ayelixe/Krongbing Textiles Corporation, the Mountaineer is a suit of
+  light, flexible armor designed to assist the wearer in climbing and navigating mountainous terrain. Made from a thick,
+  tear-resistant textile with excellent thermal-retention qualities and interwoven with a patented foil-fiber armor
+  weave, Mountaineer armor provides good protection from impacts, abrasions, and falls. In addition to the armor weave,
+  the suit is reinforced at the shoulders, knees, and elbows with impact-absorbing polymer pads and is equipped with an
+  integral climbing and support harness. The palms of the gloves and soles of the light, flexible boots are coated in
+  FrictionGrip, a material produced by A/KT that adheres to even the smoothest surface. The entire suit consists of the
+  one-piece jumpsuit, gloves, boots, and a helmet. Accessories like oxygen tanks for high-altitude climbing can be added
+  for a nominal fee, and all attachments for such accessories are already integrated into the armor.
+
+  Mountaineer armor grants the wearer <boost></boost><boost></boost> to all Athletics skill checks made to climb or
+  rappel.
+defense: 1
+soak: 1
+hardpoints: 2
+encumbrance: 3
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - EtU:45

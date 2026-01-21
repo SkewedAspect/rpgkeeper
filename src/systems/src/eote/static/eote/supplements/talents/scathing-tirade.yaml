@@ -1,0 +1,13 @@
+id: eote-talent-scathing-tirade
+name: Scathing Tirade
+description: Take a Scathing Tirade action; make an ** Average (<difficulty></difficulty><difficulty></difficulty>)
+  Coercion check**. Each <success></success> causes one enemy in short range to suffer 1 strain. Spend
+  <advantage></advantage> to cause 1 affected enemy to suffer 1 additional strain.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Agitator, Politico, Prophet, Separatist Commander, Warden
+reference:
+  - E-CRB:142
+  - A-CRB:155
+  - UP:33

@@ -1,0 +1,25 @@
+id: eote-weapon-se-14r-light-repeating-blaster
+name: SE-14r Light Repeating Blaster
+description: >-
+  The BlasTech SE-14r, also known as the Imperial repeating pistol, combines the portability and ease of use of a
+  blaster pistol with a high rate of fire. These weapons are carried as side arms by some Imperial officers (including
+  some stormtrooper commanders) and pilots. Manufactured specifically for Imperial forces, some of these weapons
+  inevitably find their way onto the black market, where they fetch a high price.
+
+  Due to its high rate of fire, the SE-14r is more likely to run out of ammo during an extended firelight or series of
+  engagements. The GM may spend <threat></threat><threat></threat><threat></threat> to cause a character's SE-14r to run
+  out of ammo.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 2
+hardpoints: 3
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-stun-setting
+reference:
+  - DC:43

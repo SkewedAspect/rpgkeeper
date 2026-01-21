@@ -1,0 +1,9 @@
+id: eote-talent-positive-spin
+name: Positive Spin
+description: Whenever any character's Duty would increase, it increases by an additional 1 per rank of Positive Spin.
+activation: p
+ranked: true
+forceTalent: false
+trees: Figurehead, Propagandist
+reference:
+  - DA:34

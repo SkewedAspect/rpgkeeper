@@ -1,0 +1,20 @@
+id: eote-weapon-asp-9-vrelt-autopistol
+name: ASP-9 "Vrelt" Autopistol
+description: Marketed by Talus Ironworks as the ASP-9, this pistol is more commonly known as the Vrelt, after a vicious
+  rodent native to the Corellian System. A cheap, simple design, the ASP-9 fires comparatively small rounds in rapid
+  bursts. Though notoriously inaccurate, the weapon's ability to unleash a hail of lead and the ease with which it can
+  be concealed make the Vrelt a favorite of thugs and criminals. It is not uncommon for bodies riddled with slugs to be
+  found in the back alleys of the Blue Sector or the slums of Dearic.
+skill: Ranged (Light)
+damage: 4
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+reference:
+  - SoF:96

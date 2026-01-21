@@ -1,0 +1,11 @@
+id: eote-talent-coordination-dodge
+name: Coordination Dodge
+description: When targeted by a combat check, may spend 1 Destiny Point to add <failure></failure> equal to ranks in
+  Coordination to check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Martial Artist, Performer
+reference:
+  - FH:32
+  - ND:34

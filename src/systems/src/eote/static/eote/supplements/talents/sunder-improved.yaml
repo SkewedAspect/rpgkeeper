@@ -1,0 +1,9 @@
+id: eote-talent-sunder-improved
+name: Sunder (Improved)
+description: Each <advantage></advantage> spent to activate a weapon's Sunder quality damages an item two steps, instead of one.
+activation: p
+ranked: false
+forceTalent: false
+trees: Arbiter
+reference:
+  - DoH:30

@@ -1,0 +1,56 @@
+id: eote-armor-karflo-thinsuit
+name: Karflo Thinsuit
+description: >-
+  Used by professional scouts, science labs, and special
+
+  forces the galaxy over, the thinsuit by Karflo Corporation is among the most popular environmental protection gear
+  around. While most protective equipment
+
+  specializes in keeping the wearer safe from exposure
+
+  to a particular environmental condition, the thinsuit
+
+  provides protection against a wide variety of dangerous environments without hampering movement or
+
+  slowing reaction speeds. Despite the fact that it grants
+
+  minimal protection against blasters and other armaments, the ease of transporting it makes it a popular
+
+  addition to the kit of many elite combat units. Made
+
+  from a proprietary material that regulates internal
+
+  conditions while blocking external ones, the thinsuit
+
+  protects from dangerous temperatures, pressure,
+
+  radiation, chemicals, and partial vacuums.
+
+  The thinsuit is a skin-tight body glove, weighing only
+
+  one kilogram, which provides total coverage for standard humanoids, leaving only the face exposed. The
+
+  suit comes with a facemask and filtration system that
+
+  purifies standard atmosphere for up to six hours and
+
+  provides one hour of internal power. The stock suit
+
+  comes with six removable filters and power packs,
+
+  easily stored in the thinsuit’s many pockets.
+
+  A character equipped with a thinsuit removes <setback></setback><setback></setback>
+
+  imposed by the environment in which she is currently
+
+  operating from her checks.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 0
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - FiB:50

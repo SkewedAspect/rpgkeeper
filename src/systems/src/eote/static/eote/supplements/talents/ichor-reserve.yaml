@@ -1,0 +1,11 @@
+id: eote-talent-ichor-reserve
+name: Ichor Reserve
+description: Once per session, the character may suffer 2 strain to perform the Ichor Reserver maneuver. Their Force
+  rating increases by 1 until the end of the scene or encounter. At the GM's discretion, the character may need to
+  occasionally return to Dathomir to replenish their supply of magickal ichor.
+activation: am
+ranked: false
+forceTalent: true
+trees: Nightsister
+reference:
+  - CotR:40

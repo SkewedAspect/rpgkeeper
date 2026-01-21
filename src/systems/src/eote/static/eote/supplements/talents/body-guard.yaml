@@ -1,0 +1,13 @@
+id: eote-talent-body-guard
+name: Body Guard
+description: Once per round, perform the Body Guard maneuver to guard an engaged character. Suffer a number of strain no
+  greater than ranks of Body Guard, then until the beginning of the next turn upgrade the difficulty of combat checks
+  targeting the character by that number.
+activation: am
+ranked: true
+forceTalent: false
+trees: Bodyguard, Instructor, Protector, Tactician, Vanguard
+reference:
+  - E-CRB:132
+  - A-CRB:143
+  - F-CRB:140

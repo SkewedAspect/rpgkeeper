@@ -1,0 +1,10 @@
+id: eote-talent-droid-commander-improved
+name: Droid Commander (Improved)
+description: Droid Commander maneuver affects droid allies equal to double Presence, and may spend <triumph></triumph>
+  to allow allies to suffer 1 strain and perform 1 free action instead.
+activation: p
+ranked: false
+forceTalent: false
+trees: ""
+reference:
+  - CotR:144

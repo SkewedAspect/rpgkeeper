@@ -1,0 +1,24 @@
+id: eote-weapon-needle-gloves
+name: Needle Gloves
+description: >-
+  To all appearances, needle gloves look like typical hand coverings. Indeed, they differ so little from actual gloves
+  that they offer very little in combat, with a sole exception: by making a specific hand gesture, the wearer can extend
+  an ultra-thin needle that is otherwise practically undetectable.
+
+  Needle Gloves may be loaded with 1 dose of neurotoxin, anesthetic, neuroparalytic (see page 188 of the **Age of
+  Rebellion** Core Rulebook), or any other poison the GM deems appropriate. Whenever the wielder successfully attacks a
+  target with the weapon (even if he deals no damage), the target also suffers the effects of being exposed to the
+  poison. Add <setback></setback><setback></setback><setback></setback> to a character's Perception checks to determine
+  that a set of needle gloves contain a lethal weapon.
+skill: Brawl
+damage: 0
+addSkill: false
+criticalRating: 5
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - DA:46

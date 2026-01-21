@@ -1,0 +1,23 @@
+id: eote-attachment-hydraulic-control-circuits
+name: Hydraulic Control Circuits
+description: Hydraulic control circuits are a throwback to an earlier era of shipbuilding. Instead of using traditional
+  conductive material pressed into composite wafer boards to transfer electromagnetic energy, HCCs use countless,
+  near-microscopic transparisteel tubes full of highly conductive liquid metal similar in its composition to mercury.
+  Held under pressure and regulated by a series of valves, this metal controls the flow of energy. Bulky, antiquated,
+  and difficult to work with, these circuits do have an incredible resistance to the effects of ion weapons, a fact that
+  has not gone unnoticed among spacers. This may be applied to non-fighter starships.
+useWith: vehicle
+hpRequired: 2
+rarity: 7
+baseModifier: Half damage from weapons with Ion quality; -1 Handling; -1 System Strain Threshold
+modOptions:
+  - Defender chooses ship component affected
+  - +1 System Strain Threshold
+reference:
+  - E-CRB:270
+  - A-CRB:286
+  - F-CRB:270
+includedModels:
+  - Corellian Engineering Hydraulic Control Circuits
+  - Santhe/Sienar Hardened Circuitry
+  - Fabritech Insulated Circuitry

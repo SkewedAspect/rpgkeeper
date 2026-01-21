@@ -1,0 +1,24 @@
+id: eote-weapon-boonta-blaster
+name: Boonta Blaster
+description: >-
+  Named after the legendary hero Boonta the Hutt, who allegedly carried a similar weapon, these specialized holdout
+  blasters typically appear to be nothing more than ornate and ostentatious pieces of jewelry. Custom-made to the taste
+  of individual Hutts, these garish blasters pack enough firepower to ensure that any would-be assassin who gets past
+  the wearer's bodyguards does not live long enough to remain a threat. Some of these weapons are treasured family
+  heirlooms, passed down from one Hutt to another for many generations.
+
+  Add <setback></setback> to Perception checks to find a Boonta Blaster on a wearer's body. Remove <setback></setback>
+  from the wearer's Deception checks to explain away the weapon as purely ornamental or otherwise non-threatening.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - LoNH:100

@@ -1,0 +1,21 @@
+id: eote-armor-waterweave
+name: Waterweave
+description: >-
+  Waterweave is a composite material created out of native Semblan alloys and minerals. While it is heavy and bulky
+  normally, its buoyancy actually increases while submerged. Most scientists are at a complete loss to explain this, and
+  mumble something about air pockets when pressed.
+
+  Waterweave deflects even the strongest blows instead of absorbing their force. Moreover, its buoyancy allows users to
+  fight in the water without being dragged down by what would normally be bulky, restricting clothing. Warriors equipped
+  with waterweave report fighting better underwater than on any other terrain.
+
+  Waterweave armor has encumbrance 7. However, while submerged, the armor's encumbrance changes to 0.
+defense: 2
+soak: 1
+hardpoints: 1
+encumbrance: 7
+rarity: 9
+restricted: false
+qualities: []
+reference:
+  - UP:51

@@ -1,0 +1,21 @@
+id: eote-weapon-h-7-equalizer-blaster-pistol
+name: H-7 "Equalizer" Blaster Pistol
+description: Considered by many to be one of the finest production model blasters in the galaxy, the H-7 "Equalizer"
+  possesses virtually unparalleled quality and precision. Produced in limited numbers, the Equalizer is extremely sought
+  after in spite of its high price, and buyers often have to wait months to obtain one. High-ranking officers in the
+  CorSec and successful freetraders carry H-7s as status symbols as well as due to their impressive firepower and
+  accuracy.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 2
+range: m
+encumbrance: 2
+hardpoints: 3
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+  - id: eote-quality-superior
+reference:
+  - SoF:95

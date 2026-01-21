@@ -1,0 +1,35 @@
+id: eote-weapon-m-300-hunting-blaster
+name: M-300 Hunting Blaster
+description: >-
+  BlasTech M-300 Hunting Blaster
+
+  The M-300 is one of BlasTech's most popular civilian blaster rifles. Nicknamed the "Hunting Blaster", this weapon is
+  designed to meet the needs of serious hunters and others who make their livings in the wilderness. Built to withstand
+  the rigors the rigors of backcountry life, the M-300 is lightweight and rugged. It has a reinforced, weather-sealed,
+  polycarbonate frame that easily stands up to heavy impacts, extremes of heat and cold, and hazardous environments with
+  little effect on performance. A specially designed precison barrel provides the M-300 with unparalleled accuracy and
+  range for a weapon of its class. In addition, the M-300's galven circuitry and gas XCiter system produce a more
+  intense, coherent blaster beam, which gives the weapon enough punch to drop even the toughest beast. The M-300 also
+  comes equipped with a sling and integral, non-removabble telescopic optical sight to enhance its performance and ease
+  of use.
+
+  Reduce the difficulty of combat checks made with this weapon by one against targets at long or extreme range.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 4
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 2
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-stun-setting
+reference:
+  - SS:40

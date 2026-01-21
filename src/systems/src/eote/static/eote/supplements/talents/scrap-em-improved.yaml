@@ -1,0 +1,11 @@
+id: eote-talent-scrap-em-improved
+name: Scrap 'Em! (Improved)
+description: When the character takes the Scrap 'em! incidental, they affect a number of allies no greater than twice
+  their ranks In Leadership, and affected allies add <boost></boost><boost></boost> to combat checks (instead of
+  <boost></boost>).
+activation: p
+ranked: false
+forceTalent: false
+trees: Clone Officer
+reference:
+  - RotS:42

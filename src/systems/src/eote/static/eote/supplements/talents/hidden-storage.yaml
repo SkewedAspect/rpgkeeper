@@ -1,0 +1,10 @@
+id: eote-talent-hidden-storage
+name: Hidden Storage
+description: Gain hidden storage in vehicles or equipment that holds items with total encumbrance equal to ranks in Hidden Storage.
+activation: p
+ranked: true
+forceTalent: false
+trees: Courier, Droid Specialist, Droid Tech, Modder, Scientist, Scoundrel, Thief
+reference:
+  - E-CRB:137
+  - A-CRB:148

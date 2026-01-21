@@ -1,0 +1,23 @@
+id: eote-armor-n-57-armor
+name: N-57 Armor
+description: >-
+  Merr-Sonn N-57 Armor
+
+  The latest suit in Merr-Sonn's N-series armor for combat engineers has broken with the company's typical policy of
+  selling exclusively to established planetary militaries and is available for general purchase on the open market.
+  unrest across the galaxy has made everyone from Rebel saboteurs to civilian contractors in dangerous areas interested
+  in a little extra protection as they work. Fortunately, combat engineering armor exists to meet their needs. In
+  addition to providing protection comparable to laminate armor, the suit also includes a microgenerator that can be
+  used to power attachments or provide an emergency boost to external equipment.
+
+  As a maneuver, the wearer may recharge an energy weapon or device that has run out of power or ammunition in the
+  manner of an extra reload/power pack (see page 181 pf the **Edge of The Empire Core Rulebook**).
+defense: 0
+soak: 2
+hardpoints: 5
+encumbrance: 5
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - SM:48

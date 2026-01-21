@@ -1,0 +1,23 @@
+id: eote-attachment-christophsis-crystal
+name: Christophsis Crystal
+description: The crystal world of Christophsis was an early flash point in the Clone Wars, and it has seen continuing
+  conflict throughout the war. Its importance to both the Republic and Separatists stems from a number of sources, but
+  its importance to the Jedi lies in the pure kyber crystals that form in the world's crystalline forests. A lightsaber
+  blade created by a Christophsis crystal amplifies kinetic energy in a unique way among lightsabers, resulting in
+  powerful impacts.
+useWith: weapon
+hpRequired: 2
+rarity: 8
+baseModifier: Damage set to 7; Critical set to 3; Breach 1; Sunder 1
+modOptions:
+  - Breach +1
+  - Knockdown +1
+  - +1 Damage
+  - +1 Damage
+  - +1 Damage
+  - -1 Critical
+  - -1 Critical
+reference:
+  - CotR:62
+includedModels:
+  - None

@@ -1,0 +1,23 @@
+id: eote-armor-akt-wing-commander-armored-flight-suit
+name: A/KT Wing Commander Armored Flight Suit
+description: >-
+  The popular Wing Commander armored flight suit by Ayelixe/Krongbing Textiles Corporation is the latest word in pilot
+  comfort and protection. Similar to the Shockrider crash suit, the Wing Commander is built of sturdy synthetic textiles
+  reinforced with a thick, energy-dispersing foil-fiber armorweave. In addition to the armorweave, the Wing Commander
+  features thin ferro-ceramic armor plates and impact-absorbing gel inserts to protect delicate areas. The suit also
+  features a sophisticated life support system that performs well in both atmosphere and space, and can be sealed to the
+  gloves, boots, and helmet to form an ersatz space suit in case of emergency. To top off their protective features,
+  Wing Commander suits are also treated with a fire-and-radiation-proof chemical to help wearers survive vehicle fires.
+
+  Thanks to its rugged construction and integrated armor, the Wing Commander suit reduces any strain received from
+  Critical Hits dealt to the wearer's vehicle by 1 (to a minimum of 1) and the flame-resistant coating reduces damage
+  dealt to the wearer by fires and weapons with the Burn quality by 1.
+defense: 1
+soak: 1
+hardpoints: 1
+encumbrance: 3
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - SoT:42

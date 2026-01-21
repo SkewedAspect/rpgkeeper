@@ -1,0 +1,11 @@
+id: eote-talent-hunter
+name: Hunter
+description: Add <boost></boost> per rank of Hunter to all checks when interacting with beast or animals (including
+  combat checks). Add +10 to Critical Injury results against beasts or animals per rank of Hunter.
+activation: p
+ranked: true
+forceTalent: false
+trees: Hunter, Survivalist
+reference:
+  - E-CRB:137
+  - F-CRB:145

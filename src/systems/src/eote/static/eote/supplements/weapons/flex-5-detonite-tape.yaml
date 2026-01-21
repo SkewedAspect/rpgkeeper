@@ -1,0 +1,25 @@
+id: eote-weapon-flex-5-detonite-tape
+name: Flex-5 Detonite Tape
+description: >-
+  Created and sold by Merr-Sonn, Flex-5 is an easy-to-use demolitions device designed to destroy small or lightly
+  armored objects. It consists of a bulky roil of thick adhesive tape three centimeters wide and fifty meters long wound
+  around a polycarbonate reel. The tape is, essentially, highly processed detonite that will stick to nearly any surface
+  thanks to its built-in adhesive. Like detonite compound, Flex-5 tape requires an electrical charge to detonate and can
+  be set off either remotely or by a timer. Alliance Engineers often use Flex-5 to breach doors and destroy equipment
+  such as computer banks or civilian airspeeders.
+
+  A single charge of Flex-5 is a strip roughly a meter long. Since it is extremely simple to use—any trooper who has
+  ever fixed a picture to a barracks wall or to the inside of a footlocker can use the tape—the difficulty of using
+  Flex-5 does not increase past **Easy (<difficulty></difficulty>)** with additional charges.
+skill: Mechanics
+damage: 2
+addSkill: true
+criticalRating: 0
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - FO:41

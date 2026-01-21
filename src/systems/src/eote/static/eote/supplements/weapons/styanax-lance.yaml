@@ -1,0 +1,30 @@
+id: eote-weapon-styanax-lance
+name: Styanax Lance
+description: A large, vicious harpoon gun, the styanax lance has been used by countless generations of stabmen to hunt
+  the ferocious sea serpents that haunt the stormy Sea of Jarad on Tralus. Mounted at the bows of their nagaks (the
+  wide-hulled, oar-powered boats used by the human and Selonian seafarers of Tralus), the styanax lance is a
+  meter-and-a-half long harpoon with a sharp, barbed durasteel tip designed to penetrate the armored scales and tough
+  skin of the styanax. Thrown by the strong arms of the stabmen, the lance is attached to a stout flexisteel cable about
+  two hundred meters long, which the stabmen use to haul in their prey. Rarely seen outside of Tralus, the styanax lance
+  is occasionally used by off-world big game hunters on safari to bring down particularly large beasts, such as giant
+  gundarks or bull rancors.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 8
+hardpoints: 2
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 3
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - SoF:97

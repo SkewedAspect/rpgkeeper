@@ -1,0 +1,9 @@
+id: eote-talent-customized-cooling-unit
+name: Customized Cooling Unit
+description: Increase the system strain threshold of Signature Vehicle by 2 per rank of Customized Cooling Unit.
+activation: p
+ranked: true
+forceTalent: false
+trees: Rigger
+reference:
+  - SoT:32

@@ -1,0 +1,12 @@
+id: eote-talent-overwhelm-defenses
+name: Overwhelm Defenses
+description: Upon unsuccessful attack with a starship or vehicle weapon, may spend
+  <advantage></advantage><advantage></advantage> per rank of Overwhelm Defenses. Reduce the defense in the targeted zone
+  by 1 for every <advantage></advantage><advantage></advantage> spent.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Gunner, Operator
+reference:
+  - A-CRB:154
+  - ND:35

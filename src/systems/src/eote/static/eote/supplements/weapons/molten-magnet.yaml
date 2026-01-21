@@ -1,0 +1,38 @@
+id: eote-weapon-molten-magnet
+name: Molten Magnet
+description: >-
+  Magma from Sembla has fascinated researchers for centuries. Among other traits, it exerts enough magnetic attraction
+  to stick to metallic surfaces. While this may fascinate a geologist, it's an idle curiosity to the average citizen.
+
+  Vurk Rebel cells seeking to liberate Sembla are not the average citizen. Straining under the Empire's yoke, they've
+  been quite keen to weaponize the planet's lava. A handful managed to make a breakthrough, using liberated Imperial
+  research.
+
+  The resulting device is much like a grenade. While difficult to make elsewhere, Vurk Rebels have all they need to
+  build them on Sembla. First, they use Imperial technology to stabilize and contain the magma. Early attempts cooled
+  and congealed too fast, rendering them useless. To work, the devices need a small touch of the Force: Vurk sages
+  skilled in alchemical arts imbue the containment unit with the Force to keep the molten rock from cooling.
+
+  A combatant can use the device much the same way as a grenade. On activation, a brief timer starts before the weapon
+  activates. Instead of blasting itself apart, however, the magnet then adheres to a single target. When the timer runs
+  out, the containment unit begins extruding its molten metal payload . The magma then chews through armor plating,
+  scorching any organic tissue it touches.
+skill: Ranged (Light)
+damage: 9
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-burn
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-sunder
+reference:
+  - UP:48

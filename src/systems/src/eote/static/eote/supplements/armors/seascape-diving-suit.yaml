@@ -1,0 +1,20 @@
+id: eote-armor-seascape-diving-suit
+name: SeaScape Diving Suit
+description: >-
+  A surprising number of sentients dwell in aquatic environments, far from an oxygen-enriched atmosphere. When air
+  breathers must work closely with aquatic species-or travel beneath an ocean's surface for any other reason-a
+  self-contained diving suit is required. A good suit must be flexible and comfortable, but it must also provide for the
+  user's needs over multiple hours of use.
+
+  The SeaScape diving suit can provide six hours of atmosphere to an air breather. During this time, the wearer also has
+  access to fresh water, nutrition supplements, and other biological necessities. While wearing a SeaScape diving suit,
+  a character does not suffer movement penalties for traveling through water.
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 3
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - DoH:46

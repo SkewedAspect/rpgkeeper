@@ -1,0 +1,6 @@
+id: eote-quality-add-boost-mod
+name: Add Boost Mod
+description: Add <boost></boost> to all attack checks when using this weapon
+passive: true
+ranked: false
+reference: []

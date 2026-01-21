@@ -1,0 +1,20 @@
+id: eote-weapon-tz-97-zapper-shock-baton
+name: TZ-97 "Zapper" Shock Baton
+description: This weapon, issued to clone military, police, shore patrol, and anti-riot units, is essentially a law
+  enforcement officer's truncheon equipped with a stun-field generator. When it strikes a target, it releases a powerful
+  stored charge that short-circuits most sentients' nervous systems.
+skill: Melee
+damage: 5
+addSkill: false
+criticalRating: 4
+range: en
+encumbrance: 2
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - RotS:54

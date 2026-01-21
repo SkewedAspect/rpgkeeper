@@ -1,0 +1,26 @@
+id: eote-attachment-secondary-transponder
+name: Secondary Transponder
+description: Although it is possible to modify a ship's transponder signal, doing so is either easily detected or risks
+  damaging the engines, depending on the method used. Mounting a secondary transponder to the engine is a one-time
+  modification that allows the ship's crew to thereafter switch between two identities. When activated the secondary
+  transponder overrides the data signal from the ship's primary transponder, while also generating an energy signature
+  that disguises the activity of the ship's engine (these are the twp parts of a transponder signal). The cost of this
+  attachment includes a false or stolen identity in Bureau of Ships and Services (BoSS) records. This attachment can be
+  applied to any starship.
+useWith: vehicle
+hpRequired: 1
+rarity: 7
+baseModifier: Crew can switch to the secondary transponder as an action, making an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Computers check**.; An observer who scans the ship can detect
+  discrepancies indicating the presence of a secondary transponder with a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers
+  check**.
+modOptions:
+  - Activate secondary transponder as a maneuver
+  - Add one additional ship identity
+  - Add one additional ship identity
+  - Add one additional ship identity
+reference:
+  - SM:67
+includedModels:
+  - Various Illicit Models

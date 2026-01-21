@@ -1,0 +1,27 @@
+id: eote-armor-jedi-training-suit-unweighted
+name: Jedi Training Suit (Unweighted)
+description: >-
+  The armor utilized by Jedi Padawans in training was far from functional, but it still shows up occasionally,
+  especially in the possession of lose students who have lost their masters. The typical training suit features bulky,
+  heavily padded chest, leg and arm pieces designed to absorb the stunning blows of training lightsabers. Training suits
+  also incorporate weights in their major components so that learners can get used to the effects armor has on their
+  mobility.
+
+  Jedi training suits were a common sight in the Jedi temple, often accompanied by WJ-880 blinding helmets. Padawans in
+  the early phases of their training were made to wear their suits on a daily basis. The constant weight of the suit
+  helped physically strengthen the Jedi-to-be. Most training suits incorporated bright colors so their purpose as a
+  training tool was obvious. These colors were also used to differentiate teams of Padawans during group training.
+
+  Unless the integrated weights are removed, a Jedi training suit has an encumbrance of 6. Removal of these weights,
+  which requires which requires an Easy (<difficulty></difficulty>) Mechanics check, reduces the suit's encumbrance to
+  4. At the GM's discretion, training while wearing the weights might help a character develop physical fitness or adapt
+  to high-gravity environments.
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 4
+rarity: 9
+restricted: true
+qualities: []
+reference:
+  - KtP:48

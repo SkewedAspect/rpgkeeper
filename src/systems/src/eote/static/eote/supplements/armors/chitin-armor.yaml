@@ -1,0 +1,24 @@
+id: eote-armor-chitin-armor
+name: Chitin Armor
+description: >-
+  Chitin armor is usually made by hand from the husks of various giant insect species found throughout, the galaxy.
+  Essentially a poor person's composite armor, chitin is made by working insect carapaces into protective plates and
+  attaching them to a flexible backing. This is typically standard cloth but occasionally more advanced materials like
+  mylamesh or the ballistic cloth used in armored bodysuits is used. Each suit of chitin armor is unique. Depending on
+  the materials used, a chitin suit can be any color, cut or style imaginable. The creatures whose hides are used in the
+  construction of a suit of chitin armor might also offer protective qualities such as the ability to better deflect
+  blaster bolts or blend into specific environments.
+
+  Chitin armor makes a strong statement about the wearer and these suits tend to have a startling effect on people in
+  civilized society. A character wearing a suit of chitin armor adds automatic <advantage></advantage> to her Coercion
+  checks and automatic <threat></threat> on her Charm checks. The Game Master may determine that the armor provides
+  further benefits or drawbacks depending on the situation.
+defense: 0
+soak: 2
+hardpoints: 1
+encumbrance: 4
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - SS:45

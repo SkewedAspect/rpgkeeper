@@ -1,0 +1,31 @@
+id: eote-weapon-lucky-blaster
+name: Lucky Blaster
+description: >-
+  A blaster being "lucky" is less about its manufacture and more about its behavior. There is something inherent in
+  these blasters, something beyond the normal. A spacer might feel that, no matter how long the odds, a blaster like
+  this will always hit its mark.
+
+  Even in the clumsiest hands, there seems to be an unknown influence guiding the spacer's aim. To the trained Mystic,
+  the Force's presence is obvious-the blaster almost hums with it. Even before dedicating themselves to the Force, a
+  Mystic might be able to hear it.
+
+  Lucky blasters are rare in the galaxy at large. Their attunement to the Force seems to be completely random. There is
+  no connection between the blasters that display this knack. There is no single factory, nor even one single planet,
+  that can claim it is the source. Not even the Mystics who study them can explain how the blasters' attunement occurs.
+  Those who wield these blasters can only trust in the Force, hoping that its will is being done.
+
+  When a character uses a single maneuver with a Lucky Blaster to Aim, they gain <boost></boost><boost></boost> on their
+  next combat check. This can only occur once per round, and the PC may not use their second maneuver to aim again.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 3
+hardpoints: 1
+rarity: 10
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - UP:47

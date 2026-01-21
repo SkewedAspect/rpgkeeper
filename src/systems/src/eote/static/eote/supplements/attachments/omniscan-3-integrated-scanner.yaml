@@ -1,0 +1,15 @@
+id: eote-attachment-omniscan-3-integrated-scanner
+name: OmniScan 3 Integrated Scanner
+description: Warriors must be aware of their surroundings at all times, and ready to respond to any threat. Because a
+  hand-held scanner both requires the user to direct his attention to it and restricts his weapon use, it is common for
+  military forces to integrate scanner systems into helmets. As usual, many Hired Guns follow suit, particularly those
+  with a military background. Most integrated scanner systems utilize a heads-up display, projected on the inside of the
+  helmet's visor. Some systems include a retractable mono-visor that extends only while the scanner is in use.
+useWith: armor
+hpRequired: 1
+rarity: 4
+baseModifier: Built-in general purpose scanner; Adds <boost></boost> to Perception checks to detect movement or hidden enemies.
+modOptions:
+  - Add <boost></boost> to Perception checks
+reference:
+  - DC:54

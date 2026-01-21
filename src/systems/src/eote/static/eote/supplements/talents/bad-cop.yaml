@@ -1,0 +1,12 @@
+id: eote-talent-bad-cop
+name: Bad Cop
+description: May spend <advantage></advantage><advantage></advantage> from a Deception or Coercion check to upgrade
+  ability of a single ally's subsequent Social Interaction check against the target a number of times equal to ranks in
+  Bad Cop.
+activation: p
+ranked: true
+forceTalent: false
+trees: Interrogator, Marshal, Warden
+reference:
+  - FH:32
+  - CaM:30

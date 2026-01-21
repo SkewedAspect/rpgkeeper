@@ -1,0 +1,19 @@
+id: eote-armor-nomad-greatcoat
+name: Nomad Greatcoat
+description: >-
+  Long associated with the inhabitants of the Nomad Mountains, this distinctive greatcoat has become popular since its
+  adoption by the military of Corellia as cold weather wear. Traditionally made from the tanned hide of the sharnaff,
+  the greatcoat is a heavy, waterproof overcoat that hangs below the knees. The greatcoat typically has a removable
+  insulated lining that provides exceptional protection against the cold and elements.
+
+  The Nomad Greatcoat reduces the difficulty of Resilience checks made to resist the effects of extreme cold by one, and
+  removes <setback></setback> added to checks due to extreme cold.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 1
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - SoF:99

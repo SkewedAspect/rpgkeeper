@@ -1,0 +1,21 @@
+id: eote-armor-akt-tracker-utility-vest
+name: A/KT Tracker Utility Vest
+description: >-
+  Common among outdoorsmen, scouts, and hunters, the Tracker Utility Vest from Ayelixe/Krongbing Textiles Corporation is
+  the Explorer's best friend. These vests are simple sleeveless garments worn on the torso and made from lightweight,
+  durable, stain-resistant, tear-resistant synthetic textiles that close in front with a heavy-duty zipper. They are
+  covered with numerous pouches of various size, shape, and utility, which are all connected to an integral load-bearing
+  system concealed beneath the vest's lining. When fully zipped, the garment distributes the weight of anything carried
+  in its pouches evenly and effectively across the wearers body, allowing the wearer to carry his important tools and
+  items where he can reach them quickly and without them weighing him down overmuch or getting in his way.
+
+  When worn, the Tracker utility vest increases the wearer's encumbrance threshold by 2.
+defense: 0
+soak: 0
+hardpoints: 1
+encumbrance: 0
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - EtU:45

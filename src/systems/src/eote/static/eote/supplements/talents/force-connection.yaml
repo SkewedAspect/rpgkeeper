@@ -1,0 +1,11 @@
+id: eote-talent-force-connection
+name: Force Connection
+description: When the character performs a Survival or Knowledge(Xenology) skill check, he may roll [FO] no greater than
+  his Force rating. The character may spend <forcepoint></forcepoint> to add <success></success> or
+  <advantage></advantage> (character's choice) to the result.
+activation: p
+ranked: false
+forceTalent: true
+trees: Hermit
+reference:
+  - SS:30

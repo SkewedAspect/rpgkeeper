@@ -1,0 +1,29 @@
+id: eote-weapon-arggarok
+name: Arg'garok
+description: >-
+  Based on the traditional Camorrean war ax, the Arg'garok is a massive vibro-ax capable of inflicting horrific wounds.
+  Favored by Camorrean warriors, these weapons are heavy and ungainly, measuring a meter and a half in length and
+  requiring tremendous strength to properly wield in combat. In spite of the weapons' association with Gamorreans,
+  Arg'garoks are highly valued as prestige weapons and can occasionally be found in the hands of Barabels or Houks in
+  the employ of the Hutt kajidics—more physical and belligerent Hutts might even brandish such weapons themselves.
+
+  The Arg'garok requires two hands to wield.
+skill: Melee
+damage: 5
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 5
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 5
+  - id: eote-quality-inferior
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-sunder
+reference:
+  - LoNH:103

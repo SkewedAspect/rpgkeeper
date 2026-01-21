@@ -1,0 +1,31 @@
+id: eote-weapon-gungan-personal-energy-shield
+name: Gungan Personal Energy Shield
+description: >-
+  Gungan engineering incorporates a particularly advanced understanding of shielding technologies. Their underwater
+  cities make use of shielding extensively. Even their offensive weapons are designed around encasing a ball of
+  high-energy plasma within a temporary energy shield. It is hardly surprising, then, that they are one of the few
+  species that have successfully designed an easily portable defensive shield.
+
+  The Gungan personal energy shield is sized to the wearer. It is worn on the user’s off-hand arm, so that a weapon can
+  be wielded in the other. Notably, it does not completely encase the user in a secure field. Rather, it only offers
+  defense against attacks coming from a single orientation. To benefit from the shield, the wielder must be able to
+  focus on deflecting attacks.
+
+  The value of the Gungan personal energy shield’s Defensive quality is reduced to 0 while the wielder is suffering from
+  the staggered or disoriented condition.
+skill: Melee
+damage: 0
+addSkill: false
+criticalRating: 5
+range: en
+encumbrance: 4
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 2
+  - id: eote-quality-deflection
+    ranks: 2
+reference:
+  - NoP:103

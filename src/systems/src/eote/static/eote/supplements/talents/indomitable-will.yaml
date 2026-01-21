@@ -1,0 +1,10 @@
+id: eote-talent-indomitable-will
+name: Indomitable Will
+description: Once per encounter as a maneuver, suffer 3 strain to commit [FO] up to Force rating and reduce all damage
+  suffered by an equal amount, but suffer 1 strain per turn.
+activation: am
+ranked: false
+forceTalent: true
+trees: Colossus
+reference:
+  - KoF:30

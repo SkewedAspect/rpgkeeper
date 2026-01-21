@@ -1,0 +1,20 @@
+id: eote-armor-powered-capacitive-armor
+name: Powered Capacitive Armor
+description: >-
+  Another variant on the popular, lightweight line of protection, capacitive armor offers moderate protection against
+  most forms of attack at all times. However, an expensive, miniaturized power source in the armor can be activated to
+  make the flexible panels within stiffen, offering increased protection at the expense of mobility.
+
+  As a maneuver, the wearer may power up or power down the armor. While the armor is powered and the plates are locked
+  in place, the wearer gains + 1 soak and + 1 defense but loses his free maneuver during each of his turns.
+
+  **Models include:** A/KT Tuff-Powered Armor.
+defense: 1
+soak: 1
+hardpoints: 2
+encumbrance: 4
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - DA:49

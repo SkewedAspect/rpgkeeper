@@ -1,0 +1,38 @@
+id: eote-weapon-sith-shield
+name: Sith Shield
+description: >-
+  The shields used by Sith warriors in ages past can still be found, though they are rare in the extreme. Resembling
+  ordinary shields at first glance, Sith shields are crafted from an alchemical alloy and are often decorated with
+  unsettling carvings, reliefs and runes. They are virtually inpenetrable, even to lightsabers, and these shields are
+  incredbily deadly in the hands of a trained dark side adept. When used in combat by a Force user, Sith shields absorb
+  the hate of combatants around them, drawing upon the building fury of their users and any foes engaged in the
+  struggle.
+
+  Whenever a Force-sensitive wielder of a Sith shield sufers a hit in combat, he may commit [FO] to channel his fury
+  into the shield as an out of turn incidental. Over multiple attacks, he may commit multiple [FO] this way, up to a
+  total number [FO] no greater than his force rating.
+
+  AS an action, the wielder may uncommit all [FO] committed to the Sith shield to unleash the stored power in a torrent
+  of hate. When he does so, he gains Conflict equal to the number of [FO] he had committed to the shield and then he
+  makes a Force power check with that many [FO]. He may spend <forcepoint></forcepoint> to inflict 1 wound and 1 strain
+  (these ignore soak) on each other character within short range of him; he may activate this multiple times, inflicting
+  1 additional wound and 1 additional strain each time.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 3
+hardpoints: 2
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-cortosis
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-deflection
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - KtP:45

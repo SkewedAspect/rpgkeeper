@@ -1,0 +1,24 @@
+id: eote-attachment-podracer-control-cables
+name: Podracer Control Cables
+description: >-
+  If Podracing evolved from ancient beast-drawn chariot and cart racing, as many historians suppose, then control cables
+  are analogous to a set of reins. These long, flexible durasteel cables tether a Podracer's powerful engines to its
+  cockpit. Along with keeping the engines and the cockpit connected, they also house the wiring that connects the
+  controls to the engines. Steelton produces most Podracer control cables, but smaller companies have cropped up lately
+  in an attempt to take away some of its market share.
+
+  Nearly all Podracers use control cables, only a few small-production outliers, such as FG 8T8-T and a handful of
+  one-offs and prototypes, mount the engines directly to the cockpit via spars. Control cables are the most fragile part
+  of a Podracer, as even the stoutest set can be snapped or sliced through. A Podracer who loses her control cables
+  through accident or sabotage loses control over her vehicle and must either eject or ride the cockpit to a stop and
+  hope she survives.
+useWith: vehicle
+hpRequired: 1
+rarity: 2
+baseModifier: Handling set to -1
+modOptions: []
+reference:
+  - EV:60
+includedModels:
+  - Steelton Perfect-Series control cables
+  - Moriales Systems SC-4.x control tether

@@ -1,13 +1,26 @@
 id: eote-weapon-blaster-pistol
 name: Blaster Pistol
-description: Most spacers cary standard blaster pistols. They pack enough punch to penetrate plastoid armor, have decent
-  range, and are light enough to carry around at all times.
-skill: Range-Light
+description: >-
+  Most spacers carry standard blaster pistols. They pack enough punch to penetrate plastoid armor, have decent range,
+  and are light enough to carry around at all times. Most scoundrels also appreciate the gunslinger-style look of a
+  well-used blaster on their hip.
+
+  Spacefarers who often have to fight aboard ship carry these weapons since the blast is effective against many types of
+  armor, but isn't powerful enough to breach the hull of most vessels.
+
+  **Models Include**: BlasTech DH-17 Blaster, BlasTech SE-14 and SE-14C Blaster Pistol.
+skill: Ranged (Light)
 damage: 6
+addSkill: false
 criticalRating: 3
-range: s
+range: m
 encumbrance: 1
+hardpoints: 3
 rarity: 4
+restricted: false
 qualities:
-  - id: 22
-reference: E-CRB:160
+  - id: eote-quality-stun-setting
+reference:
+  - E-CRB:161
+  - A-CRB:174
+  - F-CRB:167

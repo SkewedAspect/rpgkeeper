@@ -1,0 +1,11 @@
+id: eote-talent-incite-rebellion
+name: Incite Rebellion
+description: Once per session, may take an Incite Rebellion action; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Coercion check** to cause a number of
+  beings up to ranks in Coercion to become rebellious until the end of the encounter.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Agitator
+reference:
+  - A-CRB:149

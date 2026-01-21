@@ -1,0 +1,6 @@
+id: eote-quality-remove-setback-mod
+name: Remove Setback Mod
+description: Remove <setback></setback> from all attack checks when using this weapon
+passive: true
+ranked: false
+reference: []

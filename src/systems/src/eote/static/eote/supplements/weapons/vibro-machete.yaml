@@ -1,0 +1,26 @@
+id: eote-weapon-vibro-machete
+name: Vibro-Machete
+description: Produced by manufacturers of vibro-tools and weapons such as LaserHone and Merr-Sonn, the vibro-machete is
+  one of the most common vibro-augmented blades on the galactic market. Designed and sold primarily as an agricultural
+  tool, each has a long single-edged, cleaver-like blade between 30 and 45 centimeters long. The weight and balance of
+  the blade combined with the long cutting edge make it perfectly suited for clearing undergrowth in dense alien forests
+  and jungles, butchering large animals, and countless other wilderness tasks. The vibro-machete also makes for an
+  excellent weapon, the heavy blade and vibro field emitter making short work of the unprotected and lightly armored
+  opponants.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 2
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - SS:43

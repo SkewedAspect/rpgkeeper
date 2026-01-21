@@ -1,0 +1,26 @@
+id: eote-weapon-a280-cfe-convertible-heavy-blaster-pistol-pistol-mode
+name: A280-CFE Convertible Heavy Blaster Pistol (Pistol Mode)
+description: >-
+  The A280-CFE by BlasTech was designed during the Clone Wars for Galactic Republic intelligence agents. Based on the
+  venerable A280, the CFE is sold as a heavy blaster pistol, albeit one with a few new tricks up its sleeve. A user can
+  attach a number of accessories—a shoulder stock, longer precision barrel, multi-optic sight, gyrobalancer, etc.—to
+  convert the pistol into a very serviceable sniper rifle. The pistol and accessories are sold as a package along with a
+  sturdy, lockable reinforced polycarbonate carrying case. The A280's modular nature and versatility make the weapon
+  easy to transport and conceal, an extremely attractive feature for agents and infiltrators.
+
+  A character can spend a maneuver to convert the CFE from pistol to rifle mode, or rifle to pistol mode. With the rifle
+  accessories attached, the weapon's range becomes long, and it gains the Accurate 1 and Pierce 1 item qualities.
+  Characters use the Ranged (Heavy) skill when firing the weapon in rifle mode.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 1
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - CaM:38

@@ -1,0 +1,9 @@
+id: eote-talent-ataru-technique
+name: Ataru Technique
+description: When making a check using the Lightsaber skill, the character may use Agility instead of Brawn.
+activation: p
+ranked: false
+forceTalent: true
+trees: Ataru Striker
+reference:
+  - F-CRB:139

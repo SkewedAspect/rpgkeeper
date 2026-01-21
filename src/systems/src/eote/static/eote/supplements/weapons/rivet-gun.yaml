@@ -1,0 +1,31 @@
+id: eote-weapon-rivet-gun
+name: Rivet Gun
+description: >-
+  Most rivet guns work around the principle of a basic pneumatic hammer, and fire bolts into vehicle plating. Of course,
+  some rivet guns are more-potent than others, based on the thickness of the plating they are intended to secure. As
+  such, a Technician can easily adapt a more powerful rivet gunt into a serviceable slugthrower by ignoring a few of the
+  safety operating protocols, such as "keep cartridge pressure at or beneath printed factory settings" and never point
+  the rivet gun at living creatures or droids". While rivet guns are hardly combat weapons, and thus only function up
+  close and with minimal accuracy, no wise sentient would completely ignore the threat presented by an irate Technician
+  carrying one.
+
+  A rivet gun reduces the difficulty of Mechanics checks to reapair Critical Hits on vehicles and starships by 1 (to a
+  minimum of **Simple (-)**).
+skill: Ranged (Light)
+damage: 4
+addSkill: false
+criticalRating: 3
+range: en
+encumbrance: 4
+hardpoints: 1
+rarity: 1
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 1
+  - id: eote-quality-inaccurate
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - SM:46

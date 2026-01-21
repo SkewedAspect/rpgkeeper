@@ -1,0 +1,23 @@
+id: eote-weapon-proton-bomb-release-chute
+name: Proton Bomb Release Chute
+description: The proton bomb is a large energy explosive device used in space combat and orbital bombardment. They are
+  most effective against fixed or slow moving targets such as fortifications, space stations, and capital ships. These
+  energy weapons often emit the signature blue "glow" of proton torpedoes.
+skill: Gunnery
+damage: 7
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 8
+  - id: eote-quality-blast
+    ranks: 7
+  - id: eote-quality-limited-ammo
+    ranks: 16
+reference:
+  - A-CRB:272

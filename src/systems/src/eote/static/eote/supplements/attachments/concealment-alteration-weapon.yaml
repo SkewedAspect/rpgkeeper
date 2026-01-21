@@ -1,0 +1,40 @@
+id: eote-attachment-concealment-alteration-weapon
+name: Concealment Alteration (Weapon)
+description: >-
+  Holdout blasters and vibroknives are easy enough to hide, but when characters wish to pack a bit more of a punch, they
+  need a more powerful (and usually larger) weapon. The simplest way to make a more obvious weapon or other item easier
+  to conceal is to remove unnecessary parts or minimize its size. This is called a concealment alteration. Concealment
+  alterations can include cutting weapon barrels, removing panels, and any other small physical changes that do not
+  prohibit the item's primary function.
+
+  PCs wishing to make a concealment alteration need to make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Skulduggery check** and spend one hour per point of the item's
+  encumbrance (with a minimum duration of one hour) in applying the changes. A successful check reduces the item's
+  encumbrance by 1 (to a minimum of 1) and adds <setback></setback> to any Perception checks to notice or search for the
+  item; <triumph></triumph> can be spent to make this <setback></setback><setback></setback> instead. Items with an
+  encumbrance of 3 or higher are more difficult to modify, however, and so the difficulty to perform a concealment
+  alteration increases by one for each point of encumbrance over 2. This means that making a concealment alteration to a
+  typical ion blaster (encumbrance 3) would require a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Skulduggery check**, while doing so to a
+  standard disruptor rifle (encumbrance 5) would require a **Formidable
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Skulduggery check**. Items with an
+  encumbrance of 6 or higher cannot receive a concealment alteration.
+
+  A character can only attempt a concealment alteration once on a given item, and doing so permanently reduces the
+  item's available hard points by 1. Items that have no hard points may still be altered in this fashion.
+useWith: weapon
+hpRequired: 0
+rarity: 0
+baseModifier: PCs wishing to make a concealment alteration need to make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Skulduggery check** and spend one hour per point of the item's
+  encumbrance (with a minimum duration of one hour) in applying the changes. Items with an encumbrance of 3 or higher
+  are more difficult to modify, however, and so the difficulty to perform a concealment alteration increases by one for
+  each point of encumbrance over 2. Items with an encumbrance of 6 or higher cannot receive a concealment alteration.; A
+  successful check reduces the item's encumbrance by 1 (to a minimum of 1) and adds <setback></setback> to any
+  Perception checks to notice or search for the item; <triumph></triumph> can be spent to make this
+  <setback></setback><setback></setback> instead.; A character can only attempt a concealment alteration once on a given
+  item, and doing so permanently reduces the item's available hard points by 1. Items that have no hard points may still
+  be altered in this fashion.
+modOptions: []
+reference:
+  - CaM:80

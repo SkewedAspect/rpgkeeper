@@ -1,0 +1,26 @@
+id: eote-weapon-selonian-glaive
+name: Selonian Glaive
+description: Individually crafted by Selonian females as a rite of passage, the Selonian glaive is a unique work of art
+  as much as it is a weapon. At maturity, a female is expected to collect the materials need to create the glaive
+  herself, and wielding the weapon in battle is a mark of worth among the Selonians. A heavy wooden pole, typically
+  about two meters in length, forms the body of the weapon, with a large, razor-sharp obsidian blade attached to one end
+  and obsidian hooks and barbs affixed to the other end. A peculiar mineral in Selonian obsidian makes the volcanic
+  glass more stable and far less brittle than normal, giving it unusual strength and toughness, as well as a distinctive
+  iridescent quality. The edge of the glaive's blade is mere nanometers thick, allowing it to slice through armor,
+  flesh, and bone with contemptuous ease.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 5
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 3
+reference:
+  - SoF:98

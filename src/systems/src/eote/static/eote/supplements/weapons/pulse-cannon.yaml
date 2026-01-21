@@ -1,0 +1,40 @@
+id: eote-weapon-pulse-cannon
+name: Pulse Cannon
+description: |-
+  After its wide-scale implementation by the Galactic
+  Empire, the simplicity and versatility of BlasTech’s
+  E-11 blaster rifle spawned several offshoot designs,
+  the most popular of which was the so-called pulse
+  cannon. The pulse cannon consists of a core frame
+  similar to the E-11, but replaces the folding stock with
+  a solid one for added stability, and a high-powered
+  scope. It also features a long, perforated barrel with
+  four focusing coils to ensure proper cooling and to
+  allow maximum blaster bolt cohesion. Further adding to its lethality, a wielder can “charge” an individual
+  shot by holding down the trigger, unleashing a devastating shot upon release that drains the weapon’s
+  entire energy reserve.
+  As a maneuver, a character wielding a pulse cannon
+  may prime the weapon to expend all of its ammunition
+  in a single, devastating shot. The next time the weapon
+  is fired this encounter, it counts as having the Breach
+  1 and Vicious 3 qualities. After being discharged this
+  way, the weapon runs out of ammunition (see page
+  172 of the **Age of Rebellion** Core Rulebook).
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 5
+hardpoints: 1
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - FiB:43

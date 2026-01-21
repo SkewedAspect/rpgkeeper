@@ -1,0 +1,28 @@
+id: eote-weapon-sword-cane
+name: Sword Cane
+description: >-
+  A traditional accessory of aristocracy who occasionally need to instill an important lesson, the sword cane combines
+  the merits of a walking stick with accessible protection. Designs can vary wildly, with some users preferring fancy
+  and shiny rods, while other wielders opt for more subdued staves. Typically, a simple twist releases the handle from
+  the sheath, allowing the wielder to draw the blade in a rapid, smooth motion. Some incorporate a vibroblade as the
+  hidden sword, but the majority of models feature an unpowered blade for better concealment. While sword cane lack the
+  weight and killing power of a dedicated combat blade, it is a valuable defensive weapon and can still be deadly in
+  master duellist's hands.
+
+  Add <setback></setback> to a character's Perception checks to determine that a sword cane is actually a lethal weapon.
+
+  **Models include:** SoroSuub Elegance-4 Cane, Drolan Platted Sword Cane.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+reference:
+  - DA:47

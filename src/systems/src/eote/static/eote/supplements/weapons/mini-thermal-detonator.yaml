@@ -1,0 +1,32 @@
+id: eote-weapon-mini-thermal-detonator
+name: Mini Thermal Detonator
+description: >-
+  These insidious devices are half the size of frag grenades but have a thermite-baradium casing surrounding a baradium
+  core. On detonation, the resulting fusion reaction creates a particle wave that disintegrates everything in the blast.
+  One mini-detonator can clear a large room. The stats for them are as follows: (Ranged [Light]; Damage 12; Critical 2;
+  Range [Short]; Blast 10). Blast 10 means that the attacker can spend 2 Advantage
+  <advantage></advantage><advantage></advantage> to ensure the blast hits everyone within short range of the original
+  target, dealing 10 damage to each.
+
+  Thermal detonators can be either set to detonate on impact, or be set with a timer to detonate up to 3 rounds after
+  being activated at the beginning of the attacker's action.
+
+  This particular batch was defective, so the weapon only detonates if 3 Advantage
+  <advantage></advantage><advantage></advantage><advantage></advantage> or a Triumph <triumph></triumph> are spent
+  during the **Ranged (Light) check**. On a Despair <despair></despair> it explodes prematurely in the wielder's hand.
+skill: Ranged (Light)
+damage: 12
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 10
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - Under a Bl:36

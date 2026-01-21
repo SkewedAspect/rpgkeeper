@@ -1,0 +1,35 @@
+id: eote-weapon-cryoban-rifle
+name: CryoBan Rifle
+description: >-
+  Loronar CryoBan Rifle
+
+  Tools capable of generating intense cold are critical when dealing with preservation but can also be useful in
+  scientific endeavors, firefighting, and even some types of manufacturing. When these same tools are weaponized, they
+  become potent, typically non-lethal weapons. This is particularly relevant for designs that are portable, including
+  liquid-based and energy-based solutions.
+
+  When fired, the Loronar CryoBan rifle's beam dissipates the free energy of its target, effectively triggering an
+  extreme drop in temperature. This makes inorganic substances far more brittle, leaving them more susceptible to damage
+  from a physical strike. For living beings, the sudden drop in temperature causes a shock to the system that can be
+  enough to incapacitate some targets.
+
+  When used to attack a target wearing armor that removes one or more <setback></setback> due to extreme cold, the
+  weapon's Pierce quality counts as 0. Characters who make a melee attack against a target struck by the Loronar CryoBan
+  in the current round add <boost></boost><boost></boost> to the check.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 0
+range: m
+encumbrance: 2
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 5
+  - id: eote-quality-stun-damage
+reference:
+  - DoH:42

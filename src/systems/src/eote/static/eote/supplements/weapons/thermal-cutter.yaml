@@ -1,0 +1,27 @@
+id: eote-weapon-thermal-cutter
+name: Thermal Cutter
+description: >-
+  Designed for cold-weather expeditions, the Copora-Tech Thermal Cutter is basically a scaled-down mining beamdrill. The
+  handheld device projects a heat beam that can evaporate snow and cut through ice, making it invaluable for digging
+  snow shelters on inhospitable worlds.
+
+  A thermal cutter’s charge lasts for roughly five minutes of continuous use, and can remove one cubic meter of snow per
+  minute, or dig through 10 centimeters of ice per minute. If plugged into a fusion lantern, it can run indefinitely,
+  otherwise it requires a new battery. Nefarious individuals can also use a thermal cutter as a weapon with the
+  following profile (Melee; Damage 4; Critical 4; Range [Engaged]; Burn 1, Inaccurate 2).
+skill: Melee
+damage: 4
+addSkill: false
+criticalRating: 4
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-burn
+    ranks: 1
+  - id: eote-quality-inaccurate
+    ranks: 2
+reference:
+  - NoP:105

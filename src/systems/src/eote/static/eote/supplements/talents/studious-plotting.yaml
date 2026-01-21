@@ -1,0 +1,10 @@
+id: eote-talent-studious-plotting
+name: Studious Plotting
+description: When making a Streetwise or Survival skill check to navigate on a world, the character may use Intellect
+  instead of Cunning.
+activation: p
+ranked: false
+forceTalent: false
+trees: Navigator
+reference:
+  - SS:31

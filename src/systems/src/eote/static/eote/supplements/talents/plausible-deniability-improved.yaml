@@ -1,0 +1,11 @@
+id: eote-talent-plausible-deniability-improved
+name: Plausible Deniability (Improved)
+description: Take an Improved Plausible Deniability action makes a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Coercion check** to convince one
+  bystander per rank of Plausible Deniability to depart quietly.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Advocate
+reference:
+  - DA:34

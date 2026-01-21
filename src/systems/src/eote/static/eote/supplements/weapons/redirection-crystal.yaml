@@ -1,0 +1,32 @@
+id: eote-weapon-redirection-crystal
+name: Redirection Crystal
+description: >-
+  Redirection crystals are an invention of the Imperial Security Bureau. Produced in small numbers by the Imperial
+  Department of Military Research for the ISB and various Imperial intelligence and wetworks teams, a redirection
+  crystal is simply a container of pressurized Tibanna gas fitted with a focusing crystal and a short blaster barrel.
+  When struck, typically by blaster or slugthrower fire, the canister ruptures and produces a blaster bolt through the
+  attached barrel. The bolt the redirection crystal fires has a power output equal to a standard blaster rifle, but its
+  range is significantly reduced. A redirection crystal is destroyed on use, leaving little behind to identify what it
+  was. Redirection crystals are very popular among Imperial Intelligence agents, who often use them to obfuscate
+  assassination scenes or frame others for crimes.
+
+  Setting up a redirection crystal requires a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Skulduggery check**. Due to its size,
+  hitting a redirection crystal requires a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Ranged (Light)** or **Ranged (Heavy)
+  check**. Redirection crystals have the following profile: (Damage 9; Critical 4; Range (Short); Limited Ammo 1). They
+  cost 500 credits (R) and have a rarity of 9.
+skill: Skulduggery
+damage: 9
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 9
+restricted: true
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - CaM:40

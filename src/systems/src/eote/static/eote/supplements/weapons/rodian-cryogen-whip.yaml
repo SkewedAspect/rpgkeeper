@@ -1,0 +1,29 @@
+id: eote-weapon-rodian-cryogen-whip
+name: Rodian Cryogen Whip
+description: >-
+  Developed by Rodian hunters as an offensive weapon, the cryogen whip appears to be little more than an offensive whip
+  with an outer coating of metal rungs. The cryogen whip's relatively mundane outer appearance belies the fact that
+  supercooled cryogen circulates at its core, chilling the outer panels When properly used, the whip generates a
+  stunning blast and a loud, earsplitting crack. The whip's coils also conduct the cryogen's frigid temperature, leaving
+  targets covered in frostbitten welts and cuts.
+
+  This weapon can be used to make melee attacks against targets at up to short range (the difficulty remains Average
+  (<difficulty></difficulty><difficulty></difficulty>)).
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 1
+  - id: eote-quality-unwieldy
+    ranks: 3
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - KtP:45

@@ -1,0 +1,10 @@
+id: eote-talent-dockyard-expertise
+name: Dockyard Expertise
+description: May make an **Average (<difficulty></difficulty><difficulty></difficulty>) Knowledge (Education) check**
+  when at a space dock, if successful, the cost and time for repairs is reduced by 25% per rank of Dockyard Expertise.
+activation: aa
+ranked: true
+forceTalent: false
+trees: Shipwright
+reference:
+  - FO:30

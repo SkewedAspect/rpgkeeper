@@ -1,0 +1,11 @@
+id: eote-talent-adaptable
+name: Adaptable
+description: When resolving a check that uses a skill in which they have no ranks, the character may spend one Destiny
+  Point to remove <despair></despair> from the check hr to remove <threat></threat> equal to their ranks in Cool from
+  the check.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Padawan
+reference:
+  - RotS:37

@@ -1,0 +1,36 @@
+id: eote-weapon-nightstinger-blaster-rifle
+name: Nightstinger Blaster Rifle
+description: >-
+  Nightsinger Blaster Rifle
+
+  Xerrol Corporation's Nightstinger is one of the most unusual blaster rifles in the galaxy. Officially classified as a
+  sporting weapon, the Nightstinger is a powerful, well-balanced rifle ostensibly designed to hunt big, dangerous
+  creatures at long distances. While this is true, the Nightstinger can also, at the flick of a switch, fire completely
+  invisible blaster bolts, an ability that makes these weapons illegal to own in most civilized parts of the galaxy.
+  While Xerrol claims that the invisible bolt setting was designed for night hunting and stalking light-sensitive
+  beasts, the fact that it allows a shooter to remain completely undetected while firing has not been overlooked by the
+  galaxy's assassins and intelligence agents. The power requirements for firing the rifle in stealth mode are quite
+  onerous, however, and its rate of fire becomes significantly reduced from the depletion of its power cells.
+
+  Switching the Nightstinger to stealth mode requires a maneuver. This makes locating the shooter by tracing the blaster
+  bolt or spotting a muzzle blast effectively impossible. It also grants the weapon the Slow Firing 2 quality for the
+  remainder of the encounter.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 2
+range: ex
+encumbrance: 7
+hardpoints: 4
+rarity: 9
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 2
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - CaM:39

@@ -1,0 +1,10 @@
+id: eote-talent-disorienting-strike
+name: Disorienting Strike
+description: After failing a Lightsaber combat check, may spend <advantage></advantage><advantage></advantage> or
+  <triumph></triumph> to disorient opponents for three rounds.
+activation: p
+ranked: false
+forceTalent: false
+trees: Padawan Survivor
+reference:
+  - DoR:112

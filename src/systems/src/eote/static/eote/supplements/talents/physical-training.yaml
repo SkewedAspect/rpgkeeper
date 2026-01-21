@@ -1,0 +1,11 @@
+id: eote-talent-physical-training
+name: Physical Training
+description: Add <boost></boost> per rank of Physical Training to Athletics and Resilience checks.
+activation: p
+ranked: true
+forceTalent: false
+trees: ARC Trooper, Ascetic, Clone Trooper, Commando, Instructor
+reference:
+  - A-CRB:154
+  - DoH:30
+  - RotS:41

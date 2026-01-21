@@ -1,0 +1,19 @@
+id: eote-armor-phase-ii-arc-trooper-armor
+name: Phase II ARC Trooper Armor
+description: >-
+  Advanced Recon Commandos, or ARC troopers, performed the initial field test of Phase II clone trooper armor. During
+  the earliest tests, this armor was simply a modification of Phase I clone trooper armor, which also included a
+  pauldron, kama, and a survival pack. 
+   Once the tests were completed, ARC troopers received armor that was similar to the standard Phase II clone trooper armor but retained the accessories. These inherent modifications left the suit slightly less capable of customization while providing better overall protection.
+  Phase II ARC trooper armor includes an integrated comlink with scrambler capable of using all standard Republic
+  communications protocols. The survival pack incorporates emergency rations, a water filtration system, microfiber
+  line, and a distress beacon.
+defense: 1
+soak: 2
+hardpoints: 2
+encumbrance: 4
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - CotR:57

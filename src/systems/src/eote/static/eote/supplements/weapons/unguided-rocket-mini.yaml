@@ -1,0 +1,23 @@
+id: eote-weapon-unguided-rocket-mini
+name: Unguided Rocket (Mini)
+description: A cheap, simple rocket with minimal guidance and stabilization systems. They are installed more often on
+  vehicles than starships. Attackers add a <setback></setback> to their **Gunnery skill checks** when using unguided
+  rockets.
+skill: Gunnery
+damage: 3
+addSkill: false
+criticalRating: 4
+range: en
+encumbrance: 0
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 1
+  - id: eote-quality-breach
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - DC:60

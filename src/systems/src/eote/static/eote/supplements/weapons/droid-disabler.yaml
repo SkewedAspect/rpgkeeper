@@ -1,0 +1,28 @@
+id: eote-weapon-droid-disabler
+name: Droid Disabler
+description: >-
+  Felebreck Droid Disabler
+
+  Produced by Felebreck Electrical Defense Systems, the Droid Disabler is a small but powerful ionization pistol
+  intended to damage, rather than merely incapacitate, droids. Though ineffective at anything but very short ranges, the
+  massive ion blast emitted by a Droid Disabler can permanently fuse the circuits of virtually any unshielded droid,
+  leaving it nothing more than a heap of lifeless scrap. Though devastating to droids and cybernetics, the ion blast
+  doesn't harm living tissue. Due to the compact size of the energy cell and the large power requirements of the weapon,
+  the Droid Disabler can only be fired a few times before the energy pack needs to be replaced.
+skill: Ranged (Light)
+damage: 12
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-ion
+  - id: eote-quality-limited-ammo
+    ranks: 3
+reference:
+  - FC:44

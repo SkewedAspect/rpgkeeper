@@ -1,0 +1,34 @@
+id: eote-weapon-cortosis-shield
+name: Cortosis Shield
+description: >-
+  While law enforcement officers and some mercenaries might carry high-tech riot shields for use in crowd control
+  situations, the common defensive shield is vanishingly rare on the battlefield. In the modern era of focused energy
+  weapons, high-powered slugthrowers, and ship- and vehicle-mounted ordnance that can turn a sentient into a pile of ash
+  in a heartbeat, even plastoid armor is of arguable value. In the face of heavy fire, most individuals prefer either to
+  present an overwhelming force or to retreat. Those who deal with the remnants of the Jedi Order, such as the
+  Inquisitors and the secret police units of the Galactic Empire, often have need of specialized equipment.
+
+  Cortosis shields are made from various alloys or synthetic compounds and are laced with a refined cortosis weave that
+  absorbs blaster energy and can even turn or disrupt the blade of a lightsaber. Due to their inherent strength,
+  cortosis shields can be used as a makeshift Melee weapon, allowing a user to bash or push away an opponent.
+
+  **Models Include:** Arakyd Industries Special Order Model 3 Shield.
+skill: Melee
+damage: 0
+addSkill: false
+criticalRating: 6
+range: en
+encumbrance: 4
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-cortosis
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-defensive
+    ranks: 2
+  - id: eote-quality-deflection
+    ranks: 2
+reference:
+  - F-CRB:172

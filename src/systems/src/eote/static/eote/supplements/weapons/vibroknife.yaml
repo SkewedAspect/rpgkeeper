@@ -1,0 +1,27 @@
+id: eote-weapon-vibroknife
+name: Vibroknife
+description: >-
+  A vibroknife is essentially a modded combat knife, but since they have proven so effective, they have become
+  manufactured as such throughout the galaxy. The basic premise is simple—a small but powerful device within the knife's
+  handle vibrates the blade at an incredibly high frequency so that it essentially acts as a miniature saw. Vibroknives
+  aren't as powerful as lightsabers against most substances, but one need not be a Jedi to wield it effectively.
+
+  **Models Include**: Merr-Sonn Treppus-2 Vibroblade.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 2
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - E-CRB:167
+  - A-CRB:182
+  - F-CRB:174

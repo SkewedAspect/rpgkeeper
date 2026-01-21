@@ -1,0 +1,10 @@
+id: eote-talent-intuitive-improvements
+name: Intuitive Improvements
+description: When making check to craft or repair item, may add [FO] no greater than Force rating to check. Spend
+  <forcepoint></forcepoint><forcepoint></forcepoint> to increase hard points by 1, to max of +2.
+activation: p
+ranked: false
+forceTalent: true
+trees: Artisan
+reference:
+  - F-CRB:145

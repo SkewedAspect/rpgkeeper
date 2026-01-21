@@ -1,0 +1,33 @@
+id: eote-armor-mk-i-katarn-class-commando-armor
+name: Mk I Katarn-Class Commando Armor
+description: >-
+  Mk I Katarn-class Commando Armor
+
+  Katarn-class armor was originally designed for use by clone commandos during the Clone Wars. Named for a dangerous
+  predatory beast native to Kashyyyk, this is one of the most advanced suits of heavy combat armor ever produced.
+
+  Each set of armor consists of a fully enclosed, environmentally sealed duraplast suit worn over an insulated,
+  breathable, ballistic-fiber bodysuit. The armor is effective against most portable infantry weapons, light ordnance,
+  shrapnel, and even light vehicle-mounted weapons like autoblasters and light laser cannons. It is resistant to heat,
+  cold, toxins, radiation, and other hazardous environments and features reinforcements at strategic points such as the
+  neck, spine, and forearms to protect against blasts and impacts. The helmet is equipped with an integrated combat
+  scanner, an encrypted communications suite, and an on-board combat computer that monitors the physical conditions of
+  the wearer and any nearby allies wearing Katarn-class armor. It also has an integrated breath mask and an on-board
+  oxygen supply good for six hours of heavy combat.
+
+  In addition to its numerous on-board systems, Katarn-class armor can be equipped with a modular backpack system that
+  can be tailored to various battlefield roles. Special plug-in modules provide long-range comms, medpacs, extended
+  oxygen supplies, and even power generation.
+
+  A full suit of Katarn-class armor provides a wearer with all the benefits of a combat scanner and a breath mask, and
+  increases the wearer's encumbrance threshold by 3. In addition, the suit's systems remove <setback></setback> from all
+  Perception and Survival checks made by the wearer.
+defense: 1
+soak: 2
+hardpoints: 3
+encumbrance: 4
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - KoF:47

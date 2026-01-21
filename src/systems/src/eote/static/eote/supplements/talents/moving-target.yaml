@@ -1,0 +1,9 @@
+id: eote-talent-moving-target
+name: Moving Target
+description: If the character has already acted this round, increase ranged defense by 1 per rank of moving target.
+activation: p
+ranked: true
+forceTalent: false
+trees: Vanguard
+reference:
+  - FiB:35

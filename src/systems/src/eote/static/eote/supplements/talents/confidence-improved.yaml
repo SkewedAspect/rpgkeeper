@@ -1,0 +1,11 @@
+id: eote-talent-confidence-improved
+name: Confidence (Improved)
+description: My spend <triumph></triumph> on a fear check to steady the nerves of other allies making the same fear
+  check. If the character does so, each ally within short range who makes the fear check adds automatic
+  <success></success> equal to the character's ranks in Confidence to the results of the check.
+activation: p
+ranked: false
+forceTalent: false
+trees: Figurehead, Master
+reference:
+  - LbE:33

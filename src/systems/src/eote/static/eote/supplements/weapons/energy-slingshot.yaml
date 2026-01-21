@@ -1,0 +1,26 @@
+id: eote-weapon-energy-slingshot
+name: Energy Slingshot
+description: >-
+  Less a weapon than a device for mischievous pranksters, the energy slingshot is a wrist-mounted device. The user
+  points her wrist at the target, pulls back the energized “cup” and, when she releases it, the slingshot fires a
+  disorienting shock-burst over short distances. The shock-burst is non-lethal but very annoying, meaning that this
+  “weapon” is legal on most worlds. Plenty of municipalities even allow minors to purchase it, to the chagrin of law
+  enforcement officers who have to put up with being pelted by shock-bursts from rowdy young hooligans.
+
+  Triggering the Disorient quality on this weapon requires <advantage></advantage> instead of
+  <advantage></advantage><advantage></advantage>.
+skill: Ranged (Light)
+damage: 3
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 2
+  - id: eote-quality-stun-setting
+reference:
+  - NoP:102

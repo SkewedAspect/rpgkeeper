@@ -1,0 +1,10 @@
+id: eote-talent-knockdown
+name: Knockdown
+description: After hitting with a melee attack, may spend <triumph></triumph> to knock the target prone.
+activation: p
+ranked: false
+forceTalent: false
+trees: ARC Trooper, Archaeologist, Commando, Fringer, Infiltrator, Marauder
+reference:
+  - E-CRB:138
+  - A-CRB:150

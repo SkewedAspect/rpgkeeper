@@ -1,0 +1,10 @@
+id: eote-talent-inspiring-rhetoric-supreme
+name: Inspiring Rhetoric (Supreme)
+description: Suffer 1 strain to perform Inspiring Rhetoric as a maneuver, not an action.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Ambassador, Politico
+reference:
+  - E-CRB:137
+  - A-CRB:149

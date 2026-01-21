@@ -1,0 +1,11 @@
+id: eote-talent-unity-assault
+name: Unity Assault
+description: If a missed combat check generates <triumph></triumph> or
+  <advantage></advantage><advantage></advantage><advantage></advantage>, may spend to perform Force power targeting
+  allies as a maneuver.
+activation: am
+ranked: false
+forceTalent: true
+trees: Peacekeeper
+reference:
+  - F-CRB:153

@@ -1,0 +1,17 @@
+id: eote-attachment-underslung-scattergun
+name: Underslung Scattergun
+description: An ungainly attachment, an underslung scattergun is a single-shot slugthrower that can be attached to
+  another weapon. While hardly what one would call subtle, it nonetheless has found a ready market amongst some bounty
+  hunters and gunslingers due to its low cost and impressive effect. This attachment can only applied to pistol and
+  rifle-sized weapons.
+useWith: weapon
+hpRequired: 3
+rarity: 5
+baseModifier: Adds a scattergun to the weapon.; Cumbersome 1
+modOptions: []
+reference:
+  - FC:51
+includedModels:
+  - Czerka "Leveller" Under-barrel Scattergun
+  - Merr-Sonn XZ03 Scattershell Slugthrower Attachment
+  - Goseia Heavy Industries Concern "Troubleshooter" Underslung Slugthrower

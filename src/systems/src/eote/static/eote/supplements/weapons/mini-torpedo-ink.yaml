@@ -1,0 +1,26 @@
+id: eote-weapon-mini-torpedo-ink
+name: Mini-Torpedo, Ink
+description: >-
+  These mini-torpedoes contain a reservoir filled with an obscuring black liquid that readily disperses into a large
+  cloud upon detonation. Not only does the ink obscure vision and block sight lines, but anyone directly affected by the
+  cloud is liable to become disoriented. The ink cloud lasts for up to four rounds, but it can last much longer in
+  particularly still water.
+
+  _For use with the Mon Cal Defenses Mini-Torpedo Launcher_
+skill: Ranged (Heavy)
+damage: 0
+addSkill: false
+criticalRating: 0
+range: l
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+  - id: eote-quality-disorient
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - SoR:107

@@ -1,0 +1,34 @@
+id: eote-weapon-termite-torpedo-launcher
+name: Termite Torpedo Launcher
+description: >-
+  Although unlikely to inflict significant damage upon initial impact, termite torpedoes are nonetheless among the most
+  hated and feared weapons in the galaxy. Each torpedo houses dozens to hundreds of small, barely intelligent droids,
+  variously known as termites, dismantlers, disassemblers, and a number of less savory names. After impact, the torpedo
+  breaks open to release the droids. They scurry in all directions across the ship and use their laser cutters,
+  magclaws, ion clamps, and other tools to burrow through the hull and attack ship systems. In short order, the droids
+  can spread throughout a ship.
+
+  It can take weeks to clear an infestation-if the vessel survives that long. Many engineers serving with the Alliance
+  (or aboard pirate crews) despise these weapons, as they make salvage difficult or downright impossible. On top of
+  this, unsubstantiated rumors persist of termite droids lying dormant in salvaged systems, only to emerge and infect
+  any vessel that inherits the affected parts.
+
+  Additional termite torpedoes cost 900 credits for a set of three.
+skill: Gunnery
+damage: 3
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-guided
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 3
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - FO:63

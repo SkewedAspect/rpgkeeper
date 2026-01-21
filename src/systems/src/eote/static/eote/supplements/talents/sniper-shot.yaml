@@ -1,0 +1,11 @@
+id: eote-talent-sniper-shot
+name: Sniper Shot
+description: Before making a non-thrown ranged attack, may perform a Sniper Shot maneuver to increase the weapon's range
+  by 1 range band per rank in Sniper Shot. Upgrade the difficulty of the attack by 1 per range band increase.
+activation: am
+ranked: true
+forceTalent: false
+trees: Assassin, Mercenary Soldier, Sharpshooter
+reference:
+  - E-CRB:142
+  - A-CRB:156

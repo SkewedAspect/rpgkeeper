@@ -1,0 +1,10 @@
+id: eote-talent-natural-scholar
+name: Natural Scholar
+description: Once per session, may reroll any 1 Knowledge skill check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Imperial Academy Cadet, Scholar, Scientist
+reference:
+  - E-CRB:139
+  - A-CRB:153

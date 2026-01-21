@@ -1,0 +1,20 @@
+id: eote-attachment-ion-turbine-engine
+name: Ion Turbine Engine
+description: Reliable and compact, these engines are often found in freighters seeking power without sacrificing space.
+useWith: vehicle
+hpRequired: 3
+rarity: 2
+baseModifier: Changes speed to 1, defense to 1/0/0/0, and system strain to 10 x Silhouette; Speed set to 1; System
+  Strain Threshold (×Silhouette) set to 10; Fore Defense set to 1; Aft Defense set to 1; Starboard Defense set to 1;
+  Port Defense set to 1
+modOptions:
+  - +1 Speed
+  - +1 System Strain Threshold (per Silhouette)
+  - +1 System Strain Threshold (per Silhouette)
+  - +1 System Strain Threshold (per Silhouette)
+  - +1 System Strain Threshold (per Silhouette)
+  - +1 System Strain Threshold (per Silhouette)
+  - +1 Fore Defense
+  - +1 Fore Defense
+reference:
+  - FO:82

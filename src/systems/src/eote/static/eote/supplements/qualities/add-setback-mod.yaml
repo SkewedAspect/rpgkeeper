@@ -1,0 +1,6 @@
+id: eote-quality-add-setback-mod
+name: Add Setback Mod
+description: Add <setback></setback> to all attack checks when using this weapon
+passive: true
+ranked: false
+reference: []

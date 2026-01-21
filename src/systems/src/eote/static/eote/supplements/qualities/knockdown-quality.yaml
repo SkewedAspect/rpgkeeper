@@ -1,0 +1,10 @@
+id: eote-quality-knockdown-quality
+name: Knockdown Quality
+description: >-
+  When knockdown triggers, the target is knocked prone.
+
+  Unless specified otherwise, Knockdown requires <advantage></advantage><advantage></advantage> to trigger, plus one
+  additional <advantage></advantage> per silhouette beyond one.
+passive: true
+ranked: false
+reference: []

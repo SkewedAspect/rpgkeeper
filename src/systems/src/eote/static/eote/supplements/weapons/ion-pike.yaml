@@ -1,0 +1,25 @@
+id: eote-weapon-ion-pike
+name: Ion Pike
+description: Used to disable escaped or malfunctioning froids, thee slender lengths of metal are flexible enough to be
+  slipped between armor plating to reach vulnerable power sources and circuit banks, and are capable of releasing a
+  powerful ion charge once they make contact. Using the weapons properly requires a great deal of practice, and slipping
+  the probes past armor plates during the heat of a conflict or chase is difficult even for an experienced wielder.
+  However, those who have seen someone slip up to a haywire industrial droid and bypass layers of protective plating to
+  diable it harbor no further doubt that the pikes have their uses.
+skill: Melee
+damage: 10
+addSkill: false
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-ion
+  - id: eote-quality-pierce
+    ranks: 4
+reference:
+  - ND:48

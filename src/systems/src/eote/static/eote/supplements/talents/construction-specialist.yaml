@@ -1,0 +1,10 @@
+id: eote-talent-construction-specialist
+name: Construction Specialist
+description: Remove <setback></setback> equal to ranks in Construction Specialist from checks to construct defenses,
+  positions, fortifications, and similar projects.
+activation: p
+ranked: true
+forceTalent: false
+trees: Sapper
+reference:
+  - FO:30

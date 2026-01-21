@@ -1,8 +1,22 @@
 id: eote-talent-grit
 name: Grit
-description: Each rank of Grit increases a character's strain threshold by one.
+description: Gain +1 strain threshold
 activation: p
 ranked: true
-trees: Assassin Bodyguard, Doctor, Fringer, Mechanic, Outlaw Tech, Pilot, Politico, Scout, Slicer, Mercenary Soldier,
-  Scholar, Survivalist, Thief, Trader
-reference: E-CRB:136
+forceTalent: false
+trees: ARC Trooper, Advisor, Advocate, Aggressor, Agitator, Alchemist, Ambassador, Analyst, Arbiter, Archaeologist,
+  Armorer, Artisan, Ascetic, Assassin, Beast Rider, Big-Game Hunter, Bodyguard, Charmer, Clone Commander, Clone Officer,
+  Clone Pilot, Clone Veteran, Colossus, Commando, Commodore, Courier, Death Watch Warrior, Demolitionist, Doctor,
+  Driver, Droid Specialist, Droid Tech, Entrepreneur, Executioner, Figurehead, Force Adherent, Force Sensitive Emergent,
+  Force Sensitive Outcast, Force-Sensitive Outcast, Fringer, Gambler, General, Gunner, Gunslinger, Healer, Heavy,
+  Hermit, Hotshot, Imperial Academy Cadet, Infiltrator, Instructor, Interrogator, Investigator, Knight, Juyo Berserker,
+  Makashi Duelist, Marshal, Martial Artist, Mechanic, Medic, Mercenary Soldier, Navigator, Nightsister, Niman Disciple,
+  Operator, Outlaw Tech, Padawan, Pathfinder, Performer, Pilot, Politico, Propagandist, Prophet, Protector,
+  Quartermaster, Racer, Recruit, Republic Navy Officer, Republic Representative, Retired Clone Trooper, Rigger,
+  Saboteur, Sage, Sapper, Scavenger, Scholar, Scout, Seer, Senator, Sentry, Separatist Commander, Shadow, Sharpshooter,
+  Shien Expert, Shii-Cho Knight, Ship Captain, Shipwright, Sleeper Agent, Slicer, Soresu Defender, Squadron Leader,
+  Starfighter Ace, Steel Hand Adept, Strategist, Survivalist, Teacher, Thief, Trader, Trailblazer, Warden, Warleader
+reference:
+  - E-CRB:136
+  - A-CRB:148
+  - F-CRB:144

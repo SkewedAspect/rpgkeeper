@@ -1,0 +1,10 @@
+id: eote-talent-ready-for-anything
+name: Ready for Anything
+description: Remove <setback></setback> per rank of Ready for Anything on Mass Combat checks and Cool or Vigilance
+  checks to determine Initiative order.
+activation: p
+ranked: true
+forceTalent: false
+trees: Strategist
+reference:
+  - LbE:34

@@ -1,0 +1,27 @@
+id: eote-weapon-vx-sidewinder-repeating-blaster
+name: VX "Sidewinder" Repeating Blaster
+description: Unlike other repeating blasters, the SoroSuub VX achieves its high rate of fire through the use of five
+  rotating barrels. Each barrel features its own actuating blaster module, galven coil, and crystal housing,
+  distributing wear and preventing excessive buildup of heat on any one barrel. Though designed for use with its
+  included bipod (see page 188 of the **Edge of the Empire** Core Rules), a wielder with sufficient strength can carry
+  and even fire the weapon on the move, albeit invariably with reduced accuracy. Users who intend to wield the VX in
+  this way often attach a shoulder strap, although even then the weapon requires two hands to wield.
+skill: Gunnery
+damage: 12
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 8
+hardpoints: 4
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 5
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - DC:43

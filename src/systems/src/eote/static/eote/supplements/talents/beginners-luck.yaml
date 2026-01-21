@@ -1,0 +1,10 @@
+id: eote-talent-beginners-luck
+name: Beginner's Luck
+description: Once per session when the character makes a check, the character may add <success></success> equal to the
+  number of light side Destiny Points in the Destiny pool to the results.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Padawan
+reference:
+  - RotS:37

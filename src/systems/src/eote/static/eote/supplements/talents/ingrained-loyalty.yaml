@@ -1,0 +1,10 @@
+id: eote-talent-ingrained-loyalty
+name: Ingrained Loyalty
+description: When the character makes a Leadership check targeting one or more clones, they may change the result of one
+  <challenge></challenge> to any non-blank face.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Clone Commander
+reference:
+  - CotR:21

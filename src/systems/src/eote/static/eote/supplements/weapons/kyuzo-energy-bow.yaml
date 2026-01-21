@@ -1,0 +1,23 @@
+id: eote-weapon-kyuzo-energy-bow
+name: Kyuzo Energy Bow
+description: Designed to be fired from a mount or a mobile platform, a Kyuzo energy bow is a massive bow that fires
+  terrifyingly large, charged bolts. The Kyuzos of the Gyaryi clovoc are particularly renowned for their skilled
+  archers, who use theor considerable might to draw these bows and their elite training to hit targets at incredible
+  distance.
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 4
+range: l
+encumbrance: 6
+hardpoints: 1
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-knockdown
+  - id: eote-quality-pierce
+    ranks: 5
+reference:
+  - FiB:44

@@ -1,0 +1,26 @@
+id: eote-weapon-ion-torpedo
+name: Ion Torpedo
+description: _For use with the Ion Torpedo Launcher_
+skill: Gunnery
+damage: 10
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 5
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-guided
+    ranks: 2
+  - id: eote-quality-ion
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - FO:62

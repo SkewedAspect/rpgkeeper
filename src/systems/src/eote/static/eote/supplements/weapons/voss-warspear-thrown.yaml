@@ -1,0 +1,32 @@
+id: eote-weapon-voss-warspear-thrown
+name: Voss Warspear (thrown)
+description: >-
+  Voss Warspear
+
+  A spear is essentially a blade at the end of a long pole, typically about two meters in length. In a pinch, tying a
+  combat knife to the end of a reasonably straight branch is enough to fashion a spear. A less hastily constructed
+  version incorporates a double-edged blade as well as a shaft that is made of a material sturdy enough to parry other
+  weapons. The city guard of Vossport on Weik prefer heavy, long spears as their primary weapon, as they are simple to
+  master and versatile.
+
+  The Voss warspear is a one-handed weapon, however it cannot be wielded with other weapons. It may, at the GM’s
+  discretion, be wielded while using a shield.
+
+  A spear may be thrown as a ranged weapon. If used in this manner, change the skill to Ranged (Light) and the range of
+  the weapon to short. The weapon also gains the Limited Ammo 1 quality (but if retrieved, it can be used again).
+skill: Ranged (Light)
+damage: 2
+addSkill: true
+criticalRating: 4
+range: s
+encumbrance: 4
+hardpoints: 2
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - NoP:104

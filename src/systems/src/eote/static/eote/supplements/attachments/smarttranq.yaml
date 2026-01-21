@@ -1,0 +1,26 @@
+id: eote-attachment-smarttranq
+name: SmartTranq
+description: >-
+  Developed in cooperation with CorChemCo, SmartTranq is an adaptable synthetic tranquilizer designed to be used with
+  the Model 77 Air Rifle. When the tranquilizer enters the bloodstream of a target, it immediately begins to mutate,
+  changing constantly and reconfiguring itself to find the quickest, most efficient way to overwhelm the target's
+  defensive systems and render it unconscious.
+
+  Upon a successful hit with the Model 77, the target must immediately make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Resilience check**. If the target fails, it suffers 5 strain,
+  plus 2 additional strain per <threat></threat> generated on the check. If the check generates <despair></despair>, the
+  GM can spend it to make the target check against the tranquilizer again during the next round. If the GM does so,
+  increase the difficulty of the check by one.
+
+  Equipping the Model 77 with SmartTranq costs 500 credits. This does not change the weapon's profile—it simply adds the
+  above special rule to the weapon. If the weapon ever runs out of ammo, the user must purchase a reload (also costing
+  500 credits) before using the SmartTranq again.
+useWith: weapon
+hpRequired: 0
+rarity: 0
+baseModifier: Upon hit, target must make **Average (<difficulty></difficulty><difficulty></difficulty>) Resilience
+  check**. If fail, target takes 5 strain, plus 2 strain per <threat></threat>. GM may use <despair></despair> to make
+  target check again next round at increased difficulty.
+modOptions: []
+reference:
+  - EtU:40

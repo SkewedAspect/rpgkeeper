@@ -1,0 +1,37 @@
+id: eote-armor-imperial-storm-commando-armor
+name: Imperial Storm Commando Armor
+description: >-
+  Storm commandos are among the Empire's most elite,
+
+  with the most advanced equipment available. Their
+
+  armor allows the same flexibility as scout trooper
+
+  armor, but is reinforced to provide maximum protection against blaster fire and explosions. Both the
+
+  bodysuit and laminate plates are coated in “reflec”
+
+  polymer, which distorts light and absorbs sound,
+
+  making the wearer incredibly difficult to detect.
+
+  The armor’s helmet is equipped with macrobinoculars and scanner goggles (see page 191 of the **Age of
+
+  Rebellion** Core Rulebook) as well as a comlink.
+
+  While wearing storm commando armor, a character
+
+  removes <setback></setback> due to darkness, smoke, or similar environmental factors that obscure vision from all of
+  her
+
+  Perception, Vigilance, and combat checks. Additionally, storm commando armor adds <setback></setback> to other
+  characters’ Perception checks to detect the wearer.
+defense: 0
+soak: 2
+hardpoints: 4
+encumbrance: 4
+rarity: 9
+restricted: true
+qualities: []
+reference:
+  - FiB:49

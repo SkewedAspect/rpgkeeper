@@ -1,0 +1,34 @@
+id: eote-weapon-vibro-ax
+name: Vibro-ax
+description: >-
+  Vibro-Ax
+
+  Gamorreans, particularly those employed by the notorious Hutts, often carry meter-long axes fitted with vibration
+  technology. Most are very heavy and suited only for beings of considerable strength, and usually with a low center of
+  gravity (particularly tall or elegant beings have trouble swinging the heavy axes without throwing themselves
+  off-balance).
+
+  The damage a vibro-ax causes is tremendous and messy. The impact area suffers massive and deep trauma from the blade
+  and the vibration. Because of this, wounds caused by vibro-axes are particularly nasty—hence the high damage and
+  Critical Hit chance. A vibro-ax requires two hands to wield.
+
+  **Models Include**: SoroSuub BD-1 Cutter Vibro-Ax.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 3
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 3
+reference:
+  - E-CRB:167
+  - A-CRB:182
+  - F-CRB:175

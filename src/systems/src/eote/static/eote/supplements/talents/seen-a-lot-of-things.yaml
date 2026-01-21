@@ -1,0 +1,10 @@
+id: eote-talent-seen-a-lot-of-things
+name: Seen A Lot of Things
+description: Whenever the character fails a Knowledge check, he may spend
+  <advantage></advantage><advantage></advantage><advantage></advantage> to roll the check again during his next turn.
+activation: p
+ranked: false
+forceTalent: false
+trees: Ship Captain
+reference:
+  - DoR:115

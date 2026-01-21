@@ -1,0 +1,21 @@
+id: eote-armor-zephyr-stealth-suit
+name: Zephyr Stealth Suit
+description: >-
+  Stealth suits, produced by companies like Ayelixe/Kronbing Textiles and Creshaldyne, are designed to make a wearer
+  difficult or impossible to detect by visual or technological means. Constructed from a wide array of materials and
+  using technologies such as optical camouflage, silhouette breakers, thermal sinks and sound deadeners, they render a
+  wearer nearly invisible under the right circumstances. Zephyr are a common type of such stealth wear for those who
+  often perform cover missions, and are favored amongst urban vigilantes, criminals, and industrial spies alike. These
+  suits have dark, muted colors with matte-finish hardware and come with gloves boots, and a head garment that covers
+  everything but the wearer's eyes.
+
+  A character wearing a zephyr stealth suit upgrades the ability of any Stealth checks she makes once.
+defense: 1
+soak: 1
+hardpoints: 1
+encumbrance: 2
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - EV:44

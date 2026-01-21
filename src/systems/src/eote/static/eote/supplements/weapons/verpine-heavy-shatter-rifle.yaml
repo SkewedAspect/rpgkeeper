@@ -1,0 +1,37 @@
+id: eote-weapon-verpine-heavy-shatter-rifle
+name: Verpine Heavy Shatter Rifle
+description: >-
+  Verpine shatter guns are projectile weapons based on magnetic field technology, akin to rail guns. Shatter guns are
+  nearly silent in their operation, though there is an audible crack as their metal alloy projectile breaks the speed of
+  sound. Though the projectiles themselves are relatively small, the speed with which they impact the target inflicts a
+  large amount of kinetic damage, and their effective range is exceptional.
+
+  Shatter guns are available in a number of configurations, including pistols, rifles, and heavier versions
+
+  that can serve as sniper weapons. The Verpine are a largely peaceful species, and since they rarely have any call for
+  violence, they only manufacture a small number of shatter guns for their own internal security. The scarcity of
+  shatter guns that make it beyond the Roche Asteroid Field, along with their lethality and relative untraceability,
+  results in the exorbitant prices of available models.
+
+  The Rebel Alliance has secured a small number of shatter guns from the Verpine and issues them on an as-needed basis
+  to operatives in the field. Shatter guns are notoriously delicate and must be cared for properly. If a shatter gun is
+  dropped or jarred, it will cease to function until repaired. While wielding a shatter gun, any combat check that
+  generates either <threat></threat><threat></threat> or <despair></despair> damages the weapon by one step, as if
+  struck by a weapon with the Sunder quality (see page 170 of the Ace of Rebellion Core Rulebook).
+skill: Gunnery
+damage: 15
+addSkill: false
+criticalRating: 2
+range: ex
+encumbrance: 4
+hardpoints: 4
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 2
+  - id: eote-quality-knockdown
+  - id: eote-quality-pierce
+    ranks: 6
+reference:
+  - SoR:106

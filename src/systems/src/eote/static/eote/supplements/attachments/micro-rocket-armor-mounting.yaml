@@ -1,0 +1,23 @@
+id: eote-attachment-micro-rocket-armor-mounting
+name: Micro-Rocket Armor Mounting
+description: Micro-rockets are flexible (if dangerous) weapons favored as secondary arms by many bounty hunters (see
+  **Micro-Rockets** on page 46), and generally fired from a mount installed in the wielder's armor. This attachment can
+  be installed on any armor.
+useWith: armor
+hpRequired: 2
+rarity: 6
+baseModifier: Enables armor to fire loaded micro-rockets.
+modOptions:
+  - Limited Ammo +1
+  - Limited Ammo +1
+  - Limited Ammo +1
+  - Limited Ammo +1
+  - Limited Ammo +1
+  - -1 Setback
+  - -1 Setback
+reference:
+  - ND:52
+includedModels:
+  - BlasTech Mag-Clip Micro-Rocket Mounting
+  - Goseia HIC "Last Word" Launch/Targeter System
+  - countless custom variants

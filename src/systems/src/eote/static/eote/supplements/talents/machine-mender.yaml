@@ -1,0 +1,11 @@
+id: eote-talent-machine-mender
+name: Machine Mender
+description: When making a Mechanics check to help a character heal wounds, the target heals 1 additional wound per rank
+  of Machine Mender.
+activation: p
+ranked: true
+forceTalent: false
+trees: Droid Specialist, Droid Tech
+reference:
+  - SM:34
+  - FO:31

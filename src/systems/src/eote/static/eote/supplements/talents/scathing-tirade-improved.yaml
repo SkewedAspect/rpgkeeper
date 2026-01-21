@@ -1,0 +1,11 @@
+id: eote-talent-scathing-tirade-improved
+name: Scathing Tirade (Improved)
+description: Each enemy affected by Scathing Tirade suffers <setback></setback> on all skill checks for a number of
+  rounds equal to ranks in Coercion.
+activation: p
+ranked: false
+forceTalent: false
+trees: Agitator, Politico, Separatist Commander
+reference:
+  - E-CRB:142
+  - A-CRB:155

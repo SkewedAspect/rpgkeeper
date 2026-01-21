@@ -1,0 +1,38 @@
+id: eote-weapon-huntsman-vibrospear
+name: Huntsman Vibrospear
+description: >-
+  The Huntsman by LaserHone, a maker of fine vibroweapons based in the Corporate Sector, is a relative oddity among
+  weapons of its class. Over two meters long, the Huntsman is a sturdy vibrospear designed for hunting large and
+  dangerous wild game. Equipped with LaserHone's patented ultrasonic vibrotechnology, the vibrogenerator in the Huntsman
+  vibrates at frequencies well outside the hearing range of most sentients. The ultrasonic vibrogenerator, special
+  dampening fittings, and a coating of sound-absorbing polymers make the Huntsman completely silent when active. This
+  allows a hunter to carry a powerful vibroweapon in the field without the fear of spooking his prey with the noise from
+  the weapon.
+
+  The Huntsman's haft is a super-dense plasteel alloy embedded with sound-deadening materials and laced with foil-fiber
+  reinforcements. Incredibly strong and flexible, the Huntsman can parry nearly any incoming blow, from the claws of a
+  powerful beast to the slashing edge of a vibro-ax. The blade is a long, thin, leaf-shaped affair made from a
+  laser-honed steel alloy with a molecular edge that can pass through steel and stone as easy as through flesh and
+  muscle. At the base of the blade where it meets the haft, two thick posts extend for a few centimeters perpendicular
+  to the haft to prevent particularly recalcitrant beasts from charging up the haft after being stabbed and attacking
+  the spear's wielder. While it is more of a niche weapon with limited appeal, many professional scouts and hunters
+  appreciate the deadly simplicity of the Huntsman and the challenge of hunting untamed beasts in ways similar to their
+  ancient forebears.
+
+  The vibrospear requires two hands to wield.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 4
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - EtU:43

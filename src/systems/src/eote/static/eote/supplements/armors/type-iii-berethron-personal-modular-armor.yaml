@@ -1,0 +1,17 @@
+id: eote-armor-type-iii-berethron-personal-modular-armor
+name: Type III "Berethron" Personal Modular Armor
+description: Manufactured for the Corellian military and CorSec forces, the Type III "Berethron" Personal Modular Armor
+  system is a relatively lightweight form of armored clothing that allows for significant mission-specific
+  customization. Made of an energy-dispersing mesh fiber, with strategically placed plastoid plates woven into the
+  fabric, Berethron PMA provides a good degree of protection without severely impeding the wearer. The ability to
+  significantly customize and upgrade the armor distinguishes Berethron PMA from other armored clothing, allowing the
+  wearer to be prepared for many situations without donning cumbersome, restrictive laminate or heavy battle armor.
+defense: 1
+soak: 1
+hardpoints: 3
+encumbrance: 3
+rarity: 6
+restricted: true
+qualities: []
+reference:
+  - SoF:99

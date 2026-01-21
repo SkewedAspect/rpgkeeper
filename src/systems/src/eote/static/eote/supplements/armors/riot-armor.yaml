@@ -1,0 +1,15 @@
+id: eote-armor-riot-armor
+name: Riot Armor
+description: Produced by countless manufacturers throughout the galaxy, riot armor is a general term for light combat
+  armor designed for personal protection in high-intensity conflicts. Though designs vary, riot armor often includes a
+  helmet with an integrated face shield and padded vest and greaves interwoven with ballistic cloth. Given its ubiquity
+  and customizability, riot armor remains a popular choice for anyone interested in self-defense on a budget.
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 3
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - KtP:49

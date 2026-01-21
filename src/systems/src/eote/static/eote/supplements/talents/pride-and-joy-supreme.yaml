@@ -1,0 +1,10 @@
+id: eote-talent-pride-and-joy-supreme
+name: Pride and Joy (Supreme)
+description: When inside his Pride and Joy vessel, once per session as an incidental, the character may reduce its
+  silhouette by 2 (to a minimum of 0) for the remainder of the round and the following round.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Ship Captain
+reference:
+  - DoR:115

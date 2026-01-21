@@ -1,0 +1,27 @@
+id: eote-weapon-electromagnetic-harpoon
+name: Electromagnetic Harpoon
+description: Mounted in a remote-operated turret aft of the cockpit, the T-47's electromagnetic harpoon was designed
+  with towing in mind. Controlled by the speeder's systems operator, or by the pilot in a pinch, the harpoon consists of
+  a pneumatic cannon that launches a short durasteel rod connected to a few dozen yards of high-tensile braided cable.
+  The rod is tipped with a powerful electromagnetic disc that receives its power through the harpoon's cable, which is
+  in turn connected to a powerful winch located in the hull beneath the cannon. While not a weapon per se, the harpoon
+  can be used to knock down personnel or droids, move obstacles, ensnare large creatures or vehicles, and generally
+  create havoc, hence its Knockdown and Ensnare qualities.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-knockdown
+  - id: eote-quality-ensnare
+    ranks: 5
+  - id: eote-quality-limited-ammo
+    ranks: 5
+reference:
+  - E-CRB:249
+  - A-CRB:263

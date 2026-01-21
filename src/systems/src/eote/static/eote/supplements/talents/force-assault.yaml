@@ -1,8 +1,10 @@
 id: eote-talent-force-assault
 name: Force Assault
 description: Spend <triumph></triumph> or <advantage></advantage><advantage></advantage><advantage></advantage> on a
-  missed Lightsaber (Willpower) combat check to immediately perform Move Force power action as a maneuver.
-activation: am
+  missed Lightsaber (Willpower) combat check to immediately perform Move Force power action as maneuver.
+activation: p
 ranked: false
+forceTalent: true
 trees: Niman Disciple
-reference: F-CRB:143
+reference:
+  - F-CRB:143

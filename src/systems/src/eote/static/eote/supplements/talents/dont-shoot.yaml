@@ -1,0 +1,11 @@
+id: eote-talent-dont-shoot
+name: Don't Shoot!
+description: Once per session as an action, make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Charm check**. On a success, cannot be
+  target of combat checks until the end of the encounter or until making a combat check.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Charmer
+reference:
+  - FC:32

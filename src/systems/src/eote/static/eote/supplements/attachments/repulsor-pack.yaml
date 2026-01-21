@@ -1,0 +1,18 @@
+id: eote-attachment-repulsor-pack
+name: Repulsor Pack
+description: While lacking the range and power of a true jetpack, a repulsor pack provides a reliable-and less
+  terrifying-alternative for those new to the realm of personal flight devices. A repulsor pack allows for controlled
+  descents from nearly any height, as well as hovering speeds of up to thirty-five kilometers per hour, its name being
+  something of a misnomer, a repulsor pack actually consists of a number of small, relatively low-powered repulsor lifts
+  mounted to the user's torso and limbs. Although the sight of an experienced user gliding through the air is quite
+  impressive, the learning curve is steep. Perhaps due to the importance of leg movement in most packs for controlling
+  movement and speed, the devices are sometimes disparagingly called "jet pants."
+useWith: armor
+hpRequired: 2
+rarity: 4
+baseModifier: "Allows user to function as vehicle: Speed 1, Handling -1, System Strain 2, Silhouette same as user.; Pack
+  can only travel in atmosphere up to 75 meters in altitude.; Operator uses Coordination skill for any relevant checks."
+modOptions:
+  - Increase Handling by 1.
+reference:
+  - FO:53

@@ -1,0 +1,17 @@
+id: eote-attachment-ad-1s-cargo-pod
+name: (AD-1S) Cargo Pod
+description: >-
+  Cargo Pod for AD-1S
+
+  The cargo pods for this craft are large, cylindrical affairs, designed for efficiency, not aesthetics. These pods can
+  even be retrofitted to carry passengers, though they do not make for comfortable quarters.
+useWith: vehicle
+hpRequired: 2
+rarity: 2
+baseModifier: +50 Encumbrance Capacity
+modOptions:
+  - +2 Passenger Capacity
+  - +2 Passenger Capacity
+  - +2 Passenger Capacity
+reference:
+  - SM:62

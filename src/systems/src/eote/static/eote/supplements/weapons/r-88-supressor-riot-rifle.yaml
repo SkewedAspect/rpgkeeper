@@ -1,0 +1,33 @@
+id: eote-weapon-r-88-supressor-riot-rifle
+name: R-88 Supressor Riot Rifle
+description: >-
+  Produced by the non-lethal weapons division of Merr-Sonn Munitions, the R-88 is one of the most common riot control
+  weapons in the galaxy. First released decades before the Clone Wars, the R-88 is similar in design and operation to
+  the rare and expensive Stokhli Spray Stick. These long arms resemble bulky blaster rifles with two large cylinders
+  slung beneath the barrel. The cylinders are loaded with a highly effective liquid nerve agent called Brix-C Stun
+  Fluid, which is synthesized by Merr-Sonn. When fired, the Suppressor shoots a high velocity, concentrated stream of
+  Brix-C that quickly aerosolizes as it travels. Effective at short and medium ranges, the stun fluid deals its damage
+  either through inhalation or skin contact and causes nausea, impaired vision, difficulty breathing, burning pain, and
+  unconsciousness.
+
+  While highly effective against sudden riots or other disturbances, the stun fluid is easily countered by breath masks
+  and heavy clothing. This makes it less effective against determined, well organized targets expecting such weapons. At
+  the GM's discretion, characters wearing breathing gear or sealed armor may take no damage or suffer no effects from
+  the Suppressor.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 0
+range: m
+encumbrance: 4
+hardpoints: 2
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 5
+  - id: eote-quality-disorient
+    ranks: 3
+  - id: eote-quality-stun-damage
+reference:
+  - FH:40

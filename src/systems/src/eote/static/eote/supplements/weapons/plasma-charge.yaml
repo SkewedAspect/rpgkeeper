@@ -1,0 +1,19 @@
+id: eote-weapon-plasma-charge
+name: Plasma Charge
+description: >-
+  These destructive devices generate high-temperature plasma shock waves. The shock waves shatter anything nearby, and
+  what is not destroyed by the shock waves is incinerated by the searing heat.
+
+  Plasma charges have the Burn 1 quality, and the quality increases by + 1 for every additional charge.
+skill: Mechanics
+damage: 6
+addSkill: true
+criticalRating: 0
+range: m
+encumbrance: 2
+hardpoints: 0
+rarity: 5
+restricted: true
+qualities: []
+reference:
+  - DC:55

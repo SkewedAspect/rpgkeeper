@@ -1,0 +1,24 @@
+id: eote-weapon-mk-ii-emp-grenade
+name: Mk II EMP Grenade
+description: Built by SoroSuub specifically for the GAR, the Mk II EMP grenade is the latest word in anti-droid weapons.
+  The size of a standard frag grenade, an EMP grenade releases a powerful electromagnetic pulse when it detonates,
+  instead of explosive force. This pulse incapacitates droids and can knock out even hardened electronic systems.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-disorient
+    ranks: 3
+  - id: eote-quality-ion
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - RotS:53

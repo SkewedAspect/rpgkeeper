@@ -1,0 +1,10 @@
+id: eote-talent-respected-delegate
+name: Respected Delegate
+description: The character downgrades the difficulty of social skill checks made to interact with government
+  institutions outside of their homeworld a number of times equal to their ranks in Respected Delegate.
+activation: p
+ranked: true
+forceTalent: false
+trees: Republic Representative, Senator
+reference:
+  - RotS:42

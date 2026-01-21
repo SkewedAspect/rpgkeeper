@@ -1,0 +1,10 @@
+id: eote-talent-freerunning
+name: Freerunning
+description: Suffer 1 strain when making a Move maneuver to move to any location within short range.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Courier, Racer
+reference:
+  - EV:30
+  - CaM:30

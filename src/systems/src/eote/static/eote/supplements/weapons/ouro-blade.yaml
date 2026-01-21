@@ -1,0 +1,28 @@
+id: eote-weapon-ouro-blade
+name: Ouro Blade
+description: >-
+  Even for the eccentric designs of ancient Thisspias, the Ouro Blade is a strange weapon, with a long curved blade that
+  arches out in a half-circle from the wielder's fists. Traditional fighting styles emphasize quick, cross-body slashes,
+  and a skilled fighter can inflict dozens of shallow, painful cuts on their opponent in a matter of moments. While
+  designed for off-hand use, the Ouro Blade is still effective as a primary weapon.
+
+  Despite its efficiency, changing attitudes on Thisspias sidelined the Oura Blade. Over time, the populace came to
+  associate it with the excesses of the Blood Monarch's Royal Guard. Many Thisspiasians shunned traditional weapons,
+  seeing them as shameful relics of bygone times. When Imperial governors outlawed the Blood Monarchy, that stance
+  changed. Thisspiasian Rebel groups chose weapons like the Ouro Blade as their gear of choice. The fallen Blood
+  Monarchy had become a poignant symbol of resistance.
+
+  After making a successful combat check with an Oura Blade, the wielder may spend <advantage></advantage> to inflict an
+  automatic hit on the target, doing the attack's base damage, and may do so multiple times.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - UP:50

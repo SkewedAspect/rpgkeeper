@@ -1,0 +1,11 @@
+id: eote-talent-its-not-that-bad
+name: It's Not that Bad
+description: Once per session when an ally would suffer a Critical Injury, may take an It's Not That Bad action; make a
+  **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Medicine check** to stop the ally
+  from gaining the Critical Injury.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Medic
+reference:
+  - A-CRB:150

@@ -1,0 +1,11 @@
+id: eote-talent-point-blank
+name: Point Blank
+description: Add 1 damage per rank of Point Blank to damage of one hit of successful attack while using Ranged (Heavy)
+  or Ranged (Light) skills at short range or engaged.
+activation: p
+ranked: true
+forceTalent: false
+trees: ARC Trooper, Commando, Death Watch Warrior, Gadgeteer, Marshal, Mercenary Soldier, Vanguard
+reference:
+  - E-CRB:141
+  - A-CRB:154

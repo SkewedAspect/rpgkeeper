@@ -1,0 +1,33 @@
+id: eote-weapon-svt-300-stun-cloak
+name: SVT-300 Stun Cloak
+description: >-
+  Koromondain SVT-300 Stun Cloak
+
+  At first glance, the Koromondain SVT-300 stun cloak appears to be nothing more than a typical thermal cloak with a
+  handsome metallic sheen. This sheen is produced by a series of special fibers that conduct a focused electrical charge
+  across the cloak’s surface. Once the cloak has been activated by depressing a stud in its clasp, anyone who comes into
+  contact with its exterior suffers an intense electrical discharge.
+
+  Though designed as a defensive weapon, the stun cloak can also be used offensively while grappling an opponent.
+
+  If the wielder of the stun cloak is hit by a melee or brawl attack, the attacker suffers 7 damage. This damage is
+  applied to the target’s strain threshold. This effect consumes one of the cloak’s payload of charges from its Limited
+  Ammo quality.
+
+  Once the cloak has expended its payload of three charges, the power source in its clasp must recharge for three
+  minutes before it can be used again.
+skill: Brawl
+damage: 7
+addSkill: false
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 3
+  - id: eote-quality-stun-damage
+reference:
+  - SoR:108

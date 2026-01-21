@@ -1,0 +1,11 @@
+id: eote-talent-master-artisan
+name: Master Artisan
+description: Once per round, may take the Master Artisan Incidental; suffer 2 strain to decrease the difficulty of next
+  Mechanics check by 1, to a minimum of **Easy (<difficulty></difficulty>)**.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Artisan, Droid Specialist, Shipwright
+reference:
+  - F-CRB:146
+  - FO:31

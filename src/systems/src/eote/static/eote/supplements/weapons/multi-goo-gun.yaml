@@ -1,0 +1,32 @@
+id: eote-weapon-multi-goo-gun
+name: Multi-Goo Gun
+description: >-
+  The multi-goo gun, an all-in-one spray injector, has a self-cleaning element that allows Technicians to switch out
+  lubricant, adhesive or acid cartridges with no loss in function. The device apeals to many machinists' natural
+  affinity for efficiency, enabling users to switch between substances quickly without stopping their work, rather than
+  having to stop, clean their spray injectors and load them with a new substance at each step of a project.
+
+  A character using this tool gains automatic <advantage></advantage> on Mechanics checks to repair droids, vehicles or
+  starships.
+
+  The GM may spend <threat></threat><threat></threat> or <despair></despair> on a Mechanics or combat check made using a
+  multi-goo gun to have all of its spray cartridges run out; it cannot be used at all untill refulled. A pack that
+  includes replacements for all three substances costs 20 credits and has a rarity of 2. Placing a refill pack in a
+  multi-goo gun requires an action.
+skill: Ranged (Light)
+damage: 2
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 2
+hardpoints: 1
+rarity: 1
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 1
+  - id: eote-quality-ensnare
+    ranks: 4
+  - id: eote-quality-knockdown
+reference:
+  - SM:45

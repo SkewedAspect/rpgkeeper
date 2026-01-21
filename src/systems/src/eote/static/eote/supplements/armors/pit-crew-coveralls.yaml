@@ -1,0 +1,24 @@
+id: eote-armor-pit-crew-coveralls
+name: Pit Crew Coveralls
+description: >-
+  Working as a mechanic in a pit crew, whether fixing lowly groundcars on a dusty Outer Rim backwater or maintaining
+  elaborate podracers in a high-end racing circuit, is a dirty job. It requires clothing that stands up to hard wear and
+  resists chemicals, fuels, lubricants, paints, welding spatter and anything else heavy work can throw at it. Pit crew
+  coveralls are thus ubiquitous wherever individuals work with racing machines or other powerful vehicles. These
+  garments are sturdy, one-piece suits that fit over regular clothes to protect both the clothes and the wearer. They
+  are typically made of sturdy, tear-proof textiles and secured with heavy-duty clasps and zippers. Most are flame
+  resistant and some can even be sealed up with a helmet to act as an emergency, limited-use environmental suit. No
+  matter the type, though, pit crew coveralls are always covered in pockets and hanging tabs that allow a wearer to
+  carry tools and parts with ease.
+
+  When wearing pit crew coveralls, a character reduces damage she suffers from fires and weapons with the Burn quality
+  by 1. In addition, wearing pit crew coveralls increases the character's encumbrance threshold by 1.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 1
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - EV:44

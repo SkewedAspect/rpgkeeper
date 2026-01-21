@@ -1,0 +1,13 @@
+id: eote-attachment-top-loading-magazine
+name: Top-Loading Magazine
+description: By switching out the standard single-bolt loading system for a cobbled-together "magazine" containing
+  numerous bolts, a skilled craftsperson can increase the number of rivets the gun can place per minute dramatically.
+  Some use this to apply rivets more rapidly to other sentient beings, though all manufacturers consider this to be
+  "user error".
+useWith: weapon
+hpRequired: 1
+rarity: 1
+baseModifier: Remove Limited Ammo quality
+modOptions: []
+reference:
+  - SM:46

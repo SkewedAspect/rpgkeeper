@@ -1,0 +1,20 @@
+id: eote-attachment-overcharged-power-cell
+name: Overcharged Power Cell
+description: Lightsabers are exceptionally efficient weapons, able to run nearly forever off a single basic power cell,
+  thanks to the remarkable focus of the kyber crystal installed within and the contained energy loop of the blade. As
+  such, tampering with a lightsaber's power cell and adjusting its output usually does more harm than good, as it upsets
+  the balance of a near-perfect system. Those who know what they are doing can sometimes overcharge the power cell of a
+  lightsaber to increase the power of the blade, but these changes make the power cell volatile, prone to causing
+  unpredictable fluctuations in the lightsaber's effects. When installed correctly, the effect of an overcharged power
+  cell is more often beneficial than it is a hindrance, but the mere possibility of the blade dimming at the wrong
+  moment dissuades some tinkerers from taking the risk.
+useWith: weapon
+hpRequired: 1
+rarity: 6
+baseModifier: Wielder can spend <advantage></advantage> from combat checks to increase damage by 1. GM can spend
+  <threat></threat><threat></threat> to decrease damage by 1.
+modOptions: []
+reference:
+  - EV:51
+includedModels:
+  - None; users must custom make each lightsaber attachment

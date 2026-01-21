@@ -1,0 +1,12 @@
+id: eote-talent-smooth-talker
+name: Smooth Talker
+description: When first acquired choose 1 skill; Charm, Coercion, Deception, or Negotiation. When making checks with
+  that skill spend <triumph></triumph> to gain additional <success></success> equal to ranks in Smooth Talker.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Advisor, Charmer, Gambler, Padawan Survivor, Performer, Quartermaster, Republic Representative, Sage, Trader
+reference:
+  - E-CRB:142
+  - A-CRB:156
+  - F-CRB:152

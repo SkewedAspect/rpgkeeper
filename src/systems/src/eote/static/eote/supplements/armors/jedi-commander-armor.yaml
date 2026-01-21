@@ -1,0 +1,23 @@
+id: eote-armor-jedi-commander-armor
+name: Jedi Commander Armor
+description: >-
+  The traditional robes of the Jedi are appropriate for their work as mediators and peacekeepers, but when leading
+  detachments of clone troopers, many Jedi have opted for additional protection to fit their new role. Although there is
+  no standard-issue Jedi armor, Republic armorers working with the Jedi Temple have modified clone trooper suits to meet
+  the needs of the Jedi generals on several occasions.
+
+  The most important laminate plates of the armor are fitted over a loose robe to make a garment that offers vital
+  protection in battle without compromising acrobatic lightsaber forms and Force-assisted maneuvers.
+
+  The silhouette and exact systems of the armor vary based on the Jedi commissioning the modifications, but the basic
+  designs are similar enough that the so-called "Jedi commander armor" is a recognizable sight across the battlefields
+  of the Clone Wars.
+defense: 1
+soak: 2
+hardpoints: 3
+encumbrance: 5
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - RotS:57

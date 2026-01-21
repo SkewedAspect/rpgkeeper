@@ -1,0 +1,22 @@
+id: eote-attachment-filed-front-sight
+name: Filed Front Sight
+description: An old assassin's trick, this is the simple act of removing the front sight of a blaster pistol by filing
+  it off. A common modification to holdout blasters (along with removing their serial numbers), filing down the weapon's
+  front sight allows it to be drawn more quickly from its holster, and reduces the possibility of it becoming snared on
+  clothing. Unfortunately, while this modification makes for easy concealment and drawing, it also reduces the weapon's
+  accuracy, as it effectively makes it impossible to aim with any amount of precision. This modification may only be
+  applied to pistol-sized weapons. Applying it oneself requires an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**; the cost is paying others to perform the
+  modification.
+useWith: weapon
+hpRequired: 1
+rarity: 0
+baseModifier: Increases the difficulty of combat checks to hit targets at ranges beyond Short range by one.; Gain Quick
+  Draw (draw/holster as incidental)
+modOptions:
+  - Decreases the difficulty of checks to conceal the weapon by one.
+reference:
+  - E-CRB:190
+  - A-CRB:201
+includedModels:
+  - None

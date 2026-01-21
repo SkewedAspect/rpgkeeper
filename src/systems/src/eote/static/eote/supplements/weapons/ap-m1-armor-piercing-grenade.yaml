@@ -1,0 +1,26 @@
+id: eote-weapon-ap-m1-armor-piercing-grenade
+name: AP-M1 Armor Piercing Grenade
+description: Merr-Sonn's AP-M1 armor piercing grenade is designed to give the common foot soldier light anti-armor
+  capabilities in the field. Roughly the size of a clone's fist, the AP-M1 consists of a small shaped charge core
+  encased in a plasteel casing. When it detonates, the grenade produces a highly focused blast that can crack open even
+  the toughest armor. The AP-M1 can be thrown like a standard grenade or placed and held in position by an integral
+  chemical adhesive system. This makes them well suited for precision demolition work as well as anti-vehicle and armor
+  use.
+skill: Ranged (Light)
+damage: 13
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 4
+reference:
+  - RotS:52

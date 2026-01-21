@@ -1,0 +1,28 @@
+id: eote-armor-mk-ix-personal-mimetic-concealment-suit
+name: Mk IX Personal Mimetic Concealment Suit
+description: >-
+  Cyricept Mk IX Mimetic Concealment Suit
+
+  Cyricept's Mk IX Personal Mimetic Concealment Suits use active stealth technologies combined with advanced textiles to
+  provide one of the best personal stealth suits available. When active, a mimetic suit uses an optical camouflage (OC)
+  system that bends light around the wearer and reflects back images of the surrounding area. This OC system is combined
+  with electromagnetic and heat shielding, sound bafflers, and other systems to render a wearer essentially invisible to
+  both the naked eye and most common security sensors. To run these systems, mimetic suits require a small, high-output
+  energy cell built into a belt or wristband. Mimetic suits consume energy at an extremely high rate, and a power pack
+  is good for about an hour of constant use. Like all mimetic suits, the Mk IX is illegal to own and to sell to
+  civilians. While they are primarily used by governmental intelligence and law enforcement agencies, many suits have
+  found their way into the hands of dangerous criminals throughout the galaxy.
+
+  Wearing a Mk IX Personal Mimetic Concealment Suit upgrades the ability of all Stealth checks made by the wearer twice.
+  In addition, the Game Master may spend <threat></threat><threat></threat><threat></threat> or <despair></despair> on
+  any Stealth check made by the wearer while the suit is active to have the suit's power pack run dry. The suit cannot
+  be used again until the power pack is replaced; replacing a power pack requires a maneuver.
+defense: 1
+soak: 1
+hardpoints: 1
+encumbrance: 2
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - CaM:42

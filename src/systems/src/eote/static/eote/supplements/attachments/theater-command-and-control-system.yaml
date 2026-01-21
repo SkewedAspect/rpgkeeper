@@ -1,0 +1,23 @@
+id: eote-attachment-theater-command-and-control-system
+name: Theater Command and Control System
+description: |-
+  Fitted to ships or vehicles of silhouette 4 or larger, a
+  theater command and control system (TCCS) grants a
+  commanding officer and staff incredible control over
+  large-scale conflicts. Using a combination of sensor
+  telemetry, tactical data links, and banks of powerful
+  processors, a TCCS takes in and analyzes battlespace
+  data to provide Alliance commanders with all of the
+  data needed to make good strategic decisions in battle.
+useWith: vehicle
+hpRequired: 2
+rarity: 6
+baseModifier: While active, force commander on the bridge upgrades the ability of all Mass Combat checks twice
+modOptions:
+  - Gain an additional <advantage></advantage> on Mass Combat checks
+  - Gain an additional <advantage></advantage> on Mass Combat checks
+  - Remove <setback></setback> from Mass Combat checks
+reference:
+  - LbE:59
+includedModels:
+  - Various models

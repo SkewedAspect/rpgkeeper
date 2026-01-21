@@ -1,0 +1,23 @@
+id: eote-weapon-anti-air-rockets
+name: Anti-Air Rockets
+description: ""
+skill: Gunnery
+damage: 4
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 2
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 4
+  - id: eote-quality-linked
+    ranks: 3
+reference:
+  - FiB:62

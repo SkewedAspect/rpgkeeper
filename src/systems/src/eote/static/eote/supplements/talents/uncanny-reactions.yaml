@@ -1,7 +1,12 @@
 id: eote-talent-uncanny-reactions
 name: Uncanny Reactions
-description: Add <boost></boost> per rank of Uncanny Reaction to all Vigilance checks.
+description: Add <boost></boost> per rank of Uncanny Reactions to all Vigilance checks.
 activation: p
 ranked: true
-trees: Seer
-reference: E-CRB:145
+forceTalent: true
+trees: Force Sensitive Emergent, Force Sensitive Exile, Force Sensitive Outcast, Force-Sensitive Outcast, Hunter,
+  Padawan Survivor, Seer, Sentry
+reference:
+  - E-CRB:145
+  - A-CRB:158
+  - F-CRB:153

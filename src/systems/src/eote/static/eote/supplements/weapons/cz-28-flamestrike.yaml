@@ -1,0 +1,26 @@
+id: eote-weapon-cz-28-flamestrike
+name: CZ-28 Flamestrike
+description: A direct and blatant copy of the Merr-Sonn CR-28 flame cannon, the CZ-28 Flamestrike heavy weapon is a
+  powerful flame projector with an effective range double that of standard flame projectors. This weapon is also about
+  twice the size and weight of an ordinary flame projector, and as such is usually vehicle-mounted. However, individuals
+  with the strength to wield it find few weapons as deadly and terrifying to their foes as a CZ-28 Flamestrike.
+skill: Gunnery
+damage: 9
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 8
+hardpoints: 3
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 9
+  - id: eote-quality-burn
+    ranks: 4
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - DC:45

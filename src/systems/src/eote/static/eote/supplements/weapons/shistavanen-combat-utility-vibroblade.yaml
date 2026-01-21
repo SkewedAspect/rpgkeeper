@@ -1,0 +1,29 @@
+id: eote-weapon-shistavanen-combat-utility-vibroblade
+name: Shistavanen Combat Utility Vibroblade
+description: >-
+  The wilds of Uvena Prime can be harsh and unforgiving, and have claimed countless Shistavanen hunters. For this
+  reason, Shistavanen survivalists devised an item with every conceivable tool necessary to survive in the wilderness
+  and in battle, dubbed the "Combat Utility Vibroblade". Shistavanens say that no respectable surivalist would be caught
+  dead without this handy gadget, though their opinion is often somwhat biased. Still, each C.U.V. is a custom
+  configuration, equipped with eight different tools of the owner's choosing, and as such these devices are extremely
+  useful in the wilds. Containing anything from a fire starter to a hydrospanner to a water contaminant detector, the
+  C.U.V. is many a survivalist's best friend.
+
+  The Combat Utility Vibroblade serves as a tool kit to allow Mechanics checks to repair devices and to "heal" droids,
+  but adds <setback></setback> to such checks. Additionally, it adds <boost></boost> to the character's Survival checks.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - FiB:48

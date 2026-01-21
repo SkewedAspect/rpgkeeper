@@ -1,0 +1,28 @@
+id: eote-weapon-crushgaunts
+name: Crushgaunts
+description: >-
+  Crushgaunts, also called shuk'orok in Mando'a, are strength-enhancing gloves designed centuries ago by the
+  Mandalorians. They are constructed from a reactive, polymer-enhanced material reinforced by beskar plates. When worn,
+  crushgaunts increase a wearer's grip strength to the point that they can shatter bone. crush durasteel, deflect
+  weapons, and perform other deadly feats of strength. Thanks to their peculiar construction and beskar reinforcement,
+  crushgaunts can even turn a lightsaber blade. 
+
+  A character wearing crushgaunts upgrades the ability of Brawn checks they make to grip, crush, or hold on to items one
+  time. A Game Master may spend <despair></despair> or <threat></threat> <threat></threat> <threat></threat> generated
+  on any checks made to crush or destroy something with crushgaunts to deal 2 wounds to the wearer.
+skill: Brawl
+damage: 4
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-cortosis
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - CotR:54

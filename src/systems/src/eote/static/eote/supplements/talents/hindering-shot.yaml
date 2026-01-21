@@ -1,0 +1,10 @@
+id: eote-talent-hindering-shot
+name: Hindering Shot
+description: Increase the difficulty of next Gunnery check by 1. If check deals damage, target starship or vehicle
+  suffers system strain equal to speed when it moves until the end of the encounter..
+activation: ai
+ranked: false
+forceTalent: false
+trees: Operator
+reference:
+  - ND:34

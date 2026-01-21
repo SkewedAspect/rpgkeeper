@@ -1,0 +1,21 @@
+id: eote-attachment-tracking-system
+name: Tracking System
+description: Through a series of specialized computer systems and sensors, this attachment collects and processes data
+  from the wearer's surroundings to follow and predict the movements of designated targets. A heads-up display
+  integrated into a helmet or visor feeds the wearer this information onto an overly of their surroundings. The systems
+  are not limited to local targets, either, but can follow signals from distant communicators or tags and process
+  optimal routes towards them. Tracking systems in armor are typically designed to operate alongside similar equipment,
+  and are often able to integrate with other systems to a greater effect than the sum of their parts. This attachment
+  can be installed on any armor.
+useWith: armor
+hpRequired: 1
+rarity: 7
+baseModifier: As a maneuver, may designate a target for tracking. Only one target may be designated at a time.; Upgrade
+  the ability of checks to track a designated target once.
+modOptions:
+  - Add <boost></boost> to Vigilance checks
+  - Add <boost></boost> to Survival checks
+reference:
+  - ND:52
+includedModels:
+  - Galkor Solutions W-7 Locator Array

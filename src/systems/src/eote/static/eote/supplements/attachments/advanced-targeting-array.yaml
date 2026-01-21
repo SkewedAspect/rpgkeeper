@@ -1,0 +1,23 @@
+id: eote-attachment-advanced-targeting-array
+name: Advanced Targeting Array
+description: The Sureshot Advanced Targeting Array by Taim Bak is a good example of a targeting computer, using
+  sophisticated holo-imaging to present a pilot or gunner a detailed, three-dimensional view of his target. Installation
+  of the ATA increases the accuracy of a ship's weapons, and allows gunners to get more shots on target, increasing
+  their effectiveness in combat. This may be applied to all starships and vehicles.
+useWith: vehicle
+hpRequired: 1
+rarity: 4
+baseModifier: Upgrade Gunnery check ability dice
+modOptions:
+  - Upgrade Gunnery check ability dice
+  - Gain Sniper Shot (increase range at cost of difficulty)
+  - Gain True Aim (gain <boost></boost> per aim maneuver)
+reference:
+  - E-CRB:269
+  - A-CRB:286
+  - F-CRB:269
+includedModels:
+  - Taim & Bak LR-375a "Sureshot" Advanced Targeting Array
+  - Fabritech KR-770 "Sharpshooter Targeting Computer
+  - Koensayr Manufacturing 840.z Holo-Targeting Suite
+  - Fabritech ANx 42.a "Snapshot" Targeting Computer

@@ -1,0 +1,30 @@
+id: eote-weapon-incendiary-grenade
+name: Incendiary Grenade
+description: >-
+  Incendiary Grenade
+
+  Highly restricted and banned on most civilized worlds, incendiary grenades are anti-personnel grenades that cause
+  damage with fire and heat rather than with an explosive charge. A typical incendiary grenade is filled with a sticky,
+  volatile gel that bursts into flames upon contact with oxygen or when catalyzed by the grenade's small explosive
+  charge. When incendiary grenades detonate, the burning gel sticks to enemy troops and structures alike. causing
+  terrible wounds and starting fires throughout the blast radius.
+
+
+  **Models Include:** Wynz-Tek Mk IV Firestorm, Merr-Sonn D-24 Inferno Grenade.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 5
+  - id: eote-quality-burn
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference: KoF:45

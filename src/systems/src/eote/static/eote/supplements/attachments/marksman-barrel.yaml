@@ -1,0 +1,23 @@
+id: eote-attachment-marksman-barrel
+name: Marksman Barrel
+description: Merr-Sonn's KX765 Marksman Barrel was designed to meet the needs of the finger for whom long-range accuracy
+  is a necessity. Popular among bounty hunters and assassins, this barrel is nearly two meters long and made of
+  lightweight materials. It features upgraded static pulse adapters as well as a denser galven circuitry pattern that
+  not only increases the weapon's range, but also its accuracy. The trade-off for this increased range and accuracy is a
+  weapon that's slightly awkward to use and nearly impossible to conceal due to the length of the barrel. This
+  modification may only be applied to blaster rifles.
+useWith: weapon
+hpRequired: 2
+rarity: 4
+baseModifier: +1 Range Band; Cumbersome 2
+modOptions:
+  - Gain Sniper Shot (increase range at cost of difficulty)
+  - Accurate +1
+  - Accurate +1
+reference:
+  - E-CRB:190
+  - A-CRB:202
+includedModels:
+  - Merr-Sonn KX756 Marksman Barrel
+  - SoroSuub WQ80 "Long-shot" Barrel
+  - Arakyd 3300 Hawkeye Sharpshooter's Barrel

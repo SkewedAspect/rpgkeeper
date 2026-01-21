@@ -1,0 +1,17 @@
+id: eote-attachment-kiirium-coating
+name: Kiirium Coating
+description: An obselete shielding material once processed in abundance in the Si'klaata Cluster, kiirium was at one
+  time vital to the manufacture of heavy weapons and starships. While largely supplanted by cheaper, more durable
+  alloys, kiirium has properties that make it useful to armorsmiths, who can apply a coating of kiirium to armored
+  plating as a relatively effective thermal shielding. This attachment can only be applied to armor that has hard or
+  solid parts around which the allow can be coated, such as with laminate armor, heavy battle armor, and similar types
+  of armor at the GM's discretion.
+useWith: armor
+hpRequired: 2
+rarity: 7
+baseModifier: +1 soak vs. blaster and flame attacks
+modOptions:
+  - Decrease the difficulty of Resilience checks made to resist the effects of fire and extreme heat by 1
+  - Decrease the difficulty of Resilience checks made to resist the effects of fire and extreme heat by 1
+reference:
+  - KtP:56

@@ -1,0 +1,19 @@
+id: eote-armor-smugglers-trenchcoat
+name: Smuggler's Trenchcoat
+description: >-
+  Every smuggler gets searched; that part of the job is inevitable. Some smugglers, however, take the tact that if they
+  simply have enough hidden compartments, at least a few will inevitably go unsearched. The smuggler's trenchcoat
+  addresses this strategy, and is covered with pockets, minor compartments, and pouches within pouches to confound any
+  search.
+
+  Checks made to find anything hidden within a smuggler's trenchcoat while it is being worn are opposed by the
+  Skulduggery of the wearer. The coat can conceal up to 2 encumbrance worth of items.
+defense: 1
+soak: 1
+hardpoints: 0
+encumbrance: 3
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - FC:47

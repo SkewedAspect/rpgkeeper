@@ -1,0 +1,10 @@
+id: eote-talent-disarming-smile
+name: Disarming Smile
+description: Take the Disarming Smile action; succeed at an opposed Charm check to lower all defenses of a target by
+  ranks in Disarming Smile until the end of the encounter.
+activation: aa
+ranked: true
+forceTalent: false
+trees: Charmer
+reference:
+  - FC:32

@@ -1,0 +1,12 @@
+id: eote-talent-precision-strike
+name: Precision Strike
+description: When this character inflicts a Critical Injury with a Brawl, Melee, or Lightsaber weapon, may suffer 1
+  strain to change the result to any **Easy (<difficulty></difficulty>)** Critical Injury result.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Force Adherent, Martial Artist, Steel Hand Adept, Warden
+reference:
+  - KtP:31
+  - ND:35
+  - KoF:31

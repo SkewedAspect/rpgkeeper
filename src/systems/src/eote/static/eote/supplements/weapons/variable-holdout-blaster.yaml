@@ -1,0 +1,28 @@
+id: eote-weapon-variable-holdout-blaster
+name: Variable Holdout Blaster
+description: >-
+  The variable holdout blaster is a sleek, easily concealable design with a variable power setting. The pistol has been
+  popular with spies, informants, and covert Rebels on the planet of Ord Gimmel for some time. The power level of the
+  weapon’s blast is adjustable, allowing for more or less damage capacity as desired by the user. The tradeoff for the
+  weapon’s combination of utility and concealability is that the pistol’s power cell is limited.
+
+  When firing the weapon, the pistol’s wielder must choose a power setting between 1 and 7. This is the amount of damage
+  a successful shot inflicts on a target, but it is also the amount of ammo that is consumed for the shot. If set to a
+  power setting higher than the available ammo left, the weapon deals damage equal to the amount of ammo remaining.
+
+  Anyone searching an individual carrying a concealed variable holdout blaster adds <setback></setback> to their
+  Perception checks.
+skill: Ranged (Light)
+damage: 7
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 12
+reference:
+  - SoR:104

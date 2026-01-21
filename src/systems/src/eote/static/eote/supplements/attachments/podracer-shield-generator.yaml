@@ -1,0 +1,26 @@
+id: eote-attachment-podracer-shield-generator
+name: Podracer Shield Generator
+description: >-
+  Most Podracers, whether custom-built racers or one of the many factory customs, mount a small, low-output shield
+  generator in the cockpit. These shield generators are thin and cover primarily the very front. They only protect the
+  driver, and only from exhaust wash from the engines and from debris kicked up from the track surface or flung at the
+  racer by spectators (or other racers). They provide no protection to to the vehicle itself and are generally worthless
+  in the event of a crash or other catastrophic event.
+
+  Some racers, though, value personal safety over tradition, running powerful, full-spectrum shield generators that
+  protect the entire vehicle. These are usually built specifically for Podracing and are tuned for the kinds of
+  environments typically found on Podrace courses. Racing teams that are too poor or too old-fashioned to use
+  factory-built generators still use salvaged units pulled from wrecked starfighters or emplacement shield generators.
+useWith: vehicle
+hpRequired: 1
+rarity: 4
+baseModifier: Set Fore Defense
+modOptions:
+  - +1 Defense Zone
+reference:
+  - EV:59
+includedModels:
+  - Novaldex GA21 Shield Generator
+  - Chempat CED8089Y Shields
+  - Keizar-Volvec Mk VIII Safety Shield
+  - BGRE "Bug Smasher" Shield

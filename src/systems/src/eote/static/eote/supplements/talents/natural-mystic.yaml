@@ -1,0 +1,9 @@
+id: eote-talent-natural-mystic
+name: Natural Mystic
+description: Once per session, may reroll any 1 Force power check.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Seer
+reference:
+  - F-CRB:148

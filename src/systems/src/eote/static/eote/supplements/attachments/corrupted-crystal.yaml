@@ -1,0 +1,25 @@
+id: eote-attachment-corrupted-crystal
+name: Corrupted Crystal
+description: Even the best of the Jedi can fall. The Empire scours the galaxy looking for the Force sensitives to enfold
+  in the dark side. Untutored pupils wander far from the light, lost on dark paths from which they may never return.
+  Many of them have either found or constructed lightsabers of their own with such crystals as they could and, in the
+  course of their fall or their time astray, have committed heinous acts suffused with the dark side of the Force. They
+  bend the kyber crystals in their lightsabers to their will, leading to the bloody red hue or are redeemed, they leave
+  behind a weapon and a crystal strongly associated with the dark side of the Force. These crystals must be purged of
+  their evil to avoid letting them fall into other hands and corrupt them as well. Thus, a Force user may take on the
+  task of reclaiming these crystals. A corrupted crystal is a lightsaber crystal.
+useWith: weapon
+hpRequired: 2
+rarity: 9
+baseModifier: Damage set to 6; Critical set to 2; Breach 1; Sunder 1; Vicious 2; When character wielding this lightsaber
+  makes a Force check, add [DA] to the check; When wielder's Morality rises to 70 or more, [DA] is no longer added to
+  Force checks, and the crystal loses the Vicious quality
+modOptions:
+  - +1 Damage
+  - +1 Damage
+  - -1 Critical
+  - Vicious +1
+  - -1 Vicious
+  - -1 Vicious
+reference:
+  - DoH:52

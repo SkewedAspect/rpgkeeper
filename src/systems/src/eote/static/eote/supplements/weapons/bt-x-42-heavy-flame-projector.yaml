@@ -1,0 +1,32 @@
+id: eote-weapon-bt-x-42-heavy-flame-projector
+name: BT X-42 Heavy Flame Projector
+description: >-
+  The BT X-42 heavy flame projector, from BlasTech, is one of the most destructive and terrifying weapons in the GAR's
+  arsenal. Carried by specially trained clone Flame troopers, this weapon is used primarily against massed, unarmored
+  opponents in an anti-personnel role. It is also well suited to clearing rooms and bunkers, denying areas, and
+  destroying enemy materiel.
+
+  Like most flame projectors, the X-42 can he as dangerous to friends as to enemies and has a nasty reputation for
+  overheating or even exploding when damaged
+
+  Game Masters can spend <threat></threat><threat></threat><threat></threat> to cause the weapon to overheat, leaving it
+  inoperable for three turns, or <despair></despair> to have the weapon explode. An exploding X-42 deals full damage to
+  the user and Blast damage to anything engaged with them.
+skill: Gunnery
+damage: 10
+addSkill: false
+criticalRating: 2
+range: m
+encumbrance: 6
+hardpoints: 2
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-burn
+    ranks: 4
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - RotS:52

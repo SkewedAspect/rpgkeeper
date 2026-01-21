@@ -1,0 +1,10 @@
+id: eote-talent-spitfire
+name: Spitfire
+description: After a successful combined check with two Ranged (Light) weapons, additional hits can be allocated to
+  other targets within range of the weapon.
+activation: p
+ranked: false
+forceTalent: false
+trees: Gunslinger
+reference:
+  - FC:33

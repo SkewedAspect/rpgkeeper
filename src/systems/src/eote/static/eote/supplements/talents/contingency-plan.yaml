@@ -1,0 +1,10 @@
+id: eote-talent-contingency-plan
+name: Contingency Plan
+description: Spend 1 Destiny Point to recover strain equal to Cunning rating.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Advisor, Advocate
+reference:
+  - F-CRB:141
+  - DA:33

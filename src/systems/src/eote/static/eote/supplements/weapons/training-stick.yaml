@@ -1,0 +1,29 @@
+id: eote-weapon-training-stick
+name: Training Stick
+description: >-
+  The Jedi have used lightsabers for so long that most forget there may have been a time when they had no access to
+  energy weapons. However, on worlds with Force traditions but no ready access to energy weapons, other devices were
+  used. The so-called “training stick” looks to be nothing more than a simple walking stick, but is perfectly balanced
+  to be used as a duelist’s weapon. Although most commonly found in the hands of an apprentice, some master
+  sword-fighters prefer the simple training stick as a non-lethal weapon that, to the untrained eye, appears to be
+  nothing more than an elder's cane.
+
+  This weapon appears to be a harmless cane. Add <setback></setback><setback></setback><setback></setback> to a
+  character's Perception or Vigilance checks to discern this weapon’s true nature.
+skill: Lightsaber
+damage: 1
+addSkill: true
+criticalRating: 5
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-disorient
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - NoP:104

@@ -1,0 +1,12 @@
+id: eote-talent-targeted-firepower
+name: Targeted Firepower
+description: Once per session may take Targeted Firepower action; identify one enemy target and make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Knowledge (Warfare) check**. If
+  successful, for the rest of the encounter allies within short range of character add <advantage></advantage> to
+  attacks against target equal to <success></success> gained in the check.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Imperial Academy Cadet
+reference:
+  - DoR:116

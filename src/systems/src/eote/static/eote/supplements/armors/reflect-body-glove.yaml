@@ -1,0 +1,24 @@
+id: eote-armor-reflect-body-glove
+name: Reflect Body Glove
+description: >-
+  Effective body armor is conspicuous. Good armor certainly provides an intimidation factor in addition to security, but
+  it risks setting the wrong tone for a tenuous negotiation. For those times when appearances are as important as
+  security, armor that is much less noticeable-even if it is less protective-is a necessary compromise.
+
+  A reflect body glove is a skintight suit that can be worn underneath traditional garments. It incorporates a
+  reflective weave that is capable of dispersing the blasts from an energy weapon. The thin layer of tight weave is
+  fragile, however, particularly for suit of armor.
+
+  Add <setback></setback><setback></setback> to Vigilance and Perception checks to notice that the wearer is wearing a
+  reflect body glove. After a successful combat check has been resolved against the wearer, the reflect body glove's
+  soak is reduced by one, to a minimum of zero. The reflect body glove's soak may be restored to its original value by
+  making a successful **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**.
+defense: 0
+soak: 3
+hardpoints: 0
+encumbrance: 2
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - DoH:46

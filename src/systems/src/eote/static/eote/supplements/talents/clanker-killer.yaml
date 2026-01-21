@@ -1,0 +1,11 @@
+id: eote-talent-clanker-killer
+name: Clanker Killer
+description: Before rolling a combat check that targets a droid (including a droid vehicle or a vehicle piloted by a
+  droid), the character may remove <boost></boost> up to their ranks in Clanker Killer from the pool, and add an equal
+  number of <success></success> or <advantage></advantage> (in any combination) to the results.
+activation: ai
+ranked: true
+forceTalent: false
+trees: ARC Trooper, Clone Commander, Clone Officer, Clone Pilot, Clone Trooper, Clone Veteran
+reference:
+  - RotS:38

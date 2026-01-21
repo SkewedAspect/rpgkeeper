@@ -1,0 +1,9 @@
+id: eote-talent-up-the-ante
+name: Up the Ante
+description: When gambling win 10% more credits per rank of Up the Ante.
+activation: p
+ranked: true
+forceTalent: false
+trees: Gambler
+reference:
+  - FC:33

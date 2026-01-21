@@ -1,0 +1,24 @@
+id: eote-weapon-mini-rocket-launcher
+name: Mini-Rocket Launcher
+description: A scaled-down missile for use in the mini-missile tube and banks mounted to vehicles of silhouette 2 or 3.
+  See **Table 2-8** for specific types.
+skill: Gunnery
+damage: 3
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 1
+  - id: eote-quality-breach
+    ranks: 2
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 5
+reference:
+  - DC:63

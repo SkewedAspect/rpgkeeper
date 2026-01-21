@@ -1,0 +1,10 @@
+id: eote-talent-offensive-driving
+name: Offensive Driving
+description: As a maneuver, suffer system strain up to vehicle's highest defense to upgrade the difficulty of target's
+  next Piloting check that many times.
+activation: am
+ranked: false
+forceTalent: false
+trees: Operator
+reference:
+  - ND:35

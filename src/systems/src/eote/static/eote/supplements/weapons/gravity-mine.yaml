@@ -1,0 +1,24 @@
+id: eote-weapon-gravity-mine
+name: Gravity Mine
+description: >-
+  Gravity mines are another non-lethal type of mine designed to interfere with a ship's systems rather than destroy it,
+  When they detonate, gravity mines release a powerful localized gravitic field bubble out to long range. Gravity mines
+  are typically deployed around space stations and other sensitive areas, and are often used along with orbital weapon
+  emplacements.
+
+  After the mine detonates, it creates a gravitic bubble out to long range; ships cannot enter hyperspace until they use
+  the recuired maneuvers to travel beyond the bubble.
+skill: Mechanics
+damage: 2
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:64

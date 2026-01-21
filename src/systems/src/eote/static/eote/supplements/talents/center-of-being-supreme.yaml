@@ -1,0 +1,10 @@
+id: eote-talent-center-of-being-supreme
+name: Center of Being (Supreme)
+description: When the character performs the Center of Being maneuver, until the beginning of their next turn, ranged
+  weapons also treat their critical rating as one higher per rank of Center of Being when attacking the character.
+activation: p
+ranked: false
+forceTalent: true
+trees: Master
+reference:
+  - CotR:37

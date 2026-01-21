@@ -1,0 +1,26 @@
+id: eote-weapon-morgukai-cortosis-staff
+name: Morgukai Cortosis Staff
+description: >-
+  Relics of the Morgukai, an ancient Nikto warrior society that hunted Jedi and Sith alike, these weapons are
+  exceedingly rare. Crafted using lightsaber-resistant cortosis ore, the staves emit energy blades very similar to those
+  of lightsabers. The Morgukai were declared an outlawed religious cult by the Galactic Empire and have long been
+  thought extinct like the Jedi they once fought.
+
+  The cortosis staff requires two hands to wield.
+skill: Melee
+damage: 8
+addSkill: false
+criticalRating: 1
+range: en
+encumbrance: 3
+hardpoints: 0
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-cortosis
+  - id: eote-quality-defensive
+    ranks: 1
+reference:
+  - LoNH:104

@@ -1,0 +1,10 @@
+id: eote-talent-a-step-ahead
+name: A Step Ahead
+description: Once per session, the character may suffer 2 strain in order to count his Cunning as one higher than normal
+  for the remainder of the encounter.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Sleeper Agent
+reference:
+  - CaM:30

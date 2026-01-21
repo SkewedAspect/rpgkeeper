@@ -1,0 +1,8 @@
+id: eote-quality-inaccurate-quality
+name: Inaccurate Quality
+description: Inaccurate weapons are weapons of a shoddy or inferior construction which means they are less likely to be
+  accurate or precise. Alternatively, the weapon’s nature may inhibit accuracy. Inaccurate weapons add
+  <setback></setback> to the attacker’s dice pool equal to their Inaccurate rating.
+passive: true
+ranked: true
+reference: []

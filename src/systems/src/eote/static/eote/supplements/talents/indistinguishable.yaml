@@ -1,0 +1,11 @@
+id: eote-talent-indistinguishable
+name: Indistinguishable
+description: Upgrade difficulty of checks to identify character once per rank of Indistinguishable.
+activation: p
+ranked: true
+forceTalent: false
+trees: Ambassador, Courier, Force Sensitive Emergent, Shadow, Thief
+reference:
+  - E-CRB:137
+  - A-CRB:149
+  - F-CRB:145

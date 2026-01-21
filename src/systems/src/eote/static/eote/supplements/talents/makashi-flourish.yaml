@@ -1,0 +1,11 @@
+id: eote-talent-makashi-flourish
+name: Makashi Flourish
+description: Once per encounter, perform Makashi Flourish action. Make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Lightsaber (Presence) check**. 1 engaged opponent suffers strain
+  equal to <success></success>, and heal an equal amount of strain.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Makashi Duelist
+reference:
+  - F-CRB:146

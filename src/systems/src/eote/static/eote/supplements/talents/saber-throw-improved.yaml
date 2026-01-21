@@ -1,0 +1,10 @@
+id: eote-talent-saber-throw-improved
+name: Saber Throw (Improved)
+description: When performing the Saber Throw action, may increase the range to long range. When attacking a target at
+  long range, spend <forcepoint></forcepoint><forcepoint></forcepoint> to have weapon return to hand.
+activation: p
+ranked: false
+forceTalent: true
+trees: Sentry
+reference:
+  - EV:31

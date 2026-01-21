@@ -1,0 +1,16 @@
+id: eote-attachment-dart-gun
+name: Dart Gun
+description: This is a simple device that uses springs or compressed air to fire a tiny alloy dart. While they do very
+  little damage, these darts can be coated with a number of exotic substances, from sedatives to extremely lethal
+  toxins. Dart guns are often concealed in comlinks, glow rods, cigarras, and other cylindrical items, but they can be
+  used anywhere for both offensive and defensive purposes.
+useWith: weapon
+hpRequired: 0
+rarity: 4
+baseModifier: "Enable the item to fire a single dart with the following profile: (Ranged [Light]: Damage 2; Critical 5;
+  Range [Short]; Limited Ammo 1, Pierce 1)."
+modOptions: []
+reference:
+  - CaM:59
+includedModels:
+  - Various models

@@ -1,0 +1,40 @@
+id: eote-weapon-ld-1-target-rifle
+name: LD-1 Target Rifle
+description: >-
+  Merr-Sonn's LD-1 is the company's latest foray into the highly competitive long-range blaster market. It is an
+  elegant, well built blaster rifle featuring a precision barrel, lightweight skeleton stock, and minimal foilfiber
+  reinforced polycarbonate furniture. The weapon's firing mechanism is a slightly detuned version of Merr-Sonn's
+  military-grade blaster system giving the rifle pinpoint accuracy and an incredible punch at extreme range. The LD-1 is
+  also equipped with a Mk. 19 computer-aided macroscope with various optical enchancements and an Autosteady gyro-gimbal
+  system to increase the weapon's performance at long and extreme ranges. It is easily disassembled and is sold with a
+  custom-fit carrying case for transporting the rifle around in a relatively discreet fashion.
+
+  Since its introduction, the LD-1 has become wildly popular. Its performance, power, and build quality are nearly
+  unmatched in its segment. These qualities—combined with its official classification as a sporting blaster, which
+  allows it to circumvent most weapon restrictions in the galaxy—have driven the LD-1 to consistently outsell the older
+  SoroSuub X-45. In addition, aggressive marketing by Merr-Sonn and regular appearances on a popular HoloNet adventure
+  drama proggram have established the LD-1 firmly in both military and popular culture.
+
+  It is rumored that a variant called the LD-1a is produced in small numbers for the Imperial Security Bureau. The truth
+  of these rumors has yet to be verified, but if there is a special ISB version of the LD-1, it would sell for a Moff's
+  ransom on the black market should one ever appear there.
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 4
+range: ex
+encumbrance: 6
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 2
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 3
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - EV:40

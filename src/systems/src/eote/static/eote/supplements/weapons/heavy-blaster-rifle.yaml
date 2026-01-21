@@ -1,0 +1,25 @@
+id: eote-weapon-heavy-blaster-rifle
+name: Heavy Blaster Rifle
+description: >-
+  Hunters and snipers often carry blaster rifles loaded with particularly powerful accelerant gas, advanced XCiter
+  technology, large focusing crystals, or some combination of all three. They're designed to fire extremely powerful
+  bolts at large or heavily armored targets and can fire rapid bursts of shots. Heavy blaster rifles are also excellent
+  for sniping humanoid targets. The massive damage they cause sends a powerful message to the victim's associates.
+
+  **Models Include**: BlasTech DLT-19, BlasTech RT-97C Heavy Blaster Rifle.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 6
+hardpoints: 4
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 3
+reference:
+  - E-CRB:162
+  - A-CRB:176

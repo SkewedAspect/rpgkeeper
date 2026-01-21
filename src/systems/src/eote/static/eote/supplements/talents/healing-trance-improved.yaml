@@ -1,0 +1,10 @@
+id: eote-talent-healing-trance-improved
+name: Healing Trance (Improved)
+description: When healing wounds due to Healing Trance, make a Resilience check to heal a Critical Injury. Difficulty of
+  the check equals severity of the Critical Injury.
+activation: p
+ranked: false
+forceTalent: true
+trees: Healer, Magus
+reference:
+  - F-CRB:144

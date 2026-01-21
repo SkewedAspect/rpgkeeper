@@ -1,0 +1,10 @@
+id: eote-talent-preemptive-intervention
+name: Preemptive Intervention
+description: Immediately after an opponent moves to engage an ally within short range of the character, the character
+  may spend one Destiny Point to engage with that opponent as an out-of-turn incidental.
+activation: aio
+ranked: false
+forceTalent: true
+trees: General
+reference:
+  - CotR:42

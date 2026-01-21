@@ -1,0 +1,22 @@
+id: eote-attachment-droid-brain-detonator
+name: Droid Brain Detonator
+description: >-
+  Weapons manufacturers, combat engineers, and sabotage specialists are constantly inventing new triggers and detonators
+  for explosive devices of all kinds, in order to provide for every conceivable situation. One of the most sophisticated
+  and uncommon triggers makes use of an actual droid brain. Whereas timers, proximity detectors, and other common
+  detonators are all effective within their narrow parameters, a droid brain is adaptable for nearly any situation or
+  plan. A droid brain is able to abide by extremely specific trigger conditions and to follow complex instructions. For
+  instance, users might instruct a detonite charge to wait thirty minutes after several specific individuals have
+  entered a facility before igniting, or tell their frag grenade to avenge them should they fall in battle.
+
+  Droid brain detonators are intensely loyal, even by droid standards, but they tend to develop distinct personality
+  quirks over their relatively short existences. Some are annoyingly chipper and enthusiastic, perhaps owing to
+  additional layers of obedience programming, while others exhibit anything from childlike naivete to nihilistic
+  moroseness. This attachment can be applied to any grenade or explosive device.
+useWith: weapon
+hpRequired: 0
+rarity: 4
+baseModifier: Explosive's detonator is controlled by a droid brain that can activate under any predetermined circumstance.
+modOptions: []
+reference:
+  - FO:51

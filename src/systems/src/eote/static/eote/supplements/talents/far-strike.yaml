@@ -1,0 +1,10 @@
+id: eote-talent-far-strike
+name: Far Strike
+description: As an action, make a Brawl check as a ranged attack, adding [FO] up to Force rating, increase the range of
+  the attack by one band for each <forcepoint></forcepoint> spent, to a maximum of long.
+activation: aa
+ranked: true
+forceTalent: true
+trees: Steel Hand Adept
+reference:
+  - KoF:30

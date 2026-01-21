@@ -1,0 +1,51 @@
+id: eote-weapon-model-38-sharpshooters-rifle
+name: Model 38 Sharpshooter's Rifle
+description: >-
+  For millennia, Czerka Arms has maintained a reputation as a purveyor of fine arms and armor for both the military and
+  civilian markets. While they have an impressive and diversified catalog of offensive and defensive products ranging
+  from sporting blasters and vibroblades to flame cannons and combat droids, they are perhaps best known for producing a
+  successful line of fine slugthrowing pistols and rifles.
+
+  A throwback to a more primitive age, slugthrowers are considered anachronistic and unwieldy by most sentients.
+  However, Czerka's line of slugthrowers, which they refer to as "Legacy Arms," has proven modestly successful,
+  especially among the beings of the Outer Rim. Some of their Legacy Arms clients are collectors or historians, others
+  are farmers or colonists who appreciate the affordability and ruggedness of these firearms, and some simply prefer the
+  visceral noise and flash of a chemical-propelled slug over the cool precision of a blaster. Whatever their reasons,
+  whether preference or necessity, Czerka is the popular choice for slugthrowers.
+
+  One of Czerka's more popular Legacy Arms is the Model 38 Sharpshooter's Rifle. Marketed to hunters, and tacitly to
+  snipers and assassins, the Model 38 is an extremely powerful, accurate, long-range rifle with incredible destructive
+  potential. A long and finely crafted weapon, each Model 38 is custom built to the customer's specifications. It
+  chambers a powerful, large-caliber round with a specially coated penetrating bullet that can pierce even the toughest
+  hides. The rifle is operated by means of a simple and rugged bolt action and fed by a five-round detachable clip.
+  Their stocks and other furniture are typically either light-weight composites or polished, exotic hardwoods, depending
+  on the customer's tastes.
+
+  New rifles must be ordered in person from a certified Czerka Arms dealer, at which time the customer is measured for
+  fit and his shooting style is analyzed in an on-site simulator. This allows the Czerka Arms rep to determine the best
+  possible configuration for the rifle in relation to its new owner and to offer advice on further customization.
+
+  Once the rifle is completed and delivered, it is as closely matched to the new shooter's stance, stature, and habits
+  as art and artifice can make it. This makes the rifles incredibly accurate at any range, as the custom fit and frame
+  makes the Model 38 point and shoot as if it were an extension of the shooter's body. Most Model 38 rifles in the Outer
+  Rim are owned by hunters and marksmen for hire who ordered them directly from Czerka. There are some of these highly
+  prized rifles on the used market, although they typically need serious modification before a new owner can use them to
+  their full potential. If purchased used, a Czerka Model 38 loses the Accurate 2 quality until the rifle can be
+  modified to fit the new shooter (requiring a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check**).
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 5
+hardpoints: 4
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 2
+  - id: eote-quality-pierce
+    ranks: 3
+reference:
+  - EtU:40

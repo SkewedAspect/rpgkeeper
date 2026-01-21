@@ -1,0 +1,33 @@
+id: eote-weapon-assault-concussion-missile-launcher
+name: Assault Concussion Missile Launcher
+description: >-
+  The assault concussion missile is a capital ship grade concussion missile in use by capital ships. Exponentially more
+  powerful than smaller versions commonly used on starfighters, these heavy missiles are primarily used for planetary
+  bombardment and anti-capital ship duty.
+
+  A standard assault concussion missile could severely damage a capital ship, with rarely more than a handful being
+  needed to destroy a target completely.
+skill: Gunnery
+damage: 7
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-breach
+    ranks: 5
+  - id: eote-quality-guided
+    ranks: 2
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 3
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - Age of Reb:188

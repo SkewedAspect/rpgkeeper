@@ -1,0 +1,23 @@
+id: eote-attachment-spy-droid-brain
+name: Spy Droid Brain
+description: >-
+  One of the more common modifications made to the Sheathipede-class is the replacement of the crew and flight deck with
+  an integrated pilot droid brain. This increases the shuttle’s legroom and lifting capacity, and improves both safety
+  and efficiency. Droid-brain shuttles are typically used on CIS bases, where they cover commonly used flight paths and
+  provide regular ferry service. A few have also been packed full of sensors and electronic warfare/signals intelligence
+  gear and sent into Republic territory to spy on fleet movements. These spy shuttles are equipped with cutting-edge
+  technology and a powerful self-destruct system, which they use in case of imminent capture.
+
+  An automated Sheathipede-class shuttle can carry two additional passengers and has an encumbrance capacity of 100.
+
+  A spy ship has a sensor range of long, carries no passengers, and gains Computers 3, Perception 3, and Stealth 3. The
+  ship’s sensor package grants it <advantage></advantage> on any rolls made to intercept communications.
+
+  This attachment is limited to the Sheathipede-class shuttle.
+useWith: vehicle
+hpRequired: 0
+rarity: 6
+baseModifier: Adds a Droid Brain with Computers 3, Perception 3, and Stealth 3.; Sets sensor range to Long.
+modOptions: []
+reference:
+  - RotS:74

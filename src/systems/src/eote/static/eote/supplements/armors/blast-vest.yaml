@@ -1,0 +1,19 @@
+id: eote-armor-blast-vest
+name: Blast Vest
+description: >-
+  Light armor designed to protect the wearer from bullets and flying debris, militia and planetary defense forces
+  commonly wear blast vests, as do troopers and crewmen aboard starships. Protecting just the torso of the wearer, blast
+  vests leave the limbs uncovered, allowing for unhindered freedom of movement. While the vest provides excellent
+  protection from flying debris, shrapnel, and projectile weapons, the materials are not designed to stop energy blasts,
+  providing minimal defense against blasters and other energy weapons.
+
+  The armor gains +2 soak when the wearer suffers damage from a slugthrower or other physical projectile.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 3
+rarity: 3
+restricted: false
+qualities: []
+reference:
+  - FC:47

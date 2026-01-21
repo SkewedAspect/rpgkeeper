@@ -1,0 +1,28 @@
+id: eote-armor-phase-i-arc-trooper-armor-rise-of-the-separatists
+name: Phase I ARC Trooper Armor (Rise of the Separatists)
+description: >-
+  The elite ARC troopers within the Grand Army of the Republic receive special gear, including a unique type of
+  reinforced armor. To help them survive their dangerous assignments, ARC troopers benefit from the protection of
+  additional armor plating on their body and limbs, as well as a more advanced helmet design and an armored pauldron for
+  displaying rank insignia. ARC trooper armor can support a wider variety of integrated subsystems than standard clone
+  trooper armor, and the additional protective plates are carefully placed to optimize deflection of standard blaster
+  fire patterns. The armor's careful design and fitting also allows a wider and more natural range of movement than
+  standard clone trooper armor.
+
+  However, all this increased customization and the more complex systems come at a substantial cost increase, and the
+  Senate is loath to authorize mass production of the suits. Instead, a project has been launched to design a new
+  variant of the armor that incorporates the advances it provides in a more economical fashion. Unfortunately, these new
+  designs are still in their early stages and may not see deployment for some time.
+
+  Phase I ARC trooper armor includes a comlink. The various systems built into Phase I ARC trooper armor remove
+  <setback></setback> from all Perception checks made by the wearer. In addition, the integrated load-bearing harness
+  increases the wearer's encumbrance threshold by three.
+defense: 1
+soak: 2
+hardpoints: 4
+encumbrance: 5
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - RotS:57

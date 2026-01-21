@@ -1,0 +1,20 @@
+id: eote-attachment-vx-hands-free-weapon
+name: VX Hands-Free Weapon
+description: >-
+  By modifying his armor to mount one or more weapons, a spacer can keep his hands free for whatever unexpected needs
+  might arise in combat—or just to carry more weapons. While few weapons are intended for such use, most can be modified
+  to mount on a properly-equipped suit of armor. The difficult part is modifying the weapon so that it can be aimed and
+  fired hands-free. Methods range from voice-activation to a pressure-sensitive glove activated by certain hand
+  movements to a direct neural link. Such systems almost always incorporate a sophisticated targeting computer or
+  retinal tracking mechanism. The most common location for the weapon mount is on the shoulder, though other areas are
+  possible.
+
+  A weapon must also be modified in order to be armor-mounted, requiring one hard point. This attachment can mount any
+  Ranged (Light) or Ranged (Heavy) weapon with an Encumbrance of 4 or less, subject to the GM's discretion.
+useWith: armor
+hpRequired: 2
+rarity: 6
+baseModifier: Mount ranged weapon (Silhouette 4 or less); User can aim and fire mounted weapon without using hands.
+modOptions: []
+reference:
+  - DC:53

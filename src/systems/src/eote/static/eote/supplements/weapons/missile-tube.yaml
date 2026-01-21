@@ -1,0 +1,45 @@
+id: eote-weapon-missile-tube
+name: Missile Tube
+description: >-
+  Missile tubes are heavy, portable devices that launch rocket-powered projectiles. Most fire proton-charged warheads
+  designed to destroy small transports, but other types of ammunition can occasionally be found.
+
+  Missile tubes are elaborate affairs, equipped with micro-repulsorlifts that make them easier for infantry soldiers to
+  carry, as well as advanced tracking screens to detect a target's speed, range, and energy signature. The latter is
+  particularly important because missile tubes can be fired in one of three modes. The first is infrared, which homes in
+  on a craft's heat signature. The second is gravity-activated mode, which means it tracks a target's repulsorlift. Both
+  of these modes can be spoofed, either by dropping burning flares to distract heat sensors or small repulsorlift pods
+  as chaff. See the Guided weapon quality to handle these two modes of attack.
+
+  The third firing method is direct-fire. This requires more skill but sends the projectile in a straight line that
+  cannot be spoofed by chaff or flares (and loses the Guided quality). Of course, if another target happens to get in
+  the way, or if the attacker's aim is off, the missile will hit whatever is in its path without discrimination. Missile
+  tubes require one preparation maneuver before firing.
+
+  **Models Include**: Merr-Sonn PLX-2M Missile Tube.
+skill: Gunnery
+damage: 20
+addSkill: false
+criticalRating: 2
+range: ex
+encumbrance: 7
+hardpoints: 4
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-blast
+    ranks: 10
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-guided
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 6
+  - id: eote-quality-prepare
+    ranks: 1
+reference:
+  - E-CRB:165
+  - A-CRB:178
+  - F-CRB:170

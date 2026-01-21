@@ -1,0 +1,10 @@
+id: eote-talent-hard-boiled
+name: Hard-Boiled
+description: When recovering strain after an encounter, may spend <advantage></advantage> up to ranks in Hard-Boiled to
+  recover 1 wound per <advantage></advantage> spent.
+activation: p
+ranked: true
+forceTalent: false
+trees: Skip Tracer
+reference:
+  - ND:34

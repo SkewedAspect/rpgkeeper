@@ -1,0 +1,28 @@
+id: eote-armor-h-series-megafauna-carriage
+name: H-Series Megafauna Carriage
+description: >-
+  Piccatech's H-series megafauna carriage is an essential piece of kit for those working with oversized creatures. Known
+  colloquially as a howdah, at its most basic the H-series megafauna carriage is little more than a broad platform that
+  straps to the back of a large creature. They come in a range of sizes, can be built to fit nearly any large beast, and
+  can be built to carry passengers, cargo, or a combination thereof. A variety of options are offered for the H-series,
+  including different rails and safety features, canopies, environmentally sealed enclosures, or nearly anything else a
+  customer might desire.
+
+  A beast must have a silhouette of at least 3 and a Brawn of at least 5 to be fitted with a howdah. Basic howdah
+  configurations are readily available for beasts with a tetrapodal or quadrupedal stance, like the fambaa or dewback,
+  at the listed price. Howdahs for creatures with more appendages, like the six-legged acklay, can be had for a small
+  additional fee, generally 500 credits. Howdahs can be armored and fitted with one or two Gunnery or vehicle-scale
+  weapons, following the usual restrictions for silhouette as outlined on page 287 of the **Age of Rebellion** Core
+  Rulebook.
+
+  A megafauna carriage can only be equipped to bestial riding animals. In addition to its other effects, using it allows
+  the character to ride the beast without suffering the bareback riding penalties discussed on page 81.
+defense: 1
+soak: 0
+hardpoints: 2
+encumbrance: 5
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - SoT:43

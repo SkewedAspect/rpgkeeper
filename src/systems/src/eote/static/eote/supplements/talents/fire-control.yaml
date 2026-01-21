@@ -1,0 +1,10 @@
+id: eote-talent-fire-control
+name: Fire Control
+description: Take the Fire Control action; all combat checks made from current starship or vehicle count their target's
+  silhouette as one higher than normal until the beginning of next turn. Does not stack.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Commodore
+reference:
+  - A-CRB:147

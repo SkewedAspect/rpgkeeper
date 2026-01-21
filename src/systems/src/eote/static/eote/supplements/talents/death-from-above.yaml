@@ -1,0 +1,14 @@
+id: eote-talent-death-from-above
+name: Death from Above
+description: Once per encounter while using a jetpack, the character may take the Death from Above action, inflicting 1
+  system strain on their jetpack and making a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Piloting (Planetary) check**. If the
+  check is successful, for each <success></success>, one adversary of silhouette 0 or 1 within short range is knocked
+  prone. The character may spend <triumph></triumph> from the check to stagger one affected adversary until the end of
+  the adversary's next turn.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Death Watch Warrior
+reference:
+  - CotR:40

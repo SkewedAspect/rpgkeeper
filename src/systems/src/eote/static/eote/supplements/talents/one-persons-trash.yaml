@@ -1,0 +1,12 @@
+id: eote-talent-one-persons-trash
+name: One Person's Trash
+description: "The character may make a Perception check in order to locate a particular item amid a battlefield,
+  shipwreck, junkyard, or other location with potential salvage. The difficulty of the check is equal to half the item's
+  rarity, rounded down. There is no cost to acquire an item this way, but the item is in need of Moderate repairs (see
+  **Table 5-4: Repairing Gear** in any of the core rulebooks) when found."
+activation: aa
+ranked: false
+forceTalent: false
+trees: Scavenger
+reference:
+  - RotS:40

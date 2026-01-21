@@ -1,0 +1,24 @@
+id: eote-attachment-portable-plasma-shield
+name: Portable Plasma Shield
+description: Armor and weapon designs oppose one another in a cycle of endless escalation. Not surprisingly, many
+  warriors seek out means to enhance their defenses in hopes that it will leave them free to make additional attacks. A
+  small defensive shield can provide a substantial upgrade. Energy shields take this a step further, offering a
+  near-impenetrable defense while requiring much less weight and bulk than a more traditional shield. A forearm-mounted
+  plasma shield's biggest limitation is its size. One capable of completely protecting the wearer requires a bulky
+  emitter and energy source. It can also interfere with the soldier's own weapons, making striking a blow awkward around
+  the edge of the shield.
+useWith: armor
+hpRequired: 2
+rarity: 4
+baseModifier: May be activated or deactivated as an incidental.; When active, cannot wield two-handed weapons.; Defensive 1
+modOptions:
+  - Defensive +1
+  - Defensive +1
+  - Deflection +1
+  - Deflection +1
+  - Deflection +1
+reference:
+  - CotR:63
+includedModels:
+  - Mili-Corp PS-8C Plasma Buckler
+  - Krail 99 Guardian System

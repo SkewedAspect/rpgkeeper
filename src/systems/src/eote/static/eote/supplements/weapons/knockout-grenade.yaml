@@ -1,0 +1,28 @@
+id: eote-weapon-knockout-grenade
+name: Knockout Grenade
+description: >-
+  It is not always necessary or even desirable to kill a threat in order to neutralize it. While stun weapons are the
+  most common nonlethal method of disabling a foe, they are by no means the only way to subdue an opponent. Knockout
+  grenades are one method of incapacitating multiple targets without causing permanent damage. Filled with a
+  tranquilizer gas, these grenades can quickly subdue most living things caught in their blast radius, sending them into
+  a deep sleep. Poachers sometimes use grenades such as these to capture wild, dangerous predators, and knockout
+  grenades can even take down large creatures if used in sufficient quantity.
+
+  Knockout grenades have no effect on targets wearing breath masks or without respiratory systems.
+skill: Ranged (Light)
+damage: 12
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 10
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - FC:45

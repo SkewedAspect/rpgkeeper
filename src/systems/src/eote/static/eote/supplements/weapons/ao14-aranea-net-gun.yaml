@@ -1,0 +1,34 @@
+id: eote-weapon-ao14-aranea-net-gun
+name: AO14 "Aranea" Net Gun
+description: >-
+  The Palandrix Personal Protection Gear company has been a leading provider of personal armor, defensive weapons, and
+  crowd-control devices to the Core Worlds for generations. Known primarily for its broad range of nonlethal weapons
+  such as stun batons, sonic stunners, and stun gauntlets, the company also produce a small line of offensive weapons,
+  including the handsome and deadly PowerCane. Among its various product lines are a few devices that don't fall neatly
+  into any one category, possessing both defensive and offensive attributes that make them extremely versatile and
+  effective. One such item is the A014 "Aranea" Net Gun.
+
+  Heavy and squat, the Aranea is roughly the size of a small blaster carbine with a wide-gauge, rifled barrel, and
+  lightweight polycarbonate furniture. Officially classified as a grenade launcher, the A014 is a single-shot,
+  break-action, breach-loading weapon that fires entangling munitions as opposed to slugs or blaster bolts. The 40mm
+  spin-stabilized ammunition used by the Aranea contains a tightly packed, weighted, finemesh net constructed from
+  synthetic ArachSilk made by CorChemCo. Upon firing, the shells fired by this weapon burst open at a preset range and
+  release the net, the spin of the round causing the net to unfurl and the weights spreading it to its maximum width.
+  With its incredibly strong tensile strength and the ability to tighten around an opponent as he struggles, the
+  Aranea's nets make excellent tools for capturing animal and sentient targets alive.
+skill: Ranged (Heavy)
+damage: 3
+addSkill: false
+criticalRating: 0
+range: m
+encumbrance: 4
+hardpoints: 2
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 5
+  - id: eote-quality-limited-ammo
+reference:
+  - EtU:42
+  - SS:41

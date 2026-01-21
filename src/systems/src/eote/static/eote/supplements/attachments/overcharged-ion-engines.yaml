@@ -1,0 +1,19 @@
+id: eote-attachment-overcharged-ion-engines
+name: Overcharged Ion Engines
+description: People living on the fringes of galactic society - and those involved in criminal pursuits, in particular -
+  often need to move more quickly when things turn bad. Overcharged ion engines allow a ship to accelerate more quickly,
+  but tend to be damaging to ship systems over time. Many shipwrights view the use of such modifications as mistreatment
+  of their works, but some pilots swear by the edge it gives them. This attachment can be applied to any starship of
+  silhouette 3 or smaller.
+useWith: vehicle
+hpRequired: 3
+rarity: 4
+baseModifier: +1 Speed; -1 Handling
+modOptions:
+  - Gain Shortcut (reduce time for route calculation)
+  - Gain Tricky Target (upgrade difficulty vs vehicle weapons)
+reference:
+  - SM:66
+includedModels:
+  - Gallofree Yards Option-3 Acceleration Optimizer
+  - Various Custom Models

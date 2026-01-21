@@ -1,0 +1,25 @@
+id: eote-weapon-double-bladed-inquisitorious-lightsaber
+name: Double-bladed Inquisitorious Lightsaber
+description: >-
+  Inquisitors use a unique double-bladed lightsaber. Its handle incorporates a spinning mechanism that enables the
+  blades to rapidly rotate without the wielder needing to take additional action after initiating rotation. The primary
+  purpose of this rotation is to improve the blades' ability to deflect incoming attacks. In addition, when used in a
+  Saber Throw action, the spinning motion adds stability that adds <boost></boost> to the check and increases the
+  blade's damage by +1.
+
+  A character with the Enhance Force power may also use an Inquisitorious lightsaber to fly.
+skill: Lightsaber
+damage: 6
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-sunder
+reference:
+  - DoR:67

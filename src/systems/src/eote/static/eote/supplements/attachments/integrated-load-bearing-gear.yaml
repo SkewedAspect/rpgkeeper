@@ -1,0 +1,17 @@
+id: eote-attachment-integrated-load-bearing-gear
+name: Integrated Load-Bearing Gear
+description: >-
+  **EOD-Mk II Upgrade Options:** EOD-MK II suits lack any standard modification options, but can be upgraded with two
+  valuable attachments. These attachments are integrated load-bearing gear and a data link for controlling EOD and
+  demolitions remotes, such as the EOD-Mk IV. As the suits are designed for these upgrades, neither takes up any hard
+  points for the armor, but each upgrade can only be taken once.
+
+  Integrated load-bearing gear reduces the suit's encumbrance by 3, and costs an additional 700 credits with a rarity of
+  3.
+useWith: armor
+hpRequired: 0
+rarity: 3
+baseModifier: -3 Encumbrance
+modOptions: []
+reference:
+  - FO:43

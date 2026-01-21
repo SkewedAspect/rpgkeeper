@@ -1,0 +1,22 @@
+id: eote-weapon-greff-timms-ata-pulse-wave-blaster
+name: Greff-Timms ATA Pulse-Wave Blaster
+description: These ancient weapons were state-of-the-art thousands of years ago, prior to the development of the modern
+  blaster. Operating on the same basic principle as a blaster, the pulse-wave blaster fires a short beam of intense
+  energy at its target. However, this energy tends to dissipate quickly, making its effective range quite short. The
+  destabilizing molecular effect produced by these weapons is similar to that of disruptors, resulting in particularly
+  vicious wounds. While generally considered archaic, some rogues and criminals still appreciate the pulse-wave
+  blaster's unpleasant capacity for mayhem.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 2
+hardpoints: 2
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-vicious
+    ranks: 3
+reference:
+  - LoNH:100

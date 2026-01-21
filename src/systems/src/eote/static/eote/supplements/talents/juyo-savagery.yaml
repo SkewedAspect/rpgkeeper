@@ -1,0 +1,10 @@
+id: eote-talent-juyo-savagery
+name: Juyo Savagery
+description: The character adds +5 to Critical injury rolls from Lightsaber attacks for each dark side Destiny Point in
+  the Destiny pool.
+activation: p
+ranked: false
+forceTalent: true
+trees: Juyo Berserker
+reference:
+  - KoF:31

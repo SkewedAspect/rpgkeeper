@@ -1,0 +1,13 @@
+id: eote-talent-full-throttle
+name: Full Throttle
+description: Take a Full Throttle action; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Piloting check** to increase a vehicle's
+  top speed by 1 for a number of rounds equal to Cunning.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Clone Pilot, Driver, Imperial Academy Cadet, Operator, Pilot, Racer, Ship Captain, Starfighter Ace
+reference:
+  - E-CRB:135
+  - A-CRB:147
+  - F-CRB:143

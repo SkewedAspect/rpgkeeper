@@ -1,0 +1,10 @@
+id: eote-talent-alchemical-arts
+name: Alchemical Arts
+description: After making a check to craft a potion or talisman, may suffer strain up to twice ranks in Alchemical Arts.
+  For every two strain, add [LI] or [DA] to results.
+activation: ai
+ranked: true
+forceTalent: true
+trees: Alchemist
+reference:
+  - UP:32

@@ -1,0 +1,30 @@
+id: eote-weapon-lightbow
+name: Lightbow
+description: >-
+  A distinctive part of each Guardian of the Whill's spiritual progression on Jedha, lightbows are traditionally
+  constructed by hand upon completion of the seventh duan towards physical perfection. They have two limbs containing
+  polarizing arrays to stabilize firing. These extend outwards and so make lightbows resemble Wookiee bowcasters, but
+  the limbs on lightbows can be collapsed for easier transport. A sophisticated auto-loading system loads, cocks, and
+  fires with every pull of the trigger, emitting a powerful charged particle.
+
+  The user may spend a maneuver to collapse the weapon for regular transport (reducing its encumbrance to 3) or expand
+  the arrays to ready it for firing.
+skill: Ranged (Heavy)
+damage: 11
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 5
+hardpoints: 1
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-knockdown
+  - id: eote-quality-pierce
+    ranks: 3
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - DoR:117

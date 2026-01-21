@@ -1,0 +1,28 @@
+id: eote-weapon-explorers-knife
+name: Explorer's Knife
+description: >-
+  Nearly as ubiquitous as combat knives, explorer's knives are indespensable tools for professional foresters. Made by a
+  variety of weapon and tool manufacturers, explorer;s knives typically have a long, serrated, clip-point blade mounted
+  in a sturdy, reinforced plasteel hilt and are sold with a synthetic nylamesh sheath. Contained within the knife's
+  seath and hollow, watertight handle are the contents of a miniature emergency survival kit. While the contents vary by
+  manufacturer, they typically include a fire starter, tweezers, small sharp blade, magnetic compass, fishing hooks and
+  line, monowire saw, needle and thread, length of high-tensile synthetic cord, small whetstone, and other bits of small
+  survival gear. While an explorer's knife is not neceassarily as well stocked as a full survival kit, it does work very
+  well as an emergency backup or as a supplement to a more fully stocked kit – and, of course, it is a potent weapon to
+  boot.
+
+  An explorer's knife grants <boost></boost> to all Survival checks.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - SS:43

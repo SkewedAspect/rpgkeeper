@@ -1,0 +1,28 @@
+id: eote-weapon-mk-viii-gravitic-mortar-launcher
+name: Mk VIII Gravitic Mortar Launcher
+description: >-
+  Golan Arms Mk VIII Gravitic Mortar Launcher
+
+  Built by Golan Arms, the Mk VIII launcher is an uncommon weapon. Designed primarily to clear minefields, the Mk VIII
+  is, like most mortars, a simple smoothbore tube equipped with a bipod and a firing mechanism. Instead of lobbing
+  explosive shells into cover or suppressing troops, however, it fires a special round that detonates all anti-personnel
+  and anti-vehicle mines in its area of effect. Using advanced gravitic technology, the rounds it fires produce powerful
+  gravity fluctuations in a broad area upon impact. These gravity fluctuations trigger mines equipped with pressure or
+  proximity sensors, causing them to detonate and clearing the way for troops and vehicles.
+   When a gravitic round detonates inside a minefield. it triggers every mine within medium range. Game Masters may use <threat></threat><threat></threat> or <despair></despair> to detonate only a fraction of the mines within the gravitic shell's area of effect. Undetonated mines remain active and still pose a threat to Player Characters, their allies, and their vehicles.
+skill: Gunnery
+damage: 4
+addSkill: false
+criticalRating: 0
+range: l
+encumbrance: 6
+hardpoints: 1
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-prepare
+    ranks: 1
+reference:
+  - FO:39

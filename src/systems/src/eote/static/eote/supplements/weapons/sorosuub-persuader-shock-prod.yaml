@@ -1,0 +1,30 @@
+id: eote-weapon-sorosuub-persuader-shock-prod
+name: Sorosuub "Persuader" Shock Prod
+description: >-
+  SoroSuub's Persuader, officially known as the Model VIII Animal Shock Prod, uses the technology found in force pikes
+  and shock batons to control large, thick-skinned beasts. A little over two meters long, the Persuader is a long,
+  narrow rod with a thicker haft at one end and a multi-pronged tip at the other. The haft contains the prod's power
+  cell and controls as well as the non-slip handgrips. When activated the Persuader emits a variable electrical charge
+  with an intensity that can be adjusted from a light sting that gets a creature's attention to a powerful discharge
+  that can knock a fully grown Wookiee unconscious or render a rampaging rancor meek and biddable.
+
+  Persuader Animal Shock Prods require two hands to wield. This weapon has the Slow-Firing 1 rule, representing its
+  electrical charge having to recharge. On rounds during which it is recharging, if the character wants to attack with
+  it, he can only use it as an improvised weapon (see page 225 of the **Age of Rebellion** Core Rulebook).
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 4
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-stun-damage
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - SoT:41

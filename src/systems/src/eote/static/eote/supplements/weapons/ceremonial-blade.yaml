@@ -1,0 +1,25 @@
+id: eote-weapon-ceremonial-blade
+name: Ceremonial Blade
+description: >-
+  The presentation of weapons in various rituals has a strong root in many cultures, especially those with a
+  militaristic past. Such practices usually stem from ancient history, so exchanges usually incorporate seemingly
+  anachronistic armaments such as swords, axes, spears, or other such items. Such an award often signifies a high honor
+  to the recipient, and many choose to include them in their formal dress for all future occasions. Naturally, given how
+  highly prized such items are, they also often feature correspondingly high craftsmanship, with superior killing power
+  in addition to beautiful design.
+
+  A character adds <boost></boost> when attempting to convince others to allow him to retain his ceremonial blade.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+reference:
+  - DA:46

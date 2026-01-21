@@ -1,0 +1,27 @@
+id: eote-weapon-kd-30-dissuader-pistol
+name: KD-30 "Dissuader" Pistol
+description: >-
+  Kelvarek Consolidated Arms KD-30 "Dissuader" Pistol
+
+  A particularly vicious slugthrower, the KD-30 "Dissuader" fires special ammunition filled with a particularly caustic
+  acid capable of eating through armor, flesh, and bone. Outlawed in many "civilized" parts of the galaxy, the KD-30 is
+  a disconcertingly common weapon in Hutt Space.
+
+  The acid in the Dissuader's ammunition continues to cause damage over time. A target struck by a round from the KD-30
+  suffers one wound, ignoring soak, at the beginning of his turn for the next two rounds.
+skill: Ranged (Light)
+damage: 4
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 2
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - LoNH:102

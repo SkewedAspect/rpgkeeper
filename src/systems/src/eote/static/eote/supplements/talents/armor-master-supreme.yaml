@@ -1,0 +1,11 @@
+id: eote-talent-armor-master-supreme
+name: Armor Master (Supreme)
+description: Once per round, when the character suffers a Critical Injury, he may suffer 3 strain to take the Armor
+  Master incidental. If he does he reduces the Critical Injury result that he suffers by 10 per point of his soak, to a
+  minimum of 1.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Armorer
+reference:
+  - KtP:30

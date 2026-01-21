@@ -1,0 +1,11 @@
+id: eote-talent-mind-over-matter
+name: Mind Over Matter
+description: The character may spend one Destiny Point to recover strain equal to to his Willpower rating.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Executioner, Magus, Martial Artist
+reference:
+  - SS:31
+  - ND:35
+  - UP:32

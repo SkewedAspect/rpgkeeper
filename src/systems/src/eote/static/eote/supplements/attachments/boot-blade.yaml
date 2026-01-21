@@ -1,0 +1,21 @@
+id: eote-attachment-boot-blade
+name: Boot Blade
+description: An excellent way to ensure an agent is always armed no matter the circumstances, boot blades are small
+  spring-loaded knives that extend from the toes of an individual's shoes or boots to provide an extra edge in
+  hand-to-hand combat. There are various ways to deploy the blades, such as pressing a certain point on the tongue of a
+  shoe or stamping hard with a boot's heel. Retracting them often entails simply (but carefully) pushing them back into
+  their compartment until they catch. This attachment can be applied to any armor that includes boots, shoes, or other
+  footwear.
+useWith: armor
+hpRequired: 0
+rarity: 5
+baseModifier: ""
+modOptions:
+  - Reduce the weapon's critical rating by 1 to a minimum of 1
+  - Item Quality (Pierce +1)
+  - Item Quality (Pierce +1)
+  - Item Quality (Vicious +1)
+reference:
+  - CaM:57
+includedModels:
+  - Various models

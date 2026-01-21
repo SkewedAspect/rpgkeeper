@@ -1,0 +1,22 @@
+id: eote-armor-lectors-outfit
+name: Lector's Outfit
+description: >-
+  For major addresses, politicians usually rely advanced, large-scale public address systems. However, most political
+  agents have at one time or another found themselves pressed to make a grand speech with little preparation. Quick
+  thinking usually carries such speeches, but an outfit equipped with technology to make one audible even above a
+  roaring crowd helps. Several small, powerful speakers and a collar microphone make sure that the wearer's words reach
+  even distant ears.
+
+  A character wearing a lector's outfit adds <boost></boost> to any social check involving a large group of listeners,
+  and can be heard clearly even at considerable distances.
+
+  **Models include:** TaggeCo "Confidence" Outfit.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 2
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - DA:48

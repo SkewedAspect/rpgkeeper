@@ -1,0 +1,33 @@
+id: eote-weapon-model-1-nova-viper-blaster-pistol
+name: Model-1 "Nova Viper" Blaster Pistol
+description: >-
+  Raider Arms Model-1 "Nova Viper" Blaster Pistol
+
+  When weapon designer Joran Raider, the man behind many of the galaxy's most successful blasters, left BlasTech to
+  start his own small manufacturing firm, it was a blow to the arms giant. Rumors persist that several notorious bounty
+  hunters contracted by BlasTech to eliminate its former employee were bought off by Raider with examples of what many
+  believe to be the pinnacle of his craft, the Model-1 Nova Viper blaster pistol. Perfectly balanced, innovative, and
+  tooled down to a fraction of a micrometer, Raider Arms customizes every Nova Viper sold for its buyer, from its grip
+  to its finish. As such, Nova Viper blasters are highly sought after and cost nearly as much as a new speeder. The
+  blaster's incredible precision comes with a hidden price as well, requiring careful maintenance and exceptional skill
+  to repair. Nonetheless, a fringer who manages to obtain a Nova Viper would almost invariably count himself lucky and
+  consider it among his most valued possessions.
+
+  Increase the difficulty of Mechanics checks to repair a Nova Viper or modify attachments on it by one.
+skill: Ranged (Light)
+damage: 7
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 2
+hardpoints: 2
+rarity: 9
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 2
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-stun-setting
+reference:
+  - FC:43

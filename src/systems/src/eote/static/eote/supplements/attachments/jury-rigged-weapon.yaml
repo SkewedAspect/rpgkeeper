@@ -1,0 +1,19 @@
+id: eote-attachment-jury-rigged-weapon
+name: Jury Rigged (Weapon)
+description: The character chooses one personal weapon or piece of armor per rank of Jury Rigged. He may increase the
+  damage of the weapon by one; decrease the Advantage cost on its Critical, or any single other effect by one to a
+  minimum of one; or increase armor's ranged or melee defense by one. Alternatively, he can decrease the encumbrance of
+  the item by two to a minimum of one. The bonus only applies so long as the character is using the item. If the item is
+  ever loss or destroyed, the character may apply Jury Rigged to a new personal weapon or piece or armor.
+useWith: weapon
+hpRequired: 0
+rarity: 0
+baseModifier: ""
+modOptions:
+  - +1 Damage
+  - -1 Critical
+  - -2 Encumbrance
+  - Reduce quality advantage cost
+reference:
+  - E-CRB:138
+  - A-CRB:150

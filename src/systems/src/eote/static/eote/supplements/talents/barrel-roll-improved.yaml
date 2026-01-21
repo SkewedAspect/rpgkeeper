@@ -1,0 +1,10 @@
+id: eote-talent-barrel-roll-improved
+name: Barrel Roll (Improved)
+description: When the character takes the Barrel Roll incidental, reduce the damage of all hits (instead of only one
+  hit) of the attack by the character's ranks in the relevant Piloting skill.
+activation: p
+ranked: false
+forceTalent: false
+trees: Clone Pilot
+reference:
+  - RotS:37

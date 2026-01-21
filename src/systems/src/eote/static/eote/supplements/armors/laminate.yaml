@@ -1,0 +1,24 @@
+id: eote-armor-laminate
+name: Laminate
+description: >-
+  Armour
+
+  Imperial stormtroopers wear fully-enclosed plastoid armor that deflects and negates incoming damage. It won't stop a
+  direct hit from a blaster, but is reasonably effective against indirect concussive damage and shrapnel. It typically
+  includes vision magnification and integrated comlinks to others attuned to the same frequency. As the armor is
+  designed to work with powered systems, it can be easily modified with after-market attachments.
+
+  Laminate armor is worn over a tight-fitting body glove. This system offers significant insulation, making it easier to
+  operate in all environments. For extended service in extreme environments, more specialized versions are made.
+
+  **Models Include:** Imperial Department of Military Research Stormtrooper Armor.
+defense: 0
+soak: 2
+hardpoints: 3
+encumbrance: 4
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - E-CRB:169
+  - A-CRB:185

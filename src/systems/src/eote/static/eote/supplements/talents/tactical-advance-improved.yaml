@@ -1,0 +1,11 @@
+id: eote-talent-tactical-advance-improved
+name: Tactical Advance (Improved)
+description: The character may spend <advantage></advantage><advantage></advantage> from any check they make or
+  <threat></threat><threat></threat> from a combat check targeting them to perform the Tactical Advance incidental
+  (instead of suffering strain).
+activation: aio
+ranked: false
+forceTalent: false
+trees: Clone Officer
+reference:
+  - RotS:43

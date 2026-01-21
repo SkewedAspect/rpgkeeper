@@ -1,0 +1,27 @@
+id: eote-weapon-mon-calamari-spear-blaster-spear
+name: Mon Calamari Spear Blaster (Spear)
+description: >-
+  Mon Calamari Spear Blaster
+       
+  Popularly wielded by the Mon Calamari during the Battle of Mon Cala, the spear blaster is a combination melee and
+  ranged weapon. Designed to act as a spear with an integrated blaster rifle, the spear blaster is capable of
+  functioning equally well both in and out of the water.
+
+  Though this weapon is not typically seen in Rebel arsenals, many former members of the Mon Calamari Guard bring their
+  spear blasters with them when they enlist in the Alliance.
+
+  _For blaster profile, add the "Mon Calamari Spear Blaster (Blaster) weapon._
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 5
+hardpoints: 4
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 1
+reference:
+  - SoR:106

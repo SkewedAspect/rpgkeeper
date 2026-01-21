@@ -1,0 +1,9 @@
+id: eote-talent-flyer
+name: Flyer
+description: This mount can fly. When on the ground, its Speed is reduced to 1.
+activation: p
+ranked: false
+forceTalent: false
+trees: ""
+reference:
+  - SoT:85

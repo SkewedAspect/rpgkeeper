@@ -1,0 +1,30 @@
+id: eote-weapon-cs-12-stun-master
+name: CS-12 Stun Master
+description: >-
+  SoroSuub CS-12 Stun Master
+
+  Produced by SoroSuub and popular with many Sullustan members of the Rebel Alliance, the CS-12 stun master is one of
+  the most ubiquitous non-lethal weapons in the Alliance’s arsenal. Palm-sized and effective, it is easily concealed and
+  is legal to carry in most systems. In addition, the device is constructed from consumer-grade materials and can be
+  smuggled past standard weapon detection devices without raising alarms.
+
+  Designed as a small cylinder only fifteen centimeters in length, the stun master has thirteen contact studs that
+  emerge from its disk-shaped business end. When these contacts are pressed against an opponent and the device
+  activated, a silent electric charge is released that results in unconsciousness or disorientation.
+
+  Add <setback></setback> to a character’s Perception checks to find a stun master on a person’s body.
+skill: Melee
+damage: 6
+addSkill: false
+criticalRating: 3
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 2
+  - id: eote-quality-stun-damage
+reference:
+  - SoR:108

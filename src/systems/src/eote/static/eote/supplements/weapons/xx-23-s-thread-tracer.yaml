@@ -1,0 +1,25 @@
+id: eote-weapon-xx-23-s-thread-tracer
+name: XX-23 S-Thread Tracer
+description: >-
+  This missile contains a device allowing the target's movements to be tracked regardless of where it travels, including
+  through hyperspace.
+
+  After a character makes a successful combat check with an XX-23 tracer, he may make an **Average
+  <difficulty></difficulty><difficulty></difficulty> Astrogation check** to determine the target's location anywhere in
+  the galaxy until the tracer is removed.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-guided
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DoR:64

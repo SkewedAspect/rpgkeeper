@@ -1,0 +1,11 @@
+id: eote-talent-impossible-fall
+name: Impossible Fall
+description: "Once per session, perform Impossible Fall incidental when falling: make Force power check and spend
+  <forcepoint></forcepoint><forcepoint></forcepoint> to decrease fall by one range band and land somewhere safe. Spend
+  <forcepoint></forcepoint> to decrease distance by one additional range band."
+activation: aio
+ranked: false
+forceTalent: true
+trees: Sentry
+reference:
+  - EV:31

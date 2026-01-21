@@ -1,0 +1,16 @@
+id: eote-attachment-sensor-shunt
+name: Sensor Shunt
+description: Sensor shunts are passive stealth systems fitted to ships or vehicles to hide energy signatures. Unlike a
+  scrambler, which draws attention to itself even as it fools sensors, shunts are quiet and unobtrusive. Ships or
+  vehicles with these upgrades are nearly invisible to passive sensors and are difficult to detect with even active
+  scanners. This attachment can be applied to any starship or vehicle.
+useWith: vehicle
+hpRequired: 1
+rarity: 8
+baseModifier: Increase the difficulty of checks to detect this vessel using passive sensors by two, and the difficulty
+  of checks to detect this vessel using active sensors by one, while it is traveling at speed 3 or lower.
+modOptions: []
+reference:
+  - CaM:63
+includedModels:
+  - Various models

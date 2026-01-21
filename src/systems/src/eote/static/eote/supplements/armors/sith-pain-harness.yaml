@@ -1,0 +1,24 @@
+id: eote-armor-sith-pain-harness
+name: Sith Pain Harness
+description: >-
+  Constant enemies of the Jedi Order, the Sith have always sought to dominate and destroy. They even seek to pervert the
+  Force itself, turning its energies into a weapon to torture and maim. They build all their greatest strengths on the
+  pain they can inflict.
+
+  Developed over generations, the Sith Pain Harness represents the pinnacle of this philosophy. It is little more than a
+  set of interlocking metal plates, each sharp enough to easily draw blood. Any being wearing the armor must take
+  extreme caution, lest the metal carve into their flesh. Granted, the point of the device is not to avoid hurting
+  oneself. Instead, Sith are to embrace the pain, using it to fuel their hatred. The pain they feel suffuses all their
+  Force power, a gruesome attempt to spread their own agony.
+
+  While wearing the Sith Pain Harness, a character can choose to suffer one wound as an incidental to add automatic
+  <success></success> to the next Discipline check they make during the current round. They then suffer 1 Conflict.
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 2
+rarity: 9
+restricted: true
+qualities: []
+reference:
+  - UP:51

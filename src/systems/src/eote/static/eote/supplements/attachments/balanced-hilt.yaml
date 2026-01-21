@@ -1,0 +1,17 @@
+id: eote-attachment-balanced-hilt
+name: Balanced Hilt
+description: Balance is key in a well-constructed melee weapon. Professional weaponsmiths can use modem ultra-light
+  materials to create a sword or axe that is not only lighter, but also more accurate in the hands of a skilled warrior.
+  This attachment can be used with any melee weapon.
+useWith: weapon
+hpRequired: 2
+rarity: 5
+baseModifier: Accurate 1
+modOptions:
+  - -1 Encumbrance
+  - Accurate +1
+reference:
+  - E-CRB:188
+  - A-CRB:200
+includedModels:
+  - None

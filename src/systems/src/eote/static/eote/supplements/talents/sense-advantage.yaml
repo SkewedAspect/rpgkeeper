@@ -1,0 +1,9 @@
+id: eote-talent-sense-advantage
+name: Sense Advantage
+description: Once per session, may add <setback></setback><setback></setback> to 1 NPC's skill check.
+activation: aio
+ranked: false
+forceTalent: true
+trees: Advisor, Aggressor, Investigator, Nightsister, Seer, Warden
+reference:
+  - F-CRB:151

@@ -1,0 +1,10 @@
+id: eote-talent-in-the-know-improved
+name: In The Know (Improved)
+description: Once per session, make an **opposed Deception vs Vigilance** check with the difficulty downgraded once per
+  rank of In the Know to have a target NPC believe specific false intelligence.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Propagandist
+reference:
+  - DA:33

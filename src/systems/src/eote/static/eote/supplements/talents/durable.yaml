@@ -1,7 +1,12 @@
 id: eote-talent-durable
 name: Durable
-description: The character may reduce a Critical Injury result he suffers by 10 per rank of Durable, to a minimum of one.
+description: May reduce any Critical Injury suffered by 10 per rank of Durable to a minimum of 1.
 activation: p
 ranked: true
-trees: Bodyguard, Fringer
-reference: E-CRB:135
+forceTalent: false
+trees: Archaeologist, Bodyguard, Colossus, Commando, Cyber Tech, Enforcer, Fringer, Gunner, Heavy, Marshal, Retired
+  Clone Trooper, Sapper, Shii-Cho Knight, Sleeper Agent
+reference:
+  - E-CRB:135
+  - A-CRB:146
+  - F-CRB:142

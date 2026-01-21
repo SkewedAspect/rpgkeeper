@@ -1,0 +1,10 @@
+id: eote-talent-body-guard-improved
+name: Body Guard (Improved)
+description: Once per session, when an ally protected by the Body Guard maneuver suffers a hit, suffer the hit instead.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Instructor, Protector, Vanguard
+reference:
+  - F-CRB:140
+  - FiB:34

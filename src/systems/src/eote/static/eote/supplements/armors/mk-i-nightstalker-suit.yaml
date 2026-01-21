@@ -1,0 +1,22 @@
+id: eote-armor-mk-i-nightstalker-suit
+name: Mk I Nightstalker Suit
+description: >-
+  Bantin Corp Mk I NightStalker Infiltrator Suit
+
+  The Mk I NightStalker is a lightweight, surprisingly durable suit of armor that Bantin Corp recently produced.
+  Marketed toward law enforcement and intelligence agencies, the NightStalker combines light-absorbing materials,
+  armorweave, gel-insert plates, and sound dampening fabric to produce a suit that provides both respectable protection
+  and decent passive stealth capabilities. The NightStalker is a full-body suit that covers everything but the wearer's
+  eyes. It is typically worn with scanner goggles or other wearable vision-enhancement systems.
+
+  When wearing a NightStalker suit, the wearer adds automatic <success></success> to Stealth checks he makes and adds
+  automatic <threat></threat> to social skill checks he makes.
+defense: 0
+soak: 2
+hardpoints: 1
+encumbrance: 2
+rarity: 9
+restricted: true
+qualities: []
+reference:
+  - CaM:41

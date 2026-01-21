@@ -1,10 +1,13 @@
 id: eote-talent-intimidating
 name: Intimidating
-description: When attempting a Coercion check, the character may suffer a number of strain to downgrade the difficulty
-  of the check a number of times equal to the strain suffered. This number cannot exceed his ranks in Intimidating. When
-  the character is the target of a Coercion check, the character may suffer a number of strain to upgrade the difficulty
-  of the check a number of times equal to the strain suffered. This number cannot exceed his ranks in Intimidating.
+description: May suffer a number of strain to downgrade difficulty of Coercion checks, or upgrade difficulty when
+  targeted by Coercion checks, by an equal number. Strain suffered this way cannot exceed ranks in Intimidating.
 activation: aio
 ranked: true
-trees: Agressor
-reference: E-CRB:137
+forceTalent: false
+trees: Aggressor, Agitator, Death Watch Warrior, Enforcer, Gadgeteer, Interrogator, Juyo Berserker, Nightsister, Pirate,
+  Separatist Commander, Warden
+reference:
+  - E-CRB:137
+  - A-CRB:150
+  - F-CRB:145

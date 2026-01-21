@@ -1,8 +1,10 @@
 id: eote-talent-targeted-blow
 name: Targeted Blow
-description: On a successful attack during combat with a non-starship/vehicle weapon, the character may spend on Destiny
-  Point to add damage equal to his Agility to one hit of the successful attack.
+description: After making a successful attack, may spend 1 Destiny Point to add damage equal to Agility to one hit.
 activation: ai
 ranked: false
-trees: Assassin, Mercenary Soldier
-reference: E-CRB:144
+forceTalent: false
+trees: Assassin, Sharpshooter
+reference:
+  - E-CRB:144
+  - A-CRB:158

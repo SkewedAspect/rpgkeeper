@@ -1,0 +1,35 @@
+id: eote-weapon-sabercane
+name: Sabercane
+description: >-
+  Sabercanes are a bit of an anomaly among the Jedi.  Essentially a basic lightsaber emitter built into a walking cane,
+  they are typically used by elderly Jedi or by individuals who need to carry a lightsaber but keep it hidden. Most
+  sabercanes consist of two parts: the hilt/handle and the shaft. The handle is a lightsaber hilt disguised as a cane
+  handle. They come in a wide variety of styles and are as easy to use, modify, and maintain as basic lightsabers.
+  Sabercane handles connect to their matching shafts via a simple bayonet fitting or custom quick-release mount. 
+
+  A sabercane's shaft is made from the same material as its handle and is typically solid-although they can be made
+  hollow for carrying small, secret items. A wielder simply separates the two parts and activates the lightsaber to use
+  it. The shaft may be used as an offhand weapon. Some sabercane shafts are even reinforced with Cortosis weave or
+  beskar and can turn lightsaber blades as easily as lesser weapons. 
+
+  This weapon is a sabercane hilt equipped with an unmodded llum crystal. The crystal occupies two of the weapon's hard
+  points. 
+
+  When installing a crystal into a lightsaber cane, reduce the damage of that crystal by one.
+skill: Lightsaber
+damage: 5
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 3
+rarity: 10
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-sunder
+reference:
+  - CotR:55

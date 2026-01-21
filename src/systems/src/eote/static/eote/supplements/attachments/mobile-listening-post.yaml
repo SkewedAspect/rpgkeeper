@@ -1,0 +1,16 @@
+id: eote-attachment-mobile-listening-post
+name: Mobile Listening Post
+description: Mobile listening posts are a common modification to vehicles used by law enforcement and intelligence
+  agencies. They pack everything an agent or small group of agents needs for a long stakeout. Models commonly include
+  comms interceptors, various powerful sensors and scanners, and of course a small but well stocked caf maker. This
+  attachment can be applied to any enclosed vehicle of silhouette 5 or larger.
+useWith: vehicle
+hpRequired: 2
+rarity: 5
+baseModifier: Increases a vehicle's passive and active sensors by one band. Provides extra audio, video, and holographic
+  capabilities.
+modOptions: []
+reference:
+  - CaM:63
+includedModels:
+  - Various models

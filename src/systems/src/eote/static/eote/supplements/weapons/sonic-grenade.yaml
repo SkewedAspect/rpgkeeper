@@ -1,0 +1,28 @@
+id: eote-weapon-sonic-grenade
+name: Sonic Grenade
+description: >-
+  Rare and extremely deadly, sonic grenades use powerful sound generators, rather than explosives or other chemicals, to
+  cause damage. Ostensibly anti-materiel ordnance, sonic grenades can shatter the thickest glass, crack ferrocrete,
+  crumple light alloys, and otherwise cause tremendous damage to structures and equipment. Against enemy forces, sonic
+  grenades cause extreme, debilitating pain at a distance and can inflict permanent damage at the point of impact.
+
+  **Models Include:** Krupx Munitions Groundshaker 7, Imperial Munitions M880 Sonic Grenade.
+skill: Ranged (Light)
+damage: 10
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-disorient
+    ranks: 5
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - KoF:45

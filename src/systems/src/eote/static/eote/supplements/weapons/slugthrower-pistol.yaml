@@ -1,0 +1,22 @@
+id: eote-weapon-slugthrower-pistol
+name: Slugthrower Pistol
+description: >-
+  Short, compact, and loud, these small weapons are very rare. Those who wield them frequently do so because they have
+  some sentimental value, perhaps handed down to them from some distant relative from a low-tech world, or because these
+  weapons are all that's easily available on their world.
+
+  **Models Include**: Oriolanis Striker Projectile Pistol.
+skill: Ranged (Light)
+damage: 4
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 3
+restricted: false
+qualities: []
+reference:
+  - E-CRB:164
+  - A-CRB:177
+  - F-CRB:169

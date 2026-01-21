@@ -1,0 +1,9 @@
+id: eote-talent-creative-killer
+name: Creative Killer
+description: Reduce the crit rating of improvised weapons by 2 (to a minimum of 1).
+activation: p
+ranked: false
+forceTalent: false
+trees: Recruit, Sleeper Agent
+reference:
+  - A-CRB:145

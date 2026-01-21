@@ -1,0 +1,9 @@
+id: eote-talent-savvy
+name: Savvy
+description: The character adds <boost></boost> to Charm and Negotiation checks they make per rank of Savvy.
+activation: p
+ranked: true
+forceTalent: false
+trees: Senator
+reference:
+  - CotR:43

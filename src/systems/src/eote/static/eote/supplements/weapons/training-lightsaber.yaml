@@ -1,0 +1,34 @@
+id: eote-weapon-training-lightsaber
+name: Training Lightsaber
+description: >-
+  Designed to train Force users in lightsaber use, training lightsabers are low-powered, non-lethal variants of standard
+  lightsabers. Equipped with an ultra-low-output power generator and either a kathracite or danite crystal, a training
+  lightsaber produces a blade that, while possessing the same mass and energy characteristics as its full-powered
+  cousins, does no lasting damage to living beings. Its permanent low-power setting allows younglings and initiates to
+  practice their lightsaber techniques without the risk of maiming or killing their sparring partners. This is not to
+  say that using
+
+  a training lightsaber is without its risks: strikes from a training lightsaber cause heavy bruising, painful welts,
+  and even mild bums. As they are simply common lightsabers with internal modifications, training lightsabers can be
+  turned into full-powered lightsabers simply by changing out the power generator and replacing the crystal with a more
+  formidable one.
+
+  This lightsaber is a basic lightsaber hilt containing an unmodded training lightsaber emitter (see page 200). This
+  crystal occupies two of the weapon's hard points.
+
+  **Models Include:** None: each of these weapons is individually constructed.
+skill: Lightsaber
+damage: 6
+addSkill: false
+criticalRating: 0
+range: en
+encumbrance: 1
+hardpoints: 5
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-stun-damage
+    ranks: 1
+reference:
+  - F-CRB:178
+  - RotS:54

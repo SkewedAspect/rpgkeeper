@@ -1,0 +1,10 @@
+id: eote-talent-baleful-gaze
+name: Baleful Gaze
+description: When targeted by combat check from within medium range, may spend a Destiny Point to upgrade the difficulty
+  of the check a number of times equal to ranks in Coercion.
+activation: aio
+ranked: false
+forceTalent: true
+trees: Warden
+reference:
+  - KtP:30

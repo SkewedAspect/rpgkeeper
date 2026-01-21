@@ -1,0 +1,25 @@
+id: eote-weapon-mini-torpedo-armor-piercing
+name: Mini-Torpedo, Armor Piercing
+description: >-
+  Armor piercing mini-torpedoes are designed to damage single targets, utilizing a shaped explosive charge. Effective
+  against light vehicles and large organisms, they are considered overkill when used on individual troops.
+        
+  _For use with the Mon Cal Defenses Mini-Torpedo Launcher_
+skill: Ranged (Heavy)
+damage: 12
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 4
+reference:
+  - SoR:107
