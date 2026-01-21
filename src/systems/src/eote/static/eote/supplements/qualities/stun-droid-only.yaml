@@ -1,7 +1,8 @@
-id: eote-quality-stun-droid-only-quality
-name: Stun (Droid Only) Quality
+id: eote-quality-stun-droid-only
+name: Stun (Droid Only)
 description: A weapon with Stun causes strain to the target. When the Stun quality is activated, it inflicts strain
   equal to the weapon’s Stun rating.
-passive: true
+passive: false
 ranked: true
-reference: []
+reference:
+  - SoR:104

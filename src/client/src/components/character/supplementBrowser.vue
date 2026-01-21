@@ -132,6 +132,9 @@
     import ReferenceBlock from './referenceBlock.vue';
     import ScopeBadge from './scopeBadge.vue';
 
+    // Utils
+    import { getReferenceAbbr, toReferenceArray } from '../../lib/utils/misc';
+
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
@@ -198,22 +201,16 @@
         const systemId = systemStore.current?.id;
         const references = systemId ? supplementStore.getReferences(systemId) : [];
 
-        // Collect unique source abbreviations
+        // Collect unique source abbreviations from all supplements
         const sources = new Set<string>();
         for(const supp of props.supplements)
         {
-            if(supp.reference)
+            for(const refStr of toReferenceArray(supp.reference))
             {
-                // Handle both string and string[] reference types
-                const refs = Array.isArray(supp.reference) ? supp.reference : [ supp.reference ];
-                for(const refStr of refs)
+                const abbr = getReferenceAbbr(refStr);
+                if(abbr)
                 {
-                    // Extract abbreviation (e.g., "E-CRB:407" -> "E-CRB")
-                    const abbr = refStr.split(':')[0];
-                    if(abbr)
-                    {
-                        sources.add(abbr);
-                    }
+                    sources.add(abbr);
                 }
             }
         }
@@ -223,8 +220,7 @@
         for(const abbr of [ ...sources ].sort())
         {
             const refObj = references.find((refItem) => refItem.abbr === abbr);
-            const text = refObj?.name ?? abbr;
-            options.push({ value: abbr, text });
+            options.push({ value: abbr, text: refObj?.name ?? abbr });
         }
         return options;
     });
@@ -254,10 +250,7 @@
                 // Source filter
                 if(sourceFilter.value !== 'all')
                 {
-                    const refs = Array.isArray(supp.reference)
-                        ? supp.reference
-                        : (supp.reference ? [ supp.reference ] : []);
-                    const abbrs = refs.map((refStr) => refStr.split(':')[0]);
+                    const abbrs = toReferenceArray(supp.reference).map(getReferenceAbbr);
                     if(!abbrs.includes(sourceFilter.value))
                     {
                         return false;

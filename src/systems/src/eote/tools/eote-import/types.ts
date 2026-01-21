@@ -236,6 +236,10 @@ export interface XmlItemDescriptor
     Sources ?: { Source : XmlSource | XmlSource[] };
     ModDesc ?: string;
     QualityType ?: string;
+    /** Only present and true for actual weapon/armor qualities, absent for mods */
+    IsQuality ?: boolean;
+    /** Only present on active qualities that require advantage/triumph to activate */
+    IsActiveQuality ?: boolean;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

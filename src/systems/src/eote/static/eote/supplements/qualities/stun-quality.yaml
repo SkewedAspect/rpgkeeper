@@ -1,7 +1,0 @@
-id: eote-quality-stun-quality
-name: Stun Quality
-description: A weapon with Stun causes strain to the target. When the Stun quality is activated, it inflicts strain
-  equal to the weapon’s Stun rating.
-passive: true
-ranked: true
-reference: []

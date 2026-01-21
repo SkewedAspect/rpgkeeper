@@ -1,8 +1,11 @@
 id: eote-quality-cumbersome
 name: Cumbersome
-description: The character needs a Brawn characteristic equal to or greater than the weapon’s Cumbersome rating. For
-  each point of Brawn by which the character is deficient, they must increase the difficulty of all checks made while
-  using the weapon by one.
-passive: false
+description: A Cumbersome weapon is large, unwieldy, awkward, or heavy. To wield a Cumbersome weapon properly, the
+  character needs a Brawn characteristic equal to or greater than the weapon’s Cumbersome rating. For each point of
+  Brawn the character is deficient, he must increase the difficulty of all checks made while using the weapon by one.
+passive: true
 ranked: true
-reference: E-CRB:155
+reference:
+  - E-CRB:155
+  - A-CRB:169
+  - F-CRB:162

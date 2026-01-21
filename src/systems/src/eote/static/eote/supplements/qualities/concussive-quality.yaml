@@ -1,8 +1,0 @@
-id: eote-quality-concussive-quality
-name: Concussive Quality
-description: The weapon’s attack can leave the target shell­-shocked from mighty blows or punishing shockwaves, unable
-  to perform any but the most basic actions. The target is staggered (see page 218) for a number of rounds equal to the
-  weapon’s Concussive rating. A staggered target cannot perform actions.
-passive: true
-ranked: true
-reference: []

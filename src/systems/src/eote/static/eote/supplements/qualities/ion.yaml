@@ -1,7 +1,12 @@
 id: eote-quality-ion
 name: Ion
-description: Damage is dealt as system strain (usually on vehicles.) Armor and soak still reduce damage. Droids take ion
-  damage as strain.
+description: Ion weapons are designed to affect electrical systems as opposed to dealing raw damage. They are fitted to
+  ships to knock out opponents’ shields, sensors, and engines. They are shorter range than laser weapons, and deal
+  larger amounts of damage, but their damage is dealt to the target as system strain (usually on vehicles). It is still
+  reduced by armor and soak. Droids are affected by ion weapons, taking damage to their strain threshold.
 passive: true
 ranked: false
-reference: E-CRB:156
+reference:
+  - E-CRB:156
+  - A-CRB:170
+  - F-CRB:163

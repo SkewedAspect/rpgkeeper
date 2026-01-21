@@ -1,9 +1,0 @@
-id: eote-quality-slow-firing-quality
-name: Slow-Firing Quality
-description: Slow-Firing weapons tend to be large, heavy, emplacement-mounted weapons like the turbolasers found on
-  capital ships, or planetary defense ion cannons. While they deal incredible damage, they need time to recharge or cool
-  down between shots. A weapon’s Slow-Firing rating dictates how quickly the weapon can be fired after an attack. For
-  example, a heavy turbolaser with Slow-Firing 2 must wait two Rounds after being fired before it can be fired again.
-passive: true
-ranked: true
-reference: []

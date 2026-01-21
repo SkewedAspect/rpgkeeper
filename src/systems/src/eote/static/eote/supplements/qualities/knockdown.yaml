@@ -1,7 +1,13 @@
 id: eote-quality-knockdown
 name: Knockdown
-description: When activated (<advantage></advantage> per silhouette unless otherwise specified), one target hit by the
-  attack is knocked prone. The quality may be triggered multiple times if multiple targets are hit by the attack.
+description: >-
+  When knockdown triggers, the target is knocked prone.
+
+  Unless specified otherwise, Knockdown requires <advantage></advantage><advantage></advantage> to trigger, plus one
+  additional <advantage></advantage> per silhouette beyond one.
 passive: false
 ranked: false
-reference: E-CRB:156
+reference:
+  - E-CRB:156
+  - A-CRB:170
+  - F-CRB:163

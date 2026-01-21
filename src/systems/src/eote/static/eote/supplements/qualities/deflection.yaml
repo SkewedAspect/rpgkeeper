@@ -1,6 +1,9 @@
 id: eote-quality-deflection
 name: Deflection
-description: Increases the user’s ranged defense by its Deflection rating.
+description: An item with the Deflection quality increases the wearer’s ranged defense equal to its Deflection rating.
 passive: true
 ranked: true
-reference: E-CRB:156
+reference:
+  - E-CRB:156
+  - A-CRB:170
+  - F-CRB:163
