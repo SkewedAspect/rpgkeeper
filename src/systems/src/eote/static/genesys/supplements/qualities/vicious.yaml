@@ -4,5 +4,5 @@ description: When an attack with this weapon results in a Critical Injury or Hit
   Vicious rating to the Critical roll. With Vicious 3, for example, you would add +30 to the resulting Critical Injury
   or Hit result.
 passive: true
-ranked: false
+ranked: true
 reference: G-CRB:89

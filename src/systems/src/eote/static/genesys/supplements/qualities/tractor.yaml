@@ -8,5 +8,5 @@ description: Instead of firing searing beams of laser fire or crackling ion disc
   (Weapons with the Tractor quality are only going to show up in science fiction settings, and probably only the more
   fanciful sci-fi settings! However, they are such a staple in those settings that we included the quality here.)
 passive: true
-ranked: false
+ranked: true
 reference: G-CRB:89

@@ -9,5 +9,5 @@ description: A weapon with the Guided quality can track opponents. The Guided qu
   weapon's description. The Guided quality can activate on any subsequent combat check it makes, representing the
   projectile continuing to track the target.
 passive: false
-ranked: false
+ranked: true
 reference: G-CRB:87

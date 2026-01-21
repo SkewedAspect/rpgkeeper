@@ -35,7 +35,9 @@ function isQualityRanked(description : string) : boolean
         || lowerDesc.includes('per level')
         || lowerDesc.includes('for each level')
         || lowerDesc.includes('for each rank')
-        || lowerDesc.includes('ranks of this');
+        || lowerDesc.includes('ranks of this')
+        || lowerDesc.includes('rating')
+        || lowerDesc.includes('equal to');
 }
 
 //----------------------------------------------------------------------------------------------------------------------

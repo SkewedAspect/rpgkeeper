@@ -5,5 +5,5 @@ description: Slow-Firing weapons tend to deal incredible damage, but need time t
   attacking. For example, a heavy laser cannon with Slow-Firing 2 must wait two rounds after being fired before it can
   be fired again.
 passive: true
-ranked: false
+ranked: true
 reference: G-CRB:88

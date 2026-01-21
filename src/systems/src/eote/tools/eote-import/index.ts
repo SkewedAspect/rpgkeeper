@@ -126,6 +126,31 @@ function formatYaml(data : YamlWritable) : string
 const PRESERVE_FIELDS = [ 'description' ];
 
 /**
+ * Merge references: keep existing ones (with page numbers) and add new ones not already present.
+ * Compares by book code prefix (e.g., "E-CRB:154" matches "E-CRB").
+ */
+function mergeReferences(existing : string[], incoming : string[]) : string[]
+{
+    // Extract book codes from existing references (e.g., "E-CRB:154" -> "E-CRB")
+    const existingCodes = new Set(existing.map((ref) => ref.split(':')[0]));
+
+    // Start with existing references (preserves page numbers)
+    const merged = [ ...existing ];
+
+    // Add any incoming references whose book code isn't already present
+    for(const ref of incoming)
+    {
+        const code = ref.split(':')[0];
+        if(!existingCodes.has(code))
+        {
+            merged.push(ref);
+        }
+    }
+
+    return merged;
+}
+
+/**
  * Merge new item data with existing file, preserving specified fields
  */
 async function mergeWithExisting(
@@ -147,6 +172,14 @@ async function mergeWithExisting(
             {
                 merged[field] = existingItem[field];
             }
+        }
+
+        // Special handling for references: merge instead of replace
+        // If existing has references, preserve them and only add new ones
+        if(Array.isArray(existingItem.reference) && existingItem.reference.length > 0)
+        {
+            const incoming = Array.isArray(newItem.reference) ? newItem.reference as string[] : [];
+            merged.reference = mergeReferences(existingItem.reference as string[], incoming);
         }
 
         return merged;

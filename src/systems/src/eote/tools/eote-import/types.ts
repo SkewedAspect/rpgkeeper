@@ -235,6 +235,8 @@ export interface XmlItemDescriptor
     Source ?: string | XmlSource;
     Sources ?: { Source : XmlSource | XmlSource[] };
     ModDesc ?: string;
+    /** Quality description with placeholder {0} for ranked qualities */
+    QualDesc ?: string;
     QualityType ?: string;
     /** Only present and true for actual weapon/armor qualities, absent for mods */
     IsQuality ?: boolean;

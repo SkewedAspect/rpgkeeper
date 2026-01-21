@@ -55,11 +55,34 @@ function isPassive(quality : XmlItemDescriptor) : boolean
     return true;
 }
 
+// Qualities to exclude from import (not official, homebrew, or erroneous data)
+const EXCLUDED_QUALITIES = new Set([
+    'STAGGER', // Not an official quality - Concussive is the quality that inflicts Staggered
+]);
+
+// Qualities that have {0} in XML but are NOT actually ranked per the rulebooks
+const RANKED_OVERRIDES : Record<string, boolean> = {
+    // Add any future overrides here
+};
+
 /**
  * Determine if quality is ranked (has numeric rating)
  */
 function determineRanked(quality : XmlItemDescriptor) : boolean
 {
+    // Check for manual overrides (fixes XML data errors)
+    if(quality.Key in RANKED_OVERRIDES)
+    {
+        return RANKED_OVERRIDES[quality.Key];
+    }
+
+    // Primary check: QualDesc contains {0} placeholder for rank value
+    if(quality.QualDesc?.includes('{0}'))
+    {
+        return true;
+    }
+
+    // Fallback: parse description text for ranking keywords
     const desc = (quality.Description ?? '').toLowerCase();
     const modDesc = (quality.ModDesc ?? '').toLowerCase();
     const combined = `${ desc } ${ modDesc }`;
@@ -68,7 +91,9 @@ function determineRanked(quality : XmlItemDescriptor) : boolean
     if(combined.includes('rating')
         || combined.includes('rank')
         || combined.includes('per rank')
-        || combined.includes('equal to'))
+        || combined.includes('equal to')
+        || combined.includes('for each level')
+        || combined.includes('per level'))
     {
         return true;
     }
@@ -114,10 +139,11 @@ export function convertQuality(quality : XmlItemDescriptor) : InternalQuality
 /**
  * Check if an item descriptor is an actual quality (not a mod definition).
  * Real qualities have IsQuality === true in the XML; mods don't have this field.
+ * Also excludes qualities in the EXCLUDED_QUALITIES set.
  */
 function isQuality(descriptor : XmlItemDescriptor) : boolean
 {
-    return descriptor.IsQuality === true;
+    return descriptor.IsQuality === true && !EXCLUDED_QUALITIES.has(descriptor.Key);
 }
 
 /**
