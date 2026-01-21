@@ -164,7 +164,7 @@ export const cocDefaults : CoCSystemDetails = {
             name: 'Unknown',
             damage: '1d3 + {damageBonus}',
             range: 'Touch',
-            attacks: 1,
+            attacks: '1',
             ammo: null,
             malfunction: null,
             notes: '',
