@@ -29,6 +29,7 @@ export const EoteTalentDataSchema = BaseSupplementDataSchema.extend({
      */
     activation: z.enum([ 'p', 'ai', 'aio', 'am', 'aa' ]).default('p'),
     ranked: z.boolean().default(false),
+    forceTalent: z.boolean().default(false),
     trees: z.string().default(''),
 });
 
@@ -42,8 +43,12 @@ export const EoteTalentDataSchema = BaseSupplementDataSchema.extend({
 export const EoteAttachmentDataSchema = BaseSupplementDataSchema.extend({
     useWith: z.string().default(''),
     baseModifier: z.string().default(''),
-    modOptions: z.string().default(''),
+    modOptions: z.array(z.string()).default([]),
+    includedModels: z.array(z.string()).optional(),
     hpRequired: z.number()
+        .int()
+        .default(0),
+    rarity: z.number()
         .int()
         .default(0),
 });

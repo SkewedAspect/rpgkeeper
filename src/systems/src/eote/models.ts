@@ -41,7 +41,7 @@ export interface BaseTalent extends Supplement
     description : string;
     activation : 'p' | 'ai' | 'aio' | 'am' | 'aa';
     ranked : boolean;
-    tier : BoundedRange<1, 5>;
+    forceTalent : boolean;
 }
 
 export interface BaseTalentInst
@@ -95,6 +95,8 @@ interface BaseArmor extends Supplement
     hardpoints : number;
     encumbrance : number;
     rarity : number;
+    restricted : boolean;
+    qualities : BaseQualityRef[];
 }
 
 export interface BaseArmorRef
@@ -117,10 +119,14 @@ interface BaseWeapon extends Supplement
     description : string;
     skill : string;
     damage : number;
+    /** If true, damage is added to the skill's characteristic (e.g., Brawn for Melee) */
+    addSkill : boolean;
     criticalRating : number;
     range : EncounterRange;
     encumbrance : number;
+    hardpoints : number;
     rarity : number;
+    restricted : boolean;
     qualities : BaseQualityRef[];
 }
 
@@ -130,10 +136,14 @@ export interface BaseWeaponRef
     description ?: string;
     skill : string;
     damage : number;
+    /** If true, damage is added to the skill's characteristic (e.g., Brawn for Melee) */
+    addSkill : boolean;
     criticalRating : number;
     range : EncounterRange;
     encumbrance : number;
+    hardpoints : number;
     rarity : number;
+    restricted : boolean;
     attachments : string[];
     qualities : BaseQualityRef[];
     notes ?: string;
@@ -211,10 +221,12 @@ export interface EoteOrGenesysTalent extends BaseTalent
 
 export type EoteTalentInst = BaseTalentInst;
 
-export interface EoteAttachment extends Omit<BaseAttachment, 'modifiers'>
+export interface EoteAttachment extends Omit<BaseAttachment, 'modifiers' | 'qualities'>
 {
     baseModifier : string;
-    modOptions : string;
+    modOptions : string[];
+    includedModels ?: string[];
+    rarity : number;
 }
 
 export interface EoteForcePowerInst
@@ -275,8 +287,12 @@ export interface EoteCharacter extends Omit<Character, 'details'>
 
 export type GenesysCritical = BaseCriticalInjuryEntry;
 export type GenesysAbility = BaseAbility;
-export type GenesysTalent = BaseTalent;
 export type GenesysTalentInst = BaseTalentInst;
+
+export interface GenesysTalent extends BaseTalent
+{
+    tier : BoundedRange<1, 5>;
+}
 export type GenesysSkill = BaseSkill;
 export type GenesysGear = BaseGear;
 export type GenesysAttachment = BaseAttachment;
