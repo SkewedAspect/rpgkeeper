@@ -1,9 +1,0 @@
-id: eote-quality-inferior-quality
-name: Inferior Quality
-description: An Inferior item is a lackluster example of its kind, representing shoddy and poor craftsmanship. An
-  Inferior weapon generates automatic <threat></threat> on all checks related to its use, and has its base damage
-  decreased by one. Inferior armor has its encumbrance increased by one and its defense decreased by one. If it does not
-  have defense, decrease its soak value by one to a minimum of zero.
-passive: true
-ranked: false
-reference: []

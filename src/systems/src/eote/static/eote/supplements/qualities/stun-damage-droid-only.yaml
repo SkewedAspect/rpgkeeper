@@ -1,5 +1,5 @@
-id: eote-quality-stun-damage-droid-only-quality
-name: Stun Damage (Droid Only) Quality
+id: eote-quality-stun-damage-droid-only
+name: Stun Damage (Droid Only)
 description: >-
   Some weapons deal Stun damage instead of regular damage. In this case, the weapon deals damage as strain instead of
   wounds. This damage is still reduced by a target’s soak.
@@ -9,4 +9,5 @@ description: >-
   damage, their range changes to short and cannot be increased.
 passive: true
 ranked: false
-reference: []
+reference:
+  - SoR:104

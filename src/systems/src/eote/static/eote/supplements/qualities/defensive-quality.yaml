@@ -1,7 +1,0 @@
-id: eote-quality-defensive-quality
-name: Defensive Quality
-description: Defensive weapons are particularly good at fending off incoming melee attacks. A character wielding a
-  weapon with the Defensive quality increases his melee defense by the weapon’s Defensive rating.
-passive: true
-ranked: true
-reference: []

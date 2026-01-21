@@ -1,9 +1,0 @@
-id: eote-quality-ensnare-quality
-name: Ensnare Quality
-description: A weapon with Ensnare binds a foe and restricts his movements. When Ensnare is triggered, the target is
-  immobilized (see page 218) for a number of rounds equal to the weapon’s Ensnare rating. An Ensnared target may attempt
-  a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Athletics check** as his action
-  on his turn to break free from the effect. An immobilized target cannot perform maneuvers.
-passive: true
-ranked: true
-reference: []

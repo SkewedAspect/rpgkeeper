@@ -1,7 +1,10 @@
 id: eote-quality-vicious
 name: Vicious
-description: When an attack with this weapon results in a Critical Injury, add 10 times the Vicious rating to the result
-  rolled on the critical injury table.
+description: When this weapon scores a critical injury or hit, the character adds ten times the Vicious rating to the
+  critical roll. With Vicious 3, for example, the victim adds +30 to his critical hit result.
 passive: true
 ranked: true
-reference: E-CRB:157
+reference:
+  - E-CRB:157
+  - A-CRB:171
+  - F-CRB:164

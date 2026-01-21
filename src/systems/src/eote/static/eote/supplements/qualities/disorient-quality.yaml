@@ -1,8 +1,0 @@
-id: eote-quality-disorient-quality
-name: Disorient Quality
-description: A weapon with Disorient can daze an opponent. When Disorient is triggered, the target is disoriented (see
-  page 218) for a number of rounds equal to the weapon’s Disorient rating. A disoriented target adds <setback></setback>
-  to all skill checks he performs.
-passive: true
-ranked: true
-reference: []

@@ -3,9 +3,11 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="eote-reference" :class="{ inline: isInline }">
-        <span class="name">{{ name }}</span>
-        <span v-if="page">, p{{ page }}</span>
+    <div class="eote-reference" :class="{ inline }">
+        <div v-for="(ref, idx) in parsedRefs" :key="idx" class="ref-item">
+            <span class="name">{{ ref.name }}</span>
+            <span v-if="ref.page">, p{{ ref.page }}</span>
+        </div>
     </div>
 </template>
 
@@ -19,6 +21,14 @@
 
         &.inline {
             display: inline-block;
+
+            .ref-item {
+                display: inline;
+
+                &:not(:last-child)::after {
+                    content: '; ';
+                }
+            }
         }
     }
 </style>
@@ -31,6 +41,9 @@
     // Stores
     import { useSystemStore } from '../../lib/resource-access/stores/systems';
     import { useSupplementStore } from '../../lib/resource-access/stores/supplements';
+
+    // Utils
+    import { toReferenceArray } from '../../lib/utils/misc';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -55,30 +68,29 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const isInline = computed(() => props.inline);
-
-    // Normalize reference to first string if array
-    const firstRef = computed(() =>
+    interface ParsedReference
     {
-        if(Array.isArray(props.reference))
-        {
-            return props.reference[0] ?? '';
-        }
-        return props.reference;
-    });
+        abbr : string;
+        page : string | undefined;
+        name : string | undefined;
+    }
 
-    const abbr = computed(() => firstRef.value.split(':')[0]);
-    const page = computed(() => firstRef.value.split(':')[1]);
-    const refObj = computed(() =>
+    const parsedRefs = computed<ParsedReference[]>(() =>
     {
         const systemId = systemStore.current?.id;
-        if(!systemId)
+        const references = supplementStore.getReferences(systemId ?? '');
+
+        return toReferenceArray(props.reference).map((refStr) =>
         {
-            return undefined;
-        }
-        return supplementStore.getReferences(systemId).find((ref) => ref.abbr === abbr.value);
+            const [ abbr, page ] = refStr.split(':');
+            const refObj = references.find((ref) => ref.abbr === abbr);
+            return {
+                abbr,
+                page,
+                name: refObj?.name ?? abbr,
+            };
+        });
     });
-    const name = computed(() => refObj.value?.name);
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

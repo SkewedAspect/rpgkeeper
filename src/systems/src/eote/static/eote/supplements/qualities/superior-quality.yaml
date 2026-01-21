@@ -1,8 +1,0 @@
-id: eote-quality-superior-quality
-name: Superior Quality
-description: A Superior item is a sterling example of its kind, representing masterful craftsmanship. A Superior weapon
-  generates automatic <advantage></advantage> on all checks related to its use, and has its base damage increased by
-  one. Superior armor has its encumbrance reduced by one and its soak value increased by one.
-passive: true
-ranked: false
-reference: []

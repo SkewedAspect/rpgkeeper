@@ -1,6 +1,0 @@
-id: eote-quality-decrease-critical-mod
-name: Decrease Critical Mod
-description: Decreases the weapon's Crit Rating by 1 to a minimum of 1
-passive: true
-ranked: true
-reference: []

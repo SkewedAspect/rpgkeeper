@@ -1,9 +1,21 @@
 id: eote-quality-guided
 name: Guided
-description: Can only be triggered (<advantage></advantage><advantage></advantage><advantage></advantage>) if an attack
-  misses. If triggered, the controlling character may make a combat check at the end of the round as an out-of-turn
-  incidental. The difficulty of this combat check is Average (<difficulty></difficulty>); instead of the normal dice
-  pool, use <advantage></advantage> equal to the weapon’s Guided rating. If successful, the attack is resolved normally.
+description: >-
+  Certain types of projectiles may benefit from course alterations after being fired—such as guided missiles. If a
+  character misses while firing a Guided weapon and if Guided activates, he may make an attack check at the end of the
+  round. The difficulty of the check is calculated by comparing the weapon’s silhouette of 0 to the silhouette of the
+  target (see page 235), and the check’s Ability dice equal the weapon’s Guided rating. If the test is successful, the
+  weapon strikes the target and damage is dealt normally.
+
+  Guided requires <advantage></advantage><advantage></advantage><advantage></advantage> to activate, unless otherwise
+  specified in the weapon’s description. Remember, the Guided effect can activate on its subsequent attacks,
+  representing the projectile continuing to track the target.
+
+  “Spoofing” is a countermeasure designed to work against the particular projectile—such as flares designed to draw off
+  an infrared missile. Spoofing directly increases the defense of the target against attacks with the Guided quality.
 passive: false
-ranked: false
-reference: E-CRB:156
+ranked: true
+reference:
+  - E-CRB:156
+  - A-CRB:170
+  - F-CRB:163

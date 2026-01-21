@@ -106,23 +106,32 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const selectedIds = computed(() : Set<string | number> =>
+    {
+        const ids = new Set<string | number>();
+        for(const item of props.selected)
+        {
+            if(typeof item === 'object' && item?.id)
+            {
+                ids.add(item.id);
+            }
+            else if(typeof item === 'string' || typeof item === 'number')
+            {
+                ids.add(item);
+            }
+        }
+        return ids;
+    });
+
     const availableFiltered = computed(() =>
     {
+        const query = search.value.toLowerCase();
         return props.available
             .filter((supp) =>
             {
-                let alreadyAdded;
-                const firstItem = props.selected[0];
-                if(typeof firstItem === 'object' && firstItem?.id)
-                {
-                    alreadyAdded = !!(props.selected as SupplementInst[]).find((item) => item.id === supp.id);
-                }
-                else if(supp.id)
-                {
-                    alreadyAdded = (props.selected as (string | number)[]).includes(supp.id);
-                }
-
-                return supp.name.toLowerCase().includes(search.value.toLowerCase()) && !alreadyAdded;
+                const matchesSearch = supp.name.toLowerCase().includes(query);
+                const alreadyAdded = supp.id ? selectedIds.value.has(supp.id) : false;
+                return matchesSearch && !alreadyAdded;
             })
             .sort(props.sortFn);
     });

@@ -1,6 +1,10 @@
 id: eote-quality-defensive
 name: Defensive
-description: Increase the user’s melee defense by its Defensive rating.
+description: Defensive weapons are particularly good at fending off incoming melee attacks. A character wielding a
+  weapon with the Defensive quality increases his melee defense by the weapon’s Defensive rating.
 passive: true
 ranked: true
-reference: E-CRB:156
+reference:
+  - E-CRB:156
+  - A-CRB:170
+  - F-CRB:163
