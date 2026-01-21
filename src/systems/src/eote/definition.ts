@@ -72,11 +72,11 @@ const genesysSkills : GenesysSkill[] = [
     { name: 'Brawl', characteristic: 'brawn', ranks: 0, career: false, type: 'combat' },
     { name: 'Gunnery', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
     { name: 'Melee', characteristic: 'brawn', ranks: 0, career: false, type: 'combat' },
-    { name: 'Melee-Heavy', characteristic: 'brawn', ranks: 0, career: false, type: 'combat' },
-    { name: 'Melee-Light', characteristic: 'brawn', ranks: 0, career: false, type: 'combat' },
+    { name: 'Melee (Heavy)', characteristic: 'brawn', ranks: 0, career: false, type: 'combat' },
+    { name: 'Melee (Light)', characteristic: 'brawn', ranks: 0, career: false, type: 'combat' },
     { name: 'Ranged', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
-    { name: 'Ranged-Heavy', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
-    { name: 'Ranged-Light', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
+    { name: 'Ranged (Heavy)', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
+    { name: 'Ranged (Light)', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
 
     // Social
     { name: 'Charm', characteristic: 'presence', ranks: 0, career: false, type: 'social' },
@@ -179,8 +179,8 @@ const eoteSkills : EoteSkill[] = [
     { name: 'Medicine', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
     { name: 'Operating', characteristic: 'intellect', ranks: 0, career: false, type: 'general' },
     { name: 'Perception', characteristic: 'cunning', ranks: 0, career: false, type: 'general' },
-    { name: 'Piloting-Planetary', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
-    { name: 'Piloting-Space', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
+    { name: 'Piloting (Planetary)', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
+    { name: 'Piloting (Space)', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
     { name: 'Resilience', characteristic: 'brawn', ranks: 0, career: false, type: 'general' },
     { name: 'Skulduggery', characteristic: 'cunning', ranks: 0, career: false, type: 'general' },
     { name: 'Stealth', characteristic: 'agility', ranks: 0, career: false, type: 'general' },
@@ -193,8 +193,8 @@ const eoteSkills : EoteSkill[] = [
     { name: 'Gunnery', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
     { name: 'Melee', characteristic: 'brawn', ranks: 0, career: false, type: 'combat' },
     { name: 'Lightsaber', characteristic: 'brawn', ranks: 0, career: false, type: 'combat' },
-    { name: 'Ranged-Heavy', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
-    { name: 'Ranged-Light', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
+    { name: 'Ranged (Heavy)', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
+    { name: 'Ranged (Light)', characteristic: 'agility', ranks: 0, career: false, type: 'combat' },
 
     // Social
     { name: 'Charm', characteristic: 'presence', ranks: 0, career: false, type: 'social' },
