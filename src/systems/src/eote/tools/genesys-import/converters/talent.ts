@@ -1,12 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
-
-/* eslint-disable id-length, sort-imports, no-duplicate-imports */
 // Talent Converter
 //----------------------------------------------------------------------------------------------------------------------
 
 import type { ExternalTalent } from '../types.ts';
-import { generateId, mapActivation, formatReference } from '../utils.ts';
-import type { InternalActivation } from '../utils.ts';
+import { type InternalActivation, ensureArray, formatReference, generateId, mapActivation } from '../utils.ts';
 import { convertVaryingDisplay } from './description.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -47,17 +44,9 @@ export function convertTalent(external : ExternalTalent, bookFile : string) : In
 /**
  * Convert multiple talents from a book
  */
-export function convertTalents(
-    talents : ExternalTalent[] | undefined,
-    bookFile : string
-) : InternalTalent[]
+export function convertTalents(talents : ExternalTalent[] | undefined, bookFile : string) : InternalTalent[]
 {
-    if(!talents || !Array.isArray(talents))
-    {
-        return [];
-    }
-
-    return talents.map((t) => convertTalent(t, bookFile));
+    return ensureArray(talents).map((talent) => convertTalent(talent, bookFile));
 }
 
 //----------------------------------------------------------------------------------------------------------------------

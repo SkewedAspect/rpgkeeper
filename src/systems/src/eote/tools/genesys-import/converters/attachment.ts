@@ -1,14 +1,11 @@
 //----------------------------------------------------------------------------------------------------------------------
-
-/* eslint-disable id-length, sort-imports */
 // Attachment Converter
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { ExternalGear, ExternalAttachment, VaryingDisplay, VaryingDisplayItem } from '../types.ts';
-import { generateId, formatReference, qualityNameToId } from '../utils.ts';
+import type { ExternalAttachment, ExternalGear, VaryingDisplay, VaryingDisplayItem } from '../types.ts';
+import { type InternalQualityRef, ensureArray, formatReference, generateId, qualityNameToId } from '../utils.ts';
 import { convertVaryingDisplay } from './description.ts';
 import { fixTypos } from './typos.ts';
-import type { InternalQualityRef } from './weapon.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Internal Attachment Type
@@ -88,6 +85,7 @@ function cleanExtractedText(text : string) : string
     // Handle {@symbols ...} - convert to readable format
     cleaned = cleaned.replace(/\{@symbols\s+(\w+)\}/gi, (_, symbols) =>
     {
+        /* eslint-disable id-length */
         const symbolMap : Record<string, string> = {
             s: 'Success',
             f: 'Failure',
@@ -98,8 +96,9 @@ function cleanExtractedText(text : string) : string
             b: 'Boost',
             d: 'Difficulty',
         };
+        /* eslint-enable id-length */
         return symbols.split('')
-            .map((c : string) => symbolMap[c.toLowerCase()] ?? c)
+            .map((char : string) => symbolMap[char.toLowerCase()] ?? char)
             .join(' ');
     });
 
@@ -137,7 +136,7 @@ function extractQualityRefs(rawText : string) : InternalQualityRef[]
         }
 
         // Avoid duplicates
-        if(!qualities.some((q) => q.id === ref.id))
+        if(!qualities.some((existing) => existing.id === ref.id))
         {
             qualities.push(ref);
         }
@@ -284,17 +283,9 @@ export function convertAttachment(attachment : ExternalAttachment, bookFile : st
 /**
  * Filter and convert attachments from gear array
  */
-export function convertAttachments(
-    gear : ExternalGear[] | undefined,
-    bookFile : string
-) : InternalAttachment[]
+export function convertAttachments(gear : ExternalGear[] | undefined, bookFile : string) : InternalAttachment[]
 {
-    if(!gear || !Array.isArray(gear))
-    {
-        return [];
-    }
-
-    return gear
+    return ensureArray(gear)
         .filter(isAttachment)
         .map((attch) => convertAttachment(attch, bookFile));
 }

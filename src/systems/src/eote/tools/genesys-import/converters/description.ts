@@ -1,6 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------
 
-/* eslint-disable id-length, no-use-before-define */
 // Description Converter
 //
 // Converts varyingDisplay format to plain text with XML dice tags
@@ -35,9 +34,11 @@ const DICE_MAP : Record<string, string> = {
 };
 
 /**
- * Map single-character symbols to internal tag names
- * Used in {@symbols ...} tags
+ * Map single-character symbols to internal tag names.
+ * Used in {@symbols ...} tags where each character represents a dice symbol.
+ * Keys are intentionally single characters matching the external symbol format.
  */
+/* eslint-disable id-length */
 const SYMBOL_CHAR_MAP : Record<string, string> = {
     s: 'success',
     f: 'failure',
@@ -53,6 +54,7 @@ const SYMBOL_CHAR_MAP : Record<string, string> = {
     l: 'lightside',
     k: 'darkside',
 };
+/* eslint-enable id-length */
 
 /**
  * Map difficulty level names to dice counts
@@ -229,6 +231,7 @@ export function convertVaryingDisplay(description : VaryingDisplay) : string
         return '';
     }
 
+    // eslint-disable-next-line no-use-before-define -- Mutual recursion: convertItem ↔ convertVaryingDisplay
     const parts = description.map(convertItem).filter(Boolean);
     const text = parts.join(' ').replace(/\s+/g, ' ')
         .trim();

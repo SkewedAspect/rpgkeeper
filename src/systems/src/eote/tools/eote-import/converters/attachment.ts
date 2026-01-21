@@ -2,8 +2,6 @@
 // Attachment Converter
 //----------------------------------------------------------------------------------------------------------------------
 
-/* eslint-disable id-length */
-
 import type { XmlItemAttachment, XmlMod } from '../types.ts';
 import {
     cleanDescription,
@@ -260,8 +258,8 @@ function extractModelsInclude(rawDescription : string, name : string) : Descript
     const modelsList = modelsText
         .replace(/\.$/, '') // Remove trailing period
         .split(/,\s*/)
-        .map((m) => m.trim())
-        .filter((m) => m.length > 0);
+        .map((model) => model.trim())
+        .filter((model) => model.length > 0);
 
     return { description, includedModels: modelsList };
 }
