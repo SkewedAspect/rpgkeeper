@@ -24,6 +24,20 @@
                                 autocomplete="off"
                             />
                         </BInputGroup>
+                        <div class="d-flex gap-2 mt-2">
+                            <BFormSelect
+                                v-model="scopeFilter"
+                                :options="scopeOptions"
+                                size="sm"
+                                class="w-auto"
+                            />
+                            <BFormSelect
+                                v-model="sourceFilter"
+                                :options="sourceOptions"
+                                size="sm"
+                                class="flex-grow-1"
+                            />
+                        </div>
                     </template>
 
                     <!-- Supplement List -->
@@ -109,6 +123,10 @@
     // Models
     import type { Supplement } from '@rpgk/core';
 
+    // Stores
+    import { useSystemStore } from '../../lib/resource-access/stores/systems';
+    import { useSupplementStore } from '../../lib/resource-access/stores/supplements';
+
     // Components
     import MarkdownBlock from '../ui/markdownBlock.vue';
     import ReferenceBlock from './referenceBlock.vue';
@@ -150,7 +168,12 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
+
     const searchQuery = ref('');
+    const scopeFilter = ref<'all' | 'official' | 'homebrew'>('all');
+    const sourceFilter = ref<string>('all');
     const selectedSupplement = ref<Supplement | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -164,11 +187,85 @@
         return props.sortFn ?? ((suppA, suppB) => suppA.name.localeCompare(suppB.name));
     });
 
+    const scopeOptions = [
+        { value: 'all', text: 'All' },
+        { value: 'official', text: 'Official' },
+        { value: 'homebrew', text: 'Homebrew' },
+    ];
+
+    const sourceOptions = computed(() =>
+    {
+        const systemId = systemStore.current?.id;
+        const references = systemId ? supplementStore.getReferences(systemId) : [];
+
+        // Collect unique source abbreviations
+        const sources = new Set<string>();
+        for(const supp of props.supplements)
+        {
+            if(supp.reference)
+            {
+                // Handle both string and string[] reference types
+                const refs = Array.isArray(supp.reference) ? supp.reference : [ supp.reference ];
+                for(const refStr of refs)
+                {
+                    // Extract abbreviation (e.g., "E-CRB:407" -> "E-CRB")
+                    const abbr = refStr.split(':')[0];
+                    if(abbr)
+                    {
+                        sources.add(abbr);
+                    }
+                }
+            }
+        }
+
+        // Build options with nice names
+        const options = [ { value: 'all', text: 'All Sources' } ];
+        for(const abbr of [ ...sources ].sort())
+        {
+            const refObj = references.find((refItem) => refItem.abbr === abbr);
+            const text = refObj?.name ?? abbr;
+            options.push({ value: abbr, text });
+        }
+        return options;
+    });
+
     const filteredSupplements = computed(() =>
     {
         const query = searchQuery.value.toLowerCase();
         return props.supplements
-            .filter((supp) => supp.name.toLowerCase().includes(query))
+            .filter((supp) =>
+            {
+                // Text search filter
+                if(!supp.name.toLowerCase().includes(query))
+                {
+                    return false;
+                }
+
+                // Scope filter
+                if(scopeFilter.value === 'official' && !supp.official)
+                {
+                    return false;
+                }
+                if(scopeFilter.value === 'homebrew' && supp.official)
+                {
+                    return false;
+                }
+
+                // Source filter
+                if(sourceFilter.value !== 'all')
+                {
+                    const refs = Array.isArray(supp.reference)
+                        ? supp.reference
+                        : (supp.reference ? [ supp.reference ] : []);
+                    const abbrs = refs.map((refStr) => refStr.split(':')[0]);
+                    if(!abbrs.includes(sourceFilter.value))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            })
             .sort(sortFn.value);
     });
 
