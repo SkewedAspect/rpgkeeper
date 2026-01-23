@@ -28,6 +28,43 @@ You can! Simply copy the url from your browser, and send that link to someone el
 
 ---
 
+## Docker
+
+RPGKeeper is available as a Docker image at `morgul/rpgkeeper:latest`.
+
+### Quick Start
+
+```bash
+docker run -d -p 5678:5678 morgul/rpgkeeper:latest
+```
+
+**Note:** Without a volume mount, any characters or data you create will be lost when the container stops. See Volume Mounts below for persistent data.
+
+### Volume Mounts
+
+The image includes a pre-built `static.db` file at `/app/db/static.db` containing official game supplement definitions (weapons, armor, talents, etc.).
+
+**Important:** If you mount a volume at `/app/db`, it will shadow the bundled `static.db` file. You have two options:
+
+**Option 1: Mount only the database file (recommended)**
+```bash
+docker run -d -p 5678:5678 -v /path/to/rpgk.db:/app/db/rpgk.db morgul/rpgkeeper:latest
+```
+
+**Option 2: Mount the directory and copy static.db (one-time setup)**
+```bash
+# Start container
+docker run -d --name rpgkeeper -p 5678:5678 -v /path/to/data:/app/db morgul/rpgkeeper:latest
+
+# Copy static.db to your volume
+docker cp rpgkeeper:/app/db/static.db /path/to/data/static.db
+
+# Restart container
+docker restart rpgkeeper
+```
+
+---
+
 ## Development
 
 RPGKeeper is, and always will be an open source project. We want to encourage developers to help improve it, and add new features that we haven't even considered before. As such, we want to keep how to contribute front and center in this readme. All contributions are welcome!
