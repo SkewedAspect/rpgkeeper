@@ -35,8 +35,12 @@ MAINTAINER Christopher S. Case <chris.case@g33xnexus.com>
 
 # Only copy the files we actually need
 COPY --from=bundle-builder /app/dist /app/dist
+COPY --from=bundle-builder /app/src/core /app/src/core
+COPY --from=bundle-builder /app/src/server /app/src/server
+COPY --from=bundle-builder /app/src/systems /app/src/systems
 COPY --from=npm-builder /app/node_modules /app/node_modules
 COPY --from=bundle-builder /app/package.json /app/
+COPY --from=bundle-builder /app/knexfile.ts /app/
 
 RUN mkdir /app/db
 
