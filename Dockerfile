@@ -42,7 +42,8 @@ COPY --from=npm-builder /app/node_modules /app/node_modules
 COPY --from=bundle-builder /app/package.json /app/
 COPY --from=bundle-builder /app/knexfile.ts /app/
 
-RUN mkdir /app/db
+# Create db directory - static.db is optional and can be volume-mounted if needed
+RUN mkdir -p /app/db
 
 WORKDIR /app
 ADD config/ /app/config/
