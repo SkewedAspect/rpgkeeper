@@ -9,6 +9,7 @@
 import type { Knex } from 'knex';
 import Database from 'better-sqlite3';
 import path from 'node:path';
+import fs from 'node:fs';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -28,8 +29,26 @@ interface OldMotivationRow
 
 export async function up(knex : Knex) : Promise<void>
 {
+    // Check if old table exists - if not, this is a fresh install
+    const hasOldTable = await knex.schema.hasTable('genesys_motivation');
+
+    if(!hasOldTable)
+    {
+        console.log('No old genesys_motivation table found - skipping migration (fresh install)');
+        return;
+    }
+
     const dbPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..', 'db', 'rpgk.db');
     const staticDbPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..', 'db', 'static.db');
+
+    // Check if static.db exists
+    if(!fs.existsSync(staticDbPath))
+    {
+        console.warn('static.db not found - skipping official motivation migration');
+        console.warn('Official motivation IDs will not be migrated. This may cause data loss.');
+        console.warn(`Expected location: ${ staticDbPath }`);
+        return;
+    }
 
     const knexDb = new Database(dbPath, { readonly: true });
     const staticDb = new Database(staticDbPath, { readonly: true });
