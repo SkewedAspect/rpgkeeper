@@ -11,6 +11,7 @@ ADD . /app/
 
 RUN npm ci --no-fund
 RUN npm run build
+RUN npm run db:build-static
 
 #-----------------------------------------------------------------------------------------------------------------------
 # NPM Stage - Install production packages and clean cache
@@ -42,8 +43,9 @@ COPY --from=npm-builder /app/node_modules /app/node_modules
 COPY --from=bundle-builder /app/package.json /app/
 COPY --from=bundle-builder /app/knexfile.ts /app/
 
-# Create db directory - static.db is optional and can be volume-mounted if needed
+# Create db directory and copy static.db
 RUN mkdir -p /app/db
+COPY --from=bundle-builder /app/db/static.db /app/db/
 
 WORKDIR /app
 ADD config/ /app/config/
