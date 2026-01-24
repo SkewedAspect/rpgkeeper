@@ -132,8 +132,16 @@ export async function up(knex : Knex) : Promise<void>
 {
     // Check if any old supplement tables exist - if not, this is a fresh install
     const oldTables = [
-        'eote_ability', 'eote_talent', 'eote_attachment', 'eote_quality', 'eote_forcepower',
-        'genesys_ability', 'genesys_talent', 'genesys_attachment', 'genesys_quality', 'genesys_motivation'
+        'eote_ability',
+        'eote_talent',
+        'eote_attachment',
+        'eote_quality',
+        'eote_forcepower',
+        'genesys_ability',
+        'genesys_talent',
+        'genesys_attachment',
+        'genesys_quality',
+        'genesys_motivation',
     ];
 
     const existingTables = await Promise.all(
@@ -144,11 +152,11 @@ export async function up(knex : Knex) : Promise<void>
         })
     );
 
-    const tablesFound = existingTables.filter((t) => t !== null);
+    const tablesFound = existingTables.filter((table) => table !== null);
 
     if(tablesFound.length === 0)
     {
-        console.log('No old supplement tables found - skipping migration (fresh install)');
+        console.info('No old supplement tables found - skipping migration (fresh install)');
         return;
     }
 

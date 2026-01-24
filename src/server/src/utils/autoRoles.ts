@@ -11,7 +11,9 @@
  */
 export function getAdminEmails() : string[]
 {
-    return process.env['ADMIN_EMAILS']?.split(',').map((e) => e.trim()).filter(Boolean) ?? [];
+    return process.env['ADMIN_EMAILS']?.split(',')
+        .map((email) => email.trim())
+        .filter(Boolean) ?? [];
 }
 
 /**
@@ -19,7 +21,9 @@ export function getAdminEmails() : string[]
  */
 export function getModEmails() : string[]
 {
-    return process.env['MOD_EMAILS']?.split(',').map((e) => e.trim()).filter(Boolean) ?? [];
+    return process.env['MOD_EMAILS']?.split(',')
+        .map((email) => email.trim())
+        .filter(Boolean) ?? [];
 }
 
 /**
@@ -27,7 +31,8 @@ export function getModEmails() : string[]
  */
 export function isAdminEmail(email : string) : boolean
 {
-    const adminEmails = getAdminEmails().map((e) => e.toLowerCase());
+    const adminEmails = getAdminEmails()
+        .map((adminEmail) => adminEmail.toLowerCase());
     return adminEmails.includes(email.toLowerCase());
 }
 
@@ -36,7 +41,8 @@ export function isAdminEmail(email : string) : boolean
  */
 export function isModEmail(email : string) : boolean
 {
-    const modEmails = getModEmails().map((e) => e.toLowerCase());
+    const modEmails = getModEmails()
+        .map((modEmail) => modEmail.toLowerCase());
     return modEmails.includes(email.toLowerCase());
 }
 

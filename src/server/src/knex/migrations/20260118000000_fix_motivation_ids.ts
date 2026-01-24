@@ -34,7 +34,7 @@ export async function up(knex : Knex) : Promise<void>
 
     if(!hasOldTable)
     {
-        console.log('No old genesys_motivation table found - skipping migration (fresh install)');
+        console.info('No old genesys_motivation table found - skipping migration (fresh install)');
         return;
     }
 

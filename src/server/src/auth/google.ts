@@ -99,7 +99,7 @@ export default {
                             const db = await getDB();
                             for(const roleID of roleIDs)
                             {
-                                // eslint-disable-next-line no-await-in-loop
+                                // eslint-disable-next-line no-await-in-loop, camelcase
                                 await db('account_role').insert({ account_id: account.id, role_id: roleID });
                             }
                             logger.info(`Auto-assigned roles ${ roleIDs.join(', ') } to new account: ${ email }`);
