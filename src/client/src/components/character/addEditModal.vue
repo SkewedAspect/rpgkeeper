@@ -78,7 +78,7 @@
                                         value-field="id"
                                         :disabled="!isNew"
                                         :state="validateState('system')"
-                                        @input="v$.system.$touch()"
+                                        @change="v$.system.$touch()"
                                     />
                                 </BFormGroup>
                             </BCol>
