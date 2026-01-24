@@ -42,6 +42,9 @@ docker run -d -p 5678:5678 morgul/rpgkeeper:latest
 
 ### Environment Variables
 
+**Authentication:**
+- `DOMAIN` - The public domain where RPGKeeper is hosted (required for Google OAuth, e.g., `"https://rpgkeeper.example.com"`)
+
 **Admin/Mod Assignment:**
 - `ADMIN_EMAILS` - Comma-separated list of email addresses that should automatically get admin privileges when they create an account (e.g., `"user@example.com,admin@example.com"`)
 - `MOD_EMAILS` - Comma-separated list of email addresses that should automatically get moderator privileges when they create an account
@@ -49,6 +52,7 @@ docker run -d -p 5678:5678 morgul/rpgkeeper:latest
 Example:
 ```bash
 docker run -d -p 5678:5678 \
+  -e DOMAIN="https://beta.rpgkeeper.com" \
   -e ADMIN_EMAILS="your.email@example.com" \
   -v /path/to/rpgk.db:/app/db/rpgk.db \
   morgul/rpgkeeper:latest
