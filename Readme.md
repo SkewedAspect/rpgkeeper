@@ -58,6 +58,37 @@ docker run -d -p 5678:5678 \
   morgul/rpgkeeper:latest
 ```
 
+### Single User Mode (No Authentication)
+
+For personal, single-user deployments where the container is NOT exposed to the internet, you can enable Single User Mode to bypass authentication entirely.
+
+**⚠️ WARNING:** Single User Mode has NO authentication security. Anyone who can access the container can view and modify all data. Only use this for personal deployments on trusted networks.
+
+Enable Single User Mode:
+```bash
+docker run -d -p 5678:5678 \
+  -e SINGLE_USER_MODE="true" \
+  -v /path/to/rpgk.db:/app/db/rpgk.db \
+  morgul/rpgkeeper:latest
+```
+
+When enabled:
+- Google OAuth is disabled
+- A default user account is automatically created
+- All requests are automatically authenticated as this user
+- No login screen is shown
+- Logout functionality is disabled
+
+**Recommended use cases:**
+- Personal home server deployments (not internet-facing)
+- Local development/testing
+- Single-user containers on trusted networks
+
+**Not recommended for:**
+- Multi-user deployments
+- Internet-facing servers
+- Shared hosting environments
+
 ### Volume Mounts
 
 The image includes a pre-built `static.db` file at `/app/db/static.db` containing official game supplement definitions (weapons, armor, talents, etc.).
