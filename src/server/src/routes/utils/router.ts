@@ -136,10 +136,10 @@ export function serveIndex(_request : Request, response : Response) : void
 
     stream.on('error', (err) =>
     {
-        console.error('Error serving index.html:', err);
+        console.error(`Failed to serve index.html from ${ indexPath }:`, err);
         if(!response.headersSent)
         {
-            response.status(500).send('Internal Server Error');
+            response.status(500).send(`Unable to find index.html at: ${ indexPath }`);
         }
     });
 
