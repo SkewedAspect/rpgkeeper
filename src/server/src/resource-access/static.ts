@@ -65,9 +65,18 @@ function getDB() : Database.Database
 
 export function getSources(system : string) : Source[]
 {
-    const sql = 'SELECT system, abbr, name, product_code as productCode FROM sources WHERE system = ?';
-    const stmt = getDB().prepare(sql);
-    return stmt.all(system) as Source[];
+    try
+    {
+        const sql = 'SELECT system, abbr, name, product_code as productCode FROM sources WHERE system = ?';
+        const stmt = getDB().prepare(sql);
+        return stmt.all(system) as Source[];
+    }
+    catch (error)
+    {
+        // If static.db doesn't exist or can't be opened, return empty array
+        // This is normal for fresh Docker deployments before static.db is copied
+        return [];
+    }
 }
 
 export function getSource(system : string, abbr : string) : Source | undefined
