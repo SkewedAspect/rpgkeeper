@@ -156,7 +156,7 @@ async function main() : Promise<void>
     //------------------------------------------------------------------------------------------------------------------
 
     // Setup static serving
-    app.use(express.static(resolve(import.meta.dirname, '..', 'client')));
+    app.use(express.static(resolve(import.meta.dirname, '..', '..', '..', 'dist', 'client')));
 
     // Core Application Routes
     app.use('/auth', authRouter);
