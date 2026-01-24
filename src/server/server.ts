@@ -147,8 +147,11 @@ async function main() : Promise<void>
     // Routing
     //------------------------------------------------------------------------------------------------------------------
 
-    // Setup static serving
-    app.use(express.static(resolve(import.meta.dirname, '..', 'client')));
+    // Setup static serving (production only - dev mode uses Vite)
+    if(!devMode)
+    {
+        app.use(express.static(resolve(import.meta.dirname, '..', '..', 'dist', 'client')));
+    }
 
     // Core Application Routes
     app.use('/auth', authRouter);
