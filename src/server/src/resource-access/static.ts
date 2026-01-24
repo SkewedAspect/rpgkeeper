@@ -85,8 +85,9 @@ export function getSources(system : string) : Source[]
         {
             hasWarnedAboutMissingDb = true;
             logger.warn('static.db not found. Official game supplements will not be available.');
-            logger.warn('For Docker deployments: Copy static.db from the container to your volume:');
-            logger.warn('  docker cp <container>:/app/db/static.db /path/to/volume/static.db');
+            logger.warn('For Docker deployments, copy static.db from the image:');
+            logger.warn('  docker run --rm -v /path/to/volume:/dest <image> cp /app/db/static.db /dest/');
+            logger.warn('Or mount only rpgk.db instead of the entire /app/db directory.');
             logger.warn('See README.md for more details.');
         }
         return [];
