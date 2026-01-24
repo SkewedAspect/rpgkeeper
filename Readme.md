@@ -40,6 +40,20 @@ docker run -d -p 5678:5678 morgul/rpgkeeper:latest
 
 **Note:** Without a volume mount, any characters or data you create will be lost when the container stops. See Volume Mounts below for persistent data.
 
+### Environment Variables
+
+**Admin/Mod Assignment:**
+- `ADMIN_EMAILS` - Comma-separated list of email addresses that should automatically get admin privileges when they create an account (e.g., `"user@example.com,admin@example.com"`)
+- `MOD_EMAILS` - Comma-separated list of email addresses that should automatically get moderator privileges when they create an account
+
+Example:
+```bash
+docker run -d -p 5678:5678 \
+  -e ADMIN_EMAILS="your.email@example.com" \
+  -v /path/to/rpgk.db:/app/db/rpgk.db \
+  morgul/rpgkeeper:latest
+```
+
 ### Volume Mounts
 
 The image includes a pre-built `static.db` file at `/app/db/static.db` containing official game supplement definitions (weapons, armor, talents, etc.).
