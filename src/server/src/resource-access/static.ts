@@ -7,6 +7,11 @@
 import * as path from 'path';
 import { packageDirectorySync } from 'pkg-dir';
 import Database from 'better-sqlite3';
+import logging from '@strata-js/util-logging';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const logger = logging.getLogger('static-db');
 
 //----------------------------------------------------------------------------------------------------------------------
 // Types
@@ -43,6 +48,7 @@ interface RawDefinition
 //----------------------------------------------------------------------------------------------------------------------
 
 let db : Database.Database | null = null;
+let hasWarnedAboutMissingDb = false;
 
 function getDB() : Database.Database
 {
@@ -65,9 +71,27 @@ function getDB() : Database.Database
 
 export function getSources(system : string) : Source[]
 {
-    const sql = 'SELECT system, abbr, name, product_code as productCode FROM sources WHERE system = ?';
-    const stmt = getDB().prepare(sql);
-    return stmt.all(system) as Source[];
+    try
+    {
+        const sql = 'SELECT system, abbr, name, product_code as productCode FROM sources WHERE system = ?';
+        const stmt = getDB().prepare(sql);
+        return stmt.all(system) as Source[];
+    }
+    catch (_error)
+    {
+        // If static.db doesn't exist or can't be opened, return empty array
+        // This is normal for fresh Docker deployments before static.db is copied
+        if(!hasWarnedAboutMissingDb)
+        {
+            hasWarnedAboutMissingDb = true;
+            logger.warn('static.db not found. Official game supplements will not be available.');
+            logger.warn('For Docker deployments, copy static.db from the image:');
+            logger.warn('  docker run --rm -v /path/to/volume:/dest <image> cp /app/db/static.db /dest/');
+            logger.warn('Or mount only rpgk.db instead of the entire /app/db directory.');
+            logger.warn('See README.md for more details.');
+        }
+        return [];
+    }
 }
 
 export function getSource(system : string, abbr : string) : Source | undefined

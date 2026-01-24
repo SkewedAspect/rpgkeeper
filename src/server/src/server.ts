@@ -27,6 +27,7 @@ import { ConnectSessionKnexStore } from 'connect-session-knex';
 // Auth
 import GoogleAuth from './auth/google.ts';
 import DevAuth from './auth/dev.ts';
+import SingleUserAuth from './auth/singleUser.ts';
 
 // Interfaces
 import type { ServerConfig } from './interfaces/config.ts';
@@ -81,6 +82,8 @@ async function main() : Promise<void>
     {
         devMode = true;
     }
+
+    const singleUserMode = process.env.SINGLE_USER_MODE === 'true';
 
     //------------------------------------------------------------------------------------------------------------------
     // Database
@@ -143,7 +146,16 @@ async function main() : Promise<void>
     app.use(passport.session());
 
     // Set up our authentication support
-    GoogleAuth.initialize(config, app, devMode);
+    if(singleUserMode)
+    {
+        // Single-user mode: auto-authenticate all requests
+        await SingleUserAuth.initialize(app);
+    }
+    else
+    {
+        // Normal mode: use Google OAuth
+        GoogleAuth.initialize(config, app, devMode);
+    }
 
     // Dev-only test authentication (for E2E tests)
     if(devMode)
