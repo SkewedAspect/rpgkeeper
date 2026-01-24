@@ -9,6 +9,11 @@ WORKDIR /app
 
 ADD . /app/
 
+# Capture git info during build
+RUN git rev-parse --short HEAD 2>/dev/null > /tmp/commit_sha || echo 'unknown' > /tmp/commit_sha
+RUN git rev-parse --abbrev-ref HEAD 2>/dev/null > /tmp/commit_ref || echo 'unknown' > /tmp/commit_ref
+RUN date -u +%Y-%m-%dT%H:%M:%SZ > /tmp/build_date
+
 RUN npm ci --no-fund
 RUN npm run build
 RUN npm run db:build-static
@@ -34,6 +39,15 @@ EXPOSE 5678
 
 MAINTAINER Christopher S. Case <chris.case@g33xnexus.com>
 
+# Copy git info files from build stage
+COPY --from=bundle-builder /tmp/commit_sha /tmp/commit_sha
+COPY --from=bundle-builder /tmp/commit_ref /tmp/commit_ref
+COPY --from=bundle-builder /tmp/build_date /tmp/build_date
+
+# Copy entrypoint script
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 # Only copy the files we actually need
 COPY --from=bundle-builder /app/dist /app/dist
 COPY --from=bundle-builder /app/src/core /app/src/core
@@ -52,6 +66,7 @@ ADD config/ /app/config/
 
 VOLUME /app/db
 
+ENTRYPOINT [ "/usr/local/bin/docker-entrypoint.sh" ]
 CMD [ "npm", "start",  "# rpgkeeper" ]
 
 #-----------------------------------------------------------------------------------------------------------------------
