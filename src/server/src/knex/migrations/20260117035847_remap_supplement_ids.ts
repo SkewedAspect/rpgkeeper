@@ -220,11 +220,13 @@ export async function up(knex : Knex) : Promise<void>
             {
                 const abilityMap = isEote ? mappings.eoteAbilities : mappings.genesysAbilities;
                 const originalLength = details.abilities.length;
+                let hadNumericIds = false;
                 details.abilities = details.abilities
                     .map((id : number | string) =>
                     {
                         if(typeof id === 'number')
                         {
+                            hadNumericIds = true;
                             const newId = abilityMap.get(id);
                             if(newId)
                             {
@@ -252,7 +254,7 @@ export async function up(knex : Knex) : Promise<void>
                         return true;
                     });
 
-                if(details.abilities.length !== originalLength)
+                if(hadNumericIds || details.abilities.length !== originalLength)
                 {
                     modified = true;
                 }
@@ -264,11 +266,13 @@ export async function up(knex : Knex) : Promise<void>
                 const talentMap = isEote ? mappings.eoteTalents : mappings.genesysTalents;
                 const originalLength = details.talents.length;
                 const system = isEote ? 'eote' : 'genesys';
+                let hadNumericIds = false;
                 details.talents = details.talents
                     .map((talent : { id : number | string; [key : string] : unknown }) =>
                     {
                         if(typeof talent.id === 'number')
                         {
+                            hadNumericIds = true;
                             const newId = talentMap.get(talent.id);
                             if(newId)
                             {
@@ -293,7 +297,7 @@ export async function up(knex : Knex) : Promise<void>
                         return true;
                     });
 
-                if(details.talents.length !== originalLength)
+                if(hadNumericIds || details.talents.length !== originalLength)
                 {
                     modified = true;
                 }
@@ -316,11 +320,13 @@ export async function up(knex : Knex) : Promise<void>
                     if(Array.isArray(weapon.qualities))
                     {
                         const origLen = weapon.qualities.length;
+                        let hadNumericIds = false;
                         weapon.qualities = weapon.qualities
                             .map((qual) =>
                             {
                                 if(typeof qual.id === 'number')
                                 {
+                                    hadNumericIds = true;
                                     const newId = qualityMap.get(qual.id);
                                     if(newId)
                                     {
@@ -341,7 +347,7 @@ export async function up(knex : Knex) : Promise<void>
                                 return true;
                             });
 
-                        if(weapon.qualities.length !== origLen)
+                        if(hadNumericIds || weapon.qualities.length !== origLen)
                         {
                             modified = true;
                         }
@@ -351,11 +357,13 @@ export async function up(knex : Knex) : Promise<void>
                     if(Array.isArray(weapon.attachments))
                     {
                         const origLen = weapon.attachments.length;
+                        let hadNumericIds = false;
                         weapon.attachments = weapon.attachments
                             .map((id : number | string) =>
                             {
                                 if(typeof id === 'number')
                                 {
+                                    hadNumericIds = true;
                                     const newId = attachmentMap.get(id);
                                     if(newId)
                                     {
@@ -376,7 +384,7 @@ export async function up(knex : Knex) : Promise<void>
                                 return true;
                             });
 
-                        if(weapon.attachments.length !== origLen)
+                        if(hadNumericIds || weapon.attachments.length !== origLen)
                         {
                             modified = true;
                         }
@@ -396,11 +404,13 @@ export async function up(knex : Knex) : Promise<void>
                 if(Array.isArray(details.armor.qualities))
                 {
                     const origLen = details.armor.qualities.length;
+                    let hadNumericIds = false;
                     details.armor.qualities = details.armor.qualities
                         .map((qual : { id : number | string; [key : string] : unknown }) =>
                         {
                             if(typeof qual.id === 'number')
                             {
+                                hadNumericIds = true;
                                 const newId = qualityMap.get(qual.id);
                                 if(newId)
                                 {
@@ -421,7 +431,7 @@ export async function up(knex : Knex) : Promise<void>
                             return true;
                         });
 
-                    if(details.armor.qualities.length !== origLen)
+                    if(hadNumericIds || details.armor.qualities.length !== origLen)
                     {
                         modified = true;
                     }
@@ -430,11 +440,13 @@ export async function up(knex : Knex) : Promise<void>
                 if(Array.isArray(details.armor.attachments))
                 {
                     const origLen = details.armor.attachments.length;
+                    let hadNumericIds = false;
                     details.armor.attachments = details.armor.attachments
                         .map((id : number | string) =>
                         {
                             if(typeof id === 'number')
                             {
+                                hadNumericIds = true;
                                 const newId = attachmentMap.get(id);
                                 if(newId)
                                 {
@@ -455,7 +467,7 @@ export async function up(knex : Knex) : Promise<void>
                             return true;
                         });
 
-                    if(details.armor.attachments.length !== origLen)
+                    if(hadNumericIds || details.armor.attachments.length !== origLen)
                     {
                         modified = true;
                     }
@@ -466,11 +478,13 @@ export async function up(knex : Knex) : Promise<void>
             if(isEote && details.force?.powers && Array.isArray(details.force.powers))
             {
                 const origLen = details.force.powers.length;
+                let hadNumericIds = false;
                 details.force.powers = details.force.powers
                     .map((power : { id : number | string; [key : string] : unknown }) =>
                     {
                         if(typeof power.id === 'number')
                         {
+                            hadNumericIds = true;
                             const newId = mappings.eoteForcePowers.get(power.id);
                             if(newId)
                             {
@@ -491,7 +505,7 @@ export async function up(knex : Knex) : Promise<void>
                         return true;
                     });
 
-                if(details.force.powers.length !== origLen)
+                if(hadNumericIds || details.force.powers.length !== origLen)
                 {
                     modified = true;
                 }
@@ -549,6 +563,8 @@ export async function up(knex : Knex) : Promise<void>
                     .where('character_id', update.id)
                     .update({ details: update.details }))
         );
+
+        console.info(`Remapped supplement IDs for ${ updates.length } characters`);
     }
     finally
     {
