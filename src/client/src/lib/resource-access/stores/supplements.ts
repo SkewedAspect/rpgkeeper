@@ -102,13 +102,16 @@ export const useSupplementStore = defineStore('supplements', {
                 this.data[systemId][type] = supplements;
             });
 
-            // Also load references
-            promises.push(
-                suppRA.listReferences(systemId).then((refs) =>
-                {
-                    this.references[systemId] = refs;
-                })
-            );
+            // Only load references if system has supplements defined
+            if(supplementTypes.length > 0)
+            {
+                promises.push(
+                    suppRA.listReferences(systemId).then((refs) =>
+                    {
+                        this.references[systemId] = refs;
+                    })
+                );
+            }
 
             // Load all in parallel
             await Promise.all(promises);
