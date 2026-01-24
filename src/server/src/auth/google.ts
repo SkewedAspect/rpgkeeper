@@ -18,6 +18,7 @@ import { getManagers } from '../managers/index.ts';
 
 // Utils
 import { getRoleIDsForEmail } from '../utils/autoRoles.ts';
+import { getDB } from '../utils/database.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -95,7 +96,7 @@ export default {
                         const roleIDs = getRoleIDsForEmail(email);
                         if(roleIDs.length > 0)
                         {
-                            const db = await managers.getDB();
+                            const db = await getDB();
                             for(const roleID of roleIDs)
                             {
                                 // eslint-disable-next-line no-await-in-loop
