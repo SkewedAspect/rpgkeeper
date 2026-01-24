@@ -16,6 +16,9 @@ import type { ServerConfig } from '../interfaces/config.ts';
 // Managers
 import { getManagers } from '../managers/index.ts';
 
+// Utils
+import { getRoleIDsForEmail } from '../utils/autoRoles.ts';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 const logger = logging.getLogger('googleAuth');
@@ -87,6 +90,22 @@ export default {
                             avatar: photo,
                             email,
                         });
+
+                        // Auto-assign admin/mod role if email matches environment variable
+                        const roleIDs = getRoleIDsForEmail(email);
+                        if(roleIDs.length > 0)
+                        {
+                            const db = await managers.getDB();
+                            for(const roleID of roleIDs)
+                            {
+                                // eslint-disable-next-line no-await-in-loop
+                                await db('account_role').insert({ account_id: account.id, role_id: roleID });
+                            }
+                            logger.info(`Auto-assigned roles ${ roleIDs.join(', ') } to new account: ${ email }`);
+
+                            // Refresh account to include new roles
+                            account = await managers.identity.account.get(account.id);
+                        }
                     }
 
                     done(null, account);
