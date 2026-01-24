@@ -10,7 +10,7 @@
 //
 //----------------------------------------------------------------------------------------------------------------------
 
-import type { Express, Request, Response, NextFunction } from 'express';
+import type { Express, NextFunction, Request, Response } from 'express';
 import logging from '@strata-js/util-logging';
 
 // Managers
