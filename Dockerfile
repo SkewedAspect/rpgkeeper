@@ -2,7 +2,7 @@
 # Bundle Stage - Do all our bundling of assets
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:22 as bundle-builder
+FROM node:24 as bundle-builder
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -22,7 +22,7 @@ RUN npm run db:build-static
 # NPM Stage - Install production packages and clean cache
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:22-alpine as npm-builder
+FROM node:24-alpine as npm-builder
 
 COPY --from=bundle-builder /app /app
 
@@ -34,7 +34,7 @@ RUN npm ci --no-fund --omit=dev
 # Final Docker
 #-----------------------------------------------------------------------------------------------------------------------
 
-FROM node:22-alpine
+FROM node:24-alpine
 EXPOSE 5678
 
 MAINTAINER Christopher S. Case <chris.case@g33xnexus.com>
