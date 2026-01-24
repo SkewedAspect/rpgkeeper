@@ -131,9 +131,20 @@ export function errorHandler(logger : BasicLogger) : ErrorMiddlewareFunction
  */
 export function serveIndex(_request : Request, response : Response) : void
 {
-    response.setHeader('Content-Type', 'text/html');
     const indexPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', 'dist', 'client', 'index.html');
-    fs.createReadStream(indexPath).pipe(response);
+    const stream = fs.createReadStream(indexPath);
+
+    stream.on('error', (err) =>
+    {
+        console.error('Error serving index.html:', err);
+        if(!response.headersSent)
+        {
+            response.status(500).send('Internal Server Error');
+        }
+    });
+
+    response.setHeader('Content-Type', 'text/html');
+    stream.pipe(response);
 }
 
 /**
