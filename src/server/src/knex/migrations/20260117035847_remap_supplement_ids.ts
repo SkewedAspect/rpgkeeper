@@ -8,6 +8,7 @@
 import type { Knex } from 'knex';
 import Database from 'better-sqlite3';
 import path from 'node:path';
+import fs from 'node:fs';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Types
@@ -31,7 +32,7 @@ interface StaticDefinitionRow
 
 function buildMappingsFromDatabase(
     knexDb : Database.Database,
-    staticDb : Database.Database,
+    staticDb : Database.Database | null,
     validHomebrewIds : Set<string>
 ) : {
     eoteAbilities : Map<number, string>;
@@ -49,6 +50,10 @@ function buildMappingsFromDatabase(
     // Helper to find new ID in static.db by name
     function findStaticId(system : string, type : string, name : string) : string | null
     {
+        if(!staticDb)
+        {
+            return null;
+        }
         const row = staticDb.prepare(
             'SELECT id FROM definitions WHERE system = ? AND type = ? AND name = ? COLLATE NOCASE'
         ).get(system, type, name) as StaticDefinitionRow | undefined;
@@ -125,12 +130,51 @@ function buildMappingsFromDatabase(
 
 export async function up(knex : Knex) : Promise<void>
 {
+    // Check if any old supplement tables exist - if not, this is a fresh install
+    const oldTables = [
+        'eote_ability',
+        'eote_talent',
+        'eote_attachment',
+        'eote_quality',
+        'eote_forcepower',
+        'genesys_ability',
+        'genesys_talent',
+        'genesys_attachment',
+        'genesys_quality',
+        'genesys_motivation',
+    ];
+
+    const existingTables = await Promise.all(
+        oldTables.map(async (table) =>
+        {
+            const exists = await knex.schema.hasTable(table);
+            return exists ? table : null;
+        })
+    );
+
+    const tablesFound = existingTables.filter((table) => table !== null);
+
+    if(tablesFound.length === 0)
+    {
+        console.info('No old supplement tables found - skipping migration (fresh install)');
+        return;
+    }
+
     // Open databases
     const dbPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..', 'db', 'rpgk.db');
     const staticDbPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..', 'db', 'static.db');
 
+    // Check if static.db exists before trying to open it
+    if(!fs.existsSync(staticDbPath))
+    {
+        console.warn('static.db not found - skipping official supplement migration (homebrew only)');
+        console.warn('Official supplement IDs will not be migrated. This may cause data loss.');
+        console.warn(`Expected location: ${ staticDbPath }`);
+        // Continue with migration but skip static.db lookups
+    }
+
     const knexDb = new Database(dbPath, { readonly: true });
-    const staticDb = new Database(staticDbPath, { readonly: true });
+    const staticDb = fs.existsSync(staticDbPath) ? new Database(staticDbPath, { readonly: true }) : null;
 
     try
     {
@@ -144,10 +188,17 @@ export async function up(knex : Knex) : Promise<void>
         // Helper to validate if a string ID exists in static.db or supplement table
         function isValidSupplementId(id : string, system : string, type : string) : boolean
         {
-            const isStaticId = staticDb.prepare(
-                'SELECT 1 FROM definitions WHERE id = ? AND system = ? AND type = ?'
-            ).get(id, system, type);
-            return !!isStaticId || validHomebrewIds.has(id);
+            if(staticDb)
+            {
+                const isStaticId = staticDb.prepare(
+                    'SELECT 1 FROM definitions WHERE id = ? AND system = ? AND type = ?'
+                ).get(id, system, type);
+                if(isStaticId)
+                {
+                    return true;
+                }
+            }
+            return validHomebrewIds.has(id);
         }
 
         // Get all EotE and Genesys characters
@@ -502,7 +553,10 @@ export async function up(knex : Knex) : Promise<void>
     finally
     {
         knexDb.close();
-        staticDb.close();
+        if(staticDb)
+        {
+            staticDb.close();
+        }
     }
 }
 
