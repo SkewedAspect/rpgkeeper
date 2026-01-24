@@ -130,36 +130,6 @@ function buildMappingsFromDatabase(
 
 export async function up(knex : Knex) : Promise<void>
 {
-    // Check if any old supplement tables exist - if not, this is a fresh install
-    const oldTables = [
-        'eote_ability',
-        'eote_talent',
-        'eote_attachment',
-        'eote_quality',
-        'eote_forcepower',
-        'genesys_ability',
-        'genesys_talent',
-        'genesys_attachment',
-        'genesys_quality',
-        'genesys_motivation',
-    ];
-
-    const existingTables = await Promise.all(
-        oldTables.map(async (table) =>
-        {
-            const exists = await knex.schema.hasTable(table);
-            return exists ? table : null;
-        })
-    );
-
-    const tablesFound = existingTables.filter((table) => table !== null);
-
-    if(tablesFound.length === 0)
-    {
-        console.info('No old supplement tables found - skipping migration (fresh install)');
-        return;
-    }
-
     // Open databases
     const dbPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..', 'db', 'rpgk.db');
     const staticDbPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..', 'db', 'static.db');

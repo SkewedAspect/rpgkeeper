@@ -29,15 +29,6 @@ interface OldMotivationRow
 
 export async function up(knex : Knex) : Promise<void>
 {
-    // Check if old table exists - if not, this is a fresh install
-    const hasOldTable = await knex.schema.hasTable('genesys_motivation');
-
-    if(!hasOldTable)
-    {
-        console.info('No old genesys_motivation table found - skipping migration (fresh install)');
-        return;
-    }
-
     const dbPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..', 'db', 'rpgk.db');
     const staticDbPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..', 'db', 'static.db');
 
