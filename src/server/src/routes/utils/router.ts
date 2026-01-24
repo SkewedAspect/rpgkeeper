@@ -131,7 +131,7 @@ export function errorHandler(logger : BasicLogger) : ErrorMiddlewareFunction
  */
 export function serveIndex(_request : Request, response : Response) : void
 {
-    const indexPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', 'dist', 'client', 'index.html');
+    const indexPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..', 'dist', 'client', 'index.html');
     const stream = fs.createReadStream(indexPath);
 
     stream.on('error', (err) =>
