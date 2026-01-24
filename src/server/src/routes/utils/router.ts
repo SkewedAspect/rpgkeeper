@@ -132,7 +132,8 @@ export function errorHandler(logger : BasicLogger) : ErrorMiddlewareFunction
 export function serveIndex(_request : Request, response : Response) : void
 {
     response.setHeader('Content-Type', 'text/html');
-    fs.createReadStream(path.resolve(import.meta.dirname, '..', '..', '..', 'client', 'index.html')).pipe(response);
+    const indexPath = path.resolve(import.meta.dirname, '..', '..', '..', '..', 'dist', 'client', 'index.html');
+    fs.createReadStream(indexPath).pipe(response);
 }
 
 /**
