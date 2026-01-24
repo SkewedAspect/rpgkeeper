@@ -7,6 +7,11 @@
 import * as path from 'path';
 import { packageDirectorySync } from 'pkg-dir';
 import Database from 'better-sqlite3';
+import logging from '@strata-js/util-logging';
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const logger = logging.getLogger('static-db');
 
 //----------------------------------------------------------------------------------------------------------------------
 // Types
@@ -43,6 +48,7 @@ interface RawDefinition
 //----------------------------------------------------------------------------------------------------------------------
 
 let db : Database.Database | null = null;
+let hasWarnedAboutMissingDb = false;
 
 function getDB() : Database.Database
 {
@@ -71,10 +77,18 @@ export function getSources(system : string) : Source[]
         const stmt = getDB().prepare(sql);
         return stmt.all(system) as Source[];
     }
-    catch (error)
+    catch (_error)
     {
         // If static.db doesn't exist or can't be opened, return empty array
         // This is normal for fresh Docker deployments before static.db is copied
+        if(!hasWarnedAboutMissingDb)
+        {
+            hasWarnedAboutMissingDb = true;
+            logger.warn('static.db not found. Official game supplements will not be available.');
+            logger.warn('For Docker deployments: Copy static.db from the container to your volume:');
+            logger.warn('  docker cp <container>:/app/db/static.db /path/to/volume/static.db');
+            logger.warn('See README.md for more details.');
+        }
         return [];
     }
 }
