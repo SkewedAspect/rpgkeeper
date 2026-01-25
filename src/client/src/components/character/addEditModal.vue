@@ -270,7 +270,7 @@
 
     const systems = computed(() =>
     {
-        return sysStore.filteredSystems
+        const systemOptions = sysStore.filteredSystems
             .map((sys) =>
             {
                 return {
@@ -279,6 +279,12 @@
                         ? `${ sys.name } (${ systemsMan.getStatusDisplay(sys.status) })` : sys.name,
                 };
             });
+
+        // Add placeholder option at the beginning
+        return [
+            { id: '', name: 'Please select a system...', disabled: true },
+            ...systemOptions,
+        ];
     });
 
     //------------------------------------------------------------------------------------------------------------------
