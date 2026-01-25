@@ -5,7 +5,7 @@ useWith: armor
 hpRequired: 0
 rarity: 3
 baseModifier:
-  description: Turns any article of clothing into armored clothing.; Characters can notice the inclusion of armor inserts in clothing by making an **Average (<difficulty></difficulty><difficulty></difficulty>) Perception check**.; SOAKSET; DEFSET; Armor inserts can be noticed by making an **Average (<difficulty></difficulty><difficulty></difficulty>) Perception check**.
+  description: Turns any article of clothing into armored clothing. Armor inserts can be noticed by making an **Average (<difficulty></difficulty><difficulty></difficulty>) Perception check**.
 modOptions:
   - soakModifier: 1
   - defenseModifier: 1
