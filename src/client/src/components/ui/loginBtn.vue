@@ -32,11 +32,13 @@
                 <Fa icon="comment-alt-lines" />
                 Leave Feedback
             </BDropdownItem>
-            <BDropdownDivider />
-            <BDropdownItem @click="signOut()">
-                <Fa icon="sign-out" />
-                Sign Out
-            </BDropdownItem>
+            <template v-if="!isSingleUserMode">
+                <BDropdownDivider />
+                <BDropdownItem @click="signOut()">
+                    <Fa icon="sign-out" />
+                    Sign Out
+                </BDropdownItem>
+            </template>
         </BNavItemDropdown>
 
         <!-- Sign In Button -->
@@ -73,7 +75,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { ref } from 'vue';
+    import { computed, ref } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Stores
@@ -95,6 +97,12 @@
 
     const bugURL = 'https://github.com/Morgul/rpgkeeper/issues/new?labels=bug,needs%20review&title=[Bug Report]%20';
     const feedbackURL = 'https://github.com/Morgul/rpgkeeper/issues/new?labels=feedback&title=[Feedback]%20';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Computed
+    //------------------------------------------------------------------------------------------------------------------
+
+    const isSingleUserMode = computed(() => account.value?.email === 'user@rpgkeeper.local');
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
