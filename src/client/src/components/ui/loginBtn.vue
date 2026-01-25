@@ -58,7 +58,14 @@
 			a.nav-link {
 				padding-top: 0.25rem;
                 padding-bottom: 0.25rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
 			}
+
+            img, svg {
+                vertical-align: middle;
+            }
 		}
     }
 </style>
