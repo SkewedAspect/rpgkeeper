@@ -21,7 +21,8 @@
                     <span class="fw-bold">Mod Options:</span>
                     <ul class="mb-0 ps-3">
                         <li v-for="(mod, index) in attachment?.modOptions ?? []" :key="index">
-                            <Fa v-if="isModActivated(index)" icon="check" class="text-success me-1" />
+                            <Fa v-if="isModActivated(index)" icon="check-square" class="text-success me-1" />
+                            <Fa v-else :icon="['far', 'square']" class="text-muted me-1" />
                             <MarkdownBlock
                                 :text="formatModDescription(mod)"
                                 :class="{ 'text-muted': !isModActivated(index) }"
