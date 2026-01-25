@@ -40,7 +40,7 @@
                         <BFormInput id="name-input" v-model="name" autocomplete="off" />
                     </BFormGroup>
                 </BCol>
-                <BCol cols="3">
+                <BCol cols="2">
                     <BFormGroup
                         label="Use With"
                         label-class="fw-bold"
@@ -49,7 +49,7 @@
                         <BFormSelect id="usewith-select" v-model="useWithValue" :options="useWithOptions" />
                     </BFormGroup>
                 </BCol>
-                <BCol cols="3">
+                <BCol cols="2">
                     <BFormGroup
                         label="HP Required"
                         label-class="fw-bold"
@@ -58,10 +58,7 @@
                         <BFormInput id="hp-input" v-model.number="hpRequired" type="number" min="0" />
                     </BFormGroup>
                 </BCol>
-            </BFormRow>
-
-            <BFormRow>
-                <BCol cols="3">
+                <BCol cols="2">
                     <BFormGroup
                         label="Rarity"
                         label-class="fw-bold"
@@ -70,19 +67,10 @@
                         <BFormInput id="rarity-input" v-model.number="rarity" type="number" min="0" />
                     </BFormGroup>
                 </BCol>
-                <!-- Base Modifier editing not yet implemented for custom attachments -->
-                <!-- <BCol cols="9">
-                    <BFormGroup
-                        label="Base Modifier"
-                        label-class="fw-bold"
-                        label-for="basemod-input"
-                    >
-                        <BFormInput id="basemod-input" v-model="baseModifier" autocomplete="off" />
-                    </BFormGroup>
-                </BCol> -->
             </BFormRow>
 
             <BFormGroup
+                class="mt-2"
                 label="Description"
                 label-class="fw-bold"
                 label-for="desc-input"
@@ -90,19 +78,27 @@
                 <MarkdownEditor v-model:text="description" />
             </BFormGroup>
 
-            <BFormGroup
-                label="Mod Options"
-                label-class="fw-bold"
-            >
-                <div v-for="(_mod, index) in modOptions" :key="index" class="d-flex mb-2">
-                    <BFormInput
-                        v-model="modOptions[index].description"
-                        autocomplete="off"
-                        placeholder="Mod option description..."
+            <!-- Base Modifier -->
+            <BFormGroup class="mt-2" label="Base Modifier (Always Active)" label-class="fw-bold">
+                <ModOptionEdit
+                    v-model="baseModifier"
+                    :use-with="useWithValue"
+                    label="Base Modifier"
+                    :removable="false"
+                />
+            </BFormGroup>
+
+            <!-- Mod Options -->
+            <BFormGroup class="mt-2" label="Mod Options (Activated with Advantage/Triumph)" label-class="fw-bold">
+                <div class="d-flex flex-column gap-2 mb-2">
+                    <ModOptionEdit
+                        v-for="(_mod, index) in modOptions"
+                        :key="index"
+                        v-model="modOptions[index]"
+                        :use-with="useWithValue"
+                        :label="`Mod Option ${index + 1}`"
+                        @remove="removeModOption(index)"
                     />
-                    <BButton variant="danger" class="ms-2" @click="removeModOption(index)">
-                        <Fa icon="times" />
-                    </BButton>
                 </div>
                 <BButton variant="secondary" size="sm" @click="addModOption">
                     <Fa icon="plus" />
@@ -110,7 +106,7 @@
                 </BButton>
             </BFormGroup>
 
-            <EditReference v-model:reference="reference" />
+            <EditReference v-model:reference="reference" class="mt-2" />
 
             <!-- Modal Buttons -->
             <template #ok="{ ok }">
@@ -145,6 +141,7 @@
     // Components
     import EditReference from '@client/components/character/editReference.vue';
     import MarkdownEditor from '@client/components/ui/markdownEditor.vue';
+    import ModOptionEdit from '../sub/modOptionEdit.vue';
     import { BModal } from 'bootstrap-vue-next';
     import CloseButton from '@client/components/ui/closeButton.vue';
 
@@ -157,12 +154,10 @@
 
     interface Props
     {
-        useWith ?: 'weapon' | 'armor';
+        useWith : 'weapon' | 'armor';
     }
 
-    const props = withDefaults(defineProps<Props>(), {
-        useWith: undefined,
-    });
+    const props = defineProps<Props>();
 
     const emit = defineEmits<{
         add : [attachment: EoteAttachment]
@@ -177,10 +172,10 @@
     const name = ref('');
     const description = ref('');
     const reference = ref('');
-    const useWithValue = ref('weapon');
+    const useWithValue = ref<'weapon' | 'armor' | 'any'>('weapon');
     const hpRequired = ref(0);
     const rarity = ref(0);
-    const baseModifier = ref<EoteModOption | undefined>(undefined);
+    const baseModifier = ref<EoteModOption>({});
     const modOptions = ref<EoteModOption[]>([]);
 
     const innerModal = useTemplateRef('innerModal');
@@ -195,32 +190,38 @@
     const mode = computed(() => systemStore.current?.id ?? 'eote');
     const isEdit = computed(() => id.value !== undefined);
 
-    const useWithOptions = [
-        { value: 'weapon', text: 'Weapon' },
-        { value: 'armor', text: 'Armor' },
-        { value: 'any', text: 'Any' },
-    ];
+    const useWithOptions = computed(() =>
+    {
+        const specificOption = props.useWith === 'weapon'
+            ? { value: 'weapon', text: 'Weapon' }
+            : { value: 'armor', text: 'Armor' };
+
+        return [
+            specificOption,
+            { value: 'any', text: 'Any' },
+        ];
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function resetForm(defaultUseWith = 'weapon') : void
+    function resetForm() : void
     {
         id.value = undefined;
         name.value = '';
         description.value = '';
-        useWithValue.value = defaultUseWith;
+        useWithValue.value = props.useWith;
         hpRequired.value = 0;
         rarity.value = 0;
-        baseModifier.value = undefined;
+        baseModifier.value = {};
         modOptions.value = [];
         reference.value = '';
     }
 
     function addModOption() : void
     {
-        modOptions.value.push({ description: '' });
+        modOptions.value.push({});
     }
 
     function removeModOption(index : number) : void
@@ -235,16 +236,16 @@
             id.value = attachment.id;
             name.value = attachment.name;
             description.value = attachment.description;
-            useWithValue.value = attachment.useWith ?? 'weapon';
+            useWithValue.value = attachment.useWith ?? props.useWith;
             hpRequired.value = attachment.hpRequired ?? 0;
             rarity.value = attachment.rarity ?? 0;
-            baseModifier.value = attachment.baseModifier;
+            baseModifier.value = attachment.baseModifier ?? {};
             modOptions.value = [ ...(attachment.modOptions ?? []) ];
             reference.value = normalizeReference(attachment.reference);
         }
         else
         {
-            resetForm(props.useWith ?? 'weapon');
+            resetForm();
         }
 
         innerModal.value?.show();

@@ -70,7 +70,7 @@ export const EoteAttachmentDataSchema = BaseSupplementDataSchema.extend({
     useWith: z.string()
         .default(''),
     baseModifier: EoteModOptionSchema
-        .optional(),
+        .default({}),
     modOptions: z.array(EoteModOptionSchema)
         .default([]),
     includedModels: z.array(z.string())

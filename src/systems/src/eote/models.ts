@@ -257,9 +257,9 @@ export interface EoteAttachment extends Supplement
 {
     id ?: string;
     description : string;
-    useWith : string;
+    useWith : 'weapon' | 'armor' | 'any';
     hpRequired : BoundedRange<0, 50>;
-    baseModifier ?: EoteModOption;
+    baseModifier : EoteModOption;
     modOptions : EoteModOption[];
     includedModels ?: string[];
     rarity : number;
