@@ -127,16 +127,30 @@ function parseDefinition<T>(raw : RawDefinition) : Definition<T>
 
 export function getDefinitions<T = Record<string, unknown>>(system : string, type : string) : Definition<T>[]
 {
-    const stmt = getDB().prepare('SELECT * FROM definitions WHERE system = ? AND type = ?');
-    const rows = stmt.all(system, type) as RawDefinition[];
-    return rows.map((row) => parseDefinition<T>(row));
+    try
+    {
+        const stmt = getDB().prepare('SELECT * FROM definitions WHERE system = ? AND type = ?');
+        const rows = stmt.all(system, type) as RawDefinition[];
+        return rows.map((row) => parseDefinition<T>(row));
+    }
+    catch (_error)
+    {
+        return [];
+    }
 }
 
 export function getDefinition<T = Record<string, unknown>>(id : string) : Definition<T> | undefined
 {
-    const stmt = getDB().prepare('SELECT * FROM definitions WHERE id = ?');
-    const row = stmt.get(id) as RawDefinition | undefined;
-    return row ? parseDefinition<T>(row) : undefined;
+    try
+    {
+        const stmt = getDB().prepare('SELECT * FROM definitions WHERE id = ?');
+        const row = stmt.get(id) as RawDefinition | undefined;
+        return row ? parseDefinition<T>(row) : undefined;
+    }
+    catch (_error)
+    {
+        return undefined;
+    }
 }
 
 export function searchDefinitions<T = Record<string, unknown>>(
@@ -145,25 +159,46 @@ export function searchDefinitions<T = Record<string, unknown>>(
     query : string
 ) : Definition<T>[]
 {
-    const stmt = getDB().prepare(
-        'SELECT * FROM definitions WHERE system = ? AND type = ? AND name LIKE ? ORDER BY name'
-    );
-    const rows = stmt.all(system, type, `%${ query }%`) as RawDefinition[];
-    return rows.map((row) => parseDefinition<T>(row));
+    try
+    {
+        const stmt = getDB().prepare(
+            'SELECT * FROM definitions WHERE system = ? AND type = ? AND name LIKE ? ORDER BY name'
+        );
+        const rows = stmt.all(system, type, `%${ query }%`) as RawDefinition[];
+        return rows.map((row) => parseDefinition<T>(row));
+    }
+    catch (_error)
+    {
+        return [];
+    }
 }
 
 export function getDefinitionsByType<T = Record<string, unknown>>(type : string) : Definition<T>[]
 {
-    const stmt = getDB().prepare('SELECT * FROM definitions WHERE type = ? ORDER BY system, name');
-    const rows = stmt.all(type) as RawDefinition[];
-    return rows.map((row) => parseDefinition<T>(row));
+    try
+    {
+        const stmt = getDB().prepare('SELECT * FROM definitions WHERE type = ? ORDER BY system, name');
+        const rows = stmt.all(type) as RawDefinition[];
+        return rows.map((row) => parseDefinition<T>(row));
+    }
+    catch (_error)
+    {
+        return [];
+    }
 }
 
 export function getAllDefinitions<T = Record<string, unknown>>(system : string) : Definition<T>[]
 {
-    const stmt = getDB().prepare('SELECT * FROM definitions WHERE system = ? ORDER BY type, name');
-    const rows = stmt.all(system) as RawDefinition[];
-    return rows.map((row) => parseDefinition<T>(row));
+    try
+    {
+        const stmt = getDB().prepare('SELECT * FROM definitions WHERE system = ? ORDER BY type, name');
+        const rows = stmt.all(system) as RawDefinition[];
+        return rows.map((row) => parseDefinition<T>(row));
+    }
+    catch (_error)
+    {
+        return [];
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------

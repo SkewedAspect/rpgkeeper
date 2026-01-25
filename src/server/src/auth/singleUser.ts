@@ -27,6 +27,7 @@ const SINGLE_USER_NAME = 'RPGKeeper User';
 //----------------------------------------------------------------------------------------------------------------------
 
 let singleUserAccount : { id : string; email : string; name : string; avatar : string } | null = null;
+let isInitializing = false;
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -37,29 +38,49 @@ async function ensureSingleUser() : Promise<void>
         return;
     }
 
-    const managers = await getManagers();
+    // Prevent concurrent initialization
+    if(isInitializing)
+    {
+        // Wait for initialization to complete
+        while(isInitializing)
+        {
+            await new Promise((resolve) => setTimeout(resolve, 10));
+        }
+        return;
+    }
 
-    // Try to get existing account
+    isInitializing = true;
+
     try
     {
-        singleUserAccount = await managers.identity.account.getByEmail(SINGLE_USER_EMAIL);
-        logger.info(`Using existing single-user account: ${ singleUserAccount.id }`);
-    }
-    catch (error : unknown)
-    {
-        const err = error as Error & { code ?: string };
-        if(err.code !== 'ERR_NOT_FOUND')
-        {
-            throw err;
-        }
+        const managers = await getManagers();
 
-        // Create account if it doesn't exist
-        singleUserAccount = await managers.identity.account.add({
-            name: SINGLE_USER_NAME,
-            email: SINGLE_USER_EMAIL,
-            avatar: '',
-        });
-        logger.info(`Created single-user account: ${ singleUserAccount.id }`);
+        // Try to get existing account
+        try
+        {
+            singleUserAccount = await managers.identity.account.getByEmail(SINGLE_USER_EMAIL);
+            logger.info(`Using existing single-user account: ${ singleUserAccount.id }`);
+        }
+        catch (error : unknown)
+        {
+            const err = error as Error & { code ?: string };
+            if(err.code !== 'ERR_NOT_FOUND')
+            {
+                throw err;
+            }
+
+            // Create account if it doesn't exist
+            singleUserAccount = await managers.identity.account.add({
+                name: SINGLE_USER_NAME,
+                email: SINGLE_USER_EMAIL,
+                avatar: '',
+            });
+            logger.info(`Created single-user account: ${ singleUserAccount.id }`);
+        }
+    }
+    finally
+    {
+        isInitializing = false;
     }
 }
 
@@ -78,7 +99,16 @@ async function autoLoginMiddleware(req : Request, _res : Response, next : NextFu
     }
 
     // Ensure single user exists
-    await ensureSingleUser();
+    try
+    {
+        await ensureSingleUser();
+    }
+    catch (error)
+    {
+        logger.error('Failed to ensure single user exists:', error);
+        next(error);
+        return;
+    }
 
     if(!singleUserAccount)
     {
