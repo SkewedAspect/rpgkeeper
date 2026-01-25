@@ -57,7 +57,7 @@ async function ensureSingleUser() : Promise<void>
         singleUserAccount = await managers.identity.account.add({
             name: SINGLE_USER_NAME,
             email: SINGLE_USER_EMAIL,
-            avatar: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+            avatar: '',
         });
         logger.info(`Created single-user account: ${ singleUserAccount.id }`);
     }
