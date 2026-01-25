@@ -4,7 +4,10 @@ description: When making an auto-fire attack with the ship's auto-blasters, do n
 useWith: vehicle
 hpRequired: 1
 rarity: 4
-baseModifier: When making auto-fire attack, do not increase difficulty by 1.
+baseModifier:
+  description: When making attack, do not increase difficulty by 1.
+  qualities:
+    - id: eote-quality-auto-fire
 modOptions: []
 reference:
   - SoF:143

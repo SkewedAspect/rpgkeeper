@@ -1,14 +1,14 @@
 id: eote-attachment-hyperdrive-generator
 name: Hyperdrive Generator
-description: Upgraded hyperdrive generators increase a vessel's speed through hyperspace, allowing it to complete
-  journeys in a fraction of the time. May be installed on any ship with hyperdrive.
+description: Upgraded hyperdrive generators increase a vessel's speed through hyperspace, allowing it to complete journeys in a fraction of the time. May be installed on any ship with hyperdrive.
 useWith: vehicle
 hpRequired: 1
 rarity: 4
-baseModifier: -1 Hyperdrive Class
+baseModifier:
+  description: -1 Hyperdrive Class
 modOptions:
-  - -5 Hyperdrive Class
-  - -5 Hyperdrive Class
+  - description: -5 Hyperdrive Class
+  - description: -5 Hyperdrive Class
 reference:
   - E-CRB:271
   - A-CRB:286

@@ -1,27 +1,15 @@
 id: eote-attachment-astromech-droid-socket
 name: Astromech Droid Socket
-description: >-
-  Astromech sockets are typically found in starfighters, shuttles, and the occasional airspeeder. Installed during
-  construction and fully integrated into a vehicle's systems, an astromech droid socket allows an astromech droid,
-  typically one of Industrial Automaton's R-series droids, to access the ship's various systems through its SCOMP
-  interface. A droid installed in an astromech socket acts as co-pilot, engineer, and radio/weapons systems operator,
-  assisting the pilot during combat, monitoring onboard systems, performing astrogation calculations, and repairing
-  damage on the fly. Most ships or vehicles can benefit from the inclusion of an astromech droid, especially those not
-  equipped with an astromech socket. For these ships, Industrial Automaton sells a standalone astromech socket ready for
-  installation in ships not already equipped.
-
-  Aftermarket astromech sockets can only be installed on ships or vehicles of silhouette 3 or higher. After a lengthy
-  and involved installation process requiring heavy modifications to both the ship's hull and its onboard systems, the
-  ship and pilot gain all the benefits of an astromech droid when one is installed in the socket. These benefits range
-  from enhanced damage control to the ability to make hyperspace jump calculations. When installed on larger starships,
-  this attachment represents can represent more than a single socket. These ships often employ an entire bay capable of
-  housing multiple astromechs and deploying them to the outer surface of the ship to aid in repairs.
+description: |-
+  Astromech sockets are typically found in starfighters, shuttles, and the occasional airspeeder. Installed during construction and fully integrated into a vehicle's systems, an astromech droid socket allows an astromech droid, typically one of Industrial Automaton's R-series droids, to access the ship's various systems through its SCOMP interface. A droid installed in an astromech socket acts as co-pilot, engineer, and radio/weapons systems operator, assisting the pilot during combat, monitoring onboard systems, performing astrogation calculations, and repairing damage on the fly. Most ships or vehicles can benefit from the inclusion of an astromech droid, especially those not equipped with an astromech socket. For these ships, Industrial Automaton sells a standalone astromech socket ready for installation in ships not already equipped.
+  Aftermarket astromech sockets can only be installed on ships or vehicles of silhouette 3 or higher. After a lengthy and involved installation process requiring heavy modifications to both the ship's hull and its onboard systems, the ship and pilot gain all the benefits of an astromech droid when one is installed in the socket. These benefits range from enhanced damage control to the ability to make hyperspace jump calculations. When installed on larger starships, this attachment represents can represent more than a single socket. These ships often employ an entire bay capable of housing multiple astromechs and deploying them to the outer surface of the ship to aid in repairs.
 useWith: vehicle
 hpRequired: 2
 rarity: 5
-baseModifier: Allows starship to link to an astromech droid via SCOMP
+baseModifier:
+  description: Allows starship to link to an astromech droid via SCOMP
 modOptions:
-  - Automated droid ejection system
+  - description: Automated droid ejection system
 reference:
   - SoT:63
 includedModels:

@@ -70,7 +70,8 @@
                         <BFormInput id="rarity-input" v-model.number="rarity" type="number" min="0" />
                     </BFormGroup>
                 </BCol>
-                <BCol cols="9">
+                <!-- Base Modifier editing not yet implemented for custom attachments -->
+                <!-- <BCol cols="9">
                     <BFormGroup
                         label="Base Modifier"
                         label-class="fw-bold"
@@ -78,7 +79,7 @@
                     >
                         <BFormInput id="basemod-input" v-model="baseModifier" autocomplete="off" />
                     </BFormGroup>
-                </BCol>
+                </BCol> -->
             </BFormRow>
 
             <BFormGroup
@@ -95,7 +96,7 @@
             >
                 <div v-for="(_mod, index) in modOptions" :key="index" class="d-flex mb-2">
                     <BFormInput
-                        v-model="modOptions[index]"
+                        v-model="modOptions[index].description"
                         autocomplete="off"
                         placeholder="Mod option description..."
                     />
@@ -134,7 +135,7 @@
     import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
-    import type { EoteAttachment } from '../../../models.ts';
+    import type { EoteAttachment, EoteModOption } from '../../../models.ts';
     import type { BoundedRange } from '@rpgk/core/utils/types';
 
     // Stores
@@ -179,8 +180,8 @@
     const useWithValue = ref('weapon');
     const hpRequired = ref(0);
     const rarity = ref(0);
-    const baseModifier = ref('');
-    const modOptions = ref<string[]>([]);
+    const baseModifier = ref<EoteModOption | undefined>(undefined);
+    const modOptions = ref<EoteModOption[]>([]);
 
     const innerModal = useTemplateRef('innerModal');
 
@@ -204,9 +205,22 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
+    function resetForm(defaultUseWith = 'weapon') : void
+    {
+        id.value = undefined;
+        name.value = '';
+        description.value = '';
+        useWithValue.value = defaultUseWith;
+        hpRequired.value = 0;
+        rarity.value = 0;
+        baseModifier.value = undefined;
+        modOptions.value = [];
+        reference.value = '';
+    }
+
     function addModOption() : void
     {
-        modOptions.value.push('');
+        modOptions.value.push({ description: '' });
     }
 
     function removeModOption(index : number) : void
@@ -224,21 +238,13 @@
             useWithValue.value = attachment.useWith ?? 'weapon';
             hpRequired.value = attachment.hpRequired ?? 0;
             rarity.value = attachment.rarity ?? 0;
-            baseModifier.value = attachment.baseModifier ?? '';
+            baseModifier.value = attachment.baseModifier;
             modOptions.value = [ ...(attachment.modOptions ?? []) ];
             reference.value = normalizeReference(attachment.reference);
         }
         else
         {
-            id.value = undefined;
-            name.value = '';
-            description.value = '';
-            useWithValue.value = props.useWith ?? 'weapon';
-            hpRequired.value = 0;
-            rarity.value = 0;
-            baseModifier.value = '';
-            modOptions.value = [];
-            reference.value = '';
+            resetForm(props.useWith ?? 'weapon');
         }
 
         innerModal.value?.show();
@@ -246,70 +252,61 @@
 
     function hide() : void
     {
-        id.value = undefined;
-        name.value = '';
-        description.value = '';
-        useWithValue.value = 'weapon';
-        hpRequired.value = 0;
-        rarity.value = 0;
-        baseModifier.value = '';
-        modOptions.value = [];
-        reference.value = '';
-
+        resetForm();
         innerModal.value?.hide();
+    }
+
+    function isModOptionEmpty(mod : EoteModOption) : boolean
+    {
+        const hasDescription = mod.description && mod.description.trim() !== '';
+        const hasStructuredMods = mod.qualities
+            || mod.damageModifier !== undefined
+            || mod.criticalModifier !== undefined
+            || mod.encumbranceModifier !== undefined
+            || mod.defenseModifier !== undefined
+            || mod.soakModifier !== undefined;
+        return !hasDescription && !hasStructuredMods;
     }
 
     async function onSave() : Promise<void>
     {
-        // Filter out empty mod options
-        const filteredModOptions = modOptions.value.filter((mod) => mod.trim() !== '');
+        const filteredModOptions = modOptions.value.filter((mod) => !isModOptionEmpty(mod));
+
+        const attachmentData = {
+            name: name.value,
+            description: description.value,
+            useWith: useWithValue.value,
+            hpRequired: hpRequired.value as BoundedRange<0, 50>,
+            rarity: rarity.value,
+            baseModifier: baseModifier.value,
+            modOptions: filteredModOptions,
+            reference: reference.value,
+            official: false,
+        };
 
         if(isEdit.value)
         {
-            const attachment = await supplementStore.update<EoteAttachment>(mode.value, 'attachment', {
-                id: id.value,
-                name: name.value,
-                description: description.value,
-                useWith: useWithValue.value,
-                hpRequired: hpRequired.value as BoundedRange<0, 50>,
-                rarity: rarity.value,
-                baseModifier: baseModifier.value,
-                modOptions: filteredModOptions,
-                reference: reference.value,
-                official: false,
-            });
-
+            const attachment = await supplementStore.update<EoteAttachment>(
+                mode.value,
+                'attachment',
+                { id: id.value, ...attachmentData }
+            );
             emit('edit', attachment);
         }
         else
         {
-            const attachment = await supplementStore.add<EoteAttachment>(mode.value, 'attachment', {
-                name: name.value,
-                description: description.value,
-                useWith: useWithValue.value,
-                hpRequired: hpRequired.value as BoundedRange<0, 50>,
-                rarity: rarity.value,
-                baseModifier: baseModifier.value,
-                modOptions: filteredModOptions,
-                reference: reference.value,
-                official: false,
-            });
-
+            const attachment = await supplementStore.add<EoteAttachment>(
+                mode.value,
+                'attachment',
+                attachmentData
+            );
             emit('add', attachment);
         }
     }
 
     function onCancel() : void
     {
-        id.value = undefined;
-        name.value = '';
-        description.value = '';
-        useWithValue.value = 'weapon';
-        hpRequired.value = 0;
-        rarity.value = 0;
-        baseModifier.value = '';
-        modOptions.value = [];
-        reference.value = '';
+        resetForm();
     }
 
     //------------------------------------------------------------------------------------------------------------------

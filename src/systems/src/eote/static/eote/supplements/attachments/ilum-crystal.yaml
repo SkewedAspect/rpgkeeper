@@ -1,21 +1,27 @@
 id: eote-attachment-ilum-crystal
 name: Ilum Crystal
-description: The kyber crystals found deep within the caves of the icy planet Hum were prized by the Jedi as some of the
-  best crystals for constructing a lightsaber. Ilum featured heavily in Jedi tradition, with young Padawans traveling
-  there as part of their training to commune with the Force and use its guidance to seek out the crystal that would go
-  into the construction of their first lightsaber.
+description: The kyber crystals found deep within the caves of the icy planet Hum were prized by the Jedi as some of the best crystals for constructing a lightsaber. Ilum featured heavily in Jedi tradition, with young Padawans traveling there as part of their training to commune with the Force and use its guidance to seek out the crystal that would go into the construction of their first lightsaber.
 useWith: weapon
 hpRequired: 2
 rarity: 10
-baseModifier: Damage set to 6; Critical set to 2; Breach 1; Sunder 1
+baseModifier:
+  description: Damage set to 6; Critical set to 2
+  qualities:
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
 modOptions:
-  - Vicious +1
-  - Vicious +1
-  - +1 Damage
-  - +1 Damage
-  - +1 Damage
-  - +1 Damage
-  - -1 Critical
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - damageModifier: 1
+  - damageModifier: 1
+  - damageModifier: 1
+  - damageModifier: 1
+  - criticalModifier: -1
 reference:
   - F-CRB:197
 includedModels:

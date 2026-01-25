@@ -1,24 +1,28 @@
 id: eote-attachment-krayt-dragon-pearl
 name: Krayt Dragon Pearl
-description: Highly sought after by jewelers, artisans, and wealthy collectors for their luster, color, and refractive
-  properties, krayt dragon pearls are perhaps the rarest of the crystals used in the construction of lightsabers. The
-  terrible krayt dragons of Tatooine tend to live for an incredibly long time, and over the course of their lives will
-  ingest stones to aid with digestion. While the caustic digestive juices of the krayt dragon can even break down stone
-  over time, every once in a while these stones contain some form of kyber crystal. Incredibly resilient, they remain in
-  the creatures' guts for the entirety of the dragons' lives, slowly being polished and smoothed into small, dense
-  spheres of crystal. The resulting "krayt dragon pearls" are vanishingly rare, hard to acquire, and demand exorbitant
-  prices. Since they are a type of kyber crystal, they can be worked into powerful lightsaber crystals—ones which
-  produce an exceptionally savage and destructive blade that makes an unsettling howling noise when swung about. A krayt
-  dragon pearl is a lightsaber crystal.
+description: Highly sought after by jewelers, artisans, and wealthy collectors for their luster, color, and refractive properties, krayt dragon pearls are perhaps the rarest of the crystals used in the construction of lightsabers. The terrible krayt dragons of Tatooine tend to live for an incredibly long time, and over the course of their lives will ingest stones to aid with digestion. While the caustic digestive juices of the krayt dragon can even break down stone over time, every once in a while these stones contain some form of kyber crystal. Incredibly resilient, they remain in the creatures' guts for the entirety of the dragons' lives, slowly being polished and smoothed into small, dense spheres of crystal. The resulting "krayt dragon pearls" are vanishingly rare, hard to acquire, and demand exorbitant prices. Since they are a type of kyber crystal, they can be worked into powerful lightsaber crystals—ones which produce an exceptionally savage and destructive blade that makes an unsettling howling noise when swung about. A krayt dragon pearl is a lightsaber crystal.
 useWith: weapon
 hpRequired: 2
 rarity: 10
-baseModifier: Damage set to 9; Critical set to 1; Breach 1; Sunder 1; Vicious 1
+baseModifier:
+  description: Damage set to 9; Critical set to 1
+  qualities:
+    - id: eote-quality-vicious
+      ranks: 1
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
 modOptions:
-  - Vicious +1
-  - Vicious +1
-  - Vicious +1
-  - +1 Damage
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - damageModifier: 1
 reference:
   - F-CRB:199
 includedModels:

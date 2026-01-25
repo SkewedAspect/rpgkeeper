@@ -1,66 +1,18 @@
 id: eote-attachment-component-alteration-weapon
 name: Component Alteration (Weapon)
-description: >-
-  A more drastic, but more effective, option is to alter a weapon or other device so that it can be broken down into
-  several smaller parts that can be reassembled later. This method is typically used when a Rebel needs to get a larger
-  item into a secure location or to avoid scanning devices that are likely to detect standard weapons regardless of any
-  concealment alterations. This is called a component alteration.
-
-  Characters wishing to break a weapon or other item down into several parts in this fashion need to spend time
-  dismantling the device into smaller components. This requires a **Hard
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** and takes a number of
-  hours equal to the item's encumbrance, or a minimum of one hour. If the check is successful, the device is broken down
-  into a number of components equal to its encumbrance plus 1. So, a blaster pistol is broken down into two components,
-  while a blaster rifle is broken down into five.
-
-  Note that this differs from the more advanced componentization weapon attachment, which requires no check for use once
-  it is installed and is designed to allow the user to openly carry a weapon, rather than consisting of a simple
-  mechanical disassembly. Characters can try, though, to use component alteration to physically disguise these
-  individual parts to look like code cylinders, comlinks, fusion lanterns, and other mundane objects. While this allows
-  a part to take on the rough appearance of the desired object, it does not gain the functionality of that object. This
-  is generally a taxing and tricky process, and so upgrades the difficulty of the Mechanics check once or more as per
-  the GM's discretion.
-
-  Each <success></success> or <triumph></triumph> on the initial Mechanics check lets a character carrying the
-  components from a component alteration add <boost></boost> to **opposed Stealth vs. Perception checks** when an
-  observer attempts to notice the true nature of the disassembled device. If the component alteration was designed to
-  make the items appear mundane, he gains <boost></boost><boost></boost> instead.
-
-  Assembling a weapon or other item with a component alteration requires two maneuvers or two minutes of narrative time
-  per component, and the character must make an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics
-  check**. All components must be present to make the check. Failure means the components are damaged and the device
-  requires a major repair to be properly reassembled again and returned to function.
-
-  Component alterations have a strong impact on a item's reliability, as most weapons or other complex devices simply
-  aren't meant to be broken down into smaller pieces and reassembled. The GM may spend
-  <threat></threat><threat></threat><threat></threat> as <despair></despair> when a character makes a skill check while
-  using an item with this alteration.
-
-  A character can only attempt a component alteration once on a given item, and doing so permanently reduces the item's
-  available hard points by 1. Items that have no hard points may still be altered in this fashion.
+description: |-
+  A more drastic, but more effective, option is to alter a weapon or other device so that it can be broken down into several smaller parts that can be reassembled later. This method is typically used when a Rebel needs to get a larger item into a secure location or to avoid scanning devices that are likely to detect standard weapons regardless of any concealment alterations. This is called a component alteration.
+  Characters wishing to break a weapon or other item down into several parts in this fashion need to spend time dismantling the device into smaller components. This requires a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** and takes a number of hours equal to the item's encumbrance, or a minimum of one hour. If the check is successful, the device is broken down into a number of components equal to its encumbrance plus 1. So, a blaster pistol is broken down into two components, while a blaster rifle is broken down into five.
+  Note that this differs from the more advanced componentization weapon attachment, which requires no check for use once it is installed and is designed to allow the user to openly carry a weapon, rather than consisting of a simple mechanical disassembly. Characters can try, though, to use component alteration to physically disguise these individual parts to look like code cylinders, comlinks, fusion lanterns, and other mundane objects. While this allows a part to take on the rough appearance of the desired object, it does not gain the functionality of that object. This is generally a taxing and tricky process, and so upgrades the difficulty of the Mechanics check once or more as per the GM's discretion.
+  Each <success></success> or <triumph></triumph> on the initial Mechanics check lets a character carrying the components from a component alteration add <boost></boost> to **opposed Stealth vs. Perception checks** when an observer attempts to notice the true nature of the disassembled device. If the component alteration was designed to make the items appear mundane, he gains <boost></boost><boost></boost> instead.
+  Assembling a weapon or other item with a component alteration requires two maneuvers or two minutes of narrative time per component, and the character must make an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**. All components must be present to make the check. Failure means the components are damaged and the device requires a major repair to be properly reassembled again and returned to function.
+  Component alterations have a strong impact on a item's reliability, as most weapons or other complex devices simply aren't meant to be broken down into smaller pieces and reassembled. The GM may spend <threat></threat><threat></threat><threat></threat> as <despair></despair> when a character makes a skill check while using an item with this alteration.
+  A character can only attempt a component alteration once on a given item, and doing so permanently reduces the item's available hard points by 1. Items that have no hard points may still be altered in this fashion.
 useWith: weapon
 hpRequired: 0
 rarity: 0
-baseModifier: Characters wishing to break a weapon or other item down into several parts in this fashion need to spend
-  time dismantling the device into smaller components. This requires a **Hard
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** and takes a number of
-  hours equal to the item's encumbrance, or a minimum of one hour. If the check is successful, the device is broken down
-  into a number of components equal to its encumbrance plus 1.; Characters can try to use component alteration to
-  physically disguise these individual parts to look like code cylinders, comlinks, fusion lanterns, and other mundane
-  objects. While this allows a part to take on the rough appearance of the desired object, it does not gain the
-  functionality of that object. This is generally a taxing and tricky process, and so upgrades the difficulty of the
-  Mechanics check once or more as per the GM's discretion.; Each <success></success> or <triumph></triumph> on the
-  initial Mechanics check lets a character carrying the components from a component alteration add <boost></boost> to
-  **opposed Stealth vs. Perception checks** when an observer attempts to notice the true nature of the disassembled
-  device. If the component alteration was designed to make the items appear mundane, he gains
-  <boost></boost><boost></boost> instead.; Assembling a weapon or other item with a component alteration requires two
-  maneuvers or two minutes of narrative time per component, and the character must make an **Average
-  (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**. All components must be present to make the
-  check. Failure means the components are damaged and the device requires a major repair to be properly reassembled
-  again and returned to function.; The GM may spend <threat></threat><threat></threat><threat></threat> as
-  <despair></despair> when a character makes a skill check while using an item with this alteration.; A character can
-  only attempt a component alteration once on a given item, and doing so permanently reduces the item's available hard
-  points by 1. Items that have no hard points may still be altered in this fashion.
+baseModifier:
+  description: Characters wishing to break a weapon or other item down into several parts in this fashion need to spend time dismantling the device into smaller components. This requires a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** and takes a number of hours equal to the item's encumbrance, or a minimum of one hour. If the check is successful, the device is broken down into a number of components equal to its encumbrance plus 1.; Characters can try to use component alteration to physically disguise these individual parts to look like code cylinders, comlinks, fusion lanterns, and other mundane objects. While this allows a part to take on the rough appearance of the desired object, it does not gain the functionality of that object. This is generally a taxing and tricky process, and so upgrades the difficulty of the Mechanics check once or more as per the GM's discretion.; Each <success></success> or <triumph></triumph> on the initial Mechanics check lets a character carrying the components from a component alteration add <boost></boost> to **opposed Stealth vs. Perception checks** when an observer attempts to notice the true nature of the disassembled device. If the component alteration was designed to make the items appear mundane, he gains <boost></boost><boost></boost> instead.; Assembling a weapon or other item with a component alteration requires two maneuvers or two minutes of narrative time per component, and the character must make an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**. All components must be present to make the check. Failure means the components are damaged and the device requires a major repair to be properly reassembled again and returned to function.; The GM may spend <threat></threat><threat></threat><threat></threat> as <despair></despair> when a character makes a skill check while using an item with this alteration.; A character can only attempt a component alteration once on a given item, and doing so permanently reduces the item's available hard points by 1. Items that have no hard points may still be altered in this fashion.
 modOptions: []
 reference:
   - CaM:80

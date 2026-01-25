@@ -1,16 +1,16 @@
 id: eote-attachment-combat-plating
 name: Combat Plating
-description: Combat plating offers perhaps the best protection a hull can provide, but reduces the steering to glacial
-  levels of responsiveness.
+description: Combat plating offers perhaps the best protection a hull can provide, but reduces the steering to glacial levels of responsiveness.
 useWith: vehicle
 hpRequired: 5
 rarity: 7
-baseModifier: Changes armor to 3 and handling to -3; Armor set to 3; Handling set to -3
+baseModifier:
+  description: Changes armor to 3 and handling to -3; Armor set to 3; Handling set to -3
 modOptions:
-  - +1 Armor
-  - +1 Armor
-  - +1 Armor
-  - Massive +1
-  - +1 Hull Trauma Threshold (per Silhouette)
+  - description: +1 Armor
+  - description: +1 Armor
+  - description: +1 Armor
+  - description: Massive +1
+  - description: +1 Hull Trauma Threshold (per Silhouette)
 reference:
   - FO:83

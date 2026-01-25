@@ -1,15 +1,11 @@
 id: eote-attachment-engineering-access
 name: Engineering Access
-description: One of the Explorers more intelligent design features is the network of sub-deck access passages. Granting
-  easy access to nearly any internal system on the ship, the cramped passages allow the engineer to respond quickly to
-  problems. Anyone working on the internal systems of the E-9 Explorer-class vessels, such as the power system,
-  hyperdrive, computers, sensors, et cetera, gains <boost></boost> to any Mechanics or Computers skill checks thanks to
-  the ease of reaching systems that are typically hidden behind bulkheads and sealed beneath deck plates.
+description: One of the Explorers more intelligent design features is the network of sub-deck access passages. Granting easy access to nearly any internal system on the ship, the cramped passages allow the engineer to respond quickly to problems. Anyone working on the internal systems of the E-9 Explorer-class vessels, such as the power system, hyperdrive, computers, sensors, et cetera, gains <boost></boost> to any Mechanics or Computers skill checks thanks to the ease of reaching systems that are typically hidden behind bulkheads and sealed beneath deck plates.
 useWith: vehicle
 hpRequired: 2
 rarity: 6
-baseModifier: Anyone working on internal systems, such as power systems, hyperdrive, computers, sensors, gain
-  <boost></boost> to Mechanics and Computer checks due to the ease of reaching such typically hidden systems.
+baseModifier:
+  description: Anyone working on internal systems, such as power systems, hyperdrive, computers, sensors, gain <boost></boost> to Mechanics and Computer checks due to the ease of reaching such typically hidden systems.
 modOptions: []
 reference:
   - EtU:61

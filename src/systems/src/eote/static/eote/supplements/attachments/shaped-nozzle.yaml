@@ -1,16 +1,28 @@
 id: eote-attachment-shaped-nozzle
 name: Shaped Nozzle
-description: By adding a metal cone to an ion thruster, a Technician can dramatically increase its potency as a weapon,
-  focusing the energy into a sharp beam rather than letting it disperse in a wide arc.
+description: By adding a metal cone to an ion thruster, a Technician can dramatically increase its potency as a weapon, focusing the energy into a sharp beam rather than letting it disperse in a wide arc.
 useWith: weapon
 hpRequired: 0
 rarity: 1
-baseModifier: Remove Ion quality
+baseModifier:
+  description: Remove quality
+  qualities:
+    - id: eote-quality-ion
 modOptions:
-  - Pierce +1
-  - Pierce +1
-  - Pierce +1
-  - Pierce +1
-  - Pierce +1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
 reference:
   - SM:45

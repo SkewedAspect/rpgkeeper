@@ -1,16 +1,13 @@
 id: eote-attachment-fusion-shunt
 name: Fusion Shunt
-description: A lightsaber is more than just a weapon. It is a symbol, a badge of office-and a tool. When its wielder is
-  faced with a situation that requires that latter approach, a lightsaber can carve through obstacle or debric to clear
-  a path forward. Some Jedi modify their lightsaber's power output to allow a secondary "fusion shunt" mode for the
-  blade, amplifying the power and profile of the blade. The wielder must take great care to keep the blade's motions
-  precise, as the energy pours forth from the emitter while the shunt is active.
+description: A lightsaber is more than just a weapon. It is a symbol, a badge of office-and a tool. When its wielder is faced with a situation that requires that latter approach, a lightsaber can carve through obstacle or debric to clear a path forward. Some Jedi modify their lightsaber's power output to allow a secondary "fusion shunt" mode for the blade, amplifying the power and profile of the blade. The wielder must take great care to keep the blade's motions precise, as the energy pours forth from the emitter while the shunt is active.
 useWith: weapon
 hpRequired: 1
 rarity: 6
-baseModifier: Activating fusion shunt requires a maneuver. All combat checks suffer
-  <threat></threat><threat></threat><threat></threat> when shunt is activated.; Lightsaber's Breach quality increases by
-  1 when shunt is active.
+baseModifier:
+  description: Activating fusion shunt requires a maneuver. All combat checks suffer <threat></threat><threat></threat><threat></threat> when shunt is activated.; Lightsaber's quality increases by 1 when shunt is active.
+  qualities:
+    - id: eote-quality-breach
 modOptions: []
 reference:
   - RotS:63

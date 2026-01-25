@@ -4,23 +4,23 @@ description: Use this attachment to reflect the results of a lightsaber hilt con
 useWith: weapon
 hpRequired: 0
 rarity: 0
-baseModifier: ""
+baseModifier: {}
 modOptions:
-  - +1 Hard Points
-  - +1 Hard Points
-  - +1 Hard Points
-  - +1 Hard Points
-  - -1 Hard Points
-  - -1 Hard Points
-  - -1 Hard Points
-  - -1 Hard Points
-  - -1 Encumbrance
-  - -1 Encumbrance
-  - -1 Encumbrance
-  - -1 Encumbrance
-  - +1 Encumbrance
-  - +1 Encumbrance
-  - +1 Encumbrance
-  - +1 Encumbrance
+  - description: +1 Hard Points
+  - description: +1 Hard Points
+  - description: +1 Hard Points
+  - description: +1 Hard Points
+  - description: -1 Hard Points
+  - description: -1 Hard Points
+  - description: -1 Hard Points
+  - description: -1 Hard Points
+  - encumbranceModifier: -1
+  - encumbranceModifier: -1
+  - encumbranceModifier: -1
+  - encumbranceModifier: -1
+  - encumbranceModifier: 1
+  - encumbranceModifier: 1
+  - encumbranceModifier: 1
+  - encumbranceModifier: 1
 reference:
   - Force and :23

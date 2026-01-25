@@ -1,13 +1,12 @@
 id: eote-attachment-superior-armor-customization
 name: Superior Armor Customization
-description: Any piece of armor can benefit from retooling at the hands of a superior craftsman. A skilled armorsmith
-  can add improved plastoid or even durasteel plating to increase the protection a piece of armor offers even as he
-  decreases its weight and bulk. Of course, such delicate and exacting work can make the armor less customizable in
-  other respects.
+description: Any piece of armor can benefit from retooling at the hands of a superior craftsman. A skilled armorsmith can add improved plastoid or even durasteel plating to increase the protection a piece of armor offers even as he decreases its weight and bulk. Of course, such delicate and exacting work can make the armor less customizable in other respects.
 useWith: armor
 hpRequired: 1
 rarity: 6
-baseModifier: Superior 1
+baseModifier:
+  qualities:
+    - id: eote-quality-superior
 modOptions: []
 reference:
   - E-CRB:195

@@ -1,14 +1,15 @@
 id: eote-attachment-curved-hilt
 name: Curved Hilt
-description: The curved hilt is preferred by duelists and practitioners of the lightsaber combat form Makashi. This
-  modification allows for both better control and better flexibility when handling the lightsaber. and for more force
-  behind overhand strikes.
+description: The curved hilt is preferred by duelists and practitioners of the lightsaber combat form Makashi. This modification allows for both better control and better flexibility when handling the lightsaber. and for more force behind overhand strikes.
 useWith: weapon
 hpRequired: 1
 rarity: 6
-baseModifier: Adds automatic <advantage></advantage> to successful Lightsaber combat checks when engaged with a single opponent.
+baseModifier:
+  description: Adds automatic <advantage></advantage> to successful Lightsaber combat checks when engaged with a single opponent.
 modOptions:
-  - Defensive +1
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
 reference:
   - F-CRB:196
 includedModels:

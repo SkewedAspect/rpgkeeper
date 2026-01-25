@@ -1,17 +1,20 @@
 id: eote-attachment-flickerphase-blade
 name: Flickerphase Blade
-description: Considered dishonorable and unsporting by most Jedi, so-called flickerphase modifications were never widely
-  adopted. With a few simple modifications, a lightsaber can be made to intermittently and randomly ignite and
-  extinguish its blade, making it appear to fIicker on and off. While this unpredictable element adds some difficulty
-  for the wielder, it is almost impossible for an opponent to time blocks and parries effectively.
+description: Considered dishonorable and unsporting by most Jedi, so-called flickerphase modifications were never widely adopted. With a few simple modifications, a lightsaber can be made to intermittently and randomly ignite and extinguish its blade, making it appear to fIicker on and off. While this unpredictable element adds some difficulty for the wielder, it is almost impossible for an opponent to time blocks and parries effectively.
 useWith: weapon
 hpRequired: 1
 rarity: 4
-baseModifier: -2 Damage; Inaccurate 2; When attacking with this lightsaber, targets cannot use the Parry incidental to
-  reduce the damage of the attack
+baseModifier:
+  damageModifier: -2
+  description: When attacking with this lightsaber, targets cannot use the Parry incidental to reduce the damage of the attack
+  qualities:
+    - id: eote-quality-inaccurate
+      ranks: 2
 modOptions:
-  - -1 Inaccurate
-  - +1 Damage
+  - description: "-1"
+    qualities:
+      - id: eote-quality-inaccurate
+  - damageModifier: 1
 reference:
   - KoF:48
 includedModels:

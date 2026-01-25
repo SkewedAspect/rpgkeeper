@@ -7,7 +7,8 @@ description: |-
 useWith: weapon
 hpRequired: 1
 rarity: 3
-baseModifier: Adds additional twelve hours of oxygen when connected to any rebreather, breath mask, or sealed suit.
+baseModifier:
+  description: Adds additional twelve hours of oxygen when connected to any rebreather, breath mask, or sealed suit.
 modOptions: []
 reference:
   - FiB:55

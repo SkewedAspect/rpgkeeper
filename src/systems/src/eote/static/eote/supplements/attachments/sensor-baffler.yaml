@@ -1,20 +1,13 @@
 id: eote-attachment-sensor-baffler
 name: Sensor Baffler
-description: Using combination of broad-spectrum transmissions and low-power targeted ion pulses, a sensor baffler
-  confuses enemy sensors, preventing them from determining a ship's precise location. A sensor baffler is not a passive
-  system, but actively confuses enemy sensors, providing contradictory and nonsensical readings. As a result, the system
-  does not truly conceal the ship's presence from enemies. Even inexperienced sensor operators can easily see that
-  something is interfering with their system, but they are frustratingly unable to pinpoint the source. A sensor baffler
-  does not include optical camouflage, and it has no effect on visible detection. Despite its shortcomings, a sensor
-  baffler has lower power requirements and requires a less-sophisticated manufacturing process than a true cloaking
-  device. This makes it an attractive alternative to those nearly unheard-of devices, and one available to a wider
-  variety of ship types.
+description: Using combination of broad-spectrum transmissions and low-power targeted ion pulses, a sensor baffler confuses enemy sensors, preventing them from determining a ship's precise location. A sensor baffler is not a passive system, but actively confuses enemy sensors, providing contradictory and nonsensical readings. As a result, the system does not truly conceal the ship's presence from enemies. Even inexperienced sensor operators can easily see that something is interfering with their system, but they are frustratingly unable to pinpoint the source. A sensor baffler does not include optical camouflage, and it has no effect on visible detection. Despite its shortcomings, a sensor baffler has lower power requirements and requires a less-sophisticated manufacturing process than a true cloaking device. This makes it an attractive alternative to those nearly unheard-of devices, and one available to a wider variety of ship types.
 useWith: vehicle
 hpRequired: 1
 rarity: 6
-baseModifier: When active, upgrade difficulty of checks to determine vehicle's location using sensors twice.
+baseModifier:
+  description: When active, upgrade difficulty of checks to determine vehicle's location using sensors twice.
 modOptions:
-  - Add <setback></setback> on Gunnery checks targeting vessel
-  - Add <setback></setback> on Gunnery checks targeting vessel
+  - description: Add <setback></setback> on Gunnery checks targeting vessel
+  - description: Add <setback></setback> on Gunnery checks targeting vessel
 reference:
   - FO:62

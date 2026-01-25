@@ -13,11 +13,18 @@ description: |-
 useWith: weapon
 hpRequired: 2
 rarity: 6
-baseModifier: -1 Critical; GM may spend <despair></despair><despair></despair> to cause blaster to explode, destroying
-  blaster and inflicting automatic Critical Injury on wielder.
+baseModifier:
+  criticalModifier: -1
+  description: GM may spend <despair></despair><despair></despair> to cause blaster to explode, destroying blaster and inflicting automatic Critical Injury on wielder.
 modOptions:
-  - Pierce +1
-  - Pierce +1
-  - Pierce +1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
 reference:
   - SM:54

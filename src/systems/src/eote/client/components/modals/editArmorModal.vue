@@ -138,7 +138,10 @@
 
                 <BTabs class="mt-3" content-class="mt-2">
                     <BTab title="Qualities" active>
-                        <QualityEdit v-model:qualities="editArmor.qualities" />
+                        <QualityEdit
+                            v-model:qualities="editArmor.qualities"
+                            :attachment-refs="editArmor.attachments"
+                        />
                     </BTab>
                     <BTab>
                         <template #title>
@@ -250,6 +253,7 @@
     import type {
         EoteArmor,
         EoteArmorRef,
+        EoteAttachment,
         EoteAttachmentRef,
         EoteOrGenCharacter,
         EoteQualityRef,
@@ -311,14 +315,14 @@
 
     const mode = computed(() => systemStore.current?.id ?? 'eote');
     const availableArmors = computed(() => supplementStore.get<EoteArmor>(mode.value, 'armor'));
+    const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
 
     const attachmentHpUsed = computed(() =>
     {
-        const allAttachments = supplementStore.get(mode.value, 'attachment');
         return editArmor.value.attachments.reduce((total, attRef) =>
         {
-            const attachment = allAttachments.find((att) => att.id === attRef.id);
-            return total + ((attachment as { hpRequired ?: number })?.hpRequired ?? 0);
+            const attachment = allAttachments.value.find((att) => att.id === attRef.id);
+            return total + (attachment?.hpRequired ?? 0);
         }, 0);
     });
 

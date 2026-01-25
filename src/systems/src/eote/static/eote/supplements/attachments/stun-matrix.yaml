@@ -1,19 +1,16 @@
 id: eote-attachment-stun-matrix
 name: Stun Matrix
-description: A stun matrix is an additional defensive option for armor. Instead of enhancing the wearer's defenses
-  directly, it unleashes a punishing pulse of energy that weakens the attacker in the hope of preventing a second
-  strike. Installing this attachment requires the addition of insulation to protect the wearer form the effects of the
-  stun matrix on top of the setup of the self charging battery and of the stun matrix itself. While the device is
-  relatively bulky, it can be concealed if integrated subtly into a heavy armor frame, the better to surprise would-be
-  attackers. This attachment can be applied to any armor that could logically benefit from having a stun matrix added.
+description: A stun matrix is an additional defensive option for armor. Instead of enhancing the wearer's defenses directly, it unleashes a punishing pulse of energy that weakens the attacker in the hope of preventing a second strike. Installing this attachment requires the addition of insulation to protect the wearer form the effects of the stun matrix on top of the setup of the self charging battery and of the stun matrix itself. While the device is relatively bulky, it can be concealed if integrated subtly into a heavy armor frame, the better to surprise would-be attackers. This attachment can be applied to any armor that could logically benefit from having a stun matrix added.
 useWith: armor
 hpRequired: 3
 rarity: 3
-baseModifier: +1 Encumbrance; When suffering hit from Melee, Brawl, or Lightsaber combat check, may spend
-  <threat></threat><threat></threat> or <despair></despair> to disorient attacker for 2 rounds.
+baseModifier:
+  encumbranceModifier: 1
+  description: When suffering hit from Melee, Brawl, or Lightsaber combat check, may spend <threat></threat><threat></threat> or <despair></despair> to attacker for 2 rounds.
+  qualities:
+    - id: eote-quality-disorient
 modOptions:
-  - May spend <threat></threat><threat></threat><threat></threat> or <despair></despair> to immobilize attacker for 1
-    round
-  - May spend <despair></despair> to stagger attacker for 1 round
+  - description: May spend <threat></threat><threat></threat><threat></threat> or <despair></despair> to immobilize attacker for 1 round
+  - description: May spend <despair></despair> to stagger attacker for 1 round
 reference:
   - KtP:57

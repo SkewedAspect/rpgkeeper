@@ -1,15 +1,13 @@
 id: eote-attachment-shortened-barrel
 name: Shortened Barrel
-description: Shortened barrels are a handy modification used by spies, plain-clothes law enforcement officers, and
-  anyone needing to conceal the fact that they are carrying a weapon. Little more than a replacement barrel shorter than
-  the standard one, this attachment makes concealing a pistol easier, and can improve the speed of a quick draw. This
-  attachment can only be applied to Ranged (Light) pistol weapons.
+description: Shortened barrels are a handy modification used by spies, plain-clothes law enforcement officers, and anyone needing to conceal the fact that they are carrying a weapon. Little more than a replacement barrel shorter than the standard one, this attachment makes concealing a pistol easier, and can improve the speed of a quick draw. This attachment can only be applied to Ranged (Light) pistol weapons.
 useWith: weapon
 hpRequired: 1
 rarity: 4
-baseModifier: Reduces the difficulty of checks made to conceal this weapon by 1.; -1 Range Band
+baseModifier:
+  description: Reduces the difficulty of checks made to conceal this weapon by 1.; -1 Range Band
 modOptions:
-  - Gain Quick Draw (draw/holster as incidental)
+  - description: Gain Quick Draw (draw/holster as incidental)
 reference:
   - E-CRB:191
   - A-CRB:203

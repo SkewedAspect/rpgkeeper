@@ -1,16 +1,14 @@
 id: eote-attachment-jump-boots
 name: Jump Boots
-description: Jump boots are, essentially, a single-use jetpack built into a thick boots and allows a user to leap over
-  tall obstacles and even fly for a very limited time. This attachment can be applied to any armor with an encumbrance
-  of 4 or less. It is good for only one use and cannot be used again until the rockets are refueled, which costs 100
-  credits and takes 30 minutes.
+description: Jump boots are, essentially, a single-use jetpack built into a thick boots and allows a user to leap over tall obstacles and even fly for a very limited time. This attachment can be applied to any armor with an encumbrance of 4 or less. It is good for only one use and cannot be used again until the rockets are refueled, which costs 100 credits and takes 30 minutes.
 useWith: armor
 hpRequired: 1
 rarity: 6
-baseModifier: Reduce difficulty of all Athletics checks to jump up or over obstacles by 1
+baseModifier:
+  description: Reduce difficulty of all Athletics checks to jump up or over obstacles by 1
 modOptions:
-  - Reduce difficulty of all Athletics checks to jump up or over obstacles by 1
-  - Allow wearer to fly for a total of one minute or 3 rounds
+  - description: Reduce difficulty of all Athletics checks to jump up or over obstacles by 1
+  - description: Allow wearer to fly for a total of one minute or 3 rounds
 reference:
   - CaM:58
 includedModels:

@@ -1,24 +1,16 @@
 id: eote-attachment-automated-weapon-mounting
 name: Automated Weapon Mounting
-description: >-
-  Used by elite special forces across the galaxy-and the occasional bounty hunter-an automated weapon mounting is a
-  sophisticated pseudocybernetic that allows the user to fire a blaster or other handheld weapon while keeping both
-  hands free, possibly for additional weapons. Automated harnesses are most commonly shoulder mounted, although a
-  variety of models are available, some incorporating articulated appendages of up to a half meter in length. Sappers
-  and combat engineers often find automated weapon mountings particularly useful , particularly when combined with a
-  droid brain targeting system, as the mountings allow them to effect battlefield repairs without leaving themselves
-  vulnerable. An automated weapon mounting may be activated by voice or neural link. For obvious reasons, these
-  attachments are rarely seen outside of a battlefield, and they are outlawed on most worlds.
-
+description: |-
+  Used by elite special forces across the galaxy-and the occasional bounty hunter-an automated weapon mounting is a sophisticated pseudocybernetic that allows the user to fire a blaster or other handheld weapon while keeping both hands free, possibly for additional weapons. Automated harnesses are most commonly shoulder mounted, although a variety of models are available, some incorporating articulated appendages of up to a half meter in length. Sappers and combat engineers often find automated weapon mountings particularly useful , particularly when combined with a droid brain targeting system, as the mountings allow them to effect battlefield repairs without leaving themselves vulnerable. An automated weapon mounting may be activated by voice or neural link. For obvious reasons, these attachments are rarely seen outside of a battlefield, and they are outlawed on most worlds.
   A weapon must also be modified in order to be armor-mounted, requiring one hard point.
 useWith: armor
 hpRequired: 2
 rarity: 5
-baseModifier: Weapon Mounts set to 1; Once per encounter, may spend maneuver to make a combat action with mounted
-  weapon. Difficulty of check is upgraded once.
+baseModifier:
+  description: Weapon Mounts set to 1; Once per encounter, may spend maneuver to make a combat action with mounted weapon. Difficulty of check is upgraded once.
 modOptions:
-  - Add <setback></setback> to combat check instead of upgrading difficulty.
-  - Add weapon mount (Long range)
-  - Add weapon mount (Long range)
+  - description: Add <setback></setback> to combat check instead of upgrading difficulty.
+  - description: Add weapon mount (Long range)
+  - description: Add weapon mount (Long range)
 reference:
   - FO:53

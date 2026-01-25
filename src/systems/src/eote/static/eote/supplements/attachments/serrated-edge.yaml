@@ -1,12 +1,13 @@
 id: eote-attachment-serrated-edge
 name: Serrated Edge
-description: The simplicity of this modification belies its viciousness. Adding a serrated edge to a weapon is something
-  almost anyone can do, and giving a bladed weapon tearing edges ensures it does terrible damage to flesh and bone. This
-  modification may be applied to melee weapons that use a cutting edge.
+description: The simplicity of this modification belies its viciousness. Adding a serrated edge to a weapon is something almost anyone can do, and giving a bladed weapon tearing edges ensures it does terrible damage to flesh and bone. This modification may be applied to melee weapons that use a cutting edge.
 useWith: weapon
 hpRequired: 1
 rarity: 1
-baseModifier: Vicious 1
+baseModifier:
+  qualities:
+    - id: eote-quality-vicious
+      ranks: 1
 modOptions: []
 reference:
   - E-CRB:191

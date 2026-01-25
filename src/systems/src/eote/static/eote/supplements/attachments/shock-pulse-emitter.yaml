@@ -1,17 +1,23 @@
 id: eote-attachment-shock-pulse-emitter
 name: Shock Pulse Emitter
-description: Shock pulse emitters operate along principles similar to a blaster's stun setting, but at much shorter
-  effective range—a range short enough to be of little use as weapons in themselves. However, when shock pulse emitters
-  are integrated into weapons intended for close combat to begin with, they become effective combat tools to debilitate
-  opponents and make a finishing blow easier to land. This attachment can be installed on any Melee or Brawl weapon.
+description: Shock pulse emitters operate along principles similar to a blaster's stun setting, but at much shorter effective range—a range short enough to be of little use as weapons in themselves. However, when shock pulse emitters are integrated into weapons intended for close combat to begin with, they become effective combat tools to debilitate opponents and make a finishing blow easier to land. This attachment can be installed on any Melee or Brawl weapon.
 useWith: weapon
 hpRequired: 2
 rarity: 5
-baseModifier: Stun 2
+baseModifier:
+  qualities:
+    - id: eote-quality-stun
+      ranks: 2
 modOptions:
-  - Stun +1
-  - Stun +1
-  - Disorient +1
+  - qualities:
+      - id: eote-quality-stun
+        ranks: 1
+  - qualities:
+      - id: eote-quality-stun
+        ranks: 1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
 reference:
   - ND:51
 includedModels:

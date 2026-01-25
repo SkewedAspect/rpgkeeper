@@ -1,20 +1,14 @@
 id: eote-attachment-slave-circuit
 name: Slave Circuit
-description: An old shipbuilding technology perfected millennia ago, slave circuits allow ship owners to operate their
-  ships, or various systems within their ships, via remote control. Occasionally referred to as the "Electronic
-  Co-Pilot" or "Instant Backseater," slave circuits run all of a ship's systems through a central system bus that can be
-  activated and deactivated via voice command through a comlink-like device called a "beckon call." Basic slave rigs
-  allow a user to remotely activate a ship's systems and bring it to complete operational readiness, or to shut those
-  systems down and lock out all users until a security code is entered. More advanced models allow the user to call the
-  ship to his present location, and even allow it to fight its way there with moderate success. While popular in many
-  circles, slave circuits are often mistrusted by ship owners.
+description: An old shipbuilding technology perfected millennia ago, slave circuits allow ship owners to operate their ships, or various systems within their ships, via remote control. Occasionally referred to as the "Electronic Co-Pilot" or "Instant Backseater," slave circuits run all of a ship's systems through a central system bus that can be activated and deactivated via voice command through a comlink-like device called a "beckon call." Basic slave rigs allow a user to remotely activate a ship's systems and bring it to complete operational readiness, or to shut those systems down and lock out all users until a security code is entered. More advanced models allow the user to call the ship to his present location, and even allow it to fight its way there with moderate success. While popular in many circles, slave circuits are often mistrusted by ship owners.
 useWith: vehicle
 hpRequired: 1
 rarity: 2
-baseModifier: Allows a ship or vehicle to be activated or deactivated by remote control.
+baseModifier:
+  description: Allows a ship or vehicle to be activated or deactivated by remote control.
 modOptions:
-  - Allows ship or vehicle to move to the owner's location using owner's Piloting skill.
-  - Allows ship or vehicle to autonomously use its weapon systems using owner's appropriate skill.
+  - description: Allows ship or vehicle to move to the owner's location using owner's Piloting skill.
+  - description: Allows ship or vehicle to autonomously use its weapon systems using owner's appropriate skill.
 reference:
   - SoT:65
 includedModels:

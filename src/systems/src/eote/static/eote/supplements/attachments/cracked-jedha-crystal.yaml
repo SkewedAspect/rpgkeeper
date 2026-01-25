@@ -1,25 +1,35 @@
 id: eote-attachment-cracked-jedha-crystal
 name: Cracked Jedha Crystal
-description: When a terrible mining accident destroyed Jedha City, the galaxy lost one of the last known sources of
-  kyber crystals. The crystals produced on Jedha held great spiritual significance for the Jedi, the Church of the
-  Force, and a number of other religious traditions. Jedha crystals were among the most popular kyber crystals for the
-  Jedi. As a practical matter, Jedha crystals produce focused, potent lightsaber blades, but many Jedi valued the
-  knowledge that their lightsaber housed an artifact from Jedha. For those who seek to follow in the Jedi's path, kyber
-  crystals have become vanishingly rare in recent years. However, a small number of Jedha crystals have  been recovered
-  from the ruins of Jedha City. Unfortunately, many of these crystals are cracked and damaged, producing unstable,
-  ragged lightsaber beams.
+description: When a terrible mining accident destroyed Jedha City, the galaxy lost one of the last known sources of kyber crystals. The crystals produced on Jedha held great spiritual significance for the Jedi, the Church of the Force, and a number of other religious traditions. Jedha crystals were among the most popular kyber crystals for the Jedi. As a practical matter, Jedha crystals produce focused, potent lightsaber blades, but many Jedi valued the knowledge that their lightsaber housed an artifact from Jedha. For those who seek to follow in the Jedi's path, kyber crystals have become vanishingly rare in recent years. However, a small number of Jedha crystals have  been recovered from the ruins of Jedha City. Unfortunately, many of these crystals are cracked and damaged, producing unstable, ragged lightsaber beams.
 useWith: weapon
 hpRequired: 3
 rarity: 7
-baseModifier: Damage set to 7; Critical set to 3; Breach 1; Inaccurate 2; Sunder 1; Vicious 1
+baseModifier:
+  description: Damage set to 7; Critical set to 3
+  qualities:
+    - id: eote-quality-inaccurate
+      ranks: 2
+    - id: eote-quality-vicious
+      ranks: 1
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
 modOptions:
-  - Vicious +1
-  - Vicious +1
-  - Vicious +1
-  - +1 Damage
-  - +1 Damage
-  - -1 Inaccurate
-  - -1 Critical
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - damageModifier: 1
+  - damageModifier: 1
+  - description: "-1"
+    qualities:
+      - id: eote-quality-inaccurate
+  - criticalModifier: -1
 reference:
   - KoF:48
 includedModels:

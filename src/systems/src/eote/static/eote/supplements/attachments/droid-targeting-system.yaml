@@ -1,20 +1,15 @@
 id: eote-attachment-droid-targeting-system
 name: Droid Targeting System
-description: >-
-  Although droids are most commonly thought of as autonomous mobile constructs, the advanced artificial intelligence of
-  droid brains has been used in a variety of other applications for thousands of years. A specialized droid mind
-  equipped with sensors and miniaturized gyromotors can improve the accuracy of even the most experienced sentient
-  marksman.
-
-  Many soldiers look down on the use of such systems, while others find the vibrations as the droid subtly adjusts their
-  aim to be frustrating, to say the least. Droid targeting systems are known for their often bossy and impatient
-  personalities. This attachment can be applied to any personal ranged weapon.
+description: |-
+  Although droids are most commonly thought of as autonomous mobile constructs, the advanced artificial intelligence of droid brains has been used in a variety of other applications for thousands of years. A specialized droid mind equipped with sensors and miniaturized gyromotors can improve the accuracy of even the most experienced sentient marksman.
+  Many soldiers look down on the use of such systems, while others find the vibrations as the droid subtly adjusts their aim to be frustrating, to say the least. Droid targeting systems are known for their often bossy and impatient personalities. This attachment can be applied to any personal ranged weapon.
 useWith: weapon
 hpRequired: 3
 rarity: 5
-baseModifier: Upgrade ability on Ranged combat checks made with this weapon once.
+baseModifier:
+  description: Upgrade ability on Ranged combat checks made with this weapon once.
 modOptions:
-  - Add <boost></boost> to one Ranged combat check per encounter
-  - Suffer 3 strain to remove <despair></despair> from Ranged combat check
+  - description: Add <boost></boost> to one Ranged combat check per encounter
+  - description: Suffer 3 strain to remove <despair></despair> from Ranged combat check
 reference:
   - FO:51

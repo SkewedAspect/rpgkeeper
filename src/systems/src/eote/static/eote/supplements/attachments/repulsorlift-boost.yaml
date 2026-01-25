@@ -1,19 +1,13 @@
 id: eote-attachment-repulsorlift-boost
 name: Repulsorlift Boost
-description: Some obstacles are insurmountable for even the most versatile and powerful of factory-standard repulsor
-  field generators. For tinkerers willing to ignore a whole host of safety warnings-and likely a few laws-most repulsor
-  field generators can be pushed past factory limits, allowing for a drastic, if brief, increase in lift. Such an
-  increase can allow the vehicle to "jump" over objects, gaps, or enemy vehicles or to higher ground. Some field
-  mechanics have even been known to add specially overcharged repulsor fields to vehicles that rely on a different
-  method of propulsion, just in case. More than one team of Rebel soldiers has escaped certain death in the face of
-  overwhelming Imperial opposition, thanks to just such modifications.
+description: Some obstacles are insurmountable for even the most versatile and powerful of factory-standard repulsor field generators. For tinkerers willing to ignore a whole host of safety warnings-and likely a few laws-most repulsor field generators can be pushed past factory limits, allowing for a drastic, if brief, increase in lift. Such an increase can allow the vehicle to "jump" over objects, gaps, or enemy vehicles or to higher ground. Some field mechanics have even been known to add specially overcharged repulsor fields to vehicles that rely on a different method of propulsion, just in case. More than one team of Rebel soldiers has escaped certain death in the face of overwhelming Imperial opposition, thanks to just such modifications.
 useWith: vehicle
 hpRequired: 1
 rarity: 4
-baseModifier: Once per encounter as an incidental, vehicle may suffer 2 system strain to double maximum altitude (or
-  gain 100 meters, whichever is lower) and increase max speed by 1 for 1 round.
+baseModifier:
+  description: Once per encounter as an incidental, vehicle may suffer 2 system strain to double maximum altitude (or gain 100 meters, whichever is lower) and increase max speed by 1 for 1 round.
 modOptions:
-  - Increase duration by 1 round
-  - Increase duration by 1 round
+  - description: Increase duration by 1 round
+  - description: Increase duration by 1 round
 reference:
   - FO:61

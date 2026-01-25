@@ -1,20 +1,13 @@
 id: eote-attachment-weapon-signature-reduction
 name: Weapon Signature Reduction
-description: >-
-  Both the Empire and the galactic security industry use weapon scanners that are capable of detecting a wide variety of
-  weapon components. Even when broken down into several pieces, blasters and other ranged weapons are still liable to be
-  detected, due to the specific technologies and substances that allow them to function as lethal weapons.
-
-  In order to skirt such inspection and ensure that hidden weapons remain obscured from prying eyes, covert agents have
-  devised modifications that mask or otherwise diminish such signatures in a weapon’s components. Though physical
-  searches still pose some risk of discovery, weapon signature reduction guarantees that scanning equipment used to
-  detect weapons is rendered less effective. Unfortunately, weapon signature reduction is only effective on weapons with
-  an encumbrance rating of 5 or less.
+description: |-
+  Both the Empire and the galactic security industry use weapon scanners that are capable of detecting a wide variety of weapon components. Even when broken down into several pieces, blasters and other ranged weapons are still liable to be detected, due to the specific technologies and substances that allow them to function as lethal weapons.
+  In order to skirt such inspection and ensure that hidden weapons remain obscured from prying eyes, covert agents have devised modifications that mask or otherwise diminish such signatures in a weapon’s components. Though physical searches still pose some risk of discovery, weapon signature reduction guarantees that scanning equipment used to detect weapons is rendered less effective. Unfortunately, weapon signature reduction is only effective on weapons with an encumbrance rating of 5 or less.
 useWith: weapon
 hpRequired: 1
 rarity: 6
-baseModifier: Increase the difficulty checks using scanners to search for this weapon by 2. Add <setback></setback> to
-  all Mechanics checks to perform maintenance on this weapon.
+baseModifier:
+  description: Increase the difficulty checks using scanners to search for this weapon by 2. Add <setback></setback> to all Mechanics checks to perform maintenance on this weapon.
 modOptions: []
 reference:
   - SoR:110

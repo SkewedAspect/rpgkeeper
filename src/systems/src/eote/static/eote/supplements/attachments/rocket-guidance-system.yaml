@@ -1,22 +1,29 @@
 id: eote-attachment-rocket-guidance-system
 name: Rocket Guidance System
-description: Most micro-rockets are fired directly at their target, relying on the firer's aim and the rocket's
-  acceleration to ensure a direct hit. For those who prefer more insurance that their rockets land precisely where
-  intended, packages of sensors, limited fuel cell expansions, and adjustable maneuvering fins allow for rockets to be
-  modified into maneuvering fins allow for rockets to be modified into "smart" weapons that continue to seek their
-  designated target in the event of an initial miss or misfire. These systems enable users to get more reliable
-  performance out of their rockets while at the same time minimizing the collateral damage. This attachment can be
-  installed on any micro-rocket.
+description: Most micro-rockets are fired directly at their target, relying on the firer's aim and the rocket's acceleration to ensure a direct hit. For those who prefer more insurance that their rockets land precisely where intended, packages of sensors, limited fuel cell expansions, and adjustable maneuvering fins allow for rockets to be modified into maneuvering fins allow for rockets to be modified into "smart" weapons that continue to seek their designated target in the event of an initial miss or misfire. These systems enable users to get more reliable performance out of their rockets while at the same time minimizing the collateral damage. This attachment can be installed on any micro-rocket.
 useWith: weapon
 hpRequired: 1
 rarity: 4
-baseModifier: Guided 2
+baseModifier:
+  qualities:
+    - id: eote-quality-guided
+      ranks: 2
 modOptions:
-  - Guided +1
-  - Guided +1
-  - Guided +1
-  - Accurate +1
-  - Accurate +1
+  - qualities:
+      - id: eote-quality-guided
+        ranks: 1
+  - qualities:
+      - id: eote-quality-guided
+        ranks: 1
+  - qualities:
+      - id: eote-quality-guided
+        ranks: 1
+  - qualities:
+      - id: eote-quality-accurate
+        ranks: 1
+  - qualities:
+      - id: eote-quality-accurate
+        ranks: 1
 reference:
   - ND:47
 includedModels:

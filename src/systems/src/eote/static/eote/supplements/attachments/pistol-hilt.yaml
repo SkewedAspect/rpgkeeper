@@ -1,20 +1,13 @@
 id: eote-attachment-pistol-hilt
 name: Pistol Hilt
-description: >-
-  While the Jedi of old disdained blasters, modern Force users often need every advantage they can get. By adding a
-  customized secondary emitter to a lightsaber hilt, the wielder can release the energies of her weapon at a distance in
-  a manner similar to that of a blaster bolt. Without the focused field produced by a regular lightsaber emitter, the
-  beam rapidly loses coherency and stopping power, producing only a short-range stun bolt. A lightsaber used in this
-  manner, though might not even be recognized for what it is, appearing to be an unusual or custom model of pistol
-  instead of one of the legendary weapons of the Jedi. This additional layer of cover could mean as much protection as
-  the new capabilities of the weapon.
-
-  The user must spend a maneuver to switch from one weapon mode to the other lightsaber function to pistol function, for
-  example.
+description: |-
+  While the Jedi of old disdained blasters, modern Force users often need every advantage they can get. By adding a customized secondary emitter to a lightsaber hilt, the wielder can release the energies of her weapon at a distance in a manner similar to that of a blaster bolt. Without the focused field produced by a regular lightsaber emitter, the beam rapidly loses coherency and stopping power, producing only a short-range stun bolt. A lightsaber used in this manner, though might not even be recognized for what it is, appearing to be an unusual or custom model of pistol instead of one of the legendary weapons of the Jedi. This additional layer of cover could mean as much protection as the new capabilities of the weapon.
+  The user must spend a maneuver to switch from one weapon mode to the other lightsaber function to pistol function, for example.
 useWith: weapon
 hpRequired: 2
 rarity: 5
-baseModifier: Includes a built-in blaster pistol.
+baseModifier:
+  description: Includes a built-in blaster pistol.
 modOptions: []
 reference:
   - EV:52

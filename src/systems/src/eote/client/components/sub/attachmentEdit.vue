@@ -22,57 +22,68 @@
                 </BBadge>
             </template>
             <template #preview="{ instance, supplement }">
-                <div>
-                    <div class="mb-2">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <div>
                         <span class="text-muted">HP Required: </span>
                         <span class="fw-bold">{{ supplement.hpRequired }}</span>
                         <span class="ms-3 text-muted">Rarity: </span>
                         <span class="fw-bold">{{ supplement.rarity }}</span>
                     </div>
-                    <div v-if="supplement.baseModifier" class="mb-2">
-                        <span class="fw-bold">Base Modifier: </span>
-                        <MarkdownBlock :text="supplement.baseModifier" inline />
-                    </div>
-                    <div v-if="supplement.modOptions && supplement.modOptions.length > 0" class="mb-2">
-                        <span class="fw-bold">Mod Options:</span>
-                        <div v-if="instance" class="mt-1">
-                            <BFormCheckbox
-                                v-for="(mod, index) in supplement.modOptions"
-                                :key="index"
-                                :model-value="isModActivated(instance, index)"
-                                @update:model-value="toggleMod(instance, index, !!$event)"
-                            >
-                                {{ mod }}
-                            </BFormCheckbox>
-                        </div>
-                        <ul v-else class="mb-0 ps-3">
-                            <li v-for="(mod, index) in supplement.modOptions" :key="index">
-                                {{ mod }}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <MarkdownBlock :text="supplement.description" inline />
-                <Reference
-                    class="float-end mt-2"
-                    :reference="supplement.reference ?? ''"
-                />
-            </template>
-            <template #browse-preview="{ supplement }">
-                <div class="attachment-stats d-flex flex-wrap mb-2">
-                    <span class="me-4"><strong>HP Required:</strong> {{ supplement.hpRequired }}</span>
-                    <span class="me-4"><strong>Rarity:</strong> {{ supplement.rarity }}</span>
-                    <span><strong>Use With:</strong> {{ supplement.useWith }}</span>
+                    <BBadge variant="secondary" class="text-capitalize">
+                        {{ supplement.useWith }}
+                    </BBadge>
                 </div>
                 <div v-if="supplement.baseModifier" class="mb-2">
-                    <strong>Base Modifier:</strong>
-                    <MarkdownBlock :text="supplement.baseModifier" inline />
+                    <span class="fw-bold">Base Modifier: </span>
+                    <MarkdownBlock :text="formatModDescription(supplement.baseModifier)" inline />
+                </div>
+                <div v-if="supplement.modOptions && supplement.modOptions.length > 0" class="mb-2">
+                    <span class="fw-bold">Mod Options:</span>
+                    <div v-if="instance" class="mt-1">
+                        <BFormCheckbox
+                            v-for="(mod, index) in supplement.modOptions"
+                            :key="index"
+                            :model-value="isModActivated(instance, index)"
+                            @update:model-value="toggleMod(instance, index, !!$event)"
+                        >
+                            <MarkdownBlock :text="formatModDescription(mod)" inline />
+                        </BFormCheckbox>
+                    </div>
+                    <ul v-else class="mb-0 ps-3">
+                        <li v-for="(mod, index) in supplement.modOptions" :key="index">
+                            <MarkdownBlock :text="formatModDescription(mod)" inline />
+                        </li>
+                    </ul>
+                </div>
+                <MarkdownBlock :text="supplement.description" inline />
+                <div class="text-end mt-2">
+                    <h5 class="mb-1">
+                        <ScopeBadge :supplement="supplement" />
+                    </h5>
+                    <Reference :reference="supplement.reference ?? ''" />
+                </div>
+            </template>
+            <template #browse-preview="{ supplement }">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <div>
+                        <span class="text-muted">HP Required: </span>
+                        <span class="fw-bold">{{ supplement.hpRequired }}</span>
+                        <span class="ms-3 text-muted">Rarity: </span>
+                        <span class="fw-bold">{{ supplement.rarity }}</span>
+                    </div>
+                    <BBadge variant="secondary" class="text-capitalize">
+                        {{ supplement.useWith }}
+                    </BBadge>
+                </div>
+                <div v-if="supplement.baseModifier" class="mb-2">
+                    <span class="fw-bold">Base Modifier: </span>
+                    <MarkdownBlock :text="formatModDescription(supplement.baseModifier)" inline />
                 </div>
                 <div v-if="supplement.modOptions && supplement.modOptions.length > 0" class="mb-2">
                     <strong>Mod Options:</strong>
                     <ul class="mb-0 ps-3">
                         <li v-for="(mod, index) in supplement.modOptions" :key="index">
-                            {{ mod }}
+                            <MarkdownBlock :text="formatModDescription(mod)" inline />
                         </li>
                     </ul>
                 </div>
@@ -118,7 +129,7 @@
     import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
-    import type { EoteAttachment, EoteAttachmentRef } from '../../../models.ts';
+    import type { BaseQuality, EoteAttachment, EoteAttachmentRef, EoteModOption } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -134,6 +145,7 @@
 
     // Utils
     import { uniqBy } from '@client/lib/utils/misc';
+    import { getModDescription } from '../../lib/qualityUtils';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -179,6 +191,7 @@
 
     const mode = computed(() => systemStore.current?.id ?? 'eote');
     const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
+    const allQualities = computed(() => supplementStore.get<BaseQuality>(mode.value, 'quality'));
 
     const filteredAttachments = computed(() =>
     {
@@ -229,6 +242,11 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
+    function formatModDescription(mod : EoteModOption) : string
+    {
+        return getModDescription(mod, allQualities.value);
+    }
+
     function isModActivated(instance : EoteAttachmentRef, modIndex : number) : boolean
     {
         return instance.activatedMods?.includes(modIndex) ?? false;
@@ -236,36 +254,20 @@
 
     function toggleMod(instance : EoteAttachmentRef, modIndex : number, activated : boolean) : void
     {
-        const updatedAttachments = selectedAttachments.value.map((att) =>
+        selectedAttachments.value = selectedAttachments.value.map((att) =>
         {
-            if(att.id === instance.id)
-            {
-                const currentMods = att.activatedMods ?? [];
-                let newMods : number[];
+            if(att.id !== instance.id) { return att; }
 
-                if(activated)
-                {
-                    // Add the mod index if not already present
-                    newMods = currentMods.includes(modIndex)
-                        ? currentMods
-                        : [ ...currentMods, modIndex ].sort((valA, valB) => valA - valB);
-                }
-                else
-                {
-                    // Remove the mod index
-                    newMods = currentMods.filter((idx) => idx !== modIndex);
-                }
+            const currentMods = att.activatedMods ?? [];
+            const newMods = activated
+                ? [ ...new Set([ ...currentMods, modIndex ]) ].sort((valA, valB) => valA - valB)
+                : currentMods.filter((idx) => idx !== modIndex);
 
-                return {
-                    ...att,
-                    activatedMods: newMods.length > 0 ? newMods : undefined,
-                };
-            }
-
-            return att;
+            return {
+                ...att,
+                activatedMods: newMods.length > 0 ? newMods : undefined,
+            };
         });
-
-        selectedAttachments.value = updatedAttachments;
     }
 
     function onAttachmentAdd(attachment : { id ?: string }) : void

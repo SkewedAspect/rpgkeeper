@@ -10,8 +10,9 @@ description: |-
 useWith: vehicle
 hpRequired: 2
 rarity: 7
-baseModifier: +1 Speed; -1 Handling
+baseModifier:
+  description: +1 Speed; -1 Handling
 modOptions:
-  - +1 Speed
+  - description: +1 Speed
 reference:
   - SM:63

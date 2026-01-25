@@ -1,19 +1,16 @@
 id: eote-attachment-slicing-computer
 name: Slicing Computer
-description: Although most starships include sophisticated computers and comm equipment capable of slicing into the
-  systems of enemy vessels, such electronic warfare tactics are usually overlooked in favour of more  conventional
-  attacks. However, some crews undertake efforts to upgrade their on-board systems for precisely the kind of work. With
-  the right equipment  and software, a skilled computer expert can become one of the most valuable crew members in a
-  space battle. Many Technicians continue to tinker with and add to the ship's computer systems over time, sometimes to
-  the confusion and frustration of other crew. This attachment can be applied to any starship.
+description: Although most starships include sophisticated computers and comm equipment capable of slicing into the systems of enemy vessels, such electronic warfare tactics are usually overlooked in favour of more  conventional attacks. However, some crews undertake efforts to upgrade their on-board systems for precisely the kind of work. With the right equipment  and software, a skilled computer expert can become one of the most valuable crew members in a space battle. Many Technicians continue to tinker with and add to the ship's computer systems over time, sometimes to the confusion and frustration of other crew. This attachment can be applied to any starship.
 useWith: vehicle
 hpRequired: 1
 rarity: 6
-baseModifier: Counts as slicer gear that can be used by one passenger.; Add automatic <advantage></advantage> to
-  Computers checks made to slice enemy ships' systems.
+baseModifier:
+  description: Counts as slicer gear that can be used by one passenger.; Add automatic <advantage></advantage> to Computers checks made to slice enemy ships' systems.
 modOptions:
-  - Gain Codebreaker (remove <setback></setback> from decryption checks)
-  - Gain Defensive Slicing (defend against slicing attempts)
+  - description: Gain Codebreaker (remove <setback></setback> from decryption checks)
+  - description: Gain Slicing (defend against slicing attempts)
+    qualities:
+      - id: eote-quality-defensive
 reference:
   - SM:67
 includedModels:

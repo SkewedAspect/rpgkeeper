@@ -58,14 +58,16 @@
                             <div class="float-end">
                                 <slot :instance="supp.instance" :supplement="supp.supplement" name="selection-extra" />
                                 <ScopeBadge v-if="supp.supplement" :supplement="supp.supplement" />
-                                <BButton
-                                    class="ms-2 text-nowrap"
-                                    variant="danger"
-                                    title="Remove"
-                                    @click.prevent.stop="removeSupp(supp.instance)"
-                                >
-                                    <Fa icon="times" />
-                                </BButton>
+                                <slot :instance="supp.instance" :supplement="supp.supplement" name="remove-button">
+                                    <BButton
+                                        class="ms-2 text-nowrap"
+                                        variant="danger"
+                                        title="Remove"
+                                        @click.prevent.stop="removeSupp(supp.instance)"
+                                    >
+                                        <Fa icon="times" />
+                                    </BButton>
+                                </slot>
                             </div>
                             <div class="pt-2">
                                 {{ supp.supplement?.name }}
@@ -219,6 +221,7 @@
     defineSlots<{
         'suggestion-extra' : (props : { supplement : TSupplement }) => unknown;
         'selection-extra' : (props : { instance : TInstance; supplement : TSupplement | undefined }) => unknown;
+        'remove-button' : (props : { instance : TInstance; supplement : TSupplement | undefined }) => unknown;
         'header' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
         'preview-title' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
         'noSelection' : () => unknown;

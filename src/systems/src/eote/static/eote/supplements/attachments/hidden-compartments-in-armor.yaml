@@ -1,49 +1,16 @@
 id: eote-attachment-hidden-compartments-in-armor
 name: Hidden Compartments in Armor
-description: >-
-  Usually formed from rigid plates or packed with protective padding, most types of armor rarely facilitate the stowing
-  of small objects. However, with some careful work, a character can add hidden pouches, concealed holsters, and unseen
-  sheaths.
-
-  A character typically shaves down or hollows out a section of armor plating, or thins out protective mesh and padding,
-  to make space for the hidden compartment. To make this change, he must spend a number of hours equal to the armor's
-  encumbrance, pay a number of credits equal to 5% of the armor's price, and make a **Hard
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check**. Each
-  <success></success> or <triumph></triumph> provides one encumbrance point's worth of hidden space in the armor. The
-  armor cannot gain more encumbrance points for hiding objects than the suit's own encumbrance value, and items
-  concealed in this way do not count towards the user's encumbrance threshold. Add
-  <setback></setback><setback></setback> to all Perception checks made to notice items hidden in this manner.
-
-  No matter how many <success></success> are rolled, though, a suit of armor cannot conceal any single item with an
-  encumbrance value greater than 2. This means that if a character rolls
-  <success></success><success></success><success></success> and thus has space for items totaling 3 encumbrance, the
-  character could conceal a heavy blaster pistol (encumbrance 2) and a vibroknife (encumbrance 1), but not a blaster
-  carbine (encumbrance 3). This is because while it is possible to hollow out a compartment in a chest plate and perhaps
-  a second in a boot, there is no single location on a suit of armor large enough to accommodate a particularly large or
-  unwieldy item.
-
-  Each point of encumbrance value for concealed space gained in this fashion reduces the armor's hard points by one, to
-  a minimum of 0. Any armor with no hard points, such as padded armor or heavy clothing, can still have enough concealed
-  space for an item with an encumbrance value of 1.
-
-  For every two encumbrance points' worth of concealed space created, an armor's soak is reduced by one. However, each
-  net <advantage></advantage> on the initial Mechanics check to modify the armor cancels out one point of soak
-  reduction.
+description: |-
+  Usually formed from rigid plates or packed with protective padding, most types of armor rarely facilitate the stowing of small objects. However, with some careful work, a character can add hidden pouches, concealed holsters, and unseen sheaths.
+  A character typically shaves down or hollows out a section of armor plating, or thins out protective mesh and padding, to make space for the hidden compartment. To make this change, he must spend a number of hours equal to the armor's encumbrance, pay a number of credits equal to 5% of the armor's price, and make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check**. Each <success></success> or <triumph></triumph> provides one encumbrance point's worth of hidden space in the armor. The armor cannot gain more encumbrance points for hiding objects than the suit's own encumbrance value, and items concealed in this way do not count towards the user's encumbrance threshold. Add <setback></setback><setback></setback> to all Perception checks made to notice items hidden in this manner.
+  No matter how many <success></success> are rolled, though, a suit of armor cannot conceal any single item with an encumbrance value greater than 2. This means that if a character rolls <success></success><success></success><success></success> and thus has space for items totaling 3 encumbrance, the character could conceal a heavy blaster pistol (encumbrance 2) and a vibroknife (encumbrance 1), but not a blaster carbine (encumbrance 3). This is because while it is possible to hollow out a compartment in a chest plate and perhaps a second in a boot, there is no single location on a suit of armor large enough to accommodate a particularly large or unwieldy item.
+  Each point of encumbrance value for concealed space gained in this fashion reduces the armor's hard points by one, to a minimum of 0. Any armor with no hard points, such as padded armor or heavy clothing, can still have enough concealed space for an item with an encumbrance value of 1.
+  For every two encumbrance points' worth of concealed space created, an armor's soak is reduced by one. However, each net <advantage></advantage> on the initial Mechanics check to modify the armor cancels out one point of soak reduction.
 useWith: armor
 hpRequired: 0
 rarity: 0
-baseModifier: "**Price:** 5% of armor's price.; To make this change, he must spend a number of hours equal to the
-  armor's encumbrance and make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)
-  Mechanics check**. Each <success></success> or <triumph></triumph> provides one encumbrance point's worth of hidden
-  space in the armor. The armor cannot gain more encumbrance points for hiding objects than the suit's own encumbrance
-  value, and items concealed in this way do not count towards the user's encumbrance threshold. Add
-  <setback></setback><setback></setback> to all Perception checks made to notice items hidden in this manner.; No matter
-  how many <success></success> are rolled, though, a suit of armor cannot conceal any single item with an encumbrance
-  value greater than 2.; Each point of encumbrance value for concealed space gained in this fashion reduces the armor's
-  hard points by one, to a minimum of 0. Any armor with no hard points, such as padded armor or heavy clothing, can
-  still have enough concealed space for an item with an encumbrance value of 1.; For every two encumbrance points' worth
-  of concealed space created, an armor's soak is reduced by one. However, each net <advantage></advantage> on the
-  initial Mechanics check to modify the armor cancels out one point of soak reduction."
+baseModifier:
+  description: "**Price:** 5% of armor's price.; To make this change, he must spend a number of hours equal to the armor's encumbrance and make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check**. Each <success></success> or <triumph></triumph> provides one encumbrance point's worth of hidden space in the armor. The armor cannot gain more encumbrance points for hiding objects than the suit's own encumbrance value, and items concealed in this way do not count towards the user's encumbrance threshold. Add <setback></setback><setback></setback> to all Perception checks made to notice items hidden in this manner.; No matter how many <success></success> are rolled, though, a suit of armor cannot conceal any single item with an encumbrance value greater than 2.; Each point of encumbrance value for concealed space gained in this fashion reduces the armor's hard points by one, to a minimum of 0. Any armor with no hard points, such as padded armor or heavy clothing, can still have enough concealed space for an item with an encumbrance value of 1.; For every two encumbrance points' worth of concealed space created, an armor's soak is reduced by one. However, each net <advantage></advantage> on the initial Mechanics check to modify the armor cancels out one point of soak reduction."
 modOptions: []
 reference:
   - CaM:82

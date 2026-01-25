@@ -1,22 +1,16 @@
 id: eote-attachment-armor-spikes
 name: Armor Spikes
-description: While armor serves a largely defensive role for its wearers, that needn't be the rule. With the addition of
-  spikes, blades, and other protrusions on areas covering shoulders, knuckles, feet, knees or elbows, armor can be
-  turned into a deadly weapon of last resort. The majority of such modifications are scratch-built, though a handful o f
-  armor manufacturers mass-produce kits for the armor sets they sell. Largely popular with criminals, mercenaries, and
-  bounty hunters, armor spikes lend an intimidating mien to anyone equipped with them. Some professionals prefer to keep
-  such deadly modifications concealed and retractable, and these are perhaps the most dangerous of them all. This
-  attachment can be attached to any armor that covers the arms or legs.
+description: While armor serves a largely defensive role for its wearers, that needn't be the rule. With the addition of spikes, blades, and other protrusions on areas covering shoulders, knuckles, feet, knees or elbows, armor can be turned into a deadly weapon of last resort. The majority of such modifications are scratch-built, though a handful o f armor manufacturers mass-produce kits for the armor sets they sell. Largely popular with criminals, mercenaries, and bounty hunters, armor spikes lend an intimidating mien to anyone equipped with them. Some professionals prefer to keep such deadly modifications concealed and retractable, and these are perhaps the most dangerous of them all. This attachment can be attached to any armor that covers the arms or legs.
 useWith: armor
 hpRequired: 3
 rarity: 2
-baseModifier: +2 Encumbrance; When wearer suffers a hit from a Melee, Brawl, or Lightsaber combat check, may spend
-  <threat></threat><threat></threat><threat></threat> or <despair></despair> to inflict one hit for 6 damage on
-  attacker.
+baseModifier:
+  encumbranceModifier: 2
+  description: When wearer suffers a hit from a Melee, Brawl, or Lightsaber combat check, may spend <threat></threat><threat></threat><threat></threat> or <despair></despair> to inflict one hit for 6 damage on attacker.
 modOptions:
-  - Increase damage to attacker by +1
-  - Increase damage to attacker by +1
-  - Increase damage to attacker by +1
-  - Gain Intimidating (downgrade Coercion difficulty)
+  - description: Increase damage to attacker by +1
+  - description: Increase damage to attacker by +1
+  - description: Increase damage to attacker by +1
+  - description: Gain Intimidating (downgrade Coercion difficulty)
 reference:
   - KtP:56

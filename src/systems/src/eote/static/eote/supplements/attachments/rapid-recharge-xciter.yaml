@@ -1,18 +1,21 @@
 id: eote-attachment-rapid-recharge-xciter
 name: Rapid-Recharge XCiter
-description: Specifically modified gas conversion enablers can allow a blaster pistol or rifle to achieve much higher
-  rates of fire than those of a true repeating blaster. Along with modifying or replacing the XCiter, and potentially
-  the blaster actuating module. Technicians making heavy modifications to a blaster also often modify the trigger to
-  allow for fully automatic fire when the user keeps it depressed. Such high rates of fire mean a considerable loss in
-  accuracy. Nevertheless, the advantages offered by a rapid-fire weapon outweigh these drawbacks for some users. This
-  attachment can be applied to any blaster.
+description: Specifically modified gas conversion enablers can allow a blaster pistol or rifle to achieve much higher rates of fire than those of a true repeating blaster. Along with modifying or replacing the XCiter, and potentially the blaster actuating module. Technicians making heavy modifications to a blaster also often modify the trigger to allow for fully automatic fire when the user keeps it depressed. Such high rates of fire mean a considerable loss in accuracy. Nevertheless, the advantages offered by a rapid-fire weapon outweigh these drawbacks for some users. This attachment can be applied to any blaster.
 useWith: weapon
 hpRequired: 1
 rarity: 7
-baseModifier: Auto-fire 1; Inaccurate 3
+baseModifier:
+  qualities:
+    - id: eote-quality-inaccurate
+      ranks: 3
+    - id: eote-quality-auto-fire
 modOptions:
-  - -1 Inaccurate
-  - -1 Inaccurate
+  - description: "-1"
+    qualities:
+      - id: eote-quality-inaccurate
+  - description: "-1"
+    qualities:
+      - id: eote-quality-inaccurate
 reference:
   - SM:55
 includedModels:

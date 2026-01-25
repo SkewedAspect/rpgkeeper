@@ -1,21 +1,12 @@
 id: eote-attachment-ordnance-impeller
 name: Ordnance Impeller
-description: Over the millennia, tinkerers, weapon designers, and desperate fighters have come up with countless
-  delivery systems for explosives, from missile tubes to combat droids. One less-popular approach that nonetheless
-  endures among certain demolitions experts is the use of a modified grenade or detonite charge capable of
-  self-propulsion. Such modifications are almost always unique, although certain small droids and other devices are a
-  popular basis, despite manufacturer warnings. From a proton grenade with wheels to a hovering thermal detonator, these
-  makeshift devices-when successful-allow unparalleled control of an explosive device from a considerable distance. This
-  is generally achieved via a small holocam and remote-control unit, although the addition of a droid brain detonator
-  can be exceedingly effective. This weapon attachment can be applied to any grenade or explosive device with an
-  encumbrance value of 3 or less.
+description: Over the millennia, tinkerers, weapon designers, and desperate fighters have come up with countless delivery systems for explosives, from missile tubes to combat droids. One less-popular approach that nonetheless endures among certain demolitions experts is the use of a modified grenade or detonite charge capable of self-propulsion. Such modifications are almost always unique, although certain small droids and other devices are a popular basis, despite manufacturer warnings. From a proton grenade with wheels to a hovering thermal detonator, these makeshift devices-when successful-allow unparalleled control of an explosive device from a considerable distance. This is generally achieved via a small holocam and remote-control unit, although the addition of a droid brain detonator can be exceedingly effective. This weapon attachment can be applied to any grenade or explosive device with an encumbrance value of 3 or less.
 useWith: weapon
 hpRequired: 0
 rarity: 4
-baseModifier: Explosive can move overland at the rate of a character on foot.; Includes a holocam and remote-control
-  unit, allowing for movement and detonation from up to extreme range.; Skill checks to operate device uses either
-  Computers or Piloting (Planetary).
+baseModifier:
+  description: Explosive can move overland at the rate of a character on foot.; Includes a holocam and remote-control unit, allowing for movement and detonation from up to extreme range.; Skill checks to operate device uses either Computers or Piloting (Planetary).
 modOptions:
-  - Add ten-meter maximum altitude.
+  - description: Add ten-meter maximum altitude.
 reference:
   - FO:52

@@ -4,11 +4,12 @@ description: Hulls featuring these protective plates give a trade off between de
 useWith: vehicle
 hpRequired: 4
 rarity: 5
-baseModifier: Changes armor to 2 and handling to -2; Armor set to 2; Handling set to -2
+baseModifier:
+  description: Changes armor to 2 and handling to -2; Armor set to 2; Handling set to -2
 modOptions:
-  - +1 Armor
-  - +1 Armor
-  - +1 Fore Defense
-  - +1 Hull Trauma Threshold (per Silhouette)
+  - description: +1 Armor
+  - description: +1 Armor
+  - description: +1 Fore Defense
+  - description: +1 Hull Trauma Threshold (per Silhouette)
 reference:
   - FO:83

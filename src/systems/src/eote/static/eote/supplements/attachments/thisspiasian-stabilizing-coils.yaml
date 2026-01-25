@@ -1,17 +1,13 @@
 id: eote-attachment-thisspiasian-stabilizing-coils
 name: Thisspiasian Stabilizing Coils
-description: >-
-  Thisspiasian weaponcraft focused, for centuries, on grace above all else. The antique manners of the Blood Court may
-  embarrass the average citizen, but one can't argue with their results. Traditional weapons from Thisspias correct for
-  even the clumsiest of maneuvers.
-
-  Survivors of the Jedi Purge return to this philosophy to strengthen their weaponry, Thisspiasian stabilizing coils are
-  often stylized as a long tail that wraps itself around the hilt of a lightsaber. Rotating and curling with each
-  movement, this device keeps the blade perfectly balanced.
+description: |-
+  Thisspiasian weaponcraft focused, for centuries, on grace above all else. The antique manners of the Blood Court may embarrass the average citizen, but one can't argue with their results. Traditional weapons from Thisspias correct for even the clumsiest of maneuvers.
+  Survivors of the Jedi Purge return to this philosophy to strengthen their weaponry, Thisspiasian stabilizing coils are often stylized as a long tail that wraps itself around the hilt of a lightsaber. Rotating and curling with each movement, this device keeps the blade perfectly balanced.
 useWith: weapon
 hpRequired: 1
 rarity: 5
-baseModifier: -1 Setback
+baseModifier:
+  description: -1 Setback
 modOptions: []
 reference:
   - UP:54

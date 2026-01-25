@@ -1,20 +1,21 @@
 id: eote-attachment-blaster-actuating-module
 name: Blaster Actuating Module
-description: A Blaster Actuating Module is a blaster modification popular with mercenaries, bounty hunters, and anyone
-  needing to make the first strike count. Adaptable to nearly any blaster pistol, this attachment is a simple upgraded
-  blaster actuating module with custom firmware and a stronger electromagnetic accelerator that provides more powerful
-  and more penetrating blaster shots. Unfortunately, this excess power takes its toll on the weapon, and blasters so
-  modified tend to develop reliability problems the longer they are used with this attachment. This attachment is only
-  for use on Ranged (Light) blaster pistols.
+description: A Blaster Actuating Module is a blaster modification popular with mercenaries, bounty hunters, and anyone needing to make the first strike count. Adaptable to nearly any blaster pistol, this attachment is a simple upgraded blaster actuating module with custom firmware and a stronger electromagnetic accelerator that provides more powerful and more penetrating blaster shots. Unfortunately, this excess power takes its toll on the weapon, and blasters so modified tend to develop reliability problems the longer they are used with this attachment. This attachment is only for use on Ranged (Light) blaster pistols.
 useWith: weapon
 hpRequired: 1
 rarity: 4
-baseModifier: +1 Damage; +1 Setback
+baseModifier:
+  damageModifier: 1
+  description: +1 Setback
 modOptions:
-  - +1 Damage
-  - +1 Damage
-  - Pierce +1
-  - Pierce +1
+  - damageModifier: 1
+  - damageModifier: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
 reference:
   - E-CRB:188
   - A-CRB:200

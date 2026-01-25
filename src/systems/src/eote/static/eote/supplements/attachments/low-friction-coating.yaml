@@ -1,16 +1,12 @@
 id: eote-attachment-low-friction-coating
 name: Low-Friction Coating
-description: Low-friction coatings work by lowering the coefficient of friction against solid armor plates. With the
-  addition of such a coating, the surface of armor becomes almost impossible to grip or seize. In addition, glancing
-  blows from melee weapons are often unable to find purchase, which diminishes the damage they cause as they slide off.
-  The only downside to the coating is that is can make working on the armor more difficult, as tools must scramble for a
-  grip on its slick surface. This attachment can only be applied to armor with hard surfaces such as heavy battle armor,
-  powered armor.
+description: Low-friction coatings work by lowering the coefficient of friction against solid armor plates. With the addition of such a coating, the surface of armor becomes almost impossible to grip or seize. In addition, glancing blows from melee weapons are often unable to find purchase, which diminishes the damage they cause as they slide off. The only downside to the coating is that is can make working on the armor more difficult, as tools must scramble for a grip on its slick surface. This attachment can only be applied to armor with hard surfaces such as heavy battle armor, powered armor.
 useWith: armor
 hpRequired: 1
 rarity: 5
-baseModifier: +1 Melee Defense; Add <setback></setback><setback></setback> to Mechanics checks to modify of maintain armor.
+baseModifier:
+  description: +1 Melee Defense; Add <setback></setback><setback></setback> to Mechanics checks to modify of maintain armor.
 modOptions:
-  - Add <boost></boost> to Coordination checks
+  - description: Add <boost></boost> to Coordination checks
 reference:
   - KtP:56

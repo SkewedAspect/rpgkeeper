@@ -1,20 +1,12 @@
 id: eote-attachment-force-attuned-resonator
 name: Force-Attuned Resonator
-description: When the Jedi artificer Sokiro Terebin set about reproducing the crystalline, force-attuned resonators from
-  the blasters she had unearthed at Site-145 on Filata, she first had to solve some numerous technical challenges.
-  During this time, she created a number of internal resonators that could be housed within a weapon the effectiveness
-  of different technologies the ancients might have used. Though she meticulously recorded all of her efforts to create
-  resonators that could be activated only by Force sensitives, the Empire's tumultuous rise to power led the destruction
-  of many repositories of Jedi lore. During Terebin's lifetime, few Jedi considered these weapons to be serious
-  armaments, but in the dark times of Imperial rule, some Force sensitives might find having a blaster that most people
-  can't operate to be practical. The blueprints persist in certain scholastic records, and the aspiring Force sensitives
-  might be able  to make a use of them. This attachment can be applied to any Ranged (Light) or Ranged (Heavy) weapon
-  that has a trigger.
+description: When the Jedi artificer Sokiro Terebin set about reproducing the crystalline, force-attuned resonators from the blasters she had unearthed at Site-145 on Filata, she first had to solve some numerous technical challenges. During this time, she created a number of internal resonators that could be housed within a weapon the effectiveness of different technologies the ancients might have used. Though she meticulously recorded all of her efforts to create resonators that could be activated only by Force sensitives, the Empire's tumultuous rise to power led the destruction of many repositories of Jedi lore. During Terebin's lifetime, few Jedi considered these weapons to be serious armaments, but in the dark times of Imperial rule, some Force sensitives might find having a blaster that most people can't operate to be practical. The blueprints persist in certain scholastic records, and the aspiring Force sensitives might be able  to make a use of them. This attachment can be applied to any Ranged (Light) or Ranged (Heavy) weapon that has a trigger.
 useWith: weapon
 hpRequired: 1
 rarity: 8
-baseModifier: Must possess Force Rating 1+ to operate this weapon.
+baseModifier:
+  description: Must possess Force Rating 1+ to operate this weapon.
 modOptions:
-  - Gain Prescient Shot (add <force></force> to Ranged checks)
+  - description: Gain Prescient Shot (add <force></force> to Ranged checks)
 reference:
   - KtP:54

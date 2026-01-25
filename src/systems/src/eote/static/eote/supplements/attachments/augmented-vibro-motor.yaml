@@ -1,20 +1,23 @@
 id: eote-attachment-augmented-vibro-motor
 name: Augmented Vibro-Motor
-description: >-
-  The cutting edge of a vibro weapon's blade is made many times more dangerous than that of a standard blade by the
-  power of the weapon's rapid vibro-motor, which turns the wielder's slightest motion into a powerful and potentioally
-  lethal stroke. Naturally, those who favor such weapons often look to the vibro-motor first when modifying their
-  weapon. Enhancing the output of a vibro weapon's motor can make the weapon even more powerful, capable of shearing
-  through armored plating with ease-provided the wielder can control the weapon's more active motions.
-
+description: |-
+  The cutting edge of a vibro weapon's blade is made many times more dangerous than that of a standard blade by the power of the weapon's rapid vibro-motor, which turns the wielder's slightest motion into a powerful and potentioally lethal stroke. Naturally, those who favor such weapons often look to the vibro-motor first when modifying their weapon. Enhancing the output of a vibro weapon's motor can make the weapon even more powerful, capable of shearing through armored plating with ease-provided the wielder can control the weapon's more active motions.
   This attachment can be installed on any vibro weapon.
 useWith: weapon
 hpRequired: 2
 rarity: 4
-baseModifier: +1 Damage; Cumbersome 3
+baseModifier:
+  damageModifier: 1
+  qualities:
+    - id: eote-quality-cumbersome
+      ranks: 3
 modOptions:
-  - +1 Damage
-  - Vicious +1
-  - Cumbersome +1
+  - damageModifier: 1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - qualities:
+      - id: eote-quality-cumbersome
+        ranks: 1
 reference:
   - RotS:61

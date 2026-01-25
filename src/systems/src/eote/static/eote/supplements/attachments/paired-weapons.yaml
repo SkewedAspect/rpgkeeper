@@ -1,12 +1,11 @@
 id: eote-attachment-paired-weapons
 name: Paired Weapons
-description: Many Gunslingers wield a pistol in each hand, and some flashy pirates and other scoundrels even prefer to
-  pair a blade with a pistol. This weapon modification balances a pair of weapons, allowing the wielder to use them in
-  perfect tandem. This attachment can only be applied to one-handed weapons.
+description: Many Gunslingers wield a pistol in each hand, and some flashy pirates and other scoundrels even prefer to pair a blade with a pistol. This weapon modification balances a pair of weapons, allowing the wielder to use them in perfect tandem. This attachment can only be applied to one-handed weapons.
 useWith: weapon
 hpRequired: 1
 rarity: 3
-baseModifier: Reduce <advantage></advantage> required to hit with second weapon when two-weapon fighting by 1.
+baseModifier:
+  description: Reduce <advantage></advantage> required to hit with second weapon when two-weapon fighting by 1.
 modOptions: []
 reference:
   - FC:51

@@ -4,7 +4,8 @@ description: ""
 useWith: vehicle
 hpRequired: 1
 rarity: 5
-baseModifier: +2 Handling
+baseModifier:
+  description: +2 Handling
 modOptions: []
 reference:
   - Mask of th:82

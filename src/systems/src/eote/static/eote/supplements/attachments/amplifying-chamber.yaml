@@ -1,22 +1,31 @@
 id: eote-attachment-amplifying-chamber
 name: Amplifying Chamber
-description: A blaster fires using energy to excite a small amount of volatile gas into an explosive plasma. That
-  transformation occurs within the weapon's chamber, which tightly controls the quantity and ratio of both the gas and
-  the energy. A larger, reinforced chamber enables the weapon to emit a significantly more powerful blast that can
-  inflict its damage over a larger area. Over time, this increases the wear on the weapon and can lead to component
-  breakdown, but most wielders are more than willing to accept this cost for the increase in effectiveness. This
-  attachment can only be installed on blasters
+description: A blaster fires using energy to excite a small amount of volatile gas into an explosive plasma. That transformation occurs within the weapon's chamber, which tightly controls the quantity and ratio of both the gas and the energy. A larger, reinforced chamber enables the weapon to emit a significantly more powerful blast that can inflict its damage over a larger area. Over time, this increases the wear on the weapon and can lead to component breakdown, but most wielders are more than willing to accept this cost for the increase in effectiveness. This attachment can only be installed on blasters
 useWith: weapon
 hpRequired: 1
 rarity: 4
-baseModifier: Blast 4; Adds <setback></setback> to all Mechanics checks to maintain or repair this weapon.
+baseModifier:
+  description: Adds <setback></setback> to all Mechanics checks to maintain or repair this weapon.
+  qualities:
+    - id: eote-quality-blast
+      ranks: 4
 modOptions:
-  - +1 Damage
-  - Blast +1
-  - Blast +1
-  - Blast +1
-  - Blast +1
-  - Blast +1
+  - damageModifier: 1
+  - qualities:
+      - id: eote-quality-blast
+        ranks: 1
+  - qualities:
+      - id: eote-quality-blast
+        ranks: 1
+  - qualities:
+      - id: eote-quality-blast
+        ranks: 1
+  - qualities:
+      - id: eote-quality-blast
+        ranks: 1
+  - qualities:
+      - id: eote-quality-blast
+        ranks: 1
 reference:
   - CotR:60
 includedModels:

@@ -1,15 +1,15 @@
 id: eote-attachment-extended-hilt
 name: Extended Hilt
-description: The idea behind the extended hilt modification is to increase the lightsaber's striking i4 and cutting
-  power by using the leverage of the longer handle and a two-handed grip to help focus the wielder's strength into the
-  force of the blow. The extended hilt modification is also popular among Force users of unusual height or build as a
-  way to capitalize on their size advantage in combat.
+description: The idea behind the extended hilt modification is to increase the lightsaber's striking i4 and cutting power by using the leverage of the longer handle and a two-handed grip to help focus the wielder's strength into the force of the blow. The extended hilt modification is also popular among Force users of unusual height or build as a way to capitalize on their size advantage in combat.
 useWith: weapon
 hpRequired: 1
 rarity: 7
-baseModifier: +1 Damage
+baseModifier:
+  damageModifier: 1
 modOptions:
-  - Vicious +1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
 reference:
   - F-CRB:197
 includedModels:

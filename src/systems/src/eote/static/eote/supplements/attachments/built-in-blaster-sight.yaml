@@ -12,7 +12,8 @@ description: |-
 useWith: weapon
 hpRequired: 1
 rarity: 4
-baseModifier: Remove <setback></setback> added by the Called Shot use of the Aim maneuver from Ranged Light and Ranged Heavy checks.
+baseModifier:
+  description: Remove <setback></setback> added by the Called Shot use of the Aim maneuver from Ranged Light and Ranged Heavy checks.
 modOptions: []
 reference:
   - FiB:51

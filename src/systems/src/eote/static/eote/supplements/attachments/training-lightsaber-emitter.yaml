@@ -1,13 +1,15 @@
 id: eote-attachment-training-lightsaber-emitter
 name: Training Lightsaber Emitter
-description: In the days of the Republic, the Jedi allowed their younglings to train with "training sabers," non-lethal
-  versions of their famous energy blades. A training lightsaber is almost the same as a standard lightsaber; however,
-  the crystal is replaced with a training emitter. The training emitter creates a blade that is completely non-lethal,
-  and at most can generate a stun shock. A training emitter is a lightsaber crystal.
+description: In the days of the Republic, the Jedi allowed their younglings to train with "training sabers," non-lethal versions of their famous energy blades. A training lightsaber is almost the same as a standard lightsaber; however, the crystal is replaced with a training emitter. The training emitter creates a blade that is completely non-lethal, and at most can generate a stun shock. A training emitter is a lightsaber crystal.
 useWith: weapon
 hpRequired: 2
 rarity: 6
-baseModifier: Damage set to 6; Critical set to 1; Stun Damage 1; Remove Sunder quality; Remove Breach quality
+baseModifier:
+  description: Damage set to 6; Critical set to 1; ; Remove quality; Remove quality
+  qualities:
+    - id: eote-quality-stun-damage
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
 modOptions: []
 reference:
   - F-CRB:200

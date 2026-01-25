@@ -1,13 +1,11 @@
 id: eote-attachment-scannerweave
 name: Scannerweave
-description: Scannerweave is a passive stealth system consisting of an advanced sensor-blocking textile. Armor modified
-  with scannerweave tends to be quieter thanks to the nature of the soft, flexible fabric. More importantly, its
-  inherent qualities make the wearer nearly invisible to the various scanners and security sensors found in security
-  vaults and data facilities. This attachment can be applied to any armor.
+description: Scannerweave is a passive stealth system consisting of an advanced sensor-blocking textile. Armor modified with scannerweave tends to be quieter thanks to the nature of the soft, flexible fabric. More importantly, its inherent qualities make the wearer nearly invisible to the various scanners and security sensors found in security vaults and data facilities. This attachment can be applied to any armor.
 useWith: armor
 hpRequired: 2
 rarity: 6
-baseModifier: Upgrades the ability of all opposed Stealth checks made against sensor and scanner operators once.
+baseModifier:
+  description: Upgrades the ability of all opposed Stealth checks made against sensor and scanner operators once.
 modOptions: []
 reference:
   - CaM:58

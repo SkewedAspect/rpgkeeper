@@ -13,6 +13,7 @@ import {
     BaseSupplementDataSchema,
     QualityDataSchema,
     WeaponDataSchema,
+    WeaponQualityRefSchema,
 } from '../shared/supplements.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -38,13 +39,42 @@ export const EoteTalentDataSchema = BaseSupplementDataSchema.extend({
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
+ * Mod option for attachments
+ */
+export const EoteModOptionSchema = z.object({
+    description: z.string()
+        .optional(),
+    qualities: z.array(WeaponQualityRefSchema)
+        .optional(),
+    damageModifier: z.number()
+        .int()
+        .optional(),
+    criticalModifier: z.number()
+        .int()
+        .optional(),
+    encumbranceModifier: z.number()
+        .int()
+        .optional(),
+    defenseModifier: z.number()
+        .int()
+        .optional(),
+    soakModifier: z.number()
+        .int()
+        .optional(),
+});
+
+/**
  * EotE Attachments (weapon/armor modifications with mod options)
  */
 export const EoteAttachmentDataSchema = BaseSupplementDataSchema.extend({
-    useWith: z.string().default(''),
-    baseModifier: z.string().default(''),
-    modOptions: z.array(z.string()).default([]),
-    includedModels: z.array(z.string()).optional(),
+    useWith: z.string()
+        .default(''),
+    baseModifier: EoteModOptionSchema
+        .optional(),
+    modOptions: z.array(EoteModOptionSchema)
+        .default([]),
+    includedModels: z.array(z.string())
+        .optional(),
     hpRequired: z.number()
         .int()
         .default(0),

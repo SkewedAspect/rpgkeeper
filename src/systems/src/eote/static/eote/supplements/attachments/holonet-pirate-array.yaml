@@ -1,23 +1,16 @@
 id: eote-attachment-holonet-pirate-array
 name: Holonet Pirate Array
-description: Life in the galaxy has arisen in all manner of biomes, from the deep seas of Mon Cala to the Ithorian
-  jungles, and every possible climate in between. Most starship life-support systems create an environment in the median
-  range, neither too hot nor too cold, neither too humid nor too dry. When members of a particular species need unique
-  accommodations, they must turn to their own shipwrights, or modify acquired ships appropriately. Diplomats often take
-  the additional step of adapting their ships to be capable of replicating a wide range of environments, the better to
-  make passengers and guests feel at home.
+description: Life in the galaxy has arisen in all manner of biomes, from the deep seas of Mon Cala to the Ithorian jungles, and every possible climate in between. Most starship life-support systems create an environment in the median range, neither too hot nor too cold, neither too humid nor too dry. When members of a particular species need unique accommodations, they must turn to their own shipwrights, or modify acquired ships appropriately. Diplomats often take the additional step of adapting their ships to be capable of replicating a wide range of environments, the better to make passengers and guests feel at home.
 useWith: vehicle
 hpRequired: 2
 rarity: 8
-baseModifier: Transmissions sent with this attachment can reach any facility that has access to interstellar
-  communications. Transmissions can be intercepted with a **Hard
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check**, provided someone is
-  aware of the transmission.
+baseModifier:
+  description: Transmissions sent with this attachment can reach any facility that has access to interstellar communications. Transmissions can be intercepted with a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check**, provided someone is aware of the transmission.
 modOptions:
-  - Add <setback></setback> to enemy checks to intercept outgoing transmissions.
-  - Add <setback></setback> to enemy checks to intercept outgoing transmissions.
-  - Add <setback></setback> to enemy checks to intercept outgoing transmissions.
-  - Add <boost></boost> to intercept HoloNet traffic
-  - Add <boost></boost> to intercept HoloNet traffic
+  - description: Add <setback></setback> to enemy checks to intercept outgoing transmissions.
+  - description: Add <setback></setback> to enemy checks to intercept outgoing transmissions.
+  - description: Add <setback></setback> to enemy checks to intercept outgoing transmissions.
+  - description: Add <boost></boost> to intercept HoloNet traffic
+  - description: Add <boost></boost> to intercept HoloNet traffic
 reference:
   - DA:65

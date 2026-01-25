@@ -1,16 +1,12 @@
 id: eote-attachment-droid-brain-defense-system
 name: Droid Brain Defense System
-description: An extremely unusual upgrade generally reserved for powered armor suits, a droid brain defense system uses
-  a full sensor suite to alert wearers to and help them avoid threats. The most basic models simply warn the user of
-  threats and indicate ideal cover positions through a haptic interface or by voice. More advanced models incorporate a
-  system of complex motors or even repulsor generators throughout the armor to literally throw the wearer out of the way
-  of incoming fire. These droids often develop highly paranoid personalities, and their earnest attempts to protect
-  their master even outside of combat can prove highly inconvenient.
+description: An extremely unusual upgrade generally reserved for powered armor suits, a droid brain defense system uses a full sensor suite to alert wearers to and help them avoid threats. The most basic models simply warn the user of threats and indicate ideal cover positions through a haptic interface or by voice. More advanced models incorporate a system of complex motors or even repulsor generators throughout the armor to literally throw the wearer out of the way of incoming fire. These droids often develop highly paranoid personalities, and their earnest attempts to protect their master even outside of combat can prove highly inconvenient.
 useWith: armor
 hpRequired: 3
 rarity: 6
-baseModifier: +1 Defense
+baseModifier:
+  defenseModifier: 1
 modOptions:
-  - Increase Defense by 1 when taking Guarded Stance maneuver.
+  - description: Increase Defense by 1 when taking Guarded Stance maneuver.
 reference:
   - FO:53

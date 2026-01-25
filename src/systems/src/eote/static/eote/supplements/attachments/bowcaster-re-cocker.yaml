@@ -1,19 +1,14 @@
 id: eote-attachment-bowcaster-re-cocker
 name: Bowcaster Re-Cocker
-description: Few weapons in the galaxy are as indicative of their users as the Wookiee bowcaster. Bowcasters require an
-  incredible level of raw physical strength to wield, especially when loading and cocking the weapon to fire. A
-  time-consuming and labor-intensive process, reloading a bowcaster is made much simpler and easier by use of the
-  automatic re-cocker. This attachment entails upgrading the basic weapon with a number of power-assist systems as well
-  as a magazine feed system that allows the weapon to fire, re-cock, and reload all in one smooth, quick movement. These
-  attachments are only for use on Wookiee bowcasters, and they cannot be purchased; they must be built either by the
-  owner of the bowcaster with an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check** or the
-  weaponsmith who built the weapon for him.
+description: Few weapons in the galaxy are as indicative of their users as the Wookiee bowcaster. Bowcasters require an incredible level of raw physical strength to wield, especially when loading and cocking the weapon to fire. A time-consuming and labor-intensive process, reloading a bowcaster is made much simpler and easier by use of the automatic re-cocker. This attachment entails upgrading the basic weapon with a number of power-assist systems as well as a magazine feed system that allows the weapon to fire, re-cock, and reload all in one smooth, quick movement. These attachments are only for use on Wookiee bowcasters, and they cannot be purchased; they must be built either by the owner of the bowcaster with an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check** or the weaponsmith who built the weapon for him.
 useWith: weapon
 hpRequired: 1
 rarity: 3
-baseModifier: Removes reloading maneuver requirement from bowcaster.
+baseModifier:
+  description: Removes reloading maneuver requirement from bowcaster.
 modOptions:
-  - Auto-fire +1
+  - qualities:
+      - id: eote-quality-auto-fire
 reference:
   - E-CRB:189
 includedModels:

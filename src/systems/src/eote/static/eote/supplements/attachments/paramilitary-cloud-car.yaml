@@ -4,7 +4,8 @@ description: Converts a cloud car to a paramilitary vehicle.
 useWith: vehicle
 hpRequired: 0
 rarity: 0
-baseModifier: -1 Handling; +1 Armor; +1 Hull Trauma Threshold; Adds a forward light auto-blaster
+baseModifier:
+  description: -1 Handling; +1 Armor; +1 Hull Trauma Threshold; Adds a forward light auto-blaster
 modOptions: []
 reference:
   - DC:71

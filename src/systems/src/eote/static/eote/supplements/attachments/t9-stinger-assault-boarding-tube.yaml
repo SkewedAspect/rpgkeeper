@@ -1,18 +1,23 @@
 id: eote-attachment-t9-stinger-assault-boarding-tube
 name: T9 Stinger Assault Boarding Tube
-description: Pairing a docking tube with a powerful cutting system, the assault boarding tube is an indispensable tool
-  for armed boarding actions. Its legitimate uses include aggressive customs enforcement and naval boarding actions.
-  However, pirates also use the technology to force their way aboard a stricken ship. Pirate mechanisms are often
-  custom-built, as obtaining a manufactured assault boarding tube is difficult for non-governmental entities. This
-  mechanism may be installed on a craft of silhouette 3 or larger.
+description: Pairing a docking tube with a powerful cutting system, the assault boarding tube is an indispensable tool for armed boarding actions. Its legitimate uses include aggressive customs enforcement and naval boarding actions. However, pirates also use the technology to force their way aboard a stricken ship. Pirate mechanisms are often custom-built, as obtaining a manufactured assault boarding tube is difficult for non-governmental entities. This mechanism may be installed on a craft of silhouette 3 or larger.
 useWith: vehicle
 hpRequired: 3
 rarity: 4
-baseModifier: May cut a hole in a docked craft's hull or airlock.
+baseModifier:
+  description: May cut a hole in a docked craft's hull or airlock.
 modOptions:
-  - -1 Reduce boarding tube breach time (rounds)
-  - -1 Reduce boarding tube breach time (rounds)
-  - -1 Reduce boarding tube breach time (rounds)
-  - -1 Reduce boarding tube breach time (rounds)
+  - description: -1 Reduce boarding tube time (rounds)
+    qualities:
+      - id: eote-quality-breach
+  - description: -1 Reduce boarding tube time (rounds)
+    qualities:
+      - id: eote-quality-breach
+  - description: -1 Reduce boarding tube time (rounds)
+    qualities:
+      - id: eote-quality-breach
+  - description: -1 Reduce boarding tube time (rounds)
+    qualities:
+      - id: eote-quality-breach
 reference:
   - DC:61

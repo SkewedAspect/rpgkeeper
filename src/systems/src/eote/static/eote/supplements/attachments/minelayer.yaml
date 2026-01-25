@@ -1,22 +1,16 @@
 id: eote-attachment-minelayer
 name: Minelayer
-description: Minelayers, and their accompanying ordnance, are anti-ship weapons sold by numerous major galactic arms
-  manufacturers. Mines are typically deployed in defensive positions, used to deny areas to vehicle traffic or to create
-  fire lanes for weapon emplacements, but they can also be used offensively in a manner similar to missile or torpedo
-  launchers. They come in a variety of styles—from simple concussion mines to sophisticated gravity mines—and grant a
-  small vessel such as a starfighter or patrol boat, a damage capacity well out of proportion to its size. This
-  attachment can be installed on any starship.
+description: Minelayers, and their accompanying ordnance, are anti-ship weapons sold by numerous major galactic arms manufacturers. Mines are typically deployed in defensive positions, used to deny areas to vehicle traffic or to create fire lanes for weapon emplacements, but they can also be used offensively in a manner similar to missile or torpedo launchers. They come in a variety of styles—from simple concussion mines to sophisticated gravity mines—and grant a small vessel such as a starfighter or patrol boat, a damage capacity well out of proportion to its size. This attachment can be installed on any starship.
 useWith: vehicle
 hpRequired: 2
 rarity: 6
-baseModifier: Allows vehicle to carry a number of space mines equal to its silhouette.; Pilot or gunner may make an
-  **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check** to deploy a mine anywhere within
-  close range.
+baseModifier:
+  description: Allows vehicle to carry a number of space mines equal to its silhouette.; Pilot or gunner may make an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check** to deploy a mine anywhere within close range.
 modOptions:
-  - Increase deployable range to medium
-  - Increase mine capacity by 1
-  - Increase mine capacity by 1
-  - Increase mine capacity by 1
+  - description: Increase deployable range to medium
+  - description: Increase mine capacity by 1
+  - description: Increase mine capacity by 1
+  - description: Increase mine capacity by 1
 reference:
   - ND:64
 includedModels:

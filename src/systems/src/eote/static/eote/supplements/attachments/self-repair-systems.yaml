@@ -1,16 +1,11 @@
 id: eote-attachment-self-repair-systems
 name: Self-Repair Systems
-description: Some sentients on the fringes of galactic civilization live a life of near-constant battle. For such
-  individuals, a good suit of armor is vital, and keeping it in top condition is nearly as important. Some suits of
-  armor include sophisticated self-repair suites, not dissimilar to the systems found in some droids. Smart materials,
-  laminate extruders, electromagnetic assemblers and other systems work to keep the armor in one piece even under the
-  greatest duress. This attachment can be applied to any armor with melee or ranged defense 1 or higher.
+description: Some sentients on the fringes of galactic civilization live a life of near-constant battle. For such individuals, a good suit of armor is vital, and keeping it in top condition is nearly as important. Some suits of armor include sophisticated self-repair suites, not dissimilar to the systems found in some droids. Smart materials, laminate extruders, electromagnetic assemblers and other systems work to keep the armor in one piece even under the greatest duress. This attachment can be applied to any armor with melee or ranged defense 1 or higher.
 useWith: armor
 hpRequired: 2
 rarity: 6
-baseModifier: Once per encounter as a maneuver, can have armor attempt to repair itself or assist in a repair. Counts as
-  Intellect 2 and Mechanics 2 (<proficiency></proficiency><proficiency></proficiency>).; There is no cost to repair
-  armor, whether using the automatic feature, or personally repairing.
+baseModifier:
+  description: Once per encounter as a maneuver, can have armor attempt to repair itself or assist in a repair. Counts as Intellect 2 and Mechanics 2 (<proficiency></proficiency><proficiency></proficiency>).; There is no cost to repair armor, whether using the automatic feature, or personally repairing.
 modOptions: []
 reference:
   - SM:58

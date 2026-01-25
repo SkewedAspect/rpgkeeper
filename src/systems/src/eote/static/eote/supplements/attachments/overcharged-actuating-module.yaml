@@ -1,15 +1,14 @@
 id: eote-attachment-overcharged-actuating-module
 name: Overcharged Actuating Module
-description: An overcharged blaster actuating module provides for a more powerful shot at the cost of a greater use of
-  gas as well as increased wear and tear on the weapon. For some spacers, these drawbacks are with the extra firepower.
-  Although some kits are available for purchase many Technicians achieve the same result by scavenging parts from higher
-  yield blaster. This attachment can be applied to any blaster pistol or carbine.
+description: An overcharged blaster actuating module provides for a more powerful shot at the cost of a greater use of gas as well as increased wear and tear on the weapon. For some spacers, these drawbacks are with the extra firepower. Although some kits are available for purchase many Technicians achieve the same result by scavenging parts from higher yield blaster. This attachment can be applied to any blaster pistol or carbine.
 useWith: weapon
 hpRequired: 1
 rarity: 7
-baseModifier: +1 Damage; GM may spend <threat></threat><threat></threat> to damage weapon by one step.
+baseModifier:
+  damageModifier: 1
+  description: GM may spend <threat></threat><threat></threat> to damage weapon by one step.
 modOptions:
-  - +1 Damage
+  - damageModifier: 1
 reference:
   - SM:55
 includedModels:

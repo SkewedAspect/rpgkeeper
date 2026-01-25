@@ -1,18 +1,16 @@
 id: eote-attachment-poison-reservoir
 name: Poison Reservoir
-description: Many assassins who use melee weapons choose to improve the lethality of their blades by adding a poison
-  reservoir that releases a toxin through a channel in the blade at the push of a button in the hilt. While dipping a
-  weapon in poison can be somewhat effective, a reservoir is a much more efficient delivery method. This attachment can
-  only be used with Brawl and Melee weapons.
+description: Many assassins who use melee weapons choose to improve the lethality of their blades by adding a poison reservoir that releases a toxin through a channel in the blade at the push of a button in the hilt. While dipping a weapon in poison can be somewhat effective, a reservoir is a much more efficient delivery method. This attachment can only be used with Brawl and Melee weapons.
 useWith: weapon
 hpRequired: 1
 rarity: 5
-baseModifier: Allows user to store one dose of neurotoxin, anesthetic, neuroparalytic, or similar toxins.
+baseModifier:
+  description: Allows user to store one dose of neurotoxin, anesthetic, neuroparalytic, or similar toxins.
 modOptions:
-  - +1 Reservoir Dose
-  - +1 Reservoir Dose
-  - +1 Reservoir Dose
-  - +1 Reservoir Dose
+  - description: +1 Reservoir Dose
+  - description: +1 Reservoir Dose
+  - description: +1 Reservoir Dose
+  - description: +1 Reservoir Dose
 reference:
   - LoNH:105
 includedModels:

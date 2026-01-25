@@ -1,28 +1,27 @@
 id: eote-attachment-galven-pattern-resequencing
 name: Galven Pattern Resequencing
-description: >-
+description: |-
   Some Alliance operatives would gladly trade a little
-
-  reliability in exchange for the stopping power necessary to penetrate Imperial armor. This makes the Galven pattern
-  resequencing a popular upgrade among
-
+  reliability in exchange for the stopping power necessary to penetrate Imperial armor. This makes the Galven pattern resequencing a popular upgrade among
   troops in service of the Rebellion. By focusing the Galven pattern into a tighter wavelength, more energy is
-
   packed into each blaster bolt, which increases damage output. Unfortunately, the added workload on
-
   the blaster’s tiny circuitry makes the weapon much
-
   more prone to failure. This attachment can only be
-
   used with blaster pistols and heavy blaster pistols.
 useWith: weapon
 hpRequired: 2
 rarity: 5
-baseModifier: +1 Damage; Add <threat></threat> to combat checks
+baseModifier:
+  damageModifier: 1
+  description: Add <threat></threat> to combat checks
 modOptions:
-  - +1 Damage
-  - +1 Damage
-  - Pierce +1
-  - Pierce +1
+  - damageModifier: 1
+  - damageModifier: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
 reference:
   - FiB:51

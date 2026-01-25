@@ -9,9 +9,8 @@ description: |-
 useWith: weapon
 hpRequired: 1
 rarity: 3
-baseModifier: May recharge a depleted piece of equipment as an action, or a droid or larger piece of machinery in two
-  hours.; Once per encounter, wearer may ignore an "out of ammo" <despair></despair> result in the same manner as an
-  Extra Reload.
+baseModifier:
+  description: May recharge a depleted piece of equipment as an action, or a droid or larger piece of machinery in two hours.; Once per encounter, wearer may ignore an "out of ammo" <despair></despair> result in the same manner as an Extra Reload.
 modOptions: []
 reference:
   - FiB:55

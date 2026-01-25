@@ -1,16 +1,11 @@
 id: eote-attachment-luxury-passenger-compartments
 name: Luxury Passenger Compartments
-description: Corrupt Imperial officials and powerful crime lords are more likely than Rebels to enjoy opulent living
-  standards. However, Rebels who have regular contact with the rich and powerful sometimes find a little extravagance to
-  be a purely practical investment. While scented air recyclers, a galley stocked with Corellian brandy, and other
-  luxuries have little measurable effect on the Rebel war effort, the intangible benefits offered by a display of
-  confidence and power should not be underestimated.
+description: Corrupt Imperial officials and powerful crime lords are more likely than Rebels to enjoy opulent living standards. However, Rebels who have regular contact with the rich and powerful sometimes find a little extravagance to be a purely practical investment. While scented air recyclers, a galley stocked with Corellian brandy, and other luxuries have little measurable effect on the Rebel war effort, the intangible benefits offered by a display of confidence and power should not be underestimated.
 useWith: vehicle
 hpRequired: 1
 rarity: 3
-baseModifier: Add <boost></boost> to all Charm, Deception, and Negotiation checks made against passengers within the
-  vehicle. Checks made against passengers who are accustomed to opulence and luxury have up to
-  <setback></setback><setback></setback> removed instead.
+baseModifier:
+  description: Add <boost></boost> to all Charm, Deception, and Negotiation checks made against passengers within the vehicle. Checks made against passengers who are accustomed to opulence and luxury have up to <setback></setback><setback></setback> removed instead.
 modOptions: []
 reference:
   - DA:65

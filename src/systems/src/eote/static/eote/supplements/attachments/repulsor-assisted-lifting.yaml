@@ -1,21 +1,19 @@
 id: eote-attachment-repulsor-assisted-lifting
 name: Repulsor-Assisted Lifting
-description: Although more common among factory or warehouse labor crews than in battle, repulsor-assist systems have
-  gained some popularity among bounty hunters who need to haul in heavy catches. The systems operate through a series of
-  miniaturized repulsorlift generators placed at key joints throughout the armor, easing the weight of attached suits,
-  as well as any loads they might support. Of course, the repulsorlift generators are tuned to reduce weight and
-  pressure rather than exert force on their own, so some hunters prefer powered armor suits with lesser lifting
-  capabilities but more general applications for their servos. This attachment can only be used with laminate armor and
-  other full-body hard armor suits.
+description: Although more common among factory or warehouse labor crews than in battle, repulsor-assist systems have gained some popularity among bounty hunters who need to haul in heavy catches. The systems operate through a series of miniaturized repulsorlift generators placed at key joints throughout the armor, easing the weight of attached suits, as well as any loads they might support. Of course, the repulsorlift generators are tuned to reduce weight and pressure rather than exert force on their own, so some hunters prefer powered armor suits with lesser lifting capabilities but more general applications for their servos. This attachment can only be used with laminate armor and other full-body hard armor suits.
 useWith: armor
 hpRequired: 2
 rarity: 3
-baseModifier: +5 Encumbrance Threshold (Brawn)
+baseModifier:
+  encumbranceModifier: 5
+  description: Threshold (Brawn)
 modOptions:
-  - +1 Encumbrance Threshold (Brawn)
-  - +1 Encumbrance Threshold (Brawn)
-  - Add <boost></boost> to Athletics checks
-  - Add <boost></boost> to Athletics checks
+  - encumbranceModifier: 1
+    description: Threshold (Brawn)
+  - encumbranceModifier: 1
+    description: Threshold (Brawn)
+  - description: Add <boost></boost> to Athletics checks
+  - description: Add <boost></boost> to Athletics checks
 reference:
   - ND:52
 includedModels:

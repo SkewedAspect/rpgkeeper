@@ -355,7 +355,8 @@ async function loadDefinitions(db : Database.Database) : Promise<ValidationFailu
             continue;
         }
 
-        // Validate against Zod schema
+        // Validate against Zod schema and use transformed data if available
+        let transformedDefinition = definition;
         const schema = getSchemaForType(meta.system, meta.type);
         if(schema)
         {
@@ -376,10 +377,15 @@ async function loadDefinitions(db : Database.Database) : Promise<ValidationFailu
                     console.warn(`      - ${ err }`);
                 }
             }
+            else if(result.success)
+            {
+                // Use the transformed data from schema parsing
+                transformedDefinition = result.data as Definition;
+            }
         }
 
         // Store the full definition as JSON in the content column
-        const jsonContent = JSON.stringify(definition);
+        const jsonContent = JSON.stringify(transformedDefinition);
 
         insertStmt.run(definition.id, meta.system, meta.type, definition.name, jsonContent);
 

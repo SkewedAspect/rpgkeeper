@@ -1,29 +1,18 @@
 id: eote-attachment-physical-countermeasures
 name: Physical Countermeasures
-description: >-
-  Like electronic countermeasures, physical counter-measures are designed to fool scanners and make a ship or vehicle
-  harder to hit. Whereas electronic countermeasures affect an opposing ship or vehicle's sensors, physical
-  countermeasures are specifically designed to help a ship or vehicle evade incoming missiles or torpedoes.
-  Countermeasures come in three basic varieties—chaff, flares, and anti-warhead missile pods. Chaff is a collection of
-  small, highly reflective alloy streamers packed into a tube with a small explosive charge. When detonated, the chaff
-  tube creates a cloud of glittering shrapnel that clouds detection systems and confuses most basic missile guidance
-  systems. Flares are deployed in groups from special launchers, and consist of small incendiary devices that mimic the
-  heat produced by a ship or vehicle's engines, fooling incoming missiles into following the super-hot flare instead of
-  the vehicle. Anti-warhead missile pods are similar to flares, but they fire a cluster of small, low-yield missiles
-  designed to intercept and destroy incoming ordnance.
-
-  While any ship equipped with physical counter-measures carries enough to get them through most encounters, engaging in
-  a long, drawn-out fight can quickly deplete a launcher's store of countermeasures. Game Masters may spend
-  <advantage></advantage><advantage></advantage> or <triumph></triumph> on Gunnery checks made using missiles, rockets,
-  or torpedoes targeting the starship to cause a countermeasure launcher to run out of its load of flares, chaff, or
-  anti-warhead missiles, effectively disabling it until the end of the encounter.
+description: |-
+  Like electronic countermeasures, physical counter-measures are designed to fool scanners and make a ship or vehicle harder to hit. Whereas electronic countermeasures affect an opposing ship or vehicle's sensors, physical countermeasures are specifically designed to help a ship or vehicle evade incoming missiles or torpedoes. Countermeasures come in three basic varieties—chaff, flares, and anti-warhead missile pods. Chaff is a collection of small, highly reflective alloy streamers packed into a tube with a small explosive charge. When detonated, the chaff tube creates a cloud of glittering shrapnel that clouds detection systems and confuses most basic missile guidance systems. Flares are deployed in groups from special launchers, and consist of small incendiary devices that mimic the heat produced by a ship or vehicle's engines, fooling incoming missiles into following the super-hot flare instead of the vehicle. Anti-warhead missile pods are similar to flares, but they fire a cluster of small, low-yield missiles designed to intercept and destroy incoming ordnance.
+  While any ship equipped with physical counter-measures carries enough to get them through most encounters, engaging in a long, drawn-out fight can quickly deplete a launcher's store of countermeasures. Game Masters may spend <advantage></advantage><advantage></advantage> or <triumph></triumph> on Gunnery checks made using missiles, rockets, or torpedoes targeting the starship to cause a countermeasure launcher to run out of its load of flares, chaff, or anti-warhead missiles, effectively disabling it until the end of the encounter.
 useWith: vehicle
 hpRequired: 1
 rarity: 4
-baseModifier: Adds <setback></setback> to all Gunnery checks made using missiles, rockets, or torpedoes targeting the starship.
+baseModifier:
+  description: Adds <setback></setback> to all Gunnery checks made using missiles, rockets, or torpedoes targeting the starship.
 modOptions:
-  - Adds <setback></setback> to all Gunnery checks made using missiles, rockets, or torpedoes targeting the starship.
-  - Increase difficulty by 1 when making checks triggered by the Guided quality.
+  - description: Adds <setback></setback> to all Gunnery checks made using missiles, rockets, or torpedoes targeting the starship.
+  - description: Increase difficulty by 1 when making checks triggered by the quality.
+    qualities:
+      - id: eote-quality-guided
 reference:
   - SoT:64
 includedModels:

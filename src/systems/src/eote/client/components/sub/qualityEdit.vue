@@ -16,28 +16,50 @@
             @edit="onQualityEdit"
             @delete="onQualityDelete"
         >
+            <template #remove-button="{ instance }">
+                <BButton
+                    v-if="!isAttachmentOnly(instance)"
+                    class="ms-2 text-nowrap"
+                    variant="danger"
+                    title="Remove"
+                    @click.prevent.stop="onQualityRemove(instance)"
+                >
+                    <Fa icon="times" />
+                </BButton>
+                <span v-else title="From Attachments" class="d-inline-block">
+                    <BButton
+                        class="ms-2 text-nowrap"
+                        variant="outline-secondary"
+                        disabled
+                    >
+                        <Fa icon="link" />
+                    </BButton>
+                </span>
+            </template>
             <template #preview="{ instance, supplement }">
                 <div>
-                    <div v-if="supplement.ranked && instance" class="mb-2 float-end">
-                        <label>Ranks</label>
-                        <BFormSpinbutton
-                            id="sb-inline"
-                            v-model="instance.ranks"
-                            class="ms-1"
-                            size="sm"
-                            inline
-                        />
+                    <div v-if="supplement.ranked && instance && attachmentQualityRanks.get(instance.id)" class="mb-2 float-end fs-4 fw-bold">
+                        +{{ attachmentQualityRanks.get(instance.id) }}
                     </div>
                     <div class="mb-2">
                         <i v-if="supplement.passive">Passive</i>
                         <i v-else>Active</i>
                     </div>
+                    <div v-if="instance && attachmentSources.get(instance.id)" class="mb-2 small">
+                        <span class="text-muted">From attachments:</span>
+                        <span class="ms-1">{{ attachmentSources.get(instance.id)?.join(', ') }}</span>
+                    </div>
                 </div>
                 <MarkdownBlock :text="supplement.description" inline />
-                <Reference
-                    class="float-end mt-2"
-                    :reference="supplement.reference ?? ''"
-                />
+                <div class="text-end mt-2">
+                    <h5 class="mb-1">
+                        <ScopeBadge :supplement="supplement" />
+                    </h5>
+                    <Reference
+                        v-if="supplement.reference"
+                        :reference="String(supplement.reference)"
+                    />
+                </div>
             </template>
         </SupplementSelect>
 
@@ -59,7 +81,7 @@
     import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
-    import type { EoteQuality, EoteQualityRef } from '../../../models.ts';
+    import type { EoteAttachment, EoteAttachmentRef, EoteQuality, EoteQualityRef } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -71,9 +93,11 @@
     import AddEditQualityModal from '../modals/addEditQualityModal.vue';
     import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
     import Reference from '@client/components/character/referenceBlock.vue';
+    import ScopeBadge from '@client/components/character/scopeBadge.vue';
 
     // Utils
     import { uniqBy } from '@client/lib/utils/misc';
+    import { computeAttachmentQualities, computeAttachmentSources } from '../../lib/qualityUtils';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -82,10 +106,12 @@
     interface Props
     {
         qualities : EoteQualityRef[];
+        attachmentRefs ?: EoteAttachmentRef[];
         label ?: string;
     }
 
     const props = withDefaults(defineProps<Props>(), {
+        attachmentRefs: () => [],
         label: 'Qualities',
     });
 
@@ -115,14 +141,79 @@
 
     const mode = computed(() => systemStore.current?.id ?? 'eote');
     const allQualities = computed(() => supplementStore.get<EoteQuality>(mode.value, 'quality'));
+    const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
+
+    // Helper to find a quality definition by ID
+    function getQual(qualityId : string) : EoteQuality | undefined
+    {
+        return allQualities.value.find((qual) => qual.id === qualityId);
+    }
+
+    // Compute qualities from attachments (quality ID -> total ranks from attachments)
+    const attachmentQualityRanks = computed(() =>
+    {
+        return computeAttachmentQualities(props.attachmentRefs, allAttachments.value);
+    });
+
+    // Compute which attachments contribute to each quality
+    const attachmentSources = computed(() =>
+    {
+        return computeAttachmentSources(props.attachmentRefs, allAttachments.value);
+    });
+
+    // Build a lookup map for quality names (for efficient sorting)
+    const qualityNameMap = computed(() =>
+    {
+        const map = new Map<string, string>();
+        for(const qual of allQualities.value)
+        {
+            if(qual.id) { map.set(qual.id, qual.name); }
+        }
+        return map;
+    });
+
+    // Merge base qualities with attachment qualities
     const selectedQualities = computed({
         get()
         {
-            return [ ...props.qualities ];
+            // Start with base qualities
+            const qualityMap = new Map<string, EoteQualityRef>();
+            for(const qual of props.qualities)
+            {
+                qualityMap.set(qual.id, { ...qual });
+            }
+
+            // Add attachment-only qualities (those not in base)
+            for(const [ qualityId ] of attachmentQualityRanks.value)
+            {
+                if(!qualityMap.has(qualityId))
+                {
+                    const qualDef = getQual(qualityId);
+                    qualityMap.set(qualityId, {
+                        id: qualityId,
+                        ranks: qualDef?.ranked ? 0 : undefined,
+                    });
+                }
+            }
+
+            // Sort by quality name using pre-built lookup map
+            return Array.from(qualityMap.values()).sort((qualA, qualB) =>
+            {
+                const nameA = qualityNameMap.value.get(qualA.id) ?? '';
+                const nameB = qualityNameMap.value.get(qualB.id) ?? '';
+                return nameA.localeCompare(nameB);
+            });
         },
         set(val)
         {
-            emit('update:qualities', val);
+            // Filter out qualities that only exist from attachments (baseRanks = 0)
+            const filtered = val.filter((qual) =>
+            {
+                const qualDef = getQual(qual.id);
+                const baseRanks = qual.ranks ?? (qualDef?.ranked ? 0 : 1);
+                return baseRanks > 0;
+            });
+            emit('update:qualities', filtered);
         },
     });
 
@@ -130,9 +221,24 @@
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
-    function getQual(qualityId : string) : EoteQuality | undefined
+    function isAttachmentOnly(instance : { id ?: string; ranks ?: number }) : boolean
     {
-        return allQualities.value.find((qual) => qual.id === qualityId);
+        if(!instance.id) { return false; }
+
+        // Check if this quality exists in base qualities
+        const existsInBase = props.qualities.some((qual) => qual.id === instance.id);
+        if(!existsInBase)
+        {
+            // Not in base, must be attachment-only
+            return true;
+        }
+
+        // Exists in base - check if it has any base ranks
+        const baseQual = props.qualities.find((qual) => qual.id === instance.id);
+        const qualDef = getQual(instance.id);
+        const baseRanks = baseQual?.ranks ?? (qualDef?.ranked ? 0 : 1);
+
+        return baseRanks === 0;
     }
 
     function onQualityAdd(quality : { id ?: string }) : void
@@ -154,7 +260,28 @@
     function onQualityRemove(quality : { id ?: string }) : void
     {
         if(!quality.id) { return; }
-        selectedQualities.value = selectedQualities.value.filter((qual) => qual.id !== quality.id);
+
+        // If quality only exists from attachments (no base ranks), set base ranks to 0 instead of removing
+        const existing = props.qualities.find((qual) => qual.id === quality.id);
+        if(!existing || (existing.ranks ?? 1) === 0)
+        {
+            // Quality only exists from attachments - just set ranks to 0 (will be filtered out in setter)
+            const updated = selectedQualities.value.map((qual) =>
+            {
+                if(qual.id === quality.id)
+                {
+                    const qualDef = getQual(qual.id);
+                    return { ...qual, ranks: qualDef?.ranked ? 0 : undefined };
+                }
+                return qual;
+            });
+            selectedQualities.value = updated;
+        }
+        else
+        {
+            // Has base ranks - remove normally
+            selectedQualities.value = selectedQualities.value.filter((qual) => qual.id !== quality.id);
+        }
     }
 
     function onQualityNew() : void

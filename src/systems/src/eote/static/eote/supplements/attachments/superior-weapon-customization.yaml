@@ -1,11 +1,12 @@
 id: eote-attachment-superior-weapon-customization
 name: Superior Weapon Customization
-description: Even the simplest weapon can benefit from a craftsman's touch. A skilled weaponsmith can tweak a weapon to
-  its owner's exacting specifications, turning a blunt instrument into a honed and deadly weapon of war.
+description: Even the simplest weapon can benefit from a craftsman's touch. A skilled weaponsmith can tweak a weapon to its owner's exacting specifications, turning a blunt instrument into a honed and deadly weapon of war.
 useWith: weapon
 hpRequired: 1
 rarity: 6
-baseModifier: Superior 1
+baseModifier:
+  qualities:
+    - id: eote-quality-superior
 modOptions: []
 reference:
   - E-CRB:191

@@ -1,14 +1,13 @@
 id: eote-attachment-biofeedback-system
 name: Biofeedback System
-description: This system closely monitors the vital signs of the person wearing the armor. It can immediately identify
-  when the user is hurt or experiencing elevated levels of adrenaline and administer minor sedatives, healing chemicals,
-  and other drugs as needed. This attachment can be installed on any full-body armor suit.
+description: This system closely monitors the vital signs of the person wearing the armor. It can immediately identify when the user is hurt or experiencing elevated levels of adrenaline and administer minor sedatives, healing chemicals, and other drugs as needed. This attachment can be installed on any full-body armor suit.
 useWith: armor
 hpRequired: 2
 rarity: 5
-baseModifier: +4 Strain Threshold
+baseModifier:
+  description: +4 Strain Threshold
 modOptions:
-  - Gain Rapid Recovery (heal additional strain after encounter)
+  - description: Gain Rapid Recovery (heal additional strain after encounter)
 reference:
   - F-CRB:200
 includedModels:

@@ -1,16 +1,11 @@
 id: eote-attachment-integrated-ascension-gear
 name: Integrated Ascension Gear
-description: Incorporating a grapnel launcher, line, clips and other climbing and rappelling equipment directly into a
-  set of armor ensures that the user is always prepared to ascend or descend sheer surfaces in a hurry. Whether to
-  escape from pursuers, follow a target, infiltrate a secure building or exfiltrate from a dangerous situation,
-  ascension gear  can prove invaluable in a variety of situations. In addition, having the grapnel and line integrated
-  directly into one's armor provides a high degree of safety and security. This attachment can be applied to any armor.
+description: Incorporating a grapnel launcher, line, clips and other climbing and rappelling equipment directly into a set of armor ensures that the user is always prepared to ascend or descend sheer surfaces in a hurry. Whether to escape from pursuers, follow a target, infiltrate a secure building or exfiltrate from a dangerous situation, ascension gear  can prove invaluable in a variety of situations. In addition, having the grapnel and line integrated directly into one's armor provides a high degree of safety and security. This attachment can be applied to any armor.
 useWith: armor
 hpRequired: 2
 rarity: 3
-baseModifier: As an action, may make an **Average (<difficulty></difficulty><difficulty></difficulty>) Ranged (Light)
-  check** to secure grappling hook to an object within medium range and reel in cord.; May pull another character aloft
-  by making an **Easy (<difficulty></difficulty>) Athletics check**.
+baseModifier:
+  description: As an action, may make an **Average (<difficulty></difficulty><difficulty></difficulty>) Ranged (Light) check** to secure grappling hook to an object within medium range and reel in cord.; May pull another character aloft by making an **Easy (<difficulty></difficulty>) Athletics check**.
 modOptions: []
 reference:
   - SM:57

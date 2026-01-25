@@ -1,38 +1,33 @@
 id: eote-attachment-beam-splitter
 name: Beam Splitter
-description: >-
+description: |-
   Alliance troopers typically apply this upgrade to
-
   blaster pistols and other sidearms to achieve results
-
   similar to that of the spread barrel used on larger,
-
   more powerful blasters. Beam splitters function by
-
   modifying the Galven pattern and carefully mounting
-
   three or more emitters into a honeycomb configuration inside a stock blaster barrel. Shots fired from a
-
   weapon with this modification diffuse into a weaker,
-
-  spread shot rather than the typical blaster bolt, giving a single shot the potential to connect with multiple targets.
-  Rebel troops often use this upgrade to
-
+  spread shot rather than the typical blaster bolt, giving a single shot the potential to connect with multiple targets. Rebel troops often use this upgrade to
   transform weaponry into effective standoff weapons
-
   used to pin down enemy troops and hold chokepoints
-
   in narrow starship corridors. This attachment can be
-
   applied to any blaster or suitable energy weapon that
-
   does not have the Blast quality.
 useWith: weapon
 hpRequired: 3
 rarity: 5
-baseModifier: Blast 1; -1 Range Band
+baseModifier:
+  description: -1 Range Band
+  qualities:
+    - id: eote-quality-blast
+      ranks: 1
 modOptions:
-  - Disorient +1
-  - Disorient +1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
 reference:
   - FiB:51

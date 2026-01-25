@@ -31,11 +31,11 @@ description: |-
 useWith: vehicle
 hpRequired: 1
 rarity: 0
-baseModifier: Characters briefed in this auditorium prior to a mission remove <setback></setback> due to known mission
-  conditions from skill checks for the duration of the mission.
+baseModifier:
+  description: Characters briefed in this auditorium prior to a mission remove <setback></setback> due to known mission conditions from skill checks for the duration of the mission.
 modOptions:
-  - Add <advantage></advantage> to Leadership checks made by characters within the briefing auditorium
-  - Add <advantage></advantage> to Leadership checks made by characters within the briefing auditorium
+  - description: Add <advantage></advantage> to Leadership checks made by characters within the briefing auditorium
+  - description: Add <advantage></advantage> to Leadership checks made by characters within the briefing auditorium
 reference:
   - LbE:58
 includedModels:

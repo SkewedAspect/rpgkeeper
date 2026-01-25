@@ -15,14 +15,18 @@
                 </div>
                 <div v-if="attachment?.baseModifier" class="mb-2">
                     <span class="fw-bold">Base Modifier:</span>
-                    <MarkdownBlock :text="attachment.baseModifier" inline />
+                    <MarkdownBlock :text="formatModDescription(attachment.baseModifier)" inline />
                 </div>
                 <div v-if="hasModOptions" class="mb-2">
                     <span class="fw-bold">Mod Options:</span>
                     <ul class="mb-0 ps-3">
                         <li v-for="(mod, index) in attachment?.modOptions ?? []" :key="index">
                             <Fa v-if="isModActivated(index)" icon="check" class="text-success me-1" />
-                            <span :class="{ 'text-muted': !isModActivated(index) }">{{ mod }}</span>
+                            <MarkdownBlock
+                                :text="formatModDescription(mod)"
+                                :class="{ 'text-muted': !isModActivated(index) }"
+                                inline
+                            />
                         </li>
                     </ul>
                 </div>
@@ -55,10 +59,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteAttachment } from '../../../models.ts';
-
-    // Utils
-    import { shortID } from '@client/lib/utils/misc';
+    import type { BaseQuality, EoteAttachment, EoteModOption } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -67,6 +68,10 @@
     // Components
     import ReferenceBlock from '@client/components/character/referenceBlock.vue';
     import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
+
+    // Utils
+    import { shortID } from '@client/lib/utils/misc';
+    import { getModDescription } from '../../lib/qualityUtils';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -95,41 +100,22 @@
 
     const mode = computed(() => systemStore.current?.id ?? 'eote');
 
-    const attachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
+    const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
+    const allQualities = computed(() => supplementStore.get<BaseQuality>(mode.value, 'quality'));
 
-    const attachment = computed(() =>
-    {
-        return attachments.value?.filter((att) => att.id === props.id)[0];
-    });
-
-    const hasModOptions = computed(() =>
-    {
-        return attachment.value?.modOptions && attachment.value.modOptions.length > 0;
-    });
-
-    const attachmentName = computed(() =>
-    {
-        if(attachment.value)
-        {
-            return attachment.value.name;
-        }
-
-        return 'Unknown Attachment';
-    });
-
-    const attachmentReference = computed(() =>
-    {
-        if(attachment.value?.reference)
-        {
-            return attachment.value.reference;
-        }
-
-        return '';
-    });
+    const attachment = computed(() => allAttachments.value.find((att) => att.id === props.id));
+    const hasModOptions = computed(() => (attachment.value?.modOptions?.length ?? 0) > 0);
+    const attachmentName = computed(() => attachment.value?.name ?? 'Unknown Attachment');
+    const attachmentReference = computed(() => attachment.value?.reference ?? '');
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
+
+    function formatModDescription(mod : EoteModOption) : string
+    {
+        return getModDescription(mod, allQualities.value);
+    }
 
     function isModActivated(index : number) : boolean
     {

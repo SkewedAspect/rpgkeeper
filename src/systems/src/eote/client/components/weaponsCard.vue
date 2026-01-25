@@ -30,13 +30,43 @@
             hover
             @row-clicked="onRowClicked"
         >
+            <!-- Damage Slot -->
+            <template #cell(damage)="data">
+                <template v-if="getWeaponStats(data.item).damageModifier !== 0">
+                    {{ data.value }} ({{ getWeaponStats(data.item).damageModifier >= 0 ? '+' : '' }}{{ getWeaponStats(data.item).damageModifier }})
+                </template>
+                <template v-else>
+                    {{ data.value }}
+                </template>
+            </template>
+
+            <!-- Critical Rating Slot -->
+            <template #cell(criticalRating)="data">
+                <template v-if="getWeaponStats(data.item).criticalModifier !== 0">
+                    {{ data.value }} ({{ getWeaponStats(data.item).criticalModifier >= 0 ? '+' : '' }}{{ getWeaponStats(data.item).criticalModifier }})
+                </template>
+                <template v-else>
+                    {{ data.value }}
+                </template>
+            </template>
+
+            <!-- Encumbrance Slot -->
+            <template #cell(encumbrance)="data">
+                <template v-if="getWeaponStats(data.item).encumbranceModifier !== 0">
+                    {{ data.value }} ({{ getWeaponStats(data.item).encumbranceModifier >= 0 ? '+' : '' }}{{ getWeaponStats(data.item).encumbranceModifier }})
+                </template>
+                <template v-else>
+                    {{ data.value }}
+                </template>
+            </template>
+
             <!-- Qualities Slot -->
             <template #cell(qualities)="data">
                 <QualityTag
-                    v-for="quality in (data.value as EoteQualityRef[])"
+                    v-for="quality in computeWeaponQualities(data.item, allAttachments)"
                     :id="quality.id"
                     :key="quality.id"
-                    :ranks="quality.ranks"
+                    :ranks="quality.totalRanks"
                 />
             </template>
 
@@ -101,14 +131,23 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { EoteAttachmentRef, EoteCharacter, EoteQualityRef, EoteWeaponRef } from '../../models.ts';
+    import type {
+        EoteAttachment,
+        EoteAttachmentRef,
+        EoteCharacter,
+        EoteWeaponRef,
+    } from '../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Constants
     import { rangeEnum } from '../constants';
+
+    // Utils
+    import { type ComputedWeaponStats, computeWeaponQualities, computeWeaponStats } from '../lib/qualityUtils';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
@@ -142,6 +181,7 @@
 
     const { current } = storeToRefs(useCharacterStore());
     const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
 
     interface FieldDef
     {
@@ -186,10 +226,16 @@
     const readonly = computed(() => props.readonly);
 
     const weapons = computed(() => char.value.details.weapons);
+    const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
+
+    function getWeaponStats(weapon : EoteWeaponRef) : ComputedWeaponStats
+    {
+        return computeWeaponStats(weapon, allAttachments.value);
+    }
 
     async function removeWeapon(weapon : EoteWeaponRef) : Promise<void>
     {

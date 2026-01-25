@@ -1,14 +1,12 @@
 id: eote-attachment-bipod-mount
 name: Bipod Mount
-description: Little more than a pair of folding or collapsible legs mounted beneath the barrel of a long arm, bipods are
-  used to stabilize awkward or heavy weapons to improve their firing characteristics. Especially useful when firing from
-  behind low cover or from a prone position, bipods are typically used on squad support weapons, or by sharpshooters and
-  snipers to better steady their weapons. This attachment can only be applied to rifles, carbines, and light repeating
-  blasters, and takes one preparation maneuver to set up.
+description: Little more than a pair of folding or collapsible legs mounted beneath the barrel of a long arm, bipods are used to stabilize awkward or heavy weapons to improve their firing characteristics. Especially useful when firing from behind low cover or from a prone position, bipods are typically used on squad support weapons, or by sharpshooters and snipers to better steady their weapons. This attachment can only be applied to rifles, carbines, and light repeating blasters, and takes one preparation maneuver to set up.
 useWith: weapon
 hpRequired: 1
 rarity: 1
-baseModifier: Cumbersome
+baseModifier:
+  qualities:
+    - id: eote-quality-cumbersome
 modOptions: []
 reference:
   - E-CRB:188

@@ -1,30 +1,20 @@
 id: eote-attachment-civilian-vehicle-retrofit
 name: Civilian Vehicle Retrofit
-description: >-
-  Most civilian vehicles are not designed for heavy modification. However, dedicated engineers can typically find a
-  workaround, sacrificing effectiveness in one area to add capabilities in another.
-
-  When retrofitting a civilian vehicle, a character may spend 500 credits and make a **Hard
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** to add a single hard
-  point. Hard points added this way should be focused towards military use, and the GM has final say on how this
-  retrofit is done and its purpose, as well as which vehicles are applicable for the work.
-
-  For each hard point added this way, though, one of the vehicles other capabilities also degrades. These degradations
-  reflect the vehicle's systems being pushed well past their inbuilt tolerances. The GM may come up with a custom effect
-  to reflect this limit breaking, or may choose one from five options provided.
-
-  _Note: This attachment contains several custom effects that degrade the vehicle's performance. These are included as
-  optional mods. Talk with your GM about which degradation to choose for your vehicle._
+description: |-
+  Most civilian vehicles are not designed for heavy modification. However, dedicated engineers can typically find a workaround, sacrificing effectiveness in one area to add capabilities in another.
+  When retrofitting a civilian vehicle, a character may spend 500 credits and make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** to add a single hard point. Hard points added this way should be focused towards military use, and the GM has final say on how this retrofit is done and its purpose, as well as which vehicles are applicable for the work.
+  For each hard point added this way, though, one of the vehicles other capabilities also degrades. These degradations reflect the vehicle's systems being pushed well past their inbuilt tolerances. The GM may come up with a custom effect to reflect this limit breaking, or may choose one from five options provided.
+  _Note: This attachment contains several custom effects that degrade the vehicle's performance. These are included as optional mods. Talk with your GM about which degradation to choose for your vehicle._
 useWith: vehicle
 hpRequired: 0
 rarity: 0
-baseModifier: +1 Hard Points
+baseModifier:
+  description: +1 Hard Points
 modOptions:
-  - -1 Handling
-  - -2 System Strain Threshold
-  - Whenever the vehicle suffers system strain, it suffers one additional point of system strain
-  - A <despair></despair> on a piloting checks to control the vehicle causes the vehicle to immediately drop to Speed 0
-  - A <despair></despair> when using any of the vehicle's inbuilt systems or attachments cause the system or attachment
-    to fail for the remainder of the encounter
+  - description: -1 Handling
+  - description: -2 System Strain Threshold
+  - description: Whenever the vehicle suffers system strain, it suffers one additional point of system strain
+  - description: A <despair></despair> on a piloting checks to control the vehicle causes the vehicle to immediately drop to Speed 0
+  - description: A <despair></despair> when using any of the vehicle's inbuilt systems or attachments cause the system or attachment to fail for the remainder of the encounter
 reference:
   - FO:74

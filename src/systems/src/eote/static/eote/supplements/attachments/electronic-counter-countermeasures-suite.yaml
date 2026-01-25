@@ -20,10 +20,10 @@ description: |-
 useWith: vehicle
 hpRequired: 1
 rarity: 6
-baseModifier: Make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers
-  check** to cancel all effects of an electronic countermeasures suite.
+baseModifier:
+  description: Make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check** to cancel all effects of an electronic countermeasures suite.
 modOptions:
-  - Decrease difficulty of the Computers check by 1
+  - description: Decrease difficulty of the Computers check by 1
 reference:
   - LbE:59
 includedModels:

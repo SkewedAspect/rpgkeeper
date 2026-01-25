@@ -239,14 +239,28 @@ export interface EoteOrGenesysTalent extends BaseTalent
 
 export type EoteTalentInst = BaseTalentInst;
 
+export interface EoteModOption
+{
+    // Optional description override (for complex/conditional modifiers)
+    description ?: string;
+
+    // Structured modifiers (auto-generate description if not provided)
+    qualities ?: BaseQualityRef[];
+    damageModifier ?: number;
+    criticalModifier ?: number;
+    encumbranceModifier ?: number;
+    defenseModifier ?: number;
+    soakModifier ?: number;
+}
+
 export interface EoteAttachment extends Supplement
 {
     id ?: string;
     description : string;
     useWith : string;
     hpRequired : BoundedRange<0, 50>;
-    baseModifier : string;
-    modOptions : string[];
+    baseModifier ?: EoteModOption;
+    modOptions : EoteModOption[];
     includedModels ?: string[];
     rarity : number;
 }

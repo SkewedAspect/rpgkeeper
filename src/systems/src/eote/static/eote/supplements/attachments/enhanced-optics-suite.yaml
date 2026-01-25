@@ -1,15 +1,13 @@
 id: eote-attachment-enhanced-optics-suite
 name: Enhanced Optics Suite
-description: Built into a helmet, this system provides an individual with a host of specialized optical and audio
-  sensors. Each system is equipped with passive light amplification, thermal signature readers, ultrasound pickups,
-  millimeter wave emitters, video capture, and common optical enhancements. This may be installed on any armor.
+description: Built into a helmet, this system provides an individual with a host of specialized optical and audio sensors. Each system is equipped with passive light amplification, thermal signature readers, ultrasound pickups, millimeter wave emitters, video capture, and common optical enhancements. This may be installed on any armor.
 useWith: armor
 hpRequired: 1
 rarity: 3
-baseModifier: Removes up to <setback></setback><setback></setback> added to all Perception, Vigilance, and combat skill
-  checks due to darkness, smoke, or other environmental effects that obscure vision.
+baseModifier:
+  description: Removes up to <setback></setback><setback></setback> added to all Perception, Vigilance, and combat skill checks due to darkness, smoke, or other environmental effects that obscure vision.
 modOptions:
-  - Add <boost></boost> to Vigilance checks
+  - description: Add <boost></boost> to Vigilance checks
 reference:
   - E-CRB:194
   - A-CRB:206

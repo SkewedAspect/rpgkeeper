@@ -4,8 +4,9 @@ description: Boosts the engines of a swoop and also removes excess weight from t
 useWith: vehicle
 hpRequired: 2
 rarity: 2
-baseModifier: +1 Speed; -1 Hull Trauma Threshold
+baseModifier:
+  description: +1 Speed; -1 Hull Trauma Threshold
 modOptions:
-  - +1 System Strain Threshold
+  - description: +1 System Strain Threshold
 reference:
   - SoF

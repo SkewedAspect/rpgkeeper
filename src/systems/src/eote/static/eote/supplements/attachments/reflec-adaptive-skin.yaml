@@ -1,15 +1,14 @@
 id: eote-attachment-reflec-adaptive-skin
 name: Reflec Adaptive Skin
-description: Reflec is an advanced polymer that possesses adaptive light-warping and sensor-damping properties. When
-  applied to armor, reflec acts as an optical camouflage even in fully illuminated areas. This attachment can be applied
-  to any armor.
+description: Reflec is an advanced polymer that possesses adaptive light-warping and sensor-damping properties. When applied to armor, reflec acts as an optical camouflage even in fully illuminated areas. This attachment can be applied to any armor.
 useWith: armor
 hpRequired: 2
 rarity: 7
-baseModifier: Upgrade ability of all Stealth checks once while wearing reflec-coated armor.
+baseModifier:
+  description: Upgrade ability of all Stealth checks once while wearing reflec-coated armor.
 modOptions:
-  - Add <boost></boost> to Stealth checks while wearing reflec-coated armor
-  - Add <boost></boost> to Stealth checks while wearing reflec-coated armor
+  - description: Add <boost></boost> to Stealth checks while wearing reflec-coated armor
+  - description: Add <boost></boost> to Stealth checks while wearing reflec-coated armor
 reference:
   - CaM:58
 includedModels:

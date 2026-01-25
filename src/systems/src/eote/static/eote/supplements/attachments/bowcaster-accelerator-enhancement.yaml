@@ -1,21 +1,20 @@
 id: eote-attachment-bowcaster-accelerator-enhancement
 name: Bowcaster Accelerator Enhancement
-description: Built from scavenged blaster parts and the occasional piece from a repulsorlift generator, the bowcaster
-  accelerator enhancement is the second-most common modification to Wookiee bowcasters after the automatic re-cocker.
-  Essentially an upgrade of the weapon's bolt accelerators, this attachment allows the bowcaster to fire its highly
-  destructive quarrels with more force than typical in a stock weapon. These attachments are only for use on Wookiee
-  bowcasters, and they cannot be purchased; they must be built either by the owner of the bowcaster with an **Average
-  (<difficulty></difficulty><difficulty></difficulty>) Mechanics check** or the weaponsmith who built the weapon for
-  him.
+description: Built from scavenged blaster parts and the occasional piece from a repulsorlift generator, the bowcaster accelerator enhancement is the second-most common modification to Wookiee bowcasters after the automatic re-cocker. Essentially an upgrade of the weapon's bolt accelerators, this attachment allows the bowcaster to fire its highly destructive quarrels with more force than typical in a stock weapon. These attachments are only for use on Wookiee bowcasters, and they cannot be purchased; they must be built either by the owner of the bowcaster with an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check** or the weaponsmith who built the weapon for him.
 useWith: weapon
 hpRequired: 1
 rarity: 4
-baseModifier: +1 Damage
+baseModifier:
+  damageModifier: 1
 modOptions:
-  - +1 Damage
-  - +1 Damage
-  - Pierce +1
-  - Pierce +1
+  - damageModifier: 1
+  - damageModifier: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
 reference:
   - E-CRB:189
 includedModels:

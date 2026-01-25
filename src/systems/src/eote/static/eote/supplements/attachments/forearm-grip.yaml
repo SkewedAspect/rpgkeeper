@@ -1,16 +1,16 @@
 id: eote-attachment-forearm-grip
 name: Forearm Grip
-description: Little more than a vertical handgrip affixed below the barrel of a rifle-sized weapon, forearm grips are a
-  popular modification among mercenaries, designed to give the user better control over the weapon. This Attachment can
-  only be used on rifles (but not heavy rifles) and carbines.
+description: Little more than a vertical handgrip affixed below the barrel of a rifle-sized weapon, forearm grips are a popular modification among mercenaries, designed to give the user better control over the weapon. This Attachment can only be used on rifles (but not heavy rifles) and carbines.
 useWith: weapon
 hpRequired: 1
 rarity: 1
-baseModifier: Decreases the additional difficulty of making Ranged (Heavy) checks with this weapon while engaged to an
-  additional <difficulty></difficulty> (rather than <difficulty></difficulty><difficulty></difficulty>).
+baseModifier:
+  description: Decreases the additional difficulty of making Ranged (Heavy) checks with this weapon while engaged to an additional <difficulty></difficulty> (rather than <difficulty></difficulty><difficulty></difficulty>).
 modOptions:
-  - Gain Point Blank (add damage at short range or engaged)
-  - Accurate +1
+  - description: Gain Point Blank (add damage at short range or engaged)
+  - qualities:
+      - id: eote-quality-accurate
+        ranks: 1
 reference:
   - E-CRB:190
   - A-CRB:201

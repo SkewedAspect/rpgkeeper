@@ -1,28 +1,15 @@
 id: eote-attachment-gravity-mine-launcher
 name: Gravity Mine Launcher
-description: >-
-  Gravity mine launchers, and their accompanying gravity mines, are small anti-vehicle mines produced by a number of
-  arms manufacturers. While each brand uses its own patented gravitic technology, gravity mines and their launchers
-  share a number of common traits. The mines range anywhere from the size of a slim datapad to a meter across, depending
-  on their intended use, and are packed with advanced gravity well generation systems. When deployed, gravity mines
-  create a localized area of intense gravity that can reduce the output of repulsorlift drives or even shut them down
-  completely, stopping a speeder in its tracks. While they are often used in military installations to restrict ship or
-  vehicle access to sensitive areas or to create firing lanes for weapon emplacements, they can also be used in sabotage
-  or to lay traps for incoming ships or airspeeders. Gravity mine launchers are simple box-type launchers mounted on
-  landspeeders that allow a vehicle crew to lay a minefield with relative ease.
-
-  The character piloting or operating the weapons on a vehicle equipped with a gravity mine launcher can deploy a single
-  gravity mine anywhere on the ground within close range by spending an action. Once the mine is deployed, it
-  automatically attaches to any other starship or vehicle using repulsorlifts that comes within close range of it. For
-  every 1 mine attached to a vehicle that uses the Piloting (Planetary) skill, that vehicle reduces its speed by 1. For
-  every 2 mines attached to a starship that uses the Piloting (Space) skill, that starship reduces its speed by 1. An
-  attached mine can be removed with an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**.
+description: |-
+  Gravity mine launchers, and their accompanying gravity mines, are small anti-vehicle mines produced by a number of arms manufacturers. While each brand uses its own patented gravitic technology, gravity mines and their launchers share a number of common traits. The mines range anywhere from the size of a slim datapad to a meter across, depending on their intended use, and are packed with advanced gravity well generation systems. When deployed, gravity mines create a localized area of intense gravity that can reduce the output of repulsorlift drives or even shut them down completely, stopping a speeder in its tracks. While they are often used in military installations to restrict ship or vehicle access to sensitive areas or to create firing lanes for weapon emplacements, they can also be used in sabotage or to lay traps for incoming ships or airspeeders. Gravity mine launchers are simple box-type launchers mounted on landspeeders that allow a vehicle crew to lay a minefield with relative ease.
+  The character piloting or operating the weapons on a vehicle equipped with a gravity mine launcher can deploy a single gravity mine anywhere on the ground within close range by spending an action. Once the mine is deployed, it automatically attaches to any other starship or vehicle using repulsorlifts that comes within close range of it. For every 1 mine attached to a vehicle that uses the Piloting (Planetary) skill, that vehicle reduces its speed by 1. For every 2 mines attached to a starship that uses the Piloting (Space) skill, that starship reduces its speed by 1. An attached mine can be removed with an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**.
 useWith: vehicle
 hpRequired: 1
 rarity: 6
-baseModifier: Allows vehicle to deploy gravity mines within close range
+baseModifier:
+  description: Allows vehicle to deploy gravity mines within close range
 modOptions:
-  - Increase deployable range to short
+  - description: Increase deployable range to short
 reference:
   - SoT:64
 includedModels:

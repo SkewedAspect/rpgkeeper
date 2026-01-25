@@ -1,22 +1,14 @@
 id: eote-attachment-decoy-buoy
 name: Decoy Buoy
-description: A favourite of scoundrels and pirates, decoy buoys are often devices cobbled together from salvaged parts,
-  including transponders and comm systems. Although it might visually resemble nothing so much as a cylinder - or
-  amalgamation of scrap parts - a meter or so across, a well constructed decoy buoy transmits a transponder signal,
-  emits ion streams and outputs other data and signals associated with starships. This attachment can be applied to any
-  starship.
+description: A favourite of scoundrels and pirates, decoy buoys are often devices cobbled together from salvaged parts, including transponders and comm systems. Although it might visually resemble nothing so much as a cylinder - or amalgamation of scrap parts - a meter or so across, a well constructed decoy buoy transmits a transponder signal, emits ion streams and outputs other data and signals associated with starships. This attachment can be applied to any starship.
 useWith: vehicle
 hpRequired: 0
 rarity: 5
-baseModifier: Buoy may be jettisoned as an action.; Buoy can be programmed with a specific transponder code with a
-  **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check**.; Buoy can be
-  set to transmit a distress signal or other data.; A character operating ship sensors must make a **Hard
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check** to identify that the
-  buoy is not an actual ship.; After being jettisoned, buoy no longer counts as being attached to the ship until it is
-  reattached.
+baseModifier:
+  description: Buoy may be jettisoned as an action.; Buoy can be programmed with a specific transponder code with a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check**.; Buoy can be set to transmit a distress signal or other data.; A character operating ship sensors must make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check** to identify that the buoy is not an actual ship.; After being jettisoned, buoy no longer counts as being attached to the ship until it is reattached.
 modOptions:
-  - Add <setback></setback> to Computers checks to identify the buoy
-  - Add <setback></setback> to Computers checks to identify the buoy
+  - description: Add <setback></setback> to Computers checks to identify the buoy
+  - description: Add <setback></setback> to Computers checks to identify the buoy
 reference:
   - SM:65
 includedModels:

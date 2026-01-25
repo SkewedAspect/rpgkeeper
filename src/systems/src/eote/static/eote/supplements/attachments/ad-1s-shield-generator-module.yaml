@@ -14,9 +14,13 @@ description: |-
 useWith: vehicle
 hpRequired: 3
 rarity: 6
-baseModifier: +1 Defense Zone
+baseModifier:
+  defenseModifier: 1
+  description: Zone
 modOptions:
-  - +1 Defense Zone
-  - +1 Defense Zone
+  - defenseModifier: 1
+    description: Zone
+  - defenseModifier: 1
+    description: Zone
 reference:
   - SM:63

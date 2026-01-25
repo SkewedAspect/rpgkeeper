@@ -1,15 +1,11 @@
 id: eote-attachment-repulsorlift-enhancement
 name: Repulsorlift Enhancement
-description: A repulsorlift enhancement increases the output of a standard airspeeder's repulsorlift engine
-  considerably. Vehicles with this upgrade deplete their fuel cells at a dramatically increased rate. Since most races
-  are relatively short in duration, and those that are longer have the opportunity to use a pit crew to recharge their
-  cells, this makes them an extremely popular choice with most racing teams. Installing this attachment requires an
-  **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**. Repulsor enhancements may only be
-  attached to vehicles of silhouette 2 or lower.
+description: A repulsorlift enhancement increases the output of a standard airspeeder's repulsorlift engine considerably. Vehicles with this upgrade deplete their fuel cells at a dramatically increased rate. Since most races are relatively short in duration, and those that are longer have the opportunity to use a pit crew to recharge their cells, this makes them an extremely popular choice with most racing teams. Installing this attachment requires an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**. Repulsor enhancements may only be attached to vehicles of silhouette 2 or lower.
 useWith: vehicle
 hpRequired: 1
 rarity: 4
-baseModifier: As a maneuver, suffer 1 system strain to add +1 maximum speed for one round.
+baseModifier:
+  description: As a maneuver, suffer 1 system strain to add +1 maximum speed for one round.
 modOptions: []
 reference:
   - JoY:47

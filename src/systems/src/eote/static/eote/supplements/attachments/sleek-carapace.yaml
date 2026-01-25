@@ -4,10 +4,11 @@ description: This hull sacrifices speed for maneuverability, and often provides 
 useWith: vehicle
 hpRequired: 2
 rarity: 3
-baseModifier: Changes armor to 0 and handling to +2; Armor set to 1; Handling set to 2
+baseModifier:
+  description: Changes armor to 0 and handling to +2; Armor set to 1; Handling set to 2
 modOptions:
-  - +1 Armor
-  - +1 Aft Defense
-  - +1 Handling
+  - description: +1 Armor
+  - description: +1 Aft Defense
+  - description: +1 Handling
 reference:
   - FO:82

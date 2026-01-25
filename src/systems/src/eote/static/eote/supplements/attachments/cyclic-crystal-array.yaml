@@ -1,17 +1,12 @@
 id: eote-attachment-cyclic-crystal-array
 name: Cyclic Crystal Array
-description: Lightsabers rely on kyber crystals attuned to the wielder to create energy blades of different types. Under
-  normal circumstances, swapping out one crystal for another is an arduous process requiring the lightsaber to be
-  disassembled first. Unsatisfied with this situation, a handful of enterprising (if unorthodox) Force users have
-  created attachments that allow for two (or more) crystals to be installed in a single lightsaber. With the press of a
-  button, one crystal is swapped for another, granting unprecedented versatility to lightsaber wielders looking for
-  additional functionality from their otherwise traditional weapon. This attachment can only be applied to lightsabers.
+description: Lightsabers rely on kyber crystals attuned to the wielder to create energy blades of different types. Under normal circumstances, swapping out one crystal for another is an arduous process requiring the lightsaber to be disassembled first. Unsatisfied with this situation, a handful of enterprising (if unorthodox) Force users have created attachments that allow for two (or more) crystals to be installed in a single lightsaber. With the press of a button, one crystal is swapped for another, granting unprecedented versatility to lightsaber wielders looking for additional functionality from their otherwise traditional weapon. This attachment can only be applied to lightsabers.
 useWith: weapon
 hpRequired: 2
 rarity: 8
-baseModifier: Add additional crystal (no HP cost); When lightsaber is ignited, may choose which active crystal to use.
-  If already ignited, activating another crystal requires a maneuver.
+baseModifier:
+  description: Add additional crystal (no HP cost); When lightsaber is ignited, may choose which active crystal to use. If already ignited, activating another crystal requires a maneuver.
 modOptions:
-  - Add additional crystal (no HP cost)
+  - description: Add additional crystal (no HP cost)
 reference:
   - KtP:53

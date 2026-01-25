@@ -1,15 +1,17 @@
 id: eote-attachment-ion-shielding
 name: Ion Shielding
-description: Rarely encountered in body armor and more commonly (and usually illegally) applied directly to droid
-  chassis, ion shielding provides protection against ionization blasters. Although the mitigation it grants is far from
-  complete, the energy-dampening effects can keep a droid operational where it would otherwise be shutdown. This
-  attachment can be applied to any armor with soak 2 or higher.
+description: Rarely encountered in body armor and more commonly (and usually illegally) applied directly to droid chassis, ion shielding provides protection against ionization blasters. Although the mitigation it grants is far from complete, the energy-dampening effects can keep a droid operational where it would otherwise be shutdown. This attachment can be applied to any armor with soak 2 or higher.
 useWith: armor
 hpRequired: 1
 rarity: 7
-baseModifier: Increase soak by 3 against weapons with Ion quality.
+baseModifier:
+  description: Increase soak by 3 against weapons with quality.
+  qualities:
+    - id: eote-quality-ion
 modOptions:
-  - Increase ranged and melee defense by 1 against weapons with Ion quality
+  - description: Increase ranged and melee defense by 1 against weapons with quality
+    qualities:
+      - id: eote-quality-ion
 reference:
   - SM:58
 includedModels:

@@ -1,15 +1,13 @@
 id: eote-attachment-lightweight-frame
 name: Lightweight Frame
-description: This mod reduces both the weight and bulk of ranged weapons to make them easier to handle and conceal.
-  Along with a frame made of a lighter alloy, this mod also includes lightweight polycarbonate stocks, foregrips, and
-  other pieces designed to lighten up a blaster pistol or slugthrower rifle. This attachment can be applied to any
-  weapon.
+description: This mod reduces both the weight and bulk of ranged weapons to make them easier to handle and conceal. Along with a frame made of a lighter alloy, this mod also includes lightweight polycarbonate stocks, foregrips, and other pieces designed to lighten up a blaster pistol or slugthrower rifle. This attachment can be applied to any weapon.
 useWith: weapon
 hpRequired: 1
 rarity: 3
-baseModifier: -1 Encumbrance
+baseModifier:
+  encumbranceModifier: -1
 modOptions:
-  - -1 Encumbrance
+  - encumbranceModifier: -1
 reference:
   - CaM:56
 includedModels:

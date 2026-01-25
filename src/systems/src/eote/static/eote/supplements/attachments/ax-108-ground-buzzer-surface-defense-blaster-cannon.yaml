@@ -1,17 +1,14 @@
 id: eote-attachment-ax-108-ground-buzzer-surface-defense-blaster-cannon
 name: AX-108 "Ground Buzzer" Surface-Defense Blaster Cannon
-description: Designed to provide anti-personnel defense for a starship when on the ground, BlasTech's Ax-108 "Ground
-  Buzzer' is a popular modification on ships whose owners expect trouble. With a powerful blast and high rate of fire,
-  the retractable Ax-108 folds into a hidden compartment on a vessel's hull. While the weapon can be manually operated
-  from the cockpit, it can also be remotely activated.
+description: Designed to provide anti-personnel defense for a starship when on the ground, BlasTech's Ax-108 "Ground Buzzer' is a popular modification on ships whose owners expect trouble. With a powerful blast and high rate of fire, the retractable Ax-108 folds into a hidden compartment on a vessel's hull. While the weapon can be manually operated from the cockpit, it can also be remotely activated.
 useWith: vehicle
 hpRequired: 1
 rarity: 5
-baseModifier: Adds one AX-108 Surface Defense Blaster Cannon weapon; Can fire automatically with a Ranged (Heavy) skill
-  of 2 and an Agility of 0
+baseModifier:
+  description: Adds one AX-108 Surface Defense Blaster Cannon weapon; Can fire automatically with a Ranged (Heavy) skill of 2 and an Agility of 0
 modOptions:
-  - Increase the weapon's automated Ranged (Heavy) skill by one
-  - Increase the weapon's automated Ranged (Heavy) skill by one
+  - description: Increase the weapon's automated Ranged (Heavy) skill by one
+  - description: Increase the weapon's automated Ranged (Heavy) skill by one
 reference:
   - FC:62
 includedModels:

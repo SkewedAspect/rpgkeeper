@@ -4,28 +4,38 @@ description: Used for freighters, this hull allows for additional cargo space an
 useWith: vehicle
 hpRequired: 4
 rarity: 2
-baseModifier: Changes armor to 1 and handling to -2, and adds 25 to encumbrance capacity and passenger capacity; Armor
-  set to 1; Handling set to -2; ENCCADDCRAFT 25; PASSADDCRAFT 25
+baseModifier:
+  description: Changes armor to 1 and handling to -2, and adds 25 to encumbrance capacity and passenger capacity; Armor set to 1; Handling set to -2; ENCCADDCRAFT 25; PASSADDCRAFT 25
 modOptions:
-  - +1 Armor
-  - +1 Armor
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Encumbrance Capacity (per Silhouette)
-  - +1 Passenger Capacity (per Silhouette)
-  - +1 Passenger Capacity (per Silhouette)
-  - +1 Passenger Capacity (per Silhouette)
-  - +1 Passenger Capacity (per Silhouette)
-  - +1 Passenger Capacity (per Silhouette)
-  - +1 Passenger Capacity (per Silhouette)
-  - +1 Passenger Capacity (per Silhouette)
-  - +1 Passenger Capacity (per Silhouette)
+  - description: +1 Armor
+  - description: +1 Armor
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - encumbranceModifier: 1
+    description: Capacity (per Silhouette)
+  - description: +1 Passenger Capacity (per Silhouette)
+  - description: +1 Passenger Capacity (per Silhouette)
+  - description: +1 Passenger Capacity (per Silhouette)
+  - description: +1 Passenger Capacity (per Silhouette)
+  - description: +1 Passenger Capacity (per Silhouette)
+  - description: +1 Passenger Capacity (per Silhouette)
+  - description: +1 Passenger Capacity (per Silhouette)
+  - description: +1 Passenger Capacity (per Silhouette)
 reference:
   - FO:83

@@ -1,23 +1,15 @@
 id: eote-attachment-reinforced-engine-cowlings
 name: Reinforced Engine Cowlings
-description: >-
-  Part of the thrill of Podracing is the near certainty of collisions, for many enthusiasts, a good race is measured by
-  how many crashes occurred, not how fast the winner ran the circuit. Given the nature of these races, many pilots view
-  it as foregone that they will be involved in collisions, no matter what effort they might take to avoid them. This
-  leads to some adopting reinforced plating for their engines, the better to withstand "accidental" impacts as they
-  occur during a race.
-
-  More tactically-minded pilots take this even further adding ridges, struts, and vanes designed to appear ornamental or
-  to a aid in aerodynamics, but instead intended to cushion impacts when their vehicle rams into another. That those
-  pilots who are frequently involved in collisions and still manage to cheat death race after race, garner large amounts
-  of fame (and credits) certainly has a strong bearing on other pilots decision to adopt such modifications and alter
-  their racing tactics accordingly.
+description: |-
+  Part of the thrill of Podracing is the near certainty of collisions, for many enthusiasts, a good race is measured by how many crashes occurred, not how fast the winner ran the circuit. Given the nature of these races, many pilots view it as foregone that they will be involved in collisions, no matter what effort they might take to avoid them. This leads to some adopting reinforced plating for their engines, the better to withstand "accidental" impacts as they occur during a race.
+  More tactically-minded pilots take this even further adding ridges, struts, and vanes designed to appear ornamental or to a aid in aerodynamics, but instead intended to cushion impacts when their vehicle rams into another. That those pilots who are frequently involved in collisions and still manage to cheat death race after race, garner large amounts of fame (and credits) certainly has a strong bearing on other pilots decision to adopt such modifications and alter their racing tactics accordingly.
 useWith: vehicle
 hpRequired: 0
 rarity: 3
-baseModifier: Reduce Critical Hit result from collision by 20
+baseModifier:
+  description: Reduce Critical Hit result from collision by 20
 modOptions:
-  - Reduce Critical Hit result from collision by 20
+  - description: Reduce Critical Hit result from collision by 20
 reference:
   - EV:59
 includedModels:

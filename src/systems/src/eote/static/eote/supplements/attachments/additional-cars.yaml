@@ -1,75 +1,74 @@
 id: eote-attachment-additional-cars
 name: Additional Cars
-description: >-
-  The standard Dustcrawler features three connected cars, but Dustcrawlers are designed to be modular and customizable,
-  so additional cars can be added to create a larger train. Adding cars to a Dustcrawler has the following effects upon
-  the vehicle’s statistics:
-
-  Each additional car adds 1 to the Dustcrawler’s silhouette, an additional crewmember (a conductor, who coordinates
-  their car with the others), and an additional +100 to encumbrance capacity. The passenger capacity increases by 10 for
-  each additional car, and 2 additional hard points are added as well. Each car adds another 20,000 credits to the
-  Dustcrawler’s price.
-
-  Dustcrawlers of four or more cars are often found in use as mass transit vehicles in airless environments. For
-  example, Polis Massa Base uses 5-car Dustcrawlers to ferry workers between the living quarters and the mining
-  operation, carrying an entire shift of workers at a time.
-
-  _Note:  For each additional car, select one of each type of optional mod.  Up to 10 additional cars can be added in
-  this way._
+description: |-
+  The standard Dustcrawler features three connected cars, but Dustcrawlers are designed to be modular and customizable, so additional cars can be added to create a larger train. Adding cars to a Dustcrawler has the following effects upon the vehicle’s statistics:
+  Each additional car adds 1 to the Dustcrawler’s silhouette, an additional crewmember (a conductor, who coordinates their car with the others), and an additional +100 to encumbrance capacity. The passenger capacity increases by 10 for each additional car, and 2 additional hard points are added as well. Each car adds another 20,000 credits to the Dustcrawler’s price.
+  Dustcrawlers of four or more cars are often found in use as mass transit vehicles in airless environments. For example, Polis Massa Base uses 5-car Dustcrawlers to ferry workers between the living quarters and the mining operation, carrying an entire shift of workers at a time.
+  _Note:  For each additional car, select one of each type of optional mod.  Up to 10 additional cars can be added in this way._
 useWith: vehicle
 hpRequired: 0
 rarity: 5
-baseModifier: ""
+baseModifier: {}
 modOptions:
-  - +1 Silhouette
-  - +1 Silhouette
-  - +1 Silhouette
-  - +1 Silhouette
-  - +1 Silhouette
-  - +1 Silhouette
-  - +1 Silhouette
-  - +1 Silhouette
-  - +1 Silhouette
-  - +1 Silhouette
-  - +100 Encumbrance Capacity
-  - +100 Encumbrance Capacity
-  - +100 Encumbrance Capacity
-  - +100 Encumbrance Capacity
-  - +100 Encumbrance Capacity
-  - +100 Encumbrance Capacity
-  - +100 Encumbrance Capacity
-  - +100 Encumbrance Capacity
-  - +100 Encumbrance Capacity
-  - +100 Encumbrance Capacity
-  - +10 Passenger Capacity
-  - +10 Passenger Capacity
-  - +10 Passenger Capacity
-  - +10 Passenger Capacity
-  - +10 Passenger Capacity
-  - +10 Passenger Capacity
-  - +10 Passenger Capacity
-  - +10 Passenger Capacity
-  - +10 Passenger Capacity
-  - +10 Passenger Capacity
-  - +2 Hard Points
-  - +2 Hard Points
-  - +2 Hard Points
-  - +2 Hard Points
-  - +2 Hard Points
-  - +2 Hard Points
-  - +2 Hard Points
-  - +2 Hard Points
-  - +2 Hard Points
-  - +2 Hard Points
-  - +20000 Price
-  - +20000 Price
-  - +20000 Price
-  - +20000 Price
-  - +20000 Price
-  - +20000 Price
-  - +20000 Price
-  - +20000 Price
-  - +20000 Price
-  - +20000 Price
+  - description: +1 Silhouette
+  - description: +1 Silhouette
+  - description: +1 Silhouette
+  - description: +1 Silhouette
+  - description: +1 Silhouette
+  - description: +1 Silhouette
+  - description: +1 Silhouette
+  - description: +1 Silhouette
+  - description: +1 Silhouette
+  - description: +1 Silhouette
+  - encumbranceModifier: 100
+    description: Capacity
+  - encumbranceModifier: 100
+    description: Capacity
+  - encumbranceModifier: 100
+    description: Capacity
+  - encumbranceModifier: 100
+    description: Capacity
+  - encumbranceModifier: 100
+    description: Capacity
+  - encumbranceModifier: 100
+    description: Capacity
+  - encumbranceModifier: 100
+    description: Capacity
+  - encumbranceModifier: 100
+    description: Capacity
+  - encumbranceModifier: 100
+    description: Capacity
+  - encumbranceModifier: 100
+    description: Capacity
+  - description: +10 Passenger Capacity
+  - description: +10 Passenger Capacity
+  - description: +10 Passenger Capacity
+  - description: +10 Passenger Capacity
+  - description: +10 Passenger Capacity
+  - description: +10 Passenger Capacity
+  - description: +10 Passenger Capacity
+  - description: +10 Passenger Capacity
+  - description: +10 Passenger Capacity
+  - description: +10 Passenger Capacity
+  - description: +2 Hard Points
+  - description: +2 Hard Points
+  - description: +2 Hard Points
+  - description: +2 Hard Points
+  - description: +2 Hard Points
+  - description: +2 Hard Points
+  - description: +2 Hard Points
+  - description: +2 Hard Points
+  - description: +2 Hard Points
+  - description: +2 Hard Points
+  - description: +20000 Price
+  - description: +20000 Price
+  - description: +20000 Price
+  - description: +20000 Price
+  - description: +20000 Price
+  - description: +20000 Price
+  - description: +20000 Price
+  - description: +20000 Price
+  - description: +20000 Price
+  - description: +20000 Price
 reference:
   - UP:60

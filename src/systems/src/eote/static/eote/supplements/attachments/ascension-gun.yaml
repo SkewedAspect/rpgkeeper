@@ -1,19 +1,14 @@
 id: eote-attachment-ascension-gun
 name: Ascension Gun
-description: Ascension guns are tools used to traverse difficult environments, from steep cliffs to urban battlefields.
-  The frame resembles a gun barrel, but instead of a blaster bolt, it fires a grappling hook and tether that can latch
-  onto most surfaces, then reel in the gun and its bearer with a localized repulsor field. Some variations of the
-  ascension gun also use magnetized grapnels that can stick to sheer surfaces. "Ascension gun" is something of a
-  misnomer, other used to refer not only to the attachment, but to modified blasters.
+description: Ascension guns are tools used to traverse difficult environments, from steep cliffs to urban battlefields. The frame resembles a gun barrel, but instead of a blaster bolt, it fires a grappling hook and tether that can latch onto most surfaces, then reel in the gun and its bearer with a localized repulsor field. Some variations of the ascension gun also use magnetized grapnels that can stick to sheer surfaces. "Ascension gun" is something of a misnomer, other used to refer not only to the attachment, but to modified blasters.
 useWith: weapon
 hpRequired: 1
 rarity: 4
-baseModifier: User may fire ascension gun at an anchor point within medium range with an **Easy
-  (<difficulty></difficulty>) Ranged Light** or **Coordination check**, adding <setback></setback> for precise
-  placement. May asend one range band every round.
+baseModifier:
+  description: User may fire ascension gun at an anchor point within medium range with an **Easy (<difficulty></difficulty>) Ranged Light** or **Coordination check**, adding <setback></setback> for precise placement. May asend one range band every round.
 modOptions:
-  - Add <boost></boost> to checks to fire ascension gun
-  - Increase ascension gun speed by one range band per round
+  - description: Add <boost></boost> to checks to fire ascension gun
+  - description: Increase ascension gun speed by one range band per round
 reference:
   - RotS:61
 includedModels:

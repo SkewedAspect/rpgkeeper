@@ -169,7 +169,10 @@
 
                 <BTabs class="mt-3" content-class="mt-2">
                     <BTab title="Qualities" active>
-                        <QualityEdit v-model:qualities="editWeapon.qualities" />
+                        <QualityEdit
+                            v-model:qualities="editWeapon.qualities"
+                            :attachment-refs="editWeapon.attachments"
+                        />
                     </BTab>
                     <BTab>
                         <template #title>

@@ -1,17 +1,16 @@
 id: eote-attachment-tripod-mount
 name: Tripod Mount
-description: Designed for use with the heaviest man-portable weapons, tripods are a common sight among heavy weapon
-  squads. Used in static weapon emplacements to support heavy squad support weapons such as the Imperial Army's E-Web
-  heavy repeating blaster, tripods use a number of different technologies—from self-extending hydraulics to tiny,
-  low-output repulsorlift generators—to stabilize heavy weapons for firing. This attachment is only for use on light
-  repeating blasters and heavy repeating blasters, as well as any portable Gunnery weapons. Setting up a tripod takes
-  two preparation maneuvers.
+description: Designed for use with the heaviest man-portable weapons, tripods are a common sight among heavy weapon squads. Used in static weapon emplacements to support heavy squad support weapons such as the Imperial Army's E-Web heavy repeating blaster, tripods use a number of different technologies—from self-extending hydraulics to tiny, low-output repulsorlift generators—to stabilize heavy weapons for firing. This attachment is only for use on light repeating blasters and heavy repeating blasters, as well as any portable Gunnery weapons. Setting up a tripod takes two preparation maneuvers.
 useWith: weapon
 hpRequired: 2
 rarity: 3
-baseModifier: Cumbersome
+baseModifier:
+  qualities:
+    - id: eote-quality-cumbersome
 modOptions:
-  - Cumbersome +1
+  - qualities:
+      - id: eote-quality-cumbersome
+        ranks: 1
 reference:
   - E-CRB:193
   - A-CRB:204

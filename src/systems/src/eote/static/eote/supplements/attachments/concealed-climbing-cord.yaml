@@ -1,14 +1,11 @@
 id: eote-attachment-concealed-climbing-cord
 name: Concealed Climbing Cord
-description: This mod consists of a small retracting spool wrapped with twenty-five meters of thin, high tensile
-  strength climbing line, connected to a small, spring-loaded grappling hook. Typically built into a belt, sash, or
-  other load-bearing strap, a concealed climbing cord can get an agent into and out of a lot of trouble in a variety of
-  mission settings.
+description: This mod consists of a small retracting spool wrapped with twenty-five meters of thin, high tensile strength climbing line, connected to a small, spring-loaded grappling hook. Typically built into a belt, sash, or other load-bearing strap, a concealed climbing cord can get an agent into and out of a lot of trouble in a variety of mission settings.
 useWith: weapon
 hpRequired: 0
 rarity: 2
-baseModifier: Grants the user a length of climbing cord with grappling hook. This counts as having the Right Tool for
-  the Job for climbing and repelling.
+baseModifier:
+  description: Grants the user a length of climbing cord with grappling hook. This counts as having the Right Tool for the Job for climbing and repelling.
 modOptions: []
 reference:
   - CaM:59

@@ -1,20 +1,22 @@
 id: eote-attachment-solari-crystal
 name: Solari Crystal
-description: As rare as this type of kyber crystal is, some do find their way into the hands of Force sensitives highly
-  attuned to the light side of the Force. Tales of solari kyber crystals come from the ancient past, and they have long
-  been thought to be mere myths. However, they do exist, and it is a lucky Force user who can find one and make use of
-  it. Or perhaps it is the will of the Force that those most in tune with the light side should happen upon them. They
-  are not put to use lightly, though, for they demand much of their wielder. In exchange, they provide unparalleled
-  protection against incoming fire. A solari crystal causes a lightsaber's blade to widen, thereby making much more
-  effective at deflecting blaster bolts. A solari crystal is a lightsaber crystal.
+description: As rare as this type of kyber crystal is, some do find their way into the hands of Force sensitives highly attuned to the light side of the Force. Tales of solari kyber crystals come from the ancient past, and they have long been thought to be mere myths. However, they do exist, and it is a lucky Force user who can find one and make use of it. Or perhaps it is the will of the Force that those most in tune with the light side should happen upon them. They are not put to use lightly, though, for they demand much of their wielder. In exchange, they provide unparalleled protection against incoming fire. A solari crystal causes a lightsaber's blade to widen, thereby making much more effective at deflecting blaster bolts. A solari crystal is a lightsaber crystal.
 useWith: weapon
 hpRequired: 3
 rarity: 9
-baseModifier: Damage set to 7; Critical set to 2; Breach 1; Sunder 1; Defensive 1; Reduce strain from Reflect incidental
-  by 1.; Crystal ceases to function if wielder's Morality is reduced below 50.
+baseModifier:
+  description: Damage set to 7; Critical set to 2; ; ; ; Reduce strain from Reflect incidental by 1.; Crystal ceases to function if wielder's Morality is reduced below 50.
+  qualities:
+    - id: eote-quality-defensive
+      ranks: 1
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
 modOptions:
-  - +1 Damage
-  - Defensive +1
-  - Reduce cost of Improved Reflect by <threat></threat>
+  - damageModifier: 1
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+  - description: Reduce cost of Improved Reflect by <threat></threat>
 reference:
   - DoH:53

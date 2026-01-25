@@ -1,17 +1,14 @@
 id: eote-attachment-smartmed-2000-integrated-med-systems
 name: SmartMed 2000 Integrated Med-Systems
-description: For some, it is not enough for their armor to simply prevent injury—it must lessen the effects of those
-  wounds they do suffer. Integrated med-systems range from automated stim-injectors to sophisticated medical computers
-  and full-body bacta baths. Though they can never replace a doctor or medical droid, these med-systems can keep the
-  user alive long enough to get proper treatment, or to continue fighting despite his wounds. This attachment can be
-  added to any armor that covers the majority of the wearer's body, subject to the GM's discretion.
+description: For some, it is not enough for their armor to simply prevent injury—it must lessen the effects of those wounds they do suffer. Integrated med-systems range from automated stim-injectors to sophisticated medical computers and full-body bacta baths. Though they can never replace a doctor or medical droid, these med-systems can keep the user alive long enough to get proper treatment, or to continue fighting despite his wounds. This attachment can be added to any armor that covers the majority of the wearer's body, subject to the GM's discretion.
 useWith: armor
 hpRequired: 2
 rarity: 7
-baseModifier: Once per session, may apply stimpack as incidental.; All Medicine checks made to heal wearer gain
-  <boost></boost>.; +1 Encumbrance
+baseModifier:
+  encumbranceModifier: 1
+  description: Once per session, may apply stimpack as incidental.; All Medicine checks made to heal wearer gain <boost></boost>.
 modOptions:
-  - +1 Medicine check heals additional wound
-  - +1 Medicine check heals additional wound
+  - description: +1 Medicine check heals additional wound
+  - description: +1 Medicine check heals additional wound
 reference:
   - DC:53

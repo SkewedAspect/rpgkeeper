@@ -1,15 +1,13 @@
 id: eote-attachment-custom-fit
 name: Custom Fit
-description: Although standard "off-the-shelf" armor can provide invaluable protection, it can also prove bulky or
-  awkward, even after adjustments. For those who require their armor to feel like a second skin, personalized
-  customization can make a drastic difference. Such  work requires a skilled armorer, but it can make body armor a much
-  more enticing option for some. This attachment can be applied to any armor.
+description: Although standard "off-the-shelf" armor can provide invaluable protection, it can also prove bulky or awkward, even after adjustments. For those who require their armor to feel like a second skin, personalized customization can make a drastic difference. Such  work requires a skilled armorer, but it can make body armor a much more enticing option for some. This attachment can be applied to any armor.
 useWith: armor
 hpRequired: 1
 rarity: 3
-baseModifier: Removes <setback></setback> from Athletics and Stealth checks.
+baseModifier:
+  description: Removes <setback></setback> from Athletics and Stealth checks.
 modOptions:
-  - Remove an additional <setback></setback> from Athletics and Stealth checks
+  - description: Remove an additional <setback></setback> from Athletics and Stealth checks
 reference:
   - SM:57
 includedModels:

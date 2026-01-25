@@ -1,19 +1,17 @@
 id: eote-attachment-vaksai-modification-package
 name: Vaksai Modification Package
-description: A prefabricated kit of starship modifications sold by TransGalMeg for their Kihraxz modular light
-  starfighter, this package includes upgraded engines and flight control systems, a heavier weapons loadout, and a
-  higher-out-put shield generator. While expensive, those Kihraxz pilots who can afford it swear by the added
-  survivability and firepower it provides, allowing the fighter to engage heavier targets and emerge victorious.
+description: A prefabricated kit of starship modifications sold by TransGalMeg for their Kihraxz modular light starfighter, this package includes upgraded engines and flight control systems, a heavier weapons loadout, and a higher-out-put shield generator. While expensive, those Kihraxz pilots who can afford it swear by the added survivability and firepower it provides, allowing the fighter to engage heavier targets and emerge victorious.
 useWith: vehicle
 hpRequired: 2
 rarity: 7
-baseModifier: Set Armor; Handling set to 1; Set Aft Defense
+baseModifier:
+  description: Set Armor; Handling set to 1; Set Aft Defense
 modOptions:
-  - Vaksai-class starfighter modification
-  - +1 Fore Defense
-  - +1 System Strain Threshold
-  - +1 System Strain Threshold
-  - +1 System Strain Threshold
+  - description: Vaksai-class starfighter modification
+  - description: +1 Fore Defense
+  - description: +1 System Strain Threshold
+  - description: +1 System Strain Threshold
+  - description: +1 System Strain Threshold
 reference:
   - ND:60
 includedModels:

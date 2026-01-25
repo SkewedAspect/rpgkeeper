@@ -10,7 +10,9 @@ description: |-
 useWith: weapon
 hpRequired: 1
 rarity: 2
-baseModifier: +3 Encumbrance Threshold
+baseModifier:
+  encumbranceModifier: 3
+  description: Threshold
 modOptions: []
 reference:
   - FiB:55

@@ -1,17 +1,17 @@
 id: eote-attachment-walking-stick-hilt-disguise
 name: Walking Stick Hilt Disguise
-description: Often, particularly elderly Jedi constructed their lightsabers in the body of a sturdy walking stick. If
-  the blade is a Jedi's life, why shouldn't it make things a little easier? The pure utility of this practice fell out
-  of favor with the Jedi Order. Most elderly Jedi did not, after all, survive the Purge. Survivors, though, found a
-  similar technique could hide their weapons in plain sight. This concealment does come with a cost. The awkward size
-  and inconsistent weighting often interferes with use in heated combat.
+description: Often, particularly elderly Jedi constructed their lightsabers in the body of a sturdy walking stick. If the blade is a Jedi's life, why shouldn't it make things a little easier? The pure utility of this practice fell out of favor with the Jedi Order. Most elderly Jedi did not, after all, survive the Purge. Survivors, though, found a similar technique could hide their weapons in plain sight. This concealment does come with a cost. The awkward size and inconsistent weighting often interferes with use in heated combat.
 useWith: weapon
 hpRequired: 1
 rarity: 6
-baseModifier: Unless ignited, must pass **Formidable
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)
-  Perception** or **Vigilance check** to notice it is not a regular walking stick.; Inaccurate 1
+baseModifier:
+  description: Unless ignited, must pass **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception** or **Vigilance check** to notice it is not a regular walking stick.
+  qualities:
+    - id: eote-quality-inaccurate
+      ranks: 1
 modOptions:
-  - -1 Inaccurate
+  - description: "-1"
+    qualities:
+      - id: eote-quality-inaccurate
 reference:
   - UP:55

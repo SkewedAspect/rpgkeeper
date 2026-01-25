@@ -1,21 +1,16 @@
 id: eote-attachment-all-terrain-legs
 name: All-Terrain Legs
-description: Although ion drives and repulsorlifts dominate the galaxy, the continued use of walkers by the Empire and
-  certain planetary militias is testament tot eh advantages of such craft. Walkers are stable, implacable and usually
-  intimidating. For those who want true versatility from their craft, speeders and eve starships can be modified with
-  the addition of a number, depending on the size and shape of the vehicle, of sturdy mechanical legs. In some cases,
-  these might be mistaken for simple landing gear - until the vehicle begins to stomp forward. This attachment can be
-  applied to any airspeeder or starship that can land on a planet.
+description: Although ion drives and repulsorlifts dominate the galaxy, the continued use of walkers by the Empire and certain planetary militias is testament tot eh advantages of such craft. Walkers are stable, implacable and usually intimidating. For those who want true versatility from their craft, speeders and eve starships can be modified with the addition of a number, depending on the size and shape of the vehicle, of sturdy mechanical legs. In some cases, these might be mistaken for simple landing gear - until the vehicle begins to stomp forward. This attachment can be applied to any airspeeder or starship that can land on a planet.
 useWith: vehicle
 hpRequired: 2
 rarity: 5
-baseModifier: As a maneuver, pilot may shift in or out of walker mode. In walker mode, pilot uses Piloting (Planetary)
-  and speed is reduced to 2.
+baseModifier:
+  description: As a maneuver, pilot may shift in or out of walker mode. In walker mode, pilot uses Piloting (Planetary) and speed is reduced to 2.
 modOptions:
-  - Remove <setback></setback> from Piloting (Planetary) checks due to difficult terrain
-  - Remove <setback></setback> from Piloting (Planetary) checks due to difficult terrain
-  - Remove <setback></setback> from Gunnery checks due to cover or terrain
-  - Remove <setback></setback> from Gunnery checks due to cover or terrain
+  - description: Remove <setback></setback> from Piloting (Planetary) checks due to difficult terrain
+  - description: Remove <setback></setback> from Piloting (Planetary) checks due to difficult terrain
+  - description: Remove <setback></setback> from Gunnery checks due to cover or terrain
+  - description: Remove <setback></setback> from Gunnery checks due to cover or terrain
 reference:
   - SM:65
 includedModels:

@@ -16,11 +16,12 @@ description: |-
 useWith: vehicle
 hpRequired: 1
 rarity: 4
-baseModifier: Characters utilizing a holo-tank may always use Cool or Knowledge (Warfare) when making Initiative checks.
+baseModifier:
+  description: Characters utilizing a holo-tank may always use Cool or Knowledge (Warfare) when making Initiative checks.
 modOptions:
-  - Add <advantage></advantage> to Mass Combat checks when acting force commander is on board this ship
-  - Add <advantage></advantage> to Mass Combat checks when acting force commander is on board this ship
-  - Upgrade the ability of checks when determining Initiative once
+  - description: Add <advantage></advantage> to Mass Combat checks when acting force commander is on board this ship
+  - description: Add <advantage></advantage> to Mass Combat checks when acting force commander is on board this ship
+  - description: Upgrade the ability of checks when determining Initiative once
 reference:
   - LbE:59
 includedModels:

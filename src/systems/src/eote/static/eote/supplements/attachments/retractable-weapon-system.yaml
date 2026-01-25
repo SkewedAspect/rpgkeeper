@@ -1,17 +1,11 @@
 id: eote-attachment-retractable-weapon-system
 name: Retractable Weapon System
-description: A staple of spies and infiltrators, this simple mechanical apparatus deploys and retracts a weapon from a
-  hidden spot aboard a ship or vehicle. The does not include the weapon, just the retractable mechanism and the work
-  done to make a concealed space for the weapon beneath duralloy or other hull plates. This attachment can be applied to
-  any starship or vehicle.
+description: A staple of spies and infiltrators, this simple mechanical apparatus deploys and retracts a weapon from a hidden spot aboard a ship or vehicle. The does not include the weapon, just the retractable mechanism and the work done to make a concealed space for the weapon beneath duralloy or other hull plates. This attachment can be applied to any starship or vehicle.
 useWith: vehicle
 hpRequired: 1
 rarity: 6
-baseModifier: Provides a vehicle with a hidden compartment and a device for deploying a weapon. Deploying or retracting
-  a weapon requires a maneuver. Discovering a retractable weapon system requires a **Hard
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check** and a thorough search
-  of the ship or vehicle in question. The GM has final say if a weapon is suitable for the retraction system based on
-  the size of the ship or vehicle.
+baseModifier:
+  description: Provides a vehicle with a hidden compartment and a device for deploying a weapon. Deploying or retracting a weapon requires a maneuver. Discovering a retractable weapon system requires a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check** and a thorough search of the ship or vehicle in question. The GM has final say if a weapon is suitable for the retraction system based on the size of the ship or vehicle.
 modOptions: []
 reference:
   - CaM:63

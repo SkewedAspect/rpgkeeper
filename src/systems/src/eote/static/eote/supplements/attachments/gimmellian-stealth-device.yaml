@@ -1,16 +1,14 @@
 id: eote-attachment-gimmellian-stealth-device
 name: Gimmellian Stealth Device
-description: >-
-  Reduces the range band of enemy ships’ passive sensors by 1 (to a minimum of close range) for detecting the Tallanx.
-  In order to function, all power from shields and weapons must be channeled into the cloaking device. Rerouting power
-  takes one action.
+description: |-
+  Reduces the range band of enemy ships’ passive sensors by 1 (to a minimum of close range) for detecting the Tallanx. In order to function, all power from shields and weapons must be channeled into the cloaking device. Rerouting power takes one action.
         
   _This is an optional no-cost attachment for the Tallanx-Class Stealth Fighter and the Darvro-Class Light Freighter._
 useWith: vehicle
 hpRequired: 0
 rarity: 9
-baseModifier: Reduces range band of enemy ships' passive sensors by 1 (to a minimum of close range) for detecting the
-  Tallanx.; All power for shields and weapons must be rerouted to device for it to work. Rerouting takes one action.
+baseModifier:
+  description: Reduces range band of enemy ships' passive sensors by 1 (to a minimum of close range) for detecting the Tallanx.; All power for shields and weapons must be rerouted to device for it to work. Rerouting takes one action.
 modOptions: []
 reference:
   - SoR:118

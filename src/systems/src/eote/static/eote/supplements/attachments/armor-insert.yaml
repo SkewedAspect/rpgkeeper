@@ -1,21 +1,15 @@
 id: eote-attachment-armor-insert
 name: Armor Insert
-description: Armor inserts are thin, flexible, plasteel and ballistic gel plates that can be sewn into clothing to give
-  the wearer concealed armor protection. They can be added to any garment that is suitably large and alter- able, and
-  they can be installed by any skilled tailor for a moderate fee. This attachment can be applied to any armor with a
-  defense no greater than 0 and a soak of 1 or less.
+description: Armor inserts are thin, flexible, plasteel and ballistic gel plates that can be sewn into clothing to give the wearer concealed armor protection. They can be added to any garment that is suitably large and alter- able, and they can be installed by any skilled tailor for a moderate fee. This attachment can be applied to any armor with a defense no greater than 0 and a soak of 1 or less.
 useWith: armor
 hpRequired: 0
 rarity: 3
-baseModifier: Turns any article of clothing into armored clothing.; Characters can notice the inclusion of armor inserts
-  in clothing by making an **Average (<difficulty></difficulty><difficulty></difficulty>) Perception check**.; SOAKSET;
-  DEFSET; Armor inserts can be noticed by making an **Average (<difficulty></difficulty><difficulty></difficulty>)
-  Perception check**.
+baseModifier:
+  description: Turns any article of clothing into armored clothing.; Characters can notice the inclusion of armor inserts in clothing by making an **Average (<difficulty></difficulty><difficulty></difficulty>) Perception check**.; SOAKSET; DEFSET; Armor inserts can be noticed by making an **Average (<difficulty></difficulty><difficulty></difficulty>) Perception check**.
 modOptions:
-  - +1 Soak
-  - +1 Defense
-  - Increase difficulty of check to notice inclusion to
-    **Hard(<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)**
+  - soakModifier: 1
+  - defenseModifier: 1
+  - description: Increase difficulty of check to notice inclusion to **Hard(<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)**
 reference:
   - CaM:57
 includedModels:

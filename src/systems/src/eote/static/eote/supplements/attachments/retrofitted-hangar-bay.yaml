@@ -1,17 +1,17 @@
 id: eote-attachment-retrofitted-hangar-bay
 name: Retrofitted Hangar Bay
-description: Some starships or vehicles can be converted to carry additional, smaller vehicles within retrofitted holds.
-  May only be used by ships of silhouette 5 and larger.
+description: Some starships or vehicles can be converted to carry additional, smaller vehicles within retrofitted holds. May only be used by ships of silhouette 5 and larger.
 useWith: vehicle
 hpRequired: 2
 rarity: 3
-baseModifier: Add hangar bay
+baseModifier:
+  description: Add hangar bay
 modOptions:
-  - +1 Hangar capacity (Silhouette)
-  - +1 Hangar capacity (Silhouette)
-  - +1 Hangar capacity (Silhouette)
-  - +1 Hangar capacity (Silhouette)
-  - +1 Hangar capacity (Silhouette)
+  - description: +1 Hangar capacity (Silhouette)
+  - description: +1 Hangar capacity (Silhouette)
+  - description: +1 Hangar capacity (Silhouette)
+  - description: +1 Hangar capacity (Silhouette)
+  - description: +1 Hangar capacity (Silhouette)
 reference:
   - E-CRB:271
   - A-CRB:287

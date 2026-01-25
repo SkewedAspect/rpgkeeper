@@ -1,18 +1,18 @@
 id: eote-attachment-reflex-grip
 name: Reflex Grip
-description: Through a delicate system of motion sensors and miniaturized motors built into a lightsaber hilt, a
-  craftsperson can alter the lightsaber to respond to adjustments in grip and position with greater responsiveness. The
-  split-second edge granted by this system allows a combatant to more easily parry an opponent's decisive stroke or
-  block each of a hail of blaster bolts. Controlling the system and keeping it from overreacting to minute or
-  inadvertent motions can be difficult to master, but the defensive advantage of a reflex grip can be worth the extra
-  practice.
+description: Through a delicate system of motion sensors and miniaturized motors built into a lightsaber hilt, a craftsperson can alter the lightsaber to respond to adjustments in grip and position with greater responsiveness. The split-second edge granted by this system allows a combatant to more easily parry an opponent's decisive stroke or block each of a hail of blaster bolts. Controlling the system and keeping it from overreacting to minute or inadvertent motions can be difficult to master, but the defensive advantage of a reflex grip can be worth the extra practice.
 useWith: weapon
 hpRequired: 2
 rarity: 8
-baseModifier: When lightsaber is used to Parry or Reflect, suffer 1 additional strain, but count Parry and Reflect ranks as 1 higher.
+baseModifier:
+  description: When lightsaber is used to Parry or Reflect, suffer 1 additional strain, but count Parry and Reflect ranks as 1 higher.
 modOptions:
-  - Defensive +1
-  - Deflection +1
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+  - qualities:
+      - id: eote-quality-deflection
+        ranks: 1
 reference:
   - EV:52
 includedModels:

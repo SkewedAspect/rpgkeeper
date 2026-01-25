@@ -1,17 +1,14 @@
 id: eote-attachment-reflec-shadowskin
 name: Reflec Shadowskin
-description: An advanced, light-absorbing polymer that can be applied to armor, reflec shadowskin coating can enhance
-  the stealth abilities of its wearer - anyone wearing armor covered in this substance can easily blend into the
-  shadows. While this coating does not make the wearer invisible, it does mean that observers who only catch a glimpse
-  are far less likely to register what they saw or believe it to be anything more than a trick of the light. This
-  attachment can only be applied to armor with a soak of 2 or lower.
+description: An advanced, light-absorbing polymer that can be applied to armor, reflec shadowskin coating can enhance the stealth abilities of its wearer - anyone wearing armor covered in this substance can easily blend into the shadows. While this coating does not make the wearer invisible, it does mean that observers who only catch a glimpse are far less likely to register what they saw or believe it to be anything more than a trick of the light. This attachment can only be applied to armor with a soak of 2 or lower.
 useWith: armor
 hpRequired: 1
 rarity: 6
-baseModifier: Add automatic <advantage></advantage> to Stealth checks
+baseModifier:
+  description: Add automatic <advantage></advantage> to Stealth checks
 modOptions:
-  - Gain Stalker (add <boost></boost> to Coordination/Stealth checks)
-  - Add <setback></setback> to Perception checks to see wearer
-  - Add <setback></setback> to Perception checks to see wearer
+  - description: Gain Stalker (add <boost></boost> to Coordination/Stealth checks)
+  - description: Add <setback></setback> to Perception checks to see wearer
+  - description: Add <setback></setback> to Perception checks to see wearer
 reference:
   - KtP:57

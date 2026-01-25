@@ -1,13 +1,11 @@
 id: eote-attachment-laser-focusing-array
 name: Laser Focusing Array
-description: Laser cannons are the mainstay weapons of many ships, and manufacturers constantly compete to outdo each
-  other in their products' power, accuracy, and rate of fire. As well as consistently bringing new models to market,
-  some manufacturers produce aftermarket upgrades to improve performance. Of course, many Technicians find their own
-  ways to improve weapons systems through - often dangerous - tinkering, This attachment can be applied to any starship.
+description: Laser cannons are the mainstay weapons of many ships, and manufacturers constantly compete to outdo each other in their products' power, accuracy, and rate of fire. As well as consistently bringing new models to market, some manufacturers produce aftermarket upgrades to improve performance. Of course, many Technicians find their own ways to improve weapons systems through - often dangerous - tinkering, This attachment can be applied to any starship.
 useWith: vehicle
 hpRequired: 2
 rarity: 6
-baseModifier: Add automatic <advantage></advantage> to combat checks made with the ship's laser cannons and turbolasers.
+baseModifier:
+  description: Add automatic <advantage></advantage> to combat checks made with the ship's laser cannons and turbolasers.
 modOptions: []
 reference:
   - SM:66

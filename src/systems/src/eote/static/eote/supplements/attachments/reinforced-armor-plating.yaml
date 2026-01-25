@@ -1,14 +1,13 @@
 id: eote-attachment-reinforced-armor-plating
 name: Reinforced Armor Plating
-description: Over the millennia, manufacturers and shipwrights across the galaxy have developed countless esoteric
-  methods of protecting a vehicle or starship, from deflector screens to proton shields to ion diffusers. Still, for
-  many Alliance engineers, it's hard to beat extra durasteel layers for cost-effective protection.
+description: Over the millennia, manufacturers and shipwrights across the galaxy have developed countless esoteric methods of protecting a vehicle or starship, from deflector screens to proton shields to ion diffusers. Still, for many Alliance engineers, it's hard to beat extra durasteel layers for cost-effective protection.
 useWith: vehicle
 hpRequired: 2
 rarity: 2
-baseModifier: +2 Armor; -1 Handling
+baseModifier:
+  description: +2 Armor; -1 Handling
 modOptions:
-  - +3 Hull Trauma Threshold
-  - +3 Hull Trauma Threshold
+  - description: +3 Hull Trauma Threshold
+  - description: +3 Hull Trauma Threshold
 reference:
   - FO:61

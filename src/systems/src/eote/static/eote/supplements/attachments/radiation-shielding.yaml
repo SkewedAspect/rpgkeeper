@@ -1,18 +1,14 @@
 id: eote-attachment-radiation-shielding
 name: Radiation Shielding
-description: The galaxy contains many perils, but one of the most common is radiation. From the depths of space to
-  polluted industrial zones, radiation hazards both natural and artificial are a frequent threat to spacers. Although
-  spacesuits provide a degree of protection and specialized hazard suits are available, some individuals prefer to also
-  be protected from blaster bolts and blades. A variety of polymers, reflective coatings, and energy dampeners can be
-  fitted or applied to armour to provide protection from radiation. This attachment can only be applied to laminate
-  armor, heavy battle armor, and any other armor that can be fully sealed.
+description: The galaxy contains many perils, but one of the most common is radiation. From the depths of space to polluted industrial zones, radiation hazards both natural and artificial are a frequent threat to spacers. Although spacesuits provide a degree of protection and specialized hazard suits are available, some individuals prefer to also be protected from blaster bolts and blades. A variety of polymers, reflective coatings, and energy dampeners can be fitted or applied to armour to provide protection from radiation. This attachment can only be applied to laminate armor, heavy battle armor, and any other armor that can be fully sealed.
 useWith: armor
 hpRequired: 1
 rarity: 3
-baseModifier: Add <boost></boost><boost></boost> to Resilience checks to resist radiation.
+baseModifier:
+  description: Add <boost></boost><boost></boost> to Resilience checks to resist radiation.
 modOptions:
-  - Increase armor's soak by 1 against damage caused by radiation
-  - Increase armor's soak by 1 against damage caused by radiation
+  - description: Increase armor's soak by 1 against damage caused by radiation
+  - description: Increase armor's soak by 1 against damage caused by radiation
 reference:
   - SM:58
 includedModels:

@@ -1,21 +1,15 @@
 id: eote-attachment-advanced-subspace-encryption-array
 name: Advanced Subspace Encryption Array
-description: The Empire's tight grip on the HoloNet forces the Rebellion to rely primarily on subspace transceivers for
-  communications. However. subspace transceivers have a much more limited range than HoloNet transmissions, requiring
-  frequent relays across additional networks before reaching the intended recipient. Risk of interception of a relayed
-  transmission limits Rebel operations, forcing them to rely on courier ships and secret comm stations for long-range
-  communication. However, ships with advanced encryption algorithms can send coded transmissions that blend with normal
-  traffic, rendering them nearly undetectable and all but indecipherable even if they are intercepted.
+description: The Empire's tight grip on the HoloNet forces the Rebellion to rely primarily on subspace transceivers for communications. However. subspace transceivers have a much more limited range than HoloNet transmissions, requiring frequent relays across additional networks before reaching the intended recipient. Risk of interception of a relayed transmission limits Rebel operations, forcing them to rely on courier ships and secret comm stations for long-range communication. However, ships with advanced encryption algorithms can send coded transmissions that blend with normal traffic, rendering them nearly undetectable and all but indecipherable even if they are intercepted.
 useWith: vehicle
 hpRequired: 1
 rarity: 7
-baseModifier: Only the intended recipient can detect a transmission sent with this attachment without a **Hard
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check**.; Upgrade the
-  difficulty of any checks to intercept or decipher transmissions made from this attachment once.
+baseModifier:
+  description: Only the intended recipient can detect a transmission sent with this attachment without a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check**.; Upgrade the difficulty of any checks to intercept or decipher transmissions made from this attachment once.
 modOptions:
-  - Add <setback></setback> to enemy detection check
-  - Add <setback></setback> to enemy detection check
-  - Add <setback></setback> to enemy interception or deciphering check
-  - Add <setback></setback> to enemy interception or deciphering check
+  - description: Add <setback></setback> to enemy detection check
+  - description: Add <setback></setback> to enemy detection check
+  - description: Add <setback></setback> to enemy interception or deciphering check
+  - description: Add <setback></setback> to enemy interception or deciphering check
 reference:
   - DA:65

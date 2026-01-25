@@ -1,16 +1,14 @@
 id: eote-attachment-electronic-sighting-system
 name: Electronic Sighting System
-description: By adding a small electronic device to the top of a blaster or other ranged weapon, a small holographic
-  crosshair is projected a meter out from the weapon’s barrel. This increases accuracy by reducing the time it takes for
-  the user to aim. Unfortunately, the holographic crosshair is readily visible to anyone on the weapon’s receiving end,
-  especially in conditions of darkness or low light. This attachment can be used on any ranged weapon that could
-  logically benefit from the addition of a sight.
+description: By adding a small electronic device to the top of a blaster or other ranged weapon, a small holographic crosshair is projected a meter out from the weapon’s barrel. This increases accuracy by reducing the time it takes for the user to aim. Unfortunately, the holographic crosshair is readily visible to anyone on the weapon’s receiving end, especially in conditions of darkness or low light. This attachment can be used on any ranged weapon that could logically benefit from the addition of a sight.
 useWith: weapon
 hpRequired: 1
 rarity: 4
-baseModifier: Allows shooter to aim as an incidental once per round at short range. Decreases the difficulty of
-  Perception checks to locate the shooter in low light conditions by 1.
+baseModifier:
+  description: Allows shooter to aim as an incidental once per round at short range. Decreases the difficulty of Perception checks to locate the shooter in low light conditions by 1.
 modOptions:
-  - Accurate +1
+  - qualities:
+      - id: eote-quality-accurate
+        ranks: 1
 reference:
   - SoR:110

@@ -1,18 +1,14 @@
 id: eote-attachment-ram-attachment
 name: Ram Attachment
-description: For the most part, collisions with other ships, vehicles, or obstacles are to be avoided at all costs.
-  There are times, however, when a desperate situation calls for a desperate measure and a pilot or driver must use his
-  vehicle as a weapon. A number of bolt-on accessories for ships and vehicles are produced by major vehicle
-  manufacturers that protect and reinforce prows or forward sections against collision. Items such as bantha bars,
-  sloped fenders known colloquially as "nerfcatchers," and custom-fit reinforced hull plating are all examples of the
-  rich after market dedicated to protecting a vehicle in case of collision.
+description: For the most part, collisions with other ships, vehicles, or obstacles are to be avoided at all costs. There are times, however, when a desperate situation calls for a desperate measure and a pilot or driver must use his vehicle as a weapon. A number of bolt-on accessories for ships and vehicles are produced by major vehicle manufacturers that protect and reinforce prows or forward sections against collision. Items such as bantha bars, sloped fenders known colloquially as "nerfcatchers," and custom-fit reinforced hull plating are all examples of the rich after market dedicated to protecting a vehicle in case of collision.
 useWith: vehicle
 hpRequired: 2
 rarity: 3
-baseModifier: Treats the starship or vehicle's defense as 2 higher when instigating a collision.
+baseModifier:
+  description: Treats the starship or vehicle's defense as 2 higher when instigating a collision.
 modOptions:
-  - Add 1 more defense when instigating a collision.
-  - Add 1 more defense when instigating a collision.
+  - description: Add 1 more defense when instigating a collision.
+  - description: Add 1 more defense when instigating a collision.
 reference:
   - SoT:65
 includedModels:

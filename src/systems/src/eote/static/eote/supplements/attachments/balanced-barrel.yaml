@@ -1,15 +1,17 @@
 id: eote-attachment-balanced-barrel
 name: Balanced Barrel
-description: Adding a functional barrel to a rivet gun can give it dramatically more range and accuracy as a shooting
-  weapon. Of course, such an addition also makes it obvious that the device is liable to be fired at range, as few
-  Technicians can make a coherent case that they legitimately need to be able to bolt hull plates onto a ship with
-  pinpoint accuracy at a distance of several meters.
+description: Adding a functional barrel to a rivet gun can give it dramatically more range and accuracy as a shooting weapon. Of course, such an addition also makes it obvious that the device is liable to be fired at range, as few Technicians can make a coherent case that they legitimately need to be able to bolt hull plates onto a ship with pinpoint accuracy at a distance of several meters.
 useWith: weapon
 hpRequired: 1
 rarity: 3
-baseModifier: +1 Range Band
+baseModifier:
+  description: +1 Range Band
 modOptions:
-  - -1 Inaccurate
-  - -1 Inaccurate
+  - description: "-1"
+    qualities:
+      - id: eote-quality-inaccurate
+  - description: "-1"
+    qualities:
+      - id: eote-quality-inaccurate
 reference:
   - SM:46

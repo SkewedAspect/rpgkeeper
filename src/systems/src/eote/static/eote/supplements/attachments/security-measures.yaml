@@ -1,17 +1,14 @@
 id: eote-attachment-security-measures
 name: Security Measures
-description: There are few things to befall a ship owner more dreaded than to have a craft disappear from an unsecured
-  landing pad. Even aside from the threat of theft, there are many reasons why a crew might want to keep uninvited
-  guests off their ship while it's unattended - especially for any crew engaged in less-than-legal pursuits. Upgraded
-  mag-locks, decoy control panels, reinforced hatches and enhanced security protocols can ensure that a ship goes
-  undisturbed while at port. This attachment can be applied to any vehicle or starship.
+description: There are few things to befall a ship owner more dreaded than to have a craft disappear from an unsecured landing pad. Even aside from the threat of theft, there are many reasons why a crew might want to keep uninvited guests off their ship while it's unattended - especially for any crew engaged in less-than-legal pursuits. Upgraded mag-locks, decoy control panels, reinforced hatches and enhanced security protocols can ensure that a ship goes undisturbed while at port. This attachment can be applied to any vehicle or starship.
 useWith: vehicle
 hpRequired: 0
 rarity: 4
-baseModifier: Upgrade the difficulty Computers and Skulduggery checks made to gain unauthorized access to the ship twice.
+baseModifier:
+  description: Upgrade the difficulty Computers and Skulduggery checks made to gain unauthorized access to the ship twice.
 modOptions:
-  - Add <setback></setback> to Computers and Skulduggery checks made to gain unauthorized access to the ship
-  - Add <setback></setback> to Computers and Skulduggery checks made to gain unauthorized access to the ship
+  - description: Add <setback></setback> to Computers and Skulduggery checks made to gain unauthorized access to the ship
+  - description: Add <setback></setback> to Computers and Skulduggery checks made to gain unauthorized access to the ship
 reference:
   - SM:67
 includedModels:

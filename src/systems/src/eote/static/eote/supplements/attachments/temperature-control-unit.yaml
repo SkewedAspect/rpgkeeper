@@ -8,7 +8,8 @@ description: |-
 useWith: weapon
 hpRequired: 1
 rarity: 3
-baseModifier: Removes up to <setback></setback><setback></setback> from checks to resist extreme heat or cold.
+baseModifier:
+  description: Removes up to <setback></setback><setback></setback> from checks to resist extreme heat or cold.
 modOptions: []
 reference:
   - FiB:55

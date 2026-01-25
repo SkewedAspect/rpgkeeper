@@ -12,11 +12,12 @@ description: |-
 useWith: vehicle
 hpRequired: 2
 rarity: 6
-baseModifier: While active, force commander on the bridge upgrades the ability of all Mass Combat checks twice
+baseModifier:
+  description: While active, force commander on the bridge upgrades the ability of all Mass Combat checks twice
 modOptions:
-  - Gain an additional <advantage></advantage> on Mass Combat checks
-  - Gain an additional <advantage></advantage> on Mass Combat checks
-  - Remove <setback></setback> from Mass Combat checks
+  - description: Gain an additional <advantage></advantage> on Mass Combat checks
+  - description: Gain an additional <advantage></advantage> on Mass Combat checks
+  - description: Remove <setback></setback> from Mass Combat checks
 reference:
   - LbE:59
 includedModels:

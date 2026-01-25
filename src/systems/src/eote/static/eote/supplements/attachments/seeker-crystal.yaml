@@ -1,23 +1,17 @@
 id: eote-attachment-seeker-crystal
 name: Seeker Crystal
-description: No one seems to know where these crystals come from or how they make their way into the hands of their
-  users. Rumors persist of markets so dark that none but a handful of beings know about them. Other rumors suggest that
-  these crystals have an entirely different purpose and only incidentally happen to function as lightsaber crystals with
-  unusual properties. Still others say they come from the deepest edges of the galaxy, from stars yet unknown. Whatever
-  the case may be, those few that are known to exist have served their users well, allowing them to avoid ambush and
-  surprise attack. Users of these crystals seem to instinctively know when they are being secretly observed or when
-  their charges are in danger from hidden assassins. When ignited, blades produced by these crystals glow a soft pink
-  color and connect users to the Force in such a way that they are able to detect those who hide nearby. While it is not
-  a compass pointing the way to hidden beings, a wielder will know without a doubt that a concealed foe is near. A
-  seeker crystal is a lightsaber crystal.
+description: No one seems to know where these crystals come from or how they make their way into the hands of their users. Rumors persist of markets so dark that none but a handful of beings know about them. Other rumors suggest that these crystals have an entirely different purpose and only incidentally happen to function as lightsaber crystals with unusual properties. Still others say they come from the deepest edges of the galaxy, from stars yet unknown. Whatever the case may be, those few that are known to exist have served their users well, allowing them to avoid ambush and surprise attack. Users of these crystals seem to instinctively know when they are being secretly observed or when their charges are in danger from hidden assassins. When ignited, blades produced by these crystals glow a soft pink color and connect users to the Force in such a way that they are able to detect those who hide nearby. While it is not a compass pointing the way to hidden beings, a wielder will know without a doubt that a concealed foe is near. A seeker crystal is a lightsaber crystal.
 useWith: weapon
 hpRequired: 0
 rarity: 9
-baseModifier: Damage set to 7; Critical set to 2; Breach 1; Sunder 1; Force-sensitive wielders my add
-  <advantage></advantage><advantage></advantage> to Perception or Vigilance checks to detect a hidden being within short
-  range.
+baseModifier:
+  description: Damage set to 7; Critical set to 2; ; ; Force-sensitive wielders my add <advantage></advantage><advantage></advantage> to Perception or Vigilance checks to detect a hidden being within short range.
+  qualities:
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
 modOptions:
-  - +1 Damage
-  - Increase check range to medium
+  - damageModifier: 1
+  - description: Increase check range to medium
 reference:
   - DoH:53

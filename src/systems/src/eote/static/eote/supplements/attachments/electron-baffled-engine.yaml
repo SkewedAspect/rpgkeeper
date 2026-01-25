@@ -1,19 +1,17 @@
 id: eote-attachment-electron-baffled-engine
 name: Electron Baffled Engine
-description: Baffled engines not only offer increased speed due to their vectoring mechanisms, but also add additional
-  defense to the aft sections of a ship.
+description: Baffled engines not only offer increased speed due to their vectoring mechanisms, but also add additional defense to the aft sections of a ship.
 useWith: vehicle
 hpRequired: 4
 rarity: 3
-baseModifier: Changes speed to 2, defense to 0/0/0/2, and system strain to 5 x Silhouette; Speed set to 2; System Strain
-  Threshold (×Silhouette) set to 5; Fore Defense set to 1; Aft Defense set to 2; Starboard Defense set to 1; Port
-  Defense set to 1
+baseModifier:
+  description: Changes speed to 2, defense to 0/0/0/2, and system strain to 5 x Silhouette; Speed set to 2; System Strain Threshold (×Silhouette) set to 5; Fore Defense set to 1; Aft Defense set to 2; Starboard Defense set to 1; Port Defense set to 1
 modOptions:
-  - +2 Speed
-  - +2 Speed
-  - +1 System Strain Threshold (per Silhouette)
-  - +1 System Strain Threshold (per Silhouette)
-  - +1 Aft Defense
-  - +1 Aft Defense
+  - description: +2 Speed
+  - description: +2 Speed
+  - description: +1 System Strain Threshold (per Silhouette)
+  - description: +1 System Strain Threshold (per Silhouette)
+  - description: +1 Aft Defense
+  - description: +1 Aft Defense
 reference:
   - FO:81

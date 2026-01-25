@@ -1,16 +1,13 @@
 id: eote-attachment-tholothian-heartwood-hilt
 name: Tholothian Heartwood Hilt
-description: While most lightsabers have synthetic hilts, Tholothian Jedi preferred a more organic approach. At their
-  height, they crafted heartwood hilts from the timber of still-living trees The wood was then preserved in a
-  specialized ritual-one more often used when a heartwood tree was dying. The resulting hilt is resistant to decay and
-  can house a lightsaber's apparatus. The resulting lightsabers are beautiful works of art as much as they are weapons.
-  The resins used to preserve the timber increase its weight, and wielders must take appropriate care in using them.
-  This often translates to a stronger and more deliberate strike when this weapon does connect.
+description: While most lightsabers have synthetic hilts, Tholothian Jedi preferred a more organic approach. At their height, they crafted heartwood hilts from the timber of still-living trees The wood was then preserved in a specialized ritual-one more often used when a heartwood tree was dying. The resulting hilt is resistant to decay and can house a lightsaber's apparatus. The resulting lightsabers are beautiful works of art as much as they are weapons. The resins used to preserve the timber increase its weight, and wielders must take appropriate care in using them. This often translates to a stronger and more deliberate strike when this weapon does connect.
 useWith: weapon
 hpRequired: 1
 rarity: 7
-baseModifier: +1 Encumbrance; +2 Damage; GM may spend
-  <threat></threat><threat></threat><threat></threat><threat></threat> or <despair></despair> to damage by one step.
+baseModifier:
+  damageModifier: 2
+  encumbranceModifier: 1
+  description: GM may spend <threat></threat><threat></threat><threat></threat><threat></threat> or <despair></despair> to damage by one step.
 modOptions: []
 reference:
   - UP:54

@@ -1,18 +1,16 @@
 id: eote-attachment-strength-enhancing-system
 name: Strength Enhancing System
-description: Strength enhancing systems easily converts a suit of full armor into a power-assisted suit. Composed of a
-  matrix of electrically controlled myomer synthetic muscle fibers backed up with nano-hydraulics, the MSES increases a
-  wearer's raw physical strength, allowing him to lift more and carry more for longer periods of time. This attachment
-  can only be used with laminate armor or similar full-body hard armor suits.
+description: Strength enhancing systems easily converts a suit of full armor into a power-assisted suit. Composed of a matrix of electrically controlled myomer synthetic muscle fibers backed up with nano-hydraulics, the MSES increases a wearer's raw physical strength, allowing him to lift more and carry more for longer periods of time. This attachment can only be used with laminate armor or similar full-body hard armor suits.
 useWith: armor
 hpRequired: 2
 rarity: 4
-baseModifier: BR
+baseModifier:
+  description: BR
 modOptions:
-  - Add <boost></boost> to Athletics checks
-  - Add <boost></boost> to Athletics checks
-  - Add <boost></boost> to Brawl checks
-  - Add <boost></boost> to Brawl checks
+  - description: Add <boost></boost> to Athletics checks
+  - description: Add <boost></boost> to Athletics checks
+  - description: Add <boost></boost> to Brawl checks
+  - description: Add <boost></boost> to Brawl checks
 reference:
   - E-CRB:194
   - A-CRB:206

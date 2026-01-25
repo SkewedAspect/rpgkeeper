@@ -1,17 +1,14 @@
 id: eote-attachment-gunnery-droid-brain
 name: Gunnery Droid Brain
-description: Much more than a simple targeting computer, a specialized droid brain can be installed on a ship to operate
-  its weapons indepedently or assist a sentient gunner. Although GoCorp's CD-14c model continues to prove popular with
-  Technicians who want their ship to defend itself when necessary, some users complain of the droid's overly hostile
-  antagonistic behaviour. GoCorp continues to deny rumours of so-called "unanticipated activations". This attachment can
-  be applied to any vehicle or starship.
+description: Much more than a simple targeting computer, a specialized droid brain can be installed on a ship to operate its weapons indepedently or assist a sentient gunner. Although GoCorp's CD-14c model continues to prove popular with Technicians who want their ship to defend itself when necessary, some users complain of the droid's overly hostile antagonistic behaviour. GoCorp continues to deny rumours of so-called "unanticipated activations". This attachment can be applied to any vehicle or starship.
 useWith: vehicle
 hpRequired: 0
 rarity: 6
-baseModifier: Add a droid brain with Gunnery 2 and Agility 0.
+baseModifier:
+  description: Add a droid brain with Gunnery 2 and Agility 0.
 modOptions:
-  - Increase the droid brain's Gunnery skill by 1
-  - Increase the droid brain's Gunnery skill by 1
+  - description: Increase the droid brain's Gunnery skill by 1
+  - description: Increase the droid brain's Gunnery skill by 1
 reference:
   - SM:66
 includedModels:

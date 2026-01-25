@@ -1,16 +1,13 @@
 id: eote-attachment-motion-tracker
 name: Motion Tracker
-description: The sophisticated device incorporates a full suite of onboard sensors and computers to track and predict
-  the motion of a target, then feed that data back to the user through a variety of means, including a helmet HUD, a
-  hardwired feed  jacked directly into the brain, or other methods. The system might involve motive-actuators within the
-  weapon to subtly adjust aim, or it might interface with motorized gloves. This attachment can be applied to any Ranged
-  (Heavy) weapon.
+description: The sophisticated device incorporates a full suite of onboard sensors and computers to track and predict the motion of a target, then feed that data back to the user through a variety of means, including a helmet HUD, a hardwired feed  jacked directly into the brain, or other methods. The system might involve motive-actuators within the weapon to subtly adjust aim, or it might interface with motorized gloves. This attachment can be applied to any Ranged (Heavy) weapon.
 useWith: weapon
 hpRequired: 2
 rarity: 6
-baseModifier: Remove <setback></setback> due to target movement or use of Guarded Stance.
+baseModifier:
+  description: Remove <setback></setback> due to target movement or use of Guarded Stance.
 modOptions:
-  - Gain Precise Aim (reduce target's melee defense)
+  - description: Gain Precise Aim (reduce target's melee defense)
 reference:
   - SS:50
 includedModels:

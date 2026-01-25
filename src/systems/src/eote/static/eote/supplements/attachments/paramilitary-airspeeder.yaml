@@ -4,7 +4,8 @@ description: Converts an airspeeder to a paramilitary vehicle.
 useWith: vehicle
 hpRequired: 0
 rarity: 0
-baseModifier: -1 Handling; +2 Armor; +2 Hull Trauma Threshold; -1 System Strain Threshold; Adds a forward light blaster cannon
+baseModifier:
+  description: -1 Handling; +2 Armor; +2 Hull Trauma Threshold; -1 System Strain Threshold; Adds a forward light blaster cannon
 modOptions: []
 reference:
   - DC:71

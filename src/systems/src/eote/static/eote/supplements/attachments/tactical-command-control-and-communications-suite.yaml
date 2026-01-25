@@ -13,10 +13,11 @@ description: |-
 useWith: vehicle
 hpRequired: 1
 rarity: 6
-baseModifier: While active, a force commander in the vehicle upgrades the ability of all Mass Combat checks once
+baseModifier:
+  description: While active, a force commander in the vehicle upgrades the ability of all Mass Combat checks once
 modOptions:
-  - Gain Situational Awareness (allies in short range add <boost></boost>)
-  - Allies benefiting from Situational Awareness remove <setback></setback> on Perception and Vigilance checks
+  - description: Gain Situational Awareness (allies in short range add <boost></boost>)
+  - description: Allies benefiting from Situational Awareness remove <setback></setback> on Perception and Vigilance checks
 reference:
   - LbE:59
 includedModels:

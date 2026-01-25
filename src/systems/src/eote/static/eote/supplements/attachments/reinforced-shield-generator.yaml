@@ -1,17 +1,17 @@
 id: eote-attachment-reinforced-shield-generator
 name: Reinforced Shield Generator
-description: A good defense is crucial to keeping a starship operational in the rough and tumble space of the Outer Rim.
-  P-K's AEGIS Shield Generators and other reinforced shield generators upgrade a ship's stock particle and ray shielding
-  so as to make it stronger and to make the shields easier to manage. While the AEGIS improves only one defense zone at
-  a time, further tinkering with these units has resulted in improved shield strength. This may be added to any ship or
-  vehicle.
+description: A good defense is crucial to keeping a starship operational in the rough and tumble space of the Outer Rim. P-K's AEGIS Shield Generators and other reinforced shield generators upgrade a ship's stock particle and ray shielding so as to make it stronger and to make the shields easier to manage. While the AEGIS improves only one defense zone at a time, further tinkering with these units has resulted in improved shield strength. This may be added to any ship or vehicle.
 useWith: vehicle
 hpRequired: 2
 rarity: 5
-baseModifier: +1 Defense Zone
+baseModifier:
+  defenseModifier: 1
+  description: Zone
 modOptions:
-  - +1 Defense Zone
-  - +1 Defense Zone
+  - defenseModifier: 1
+    description: Zone
+  - defenseModifier: 1
+    description: Zone
 reference:
   - E-CRB:270
   - A-CRB:287

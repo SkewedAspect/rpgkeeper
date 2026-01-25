@@ -4,13 +4,8 @@ description: Additional Rules for Enormous Space Slug.
 useWith: vehicle
 hpRequired: 0
 rarity: 0
-baseModifier: When rolling for initiative, or attacking with its Insatiable Maw, a space slug rolls a **Coordination
-  skill check**, counting as having Coordination 3 and Agility 1
-  (<proficiency></proficiency><ability></ability><ability></ability>).; A starship of silhouette 5 or lower attacked by
-  a space slug, regardless of whether or not the attack hit, must make a **Hard
-  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Piloting (Space) check** to avoid being
-  swallowed. If swallowed, ship suffers 10 hull trauma daily from being digested.; The stomach of an space slug is also
-  generally home to mynocks, which will waste no time attacking a swallowed starship.
+baseModifier:
+  description: When rolling for initiative, or attacking with its Insatiable Maw, a space slug rolls a **Coordination skill check**, counting as having Coordination 3 and Agility 1 (<proficiency></proficiency><ability></ability><ability></ability>).; A starship of silhouette 5 or lower attacked by a space slug, regardless of whether or not the attack hit, must make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Piloting (Space) check** to avoid being swallowed. If swallowed, ship suffers 10 hull trauma daily from being digested.; The stomach of an space slug is also generally home to mynocks, which will waste no time attacking a swallowed starship.
 modOptions: []
 reference:
   - SoR
