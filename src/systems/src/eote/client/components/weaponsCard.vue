@@ -82,10 +82,10 @@
 
             <!-- Buttons Slot -->
             <template #cell(buttons)="data">
-                <BButton size="sm" @click="openAddEditModal(data.item)">
+                <BButton v-if="!readonly" size="sm" @click="openAddEditModal(data.item)">
                     <Fa icon="edit" />
                 </BButton>
-                <BButton class="ms-1" variant="danger" size="sm" @click="openDeleteModal(data.item)">
+                <BButton v-if="!readonly" class="ms-1" variant="danger" size="sm" @click="openDeleteModal(data.item)">
                     <Fa icon="trash-alt" />
                 </BButton>
             </template>
@@ -194,25 +194,6 @@
     }
 
     const delWeapon = ref<EoteWeaponRef | undefined>(undefined);
-    const fields = ref<FieldDef[]>([
-        { key: 'name', headerTitle: 'Weapon name' },
-        { key: 'skill', headerTitle: 'Required Skill', tdClass: 'text-nowrap' },
-        { key: 'damage', label: 'Dmg.', headerTitle: 'Weapon Damage', tdClass: 'text-center' },
-        { key: 'criticalRating', label: 'Crit.', headerTitle: 'Weapon Critical rating', tdClass: 'text-center' },
-        {
-            key: 'range',
-            formatter(range : unknown)
-            {
-                return rangeEnum[range as string];
-            },
-            tdClass: 'text-center',
-        },
-        { key: 'encumbrance', label: 'Enc.', headerTitle: 'Weapon Encumbrance', tdClass: 'text-center' },
-        { key: 'rarity', label: 'Rar.', headerTitle: 'Weapon Rarity', tdClass: 'text-center' },
-        { key: 'qualities', label: 'Special', headerTitle: 'Weapon Qualities' },
-        { key: 'attachments', label: 'Attachments', headerTitle: 'Weapon Attachments' },
-        { key: 'buttons', label: '', thStyle: 'min-width: 80px' },
-    ]);
 
     const editWeaponsModal = useTemplateRef('editWeaponsModal');
     const delModal = useTemplateRef('delModal');
@@ -227,6 +208,36 @@
 
     const weapons = computed(() => char.value.details.weapons);
     const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
+
+    const fields = computed<FieldDef[]>(() =>
+    {
+        const baseFields : FieldDef[] = [
+            { key: 'name', headerTitle: 'Weapon name' },
+            { key: 'skill', headerTitle: 'Required Skill', tdClass: 'text-nowrap' },
+            { key: 'damage', label: 'Dmg.', headerTitle: 'Weapon Damage', tdClass: 'text-center' },
+            { key: 'criticalRating', label: 'Crit.', headerTitle: 'Weapon Critical rating', tdClass: 'text-center' },
+            {
+                key: 'range',
+                formatter(range : unknown)
+                {
+                    return rangeEnum[range as string];
+                },
+                tdClass: 'text-center',
+            },
+            { key: 'encumbrance', label: 'Enc.', headerTitle: 'Weapon Encumbrance', tdClass: 'text-center' },
+            { key: 'rarity', label: 'Rar.', headerTitle: 'Weapon Rarity', tdClass: 'text-center' },
+            { key: 'qualities', label: 'Special', headerTitle: 'Weapon Qualities' },
+            { key: 'attachments', label: 'Attachments', headerTitle: 'Weapon Attachments' },
+        ];
+
+        // Only add buttons column if not readonly
+        if(!readonly.value)
+        {
+            baseFields.push({ key: 'buttons', label: '', thStyle: 'min-width: 80px' });
+        }
+
+        return baseFields;
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
