@@ -31,9 +31,9 @@ export interface ListOptions
 {
     /** Include official supplements from static.db */
     includeOfficial ?: boolean;
-    /** Include user's homebrew supplements */
+    /** Include homebrew supplements */
     includeHomebrew ?: boolean;
-    /** Account ID for homebrew filtering (required if includeHomebrew is true) */
+    /** Account ID for homebrew filtering. If provided, filters to supplements owned by this account. If not provided, returns all homebrew supplements. */
     accountID ?: string;
 }
 
@@ -145,7 +145,7 @@ export class SupplementSubManager
         }
 
         // Get homebrew supplements
-        if(includeHomebrew && accountID)
+        if(includeHomebrew)
         {
             const homebrewDefs = await this.entities.supplement.listBySystemType(system, type, accountID);
             results.push(...homebrewDefs.map((def) => this.fromHomebrew<T>(def)));
@@ -184,7 +184,7 @@ export class SupplementSubManager
         }
 
         // Search homebrew supplements
-        if(includeHomebrew && accountID)
+        if(includeHomebrew)
         {
             const homebrewDefs = await this.entities.supplement.search(system, type, query, accountID);
             results.push(...homebrewDefs.map((def) => this.fromHomebrew<T>(def)));
