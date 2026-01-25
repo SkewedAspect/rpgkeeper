@@ -8,12 +8,13 @@
         <BNavItemDropdown v-if="account" id="profile-dropdown" :title="account.name" right no-caret>
             <template #button-content>
                 <BImg
-                    v-if="account.avatar"
+                    v-if="account.avatar && !avatarError"
                     rounded="circle"
                     width="32"
                     height="32"
                     blank-color="#777"
                     :src="account.avatar"
+                    @error="onAvatarError"
                 />
                 <Fa v-else icon="user-circle" size="2x" />
                 {{ account.name }}
@@ -65,6 +66,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
+    import { ref } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Stores
@@ -72,6 +74,12 @@
 
     // Managers
     import authMan from '../../lib/managers/auth';
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Refs
+    //------------------------------------------------------------------------------------------------------------------
+
+    const avatarError = ref(false);
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -84,6 +92,11 @@
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
+
+    function onAvatarError() : void
+    {
+        avatarError.value = true;
+    }
 
     async function signOut() : Promise<void>
     {
