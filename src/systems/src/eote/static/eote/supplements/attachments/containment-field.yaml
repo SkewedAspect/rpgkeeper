@@ -1,6 +1,6 @@
 id: eote-attachment-containment-field
 name: Containment Field
-description: Designed for permanent installation, a containment field generator consists of two flat, cylindrical generators—one bolted to the floor, the other to the ceiling— that hold a single individual captive in a powerful stasis field. Individuals held in a containment field. Individuals held in a containment field wear magnetic binders and are suspended in mid-air, completely isolated from the world around them. When held in  a containment field, individuals are usually fitted with bio-signs monitors due to the field's distressing habit of causing heart attacks, brain damage, or death if it is not tuned correctly. This attachment can be installed on any vessel of silhouette 4 or higher.
+description: Designed for permanent installation, a containment field generator consists of two flat, cylindrical generators—one bolted to the floor, the other to the ceiling—that hold a single individual captive in a powerful stasis field. Individuals held in a containment field wear magnetic binders and are suspended in mid-air, completely isolated from the world around them. When held in a containment field, individuals are usually fitted with bio-signs monitors due to the field's distressing habit of causing heart attacks, brain damage, or death if it is not tuned correctly. This attachment can be installed on any vessel of silhouette 4 or higher.
 useWith: vehicle
 hpRequired: 2
 rarity: 9

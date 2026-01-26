@@ -7,16 +7,13 @@ rarity: 5
 baseModifier: {}
 modOptions:
   - description: Reduce the weapon's critical rating by 1 to a minimum of 1
-  - description: Item Quality ()
-    qualities:
+  - qualities:
       - id: eote-quality-pierce
         ranks: 1
-  - description: Item Quality ()
-    qualities:
+  - qualities:
       - id: eote-quality-pierce
         ranks: 1
-  - description: Item Quality ()
-    qualities:
+  - qualities:
       - id: eote-quality-vicious
         ranks: 1
 reference:
