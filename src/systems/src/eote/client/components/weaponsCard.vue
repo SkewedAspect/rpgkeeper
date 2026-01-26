@@ -134,8 +134,9 @@
     import type {
         EoteAttachment,
         EoteAttachmentRef,
-        EoteCharacter,
+        EoteOrGenCharacter,
         EoteWeaponRef,
+        GenesysCharacter,
     } from '../../models.ts';
 
     // Stores
@@ -202,12 +203,26 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteCharacter>(() => current.value as any);
+    const char = computed<EoteOrGenCharacter>(() => current.value as any);
     const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
 
     const weapons = computed(() => char.value.details.weapons);
     const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
+
+    const showAttachments = computed(() =>
+    {
+        if(mode.value === 'eote')
+        {
+            return true;
+        }
+        else if(mode.value === 'genesys')
+        {
+            return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+        }
+
+        return false;
+    });
 
     const fields = computed<FieldDef[]>(() =>
     {
@@ -227,8 +242,13 @@
             { key: 'encumbrance', label: 'Enc.', headerTitle: 'Weapon Encumbrance', tdClass: 'text-center' },
             { key: 'rarity', label: 'Rar.', headerTitle: 'Weapon Rarity', tdClass: 'text-center' },
             { key: 'qualities', label: 'Special', headerTitle: 'Weapon Qualities' },
-            { key: 'attachments', label: 'Attachments', headerTitle: 'Weapon Attachments' },
         ];
+
+        // Only show attachments column if enabled
+        if(showAttachments.value)
+        {
+            baseFields.push({ key: 'attachments', label: 'Attachments', headerTitle: 'Weapon Attachments' });
+        }
 
         // Only add buttons column if not readonly
         if(!readonly.value)

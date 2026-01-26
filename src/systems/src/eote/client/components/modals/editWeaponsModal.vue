@@ -136,6 +136,7 @@
                         />
                     </BFormGroup>
                     <BFormGroup
+                        v-if="mode === 'eote'"
                         class="flex-fill ps-1 pe-1"
                         style="width: 20%"
                         label="Hardpoints"
@@ -168,22 +169,33 @@
                 </BFormRow>
 
                 <BTabs class="mt-3" content-class="mt-2">
+                    <template v-if="mode === 'genesys'" #tabs-end>
+                        <BFormCheckbox
+                            v-model="useAttachmentRules"
+                            class="ms-auto"
+                            switch
+                        >
+                            Use Item Attachment Rules (optional)
+                        </BFormCheckbox>
+                    </template>
+
                     <BTab title="Qualities" active>
                         <QualityEdit
                             v-model:qualities="editWeapon.qualities"
                             :attachment-refs="editWeapon.attachments"
                         />
                     </BTab>
-                    <BTab>
+                    <BTab v-if="showAttachments || mode === 'genesys'" :disabled="mode === 'genesys' && !useAttachmentRules">
                         <template #title>
                             Attachments
-                            <BBadge :variant="attachmentHpVariant" class="ms-1">
-                                {{ attachmentHpUsed }} / {{ editWeapon.hardpoints }} HP
+                            <BBadge v-if="showAttachments" :variant="attachmentHpVariant" class="ms-1">
+                                {{ attachmentHpUsed }} / {{ calculatedHardpoints }} HP
                             </BBadge>
                         </template>
                         <AttachmentEdit
+                            v-if="showAttachments"
                             v-model:attachments="editWeapon.attachments"
-                            :total-hardpoints="editWeapon.hardpoints"
+                            :total-hardpoints="calculatedHardpoints"
                             use-with="weapon"
                             :show-hardpoints-summary="false"
                         />
@@ -290,10 +302,11 @@
         EncounterRange,
         EoteAttachment,
         EoteAttachmentRef,
-        EoteCharacter,
+        EoteOrGenCharacter,
         EoteQualityRef,
         EoteWeapon,
         EoteWeaponRef,
+        GenesysCharacter,
     } from '../../../models.ts';
 
     // Constants
@@ -378,7 +391,7 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteCharacter>(() => current.value as any);
+    const char = computed<EoteOrGenCharacter>(() => current.value as any);
     const mode = computed(() => systemStore.current?.id ?? 'eote');
 
     const isAdd = computed(() => !weapon.value);
@@ -396,6 +409,16 @@
 
     const availableWeapons = computed(() => supplementStore.get<EoteWeapon>(mode.value, 'weapon'));
 
+    const calculatedHardpoints = computed(() =>
+    {
+        if(mode.value === 'genesys')
+        {
+            return Math.ceil(editWeapon.value.encumbrance / 2);
+        }
+
+        return editWeapon.value.hardpoints;
+    });
+
     const attachmentHpUsed = computed(() =>
     {
         const attachments = supplementStore.get<EoteAttachment>(mode.value, 'attachment');
@@ -408,16 +431,50 @@
 
     const attachmentHpVariant = computed(() =>
     {
-        if(attachmentHpUsed.value > editWeapon.value.hardpoints)
+        const hardpoints = calculatedHardpoints.value;
+        if(attachmentHpUsed.value > hardpoints)
         {
             return 'danger';
         }
-        else if(attachmentHpUsed.value === editWeapon.value.hardpoints && editWeapon.value.hardpoints > 0)
+        else if(attachmentHpUsed.value === hardpoints && hardpoints > 0)
         {
             return 'warning';
         }
 
         return 'secondary';
+    });
+
+    const showAttachments = computed(() =>
+    {
+        if(mode.value === 'eote')
+        {
+            return true;
+        }
+        else if(mode.value === 'genesys')
+        {
+            return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+        }
+
+        return false;
+    });
+
+    const useAttachmentRules = computed({
+        get: () =>
+        {
+            if(mode.value === 'genesys')
+            {
+                return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+            }
+
+            return false;
+        },
+        set: (value : boolean) =>
+        {
+            if(mode.value === 'genesys' && char.value)
+            {
+                (char.value as GenesysCharacter).details.useAttachmentRules = value;
+            }
+        },
     });
 
     //------------------------------------------------------------------------------------------------------------------
@@ -603,7 +660,7 @@
                 criticalRating: editWeapon.value.criticalRating,
                 range: editWeapon.value.range,
                 encumbrance: editWeapon.value.encumbrance,
-                hardpoints: editWeapon.value.hardpoints,
+                hardpoints: calculatedHardpoints.value,
                 rarity: editWeapon.value.rarity,
                 restricted: editWeapon.value.restricted,
                 attachments: editWeapon.value.attachments,
@@ -623,7 +680,7 @@
                 criticalRating: editWeapon.value.criticalRating,
                 range: editWeapon.value.range,
                 encumbrance: editWeapon.value.encumbrance,
-                hardpoints: editWeapon.value.hardpoints,
+                hardpoints: calculatedHardpoints.value,
                 rarity: editWeapon.value.rarity,
                 restricted: editWeapon.value.restricted,
                 attachments: editWeapon.value.attachments,

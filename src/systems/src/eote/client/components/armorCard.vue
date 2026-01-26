@@ -47,7 +47,7 @@
                     <BTh>
                         Upgrades
                     </BTh>
-                    <BTh>
+                    <BTh v-if="showAttachments">
                         Attachments
                     </BTh>
                 </BTr>
@@ -95,9 +95,9 @@
                             None
                         </span>
                     </BTd>
-                    <BTd class="text-nowrap">
+                    <BTd v-if="showAttachments" class="text-nowrap">
                         <AttachmentTag
-                            v-for="att in armor.attachments"
+                            v-for="att in (armor.attachments as EoteAttachmentRef[])"
                             :id="att.id"
                             :key="att.id"
                             :activated-mods="att.activatedMods"
@@ -140,7 +140,13 @@
     import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Models
-    import type { EoteArmorRef, EoteAttachment, EoteCharacter } from '../../models.ts';
+    import type {
+        EoteArmorRef,
+        EoteAttachment,
+        EoteAttachmentRef,
+        EoteOrGenCharacter,
+        GenesysCharacter,
+    } from '../../models.ts';
 
     // Utils
     import { computeArmorQualities, computeArmorStats } from '../lib/qualityUtils';
@@ -180,13 +186,27 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteCharacter>(() => current.value as any);
+    const char = computed<EoteOrGenCharacter>(() => current.value as any);
     const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
 
     const armor = computed(() => char.value.details.armor);
     const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
     const armorStats = computed(() => computeArmorStats(armor.value, allAttachments.value));
+
+    const showAttachments = computed(() =>
+    {
+        if(mode.value === 'eote')
+        {
+            return true;
+        }
+        else if(mode.value === 'genesys')
+        {
+            return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+        }
+
+        return false;
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

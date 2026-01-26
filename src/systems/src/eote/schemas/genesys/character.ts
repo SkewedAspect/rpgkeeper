@@ -58,6 +58,7 @@ export const GenesysSystemDetailsSchema = z.object({
     armor: GenesysArmorRefSchema,
     weapons: z.array(GenesysWeaponRefSchema),
     motivations: GenesysMotivationsSchema,
+    useAttachmentRules: z.boolean().optional(),
 });
 
 //----------------------------------------------------------------------------------------------------------------------

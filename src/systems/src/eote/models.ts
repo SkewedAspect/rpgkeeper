@@ -370,6 +370,7 @@ export interface GenesysSystemDetails extends BaseSystemDetails
         desire : string | null;
         fear : string | null;
     };
+    useAttachmentRules ?: boolean;
 }
 
 export interface GenesysCharacter extends Omit<Character, 'details'>
