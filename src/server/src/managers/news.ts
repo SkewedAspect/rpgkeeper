@@ -1,7 +1,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 // News Manager
 //----------------------------------------------------------------------------------------------------------------------
-// Manages news posts and site-wide alerts.
+// Manages news posts (file-based) and site-wide alerts (database).
 //----------------------------------------------------------------------------------------------------------------------
 
 // Models
@@ -10,6 +10,7 @@ import type { Post } from '@rpgk/core/models/post';
 
 // Resource Access
 import type { EntityResourceAccess } from '../resource-access/index.ts';
+import * as postsRA from '../resource-access/posts.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -23,17 +24,17 @@ export class NewsManager
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Posts - Public
+    // Posts - Public (file-based)
     //------------------------------------------------------------------------------------------------------------------
 
     async getPublishedPosts() : Promise<Post[]>
     {
-        return this.entities.post.listPublished();
+        return postsRA.listPublished();
     }
 
     async getPostBySlug(slug : string) : Promise<Post>
     {
-        const post = await this.entities.post.getBySlug(slug);
+        const post = await postsRA.getBySlug(slug);
 
         // Only return published posts through the public API
         if(post.status !== 'published')
@@ -45,25 +46,35 @@ export class NewsManager
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Posts - Admin
+    // Posts - Admin (file-based)
     //------------------------------------------------------------------------------------------------------------------
 
     async getAllPosts() : Promise<Post[]>
     {
-        return this.entities.post.listAll();
+        return postsRA.list();
     }
 
     async getPost(id : string) : Promise<Post>
     {
-        return this.entities.post.get(id);
+        return postsRA.get(id);
     }
 
     async addPost(
-        accountID : string,
-        post : Omit<Post, 'id' | 'accountID' | 'slug' | 'created' | 'edited'>
+        _accountID : string,
+        post : Omit<Post, 'id' | 'accountID' | 'created' | 'edited'> & { slug : string }
     ) : Promise<Post>
     {
-        return this.entities.post.add(accountID, post);
+        // Set publishedAt if publishing
+        let publishedAt = post.publishedAt;
+        if(post.status === 'published' && !publishedAt)
+        {
+            publishedAt = Date.now() / 1000;
+        }
+
+        return postsRA.add({
+            ...post,
+            publishedAt,
+        });
     }
 
     async updatePost(
@@ -71,16 +82,29 @@ export class NewsManager
         updates : Partial<Pick<Post, 'title' | 'stinger' | 'content' | 'status' | 'slug'>>
     ) : Promise<Post>
     {
-        return this.entities.post.update(postID, updates);
+        // If transitioning to published and no publishedAt, set it
+        if(updates.status === 'published')
+        {
+            const existing = await postsRA.get(postID);
+            if(!existing.publishedAt)
+            {
+                return postsRA.update(postID, {
+                    ...updates,
+                    publishedAt: Date.now() / 1000,
+                });
+            }
+        }
+
+        return postsRA.update(postID, updates);
     }
 
     async removePost(postID : string) : Promise<{ status : 'ok' }>
     {
-        return this.entities.post.remove(postID);
+        return postsRA.remove(postID);
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Alerts - Public
+    // Alerts - Public (database)
     //------------------------------------------------------------------------------------------------------------------
 
     async getActiveAlerts() : Promise<Alert[]>
@@ -89,7 +113,7 @@ export class NewsManager
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Alerts - Admin
+    // Alerts - Admin (database)
     //------------------------------------------------------------------------------------------------------------------
 
     async getAllAlerts() : Promise<Alert[]>

@@ -10,7 +10,6 @@ import { AlertResourceAccess } from './alert.ts';
 import { CampaignResourceAccess } from './campaign.ts';
 import { CharacterResourceAccess } from './character.ts';
 import { NotebookResourceAccess } from './notebook.ts';
-import { PostResourceAccess } from './post.ts';
 import { ReferenceResourceAccess } from './reference.ts';
 import { RoleResourceAccess } from './role.ts';
 import { SupplementResourceAccess } from './supplement.ts';
@@ -23,7 +22,6 @@ export {
     CampaignResourceAccess,
     CharacterResourceAccess,
     NotebookResourceAccess,
-    PostResourceAccess,
     ReferenceResourceAccess,
     RoleResourceAccess,
     SupplementResourceAccess,
@@ -69,7 +67,6 @@ export class EntityResourceAccess
     readonly campaign : CampaignResourceAccess;
     readonly character : CharacterResourceAccess;
     readonly notebook : NotebookResourceAccess;
-    readonly post : PostResourceAccess;
     readonly reference : ReferenceResourceAccess;
     readonly role : RoleResourceAccess;
     readonly supplement : SupplementResourceAccess;
@@ -82,7 +79,6 @@ export class EntityResourceAccess
         this.campaign = new CampaignResourceAccess(db);
         this.character = new CharacterResourceAccess(db);
         this.notebook = new NotebookResourceAccess(db);
-        this.post = new PostResourceAccess(db);
         this.reference = new ReferenceResourceAccess(db);
         this.role = new RoleResourceAccess(db);
         this.supplement = new SupplementResourceAccess(db);
