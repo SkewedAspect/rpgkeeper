@@ -1,0 +1,19 @@
+id: eote-weapon-cluster-bomb-launcher
+name: Cluster Bomb Launcher
+description: ""
+skill: Gunnery
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-limited-ammo
+    ranks: 6
+reference:
+  - SoR:119

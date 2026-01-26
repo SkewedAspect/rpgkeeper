@@ -1,0 +1,11 @@
+id: eote-talent-combat-programming
+name: Combat Programming
+description: Once per encounter make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check** while repairing or
+  working on a droid. For the remainder of the encounter, the droid gains 1 rank in two different combat skills.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Droid Specialist
+reference:
+  - FO:30

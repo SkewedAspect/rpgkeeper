@@ -1,0 +1,32 @@
+id: eote-weapon-superlaser
+name: Superlaser
+description: >-
+  The Mk I Superlaser developed for the Death Star is the most powerful weapon in the galaxy. Utilizing the unique
+  energy-focusing qualities of refined kyber crystals and powered by four huge animatter generators, this weapon has the
+  ability to completely destroy planets with a single blast.
+
+  The superlaser has no damage or critical rating, yet deals damage. Its destructive power is on such a level that it
+  transcends mere numbers. When the Death Star fires its superlaser, everything in its path is utterly destroyed. Even
+  when using the energy from a single reactor, it can crater cities and devastate huge swaths of a planet's surface.
+
+  The damage that this massive weapon can dish out is more narrative that mechanical. If the players ever encounter the
+  Death Star and see the superlaser in action, the Game Master should describe ships burning to ash as it they were
+  paper, whole worlds obliterated in the blink of an eye, shockwaves and strange localized hyperspace anomalies, and
+  other terrible consequences. Force-sensitives, for example, might become disoriented from the death cries of an entire
+  city's population. If the Player Characters are ever targeted by the Death Star's superlaser, the Game Master should
+  find a way to allow them to escape what would be certain death, perhaps by making suitably heroic Piloting (Space)
+  checks or spending Destiny Points.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: l
+encumbrance: 0
+hardpoints: 0
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-slow-firing
+    ranks: 8
+reference:
+  - DoR:32

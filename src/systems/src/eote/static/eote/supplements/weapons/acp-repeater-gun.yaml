@@ -1,0 +1,26 @@
+id: eote-weapon-acp-repeater-gun
+name: ACP Repeater Gun
+description: >-
+  Arakyd Industries ACP Repeater Gun
+
+  The Accelerated Charged Particle repeater gun is a medium range blaster carbine capable of laying down a tremendous
+  field of fire. Designed prior to the Clone Wars for use in urban and close combat firefights, the weapon was deemed
+  underpowered for general use and saw limited assignment to commandos and other specialized units. However, the ACP
+  repeater gun has enjoyed success in the private market, particularly among criminals, who appreciate the weapon's
+  ability to spray a small area with bolts of deadly charged particles. So popular is the ACP repeater gun among
+  Trandoshan mercenaries and Gank killers that it is often referred to as the "Trandoshan Chopper" or "Nar Shaddaa
+  Grinder."
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-stun-setting
+reference:
+  - LoNH:100

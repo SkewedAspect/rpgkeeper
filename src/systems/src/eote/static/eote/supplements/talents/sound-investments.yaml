@@ -1,0 +1,9 @@
+id: eote-talent-sound-investments
+name: Sound Investments
+description: At the start of each session, gain 100 credits for each rank of Sound Investments.
+activation: p
+ranked: true
+forceTalent: false
+trees: Entrepreneur, Quartermaster
+reference:
+  - A-CRB:156

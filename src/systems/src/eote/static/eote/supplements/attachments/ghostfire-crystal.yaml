@@ -1,0 +1,23 @@
+id: eote-attachment-ghostfire-crystal
+name: Ghostfire Crystal
+description: These kyber crystals grow in nearly invisible formations on a handful of far flung Outer Rim worlds. Their precarious spires of entirely transparent stones rise from rocky foundations. They are typically found at the peaks of mountains, when they can be located at all. Finders can use ghostfire crystals to construct a lightsaber with a blade as difficult to detect as the spire from which they harvested the crystal. Lightsabers with ghostfire crystals at their core produce no sound whatsoever, and the blades are dim and translucent compared to the incandescent fire of the other lightsabers. most curious of all are the illusory afterimages of the blades that follow the wielders' motions, disorienting foes and disguising the true position of their blades.
+useWith: weapon
+hpRequired: 1
+rarity: 9
+baseModifier:
+  description: Damage set to 6; Critical set to 2; ; ; Wielder may spend <advantage></advantage><advantage></advantage><advantage></advantage><advantage></advantage> or <triumph></triumph> to prevent the target from using the Parry talent to reduce damage from this attack.
+  qualities:
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
+modOptions:
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+  - damageModifier: 1
+  - damageModifier: 1
+reference:
+  - EV:53

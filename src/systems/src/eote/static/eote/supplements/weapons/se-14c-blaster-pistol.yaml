@@ -1,0 +1,29 @@
+id: eote-weapon-se-14c-blaster-pistol
+name: SE-14c Blaster Pistol
+description: >-
+  BlasTech SE-14C Blaster Pistol
+
+  Of all standard issue Imperial blasters, few pack as much bang per credit as the SE-14C blaster pistol. This weapon is
+  the latest BlasTech Industries upgrade of the semi-automatic SR Combat Pistol that was used by the Seperatist droid
+  army at the height of the Clone Wars. The Galactic Empire contracted BlasTech to produce an alternate model with
+  fully-automatic capabilities, which resulted in the SE-14r Repeater Pistol. However, overheating stemming from
+  prolonged discharges of that weapon would warp the barrel, causing potentially catastrophic malfunctions.
+
+  The SE-14C addresses the heat management issue by integrating the power pack into the back of the barrel. The clip,
+  blaster gas, and barrel are changed out as a solid piece while reloading. A valve allows viable clips to be recharged
+  during downtime to keep costs down. Although the Empire uses the SE-14C primarily as a sidearem, the blaster's
+  intimidating reputation has made it popular among mercenaries and thieves.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-stun-setting
+reference:
+  - FiB:42

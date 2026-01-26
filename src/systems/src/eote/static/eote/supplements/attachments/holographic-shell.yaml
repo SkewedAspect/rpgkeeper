@@ -1,0 +1,15 @@
+id: eote-attachment-holographic-shell
+name: Holographic Shell
+description: Holographic shells use a combination of optical camouflage and high-resolution holography to create a disguised exterior for a ship or vehicle. A disguise must be programmed into the system's memory in advance, and the memory can hold only one disguise. Once active, a disguise cannot be changed on the fly. Holographic disguises are only effective at distances of several meters or more, however; touching or closely investigating the disguise ruins the illusion. This attachment can be applied to any starship or vehicle.
+useWith: vehicle
+hpRequired: 2
+rarity: 7
+baseModifier:
+  description: Provides a ship or vehicle with a holographic disguise. A **Daunting (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check** is required to see through the disguise at a distance. Physical examination immediately detects the disguise.
+modOptions:
+  - description: Add one additional disguise to the database
+  - description: Add one additional disguise to the database
+reference:
+  - CaM:63
+includedModels:
+  - Various models

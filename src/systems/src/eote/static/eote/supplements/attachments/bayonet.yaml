@@ -1,0 +1,20 @@
+id: eote-attachment-bayonet
+name: Bayonet
+description: In the heat of combat, a ranged conflict can quickly turn into a melee. While most soldiers carry some sort of melee weapon, the ability to also use a rifle in hand-to-hand combat can enable a trooper to act without thinking. A bayonet makes this a natural process and gives a weapon more reach and force than a simple knife. This attachment can only be used on rifle- and carbine-sized weapons.
+useWith: weapon
+hpRequired: 1
+rarity: 1
+baseModifier:
+  description: Adds a bayonet profile to the weapon.
+modOptions:
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+reference:
+  - CotR:60
+includedModels:
+  - SoroSuub Mk IX Bayonet
+  - BlasTech B-3 Field Knife

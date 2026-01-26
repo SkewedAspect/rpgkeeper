@@ -1,0 +1,20 @@
+id: eote-attachment-electronic-countermeasures-suite
+name: Electronic Countermeasures Suite
+description: Designed to blind and deafen enemy ships, electronic countermeasures suites such as Fabritech 995 ECM system transmits a dense stream of white noise and junk data that fogs sensors and jams comms traffic within close range of the broadcasting ship. While this makes the broadcasting ship hard to see or hit, the energy required to run the ECM suite tends to put undue strain on the ship's electrical systems. Other systems have focused modes that can target specific ships at longer ranges. This may be applied to all starships and vehicles.
+useWith: vehicle
+hpRequired: 1
+rarity: 6
+baseModifier:
+  description: Blocks sensors within range, counting the ship's silhouette as one smaller when being fired upon.; Immediately notifies all ships in a star system or within 100 kilometers if planetside to the ship or vehicle's existence.
+modOptions:
+  - description: Increase difficulty by one with quality
+    qualities:
+      - id: eote-quality-guided
+reference:
+  - E-CRB:269
+  - A-CRB:286
+  - F-CRB:269
+includedModels:
+  - Fabritech 995 "Stormcloud" Electronic Countermeasures Suite
+  - Miradyne 4x_Phantom Short-Range Sensor Jammer (starfighters only)
+  - KDY 220-SIG Tactical Combat Jammer (capital ships only)

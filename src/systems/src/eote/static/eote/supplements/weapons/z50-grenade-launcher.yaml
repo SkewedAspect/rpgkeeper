@@ -1,0 +1,32 @@
+id: eote-weapon-z50-grenade-launcher
+name: Z50 Grenade Launcher
+description: >-
+  The Z50 from Malaxan Firepower Incorporated is a powerful weapon that can be readily handled by a single user. A
+  grenade launcher fires explosive projectiles that have power equivalent to hand grenades. While less powerful and
+  without the firing options of a missile tube, the Z50 is also much lighter and can be carried more easily. The
+  grenades are also smaller, allowing smaller weapons to carry the same or more shots.
+
+  The listed price does not include ammunition. Grenades for a grenade launcher cost the same as equivalent hand
+  grenades, though many merchants offer a 50 percent discount on cases of six. The weapon can fire any grenade, although
+  the grenade launcher projectiles are different than hand grenades (grenade launcher projectiles also cannot be thrown,
+  they must be fired from the grenade launcher). The character should specify what type of grenades he wants when
+  purchasing them. The listed profile for the grenade launcher represents the weapon loaded with standard frag grenades
+  (see the **Edge of the Empire** Core,Rulebook, page 160).
+skill: Gunnery
+damage: 8
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 5
+hardpoints: 3
+rarity: 4
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 6
+reference:
+  - DC:42

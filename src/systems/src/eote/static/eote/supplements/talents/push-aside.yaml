@@ -1,0 +1,11 @@
+id: eote-talent-push-aside
+name: Push Aside
+description: After making a successful Melee, Brawl, or Lightsaber combat check against an engaged foe, may force the
+  foe to move to short range in a direction of the opponent's choosing. Spend <triumph></triumph> to cause the opponent
+  to fall prone after moving.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Force Adherent
+reference:
+  - DoR:115

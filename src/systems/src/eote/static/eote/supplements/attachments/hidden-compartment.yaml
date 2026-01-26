@@ -1,0 +1,14 @@
+id: eote-attachment-hidden-compartment
+name: Hidden Compartment
+description: These are typically very small, easily concealed compartments hidden in places such as the hollowed-out handle of a blaster pistol or the heel of a shoe. Due to size constraints, they can typically only hold items with an encumbrance of 0, such as mem-stiks and credit chips. Compartments that can hold items with an encumbrance of 1 or 2 can be built into larger items, such as a false bottom in a document case.
+useWith: weapon
+hpRequired: 0
+rarity: 3
+baseModifier:
+  description: Adds a small hidden compartment to a personal item. Finding the compartment requires a thorough once-over and a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check**.
+modOptions:
+  - description: Upgrade difficulty of Perception check required to discover compartment once
+reference:
+  - CaM:59
+includedModels:
+  - Various models

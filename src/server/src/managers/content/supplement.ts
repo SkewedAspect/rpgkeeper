@@ -33,7 +33,10 @@ export interface ListOptions
     includeOfficial ?: boolean;
     /** Include homebrew supplements */
     includeHomebrew ?: boolean;
-    /** Account ID for homebrew filtering. If provided, filters to supplements owned by this account. If not provided, returns all homebrew supplements. */
+    /**
+     * Account ID for homebrew filtering. If provided, filters to supplements owned by this account.
+     * If not provided, returns all homebrew supplements.
+     */
     accountID ?: string;
 }
 

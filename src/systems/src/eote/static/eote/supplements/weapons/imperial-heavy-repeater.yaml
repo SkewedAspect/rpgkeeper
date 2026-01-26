@@ -1,0 +1,28 @@
+id: eote-weapon-imperial-heavy-repeater
+name: Imperial Heavy Repeater
+description: >-
+  A suppression fire and crowd control weapon used by the Imperial Army, the Imperial heavy repeater fires ionized
+  bursts of metallic bolts at an incredibly rapid rate. However, the rifle does have an alternate firing mode that
+  allows the wielder to disengage the safeties unleashing a volley that catches multiple targets within a minor
+  concussive blast. Its effectiveness even prompted Trandoshan mercenaries and other third-party arms manufactureers to
+  create custom rifles fashioned after the Imperial heavy repeater for their own purposes.
+
+  As a maneuver, a character wielding an Imperial heavy repeater may prime the weapon to ecpend all of its emmunition in
+  a single, devastating burst. The next time the weapon is fired this encounter, it counts as having the Blast 7 and
+  Concussive 1 qualities but does not count as having the Auto-fire quality. After being discharged this way, the weapon
+  runs out of ammunition (see page 172 of the **Age of Rebellion** Core Rulebook).
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 3
+hardpoints: 2
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 4
+reference:
+  - FiB:46

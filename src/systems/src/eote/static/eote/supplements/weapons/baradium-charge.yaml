@@ -1,0 +1,25 @@
+id: eote-weapon-baradium-charge
+name: Baradium Charge
+description: >-
+  Baradium is one of the most dangerous and volatile explosives used in demolitions. The synthetic mineral is best known
+  for being used in thermal detonators. However, baradium can be detonated independently, although these devices are
+  inevitably highly volatile. A large enough baradium charge can level a small town, and incorrectly constructing one
+  can prove to be the brief and fiery end to a demolitionist's career.
+
+  Baradium weapons deal damage on planetary scale, but their blast radius is measured in personal scale. If the
+  demolitionist generates <despair></despair> when setting up the device, it detonates immediately, dealing the device's
+  damage (base plus additional damage) to everything in the current blast radius. Anything engaged with the device when
+  it detonates should add +50 to any subsequent critical injury or critical hit rolls.
+skill: Mechanics
+damage: 1
+addSkill: true
+criticalRating: 0
+range: l
+encumbrance: 2
+hardpoints: 0
+rarity: 5
+restricted: true
+qualities: []
+reference:
+  - DC:55
+  - FO:41

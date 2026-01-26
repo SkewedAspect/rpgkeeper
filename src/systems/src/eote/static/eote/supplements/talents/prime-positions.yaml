@@ -1,0 +1,12 @@
+id: eote-talent-prime-positions
+name: Prime Positions
+description: When this character or an ally in short range takes cover, he increases soak against ranged attacks by 1
+  per rank of Prime Positions until he leaves that cover.
+activation: p
+ranked: true
+forceTalent: false
+trees: Clone Officer, Trailblazer, Warleader
+reference:
+  - KtP:31
+  - FiB:35
+  - RotS:41

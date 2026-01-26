@@ -1,0 +1,10 @@
+id: eote-talent-scathing-tirade-supreme
+name: Scathing Tirade (Supreme)
+description: Suffer 1 strain to perform Scathing Tirade as a maneuver, not an action.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Agitator, Politico, Separatist Commander
+reference:
+  - E-CRB:142
+  - A-CRB:155

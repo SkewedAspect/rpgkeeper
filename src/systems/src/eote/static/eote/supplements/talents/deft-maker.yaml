@@ -1,0 +1,10 @@
+id: eote-talent-deft-maker
+name: Deft Maker
+description: Remove <setback></setback> per rank of Deft Maker from checks to repair, modify, construct, or program
+  droids. Reduce the material cost to craft droids by 50%.
+activation: p
+ranked: true
+forceTalent: false
+trees: Droid Tech
+reference:
+  - SM:34

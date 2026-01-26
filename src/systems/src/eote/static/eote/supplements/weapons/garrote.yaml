@@ -1,0 +1,25 @@
+id: eote-weapon-garrote
+name: Garrote
+description: >-
+  The garrote has been the go-to weapon for quiet assassinations for millennia. An extremely simple and deceptively
+  lethal weapon, a garrote is a length of cord or cable with a handle often attached at each end. The cable is wrapped
+  around a target's throat and the handles are pulled tight at the back of the neck, cutting off air and either knocking
+  out or suffocating the target. Garrotes are easy to conceal and can even be made in the field with readily available
+  materials.
+
+  A character who makes a successful Brawl attack when using a garrote against a target can cause that target to become
+  suffocated. Targets may attempt to break free of a garrote with an **opposed Brawl vs. Brawl check**, adding
+  <setback></setback> for each round they have been caught.
+skill: Brawl
+damage: 0
+addSkill: false
+criticalRating: 0
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 2
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - CaM:40

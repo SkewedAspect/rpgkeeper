@@ -1,0 +1,11 @@
+id: eote-talent-heavy-hitter
+name: Heavy Hitter
+description: Once per session, spend <triumph></triumph> on a successful Ranged (Heavy) or Gunnery check to add the
+  Breach 1 quality to the attack, or increase an existing Breach rating by 1.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Heavy
+reference:
+  - DC:32
+  - FiB:35

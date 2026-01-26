@@ -1,0 +1,12 @@
+id: eote-talent-blooded
+name: Blooded
+description: Add <boost></boost> per rank of Blooded to all checks to resist or recover from poisons, venoms, or toxins.
+  Reduce duration of ongoing poisons by 1 round per rank of Blooded to a minimum of 1.
+activation: p
+ranked: true
+forceTalent: false
+trees: Alchemist, Commando, Survivalist
+reference:
+  - E-CRB:132
+  - A-CRB:143
+  - UP:32

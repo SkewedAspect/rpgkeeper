@@ -1,0 +1,30 @@
+id: eote-armor-leviathan-power-armor
+name: Leviathan Power Armor
+description: >-
+  Designed by the Mon Calamari for use in subaquatic military operations, Leviathan power armor has seen plenty of use
+  within the Rebel Alliance. In particular, the Alliance employs Leviathan power armor during operations on aquatic
+  Imperial facilities and targets. The armor not only provides protection from the pressure of deep-water operations,
+  but acts as a stable weapons platform for its integrated flechette rifle and mini-torpedo launcher.
+
+  Though created for use by Mon Calamari, Leviathan suits can be modified to fit members of other species. More often
+  than not, they are created for specific individuals by Mon Cal craftsmen. Much like Mon Calamari starships, each
+  Leviathan suit is a unique work of art, and no two suits are identical in appearance.
+
+  Any character wearing a Leviathan suit that was not built for him upgrades the difficulty of Agility and Brawn-based
+  checks once.
+
+  A Leviathan suit is fully sealed and has an integrated respirator (see page 195 of the Age of Rebellion Core
+  Rulebook). It automatically possesses the following attachments: a heating system, an enhanced optics suite, and a
+  strength enhancement system (see page 187 of the Age of Rebellion Core Rulebook). These attachments are already
+  installed, and cannot be removed. Each suit is also equipped with one Mon Cal
+
+  Defenses mini torpedo launcher and one Salus DF-D1 duo-flechette rifle.
+defense: 2
+soak: 2
+hardpoints: 1
+encumbrance: 8
+rarity: 8
+restricted: false
+qualities: []
+reference:
+  - SoR:109

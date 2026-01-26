@@ -1,0 +1,9 @@
+id: eote-talent-bring-it-down
+name: Bring It Down
+description: Once per attack, spend 1 Destiny Point to add damage to a single hit equal to target's Brawn value.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Big-Game Hunter
+reference:
+  - EtU:30

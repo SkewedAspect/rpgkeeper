@@ -1,0 +1,10 @@
+id: eote-talent-flow-through-all-things
+name: Flow through all Things
+description: Once per round, the character may perform the Flows through all Things maneuver to recover strain equal to
+  their Force rating.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Master
+reference:
+  - CotR:39

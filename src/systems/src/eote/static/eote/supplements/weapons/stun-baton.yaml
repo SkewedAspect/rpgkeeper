@@ -1,0 +1,24 @@
+id: eote-weapon-stun-baton
+name: Stun Baton
+description: Resembling a typical police truncheon, the Z2 by Merr-Sonn packs an extra, often completely unexpected
+  punch in the form of a concentrated stun blast. Carried by riot police and criminal enforcers alike on countless
+  planets, the Z2 is a one-handed blunt weapon built from heavily reinforced polymers with conductive alloy striking
+  surfaces. When used against organic beings, the Z2 releases a burst of stun energy that can quickly and effectively
+  reduce a malcontent to unconsciousness. While not commonly used by the Empire, who prefer a more direct and punitive
+  form of policing, stun batons are common in the Outer Rim where law enforcement officers prefer non-lethal methods of
+  dealing with the people they serve and protect.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 6
+range: en
+encumbrance: 2
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 2
+  - id: eote-quality-stun-damage
+reference:
+  - FH:43

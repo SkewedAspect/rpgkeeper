@@ -1,0 +1,12 @@
+id: eote-talent-comrades-in-arms
+name: Comrades in Arms
+description: Once per encounter, take Comrades in Arms action and make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Discipline check**. If successful, the
+  character plus one ally per <success></success> within medium range gains +1 defense for the remainder of the
+  encounter.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Retired Clone Trooper
+reference:
+  - DoR:111

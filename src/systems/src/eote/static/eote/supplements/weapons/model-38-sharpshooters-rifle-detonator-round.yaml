@@ -1,0 +1,26 @@
+id: eote-weapon-model-38-sharpshooters-rifle-detonator-round
+name: Model 38 Sharpshooter's Rifle (Detonator Round)
+description: "While the standard penetrator ammunition offered with the Model 38 works well in most situations,
+  sometimes a shooter needs a little extra punch to fell his prey. To this end, Czerka offers the Detonator Round for
+  use with the Model 38. Instead of the coated penetrator bullet, Detonator Rounds have a metal coated shaped charge
+  bullet that explodes on contact with its target. When used with the Model 38, these rounds have the following effect
+  on the weapon's stats: Remove the Pierce quality and add the Blast (5) quality and Knockdown quality. Detonator Rounds
+  cost 450 credits for a box of rounds, and have a rarity of 7. If the weapon ever runs out of ammo, a new box of rounds
+  must be purchased to reload it."
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 5
+hardpoints: 4
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 2
+  - id: eote-quality-blast
+    ranks: 5
+  - id: eote-quality-knockdown
+reference:
+  - EtU:41

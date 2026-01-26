@@ -1,0 +1,35 @@
+id: eote-weapon-beam-cannon
+name: Beam Cannon
+description: >-
+  Taim & Bak KB-50A Beam Cannon
+
+  Some Sabers were equipped with beam cannon turrets in place of the standard twin medium laser cannons. Beam cannons
+  are specially tuned laser weapons with a high output and long dwell time. They fire continuous beams of energy at a
+  target for roughly three seconds, and then require a few seconds to recharge before firing again. These weapons hit
+  incredibly hard, can punch through light and medium armor with ease, and have a nasty tendency to set targets on fire.
+
+  Sabers equipped with KB-50a beam cannons are used in heavy support roles, providing cover fire for more lightly armed
+  Saber platoons and squads of infantry during advances and assaults.
+
+  A turret-mounted KB-50a Beam Cannon has the following profile: (Fire Arc All; Damage 7; Critical 3: Range (Medium);
+  Breach 2, Burn 2, Slow-Firing 2, Vicious 1).
+skill: Gunnery
+damage: 7
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 2
+  - id: eote-quality-burn
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - KoF:54

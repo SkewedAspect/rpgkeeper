@@ -1,0 +1,11 @@
+id: eote-talent-now-you-see-me
+name: Now You See Me
+description: Once per session, take Now You See Me action. Make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Deception check** to make a number of
+  NPC's equal to Cunning within medium range forget about character.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Shadow
+reference:
+  - F-CRB:148

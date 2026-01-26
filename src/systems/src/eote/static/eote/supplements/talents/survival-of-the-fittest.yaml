@@ -1,0 +1,10 @@
+id: eote-talent-survival-of-the-fittest
+name: Survival of the Fittest
+description: Once per session, when making a single check the character may treat his Force rating as being equal to
+  ranks in Survival.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Hermit
+reference:
+  - SS:31

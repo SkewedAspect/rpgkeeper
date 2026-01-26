@@ -1,0 +1,28 @@
+id: eote-weapon-bola-carbine
+name: Bola Carbine
+description: >-
+  Individually handcrafted by weaponsmiths, the bola carbine is a unique and somewhat rare blaster carbine. Natural wood
+  is used in the weapon’s construction, specifically in the forearm, stock, and butt assemblies. Though use of wood
+  increases the weapon’s weight when compared to modern materials, it allows for a large amount of personalization for
+  individual users.
+
+  The most unusual feature of the bola carbine is the charge it fires. The blaster bolt discharged by the weapon is
+  combined with a series of hard energy particles that are capable of producing a small energy net that can ensnare
+  targets. Though they ensnare targets for a fairly brief amount of time, the hard energy particles often make a
+  difference, especially when the user is being pursued by enemies.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 1
+  - id: eote-quality-accurate
+    ranks: 1
+reference:
+  - SoR:104

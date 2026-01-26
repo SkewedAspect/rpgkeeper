@@ -1,0 +1,28 @@
+id: eote-armor-individual-field-disruptor
+name: Individual Field Disruptor
+description: >-
+  A field disruptor is normally used to disable the shields and potentially the electronic systems on a vehicle or
+  starship. An individual field disruptor takes this functionality and brings it to a much smaller scale, enabling it to
+  be used against a foe wearing a personal energy field, as well as offering some protection to the wearer. Because of
+  its small size-the device is less than ten centimeters in diameter and is typically clipped to a belt-the individual
+  field disruptor is relatively discreet. When not activated, a casual observer might mistake it for a sensor or even a
+  simple piece of ornamentation.
+
+  In  use, the field disruptor creates a shimmering field around the wearer, forming a two-meter in diameter sphere
+  around the device and individual while obscuring visibility of the wearer. Whenever this field comes in contact with
+  an energy shield, it immediately deactivates it.
+
+  If the field of a disruptor contacts another energy field, the other field ceases to offer any defense as long as the
+  two fields intersect. If a character wearing an active field enters engaged range with a droid, the droid suffers 5
+  Stun damage. If the field enters engaged range with any other electronic device, the device shorts out and becomes
+  inactive for the remainder of the encounter. If the wearer makes a melee attack while the field is active, the wearer
+  counts as being armed with a Melee weapon with +2 damage and the Stun Damage item quality.
+defense: 1
+soak: 0
+hardpoints: 0
+encumbrance: 0
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - DoH:45

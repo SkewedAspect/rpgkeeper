@@ -1,0 +1,19 @@
+id: eote-attachment-multi-optic-sight
+name: Multi-Optic Sight
+description: A complex and sophisticated piece of equipment, the multi-optic sight is a wonder of modem sensor technology. Marketed to the discriminating professional soldier, each consists of a bulky on-weapon optic equipped with numerous sensors including low-light, thermal, ultrasound, millimeter wave emitters, video capture, and common optical enhancements. The optic is connected to a pair of goggles worn by the user by a reinforced fiber optic cable that transmits the vision enhancements directly to the user in real time. This allows the user to see around corners and over obstacles. This attachment can be fit to any ranged weapon.
+useWith: weapon
+hpRequired: 1
+rarity: 3
+baseModifier:
+  description: Removes up to <setback></setback><setback></setback> on any checks to use this weapon due to smoke, darkness, or other environmental conditions that obstruct vision.
+modOptions:
+  - description: Add <boost></boost> to Perception checks
+  - description: Add <boost></boost> to Perception checks
+reference:
+  - E-CRB:191
+  - A-CRB:202
+  - SS:51
+includedModels:
+  - Galactic Arms Model 44 Combat Optical Enhancer
+  - SoroSuub XAD Omnisight
+  - Merr-Sonn 480.z1 "Beholder" Multi-Optic Sight

@@ -1,0 +1,12 @@
+id: eote-talent-bad-motivator
+name: Bad Motivator
+description: Once per game session, may take a Bad Motivator action; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** to cause one targeted
+  device to spontaneously fail.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Mechanic
+reference:
+  - E-CRB:132
+  - A-CRB:143

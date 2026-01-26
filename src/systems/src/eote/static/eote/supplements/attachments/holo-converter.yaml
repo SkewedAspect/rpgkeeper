@@ -1,0 +1,14 @@
+id: eote-attachment-holo-converter
+name: Holo Converter
+description: Holo converters are common holo scrambling devices that allow users to alter a holoprojector's outgoing signal. Using powerful alteration technologies, holo converters allow users to change their species, age, gender, and any other identifying features on camera to hide their identity. This can be used with any holographic recording/projecting device, and the converter can store four different alter egos in its database.
+useWith: weapon
+hpRequired: 0
+rarity: 6
+baseModifier:
+  description: Allows a user to create disguises within holographic recording/projecting systems
+modOptions:
+  - description: Add one additional alter ego to the database
+reference:
+  - CaM:60
+includedModels:
+  - Various models

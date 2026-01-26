@@ -1,0 +1,16 @@
+id: eote-attachment-autopilot-droid-brain
+name: Autopilot Droid Brain
+description: More advanced and sophisticated than standard autopilot systems, a specialized autopilot droid brain has become a popular upgrade among smugglers and others. Capable of piloting a vehicle or ship with reasonable competence, autopilot droid brains can be communicated with remotely via a beckon call, allowing the user to summon the vehicle or ship from up to several hundred kilometers away.
+useWith: vehicle
+hpRequired: 0
+rarity: 6
+baseModifier:
+  description: Adds a Droid Brain with Piloting Skills 2 and Agility 0; May summon vehicle via a beckon call.
+modOptions:
+  - description: Increase Droid Brain's Piloting Skills by 1
+  - description: Increase Droid Brain's Piloting Skills by 1
+reference:
+  - FC:62
+  - FO:61
+includedModels:
+  - Go-Corp CD-12a autopilot droid brain

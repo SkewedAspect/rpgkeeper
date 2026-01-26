@@ -1,0 +1,11 @@
+id: eote-talent-sixth-sense
+name: Sixth Sense
+description: Gain +1 ranged defense.
+activation: p
+ranked: false
+forceTalent: false
+trees: Ambassador, Clone Veteran, Force Adherent, Force Sensitive Exile, Hunter, Nightsister, Scavenger
+reference:
+  - E-CRB:142
+  - A-CRB:156
+  - F-CRB:152

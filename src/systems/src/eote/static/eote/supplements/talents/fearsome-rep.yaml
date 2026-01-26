@@ -1,0 +1,9 @@
+id: eote-talent-fearsome-rep
+name: Fearsome Rep
+description: Add automatic <advantage></advantage> to the results of Coercion checks equal to ranks in Fearsome Rep.
+activation: p
+ranked: true
+forceTalent: false
+trees: Pirate
+reference:
+  - DoR:112

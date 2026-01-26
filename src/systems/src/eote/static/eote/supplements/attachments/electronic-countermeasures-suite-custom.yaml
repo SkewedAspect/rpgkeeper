@@ -1,0 +1,14 @@
+id: eote-attachment-electronic-countermeasures-suite-custom
+name: Electronic Countermeasures Suite (Custom)
+description: |-
+  Blocks sensors within range when active, counting the Tallanx’s silhouette as 2. Immediately notifies all ships in a star system, or within 100 kilometers if planetside, to the Tollonx’s existence.
+        
+  _This is an optional no-cost attachment for the Tallanx-Class Stealth Fighter and the Darvro-Class Light Freighter._
+useWith: vehicle
+hpRequired: 0
+rarity: 6
+baseModifier:
+  description: Blocks sensors within range, counting the ship's silhouette as one smaller when being fired upon.; Immediately notifies all ships in a star system or within 100 kilometers if planetside to the ship or vehicle's existence.
+modOptions: []
+reference:
+  - SoR:118

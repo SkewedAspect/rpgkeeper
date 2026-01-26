@@ -12,7 +12,7 @@ export interface SupplementBase
     description ?: string;
     owner ?: string;
     official : boolean;
-    reference ?: string;
+    reference ?: string | string[];
 }
 
 /**

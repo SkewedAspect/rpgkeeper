@@ -1,0 +1,20 @@
+id: eote-weapon-cdef-blaster-pistol
+name: CDEF Blaster Pistol
+description: A basic, cheap design manufactured by Corellian Arms, a subsidiary of the Corellian Engineering
+  Corporation, the CDEF blaster pistol is the standard sidearm issued to CorSec officers. While it lacks the stopping
+  power of many other comparable light blasters, the weapon's relatively small size, reliability, and ease of
+  maintenance have kept it in service with CorSec since before the Clone Wars.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 1
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-inferior
+  - id: eote-quality-stun-setting
+reference:
+  - SoF:94

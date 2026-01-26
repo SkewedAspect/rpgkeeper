@@ -1,0 +1,11 @@
+id: eote-talent-kill-with-kindness
+name: Kill With Kindness
+description: Remove <setback></setback> per rank of Kill with Kindness from all Charm and Leadership checks.
+activation: p
+ranked: true
+forceTalent: false
+trees: Advisor, Ambassador, Charmer, Performer, Politico, Republic Representative, Sage, Ship Captain
+reference:
+  - E-CRB:138
+  - A-CRB:150
+  - F-CRB:146

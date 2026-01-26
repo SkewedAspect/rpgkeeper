@@ -1,0 +1,20 @@
+id: eote-attachment-retractable-wrist-blades
+name: Retractable Wrist Blades
+description: Knives are among the most universally developed and broadly useful tools. While its combat function is obvious, knives are also routinely used for modifying equipment, as makeshift prybars, for escaping restraints, and for countless other applications. Not surprisingly, many warriors like to have a blade readily at hand. Mounting retractable blades on one or both forearms of an armored suit provides a solution that is immediately available. In some cases, the mount point is further reinforced, transforming the forearm blade mount into a small buckler.
+useWith: armor
+hpRequired: 1
+rarity: 1
+baseModifier:
+  description: Armor incorporates a wrist blade that can be readied as an incidental.
+modOptions:
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+reference:
+  - CotR:63
+includedModels:
+  - Merr-Sonn SB-7 Spring Blades
+  - Dolmax Model 9 Wrist Knife

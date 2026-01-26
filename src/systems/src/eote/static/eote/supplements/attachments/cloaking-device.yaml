@@ -1,0 +1,14 @@
+id: eote-attachment-cloaking-device
+name: Cloaking Device
+description: Cloaking devices are exceedingly rare and typically only fitted to starships employed in gathering intelligence assignments. Fueled with either hibridium or stygium, these power-hungry systems render a ship completely invisible. Cloaking devices are illegal to own for non-military use, a fact that is largely lost on those few criminals, smugglers, and espionage freelancers who are wealthy enough to afford them. This attachment can be applied to any starship of silhouette 3 or larger.
+useWith: vehicle
+hpRequired: 4
+rarity: 9
+baseModifier:
+  description: Provides a starship with a cloaking device which can be activated or deactivated by spending a maneuver. A character must make a **Daunting (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception** or **Vigilance check** to spot a cloaked ship. Ships with an active cloaking device have their speed reduced by half (rounded up) and can not use active sensors, comms, or weapons.
+modOptions: []
+reference:
+  - CaM:62
+includedModels:
+  - Sienar Fleet Systems Mk Ill Stygium Cloaking Device
+  - Kerner Corp Multi-Phase Hibridium Stealth System

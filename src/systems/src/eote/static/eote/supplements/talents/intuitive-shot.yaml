@@ -1,0 +1,10 @@
+id: eote-talent-intuitive-shot
+name: Intuitive Shot
+description: When aiming a Ranged (Heavy) or Range (Light) combat check, add [FO] no greater than Force rating to the
+  check. May spend <forcepoint></forcepoint> to add <success></success> or <advantage></advantage>.
+activation: p
+ranked: false
+forceTalent: true
+trees: Hunter
+reference:
+  - F-CRB:145

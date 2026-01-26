@@ -1,0 +1,14 @@
+id: eote-attachment-superior-hilt-personalization
+name: Superior Hilt Personalization
+description: While most lightsabers are austere and utilitarian, some Jedi have been known to personalize their weapons to better suit their tastes and styles. Numerous cosmetic or practical enhancements can be applied to a lightsaber, from rare metals and precious gemstones to customized grips and locking activating switches.
+useWith: weapon
+hpRequired: 1
+rarity: 6
+baseModifier:
+  qualities:
+    - id: eote-quality-superior
+modOptions: []
+reference:
+  - F-CRB:200
+includedModels:
+  - None

@@ -1,0 +1,24 @@
+id: eote-weapon-mini-torpedo-ion
+name: Mini-Torpedo, Ion
+description: >-
+  For use primarily against droids and vehicles, ion mini-torpedoes were a popular choice for the Mon Calamari during
+  the Battle of Mon Cala.
+        
+  _For use with the Mon Cal Defenses Mini-Torpedo Launcher_
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 2
+range: l
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-ion
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - SoR:107

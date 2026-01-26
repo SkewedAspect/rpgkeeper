@@ -1,0 +1,13 @@
+id: eote-talent-terrify
+name: Terrify
+description: Take the Terrify action; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Coercion check**, adding [FO] no greater
+  than Force rating. Disorient one target within medium range per <success></success>. Spend
+  <advantage></advantage><advantage></advantage> to extend duration and spend <forcepoint></forcepoint> to immobilize
+  affected target.
+activation: am
+ranked: false
+forceTalent: true
+trees: Aggressor
+reference:
+  - F-CRB:153

@@ -1,0 +1,11 @@
+id: eote-talent-first-among-brothers
+name: First Among Brothers
+description: When the character makes a check that does not result in any uncanceled <threat></threat>, add
+  <advantage></advantage> equal to the character's ranks in First Among Brothers to the check results. The character may
+  only spend these additional <advantage></advantage> to affect allied clones.
+activation: p
+ranked: true
+forceTalent: false
+trees: Clone Commander, Clone Officer
+reference:
+  - RotS:39

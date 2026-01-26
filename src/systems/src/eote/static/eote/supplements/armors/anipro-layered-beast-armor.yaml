@@ -1,0 +1,23 @@
+id: eote-armor-anipro-layered-beast-armor
+name: AniPro Layered Beast Armor
+description: >-
+  VeTech AniPro Layered Beast Armor
+
+  Light and easy to maintain, the AniPro-series  layered beast armor by VeTech strikes a good balance between protection
+  and practicality. Somewhat similar to light armor suits worn by many of the galaxy's law enforcement officers, it is
+  made from thick layers of synthetic fibers reinforced with lengths of energy absorbing armorweave. This material is
+  backed with thin polycarbonate plates at strategic locations on an animal's neck, shoulders, back and leg. Thanks to
+  its design and lightweight construction, AniPro armor doesn't weigh an animal down or restrict its speed or range
+  motion, making it easy to wear for extended lengths of time.
+
+  AniPro beast armor can only be worn by riding or working animals. In addition to providing protection to a mount, this
+  armor allows a character to ride the animal without suffering the bareback riding penalties detailed on page 73.
+defense: 1
+soak: 1
+hardpoints: 0
+encumbrance: 4
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - SS:44

@@ -1,0 +1,25 @@
+id: eote-weapon-j-7b-beamdrill
+name: J-7b Beamdrill
+description: The standard beamdrill used by Corellia Mining Corporation, the J-7b has been in service since before the
+  Clone Wars. Using intense pulses of plasma to strip away rock, the beamdrill can carve through virtually anything,
+  including armor. While not intended to be a weapon, the cumbersome beamdrill can be extremely lethal if used as a
+  makeshift weapon, and has even seen use by pirates to breach the hulls and bulkheads of their prey vessels.
+skill: Melee
+damage: 9
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 6
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 4
+  - id: eote-quality-inaccurate
+    ranks: 2
+  - id: eote-quality-sunder
+reference:
+  - SoF:98

@@ -1,0 +1,33 @@
+id: eote-weapon-wrist-blaster
+name: Wrist Blaster
+description: >-
+  Wrist blasters are custom-made self-defense weapons worn by diplomats, espionage agents, businesspeople, and other
+  individuals who need an inconspicuous personal defense weapon. Typically built into a bracelet or large-framed chrono,
+  these weapons fire an extremely powerful blast at little more than arm's length. Good for only one shot, the blaster
+  mechanism focuses all of its power into a single, high-powered blast that can penetrate most armor and can
+  incapacitate or even kill the toughest opponent in the blink of an eye. Despite their utility, wrist blasters have a
+  number of downsides. They are illegal on most worlds, although that doesn't stop individuals from using them. In
+  addition, their range is pitifully short: users must be almost touching their target for the weapon to have any
+  effect. Finally, since wrist blasters are only good for one shot, a user is put in a precarious situation if the blast
+  fails to incapacitate or kill the intended target.
+
+  Noticing that an individual is wearing a wrist blaster requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check**. At the Game Master's
+  discretion, <threat></threat><threat></threat><threat></threat> or <despair></despair> can be spent on a user's Ranged
+  (Light) check to have the weapon burn the user and deal 5 wounds.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 4
+reference:
+  - CaM:40

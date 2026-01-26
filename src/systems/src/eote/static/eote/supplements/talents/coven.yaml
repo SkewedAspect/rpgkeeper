@@ -1,0 +1,10 @@
+id: eote-talent-coven
+name: Coven
+description: The character may perform the Coven maneuver. On their next Force power check, they may reroll one [FO] for
+  each ally within short range who also possesses the Coven talent.
+activation: am
+ranked: false
+forceTalent: true
+trees: Nightsister
+reference:
+  - CotR:38

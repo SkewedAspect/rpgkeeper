@@ -1,0 +1,12 @@
+id: eote-talent-mission-critical
+name: Mission Critical
+description: Once per session after rolling a Piloting (Planetary) or Piloting (Space) check but before resolving it,
+  the character may spend a Destiny Point to add <success></success> or <advantage></advantage> to the results equal to
+  their ranks in that skill. (The character may divide the results between <success></success> and
+  <advantage></advantage> In any combination.)
+activation: ai
+ranked: false
+forceTalent: false
+trees: Clone Pilot
+reference:
+  - RotS:40

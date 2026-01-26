@@ -1,0 +1,28 @@
+id: eote-weapon-alternating-fire-concussion-missile-launcher
+name: Alternating-Fire Concussion Missile Launcher
+description: The more common and less powerful of the two types of shipboard ordnance, concussion missiles are found on
+  all manner of spacecraft, from tiny starfighters to capital ships. Roughly a meter long, a concussion missile employs
+  special warheads, combining a hardened durasteel penetrator that uses kinetic force to pierce through a ship's armor
+  and a shaped high-explosive charge that causes damage through both explosive force and concussive shock. Concussion
+  missiles are primarily anti-fighter weapons, used to quickly deal crippling damage to starfighters and patrol boats,
+  although they perform well against larger targets as well.
+skill: Gunnery
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-guided
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 3
+reference:
+  - SoT:56

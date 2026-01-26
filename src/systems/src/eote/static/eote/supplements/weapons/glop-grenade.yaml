@@ -1,0 +1,45 @@
+id: eote-weapon-glop-grenade
+name: Glop Grenade
+description: >-
+  Merr-Sonn's ingenious G-20 Glop Grenade is a reusable, less-than-lethal antipersonnel grenade used to suppress rioters
+  and capture fugitives alive. Roughly the size of a thermal detonator, the G-20 is a small metallic sphere covered in
+  spray nozzles. As a trigger, glop grenades are equipped with a timer that can be set to detonate on contact or set to
+  detonate after a delay of up to fifteen seconds. Inside the sphere is a refillable reservoir that holds a semiliquid
+  foam that instantly hardens upon contact with oxygen. When deployed, the user sets his detonation time and simply
+  throws it at his target. When it detonates, the grenade sprays its quick-hardening foam over a broad area, trapping
+  everything in its range in a thick, nearly unbreakable substance that is almost as strong as ferrocrete. The hardened
+  foam is only good for around five minutes, after which it begins to break down and becomes brittle and easy to
+  shatter.
+
+  A glop grenade's Ensnare quality triggers automatically on any targets the weapon hits, with no need to spend
+  <advantage></advantage>.
+
+  While glop grenades are ostensibly rated as nonlethal, accidents do happen, and they have been known to cause death
+  due to suffocation or, in extremely rare cases, allergic reactions to the foam. Whenever a target is hit with a glop
+  grenade, he must make an **Easy (<difficulty></difficulty>) Coordination check** to keep the foam from filling his
+  breathing passages. Failure on the skill check indicates that the foam has cut off the target's air, and he
+  immediately suffers the effects of suffocation as detailed on page 214 of the **Edge of the Empire** Core Rulebook.
+
+  Glop grenades that are recovered after use can be refilled with special pressurized hypoinjectors that transfer the
+  foam from a sealed container into the grenade's reservoir without exposing it to the atmosphere. This requires an
+  **Easy (<difficulty></difficulty>) Ranged (Light) check** to complete. Failure on the check indicates that the foam
+  has been ruined, and any net <threat></threat> gained on a failed skill check means that some mishap with the filling
+  system occurs and the user is engulfed in quickly hardening goo. This doesn't require an attack roll, but it does
+  require the user to make an **Easy (<difficulty></difficulty>) Coordination check** to avoid getting the goo in his
+  nose or mouth per the rules above. Purchase of a Glop Grenade includes the hypoinjector and five refill canisters.
+  Additional refill canisters can be purchased for 100 credits apiece and have a rarity of 6.
+skill: Ranged (Light)
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 3
+  - id: eote-quality-blast
+reference:
+  - EtU:42

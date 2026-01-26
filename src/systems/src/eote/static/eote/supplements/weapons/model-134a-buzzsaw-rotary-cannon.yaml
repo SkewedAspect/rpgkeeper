@@ -1,0 +1,32 @@
+id: eote-weapon-model-134a-buzzsaw-rotary-cannon
+name: Model 134a "Buzzsaw" Rotary Cannon
+description: >-
+  Loud, heavy, and dangerous, the Model 134a is the heaviest portable slugthrower produced by Czerka. Known colloquially
+  as the "Buzzsaw," thanks to the noise it makes when fired, this weapon is a belt-fed, six-barreled rotary cannon that
+  fires thousands of rounds per second and can chew up infantry formations and light vehicles with ease. Power and
+  ammunition are fed to the weapon via reinforced belts and cables from a backpack that carries the power pack and a
+  sizeable load of small-caliber ammunition. Thanks to their weight and prodigious recoil, it takes quite a bit of
+  strength and stamina to effectively use these weapons, and they are typically supported by a bipod or sling while
+  being fired. In addition to their weight, noise, and recoil, Buzzsaws consume immense amounts of ammunition and have a
+  nasty tendency to overheat and jam when fired for extended periods of time.
+
+  The Model 134a can only be fired using the Auto-fire quality. Game Masters may spend <despair></despair> or
+  <threat></threat><threat></threat><threat></threat> to have the weapon overheat and jam. When a Buzzsaw jams, the user
+  must perform a maneuver to clear the jam before it can be fired again.
+skill: Gunnery
+damage: 12
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 8
+hardpoints: 4
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 5
+  - id: eote-quality-pierce
+    ranks: 3
+reference:
+  - KoF:41

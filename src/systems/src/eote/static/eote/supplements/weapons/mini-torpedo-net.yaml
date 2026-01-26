@@ -1,0 +1,24 @@
+id: eote-weapon-mini-torpedo-net
+name: Mini-Torpedo, Net
+description: >-
+  The net mini-torpedo is designed to ensnare targets rather than damage them. Upon detonation, four weights connected
+  to a central net are released. When the net hits one or more targets, the weights encircle them and secure the net.
+        
+  _For use with the Mon Cal Defenses Mini-Torpedo Launcher_
+skill: Ranged (Heavy)
+damage: 0
+addSkill: false
+criticalRating: 0
+range: m
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+  - id: eote-quality-ensnare
+    ranks: 6
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - SoR:107

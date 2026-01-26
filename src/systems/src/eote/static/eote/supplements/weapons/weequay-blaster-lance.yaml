@@ -1,0 +1,23 @@
+id: eote-weapon-weequay-blaster-lance
+name: Weequay Blaster Lance
+description: Designed for use in the endless expanse of white sand deserts on Sriluur, these unusual blasters have
+  exceptionally long barrels, some nearly two meters in length. While not the most powerful blasters available, the
+  particularly long range of these weapons makes them ideal for hunting in the desolate wastes and for desert warfare,
+  in which enemies can be spotted at a great distance. Though blaster lances are somewhat cumbersome, many Weequay
+  nonetheless carry them for their ability to hit virtually anything visible under the light of Quay.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 5
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 2
+reference:
+  - LoNH:100

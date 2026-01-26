@@ -1,0 +1,28 @@
+id: eote-weapon-shaped-charge
+name: Shaped Charge
+description: >-
+  Shaped charges are specially designed demolitions devices intended for pinpoint destruction. Such devices consist of a
+  sizable detonite charge enclosed in a cone-shaped plasteel casing. When the charge is detonated, the specially shaped
+  casing focuses the force of the explosion in a small area, creating a powerful jet of fine plasteel particles and
+  kinetic energy that can cut through the strongest materials. Shaped charges are typically used to destroy buildings
+  and other structures by cutting through load-bearing and structural members. They can also be used to bore holes,
+  destroy obstacles, and even create ersatz anti vehicle mines.
+
+  Shaped charges have the Breach 1 and Vicious 1 qualities, both of which increase by one for every additional shaped
+  charge used.
+skill: Mechanics
+damage: 5
+addSkill: true
+criticalRating: 0
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - FO:42

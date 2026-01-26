@@ -1,0 +1,16 @@
+id: eote-attachment-vibro-bayonet
+name: Vibro-Bayonet
+description: Although most fights are resolved with exchanges of blaster fire, a close-range firefight can quickly turn into a melee. When this happens, it pays to be prepared. Because the time it takes to draw a blade can mean the difference between life and death, some spacers equip their blasters with vibro-bayonets, essentially vibroblades mounted on the barrel of a gun. While a vibro-spear is not many Technicians' weapon of choice, having one at hand is considerably better than being effectively unarmed when combat takes place in such cramped quarters as the belly of a starship. This attachment can be applied to any Ranged (Heavy) weapon that could be logically mount a bayonet.
+useWith: weapon
+hpRequired: 1
+rarity: 3
+baseModifier:
+  description: Adds a vibro-bayonet to the weapon
+modOptions:
+  - damageModifier: 1
+  - damageModifier: 1
+reference:
+  - SM:56
+includedModels:
+  - Czerka Arms "Last Resort" Vibro-Bayonet
+  - Merr-Sonn Model 3 Combat Attachment

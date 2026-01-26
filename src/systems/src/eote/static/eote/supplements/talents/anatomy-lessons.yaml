@@ -1,8 +1,10 @@
 id: eote-talent-anatomy-lessons
 name: Anatomy Lessons
-description: After a successful attack with a non-starship/vehicle weapon, the character may spend one Destiny Point to
-  add damage equal to his Intellect to one hit of the attack.
+description: After making a successful attack, may spend 1 Destiny Point to add damage equal to Intellect to one hit.
 activation: ai
 ranked: false
-trees: Assassin, Doctor
-reference: E-CRB:132
+forceTalent: false
+trees: Assassin, Doctor, Medic, Shadow
+reference:
+  - E-CRB:132
+  - A-CRB:142

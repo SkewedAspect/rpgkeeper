@@ -1,0 +1,11 @@
+id: eote-talent-trust-no-one
+name: Trust No One
+description: When targeted by a social check, may choose to suffer one strain to add automatic <failure></failure> to
+  the check. If the check fails with <despair></despair>, the character may immediately perform a maneuver as an
+  out-of-turn incidental.
+activation: aio
+ranked: false
+forceTalent: false
+trees: Padawan Survivor
+reference:
+  - DoR:116

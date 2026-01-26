@@ -1,0 +1,17 @@
+id: eote-attachment-overcharge-valve
+name: Overcharge Valve
+description: An overcharge valve is a simple (if dangerous) modification that allows the wielder of a blaster to discharge the entire ammunition reserve in a single, devastating shot. This attachment can be applied to any blaster or energy weapon that could logically benefit from it.
+useWith: weapon
+hpRequired: 2
+rarity: 6
+baseModifier:
+  damageModifier: 4
+  description: As incidental, weapon gains  quality and  for next attack. After firing, weapon runs out of ammo.
+  qualities:
+    - id: eote-quality-prepare
+      ranks: 1
+modOptions: []
+reference:
+  - FC:51
+includedModels:
+  - Czerka "One-Shot" Overcharge Valve

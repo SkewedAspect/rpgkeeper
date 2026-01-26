@@ -1,0 +1,10 @@
+id: eote-talent-gearhead
+name: Gearhead
+description: Remove <setback></setback> per rank of Gearhead from Mechanics checks. Have the credit cost to add mods to attachments.
+activation: p
+ranked: true
+forceTalent: false
+trees: Armorer, Driver, Droid Specialist, Mechanic, Modder, Rigger
+reference:
+  - E-CRB:136
+  - A-CRB:148

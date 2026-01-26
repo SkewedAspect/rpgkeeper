@@ -1,0 +1,19 @@
+id: eote-attachment-blade-drain
+name: Blade Drain
+description: |-
+  The Blade drain attachment works by creating a small power drain when in contact with another lightsaber blade. Once attached to a lightsaber hilt and wired into the power supply, the blade drain attachment draws energy from the power supply of an opponent's lightsaber via the energy blade contact is made. The draw is momentary but significant enough to reduce the effectiveness of an opponent's lightsaber, making it less capable of dealing damage.
+  There is, however, a risk that the drawn power could overload the power supply of the wielder's own lightsaber as the excess power is stored, causing a catastrophic failure in the device. Users of this modification consider it a small price to pay for reducing the combat effectiveness of their foes, a trade off that could save lives. This attachment can only be applied to lightsabers.
+useWith: weapon
+hpRequired: 2
+rarity: 9
+baseModifier:
+  description: When making a combat check targeting an opponent with a lightsaber, character may spend <triumph></triumph> to reduce opponent's lightsaber's base damage by one for remainder of encounter.; <threat></threat><threat></threat><threat></threat> causes blade to collapse. Cannot be reignited until character's next turn.
+modOptions:
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+reference:
+  - DoH:50

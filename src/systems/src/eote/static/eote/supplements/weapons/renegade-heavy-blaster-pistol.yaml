@@ -1,0 +1,24 @@
+id: eote-weapon-renegade-heavy-blaster-pistol
+name: '"Renegade" Heavy Blaster Pistol'
+description: >-
+  SoroSuub "Renegade" Heavy Blaster Pistol
+
+  The Renegade is the most powerful blaster pistol ever manufactured by SoroSuub. Popular with pirates and smugglers,
+  the weapon is large and intimidating without being cumbersome and unwieldy. Due to its reliability, it’s also favored
+  by Rebel SpecOps troops and vehicle crews. Though the weapon’s range is comparable to that of a typical heavy blaster
+  pistol, the sacrifices made to increase its damage cause it to be somewhat inaccurate.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 2
+hardpoints: 3
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - SoR:106

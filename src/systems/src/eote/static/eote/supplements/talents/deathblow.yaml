@@ -1,0 +1,10 @@
+id: eote-talent-deathblow
+name: Deathblow
+description: After making a successful attack with a non-starship/vehicle weapon, the character may spend one Destiny
+  Point to add damage equal to his Willpower to one hit of the successful attack.
+activation: p
+ranked: false
+forceTalent: false
+trees: Executioner
+reference:
+  - SS:30

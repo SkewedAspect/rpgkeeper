@@ -1,0 +1,16 @@
+id: eote-attachment-encrypted-computer
+name: Encrypted Computer
+description: |-
+  A skilled Slicer knows how to protect a computer system from others skilled in electronic skulduggery, and is likely to take steps to do just that. Whether consisting of modifications and programming by a crew member or of specialized software purchased on the black market, encrypted systems can protect a ship against slicing attacks at port and during battle. In addition to preventing catastrophes during skirmishes, the extra security is of great use to any group that wants to keep its data private. This attachment can be applied to any vehicle or starship.
+  **
+  Models Include:** Numerous Custom Variants
+useWith: vehicle
+hpRequired: 0
+rarity: 6
+baseModifier:
+  description: Upgrade difficulty of all Computers checks made to slice the ship's computer system once.
+modOptions:
+  - description: Add <setback></setback> to Computers checks made to slice the ship's computer systems
+  - description: Add <setback></setback> to Computers checks made to slice the ship's computer systems
+reference:
+  - SM:65

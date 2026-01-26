@@ -1,7 +1,11 @@
 id: eote-talent-sense-danger
 name: Sense Danger
-description: Once per game remove <setback></setback> <setback></setback> from any one check.
+description: Once per session, remove <setback></setback><setback></setback> from any 1 check.
 activation: ai
 ranked: false
-trees: Seer
-reference: E-CRB:142
+forceTalent: true
+trees: Force Sensitive Emergent, Force Sensitive Exile, Padawan, Seer, Teacher, Warleader
+reference:
+  - E-CRB:142
+  - A-CRB:155
+  - F-CRB:151

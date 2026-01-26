@@ -1,0 +1,10 @@
+id: eote-talent-harass
+name: Harass
+description: Whenever the character's bonded animal makes a successful combat check against a target, it may forgo
+  inflicting damage to upgrade the difficulty of the target's next check once instead.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Hermit
+reference:
+  - SS:30

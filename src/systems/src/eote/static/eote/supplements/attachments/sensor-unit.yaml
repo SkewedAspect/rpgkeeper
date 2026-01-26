@@ -1,0 +1,17 @@
+id: eote-attachment-sensor-unit
+name: Sensor Unit
+description: |-
+  This unit features a raised, rotating
+  dish not unlike the similar, smaller unit common to
+  astromech droids. The sensor feeds a wrist-mounted
+  touchscreen and can be set to alert a soldier to movement nearby, or scan the area in general up to long
+  range. In addition to receiving narrative benefits such
+  as advance warning of movement, the wearer adds automatic <advantage></advantage> to Vigilance checks.
+useWith: weapon
+hpRequired: 1
+rarity: 3
+baseModifier:
+  description: Adds <advantage></advantage> to Vigilance checks.
+modOptions: []
+reference:
+  - FiB:55

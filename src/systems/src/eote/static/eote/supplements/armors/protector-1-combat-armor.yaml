@@ -1,0 +1,17 @@
+id: eote-armor-protector-1-combat-armor
+name: Protector 1 Combat Armor
+description: The Protector 1 from the Tagge Company is representative of an entire class of heavy battle armor,
+  consisting of strong durasteel plates over a ballistic mesh suit. The armor plates of the Protector 1 are not as
+  all-encompassing as some suits of battle armor, trading a negligible amount of protection for increased mobility and
+  lighter weight than similar armor suits. The positions of the plates distribute weight evenly, and the mesh-weave
+  visible between the plates is still resistant to glancing hits. Overall, many mercenaries and soldiers find the
+  Protector 1 to be an ideal trade-off between protection and mobility.
+defense: 1
+soak: 2
+hardpoints: 3
+encumbrance: 4
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - DC:49

@@ -1,0 +1,10 @@
+id: eote-talent-identify-ingredients
+name: Identify Ingredients
+description: After being exposed to a substance, as an out-of-turn incidental, may roll [FO] no greater than Force
+  rating. Spend <forcepoint></forcepoint><forcepoint></forcepoint> to immediately identify its composition and effects.
+activation: aio
+ranked: false
+forceTalent: true
+trees: Alchemist
+reference:
+  - UP:32

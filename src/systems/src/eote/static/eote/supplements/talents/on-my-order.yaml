@@ -1,0 +1,13 @@
+id: eote-talent-on-my-order
+name: On My Order
+description: The character may take the On My Order action, making a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Leadership Check.** If the check
+  succeeds, the character chooses a number of crew aboard their ship equal to their Presence. Those crew members upgrade
+  the ability of their next Gunnery check once, plus one time for every additional
+  <success></success><success></success> on the check.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Republic Navy Officer
+reference:
+  - RotS:40

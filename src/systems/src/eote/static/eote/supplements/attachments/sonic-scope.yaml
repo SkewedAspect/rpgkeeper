@@ -1,0 +1,18 @@
+id: eote-attachment-sonic-scope
+name: Sonic Scope
+description: Originally developed to overcome personal cloaking devices and other sensor-baffling defenses, a sonic scope uses ultrasonic sound waves to detect a target and generate a visual representation. With proper calibration, the sonar waves can be set to pass through even duracrete and other solid surfaces. This attachment can be used with any Ranged (Heavy) weapon.
+useWith: weapon
+hpRequired: 1
+rarity: 8
+baseModifier:
+  description: May observe and target enemies who are completely hidden by solid objects.
+modOptions:
+  - description: Add <boost></boost> to Cool checks
+  - description: Add <boost></boost> to Vigilance checks
+  - description: Gain Precise Aim (reduce target's melee defense)
+  - description: Gain Precise Aim (reduce target's melee defense)
+reference:
+  - SM:56
+includedModels:
+  - CryonCorp PL-1 "Second Sight" Scope
+  - SoroSuub Model Z Integrated Sonar System

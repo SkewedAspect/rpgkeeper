@@ -1,0 +1,31 @@
+id: eote-weapon-subduer-9-riot-blaster
+name: '"Subduer-9" Riot Blaster'
+description: >-
+  Although just as heavy and unwieldly as many more lethal weapons, riot blasters lack stopping power in the traditional
+  sense, as these bulky blaster varients are very unlikely to do lasting harm. Instead, riot blasters are built to
+  enhance the effectiveness of the stun setting common to blaster weapons. The "Subduer-9" model is noteworthy for it
+  can maintain a coherent stun blast over a wide area, reducing the risk of collateral damage or unintended injury to
+  the target.
+
+  Given these capabilites, many peacekeeping forces equip their troops with riot blasters, or at least keep the powerful
+  weapons on hand for major civil disturbances. While obviously preferable to the alternative, the willingness with
+  which some Imperial commanders deploy the weapons at the slightest provocation has given them an unsavory repuation in
+  the eyes of many. Nevertheless, they are a welcome addition to the armory of any hunter who prefers to take targets
+  alive and avoid incental harm to others.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 6
+range: s
+encumbrance: 6
+hardpoints: 3
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-stun-damage
+reference:
+  - ND:44

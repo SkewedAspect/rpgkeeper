@@ -1,0 +1,33 @@
+id: eote-weapon-lightsaber-pike
+name: Lightsaber Pike
+description: >-
+  Largely considered a ceremonial weapon, long associated with temple guards and Imperial bodyguards. lightsaber pikes
+  are nevertheless potent and dangerous weapons in the right hands. Similar in construction to a force pike or
+  electrostaff, a lightsaber pike consists of a long, sturdy haft typically made of composites or strong alloys. The
+  haft, while a respectable weapon in its own right, contains the internal workings of a standard lightsaber. When
+  activated, a shoto-length blade springs from the end of the haft, creating a weapon between two and three meters long.
+  Its size gives the lightsaber pike incredible reach and respectable defensive capabilities.
+
+  This lightsaber is a basic lightsaber pike hilt containing an unmodded Ilum lightsaber crystal (see page 197). This
+  crystal occupies two of the weapon's hard points.
+
+  **Models Include:** None: each of these weapons is individually constructed.
+skill: Lightsaber
+damage: 6
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 3
+hardpoints: 3
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-sunder
+reference:
+  - F-CRB:176

@@ -1,0 +1,19 @@
+id: eote-attachment-dai-bendu-lessons
+name: Dai Bendu Lessons
+description: |-
+  First attributed to the precursors of the Jedi, these objects remain a mystery. At the surface level, Dai Bendu holocrons resemble those produced by the Jedi. Each holocron contains six tracts, subdivided into four lessons apiece. Unlike ones made by the Jedi, Dai Bendu holocrons allow even the most unskilled of Force sensitives access. Their true key to mastery lies in study.
+  Completing each lesson in the tract requires an amount of study and meditation up to the GM’s decision. At its conclusion, the player must roll a Discipline check of one higher difficulty than it took to access that lesson. For example, to complete the first lesson, a Mystic must roll an **Average (<difficulty></difficulty><difficulty></difficulty>) Discipline check**. To complete the final lesson in a tract requires a **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Discipline check**.
+  When a Force-sensitive character completes a tract, the player selects one characteristic. Once per day, they may upgrade the ability dice pool of any single check related to that characteristic by two steps. The player has learned all they can from that tract, and must move on to another. Each subsequent tract provides the same benefit to another characteristic.
+useWith: weapon
+hpRequired: 0
+rarity: 0
+baseModifier: {}
+modOptions:
+  - description: "**Brawn Tract**: Once per day, may upgrade a Brawn-related check by two steps"
+  - description: "**Agility Tract**: Once per day, may upgrade an Agility-related check by two steps"
+  - description: "**Intellect Tract**: Once per day, may upgrade an Intellect-related check by two steps"
+  - description: "**Cunning Tract**: Once per day, may upgrade a Cunning-related check by two steps"
+  - description: "**Willpower Tract**: Once per day, may upgrade a Willpower-related check by two steps"
+  - description: "**Presence Tract**: Once per day, may upgrade a Presence-related check by two steps"
+reference:
+  - UP:52

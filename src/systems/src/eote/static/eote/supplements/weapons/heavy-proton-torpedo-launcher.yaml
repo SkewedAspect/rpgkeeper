@@ -1,0 +1,23 @@
+id: eote-weapon-heavy-proton-torpedo-launcher
+name: Heavy Proton Torpedo Launcher
+description: ""
+skill: Gunnery
+damage: 10
+addSkill: false
+criticalRating: 2
+range: m
+encumbrance: 0
+hardpoints: 0
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-breach
+    ranks: 8
+  - id: eote-quality-guided
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - SoR:119

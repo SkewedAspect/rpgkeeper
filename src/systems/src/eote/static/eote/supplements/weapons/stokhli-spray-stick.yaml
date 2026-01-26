@@ -1,0 +1,35 @@
+id: eote-weapon-stokhli-spray-stick
+name: Stokhli Spray Stick
+description: >-
+  Designed ages ago by the Stokhli, a non-human nomadic race from the Inner Rim world of Manress, these long-range
+  non-lethal weapons are perfect for crowd control and riot suppression. Used primarily by the Stokhli to hunt the
+  large, incredibly aggressive megafauna of their homeworld, the Spray Stick is a meter long metal rod with a tightly
+  focused spray nozzle at one end and a stun pad equipped butt-stock at the other. Fired from the shoulder like a
+  blaster rifle, these weapons shoot a highly concentrated spraynet mist. The mist condenses into a liquid, then into a
+  solid web while in flight, enveloping and immobilizing its target. In addition, as the net envelops its target, it
+  delivers a powerful electrical charge. Extremely rare and finely made, each Stokhli Spray Stick comes equipped with an
+  accurate range finder and a fine aerosol control system that allows the user to more easily hit targets at long range.
+  Despite their rarity and steep price, Stokhli Spray Sticks are always in demand.
+
+  When using the stun pad on the butt-stock, the Stokhli Spray Stick can be used as a melee weapon with the following
+  profile (Skill Melee; Damage +2; Critical —; Range [Engaged Inaccurate 1, Stun Damage).
+skill: Ranged (Heavy)
+damage: 0
+addSkill: false
+criticalRating: 0
+range: l
+encumbrance: 0
+hardpoints: 0
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 2
+  - id: eote-quality-ensnare
+    ranks: 4
+  - id: eote-quality-slow-firing
+    ranks: 1
+  - id: eote-quality-stun
+    ranks: 8
+reference:
+  - FH:41

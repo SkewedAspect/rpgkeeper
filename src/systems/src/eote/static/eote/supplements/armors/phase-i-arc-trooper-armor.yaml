@@ -1,0 +1,23 @@
+id: eote-armor-phase-i-arc-trooper-armor
+name: Phase I ARC Trooper Armor
+description: >-
+  Worn by the Grand Army of the Republic's elite Advanced Recon Commandos. Phase I ARC armor filled a gap between
+  standard clone trooper armor and the heavy, highly advanced Katarn-class armor. Like the clone trooper armor from
+  which it is derived, Phase I ARC armor is a full suit of plastoid armor worn over a formfitting bodysuit. It has
+  heavier armor on the forearms, thighs, and chest, and an advanced helmet that features a hardened long-range comlink.
+  A skirtlike kama made from advanced armored textiles is worn around the waist, providing extra protection to the legs
+  and groin, and each suit is equipped with a built-in load-bearing harness and a survival pack.
+
+  The various systems built into Phase I ARC trooper armor remove <setback></setback> from all Perception checks made by
+  the wearer and provide all the benefits of a hardened comlink. In addition, the integrated load-bearing harness
+  increases the wearer's encumbrance threshold by 3.
+defense: 1
+soak: 2
+hardpoints: 2
+encumbrance: 4
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - KoF:48
+  - RotS:58

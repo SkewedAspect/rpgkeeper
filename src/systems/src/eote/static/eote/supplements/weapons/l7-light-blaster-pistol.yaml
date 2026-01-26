@@ -1,0 +1,26 @@
+id: eote-weapon-l7-light-blaster-pistol
+name: L7 Light Blaster Pistol
+description: >-
+  Liquidsilver L7 Light Blaster Pistol
+
+  A simple, inexpensive blaster pistol, the Liquidsilver L7 has developed a reputation among smugglers as a good weapon
+  to have in a pinch. The L7's compact size, clean lines, and steel finish make the blaster fairly inconspicuous and
+  easy to overlook, especially if stowed for quick and easy access on the wall of a cargo hold or beside the gangplank
+  servos of a light freighter.
+
+  Add <setback></setback><setback></setback> to a character's Perception checks to notice a Liquidsilver L7 light
+  blaster pistol stashed aboard a starship.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+    ranks: 1
+reference:
+  - FC:43

@@ -29,19 +29,70 @@
             <div :class="`${ mode }-system`">
                 <BFormRow>
                     <BFormGroup
-                        class="flex-fill pe-1 w-50"
+                        class="flex-fill pe-1"
                         label="Name"
                         label-class="fw-bold"
                         label-for="name-input"
                     >
-                        <BFormInput
+                        <VueBootstrapAutocomplete
                             id="name-input"
                             v-model="editArmor.name"
-                            type="text"
+                            :data="availableArmors"
+                            :serializer="(a : EoteArmor) => a.name"
+                            :max-matches="1000"
+                            placeholder="Search or enter name..."
+                            show-on-focus
+                            @hit="onArmorTemplateHit"
+                        >
+                            <template #append>
+                                <BButton
+                                    variant="secondary"
+                                    title="Browse armors..."
+                                    @click="openBrowseModal"
+                                >
+                                    <Fa icon="search" />
+                                    Browse Armor
+                                </BButton>
+                            </template>
+                        </VueBootstrapAutocomplete>
+                    </BFormGroup>
+                </BFormRow>
+
+                <BFormRow class="mt-2">
+                    <BFormGroup
+                        class="flex-fill pe-1"
+                        style="width: 20%"
+                        label="Defense"
+                        label-class="fw-bold"
+                        label-for="armor-defense"
+                    >
+                        <BFormInput
+                            id="armor-defense"
+                            v-model.number="editArmor.defense"
+                            type="number"
+                            min="0"
+                            step="0"
                         />
                     </BFormGroup>
                     <BFormGroup
-                        class="flex-fill ps-1 w-25"
+                        class="flex-fill ps-1 pe-1"
+                        style="width: 20%"
+                        label="Soak"
+                        label-class="fw-bold"
+                        label-for="armor-soak"
+                    >
+                        <BFormInput
+                            id="armor-soak"
+                            v-model.number="editArmor.soak"
+                            type="number"
+                            min="0"
+                            step="0"
+                        />
+                    </BFormGroup>
+                    <BFormGroup
+                        v-if="mode === 'eote'"
+                        class="flex-fill ps-1 pe-1"
+                        style="width: 20%"
                         label="Hardpoints"
                         label-class="fw-bold"
                         label-for="armor-hardpoints"
@@ -54,39 +105,9 @@
                             step="0"
                         />
                     </BFormGroup>
-                </BFormRow>
-
-                <BFormRow>
                     <BFormGroup
-                        class="flex-fill pe-1 w-25"
-                        label="Defense"
-                        label-class="fw-bold"
-                        label-for="armor-damage"
-                    >
-                        <BFormInput
-                            id="armor-damage"
-                            v-model.number="editArmor.defense"
-                            type="number"
-                            min="0"
-                            step="0"
-                        />
-                    </BFormGroup>
-                    <BFormGroup
-                        class="flex-fill ps-1 pe-1 w-25"
-                        label="Soak"
-                        label-class="fw-bold"
-                        label-for="armor-critical"
-                    >
-                        <BFormInput
-                            id="armor-critical"
-                            v-model.number="editArmor.soak"
-                            type="number"
-                            min="0"
-                            step="0"
-                        />
-                    </BFormGroup>
-                    <BFormGroup
-                        class="flex-fill ps-1 pe-1 w-25"
+                        class="flex-fill ps-1 pe-1"
+                        style="width: 20%"
                         label="Encumb."
                         label-class="fw-bold"
                         label-for="armor-encumbrance"
@@ -100,7 +121,8 @@
                         />
                     </BFormGroup>
                     <BFormGroup
-                        class="flex-fill ps-1 w-25"
+                        class="flex-fill ps-1"
+                        style="width: 20%"
                         label="Rarity"
                         label-class="fw-bold"
                         label-for="armor-rarity"
@@ -115,7 +137,39 @@
                     </BFormGroup>
                 </BFormRow>
 
-                <QualityEdit v-model:qualities="editArmor.qualities" />
+                <BTabs class="mt-3" content-class="mt-2">
+                    <template v-if="mode === 'genesys'" #tabs-end>
+                        <BFormCheckbox
+                            v-model="useAttachmentRules"
+                            class="ms-auto"
+                            switch
+                        >
+                            Use Item Attachment Rules (optional)
+                        </BFormCheckbox>
+                    </template>
+
+                    <BTab title="Qualities" active>
+                        <QualityEdit
+                            v-model:qualities="editArmor.qualities"
+                            :attachment-refs="editArmor.attachments"
+                        />
+                    </BTab>
+                    <BTab v-if="showAttachments || mode === 'genesys'" :disabled="mode === 'genesys' && !useAttachmentRules">
+                        <template #title>
+                            Attachments
+                            <BBadge v-if="showAttachments" :variant="attachmentHpVariant" class="ms-1">
+                                {{ attachmentHpUsed }} / {{ calculatedHardpoints }} HP
+                            </BBadge>
+                        </template>
+                        <AttachmentEdit
+                            v-if="showAttachments"
+                            v-model:attachments="editArmor.attachments"
+                            :total-hardpoints="calculatedHardpoints"
+                            use-with="armor"
+                            :show-hardpoints-summary="false"
+                        />
+                    </BTab>
+                </BTabs>
             </div>
 
             <!-- Modal Buttons -->
@@ -136,6 +190,52 @@
                 </div>
             </template>
         </BModal>
+
+        <!-- Browse Armors Modal -->
+        <SupplementBrowserModal
+            ref="browseModal"
+            title="Browse Armors"
+            :supplements="availableArmors"
+            @select="onBrowseSelect"
+            @add-new="onAddNewArmor"
+            @edit="onEditArmorSupplement"
+        >
+            <template #preview="{ supplement }">
+                <div class="armor-stats d-flex flex-wrap mb-2">
+                    <span class="me-4"><strong>Defense:</strong> {{ supplement.defense }}</span>
+                    <span class="me-4"><strong>Soak:</strong> {{ supplement.soak }}</span>
+                    <span class="me-4"><strong>Hardpoints:</strong> {{ supplement.hardpoints }}</span>
+                    <span class="me-4"><strong>Encumbrance:</strong> {{ supplement.encumbrance }}</span>
+                    <span><strong>Rarity:</strong> {{ supplement.rarity }}</span>
+                </div>
+                <hr class="my-2">
+                <div class="armor-description flex-grow-1 overflow-auto">
+                    <MarkdownBlock :text="supplement.description ?? 'No description.'" inline />
+                </div>
+                <div class="text-end mt-auto pt-2">
+                    <h5 class="mb-1">
+                        <ScopeBadge :supplement="supplement" />
+                    </h5>
+                    <ReferenceBlock :reference="supplement.reference ?? ''" />
+                </div>
+            </template>
+        </SupplementBrowserModal>
+
+        <!-- Add/Edit Armor Supplement Modal -->
+        <AddEditArmorModal
+            ref="addEditArmorModal"
+            @add="onArmorSupplementAdded"
+            @edit="onArmorSupplementEdited"
+        />
+
+        <!-- Confirm Overwrite Modal -->
+        <ConfirmOverwriteModal
+            ref="confirmOverwriteModal"
+            title="Overwrite Armor"
+            message="Overwrite current armor values?"
+            description="This will replace all fields with the selected template values. Any changes you've made will be lost."
+            @confirm="onConfirmOverwrite"
+        />
     </div>
 </template>
 
@@ -147,6 +247,13 @@
             overflow: initial !important;
         }
     }
+
+    .edit-armor-modal {
+        .armor-description {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+    }
 </style>
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -155,15 +262,32 @@
     import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
-    import type { EoteArmorRef, EoteOrGenCharacter, EoteQualityRef } from '../../../models.ts';
+    import type {
+        EoteArmor,
+        EoteArmorRef,
+        EoteAttachment,
+        EoteAttachmentRef,
+        EoteOrGenCharacter,
+        EoteQualityRef,
+        GenesysCharacter,
+    } from '../../../models.ts';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Components
     import QualityEdit from '../sub/qualityEdit.vue';
-    import { BModal } from 'bootstrap-vue-next';
+    import AttachmentEdit from '../sub/attachmentEdit.vue';
+    import { BBadge, BModal, BTab, BTabs } from 'bootstrap-vue-next';
+    import { VueBootstrapAutocomplete } from '@morgul/vue-bootstrap-autocomplete';
     import CloseButton from '@client/components/ui/closeButton.vue';
+    import SupplementBrowserModal from '@client/components/character/supplementBrowserModal.vue';
+    import ConfirmOverwriteModal from '@client/components/ui/confirmOverwriteModal.vue';
+    import AddEditArmorModal from './addEditArmorModal.vue';
+    import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
+    import ScopeBadge from '@client/components/character/scopeBadge.vue';
+    import ReferenceBlock from '@client/components/character/referenceBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -177,6 +301,8 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
+    const char = ref<EoteOrGenCharacter | null>(null);
+
     const editArmor = ref({
         name: '',
         defense: 0,
@@ -184,24 +310,189 @@
         hardpoints: 0,
         encumbrance: 0,
         rarity: 0,
+        attachments: [] as EoteAttachmentRef[],
         qualities: [] as EoteQualityRef[],
     });
 
+    const pendingTemplate = ref<EoteArmor | null>(null);
+
     const innerModal = useTemplateRef('innerModal');
+    const browseModal = useTemplateRef<{ show : () => void; hide : () => void }>('browseModal');
+    const addEditArmorModal = useTemplateRef<InstanceType<typeof AddEditArmorModal>>('addEditArmorModal');
+    const confirmOverwriteModal = useTemplateRef<InstanceType<typeof ConfirmOverwriteModal>>('confirmOverwriteModal');
 
     const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
     const mode = computed(() => systemStore.current?.id ?? 'eote');
-    // TODO: Use qualities in this component
-    // const qualities = computed(() => supplementStore.get<EoteQuality>(mode.value, 'quality'));
+    const availableArmors = computed(() => supplementStore.get<EoteArmor>(mode.value, 'armor'));
+    const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
+
+    const calculatedHardpoints = computed(() =>
+    {
+        if(mode.value === 'genesys')
+        {
+            return Math.ceil(editArmor.value.encumbrance / 2);
+        }
+
+        return editArmor.value.hardpoints;
+    });
+
+    const attachmentHpUsed = computed(() =>
+    {
+        return editArmor.value.attachments.reduce((total, attRef) =>
+        {
+            const attachment = allAttachments.value.find((att) => att.id === attRef.id);
+            return total + (attachment?.hpRequired ?? 0);
+        }, 0);
+    });
+
+    const attachmentHpVariant = computed(() =>
+    {
+        const hardpoints = calculatedHardpoints.value;
+        if(attachmentHpUsed.value > hardpoints)
+        {
+            return 'danger';
+        }
+        else if(attachmentHpUsed.value === hardpoints && hardpoints > 0)
+        {
+            return 'warning';
+        }
+        return 'secondary';
+    });
+
+    const showAttachments = computed(() =>
+    {
+        if(mode.value === 'eote')
+        {
+            return true;
+        }
+        else if(mode.value === 'genesys' && char.value)
+        {
+            return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+        }
+
+        return false;
+    });
+
+    const useAttachmentRules = computed({
+        get: () =>
+        {
+            if(mode.value === 'genesys' && char.value)
+            {
+                return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+            }
+
+            return false;
+        },
+        set: (value : boolean) =>
+        {
+            if(mode.value === 'genesys' && char.value)
+            {
+                (char.value as GenesysCharacter).details.useAttachmentRules = value;
+            }
+        },
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
+
+    function formHasValues() : boolean
+    {
+        // Don't check name since that's what the user types to search
+        return !!(
+            editArmor.value.defense > 0
+            || editArmor.value.soak > 0
+            || editArmor.value.hardpoints > 0
+            || editArmor.value.encumbrance > 0
+            || editArmor.value.rarity > 0
+            || editArmor.value.qualities.length > 0
+        );
+    }
+
+    function applyTemplate(template : EoteArmor) : void
+    {
+        // Cast to access qualities which may be present on supplement data
+        const templateQualities = (template as EoteArmor & { qualities ?: EoteQualityRef[] }).qualities;
+        editArmor.value = {
+            name: template.name,
+            defense: template.defense,
+            soak: template.soak,
+            hardpoints: template.hardpoints,
+            encumbrance: template.encumbrance,
+            rarity: template.rarity,
+            attachments: [],
+            qualities: templateQualities ? [ ...templateQualities ] : [],
+        };
+    }
+
+    function onArmorTemplateHit(template : EoteArmor) : void
+    {
+        if(formHasValues())
+        {
+            pendingTemplate.value = template;
+            confirmOverwriteModal.value?.show();
+        }
+        else
+        {
+            applyTemplate(template);
+        }
+    }
+
+    function openBrowseModal() : void
+    {
+        browseModal.value?.show();
+    }
+
+    function onBrowseSelect(template : EoteArmor) : void
+    {
+        if(formHasValues())
+        {
+            pendingTemplate.value = template;
+            confirmOverwriteModal.value?.show();
+        }
+        else
+        {
+            applyTemplate(template);
+        }
+    }
+
+    function onConfirmOverwrite() : void
+    {
+        if(pendingTemplate.value)
+        {
+            applyTemplate(pendingTemplate.value);
+            pendingTemplate.value = null;
+        }
+    }
+
+    function onAddNewArmor() : void
+    {
+        browseModal.value?.hide();
+        addEditArmorModal.value?.show();
+    }
+
+    function onArmorSupplementAdded(newArmor : EoteArmor) : void
+    {
+        // Optionally auto-apply the new armor to the form
+        applyTemplate(newArmor);
+    }
+
+    function onEditArmorSupplement(armor : EoteArmor) : void
+    {
+        addEditArmorModal.value?.show(armor);
+    }
+
+    function onArmorSupplementEdited(updatedArmor : EoteArmor) : void
+    {
+        // Optionally auto-apply the updated armor to the form
+        applyTemplate(updatedArmor);
+    }
 
     function clear() : void
     {
@@ -212,14 +503,17 @@
             hardpoints: 0,
             encumbrance: 0,
             rarity: 0,
+            attachments: [],
             qualities: [],
         };
     }
 
-    function show(char : EoteOrGenCharacter) : void
+    function show(character : EoteOrGenCharacter) : void
     {
+        char.value = character;
+
         // Deep copy to avoid mutating original until save
-        const armor = char.details.armor;
+        const armor = character.details.armor;
         editArmor.value = {
             name: armor.name,
             defense: armor.defense,
@@ -227,6 +521,7 @@
             hardpoints: armor.hardpoints,
             encumbrance: armor.encumbrance,
             rarity: armor.rarity,
+            attachments: [ ...armor.attachments ],
             qualities: [ ...armor.qualities ],
         };
 
@@ -235,6 +530,7 @@
 
     function hide() : void
     {
+        char.value = null;
         clear();
 
         innerModal.value?.hide();
@@ -242,11 +538,17 @@
 
     function onSave() : void
     {
-        emit('save', editArmor.value as EoteArmorRef);
+        const armorToSave : EoteArmorRef = {
+            ...editArmor.value,
+            hardpoints: calculatedHardpoints.value,
+        };
+
+        emit('save', armorToSave);
     }
 
     function onCancel() : void
     {
+        pendingTemplate.value = null;
         clear();
     }
 

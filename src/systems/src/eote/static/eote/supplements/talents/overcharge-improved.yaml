@@ -1,0 +1,10 @@
+id: eote-talent-overcharge-improved
+name: Overcharge (Improved)
+description: May spend <advantage></advantage><advantage></advantage> or <triumph></triumph> from Overcharge action to
+  immediately take another action.
+activation: p
+ranked: false
+forceTalent: false
+trees: Cyber Tech
+reference:
+  - SM:35

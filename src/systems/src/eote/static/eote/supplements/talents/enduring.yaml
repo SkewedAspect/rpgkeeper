@@ -1,7 +1,12 @@
 id: eote-talent-enduring
 name: Enduring
-description: Character gains +1 soak value per rank of Enduring.
+description: Gain +1 soak value.
 activation: p
 ranked: true
-trees: Bodyguard, Marauder, Mechanic, Survivalist
-reference: E-CRB:135
+forceTalent: false
+trees: Archaeologist, Bodyguard, Clone Trooper, Colossus, Demolitionist, Gunner, Hermit, Marauder, Mechanic, Pathfinder,
+  Recruit, Retired Clone Trooper, Survivalist
+reference:
+  - E-CRB:135
+  - A-CRB:146
+  - F-CRB:100

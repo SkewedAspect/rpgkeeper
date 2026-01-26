@@ -1,0 +1,24 @@
+id: eote-weapon-concussion-missile-mini
+name: Concussion Missile (Mini)
+description: A scaled-down missile for use in the mini-missile tube and banks mounted to vehicles of silhouette 2 or 3.
+  See **Table 2-8** for specific types.
+skill: Gunnery
+damage: 4
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 2
+  - id: eote-quality-breach
+    ranks: 2
+  - id: eote-quality-guided
+    ranks: 3
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - DC:60

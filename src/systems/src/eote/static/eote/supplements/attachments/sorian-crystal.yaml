@@ -1,0 +1,22 @@
+id: eote-attachment-sorian-crystal
+name: Sorian Crystal
+description: Though none can confirm accurately from which planet these mysterious stones originate, many traders recognize these gems by their radiance. Sorian crystals are said to reflect light in swirling, intricate patterns reminiscent of dancing flames. Because of these gems' relative scarcity, few realize that they are in fact kyber crystals. The energy blade formed by a sorian crystal surges briefly with the power whenever it comes into contact with another object moving at high speed - such as another lightsaber. The slight but sudden jolt  that emanates from the blade is often enough to throw an attacker off balance, giving the wielder a chance for a counterstrike. While this dded resistance also makes it harder to slice apart an opponent in a single stroke over the course of a long duel between skilled fighters, the unique edge it provides can make the difference between life and death. A sorian crystal is a lightsaber crystal.
+useWith: weapon
+hpRequired: 4
+rarity: 9
+baseModifier:
+  description: Damage set to 6; Critical set to 3; ; ; When used with the Parry talent, add <boost></boost> to next combat check made against attacker before the end of the next round.
+  qualities:
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
+modOptions:
+  - damageModifier: 1
+  - damageModifier: 1
+  - damageModifier: 1
+  - description: Parry +1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+reference:
+  - KtP:55

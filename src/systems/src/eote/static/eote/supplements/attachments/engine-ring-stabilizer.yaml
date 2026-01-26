@@ -1,0 +1,11 @@
+id: eote-attachment-engine-ring-stabilizer
+name: Engine Ring Stabilizer
+description: An engine ring stabilizer improves a starship's handling characteristics by stabilizing the engine output.
+useWith: vehicle
+hpRequired: 1
+rarity: 5
+baseModifier:
+  description: +2 Handling
+modOptions: []
+reference:
+  - MotPQ:82

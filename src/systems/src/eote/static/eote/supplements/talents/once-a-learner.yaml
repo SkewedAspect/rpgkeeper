@@ -1,0 +1,10 @@
+id: eote-talent-once-a-learner
+name: Once A Learner
+description: As an action, suffer 4 strain and let one ally within short range increase the ally's Force rating by an
+  amount equal to the character's Force rating until the end of the round.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Teacher
+reference:
+  - DoH:29

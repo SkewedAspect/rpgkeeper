@@ -1,7 +1,11 @@
 id: eote-quality-disorient
 name: Disorient
-description: When activated, one target hit by the attack is disoriented for a number of rounds equal to the weapon's
-  Disorient rating. The quality may be triggered multiple times if multiple targets are hit by the attack.
+description: A weapon with Disorient can daze an opponent. When Disorient is triggered, the target is disoriented (see
+  page 218) for a number of rounds equal to the weapon’s Disorient rating. A disoriented target adds <setback></setback>
+  to all skill checks he performs.
 passive: false
 ranked: true
-reference: E-CRB:156
+reference:
+  - E-CRB:156
+  - A-CRB:170
+  - F-CRB:163

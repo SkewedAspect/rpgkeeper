@@ -1,0 +1,30 @@
+id: eote-weapon-berserker-rifle
+name: Berserker Rifle
+description: >-
+  The berserker rifle was originally a custom weapon commonly used by bounty hunters in the Outer Rim and Unknown
+  Regions. It gets its name from a misunderstood colloquial mish-mash of terms refering to bothe the lightning-jacks and
+  blind  berserkers of the Stratos Distribution. Hundreds of years after its inception, a handful of weapons developers
+  like Arakyd Industriesz Zoltan Arms, and even Imperial Munitions manufacture a variety of models.
+
+  At its core, the berserker rifle operates like a scaled-down version of the Wookiee bowcaster, using magnetic
+  accelerator to stabilize and fire charged micro-slugs at incredible velocities. The weapon differs from the bowcaster
+  by electrifying the slugs rather than encasing them in ionic particles, which has the potential to electrocute the
+  ttarget, wracking them convulsions and possibly even igniting flammable articles of clothing or equipment.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 4
+hardpoints: 0
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-burn
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-disorient
+    ranks: 1
+reference:
+  - FiB:46

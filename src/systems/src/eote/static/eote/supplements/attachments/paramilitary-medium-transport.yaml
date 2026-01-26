@@ -1,0 +1,12 @@
+id: eote-attachment-paramilitary-medium-transport
+name: Paramilitary Medium Transport
+description: Converts a medium transport to a paramilitary vehicle.
+useWith: vehicle
+hpRequired: 0
+rarity: 0
+baseModifier:
+  defenseModifier: 1
+  description: Zone; +2 Armor; +3 Hull Trauma Threshold; -2 System Strain Threshold; Adds two medium laser cannon turrets
+modOptions: []
+reference:
+  - DC:71

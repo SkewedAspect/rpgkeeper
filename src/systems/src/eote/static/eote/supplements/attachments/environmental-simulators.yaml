@@ -1,0 +1,22 @@
+id: eote-attachment-environmental-simulators
+name: Environmental Simulators
+description: |-
+  Life in the galaxy has arisen in all manner of biomes,
+  from the deep seas of Mon Cala to the Ithorian jungles, and every possible climate in between. Most
+  starship life-support systems create an environment
+  in the median range, neither too hot nor too cold, neither too humid nor too dry. When members of
+  a particular species need unique accommodations,
+  they must turn to their own shipwrights, or modify
+  acquired ships appropriately. Diplomats often take
+  the additional step of adapting their ships to be capable of replicating a wide range of environments, the
+  better to make passengers and guests feel at home.
+useWith: vehicle
+hpRequired: 2
+rarity: 6
+baseModifier:
+  description: Can replicate up to three different planetary environments, one at a time. When making Charm or Negotiation checks against members of species native to replicated environment, add an automatic <advantage></advantage><advantage></advantage> to pool.
+modOptions:
+  - description: Additional planetary environment
+  - description: Additional planetary environment
+reference:
+  - DA:64

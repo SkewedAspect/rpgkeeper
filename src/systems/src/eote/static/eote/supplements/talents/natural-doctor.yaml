@@ -1,0 +1,11 @@
+id: eote-talent-natural-doctor
+name: Natural Doctor
+description: Once per session, may reroll any 1 Medicine check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Doctor, Healer, Medic
+reference:
+  - E-CRB:139
+  - A-CRB:153
+  - F-CRB:148

@@ -1,0 +1,32 @@
+id: eote-attachment-holo-tank
+name: Holo-Tank
+description: |-
+  “Holo-tank” is a catchall term for a type of holoprojection
+  system used aboard starships and in military facilities.
+  Produced by a number of technology firms, holotanks
+  are large, circular holoprojectors mounted in
+  decks or floors, typically in the center of large command
+  centers. Real-time tactical data from friendly forces is
+  fed directly to the holo-tank, where it creates a three dimensional
+  model of a battle that can be observed
+  at various magnifications. Holo-tanks are instrumental
+  in planning and executing large-scale military actions.
+  When paired with proper tactical data networks, they
+  provide unparalleled battlespace awareness.
+useWith: vehicle
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: Characters utilizing a holo-tank may always use Cool or Knowledge (Warfare) when making Initiative checks.
+modOptions:
+  - description: Add <advantage></advantage> to Mass Combat checks when acting force commander is on board this ship
+  - description: Add <advantage></advantage> to Mass Combat checks when acting force commander is on board this ship
+  - description: Upgrade the ability of checks when determining Initiative once
+reference:
+  - LbE:59
+includedModels:
+  - Imlok Technologies ARENA-2500
+  - Brosso Mk. IX Tactical holoprojector
+  - |-
+    Chedak Communications
+    “Omni-View" LS-220 holo-tank

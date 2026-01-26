@@ -1,0 +1,10 @@
+id: eote-talent-stunning-blow
+name: Stunning Blow
+description: While making Melee checks, may inflict damage as strain instead of wounds. This does not ignore soak.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Archaeologist, Enforcer, Gadgeteer, Infiltrator
+reference:
+  - E-CRB:144
+  - A-CRB:157

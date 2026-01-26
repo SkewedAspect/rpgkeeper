@@ -1,0 +1,25 @@
+id: eote-weapon-firecracker-mine
+name: Firecracker Mine
+description: >-
+  Deployed in groups, firecracker mines emit intense bursts of light, noise, and radiation when they explode. This
+  suppresses sensors and comms of any ship within range, making these mines excellent for offensive and defensive
+  purposes.
+
+  When a vessel is struck by a firecracker mine each of its crew and occupants suffers the disoriented condition (see
+  page 218 of the **Edge of the Empire** Core Rulebook) for 3 rounds.
+skill: Mechanics
+damage: 1
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 4
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:64

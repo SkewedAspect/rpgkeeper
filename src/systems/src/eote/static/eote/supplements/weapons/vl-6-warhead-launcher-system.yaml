@@ -1,0 +1,24 @@
+id: eote-weapon-vl-6-warhead-launcher-system
+name: VL-6 Warhead Launcher System
+description: The VL-6 warhead launcher is a missile launcher developed by Krupx Munitions and installed aboard Kuat
+  Drive Yards escort carriers.
+skill: Gunnery
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-slow-firing
+    ranks: 1
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-guided
+    ranks: 4
+reference:
+  - SoT:61

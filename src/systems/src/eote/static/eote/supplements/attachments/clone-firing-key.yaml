@@ -1,0 +1,14 @@
+id: eote-attachment-clone-firing-key
+name: Clone Firing Key
+description: |-
+  One of the early initiatives the Kaminoans considered when developing equipment for the clone troopers was to code their equipment specifically for the clone genetic sequence, to prevent looting and sabotage. The notion was eventually abandoned as an unnecessary cost, despite the savings from having a single genetic sequence shared across an entire army, but prototypes of the technology were made. In some cases, clone firing keys have been commissioned for clone units operating deep behind enemy lines. A weapon with this system installed reads the genetic sequence of the combatant holding it and does not fire unless the sequence matches that of an authorized wielder: normally, a clone.
+  This attachment can be installed on any personal blaster weapon.
+useWith: weapon
+hpRequired: 1
+rarity: 7
+baseModifier:
+  description: This weapon functions only in the hands of a clone.
+modOptions:
+  - description: Authorize one non-clone genetic sequence.
+reference:
+  - RotS:61

@@ -7,5 +7,5 @@ description: Some weapons fire particularly large or complex projectiles that co
   fires the weapon again. This also applies to grenades and other "one-use" weapons that have the Limited Ammo 1 quality
   (here, your character is not "reloading" the grenade, but drawing another to use—mechanically, they are equivalent).
 passive: true
-ranked: false
+ranked: true
 reference: G-CRB:88

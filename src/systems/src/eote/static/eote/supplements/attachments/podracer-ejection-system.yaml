@@ -1,0 +1,15 @@
+id: eote-attachment-podracer-ejection-system
+name: Podracer Ejection System
+description: This is a simple pilot's ejection seat, commonly found in starfighters and combat airspeeders. When activated, either by the pilot or by a dead man's switch, should the pilot become incapacitated, the seat and pilot are launched from the Podracer's cockpit by small, high-output, single-use ion engines. Once the seat reaches a preset altitude, it deploys a parachute or activates a small repulsorlift generator, which returns the pilot swiftly and generally, safely to the ground. Few Podracer pilots equip their vehicles with ejection systems, however, as most consider the added weight and complexity of the system no worth the small gain in safety.
+useWith: vehicle
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: To eject, make an **Average (<difficulty></difficulty><difficulty></difficulty>) Piloting (Planetary) check** as an out-of-turn incidental. On success, pilot is ejected unharmed. On failure, pilot suffers vehicle speed in strain, plus one Critical Injury. GM can spend <threat></threat><threat></threat> or <despair></despair> to cause wounds to be suffered instead.
+modOptions: []
+reference:
+  - EV:58
+includedModels:
+  - Income ACE Ejection Seat
+  - Koensayr Np-K36 Ejection Seat
+  - Sienar Fleet Systems Mk GT8 Deluxe Ejection Pod

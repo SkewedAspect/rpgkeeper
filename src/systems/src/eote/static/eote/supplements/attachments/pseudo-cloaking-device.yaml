@@ -1,0 +1,16 @@
+id: eote-attachment-pseudo-cloaking-device
+name: Pseudo-Cloaking Device
+description: While true cloaking devices are all but unheard of and limited to capital ships, so-called "pseudo-cloaks" incorporate an array of electronic masking devices and countermeasures to render a ship almost invisible to sensors. However, such devices have no visual effect, limiting their usefulness in close-range engagements. This attachment can be applied to any vehicle or starship.
+useWith: vehicle
+hpRequired: 1
+rarity: 8
+baseModifier:
+  description: Increase the difficulty of checks to detect the ship with sensors by two.; Upgrade the difficulty of all combat checks once against the ship at Short range or further.
+modOptions:
+  - description: Add <setback></setback> to combat checks targeting ship at Short range or further
+  - description: Add <setback></setback> to combat checks targeting ship at Short range or further
+reference:
+  - SM:66
+includedModels:
+  - Fabritech Gx-3 Sensor Screen
+  - Sienar Intelligence Systems Electronic Masking System

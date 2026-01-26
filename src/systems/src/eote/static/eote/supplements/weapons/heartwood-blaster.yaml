@@ -1,0 +1,33 @@
+id: eote-weapon-heartwood-blaster
+name: Heartwood Blaster
+description: >-
+  By the last days of the Clone Wars, most war materiel hewed to a handful of standards: blasters locked in drab
+  plasteel chassis, formless body armor removing all soldiers' individuality. Tholoth, having prided itself on its
+  cosmopolitan aesthetic for centuries, struggled with these developments. Their Defense Forces generally used imported
+  materiel. It was more practical and more efficient, but it also carried an air of menace. To the Tholothians, clone
+  troopers carried a sense of being eager to fire on any who stepped out of line.
+
+  Tholothian Defense Forces solved this tension with the development of their own weaponry. Weaponsmiths incorporated
+  heartwood, a plant native to Tholoth, into unique weapons. These heartwood blasters were as much an aesthetic
+  statement as they were deadly. The wooden chassis harkens back to the Tholoth seedpod practice-a reminder of the
+  community to which the wielder belongs. Like Tholothian society in general, this sentiment reaches across the division
+  of species. Anyone who wields a heartwood blaster can find comfort in remembering their home.
+
+  When wielding a heartwood blaster, a character may suffer strain up to their Force rating as a maneuver. If they do,
+  they add an equal number of automatic <advantage></advantage> to the next combat check they make that turn.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 5
+range: m
+encumbrance: 3
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 2
+  - id: eote-quality-stun
+    ranks: 3
+reference:
+  - UP:46

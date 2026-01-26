@@ -1,0 +1,30 @@
+id: eote-weapon-flame-projector
+name: Flame Projector
+description: >-
+  Flame-producing devices are primarily used to destroy material such as structures or crops, rather than as
+  anti-personnel weapons. Of course, they excel at scorching flesh and bone as well.
+
+  Flame projectors are popular partially because of their wide and indiscriminate cone of fire, able to catch several
+  individuals in a gout of flame. When triggering the weapon's Burn quality, the user may choose to apply it to any one
+  target hit by the attack; this quality may be triggered multiple times, affecting a different target each time.
+  However, the GM can spend <threat></threat><threat></threat> or <despair></despair> to apply the weapon's Burn quality
+  to an ally hit by the original attack.
+
+  **Models Include**: Merr-Sonn C-22 Flame Carbine, Merr-Sonn CR-24 Flame Rifle.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 6
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-burn
+    ranks: 3
+  - id: eote-quality-blast
+    ranks: 8
+reference:
+  - E-CRB:165
+  - A-CRB:178

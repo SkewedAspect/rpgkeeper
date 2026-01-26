@@ -1,0 +1,10 @@
+id: eote-talent-second-chances
+name: Second Chances
+description: Once per encounter choose a number of positive dice equal to ranks in Second Changes and reroll them.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Gambler, Hotshot
+reference:
+  - SoT:33
+  - FC:33

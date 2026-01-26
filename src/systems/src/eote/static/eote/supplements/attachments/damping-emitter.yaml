@@ -1,0 +1,20 @@
+id: eote-attachment-damping-emitter
+name: Damping Emitter
+description: Careful modifications to the power cells and blade emitter allow the owner of a lightsaber to add a stun setting of sorts, drawing on the power of a normal lightsaber crystal, but with less intensity than is normally used. A damped lightsaber can still inflict serious injuries, however, as the emitter can only limit the power of a heavily modified crystal so much.
+useWith: weapon
+hpRequired: 1
+rarity: 7
+baseModifier:
+  description: As a maneuver, may adjust lightsaber to deal . Decrease damage by 2, increase critical rating by 1, lose quality
+  qualities:
+    - id: eote-quality-stun-damage
+    - id: eote-quality-breach
+modOptions:
+  - qualities:
+      - id: eote-quality-stun-damage
+  - qualities:
+      - id: eote-quality-stun-damage
+reference:
+  - EV:51
+includedModels:
+  - None; users must custom make each lightsaber attachment

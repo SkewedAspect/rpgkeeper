@@ -1,0 +1,10 @@
+id: eote-talent-channel-agony
+name: Channel Agony
+description: After rolling [FO], may suffer wounds up to twice ranks in Channel Agony to add automatic [DA] for every
+  two wounds suffered to the results.
+activation: ai
+ranked: true
+forceTalent: true
+trees: Magus
+reference:
+  - UP:32

@@ -1,0 +1,24 @@
+id: eote-attachment-cracked-crystal
+name: Cracked Crystal
+description: With the destruction of the Jedi, the Empire has begun to horde kyber crystals for itself, capturing and controlling traditional sources of the crystals in order to develop strange new weapons. Force users must look for non-traditional sources of lightsaber crystals wherever they may be found, regardless of their condition. For example, with the destruction of the Death Star, a new, if difficult to access, source of crystals has been revealed. At the heart of the great battle stations lay a giant kyber crystal powering the lasers that destroyed Alderaan. When the Alliance destroyed Alderaan. When the Alliance destroyed the Death Star, the crystal shattered in the resulting explosion and scattered itself across the open space of the Yavin system. Most of the shards are unusable, either too small or too damaged to function, and many of them succumbed to the gravity wells of the planets of the Yavin system. However, some few remain, quietly circling among the remaining debris fields, cracked and unstable, but functional. Special lightsaber modifications are needed to use such crystals properly, but to the willing Force user, they can be made into distinctive blades. A cracked crystal is a lightsaber crystal.
+useWith: weapon
+hpRequired: 2
+rarity: 10
+baseModifier:
+  description: Damage set to 7; Critical set to 3; ; ; ; If a combat check results in a <despair></despair>, GM may cause crystal to shatter.
+  qualities:
+    - id: eote-quality-vicious
+      ranks: 1
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 2
+modOptions:
+  - criticalModifier: -1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+reference:
+  - DoH:52

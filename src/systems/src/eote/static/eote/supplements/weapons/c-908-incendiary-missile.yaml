@@ -1,0 +1,25 @@
+id: eote-weapon-c-908-incendiary-missile
+name: C-908 Incendiary Missile
+description: Combining the fury of a flame projector with the range and power of a missile, an incendiary missile is a
+  devastating weapon capable of wiping out entire squad's of infantry in a single blast. Some Hired Guns enjoy the
+  particularly powerful effect of an incendiary missile on their enemies' morale. Few sights are as demoralizing as that
+  of a missile incinerating one's comrades in a single fiery instant.
+skill: Gunnery
+damage: 10
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 10
+  - id: eote-quality-burn
+    ranks: 3
+  - id: eote-quality-guided
+    ranks: 2
+reference:
+  - DC:42
+  - KoF:46

@@ -1,0 +1,17 @@
+id: eote-attachment-ionizing-focusing-coils
+name: Ionizing Focusing Coils
+description: Dealing with the droid army of the CIS has made advancements in ion technology a high priority for Republic military researchers and contractors, although research in the field has produced mixed results. In an effort to make blaster weapons more damaging against droids, some manufacturers have begun offering modified focusing voils that ionize blaster gas as it is fired, granting increased stopping power against mechanical targets. However, adequately shielding the internal circuits of the blasters against the ionized gas has proven difficult, making such weapons temperamental at best. Clone detachments with a chance to customize their gear sometimes requisition these altered coils, while independent operators who anticipate interference from droid security forces or similar threats may also invest in the technology.
+useWith: weapon
+hpRequired: 2
+rarity: 5
+baseModifier:
+  description: Increases damage by +2 versus droids.; Opponents may spend <threat></threat><threat></threat> or <despair></despair> to damage weapon by one step.
+modOptions:
+  - description: Increases damage by +1 versus droids
+  - description: Increases damage by +1 versus droids
+  - description: Decreases critical rating by 1 versus droids
+  - description: Increases <threat></threat> required to backfire by 1
+reference:
+  - RotS:62
+includedModels:
+  - BlasTech "Sparker" Ionization Coils

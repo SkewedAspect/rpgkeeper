@@ -1,6 +1,10 @@
 id: eote-quality-accurate
 name: Accurate
-description: For each level of this quality, the attacker adds <boost></boost> to their combat checks while using this weapon.
+description: Accurate weapons are easier to aim or wield, whether through design or technology. For each level of this
+  trait, the attacker adds <boost></boost> to his attack dice pools while using this weapon.
 passive: true
 ranked: true
-reference: E-CRB:154
+reference:
+  - E-CRB:154
+  - A-CRB:168
+  - F-CRB:161

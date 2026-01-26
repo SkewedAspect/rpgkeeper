@@ -1,0 +1,9 @@
+id: eote-talent-force-of-will
+name: Force of Will
+description: Once per session, make one skill check using Willpower rather than the characteristic linked to that skill.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Force Adherent, Force Sensitive Emergent, Nightsister
+reference:
+  - A-CRB:147

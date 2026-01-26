@@ -1,0 +1,10 @@
+id: eote-talent-indistinguishable-improved
+name: Indistinguishable (Improved)
+description: The character may extend the effects of Indistinguishable to a number of allied within short range equal to
+  ranks in Deception.
+activation: p
+ranked: false
+forceTalent: false
+trees: Courier
+reference:
+  - CaM:30

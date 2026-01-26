@@ -3,9 +3,11 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <div class="eote-reference" :class="{ inline: isInline }">
-        <span class="name">{{ name }}</span>
-        <span v-if="page">, p{{ page }}</span>
+    <div class="eote-reference" :class="{ inline }">
+        <div v-for="(ref, idx) in parsedRefs" :key="idx" class="ref-item">
+            <span class="name">{{ ref.name }}</span>
+            <span v-if="ref.page">, p{{ ref.page }}</span>
+        </div>
     </div>
 </template>
 
@@ -15,9 +17,18 @@
     .eote-reference {
         font-size: 0.8rem;
         font-style: italic;
+        margin-right: 2px;
 
         &.inline {
             display: inline-block;
+
+            .ref-item {
+                display: inline;
+
+                &:not(:last-child)::after {
+                    content: '; ';
+                }
+            }
         }
     }
 </style>
@@ -31,14 +42,24 @@
     import { useSystemStore } from '../../lib/resource-access/stores/systems';
     import { useSupplementStore } from '../../lib/resource-access/stores/supplements';
 
+    // Utils
+    import { toReferenceArray } from '../../lib/utils/misc';
+
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
     //------------------------------------------------------------------------------------------------------------------
 
     interface Props
     {
-        reference : string;
+        reference : string | string[];
         inline ?: boolean;
+    }
+
+    interface ParsedReference
+    {
+        abbr : string;
+        page : string | undefined;
+        name : string | undefined;
     }
 
     const props = withDefaults(defineProps<Props>(), { inline: false });
@@ -54,20 +75,22 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const isInline = computed(() => props.inline);
-
-    const abbr = computed(() => props.reference.split(':')[0]);
-    const page = computed(() => props.reference.split(':')[1]);
-    const refObj = computed(() =>
+    const parsedRefs = computed<ParsedReference[]>(() =>
     {
         const systemId = systemStore.current?.id;
-        if(!systemId)
+        const references = supplementStore.getReferences(systemId ?? '');
+
+        return toReferenceArray(props.reference).map((refStr) =>
         {
-            return undefined;
-        }
-        return supplementStore.getReferences(systemId).find((ref) => ref.abbr === abbr.value);
+            const [ abbr, page ] = refStr.split(':');
+            const refObj = references.find((ref) => ref.abbr === abbr);
+            return {
+                abbr,
+                page,
+                name: refObj?.name ?? abbr,
+            };
+        });
     });
-    const name = computed(() => refObj.value?.name);
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

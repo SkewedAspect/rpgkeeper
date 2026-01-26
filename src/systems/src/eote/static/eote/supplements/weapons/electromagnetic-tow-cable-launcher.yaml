@@ -1,0 +1,30 @@
+id: eote-weapon-electromagnetic-tow-cable-launcher
+name: Electromagnetic Tow Cable Launcher
+description: >-
+  While capital ships can rely on tractor beams to ensnare and immobilize targets, these weapons are not generally an
+  option for smaller vessels and ground vehicles. For such vehicles, the closest approximation is often the tow cable
+  launcher. This catchall term encompasses a number of different devices with similar function. The most common models
+  incorporate an electromagnetic grapple and a length of durasteel cable fired by a hydraulic launcher.
+
+  Although these launchers were originally designed as tools rather than weapons, a number of desperate or inventive
+  pilots have made use of these grapple launchers in combat over the years. Members of the Rebel Alliance are accustomed
+  to making do with whatever tools they have at their disposal, and a number of non-combat vehicles sporting tow cables
+  have seen use in battle. In fact, some commanders find the tactical uses for these tools versatile enough to
+  specifically request their addition to combat vehicles.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 2
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 5
+  - id: eote-quality-knockdown
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - FO:62

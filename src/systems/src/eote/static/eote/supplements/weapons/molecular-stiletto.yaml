@@ -1,0 +1,27 @@
+id: eote-weapon-molecular-stiletto
+name: Molecular Stiletto
+description: >-
+  Produced by Xana Exotic Arms, the MSW-9 is a small, easily concealable blade popular among professionals, politicians,
+  and entertainers. Built to resemble a datapad stylus, the MSW-9 is light, inconspicuous, and easily overlooked by even
+  the most zealous and dedicated search.
+
+  Due to their inherent fragility, any combat check made while wielding one of these blades that generates either
+  <threat></threat><threat></threat> or <despair></despair> damages the weapon by one step as if struck by a weapon with
+  the Sunder quality. Add <setback></setback> to a character's Perception check when attempting to find a molecular
+  stiletto on a person's body.
+skill: Melee
+damage: 0
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 5
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - FH:43

@@ -1,0 +1,18 @@
+id: eote-attachment-weapon-harness
+name: Weapon Harness
+description: Designed to allow a single sentient to field even the heaviest man-portable weapons with no support, weapon harnesses are rare among the Outer Rim territories. Worn over the shoulders and belted around the midsection or torso, weapon harnesses consist of a series of load-bearing straps and harnesses connected to a gyro-stabilized, power-assisted boom arm attached to a heavy weapon. Powered by a tiny rechargeable power pack, the harness offers its user enhanced stability and strength when using heavy weapons. This attachment can only be used with Ranged (Heavy) and Gunnery weapons.
+useWith: weapon
+hpRequired: 2
+rarity: 2
+baseModifier:
+  qualities:
+    - id: eote-quality-cumbersome
+modOptions:
+  - description: Add <boost></boost> to Brawl checks
+reference:
+  - E-CRB:193
+  - A-CRB:205
+includedModels:
+  - Arakyd WW480 "Goliath" Weapon Harness
+  - Galactic Arms HR12 Power Harness
+  - SoroSuub "Little Giant" Heavy Weapon Power Assist

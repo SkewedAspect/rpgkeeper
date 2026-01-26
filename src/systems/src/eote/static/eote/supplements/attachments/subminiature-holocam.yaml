@@ -1,0 +1,13 @@
+id: eote-attachment-subminiature-holocam
+name: Subminiature Holocam
+description: Subminiature holocams are small holorecorders equipped with a medium-sized fixed focal length lens. Able to record still images and video in numerous formats, they are often hidden in datapads, eyeglasses, goggles, or jewelry. Due to their size and the nature of the attached lens, they have relatively limited capabilities. The on-board storage can store only a handful of still images or a few minutes of video, and the images are all low-resolution. Unless the subminiature holocam is specifically built for the task, it can only reliably record up to a range of three meters. In addition, miniature holocams rarely, if ever, have networking capabilities; images and video footage must be removed manually by connecting the device to a datapad or computer.
+useWith: weapon
+hpRequired: 0
+rarity: 5
+baseModifier:
+  description: Allows a user to take still images and record holos unobtrusively
+modOptions: []
+reference:
+  - CaM:60
+includedModels:
+  - Xonim Holotech VEF22 SubMiniature Holocam

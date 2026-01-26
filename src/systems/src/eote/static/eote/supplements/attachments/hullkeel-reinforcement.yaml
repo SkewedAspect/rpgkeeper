@@ -1,0 +1,15 @@
+id: eote-attachment-hullkeel-reinforcement
+name: Hull/Keel Reinforcement
+description: Even the cheapest, most unreliable starships are durable items built to withstand the incredible amounts of abuse heaped on them by decades in space. Hull or keel reinforcement is an easy way to improve a vehicle or vessel's durability. Extremely old vessels, such as most of those fielded by the Rebel Alliance, can also benefit from a hull or keel reinforcement by shoring up damaged or fatigued hull members and adding support bracing at strategic locations.
+useWith: vehicle
+hpRequired: 2
+rarity: 4
+baseModifier:
+  description: +2 Hull Trauma Threshold
+modOptions:
+  - description: +1 Hull Trauma Threshold
+  - description: +1 Hull Trauma Threshold
+reference:
+  - SoT:64
+includedModels:
+  - Various models

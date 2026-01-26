@@ -1,0 +1,28 @@
+id: eote-weapon-dls-12-heavy-blaster-carbine
+name: DLS-12 Heavy Blaster Carbine
+description: >-
+  Blastech DLS-12 Heavy Blaster Carbine
+
+  The DLS-12 is a specialized version of the larger DLT-19 heavy blaster rifle. While it possesses many of the same
+  features at the DLT-19, the DLS-12's barrel has been shortened to reduce its bulk. Obviously, the shorter barrel
+  results in reduced range, but given that it is designed for close assault, this is not considered a major drawback.
+
+  Designed during the last few months of the Clone Wars, the DLS-12 saw limited use by Republic forces. Republic (and,
+  later Imperial) troops tended to eschew it in favor of heavy blaster rifles, though some specialized units prefer its
+  shorter range and lighter weight. As a result, surplus heavy blaster carbines have found their way into arsenals
+  across the galaxy.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 4
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 2
+reference:
+  - KtP:42

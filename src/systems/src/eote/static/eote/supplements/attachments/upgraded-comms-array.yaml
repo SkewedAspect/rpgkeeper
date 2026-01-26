@@ -1,0 +1,17 @@
+id: eote-attachment-upgraded-comms-array
+name: Upgraded Comms Array
+description: This upgrade reflects the simple act of mounting more or heavier weapons on a starship or vehicle. When replacing an existing weapon on the ship, the new weapon has the same firing arc as the original. When adding a weapon to a new location on the ship, the GM must decide what firing arc makes the most sense.
+useWith: vehicle
+hpRequired: 1
+rarity: 6
+baseModifier:
+  description: +1 Communication Range
+modOptions:
+  - description: +1 Communication Range
+  - description: +1 Communication Range
+reference:
+  - A-CRB:287
+  - F-CRB:271
+includedModels:
+  - Arakyd Flex Tube Proton Torpedo Launcher
+  - ArMek SW-6 Heavy Ion Cannon

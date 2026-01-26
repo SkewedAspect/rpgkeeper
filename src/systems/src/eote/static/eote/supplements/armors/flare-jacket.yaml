@@ -1,0 +1,24 @@
+id: eote-armor-flare-jacket
+name: Flare Jacket
+description: >-
+  Originally designed by a high-end clothes manufacturer for making literally flashy entrances, some organizations saw
+  potential military use and contracted Ayelixe/Krongbing Textiles to produce a more intense version of their Personal
+  Defense coat. Concealing several small charges in seams throughout the design, the jacket can release a blinding and
+  stunning flash of light, allowing the wearer a few seconds to make an escape. The internal power source is small, and
+  thus can take several minutes to recharge after each use.
+
+  Once per encounter, a character wearing a flare jacket can trigger the charges as a maneuver. Each character within
+  short range (besides the wearer) must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Vigilance check**. Each character who
+  fails is staggered for 1 round, plus 1 additional round per <threat></threat><threat></threat><threat></threat>.
+
+  **Models include:** Ayelixe/Krongbing Personal Defense Coat, Brennkeyes Syndicate flare jacket.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 3
+rarity: 8
+restricted: false
+qualities: []
+reference:
+  - DA:48

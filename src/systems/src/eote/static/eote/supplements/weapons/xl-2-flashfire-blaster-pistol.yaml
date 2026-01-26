@@ -1,0 +1,22 @@
+id: eote-weapon-xl-2-flashfire-blaster-pistol
+name: XL-2 "Flashfire" Blaster Pistol
+description: A product of the Talus Ironworks, the XL-2 "Flashfire" is one of the flashiest blasters credits can buy,
+  both figuratively and literally. The XL-2 is a plasma-based blaster that emits a significant amount of highly
+  energetic particles when fired. However, the design of the focusing element disperses the beam very slightly, creating
+  a brilliant flash when the blaster discharges. While the power output of the blaster is not particularly impressive,
+  the flash can daze and temporarily blind an opponent, giving the wielder a slight edge in a gunfight.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 3
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - SoF:95

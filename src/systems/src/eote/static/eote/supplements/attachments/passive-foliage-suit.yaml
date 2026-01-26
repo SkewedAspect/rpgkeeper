@@ -1,0 +1,13 @@
+id: eote-attachment-passive-foliage-suit
+name: Passive Foliage Suit
+description: For those operating in the wilds, sometimes the simplest camouflage methods are the best. Given this, it's not surprising that hunters and other individuals who spend a lot of time in the wilderness often use passive foliage suits. These suits have patches of synthetic greenery designed to mimic natural flora. Clusters of open tie-lines also allow wearers to easily attach local foliage to the suit, allowing them to alter their camouflage when the surroundings change. This attachment can be applied to any armor that could logically integrate the necessary patches and tie-lines.
+useWith: armor
+hpRequired: 1
+rarity: 2
+baseModifier:
+  description: Add <setback></setback> to Perception or Vigilance checks made to detect a character wearing this armor in appropriate environment.
+modOptions: []
+reference:
+  - SS:51
+includedModels:
+  - Various types

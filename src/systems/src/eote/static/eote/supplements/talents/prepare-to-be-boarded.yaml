@@ -1,0 +1,13 @@
+id: eote-talent-prepare-to-be-boarded
+name: Prepare to be Boarded!
+description: Once per encounter may take Prepare to be Boarded! action and make **opposed Coercion vs. Discipline
+  check** against enemy ship captain. If successful, the enemy suffers 1 strain per uncancelled <success></success> and
+  surrenders ship if he exceeds strain threshold. May also spend <triumph></triumph> or
+  <advantage></advantage><advantage></advantage><advantage></advantage><advantage></advantage> to inflict strain equal
+  to ranks in Coercion.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Pirate
+reference:
+  - DoR:115

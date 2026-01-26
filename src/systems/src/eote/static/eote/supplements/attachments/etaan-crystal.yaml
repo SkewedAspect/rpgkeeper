@@ -1,0 +1,25 @@
+id: eote-attachment-etaan-crystal
+name: Etaan Crystal
+description: |-
+  These unusual kyber crystals from in the deep caverns of the Mid Rim world of Etai. Given that the crystals rarely form fewer than five hundred meters below the surface and usually at over twice the depth, the formation can be extremely difficult to locate. However, the raw crystals echo any nearby sound with a humming resonance, guiding searchers who draw near.
+  Harvested etaan crystals retain this resonant property causing the activated blades of lightsabers using them to thrum in harmony with the motion of the blade, and to chime at nearby sounds. The blades respond especially spectacularly to a clash with another lightsaber or blaster bolt, emitting a near-deafening crack and a bright flare of energies. A clash of blades involving etaan crystals usually results in the lightsabers being forced apart, but reflected blasted bolts draw in the resonant energies from the reaction and intensify on their new trajectory.
+useWith: weapon
+hpRequired: 1
+rarity: 9
+baseModifier:
+  description: Damage set to 6; Critical set to 2; ; ; If wielder uses the Improved Reflect talent to inflict an automatic hit, increase damage by 2.
+  qualities:
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
+modOptions:
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+  - damageModifier: 1
+  - damageModifier: 1
+  - criticalModifier: -1
+  - description: Parry +1
+  - description: Reflect +1
+reference:
+  - EV:52

@@ -1,0 +1,11 @@
+id: eote-talent-exhaust-port
+name: Exhaust Port
+description: Before attacking a starship or vehicle, the character may spend 1 Destiny Point to ignore the effects of
+  the Massive rule for the attack.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Gunner, Shipwright, Starfighter Ace
+reference:
+  - A-CRB:146
+  - F-CRB:142

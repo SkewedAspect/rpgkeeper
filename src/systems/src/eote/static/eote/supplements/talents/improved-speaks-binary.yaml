@@ -1,0 +1,8 @@
+id: eote-talent-improved-speaks-binary
+name: Improved Speaks Binary
+description: When directing NPC droids, those droids grand additional <boost></boost> in addition to other benefits.
+activation: p
+ranked: false
+forceTalent: false
+trees: Droid Tech, Separatist Commander
+reference: SM:35

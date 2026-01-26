@@ -1,0 +1,11 @@
+id: eote-attachment-quick-shed
+name: Quick Shed
+description: Armor, especially heavy armor, takes time to put on and take off. though putting armor on remains a chore, taking it off - especially in an emergency situation - is expedited with the quick shed attachment. By installing several quick-release latches at strategic locations, suits of armor can be quickly removed by the wearer. This attachment can only be applied to armor with an encumbrance of 3 or higher.
+useWith: armor
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: As a maneuver, wearer by shed the armor. Armor must be reassembled before donning again, requiring several minutes and an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**.
+modOptions: []
+reference:
+  - KtP:57

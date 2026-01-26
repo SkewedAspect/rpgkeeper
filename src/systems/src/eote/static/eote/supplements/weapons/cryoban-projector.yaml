@@ -1,0 +1,31 @@
+id: eote-weapon-cryoban-projector
+name: Cryoban Projector
+description: >-
+  Taggeco. Cryoban Projector
+
+  These devices were originally designed to extinguish fires aboard starships using a supercooling chemical agent, but
+  independent operators quickly discovered that removing the safety nozzles from CryoBan projectors could turn them into
+  lethal weapons. Many smugglers keep several of these stashed in strategic locations around their ships, both to put
+  out fires and, if necessary, repel boarders.
+
+  CryoBan projectors can be used to fight fires. A character armed with a CryoBan projector adds <boost></boost> to
+  attempts to put out a fire. Assisted checks to extinguish the flames add one additional <boost></boost> for each
+  assist-ing character equipped with a CryoBan projector.
+skill: Ranged (Heavy)
+damage: 6
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 3
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - FC:45

@@ -1,0 +1,9 @@
+id: eote-talent-savvy-negotiator
+name: Savvy Negotiator
+description: Remove <setback></setback> per rank of Savvy Negotiator from all Negotiation and Streetwise checks.
+activation: p
+ranked: true
+forceTalent: false
+trees: Arbiter
+reference:
+  - DoH:30

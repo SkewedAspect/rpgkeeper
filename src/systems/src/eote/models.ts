@@ -29,6 +29,11 @@ export interface BaseQualityRef
     ranks ?: number;
 }
 
+export interface BaseAttachmentRef
+{
+    id : string;
+}
+
 export interface BaseAbility extends Supplement
 {
     id ?: string;
@@ -41,7 +46,7 @@ export interface BaseTalent extends Supplement
     description : string;
     activation : 'p' | 'ai' | 'aio' | 'am' | 'aa';
     ranked : boolean;
-    tier : BoundedRange<1, 5>;
+    forceTalent : boolean;
 }
 
 export interface BaseTalentInst
@@ -95,6 +100,8 @@ interface BaseArmor extends Supplement
     hardpoints : number;
     encumbrance : number;
     rarity : number;
+    restricted : boolean;
+    qualities : BaseQualityRef[];
 }
 
 export interface BaseArmorRef
@@ -106,7 +113,7 @@ export interface BaseArmorRef
     hardpoints : number;
     encumbrance : number;
     rarity : number;
-    attachments : string[];
+    attachments : BaseAttachmentRef[];
     qualities : BaseQualityRef[];
     notes ?: string;
 }
@@ -117,10 +124,14 @@ interface BaseWeapon extends Supplement
     description : string;
     skill : string;
     damage : number;
+    /** If true, damage is added to the skill's characteristic (e.g., Brawn for Melee) */
+    addSkill : boolean;
     criticalRating : number;
     range : EncounterRange;
     encumbrance : number;
+    hardpoints : number;
     rarity : number;
+    restricted : boolean;
     qualities : BaseQualityRef[];
 }
 
@@ -130,11 +141,15 @@ export interface BaseWeaponRef
     description ?: string;
     skill : string;
     damage : number;
+    /** If true, damage is added to the skill's characteristic (e.g., Brawn for Melee) */
+    addSkill : boolean;
     criticalRating : number;
     range : EncounterRange;
     encumbrance : number;
+    hardpoints : number;
     rarity : number;
-    attachments : string[];
+    restricted : boolean;
+    attachments : BaseAttachmentRef[];
     qualities : BaseQualityRef[];
     notes ?: string;
 }
@@ -194,10 +209,23 @@ export type EoteSkill = BaseSkill;
 export type EoteGear = BaseGear;
 export type EoteQuality = BaseQuality;
 export type EoteArmor = BaseArmor;
-export type EoteArmorRef = BaseArmorRef;
 export type EoteWeapon = BaseWeapon;
-export type EoteWeaponRef = BaseWeaponRef;
 export type EoteQualityRef = BaseQualityRef;
+
+export interface EoteAttachmentRef extends BaseAttachmentRef
+{
+    activatedMods ?: number[]; // Indices into EoteAttachment.modOptions
+}
+
+export interface EoteArmorRef extends Omit<BaseArmorRef, 'attachments'>
+{
+    attachments : EoteAttachmentRef[];
+}
+
+export interface EoteWeaponRef extends Omit<BaseWeaponRef, 'attachments'>
+{
+    attachments : EoteAttachmentRef[];
+}
 
 export interface EoteTalent extends BaseTalent
 {
@@ -211,10 +239,30 @@ export interface EoteOrGenesysTalent extends BaseTalent
 
 export type EoteTalentInst = BaseTalentInst;
 
-export interface EoteAttachment extends Omit<BaseAttachment, 'modifiers'>
+export interface EoteModOption
 {
-    baseModifier : string;
-    modOptions : string;
+    // Optional description override (for complex/conditional modifiers)
+    description ?: string;
+
+    // Structured modifiers (auto-generate description if not provided)
+    qualities ?: BaseQualityRef[];
+    damageModifier ?: number;
+    criticalModifier ?: number;
+    encumbranceModifier ?: number;
+    defenseModifier ?: number;
+    soakModifier ?: number;
+}
+
+export interface EoteAttachment extends Supplement
+{
+    id ?: string;
+    description : string;
+    useWith : 'weapon' | 'armor' | 'any';
+    hpRequired : BoundedRange<0, 50>;
+    baseModifier : EoteModOption;
+    modOptions : EoteModOption[];
+    includedModels ?: string[];
+    rarity : number;
 }
 
 export interface EoteForcePowerInst
@@ -255,6 +303,8 @@ export interface EoteSystemDetails extends BaseSystemDetails
 {
     specialization ?: string;
     skills : EoteSkill[];
+    armor : EoteArmorRef;
+    weapons : EoteWeaponRef[];
     force : {
         rating : number;
         committed : number;
@@ -275,14 +325,30 @@ export interface EoteCharacter extends Omit<Character, 'details'>
 
 export type GenesysCritical = BaseCriticalInjuryEntry;
 export type GenesysAbility = BaseAbility;
-export type GenesysTalent = BaseTalent;
 export type GenesysTalentInst = BaseTalentInst;
+
+export interface GenesysTalent extends BaseTalent
+{
+    tier : BoundedRange<1, 5>;
+}
 export type GenesysSkill = BaseSkill;
 export type GenesysGear = BaseGear;
 export type GenesysAttachment = BaseAttachment;
 export type GenesysQuality = BaseQuality;
 export type GenesysArmor = BaseArmor;
 export type GenesysWeapon = BaseWeapon;
+
+export type GenesysAttachmentRef = BaseAttachmentRef;
+
+export interface GenesysArmorRef extends Omit<BaseArmorRef, 'attachments'>
+{
+    attachments : GenesysAttachmentRef[];
+}
+
+export interface GenesysWeaponRef extends Omit<BaseWeaponRef, 'attachments'>
+{
+    attachments : GenesysAttachmentRef[];
+}
 
 export type GenesysMotivationType = 'strength' | 'flaw' | 'desire' | 'fear';
 
@@ -296,12 +362,15 @@ export interface GenesysMotivation extends Supplement
 export interface GenesysSystemDetails extends BaseSystemDetails
 {
     skills : GenesysSkill[];
+    armor : GenesysArmorRef;
+    weapons : GenesysWeaponRef[];
     motivations : {
         strength : string | null;
         flaw : string | null;
         desire : string | null;
         fear : string | null;
     };
+    useAttachmentRules ?: boolean;
 }
 
 export interface GenesysCharacter extends Omit<Character, 'details'>

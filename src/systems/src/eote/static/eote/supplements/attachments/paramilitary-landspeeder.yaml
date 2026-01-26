@@ -1,0 +1,11 @@
+id: eote-attachment-paramilitary-landspeeder
+name: Paramilitary Landspeeder
+description: Converts a landspeeder to a paramilitary vehicle.
+useWith: vehicle
+hpRequired: 0
+rarity: 0
+baseModifier:
+  description: -1 Handling; +3 Armor; +2 Hull Trauma Threshold; -1 System Strain Threshold; Adds a medium laser turret
+modOptions: []
+reference:
+  - DC:71

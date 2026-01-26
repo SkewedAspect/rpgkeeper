@@ -1,0 +1,30 @@
+id: eote-weapon-n-4-noise-grenade
+name: N-4 Noise Grenade
+description: >-
+  Merr-Sonn N-4 Noise Grenade
+
+  When confronted with a hostile situation, a quick escape is sometimes the wisest course of action. Other times,
+  fatally wounding individuals might cause a diplomatic disaster or have other repercussions. In such situations,
+  nonlethal grenades are the best recourse, providing a relatively cheap area-of-effect alternative to a stun shot. When
+  deployed, Merr-Sonn N-4 noise grenades and other similar weapons release a horrendous burst of sound across the
+  spectrum, causing temporary but incredibly intense pain in most sentient species. The cacophony typically lasts for
+  only a few seconds, but the lingering effects give the user a chance to escape or seize the initiative.
+skill: Ranged (Light)
+damage: 4
+addSkill: false
+criticalRating: 6
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-stun-damage
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DA:44

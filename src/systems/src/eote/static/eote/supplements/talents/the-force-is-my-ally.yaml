@@ -1,0 +1,9 @@
+id: eote-talent-the-force-is-my-ally
+name: The Force Is My Ally
+description: Once per session, may suffer 2 strain to perform Force power action as maneuver.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Master, Sage, Seer
+reference:
+  - F-CRB:153

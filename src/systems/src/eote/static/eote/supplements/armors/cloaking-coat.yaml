@@ -1,0 +1,25 @@
+id: eote-armor-cloaking-coat
+name: Cloaking Coat
+description: >-
+  While spies, thieves and saboteurs favor more expensive personal stealth fields and similar devices, a skilled Slicer
+  typically considers staying unnoticed by sensors and probes to be the most important part of breaking through
+  security. After all, if the slicer runs into organic guards in person, something has already gone dramatically wrong
+  elsewhere in the planned operation or heist. To avoid automated detection measures, any Slicers invest in or construct
+  cloaking coats. These heavy, full-body suits are outfitted with jamming suites designed to mask the wearer's presence
+  from detection. A cloaking coat's sensors and automated systems keep the wearer hidden by constantly broadcasting an
+  obscuring cloud of junk data. this specialized array does nothing to stop visual recognition but it can baffle almost
+  any scanner. A skilled Sliver can even modify the clouding signal it broadcasts on the fly to confuse droid brains
+  into disregarding the wearer as background data rather than as a being of any note.
+
+  Upgrade the difficulty of all checks to detect an individual wearing a cloaking coat using sensors or electronic forms
+  of detection twice. Droids with an Intellect characteristic lower than the character's ranks in the Computers skill
+  are also affected in the same way when trying to detect the character.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 4
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - SM:47

@@ -1,0 +1,31 @@
+id: eote-weapon-precision-x-marksman-rifle
+name: '"Precision-X" Marksman Rifle'
+description: >-
+  Cadregg Armory is a newcomer to the arms manufacturing scene, but its initial offerings have been impressive enough to
+  keep many eyes on what they produce next. One of the first weapons the company produced was the "Precision-X" series,
+  now highly coveted weapons sought by everyone from sport shooters to assassins. The company can hardly maintain a
+  stock of these specialized rifles, so high is the demand for their unique capabilities.
+
+  The Precision-X blasters use a series of multiple cycling chambers to excite the blaster gas used so that it produces
+  extraordinarily intense beams. The blasters' shots are only somewhat more powerful than those of typical carbines, but
+  the blasts maintain an extraordinary coherence over long ranges, allowing them to punch through light armor and
+  maintain full stopping power well past the limitations of a typical rifle. The effects of these cycling chambers even
+  extend to the blaster's stun setting, making it ideal for bounty hunters trying to bring in a target alive.
+
+  When this weapon's stun setting is used to deal stun damage, its range changes to medium instead of short (and cannot
+  be increased).
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 5
+hardpoints: 1
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - ND:44

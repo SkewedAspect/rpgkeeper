@@ -1,0 +1,11 @@
+id: eote-talent-unrelenting-skeptic
+name: Unrelenting Skeptic
+description: When targeted by a Deception check, the character automatically adds <failure></failure> to the check equal
+  to ranks in Vigilance.
+activation: p
+ranked: false
+forceTalent: false
+trees: Investigator, Marshal
+reference:
+  - FH:33
+  - EV:31

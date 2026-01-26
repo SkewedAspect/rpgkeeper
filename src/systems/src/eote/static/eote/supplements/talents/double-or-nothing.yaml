@@ -1,0 +1,10 @@
+id: eote-talent-double-or-nothing
+name: Double or Nothing
+description: Suffer 2 strain to perform the Double or Nothing incidental to increase the difficulty of the next check by
+  one. Then, after canceling opposing symbols, double the amount of remaining <advantage></advantage>
+activation: p
+ranked: false
+forceTalent: false
+trees: Gambler
+reference:
+  - FC:32

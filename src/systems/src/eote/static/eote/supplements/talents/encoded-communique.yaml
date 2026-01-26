@@ -1,0 +1,10 @@
+id: eote-talent-encoded-communique
+name: Encoded Communique
+description: Upgrade the difficulty of checks to decrypt this character's coded messages without the proper cipher a
+  number of times equal to Computers skill.
+activation: p
+ranked: false
+forceTalent: false
+trees: Analyst
+reference:
+  - DA:33

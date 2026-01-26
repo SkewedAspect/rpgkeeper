@@ -1,0 +1,13 @@
+id: eote-attachment-enhanced-hyperspace-shields
+name: Enhanced Hyperspace Shields
+description: Few things are more dangerous to a ship than colliding with a mass shadow in hyperspace. Although all ships are equipped with sensors intended to detect a mass shadow and automatically drop the ship out of hyperspace, such systems are not infallible. As an added level of protection, some engineers modify a vessel with  enhanced particle shields designed to potentially save a ship from complete destruction in a case of a hyperspace collision. Many captains consider the drain on ship resources and the cost to be too great for additional protection against such a rare event, but these systems save lives. This attachment can be applied to any ship with a hyperdrive.
+useWith: vehicle
+hpRequired: 1
+rarity: 5
+baseModifier:
+  description: Downgrade difficulty of Astrogation checks made to navigate the ship through hyperspace once.
+modOptions:
+  - description: Remove <setback></setback> from Astrogation checks made to navigate the ship through hyperspace
+  - description: Remove <setback></setback> from Astrogation checks made to navigate the ship through hyperspace
+reference:
+  - SM:66

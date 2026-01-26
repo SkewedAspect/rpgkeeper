@@ -1,0 +1,10 @@
+id: eote-talent-calming-aura-improved
+name: Calming Aura (Improved)
+description: Spend a maneuver and suffer 2 strain to extend Calming Aura's effects to allies equal to Willpower at short
+  range until start of next turn.
+activation: am
+ranked: false
+forceTalent: true
+trees: Healer
+reference:
+  - F-CRB:140

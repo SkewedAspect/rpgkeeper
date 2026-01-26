@@ -1,7 +1,10 @@
 id: eote-talent-defensive-driving
 name: Defensive Driving
-description: Increase defense of vehicle or starship being piloted by <difficulty></difficulty> per rank.
+description: Increase defense of vehicle or starship being piloted by 1 per rank of Defensive Driving.
 activation: p
 ranked: true
-trees: Squadron Leader
-reference: E-CRB:134
+forceTalent: false
+trees: Driver, Fringer, Imperial Academy Cadet, Pilot, Squadron Leader
+reference:
+  - E-CRB:134
+  - A-CRB:145

@@ -1,0 +1,24 @@
+id: eote-weapon-defender-sporting-blaster-pistol
+name: Defender Sporting Blaster Pistol
+description: Producing a number of high-quality blaster weapons, the Drearian Defense Conglomerate is especially known
+  for supplying the Corporate Sector Authority. However, several of their models have achieved popularity among the
+  aristocracy and nobility. The DDC Defender pistol is typically used in honor duels and hunting, but it offers a number
+  of distinct advantages for other uses. Its small size and simple disassembly method make it easily concealable, and
+  the weapon also boasts automatic minor-malfunction repair and an unusually large number of shots per charge. While not
+  the strongest of weapons, those who master it for hunting and dueling find their skills transfer well to more deadly
+  contexts.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 1
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - DA:44

@@ -1,0 +1,11 @@
+id: eote-talent-intense-focus
+name: Intense Focus
+description: Perform an Intense Focus maneuver; suffer 1 strain and upgrade the ability of the next skill check once.
+activation: am
+ranked: false
+forceTalent: false
+trees: Ascetic, Entrepreneur, Force Sensitive Exile, Quartermaster, Scholar, Scientist
+reference:
+  - E-CRB:137
+  - A-CRB:150
+  - DoH:28

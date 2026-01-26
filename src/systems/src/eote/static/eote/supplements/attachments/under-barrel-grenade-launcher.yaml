@@ -1,0 +1,37 @@
+id: eote-attachment-under-barrel-grenade-launcher
+name: Under-Barrel Grenade Launcher
+description: Under-barrel grenade launchers are designed to give soldiers or squads heavy anti-infantry or light anti-vehicle capabilities in a small package. This attachment consists of a basic, smooth-bore barrel attached to a magazine with an automatic feed system. It carries up to six grenades and is fired by a simple press of a button. It adds extra weight to the weapon it's mounted to, however, which makes the entire assembly quite barrel heavy. This attachment can only be applied to rifle-sized weapons (Ranged (Heavy) weapons).
+useWith: weapon
+hpRequired: 2
+rarity: 5
+baseModifier:
+  encumbranceModifier: 2
+  description: Weapon can fire grenades using the grenade profile, Ranged (Heavy) skill, and has Medium range.
+  qualities:
+    - id: eote-quality-limited-ammo
+      ranks: 1
+    - id: eote-quality-cumbersome
+      ranks: 2
+modOptions:
+  - qualities:
+      - id: eote-quality-limited-ammo
+        ranks: 1
+  - qualities:
+      - id: eote-quality-limited-ammo
+        ranks: 1
+  - qualities:
+      - id: eote-quality-limited-ammo
+        ranks: 1
+  - qualities:
+      - id: eote-quality-limited-ammo
+        ranks: 1
+  - qualities:
+      - id: eote-quality-limited-ammo
+        ranks: 1
+reference:
+  - E-CRB:191
+  - A-CRB:205
+includedModels:
+  - Czerka "Thumper" Under-barrel Grenade Launcher
+  - SoroSuub XA203 Auxiliary Grenade Launcher
+  - Zone Control "Viper" Under-Barrel Grenade Launcher

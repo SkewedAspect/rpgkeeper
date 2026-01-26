@@ -1,0 +1,11 @@
+id: eote-talent-to-the-death
+name: To the Death!
+description: Once per session, the character may take the To the Death! maneuver, suffering strain no greater than their
+  Willpower rating. For each strain suffered this way, add +10 to Critical Injury rolls the character inflicts and
+  suffers until the end of the encounter.
+activation: am
+ranked: false
+forceTalent: false
+trees: Death Watch Warrior
+reference:
+  - CotR:44

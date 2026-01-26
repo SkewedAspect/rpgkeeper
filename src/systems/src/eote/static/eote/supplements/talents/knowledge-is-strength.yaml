@@ -1,0 +1,11 @@
+id: eote-talent-knowledge-is-strength
+name: Knowledge is Strength
+description: Once per session, when making a check, the character may increase their Force rating by their ranks in
+  Knowledge (Warfare) for the duration of the check. If the rules for Morality in **Force and Destiny** are in use, a
+  character who has purchased this talent gains 1 Conflict at the beginning of each game session.
+activation: ai
+ranked: false
+forceTalent: true
+trees: General
+reference:
+  - CotR:41

@@ -1,0 +1,10 @@
+id: eote-talent-at-any-cost
+name: At Any Cost
+description: May suffer a Critical Injury to reroll a Mass Combat check. At GM's discretion, may sacrifice an item or
+  individual of personal significance instead.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Clone Commander
+reference:
+  - CotR:37

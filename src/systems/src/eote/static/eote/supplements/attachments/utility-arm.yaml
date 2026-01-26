@@ -1,0 +1,13 @@
+id: eote-attachment-utility-arm
+name: Utility Arm
+description: For some species, it's a mystery how humans and their ilk get by with only two arms. In fact, it's often said that the first armor-mounted utility arm was invented by a Dug Engineer, although another tale attributes its origin to a cybernetics manufacturer with a product surplus. Regardless of its origin, the utility arm is now a common tool for Engineers and technicians of all species. Mounted on a harness or suit of combat armor, a utility arm is a mechanical appendage similar in function to many cybernetic and droid arms and ending in a manipulating "hand." Although utility arms are most often used to increase workshop productivity, combatants of all kinds have found them useful on the battlefield.
+useWith: armor
+hpRequired: 2
+rarity: 3
+baseModifier:
+  description: Provides character with an additional mechanical arm that can function as one of the character's normal limbs.; Adds <boost></boost> to Mechanics checks.
+modOptions:
+  - description: Adds <boost></boost> to Mechanics checks.
+  - description: May spend 1 strain to gain an additional free maneuver per turn (still limited to two maneuvers per turn).
+reference:
+  - FO:53

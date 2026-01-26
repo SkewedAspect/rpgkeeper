@@ -1,0 +1,15 @@
+id: eote-attachment-marked-target-firing-lock
+name: Marked-Target Firing Lock
+description: In the chaos of a firefight, shots can go astray, damaging property or bystanders. While some hunters do not care about the carnage they cause, this kind of haphazard damage is a liability, courting attention from the law or revenge from those who suffer in the crossfire. To mitigate this risk, some bounty hunters invest in firing locks on their blasters, allowing them to designate specific targets for the weapons. Once the systems' sensors have recognized a target, the weapons refuse to fire without a clear shot, minimizing the chance of collateral damage. This attachment can be installed on any ranged weapon that does not possess the Blast or Auto-fire quality.
+useWith: weapon
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: Threat cancelled on successful check
+modOptions:
+  - description: Threat cancelled on successful check
+reference:
+  - ND:51
+includedModels:
+  - BlasTech "Surefire" Safety Sensor
+  - Cadregg Armory Model-87 Weapon Sensor

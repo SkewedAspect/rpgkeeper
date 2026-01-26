@@ -1,0 +1,13 @@
+id: eote-attachment-personal-vibrosaw
+name: Personal Vibrosaw
+description: Troopers may have to pass through a broad range of environments when on a mission or in pursuit of a target. Sometimes, this requires cutting through forest undergrowth or cutting through a bulkhead so that a unit can quickly bypass critical security systems. To expedite these situations, some troopers mount a personal vibrosaw on a bracer of their armor.  When deployed, the diamond-tipped chain rotates rapidly around a thin blade capable of cutting through virtually any material. In extreme situations, the vibrosaw may also be used as a weapon, but its rotating blades make it cumbersome to wield.
+useWith: armor
+hpRequired: 1
+rarity: 1
+baseModifier:
+  description: Adds a vibrosaw that can quickly cut through most materials in two or three rounds.; Adds a vibrosaw weapon profile.
+modOptions: []
+reference:
+  - CotR:62
+includedModels:
+  - Greel Mk VI Vibrosaw

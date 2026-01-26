@@ -1,0 +1,12 @@
+id: eote-talent-discredit
+name: Discredit
+description: Once per encounter, take the Discredit action, make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Deception check** to upgrade the
+  difficulty of one character's social checks once, plus once for every <advantage></advantage><advantage></advantage>,
+  until of the encounter.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Advocate
+reference:
+  - DA:33

@@ -10,5 +10,5 @@ description: The weapon has a large spread, an explosive blast, or a similar are
   spending <advantage></advantage><advantage></advantage><advantage></advantage>. In this case, the original target and
   every target engaged with the original target suffers a hit dealing damage equal to the Blast rating of the weapon.
 passive: false
-ranked: false
+ranked: true
 reference: G-CRB:86

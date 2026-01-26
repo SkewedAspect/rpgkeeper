@@ -1,0 +1,12 @@
+id: eote-talent-barrel-roll-supreme
+name: Barrel Roll (Supreme)
+description: When the character uses Barrel Roll to reduce the damage from a weapon with the Auto-fire, Blast, or Guided
+  item qualities, they may spend <despair></despair> or <threat></threat><threat></threat><threat></threat> to inflict
+  one hit on the attacker or another enemy vehicle or starship within close range after the initial attack resolves. The
+  hit deals the base damage of the original attack.
+activation: p
+ranked: false
+forceTalent: false
+trees: Clone Pilot
+reference:
+  - RotS:37

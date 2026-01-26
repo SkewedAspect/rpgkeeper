@@ -1,0 +1,21 @@
+id: eote-attachment-hair-trigger
+name: Hair Trigger
+description: Many pistols are designed to cycle and fire as quickly as the trigger can be depressed. Replacing the standard firing mechanism with one that is more responsive allows the wielder to fire substantially more often. Hair triggers can only be installed on Ranged (Light) pistols that lack the Auto-fire quality.
+useWith: weapon
+hpRequired: 1
+rarity: 2
+baseModifier:
+  qualities:
+    - id: eote-quality-inaccurate
+      ranks: 2
+    - id: eote-quality-linked
+      ranks: 1
+modOptions:
+  - qualities:
+      - id: eote-quality-inaccurate
+        ranks: 1
+reference:
+  - CotR:60
+includedModels:
+  - Morellian MWC-HS Hyper Trigger
+  - BlasTech Industries 009 Fastshot

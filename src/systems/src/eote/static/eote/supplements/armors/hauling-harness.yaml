@@ -1,0 +1,21 @@
+id: eote-armor-hauling-harness
+name: Hauling Harness
+description: >-
+  Beloved by harried quartermasters across the galaxy, hauling harnesses offer convenient means to lift and move heavy
+  loads. Essentially a light cyber-exoskeleton, the hauling harness greatly magnifies the user's ability to lift and
+  move heavy objects, albeit with limited speed. Although not as practical as a dedicated piece of heavy machinery, the
+  harness incorporates a folding design, enabling easy storage when not in use.
+
+  A character wearing a hauling harness increases his encumbrance capacity by 6, but also upgrades the difficulty of any
+  combat check he makes twice.
+
+  **Models include:** TaggeCo. Mobile Lifting Gear.
+defense: 1
+soak: 1
+hardpoints: 2
+encumbrance: 3
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - DA:48

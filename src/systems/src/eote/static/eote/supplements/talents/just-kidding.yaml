@@ -1,0 +1,10 @@
+id: eote-talent-just-kidding
+name: Just Kidding!
+description: Once per round as an incidental spend 1 Destiny Point to ignore <despair></despair> generated on a social
+  check by the character or any ally in short range.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Charmer
+reference:
+  - FC:33

@@ -1,0 +1,11 @@
+id: eote-talent-full-stop
+name: Full Stop
+description: When piloting a ship or vehicle, take a full-stop maneuver to reduce speed to zero and suffer system strain
+  equal to the speed reduced.
+activation: am
+ranked: false
+forceTalent: false
+trees: Driver, Squadron Leader
+reference:
+  - A-CRB:147
+  - EtU:30

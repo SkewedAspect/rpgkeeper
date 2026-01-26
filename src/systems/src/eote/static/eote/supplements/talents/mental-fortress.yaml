@@ -1,0 +1,11 @@
+id: eote-talent-mental-fortress
+name: Mental Fortress
+description: Spend 1 Destiny Point to ignore effects of Critical Injuries on Intellect or Cunning checks until end of encounter.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Artisan, Scholar, Scientist, Shadow, Slicer
+reference:
+  - E-CRB:139
+  - A-CRB:151
+  - F-CRB:147

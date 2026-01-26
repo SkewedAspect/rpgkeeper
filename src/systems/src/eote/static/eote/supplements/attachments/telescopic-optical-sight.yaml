@@ -1,0 +1,16 @@
+id: eote-attachment-telescopic-optical-sight
+name: Telescopic Optical Sight
+description: Popular with marksmen and snipers, this attachment consists of a long tube attached to the top of a weapon with a number of precisely ground lens elements protected by an impact-resistant housing. The resulting scope magnifies distant images for long-range shooting. This attachment can be used on any ranged weapon (with the exception of one-use weapons like grenades, or weapons like flame projectors that would not realistically benefit from a sight).
+useWith: weapon
+hpRequired: 1
+rarity: 1
+baseModifier:
+  description: -1 Difficulty at Long/Extreme Range
+modOptions: []
+reference:
+  - E-CRB:192
+  - A-CRB:203
+  - F-CRB:195
+includedModels:
+  - Merr-Sonn 80Z Telescopic Optical Sight
+  - Zikon Optics Model 40 Marksman Scope

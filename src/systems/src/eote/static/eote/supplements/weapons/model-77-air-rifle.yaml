@@ -1,0 +1,41 @@
+id: eote-weapon-model-77-air-rifle
+name: Model 77 Air Rifle
+description: >-
+  Air rifles are not considered weapons on most planets in the galaxy, and the majority of sentients therein see them as
+  little more than toys. Even those Core Worlds with the most draconian restrictions on weapon ownership have no
+  official laws governing air-powered weapons. A specialized form of slugthrower, air rifles use compressed air or other
+  gasses to propel tiny metal pellets or light, spin-stabilized darts over long distances. Lightweight and extremely
+  accurate, they are usually marketed to hobby shooters, collectors, or those who need a quiet, easy-to-use, and
+  relatively safe weapon with which to practice their marksmanship.
+
+  These weapons' balance, accuracy, portability, and the nearly complete silence of their firing mechanism make them
+  excellent weapons for hunters, both of beasts and of sentient beings. Combined with the ability to chamber specialty
+  darts that can be filled with various chemicals and toxins, air weapons make for fine silent killing weapons.
+
+  One of the most common air rifles on the market is the Model 77 from Field Sports, a trusted name in air-weapon
+  production. Known colloquially as the Sandman, thanks to the unique effects of its standard ammunition, the Model 77
+  is a lightweight, long-barreled air gun similar in silhouette and stature to a sporting blaster. Made primarily of
+  polycarbonate with fibermesh reinforcement, the Model 77 was initially marketed as a nonlethal weapon for animal
+  control and law enforcement. It fires tiny, spin-stabilized darts with laser-honed tips capable of piercing the
+  thickest hide from a detachable clip that is quick and easy to reload. Each dart contains a dose of tranquilizer agent
+  that induces unconsciousness. In addition, the Model 77's darts can be loaded with the heavy-duty "SmartTranq"
+  tranquilizer with an active ingredient that adapts itself upon contact with the target's bloodstream to be as
+  effective as possible no matter what the species. Sandman air rifles have a well-deserved reputation for accuracy and
+  reliability. In the Outer Rim many are used by bounty hunters and big-game hunters who need to take prey alive in
+  order to collect their payments.
+skill: Ranged (Heavy)
+damage: 6
+addSkill: false
+criticalRating: 0
+range: l
+encumbrance: 3
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 4
+  - id: eote-quality-stun-damage
+reference:
+  - EtU:39
+  - SS:41

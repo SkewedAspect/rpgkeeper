@@ -1,0 +1,24 @@
+id: eote-attachment-tactical-command-control-and-communications-suite
+name: Tactical Command, Control, and Communications Suite
+description: |-
+  Mounted to ships and vehicles piloted by designated
+  squadron leaders, the TC3 suite allows the sharing
+  of data and sensor telemetry between networked
+  ships or vehicles. Built for use mainly in tanks, walkers,
+  airspeeders, and starfighters, TC3 suites facilitate
+  more efficient communications between members of
+  a squadron, and they provide the squadron leader
+  with a number of command and control options to
+  enhance the squadron’s performance.
+useWith: vehicle
+hpRequired: 1
+rarity: 6
+baseModifier:
+  description: While active, a force commander in the vehicle upgrades the ability of all Mass Combat checks once
+modOptions:
+  - description: Gain Situational Awareness (allies in short range add <boost></boost>)
+  - description: Allies benefiting from Situational Awareness remove <setback></setback> on Perception and Vigilance checks
+reference:
+  - LbE:59
+includedModels:
+  - Various models

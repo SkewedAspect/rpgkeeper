@@ -1,0 +1,23 @@
+id: eote-weapon-blade-breaker
+name: Blade-Breaker
+description: Designed to be used in conjunction with a vibrosword or other melee weapon, the blade-breaker is typically
+  a small, serrated vibroblade or pronged dagger capable of catching and possibly even breaking an opponent's melee
+  weapon. Equipped with an ultrasonic generator in the handle to increase the weapon's ability to shatter durasteel, a
+  blade-breaker can quickly leave an opponent unarmed and at the mercy of its wielder.
+skill: Melee
+damage: 0
+addSkill: false
+criticalRating: 4
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 2
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-sunder
+reference:
+  - FC:46

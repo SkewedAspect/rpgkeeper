@@ -1,0 +1,28 @@
+id: eote-weapon-model-7-therm-ax
+name: Model 7 Therm-Ax
+description: >-
+  Though similar in appearance to a vibro-ax, the SoroSuub Model 7 operates on very different principles. The ax head is
+  crafted from a superconductive durasteel alloy, with thermal coils concealed just beneath the surface, running to the
+  power supply located under the blade. When activated, the ax blade quickly reaches temperatures in excess of 500
+  degrees. Even a glancing blow or near miss can ignite flammable materials, while a direct hit can incinerate flesh.
+  Those wielding the weapon usually don heat-resistant garb, as their proximity to the blade can otherwise be quite
+  unpleasant.
+
+  A therm-ax requires two hands to wield.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 4
+hardpoints: 3
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-burn
+    ranks: 2
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - DC:48

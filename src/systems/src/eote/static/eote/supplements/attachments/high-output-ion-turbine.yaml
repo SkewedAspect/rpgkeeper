@@ -1,0 +1,17 @@
+id: eote-attachment-high-output-ion-turbine
+name: High-Output Ion Turbine
+description: A fast, powerful sublight engine, high output ion turbines increase a ship's raw, straight-line speed at the cost of slightly lower reliability. May be installed on any a airspeeder or starship.
+useWith: vehicle
+hpRequired: 1
+rarity: 5
+baseModifier:
+  description: +1 Speed; -1 System Strain Threshold
+modOptions: []
+reference:
+  - E-CRB:271
+  - A-CRB:286
+  - F-CRB:269
+includedModels:
+  - Girodyne Ter40 High-Output Ion Turbine
+  - Sienar Fleet Systems SFS-220 Ion Drives
+  - Koensayr Manufacturing R800 Ion Ramjet

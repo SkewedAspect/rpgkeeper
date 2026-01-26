@@ -1,0 +1,20 @@
+id: eote-weapon-micro-rocket-launcher-pistol
+name: Micro-Rocket Launcher Pistol
+description: >-
+  While micro-rockets are frequently mounted on armor or other weapons, there are pistol weapons designed exclusively to
+  fire these devasting rounds
+
+  Up to 3 micro-rockets can be loaded in the launcher. While a micro-rocket is loaded, it replaces the damage, critical
+  rating, and item qualities of the launcher.
+skill: Ranged (Light)
+damage: 0
+addSkill: false
+criticalRating: 0
+range: m
+encumbrance: 3
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - ND:47

@@ -1,6 +1,13 @@
 id: eote-quality-breach
 name: Breach
-description: Hits ignore one point of vehicle armor for every rating of Breach.
+description: >-
+  Weapons with Breach burn through the toughest armor, and are often heavy weapons or starship weapons.
+
+  Breach weapons ignore one point of Armor for every rating of Breach (meaning they also ignore 10 points of soak for
+  every rating of Breach).
 passive: true
 ranked: true
-reference: E-CRB:155
+reference:
+  - E-CRB:155
+  - A-CRB:169
+  - F-CRB:162

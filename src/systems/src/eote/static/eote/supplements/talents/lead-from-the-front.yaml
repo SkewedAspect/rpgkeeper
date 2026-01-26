@@ -1,0 +1,10 @@
+id: eote-talent-lead-from-the-front
+name: Lead from the Front
+description: After succeeding on a Leadership check or other check to inspire, lead, or rally an audience, the character
+  may spend 1 Destiny Point to upgrade the ability of the next combat check made by each ally within short range once.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Separatist Commander
+reference:
+  - CotR:41

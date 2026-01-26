@@ -1,0 +1,31 @@
+id: eote-weapon-wipe-3-data-purge-grenade
+name: Wipe-3 Data-Purge Grenade
+description: >-
+  SoroSuub Wipe-3 Data-Purge Grenade
+
+  Although information is sometimes committed to flimsiplast or other forms of physical storage, most data storage
+  utilizes electronic media. Overwhelming physical damage can eliminate memory banks and similar devices, but expert
+  slicing can sometimes reconstitute and extract viable data. For more certain methods of data erasure, agents turn to
+  devices like SoroSuub Wipe-3 data-purge grenades. These small, one-use devices release a focused pulse that scrambles
+  data, usually without destroying hardware.
+
+  Any computer or similar device hit by a data-purge grenade loses all programming, memory, or any other kind of
+  electronically stored data, but remains otherwise undamaged. A droid hit by a data-purge grenade must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Resilience check** or suffer 1 strain,
+  plus 1 additional strain per <failure></failure>. At the GM's discretion,
+  <threat></threat><threat></threat><threat></threat> or <despair></despair> on the check can cause the droid to lose
+  portions of its memory.
+skill: Ranged (Light)
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DA:45

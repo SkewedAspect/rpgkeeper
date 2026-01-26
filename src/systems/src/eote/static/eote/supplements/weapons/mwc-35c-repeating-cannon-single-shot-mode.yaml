@@ -1,0 +1,45 @@
+id: eote-weapon-mwc-35c-repeating-cannon-single-shot-mode
+name: MWC-35c Repeating Cannon (Single-Shot Mode)
+description: >-
+  MWC-35c "Staccato Lightning" Repeating Cannon (Single-Shot Mode)
+
+  Morellian Weapons Conglomerate MWC-35c heavy repeating blaster cannon is one of the galaxy's premier support weapons.
+  Designed to give an infantry squad unparalleled automatic fire capacity, the aptly nicknamed "Staccato Lightning"
+  delivers all the power of a heavy repeating blaster in a relatively compact, easy to use package. Unlike a typical
+  heavy repeating blaster that is stationary and requires a team of three dedicated gunners, the MWC-35c was designed to
+  be easily portable and require less training for use. The weapon consists of a backpack-mounted, high-output energy
+  generator connected to a blunt nosed heavy blaster rifle by way of an armored galven-circuitry flexible charge belt.
+  While it is heavy and bulky, the generator's straps work like load-bearing gear to distribute the weight around the
+  wearer's body to make it relatively easier to carry.
+
+  While the MWC-35c works surprisingly well, it has some drawbacks. The armored cable that carries power from the
+  backpack to the rifle can break or become disconnected during heavy use, making the weapon useless until repaired. The
+  generator itself, although well protected, can detonate when ruptured, often killing the wearer and seriously wounding
+  anyone nearby.
+
+  The repeating cannon can be fired in two different modes. The standard mode fires in a full-automatic surge designed
+  to eliminate many targets in an instant. The secondary mode fires single-shot blasts of a higher power, but requires
+  priming the weapon vie the pump-action foreguard. Switching between modes requires a maneuver.
+
+  If this weapon is ever destroyed-by a weapon with the Sunder quality or through other means determined by the Game
+  Master-it blows up and deals 10 damage to the wearer and other characters within engaged range.
+skill: Gunnery
+damage: 13
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 5
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 4
+  - id: eote-quality-prepare
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - DoR:118

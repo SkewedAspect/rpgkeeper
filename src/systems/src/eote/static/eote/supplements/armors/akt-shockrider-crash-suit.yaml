@@ -1,0 +1,26 @@
+id: eote-armor-akt-shockrider-crash-suit
+name: A/KT Shockrider Crash Suit
+description: >-
+  Specially designed for those who make their living behind the wheel, the Shockrider crash suits from Ayelixe/Krongbing
+  Textiles Corporation are built to help pilots of speeders, speeder bikes, swoops, and other fast atmospheric vehicles
+  survive even the worst crashes. Made of tough synthetic materials reinforced with a light armored mesh, a crash suit
+  consists of a snug-fitting full-body suit with heavy fasteners, gloves, boots, and a helmet. All of these components
+  fit together to grant the greatest protection possible to the wearer. They are also reinforced with special
+  impact-absorbing gel inserts at strategic areas, like the spine, elbows, knees, hips, palms of the hands, and
+  shoulders. This helps mitigate shocks to the areas of the body that are typically the first to take damage in an
+  accident. In addition to these protections, the materials of a crash suit are also embedded with a fire- and
+  radiation-proof chemical to help wearers survive the fires that often break out during crashes.
+
+  Thanks to their durable construction and integrated armor, crash suits reduce any strain received from Critical Hits
+  dealt to the wearer's vehicle by 1 (to a minimum of 1) and the flame-resistant coating reduces damage dealt to the
+  wearer by fires by 1.
+defense: 0
+soak: 2
+hardpoints: 1
+encumbrance: 2
+rarity: 3
+restricted: false
+qualities: []
+reference:
+  - EtU:45
+  - SoT:42

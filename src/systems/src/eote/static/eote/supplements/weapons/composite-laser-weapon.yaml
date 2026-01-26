@@ -1,0 +1,25 @@
+id: eote-weapon-composite-laser-weapon
+name: Composite Laser Weapon
+description: Quarrie has designed a unique fire-linking system that draws power from all weapon systems-along with the
+  shields, engines, and numerous other systems by accident-to create an ersatz energy weapon he calls the composite
+  laser weapon, or CLW. Although wildly unstable and prone to knocking half the ship’s systems offline when used, the
+  CLW provides the Blade Wing with a weapon equal to light turbolaser in power and armor-piercing capabilities. Using
+  the CLW is always a risk, and it was deleted from the B-wing before that ship went into production.
+skill: Gunnery
+damage: 10
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 3
+  - id: eote-quality-slow-firing
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 3
+reference:
+  - DoR:125

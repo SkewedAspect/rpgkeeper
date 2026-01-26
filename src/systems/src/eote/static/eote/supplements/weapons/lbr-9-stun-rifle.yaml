@@ -1,0 +1,36 @@
+id: eote-weapon-lbr-9-stun-rifle
+name: LBR-9 Stun Rifle
+description: >-
+  Stun rifles are rare weapons in the galaxy, perceived by most to be of limited utility. Possessing low-intensity
+  blast-actuating modulators and using a lower yield mix of blast gasses than other, more lethal blaster rifles, stun
+  rifles are capable of only nonlethal stunning blasts. Most of these weapons are used in law enforcement, corrections,
+  and occasionally in bounty hunting, fields in which the need to keep targets alive is often of paramount importance.
+  They are typically short ranged, and their bolts have a broad spread to catch as many targets in their blast as
+  possible. While this is effective in close quarters or in large crowds, in open terrain their effectiveness is sadly
+  reduced. To counter this, and to corner the market in long-range stun blasters, BlasTech recently released the all-new
+  LBR-9 Stun Rifle.
+
+  Based on the current model DL-87 Firespray stun rifle, the LBR-9 is a long-barreled, light-framed blaster rifle fitted
+  with composite furniture and simple iron sights. Using the majority of the Firespray's firing system with an upgraded
+  galven pattern designed to fit the longer barrel, the LBR-9 can fire a concentrated, high-penetration stun bolt with a
+  range and accuracy commensurate with other, more lethal weapons in its class. With its optimized and upgraded galven
+  pattern and a patented mix of blaster gasses, the LBR-9 packs quite a punch and typically needs only one or two shots
+  to knock a target out of commission. Only recently brought to market and largely sold to Core Systems' planetary
+  law-enforcement agencies, few of these specialized weapons have found their way to the fringes of civilized space.
+  Those that do are quickly snatched up by both beast and bounty hunters for their precise handling characteristics and
+  nonlethal nature, and they are gaining a reputation as finely made, accurate, and dependable weapons.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 0
+range: l
+encumbrance: 6
+hardpoints: 4
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 2
+  - id: eote-quality-stun-damage
+reference:
+  - EtU:39

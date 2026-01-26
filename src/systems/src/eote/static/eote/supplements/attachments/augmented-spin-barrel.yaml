@@ -1,0 +1,25 @@
+id: eote-attachment-augmented-spin-barrel
+name: Augmented Spin Barrel
+description: Using an updated and streamlined galven pattern and heavy-duty static pulse adapters, this custom barrel increases both the damage output and armor penetration of blaster rifles and heavy blaster rifles. The trade-off for all this extra stopping power is increased wear and tear on both the frame of the blaster and the barrel, leading to an increase in maintenance and down-time. This attachment can only be used with blaster rifles and heavy blaster rifles.
+useWith: weapon
+hpRequired: 2
+rarity: 4
+baseModifier:
+  damageModifier: 1
+  description: Add <setback></setback> to all Mechanics checks when performing maintenance on this weapon.
+modOptions:
+  - damageModifier: 1
+  - damageModifier: 1
+  - qualities:
+      - id: eote-quality-accurate
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+reference:
+  - E-CRB:188
+  - A-CRB:200
+includedModels:
+  - Dolmax 243X "Penetrator Augmented Spin Barrel
+  - Arakyd HH780 HotShot Barrel
+  - BlasTech Model 213 Perforator Barrel

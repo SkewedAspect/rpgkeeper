@@ -1,0 +1,16 @@
+id: eote-weapon-ghovor-22-blaster-pistol
+name: GHOVOR-22 Blaster Pistol
+description: ""
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 2
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - FLT:47

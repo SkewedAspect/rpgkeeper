@@ -12,6 +12,63 @@ const nanoID = customAlphabet(alphanumeric, 10);
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
+ * Normalize a reference that could be a string or array of strings to a single string.
+ * Returns the first reference if given an array, or the string itself.
+ *
+ * @param reference - The reference(s) to normalize
+ * @returns The first/only reference as a string, or empty string if undefined
+ */
+export function normalizeReference(reference : string | string[] | undefined) : string
+{
+    if(!reference)
+    {
+        return '';
+    }
+
+    if(Array.isArray(reference))
+    {
+        return reference[0] ?? '';
+    }
+
+    return reference;
+}
+
+/**
+ * Convert a reference (string or array) to an array of strings.
+ *
+ * @param reference - The reference(s) to convert
+ * @returns An array of reference strings
+ */
+export function toReferenceArray(reference : string | string[] | undefined) : string[]
+{
+    if(!reference)
+    {
+        return [];
+    }
+
+    if(Array.isArray(reference))
+    {
+        return reference;
+    }
+
+    return [ reference ];
+}
+
+/**
+ * Extract the abbreviation (source code) from a reference string.
+ * Reference format: "ABBR:page" (e.g., "E-CRB:407" -> "E-CRB")
+ *
+ * @param reference - The reference string
+ * @returns The abbreviation portion before the colon
+ */
+export function getReferenceAbbr(reference : string) : string
+{
+    return reference.split(':')[0] ?? '';
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
  * This generates nice, short ids (ex: 'HrILY', '2JjA9s') that are as unique as a uuid.
  *
  * @returns Returns a unique string id.
@@ -54,7 +111,16 @@ export function sortBy<T extends Record<string, unknown>>(key : keyof T) : (a : 
     {
         const aVal = aObj[key];
         const bVal = bObj[key];
-        return (aVal > bVal) ? 1 : ((bVal > aVal) ? -1 : 0);
+
+        if(aVal > bVal)
+        {
+            return 1;
+        }
+        if(bVal > aVal)
+        {
+            return -1;
+        }
+        return 0;
     };
 }
 

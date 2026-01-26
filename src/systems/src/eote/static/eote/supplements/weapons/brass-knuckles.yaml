@@ -1,0 +1,28 @@
+id: eote-weapon-brass-knuckles
+name: Brass Knuckles
+description: >-
+  Dirty fighters and those looking to protect their fists from the tough hides of certain alien species rely on metallic
+  knuckles, gauntlets, or other hand or limb coverings. Hoodlums on some worlds refer to them as "negotiation
+  enhancers."
+
+  Another great advantage of brass knuckles is their ability to be concealed in a pocket or other compartment until
+  they're needed. Add one <setback></setback> die to a characters Perception check when attempting to find brass
+  knuckles on a person's body.
+skill: Brawl
+damage: 1
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 3
+  - id: eote-quality-pierce
+    ranks: 1
+reference:
+  - E-CRB:166
+  - A-CRB:180
+  - F-CRB:171

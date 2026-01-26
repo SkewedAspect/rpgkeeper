@@ -1,0 +1,24 @@
+id: eote-armor-rebel-heavy-battle-armor
+name: Rebel Heavy Battle Armor
+description: >-
+  Most Alliance field tactics focus on hit-and-fade strikes, sabotage and denial operations, but sometimes the Rebellion
+  has no choice but to stand and fight against Imperial forces. Unfortunately, the Rebellion lacks the manpower and
+  weapons to dominate the Empire in field warfare. Rebel infantry uses heavy battle armor to help ensure their survival
+  when outmanned and outgunned by superior Imperial numbers.
+
+  Rebel heavy battle armor is a combination of composites, laminate and armored clothing that provides significant
+  overall protection. The base layer is made of armorweave cloth to dissipate blaster bolts and plastoid segments over
+  top to protect from fragmentation and blunt force. The combination of materials provides heavy protection while
+  allowing freedom of movement, unlike most full laminate battle suits.
+
+  Rebel heavy battle armor is equipped with helmet-fitted breath mask and respirator (see page 195 of the **Age of
+  Rebellion ** Core Rulebook).
+defense: 1
+soak: 2
+hardpoints: 5
+encumbrance: 5
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - FiB:50

@@ -1,0 +1,15 @@
+id: eote-attachment-blaster-energy-dampener
+name: Blaster Energy Dampener
+description: A blaster, with its focused energy, is one of the most powerful ranged weapons, but those who wish to conceal their shots are often forced to resort to other weapons if they want to pass unnoticed. Some assassins and spies prefer a blaster energy dampener, an attachment that significantly reduces the visibility of a blaster bolt, at the cost of stopping power. While dampened blaster fire is still noticeable in totally dark or very dim environments, an assassin can make a shot in a well-lit environment and not worry about attracting too much attention. This attachment is only for use on Ranged (Light) and Ranged (Heavy) blaster weapons.
+useWith: weapon
+hpRequired: 1
+rarity: 4
+baseModifier:
+  damageModifier: -1
+  description: Increases the difficulty of checks made to detect this weapon's fire by one
+modOptions:
+  - description: Add <setback></setback> to checks made to detect this weapon's fire
+reference:
+  - F-CRB:194
+includedModels:
+  - Czerka B78 Energy Dampener

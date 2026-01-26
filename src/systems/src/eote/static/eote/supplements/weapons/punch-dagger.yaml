@@ -1,0 +1,25 @@
+id: eote-weapon-punch-dagger
+name: Punch Dagger
+description: >-
+  A punch dagger, also known as a push dagger or gimlet knife, is a small, short-bladed knife attached to a T-shaped
+  handle, or "gimlet." The user grasps the gimlet so the blade protrudes between his fingers. Easily-concealed, the
+  punch dagger allows the user the put considerable force behind a thrust, often piercing thick clothing and simple
+  armor. A favorite holdout weapon among gamblers, a punch dagger typically won't set off the weapons detectors used in
+  many gambling dens and the backrooms of cantinas throughout the galaxy.
+
+  Add <setback></setback><setback></setback> to a character's Perception checks made to find a punch dagger on a
+  person's body.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 1
+reference:
+  - FC:46

@@ -1,0 +1,10 @@
+id: eote-talent-will-of-the-force
+name: Will of the Force
+description: Once per round after failing a skill check, the character may convert one dark Side Destiny Point to a
+  light side Destiny Point.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Knight
+reference:
+  - RotS:43

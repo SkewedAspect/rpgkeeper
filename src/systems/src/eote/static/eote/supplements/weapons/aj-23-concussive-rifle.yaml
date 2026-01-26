@@ -1,0 +1,37 @@
+id: eote-weapon-aj-23-concussive-rifle
+name: AJ-23 Concussive Rifle
+description: >-
+  Merr-Sonn AJ-23 Concussive Rifle
+
+  Crowd-control situations pose a significant and recurring issue for law enforcement. Security personnel never want to
+  use an inappropriate level of defensive force. Innocent deaths must be avoided at all costs. However, inadequate
+  solutions dramatically limit an officer's options.
+
+  The Merr-Sonn AJ-23 is a highly regarded solution for crowd-control situations. Its boxy shape and carbine size make
+  it both distinctive and easy to wield. It also confers an intimidating appearance that screams force, ensuring that
+  targets recognize the wielder is armed and ready to take action.
+
+  When fired, the AJ-23 releases a directed, but comparatively slow, blast of concussive force.  The force is
+  sufficiently strong to knock down adults of most species but remains unlikely to cause serious injury. The fire
+  pattern makes the weapon well suited to dealing with crowds but a poor solution for targeting a single perpetrator in
+  a crowd.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 4
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 7
+  - id: eote-quality-concussive
+    ranks: 2
+  - id: eote-quality-inaccurate
+    ranks: 2
+  - id: eote-quality-knockdown
+  - id: eote-quality-stun-damage
+reference:
+  - DoH:42

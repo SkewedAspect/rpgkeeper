@@ -1,0 +1,18 @@
+id: eote-attachment-shield-discharge-pack
+name: Shield Discharge Pack
+description: Despite being nearly as ancient as warfare, shields continue to be popular weapons, serving as trusted defenders of warriors on low-tech planets and protecting life and limb of security forces in densely populated areas. While shields are useful weapons already, adding discharge packs to them can allow the wielder to deliver a debilitating shock when detecting a hit. Further, just the sight of a crackling arc of energy wreathing a shield can disturb many would-be attackers, making their strikes far more timid - and far less lethal - than they would have been otherwise. This attachment can only be applied to a shield or buckler.
+useWith: weapon
+hpRequired: 1
+rarity: 5
+baseModifier:
+  description: When wielder suffers hit from Melee, Brawl, or Lightsaber combat check, may spend <threat></threat><threat></threat> or <despair></despair> to cause attacker to suffer 3 strain, ignoring soak.
+modOptions:
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - description: +1 Starboard Defense
+reference:
+  - KtP:54

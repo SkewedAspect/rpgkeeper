@@ -1,0 +1,10 @@
+id: eote-talent-sleight-of-mind
+name: Sleight of Mind
+description: Add <boost></boost> to all Stealth checks unless the opposition is immune to Force powers.
+activation: p
+ranked: true
+forceTalent: true
+trees: Force Sensitive Emergent, Padawan Survivor, Pathfinder, Sentry, Shadow
+reference:
+  - A-CRB:156
+  - F-CRB:152

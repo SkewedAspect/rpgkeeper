@@ -1,0 +1,23 @@
+id: eote-weapon-411-holdout-blaster
+name: 411 Holdout Blaster
+description: >-
+  Czerka Arms 411 Holdout Blaster
+
+  Developed for use by Imperial agents, the 411 holdout blaster's supercharged actuator module and tight muzzle emitter
+  give it impressive range for a holdout blaster. The increased range comes at the cost of overall stopping power when
+  compared to other holdout blasters. Though intended for the exclusive use of the Empire, Rebels stole the design
+  specifications and a large shipment of 411s, flooding the black market with the small, deadly weapons.
+skill: Ranged (Light)
+damage: 4
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 1
+hardpoints: 1
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-stun-setting
+    ranks: 1
+reference:
+  - FC:43

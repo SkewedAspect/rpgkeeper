@@ -1,0 +1,59 @@
+id: eote-weapon-kyuzo-war-shield-melee
+name: Kyuzo War Shield (Melee)
+description: >-
+  Kyuzo War Shield
+
+  Originally utilitarian in function, the Kyuzo war shield
+
+  was designed by the inhabitants of the Kwaidan
+
+  Peaks, as a headpiece to protect travelers from torrential rains during monsoon season in southern Phatrong. Over
+  time, the Sulddo warriors began to fashion
+
+  helmets in this style from stronger materials able to
+
+  withstand the blaster bolts and vibroblade strikes of
+
+  lawless bandits plaguing the countryside. Eventually,
+
+  the war shield transformed into a defensive weapon,
+
+  each fabricated by its owner to fulfill a variety of uses,
+
+  fighting styles, and decorative tastes.
+
+  A Kyuzo war shield may be thrown as a ranged
+
+  weapon. If used in this manner, change the skill to
+
+  Ranged (Light) and the range of the weapon to short.
+
+  The weapon also gains the Limited Ammo 1 quality
+
+  (but if retrieved, it can be used again).
+
+  Additionally, the wielder of a Kyuzo war shield may
+
+  spend <advantage></advantage><advantage></advantage><advantage></advantage> from any combat check to throw the
+
+  weapon to cause the shield to ricochet back to her grasp.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 3
+hardpoints: 0
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-deflection
+    ranks: 2
+  - id: eote-quality-disorient
+    ranks: 1
+reference:
+  - FiB:48

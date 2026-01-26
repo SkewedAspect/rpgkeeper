@@ -1,0 +1,16 @@
+id: eote-attachment-stun-only-blaster-modification
+name: Stun-Only Blaster Modification
+description: Add this attachment to any blaster pistol or carbine to make it stun-only.  A blaster with this modification costs half the normal price.
+useWith: weapon
+hpRequired: 0
+rarity: 1
+baseModifier:
+  description: Remove quality; ; Reduce price by half
+  qualities:
+    - id: eote-quality-stun-setting
+    - id: eote-quality-stun-damage
+modOptions: []
+reference:
+  - E-CRB:160
+  - A-CRB:174
+  - F-CRB:167

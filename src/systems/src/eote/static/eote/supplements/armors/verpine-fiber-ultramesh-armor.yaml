@@ -1,0 +1,25 @@
+id: eote-armor-verpine-fiber-ultramesh-armor
+name: Verpine Fiber Ultramesh Armor
+description: >-
+  Fiber ultramesh armor is the standard armor worn by Verpine colony guards. It is a more advanced version of Verpine
+  fiber mesh armor, with a tighter weave and sturdier construction. Ultramesh is provided as a flexible bodysuit, rather
+  than as a single torso piece. It gains exceptional rigidity when exposed to an electric current, which is provided by
+  a diminutive battery pack.
+
+  The Verpine have been exporting fiber mesh and fiber ultramesh armor for centuries, making it a relatively common
+  sight on Outer Rim worlds. Alliance agents appreciate the versatility of being able to switch between a comfortable
+  set of armor to a more protective, albeit less comfortable set at the push of a button.
+
+  As a maneuver, the wearer may power up or power down the armor. While the armor is powered up, the wearer gains +2
+  defense. However, any character may spend <advantage></advantage><advantage></advantage> or <triumph></triumph> from a
+  Combat check against the character to cause it to run out of power; the armor becomes powered down and cannot be
+  powered up until the end of the encounter.
+defense: 0
+soak: 1
+hardpoints: 2
+encumbrance: 3
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - SoR:109

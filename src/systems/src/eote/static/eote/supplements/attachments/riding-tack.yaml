@@ -1,0 +1,13 @@
+id: eote-attachment-riding-tack
+name: Riding Tack
+description: |-
+  Riding tack is a catchall term for the assorted bits of equipment needed to ride or control a beast. Produced by companies like Piccatech Ltd. and VeTech, tack comes in a variety of styles tailored to the physiology of nearly every known domesticable beast in the galaxy. Riding tack includes a sturdy comfortable saddle designed for a specific beast and riding style, stirrups, headgear (bridle, halter, bit, reins, etc,), and a breastplate. Tack made for working animals replaces the saddle with a heavy duty harness that allows a creature to pull cargo sleds or implements such as plows.
+  Tack can only be worn by riding or working animals. Using tack allows a character to ride the beast without suffering the bareback riding penalties detailed on page 73.
+useWith: weapon
+hpRequired: 0
+rarity: 4
+baseModifier:
+  description: Characters may ride beast without suffering bareback riding penalties.
+modOptions: []
+reference:
+  - SS:47

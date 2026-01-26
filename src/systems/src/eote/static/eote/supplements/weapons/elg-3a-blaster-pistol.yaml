@@ -1,0 +1,23 @@
+id: eote-weapon-elg-3a-blaster-pistol
+name: ELG-3A Blaster Pistol
+description: >-
+  The ELG-3A differs slightly from the Merr-Sonn 02 model of blaster pistol, but shares the traits of being lightweight
+  and distinctively elegant in design. Considered by many to be a "diplomat's blaster," the ELG-3A was particularly
+  popular among Naboo's Royal Security Force. Like a holdout blaster, the weapon is easily concealable, but its longer
+  barrel gives it better precision than many holdout pistols—a necessary trait given that the weapon's relatively light
+  power necessitates especially accurate marksmanship to ensure fatal wounds.
+
+  Add <setback></setback><setback></setback> to a characters Perception checks to find an ELG-3A on a person's body.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - DA:44

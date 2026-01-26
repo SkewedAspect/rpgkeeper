@@ -1,8 +1,13 @@
 id: eote-talent-steely-nerves
 name: Steely Nerves
-description: The character may spend one Destiny Point to ignore the effects of ongoing Critical Injuries on any
-  **Presence** or **Willpower**-related checks unto the end of the encounter. He still suffers from the injury itself.
+description: Spend 1 Destiny Point to ignore effects of Critical Injuries on Willpower or Presence checks until the end
+  of the encounter.
 activation: ai
 ranked: false
-trees: Advisor, Peacekeeper
-reference: E-CRB:143
+forceTalent: false
+trees: Advisor, Ambassador, Clone Commander, Peacekeeper, Pirate, Politico, Republic Navy Officer, Republic
+  Representative, Trader
+reference:
+  - E-CRB:143
+  - A-CRB:157
+  - F-CRB:152

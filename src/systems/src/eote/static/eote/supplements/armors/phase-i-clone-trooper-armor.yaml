@@ -1,0 +1,26 @@
+id: eote-armor-phase-i-clone-trooper-armor
+name: Phase I Clone Trooper Armor
+description: >-
+  Mass-produced alongside the first batches of clones by the Kaminoans, the first designs of clone armor emphasize
+  function and protection. Made of full-body laminate plating over a sealed bodysuit, Phase I clone trooper armor
+  provides a degree of body-temperature regulation to offset the weight and enclosure. It is pressurized to provide
+  brief protection against vacuum-not enough to allow extended operations, but sufficient for a few minutes of life
+  support in an emergency.
+
+  While offering reliability and protection, along with limited inbuilt systems and room for customization, this armor
+  does have one notable flaw. The designers of the clone army placed the comfort of their creations very low on their
+  priorities, leaving the armor significantly more cumbersome and uncomfortable than it could be. Adjusting to the armor
+  has become a rite of passage for clone troopers, such that veterans can spot new clones within moments by how they
+  move in full gear.
+
+  Phase I clone trooper armor includes a comlink. At the GM’s discretion, characters unused to moving in this armor may
+  suffer <setback></setback> to Coordination checks until they acclimatize to the distribution of its weight.
+defense: 0
+soak: 2
+hardpoints: 3
+encumbrance: 4
+rarity: 6
+restricted: true
+qualities: []
+reference:
+  - RotS:58

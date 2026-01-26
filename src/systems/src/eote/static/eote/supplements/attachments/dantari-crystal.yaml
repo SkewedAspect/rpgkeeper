@@ -1,12 +1,20 @@
 id: eote-attachment-dantari-crystal
 name: Dantari Crystal
-description: As their name suggests, Dantari crystals are found on the Outer Rim world of Dantooine. Discovered within
-  the eggs of the kinrath—giant, venomous, cave-dwelling arachnids—it is unknown how Dantari crystals come into
-  existence. However, these multihued kyber crystals were once extremely popular among the Jedi. When installed in a
-  lightsaber, a Force-reactive Dantari crystal helps the wielder maintain focus and calm.
-useWith: Any lightsaber.
-baseModifier: Base damage 7, crit rating 2. Gain Breach 1 and Sunder. Spend <forcepoint></forcepoint> to gain two strain
-  if making a Force Check as part of combat.
-modOptions: 1 Decrease the weapon’s critical rating by 1 to a minimum of 1 Mod, 2 Damage + 1 Mods.
+description: As their name suggests, Dantari crystals are found on the Outer Rim world of Dantooine. Discovered within the eggs of the kinrath—giant, venomous, cave-dwelling arachnids—it is unknown how Dantari crystals come into existence. However, these multihued kyber crystals were once extremely popular among the Jedi. When installed in a lightsaber, a Force-reactive Dantan crystal helps the wielder maintain focus and calm. A Dantari crystal is a lightsaber crystal.
+useWith: weapon
 hpRequired: 2
-reference: F-CRB:196
+rarity: 9
+baseModifier:
+  description: Damage set to 7; Critical set to 2; ; ; When making a Force power check as part of a combat check, may spend <forcepoint></forcepoint> to recover 2 strain.
+  qualities:
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
+modOptions:
+  - criticalModifier: -1
+  - damageModifier: 1
+  - damageModifier: 1
+reference:
+  - F-CRB:196
+includedModels:
+  - None

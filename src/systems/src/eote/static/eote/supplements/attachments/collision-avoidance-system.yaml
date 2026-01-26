@@ -1,0 +1,15 @@
+id: eote-attachment-collision-avoidance-system
+name: Collision Avoidance System
+description: Due to their speed and the primitive nature of their handling systems, Podracers are notoriously difficult to control. While a Podracer is blindingly fast in a straight line, getting one around corners with any accuracy or reliability is almost impossible, making crashes a common sight at races. As a result, many pilots equip their Podracers with collision avoidance systems to reduce the risk of crashes. While common collision avoidance systems are often barred from use in race series and are frowned upon by veteran racers, who consider them "electronic nannies".
+useWith: vehicle
+hpRequired: 1
+rarity: 6
+baseModifier:
+  description: Reduce silhouette by 1 for purposes of determining difficulty of Piloting checks.
+modOptions: []
+reference:
+  - EV:58
+includedModels:
+  - Aratech 8pz-X Constant Active Array
+  - Fabritech "Co-Pilot" Adaptive Anti-Collision System
+  - SoroSuub LX-19 Automatic Spot Thrusters

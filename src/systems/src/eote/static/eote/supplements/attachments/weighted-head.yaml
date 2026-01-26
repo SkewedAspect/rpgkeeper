@@ -1,0 +1,19 @@
+id: eote-attachment-weighted-head
+name: Weighted Head
+description: Weapons designed to bludgeon foes to unconsciousness or death often benefit from extra weight added to the striking surface. This can be accomplished through using heavier materials in the construction, or just by adding metal bands or studs to the business end. Reinforced "knuckles" can be added to some brawling weapons for similar effect. This attachment can only be added to bludgeoning Melee or Brawl weapons.
+useWith: weapon
+hpRequired: 2
+rarity: 3
+baseModifier:
+  damageModifier: 1
+modOptions:
+  - damageModifier: 1
+  - qualities:
+      - id: eote-quality-concussive
+        ranks: 1
+reference:
+  - E-CRB:193
+  - A-CRB:205
+  - F-CRB:195
+includedModels:
+  - None

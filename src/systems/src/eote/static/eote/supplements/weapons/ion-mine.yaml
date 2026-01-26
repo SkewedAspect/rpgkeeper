@@ -1,0 +1,22 @@
+id: eote-weapon-ion-mine
+name: Ion Mine
+description: Very popular among bounty hunters and law enforcement agencies, ion mines use a powerful ion warhead to
+  disable a ship rather than outright destroy it. This allows the vessel and its crew to be easily recovered for capture
+  or questioning.
+skill: Mechanics
+damage: 12
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-ion
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:64

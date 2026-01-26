@@ -1,0 +1,33 @@
+id: eote-weapon-ion-blaster
+name: Ion Blaster
+description: >-
+  Ionization Blaster
+
+  These anti-droid weapons work by combining the power pack of a blaster rifle with a typical droid restraining bolt.
+  Somewhat contrary to its name, the bolt doesn't disable a droid mechanically, but instead attaches to its housing and
+  issues a broadcast command to halt that cannot be refused. The ionization blaster amplifies the command via the
+  blasters power pack to a range of about 12 meters in a wide, unfocused arc.
+
+  Organic life forms feel no more than a brief sting, but droids are blasted with the halt command and simultaneously
+  overloaded with energy that prevents any shielding that might resist it. Most droids are rendered inert for up to half
+  an hour when hit by a successful ionization blast (reflected in the stun damage).
+
+  Ionization blasters work only on droids and cyborgs, and only deal strain damage as per their Stun quality. They have
+  no effect on organic beings beyond a brief and painful sting. Models Include: Jawa scavenged ion blaster, Merr-Sonn
+  DEMP 2 Ion Carbine.
+skill: Ranged (Light)
+damage: 10
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 3
+hardpoints: 3
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 5
+  - id: eote-quality-ion
+reference:
+  - E-CRB:162
+  - A-CRB:176

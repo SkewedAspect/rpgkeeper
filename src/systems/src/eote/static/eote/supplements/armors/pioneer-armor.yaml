@@ -1,0 +1,20 @@
+id: eote-armor-pioneer-armor
+name: Pioneer Armor
+description: >-
+  Designed with the combat engineer in mind, pioneer armor consists of a rugged, reinforced jacket and trousers; sturdy
+  boots with plasteel toe caps; gloves; and a modified engineer's helmet. The suit is reinforced with thick layers of
+  ballistic polymer to provide extra protection to sensitive areas. What sets pioneer armor apart from normal padded
+  armor is the suit's integrated load-bearing system. Composed of numerous adjustable loops, straps, hooks, and sealable
+  pockets and an integrated tool belt, the armor distributes weight and provides easy access to tools and supplies in
+  the field.
+
+  Pioneer armor increases a wearer's encumbrance threshold by three.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 2
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - FO:43

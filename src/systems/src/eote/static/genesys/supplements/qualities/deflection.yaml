@@ -2,5 +2,5 @@ id: genesys-quality-deflection
 name: Deflection
 description: An item with the Deflection quality increases the user's ranged defense by its Deflection rating.
 passive: true
-ranked: false
+ranked: true
 reference: G-CRB:87

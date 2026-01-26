@@ -1,0 +1,13 @@
+id: eote-attachment-data-link
+name: Data Link
+description: |-
+  **EOD-Mk II Upgrade Options:** EOD-MK II suits lack any standard modification options, but can be upgraded with two valuable attachments. These attachments are integrated load-bearing gear and a data link for controlling EOD and demolitions remotes, such as the EOD-Mk IV. As the suits are designed for these upgrades, neither takes up any hard points for the armor, but each upgrade can only be taken once.
+  The data link allows the wearer to control a single EOD remote and costs an extra 300 credits with a rarity of 4.
+useWith: armor
+hpRequired: 0
+rarity: 4
+baseModifier:
+  description: Allows wearer to control a single EOD remote.
+modOptions: []
+reference:
+  - FO:43

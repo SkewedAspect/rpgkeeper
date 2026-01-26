@@ -1,0 +1,12 @@
+id: eote-talent-bad-press
+name: Bad Press
+description: Once per session, choose an organization and make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Deception check**. On success,
+  organization members have their wound thresholds reduced by 1, plus 1 per
+  <success></success><success></success><success></success>, until the end of the session.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Propagandist
+reference:
+  - DA:32

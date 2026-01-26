@@ -1,0 +1,10 @@
+id: eote-talent-researcher-improved
+name: Researcher (Improved)
+description: On a successful Knowledge check, character and allies gain automatic <advantage></advantage> per rank of
+  Researcher on checks to act on those facts until the end of his next turn.
+activation: p
+ranked: false
+forceTalent: false
+trees: Analyst, Master, Strategist
+reference:
+  - DA:34

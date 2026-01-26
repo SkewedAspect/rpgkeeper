@@ -1,0 +1,13 @@
+id: eote-attachment-retractable-garrote
+name: Retractable Garrote
+description: This simple mod adds a garrote to any suitable item, typically a briefcase, comlink, bracelet, or shoe, but it can even be used on a stimpack or fusion lantern.
+useWith: weapon
+hpRequired: 0
+rarity: 6
+baseModifier:
+  description: Equips the item with a retractable garrote.
+modOptions: []
+reference:
+  - CaM:60
+includedModels:
+  - Various models

@@ -1,0 +1,22 @@
+id: eote-attachment-stun-blaster-attachment
+name: Stun Blaster Attachment
+description: |-
+  Force sensitives trained or experienced in other fields prior to embarking on their current path may feel more comfortable using a ranged weapon before resorting to their lightsabers. Others may have reason to disguise their lightsabers, yet retain immediate access to them. Still others reason that if the threat of an opponent can be eliminated at range, so much the better for all concerned. While carrying a blaster pistol is one solution, some prefer a melding of blaster and lightsaber, perhaps believing that a personal weapon best reflects the Force user when it represents all aspects of the user's life, both present and past. Still, the tenets of the Jedi Order apply, and life is to be preserved if at all possible. The stun blaster attachment is seen as an acceptable compromise in these situations.
+  By stripping down an otherwise functional stun blaster, wiring it into the power supply of a lightsaber hilt, and bolting the resulting device to that hilt, a Force user can make use of the blaster without relinquishing immediate access to the lightsaber. This cannibalized stun blaster has a shorter range. Due to the energy draw on the lightsaber's power supply, it cannot be used simultaneously with the blade, but it is often a useful addition to the wielder's weaponry. This attachment has saved more than one life on both ends of the lightsaber.
+useWith: weapon
+hpRequired: 2
+rarity: 5
+baseModifier: {}
+modOptions:
+  - damageModifier: 1
+  - description: "-1"
+    qualities:
+      - id: eote-quality-unwieldy
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+reference:
+  - DoH:51

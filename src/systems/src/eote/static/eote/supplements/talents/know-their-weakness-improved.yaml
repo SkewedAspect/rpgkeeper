@@ -1,0 +1,10 @@
+id: eote-talent-know-their-weakness-improved
+name: Know Their Weakness (Improved)
+description: The character may extend the effects of Know Their Weakness to a number of enemies within short range equal
+  to his Presence.
+activation: p
+ranked: false
+forceTalent: false
+trees: Interrogator
+reference:
+  - CaM:31

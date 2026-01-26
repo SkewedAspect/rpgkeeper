@@ -1,7 +1,9 @@
 id: eote-talent-niman-technique
 name: Niman Technique
-description: _Force Talent._ When making a Lightsaber skill check, the character may use Willpower instead of Brawn.
+description: When making a Lightsaber skill check, the character may use Willpower instead of Brawn.
 activation: p
 ranked: false
+forceTalent: true
 trees: Niman Disciple
-reference: F-CRB:148
+reference:
+  - F-CRB:148

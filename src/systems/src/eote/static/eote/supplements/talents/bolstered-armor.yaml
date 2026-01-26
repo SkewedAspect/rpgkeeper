@@ -1,0 +1,9 @@
+id: eote-talent-bolstered-armor
+name: Bolstered Armor
+description: Increase the armor value of Signature Vehicle by 1 per rank of Bolstered Armor.
+activation: p
+ranked: true
+forceTalent: false
+trees: Rigger
+reference:
+  - SoT:32

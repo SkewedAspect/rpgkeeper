@@ -1,0 +1,11 @@
+id: eote-talent-prey-on-the-weak
+name: Prey on the Weak
+description: Add +1 damage to one hit of successful combat checks against disoriented targets per rank of Prey on the Weak.
+activation: p
+ranked: true
+forceTalent: false
+trees: Aggressor, Force Sensitive Outcast, Force-Sensitive Outcast, Trailblazer
+reference:
+  - F-CRB:149
+  - FiB:35
+  - RotS:41

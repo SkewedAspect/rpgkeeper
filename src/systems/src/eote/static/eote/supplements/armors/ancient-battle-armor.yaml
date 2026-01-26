@@ -1,0 +1,20 @@
+id: eote-armor-ancient-battle-armor
+name: Ancient Battle Armor
+description: >-
+  The precursors of the ancient Jedi faced much more primitive weapons than lightsabers and blasters, and so found heavy
+  combat armor to be more worthwhile than did later generations. Although most such suits were destroyed in battle or by
+  the passage of the millennia, on rare occasions, archaeologists or construction droids uncover ancient suits of metal
+  armor in buried or forgotten ruins. With generous cleaning and repair work, this kind of ancient armor can prove
+  serviceable, if heavy and burdensome. Some claim that such armor is effective against even modern blasters when worn
+  by an individual strong in the Force, although weapon developers and metallurgists dismiss such stories.
+
+  While worn by a character with a Force rating of 1 or higher, ancient battle armor gains Defense 1.
+defense: 0
+soak: 2
+hardpoints: 1
+encumbrance: 6
+rarity: 9
+restricted: false
+qualities: []
+reference:
+  - KoF:47

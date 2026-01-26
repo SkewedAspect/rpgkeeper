@@ -1,0 +1,33 @@
+id: eote-weapon-ashla-staff
+name: Ashla Staff
+description: >-
+  Like the Bo-Rifle, Ashla Staffs were one of the many items plundered by the Empire during the Fall of Lasan. Unlike
+  the rifles, though, these were not weapons of war. Staffs such as these were the unique property of a Revered
+  Master-mystical leaders of the Lasat people. Like the Jedi, these sages studied and communed with the Force, though
+  they referred to it as the Ashla.
+
+  Before the Fall of Lasan, many were quick to equate the Ashla Staff to a Jedi's lightsaber. This would not, by and
+  large, be an accurate comparison. An Ashla Staff's construction might reflect on its owner in a similar way, but that
+  would be the full extent of similarities. The staff might be tall and spry, or gnarled and bent. A Revered Master
+  might fashion it from a single branch, once gifted to them by a Tholothian dignitary. What united these tools was
+  their connection to Lasat mysticism. Among other qualities, they gave strength to Revered Masters during particularly
+  grueling rituals.
+
+  These vibrant cultural expressions have become rare under the Empire. The Revered Masters who survived the Fall of
+  Lasan have since passed on or disappeared. Some bequeathed their staffs to their descendants. Others sold them while
+  fleeing the Empire. Many who own these implements now know little of their original purpose. All they know is that a
+  mysterious power seems to flow through them. There is a flicker of destiny in everything the staff touches.
+
+  While wielding an Ashla Staff and making a Force power check, a player may spend 3 strain to add [LI] to the results.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 4
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - UP:49

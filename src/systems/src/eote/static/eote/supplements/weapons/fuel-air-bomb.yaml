@@ -1,0 +1,27 @@
+id: eote-weapon-fuel-air-bomb
+name: Fuel-Air Bomb
+description: >-
+  These bombs are simple explosive devices made from cylinders of compressed volatile gas, most commonly used for
+  welding, heating buildings, and powering vehicles or generators. They tend to be extremely destructive thanks to the
+  potential energy held in gas and the pressure under which the gas is kept. The cylinders often add a cloud of
+  dangerous shrapnel to the already-destructive blast. A large-enough blast from one or a series of fuel-air bombs can
+  level a building or destroy a starship. The downside is that, thanks to the volatility of the gasses, these devices
+  are touchy; a careless bomb maker can easily make a fatal mistake while working with them.
+
+  A fuel-air bomb's Concussive value increases by one for every additional charge. <despair></despair> on a check to set
+  up this bomb means it immediately detonates, dealing its total damage to everything in its current blast radius.
+skill: Mechanics
+damage: 10
+addSkill: true
+criticalRating: 0
+range: m
+encumbrance: 3
+hardpoints: 0
+rarity: 2
+restricted: false
+qualities:
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-knockdown
+reference:
+  - FO:42

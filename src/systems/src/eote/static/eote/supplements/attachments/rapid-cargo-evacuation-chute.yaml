@@ -1,0 +1,14 @@
+id: eote-attachment-rapid-cargo-evacuation-chute
+name: Rapid Cargo Evacuation Chute
+description: Though no corporation officially acknowledges making a product with this functionality, many smugglers nonetheless rig their cargo bays to be able to rapidly dump their payloads (regardless of whether or not the vehicle is in motion, ideally). Though no smuggler ever wants to use this feature, dumping one's cargo can mean the difference between jail time and slipping past the authorities to smuggle another day.
+useWith: vehicle
+hpRequired: 1
+rarity: 3
+baseModifier:
+  description: Make an **Average (<difficulty></difficulty><difficulty></difficulty>) Mechanics check** as an action while in the cockpit or cargo bay to eject everything currently stored in the cargo hold.
+modOptions:
+  - description: May instead be activated as an action without making a check Mod.
+reference:
+  - FC:63
+includedModels:
+  - Custom models

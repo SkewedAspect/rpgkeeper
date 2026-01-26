@@ -1,0 +1,15 @@
+id: eote-attachment-comms-unit
+name: Comms Unit
+description: |-
+  This pack functions as a comms hub,
+  routing Alliance communications up to long range
+  on the planetary scale. Its encryption adds <setback></setback><setback></setback> to
+  checks made to unscramble the signal.
+useWith: weapon
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: May route communications up to long range on the planetary scale.; Adds <setback></setback><setback></setback> to checks made to unscramble the unit's signal.
+modOptions: []
+reference:
+  - FiB:55

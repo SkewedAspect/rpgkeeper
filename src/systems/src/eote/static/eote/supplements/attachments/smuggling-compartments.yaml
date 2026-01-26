@@ -1,0 +1,16 @@
+id: eote-attachment-smuggling-compartments
+name: Smuggling Compartments
+description: These are concealed compartments installed in starships, especially freighters and transports, for the transportation of contraband. Used to hide goods and occasionally people from prying eyes, they are incredibly hard to spot. Common places for smuggling compartments are beneath deck plates, behind heavy equipment, or in a thousand other bolt-holes throughout a vessel. This may be added to any ship or vehicle with encumbrance capacity 25 or more.
+useWith: vehicle
+hpRequired: 1
+rarity: 1
+baseModifier:
+  description: +1 Hidden Compartment Encumbrance
+modOptions:
+  - description: +1 Hidden Compartment Encumbrance
+  - description: +1 Hidden Compartment Encumbrance
+reference:
+  - E-CRB:270
+  - F-CRB:271
+includedModels:
+  - None

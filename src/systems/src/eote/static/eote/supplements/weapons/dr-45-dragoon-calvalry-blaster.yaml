@@ -1,0 +1,34 @@
+id: eote-weapon-dr-45-dragoon-calvalry-blaster
+name: DR-45 "Dragoon" Calvalry Blaster
+description: >-
+  DR-45 "Dragoon" Calvalry Blaster
+
+
+  The DR-45 cavalry blaster by Merr-Sonn is one of a line of convertible blaster carbines marketed to vehicle crews and
+  beast riders. Based on Merr-Sonris popular DD6 blaster pistol, the DR-45, also called the Dragoon, is marketed as an
+  all-in-one weapon providing the portability of a blaster pistol with the range and stopping power of a blaster
+  carbine. To accomplish this, the base weapon, which is a long-barreled blaster pistol, can be fitted with a detachable
+  polycarbonate shoulder stock and a range-extending augmented spin barrel to turn it into a respectably effective
+  blaster carbine. The stock and barrel are fixed to the base weapon with sturdy quick-release mounts that allow an
+  experienced user to mount or dismount the attachments quickly and easily. While not particularly common, Dragoon
+  cavalry blasters are slowly finding a following among members of the Rebel Alliance who value their versatility,
+  reliability, and stopping power. 
+
+
+  Converting the DR-45 from a pistol to a carbine takes one maneuver and changes the weapon's combat skill from Ranged
+  (Light) to Ranged (Heavy). Similarly, it takes one maneuver to convert the weapon back, restoring its combat skill to
+  Ranged (Light).
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+  - id: eote-quality-accurate
+    ranks: 1
+reference: SoT

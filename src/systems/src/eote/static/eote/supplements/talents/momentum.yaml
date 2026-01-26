@@ -1,0 +1,10 @@
+id: eote-talent-momentum
+name: Momentum
+description: When making a melee attack, the character deals additional damage equal to the number of range bands they
+  moved during the current round.
+activation: p
+ranked: false
+forceTalent: false
+trees: Death Watch Warrior
+reference:
+  - CotR:41

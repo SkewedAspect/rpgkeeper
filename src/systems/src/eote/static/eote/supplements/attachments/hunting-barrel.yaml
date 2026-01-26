@@ -1,0 +1,26 @@
+id: eote-attachment-hunting-barrel
+name: Hunting Barrel
+description: Designed to increase range and accuracy, a hunting barrel can turn any blaster rifle into a dedicated hunting weapon. This two-meter-long replacement barrel is constructed of lightweight materials and packed with upgraded pulse adapters and denser, more aggressive galven circuitry. The increased accuracy and range come at the cost of the base weapon's weight and size, however. The extra-long barrel makes the weapon awkward to handle and fire without proper support, as well as making it almost impossible to conceal. A hunting barrel can only be used on a blaster rifle.
+useWith: weapon
+hpRequired: 3
+rarity: 4
+baseModifier:
+  encumbranceModifier: 1
+  description: +1 Range Band
+  qualities:
+    - id: eote-quality-cumbersome
+      ranks: 2
+modOptions:
+  - qualities:
+      - id: eote-quality-accurate
+        ranks: 1
+  - qualities:
+      - id: eote-quality-accurate
+        ranks: 1
+  - description: Gain Lethal Blows (+10 to Critical)
+reference:
+  - SS:50
+includedModels:
+  - Czerka Model 2 "Huntsman" Precision Barrel
+  - SoroSuub WQ60 "Sure-shot" Barrel
+  - Arakyd 3100 "Deadeye" Barrel

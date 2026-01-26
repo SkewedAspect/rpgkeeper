@@ -1,0 +1,27 @@
+id: eote-weapon-gaffi-stick
+name: Gaffi Stick
+description: >-
+  The Tusken Raiders of Tatooine carry brutal staves made from desert tracti hardwood, krayt dragon horn or bone, or
+  scavenged metal. One end of the gaffi stick is flanged with four protruding blades useful for cutting and gashing
+  opponents. The other end curves outward and ends in a spike of some sort, with the opposite side serving as a dull
+  club. While to some the gaffi stick seems crude, its genius is its versatility—being able to stab, cut, or club
+  depending on how the user wields it. It has practical uses as well, from serving as a walking stick in the rough
+  terrain of Tatooine to guiding the Tusken Raiders' massive banthas.
+
+  Gaffi sticks require two hands to wield.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 3
+hardpoints: 0
+rarity: 2
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-disorient
+    ranks: 3
+reference:
+  - E-CRB:166

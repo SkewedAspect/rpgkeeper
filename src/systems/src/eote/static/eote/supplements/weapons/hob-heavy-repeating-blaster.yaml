@@ -1,0 +1,31 @@
+id: eote-weapon-hob-heavy-repeating-blaster
+name: HOB Heavy Repeating Blaster
+description: >-
+  The High-Output Repeating Blaster from SoroSuub is a powerful and reliable weapon. Rarely seen outside of military
+  forces, the HOB typically requires a crew of two to operate as an emplaced weapon, though it is possible for an
+  individual of exceptional strength to carry the weapon. Remarkably, despite its high rate of fire and energy draw, the
+  HOB's robust, simple construction makes somewhat easier to repair in the field, and it is amazingly easy to set up and
+  take down. The cost of this weapon includes a tripod such as that found on page 193 of the **Edge of the Empire** Core
+  Rules. Setting up this tripod weapon requires the crew to spend two preparation maneuvers, plus two more for the
+  tripod.
+
+  Mechanics Checks to repair a HOB gain <boost></boost>.
+skill: Gunnery
+damage: 15
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 10
+hardpoints: 4
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 6
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - DC:44

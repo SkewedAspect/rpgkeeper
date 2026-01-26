@@ -1,0 +1,36 @@
+id: eote-weapon-12-defender
+name: 12 Defender
+description: >-
+  Described as a "micro blaster" in advertising literature, the 12 Defender holdout blaster by Gee-Tech is a weapon of
+  dubious quality and legality. Touted as the smallest, most reliable self-defense blaster for sale in the galaxy," this
+  tiny pistol is a light, easily concealable, low-powered holdout blaster marketed to wealthy individuals such as
+  merchants, entertainers, and politicians. In theory, the 12 Defender is perfect for those who need a bit of personal
+  protection but have no need or desire to carry a larger blaster pistol. In practice, however, this tiny pistol is a
+  cheaply made, largely disposable weapon of questionable reliability. Produced in the millions and possessing no
+  distinguishing markings (not even a serial number) these weapons feature a ceraplas frame coated with a non-reactive
+  polymer case, which makes them incredibly light and nearly invisible to weapon detection systems. They carry only two
+  shots in their integral power pack, and, once fired, cannot be recharged and retain only a small amount of scrap
+  value.
+
+  While the 12 Defender certainly does offer a fair amount of protection for the price, its shoddy construction and lack
+  of versatility limits its usefulness to the average galactic citizen. However, due to its ease of concealment, ability
+  to elude scanners, untraceable components, and disposable nature, this tiny pistol has found an avid following among
+  the criminal classes.
+
+  Add <setback></setback><setback></setback> to a character's Computers and Perception checks when attempting to find a
+  12 Defender on a person's body. A 12 Defender may not be reloaded.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-inferior
+  - id: eote-quality-limited-ammo
+    ranks: 2
+reference:
+  - FH:40

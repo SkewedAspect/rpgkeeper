@@ -1,0 +1,12 @@
+id: eote-talent-coordinated-assault
+name: Coordinated Assault
+description: Take the Coordinated Assault maneuver; a number of engaged allies equal to Leadership ranks add
+  <advantage></advantage> to combat checks until beginning of the next turn. Range increases per rank of Coordinated
+  Assault.
+activation: am
+ranked: true
+forceTalent: false
+trees: Clone Officer, Strategist, Tactician, Warleader
+reference:
+  - A-CRB:145
+  - RotS:38

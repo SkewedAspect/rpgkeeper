@@ -1,8 +1,10 @@
 id: eote-talent-defensive-training
 name: Defensive Training
-description: When wielding a lightsaber, melee weapon, or brawling weapon, the weapon gains Defensive X, where X equals
-  ranks in Defensive Training.
+description: When wielding a Lightsaber, Melee, or Brawl weapon, the weapon gains the Defensive quality with a rating
+  equal to ranks in Defensive Training.
 activation: p
 ranked: true
+forceTalent: false
 trees: Makashi Duelist, Niman Disciple, Shii-Cho Knight
-reference: F-CRB:141
+reference:
+  - F-CRB:141

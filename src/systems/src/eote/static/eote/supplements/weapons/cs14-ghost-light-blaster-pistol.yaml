@@ -1,0 +1,30 @@
+id: eote-weapon-cs14-ghost-light-blaster-pistol
+name: CS14 "Ghost" Light Blaster Pistol
+description: >-
+  Small, lightweight, and easily concealed, BlasTech's CS14 is one of the galaxy's premier personal defense blasters.
+  One of the smallest blaster pistols on the market, the CS14 is marketed primarily to detectives, investigators, and
+  other individuals who need a powerful yet easy-to-conceal weapon for daily carry. Roughly the size and weight of a
+  standard holdout blaster, the CS14 is built using lightweight polycarbonates and sensor-proof alloys. This makes the
+  weapon nearly invisible to most common weapon scanners. On an individual with the right holster and clothing, it is
+  very difficult to detect without an extremely thorough search. Since its introduction, state intelligence agencies
+  throughout the galaxy have adopted the CS14 as a standard-issue weapon for field agents.
+
+  Finding a CS14 on an individual requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception
+  check**. A character must make a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers
+  check** to find the CS14 with a weapon scanner. The difficulty of the latter check can be reduced by one or two levels
+  at the Game Master's discretion, depending on the type of scanner being used and the attentiveness of the operator.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - CaM:38

@@ -1,0 +1,30 @@
+id: eote-weapon-force-pike
+name: Force Pike
+description: >-
+  Force pikes are one-meter long metallic staves topped with power-tips. One setting on the power-tip vibrates
+  powerfully enough to shatter flesh, steel, and stone. The other setting provides an electric shock that can be set
+  relatively low to prod or control, or high to cause excruciating pain or death. Either setting is designed for ease of
+  use—it takes little skill to swing a stick and cause devastating injury with the vibro or electricity setting. In the
+  hands of a skilled user, however, it's almost as powerful as a lightsaber.
+
+  When used with its Stun Setting, a Force Pike does not benefit from the Pierce 2 Quality. Force pikes require two
+  hands to wield.
+
+  **Models Include**: SoroSuub Controller FP.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 3
+hardpoints: 3
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-stun-setting
+reference:
+  - E-CRB:166
+  - A-CRB:181
+  - F-CRB:174

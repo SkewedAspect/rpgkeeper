@@ -1,0 +1,39 @@
+id: eote-weapon-ssg-mk-ii-paladin
+name: SSG Mk II Paladin
+description: >-
+  Contracted by the Republice specifically for use by the Senate Guard, the Mk II Paladin is an ornate, highly accurate
+  blaster rifle designed for ceremonial use. Built to exacting specifications by SoroSuub, Paladin rifles are as much
+  works of art as they are weapons. With their highly polished black barrels and frames, pearlescent silver
+  polycarbonate furniture, and ornate fittings, they are striking weapons that make quite an impression on those who see
+  them.
+
+  Despite their officially ceremonial nature, these weapons are incredibly potent in combat. Respectable range and
+  accuracy, and the ability to switch between single-shot, and auto-fire make Paladin rifles very dangerous in the right
+  hands. From the factory, they are fitted with slings, collapsible stocks, and a number of other features designed to
+  optimize their combat efficientcy while maintaining their ceremonial look. In addition, when  assigned to Senate
+  Guardsmen, these weapons were fitted with an under barrel stun prod that combined with their stun setting, made them
+  suitable for crowd control duties as well as combat.
+
+  Today, Paladin rifles are a rare sight and most remain in storage armories deep below the Imperial Palace on
+  Coruscant. Some have made their way to the galactic weapons market, however, commanding steep prices whenever they are
+  sold.
+
+  The damage from the Superior quality is included in the weapon's profile. When the integral stun prod is used in clos
+  combat, it has the following profile: Melee Damage +2; Critical 6; Range (Engaged); Disorient 2; Stun Damage.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 4
+hardpoints: 2
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-stun-setting
+  - id: eote-quality-superior
+reference:
+  - EV:41

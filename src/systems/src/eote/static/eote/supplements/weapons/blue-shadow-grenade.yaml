@@ -1,0 +1,22 @@
+id: eote-weapon-blue-shadow-grenade
+name: Blue Shadow Grenade
+description: |-
+  Of all viruses, epidemiologists most fear one strain: the blue shadow virus. The waterborne virus was long touted as the galaxy's most virulent agent. Incidents involving it also proved it to be the deadliest. Decades before the Clone Wars, outbreaks sent panic across dozens of systems. Worst of them all was the Candorian Scourge, claiming millions of lives in only 48 hours.
+  By the time of the Clone Wars, proper containment had eradicated the disease in the wild. Separatist scientists, inspired by the Scourge, re-engineered captive strains into a terrifying bio-weapon. Schematics recovered by the Jedi claim it to be airborne and almost incurable. While the Empire did its best to bury the plans, dissidents managed to leak them after a raid on the Jedi archives. From an official standpoint, the Rebellion condemns its use. From a practical standpoint, some of the more vicious cells have built them in secret. Luckily for the galaxy in general, nobody has yet managed to replicate the true danger of the blue shadow virus. However, some depraved individuals have managed to retro-engineer a fast-acting variant that dies off quickly but can kill scores of individuals before it vanishes.
+  When a blue shadow grenade detonates, all targets that suffer at least one wound from the grenade-or are within medium range of the detonation while not wearing a rebreather, sealed armor, or other form of environmental protection-must make a **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Resilience check**. Targets suffer 2 wounds and 2 strain per <threat></threat>, and a Critical Injury with a + 50 modifier they fail the check. <despair></despair> means that they must make the check again at the start of their next turn as the virus runs rampant through their system.
+skill: Ranged (Light)
+damage: 3
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 9
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - UP:48

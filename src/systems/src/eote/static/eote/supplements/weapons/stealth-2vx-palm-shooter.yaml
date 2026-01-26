@@ -1,0 +1,29 @@
+id: eote-weapon-stealth-2vx-palm-shooter
+name: Stealth-2VX Palm Shooter
+description: >-
+  Prax Arms Stealth-2VX Palm Shooter
+
+  One of the smallest, most easily concealed weapons in the galaxy, the Prax Arms Stealth-2VX Palm Shooter fits easily
+  in the cupped palm of a human-sized hand, making it virtually undetectable by the casual observer. While its darts
+  themselves are not particularly lethal, the toxins contained within the darts can be quite deadly.
+
+  Each dart can be loaded with 1 dose of neuro-toxin, anesthetic, or neuroparalytic (see page 172 of the **Edge of the
+  Empire** Core Rulebook) Or any other poison (such as those on page 109) the GM deems appropriate. Whenever the wielder
+  successfully attacks a target with the weapon (whether or not he deals damage), the target also suffers the effects of
+  being exposed to the poison.
+
+  Add <setback></setback><setback></setback> to Perception checks to find a Stealth-2VX Palm Shooter on a wearer's body.
+skill: Ranged (Light)
+damage: 1
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 3
+reference:
+  - LoNH:102

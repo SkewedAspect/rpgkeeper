@@ -1,0 +1,12 @@
+id: eote-talent-formation-tactics
+name: Formation Tactics
+description: May take the Formation Tactics action by making a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Leadership check**. If successful, he
+  may choose a number of allies within short range equal to <success></success> generated. Upgrade the difficulty of
+  attacks against these allies once until the end of his next turn.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Clone Commander, Imperial Academy Cadet
+reference:
+  - DoR:112

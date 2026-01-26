@@ -1,0 +1,14 @@
+id: eote-attachment-set-trigger
+name: Set Trigger
+description: Commonly known as a "hair-trigger," this weapon retooling allows a blaster or slugthrower to fire with barely a touch of the trigger. This attachment can be applied to any Ranged (Light) or Ranged (Heavy) weapon.
+useWith: weapon
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: Automatic <success></success><threat></threat> to the first combat check made with this weapon each encounter.
+modOptions:
+  - description: Adds <success></success> to the first combat check made with this weapon each encounter
+reference:
+  - FC:51
+includedModels:
+  - Custom variants

@@ -1,0 +1,25 @@
+id: eote-armor-holographic-costume
+name: Holographic Costume
+description: >-
+  When unpowered, the holographic suit is a slightly glossy, unremarkable, form-fitting suit. A small control panel on
+  the inside left sleeve activates numerous miniaturized holoprojectors, sheathing the wearer in a convincing facsimile
+  of one of several preselected outfits. The holographic costume does not hide or alter the appearance of the wearer,
+  but it does enable the wearer to switch between any of ten preloaded outfits with a simple flick of the controls. The
+  recorder built into the suit enables a user to overwrite preloaded outfits with new designs, a process that takes
+  roughly ten minutes.
+
+  To record a new outfit, a character must make an **Easy (<difficulty></difficulty>) Computers check** while in
+  possession of a garment to be recorded, or a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers
+  check** to create a facsimile of a garment that is not on hand.
+
+  **Models include:** A/KT "Versatility" Outfit, Plescinia Micro Holo Suit.
+defense: 1
+soak: 0
+hardpoints: 0
+encumbrance: 2
+rarity: 8
+restricted: false
+qualities: []
+reference:
+  - DA:48

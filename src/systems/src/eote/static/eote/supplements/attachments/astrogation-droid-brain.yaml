@@ -1,0 +1,15 @@
+id: eote-attachment-astrogation-droid-brain
+name: Astrogation Droid Brain
+description: To accompany its autopilot droid brain, Go-Corp has rolled out the CD-13z, an astrogation droid brain. Essentially an astromech installed directly into the ship's hull, the CD-13z can perform astrogation calculations on its own, but it is most useful for assisting in a pilot or navigator's own calculations. Despite their common origins, CD-13z droid brains are known to bicker with CD-12a autopilot droid brains when both are installed on the same vessel.
+useWith: vehicle
+hpRequired: 0
+rarity: 6
+baseModifier:
+  description: Adds a Droid Brain with Astrogation Skill 2 and Intellect 0
+modOptions:
+  - description: Increase Droid Brain's Astrogation Skill by 1
+  - description: Increase Droid Brain's Astrogation Skill by 1
+reference:
+  - FC:62
+includedModels:
+  - Go-Corp CD-13z astrogator droid brain

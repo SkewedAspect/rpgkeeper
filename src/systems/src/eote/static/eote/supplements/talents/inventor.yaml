@@ -1,0 +1,12 @@
+id: eote-talent-inventor
+name: Inventor
+description: When constructing new items or modifying existing attachments, add <boost></boost> or remove
+  <setback></setback> per rank of Inventor.
+activation: p
+ranked: true
+forceTalent: false
+trees: Armorer, Artisan, Outlaw Tech, Scientist
+reference:
+  - E-CRB:137
+  - A-CRB:150
+  - F-CRB:146

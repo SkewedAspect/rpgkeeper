@@ -1,0 +1,15 @@
+id: eote-attachment-temperature-control-unit
+name: Temperature Control Unit
+description: |-
+  This unit comes with
+  a specialized bodysuit that attaches to the module’s
+  cooling or heating system, removing up to <setback></setback><setback></setback> from
+  the user’s checks to resist extreme heat or cold.
+useWith: weapon
+hpRequired: 1
+rarity: 3
+baseModifier:
+  description: Removes up to <setback></setback><setback></setback> from checks to resist extreme heat or cold.
+modOptions: []
+reference:
+  - FiB:55

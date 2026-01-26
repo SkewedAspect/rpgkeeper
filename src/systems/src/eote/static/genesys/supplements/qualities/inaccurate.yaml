@@ -3,5 +3,5 @@ name: Inaccurate
 description: Inaccurate weapons are less likely to be accurate or precise. When making an attack with an Inaccurate
   weapon, add <setback></setback> to the check equal to the Inaccurate rating.
 passive: true
-ranked: false
+ranked: true
 reference: G-CRB:87

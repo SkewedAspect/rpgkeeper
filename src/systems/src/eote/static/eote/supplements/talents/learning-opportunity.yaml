@@ -1,0 +1,11 @@
+id: eote-talent-learning-opportunity
+name: Learning Opportunity
+description: Once per round, the character may spend
+  <advantage></advantage><advantage></advantage><advantage></advantage> from a check they fail to upgrade the ability of
+  their next check once.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Padawan
+reference:
+  - RotS:40

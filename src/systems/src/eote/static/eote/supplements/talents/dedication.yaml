@@ -1,9 +1,24 @@
 id: eote-talent-dedication
 name: Dedication
-description: Each rank permanently increases a single characteristic of the player's choice by one point. This cannot
-  bring a characteristic above 6.
+description: Gain +1 to a single characteristic. This cannot bring a characteristic above 6.
 activation: p
 ranked: true
-trees: Assassin, Bodyguard, Doctor, Force Sensitive Exile, Fringer, Gadgeteer, Marauder, Mechanic, Outlaw Tech, Pilot,
-  Politico, Scholar, Scoundrel, Scout, Slicer, Mercenary Soldier, Survivalist, Thief, Trader
-reference: E-CRB:134
+forceTalent: false
+trees: ARC Trooper, Advisor, Advocate, Aggressor, Agitator, Alchemist, Ambassador, Analyst, Arbiter, Archaeologist,
+  Armorer, Artisan, Ascetic, Assassin, Ataru Striker, Beast Rider, Big-Game Hunter, Bodyguard, Charmer, Clone Commander,
+  Clone Officer, Clone Pilot, Clone Trooper, Clone Veteran, Colossus, Commando, Commodore, Courier, Cyber Tech, Death
+  Watch Warrior, Demolitionist, Doctor, Driver, Droid Specialist, Droid Tech, Enforcer, Entrepreneur, Executioner,
+  Figurehead, Force Adherent, Force Sensitive Emergent, Force Sensitive Exile, Force Sensitive Outcast, Force-Sensitive
+  Outcast, Fringer, Gadgeteer, Gambler, General, Gunner, Gunslinger, Healer, Heavy, Hotshot, Hunter, Imperial Academy
+  Cadet, Infiltrator, Instructor, Interrogator, Investigator, Knight, Juyo Berserker, Magus, Makashi Duelist, Marauder,
+  Marshal, Martial Artist, Master, Mechanic, Medic, Mercenary Soldier, Modder, Navigator, Nightsister, Niman Disciple,
+  Operator, Outlaw Tech, Padawan Survivor, Padawan, Pathfinder, Peacekeeper, Performer, Pilot, Pirate, Politico,
+  Propagandist, Prophet, Protector, Quartermaster, Racer, Recruit, Republic Navy Officer, Republic Representative,
+  Retired Clone Trooper, Rigger, Saboteur, Sapper, Scavenger, Scholar, Scientist, Scoundrel, Scout, Senator, Sentry,
+  Separatist Commander, Shadow, Sharpshooter, Shien Expert, Shii-Cho Knight, Ship Captain, Shipwright, Skip Tracer,
+  Sleeper Agent, Slicer, Soresu Defender, Squadron Leader, Starfighter Ace, Steel Hand Adept, Strategist, Survivalist,
+  Tactician, Teacher, Thief, Trader, Trailblazer, Vanguard, Warden, Warleader
+reference:
+  - E-CRB:134
+  - A-CRB:145
+  - F-CRB:141

@@ -1,0 +1,12 @@
+id: eote-talent-balance
+name: Balance
+description: When the character heals strain at the end of the encounter, he may add [FO] per Force Rating. He recovers
+  additional strain equal to [LI] generated.
+activation: am
+ranked: false
+forceTalent: true
+trees: Ataru Striker, Force Sensitive Emergent, Force Sensitive Exile, Knight, Juyo Berserker, Nightsister, Padawan
+  Survivor, Sage
+reference:
+  - E-CRB:132
+  - A-CRB:143

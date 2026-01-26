@@ -22,16 +22,7 @@
                 </BInputGroupText>
             </template>
             <template #append>
-                <BButton
-                    class="text-nowrap"
-                    variant="primary"
-                    title="Add..."
-                    :disabled="!suppToAdd"
-                    @click="addSup()"
-                >
-                    <Fa icon="plus" />
-                    Add
-                </BButton>
+                <slot name="append-extra" />
             </template>
             <template #suggestion="{ data, htmlText }">
                 <div class="float-end">
@@ -45,7 +36,6 @@
                 <span v-html="htmlText" />
             </template>
         </VueBootstrapAutocomplete>
-        <slot name="append-extra" />
     </div>
 </template>
 
@@ -99,7 +89,7 @@
 
     defineSlots<{
         'suggestion-extra' : (props : { supplement : Supplement }) => unknown;
-        'append-extra' : () => unknown;
+        'append-extra' : (props : object) => unknown;
     }>();
 
     //------------------------------------------------------------------------------------------------------------------
@@ -111,29 +101,37 @@
     };
 
     const search = ref('');
-    const suppToAdd = ref<Supplement | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
+    const selectedIds = computed(() : Set<string | number> =>
+    {
+        const ids = new Set<string | number>();
+        for(const item of props.selected)
+        {
+            if(typeof item === 'object' && item?.id)
+            {
+                ids.add(item.id);
+            }
+            else if(typeof item === 'string' || typeof item === 'number')
+            {
+                ids.add(item);
+            }
+        }
+        return ids;
+    });
+
     const availableFiltered = computed(() =>
     {
+        const query = search.value.toLowerCase();
         return props.available
             .filter((supp) =>
             {
-                let alreadyAdded;
-                const firstItem = props.selected[0];
-                if(typeof firstItem === 'object' && firstItem?.id)
-                {
-                    alreadyAdded = !!(props.selected as SupplementInst[]).find((item) => item.id === supp.id);
-                }
-                else if(supp.id)
-                {
-                    alreadyAdded = (props.selected as (string | number)[]).includes(supp.id);
-                }
-
-                return supp.name.toLowerCase().includes(search.value.toLowerCase()) && !alreadyAdded;
+                const matchesSearch = supp.name.toLowerCase().includes(query);
+                const alreadyAdded = supp.id ? selectedIds.value.has(supp.id) : false;
+                return matchesSearch && !alreadyAdded;
             })
             .sort(props.sortFn);
     });
@@ -149,19 +147,11 @@
 
     function onHit(supp : Supplement) : void
     {
-        suppToAdd.value = supp;
-    }
-
-    function addSup() : void
-    {
-        if(!suppToAdd.value || !suppToAdd.value.id)
+        if(supp?.id)
         {
-            return;
+            emit('add', { id: supp.id });
+            search.value = '';
         }
-
-        emit('add', { id: suppToAdd.value.id });
-        suppToAdd.value = null;
-        search.value = '';
     }
 </script>
 

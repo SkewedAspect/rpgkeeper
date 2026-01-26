@@ -1,0 +1,25 @@
+id: eote-armor-storm-charge-suit
+name: '"Storm" Charge Suit'
+description: >-
+  The "Storm" Charge Suit offers protection similar to other makes of padded armor, but offers several unique features.
+  The padding that makes up most of the armor is highly resistant to electrical energy. While this doesn't offer any
+  additional protection against blasters, it ensures that the wearer suffers no ill effects from the electro-conductive
+  wiring that girds the entire suit. When switched on, the entire suit hums with energy. Any enemy who comes into direct
+  contact with the suit suffers a jolt comparable to a lower-end stun blaster. When struck, the electrical discharge is
+  likely to force an assailant with a plasteel or similarly conductive weapon to drop it, and may even incapacitate him.
+  This armor is a mainstay of riot police within the Corporate Sector, but finds its way into the hands of mercenaries
+  and bounty hunters as well.
+
+  If the wearer of the charge suit is hit by a melee attack and the attack generates <despair></despair>, the attacker
+  is automatically hit by an attack dealing 8 damage. This damage is applied to the target's strain threshold. If the
+  attack generates <threat></threat><threat></threat>, the attacker is disoriented for one round. Wearing a charge suit
+  counts as being equipped with shock gloves (Brawl; Damage +0; Critical 5; Range [Engaged]; Stun 3).
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 3
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - DC:50

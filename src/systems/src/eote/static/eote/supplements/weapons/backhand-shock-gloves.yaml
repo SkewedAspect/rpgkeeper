@@ -1,0 +1,30 @@
+id: eote-weapon-backhand-shock-gloves
+name: Backhand Shock Gloves
+description: >-
+  Produced by Corellian Personal Defense and marketed toward bodyguards, security forces, and law enforcement, the
+  Backhand series is one of the most powerful types of shock glove on the market. Using an advanced kinetic energy
+  reclamation system to power its high-output circuitry, a pair of Backhand shock gloves gives an individual the power
+  and versatility of a stun baton in a wearable glove. However, due to their power requirements and the nature of their
+  charging system (which uses the movements of their wearer to charge powerful capacitors), these gloves are slow to
+  recharge.
+
+  This weapon has the Slow-Firing 1 rule, meaning it can only be used once every other round. This means that while a
+  character may still make Brawl attacks when this weapon is "recharging" he does so without any benefits from the
+  weapon—he simply makes an unarmed melee attack.
+skill: Brawl
+damage: 1
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 0
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-slow-firing
+    ranks: 1
+  - id: eote-quality-stun-damage
+reference:
+  - FH:42

@@ -44,6 +44,7 @@ async function ensureSingleUser() : Promise<void>
         // Wait for initialization to complete
         while(isInitializing)
         {
+            // eslint-disable-next-line no-await-in-loop
             await new Promise((resolve) => setTimeout(resolve, 10));
         }
         return;

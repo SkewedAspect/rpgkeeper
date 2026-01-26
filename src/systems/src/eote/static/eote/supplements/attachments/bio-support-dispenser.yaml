@@ -1,0 +1,14 @@
+id: eote-attachment-bio-support-dispenser
+name: Bio-Support Dispenser
+description: |-
+  Sophisticated medical technology integrated into armor can enhance the effects of in-combat treatments through carefully regulated and distributed dosages. This system applies medication automatically as the wearer's vitals begin to suffer, and it includes an internal bacta reservoir for sealing the most grievous injuries.
+  This attachment may only be installed on a fully enclosed suit of armor, such as laminate, clone trooper, or heavy battle armor.
+useWith: armor
+hpRequired: 1
+rarity: 6
+baseModifier:
+  description: When healing strain at end of encounter, also heal 1 wound if suffered any wounds during encounter.; First time wounds exceed threshold in an encounter, armor automatically applies a stimpack.
+modOptions:
+  - description: Heal 1 additional wound at end of encounter
+reference:
+  - RotS:64

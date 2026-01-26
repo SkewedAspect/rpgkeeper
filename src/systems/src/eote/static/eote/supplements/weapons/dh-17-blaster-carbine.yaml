@@ -1,0 +1,32 @@
+id: eote-weapon-dh-17-blaster-carbine
+name: DH-17 Blaster Carbine
+description: |-
+  This carbine is the heavier cousin of the widely popular DH-17 blaster pistol used by the Rebellion. The
+  DH-17 blaster carbine has seen heavy use by both
+  the Imperial Navy and the Rebel Alliance throughout
+  the Galactic Civil War, lauded for its durability and versatility. It has become a mainstay with rebel soldiers
+  due to its simple design and the wide availability of
+  replacement parts on the black market.
+  Much like the pistol variation, the DH-17 blaster carbine is powerful enough to penetrate most personal
+  armor, but lacks the ability to breach bulkheads and
+  starship hulls, making it ideal for shipboard skirmishes.
+  Rebel marines often install a spread barrel modification to make it a deck sweeper commonly referred to
+  as the DH-17 short carbine. That, combined with the
+  DH-17 carbine's auto-fire capabilities, allows troopers
+  to blanket an entire starship corridor with blaster fire.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 2
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - FiB:43

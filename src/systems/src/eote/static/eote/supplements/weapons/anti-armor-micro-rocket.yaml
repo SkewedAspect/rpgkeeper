@@ -1,0 +1,22 @@
+id: eote-weapon-anti-armor-micro-rocket
+name: Anti-Armor Micro-Rocket
+description: When faced with heavily protected targets, or even light vehicles, warheads with shaped explosive charges
+  allow a bounty hunter to make short work of normally impressive defenses. While micro-rockets of any variety are
+  insufficent to deal with truly hardened targets such as military walkers or speeder tanks, anti-amor charges are more
+  than up to the task of dealing with war droids or combat swoops, let alone an armored soldier or bodyguard.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:46

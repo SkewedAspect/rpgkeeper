@@ -1,0 +1,9 @@
+id: eote-talent-tactical-planning
+name: Tactical Planning
+description: Once per session, the character may substitute a Knowledge(Warfare) skill check for another skill check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Clone Commander
+reference:
+  - CotR:21

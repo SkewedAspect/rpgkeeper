@@ -1,0 +1,12 @@
+id: eote-attachment-plasma-drill
+name: Plasma Drill
+description: Originally developed for asteroid mining, a plasma drill is a superheated auger capable of boring through virtually any material, given enough time. Although a plasma drill is rarely effective as a weapon, commanders and engineers alike have recognized myriad other uses for a vehicle mounting one, from tunneling under enemy fortifications to excavating hidden underground facilities for their own use.
+useWith: vehicle
+hpRequired: 3
+rarity: 4
+baseModifier:
+  description: -2 Handling; Can tunnel through solid rock and most metals at speed 1.; May be employed as a weapon.
+modOptions:
+  - description: +1 Handling
+reference:
+  - FO:61

@@ -1,0 +1,33 @@
+id: eote-weapon-z-6-rotary-blaster-cannon
+name: Z-6 Rotary Blaster Cannon
+description: >-
+  The Galactic Republic purchased many of its heavy weapons from Merr-Sonn Munitions during the last war, but the Z-6
+  rotary cannon was by far the most commonplace Merr-Sonn weapon on the battlefield. Due to its widespread use in the
+  Clone Wars, the Z-6 is easily found on the black market and through weapons dealers. Rebel heavy weapon specialists
+  frequently adopt the Z-6 as their weapon of choice, and Merr-Sonn still manufactures a steady supply for the Imperial
+  millitary. With a single pull of the trigger, the Z-6 rotary blaster cannon releases a burst of a dozen shots,
+  covering an area in a hail of blaster fire. However, the weapon is prone to overheating, especially when used
+  overzealously to provide covering fire or otherwise suppress enemy forces for long periods of time.
+
+  The weapon can only be used in Auto-fire mode. The GM may spend <despair></despair> or
+  <threat></threat><threat></threat> from any combat check made with this weapon to have it overheat; the wielder
+  suffers 2 strain and the weapon becomes damaged one step; from undamaged to Minor, Minor to Moderate, or Moderate to
+  Major (see page 172 of the **Age of Rebellion** Core Rulebook).
+skill: Ranged (Heavy)
+damage: 12
+addSkill: false
+criticalRating: 4
+range: l
+encumbrance: 6
+hardpoints: 3
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-prepare
+    ranks: 1
+reference:
+  - FiB:44
+  - RotS:52

@@ -1,8 +1,12 @@
 id: eote-talent-heightened-awareness
 name: Heightened Awareness
-description: Allies within short range of your character add <boost></boost> to their Perception and Vigilance checks.
-  Allies engaged with your character add <boost></boost> <boost></boost> instead.
+description: Allies within close range add <boost></boost> to Perception or Vigilance checks. Engaged allies add
+  <boost></boost><boost></boost>.
 activation: p
 ranked: false
-trees: Scout
-reference: E-CRB:136
+forceTalent: false
+trees: Big-Game Hunter, Protector, Scout
+reference:
+  - E-CRB:136
+  - A-CRB:148
+  - F-CRB:145

@@ -1,0 +1,11 @@
+id: eote-talent-defensive-slicing
+name: Defensive Slicing
+description: When defending computer systems, add <setback></setback> per rank of Defensive Slicing to opponent's checks.
+activation: p
+ranked: true
+forceTalent: false
+trees: Artisan, Slicer
+reference:
+  - E-CRB:134
+  - A-CRB:145
+  - F-CRB:141

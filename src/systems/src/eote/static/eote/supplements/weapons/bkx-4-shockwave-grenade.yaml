@@ -1,0 +1,31 @@
+id: eote-weapon-bkx-4-shockwave-grenade
+name: BKX-4 "Shockwave" Grenade
+description: >-
+  The BKX-4 is one of a number of grenades built by Baktoid Personal Ordnance, a subsidiary of Baktoid Armor Workshop.
+  Like its closest competitor, the Merr-Sonn G2, the BKX-4 causes damage with overpressure and shockwaves rather than
+  shrapnel, baradium, or incendiary chemicals. The broad blast and shockwave caused by a detonating BKX-4 is strong
+  enough to kill multiple unarmored targets and can seriously damage structures, machinery, and materiel. These grenades
+  are popular with combat engineers, who use them to clear bunkers, sabotage installations, and generally cause immense
+  amounts of mayhem and destruction.
+
+  If the user activates this grenade's Disorient or Knockdown qualities, these qualities affect all characters at short
+  range from the target (even if they are not damaged by the weapon).
+skill: Ranged (Light)
+damage: 10
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-disorient
+    ranks: 5
+  - id: eote-quality-knockdown
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - FO:39

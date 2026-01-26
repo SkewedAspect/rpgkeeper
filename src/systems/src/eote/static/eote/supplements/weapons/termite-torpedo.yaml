@@ -1,0 +1,21 @@
+id: eote-weapon-termite-torpedo
+name: Termite Torpedo
+description: _For use with the Termite Torpedo Launcher_
+skill: Gunnery
+damage: 3
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-guided
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - FO:63

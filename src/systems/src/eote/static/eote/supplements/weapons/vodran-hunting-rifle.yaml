@@ -1,0 +1,21 @@
+id: eote-weapon-vodran-hunting-rifle
+name: Vodran Hunting Rifle
+description: These rifles, usually crafted by hand in local Vodran workshops, are commonly found in the hands of skilled
+  dianoga hunters (or occasionally in the stomachs of dianogas). While not particularly advanced, these weapons are
+  powerful enough to kill most predators that roam the swamps of Vodran. Cunning hunters often set up a blind in the
+  lower branches of a mangle tree and wait for a dianoga to pop its eyestalk up from the murky waters, then blind the
+  creature with a well-aimed shot before moving in to finish it off.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 4
+range: l
+encumbrance: 4
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 2
+reference:
+  - LoNH:102

@@ -1,0 +1,11 @@
+id: eote-talent-quick-movement
+name: Quick Movement
+description: Suffer 2 strain to perform the Quick Movement incidental; add [FO] no greater than Force rating to next
+  check. May spend <forcepoint></forcepoint><forcepoint></forcepoint> to perform one additional Move maneuver after
+  action.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Pathfinder
+reference:
+  - F-CRB:150

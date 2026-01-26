@@ -1,0 +1,12 @@
+id: eote-talent-formation-tactics-improved
+name: Formation Tactics (Improved)
+description: The difficulty of Formation Tactics is reduced to **Average
+  (<difficulty></difficulty><difficulty></difficulty>)**. May spend <triumph></triumph> or
+  <advantage></advantage><advantage></advantage><advantage></advantage><advantage></advantage><advantage></advantage><advantage></advantage>
+  to have effect last until the end of encounter.
+activation: am
+ranked: false
+forceTalent: false
+trees: Clone Commander, Imperial Academy Cadet
+reference:
+  - DoR:113

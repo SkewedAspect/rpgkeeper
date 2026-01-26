@@ -1,0 +1,12 @@
+id: eote-talent-hunters-quarry
+name: Hunter's Quarry
+description: Take Hunter's Quarry action, make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Survival check** to upgrade the ability
+  of all attacks made against a target at long range until the end of the character's next turn.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Big-Game Hunter, Executioner
+reference:
+  - EtU:30
+  - SS:30

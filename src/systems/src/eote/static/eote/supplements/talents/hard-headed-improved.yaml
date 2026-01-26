@@ -1,0 +1,12 @@
+id: eote-talent-hard-headed-improved
+name: Hard Headed (Improved)
+description: When incapacitated due to strain exceeding threshold, may take a more difficult. Hard Headed action to
+  reduce strain to 1 below threshold.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Bodyguard, Colossus, Marshal, Mechanic, Saboteur
+reference:
+  - E-CRB:136
+  - A-CRB:148
+  - KoF:30

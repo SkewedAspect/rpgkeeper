@@ -1,0 +1,18 @@
+id: eote-attachment-ad-1s-hyperdrive-class-4-module
+name: (AD-1S) Hyperdrive Class 4 Module
+description: |-
+  Hyperdrive Class 4 Module for AD-1S
+  Installing a hyperdrive, even a relatively low-grade one, in an AD-IS takes up a good deal of space inside of the craft, but also allows
+  it to operate independently. For many mercenaries, bounty hunters, and other frequent travelers, such an upgrade is well worth the cost.
+useWith: vehicle
+hpRequired: 4
+rarity: 9
+baseModifier:
+  description: Add Class 4 Hyperdrive; Add astromech droid socket.
+modOptions:
+  - description: -5 Hyperdrive Class
+  - description: -5 Hyperdrive Class
+  - description: -5 Hyperdrive Class
+  - description: -5 Hyperdrive Class
+reference:
+  - SM:63

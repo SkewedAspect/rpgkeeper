@@ -1,0 +1,14 @@
+id: eote-attachment-whipcord-thrower
+name: Whipcord Thrower
+description: A whipcord thrower quickly deploys a length of high-tensile-strength cable, firing it over a distance in order to secure a target. Its convenient armor mounting allows the user to act quickly, whether to arrest their own freefall, secure a loose object, or entangle a surprised opponent.
+useWith: armor
+hpRequired: 1
+rarity: 1
+baseModifier:
+  description: Reduces the difficulty of climbing by one.; May support up to 200 kg.; May be used as a weapon.
+modOptions: []
+reference:
+  - CotR:63
+includedModels:
+  - Jeron Hookless Grapplers
+  - Soro-Suub Whipcord Thrower

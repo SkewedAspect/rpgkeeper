@@ -1,0 +1,32 @@
+id: eote-weapon-corellian-compound-bow
+name: Corellian Compound Bow
+description: >-
+  A massive bow made of composite materials, the compound bow uses a system of cams and cables to lever the arms and
+  reduce the draw weight when fully drawn, allowing for longer, more accurate aiming. This is almost a necessity for
+  Corellian bows, since their draw weights tend to be in the range of 55 to 85 kilograms. Some Corellians consider
+  drawing a bow a true test of a man's strength, and bows with draw weights of less than 50 kilograms are general
+  considered children's models. The impressive tension stored in a Corellian compound bow allows the broadhead arrows
+  fired from one to deliver a tremendous amount of kinetic force.
+
+  Regular arrows are cheap to replace; if the GM needs to set a price he can charge I credit per arrow. These bows can
+  also be used to fire special explosive tipped or stun arrows instead of the normal broad-head arrows. If these arrows
+  are used, use the secondary profile given on **Table 3-1**.
+skill: Ranged (Heavy)
+damage: 5
+addSkill: false
+criticalRating: 5
+range: m
+encumbrance: 3
+hardpoints: 1
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-knockdown
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 1
+reference:
+  - SoF:97

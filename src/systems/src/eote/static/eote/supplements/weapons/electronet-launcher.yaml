@@ -1,0 +1,22 @@
+id: eote-weapon-electronet-launcher
+name: Electronet Launcher
+description: An ideal weapon for subduing most sentient beings, the electronet launcher uses the same concept as a
+  conventional net launcher, but without the tangles mess of a physical net. When fired, it projects a web of
+  ever-widening charged ionic particles, somwhat like the Stun setting on a blaster. On contact, it envelopes targets,
+  obstructing their movement while delivering a powerful Stun blast until the net dissipates. Electronet launchers are
+  popular with Thalassian and Trandoshan slavers.
+skill: Ranged (Heavy)
+damage: 6
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 6
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 5
+  - id: eote-quality-stun-damage
+reference:
+  - FLT:60

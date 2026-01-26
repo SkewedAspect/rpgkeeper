@@ -1,0 +1,17 @@
+id: eote-armor-tx-3-combat-flight-suit
+name: TX-3 Combat Flight Suit
+description: An armored flight suit manufactured by Corellian Technologies primarily for starfighter pilots, the TX-3 is
+  used by the CDF and several other system defense forces, and is also popular with pirates, mercenaries, and bounty
+  hunters. Similar to the combat flight suits worn by Imperial pilots, the TX-3 provides slightly better protection from
+  the vacuum of space, as well as moderate defense from concussive and energy attacks. The fibers in the suit provide
+  decent protection from the extreme cold and radiation a pilot is likely to experience in deep space. Without an
+  external oxygen source, a person wearing a TX-3 flight suit can survive for up to 24 hours in hard vacuum.
+defense: 1
+soak: 0
+hardpoints: 2
+encumbrance: 4
+rarity: 6
+restricted: true
+qualities: []
+reference:
+  - SoF:99

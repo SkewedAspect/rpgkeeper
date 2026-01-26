@@ -1,11 +1,13 @@
 id: eote-attachment-shadowsheath
 name: Shadowsheath
-description: Bounty hunters, assassins, and other criminals often have a need to conceal weapons on their bodies to
-  sneak them past guards or get close to a target without arousing alarm. A shadowsheath utilizes optical camouflage
-  technology, but rather than conceal an entire body, its smaller projector is specifically designed to conceal a single
-  weapon when kept in a holster or sheath.
-useWith: Any weapon with an encumbrance of 2 or less.
-baseModifier: Decrease the weapon's crit rating to a minimum of 1.
-modOptions: Upgrade difficulty twice of all checks to detect weapon sheath.
+description: Bounty hunters, assassins, and other criminals often have a need to conceal weapons on their bodies to sneak them past guards or get close to a target without arousing alarm. A shadowsheath utilizes optical camouflage technology, but rather than conceal an entire body, its smaller projector is specifically designed to conceal a single weapon when kept in a holster or sheath. This attachment may be attached to any weapon with an encumbrance of 2 or less.
+useWith: weapon
 hpRequired: 1
-reference: F-CRB:194
+rarity: 5
+baseModifier:
+  description: Increases the difficulty of any checks made to detect the sheath or the weapon it holds by two
+modOptions: []
+reference:
+  - F-CRB:194
+includedModels:
+  - Merr-Sonn Shadowsheath WCS

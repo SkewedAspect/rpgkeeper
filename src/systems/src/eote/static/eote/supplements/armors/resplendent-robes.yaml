@@ -1,0 +1,18 @@
+id: eote-armor-resplendent-robes
+name: Resplendent Robes
+description: >-
+  Some beings naturally become the center of attention when they enter a room, but dressing for the part never hurts,
+  either. Purposefully ostentatious clothing greatly aids their efforts, allowing the wearer's allies to go about other
+  business unobserved.
+
+  As long as a character wearing resplendent robes purposefully draws attention to himself, each of his allies in medium
+  range adds <boost></boost> to Perception, Skulduggery, and Stealth checks.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 2
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - DA:49

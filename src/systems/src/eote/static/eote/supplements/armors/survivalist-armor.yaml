@@ -1,0 +1,26 @@
+id: eote-armor-survivalist-armor
+name: Survivalist Armor
+description: >-
+  Creshaldyne Survivalist Armor
+
+  Creshaldyne Industries is known throughout the galaxy as a purveyor of finely made working clothes for hunters, scouts
+  and others who live in frontier settings. It offers multiple lines of clothing and armor in a number of proprietary
+  colors and camouflage patterns, as well as camping and hunting gear for the discerning buyer. One of the company's
+  newer offerings in the Survivalist line of personal armor found in police forces and paramilitary organizations
+  throughout the galaxy, the Survivalist line is lightweight and hard wearing and performs well in nearly every
+  environment.
+
+  A suit of Survivalist armor provides whole-body protection, with reinforcement patches at the elbows, knees and
+  shoulders that combines a collection of pouches of various sizes with attachments for external bags, backpacks and
+  systems to aid with its load-carrying capabilities.
+
+  Wearing a suit of Survivalist armor increases the wearer's encumbrance threshold by 1.
+defense: 0
+soak: 1
+hardpoints: 2
+encumbrance: 3
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - SS:45

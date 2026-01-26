@@ -1,0 +1,11 @@
+id: eote-talent-eye-for-detail
+name: Eye for Detail
+description: After making a Mechanics or Computers check, may suffer strain up to ranks in Eye for Detail to convert
+  that many <success></success> to <advantage></advantage>.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Cyber Tech, Droid Tech, Shipwright
+reference:
+  - SM:34
+  - FO:30

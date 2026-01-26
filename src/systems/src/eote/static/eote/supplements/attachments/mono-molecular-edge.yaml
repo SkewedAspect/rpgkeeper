@@ -1,9 +1,21 @@
 id: eote-attachment-mono-molecular-edge
 name: Mono-Molecular Edge
-description: All bladed weapons, even vibro weapons, can benefit from an edge sharpened to mono-molecular thickness and
-  toughened through laser-forging techniques.
-useWith: Any weapon with an edge.
-baseModifier: Decrease the weapon's crit rating to a minimum of 1.
-modOptions: 2 Item Quality (Pierce +1) Mods
+description: Even vibroweapons can benefit from an edge sharpened to molecular thickness and toughened through laser-forging techniques. This modification may be applied to melee weapons that use a cutting edge.
+useWith: weapon
 hpRequired: 1
-reference: F-CRB:194
+rarity: 5
+baseModifier:
+  criticalModifier: -1
+modOptions:
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+reference:
+  - E-CRB:190
+  - A-CRB:202
+  - F-CRB:194
+includedModels:
+  - None listed

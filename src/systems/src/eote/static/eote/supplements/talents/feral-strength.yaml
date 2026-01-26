@@ -1,8 +1,10 @@
 id: eote-talent-feral-strength
 name: Feral Strength
-description: When making a Melee Brawl combat check, the character may suffer a number of strain, then upgrade the
-  ability of his combat check by that number. The number cannot exceed his ranks in Frenzied Attack.
-activation: ai
+description: Add 1 damage per rank of Feral Strength to one hit of successful attacks made using Brawl or Melee skills.
+activation: p
 ranked: true
-trees: Marauder
-reference: E-CRB:135
+forceTalent: false
+trees: Commando, Marauder
+reference:
+  - E-CRB:135
+  - A-CRB:146

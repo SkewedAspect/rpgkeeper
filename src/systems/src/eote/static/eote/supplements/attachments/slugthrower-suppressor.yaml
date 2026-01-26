@@ -1,0 +1,14 @@
+id: eote-attachment-slugthrower-suppressor
+name: Slugthrower Suppressor
+description: Suppressors are used by assassins and sharpshooters to make their weapons quieter and more difficult to detect when firing. Similar to energy dampers used to silence blasters, suppressors clip or screw onto the end of a weapon's barrel, redirecting sound and escaping gases to reduce the noise and muzzle flash a slugthrower produces when fired. While they don't make the weapon completely silent they do dramatically reduce its report, making a shooter more difficult to detect. The major downside of using a suppressor is that in reducing the weapon's report it also lowers the speed at which a round travels, diminishing the weapon's damage in the process. Suppressors can only be used on Ranged (Light) and Ranged (Heavy) slugthrower weapons.
+useWith: weapon
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: Adds <setback></setback><setback></setback> to Perception or Vigilance checks made to locate a concealed shooter firing a silenced slugthrower.
+modOptions: []
+reference:
+  - SS:51
+includedModels:
+  - Czerka Mk. I Suppressor
+  - SoroSuub "Whisperflite" Slugthrower Silencer

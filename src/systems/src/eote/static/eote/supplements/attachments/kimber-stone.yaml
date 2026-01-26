@@ -1,0 +1,24 @@
+id: eote-attachment-kimber-stone
+name: Kimber Stone
+description: Kimber stones are a type of kyber crystal produced by violent volcanic activity on the moon of Y'ness in the N'zoth system. They were once considered unsuitable for use in lightsabers due to the non-lethal nature of the blades they create. Certain Jedi Knights saw potential in kimber stones, and so a number were acquired from Y'ness prior to the destruction of the Jedi Order. Today, kimber stones are occasionally sold at auction on the black market, usually as mere trinkets by those who do not understand their true value as kyber crystals. A kimber stone is a lightsaber crystal.
+useWith: weapon
+hpRequired: 2
+rarity: 8
+baseModifier:
+  description: Damage set to 9; Critical set to 1
+  qualities:
+    - id: eote-quality-stun-damage
+modOptions:
+  - damageModifier: 1
+  - damageModifier: 1
+  - qualities:
+      - id: eote-quality-concussive
+        ranks: 1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+reference:
+  - KtP:55

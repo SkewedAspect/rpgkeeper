@@ -1,0 +1,10 @@
+id: eote-talent-strong-arm
+name: Strong Arm
+description: Treat thrown weapons as if they had 1 greater range.
+activation: p
+ranked: false
+forceTalent: false
+trees: Commando, Mercenary Soldier, Sapper
+reference:
+  - E-CRB:144
+  - A-CRB:157

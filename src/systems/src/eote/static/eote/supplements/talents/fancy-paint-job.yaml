@@ -1,0 +1,10 @@
+id: eote-talent-fancy-paint-job
+name: Fancy Paint Job
+description: Upgrade all Charm, Deception, and Negotiation checks made in the presence of Signature Vehicle once.
+activation: p
+ranked: false
+forceTalent: false
+trees: Modder, Rigger
+reference:
+  - SoT:32
+  - SM:34

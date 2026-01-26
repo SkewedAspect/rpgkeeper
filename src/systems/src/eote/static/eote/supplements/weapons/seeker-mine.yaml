@@ -1,0 +1,30 @@
+id: eote-weapon-seeker-mine
+name: Seeker Mine
+description: >-
+  Seeker mines couple a powerful explosive charge with a simple guidance and drive system to make an incredibly lethal
+  piece of ordnance. When a ship enters their sensor range, seeker mines activate and pursue their target.
+
+  If the pilot of a ship targeted by a seeker mine succeeds on the **Piloting (Space) check**, the character who set the
+  mine may spend <setback></setback><setback></setback> from the check to force the pilot to repeat that check with the
+  difficulty reduced by 1 (to a minimum of **Simple (-)**) at the beginning of his next turn, with the standard
+  consequences for failure.
+skill: Mechanics
+damage: 16
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-breach
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:64

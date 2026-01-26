@@ -46,12 +46,56 @@
     );
 
     //------------------------------------------------------------------------------------------------------------------
+    // Helpers
+    //------------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Convert self-closing dice tags to full open/close tags
+     * E.g., <difficulty /> -> <difficulty></difficulty>
+     */
+    function expandSelfClosingDiceTags(text : string) : string
+    {
+        const diceTagNames = [
+            'boost',
+            'setback',
+            'ability',
+            'difficulty',
+            'proficiency',
+            'challenge',
+            'force',
+            'success',
+            'failure',
+            'advantage',
+            'threat',
+            'triumph',
+            'despair',
+            'lightside',
+            'darkside',
+            'forcepoint',
+        ];
+
+        let result = text;
+        for(const tagName of diceTagNames)
+        {
+            // Match self-closing tags: <tagname /> or <tagname/>
+            const regex = new RegExp(`<${ tagName }\\s*/>`, 'gi');
+            result = result.replace(regex, `<${ tagName }></${ tagName }>`);
+        }
+
+        return result;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
     const renderedContent = computed(() =>
     {
-        let rawMarkup = marked.parse(props.text, { async: false }) as string;
+        // First expand self-closing dice tags before markdown processing
+        let processedText = expandSelfClosingDiceTags(props.text);
+
+        // Parse markdown
+        let rawMarkup = marked.parse(processedText, { async: false }) as string;
 
         if(props.inline !== false)
         {

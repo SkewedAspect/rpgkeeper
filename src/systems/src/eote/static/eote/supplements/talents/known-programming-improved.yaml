@@ -1,0 +1,9 @@
+id: eote-talent-known-programming-improved
+name: Known Programming (Improved)
+description: Allies affected by Known Programming also upgrade the ability of their checks targeting the chose droid model once.
+activation: p
+ranked: false
+forceTalent: false
+trees: Clone Veteran
+reference:
+  - CotR:21

@@ -1,0 +1,19 @@
+id: eote-armor-armored-robes
+name: Armored Robes
+description: >-
+  Often worn by Jedi engaging in dangerous activity during the Clone Wars, armored robes grant exceptional protection.
+  Armored robes are distinct and unmistakable, however, making them uncommon in Imperial space. Durable, hard-wearing
+  robes are draped over a variant on the standard Jedi tunic and pants. Attached to the tunic and pants are sets of
+  plasteel plates that provide similar protection to heavy battle armor. Of course, such gear is highly illegal on any
+  Imperial world.
+
+  **Models Include:** Various cuts and styles.
+defense: 1
+soak: 2
+hardpoints: 2
+encumbrance: 5
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - F-CRB:179

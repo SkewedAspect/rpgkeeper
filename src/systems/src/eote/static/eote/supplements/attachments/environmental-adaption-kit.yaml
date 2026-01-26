@@ -1,0 +1,18 @@
+id: eote-attachment-environmental-adaption-kit
+name: Environmental Adaption Kit
+description: |-
+  The varied and often hazardous environments found throughout the galaxy have a tendency to hinder and harm even the sturdiest, most well-built pieces of equipment. Ranged weapons, especially energy weapons like blasters, are particularly susceptible to environmental damage. Dirt, dust and sand can scratch fog lenses, reducing a blaster beam's cohesion and therefore its range and damage potential. Moisture can collect in barrels and receivers, corroding galven circuitry or rusting bolts and strikers. More exotic environments can wear away at weapons with heat, caustic gases, or damaging ionization.
+  To combat these dangers, most weapon and weapon accessory manufacturers produce Environmental adaptation kits. Primarily just collections of seals and protective covers, these kits grant a weapon an added layer of protection against the wear and tear of regular use in hostile environments. While some are for general use, most of these kits are designed for specific environments: dusty, cold, caustic, etc. Environmental adaptation kits can be attached to any ranged weapon.
+useWith: weapon
+hpRequired: 1
+rarity: 2
+baseModifier:
+  description: Prevents a weapon from breaking down as a result of a specific type of environment.
+modOptions: []
+reference:
+  - SS:50
+includedModels:
+  - |-
+    Various models and manufacturers.
+    _Note: If this kit is for a specific environment
+  - rename the kit to specify the environment._

@@ -1,0 +1,15 @@
+id: eote-attachment-spoofing-scanners
+name: Spoofing Scanners
+description: |-
+  Some physical alterations, no matter how extensive, can't fool the piercing eyes of scanners and electronic detection devices. However, clever Rebels aren't without hope. By reducing the energy output of a weapon or by installing jury-rigged scramblers to shield a device from sensory devices, a character can potentially allow the item to evade detection.
+  Characters attempting such an alteration must make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check**. This adds <setback></setback> to Perception checks that operators using a scanning device make to detect the item. They may spend <triumph></triumph> from the Mechanics check to have the difficulty of such detection checks upgraded once.
+  Unfortunately, the reduction of a weapon's energy output does diminish its effectiveness. Each net <success></success> from the check for reducing a weapon's energy output also reduces its damage by one, to a minimum of 1. Characters may spend <triumph></triumph> from the Mechanics check to halve this reduction in damage, rounding up.
+  Only weapons that use energy-based attacks or other advanced devices can have their energy output reduced or signature concealed. This means that slugthrowers and traditional explosive devices cannot be modified in this fashion. In addition, items that require extensive power (such as repeating blasters) cannot have their energy signature reduced. Note that this differs from the scanner-proof hardware weapon attachment, which requires no check for use once it is installed and is more a customization of the weapon than a mechanical alteration.
+useWith: weapon
+hpRequired: 0
+rarity: 0
+baseModifier:
+  description: Characters attempting such an alteration must make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check**. This adds <setback></setback> to Perception checks that operators using a scanning device make to detect the item. They may spend <triumph></triumph> from the Mechanics check to have the difficulty of such detection checks upgraded once.; Each net <success></success> from the check for reducing a weapon's energy output also reduces its damage by one, to a minimum of 1. Characters may spend <triumph></triumph> from the Mechanics check to halve this reduction in damage, rounding up.; Only weapons that use energy-based attacks or other advanced devices can have their energy output reduced or signature concealed. This means that slugthrowers and traditional explosive devices cannot be modified in this fashion. In addition, items that require extensive power (such as repeating blasters) cannot have their energy signature reduced.
+modOptions: []
+reference:
+  - CaM:82

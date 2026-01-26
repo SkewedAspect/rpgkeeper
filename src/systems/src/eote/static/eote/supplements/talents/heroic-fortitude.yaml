@@ -1,0 +1,12 @@
+id: eote-talent-heroic-fortitude
+name: Heroic Fortitude
+description: May spend 1 Destiny Point to ignore effects of Critical Injuries on Brawn or Agility checks until the end
+  of the encounter.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Aggressor, Colossus, Commando, Gunner, Heavy, Marauder, Survivalist
+reference:
+  - E-CRB:137
+  - A-CRB:148
+  - F-CRB:145

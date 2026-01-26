@@ -1,0 +1,34 @@
+id: eote-attachment-pannier-modular-cargo-handling-system
+name: Pannier Modular Cargo Handling System
+description: |-
+  Designed by Piccatech Ltd., the Pennier system is designed to fit as much cargo on a beast as it can carry in an efficient and secure manner. Its base is a specially designed load-bearing harness equipped with quick-release hardware. From this harness, a beast handler or teamster can hang a variety of secure, hard sided cargo containers. Made from either plasteel or reinforced fiberweave, the cargo containers are but in a variety of shapes and sizes to suit individual users' needs. The containers are equipped with an environmentally sealed locking lid that secures cargo and protects it from dirt, water and other contaminants.
+  The Pannier Modular Cargo Handling system comes with two cargo containers and can only be worn by riding or working animals of silhouette 2 or larger. It increases the creature's encumbrance threshold by 6, plus an additional 3 points of encumbrance threshold for each additional cargo containers added to the system (to a maximum increase of 12).
+useWith: weapon
+hpRequired: 0
+rarity: 4
+baseModifier:
+  encumbranceModifier: 3
+  description: Threshold
+modOptions:
+  - encumbranceModifier: 3
+    description: Threshold
+  - encumbranceModifier: 3
+    description: Threshold
+  - encumbranceModifier: 3
+    description: Threshold
+  - encumbranceModifier: 3
+    description: Threshold
+  - encumbranceModifier: 3
+    description: Threshold
+  - encumbranceModifier: 3
+    description: Threshold
+  - encumbranceModifier: 3
+    description: Threshold
+  - encumbranceModifier: 3
+    description: Threshold
+  - encumbranceModifier: 3
+    description: Threshold
+  - encumbranceModifier: 3
+    description: Threshold
+reference:
+  - SS:46

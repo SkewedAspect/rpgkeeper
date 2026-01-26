@@ -1,0 +1,11 @@
+id: eote-talent-spur
+name: Spur
+description: Take a Spur action; make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Survival check** to increase a beast's
+  top speed by 1. The beast suffers 2 strain every round it stays spurred.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Beast Rider
+reference:
+  - SoT:33

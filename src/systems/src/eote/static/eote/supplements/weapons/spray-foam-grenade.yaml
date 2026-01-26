@@ -1,0 +1,30 @@
+id: eote-weapon-spray-foam-grenade
+name: Spray Foam Grenade
+description: >-
+  Tenloss Spray Foam Grenade
+
+  Tenloss's spray foam grenades are ten-centimeter plastic spheres sealed with a low-powered energy field and equipped
+  with a timer activator. When the timer finishes counting down, the field deactivates, exposing the chemical reagents
+  within it to each other. This triggers a sudden chemical reaction. The liquid inside expands, forming a foam polymer.
+  This can expand to fill a volume of up to three cubic meters, entombing anything that happens to be within that space.
+  The polymer is unstable, however, and it begins to break down after only a few minutes of atmospheric exposure. Until
+  that breakdown completes, it is quite rigid, presenting an effective means to temporarily incapacitate an opponent.
+
+  A spray foam grenade's Ensnare quality triggers automatically on any target the weapon hits, with no need to spend
+  <advantage></advantage>.
+skill: Ranged (Light)
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DoH:43

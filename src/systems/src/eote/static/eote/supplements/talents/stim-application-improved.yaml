@@ -1,0 +1,12 @@
+id: eote-talent-stim-application-improved
+name: Stim Application (Improved)
+description: When performing Stim Application Action, may increase difficulty of check to **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)**, and target only suffers 1 strain.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Alchemist, Doctor, Medic
+reference:
+  - E-CRB:143
+  - A-CRB:157
+  - UP:33

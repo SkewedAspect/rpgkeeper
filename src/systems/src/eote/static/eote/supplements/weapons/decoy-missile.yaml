@@ -1,0 +1,23 @@
+id: eote-weapon-decoy-missile
+name: Decoy Missile
+description: This decoy missile, once launched, broadcasts an electromagnetic signature that draws off enemy missiles.
+  To fire a decoy, make an **Easy (<difficulty></difficulty>) Computers check**. If successful, any attacks against the
+  ship firing the decoy using weapons with the Guided quality upgrade their difficulty by one (plus an additional
+  upgrade for every additional <advantage></advantage><advantage></advantage>) while the decoy is active (one round per
+  Vf). If a weapon with the Guided quality misses the target ship but generates
+  <advantage></advantage><advantage></advantage><advantage></advantage> or <triumph></triumph>, they hit the decoy
+  instead; ending the effect.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - DC:60

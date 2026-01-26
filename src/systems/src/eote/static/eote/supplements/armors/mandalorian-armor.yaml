@@ -1,0 +1,31 @@
+id: eote-armor-mandalorian-armor
+name: Mandalorian Armor
+description: >-
+  Although the ancient warrior culture of the Mandalorians is long past its heyday, its presence can still be felt on
+  many worlds. Among the most recognizable Mandalorian items are their meticulously crafted suits of battle armor. Suits
+  of Mandalorian armor offer some of the best personal protection in the galaxy, and their owner typically take
+  advantage of the superlative construction to install numerous additional sub-systems and weapons. While there are few
+  armorers capable of crafting this armor, the prestige of owning it comes at a premium to many bounty hunters.
+
+  Some hunters feel a spiritual kinship with the legendary Mandalorian warriors, who are described in stories across the
+  galaxy as deadly—if ruthless—warriors and hunters. Others revel in the fear the suits still inspire, and many more
+  simply recognize the quality of the armor as better than many of the best modern designs.
+
+  A few warriors even claim lineal descent from the old Mandalorian clans, such as the Death Watch terrorist group from
+  the Clone Wars, although not everyone takes such claims seriously. Whatever their reasons, hunters who acquire
+  Mandalorian armor often value their suits above nearly any other possession, and customize them with carefully
+  selected modifications. Such upgrades make the suits even more durable, provide new utility to the wearer, or conceal
+  deadly tricks to help a bounty hunter get the edge in any situation.
+
+  PCs who wish to obtain Mandalorian armor may find the effort of getting a suit worthy of the name more challenging
+  than buying other gear. See **Acquiring Mandalorian Armor** for suggestions on acquiring Mandalorian armor with
+  upgrades installed.
+defense: 1
+soak: 2
+hardpoints: 5
+encumbrance: 6
+rarity: 8
+restricted: true
+qualities: []
+reference:
+  - ND:50

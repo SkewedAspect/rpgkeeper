@@ -1,0 +1,10 @@
+id: eote-talent-animal-bond-improved
+name: Animal Bond (Improved)
+description: When spending a maneuver to direct a bonded animal, the character may suffer 1 strain to add
+  <boost></boost> to the animals next check.
+activation: p
+ranked: false
+forceTalent: true
+trees: Hermit
+reference:
+  - SS:30

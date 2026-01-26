@@ -1,0 +1,23 @@
+id: eote-attachment-staged-rocket-booster
+name: Staged Rocket Booster
+description: The limitations of size mean that most micro-rockets lack the fuel capacity to reach distant targets. However, high-yield fuel cells, advanced filtration systems, or staged boosters added to the rockets can all increase a rocket's effective range substantially. Of course, the term "effective range" becomes something of a misnomer with rockets modified in this way, as the additional fuel risks unbalancing the rocket's flight path, and the increased range comes with an increased chance of misjudgment on the part of the user. However, the chance to deliver a hefty payload beyond the reach of equivalent retribution is worth the risk to many. This attachment can be installed on any micro-rocket.
+useWith: weapon
+hpRequired: 1
+rarity: 2
+baseModifier:
+  description: +1 Range Band
+  qualities:
+    - id: eote-quality-inaccurate
+      ranks: 2
+modOptions:
+  - description: +1 Range Band
+  - description: "-1"
+    qualities:
+      - id: eote-quality-inaccurate
+  - description: "-1"
+    qualities:
+      - id: eote-quality-inaccurate
+reference:
+  - ND:47
+includedModels:
+  - SoroSuub HV-33 Fuel Filter

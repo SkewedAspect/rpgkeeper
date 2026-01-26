@@ -1,0 +1,20 @@
+id: eote-attachment-cortosis-forging
+name: Cortosis Forging
+description: |-
+  For most, dueling a Jedi is a fool's errand, and even more so in close combat, where their lightsaber ditate the terms of battle. If they can afford it, bounty hunters and Separatist agents who believe they might need to pit their blade against a lightsaber purchase a vibro weapon made of cortosis alloy. This can give them a fighting chance against the deadliest weapons in the galaxy.
+  This attachment can be installed on any Melee weapon.
+useWith: weapon
+hpRequired: 1
+rarity: 8
+baseModifier:
+  qualities:
+    - id: eote-quality-cortosis
+modOptions:
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+reference:
+  - RotS:62

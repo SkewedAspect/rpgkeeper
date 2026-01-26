@@ -1,0 +1,13 @@
+id: eote-talent-suppressing-fire
+name: Suppressing Fire
+description: The character and each ally within short range may spend <advantage></advantage> on their failed combat
+  checks to inflict one strain on the target per rank of Suppressing Fire. Each character can only activate this effect
+  once per round.
+activation: p
+ranked: true
+forceTalent: false
+trees: Clone Trooper, Vanguard, Warleader
+reference:
+  - KtP:31
+  - FiB:35
+  - RotS:43

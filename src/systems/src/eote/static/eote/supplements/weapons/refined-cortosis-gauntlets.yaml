@@ -1,0 +1,28 @@
+id: eote-weapon-refined-cortosis-gauntlets
+name: Refined Cortosis Gauntlets
+description: >-
+  Cortosis gauntlets are simply metal or composite gloves with thick forearm plates laced with cortosis ore. The
+  cortosis in their construction allows them to block or even disrupt lightsaber blades.
+
+  When a character armed with a lightsaber makes a combat check targeting an opponent armed with refined cortosis
+  gauntlets, <threat></threat><threat></threat><threat></threat> or <despair></despair> may be spent to cause a
+  lightsaber to short out and deactivate after the combat check has been resolved. When a character armed with refined
+  cortosis gauntlets makes a combat check targeting a character armed with a lightsaber, the attacking character may
+  spend <advantage></advantage><advantage></advantage><advantage></advantage> or <triumph></triumph> to cause the
+  lightsaber to short out and deactivate after the combat check has been resolved. The lightsaber may be reactivated as
+  an incidental but it may not be reactivated until after the last Initiative slot during the next round.
+
+  **Models Include:** Various models.
+skill: Brawl
+damage: 1
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 3
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-cortosis
+reference:
+  - F-CRB:171

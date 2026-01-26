@@ -1,8 +1,19 @@
 id: eote-quality-burn
 name: Burn
-description: One target hit by the attack continues to suffer the weapon's base damage for a number of rounds equal to
-  the Burn rating. If multiple targets suffer hits from a weapon with Burn, the quality may be triggered multiple times,
-  affecting a different target each time.
+description: >-
+  Weapons with Burn inflict damage over time. If the attack is successful, the target continues to suffer the weapon’s
+  base damage for a number of rounds equal to the weapon’s Burn rating. Damage is applied at the start of each of the
+  target’s actions.
+
+  A victim might be able to stop the damage by rolling around on the ground and making an Agility check as an
+  Coordination check action. This is an **Average (<difficulty></difficulty><difficulty></difficulty>) Coordination
+  check** on hard surfaces such as the hall of a spaceship, or an **Easy (<difficulty></difficulty>) Coordination
+  check** on grass or soft ground. Jumping into a body of water stops the damage immediately. Both situations assume the
+  flame is from actual combustion rather than a chemical reaction. With the latter, there is usually little the victim
+  can do.
 passive: false
 ranked: true
-reference: E-CRB:155
+reference:
+  - E-CRB:155
+  - A-CRB:169
+  - F-CRB:162

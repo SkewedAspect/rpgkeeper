@@ -1,0 +1,27 @@
+id: eote-armor-mk-ii-hotspot-insulated-armor
+name: Mk II "Hotspot" Insulated Armor
+description: >-
+  Flame troopers are among the more specialized units in the Grand Army of the Republic. They are equipped with flame
+  projectors and protective gear designed to help them flush enemies from their defenses and clear areas of dangerous
+  flora or contaminants in hostile environments. Their armor, specially designed to assist them in their role, features
+  a heavily filtered respirator unit and significant thermal shielding to insulate them from the effects of their own
+  weaponry. The current model of flame trooper armor is the Mk II “Hotspot” design of insulated armor, a substantial
+  improvement over the initial Mk I design issued at the very outset of the war. The first designs for “Hotspot” armor
+  lacked sufficient respirator filtration, risking the wearer through exposure to toxic smoke and air deprived of
+  adequate oxygen due to the flames. The flawed design was an oversight due to the rushed production needs of both the
+  Republic and the Kaminoans. The flaw was corrected as quickly as could be managed, and the newly issued Mk II suits
+  have been a source of significantly improved morale among the flame trooper corps.
+
+  Mk II “Hotspot” insulated armor comes with a built-in comlink. It adds <boost></boost><boost></boost> to the wearer's
+  checks to avoid adverse effects from exposure to extreme heat or toxic gases and reduces the damage the wearer takes
+  from fire and hazardous environments by 1. Additionally, when targeting the wearer, attackers must spend one
+  additional <advantage></advantage> to activate the Burn item quality and treat the quality's rating as one lower.
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 6
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - RotS:57

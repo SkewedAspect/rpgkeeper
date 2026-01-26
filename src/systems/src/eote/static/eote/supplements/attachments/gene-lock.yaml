@@ -1,0 +1,14 @@
+id: eote-attachment-gene-lock
+name: Gene Lock
+description: |-
+  Some sentients form a great attachment, even a bond with their weapon, and take steps to ensure that no other can use it. For this, or for more practical reasons, some individuals have their weapon modified so that it only functions in their hands. This is accomplished through a gene-lock: a system- featuring a computer that, once loaded with the user's genetic code, samples and scans the DNA of any individual who picks up the weapon. If his genetic profile does not match the weapon's designated user, the computer locks down the weapon and prevents it from firing.
+  This upgrade is most relevant for ranged weapons, but it is possible to gene-lock a vibroblade or similar weapon. In this case, an unauthorized user can still wield the weapon as a basic sword, etc., but any technological components such as a vibro-motor cease to function. This attachment can be applied to any handheld weapon.
+useWith: weapon
+hpRequired: 1
+rarity: 7
+baseModifier:
+  description: Weapon functions only in the hands of its authorized user.
+modOptions:
+  - description: Self-Destruct. Inflicts one critical hit if unauthorized user tries to use locked weapon. Weapon is destroyed.
+reference:
+  - DC:51

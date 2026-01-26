@@ -1,0 +1,28 @@
+id: eote-weapon-vibro-glaive
+name: Vibro-Glaive
+description: >-
+  Beastmaster's Vibro-Glaive
+
+  Most often found in the hands of the Weequay, these vibro-glaives consist of a heavy, single-edged head affixed to a
+  pole up to two meters in length. Such weapons are particularly popular among the dark wolf beastmasters of Sriluur,
+  who use the flat edge of the polearm to keep their charges in line, exploiting the glaive's reach to maintain a
+  relatively safe distance from the lethal tails of the raquor'daan. The Weequay made use of vibro-glaives in their wars
+  with the Houk, using these vicious weapons to even the odds in close combat.
+
+  The beastmaster's vibro-glaive requires two hands to wield.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 3
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 2
+  - id: eote-quality-pierce
+    ranks: 3
+reference:
+  - LoNH:103

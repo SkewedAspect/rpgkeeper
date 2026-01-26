@@ -1,8 +1,12 @@
 id: eote-talent-forager
 name: Forager
-description: The character removes up to <setback></setback><setback></setback> from his skill checks to find food,
-  water, or shelter. Survival checks to forage take half the time.
+description: Remove up to <setback></setback><setback></setback> from skill checks to find food, water, or shelter.
+  Survival checks to forage take half the time.
 activation: p
 ranked: false
-trees: Force Sensitive Exile, Scout, Survivalist
-reference: E-CRB:135
+forceTalent: false
+trees: Beast Rider, Big-Game Hunter, Force Sensitive Exile, Hermit, Medic, Pathfinder, Scavenger, Scout, Seer, Survivalist
+reference:
+  - E-CRB:135
+  - A-CRB:147
+  - F-CRB:143

@@ -1,0 +1,9 @@
+id: eote-talent-combat-veteran
+name: Combat Veteran
+description: The character adds <boost></boost> to his Brawl and Discipline checks equal to his ranks in Combat Veteran.
+activation: p
+ranked: true
+forceTalent: false
+trees: Clone Veteran, Retired Clone Trooper
+reference:
+  - DoR:111

@@ -1,0 +1,11 @@
+id: eote-attachment-helmet-comlink
+name: Helmet Comlink
+description: Rather than rely on a separate piece of equipment that can be broken, lost, or stolen, some mercenaries and bounty hunters prefer to install a micro comlink directly into their armor. A micro-comlink can comprise anything from a complete in-helmet system to a simple small microphone and speaker attached to a wristplate or near the shoulder. A micro-comlink can be installed in any armor.
+useWith: armor
+hpRequired: 0
+rarity: 1
+baseModifier:
+  description: A long-range comlink is integrated into the helmet
+modOptions: []
+reference:
+  - Force and :140

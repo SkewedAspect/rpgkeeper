@@ -1,0 +1,31 @@
+id: eote-weapon-wp-19-incendiary-grenade
+name: WP-19 Incendiary Grenade
+description: >-
+  Merr-Sonn WP-19 Incendiary Grenade
+
+  Incendiary grenades are relatively uncommon among the galaxy's militaries. Most civilized planets, especially in the
+  Core, banned their use long ago as inhumane, and they often persecute users for war crimes. There are still many
+  places where their sale and use are legal, however, and both the Imperial and Alliance militaries use them.
+  Merr-Sonn's WP-19 is one of the more common incendiary grenades on the market. Filled with a volatile mixture of
+  jellied incendiary compounds, accelerants, and adhesives, the WP-19 burns white-hot on detonation and spreads sticky,
+  burning incendiary gel over a wide area. Imperial combat engineers are notorious for using these grenades to destroy
+  enemy buildings and materiel, often with enemies and civilians alike trapped inside.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-burn
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - FO:40
+  - KoF:45

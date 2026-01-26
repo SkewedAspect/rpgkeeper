@@ -1,0 +1,24 @@
+id: eote-weapon-heavy-ion-cannon
+name: Heavy Ion Cannon
+description: Ion weapons are anti-ship and anti-vehicle weapons designed to disable rather than destroy their targets.
+  They use ion turbine generators to create masses of negatively charged particles which are fused with plasma and
+  released as blasts or pulses. The negatively charged particles interfere with a target's electrical systems, shorting
+  circuits, corrupting computers, and forcing system shutdowns in an effort to subdue a target or make it easier to
+  destroy via more traditional means. Although designed to do little-to-no physical damage to targets, collateral damage
+  such as fried circuits, fused joints, and even fires may occur due to the intense energy surges.
+skill: Gunnery
+damage: 7
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-ion
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - E-CRB:230
+  - A-CRB:240

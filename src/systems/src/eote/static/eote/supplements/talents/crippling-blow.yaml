@@ -1,0 +1,12 @@
+id: eote-talent-crippling-blow
+name: Crippling Blow
+description: Increase the difficulty of next combat check by 1. If check deals damage, target suffers 1 strain whenever
+  he moves for the remainder of the encounter.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Aggressor, Gadgeteer, Sharpshooter
+reference:
+  - E-CRB:133
+  - A-CRB:145
+  - F-CRB:141

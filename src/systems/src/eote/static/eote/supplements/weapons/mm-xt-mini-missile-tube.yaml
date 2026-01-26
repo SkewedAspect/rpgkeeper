@@ -1,0 +1,21 @@
+id: eote-weapon-mm-xt-mini-missile-tube
+name: MM-XT Mini-Missile Tube
+description: "The mini-missile tube is a single-shot compact missile launcher designed for use on smaller vehicles, such
+  as speeder bikes, landspeeders and smaller airspeeders. It may carry a variety of missile types (see **Table 2-8:
+  Specialized Missiles and Rockets for Vehicles**), which are typically about a half-meter or less in length. The tube
+  faces a single firing arc, though a turret mount is also available. It may be installed on any non-starship vehicle of
+  silhouette size 2 or greater."
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DC:60

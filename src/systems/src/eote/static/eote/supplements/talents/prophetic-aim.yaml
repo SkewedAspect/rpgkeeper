@@ -1,0 +1,10 @@
+id: eote-talent-prophetic-aim
+name: Prophetic Aim
+description: While benefiting from an Aim maneuver, <despair></despair> from the character's Ranged (Heavy) and Ranged
+  (Light) checks cannot cause attacks to hit allies engaged with the target.
+activation: p
+ranked: false
+forceTalent: true
+trees: Warleader
+reference:
+  - KtP:31

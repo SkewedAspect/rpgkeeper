@@ -1,0 +1,25 @@
+id: eote-weapon-d-24-inferno-grenade
+name: D-24 Inferno Grenade
+description: Restricted to military use or banned entirely on most worlds, the D-24 Inferno Grenade detonates in a fiery
+  blast that inflicts terrible wounds and collateral damage. The extreme heat of the blast easily ignites flammable
+  materials in the vicinity, causing unpredictable destruction far past the grenade's initial use. An inferno grenade
+  causes chaos and panic amongst targets. The indiscriminate and fearsome nature of the weapon ensures only the most
+  ruthless mercenaries and killers employ it.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-burn
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - DC:46

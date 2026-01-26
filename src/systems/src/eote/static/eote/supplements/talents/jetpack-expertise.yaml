@@ -1,0 +1,10 @@
+id: eote-talent-jetpack-expertise
+name: Jetpack Expertise
+description: The character may spend <advantage></advantage> from checks they make to remove 1 system strain from a
+  jetpack they are equipped with. (They may choose this effect multiple times when spending <advantage></advantage>.)
+activation: ai
+ranked: false
+forceTalent: false
+trees: Death Watch Warrior
+reference:
+  - CotR:41

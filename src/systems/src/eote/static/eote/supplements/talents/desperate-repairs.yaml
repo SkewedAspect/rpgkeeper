@@ -1,0 +1,13 @@
+id: eote-talent-desperate-repairs
+name: Desperate Repairs
+description: Once per session may make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** on one engaged allied
+  droid. If successful, the droid becomes immobilized and staggered for 1 round, then heals all strain and one Critical
+  Injury with a severity rating no greater than **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)**.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Droid Specialist
+reference:
+  - FO:30

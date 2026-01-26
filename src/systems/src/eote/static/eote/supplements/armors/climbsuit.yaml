@@ -1,0 +1,29 @@
+id: eote-armor-climbsuit
+name: Climbsuit
+description: >-
+  Ayelixe/Krongbing Climbsuit
+
+  Ayelixe/Krongbing's Climbsuit is a popular set of lightweight armor designed specifically for climbing and rappelling.
+  Built from light, flexible fabrics with impact-absorbing reinforcements at important points around the body, the
+  Climbsuit is a full-body suit that includes gloves, boots, and a helmet with a built-in polarized visor. To assist the
+  wearer in scaling or descending surfaces, the armor is equipped with two climb-assist systems: a built-in climbing
+  harness and a patented FrictionGrip coating.
+
+  The integrated harness includes load-bearing straps that wrap around the wearer's waist and legs, equipment buckles,
+  and a 300-meter retractable spool of high-tensile climbing line. The FrictionGrip system is a special coating on the
+  suit's gloves, boots, knees, elbows, and forearms that uses thousands of microscopic filaments to grip surfaces in a
+  manner similar to that of an insect or arachnid. These systems combine to keep wearers firmly planted on a surface or
+  to help them survive in case of a fall.
+
+  Wearing a Climbsuit upgrades the ability of the wearer's checks to climb or rappel down a surface once. The Climbsuit
+  also reduces damage and strain suffered from falling by 5 and reduces any related Critical Injury results from falling
+  by 10.
+defense: 0
+soak: 1
+hardpoints: 2
+encumbrance: 2
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - CaM:41

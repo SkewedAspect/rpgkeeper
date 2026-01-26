@@ -1,0 +1,13 @@
+id: eote-talent-fire-when-ready
+name: Fire When Ready
+description: The character may take the Fire When Ready action, making a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Leadership check.** If the check
+  succeeds, the character chooses a number of crew aboard their ship equal to their Presence. Those crew members
+  downgrade the difficulty of their next Gunnery check once, plus one time for every additional
+  <success></success><success></success> on the check.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Republic Navy Officer
+reference:
+  - RotS:39

@@ -1,0 +1,26 @@
+id: eote-weapon-shukur-05-light-repeater
+name: SHUKUR-05 Light Repeater
+description: The SHUKUR-05 was a light repeating blaster in production by the time of the Galactic Civil War. The
+  origins of the repeater's name could be found in the Mandalorian language, specifically the _Mando'a_ word _shukur_,
+  which translated to "break" in Galactic Basic Standard.
+skill: Ranged (Light)
+damage: 9
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 7
+hardpoints: 2
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 4
+  - id: eote-quality-inaccurate
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-slow-firing
+    ranks: 2
+reference:
+  - FLT:49

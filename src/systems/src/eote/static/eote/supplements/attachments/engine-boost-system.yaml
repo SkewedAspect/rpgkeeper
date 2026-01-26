@@ -1,0 +1,15 @@
+id: eote-attachment-engine-boost-system
+name: Engine Boost System
+description: There are as many ways of boosting the output of a Podracer's engine as there are engines themselves. Afterburners, volatile chemical injectors, overpressure feeders, electromagnetic wave-pulse generators, even arcane mixtures of highly reactive and dangerous fuels are all used to provide extra thrust from an engine. While these add-on systems do increase an engine's output, often dramatically so, they have a tendency to shorten its operational life and require extra maintenance to keep the engine operational and at peak performance.
+useWith: vehicle
+hpRequired: 1
+rarity: 5
+baseModifier:
+  description: +1 Speed; -1 System Strain Threshold
+modOptions: []
+reference:
+  - EV:58
+includedModels:
+  - Bespin Motors LK Model Afterburner Array
+  - Slayn & Korpil Surgine-Series Fuel Accelerant System
+  - SoroSuub RR-51 Chem-Injector Suite

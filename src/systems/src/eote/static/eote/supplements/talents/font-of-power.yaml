@@ -1,0 +1,10 @@
+id: eote-talent-font-of-power
+name: Font of Power
+description: Once per session, may take the Font of Power action. Until the end of the encounter, characters within
+  medium range add automatic [LI] or [DA] to checks based on alignment.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Prophet
+reference:
+  - UP:32

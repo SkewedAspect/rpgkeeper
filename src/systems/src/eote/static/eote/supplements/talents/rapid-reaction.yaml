@@ -1,8 +1,13 @@
 id: eote-talent-rapid-reaction
 name: Rapid Reaction
-description: The character may suffer a number of strain to add an equal number of <success></success> to any Vigilance
-  or Cool check to determine Initiative order. The number may not exceed his ranks in Rapid Reaction.
-activation: p
+description: Suffer a number of strain to add an equal number of <success></success> to initiative checks. Strain
+  suffered cannot exceed ranks in Rapid Reaction.
+activation: aio
 ranked: true
-trees: Scoundrel, Thief
-reference: E-CRB:141
+forceTalent: false
+trees: Clone Veteran, Commodore, Demolitionist, Driver, Gunslinger, Scavenger, Scoundrel, Seer, Starfighter Ace, Thief,
+  Vanguard
+reference:
+  - E-CRB:141
+  - A-CRB:154
+  - F-CRB:150

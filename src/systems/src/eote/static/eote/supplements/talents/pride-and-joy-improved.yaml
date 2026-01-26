@@ -1,0 +1,11 @@
+id: eote-talent-pride-and-joy-improved
+name: Pride and Joy (Improved)
+description: While inside his Pride and Joy vessel, recover 1 additional strain whenever recovering strain and spend
+  <advantage></advantage> on checks made to recover strain to allow an ally also within the vessel to recover one
+  strain.
+activation: p
+ranked: false
+forceTalent: false
+trees: Ship Captain
+reference:
+  - DoR:115

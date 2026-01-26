@@ -1,0 +1,28 @@
+id: eote-weapon-staff-of-office
+name: Staff of Office
+description: >-
+  Although worlds vary by custom, a great majority use historical or symbolic regalia and accessories to distinguish
+  their diplomats, envoys, and other such luminaries from simple common folk. These items take a wide variety of forms,
+  but many cultures often grant such figures a rod of office, walking staff, or a similarly grandiose stick. Because it
+  is a symbol of office, such implements rarely set off weapon detectors, and their holders are rarely required them to
+  surrender them as they would blasters, vibroknives, and the like. Some foresighted individuals use this to their
+  advantage and train using their staff of office as a blunt-force weapon for worst-case scenarios.
+
+  A staff of office requires two hands to wield. A character adds <boost></boost><boost></boost> when attempting to
+  convincing others to allow him to retain his staff of office.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 3
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-disorient
+    ranks: 2
+reference:
+  - DA:46

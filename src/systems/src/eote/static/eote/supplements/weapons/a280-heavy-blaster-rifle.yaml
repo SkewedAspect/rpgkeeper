@@ -1,0 +1,41 @@
+id: eote-weapon-a280-heavy-blaster-rifle
+name: A280 Heavy Blaster Rifle
+description: |-
+  BlasTech A280 Heavy Blaster Rifle
+  For nearly a century, the A280 C heavy blaster rifle
+  has been one of BlasTech Industries’ top-selling military blasters and one of the galaxy's most ubiquitous
+  service rifles. Before the Clone Wars, when various
+  Republic systems were responsible for defending
+  their own territories, the A280 C was the defacto
+  official rifle used by planetary armies and private militias. While slightly bulky, it is praised for its incredible
+  accuracy, range, penetrating power, and durability.
+  Before the Clone Wars, most soldiers trained on
+  the A280 C. It wasn’t until more modular platforms,
+  such as the DC-15 blaster rifle, were adopted by the
+  Republic that the A280 C’s popularity began to wane.
+  As the Empire absorbed or disbanded local defense
+  forces, decommissioned A280 C’s found their way to
+  the Rebel Alliance, where this weapon quickly became
+  a favorite for standard infantry, snipers, and Special
+  Forces alike. Today, these weapons are cherished by
+  many of their users, who work hard to keep them in
+  service even as replacements grow harder to acquire.
+  Reduce the difficulty of Mechanics checks to repair
+  a BlasTech A280 C heavy blaster rifle by 1 (to a minimum of **Simple (-)**).
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 4
+range: l
+encumbrance: 5
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-stun-setting
+reference:
+  - FiB:43

@@ -1,0 +1,22 @@
+id: eote-weapon-concussion-mine
+name: Concussion Mine
+description: Typically deployed as anti-fighter measures, concussion mines use a potent explosve to creat a powerful
+  shockwave capable of cracking open the toughest hulls.
+skill: Mechanics
+damage: 12
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:64

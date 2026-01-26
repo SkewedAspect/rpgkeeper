@@ -1,0 +1,19 @@
+id: eote-attachment-built-in-blaster-sight
+name: Built-In Blaster Sight
+description: |-
+  A typical modification used by the Rebellion’s SpecForce troops, this attachment allows a harmless beam
+  of energy to trickle out of the barrel on a half-trigger pull to "paint” the target, letting the wielder see
+  exactly where she is aiming Most models illuminate
+  beams in the human visual spectrum, but some use
+  light wavelengths invisible to the naked eye, which
+  require special goggles to spot, to ensure the agent's
+  position remains uncompromised. This attachment
+  can only be applied to energy ranged weapons.
+useWith: weapon
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: Remove <setback></setback> added by the Called Shot use of the Aim maneuver from Ranged Light and Ranged Heavy checks.
+modOptions: []
+reference:
+  - FiB:51

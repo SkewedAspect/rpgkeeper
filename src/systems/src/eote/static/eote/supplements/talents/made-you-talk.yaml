@@ -1,0 +1,11 @@
+id: eote-talent-made-you-talk
+name: Made You Talk
+description: Once per session, may make an opposed social skill check against a captured enemy character within short
+  range and add <boost></boost> for every 2 strain inflicted on the target that encounter. If successful, the PCs gain a
+  bonus based on the enemy NPC type.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Interrogator
+reference:
+  - CaM:31

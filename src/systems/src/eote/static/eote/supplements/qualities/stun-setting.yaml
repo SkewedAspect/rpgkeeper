@@ -1,0 +1,15 @@
+id: eote-quality-stun-setting
+name: Stun Setting
+description: >-
+  Some weapons deal Stun damage instead of regular damage. In this case, the weapon deals damage as strain instead of
+  wounds. This damage is still reduced by a target’s soak.
+
+  A variant of this is a Stun setting. As a free action, the wielder can choose to switch the setting of his weapon to
+  “Stun.” In this case, it does stun damage as described above. When weapons with a stun setting are used to deal stun
+  damage, their range changes to short and cannot be increased.
+passive: true
+ranked: false
+reference:
+  - E-CRB:157
+  - A-CRB:171
+  - F-CRB:164

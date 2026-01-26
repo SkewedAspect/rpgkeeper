@@ -1,0 +1,30 @@
+id: eote-weapon-welding-rod
+name: Welding Rod
+description: >-
+  Technicians need not only the ability to cut metal apart quickly, but the capacity to fuse back together. A welding
+  rod works on a simple principle, generating a jet of focused heat that liquefies small parts of two or more pieces of
+  metal, creating a sturdy bond between the formerly separate pieces. The heat involved is in this process is extremely
+  dangerous to organic creatures and can even sear clean through the much sturdier limbs of droids. For good reason,
+  welding rods are typically sold with instruction manuals that highlight the danger involved in their use - which some
+  Technicians choose to actively ignore when threatened in their workshops.
+
+  A welding rod adds automatic <success></success> to Mechanics checks checks to repair droids, vehicles and starships.
+
+  The GM may spend <despair></despair> on any check made with a welding rod to inflict a Critically Injury (see page 216
+  of the **Edge of The Empire** Core Rulebook) on the user.
+skill: Melee
+damage: 3
+addSkill: false
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-inaccurate
+    ranks: 2
+reference:
+  - SM:47

@@ -1,0 +1,11 @@
+id: eote-talent-seize-the-initiative
+name: Seize the Initiative
+description: Once per session, as a maneuver, may make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Athletics check**. On success, other PCs
+  may take their turns immediately.
+activation: am
+ranked: false
+forceTalent: false
+trees: Vanguard
+reference:
+  - FiB:35

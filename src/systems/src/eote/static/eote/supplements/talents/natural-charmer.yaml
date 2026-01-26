@@ -1,0 +1,11 @@
+id: eote-talent-natural-charmer
+name: Natural Charmer
+description: Once per session, may reroll 1 Charm or Deception check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Advisor, Ambassador, Charmer, Politico, Scoundrel, Sleeper Agent
+reference:
+  - E-CRB:139
+  - A-CRB:153
+  - F-CRB:147

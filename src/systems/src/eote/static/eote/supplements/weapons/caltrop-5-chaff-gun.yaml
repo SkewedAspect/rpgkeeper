@@ -1,0 +1,29 @@
+id: eote-weapon-caltrop-5-chaff-gun
+name: Caltrop-5 Chaff Gun
+description: >-
+  Arakyd Industries Caltrop-5 Chaff Gun
+
+  The Caltrop-5 by Arakyd Industries is ostensibly a physical countermeasures system that uses clouds of alloy splinters
+  to spoof sensors. When activated, the Caltrop-5 fires a canister that bursts after a set distance, creating a massive,
+  glittering cloud of durasteel shrapnel that confounds missile guidance systems and makes vessels using them difficult
+  to target. The chaff cloud also makes a frightfully potent anti-ship weapon, as discovered by Jadthu-class pilots
+  during the Battle of Haruun Kat when fast-moving vulture droid starfighters were chewed up by clouds of Caltrop-5
+  chaff.
+
+  As a physical countermeasures system, the Caltrop-5 upgrades the difficulty of all Gunnery checks and checks triggered
+  by the Guided quality made using missiles, rockets, or torpedoes targeting the starship once.
+
+  In addition, it upgrades the difficulty of Piloting checks for other ships within close range once.
+  <despair></despair> on a Piloting check may be spent to inflict a Critical Hit on that pilot's ship.
+skill: Gunnery
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities: []
+reference:
+  - KoF:60

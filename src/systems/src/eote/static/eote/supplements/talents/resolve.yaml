@@ -1,0 +1,11 @@
+id: eote-talent-resolve
+name: Resolve
+description: When a character involuntarily suffers strain, he suffers 1 less strain per tank of Resolve to a minimum of 1.
+activation: p
+ranked: true
+forceTalent: false
+trees: Archaeologist, Charmer, Doctor, Figurehead, Force Adherent, Magus, Modder, Saboteur, Scholar, Senator, Slicer
+reference:
+  - E-CRB:142
+  - A-CRB:155
+  - UP:33

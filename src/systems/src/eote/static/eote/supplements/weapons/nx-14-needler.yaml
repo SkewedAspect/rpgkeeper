@@ -1,0 +1,35 @@
+id: eote-weapon-nx-14-needler
+name: NX-14 Needler
+description: >-
+  Considered incredibly niche, obscure weapons with little combat utility, needlers are a rare sight in the galaxy. They
+  are compact, small-framed, slug-throwing pistols that utilize a powerful, miniatureized mass driver to fire sharpened
+  ferroceramic darts at very high velocities. The first needlers were introduced by Golan Arms during the height of the
+  Galactic Republic. Nearly silent in their operation, and remarkably hard to detect when concealed, they were heavily
+  marketed to individuals and government operatives who needed a reliable, easily concealed, difficult to trace weapon.
+  Along with their silent operation and ease of use, one of these weapons' biggest selling points is their ammunition.
+  Darts fired from a needler bypass personal energy shields with ease, and they can be coated in a variety of lethal and
+  non-lethal toxins to subdue or kill targets. This has mde them very attractive to bounty hunters, spies and, and
+  assassins, who appreciated their versatility and deadly utility.
+
+  The NX-14 is one of Golan Arms' latest forays into needler technology. Its smallest, most compact offering to date,
+  this weapon is slightly smaller than a grown human's hand and roughly as thick as a common datapad. It is constructed
+  of an inert, light-absorbing fibermesh polycarbonate with shielded internals, making an already difficult to detect
+  weapon nearly impossible to find when concealed properly. The weapon's standard ammunition is a solid,
+  spin-stabilized, razor-sharp ferroceremic dart that can punch through nearly any personal armor or shield with ease.
+
+  A needler removes all <setback></setback> added by personal deflector shield. Anyone searching an individual carrying
+  a concealed needler adds <setback></setback> to her Perception checks to find the weapon.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-pierce
+    ranks: 3
+reference:
+  - EV:42

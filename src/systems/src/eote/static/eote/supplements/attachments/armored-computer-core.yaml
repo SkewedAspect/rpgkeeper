@@ -1,0 +1,11 @@
+id: eote-attachment-armored-computer-core
+name: Armored Computer Core
+description: It's a tragic fact that all too often, the brave members of the Alliance fail to return from a mission. Nevertheless, even a failed mission can provide useful data for the cause and prevent such deaths in the future. In such cases, an armored computer core provides an opportunity for the Rebellion to recover a record of the mission from even the most devastated wrecks. Layers of laminamium plating, redundant data backups, and sometimes even an ejection failsafe ensure the survival of a computer core storing astrogation data, a record of ship activity, and-assuming mission leaders fulfill their duty-a log of the mission. Should the worst come to pass, the armored computer core can survive the ship's complete destruction, and is practically indistinguishable from the debris.
+useWith: vehicle
+hpRequired: 0
+rarity: 4
+baseModifier:
+  description: Incorporates a computer core that records flight and system data and backs up any logs or records entered into the ship's computer.; Computer core remains intact even if the ship suffers a "Vaporized" Critical Hit.
+modOptions: []
+reference:
+  - FO:60

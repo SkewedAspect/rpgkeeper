@@ -1,9 +1,10 @@
 id: eote-talent-sum-djem
 name: Sum Djem
-description: _Force Talent._ When the character makes a Lightsaber combat check, he may spend <triumph></triumph> or
-  <advantage></advantage><advantage></advantage> to disarm his opponent (with GM's approval). The disarmed weapon lands
-  anywhere within short range of the engagement (character's choice).
+description: May spend <triumph></triumph> or <advantage></advantage><advantage></advantage> with a successful
+  Lightsaber check to disarm opponent.
 activation: p
 ranked: false
-trees: Makashi Duelist, Niman Disciple, Shii-Cho Knight
-reference: F-CRB:152
+forceTalent: true
+trees: Makashi Duelist, Master, Niman Disciple, Shii-Cho Knight
+reference:
+  - F-CRB:152

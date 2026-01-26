@@ -1,0 +1,26 @@
+id: eote-weapon-ascian-throwing-dagger
+name: Ascian Throwing Dagger
+description: >-
+  Named after the binary star system from where they supposedly originated, Ascian daggers are finely weighted and
+  balanced for throwing. Crafted of durasteel and honed to a mono-molecular edge, these blades are deadly in the hands
+  of a skilled user.
+
+  When making an attack with an Ascian throwing dagger, a character does not increase the difficulty of the check for
+  being engaged with his target as normal. The user adds his Brawn to the listed value (+ 1) to determine the damage
+  dealt with this weapon.
+skill: Ranged (Light)
+damage: 1
+addSkill: true
+criticalRating: 2
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+reference:
+  - FC:45

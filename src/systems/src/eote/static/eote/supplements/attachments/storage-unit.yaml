@@ -1,0 +1,18 @@
+id: eote-attachment-storage-unit
+name: Storage Unit
+description: |-
+  This empty module has a variety of
+  pockets and pouches designed to store survival gear,
+  spare blaster gas canisters, power packs, field rations,
+  and a variety of other pieces of equipment used by
+  the Rebel Alliance. This unit increases the wearer’s
+  encumbrance capacity by 3.
+useWith: weapon
+hpRequired: 1
+rarity: 2
+baseModifier:
+  encumbranceModifier: 3
+  description: Threshold
+modOptions: []
+reference:
+  - FiB:55

@@ -1,0 +1,10 @@
+id: eote-talent-invigorate
+name: Invigorate
+description: Once per encounter, may add [FO] to a check using Brawn or Agility made by an ally in short range [LI] add
+  <success></success> and [DA] add <threat></threat>.
+activation: aio
+ranked: false
+forceTalent: true
+trees: Force Sensitive Emergent
+reference:
+  - A-CRB:150

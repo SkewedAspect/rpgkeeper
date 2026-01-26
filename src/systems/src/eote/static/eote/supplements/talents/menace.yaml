@@ -1,0 +1,10 @@
+id: eote-talent-menace
+name: Menace
+description: Enemy within short range of the character's bonded animal adds <setback></setback> to next Combat check
+  made against the character.
+activation: am
+ranked: false
+forceTalent: true
+trees: Hermit
+reference:
+  - SS:31

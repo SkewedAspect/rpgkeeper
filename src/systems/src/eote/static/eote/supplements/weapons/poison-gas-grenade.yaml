@@ -1,0 +1,32 @@
+id: eote-weapon-poison-gas-grenade
+name: Poison Gas Grenade
+description: >-
+  While most would balk at using poison gas in combat, some bounty hunters and assassins use it to inspire terror in
+  their targets. Droid bounty hunters and Gand findsmen, who are unaffected by airborne toxins, often employ poison gas
+  grenades. They can be filled with deadly gases, such as dioxis, trion, or Fex-M3.
+
+  Poison gas grenades can be loaded with up to 1 dose of neurotoxin, anesthetic, or neuroparalytic (see page 172 of the
+  **Edge of the Empire** Core Rulebook) or other poison (such as those on page 109) that the GM deems suitable. Whenever
+  the wielder successfully attacks a target with the weapon (whether or not he deals damage), the target also suffers
+  the effects of being exposed to the poison.
+
+  Unless used outdoors in a windy environment, the poison gas lingers for 2 rounds, affecting anyone caught in the
+  cloud. If used in a closed, poorly ventilated space, such as a small room or narrow starship corridor, the gas lingers
+  for 5 rounds instead. Poison gas grenades do not harm droids and other creatures that do not breathe air. Characters
+  equipped with vacuum sealed suits, breath masks, respirators, or rebreathers are also unaffected by the poison gas.
+skill: Ranged (Light)
+damage: 0
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 2
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - LoNH:102

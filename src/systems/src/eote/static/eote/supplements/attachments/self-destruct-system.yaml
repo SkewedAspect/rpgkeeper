@@ -1,0 +1,17 @@
+id: eote-attachment-self-destruct-system
+name: Self-Destruct System
+description: Self-destruct systems are found on many pieces of espionage gear, especially bags, attaché cases, and diplomatic pouches. They use small, low-yield, shaped-charge explosives to destroy the item in case of theft, emergency, or improper usage. For example, an attaché case could be equipped with a self-destruct system that activates when an incorrect lock combination is entered. The explosions are usually very contained, but can be modified to deal damage to others nearby when the device detonates.
+useWith: weapon
+hpRequired: 0
+rarity: 5
+baseModifier:
+  description: Equips the item with a single use explosive self-destruct system that inflicts 5 damage to all characters within engaged range
+modOptions:
+  - description: Increase damage by 2
+  - description: Increase damage by 2
+  - description: Increase damage by 2
+  - description: Increase range to short
+reference:
+  - CaM:60
+includedModels:
+  - Various models

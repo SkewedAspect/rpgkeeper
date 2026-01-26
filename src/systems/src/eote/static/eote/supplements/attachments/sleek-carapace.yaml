@@ -1,0 +1,14 @@
+id: eote-attachment-sleek-carapace
+name: Sleek Carapace
+description: This hull sacrifices speed for maneuverability, and often provides for increased attractiveness.
+useWith: vehicle
+hpRequired: 2
+rarity: 3
+baseModifier:
+  description: Changes armor to 0 and handling to +2; Armor set to 1; Handling set to 2
+modOptions:
+  - description: +1 Armor
+  - description: +1 Aft Defense
+  - description: +1 Handling
+reference:
+  - FO:82

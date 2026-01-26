@@ -1,0 +1,28 @@
+id: eote-weapon-e-22-blaster-rifle
+name: E-22 Blaster Rifle
+description: >-
+  An uncommon weapon in the Imperial arsenal, BlasTech's E-22 blaster rifle is a medium squad support weapon fielded by
+  numerous Imperial special forces units. Used primarily by amphibious shoretroopers, the E-22 is a heavy,
+  environmentally sealed blaster rifle designed to stand up to hard use in hostile environments. Larger and heavier than
+  the standard E-11 blaster rifle, it features reciprocating double barrels with a more aggressive galven pattern, and
+  numerous other features installed to improve performance and survivability.
+
+  The weapon's environmental sealing prevents damage from water, sand, salt, caustic gases, and other dangerous
+  environmental hazards.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 4
+hardpoints: 2
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 2
+  - id: eote-quality-linked
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - DoR:117

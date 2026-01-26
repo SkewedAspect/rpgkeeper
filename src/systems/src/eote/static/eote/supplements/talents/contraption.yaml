@@ -1,0 +1,13 @@
+id: eote-talent-contraption
+name: Contraption
+description: Once per session, take Contraption action; make a ** Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** to fashion a device to
+  solve a current problem using just the tools and parts on hand.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Mechanic, Sapper, Scavenger
+reference:
+  - E-CRB:133
+  - A-CRB:144
+  - RotS:38

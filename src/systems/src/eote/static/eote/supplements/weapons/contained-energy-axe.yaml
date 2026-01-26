@@ -1,0 +1,31 @@
+id: eote-weapon-contained-energy-axe
+name: Contained Energy Axe
+description: >-
+  Until activated, a contained energy axe is easily mistaken for a common vibro-axe. However, rather than relying on
+  ultrasonic vibrations for its cutting power, a contained energy axe houses a diatium power generator that, when
+  activated, produces a magnetically contained energy blade along the edge of the axe head. While the hefty axe relies
+  on raw strength to inflict much of its damage, the addition of a centimeter of coherent plasma along its cutting edge
+  allows the weapon to slice through nearly any material with ease.
+
+  A contained energy axe can use appropriate Melee weapon
+
+  attachments, but not lightsaber attachments.
+skill: Lightsaber
+damage: 3
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 3
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 3
+reference:
+  - KoF:43

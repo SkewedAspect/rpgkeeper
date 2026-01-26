@@ -6,5 +6,5 @@ description: The weapon's attack can leave the target shell-shocked from mighty 
   actions. If multiple targets suffer hits from a weapon with Concussive, the quality may be triggered multiple times,
   affecting a different target each time.
 passive: false
-ranked: false
+ranked: true
 reference: G-CRB:87

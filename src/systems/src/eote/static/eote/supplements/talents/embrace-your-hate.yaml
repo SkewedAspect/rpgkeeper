@@ -1,0 +1,10 @@
+id: eote-talent-embrace-your-hate
+name: Embrace Your Hate
+description: May spend 1 Destiny Point and suffer Conflict equal to dark side Destiny Points in pool to add equal damage
+  to melee attack. May use this ability once per encounter per rank.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Juyo Berserker
+reference:
+  - KoF:30

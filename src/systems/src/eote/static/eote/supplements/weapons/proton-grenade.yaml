@@ -1,0 +1,27 @@
+id: eote-weapon-proton-grenade
+name: Proton Grenade
+description: >-
+  Frequently used for demolitions work and in boarding actions, proton grenades are extremely powerful devices that rely
+  on the same technology as the warheads of proton torpedoes, albeit on a much smaller scale. Nevertheless, proton
+  grenades are exceeded only by thermal detonators for sheer destructive power in a hand-held package. Proton grenades
+  feature a magnetic clamp and directed charge, so that they are better suited to breaching bulkheads or destroying
+  facilities than as anti-personnel weapons. The devices are also highly prized in demolitions work because of the
+  sympathetic qualities of the blast. Multiple grenades correctly linked together produce a much more powerful blast
+  than each grenade separately.
+
+  When setting up an explosive device using proton grenades, the second grenade adds +20 damage, the third adds +30, the
+  fourth adds +40, and the fifth adds +50, for a total of 150 damage for five grenades. After the fifth grenade,
+  additional grenades do not add additional damage, but do increase the blast range by one range band per additional
+  grenade.
+skill: Mechanics
+damage: 20
+addSkill: true
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities: []
+reference:
+  - DC:55

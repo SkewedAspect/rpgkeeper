@@ -7,15 +7,24 @@
 - abbr: A-CRB
   name: "[Age of Rebellion] Core Rulebook"
   productCode: SWA02
+- abbr: Bl
+  name: "[Edge of the Empire] Under a Black Sun"
+  productCode: FREE01
 - abbr: BtR
   name: "[Edge of the Empire] Beyond the Rim"
   productCode: SWE05
+- abbr: CaM
+  name: "[Age of Rebellion] Cyphers and Masks"
+  productCode: SWA53
 - abbr: CotG
   name: "[Force and Destiny] Chronicles of the Gatekeeper"
   productCode: SWF23
 - abbr: CotGAD
   name: "[Star Wars Roleplaying] Citizens of the Galaxy Adversary Deck"
   productCode: uSWR03
+- abbr: CotR
+  name: "[Star Wars Roleplaying] Collapse of the Republic"
+  productCode: SWR15
 - abbr: DA
   name: "[Age of Rebellion] Desperate Allies"
   productCode: SWA31
@@ -28,6 +37,9 @@
 - abbr: DoH
   name: "[Force and Destiny] Disciples of Harmony"
   productCode: SWF35
+- abbr: DoR
+  name: "[Star Wars Roleplaying] Dawn of Rebellion"
+  productCode: SWR10
 - abbr: E-BGA
   name: "[Edge of the Empire] Beginner Game - Adventure Book"
   productCode: SWE01
@@ -85,6 +97,9 @@
 - abbr: JoY
   name: "[Edge of the Empire] Jewel of Yavin"
   productCode: SWE09
+- abbr: KoF
+  name: "[Force and Destiny] Knights of Fate"
+  productCode: SWF46
 - abbr: KtP
   name: "[Force and Destiny] Keeping the Peace"
   productCode: SWF24
@@ -112,6 +127,9 @@
 - abbr: RaGP
   name: "[Age of Rebellion] Rescue at Glare Peak"
   productCode: OP007
+- abbr: RotS
+  name: "[Star Wars Roleplaying] Rise of the Separatists"
+  productCode: SWR11
 - abbr: SaVAD
   name: "[Star Wars Roleplaying] Scum and Villainy Adversary Deck"
   productCode: uSWR01
@@ -130,3 +148,6 @@
 - abbr: SS
   name: "[Force and Destiny] Savage Spirits"
   productCode: SWF41
+- abbr: UP
+  name: "[Force and Destiny] Unlimited Power"
+  productCode: SWF52

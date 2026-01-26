@@ -1,0 +1,38 @@
+id: eote-attachment-electronic-counter-countermeasures-suite
+name: Electronic Counter-Countermeasures Suite
+description: |-
+  Theater Command and Control System
+  “Electronic counter-countermeasures” (ECCM) is
+  a catchall term for a number of techniques, such as
+  FAST ECM detection, frequency hopping, pulse compression,
+  and polarization filtering, used to prevent or
+  break comms and sensor jamming caused by enemy
+  electronic countermeasures. ECCM suites require large
+  amounts of energy and often reduce the effectiveness
+  of a ship or vehicle’s sensors. On smaller ships like
+  fighters and shuttles, as well as in ground vehicles and
+  airspeeders, ECCM suites are installed in line with the
+  vehicle’s active sensors, and they can be activated or
+  deactivated quickly by the pilot or electronic systems
+  operator. On larger ships of gunship size or bigger,
+  ECCM suites are complex affairs composed of numerous
+  compartments and staffed by a dedicated crew.
+useWith: vehicle
+hpRequired: 1
+rarity: 6
+baseModifier:
+  description: Make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check** to cancel all effects of an electronic countermeasures suite.
+modOptions:
+  - description: Decrease difficulty of the Computers check by 1
+reference:
+  - LbE:59
+includedModels:
+  - Fabritech 830 “Stutterer” ECCM system
+  - |-
+    Miradyne A5x.4 “Oracle” ECCM suite (starfighters
+    and shuttles only)
+  - |-
+    KDY Advanced Capital ECCM suite
+    (gunships
+  - cruisers
+  - and battleships only)

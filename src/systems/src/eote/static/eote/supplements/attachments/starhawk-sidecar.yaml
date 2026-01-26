@@ -1,0 +1,12 @@
+id: eote-attachment-starhawk-sidecar
+name: Starhawk Sidecar
+description: "The Starhawk has an unusual feature: it can be fitted with a sidecar, allowing it to carry an additional passenger or transport extra cargo. The speeder bike also comes equipped with a rear tractor beam coupler to allow it to tow a repulsorsled for even more cargo capacity."
+useWith: vehicle
+hpRequired: 1
+rarity: 3
+baseModifier:
+  encumbranceModifier: 10
+  description: Capacity; +1 Passenger Capacity
+modOptions: []
+reference:
+  - FC:53

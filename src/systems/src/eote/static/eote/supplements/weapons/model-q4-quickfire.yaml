@@ -1,0 +1,25 @@
+id: eote-weapon-model-q4-quickfire
+name: Model Q4 Quickfire
+description: >-
+  Touted as a revolution in light blaster design, Merr-Sonn's Q4 Quickfire is one of the more unique hold-out blasters
+  on the market today. Instead of the typical gas chamber and energy cell power supply, the Q4 possesses an integral
+  rechargeable power pack that provides more stopping power and a higher cyclic rate of fire than other holdouts. The
+  trade-off for this extra power is the fact that the power pack must be recharged instead of easily replaced (a process
+  that takes ten minutes), as well as the weapon's dismal performance at anything farther than short range.
+
+  Add <setback></setback> to a character's Perception checks when attempting to find a 04 Quickfire on a person's body.
+  If this weapon runs out of ammo due to a <despair></despair> result, it may not be reloaded by Extra Reloads, the
+  Spare Clip talent, or other means.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - FH:40

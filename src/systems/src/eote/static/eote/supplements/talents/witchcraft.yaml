@@ -1,0 +1,10 @@
+id: eote-talent-witchcraft
+name: Witchcraft
+description: The character gains a Force rating of 1. If the character already has a Force rating of 1 or higher, there
+  is no effect.
+activation: p
+ranked: false
+forceTalent: false
+trees: Nightsister
+reference:
+  - CotR:44

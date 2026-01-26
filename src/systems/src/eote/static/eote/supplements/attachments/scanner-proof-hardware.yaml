@@ -1,0 +1,14 @@
+id: eote-attachment-scanner-proof-hardware
+name: Scanner-Proof Hardware
+description: Scanner-proof hardware is a collection of upgrades that together make a weapon virtually invisible to scanners. This mod typically replaces a weapon's stock, foregrip, and any other furniture with lightweight poly-carbonates woven with scanner-spoofing fibers. In addition, most if not all metallic parts—frame, trigger group, barrel, etc.—are replaced with fiber-reinforced polycarb pieces. This mod is extremely illegal. Being caught with a weapon that can pass through scanners without being detected is usually a one-way ticket to the nearest Imperial stockade. This attachment can be applied to any weapon.
+useWith: weapon
+hpRequired: 2
+rarity: 6
+baseModifier:
+  description: This weapon cannot be detected by standard weapon-detecting technologies. Characters using advanced scanners must make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check** to find the weapon as usual.; Game Masters may spend <threat></threat><threat></threat> or <despair></despair> on a combat check to render the weapon inoperable, requiring a major repair before it can be used again.
+modOptions:
+  - encumbranceModifier: -1
+reference:
+  - CaM:57
+includedModels:
+  - Various models

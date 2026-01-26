@@ -1,0 +1,11 @@
+id: eote-attachment-oversized-external-weapons-mount
+name: Oversized External Weapons Mount
+description: The search for ever-increasing firepower often leads to the installation of weapons systems larger than were intended for a given vehicle. The oversized weapons mount is a custom-built rack enabling the vehicle to carry a weapon meant for one silhouette larger than the vehicle itself. However, the CM is the final arbiter of feasibility of such designs and may impose additional penalties for the weapon's use.
+useWith: vehicle
+hpRequired: 2
+rarity: 6
+baseModifier:
+  description: Add weapon mount (Silhouette-based); -1 Handling; -4 System Strain Threshold
+modOptions: []
+reference:
+  - DC:60

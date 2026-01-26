@@ -1,0 +1,10 @@
+id: eote-talent-most-impressive
+name: Most Impressive
+description: Spend <triumph></triumph> from any skill check to allow a number of allies not exceeding the character's
+  rating in Presence within short range to add automatic <advantage></advantage> to their next check.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Ship Captain
+reference:
+  - DoR:113

@@ -1,0 +1,11 @@
+id: eote-talent-master-merchant
+name: Master Merchant
+description: When buying or selling goods, or paying off or taking Obligation, may suffer 2 strain to sell for 25% more,
+  but for 25% less, pay off 1 more Obligation, or take 1 less.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Entrepreneur, Quartermaster, Trader
+reference:
+  - E-CRB:138
+  - A-CRB:151

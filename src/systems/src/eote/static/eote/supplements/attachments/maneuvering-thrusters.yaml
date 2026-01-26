@@ -1,0 +1,14 @@
+id: eote-attachment-maneuvering-thrusters
+name: Maneuvering Thrusters
+description: Small thrusters attached to the exterior chassis of a vehicle increase how responsive it is during flight. The application of these varies considerably, from the crude strapping of rocket or jet packs to the outside of a vehicle to the careful addition of a completely separate fuel line to grant extended use. Maneuvering thrusters may only be attached to vehicles of silhouette 2 or lower.
+useWith: vehicle
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: +1 Handling
+modOptions: []
+reference:
+  - JoY:47
+includedModels:
+  - Arakyd Aerodrive Thruster Augmentation System
+  - SoroSuub CornerTech Maneuvering Thruster

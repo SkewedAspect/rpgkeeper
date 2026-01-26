@@ -1,0 +1,11 @@
+id: eote-talent-bought-info
+name: Bought Info
+description: Instead of making a Knowledge check, may take a Bought Info action; spend credits equal to 50 times the
+  difficulty of the check to pass with one <success></success>.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Entrepreneur, Quartermaster, Shipwright, Skip Tracer
+reference:
+  - A-CRB:143
+  - ND:34

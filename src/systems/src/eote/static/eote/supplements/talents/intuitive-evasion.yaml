@@ -1,0 +1,11 @@
+id: eote-talent-intuitive-evasion
+name: Intuitive Evasion
+description: Perform the Intuitive Evasion maneuver; suffer 1 strain and commit [FO] up to ranks of Intuitive Evasion.
+  Upgrade difficulty of combat checks targeting starship or vehicle by equal amount. Suffer 1 strain every round [FO]
+  remains committed.
+activation: am
+ranked: true
+forceTalent: true
+trees: Racer, Starfighter Ace
+reference:
+  - F-CRB:145

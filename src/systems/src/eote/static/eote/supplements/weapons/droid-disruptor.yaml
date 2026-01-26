@@ -1,0 +1,29 @@
+id: eote-weapon-droid-disruptor
+name: Droid Disruptor
+description: >-
+  Verpine weaponsmiths enjoy creating specialized weapons, such as the Verpine droid disruptor. Unlike a typical
+  ionization blaster, the droid disruptor fires a targeted stream of coherent ion energy that overloads and burns out
+  droid circuitry and processors. As a result, droids deactivated by a droid disruptor are largely irreparable.
+
+  Due to the deadly nature of droid disruptors—at least, to droids—droids tend to view them in the same manner in which
+  organics view disruptor weapons. The weapons are also effective against electronic equipment, though the damage caused
+  to vehicles and vessels is largely negligible unless specifically targeted at a particular vehicular system at
+  point-blank range.
+
+  When used against organic creatures, the droid disruptor is much less effective. Any organic creature struck by a
+  droid disruptor does not receive normal damage, but instead simply experiences a brief shock to the system and suffers
+  2 strain.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 2
+hardpoints: 1
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-viciousdroid
+    ranks: 3
+reference:
+  - SoR:104

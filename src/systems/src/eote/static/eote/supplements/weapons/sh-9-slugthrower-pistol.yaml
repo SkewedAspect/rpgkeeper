@@ -1,0 +1,54 @@
+id: eote-weapon-sh-9-slugthrower-pistol
+name: SH-9 Slugthrower Pistol
+description: >-
+  Special forces troops understand that sometimes
+
+  high-tech isn’t the best tech to get the jo b done. The
+
+  designers at Czerka Arm s realize this, too, and produce a line of slugthrowers to fill a variety of niche
+
+  roles, such as the SH-9 slugthrower pistol. Covert ops
+
+  units favor this model, dubbed the "whisper pistol,"
+
+  as a stealthy hold-out for silent, up-close takedowns.
+
+  The SH-9 is a compact slugthrower made from composite materials, making it easily hidden from view
+
+  and difficult to detect on weapons scans, even by a
+
+  skilled sensor technician. Its ammo is magazine-fed
+
+  with a small capacity, and the pistol comes with an
+
+  inbuilt silencer to help its user keep a low profile during commando raids and other stealth action. Unlike
+
+  some blasters and even othe r slugthrowers, the SH-9
+
+  functions well enough even when wet or submerged.
+
+  For all these reasons, and the fact that its slugs can
+
+  penetrate most light laminate armors, the SH-9 is a
+
+  favorite boot gun among Alliance SpecOps soldiers.
+
+  Add <setback></setback> to Perception checks to find an SH-9 slugthrower pistol on a person's body. Add
+  <setback></setback> to Perception or Vigiliance checks made to locate a concealed shooter firing an SH-9 slugthrower
+  pistol.
+skill: Ranged (Light)
+damage: 4
+addSkill: false
+criticalRating: 5
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-limited-ammo
+    ranks: 5
+  - id: eote-quality-pierce
+    ranks: 2
+reference:
+  - FiB:46

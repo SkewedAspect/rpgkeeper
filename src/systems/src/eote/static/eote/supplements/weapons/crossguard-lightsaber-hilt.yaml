@@ -1,0 +1,29 @@
+id: eote-weapon-crossguard-lightsaber-hilt
+name: Crossguard Lightsaber Hilt
+description: >-
+  Crossguard lightsabers are common among students of Makashi and any other Force users who enhoy the challenge and
+  excitement of dueling. They resemble a standard lightsaber and operate like one with one exception just beneath their
+  blade, they have a smaller, low-output, emitter set in the hilt. The internal circuitry is run through a splitter and
+  through use of a specialized power modulator, the weapon produces two secondary, very short baldes at ninety-degree
+  angles to the main blade. While their primary purpose is to vent raw power away from the main blade, in practice these
+  smaller blades could catach an opponent's blade, either blocking it or, with a little luck, disarming the opponent
+  altogether.
+
+  Whenever an enemy engaged with the character makes a Melee or Lightsaber check, after the attack is resolved, the
+  character may spend <despair></despair> or <threat></threat><threat></threat><threat></threat> to hook her opponent's
+  blade and disarm him. Aside from losing the weapon, any other effects of being disarmed are left up to the GM's
+  discretion.
+skill: Lightsaber
+damage: 0
+addSkill: false
+criticalRating: 1
+range: en
+encumbrance: 1
+hardpoints: 4
+rarity: 10
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+reference:
+  - EV:43

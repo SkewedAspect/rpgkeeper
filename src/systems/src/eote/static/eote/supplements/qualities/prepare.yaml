@@ -1,6 +1,10 @@
 id: eote-quality-prepare
 name: Prepare
-description: The user must perform a number of preparation maneuvers equal to the item's Prepare rating before using the item.
+description: Weapons with this quality require time to set up before being used. The user must perform a number of
+  preparation maneuvers equal to the weapon’s Prepare rating before making attacks with that weapon.
 passive: true
 ranked: true
-reference: E-CRB:157
+reference:
+  - E-CRB:157
+  - A-CRB:171
+  - F-CRB:164

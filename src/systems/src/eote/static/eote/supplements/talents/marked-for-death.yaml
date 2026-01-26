@@ -1,0 +1,11 @@
+id: eote-talent-marked-for-death
+name: Marked for Death
+description: Take the Marked for Death maneuver; committing [FO]. Add <advantage></advantage><advantage></advantage> to
+  combat checks against target while [FO] remains committed but cannot use this talent again until the original target
+  is incapacitated or the session ends.
+activation: am
+ranked: false
+forceTalent: true
+trees: Executioner
+reference:
+  - SS:30

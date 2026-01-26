@@ -1,0 +1,11 @@
+id: eote-talent-creative-design
+name: Creative Design
+description: As part of resolving a successful crafting check, the character may also apply a result equivalent to
+  spending a number of <advantage></advantage> equal to his ranks in Creative Design. The GM may then apply a result
+  equivalent to spending that same number of <threat></threat>.
+activation: p
+ranked: true
+forceTalent: false
+trees: Shipwright
+reference:
+  - FO:30

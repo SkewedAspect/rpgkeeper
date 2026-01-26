@@ -1,0 +1,11 @@
+id: eote-talent-brace-improved
+name: Brace (Improved)
+description: When the character performs the Brace maneuver, they may choose one environmental circumstance. The
+  benefits of Brace apply to that circumstance until the end of the encounter. (This benefit is not cumulative with
+  further uses of the Brace maneuver, although the character may select additional circumstances with subsequent uses.)
+activation: p
+ranked: false
+forceTalent: false
+trees: Clone Trooper
+reference:
+  - RotS:38

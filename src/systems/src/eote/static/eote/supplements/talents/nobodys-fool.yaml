@@ -1,0 +1,12 @@
+id: eote-talent-nobodys-fool
+name: Nobody's Fool
+description: May upgrade difficulty of incoming Charm, Coercion, or Deception checks once per rank of Nobody's Fool.
+activation: p
+ranked: true
+forceTalent: false
+trees: Advisor, Advocate, Agitator, Ambassador, Arbiter, Interrogator, Master, Niman Disciple, Padawan Survivor,
+  Politico, Republic Representative, Senator, Skip Tracer, Teacher, Trader
+reference:
+  - E-CRB:139
+  - A-CRB:153
+  - F-CRB:148

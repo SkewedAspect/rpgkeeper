@@ -1,0 +1,11 @@
+id: eote-talent-utinni
+name: Utinni!
+description: Remove <setback></setback> per rank of Utinni! from checks to find or scavenge items or gear. Such checks
+  take half the time.
+activation: p
+ranked: true
+forceTalent: false
+trees: Outlaw Tech, Scavenger
+reference:
+  - E-CRB:145
+  - RotS:43

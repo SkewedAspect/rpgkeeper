@@ -1,0 +1,24 @@
+id: eote-armor-crash-gear
+name: Crash Gear
+description: >-
+  Most sets of crash gear consist of an assortment of protective wears designed to allow a user to better survive the
+  inevitable collisions and buffeting that are part of every race or mission. Typical outerwear includes layers of
+  microfiber cloth and impact-absorbing gel inserts worked into a jumpsuit or other form-fitting outfit, along with
+  thick gloves and boots. Most importantly, crash gear comes with protective headwear. These can range from small
+  skullcaps (known colloquially as "skid lids") to full-face, internally supported, environmentally sealed helmets that
+  can rival military gear. Like crash gear outerwear, crash helmets include gel-packs and wicking microfiber but also
+  have strong polycarbonate shells lined with dense polyfoam for greater protection. Some helmets are also equipped with
+  integral face shields or flip-up visors that are tinted and polarized to protect the wearer's eyes from  both debris
+  and flaring lights.
+
+  A character wearing crash gear ignores the effects of ongoing Critical Injuries on any Intellect or Cunning related
+  checks but still suffers from the injuries themselves. She also cannot be disorientated.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 1
+rarity: 3
+restricted: false
+qualities: []
+reference:
+  - EV:43

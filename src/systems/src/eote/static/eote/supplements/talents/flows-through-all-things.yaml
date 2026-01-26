@@ -1,0 +1,8 @@
+id: eote-talent-flows-through-all-things
+name: Flows Through All Things
+description: The character may perform a maneuver to recover strain equal to their Force rating
+activation: am
+ranked: false
+forceTalent: true
+trees: Master
+reference: CotR:21

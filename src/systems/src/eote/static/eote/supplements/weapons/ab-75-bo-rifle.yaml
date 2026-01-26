@@ -1,0 +1,29 @@
+id: eote-weapon-ab-75-bo-rifle
+name: AB-75 Bo-Rifle
+description: >-
+  (Ranged Mode)
+
+  During the Republic, the Bo-Rifle was the ceremonial weapon of the Honor Guard of Lasan. These Lasat were impressive
+  Warriors, and their bo-rifles were equally impressive. Designed to be used in both close quarters and at range, these
+  weapons could quickly be converted from a high-powered blaster rifle to a double-headed staff. At each end of the
+  staff, brilliant arcs of electricity crackled and spat. A skilled Lasat could use the electrified staff to shock
+  opponents into submission; provided they hadn't bludgeoned them half to death first.
+
+  After the Empire invaded Lasan and wiped out the population, some high-ranking officers took these weapons as
+  trophies. These days, the only place one is likely to find a bo-rifle is in the collection of some Imperial commander.
+
+  As a maneuver, the user can convert the bo-rifle from its ranged mode to melee mode. A bo-rifle requires two hands to
+  wield.
+skill: Ranged (Heavy)
+damage: 8
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 4
+hardpoints: 4
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - UP:46

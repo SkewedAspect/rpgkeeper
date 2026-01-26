@@ -1,0 +1,28 @@
+id: eote-attachment-lorrdian-gemstone
+name: Lorrdian Gemstone
+description: Lorrdian gemstones arc kyber crystals mined millen nia ago by enslaved Lorrdians during the Kanz Disorders. Created by Force-sensitive Lorrdians to supplement the intricate kinetic communication developed among the slave populace, these gemstones were imbued with Force energies that allowed their possessors to read the emotions and actions of others. When installed in a lightsaber, a Lorrdian gemstone allows the wielder to predict the actions of an opponent, giving the wielder a decided edge in melee combat. A Lorrdian gemstone is a lightsaber crystal.
+useWith: weapon
+hpRequired: 2
+rarity: 8
+baseModifier:
+  description: Damage set to 7; Critical set to 2
+  qualities:
+    - id: eote-quality-defensive
+      ranks: 1
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
+modOptions:
+  - qualities:
+      - id: eote-quality-defensive
+        ranks: 1
+  - qualities:
+      - id: eote-quality-deflection
+        ranks: 1
+  - qualities:
+      - id: eote-quality-deflection
+        ranks: 1
+reference:
+  - F-CRB:199
+includedModels:
+  - None

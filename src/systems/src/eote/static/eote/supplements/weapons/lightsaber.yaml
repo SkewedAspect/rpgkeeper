@@ -1,0 +1,30 @@
+id: eote-weapon-lightsaber
+name: Lightsaber
+description: >-
+  The weapon of the Jedi is rare in **Edge of the Empire**. The rogues and scoundrels of the galaxy do not travel in the
+  same circles as these revered knights. When such an individual is encountered, tainted souls may want to steer clear,
+  for their weapons are made of pure energy and can slice through anything—from limbs to blast doors.
+
+  Lightsabers normally require the Lightsaber skill to wield. However, since that skill is not an option for the Player
+  Characters in this book, players must use a lightsaber untrained (selecting either Brawn or Agility as the base
+  characteristic). This is deliberate, because there are few people in the galaxy who properly know how to fight with a
+  lightsaber. However, if the GM feels it is warranted, he can create the Lightsaber skill as a custom skill for his
+  players. Lightsabers cannot be sundered.
+skill: Lightsaber
+damage: 10
+addSkill: false
+criticalRating: 1
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 10
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - E-CRB:167
+  - A-CRB:182

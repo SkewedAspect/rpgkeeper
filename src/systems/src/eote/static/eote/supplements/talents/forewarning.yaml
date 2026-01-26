@@ -1,0 +1,10 @@
+id: eote-talent-forewarning
+name: Forewarning
+description: Perform the Forewarning action. All allies within medium range increase defense by character's Force rating
+  until they act in the encounter.
+activation: aa
+ranked: true
+forceTalent: true
+trees: Master, Seer, Warleader
+reference:
+  - F-CRB:143

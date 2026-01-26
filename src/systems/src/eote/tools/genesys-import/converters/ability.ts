@@ -1,11 +1,9 @@
 //----------------------------------------------------------------------------------------------------------------------
-
-/* eslint-disable id-length, sort-imports */
 // Ability Converter
 //----------------------------------------------------------------------------------------------------------------------
 
 import type { ExternalAbility } from '../types.ts';
-import { generateId, formatReference } from '../utils.ts';
+import { ensureArray, formatReference, generateId } from '../utils.ts';
 import { convertVaryingDisplay } from './description.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -40,17 +38,9 @@ export function convertAbility(external : ExternalAbility, bookFile : string, pa
 /**
  * Convert multiple abilities from a book
  */
-export function convertAbilities(
-    abilities : ExternalAbility[] | undefined,
-    bookFile : string
-) : InternalAbility[]
+export function convertAbilities(abilities : ExternalAbility[] | undefined, bookFile : string) : InternalAbility[]
 {
-    if(!abilities || !Array.isArray(abilities))
-    {
-        return [];
-    }
-
-    return abilities.map((a) => convertAbility(a, bookFile));
+    return ensureArray(abilities).map((ability) => convertAbility(ability, bookFile));
 }
 
 /**
@@ -62,19 +52,10 @@ export function convertAllAbilities(
     bookFile : string
 ) : InternalAbility[]
 {
-    const converted : InternalAbility[] = [];
-
-    if(adversaryAbilities && Array.isArray(adversaryAbilities))
-    {
-        converted.push(...convertAbilities(adversaryAbilities, bookFile));
-    }
-
-    if(archetypeAbilities && Array.isArray(archetypeAbilities))
-    {
-        converted.push(...convertAbilities(archetypeAbilities, bookFile));
-    }
-
-    return converted;
+    return [
+        ...convertAbilities(adversaryAbilities, bookFile),
+        ...convertAbilities(archetypeAbilities, bookFile),
+    ];
 }
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+id: eote-attachment-paramilitary-yacht
+name: Paramilitary Yacht
+description: Converts a yacht to a paramilitary vehicle.
+useWith: vehicle
+hpRequired: 0
+rarity: 0
+baseModifier:
+  defenseModifier: 1
+  description: Zone; +2 Hull Trauma Threshold; -5 System Strain Threshold; Adds two forward light laser cannons and one aft light laser cannon
+modOptions: []
+reference:
+  - DC:71

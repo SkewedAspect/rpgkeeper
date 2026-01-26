@@ -1,0 +1,11 @@
+id: eote-attachment-h9-pistol-grip
+name: H9 Pistol Grip
+description: A pistol grip replaces the stock or other grip on a long arm with one like that of a pistol, allowing it to be fired one-handed. Most blaster rifles feature a pistol-like grip by default, in which case this attachment makes additional modifications to make the weapon better-suited to one-handed use. This attachment can be used with any Ranged (Heavy) blaster rifle, blaster carbine, or slugthrower that does not possess the Cumbersome quality.
+useWith: weapon
+hpRequired: 1
+rarity: 3
+baseModifier:
+  description: Use Ranged (Light) skill; Add <setback></setback> to any combat check made when firing one-handed.; Reduce range to Medium
+modOptions: []
+reference:
+  - DC:52

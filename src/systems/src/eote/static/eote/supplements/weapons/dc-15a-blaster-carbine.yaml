@@ -1,0 +1,22 @@
+id: eote-weapon-dc-15a-blaster-carbine
+name: DC-15A Blaster Carbine
+description: BIasTech's DC-15A blaster carbine is the GAR’s standard-issue carbine. Every clone, from the greenest
+  recruit to the most seasoned special operator, can use the DC-15A from the moment they are decanted. A lighter,
+  shorter-ranged cousin of the heavy and cantankerous DC-15. The DC-15A is accurate, easy to handle, and as reliable as
+  a chrono.
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 4
+rarity: 5
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-pierce
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - RotS:51

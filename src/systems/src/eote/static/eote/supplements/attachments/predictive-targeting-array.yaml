@@ -1,0 +1,13 @@
+id: eote-attachment-predictive-targeting-array
+name: Predictive Targeting Array
+description: When making an auto-fire attack with the ship's auto-blasters, do not increase the difficulty of the attack by one.
+useWith: vehicle
+hpRequired: 1
+rarity: 4
+baseModifier:
+  description: When making attack, do not increase difficulty by 1.
+  qualities:
+    - id: eote-quality-auto-fire
+modOptions: []
+reference:
+  - SoF:143

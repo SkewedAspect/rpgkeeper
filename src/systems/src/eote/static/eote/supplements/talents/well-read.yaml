@@ -1,0 +1,9 @@
+id: eote-talent-well-read
+name: Well Read
+description: Choose any 3 Knowledge skills. They permanently become career skills.
+activation: p
+ranked: false
+forceTalent: false
+trees: Strategist
+reference:
+  - LbE:34

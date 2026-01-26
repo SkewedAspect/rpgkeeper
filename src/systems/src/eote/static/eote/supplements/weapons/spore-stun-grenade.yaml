@@ -1,0 +1,32 @@
+id: eote-weapon-spore-stun-grenade
+name: Spore Stun Grenade
+description: >-
+  Speizoc Arms Spore Stun Grenade
+
+  An area effect weapon capable of stunning a group of opponents can be a vital tool in a crowd-control situation.
+  Similarly, a person who places a high value on sentient life without killing them. When an individual is significantly
+  out-numbered, a stun grenade can turn the tide of battle in an ethically acceptable way.
+
+  Speizoc Arms spore stun grenades deploy a cloud of active stun spores when detonated. Harvested from a carnivorous
+  plant, these spores are a powerful soporific for most life forms. An environmentally sealed suit provides complete
+  protection against the spores, but any unsealed armor is of little use against the spore cloud. The spores act
+  extremely quickly when inhaled, but they can also take effect after contact with the target's skin.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 0
+range: s
+encumbrance: 1
+hardpoints: 0
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 7
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 3
+  - id: eote-quality-stun-damage
+reference:
+  - DoH:43

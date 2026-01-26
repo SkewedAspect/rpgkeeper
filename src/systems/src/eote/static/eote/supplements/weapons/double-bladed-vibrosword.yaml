@@ -1,0 +1,31 @@
+id: eote-weapon-double-bladed-vibrosword
+name: Double-Bladed Vibrosword
+description: >-
+  Extraordinarily difficult to wield and as dangerous to an untrained user as to their enemy, double-bladed vibroswords
+  are a rare variant of the more familiar vibrosword. A double-bladed vibrosword consists of an extended hilt with
+  full-Iength blades mounted at each end, for an overall length of up to three meters. In the hands of a skilled user, a
+  double-bladed vibrosword is a deadly weapon perfectly suited to dueling multiple opponents.
+
+  A double-bladed vibrosword requires two hands to wield.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-linked
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-unwieldy
+    ranks: 3
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - KoF:42

@@ -1,0 +1,28 @@
+id: eote-weapon-borstel-neuronic-lash
+name: Borstel Neuronic Lash
+description: >-
+  The neuronic whip has earned a reputation as the preferred weapon of slavers. Borstel's neutronic lash attempts to
+  mitigate this negative impression both through its appearance and its overall function. Instead of using a metallic
+  cable, the lash projects a flexible energy strand, which is only emitted from the hilt when activated. The
+  insubstantial energy projection is incapable of causing physical injury to a target. However, it carries a
+  signification electrical charge. This charge is capable of incappacitating most opponents.
+
+  This weapon can be used to make melee attacks against targets at up to short range (the difficulty remains **Average
+  (<difficulty></difficulty><difficulty></difficulty>)**).
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 5
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-ensnare
+    ranks: 1
+  - id: eote-quality-stun-damage
+  - id: eote-quality-stun
+    ranks: 3
+reference:
+  - DoH:44

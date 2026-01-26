@@ -41,11 +41,27 @@
                         label-class="fw-bold"
                         label-for="name-input"
                     >
-                        <BFormInput
+                        <VueBootstrapAutocomplete
                             id="name-input"
                             v-model="editWeapon.name"
-                            type="text"
-                        />
+                            :data="availableWeapons"
+                            :serializer="(w : EoteWeapon) => w.name"
+                            :max-matches="1000"
+                            placeholder="Search or enter name..."
+                            show-on-focus
+                            @hit="onWeaponTemplateHit"
+                        >
+                            <template #append>
+                                <BButton
+                                    variant="secondary"
+                                    title="Browse weapons..."
+                                    @click="openBrowseModal"
+                                >
+                                    <Fa icon="search" />
+                                    Browse Weapons
+                                </BButton>
+                            </template>
+                        </VueBootstrapAutocomplete>
                     </BFormGroup>
                     <BFormGroup
                         class="flex-fill ps-1 pe-1 w-25"
@@ -73,9 +89,10 @@
                     </BFormGroup>
                 </BFormRow>
 
-                <BFormRow>
+                <BFormRow class="mt-2">
                     <BFormGroup
-                        class="flex-fill pe-1 w-25"
+                        class="flex-fill pe-1"
+                        style="width: 20%"
                         label="Damage"
                         label-class="fw-bold"
                         label-for="skill-damage"
@@ -89,7 +106,8 @@
                         />
                     </BFormGroup>
                     <BFormGroup
-                        class="flex-fill ps-1 pe-1 w-25"
+                        class="flex-fill ps-1 pe-1"
+                        style="width: 20%"
                         label="Critical"
                         label-class="fw-bold"
                         label-for="skill-critical"
@@ -103,7 +121,8 @@
                         />
                     </BFormGroup>
                     <BFormGroup
-                        class="flex-fill ps-1 pe-1 w-25"
+                        class="flex-fill ps-1 pe-1"
+                        style="width: 20%"
                         label="Encumb."
                         label-class="fw-bold"
                         label-for="skill-encumbrance"
@@ -117,7 +136,24 @@
                         />
                     </BFormGroup>
                     <BFormGroup
-                        class="flex-fill ps-1 w-25"
+                        v-if="mode === 'eote'"
+                        class="flex-fill ps-1 pe-1"
+                        style="width: 20%"
+                        label="Hardpoints"
+                        label-class="fw-bold"
+                        label-for="skill-hardpoints"
+                    >
+                        <BFormInput
+                            id="skill-hardpoints"
+                            v-model.number="editWeapon.hardpoints"
+                            type="number"
+                            min="0"
+                            step="0"
+                        />
+                    </BFormGroup>
+                    <BFormGroup
+                        class="flex-fill ps-1"
+                        style="width: 20%"
                         label="Rarity"
                         label-class="fw-bold"
                         label-for="skill-rarity"
@@ -132,7 +168,39 @@
                     </BFormGroup>
                 </BFormRow>
 
-                <QualityEdit v-model:qualities="editWeapon.qualities" />
+                <BTabs class="mt-3" content-class="mt-2">
+                    <template v-if="mode === 'genesys'" #tabs-end>
+                        <BFormCheckbox
+                            v-model="useAttachmentRules"
+                            class="ms-auto"
+                            switch
+                        >
+                            Use Item Attachment Rules (optional)
+                        </BFormCheckbox>
+                    </template>
+
+                    <BTab title="Qualities" active>
+                        <QualityEdit
+                            v-model:qualities="editWeapon.qualities"
+                            :attachment-refs="editWeapon.attachments"
+                        />
+                    </BTab>
+                    <BTab v-if="showAttachments || mode === 'genesys'" :disabled="mode === 'genesys' && !useAttachmentRules">
+                        <template #title>
+                            Attachments
+                            <BBadge v-if="showAttachments" :variant="attachmentHpVariant" class="ms-1">
+                                {{ attachmentHpUsed }} / {{ calculatedHardpoints }} HP
+                            </BBadge>
+                        </template>
+                        <AttachmentEdit
+                            v-if="showAttachments"
+                            v-model:attachments="editWeapon.attachments"
+                            :total-hardpoints="calculatedHardpoints"
+                            use-with="weapon"
+                            :show-hardpoints-summary="false"
+                        />
+                    </BTab>
+                </BTabs>
             </div>
 
             <!-- Modal Buttons -->
@@ -149,6 +217,55 @@
                 </BButton>
             </template>
         </BModal>
+
+        <!-- Browse Weapons Modal -->
+        <SupplementBrowserModal
+            ref="browseModal"
+            title="Browse Weapons"
+            :supplements="availableWeapons"
+            @select="onBrowseSelect"
+            @add-new="onAddNewWeapon"
+            @edit="onEditWeaponSupplement"
+        >
+            <template #preview="{ supplement }">
+                <div class="weapon-stats d-flex flex-wrap mb-2">
+                    <span class="me-4"><strong>Skill:</strong> {{ supplement.skill }}</span>
+                    <span class="me-4"><strong>Range:</strong> {{ rangeEnum[supplement.range] }}</span>
+                    <span class="me-4"><strong>Damage:</strong> {{ supplement.damage }}</span>
+                    <span><strong>Critical:</strong> {{ supplement.criticalRating }}</span>
+                </div>
+                <div class="weapon-stats d-flex flex-wrap mb-2">
+                    <span class="me-4"><strong>Encumbrance:</strong> {{ supplement.encumbrance }}</span>
+                    <span><strong>Rarity:</strong> {{ supplement.rarity }}</span>
+                </div>
+                <hr class="my-2">
+                <div class="weapon-description flex-grow-1 overflow-auto">
+                    <MarkdownBlock :text="supplement.description ?? 'No description.'" inline />
+                </div>
+                <div class="text-end mt-auto pt-2">
+                    <h5 class="mb-1">
+                        <ScopeBadge :supplement="supplement" />
+                    </h5>
+                    <ReferenceBlock :reference="supplement.reference ?? ''" />
+                </div>
+            </template>
+        </SupplementBrowserModal>
+
+        <!-- Add/Edit Weapon Supplement Modal -->
+        <AddEditWeaponModal
+            ref="addEditWeaponModal"
+            @add="onWeaponSupplementAdded"
+            @edit="onWeaponSupplementEdited"
+        />
+
+        <!-- Confirm Overwrite Modal -->
+        <ConfirmOverwriteModal
+            ref="confirmOverwriteModal"
+            title="Overwrite Weapon"
+            message="Overwrite current weapon values?"
+            description="This will replace all fields with the selected template values. Any changes you've made will be lost."
+            @confirm="onConfirmOverwrite"
+        />
     </div>
 </template>
 
@@ -158,6 +275,13 @@
     #weapModal {
         .modal-content {
             overflow: initial !important;
+        }
+    }
+
+    .edit-weapons-modal {
+        .weapon-description {
+            max-height: 250px;
+            overflow-y: auto;
         }
     }
 </style>
@@ -171,13 +295,18 @@
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Models
     import type {
         EncounterRange,
-        EoteCharacter,
+        EoteAttachment,
+        EoteAttachmentRef,
+        EoteOrGenCharacter,
         EoteQualityRef,
+        EoteWeapon,
         EoteWeaponRef,
+        GenesysCharacter,
     } from '../../../models.ts';
 
     // Constants
@@ -185,8 +314,16 @@
 
     // Components
     import QualityEdit from '../sub/qualityEdit.vue';
+    import AttachmentEdit from '../sub/attachmentEdit.vue';
     import { BModal } from 'bootstrap-vue-next';
+    import { VueBootstrapAutocomplete } from '@morgul/vue-bootstrap-autocomplete';
     import CloseButton from '@client/components/ui/closeButton.vue';
+    import SupplementBrowserModal from '@client/components/character/supplementBrowserModal.vue';
+    import ConfirmOverwriteModal from '@client/components/ui/confirmOverwriteModal.vue';
+    import AddEditWeaponModal from './addEditWeaponModal.vue';
+    import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
+    import ScopeBadge from '@client/components/character/scopeBadge.vue';
+    import ReferenceBlock from '@client/components/character/referenceBlock.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -197,12 +334,16 @@
         weaponID ?: number;
         name ?: string;
         skill ?: string;
-        damage : number
+        damage : number;
+        addSkill : boolean;
         criticalRating : number;
         range : EncounterRange;
         encumbrance : number;
+        hardpoints : number;
         rarity : number;
+        restricted : boolean;
         qualities : EoteQualityRef[];
+        attachments : EoteAttachmentRef[];
     }
 
     interface Events
@@ -219,6 +360,7 @@
 
     const { current } = storeToRefs(useCharacterStore());
     const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
 
     const weapIndex = ref(-1);
     const weapon = ref<EoteWeaponRef | undefined>(undefined);
@@ -227,22 +369,30 @@
         name: undefined,
         skill: undefined,
         damage: 0,
+        addSkill: false,
         criticalRating: 0,
         range: 'm',
         encumbrance: 0,
+        hardpoints: 0,
         rarity: 0,
+        restricted: false,
         qualities: [],
+        attachments: [],
     });
 
+    const pendingTemplate = ref<EoteWeapon | null>(null);
+
     const innerModal = useTemplateRef('innerModal');
+    const browseModal = useTemplateRef<{ show : () => void; hide : () => void }>('browseModal');
+    const addEditWeaponModal = useTemplateRef<InstanceType<typeof AddEditWeaponModal>>('addEditWeaponModal');
+    const confirmOverwriteModal = useTemplateRef<InstanceType<typeof ConfirmOverwriteModal>>('confirmOverwriteModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteCharacter>(() => current.value as any);
+    const char = computed<EoteOrGenCharacter>(() => current.value as any);
     const mode = computed(() => systemStore.current?.id ?? 'eote');
-    // Note: qualities computed was unused - QualityEdit component fetches its own data
 
     const isAdd = computed(() => !weapon.value);
     const skillNames = computed(() => char.value.details.skills.map((skill) => skill.name).sort());
@@ -257,9 +407,174 @@
         });
     });
 
+    const availableWeapons = computed(() => supplementStore.get<EoteWeapon>(mode.value, 'weapon'));
+
+    const calculatedHardpoints = computed(() =>
+    {
+        if(mode.value === 'genesys')
+        {
+            return Math.ceil(editWeapon.value.encumbrance / 2);
+        }
+
+        return editWeapon.value.hardpoints;
+    });
+
+    const attachmentHpUsed = computed(() =>
+    {
+        const attachments = supplementStore.get<EoteAttachment>(mode.value, 'attachment');
+        return editWeapon.value.attachments.reduce((total, attRef) =>
+        {
+            const att = attachments.find((item) => item.id === attRef.id);
+            return total + (att?.hpRequired ?? 0);
+        }, 0);
+    });
+
+    const attachmentHpVariant = computed(() =>
+    {
+        const hardpoints = calculatedHardpoints.value;
+        if(attachmentHpUsed.value > hardpoints)
+        {
+            return 'danger';
+        }
+        else if(attachmentHpUsed.value === hardpoints && hardpoints > 0)
+        {
+            return 'warning';
+        }
+
+        return 'secondary';
+    });
+
+    const showAttachments = computed(() =>
+    {
+        if(mode.value === 'eote')
+        {
+            return true;
+        }
+        else if(mode.value === 'genesys')
+        {
+            return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+        }
+
+        return false;
+    });
+
+    const useAttachmentRules = computed({
+        get: () =>
+        {
+            if(mode.value === 'genesys')
+            {
+                return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+            }
+
+            return false;
+        },
+        set: (value : boolean) =>
+        {
+            if(mode.value === 'genesys' && char.value)
+            {
+                (char.value as GenesysCharacter).details.useAttachmentRules = value;
+            }
+        },
+    });
+
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
+
+    function formHasValues() : boolean
+    {
+        // Don't check name since that's what the user types to search
+        return !!(
+            editWeapon.value.skill
+            || editWeapon.value.damage > 0
+            || editWeapon.value.criticalRating > 0
+            || editWeapon.value.encumbrance > 0
+            || editWeapon.value.rarity > 0
+            || editWeapon.value.qualities.length > 0
+        );
+    }
+
+    function applyTemplate(template : EoteWeapon) : void
+    {
+        editWeapon.value = {
+            weaponID: undefined,
+            name: template.name,
+            skill: template.skill,
+            damage: template.damage,
+            addSkill: template.addSkill ?? false,
+            criticalRating: template.criticalRating,
+            range: template.range,
+            encumbrance: template.encumbrance,
+            hardpoints: template.hardpoints ?? 0,
+            rarity: template.rarity,
+            restricted: template.restricted ?? false,
+            qualities: [ ...(template.qualities ?? []) ],
+            attachments: [],
+        };
+    }
+
+    function onWeaponTemplateHit(template : EoteWeapon) : void
+    {
+        if(formHasValues())
+        {
+            pendingTemplate.value = template;
+            confirmOverwriteModal.value?.show();
+        }
+        else
+        {
+            applyTemplate(template);
+        }
+    }
+
+    function openBrowseModal() : void
+    {
+        browseModal.value?.show();
+    }
+
+    function onBrowseSelect(template : EoteWeapon) : void
+    {
+        if(formHasValues())
+        {
+            pendingTemplate.value = template;
+            confirmOverwriteModal.value?.show();
+        }
+        else
+        {
+            applyTemplate(template);
+        }
+    }
+
+    function onConfirmOverwrite() : void
+    {
+        if(pendingTemplate.value)
+        {
+            applyTemplate(pendingTemplate.value);
+            pendingTemplate.value = null;
+        }
+    }
+
+    function onAddNewWeapon() : void
+    {
+        browseModal.value?.hide();
+        addEditWeaponModal.value?.show();
+    }
+
+    function onWeaponSupplementAdded(newWeapon : EoteWeapon) : void
+    {
+        // Optionally auto-apply the new weapon to the form
+        applyTemplate(newWeapon);
+    }
+
+    function onEditWeaponSupplement(weaponSupp : EoteWeapon) : void
+    {
+        addEditWeaponModal.value?.show(weaponSupp);
+    }
+
+    function onWeaponSupplementEdited(updatedWeapon : EoteWeapon) : void
+    {
+        // Optionally auto-apply the updated weapon to the form
+        applyTemplate(updatedWeapon);
+    }
 
     function show(newWeapon ?: EoteWeaponRef, index ?: number) : void
     {
@@ -275,11 +590,15 @@
                 name: newWeapon.name,
                 skill: newWeapon.skill,
                 damage: newWeapon.damage,
+                addSkill: newWeapon.addSkill ?? false,
                 criticalRating: newWeapon.criticalRating,
                 range: newWeapon.range,
                 encumbrance: newWeapon.encumbrance,
+                hardpoints: newWeapon.hardpoints ?? 0,
                 rarity: newWeapon.rarity,
+                restricted: newWeapon.restricted ?? false,
                 qualities: newWeapon.qualities,
+                attachments: [ ...(newWeapon.attachments ?? []) ],
             };
         }
         else
@@ -291,11 +610,15 @@
                 name: undefined,
                 skill: undefined,
                 damage: 0,
+                addSkill: false,
                 criticalRating: 0,
                 range: 'm',
                 encumbrance: 0,
+                hardpoints: 0,
                 rarity: 0,
+                restricted: false,
                 qualities: [],
+                attachments: [],
             };
         }
 
@@ -311,11 +634,15 @@
             name: undefined,
             skill: undefined,
             damage: 0,
+            addSkill: false,
             criticalRating: 0,
             range: 'm',
             encumbrance: 0,
+            hardpoints: 0,
             rarity: 0,
+            restricted: false,
             qualities: [],
+            attachments: [],
         };
 
         innerModal.value?.hide();
@@ -329,11 +656,14 @@
                 name: editWeapon.value.name ?? '',
                 skill: editWeapon.value.skill ?? '',
                 damage: editWeapon.value.damage,
+                addSkill: editWeapon.value.addSkill,
                 criticalRating: editWeapon.value.criticalRating,
                 range: editWeapon.value.range,
                 encumbrance: editWeapon.value.encumbrance,
+                hardpoints: calculatedHardpoints.value,
                 rarity: editWeapon.value.rarity,
-                attachments: [],
+                restricted: editWeapon.value.restricted,
+                attachments: editWeapon.value.attachments,
                 qualities: editWeapon.value.qualities,
             };
 
@@ -346,10 +676,14 @@
                 name: editWeapon.value.name ?? weapon.value.name,
                 skill: editWeapon.value.skill ?? weapon.value.skill,
                 damage: editWeapon.value.damage,
+                addSkill: editWeapon.value.addSkill,
                 criticalRating: editWeapon.value.criticalRating,
                 range: editWeapon.value.range,
                 encumbrance: editWeapon.value.encumbrance,
+                hardpoints: calculatedHardpoints.value,
                 rarity: editWeapon.value.rarity,
+                restricted: editWeapon.value.restricted,
+                attachments: editWeapon.value.attachments,
                 qualities: editWeapon.value.qualities,
             };
 
@@ -361,16 +695,21 @@
     {
         weapIndex.value = -1;
         weapon.value = undefined;
+        pendingTemplate.value = null;
         editWeapon.value = {
             weaponID: undefined,
             name: undefined,
             skill: undefined,
             damage: 0,
+            addSkill: false,
             criticalRating: 0,
             range: 'm',
             encumbrance: 0,
+            hardpoints: 0,
             rarity: 0,
+            restricted: false,
             qualities: [],
+            attachments: [],
         };
     }
 

@@ -1,0 +1,26 @@
+id: eote-weapon-weik-greatsword
+name: Weik Greatsword
+description: >-
+  Regardless of technological advances, a simple metal sword remains an effective and reliable weapon. A sword never
+  runs out of power. It is heavy enough and long enough to give a warrior a significant advantage in combat against an
+  unarmed opponent or one wielding a more compact weapon. Legends suggest that long before the invention of the
+  lightsaber, the earliest Force adepts used swords as their preferred weapons. A greatsword permits a wielder to employ
+  a tremendous amount of power and leverage to each swing.
+
+  The greatsword requires two hands to wield.
+skill: Melee
+damage: 4
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 4
+hardpoints: 2
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 4
+  - id: eote-quality-defensive
+    ranks: 1
+reference:
+  - NoP:104

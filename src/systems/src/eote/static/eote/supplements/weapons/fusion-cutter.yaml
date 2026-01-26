@@ -1,0 +1,34 @@
+id: eote-weapon-fusion-cutter
+name: Fusion Cutter
+description: >-
+  These handheld, portable cutting torches are found throughout the galaxy in numerous induStrial, technical, and even
+  artistic operations. They use small, high-powered fusion batteries to produce intense plasma or laser beams used to
+  weld metals together and to cut them apart, depending on the needs of the user. Their beams can easily cut through
+  durasteel, duraplast, and even armored ship hulls with ease. Field mechanics often carry them into battle for
+  emergency repairs of vehicles, droids, and other equipment. Fusion cutters can be adjusted to produce a fine, precise
+  beam for welds or a broad, powerful beam good for brazing and cutting. Engineering and mechanic droids can have a
+  fusion cutter directly installed in their chassis so that they always have one at hand, and they are especially common
+  on astromech druids. In a pinch, a fusion cutter can be used as a close-quarters weapon, and can cause some incredibly
+  frightful wounds. If used as a weapon, a fusion cutter has a range of engaged, deals 5 damage, has a critical rating
+  of 3, and possesses the Breach 1, Burn 3, Sunder, and Vicious 3 weapon qualities.
+
+  **Models Include:** SoroSuub F-187.
+skill: Melee
+damage: 5
+addSkill: false
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 2
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-burn
+    ranks: 3
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 3
+reference:
+  - A-CRB:197

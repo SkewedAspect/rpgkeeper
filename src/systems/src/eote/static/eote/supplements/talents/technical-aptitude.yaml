@@ -1,0 +1,10 @@
+id: eote-talent-technical-aptitude
+name: Technical Aptitude
+description: Reduces time needed to complete Computer-related tasks by 25% per rank.
+activation: p
+ranked: true
+forceTalent: false
+trees: Analyst, Artisan, Slicer
+reference:
+  - E-CRB:145
+  - A-CRB:158

@@ -7,5 +7,5 @@ description: Some weapons are designed to fire together at the same target (turr
   original target. Each hit deals the weapon's base damage plus damage equal to the <success></success> scored on the
   check.
 passive: false
-ranked: false
+ranked: true
 reference: G-CRB:88

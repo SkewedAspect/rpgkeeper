@@ -1,0 +1,14 @@
+id: eote-talent-congenial
+name: Congenial
+description: May suffer a number of strain to downgrade difficulty of Charm or Negotiation checks or upgrade difficulty
+  when target by Charm or Negotiation checks, by an equal number Strain suffered this way cannot exceed ranks in
+  Congenial.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Arbiter, Charmer, Performer, Prophet, Senator
+reference:
+  - FH:32
+  - FC:32
+  - DoH:28
+  - UP:32

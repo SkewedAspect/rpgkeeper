@@ -1,0 +1,11 @@
+id: eote-talent-jury-rigged
+name: Jury Rigged
+description: Choose 1 weapon, armor, or other item and give it a permanent improvement while it remains in use.
+activation: p
+ranked: true
+forceTalent: false
+trees: Gadgeteer, Gunner, Modder, Outlaw Tech, Scavenger
+reference:
+  - E-CRB:138
+  - A-CRB:150
+  - RotS:40

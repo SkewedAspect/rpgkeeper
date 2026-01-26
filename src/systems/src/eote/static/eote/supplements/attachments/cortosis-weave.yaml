@@ -1,10 +1,15 @@
 id: eote-attachment-cortosis-weave
 name: Cortosis Weave
-description: "Although uncommon and even considered archaic in this day and age, some armorers specially equip
-  protective gear with an underlying weave of rare cortosis. This does tend to make the armor more resistant to being
-  penetrated (especially by energy weapons), but the cost is seldom worth the result. "
-useWith: Any armor.
-baseModifier: Armor gains Cortosis Quality.
-modOptions: None
+description: Although uncommon and even considered archaic in this day and age, some armorers specially equip protective gear with an underlying weave of rare cortosis. This does tend to make the armor more resistant to being penetrated (especially by energy weapons), but the cost is seldom worth the result.
+useWith: armor
 hpRequired: 2
-reference: E-CRB:194
+rarity: 8
+baseModifier:
+  qualities:
+    - id: eote-quality-cortosis
+modOptions: []
+reference:
+  - E-CRB:194
+  - A-CRB:205
+includedModels:
+  - Numerous variants

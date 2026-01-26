@@ -1,0 +1,13 @@
+id: eote-attachment-reverse-engineering
+name: Reverse Engineering
+description: |-
+  After working on the item, vehicle, or ship, the character’s comprehension of its technology becomes deep enough to rebuild it even better. The device has its number of hard points increased by one. This cannot be selected more than once per item.
+  _Note:  Use this attachment on armor when you select the "Reverse Engineering" result from the chart on page 71._
+useWith: armor
+hpRequired: 0
+rarity: 0
+baseModifier:
+  description: +1 Hard Points
+modOptions: []
+reference:
+  - FO:71

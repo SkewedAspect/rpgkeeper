@@ -1,0 +1,10 @@
+id: eote-talent-comprehend-technology
+name: Comprehend Technology
+description: Take Comprehend Technology action; make an **Average (<difficulty></difficulty><difficulty></difficulty>)
+  Knowledge (Education) check** to use Force rating as ranks in skills to use a single item.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Armorer, Artisan
+reference:
+  - F-CRB:141

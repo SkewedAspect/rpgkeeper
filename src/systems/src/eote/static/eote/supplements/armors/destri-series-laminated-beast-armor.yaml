@@ -1,0 +1,28 @@
+id: eote-armor-destri-series-laminated-beast-armor
+name: Destri-Series Laminated Beast Armor
+description: >-
+  Piccatech's Destri-series beast armor uses modern armor technology to provide unparalleled protection for working and
+  riding beasts. It uses the same kinds of hard laminate composites used to make heavy battle armor and the famous
+  laminate armor worn by Imperial Navy Stormtroopers. Sold in a dizzying variety of styles, Destri armor commonly
+  includes articulated laminate plate armor for a creature's head, neck, back, chest, and legs. In addition to the
+  protection, the armor is designed with mounting points for saddles, tack, panniers, and other various equipment. The
+  armored plates are lined with a shock-absorbing coating, and the entire set is designed to distribute the weight of
+  the armor. Destri armor is not a fully sealed suit and does not protect against chemical agents, radiation, or
+  environmental conditions, but it does offer excellent protection against light blaster fire, projectiles, and
+  shrapnel.
+
+  Destri armor is relatively heavy, and although it's designed to be as easy as possible on the beast wearing it, the
+  armor still necessarily restricts movement and tends to make a creature slower. Beasts wearing Destri-series beast
+  armor have their Agility reduced by 1, to a minimum of 1.
+
+  Laminate beast armor can only be equipped to bestial riding animals. In addition to its other effects, using it allows
+  the character to ride the beast without suffering the bareback riding penalties discussed on page 81.
+defense: 0
+soak: 4
+hardpoints: 1
+encumbrance: 7
+rarity: 7
+restricted: false
+qualities: []
+reference:
+  - SoT:43

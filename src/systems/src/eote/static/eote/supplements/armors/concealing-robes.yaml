@@ -1,0 +1,21 @@
+id: eote-armor-concealing-robes
+name: Concealing Robes
+description: >-
+  Many ancient Jedi Knights favored heavy concealing robes for their anonymity, and now Force users throughout the
+  galaxy use them to avoid notice. While they can be made in a variety of styles from nearly any material, all
+  concealing robes are many-layered, floor-length garments with deep hoods which can easily obscure an individual's
+  shape and hide his face in shadow and folds of cloth.
+
+  Thanks to their cut and construction, concealing robes add <setback></setback> to checks to notice or recognize an
+  individual wearing them.
+
+  **Models Include:** Various cuts and combinations.
+defense: 0
+soak: 1
+hardpoints: 0
+encumbrance: 1
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - F-CRB:179

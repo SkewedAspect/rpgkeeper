@@ -1,0 +1,12 @@
+id: eote-attachment-mb-7-ranger-range-finder
+name: MB-7 "Ranger" Range Finder
+description: A system incorporating a simple computer and visual sensors, a range finder calculates the distance to any spot in the user's field of vision, feeding him precise information to a visor HUD. With this information, the wearer can push his weapon to its limits, while knowing when to hold his fire on an impossible shot. The most sophisticated systems interface directly with the user's weapon for increased effect.
+useWith: armor
+hpRequired: 1
+rarity: 6
+baseModifier:
+  description: Gain Sniper Shot (increase range at cost of difficulty)
+modOptions:
+  - description: Gain Sniper Shot (increase range at cost of difficulty)
+reference:
+  - DC:54

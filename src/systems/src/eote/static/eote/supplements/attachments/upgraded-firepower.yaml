@@ -1,0 +1,13 @@
+id: eote-attachment-upgraded-firepower
+name: Upgraded Firepower
+description: A very common practice on starships and in more violent, less reputable races, upgraded weapons are actually something of a liability in the Cloud City Grand Prix. Given that the destruction of enemy vessels is strictly prohibited, overly powerful weapons can result not only in disqualification but prosecution as well. Installing this attachment requires a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check**. This upgrade may only be attached to vehicles of silhouette 2 or lower.
+useWith: vehicle
+hpRequired: 0
+rarity: 0
+baseModifier:
+  description: +1 Increase weapon system damage
+modOptions: []
+reference:
+  - JoY:48
+includedModels:
+  - None

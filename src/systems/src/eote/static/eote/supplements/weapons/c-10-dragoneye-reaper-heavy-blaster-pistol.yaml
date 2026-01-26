@@ -1,0 +1,23 @@
+id: eote-weapon-c-10-dragoneye-reaper-heavy-blaster-pistol
+name: C-10 "Dragoneye Reaper" Heavy Blaster Pistol
+description: >-
+  Czerka Arms C-10 "Dragoneye Reaper" Heavy Blaster Pistol
+
+  Based on a custom made design by the infamous bounty hunter Dragoneye, Czerka Arms C-10 heavy blaster pistol has
+  become a popular sidearm for bounty hunters, smugglers, and other (ringers who value firepower over subtlety. Larger
+  than most other heavy blasters, the Dragoneye Reaper is nearly as lethal as some blaster rifles, and users can easily
+  modify it to suit their needs. While Czerka owns the rights to the Dragoneye Reaper, Caliban's Model X and SoroSuub
+  "Renegade' heavy blaster pistols share many design elements and bear a striking resemblance to the C-10.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 3
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - FC:43

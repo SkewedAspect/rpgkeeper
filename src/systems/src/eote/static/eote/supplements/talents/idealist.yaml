@@ -1,0 +1,9 @@
+id: eote-talent-idealist
+name: Idealist
+description: Spend 1 stain to add an <advantage></advantage> on a skill check.
+activation: ai
+ranked: true
+forceTalent: false
+trees: ""
+reference:
+  - JoY:62

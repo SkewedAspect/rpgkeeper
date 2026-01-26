@@ -1,0 +1,32 @@
+id: eote-weapon-rs01-ripper-powersword
+name: RS01 "Ripper" Powersword
+description: >-
+  Powerswords are large, heavy vibroswords equipped with high-output vibrofield generators that allow them to cleave
+  through most materials. Many also feature monomolecular edges, serrated blades. or other performance-enhancing
+  modifications that improve their balance or killing power. SoroSuub's RS01 Ripper is a massive, two-handed weapon with
+  a straight, single-edged blade like a great cavalry saber. Designed more for heavy, chopping blows than for dueling or
+  precision work, the RS01 is designed as much for intimidation as it is for fighting. It is commonly associated with
+  enforcers and other unsavory characters who may or may not have something to prove, and has therefore gained a
+  reputation as a clumsy and brutish weapon.
+
+  A powersword requires two hands to wield.
+skill: Melee
+damage: 3
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 4
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-knockdown
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-sunder
+  - id: eote-quality-vicious
+    ranks: 2
+reference:
+  - KoF:43

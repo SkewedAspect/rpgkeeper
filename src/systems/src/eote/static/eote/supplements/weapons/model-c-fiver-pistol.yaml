@@ -1,0 +1,25 @@
+id: eote-weapon-model-c-fiver-pistol
+name: Model C "Fiver" Pistol
+description: The Xet Model C incorporates a five-round internal cylinder magazine. Even by the standards of
+  slugthrowers, this weapon is time-consuming to reload, as each high-caliber round must be inserted individually. Yet
+  despite its limitations, the Model C is popular with some Hired Guns who find an aesthetic pleasure in its unusual
+  operation. It must be said that the Model C is a dangerous weapon, at least for a slugthrower, with high stopping
+  power due to its large-bore chamber. However, a combatant wielding a Model C must make every shot count if he hopes to
+  triumph over an enemy with a more sophisticated weapon. Most consider this weapon a curiosity at best, a museum piece
+  at worst.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 2
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 5
+reference:
+  - DC:45

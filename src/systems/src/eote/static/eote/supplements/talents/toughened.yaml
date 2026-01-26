@@ -1,8 +1,20 @@
 id: eote-talent-toughened
 name: Toughened
-description: The character increases his wound threshold by two per rank of Toughened.
+description: Gain +2 wound threshold.
 activation: p
 ranked: true
-trees: Bodyguard, Fringer, Gadgeteer, Marauder, Mechanic, Outlaw Tech, Pilot Politico, Scholar, Scoundrel, Scout,
-  Mercenary Soldier, Survivalist, Trader
-reference: E-CRB:145
+forceTalent: false
+trees: ARC Trooper, Advisor, Aggressor, Arbiter, Archaeologist, Armorer, Beast Rider, Big-Game Hunter, Bodyguard, Clone
+  Commander, Clone Officer, Clone Pilot, Clone Trooper, Clone Veteran, Colossus, Commando, Cyber Tech, Death Watch
+  Warrior, Demolitionist, Doctor, Driver, Droid Specialist, Enforcer, Entrepreneur, Executioner, Force Sensitive
+  Emergent, Fringer, Gadgeteer, Gambler, General, Gunner, Gunslinger, Healer, Heavy, Hunter, Infiltrator, Instructor,
+  Investigator, Juyo Berserker, Magus, Marauder, Marshal, Martial Artist, Mechanic, Medic, Mercenary Soldier, Modder,
+  Navigator, Nightsister, Niman Disciple, Outlaw Tech, Padawan Survivor, Padawan, Pathfinder, Peacekeeper, Performer,
+  Pilot, Pirate, Politico, Propagandist, Protector, Quartermaster, Recruit, Republic Navy Officer, Retired Clone
+  Trooper, Rigger, Saboteur, Sapper, Scholar, Scoundrel, Scout, Seer, Sentry, Separatist Commander, Sharpshooter, Shien
+  Expert, Shii-Cho Knight, Skip Tracer, Sleeper Agent, Soresu Defender, Steel Hand Adept, Survivalist, Tactician,
+  Teacher, Trader, Trailblazer, Vanguard, Warden
+reference:
+  - E-CRB:145
+  - A-CRB:158
+  - F-CRB:153

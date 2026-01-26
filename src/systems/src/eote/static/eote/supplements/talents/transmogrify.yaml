@@ -1,0 +1,11 @@
+id: eote-talent-transmogrify
+name: Transmogrify
+description: When making a crafting check, may add [FO] no greater than Force rating. Spend <forcepoint></forcepoint> to
+  add <success></success> and spend <forcepoint></forcepoint><forcepoint></forcepoint> to add <advantage></advantage> to
+  check.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Alchemist, Magus
+reference:
+  - UP:33

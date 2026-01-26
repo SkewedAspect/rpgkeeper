@@ -1,0 +1,9 @@
+id: eote-talent-basic-combat-training
+name: Basic Combat Training
+description: Brawl and Ranged (Light) become career skills.
+activation: p
+ranked: false
+forceTalent: false
+trees: Recruit
+reference:
+  - A-CRB:143

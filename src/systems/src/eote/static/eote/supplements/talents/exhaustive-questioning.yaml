@@ -1,0 +1,11 @@
+id: eote-talent-exhaustive-questioning
+name: Exhaustive Questioning
+description: Whenever a character makes a successful social skill check against a captured enemy within short range, may
+  reduce that enemy’s strain threshold by 2 for the remainder of the session and can spend <advantage></advantage> to
+  inflict 1 strain.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Interrogator
+reference:
+  - CaM:30

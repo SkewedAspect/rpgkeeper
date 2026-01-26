@@ -1,0 +1,38 @@
+id: eote-weapon-arquebus
+name: Arquebus
+description: >-
+  The average sentient being can pick out visual details up to three kilometers away. Sembla's low landmasses and
+  shallow seas provide excellent visibility. Taken together, these factors had a large influence on Vurk strategy. They
+  favor long distance engagements, avoiding melee whenever possible. The lone soldier who wades into close range is
+  liable to get gunned down without mercy.
+
+  Since heavy industry never took hold on Sembla, Vurk sharpshooters still favor slugthrowers. Most famous is the
+  arquebus, an older design kept current by skilled crafters. In its original form, the weapon was little more than a
+  metal tube filled with explosive powder. Over time, sumptuous wooden stocks to brace against the shoulder became
+  standard. The design became more streamlined and reliable as time went on. Modern versions are works of art unto
+  themselves, often featuring intricate obsidian inlays.
+
+  Accurate at extreme distances, the weapon is well suited to patient aiming. A Vurk soldier's most devastating shots
+  are the ones arranged with the most precision. Skeptics have long since explained this away in mundane ways. Longer
+  prep time leads to steadier hands. Calculations of wind resistance are more accurate with more observation. Despite
+  this, Vurk sages insist on a deeper meaning. The best sharpshooters never care about the odds. They trust in the will
+  of the Force, and the Force guides their hands.
+
+  As a maneuver, a character wielding an arquebus may suffer up to 5 strain. The PC's next combat check with the
+  arquebus gains Pierce with a rating equal to the strain suffered.
+skill: Ranged (Heavy)
+damage: 9
+addSkill: false
+criticalRating: 5
+range: l
+encumbrance: 3
+hardpoints: 4
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-prepare
+    ranks: 1
+reference:
+  - UP:47

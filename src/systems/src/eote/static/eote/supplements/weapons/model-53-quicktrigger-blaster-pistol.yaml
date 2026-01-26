@@ -1,0 +1,26 @@
+id: eote-weapon-model-53-quicktrigger-blaster-pistol
+name: Model 53 "Quicktrigger" Blaster Pistol
+description: >-
+  Merr-Sonn Model 53 "Quicktrigger" Blaster Pistol
+
+  Reliable, easy to maintain, and simple to modify, the Merr-Sonn Model 53 "Quicktrigger" blaster pistol has become
+  popular among people living on the fringe. Though not the most powerful blaster available, the Quicktrigger can be
+  readily customized with upgrades and attachments to suit the needs of individual users. Due to its simple design and
+  rugged frame, the Model 53 is relatively easy to maintain and repair, and it rarely suffers more than minor damage
+  from repeated firing.
+
+  Reduce the difficulty of Mechanics checks to repair a Model 53 or modify attachments on it by one.
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 4
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+    ranks: 1
+reference:
+  - FC:43

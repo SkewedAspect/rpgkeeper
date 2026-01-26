@@ -1,0 +1,10 @@
+id: eote-talent-ichor-blade-improved
+name: Ichor Blade (Improved)
+description: The weapon affected by the character's Ichor Blade talent also gains the Sunder and Defensive 1 item
+  qualities, and increases its damage by 2.
+activation: p
+ranked: false
+forceTalent: false
+trees: Nightsister
+reference:
+  - CotR:40

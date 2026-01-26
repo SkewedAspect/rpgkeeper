@@ -1,0 +1,19 @@
+id: eote-weapon-light-blaster-cannon
+name: Light Blaster Cannon
+description: Known colloquially as "flash cannons," blaster cannons are heavy, crew-served versions of the common
+  personal blaster. Although they are less powerful than laser cannons, blaster cannons are highly effective against
+  infantry and light vehicles and are typically found mounted to atmospheric vehicles or smaller spaceships. Blaster
+  cannons come in several versions of varying power.
+skill: Gunnery
+damage: 4
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - E-CRB:230
+  - A-CRB:240

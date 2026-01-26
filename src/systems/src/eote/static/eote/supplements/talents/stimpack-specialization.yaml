@@ -1,0 +1,10 @@
+id: eote-talent-stimpack-specialization
+name: Stimpack Specialization
+description: Stimpacks heal 1 additional wound per rank of Stimpack Specialization.
+activation: p
+ranked: true
+forceTalent: false
+trees: Alchemist, Instructor, Medic, Protector, Retired Clone Trooper
+reference:
+  - A-CRB:157
+  - F-CRB:152

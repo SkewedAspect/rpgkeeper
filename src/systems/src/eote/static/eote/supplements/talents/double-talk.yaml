@@ -1,0 +1,11 @@
+id: eote-talent-double-talk
+name: Double-Talk
+description: The character may spend <advantage></advantage><advantage></advantage> or <triumph></triumph> from a
+  successful Charm or Deception check to disorient a number of opponents within short range equal to his Presence for
+  remainder of round and next two rounds.
+activation: p
+ranked: false
+forceTalent: false
+trees: Pirate
+reference:
+  - DoR:112

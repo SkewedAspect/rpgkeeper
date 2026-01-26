@@ -1,0 +1,25 @@
+id: eote-armor-gundark-scav-suit
+name: '"Gundark" Scav-Suit'
+description: >-
+  The peculiar brainchild of an exiled Arkanian engineer, the “Gundark” scav-suit is becoming an increasingly common
+  sight across the galactic underworld. Designed to assist salvagers and collectors in uncovering and assessing lost
+  technology, the suit includes an advanced sensor package that can analyze energy readings and material compositions
+  quickly to help the wearer sift valuable salvage from a scrap heap-or from the detritus of a battlefield. The suits
+  are so-named because the arrangement of the sensor package is reminiscent of huge ears at the side of the wearer's
+  head, similar to those of a wild gundark. Bounty hunters and other figures sent to deal with scavengers sometimes take
+  advantage of this design by targeting the sensor array to blind the wearer with a feedback loop from their damaged
+  equipment.
+
+  The inbuilt sensor array on a “Gundark” scav-suit adds <boost></boost> to the wearer's Perception checks, and an
+  additional <boost></boost> to all checks to detect or analyze technological parts and items. However, if the suits
+  systems become damaged due to a Critical Injury, aimed shot, or other circumstance, the wearer instead suffers
+  <setback></setback> due to sensor feedback on all Perception checks instead until the suit is repaired.
+defense: 1
+soak: 1
+hardpoints: 2
+encumbrance: 4
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - RotS:56

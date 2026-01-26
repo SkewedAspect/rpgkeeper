@@ -1,0 +1,30 @@
+id: eote-weapon-g9-gx-pulse-drill
+name: G9-GX Pulse Drill
+description: >-
+  Designed as a handheld complement to the tried-and-true C2-CE beamdrill, the C9-GX uses a variable-strength,
+  continuous-beam plasma projector to perform all manner of jobs, from cutting to welding and brazing to incinerating
+  waste material and industrial byproducts. 
+
+  The G9-CX can be found in use in many of the excavations located throughout the tunnels of
+
+  Sullust. It consists of a long, bulky rod tipped by a variable-angle plasma cutter and connected by a reinforced cable
+  to a control unit. The control unit contains the fuel cell and many of the controls that manage the power of the
+  plasma stream. It is typically worn on a broad belt around the waist.
+skill: Melee
+damage: 5
+addSkill: false
+criticalRating: 4
+range: en
+encumbrance: 5
+hardpoints: 2
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-breach
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-inaccurate
+    ranks: 2
+reference:
+  - SoR:139

@@ -1,0 +1,42 @@
+id: eote-armor-alliance-light-stealth-armor
+name: Alliance Light Stealth Armor
+description: >-
+  The inferior numbers and resources of the Alliance
+
+  military force rebel soldiers to rely on stealth and subterfuge to accomplish most of their missions. Unfortunately,
+  cutting-edge Imperial sensors can often detect
+
+  life forms and energy signatures from conventional
+
+  blaster weaponry, making some infiltration missions
+
+  impossible. Rebel soldiers have sometimes acquired
+
+  functioning storm commando armor, but stealing
+
+  from the enemy is not an especially reliable means
+
+  of resupplying. That is why Alliance R&D reverse-engineered the technology behind storm commando
+
+  armor and developed their own, albeit lower-grade,
+
+  stealth armor. Most Alliance stealth armor is retrofitted Mk II Clone Trooper armor left over from the
+
+  final days of the Republic sprayed in various camouflage patterns or matte black. A coating of specialized
+
+  material absorbs some light and sound waves, making
+
+  it easier for marines and special forces troops to move
+
+  about unnoticed by sensors and sentries.
+
+  This armor adds <boost></boost> to the wearer’s Stealth checks.
+defense: 0
+soak: 2
+hardpoints: 2
+encumbrance: 3
+rarity: 7
+restricted: true
+qualities: []
+reference:
+  - FiB:49

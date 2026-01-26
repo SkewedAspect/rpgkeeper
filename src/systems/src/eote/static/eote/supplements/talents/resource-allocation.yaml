@@ -1,0 +1,12 @@
+id: eote-talent-resource-allocation
+name: Resource Allocation
+description: At the beginning of a mass combat, the character may make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Charm** or **Negotiation check** to
+  increase their force's strength by one step for the duration of the encounter. The character may spend
+  <triumph></triumph> from the check to upgrade the ability of their force's first Mass Combat check once.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Senator
+reference:
+  - CotR:43

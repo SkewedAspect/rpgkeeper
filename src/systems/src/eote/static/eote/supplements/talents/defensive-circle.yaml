@@ -1,0 +1,12 @@
+id: eote-talent-defensive-circle
+name: Defensive Circle
+description: May take the Defensive Circle action, making a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Lightsaber (Intellect) check**. The
+  character, plus one ally within short range per <success></success>, gains X defense until the beginning of next turn.
+  X equals 1, plus 1 per <advantage></advantage><advantage></advantage>.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Soresu Defender
+reference:
+  - F-CRB:141

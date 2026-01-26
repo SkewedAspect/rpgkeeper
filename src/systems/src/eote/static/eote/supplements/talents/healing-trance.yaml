@@ -1,0 +1,9 @@
+id: eote-talent-healing-trance
+name: Healing Trance
+description: Commit [FO]. For every full encounter [FO] remains committed, heal 1 wound per rank of Healing Trance.
+activation: aa
+ranked: true
+forceTalent: true
+trees: Healer, Magus
+reference:
+  - F-CRB:144

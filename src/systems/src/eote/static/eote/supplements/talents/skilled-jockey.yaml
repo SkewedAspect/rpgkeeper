@@ -1,0 +1,12 @@
+id: eote-talent-skilled-jockey
+name: Skilled Jockey
+description: Remove <setback></setback> per rank of Skilled Jockey from all Piloting (Planetary) and Piloting (Space)
+  checks the character attempts.
+activation: p
+ranked: true
+forceTalent: false
+trees: Clone Pilot, Driver, Fringer, Hotshot, Operator, Pilot, Racer, Ship Captain, Starfighter Ace
+reference:
+  - E-CRB:142
+  - A-CRB:156
+  - F-CRB:152

@@ -1,0 +1,39 @@
+id: eote-weapon-riot-shield
+name: Riot Shield
+description: >-
+  Carried throughout the galaxy by law enforcement officers responding to riots and violent protests, riot shields are a
+  symbol of faceless authority and, occasionally, oppression. The Actiw 1 by Drearian Defense is one of the most common
+  models available in the Outer Rim. Worn strapped to an officer's non-dominant forearm, a riot shield averages around a
+  meter long and nearly as wide, providing almost complete cover for a kneeling or crouching officer. They are
+  constructed from a variety of materials. The shields are typically shaped in such a way as to help deflect incoming
+  thrown objects and stand up to sustained fire from nearly any sidearm, although anything more powerful than a heavy
+  blaster makes short work of a riot shield and the officer behind it. In addition to their obvious protective
+  qualities, riot shields can be used as improvised, somewhat awkward melee weapons, allowing an officer to push and
+  bash his way through a crowd if need be.
+
+  Riot shields require one hand to wield, and so can only be used with pistols and one-handed melee weapons. Some riot
+  shields incorporate a slot or mag-lock to allow the user to support a Ranged (Heavy) weapon with the shield itself
+  (firing the weapon one-handed while wielding the riot shield in the other hand). A riot shield with this feature costs
+  an additional 100 credits and has no hard points. Firing a rifle locked to the shield in this way is somewhat
+  cumbersome, and adds <setback></setback> to combat checks with both weapons.
+skill: Melee
+damage: 0
+addSkill: false
+criticalRating: 6
+range: en
+encumbrance: 5
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-defensive
+    ranks: 2
+  - id: eote-quality-deflection
+    ranks: 2
+  - id: eote-quality-disorient
+    ranks: 1
+reference:
+  - FH:42
+  - KoF:43

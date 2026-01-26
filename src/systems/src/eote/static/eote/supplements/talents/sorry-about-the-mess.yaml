@@ -1,0 +1,11 @@
+id: eote-talent-sorry-about-the-mess
+name: Sorry About the Mess
+description: Decrease the Critical Rating of a weapon by 1 (to a minimum of 1) against targets that have not yet acted
+  this encounter.
+activation: p
+ranked: false
+forceTalent: false
+trees: Force Sensitive Outcast, Force-Sensitive Outcast, Gunslinger
+reference:
+  - FC:33
+  - RotS:43

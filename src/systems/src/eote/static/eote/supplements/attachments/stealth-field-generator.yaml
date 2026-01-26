@@ -1,0 +1,16 @@
+id: eote-attachment-stealth-field-generator
+name: Stealth Field Generator
+description: Produced by a number of stealth technology companies, stealth field generators are the final word in personal active stealth technology. They use a combination of optical camouflage, low-output cloaking technology, active electromagnetic dampers, electronic acoustic bafflers, and thermal shielding to make a user virtually invisible to both the naked eye and to most scanners. These systems are not perfect, however. Users still need to know how to move stealthily and how to use cover and shadows to their advantage. Users also cannot move faster than a walk, or the stealth field will break down. This attachment can be applied to any armor.
+useWith: armor
+hpRequired: 2
+rarity: 7
+baseModifier:
+  description: Upgrades the difficulty of all opposed Perception checks to spot the wearer once.
+modOptions:
+  - description: Add <setback></setback> to opposed Perception checks to notice the wearer
+  - description: Add <setback></setback> to opposed Perception checks to notice the wearer
+reference:
+  - CaM:58
+includedModels:
+  - Fabritech XO-A "Vanish l" Personal Stealth Generator
+  - Kerner Corp. "Defel" Cloaking Belt

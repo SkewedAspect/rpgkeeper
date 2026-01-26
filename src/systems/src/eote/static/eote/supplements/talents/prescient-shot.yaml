@@ -1,0 +1,9 @@
+id: eote-talent-prescient-shot
+name: Prescient Shot
+description: Add <boost></boost> to all Ranged (Light) checks unless the target is immune to Force powers.
+activation: p
+ranked: false
+forceTalent: true
+trees: Warleader
+reference:
+  - KtP:31

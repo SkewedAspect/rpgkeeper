@@ -1,0 +1,28 @@
+id: eote-weapon-hand-grinder
+name: Hand Grinder
+description: >-
+  A hand grinder uses a rotating wheel coated with rough material to polish down spurs and marks on metal surfaces. This
+  can be extremely helpful when trying to get mechanical components to fit perfectly, whether these are the armoured
+  plates of a starship hull or the joints of a droid. While not as effective as a vibrosaw in terms of raw cutting
+  power, it is perhaps even more intimidating.
+
+  A hand grinder adds automatic <advantage></advantage> to crafting checks that involve shaping large pieces of hardened
+  material. A hand grinder requires two hands to use as a weapon.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 5
+hardpoints: 4
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-prepare
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 4
+reference:
+  - SM:47

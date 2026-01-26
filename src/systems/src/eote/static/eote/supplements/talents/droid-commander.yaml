@@ -1,0 +1,10 @@
+id: eote-talent-droid-commander
+name: Droid Commander
+description: Once per encounter, the character may perform Field Commander as a maneuver instead of an action. All
+  affected allies must be droids.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Separatist Commander
+reference:
+  - CotR:38

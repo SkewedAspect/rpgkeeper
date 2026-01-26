@@ -1,0 +1,12 @@
+id: eote-talent-familiar-suns
+name: Familiar Suns
+description: Once per session, may perform a Familiar Suns maneuver; make a ** Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Knowledge (Outer Rim)** or **(Core
+  Worlds) check** to reveal the current type of planetary environment and other useful information.
+activation: am
+ranked: false
+forceTalent: false
+trees: Commodore, Retired Clone Trooper, Scout
+reference:
+  - E-CRB:135
+  - A-CRB:146

@@ -1,0 +1,12 @@
+id: eote-talent-strategic-form
+name: Strategic Form
+description: May take the Strategic Form action, making a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Lightsaber check** rolling [FO] no
+  greater than Force rating. If successful, 1 target within short range may only attack character for 1 round. Spend
+  <forcepoint></forcepoint> to extend effects for 1 target for 1 round.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Soresu Defender
+reference:
+  - F-CRB:152

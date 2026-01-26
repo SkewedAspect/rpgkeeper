@@ -1,0 +1,10 @@
+id: eote-talent-design-flaw
+name: Design Flaw
+description: When making a combat check with a personal scale weapon against a droid, may add <advantage></advantage>
+  equal to ranks of Design Flaw.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Droid Specialist
+reference:
+  - FO:30

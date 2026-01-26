@@ -1,0 +1,34 @@
+id: eote-weapon-anti-personnel-mine
+name: Anti-Personnel Mine
+description: >-
+  Simple, deadly weapons deployed by countless military and paramilitary forces throughout the galaxy, anti-personnel
+  mines are, outside of hand grenades, the most common portable ordnance in use. Cheap, easy to use, and frightfully
+  efficient weapons, anti-personnel mines come in a number of forms, from simple explosive devices buried in the ground
+  that detonate when stepped on to sophisticated weapons that fire blaster bolts, gouts of fire, clouds of shrapnel, or
+  other deadly ordnance designed to shred squads of approaching infantry. Much smaller and lighter than anti-vehicle
+  mines, one or two anti-personnel mines can easily be carried by a single trooper. They are usually deployed with their
+  larger cousins around fortifications and on the battlefield to protect assets or disrupt enemy troop movement, or as
+  part of booby traps or sabotage. The major drawback to anti-personnel mines is, much like flame projectors and thermal
+  detonators, they can inadvertently target allies. In addition, the production and use of these weapons is banned on
+  many worlds due to the fact that unexploded mines can remain active and ready to kill on battlefields well after the
+  fighting is over.
+
+  **Models Include:** Merr-Sonn LX-1 Laser Flechette Mine, Merr-Sonn SM-01 High Explosive Land Mine.
+skill: Mechanics
+damage: 12
+addSkill: false
+criticalRating: 3
+range: en
+encumbrance: 3
+hardpoints: 0
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 4
+reference:
+  - A-CRB:179

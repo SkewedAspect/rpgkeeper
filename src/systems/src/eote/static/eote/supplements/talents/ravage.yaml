@@ -1,0 +1,13 @@
+id: eote-talent-ravage
+name: Ravage
+description: Once per encounter, the character may suffer 3 strain to add [FO] up to their current Force rating to a
+  combat check targeting an engaged opponent. The character may spend <forcepoint></forcepoint> to add
+  <success></success> or <advantage></advantage> to the results of the check. If the rules for Morality in **Force and
+  Destiny** are in use, a character who has purchased this talent gains 1 Conflict at the beginning of each game
+  session.
+activation: ai
+ranked: false
+forceTalent: true
+trees: Force Sensitive Outcast, Force-Sensitive Outcast
+reference:
+  - RotS:41

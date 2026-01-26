@@ -1,0 +1,27 @@
+id: eote-weapon-electromag-pulse-disruptor
+name: Electromag-Pulse Disruptor
+description: >-
+  An electromag-pulse disruptor is a device is a slim stylus used to short out electronic equipment. While some
+  Technicians who work with droids or computer systems that might run out of control need such a device to anyone who
+  ends up in a combat situation. In the Core Worlds, machinists rarely need to concern themselves with such risks, but
+  in the Outer Rim, where marauders and pirates about, possession of such a device can mean the difference between life
+  and death.
+
+  Add <boost></boost><boost></boost> to any check the character makes to sabotage electronics or computers. Add
+  <setback></setback> to a character's perception checks made to find this weapon on a person's body.
+skill: Melee
+damage: 5
+addSkill: false
+criticalRating: 4
+range: en
+encumbrance: 1
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 1
+  - id: eote-quality-ion
+    ranks: 1
+reference:
+  - SM:44

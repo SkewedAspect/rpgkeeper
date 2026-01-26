@@ -1,0 +1,13 @@
+id: eote-attachment-shien-reverse-grip-customization
+name: Shien Reverse Grip Customization
+description: Practitioners of Form V sometimes use a reverse grip on their lightsabers to assist in many of the techniques common to that form. Through a few careful adjustments to the grip and balance of their lightsabers, these practitioners can make the weapons more suited to wielding in this manner although the modifications make using a traditional grip somewhat unwieldly in the process.
+useWith: weapon
+hpRequired: 1
+rarity: 6
+baseModifier:
+  description: Wielder adds <advantage></advantage> to all Lightsaber (Cunning) checks, but adds <threat></threat> to all other Lightsaber checks.
+modOptions: []
+reference:
+  - EV:52
+includedModels:
+  - None; users must custom make each lightsaber attachment

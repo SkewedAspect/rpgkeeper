@@ -1,0 +1,24 @@
+id: eote-attachment-mephite-crystal
+name: Mephite Crystal
+description: Mephite crystals are rare, lustrous kyber crystals found in a handful of places in and around the Adega system. One of five types of crystal known collectively as "Adegan crystals," mephite crystals are well-suited for use in lightsabers due to their internal structure and light-modulating capabilities. Like all Adegan crystals. mephite crystals are Force-reactive and can be infused with a small amount of a Force user's power. When installed in a lightsaber and infused with the Force, mephite crystals give off a small but steady Force signature that can be sensed by any nearby Force user A mephite crystal is a lightsaber crystal.
+useWith: weapon
+hpRequired: 2
+rarity: 10
+baseModifier:
+  description: Damage set to 8; Critical set to 2; ; ; Force-sensitive characters using Force powers to sense their surroundings automatically detect a lightsaber using a mephite crystal if it is within the range of the power.
+  qualities:
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
+modOptions:
+  - damageModifier: 1
+  - damageModifier: 1
+  - damageModifier: 1
+  - criticalModifier: -1
+  - qualities:
+      - id: eote-quality-vicious
+        ranks: 1
+reference:
+  - F-CRB:200
+includedModels:
+  - None

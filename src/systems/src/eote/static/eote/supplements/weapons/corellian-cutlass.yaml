@@ -1,0 +1,23 @@
+id: eote-weapon-corellian-cutlass
+name: Corellian Cutlass
+description: Traditionally granted to Corellian naval officers upon being promoted from ensign or sub-lieutenant to full
+  lieutenant, the Corellian cutlass is a relatively short, broad saber with a solid hand guard. While generally
+  considered little more than ornamental blade, the weight and craftsmanship of the cutlass makes it an effective weapon
+  in close combat. Some Corellian free-traders who previously served in the navy retain their cutlasses and continue to
+  wear them.
+skill: Melee
+damage: 2
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 1
+rarity: 3
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - SoF:97

@@ -1,0 +1,31 @@
+id: eote-weapon-guard-shoto-hilt
+name: Guard Shoto Hilt
+description: >-
+  Similar to the shoto lightsaber, the guard shoto or lightsaber tonfa, is a lightsaber with its grip set perpendicular
+  to the blade, allowing the wielder to rapidly switch betweek attack and defense, deflecting bolts and blows one moment
+  and lashing out with circular attacks of blinding speed the next. While these versatile weapons are extremely
+  difficult to master, they can be startlingly effective, especially when paired with cortosis gauntlets to protect
+  against slips of the blade.
+
+  The lightsaber is a guard shoto hilt containing an unmodded Illum lightsaber crystal (see page 197 of the Force and
+  Destiny core rulebook). This crystal occupies two of the weapons hardpoints.
+
+  When installing a lightsaber crystal into a guard shoto, decrease the damage of that lightsaber crystal by 1.
+skill: Lightsaber
+damage: 0
+addSkill: false
+criticalRating: 0
+range: en
+encumbrance: 1
+hardpoints: 3
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-deflection
+    ranks: 2
+  - id: eote-quality-unwieldy
+    ranks: 4
+reference:
+  - KtP:46

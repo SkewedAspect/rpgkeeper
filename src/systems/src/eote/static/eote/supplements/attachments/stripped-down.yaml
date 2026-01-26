@@ -1,0 +1,16 @@
+id: eote-attachment-stripped-down
+name: Stripped Down
+description: By removing redundant components and stripping down the body, it is possible to significantly reduce the weight and profile of a blaster or other weapon. A weapon modified this way is more easily carried and transported and can be better hidden under a coat or among other equipment. The attachment can be used with any Ranged (Light) or Ranged (Heavy) weapon.
+useWith: weapon
+hpRequired: 3
+rarity: 4
+baseModifier:
+  encumbranceModifier: -1
+  description: Add <setback></setback> to Perception checks to find the weapon when hidden.
+modOptions:
+  - encumbranceModifier: -1
+  - encumbranceModifier: -1
+reference:
+  - SM:56
+includedModels:
+  - None

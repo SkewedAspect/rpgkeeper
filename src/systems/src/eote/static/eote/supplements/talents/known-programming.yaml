@@ -1,0 +1,12 @@
+id: eote-talent-known-programming
+name: Known Programming
+description: Once per session, make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Vigilance check** to upgrade the
+  difficulty of a certain droid model's check against the character, plus one ally per <success></success> after the
+  first, once for the rest of the encounter.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Clone Veteran
+reference:
+  - CotR:21

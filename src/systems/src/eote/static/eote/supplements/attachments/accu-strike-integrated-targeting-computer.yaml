@@ -1,0 +1,12 @@
+id: eote-attachment-accu-strike-integrated-targeting-computer
+name: '"Accu-Strike" Integrated Targeting Computer'
+description: Complex and sophisticated attachments, targeting systems integrate an advanced targeting computer and sensor suite, providing a constant stream of data to the user. Depending on the model, this information may be delivered by audio or on a visor HUD. Some particularly advanced systems incorporate small vibro-motors installed in the armor's gloves or gauntlets and wired to the helmet system, which subtly adjust the user's hands to enhance accuracy.
+useWith: armor
+hpRequired: 1
+rarity: 7
+baseModifier:
+  description: Add <boost></boost> to all Ranged attacks at long or extreme range.
+modOptions:
+  - description: Gain Natural Marksman (reroll 1 Ranged check/session)
+reference:
+  - DC:54

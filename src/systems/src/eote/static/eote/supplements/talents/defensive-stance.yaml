@@ -1,9 +1,12 @@
 id: eote-talent-defensive-stance
 name: Defensive Stance
-description: Once per round, your character may suffer a number of strain no greater than their ranks in Defensive
-  Stance to use this talent. Then, until the end of your character’s next turn, upgrade the difficulty of all melee
-  combat checks targeting your character a number of times equal to the strain suffered.
+description: Once per round, may perform Defensive Stance maneuver and suffer a number of strain to upgrade difficulty
+  of all incoming melee attacks by an equal number. Strain suffered this way cannot exceed ranks in Defensive Stance.
 activation: am
 ranked: true
-trees: Bodyguard, Gadgeteer, Marauder, Outlaw Tech
-reference: E-CRB:134
+forceTalent: false
+trees: Bodyguard, Enforcer, Gadgeteer, Infiltrator, Marauder, Outlaw Tech, Shien Expert, Soresu Defender
+reference:
+  - E-CRB:134
+  - A-CRB:146
+  - F-CRB:141

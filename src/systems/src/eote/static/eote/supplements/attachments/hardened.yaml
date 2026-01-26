@@ -1,0 +1,13 @@
+id: eote-attachment-hardened
+name: Hardened
+description: Power armor relies on its energy source to maintain functionality. If this flow of energy is interrupted by a powerful electromagnetic burst or exposure to ion weapons, the armor loses both its mobility and its ability to enhance the wearer.  With the armor's vital systems "hardened" against such effects, power armor becomes immune to these attacks. Such hardening modifications are weighty, however. Adjustments must be made to nearly every subsystem to prevent even partial shutdowns from taking place. This attachment can only be applied to power armor.
+useWith: armor
+hpRequired: 2
+rarity: 4
+baseModifier:
+  description: Prevents deactivatof power armor by electromagnetic or ion weapons.
+  qualities:
+    - id: eote-quality-ion
+modOptions: []
+reference:
+  - KtP:56

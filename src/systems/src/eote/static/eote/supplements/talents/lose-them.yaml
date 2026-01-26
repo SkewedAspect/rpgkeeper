@@ -1,0 +1,12 @@
+id: eote-talent-lose-them
+name: Lose Them
+description: When being followed or chased, the character may perform the Lose Them action and make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Stealth check**. If successful, add
+  <setback></setback><setback></setback> to checks to follow him for the remainder of the encounter and may spend
+  <triumph></triumph> to indicate his pursuers have lost him completely.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Courier
+reference:
+  - CaM:31

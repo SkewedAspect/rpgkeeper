@@ -1,0 +1,11 @@
+id: eote-talent-surgeon
+name: Surgeon
+description: When making a Medicine check to help a character heal wounds, the target heals 1 additional wound per rank of Surgeon.
+activation: p
+ranked: true
+forceTalent: false
+trees: Cyber Tech, Doctor, Healer, Interrogator, Medic
+reference:
+  - E-CRB:144
+  - A-CRB:158
+  - F-CRB:153

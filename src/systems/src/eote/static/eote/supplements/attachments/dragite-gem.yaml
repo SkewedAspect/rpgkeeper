@@ -1,0 +1,32 @@
+id: eote-attachment-dragite-gem
+name: Dragite Gem
+description: Small, dull, and brittle, Dragite gems are found in the caves and caverns of the D'olop mountain range on M'haeli, an agriworld in the Expansion Region. In their natural state, dragite crystals are one of the most brittle kyber crystals, and they produce a loud ringing when struck. Worked into a suitable lightsaber crystal, a difficult task due to the dragite gem's distressing tendency to fracture or shatter easily, it produces a blade that pulses and hums loudly. In addition to this noise, when a lightsaber equipped with a dragite gem strikes a solid target, it produces a deafening crack and a shock wave that can disorient and even cause bodily harm to its target. A dragite gem is a lightsaber crystal.
+useWith: weapon
+hpRequired: 2
+rarity: 7
+baseModifier:
+  description: Damage set to 7; Critical set to 3
+  qualities:
+    - id: eote-quality-disorient
+      ranks: 1
+    - id: eote-quality-sunder
+    - id: eote-quality-breach
+      ranks: 1
+modOptions:
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - qualities:
+      - id: eote-quality-concussive
+        ranks: 1
+  - qualities:
+      - id: eote-quality-concussive
+        ranks: 1
+  - damageModifier: 1
+reference:
+  - F-CRB:196
+includedModels:
+  - None

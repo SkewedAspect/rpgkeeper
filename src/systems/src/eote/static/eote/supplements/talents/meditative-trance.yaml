@@ -1,0 +1,10 @@
+id: eote-talent-meditative-trance
+name: Meditative Trance
+description: When suffocating (see **Force and Destiny** Core Rulebook, page 221), the character suffers 1 strain each
+  round instead of 3. When exposed to vacuum, the character suffers 1 wound each round instead of 3.
+activation: p
+ranked: false
+forceTalent: true
+trees: Ascetic
+reference:
+  - DoH:29

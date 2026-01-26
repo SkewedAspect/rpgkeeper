@@ -1,0 +1,16 @@
+id: eote-attachment-enhanced-carbon-durasteel-armor
+name: Enhanced Carbon-Durasteel Armor
+description: Produced by numerous starship manufacturers, these armor plates are made from a complex lattice of carbon nanotubes embedded with spun threads of durasteel. Molecularly bonded to a ship's hull, they provide extra armor protection at the cost of a ship's maneuverability. This may be applied to all starships and vehicles.
+useWith: vehicle
+hpRequired: 2
+rarity: 3
+baseModifier:
+  description: +1 Armor; -1 Handling
+modOptions: []
+reference:
+  - E-CRB:269
+  - A-CRB:286
+  - F-CRB:269
+includedModels:
+  - Ferro-Magnesium Armor Plate
+  - Cerro-Ablative Sheets

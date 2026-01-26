@@ -1,0 +1,11 @@
+id: eote-talent-blooded-improved
+name: Blooded (Improved)
+description: As an action, make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)
+  Resilience check** to immediately recover from all poisons and side-effects of drugs. Reduce difficulty once per rank
+  of Blooded.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Alchemist
+reference:
+  - UP:32

@@ -25,16 +25,25 @@
                                 </template>
                                 <template #append-extra>
                                     <BButton
-                                        class="ms-2 text-nowrap"
-                                        variant="success"
-                                        title="Add New..."
-                                        @click="addNew()"
+                                        class="text-nowrap"
+                                        variant="secondary"
+                                        :title="`Browse ${ label }...`"
+                                        @click="openBrowseModal()"
                                     >
-                                        <Fa icon="plus" />
-                                        New
+                                        <Fa icon="search" />
+                                        Browse {{ label }}
                                     </BButton>
                                 </template>
                             </SupplementSearch>
+                            <BButton
+                                class="ms-2 text-nowrap"
+                                variant="success"
+                                title="Add New..."
+                                @click="addNew()"
+                            >
+                                <Fa icon="plus" />
+                                New
+                            </BButton>
                         </div>
                     </template>
 
@@ -49,14 +58,16 @@
                             <div class="float-end">
                                 <slot :instance="supp.instance" :supplement="supp.supplement" name="selection-extra" />
                                 <ScopeBadge v-if="supp.supplement" :supplement="supp.supplement" />
-                                <BButton
-                                    class="ms-2 text-nowrap"
-                                    variant="danger"
-                                    title="Remove"
-                                    @click.prevent.stop="removeSupp(supp.instance)"
-                                >
-                                    <Fa icon="times" />
-                                </BButton>
+                                <slot :instance="supp.instance" :supplement="supp.supplement" name="remove-button">
+                                    <BButton
+                                        class="ms-2 text-nowrap"
+                                        variant="danger"
+                                        title="Remove"
+                                        @click.prevent.stop="removeSupp(supp.instance)"
+                                    >
+                                        <Fa icon="times" />
+                                    </BButton>
+                                </slot>
                             </div>
                             <div class="pt-2">
                                 {{ supp.supplement?.name }}
@@ -122,13 +133,41 @@
                 </BCard>
             </BCol>
         </BFormRow>
+
+        <!-- Modals -->
+        <SupplementBrowserModal
+            ref="browseModal"
+            :title="browseTitle ?? `Browse ${ label }`"
+            :supplements="available"
+            :selected-ids="selectedIds"
+            @select="onBrowseSelect"
+            @add-new="addNew"
+        >
+            <template v-if="$slots['browse-preview']" #preview="{ supplement }">
+                <slot :supplement="supplement" name="browse-preview" />
+            </template>
+        </SupplementBrowserModal>
     </BFormGroup>
 </template>
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
+<style lang="scss" scoped>
+    .supplement-select {
+        :deep(.list-group-item.list-group-item-primary) {
+            --bs-list-group-active-bg: var(--bs-primary);
+            --bs-list-group-active-border-color: var(--bs-primary);
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+            color: var(--bs-white);
+        }
+    }
+</style>
+
+<!--------------------------------------------------------------------------------------------------------------------->
+
 <script lang="ts" setup generic="TSupplement extends Supplement, TInstance extends SupplementInst">
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Models
@@ -142,6 +181,7 @@
 
     // Components
     import SupplementSearch from './supplementSearch.vue';
+    import SupplementBrowserModal from './supplementBrowserModal.vue';
     import MarkdownBlock from '../ui/markdownBlock.vue';
     import ReferenceBlock from './referenceBlock.vue';
     import ScopeBadge from './scopeBadge.vue';
@@ -157,7 +197,8 @@
         available : TSupplement[];
         selected : (TInstance | string)[];
         maxHeight ?: string;
-        sortFn ?: (suppA : Supplement, suppB : Supplement) => number
+        sortFn ?: (suppA : Supplement, suppB : Supplement) => number;
+        browseTitle ?: string;
     }
 
     const props = withDefaults(
@@ -165,6 +206,7 @@
         {
             maxHeight: '300px',
             sortFn: undefined,
+            browseTitle: undefined,
         }
     );
 
@@ -179,10 +221,12 @@
     defineSlots<{
         'suggestion-extra' : (props : { supplement : TSupplement }) => unknown;
         'selection-extra' : (props : { instance : TInstance; supplement : TSupplement | undefined }) => unknown;
+        'remove-button' : (props : { instance : TInstance; supplement : TSupplement | undefined }) => unknown;
         'header' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
         'preview-title' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
         'noSelection' : () => unknown;
         'preview' : (props : { instance : TInstance | undefined; supplement : TSupplement }) => unknown;
+        'browse-preview' : (props : { supplement : TSupplement }) => unknown;
     }>();
 
     //------------------------------------------------------------------------------------------------------------------
@@ -191,6 +235,7 @@
 
     const currentSelection = ref();
     const { current } = storeToRefs(useCharacterStore());
+    const browseModal = useTemplateRef('browseModal');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -248,6 +293,18 @@
     const sortFn = computed<(suppA : Supplement, suppB : Supplement) => number>(() =>
     {
         return props.sortFn ?? ((suppA, suppB) => suppA.name.localeCompare(suppB.name));
+    });
+
+    const selectedIds = computed<string[]>(() =>
+    {
+        return props.selected.map((item) =>
+        {
+            if(typeof item === 'object' && item.id)
+            {
+                return item.id;
+            }
+            return String(item);
+        });
     });
 
     const canModify = computed(() =>
@@ -308,6 +365,19 @@
     function addNew() : void
     {
         emit('new');
+    }
+
+    function openBrowseModal() : void
+    {
+        browseModal.value?.show();
+    }
+
+    function onBrowseSelect(supp : TSupplement) : void
+    {
+        if(supp?.id)
+        {
+            emit('add', { id: supp.id } as TInstance);
+        }
     }
 
     function removeSupp(supp : TInstance) : void

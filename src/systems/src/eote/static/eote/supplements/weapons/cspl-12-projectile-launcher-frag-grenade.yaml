@@ -1,0 +1,57 @@
+id: eote-weapon-cspl-12-projectile-launcher-frag-grenade
+name: CSPL-12 Projectile Launcher (Frag Grenade)
+description: >-
+  The Empire has fielded this pistol-sized projectile
+
+  launcher for years. The launcher can fire standard-issue frag grenades, and more than one rebel tinkerer
+
+  has been know to retrofit it to launch non-traditional
+
+  payloads. Because of its long career and devastating effect on the surrounding area (and anyone in it, friend
+
+  or foe), the "Caspel" launcher has gained a notorious,
+
+  albeit somewhat warranted, reputation as an accident-prone piece of equipment.
+
+  The profile provided with this weapon is for frag grenades. Other grenades, such shaped thermal grenades
+
+  and the various grenades found on page 173 of the
+
+  **Age of Rebellion** Core Rulebook, can be loaded into
+
+  the launcher. While these grenades are loaded, they
+
+  replace the damage, critical rating, and item qualities of
+
+  the original weapon with their own.
+
+  The GM may spend <despair></despair> from a combat check with this
+
+  weapon to cause it to jam. If the GM does so, the contents detonate, inflicting a hit from the loaded grenade
+
+  on the wielder and each other character at engaged
+
+  range. Further, the weapon becomes damaged two
+
+  steps; from undamaged to Moderate, Minor to Major, or
+
+  Moderate to Major (see page 172 of the **Age of Rebellion** Core Rulebook).The GM may spend additional
+  <despair></despair>
+
+  to trigger one of the loaded grenade’s qualities.
+skill: Ranged (Light)
+damage: 8
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 2
+hardpoints: 2
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-limited-ammo
+    ranks: 3
+reference:
+  - FiB:47

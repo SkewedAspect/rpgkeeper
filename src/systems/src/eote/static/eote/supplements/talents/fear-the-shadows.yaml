@@ -1,0 +1,11 @@
+id: eote-talent-fear-the-shadows
+name: Fear the Shadows
+description: "Perform the Fear the Shadows action: make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Deception check** to force a single
+  minion group or rival to flee the encounter."
+activation: aa
+ranked: false
+forceTalent: true
+trees: Sentry
+reference:
+  - EV:30

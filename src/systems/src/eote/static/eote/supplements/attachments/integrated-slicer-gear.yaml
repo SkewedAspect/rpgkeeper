@@ -1,0 +1,15 @@
+id: eote-attachment-integrated-slicer-gear
+name: Integrated Slicer Gear
+description: Slicers must often conduct their work under strict time constraints and less than ideal conditions. By integrating a customized computer, dataports and gesture interface circuitry into worn armour, a slicer can ensure that the tools of the trade are always at hand and almost impossible to lose. A visor-mounted heads-up display or holographic image streams the data the slicer needs, while specially designed gloves or gauntlets allow the slicer to manipulate code using nothing more than gestures and brief voice commands. This attachment can be applied to any armor.
+useWith: armor
+hpRequired: 3
+rarity: 6
+baseModifier:
+  description: Counts as having Slicer Gear. Can be controlled by gesture or voice.
+modOptions:
+  - description: Gain Technical Aptitude (reduce time for Computer tasks)
+reference:
+  - SM:58
+includedModels:
+  - MerenData Mobile XR-1
+  - numerous custom variants

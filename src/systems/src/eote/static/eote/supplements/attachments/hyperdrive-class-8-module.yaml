@@ -1,0 +1,20 @@
+id: eote-attachment-hyperdrive-class-8-module
+name: Hyperdrive Class 8 Module
+description: Compared to sublight engines, hyperdrive modules require less thrust ducting and other complex integration work. Thus, they are handled as a starship attachment.
+useWith: vehicle
+hpRequired: 1
+rarity: 3
+baseModifier:
+  description: Add Class 8 Hyperdrive; Add astromech droid socket (starfighters only).
+modOptions:
+  - description: -5 Hyperdrive Class
+  - description: -5 Hyperdrive Class
+  - description: -5 Hyperdrive Class
+  - description: -5 Hyperdrive Class
+  - description: Add Class 14 Backup Hyperdrive Mod
+  - description: Reduce Backup Hyperdrive Rating by 1
+  - description: Reduce Backup Hyperdrive Rating by 1
+  - description: Reduce Backup Hyperdrive Rating by 1
+  - description: Reduce Backup Hyperdrive Rating by 1
+reference:
+  - FO:82

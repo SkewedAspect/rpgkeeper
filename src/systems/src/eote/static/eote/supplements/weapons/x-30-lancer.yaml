@@ -1,0 +1,35 @@
+id: eote-weapon-x-30-lancer
+name: x-30 Lancer
+description: >-
+  X-30 Lancer
+
+  Lightweight and easy to use, SoroSuub's X-30 Lancer is one of the most popular sporting blasters on the market.
+  Designed with competition shooters and pistol hunters in mind, the Lancer is optimized for range, accuracy, and
+  stopping power. Built to SoroSuub's exacting standards, the Lancer is a sleek, modern-looking blaster pistol with a
+  long barrel and a weighted, finely balanced stock. Firing a blaster bolt that is well out of scale for a weapon its
+  size, it uses a custom-formulated, highly volatile mix of blaster gasses and a supercharged actuating module to fire
+  intense, highly concentrated bolts accurately over long distances. Superior galven patterns in the barrel reduce beam
+  degradation and dispersal, allowing the pistol to maintain effectiveness well past the range of other weapons of its
+  class.
+
+  In the Outer Rim, Lancer pistols are relatively common, especially among those who need a powerful weapon in a
+  lightweight package. Many speeders and atmospheric craft have one of these fine pistols tucked away in an
+  easy-to-reach storage locker, and many starships include them in their escape pods and emergency kits as a defensive
+  weapon. They are also especially popular among explorers and scholars for their easy handling characteristics, as well
+  as by those big-game hunters who enjoy the challenge of pistol hunting.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 4
+range: l
+encumbrance: 1
+hardpoints: 3
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+reference:
+  - EtU:38

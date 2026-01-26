@@ -1,0 +1,32 @@
+id: eote-weapon-rgl-318-rotary-grenade-launcher
+name: RGL-318 Rotary Grenade Launcher
+description: >-
+  Grenade launchers are some of the most versatile weapons available on the market. The ability to chamber various types
+  of offensive, defensive, and less-lethal rounds allows a shooter to react quickly to the vagaries of the galaxy's
+  battlefields The RGL-318, by Locris Syndicates, is a highly respected weapon that has been in service for decades in
+  militaries and law-enforcement agencies throughout the galaxy. A big, intimidating weapon, the RGL-318 is roughly
+  carbine-sized, with a short, wide barrel and a folding stack. A rotating cylinder mounted forward of the trigger
+  carries six grenades and can be loaded one chamber at a time or dropped and instantly replaced with a fresh cylinder.
+
+  The weapon's listed price does not include ammunition. Grenades for the RGL-318 cost the same as equivalent hand
+  grenades, but many dealers offer a 50-percent discount on cases of six. Any type of grenade can be chambered by the
+  RGL-318, but the grenades must be specifically made to be fired from a grenade launcher. Launcher grenades cannot be
+  thrown. The listed profile represents an RGL-318 loaded with standard frag grenades.
+skill: Gunnery
+damage: 8
+addSkill: false
+criticalRating: 4
+range: m
+encumbrance: 5
+hardpoints: 3
+rarity: 4
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 5
+reference:
+  - KoF:41

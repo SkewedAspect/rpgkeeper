@@ -1,0 +1,10 @@
+id: eote-talent-signature-vehicle
+name: Signature Vehicle
+description: Choose one starship or vehicle as Signature Vehicle Upgrade all Mechanics checks made on that vehicle once.
+activation: p
+ranked: false
+forceTalent: false
+trees: Modder, Rigger
+reference:
+  - SoT:33
+  - SM:35

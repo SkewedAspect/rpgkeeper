@@ -1,0 +1,25 @@
+id: eote-weapon-pocket-blaster-pistol
+name: Pocket Blaster Pistol
+description: >-
+  Spukami Pocket Blaster Pistol
+
+  This unassuming pistol produced by Fed-Dub Protective Services Inc. provides citizens of the double worlds with a
+  last-ditch punch for personal protection. The Spukami is designed for close-quarters combat only, and while it hits
+  hard, it also loses accuracy quickly at any kind of range.
+
+  When firing the Spukami at short range (or longer), the weapon gains the Inaccurate 1 quality (it does not gain this
+  quality when fired at an engaged target). Add <setback></setback> to a character's Perception check when attempting to
+  find a holdout pistol on a person's body.
+skill: Ranged (Light)
+damage: 5
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 2
+restricted: false
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - SoF:96

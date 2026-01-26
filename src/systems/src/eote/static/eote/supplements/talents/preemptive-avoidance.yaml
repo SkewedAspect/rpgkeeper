@@ -1,0 +1,9 @@
+id: eote-talent-preemptive-avoidance
+name: Preemptive Avoidance
+description: May spend 1 Destiny Point to disengage from engaged enemy as an out-of-turn incidental.
+activation: aio
+ranked: false
+forceTalent: true
+trees: Navigator, Sage, Seer
+reference:
+  - F-CRB:149

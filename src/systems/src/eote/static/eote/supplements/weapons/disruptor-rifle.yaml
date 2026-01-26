@@ -1,0 +1,40 @@
+id: eote-weapon-disruptor-rifle
+name: Disruptor Rifle
+description: >-
+  Illegal throughout most of the civilized worlds, disruptors focus such a highly energized beam of particles that they
+  can disintegrate limbs or other large parts of their victim's bodies. The technology is essentially that of a blaster
+  rifle, but with an oversized XCiter and
+
+  a specialized actuating module that processes a much higher volume of blaster gas than usual. This combines with a
+  galven cylinder that super-focuses the resultant beam. Most disruptor weapons have a very poor range, although some
+  rifle variants have a boosted range through expensive reinforced galven cylinders and are designed specifically for
+  snipers and sharpshooters.
+
+  The Tenloss Syndicate manufactures one of the few mass-produced disruptors, the DXR-6 rifle and the DX-2 pistol. Their
+  main client is the notorious Black Sun criminal organization, but they also service a smattering of ruthless rogues
+  and other scoundrels. A few Imperial inquisitors and interrogators have been known to brandish these weapons as well,
+  but perhaps more for the intimidation and terror factor than their practicality.
+
+  Whenever a victim is hit by a disruptor, any Critical Hit results in a °Crippled" effect unless the roll on **Table
+  6-10** would result in an even more grievous injury.
+
+  Disruptors may never benefit from upgrades or attachments that improve their range or grant multiple shots.
+
+  **Models Include**: Tenloss DXR-6 Disruptor Rifle, Ten-loss DX-2 Disruptor Pistol.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 2
+range: l
+encumbrance: 5
+hardpoints: 4
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 5
+reference:
+  - E-CRB:163
+  - A-CRB:176

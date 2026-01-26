@@ -1,0 +1,30 @@
+id: eote-attachment-enhanced-xciter
+name: Enhanced XCiter
+description: |-
+  Outlaw Techs have long known how to modify the gas
+  conversion enabler in a blaster to yield a more highly
+  energetic—and correspondingly more destructive—payload. Such modified XCiter modules are highly
+  unstable, however, and are sometimes disparaged as
+  being just as dangerous to the wielder and anyone
+  else nearby as to the enemy. Despite the risk and the
+  illegality of the modification, many outlaws seek out
+  such customizations to gain an edge in a firefight. This
+  attachment can be applied to any blaster.
+useWith: weapon
+hpRequired: 2
+rarity: 6
+baseModifier:
+  criticalModifier: -1
+  description: GM may spend <despair></despair><despair></despair> to cause blaster to explode, destroying blaster and inflicting automatic Critical Injury on wielder.
+modOptions:
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+  - qualities:
+      - id: eote-quality-pierce
+        ranks: 1
+reference:
+  - SM:54

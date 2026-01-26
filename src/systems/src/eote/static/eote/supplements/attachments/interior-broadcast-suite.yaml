@@ -1,0 +1,14 @@
+id: eote-attachment-interior-broadcast-suite
+name: Interior Broadcast Suite
+description: As a result of their transient lifestyles, most smugglers must bring their own entertainment with them wherever they go. For many species, music is a primary form of amusement in addition to being an important cultural touchstone, and so many smugglers install systems that let them broadcast their chosen auditory entertainment across the vessel. While this can have a soothing effect if everyone aboard the ship agrees with the selection of music, it can also be a source of considerable fric-tion between crewmates, such as if one crewmember is extremely dedicated to Gamorrean opera and the rest of the crew does not share that unique taste.
+useWith: vehicle
+hpRequired: 1
+rarity: 3
+baseModifier:
+  description: Increases the strain threshold of each crewmember by 1
+modOptions: []
+reference:
+  - FC:63
+includedModels:
+  - Celta-corp Shipboard Music Suite
+  - TaggeCo. Interior Broadcaster System

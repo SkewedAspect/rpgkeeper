@@ -1,0 +1,10 @@
+id: eote-talent-reinforce-item
+name: Reinforce Item
+description: "Take the Reinforce Item maneuver: commit [LI][LI] to grant one weapon or piece of armor the Cortosis
+  quality while [LI][LI] remains committed. Suffer 3 strain every round [LI][LI] remain committed."
+activation: am
+ranked: false
+forceTalent: true
+trees: Armorer
+reference:
+  - KtP:31

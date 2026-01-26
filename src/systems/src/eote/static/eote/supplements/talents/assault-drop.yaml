@@ -1,0 +1,11 @@
+id: eote-talent-assault-drop
+name: Assault Drop
+description: Once per session while piloting a vehicle or ship, the character may perform the Assault Drop incidental.
+  All passengers aboard or allies engaged with the vehicle or ship may immediately disembark or embark as an out-of-turn
+  incidental.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Clone Pilot
+reference:
+  - RotS:37

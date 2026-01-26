@@ -1,0 +1,28 @@
+id: eote-weapon-de-10-blaster-pistol
+name: DE-10 Blaster Pistol
+description: >-
+  The DE-10 is a stylish and reliable heavy blaster produced by BlasTech subsidiary Antrech Arms, specialists in
+  boutique and niche products. Vaunted for its reliability and ease of maintenance, this fine blaster pistol resembles
+  nothing so much as a slugthrower revolver. It is constructed of high-quality materials and can stand up to immense
+  punishment in the field. Unlike most blaster weapons, the DE-10 fires a distinctive bright-blue bolt, a feature
+  designed simply to set it apart from its competition. All DE-10 pistols come standard with a telescopic optical
+  sight. 
+
+  The DE-10's telescopic optical site reduces the difficulty of combat checks made at long and extreme range by one. A
+  DE-10 in need of minor repairs does not add <setback></setback> to checks. Add <boost></boost> to checks made to
+  repair a damaged DE-10
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 2
+range: l
+encumbrance: 1
+hardpoints: 2
+rarity: 8
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-stun-setting
+reference:
+  - CotR:51

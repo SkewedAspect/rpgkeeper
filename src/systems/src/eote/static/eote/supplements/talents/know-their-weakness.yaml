@@ -1,0 +1,12 @@
+id: eote-talent-know-their-weakness
+name: Know Their Weakness
+description: Once per session, may perform the Know Their Weakness action and choose one target within close range; make
+  a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check** to downgrade
+  the difficulty of social skill checks against target once per rank of Know Their Weakness until the end of the
+  session.
+activation: aa
+ranked: true
+forceTalent: false
+trees: Interrogator
+reference:
+  - CaM:31

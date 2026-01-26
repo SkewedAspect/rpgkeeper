@@ -1,0 +1,11 @@
+id: eote-talent-barrage
+name: Barrage
+description: Add 1 damage per rank of Barrage to 1 hit of successful attack while using Ranged (Heavy) or Gunnery skills
+  at long or extreme range.
+activation: p
+ranked: true
+forceTalent: false
+trees: Bodyguard, Heavy
+reference:
+  - E-CRB:132
+  - FiB:34

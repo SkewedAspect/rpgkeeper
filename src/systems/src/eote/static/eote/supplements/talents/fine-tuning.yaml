@@ -1,0 +1,12 @@
+id: eote-talent-fine-tuning
+name: Fine Tuning
+description: When reducing the amount of system strain a starship or vehicle suffers, reduce 1 additional strain per
+  rank of Fine Tuning.
+activation: p
+ranked: true
+forceTalent: false
+trees: Artisan, Driver, Mechanic, Shipwright
+reference:
+  - E-CRB:135
+  - A-CRB:147
+  - F-CRB:143

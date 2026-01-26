@@ -47,35 +47,64 @@
                     <BTh>
                         Upgrades
                     </BTh>
+                    <BTh v-if="showAttachments">
+                        Attachments
+                    </BTh>
                 </BTr>
             </BThead>
             <BTbody>
                 <BTr>
                     <BTd class="text-center">
-                        {{ armor.defense }}
+                        <template v-if="armorStats.defenseModifier !== 0">
+                            {{ armor.defense }} ({{ armorStats.defenseModifier >= 0 ? '+' : '' }}{{ armorStats.defenseModifier }})
+                        </template>
+                        <template v-else>
+                            {{ armor.defense }}
+                        </template>
                     </BTd>
                     <BTd class="text-center">
-                        {{ armor.soak }}
+                        <template v-if="armorStats.soakModifier !== 0">
+                            {{ armor.soak }} ({{ armorStats.soakModifier >= 0 ? '+' : '' }}{{ armorStats.soakModifier }})
+                        </template>
+                        <template v-else>
+                            {{ armor.soak }}
+                        </template>
                     </BTd>
                     <BTd class="text-center">
                         {{ armor.hardpoints }}
                     </BTd>
                     <BTd class="text-center">
-                        {{ armor.encumbrance }}
+                        <template v-if="armorStats.encumbranceModifier !== 0">
+                            {{ armor.encumbrance }} ({{ armorStats.encumbranceModifier >= 0 ? '+' : '' }}{{ armorStats.encumbranceModifier }})
+                        </template>
+                        <template v-else>
+                            {{ armor.encumbrance }}
+                        </template>
                     </BTd>
                     <BTd class="text-center">
                         {{ armor.rarity }}
                     </BTd>
-                    <BTd class="text-nowrap w-25">
+                    <BTd class="text-nowrap">
                         <QualityTag
-                            v-for="quality in armor.qualities"
+                            v-for="quality in computeArmorQualities(armor, allAttachments)"
                             :id="quality.id"
                             :key="quality.id"
-                            :ranks="quality.ranks"
+                            :ranks="quality.totalRanks"
                         />
-                        <h5 v-if="armor.qualities.length === 0" class="mt-2 text-center">
-                            No Upgrades.
-                        </h5>
+                        <span v-if="computeArmorQualities(armor, allAttachments).length === 0" class="text-muted">
+                            None
+                        </span>
+                    </BTd>
+                    <BTd v-if="showAttachments" class="text-nowrap">
+                        <AttachmentTag
+                            v-for="att in (armor.attachments as EoteAttachmentRef[])"
+                            :id="att.id"
+                            :key="att.id"
+                            :activated-mods="att.activatedMods"
+                        />
+                        <span v-if="armor.attachments.length === 0" class="text-muted">
+                            None
+                        </span>
                     </BTd>
                 </BTr>
             </BTbody>
@@ -107,14 +136,25 @@
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
-    // import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Models
-    import type { EoteArmorRef, EoteCharacter } from '../../models.ts';
+    import type {
+        EoteArmorRef,
+        EoteAttachment,
+        EoteAttachmentRef,
+        EoteOrGenCharacter,
+        GenesysCharacter,
+    } from '../../models.ts';
+
+    // Utils
+    import { computeArmorQualities, computeArmorStats } from '../lib/qualityUtils';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
     import QualityTag from './sub/qualityTag.vue';
+    import AttachmentTag from './sub/attachmentTag.vue';
     import EditArmorModal from './modals/editArmorModal.vue';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -137,7 +177,8 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const { current } = storeToRefs(useCharacterStore());
-    // const systemStore = useSystemStore();
+    const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
 
     const editArmorModal = ref<InstanceType<typeof EditArmorModal> | null>(null);
 
@@ -145,11 +186,27 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteCharacter>(() => current.value as any);
-    // const mode = computed(() => systemStore.current?.id ?? 'eote');
+    const char = computed<EoteOrGenCharacter>(() => current.value as any);
+    const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
 
     const armor = computed(() => char.value.details.armor);
+    const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
+    const armorStats = computed(() => computeArmorStats(armor.value, allAttachments.value));
+
+    const showAttachments = computed(() =>
+    {
+        if(mode.value === 'eote')
+        {
+            return true;
+        }
+        else if(mode.value === 'genesys')
+        {
+            return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+        }
+
+        return false;
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods

@@ -1,0 +1,10 @@
+id: eote-talent-by-the-book
+name: By the Book
+description: Once per encounter before making a combat check, the character may suffer two strain to add
+  <advantage></advantage> to the results equal to his ranks in By the Book.
+activation: ai
+ranked: true
+forceTalent: false
+trees: Imperial Academy Cadet
+reference:
+  - DoR:111

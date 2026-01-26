@@ -1,0 +1,27 @@
+id: eote-weapon-ion-thruster-gun
+name: Ion Thruster Gun
+description: Ion thrusters are used in many different engines, from those of airspeeders to the drives of grand
+  starships. Most Technicians have at least one or two of these devices sitting around their workspaces at any given
+  time and a hanger is liable to contain many thrusters. As many Technicians can tell you, however, the biggest
+  difference between a powerful engine and a gun is where they happen to be pointed. A retrofitted ion thruster's actual
+  capacity for damage is low due to the diffuse nature of the blast, but it knock objects over, and the ion signature
+  disrupts droids and electronics.
+skill: Ranged (Heavy)
+damage: 5
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 8
+hardpoints: 0
+rarity: 2
+restricted: false
+qualities:
+  - id: eote-quality-concussive
+    ranks: 1
+  - id: eote-quality-cumbersome
+    ranks: 5
+  - id: eote-quality-ion
+  - id: eote-quality-prepare
+    ranks: 1
+reference:
+  - SM:45

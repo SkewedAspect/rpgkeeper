@@ -30,22 +30,62 @@
             hover
             @row-clicked="onRowClicked"
         >
+            <!-- Damage Slot -->
+            <template #cell(damage)="data">
+                <template v-if="getWeaponStats(data.item).damageModifier !== 0">
+                    {{ data.value }} ({{ getWeaponStats(data.item).damageModifier >= 0 ? '+' : '' }}{{ getWeaponStats(data.item).damageModifier }})
+                </template>
+                <template v-else>
+                    {{ data.value }}
+                </template>
+            </template>
+
+            <!-- Critical Rating Slot -->
+            <template #cell(criticalRating)="data">
+                <template v-if="getWeaponStats(data.item).criticalModifier !== 0">
+                    {{ data.value }} ({{ getWeaponStats(data.item).criticalModifier >= 0 ? '+' : '' }}{{ getWeaponStats(data.item).criticalModifier }})
+                </template>
+                <template v-else>
+                    {{ data.value }}
+                </template>
+            </template>
+
+            <!-- Encumbrance Slot -->
+            <template #cell(encumbrance)="data">
+                <template v-if="getWeaponStats(data.item).encumbranceModifier !== 0">
+                    {{ data.value }} ({{ getWeaponStats(data.item).encumbranceModifier >= 0 ? '+' : '' }}{{ getWeaponStats(data.item).encumbranceModifier }})
+                </template>
+                <template v-else>
+                    {{ data.value }}
+                </template>
+            </template>
+
             <!-- Qualities Slot -->
             <template #cell(qualities)="data">
                 <QualityTag
-                    v-for="quality in (data.value as EoteQualityRef[])"
+                    v-for="quality in computeWeaponQualities(data.item, allAttachments)"
                     :id="quality.id"
                     :key="quality.id"
-                    :ranks="quality.ranks"
+                    :ranks="quality.totalRanks"
+                />
+            </template>
+
+            <!-- Attachments Slot -->
+            <template #cell(attachments)="data">
+                <AttachmentTag
+                    v-for="att in (data.value as EoteAttachmentRef[])"
+                    :id="att.id"
+                    :key="att.id"
+                    :activated-mods="att.activatedMods"
                 />
             </template>
 
             <!-- Buttons Slot -->
             <template #cell(buttons)="data">
-                <BButton size="sm" @click="openAddEditModal(data.item)">
+                <BButton v-if="!readonly" size="sm" @click="openAddEditModal(data.item)">
                     <Fa icon="edit" />
                 </BButton>
-                <BButton class="ms-1" variant="danger" size="sm" @click="openDeleteModal(data.item)">
+                <BButton v-if="!readonly" class="ms-1" variant="danger" size="sm" @click="openDeleteModal(data.item)">
                     <Fa icon="trash-alt" />
                 </BButton>
             </template>
@@ -91,18 +131,29 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { EoteCharacter, EoteQualityRef, EoteWeaponRef } from '../../models.ts';
+    import type {
+        EoteAttachment,
+        EoteAttachmentRef,
+        EoteOrGenCharacter,
+        EoteWeaponRef,
+        GenesysCharacter,
+    } from '../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
+    import { useSupplementStore } from '@client/lib/resource-access/stores/supplements';
 
     // Constants
     import { rangeEnum } from '../constants';
 
+    // Utils
+    import { type ComputedWeaponStats, computeWeaponQualities, computeWeaponStats } from '../lib/qualityUtils';
+
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
     import QualityTag from './sub/qualityTag.vue';
+    import AttachmentTag from './sub/attachmentTag.vue';
     import DeleteModal from '@client/components/ui/deleteModal.vue';
     import EditWeaponsModal from './modals/editWeaponsModal.vue';
 
@@ -131,6 +182,7 @@
 
     const { current } = storeToRefs(useCharacterStore());
     const systemStore = useSystemStore();
+    const supplementStore = useSupplementStore();
 
     interface FieldDef
     {
@@ -143,26 +195,6 @@
     }
 
     const delWeapon = ref<EoteWeaponRef | undefined>(undefined);
-    const fields = ref<FieldDef[]>([
-        { key: 'name', headerTitle: 'Weapon name' },
-        { key: 'skill', headerTitle: 'Required Skill', tdClass: 'text-nowrap' },
-        { key: 'damage', label: 'Dmg.', headerTitle: 'Weapon Damage', tdClass: 'text-center' },
-        { key: 'criticalRating', label: 'Crit.', headerTitle: 'Weapon Critical rating', tdClass: 'text-center' },
-        {
-            key: 'range',
-            formatter(range : unknown)
-            {
-                return rangeEnum[range as string];
-            },
-            tdClass: 'text-center',
-        },
-        { key: 'encumbrance', label: 'Enc.', headerTitle: 'Weapon Encumbrance', tdClass: 'text-center' },
-        { key: 'rarity', label: 'Rar.', headerTitle: 'Weapon Rarity', tdClass: 'text-center' },
-        { key: 'qualities', label: 'Special', headerTitle: 'Weapon Qualities' },
-        { key: 'buttons', label: '', thStyle: 'min-width: 80px' },
-
-        /* TODO: Add in weapon modification support. */
-    ]);
 
     const editWeaponsModal = useTemplateRef('editWeaponsModal');
     const delModal = useTemplateRef('delModal');
@@ -171,15 +203,70 @@
     // Computed
     //------------------------------------------------------------------------------------------------------------------
 
-    const char = computed<EoteCharacter>(() => current.value as any);
+    const char = computed<EoteOrGenCharacter>(() => current.value as any);
     const mode = computed(() => systemStore.current?.id ?? 'eote');
     const readonly = computed(() => props.readonly);
 
     const weapons = computed(() => char.value.details.weapons);
+    const allAttachments = computed(() => supplementStore.get<EoteAttachment>(mode.value, 'attachment'));
+
+    const showAttachments = computed(() =>
+    {
+        if(mode.value === 'eote')
+        {
+            return true;
+        }
+        else if(mode.value === 'genesys')
+        {
+            return (char.value as GenesysCharacter).details.useAttachmentRules ?? false;
+        }
+
+        return false;
+    });
+
+    const fields = computed<FieldDef[]>(() =>
+    {
+        const baseFields : FieldDef[] = [
+            { key: 'name', headerTitle: 'Weapon name' },
+            { key: 'skill', headerTitle: 'Required Skill', tdClass: 'text-nowrap' },
+            { key: 'damage', label: 'Dmg.', headerTitle: 'Weapon Damage', tdClass: 'text-center' },
+            { key: 'criticalRating', label: 'Crit.', headerTitle: 'Weapon Critical rating', tdClass: 'text-center' },
+            {
+                key: 'range',
+                formatter(range : unknown)
+                {
+                    return rangeEnum[range as string];
+                },
+                tdClass: 'text-center',
+            },
+            { key: 'encumbrance', label: 'Enc.', headerTitle: 'Weapon Encumbrance', tdClass: 'text-center' },
+            { key: 'rarity', label: 'Rar.', headerTitle: 'Weapon Rarity', tdClass: 'text-center' },
+            { key: 'qualities', label: 'Special', headerTitle: 'Weapon Qualities' },
+        ];
+
+        // Only show attachments column if enabled
+        if(showAttachments.value)
+        {
+            baseFields.push({ key: 'attachments', label: 'Attachments', headerTitle: 'Weapon Attachments' });
+        }
+
+        // Only add buttons column if not readonly
+        if(!readonly.value)
+        {
+            baseFields.push({ key: 'buttons', label: '', thStyle: 'min-width: 80px' });
+        }
+
+        return baseFields;
+    });
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
+
+    function getWeaponStats(weapon : EoteWeaponRef) : ComputedWeaponStats
+    {
+        return computeWeaponStats(weapon, allAttachments.value);
+    }
 
     async function removeWeapon(weapon : EoteWeaponRef) : Promise<void>
     {

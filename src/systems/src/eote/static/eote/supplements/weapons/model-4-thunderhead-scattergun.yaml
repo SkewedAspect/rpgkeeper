@@ -1,0 +1,33 @@
+id: eote-weapon-model-4-thunderhead-scattergun
+name: Model 4 "Thunderhead" Scattergun
+description: >-
+  The Model 4 Thunderhead by Czerka is a relatively new entry into the galactic arms market. Designed as a competitor to
+  Adostic Arms' 8-gauge "AA8" scattergun, the Thunderhead is the latest word in close-quarters combat weaponry. Based on
+  an ancient and simple slug-throwing technology, the Thunderhead is a rifle-sized, semi-automatic, smoothbore weapon
+  that fires clouds of small ferroalloy pellets instead of bolts, slugs, or other traditional projectiles. When used in
+  enclosed spaces, such as ship compartments, building corridors, and the like, these weapons are extremely effective
+  against both unarmored and lightly armored targets.
+
+  Unlike the AA8, which relies on a large-bore shell with a large number of inert pellets, the Model 4 uses a smaller
+  shell that is packed with tiny explosive pellets. This makes for a smaller, easier-to-handle weapon than the M8, with
+  a lighter recoil and increased ammunition capacity. It also gives the weapon the ability to crack open light armor and
+  vehicles and take down powerful beasts like gundarks and rancors. Czerka also sells a variety of different ammo types
+  for the Thunderhead-everything from flechette rounds to inert shot to non-lethal gel rounds-providing users with a
+  great amount of versatility on the battlefield.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 4
+range: s
+encumbrance: 4
+hardpoints: 3
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 5
+  - id: eote-quality-knockdown
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - KoF:42

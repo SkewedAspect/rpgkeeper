@@ -1,0 +1,21 @@
+id: eote-weapon-snap-baton
+name: Snap Baton
+description: Snap batons are light, collapsible truncheons often employed by law enforcers and bounty hunters. With
+  little more than a flick of the wrist, the baton can be extended to its full one-meter length. Once extended, the
+  baton's weighted end can be used to inflict serious injusry on opponents. Due to the nature of the baton's
+  construction, it provides a colid and punishing weapon in a very small package. Collapsing a snap baton requires that
+  a stud be depressed while the wielder pushed it back into the handle.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 4
+range: en
+encumbrance: 1
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-disorient
+    ranks: 2
+reference:
+  - KtP:45

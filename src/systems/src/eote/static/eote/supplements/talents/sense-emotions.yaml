@@ -1,0 +1,11 @@
+id: eote-talent-sense-emotions
+name: Sense Emotions
+description: Add <boost></boost> to all Charm, Coercion, and Deception checks unless the target is immune to Force powers.
+activation: p
+ranked: false
+forceTalent: true
+trees: Advisor, Arbiter, Force Sensitive Exile, Force Sensitive Outcast, Force-Sensitive Outcast, Knight, Niman Disciple
+reference:
+  - E-CRB:142
+  - F-CRB:151
+  - RotS:42

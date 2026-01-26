@@ -1,0 +1,33 @@
+id: eote-weapon-diiro
+name: Diiro
+description: >-
+  The diiro is a common Arbooinian weapon, tailored to the needs of the Sathari. The weapon consists of a hollow but
+  sturdy haft of wood about a meter long, tipped with a small but very sharp alloy blade. The diiro is lightweight but
+  capable of deadly precision strikes in the hands of a skilled user. To further cut down on weight, blades of most
+  diiros are also hollow. In many cases, they contain a reservoir of venom extracted from a bearsloth, a zabros, or
+  another of Arbooine's unique plants and animals. This ensures that although the cuts delivered by a diiro are seldom
+  sever on their own, the weapon is nonetheless capable of bringing down even the largest of Arbooinian predators in
+  short order.
+
+  A diiro can be loaded with up to three doses of any poison. Whenever the wielder successfully attacks a target with a
+  diiro (whether or not damage is dealt), the target also suffers the effects of being exposed to the poison it
+  contains.
+
+  Due to its lightweight construction, when a diiro suffers one or more levels of damage due to a <despair></despair>
+  result on a combat check or the effects of the Sunder quality, it recieves one additonal level of damage.
+
+  _Note: The diiro may only be found on Arbooine._
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 2
+hardpoints: 0
+rarity: 2
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+reference:
+  - CotG:26

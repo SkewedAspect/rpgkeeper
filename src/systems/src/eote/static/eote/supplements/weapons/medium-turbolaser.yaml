@@ -1,0 +1,24 @@
+id: eote-weapon-medium-turbolaser
+name: Medium Turbolaser
+description: Massive, heavy-caliber weapons with incredible energy requirements, turbolasers are the largest weapons
+  mounted to starships. Turbolasers can punch clean through an opponent's shields, armor, and hull with a single blast;
+  the lightest easily hulling small ships and the heaviest battering down the defenses of the largest cruiser. The
+  trade-offs are their heavy power requirements, their slow recharge time, and their difficulty in tracking and hitting
+  small, fast targets like starfighters.
+skill: Gunnery
+damage: 10
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 0
+hardpoints: 0
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-breach
+    ranks: 3
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - E-CRB:230
+  - A-CRB:240

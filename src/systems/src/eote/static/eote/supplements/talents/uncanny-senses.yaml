@@ -1,0 +1,12 @@
+id: eote-talent-uncanny-senses
+name: Uncanny Senses
+description: Add <boost></boost> per rank of Uncanny Senses to all Perception checks.
+activation: p
+ranked: true
+forceTalent: true
+trees: Force Sensitive Emergent, Force Sensitive Exile, Force Sensitive Outcast, Force-Sensitive Outcast, Hunter,
+  Investigator, Navigator, Warleader
+reference:
+  - E-CRB:145
+  - A-CRB:158
+  - F-CRB:153

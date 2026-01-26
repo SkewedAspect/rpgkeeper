@@ -1,0 +1,32 @@
+id: eote-attachment-mandalorian-chamber
+name: Mandalorian Chamber
+description: Many Mandalorian warriors customize their gear to an extraordinary degree. Some choose to go so far as to adjust the settings on their blaster's chamber, carefully manipulating the ratios of the volatile gas and energy mix. Reinforcing these chambers or adjusting the component's size can increase a weapon's stopping power or range. A relatively recent innovation commonly known as the Mandalorian chamber, which has become popular among these soldiers, enables the blaster to simultaneously apply characteristics of both the deadly and stun settings.  This attachment can only be installed on blasters.
+useWith: weapon
+hpRequired: 1
+rarity: 5
+baseModifier:
+  description: -1 Range Band
+  qualities:
+    - id: eote-quality-stun
+      ranks: 3
+modOptions:
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - qualities:
+      - id: eote-quality-disorient
+        ranks: 1
+  - qualities:
+      - id: eote-quality-stun
+        ranks: 1
+  - qualities:
+      - id: eote-quality-stun
+        ranks: 1
+  - description: +1 Range Band
+reference:
+  - CotR:60
+includedModels:
+  - None

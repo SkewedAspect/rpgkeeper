@@ -1,0 +1,21 @@
+id: eote-armor-cresh-luck-armor
+name: Cresh "Luck" Armor
+description: >-
+  Creshaldyne riot armor is a popular choice among police and paramilitary units across the galaxy. It consists of an
+  armored chest piece and accompanying helmet with a flip down face shield. With the addition of a short-range infrared
+  sensor system, it can also warn of nearby threats within thirty meters, allowing the wearer an additional split second
+  to respond to them. It is this feature that gives Cresh "luck" armor its name.
+
+  When active, the infrared sensor array detects any mass greater than ten kilograms that is moving faster than one
+  meter per second, as well as other hazards defined by its programming.
+
+  The wearer of Cresh luck armor adds automatic <advantage></advantage> to Vigilance checks.
+defense: 0
+soak: 2
+hardpoints: 1
+encumbrance: 4
+rarity: 5
+restricted: false
+qualities: []
+reference:
+  - KtP:47

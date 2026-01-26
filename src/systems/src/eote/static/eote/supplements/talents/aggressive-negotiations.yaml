@@ -1,0 +1,11 @@
+id: eote-talent-aggressive-negotiations
+name: Aggressive Negotiations
+description: Once per session perform a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Lightsaber check** to decrease the
+  difficulty of all Negotiation checks for the rest of the encounter by 2.
+activation: aa
+ranked: false
+forceTalent: true
+trees: Arbiter
+reference:
+  - DoH:28

@@ -1,0 +1,21 @@
+id: eote-armor-padded-armor
+name: Padded Armor
+description: >-
+  Local forces and soldiers of the Rebel Alliance often  wear padded armor, woven with tough, energy-resistant fibers.
+  It tends to absorb and resist some of the power of a blaster bolt, although it often proves little use against a solid
+  hit. It does, however, provide reasonable protection against blows or concussive damage, providing padding against
+  such shocks. It also has the advantage of  being relatively comfortable; many individuals can wear  padded armor
+  without generating too much attention  from local law enforcement on frontier worlds.
+
+  **Models Include:** TaggeCo. “Protector X" Law Enforcement Armor.
+defense: 0
+soak: 2
+hardpoints: 0
+encumbrance: 2
+rarity: 1
+restricted: false
+qualities: []
+reference:
+  - E-CRB:169
+  - A-CRB:185
+  - F-CRB:180

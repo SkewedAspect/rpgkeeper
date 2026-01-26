@@ -1,0 +1,10 @@
+id: eote-talent-time-to-go-improved
+name: Time to Go (Improved)
+description: When activating Time to Go, allow 1 engaged ally to also perform an out of turn Move maneuver as an
+  incidental to attempt to move into cover or out of the blast range of a weapon or explosion.
+activation: am
+ranked: false
+forceTalent: false
+trees: Demolitionist, Saboteur
+reference:
+  - A-CRB:158

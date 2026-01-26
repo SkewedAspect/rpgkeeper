@@ -1,0 +1,26 @@
+id: eote-weapon-dueling-pistol
+name: Dueling Pistol
+description: Crafted by Coronet Arms, a small weapons manufacturer known for producing high-quality blasters, these
+  dueling pistols are almost invariably sold in pairs. Though illegal, dueling has a long history on Corellia, where
+  honor often trumps law. Dueling pistols are virtually useless at any great range, the cohesion of their particle
+  streams quickly dissipating, but these deadly accurate blasters are meant to be used at close range. Since a single
+  shot is all that is permitted in a duel, the power packs only power one blast, but that shot will almost invariably be
+  lethal.
+skill: Ranged (Light)
+damage: 9
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 2
+hardpoints: 2
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-accurate
+    ranks: 1
+  - id: eote-quality-limited-ammo
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 1
+reference:
+  - SoF:94

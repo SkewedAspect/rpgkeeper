@@ -1,0 +1,21 @@
+id: eote-weapon-explosive-micro-rocket
+name: Explosive Micro-Rocket
+description: The most common variety of micro-rockets have simple, high-explosive warheads that provide the maximum
+  amount of force possible for the miniaturized weapons. While other warheads may be more suited to specific kinds of
+  targets, most hunters find an explosive rocket rarely fails to make an impression.
+skill: Ranged (Heavy)
+damage: 7
+addSkill: false
+criticalRating: 2
+range: s
+encumbrance: 1
+hardpoints: 1
+rarity: 4
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 6
+  - id: eote-quality-limited-ammo
+    ranks: 1
+reference:
+  - ND:46

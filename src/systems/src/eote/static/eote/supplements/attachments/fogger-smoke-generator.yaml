@@ -1,0 +1,11 @@
+id: eote-attachment-fogger-smoke-generator
+name: Fogger Smoke Generator
+description: A smoke generator creates thick black or grey smoke that inhibits line of sight. This may only be installed on ground vehicles, landspeeders, or airspeeders, and only works on planets with an atmosphere.
+useWith: vehicle
+hpRequired: 1
+rarity: 2
+baseModifier:
+  description: Provides concealment that adds <setback></setback><setback></setback><setback></setback>.
+modOptions: []
+reference:
+  - DC:61

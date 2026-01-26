@@ -1,0 +1,11 @@
+id: eote-talent-drive-back
+name: Drive Back
+description: The Inquisitor may spend <triumph></triumph> or
+  <advantage></advantage><advantage></advantage><advantage></advantage> on a missed Brawl, Melee, or Lightsaber combat
+  check to force target to make a move maneuver in a direction of the Inquisitor's choice.
+activation: p
+ranked: false
+forceTalent: false
+trees: ""
+reference:
+  - F-CRB:419

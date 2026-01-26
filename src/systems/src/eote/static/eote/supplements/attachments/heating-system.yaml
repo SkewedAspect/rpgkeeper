@@ -1,12 +1,16 @@
 id: eote-attachment-heating-system
 name: Heating System
-description: Like thermal shielding, cold shielding is installed in armor to protect the wearer against dangerously low
-  temperatures and frigid environments. Equipped with small, efficient heating elements and double insulated against the
-  cold, this attachment allows a wearer to survive in places where the ambient temperature can be dozens of degrees
-  below freezing.
-useWith: Any armor that covers the entire body, and can be sealed.
-baseModifier: Reduce Resilience check difficulty against cold. Removes up to <setback></setback><setback></setback>
-  added to checks by cold.
-modOptions: None
+description: Like thermal shielding, cold shielding is installed in armor to protect the wearer against dangerously low temperatures and frigid environments. Equipped with small, efficient heating elements and double-insulated against the cold, this attachment allows a wearer to survive in places where the ambient temperature can be dozens of degrees below freezing. Perhaps the most famous type of cold shielding is that built into the custom laminate armor worn by the Imperial Army's snowtroopers. This attachment can be installed on any armor that covers the entire body and can be sealed.
+useWith: armor
 hpRequired: 1
-reference: E-CRB:194
+rarity: 3
+baseModifier:
+  description: Reduces the difficulty of Resilience checks made to resist the effects extreme cold by one. Removes up to <setback></setback><setback></setback> added to checks due to extreme cold.
+modOptions: []
+reference:
+  - E-CRB:194
+  - A-CRB:206
+  - F-CRB:201
+includedModels:
+  - Atlas Corp DL87 "Frostback" Armor Enhancement
+  - Min-Dal Model 00 Heating System

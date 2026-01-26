@@ -1,0 +1,37 @@
+id: eote-weapon-bowcaster
+name: Bowcaster
+description: >-
+  Bowcasters are associated with the Wookiees of Kashyyyk. They are as distinctive to the Wookiees as gaffi sticks are
+  to the Sand People.
+
+  The various quarrels that can be fired from these weapons allow the wielder a great range of options. Standard
+  ammunition consists of metallic bolts accelerated by polarizers astride the barrel tip. This increases the power and
+  velocity of the round so that the heavy projectile reaches ranges equivalent to conventional blasters.
+
+  The standard quarrel is a micro-explosive capable of blasting through armor, metal, or thick flesh—like that of the
+  giant creatures native to Kashyyyk. Other types of quarrels include sonic detonators, flash quarrels that stun and
+  blind, or smoke quarrels designed to create cover for advancing Wookiee warriors.
+
+  Every bowcaster is hand-built for its user—hence the exorbitant cost. Most require significant strength to cock, but
+  automatic re-cocking mechanisms are one of the most common modifications (Chewbacca's bowcaster has automatic
+  re-cocking, as well as a low-light scope).
+
+  The bowcaster presented here fires standard micro-explosive quarrels, and does not have an automatic re-cocking
+  mechanism. It requires the user to spend a maneuver cocking the weapon before each shot.
+
+  **Models Include**: Unique designed weapon.
+skill: Ranged (Heavy)
+damage: 10
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 5
+hardpoints: 2
+rarity: 7
+restricted: false
+qualities:
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-knockdown
+reference:
+  - E-CRB:162

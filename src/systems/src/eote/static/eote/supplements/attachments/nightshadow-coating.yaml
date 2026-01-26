@@ -1,0 +1,14 @@
+id: eote-attachment-nightshadow-coating
+name: Nightshadow Coating
+description: A special sensor-baffling coating manufactured by Arakyd Industries, nightshadow can make a vessel very difficult to detect. Highly-restricted by the Empire, nightshadow coating is much sought after by smugglers who can obtain it.
+useWith: vehicle
+hpRequired: 1
+rarity: 8
+baseModifier:
+  description: Reduces range of enemy ship's passive sensors by 1 (minimum of close range) for detecting a vessel with nightshadow coating.
+modOptions:
+  - description: Reduce the ship's silhouette by 1 in combat
+reference:
+  - FC:63
+includedModels:
+  - Arakyd Industries Nightshadow vehicle coating

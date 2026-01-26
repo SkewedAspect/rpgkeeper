@@ -1,0 +1,10 @@
+id: eote-talent-something-to-prove
+name: Something to Prove
+description: Once per session the character may suffer 4 strain in order to reroll a failed check. If the check
+  succeeds, the character heals 4 strain.
+activation: ai
+ranked: false
+forceTalent: false
+trees: Padawan
+reference:
+  - RotS:42

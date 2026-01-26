@@ -1,0 +1,10 @@
+id: eote-talent-knows-the-ropes
+name: Knows the Ropes
+description: Add <boost></boost> to checks made to escape from restraints equal to ranks in Knowledge (Underworld).
+  Spend <triumph></triumph> to free all other allies within short range.
+activation: p
+ranked: false
+forceTalent: false
+trees: Pirate
+reference:
+  - DoR:113

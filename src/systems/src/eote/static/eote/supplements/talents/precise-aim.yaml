@@ -1,9 +1,11 @@
 id: eote-talent-precise-aim
 name: Precise Aim
-description: Once per round on the character's turn, the character may perform a Precise Aim maneuver before attempting
-  a combat check and suffer a number of  strain. The number of strain cannot exceed his ranks in Precise Aim. He then
-  decreases the target's defense (ranged and melee) by one per strain suffered for that combat check.
+description: Once per round, may perform Precise Aim maneuver. Suffer a number of strain no greater than ranks in
+  Precise Aim, then reduce target's melee and ranged defense by that number.
 activation: am
 ranked: true
-trees: Assassin
-reference: E-CRB:141
+forceTalent: false
+trees: Assassin, Executioner
+reference:
+  - E-CRB:141
+  - SS:31

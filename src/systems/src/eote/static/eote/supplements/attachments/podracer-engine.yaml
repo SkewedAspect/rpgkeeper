@@ -1,0 +1,19 @@
+id: eote-attachment-podracer-engine
+name: Podracer Engine
+description: |-
+  Podracer engines come in three varieties rocket motors, turbine engines, and high-performance ion engines. In the early days of Podracing, engines were salvaged and rebuilt by talented amateurs. Single-stage heavy lift rockets, ion engines from crashed starfighters, air breathing turbojets from performance airspeeders, and even more exotic engine types were hauled out of scrapyards or dug out of old military depots and put to use on the racing circuits. Today most Podracer engines are either hand-built custom jobs built by big racing teams to their own exact specifications or mass produced engines from one of the major manufacturers. No matter their provenance, they are all too big, too fast and too loud for civilized racing, which is what makes them so appealing for Podracers.
+  Podracer engines must be installed in matched sets usually in multiples of two. Doing otherwise makes for a poorly balanced, finicky, unreliable Podracer that is  by its mismatched nature, even more dangerous than usual.
+useWith: vehicle
+hpRequired: 2
+rarity: 5
+baseModifier:
+  description: Set Speed
+modOptions: []
+reference:
+  - EV:60
+includedModels:
+  - TurboDyne 99-U
+  - Manta RamAir Mk. IV Flat Twin Turbojet
+  - JAK Racing J930 Dash-8
+  - Radon-Ulzer 620C S&K JZ-5 Fusial Thrust Engine
+  - Incom 2a Fission Engine

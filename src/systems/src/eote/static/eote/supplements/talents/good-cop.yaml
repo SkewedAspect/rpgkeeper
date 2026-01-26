@@ -1,0 +1,13 @@
+id: eote-talent-good-cop
+name: Good Cop
+description: May spend <advantage></advantage><advantage></advantage> from a Charm or Negotiation check to upgrade
+  ability of a single ally's subsequent Social Interaction check against the target a number of times equal to ranks in
+  Good Cop.
+activation: p
+ranked: true
+forceTalent: false
+trees: Interrogator, Marshal, Skip Tracer
+reference:
+  - FH:33
+  - ND:34
+  - CaM:30

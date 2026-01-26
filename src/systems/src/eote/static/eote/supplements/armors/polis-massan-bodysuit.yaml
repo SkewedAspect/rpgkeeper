@@ -1,0 +1,19 @@
+id: eote-armor-polis-massan-bodysuit
+name: Polis Massan Bodysuit
+description: >-
+  The Polis Massans employ unique, tight-fitting bodysuits in their day-to-day lives. Not only do the suits provide some
+  incidental protection from physical damage, but they also supply a number of load-bearing pockets, clips, and straps
+  to keep important equipment close at hand.
+
+  All Polis Massan bodysuits include a tiny head-mounted multidirectional glow rod, as well as an integrated utility
+  belt (which increases the wearer’s encumbrance by 1). Though designed with Polis Massan physiology in mind, bodysuits
+  for use by other species have been commissioned.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 1
+rarity: 6
+restricted: false
+qualities: []
+reference:
+  - SoR:109

@@ -1,0 +1,32 @@
+id: eote-weapon-site-145-replica-blaster-pistol
+name: Site-145 Replica Blaster Pistol
+description: >-
+  Though the Jedi Order was primarily known for its use of lightsabers, there have been countless other Force traditions
+  throughout the galaxy's long and murky history, and many fought with other weapons. One such ancient culture used
+  blasters with Force-attuned triggers, and examples of these weapons have been found in archaeological sites across the
+  galaxy. The best preserved relics were non-functional when discovered at so-called "Site-145" on the third moon of
+  Filata, but not all members of the expedition were content to study this history purely in the abstract. Sokiro
+  Terebin, an artificer and antiquarian of the Jedi Order who lived just prior to the Clone Wars, constructed a number
+  of replicas as museum pieces, and her notes and blueprints were recorded in various archives. Though fully functional
+  as weapons (in the hands of Force-sensitives, anyway), these armaments were largely viewed as historical curiosities
+  during the days of the Republic and were rarely (if ever) used. Since the rise of the Empire, these pieces (and the
+  blueprints to build them) have disappeared onto the black market, where the command a reasonably high price as
+  contraband items related to the Jedi.
+
+  The Site-145 replica blaster pistol automatically features the Force-attuned resonater weapon attachment (see page 54
+  of Keeping the Peace).
+        
+  _The HP for this weapon should be used to attach a Force-attuned resonator attachment only._
+skill: Ranged (Light)
+damage: 6
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 1
+hardpoints: 1
+rarity: 8
+restricted: true
+qualities:
+  - id: eote-quality-stun-setting
+reference:
+  - KtP:43

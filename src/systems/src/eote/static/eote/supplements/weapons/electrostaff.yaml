@@ -1,0 +1,35 @@
+id: eote-weapon-electrostaff
+name: Electrostaff
+description: >-
+  Electrostaffs first saw widespread use during the Clone Wars among Separatist forces, especially among the personal
+  guard droids of General Grievous. Over two meters long. electrostaves are designed to keep a Jedi or other lightsaber
+  wielder at arms' length. Constructed from lightweight, highly durable phrik alloy. a mixture of phrikite, tydirium,
+  and other trace ores, electrostaves can resist a lightsaber blade. In addition to their defensive capabilities,
+  electrostaves are also equipped with small electromagnetic pulse generators at each end that constantly crackle and
+  spit showers of sparks when active. Like force pikes, electrostaves can be set to a number of different power outputs:
+  a mild shock used to control crowds; a powerful Stun setting that can sideline even the toughest opponent: or the
+  full-power setting that can easily tear a sentient in half.
+
+  Electrostaves require two hands to use.
+
+  **Models Include:** Baktoid Armor Workshop vz. 890 Thunderer, Arakyd Industries Stryker.
+skill: Melee
+damage: 4
+addSkill: true
+criticalRating: 3
+range: en
+encumbrance: 4
+hardpoints: 3
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-cortosis
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-linked
+    ranks: 1
+  - id: eote-quality-stun-setting
+  - id: eote-quality-unwieldy
+    ranks: 3
+reference:
+  - F-CRB:173

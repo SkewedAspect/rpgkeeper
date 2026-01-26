@@ -12,6 +12,10 @@ import { fileURLToPath } from 'url';
 import { glob } from 'glob';
 import Database from 'better-sqlite3';
 import * as yaml from 'yaml';
+import { ZodError, type ZodSchema } from 'zod';
+
+// Systems
+import { systems } from '../src/index.ts';
 
 //----------------------------------------------------------------------------------------------------------------------
 // Config
@@ -22,6 +26,7 @@ const __dirname = path.dirname(__filename);
 
 const SYSTEMS_PATH = path.join(__dirname, '../src');
 const OUTPUT_PATH = path.join(__dirname, '../../../db/static.db');
+const FAILURES_PATH = path.join(__dirname, '../../../db/static-validation-failures.txt');
 
 //----------------------------------------------------------------------------------------------------------------------
 // Types
@@ -41,9 +46,64 @@ interface Definition
     [key : string] : unknown;
 }
 
+interface ValidationFailure
+{
+    file : string;
+    system : string;
+    type : string;
+    errors : string[];
+}
+
 //----------------------------------------------------------------------------------------------------------------------
 // Helpers
 //----------------------------------------------------------------------------------------------------------------------
+
+function getSchemaForType(system : string, type : string) : ZodSchema | null
+{
+    const systemDef = systems[system];
+    if(!systemDef)
+    {
+        return null;
+    }
+
+    const supplementConfig = systemDef.supplements?.[type];
+    if(!supplementConfig)
+    {
+        return null;
+    }
+
+    return supplementConfig.schema || null;
+}
+
+function formatZodErrors(error : ZodError) : string[]
+{
+    if(!error)
+    {
+        return [ 'Unknown validation error' ];
+    }
+
+    // Use Zod's built-in issues array
+    if(error.issues && Array.isArray(error.issues))
+    {
+        return error.issues.map((issue) =>
+        {
+            const issuePath = issue.path.length > 0 ? `${ issue.path.join('.') }: ` : '';
+            return `${ issuePath }${ issue.message }`;
+        });
+    }
+
+    // Fallback to errors property if issues isn't available
+    if(error.errors && Array.isArray(error.errors))
+    {
+        return error.errors.map((e) =>
+        {
+            const errPath = e.path.length > 0 ? `${ e.path.join('.') }: ` : '';
+            return `${ errPath }${ e.message }`;
+        });
+    }
+
+    return [ 'Unknown validation error' ];
+}
 
 function extractSystemAndType(filePath : string) : { system : string; type : string } | null
 {
@@ -187,11 +247,44 @@ async function buildDatabase() : Promise<void>
         await loadSources(db);
 
         // Load definitions
-        await loadDefinitions(db);
+        const failures = await loadDefinitions(db);
 
         // Optimize for read-only use
         db.exec('VACUUM');
         db.exec('ANALYZE');
+
+        // Write validation failures to file
+        if(failures.length > 0)
+        {
+            const failureLines : string[] = [
+                '================================================================================',
+                'Static Database Validation Failures',
+                `Generated: ${ new Date().toISOString() }`,
+                `Total failures: ${ failures.length }`,
+                '================================================================================',
+                '',
+            ];
+
+            for(const failure of failures)
+            {
+                failureLines.push(`File: ${ failure.file }`);
+                failureLines.push(`System: ${ failure.system }, Type: ${ failure.type }`);
+                failureLines.push('Errors:');
+                for(const err of failure.errors)
+                {
+                    failureLines.push(`  - ${ err }`);
+                }
+                failureLines.push('');
+            }
+
+            fs.writeFileSync(FAILURES_PATH, failureLines.join('\n'), 'utf-8');
+            console.log(`\n⚠️  ${ failures.length } validation failures written to: ${ FAILURES_PATH }`);
+        }
+        else if(fs.existsSync(FAILURES_PATH))
+        {
+            // Remove old failures file if it exists and there are no failures
+            fs.unlinkSync(FAILURES_PATH);
+        }
 
         console.log('\n✨ Static database built successfully!');
     }
@@ -228,7 +321,7 @@ async function loadSources(db : Database.Database) : Promise<void>
     console.log(`   Total: ${ total } sources`);
 }
 
-async function loadDefinitions(db : Database.Database) : Promise<void>
+async function loadDefinitions(db : Database.Database) : Promise<ValidationFailure[]>
 {
     console.log('\n📖 Loading definitions...');
 
@@ -236,6 +329,7 @@ async function loadDefinitions(db : Database.Database) : Promise<void>
     const insertStmt = db.prepare('INSERT INTO definitions (id, system, type, name, content) VALUES (?, ?, ?, ?, ?)');
 
     const counts : Record<string, number> = {};
+    const failures : ValidationFailure[] = [];
 
     for(const filePath of supplementFiles)
     {
@@ -261,8 +355,37 @@ async function loadDefinitions(db : Database.Database) : Promise<void>
             continue;
         }
 
+        // Validate against Zod schema and use transformed data if available
+        let transformedDefinition = definition;
+        const schema = getSchemaForType(meta.system, meta.type);
+        if(schema)
+        {
+            const result = schema.safeParse(definition);
+            if(!result.success && result.error)
+            {
+                const relativePath = path.relative(SYSTEMS_PATH, filePath);
+                const errors = formatZodErrors(result.error);
+                failures.push({
+                    file: relativePath,
+                    system: meta.system,
+                    type: meta.type,
+                    errors,
+                });
+                console.warn(`   ⚠️  Validation failed: ${ relativePath }`);
+                for(const err of errors)
+                {
+                    console.warn(`      - ${ err }`);
+                }
+            }
+            else if(result.success)
+            {
+                // Use the transformed data from schema parsing
+                transformedDefinition = result.data as Definition;
+            }
+        }
+
         // Store the full definition as JSON in the content column
-        const jsonContent = JSON.stringify(definition);
+        const jsonContent = JSON.stringify(transformedDefinition);
 
         insertStmt.run(definition.id, meta.system, meta.type, definition.name, jsonContent);
 
@@ -278,6 +401,8 @@ async function loadDefinitions(db : Database.Database) : Promise<void>
 
     const total = Object.values(counts).reduce((a, b) => a + b, 0);
     console.log(`   Total: ${ total } definitions`);
+
+    return failures;
 }
 
 //----------------------------------------------------------------------------------------------------------------------

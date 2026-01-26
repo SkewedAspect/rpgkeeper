@@ -1,0 +1,47 @@
+id: eote-weapon-fc1-flechette-launcher-anti-infantry
+name: FC1 Flechette Launcher (Anti-Infantry)
+description: >-
+  The FC1 is representative of most shoulder-braced flechette launchers. This bulky, box-shaped launcher holds four
+  canister tubes, and can fire either anti-personnel or anti-vehicle flechettes. The weapon fires small missiles
+  designed to detonate close to their target, then shred it with numerous durasteel darts. The standard anti-infantry
+  canister releases hundreds of small flechettes over a wide area, ideal for taking down groups of enemies. Anti-vehicle
+  rounds feature a much smaller number, usually fewer than a dozen, of significantly larger and heavier darts capable of
+  shearing straight through ten centimeters of durasteel plating. The shaped charge of an anti-vehicle cartridge focuses
+  the projectiles over a much smaller area, and is ideal for bringing down repulsorcraft or other light vehicles
+  (especially since the armor-penetrating darts tend to slice through the thick outer armor then bounce around inside
+  the hull, tearing up vital components).
+
+  Before firing the FC1, the firer must use the scope's built-in range finder to program a detonation range
+  approximately 10 meters in front of the target for ideal dispersal of flechettes. This guarantees he hits the target
+  with the blast. The anti-vehicle rounds of a flechette launcher have a much narrower spread, making them highly
+  inaccurate against small targets. When used against targets of silhouette 1 or smaller and firing anti-vehicle rounds,
+  the weapon gains the Inaccurate 3 quality.
+
+  An FC1 may be loaded with anti-personnel or anti-vehicle rounds, and can fire a total of four shots. Some mercenaries
+  tend to load the FC1 with a mix of both, so that they can respond to any situation. In this case, the character should
+  note what his weapon is loaded with, and use the appropriate profile with each shot. He still has to track total shots
+  as per the Limited Ammo quality.
+skill: Gunnery
+damage: 8
+addSkill: false
+criticalRating: 3
+range: m
+encumbrance: 6
+hardpoints: 4
+rarity: 6
+restricted: true
+qualities:
+  - id: eote-quality-blast
+    ranks: 8
+  - id: eote-quality-cumbersome
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 4
+  - id: eote-quality-pierce
+    ranks: 6
+  - id: eote-quality-prepare
+    ranks: 1
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - DC:45

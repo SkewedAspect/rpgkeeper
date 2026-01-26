@@ -1,0 +1,14 @@
+id: eote-attachment-saddlebags
+name: Saddlebags
+description: |-
+  Made by purveyors of animal-handling gear such as VeTech and Piccatech, saddlebags are indispensable pieces of equipment for those who make their livings riding or working with beasts. Constructed from hides or reinforced synthetic textiles, saddlebags typically compromise a pair of large containers with sealed flap covers, connected by a broad belt or  a number of cables. Saddlebags are designed to be portable. They can be thrown quickly over a beast's haunches and, if necessary, removed just as quickly to be carried over the shoulder by the beast's rider. Saddlebags fit countless riding animals, and can be customized functionally and cosmetically to meet an individual's particular tastes and needs.
+  Saddlebags can only be worn by riding animals. They increase an animal's encumbrance threshold by 4.
+useWith: weapon
+hpRequired: 0
+rarity: 4
+baseModifier:
+  encumbranceModifier: 4
+  description: Threshold
+modOptions: []
+reference:
+  - SS:47

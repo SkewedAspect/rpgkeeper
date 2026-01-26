@@ -1,0 +1,21 @@
+id: eote-weapon-laser-cannon
+name: Laser Cannon
+description: A laser cannon is the standard weapon for use by most starships and other vehicles. It exists in a myriad
+  of forms, from the huge versions used by starships, through medium-sized turret-mounted variants, to the much smaller
+  personal cannons sometimes carried by infantry. Although they are capable of causing a considerable amount of damage,
+  they are no match to some of the more advanced beam weapons such as electromagnetic plasma cannons, turbolasers and
+  superlasers.
+skill: Gunnery
+damage: 9
+addSkill: false
+criticalRating: 3
+range: ex
+encumbrance: 0
+hardpoints: 0
+rarity: 0
+restricted: false
+qualities:
+  - id: eote-quality-inaccurate
+    ranks: 1
+reference:
+  - OaA:54

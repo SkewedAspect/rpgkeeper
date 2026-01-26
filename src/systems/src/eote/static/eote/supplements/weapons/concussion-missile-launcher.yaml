@@ -1,0 +1,38 @@
+id: eote-weapon-concussion-missile-launcher
+name: Concussion Missile Launcher
+description: >-
+  The more common and less powerful of the two types of shipboard ordnance, concussion missiles are found on all manner
+  of spacecraft, from tiny starfighters to capital ships. Roughly a meter long, a concussion missile employs special
+  warheads, combining a hardened durasteel penetrator that uses kinetic force to pierce through a ship's armor and a
+  shaped high-explosive charge that causes damage through both explosive force and concussive shock. Concussion missiles
+  are primarily anti-fighter weapons, used to quickly deal crippling damage to starfighters and patrol boats, although
+  they perform well against larger targets as well.
+
+  Concussion grenades are primarily a personal scale weapon, although many military ground vehicles mount concussion
+  grenade launchers that fire larger anti-infantry or anti-armor versions. Concussion grenade launchers are typically
+  relatively short range ballistic weapons, and thus are useless in space combat.
+
+  Additional concussion missiles cost 500 credits each and are Restricted.
+skill: Gunnery
+damage: 6
+addSkill: false
+criticalRating: 3
+range: s
+encumbrance: 0
+hardpoints: 0
+rarity: 5
+restricted: false
+qualities:
+  - id: eote-quality-blast
+    ranks: 4
+  - id: eote-quality-breach
+    ranks: 4
+  - id: eote-quality-guided
+    ranks: 3
+  - id: eote-quality-limited-ammo
+    ranks: 3
+  - id: eote-quality-slow-firing
+    ranks: 1
+reference:
+  - E-CRB:230
+  - A-CRB:240

@@ -1,0 +1,13 @@
+id: eote-attachment-removed-safety-features
+name: Removed Safety Features
+description: By removing or deactivating weapon safeties and other features a gun can more easily be drawn and readied for combat. Of course, these safety features are in place for a reason, and weapons modified in such a way tend to be more accident prone. This attachment can be applied to any Ranged (Light) or Ranged (Heavy) weapon that could logically have such elements to remove.
+useWith: weapon
+hpRequired: 0
+rarity: 2
+baseModifier:
+  description: Adds <boost></boost> to first combat check during an encounter.; GM may spend <threat></threat><threat></threat> to cause misfire. Weapon runs out of ammo and inflicts 4 strain on wielder.
+modOptions: []
+reference:
+  - SM:55
+includedModels:
+  - None

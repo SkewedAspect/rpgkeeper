@@ -1,0 +1,9 @@
+id: eote-talent-makashi-technique
+name: Makashi Technique
+description: When making a check using the Lightsaber skill, the character may use Presence instead of Brawn.
+activation: p
+ranked: false
+forceTalent: true
+trees: Makashi Duelist
+reference:
+  - F-CRB:146

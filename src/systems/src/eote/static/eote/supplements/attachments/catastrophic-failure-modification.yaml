@@ -1,0 +1,16 @@
+id: eote-attachment-catastrophic-failure-modification
+name: Catastrophic Failure Modification
+description: Despite their deadliness, lightsabers are famously reliable for a trained user. However, it is possible for an expert in lightsaber construction to bypass the weapon's normal safeguards in order to overload it, such as by inverting the emitter matrix, releasing a massive amount of plasma energy. For a Jedi to even consider this course of action, the situation must be truly dire.
+useWith: weapon
+hpRequired: 0
+rarity: 0
+baseModifier:
+  description: When lightsaber is activated, it overloads, causing it to detonate at the end of the following round, dealing 20 damage with  and , to all characters and objects within short range. The lightsaber, but not the crystal, is destroyed in the processes.
+  qualities:
+    - id: eote-quality-vicious
+      ranks: 4
+    - id: eote-quality-breach
+      ranks: 1
+modOptions: []
+reference:
+  - CotR:61

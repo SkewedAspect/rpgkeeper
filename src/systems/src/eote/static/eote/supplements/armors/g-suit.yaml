@@ -1,0 +1,18 @@
+id: eote-armor-g-suit
+name: G-Suit
+description: G-suits, or gravity suits, are special garments worn under flight suits by pilots and racers who are
+  regularly exposed to high g-forces, such as those experienced while racing or performing, aggressive aerobatics.
+  G-suits use inflatable bladders, pressurized gel pockets, and compression garments to keep pilots' blood from pooling
+  in their lower extremities, causing a dangerous condition known as g-LOC (g-induced loss of consciousness) which
+  occurs when the brain is deprived of blood. G-suits pilots to  push their ships or vehicles further and operate them
+  more aggressively without fear of blacking out. A character wearing a g-suit reduces the strain cost to perform a
+  second Pilot Only maneuver during a turn by 1.
+defense: 0
+soak: 1
+hardpoints: 1
+encumbrance: 2
+rarity: 3
+restricted: false
+qualities: []
+reference:
+  - EV:44

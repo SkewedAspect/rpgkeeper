@@ -116,7 +116,7 @@ export class MissingDecoderError extends AppError
 {
     constructor(thing : string)
     {
-        super(`Missing decoder for '${ thing }.`, 'ERR_MISSING_DECODER');
+        super(`Missing decoder for '${ thing }'.`, 'ERR_MISSING_DECODER');
 
         this.statusCode = 501;
     }
@@ -131,7 +131,7 @@ export class NotAuthorizedError extends AppError
 
     constructor(operation : string, thing : string)
     {
-        super(`You are not authorized to ${ operation } '${ thing }.`, 'ERR_NOT_AUTHORIZED');
+        super(`You are not authorized to ${ operation } '${ thing }'.`, 'ERR_NOT_AUTHORIZED');
 
         this.statusCode = 403;
         this.operation = operation;

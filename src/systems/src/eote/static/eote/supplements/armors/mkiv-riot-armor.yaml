@@ -1,0 +1,22 @@
+id: eote-armor-mkiv-riot-armor
+name: Mk.IV Riot Armor
+description: >-
+  The Mk.IV Riot Armor is one of Creshaldyne Industries' most popular offerings. Sold almost exclusively to governmental
+  and law enforcement agencies, this sophisticated riot armor is advertised as the final word in protection for law
+  enforcement officers. Worn over a smartmesh body glove woven with foil-fiber reinforcement, the armor is composed of a
+  lightweight clamshell to protect the torso and a number of flexible contoured plates to protect the legs, groin, arms,
+  and shoulders. A blast helmet with a removable, polarized face shield and integrated breath mask completes the
+  ensemble.
+
+  This armor includes a breath mask that allows the user to filter out and ignore airborne toxins and gases (but not
+  breathe in atmospheres without the character's required atmosphere mix). In addition, when staggered or disoriented,
+  the wearer reduces the duration of the effect by one round, to a minimum of one round.
+defense: 1
+soak: 1
+hardpoints: 1
+encumbrance: 3
+rarity: 6
+restricted: true
+qualities: []
+reference:
+  - FH:44

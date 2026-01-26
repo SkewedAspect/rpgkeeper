@@ -1,0 +1,26 @@
+id: eote-weapon-light-repeating-blaster
+name: Light Repeating Blaster
+description: >-
+  Light repeaters are support weapons for military and mercenary units. They feature a high rate of fire and are
+  designed to suppress and injure unarmored personnel. The hail of "light" produced by these rapid-firing weapons is
+  often enough to force enemies to ground.
+
+  **Models Include**: BlasTech T-21 Light Repeating Blaster.
+skill: Ranged (Heavy)
+damage: 11
+addSkill: false
+criticalRating: 3
+range: l
+encumbrance: 7
+hardpoints: 4
+rarity: 7
+restricted: true
+qualities:
+  - id: eote-quality-auto-fire
+  - id: eote-quality-cumbersome
+    ranks: 4
+  - id: eote-quality-pierce
+    ranks: 1
+reference:
+  - E-CRB:162
+  - A-CRB:176

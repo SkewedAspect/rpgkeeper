@@ -1,0 +1,18 @@
+id: eote-attachment-high-output-repulsor-coils
+name: High-Output Repulsor Coils
+description: Basic Podracer cockpits come equipped with low-output repulsor coils of the kind typically found on repulsorsleds and speeder trucks. Considered a secondary system at best, and really only equipped to keep the Podracer at altitude when standing still or at low speeds, a racer's repulsor coils are rarely given a second thought. Savvy racers, or veterans with years of racing and building experience under their belts, know that a good repulsorlift engine can often mean the difference between first and last place, or finishing or crashing. Upgraded repulsor coils increase a Podracer's maximum altitude, allowing it to clear obstacles more easily and even hop over lower flying opponents.
+useWith: vehicle
+hpRequired: 2
+rarity: 3
+baseModifier:
+  description: +1 Altitude
+modOptions:
+  - description: +1 Altitude
+  - description: +1 Altitude
+  - description: +1 Altitude
+reference:
+  - EV:59
+includedModels:
+  - Incom TX-2
+  - Bespin Motors Ponrez/Arc Repulsorlift
+  - Karydee KD49 Drive Unit

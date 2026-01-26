@@ -1,0 +1,9 @@
+id: eote-talent-know-the-enemy
+name: Know the Enemy
+description: The character may use Knowledge (Warfare) skill when making checks to determine Initiative.
+activation: p
+ranked: false
+forceTalent: false
+trees: Imperial Academy Cadet
+reference:
+  - DoR:113

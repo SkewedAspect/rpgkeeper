@@ -1,0 +1,10 @@
+id: eote-talent-supporting-evidence
+name: Supporting Evidence
+description: When assisting an ally with a Charm, Deception, Leadership, or Negotiation check, add automatic
+  <advantage></advantage> per rank of Supporting Evidence.
+activation: p
+ranked: true
+forceTalent: false
+trees: Advocate, Analyst
+reference:
+  - DA:34

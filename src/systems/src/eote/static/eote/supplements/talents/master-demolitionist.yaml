@@ -1,0 +1,10 @@
+id: eote-talent-master-demolitionist
+name: Master Demolitionist
+description: When resolving an attack from a personal explosive or ordnance weapon, may spend <advantage></advantage> or
+  <triumph></triumph> to have the weapon's Blast quality act at short range, or medium if it already acts at short.
+activation: aa
+ranked: false
+forceTalent: false
+trees: Sapper
+reference:
+  - FO:31

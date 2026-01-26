@@ -1,0 +1,25 @@
+id: eote-weapon-parrying-vibroblade
+name: Parrying Vibroblade
+description: The parrying vibroblade is a high-tech version of the parrying dagger. Pairing a high-frequency vibroblade
+  with the wide crossguard or basket hilt of a parrying dagger, a parrying vibroblade is a dealy addition to any
+  duelist's arsenal. Even against weapons not easily deflected directly, such as lightsabers, an off-hand vibroblade can
+  force attackers to consider strikes cautiously, lest they leave themselves vulnerable to counterattacks with the short
+  blade.
+skill: Melee
+damage: 1
+addSkill: true
+criticalRating: 2
+range: en
+encumbrance: 1
+hardpoints: 2
+rarity: 6
+restricted: false
+qualities:
+  - id: eote-quality-defensive
+    ranks: 1
+  - id: eote-quality-pierce
+    ranks: 2
+  - id: eote-quality-vicious
+    ranks: 1
+reference:
+  - KtP:45

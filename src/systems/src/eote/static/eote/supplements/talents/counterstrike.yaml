@@ -1,0 +1,11 @@
+id: eote-talent-counterstrike
+name: Counterstrike
+description: When an attack misses the character and generates <despair></despair> or
+  <threat></threat><threat></threat>, may upgrade next Lightsaber (Cunning) check against attacker during encounter
+  once.
+activation: p
+ranked: false
+forceTalent: true
+trees: Shien Expert
+reference:
+  - F-CRB:141

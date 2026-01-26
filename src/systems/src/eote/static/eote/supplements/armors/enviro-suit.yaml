@@ -1,0 +1,32 @@
+id: eote-armor-enviro-suit
+name: Enviro-suit
+description: >-
+  The number of different types of environments found in the galaxy is staggering. Every world has its own unique mix of
+  gravity, atmosphere, and environment that forms the beings who dwell upon it. While there are numerous worlds that are
+  considered just right in that a substantial percentage of sentient species can dwell there in relative comfort, the
+  great majority of planets, moons, asteroids, and star bases are toxic to at least one species, if not more. To allow
+  those with sensitive systems to operate safely in the galaxy at large, numerous companies produce enviro-suits.
+
+  Enviro-suits come in a dizzying array of patterns and styles. At their most basic, enviro-suits are fully sealed,
+  full-body suits made of sturdy materials designed to keep sentients alive in inhospitable places. They protect their
+  wearers from toxic environments, radiological, biological, and chemical hazards, extremes of temperature, and
+  variations of atmospheric pressure. With the right suit, a wearer can withstand the vacuum of space, the depths of the
+  deepest oceans, and even atmospheres that are little more than choking miasmas of poisonous gasses. While most
+  enviro-suits on the market have built-in monitoring systems that can self-adjust to a wearer's particular needs and
+  are therefore appropriate for a variety of users, some are custom built and fitted for those species with especially
+  delicate or bizarre physiologies.
+
+  Enviro-suits typically have numerous attachment points and interface sockets for the use of Jetpacks, external tanks
+  for those with specific environmental needs, and storage pockets. Enviro-suits have an operational life of eight hours
+  until they need to be recharged and have their gasses and fluids refilled. Thanks to their many layers of protective
+  shielding, enviro-suits tend to be bulky and reduce a wearer's sense of his surroundings. An individual wearing an
+  enviro-suit suffers <setback></setback> to any Agility or Perception based checks while wearing the suit.
+defense: 0
+soak: 2
+hardpoints: 1
+encumbrance: 2
+rarity: 2
+restricted: false
+qualities: []
+reference:
+  - EtU:44
