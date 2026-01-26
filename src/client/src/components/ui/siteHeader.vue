@@ -25,16 +25,11 @@
                 </BNavItem>
             </BNavbarNav>
             <BNavbarNav v-b-color-mode="'light'" class="ms-auto align-items-center">
-                <BNavItem to="/about" title="About" class="icon-link">
-                    <Fa icon="circle-info" size="lg" />
+                <BNavItem to="/news" title="News" class="icon-link">
+                    <Fa icon="newspaper" size="lg" />
                 </BNavItem>
-                <BNavItem
-                    href="https://github.com/Morgul/rpgkeeper"
-                    target="_blank"
-                    title="Github Project"
-                    class="icon-link"
-                >
-                    <Fa :icon="['fab', 'github']" size="lg" />
+                <BNavItem v-if="isAdmin" to="/admin" title="Admin" class="icon-link">
+                    <Fa icon="user-gear" size="lg" />
                 </BNavItem>
                 <LoginBtn />
             </BNavbarNav>
@@ -65,6 +60,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
+    import { computed } from 'vue';
     import { storeToRefs } from 'pinia';
 
     // Stores
@@ -76,10 +72,15 @@
     // Config
     import { features } from '../../lib/config/features';
 
+    // Utils
+    import { hasGroup } from '../../lib/utils/permissions.ts';
+
     //------------------------------------------------------------------------------------------------------------------
 
     const store = useAccountStore();
-    const { account: _account } = storeToRefs(store);
+    const { account } = storeToRefs(store);
+
+    const isAdmin = computed(() => hasGroup(account.value, 'Admins'));
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

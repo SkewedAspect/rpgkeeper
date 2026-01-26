@@ -123,6 +123,13 @@
             </BCol>
         </BRow>
 
+        <!-- Recent Updates -->
+        <BRow class="mt-5">
+            <BCol md="6" class="offset-md-3">
+                <NewsWidget />
+            </BCol>
+        </BRow>
+
         <h4 class="text-center mt-5">
             Now that you've read our marketing pitch, why don't you try out RPGKeeper?
         </h4>
@@ -164,6 +171,9 @@
 
     // Stores
     import { useAccountStore } from '../lib/resource-access/stores/account';
+
+    // Components
+    import NewsWidget from '../components/news/newsWidget.vue';
 
     //------------------------------------------------------------------------------------------------------------------
 

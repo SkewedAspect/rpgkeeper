@@ -26,7 +26,7 @@ const SINGLE_USER_NAME = 'RPGKeeper User';
 
 //----------------------------------------------------------------------------------------------------------------------
 
-let singleUserAccount : { id : string; email : string; name : string; avatar : string } | null = null;
+let singleUserAccount : { id : string; email : string; name ?: string; avatar ?: string } | null = null;
 let isInitializing = false;
 
 //----------------------------------------------------------------------------------------------------------------------

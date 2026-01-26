@@ -17,6 +17,7 @@ import { ContentManager, ReferenceSubManager, SupplementSubManager, SystemSubMan
 // Feature managers
 import { CampaignManager } from './campaign.ts';
 import { CharacterManager } from './character.ts';
+import { NewsManager } from './news.ts';
 import { NotebookManager } from './notebook.ts';
 
 // Re-export manager classes for external use
@@ -25,6 +26,7 @@ export {
     ContentManager,
     CampaignManager,
     CharacterManager,
+    NewsManager,
     NotebookManager,
 };
 
@@ -63,6 +65,7 @@ export class ManagerAccess
     // Feature managers
     readonly campaign : CampaignManager;
     readonly character : CharacterManager;
+    readonly news : NewsManager;
     readonly notebook : NotebookManager;
 
     constructor(entities : EntityResourceAccess)
@@ -77,6 +80,7 @@ export class ManagerAccess
         // Create feature managers with engine dependencies
         this.character = new CharacterManager(entities, notebookEngine);
         this.campaign = new CampaignManager(entities, this.identity.account, notebookEngine);
+        this.news = new NewsManager(entities);
 
         // Create notebook wrapper for route compatibility
         this.notebook = new NotebookManager(notebookEngine);
