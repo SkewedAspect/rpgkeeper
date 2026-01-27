@@ -19,7 +19,7 @@
         </BFormGroup>
 
         <BFormRow class="mt-3">
-            <BCol cols="8">
+            <BCol cols="6">
                 <BFormGroup label-class="fw-bold" label-for="slug-input">
                     <template #label>
                         <div class="d-flex justify-content-between align-items-center">
@@ -44,7 +44,12 @@
                     <BFormInput id="slug-input" v-model="slug" autocomplete="off" />
                 </BFormGroup>
             </BCol>
-            <BCol cols="4">
+            <BCol cols="3">
+                <BFormGroup label="Date" label-class="fw-bold" label-for="date-input">
+                    <BFormInput id="date-input" v-model="publishedDate" type="date" />
+                </BFormGroup>
+            </BCol>
+            <BCol cols="3">
                 <BFormGroup label="Status" label-class="fw-bold" label-for="status-select">
                     <BFormSelect id="status-select" v-model="status" :options="statusOptions" />
                 </BFormGroup>
@@ -156,6 +161,7 @@
     const stingerMaxLength = ref(300);
     const content = ref('');
     const status = ref<PostStatus>('draft');
+    const publishedDate = ref('');
 
     const statusOptions = [
         { value: 'draft', text: 'Draft' },
@@ -176,6 +182,17 @@
             .replace(/\s+/g, '-') // Replace spaces with hyphens
             .replace(/-+/g, '-') // Replace multiple hyphens with single
             .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+    }
+
+    function formatDateForInput(date : Date) : string
+    {
+        return date.toISOString()
+            .split('T')[0];
+    }
+
+    function timestampToDateString(timestamp : number) : string
+    {
+        return formatDateForInput(new Date(timestamp * 1000));
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -334,6 +351,15 @@
                 stinger.value = props.post.stinger;
                 content.value = props.post.content;
                 status.value = props.post.status;
+                // Convert unix timestamp to YYYY-MM-DD for the date input
+                if(props.post.publishedAt)
+                {
+                    publishedDate.value = timestampToDateString(props.post.publishedAt);
+                }
+                else
+                {
+                    publishedDate.value = formatDateForInput(new Date());
+                }
             }
             else
             {
@@ -344,6 +370,7 @@
                 stinger.value = '';
                 content.value = '';
                 status.value = 'draft';
+                publishedDate.value = formatDateForInput(new Date());
             }
         }
     });
@@ -373,12 +400,17 @@
 
     async function onSave() : Promise<void>
     {
+        // Convert date string to unix timestamp (set to noon UTC to avoid timezone issues)
+        const publishedAt = publishedDate.value
+            ? new Date(`${ publishedDate.value }T12:00:00Z`).getTime() / 1000
+            : null;
+
         const postData = {
             title: title.value,
             stinger: stinger.value,
             content: content.value,
             status: status.value,
-            publishedAt: null,
+            publishedAt,
             ...(slug.value.trim() ? { slug: slug.value } : {}),
         };
 
@@ -404,6 +436,7 @@
         stingerMaxLength.value = 300;
         content.value = '';
         status.value = 'draft';
+        publishedDate.value = '';
 
         emit('hidden');
     }

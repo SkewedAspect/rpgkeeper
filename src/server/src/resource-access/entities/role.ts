@@ -41,6 +41,25 @@ export class RoleResourceAccess
 
         return roles.map((role) => role.name);
     }
+
+    async getByName(name : string) : Promise<Role | undefined>
+    {
+        const role = await this.db('role')
+            .select('role_id', 'name', 'permissions')
+            .where({ name })
+            .first();
+
+        return role ? RoleTransforms.fromDB(role) : undefined;
+    }
+
+    async addRoleToAccount(accountID : string, roleID : number) : Promise<void>
+    {
+        // Use INSERT OR IGNORE to handle duplicates gracefully
+        await this.db('account_role')
+            .insert({ account_id: accountID, role_id: roleID })
+            .onConflict([ 'account_id', 'role_id' ])
+            .ignore();
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -18,7 +18,7 @@
     "lint": "npm run lint --workspaces --if-present",
     "lint:types": "npm run lint:types --workspaces --if-present",
     "prepare": "if-env NODE_ENV=production && exit 0 || husky",
-    "test": "tsx node_modules/mocha/bin/mocha \"tests/**/*.spec.ts\"",
+    "test": "tsx node_modules/mocha/bin/mocha \"tests/{core,server,systems}/**/*.spec.ts\"",
     "test:e2e": "playwright test",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:ui": "playwright test --ui"

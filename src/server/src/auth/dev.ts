@@ -81,6 +81,69 @@ export default {
             }
         });
 
+        // Dev admin login endpoint - creates or retrieves a test admin user
+        app.post('/auth/dev/admin-login', async(req, res) =>
+        {
+            try
+            {
+                const managers = await getManagers();
+                const adminEmail = 'e2e-admin@rpgkeeper.local';
+
+                // Try to get existing admin account
+                let account;
+                try
+                {
+                    account = await managers.identity.account.getByEmail(adminEmail);
+                }
+                catch (error : unknown)
+                {
+                    const err = error as Error & { code ?: string };
+                    if(err.code !== 'ERR_NOT_FOUND')
+                    {
+                        throw err;
+                    }
+                }
+
+                // Create admin account if it doesn't exist
+                if(!account)
+                {
+                    account = await managers.identity.account.add({
+                        name: 'E2E Admin User',
+                        email: adminEmail,
+                        avatar: '',
+                    });
+                    logger.info(`Created admin test account: ${ account.id }`);
+                }
+
+                // Ensure user has admin permissions
+                const groups = account.groups ?? [];
+                if(!groups.includes('Admins'))
+                {
+                    account = await managers.identity.account.grantRole(account.id, 'Admins');
+                    logger.info(`Granted admin permissions to: ${ account.id }`);
+                }
+
+                // Log the user in
+                req.login(account, (err) =>
+                {
+                    if(err)
+                    {
+                        logger.error('Failed to login admin test user:', err);
+                        res.status(500).json({ error: 'Login failed' });
+                        return;
+                    }
+
+                    logger.info(`Admin test user logged in: ${ account.id }`);
+                    res.json(account);
+                });
+            }
+            catch (error)
+            {
+                logger.error('Dev admin auth error:', error);
+                res.status(500).json({ error: 'Admin authentication failed' });
+            }
+        });
+
         // Dev logout endpoint
         app.post('/auth/dev/logout', (req, res, done) =>
         {
