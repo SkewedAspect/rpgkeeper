@@ -5,6 +5,7 @@
 <template>
     <div id="app">
         <SiteHeader />
+        <AlertBanner />
         <main id="main-content">
             <RouterView />
         </main>
@@ -42,6 +43,7 @@
     import { useAccountStore } from './lib/resource-access/stores/account';
 
     // Components
+    import AlertBanner from './components/news/alertBanner.vue';
     import SiteHeader from './components/ui/siteHeader.vue';
     import SiteFooter from './components/ui/siteFooter.vue';
 

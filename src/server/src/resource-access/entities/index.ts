@@ -6,6 +6,7 @@ import type { Knex } from 'knex';
 
 // Individual Resource Access classes
 import { AccountResourceAccess } from './account.ts';
+import { AlertResourceAccess } from './alert.ts';
 import { CampaignResourceAccess } from './campaign.ts';
 import { CharacterResourceAccess } from './character.ts';
 import { NotebookResourceAccess } from './notebook.ts';
@@ -17,6 +18,7 @@ import { SystemResourceAccess } from './system.ts';
 // Re-export individual classes for direct use if needed
 export {
     AccountResourceAccess,
+    AlertResourceAccess,
     CampaignResourceAccess,
     CharacterResourceAccess,
     NotebookResourceAccess,
@@ -61,6 +63,7 @@ export type { SupplementRecord, NewSupplement } from './supplement.ts';
 export class EntityResourceAccess
 {
     readonly account : AccountResourceAccess;
+    readonly alert : AlertResourceAccess;
     readonly campaign : CampaignResourceAccess;
     readonly character : CharacterResourceAccess;
     readonly notebook : NotebookResourceAccess;
@@ -72,6 +75,7 @@ export class EntityResourceAccess
     constructor(db : Knex)
     {
         this.account = new AccountResourceAccess(db);
+        this.alert = new AlertResourceAccess(db);
         this.campaign = new CampaignResourceAccess(db);
         this.character = new CharacterResourceAccess(db);
         this.notebook = new NotebookResourceAccess(db);

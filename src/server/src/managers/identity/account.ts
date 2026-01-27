@@ -77,6 +77,18 @@ export class AccountSubManager
     {
         return this.entities.account.remove(accountID);
     }
+
+    async grantRole(accountID : string, roleName : string) : Promise<Account>
+    {
+        const role = await this.entities.role.getByName(roleName);
+        if(!role)
+        {
+            throw new Error(`Role not found: ${ roleName }`);
+        }
+
+        await this.entities.role.addRoleToAccount(accountID, role.id);
+        return this.get(accountID);
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------

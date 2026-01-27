@@ -41,6 +41,9 @@ import sysRouter from './routes/systems.ts';
 import accountsRouter from './routes/accounts.ts';
 import rolesRouter from './routes/roles.ts';
 import versionRouter from './routes/version.ts';
+import newsRouter from './routes/news.ts';
+import adminNewsRouter from './routes/admin/news.ts';
+import adminStatsRouter from './routes/admin/stats.ts';
 
 // Utils
 import { errorLogger, requestLogger, serveIndex } from './routes/utils/index.ts';
@@ -184,6 +187,11 @@ async function main() : Promise<void>
     app.use('/api/accounts', accountsRouter);
     app.use('/api/roles', rolesRouter);
     app.use('/api/notebook', noteRouter);
+    app.use('/api/news', newsRouter);
+
+    // Admin Routes
+    app.use('/api/admin/news', adminNewsRouter);
+    app.use('/api/admin/stats', adminStatsRouter);
 
     // Serve index.html for any html requests, but 404 everything else.
     app.get(/(.*)/, (_request, response) =>

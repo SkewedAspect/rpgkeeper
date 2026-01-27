@@ -37,7 +37,6 @@ import './scss/theme.scss';
 
 // Views
 import AppComponent from './app.vue';
-import AboutPage from './pages/aboutPage.vue';
 import CampListPage from './pages/campListPage.vue';
 import CampaignPage from './pages/campaignPage.vue';
 import CharacterPage from './pages/characterPage.vue';
@@ -45,7 +44,12 @@ import CharListPage from './pages/charListPage.vue';
 import DashboardPage from './pages/dashboardPage.vue';
 
 // Pages
+import AdminPage from './pages/adminPage.vue';
+import AdminPostsPage from './pages/adminPostsPage.vue';
+import AdminAlertsPage from './pages/adminAlertsPage.vue';
 import HomePage from './pages/homePage.vue';
+import NewsPage from './pages/newsPage.vue';
+import NewsPostPage from './pages/newsPostPage.vue';
 import SettingsPage from './pages/settingsPage.vue';
 
 // Utils
@@ -65,11 +69,15 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', name: 'home', component: HomePage },
-        { path: '/about', name: 'about', component: AboutPage },
         { path: '/dashboard', name: 'dashboard', component: DashboardPage },
         { path: '/characters', name: 'character-list', component: CharListPage },
         { path: '/characters/:id', name: 'character', component: CharacterPage, meta: { hideFooter: true } },
         { path: '/settings', name: 'settings', component: SettingsPage },
+        { path: '/news', name: 'news', component: NewsPage },
+        { path: '/news/:slug', name: 'news-post', component: NewsPostPage },
+        { path: '/admin', name: 'admin', component: AdminPage },
+        { path: '/admin/posts', name: 'admin-posts', component: AdminPostsPage },
+        { path: '/admin/alerts', name: 'admin-alerts', component: AdminAlertsPage },
 
         // Campaign routes (feature flagged)
         ...(features.campaigns ? [

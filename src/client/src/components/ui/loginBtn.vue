@@ -32,6 +32,15 @@
                 <Fa icon="comment-alt-lines" />
                 Leave Feedback
             </BDropdownItem>
+            <BDropdownItem href="https://github.com/Morgul/rpgkeeper" target="_blank">
+                <Fa :icon="['fab', 'github']" />
+                GitHub Project
+            </BDropdownItem>
+            <BDropdownDivider />
+            <BDropdownItem href="https://www.paypal.me/morgul/10" target="_blank">
+                <Fa icon="heart" class="text-danger" />
+                Support RPGKeeper
+            </BDropdownItem>
             <template v-if="!isSingleUserMode">
                 <BDropdownDivider />
                 <BDropdownItem @click="signOut()">
