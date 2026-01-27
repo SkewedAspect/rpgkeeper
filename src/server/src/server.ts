@@ -13,6 +13,7 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from 'passport';
 import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
 import configUtil from '@strata-js/util-config';
 import logging from '@strata-js/util-logging';
 import { Server as SIOServer } from 'socket.io';
@@ -179,6 +180,28 @@ async function main() : Promise<void>
     }
 
     //------------------------------------------------------------------------------------------------------------------
+    // Rate Limiting
+    //------------------------------------------------------------------------------------------------------------------
+
+    // Strict rate limit for auth routes (10 requests per 15 minutes)
+    const authLimiter = rateLimit({
+        windowMs: 15 * 60 * 1000,
+        max: 10,
+        standardHeaders: true,
+        legacyHeaders: false,
+        message: { type: 'RateLimitExceeded', message: 'Too many authentication attempts, please try again later.' },
+    });
+
+    // General rate limit for API routes (100 requests per 15 minutes)
+    const apiLimiter = rateLimit({
+        windowMs: 15 * 60 * 1000,
+        max: 100,
+        standardHeaders: true,
+        legacyHeaders: false,
+        message: { type: 'RateLimitExceeded', message: 'Too many requests, please try again later.' },
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
     // Routing
     //------------------------------------------------------------------------------------------------------------------
 
@@ -189,10 +212,11 @@ async function main() : Promise<void>
     }
 
     // Core Application Routes
-    app.use('/auth', authRouter);
+    app.use('/auth', authLimiter, authRouter);
     app.use('/version', versionRouter);
 
-    // Api Routes
+    // Api Routes (rate limited)
+    app.use('/api', apiLimiter);
     app.use('/api/campaign', campRouter);
     app.use('/api/characters', charRouter);
     app.use('/api/systems', sysRouter);

@@ -6,14 +6,16 @@
   "exports": {
     ".": "./src/server.ts"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "lint": "eslint \"src/**/*.{ts,js}\" --max-warnings=0 --no-warn-ignored",
     "lint:types": "tsc --noEmit"
   },
   "dependencies": {
     "@rpgk/core": "*",
-    "@rpgk/systems": "*"
-  },
-  "devDependencies": {}
+    "@rpgk/systems": "*",
+    "express-rate-limit": "^8.2.1"
+  }
 }
