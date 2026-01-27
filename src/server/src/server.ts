@@ -183,6 +183,8 @@ async function main() : Promise<void>
     // Rate Limiting
     //------------------------------------------------------------------------------------------------------------------
 
+    const rateLimitLogger = logging.getLogger('rate-limit');
+
     // Strict rate limit for auth routes (10 requests per 15 minutes)
     const authLimiter = rateLimit({
         windowMs: 15 * 60 * 1000,
@@ -190,15 +192,25 @@ async function main() : Promise<void>
         standardHeaders: true,
         legacyHeaders: false,
         message: { type: 'RateLimitExceeded', message: 'Too many authentication attempts, please try again later.' },
+        handler: (req, res, next, options) =>
+        {
+            rateLimitLogger.warn(`[AUTH] LIMIT EXCEEDED: ${ req.method } ${ req.path }`);
+            res.status(options.statusCode).json(options.message);
+        },
     });
 
-    // General rate limit for API routes (100 requests per 15 minutes)
+    // General rate limit for API routes (1000 requests per 15 minutes)
     const apiLimiter = rateLimit({
         windowMs: 15 * 60 * 1000,
-        max: 100,
+        max: 1000,
         standardHeaders: true,
         legacyHeaders: false,
         message: { type: 'RateLimitExceeded', message: 'Too many requests, please try again later.' },
+        handler: (req, res, next, options) =>
+        {
+            rateLimitLogger.warn(`[API] LIMIT EXCEEDED: ${ req.method } ${ req.path }`);
+            res.status(options.statusCode).json(options.message);
+        },
     });
 
     //------------------------------------------------------------------------------------------------------------------
