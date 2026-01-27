@@ -14,8 +14,8 @@
     "lint:types": "tsc --noEmit"
   },
   "dependencies": {
-    "@rpgk/core": "*",
-    "@rpgk/systems": "*",
+    "@rpgk/core": "^1.0.0",
+    "@rpgk/systems": "^1.0.0",
     "express-rate-limit": "^8.2.1"
   }
 }

@@ -8,17 +8,18 @@
     "./client": "./src/client.ts",
     "./eote/models": "./src/eote/models.ts"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "build:static-db": "npx tsx scripts/build-static-db.ts",
     "lint": "eslint \"src/**/*.{ts,js,vue}\" --max-warnings=0 --no-warn-ignored",
     "lint:types": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@rpgk/core": "*"
+    "@rpgk/core": "^1.0.0"
   },
   "peerDependencies": {
     "vue": "^3.5.0"
-  },
-  "devDependencies": {}
+  }
 }

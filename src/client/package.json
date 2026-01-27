@@ -6,17 +6,18 @@
   "exports": {
     ".": "./src/app.ts"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "lint": "eslint \"src/**/*.{ts,js,vue}\" --max-warnings=0 --no-warn-ignored",
     "lint:types": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@rpgk/core": "*",
-    "@rpgk/systems": "*"
+    "@rpgk/core": "^1.0.0",
+    "@rpgk/systems": "^1.0.0"
   },
   "peerDependencies": {
     "vue": "^3.5.0"
-  },
-  "devDependencies": {}
+  }
 }

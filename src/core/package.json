@@ -11,14 +11,15 @@
     "./models/systems/*": "./src/models/systems/*.ts",
     "./utils/*": "./src/utils/*.ts"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "lint": "eslint \"src/**/*.{ts,js}\" --max-warnings=0 --no-warn-ignored",
     "lint:types": "tsc --noEmit"
   },
   "dependencies": {
     "rpgdicejs": "^2.0.3",
-    "zod": "^4.2.1"
-  },
-  "devDependencies": {}
+    "zod": "^4.3.6"
+  }
 }
