@@ -123,7 +123,19 @@ async function main() : Promise<void>
     const app = express();
 
     // Middleware
-    app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false }));
+    app.use(helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: [ "'self'" ],
+                scriptSrc: [ "'self'", "'unsafe-inline'", "'unsafe-eval'" ],
+                styleSrc: [ "'self'", "'unsafe-inline'" ],
+                imgSrc: [ "'self'", 'data:', 'https:' ],
+                connectSrc: [ "'self'", 'ws:', 'wss:' ],
+                fontSrc: [ "'self'", 'https:', 'data:' ],
+            },
+        },
+        crossOriginEmbedderPolicy: false,
+    }));
     app.use(express.json());
     app.use(cookieParser());
 
@@ -140,7 +152,7 @@ async function main() : Promise<void>
         store,
 
         // maxAge = 7 days
-        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: httpSecureCookie },
+        cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, secure: httpSecureCookie, sameSite: 'lax' },
         saveUninitialized: false,
     }));
 
