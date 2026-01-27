@@ -178,21 +178,16 @@
         return text
             .toLowerCase()
             .trim()
-            .replace(/[^\w\s-]/g, '') // Remove special characters
-            .replace(/\s+/g, '-') // Replace spaces with hyphens
-            .replace(/-+/g, '-') // Replace multiple hyphens with single
-            .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '');
     }
 
-    function formatDateForInput(date : Date) : string
+    function toDateInputValue(date : Date | number) : string
     {
-        return date.toISOString()
-            .split('T')[0];
-    }
-
-    function timestampToDateString(timestamp : number) : string
-    {
-        return formatDateForInput(new Date(timestamp * 1000));
+        const dateObj = typeof date === 'number' ? new Date(date * 1000) : date;
+        return dateObj.toISOString().split('T')[0];
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -221,9 +216,7 @@
     function extractFootnoteDefinitions(text : string) : Map<string, string>
     {
         const definitions = new Map<string, string>();
-        const regex = /^\[([^\]]+)\]:\s+(.+)$/gm;
-        let match;
-        while((match = regex.exec(text)) !== null)
+        for(const match of text.matchAll(/^\[([^\]]+)\]:\s+(.+)$/gm))
         {
             definitions.set(match[1].toLowerCase(), match[0]);
         }
@@ -232,42 +225,18 @@
 
     function findFootnoteReferences(text : string) : string[]
     {
-        const refs : string[] = [];
-        // Match [text] that's not followed by ( or : (so not inline links or definitions)
-        const regex = /\[([^\]]+)\](?!\(|:)/g;
-        let match;
-        while((match = regex.exec(text)) !== null)
-        {
-            refs.push(match[1].toLowerCase());
-        }
-        return [ ...new Set(refs) ]; // Unique
+        const matches = [ ...text.matchAll(/\[([^\]]+)\](?!\(|:)/g) ];
+        return [ ...new Set(matches.map((match) => match[1].toLowerCase())) ];
     }
 
     function cleanupTruncatedMarkdown(text : string) : string
     {
-        let result = text;
-
-        // Remove incomplete link at end: [text] or [text]( or [text](url
-        const lastOpenBracket = result.lastIndexOf('[');
-        if(lastOpenBracket !== -1)
-        {
-            const afterBracket = result.slice(lastOpenBracket);
-            // Check if this is a complete markdown link or footnote ref
-            if(!(/\[[^\]]+\](\([^)]+\))?$/.test(afterBracket)))
-            {
-                // Incomplete - remove it
-                result = result.slice(0, lastOpenBracket).trim();
-            }
-        }
-
-        // Remove incomplete bold/italic at end
-        const trailingMarkers = result.match(/[*_]+$/);
-        if(trailingMarkers)
-        {
-            result = result.slice(0, -trailingMarkers[0].length).trim();
-        }
-
-        return result;
+        return text
+            // Remove incomplete markdown link at end: [text or [text]( or [text](url
+            .replace(/\[[^\]]*$|\[[^\]]+\]\([^)]*$/, '')
+            // Remove trailing bold/italic markers
+            .replace(/[*_]+$/, '')
+            .trim();
     }
 
     function generateStinger() : void
@@ -298,11 +267,10 @@
             .replace(/\n{3,}/g, '\n\n')
             .trim();
 
-        // Try to get first paragraph
+        // Get first paragraph and truncate if needed
         const firstParagraph = text.split(/\n\n/)[0] ?? text;
-
-        // Truncate if needed
         const maxLength = stingerMaxLength.value;
+
         let result : string;
         if(firstParagraph.length <= maxLength)
         {
@@ -310,14 +278,10 @@
         }
         else
         {
-            // Truncate at word boundary
             const truncated = firstParagraph.slice(0, maxLength);
             const lastSpace = truncated.lastIndexOf(' ');
-            result = lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated;
-
-            // Clean up any broken markdown from truncation
-            result = cleanupTruncatedMarkdown(result);
-            result = `${ result }...`;
+            const cutPoint = lastSpace > 0 ? lastSpace : maxLength;
+            result = `${ cleanupTruncatedMarkdown(truncated.slice(0, cutPoint)) }...`;
         }
 
         // Find footnote references used in the result and append their definitions
@@ -352,14 +316,7 @@
                 content.value = props.post.content;
                 status.value = props.post.status;
                 // Convert unix timestamp to YYYY-MM-DD for the date input
-                if(props.post.publishedAt)
-                {
-                    publishedDate.value = timestampToDateString(props.post.publishedAt);
-                }
-                else
-                {
-                    publishedDate.value = formatDateForInput(new Date());
-                }
+                publishedDate.value = toDateInputValue(props.post.publishedAt ?? new Date());
             }
             else
             {
@@ -370,7 +327,7 @@
                 stinger.value = '';
                 content.value = '';
                 status.value = 'draft';
-                publishedDate.value = formatDateForInput(new Date());
+                publishedDate.value = toDateInputValue(new Date());
             }
         }
     });
