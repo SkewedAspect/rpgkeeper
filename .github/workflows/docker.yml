@@ -26,6 +26,9 @@ on:
 env:
   IMAGE_NAME: rpgkeeper
 
+permissions:
+  contents: read
+
 jobs:
   push:
     runs-on: ubuntu-latest
