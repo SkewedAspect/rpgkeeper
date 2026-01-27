@@ -6,6 +6,25 @@ import { test as base, expect } from '@playwright/test';
 
 //----------------------------------------------------------------------------------------------------------------------
 
+// Test post title patterns to identify posts created by tests
+const TEST_POST_PATTERNS = [
+    /^E2E Test Post \d+$/,
+    /^Status Badge Test \d+$/,
+    /^Edit Test Post \d+$/,
+    /^Original Title \d+$/,
+    /^Updated Title \d+$/,
+    /^Published Post \d+$/,
+    /^Draft Post \d+$/,
+    /^Readable Post \d+$/,
+];
+
+function isTestPost(title : string) : boolean
+{
+    return TEST_POST_PATTERNS.some((pattern) => pattern.test(title));
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
 // Extend base test with admin login
 const test = base.extend({
     page: async ({ page }, use) =>
@@ -34,6 +53,26 @@ test.describe('Admin Posts', () =>
         // Navigate to admin posts page
         await page.goto('/admin/posts');
         await expect(page.getByRole('heading', { name: /manage posts/i })).toBeVisible({ timeout: 10000 });
+    });
+
+    test.afterAll(async ({ request }) =>
+    {
+        // Clean up test posts after all tests complete
+        // First, login to get a session
+        await request.post('/auth/dev/admin-login');
+
+        // Get all posts
+        const listResponse = await request.get('/api/admin/news/posts');
+        if(!listResponse.ok())
+        {
+            return;
+        }
+
+        const posts = await listResponse.json() as { id : string; title : string }[];
+
+        // Delete posts that match test patterns
+        const testPosts = posts.filter((post) => isTestPost(post.title));
+        await Promise.all(testPosts.map((post) => request.delete(`/api/admin/news/posts/${ post.id }`)));
     });
 
     //------------------------------------------------------------------------------------------------------------------

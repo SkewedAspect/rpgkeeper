@@ -12,6 +12,9 @@ import type { Post } from '@rpgk/core/models/post';
 import type { EntityResourceAccess } from '../resource-access/index.ts';
 import * as postsRA from '../resource-access/posts.ts';
 
+// Errors
+import { NotFoundError } from '../errors.ts';
+
 //----------------------------------------------------------------------------------------------------------------------
 
 export class NewsManager
@@ -39,7 +42,7 @@ export class NewsManager
         // Only return published posts through the public API
         if(post.status !== 'published')
         {
-            throw new Error(`Post not found`);
+            throw new NotFoundError(`Post not found`);
         }
 
         return post;

@@ -15,7 +15,13 @@
             <div class="d-flex justify-content-center align-items-center gap-2">
                 <Fa :icon="getIcon(alert.level)" />
                 <span>{{ alert.message }}</span>
-                <a v-if="alert.link" :href="alert.link" target="_blank" class="alert-link">
+                <a
+                    v-if="alert.link && isValidUrl(alert.link)"
+                    :href="alert.link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="alert-link"
+                >
                     Learn more
                     <Fa icon="external-link" />
                 </a>
@@ -122,6 +128,11 @@
             default:
                 return 'info-circle';
         }
+    }
+
+    function isValidUrl(url : string) : boolean
+    {
+        return url.startsWith('http://') || url.startsWith('https://');
     }
 
     function dismissAlert(alertId : string) : void

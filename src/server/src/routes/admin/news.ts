@@ -68,13 +68,9 @@ router.get('/posts/:postID', async (req, resp) =>
  */
 router.post('/posts', async (req, resp) =>
 {
-    if(!req.user)
-    {
-        throw new Error('User not authenticated');
-    }
-
     const managers = await getManagers();
-    const post = await managers.news.addPost(req.user.id, req.body);
+    // req.user is guaranteed by ensureAuthenticated middleware
+    const post = await managers.news.addPost((req.user as { id : string }).id, req.body);
     resp.status(201).json(post);
 });
 
@@ -127,13 +123,9 @@ router.get('/alerts/:alertID', async (req, resp) =>
  */
 router.post('/alerts', async (req, resp) =>
 {
-    if(!req.user)
-    {
-        throw new Error('User not authenticated');
-    }
-
     const managers = await getManagers();
-    const alert = await managers.news.addAlert(req.user.id, req.body);
+    // req.user is guaranteed by ensureAuthenticated middleware
+    const alert = await managers.news.addAlert((req.user as { id : string }).id, req.body);
     resp.status(201).json(alert);
 });
 
