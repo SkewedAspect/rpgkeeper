@@ -60,7 +60,10 @@ test.describe('EotE Critical Injuries', () =>
         const detailSelect = criticalsCard.locator('select').nth(1);
         await detailSelect.selectOption('Right Arm');
         await criticalsCard.getByRole('button', { name: /add/i }).click();
-        await expect(page.getByText(/Maimed.*Right Arm/)).toBeVisible();
+
+        const firstCard = page.locator('.eote-critical-card').filter({ hasText: 'Maimed' });
+        await expect(firstCard).toBeVisible();
+        await expect(firstCard).toContainText('Right Arm');
 
         // Select Maimed again
         await criticalsCard.locator('select').first()
@@ -93,12 +96,13 @@ test.describe('EotE Critical Injuries', () =>
         await criticalsCard.locator('select').nth(1)
             .selectOption('Right Leg');
         await criticalsCard.getByRole('button', { name: /add/i }).click();
-        await expect(page.getByText(/Crippled.*Right Leg/)).toBeVisible();
 
-        // Click edit button
-        const criticalCard = page.locator('.eote-critical-card').first();
-        await criticalCard.locator('button').filter({ hasText: '' })
-            .click();
+        const criticalCard = page.locator('.eote-critical-card').filter({ hasText: 'Crippled' });
+        await expect(criticalCard).toBeVisible();
+        await expect(criticalCard).toContainText('Right Leg');
+
+        // Click edit button (the link button with icon, not the close button)
+        await criticalCard.locator('button.btn-link').click();
 
         // Edit dropdown should appear
         const editSelect = criticalCard.locator('select');
@@ -112,8 +116,8 @@ test.describe('EotE Critical Injuries', () =>
             .click();
 
         // Verify updated detail
-        await expect(page.getByText(/Crippled.*Left Arm/)).toBeVisible();
-        await expect(page.getByText(/Crippled.*Right Leg/)).not.toBeVisible();
+        await expect(criticalCard).toContainText('Left Arm');
+        await expect(criticalCard).not.toContainText('Right Leg');
     });
 
     test('should remove detail when selecting None', async({ page, character }) =>
@@ -133,12 +137,13 @@ test.describe('EotE Critical Injuries', () =>
         await criticalsCard.locator('select').nth(1)
             .selectOption('Left Leg');
         await criticalsCard.getByRole('button', { name: /add/i }).click();
-        await expect(page.getByText(/Maimed.*Left Leg/)).toBeVisible();
 
-        // Click edit button
-        const criticalCard = page.locator('.eote-critical-card').first();
-        await criticalCard.locator('button').filter({ hasText: '' })
-            .click();
+        const criticalCard = page.locator('.eote-critical-card').filter({ hasText: 'Maimed' });
+        await expect(criticalCard).toBeVisible();
+        await expect(criticalCard).toContainText('Left Leg');
+
+        // Click edit button (the link button with icon, not the close button)
+        await criticalCard.locator('button.btn-link').click();
 
         // Select None
         const editSelect = criticalCard.locator('select');
@@ -149,8 +154,8 @@ test.describe('EotE Critical Injuries', () =>
             .click();
 
         // Verify detail is removed (should just show "Maimed")
-        await expect(page.getByText(/^Maimed$/)).toBeVisible();
-        await expect(page.getByText(/Left Leg/)).not.toBeVisible();
+        await expect(criticalCard).toContainText('Maimed');
+        await expect(criticalCard).not.toContainText('Left Leg');
     });
 
     test('should add critical without detail when all options are used', async({ page, character }) =>
@@ -177,18 +182,18 @@ test.describe('EotE Critical Injuries', () =>
             // eslint-disable-next-line no-await-in-loop
             await criticalsCard.getByRole('button', { name: /add/i }).click();
             // eslint-disable-next-line no-await-in-loop
-            await expect(page.getByText(new RegExp(`Maimed.*${ limb }`))).toBeVisible();
+            await expect(page.locator('.eote-critical-card').filter({ hasText: limb })).toBeVisible();
         }
 
         // Try to add another Maimed
         await criticalsCard.locator('select').first()
             .selectOption('Maimed');
 
-        // Detail dropdown should show only "None"
+        // Detail dropdown should show only placeholder (no available limbs)
         const detailSelect = criticalsCard.locator('select').nth(1);
         const options = await detailSelect.locator('option').allTextContents();
         expect(options.length).toBe(1);
-        expect(options[0]).toContain('None');
+        expect(options[0]).toContain('Select limb');
 
         // Add button should still work
         await criticalsCard.getByRole('button', { name: /add/i }).click();
@@ -215,14 +220,16 @@ test.describe('EotE Critical Injuries', () =>
         await criticalsCard.locator('select').nth(1)
             .selectOption('Right Arm');
         await criticalsCard.getByRole('button', { name: /add/i }).click();
-        await expect(page.getByText(/Crippled.*Right Arm/)).toBeVisible();
+
+        const criticalCard = page.locator('.eote-critical-card').filter({ hasText: 'Crippled' });
+        await expect(criticalCard).toBeVisible();
+        await expect(criticalCard).toContainText('Right Arm');
 
         // Click close button on the critical card
-        const criticalCard = page.locator('.eote-critical-card').first();
         await criticalCard.locator('button[aria-label="Close"]').click();
 
         // Verify critical is removed
-        await expect(page.getByText(/Crippled.*Right Arm/)).not.toBeVisible();
+        await expect(criticalCard).not.toBeVisible();
     });
 });
 
