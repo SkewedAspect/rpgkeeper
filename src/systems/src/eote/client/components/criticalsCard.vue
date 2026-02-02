@@ -20,6 +20,7 @@
                 v-model="selectedCritical"
                 :options="formattedCriticals"
                 :disabled="readonly"
+                data-testid="critical-select"
             />
             <template #append>
                 <BButton
@@ -27,6 +28,7 @@
                     style="max-width: 48px; min-width: 48px;"
                     title="Add selected Critical"
                     :disabled="readonly"
+                    data-testid="add-critical-btn"
                     @click="addCritical()"
                 >
                     <Fa icon="plus" />
@@ -35,7 +37,12 @@
         </BInputGroup>
 
         <BInputGroup v-if="selectedCriticalNeedsDetail" class="mt-2">
-            <BFormSelect v-if="selectedCriticalDetailType === 'limb'" v-model="detailInput" :disabled="readonly">
+            <BFormSelect
+                v-if="selectedCriticalDetailType === 'limb'"
+                v-model="detailInput"
+                :disabled="readonly"
+                data-testid="detail-select"
+            >
                 <option value="">
                     Select limb...
                 </option>
@@ -47,6 +54,7 @@
                 v-else-if="selectedCriticalDetailType === 'characteristic'"
                 v-model="detailInput"
                 :disabled="readonly"
+                data-testid="detail-select"
             >
                 <option value="">
                     Select characteristic...
@@ -104,6 +112,7 @@
 
     // Managers
     import diceMan from '@client/lib/utils/dice';
+    import * as eoteDice from '@client/lib/utils/dice-systems/eote';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
@@ -146,21 +155,13 @@
 
     const selectedCriticalNeedsDetail = computed(() =>
     {
-        return [ 'Crippled', 'Maimed', 'Gruesome Injury' ].includes(selectedCritical.value);
+        return eoteDice.criticalNeedsDetail(selectedCritical.value);
     });
 
     const selectedCriticalDetailType = computed(() =>
     {
-        if(selectedCritical.value === 'Gruesome Injury')
-        {
-            return 'characteristic';
-        }
-        else if([ 'Crippled', 'Maimed' ].includes(selectedCritical.value))
-        {
-            return 'limb';
-        }
-
-        return null;
+        const critical = eoteDice.criticals.find((crit) => crit.title === selectedCritical.value);
+        return critical?.detailConfig?.type ?? null;
     });
 
     const usedDetailsForCritical = computed(() =>
@@ -172,14 +173,12 @@
 
     const availableLimbs = computed(() =>
     {
-        const allLimbs = [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ];
-        return allLimbs.filter((limb) => !usedDetailsForCritical.value.includes(limb));
+        return eoteDice.getAvailableDetails(selectedCritical.value, usedDetailsForCritical.value);
     });
 
     const availableCharacteristics = computed(() =>
     {
-        const allChars = [ 'Brawn', 'Agility', 'Intellect', 'Cunning', 'Willpower', 'Presence' ];
-        return allChars.filter((char) => !usedDetailsForCritical.value.includes(char));
+        return eoteDice.getAvailableDetails(selectedCritical.value, usedDetailsForCritical.value);
     });
     const formattedCriticals = computed(() =>
     {
@@ -271,60 +270,6 @@
         saveChar();
     }
 
-    function getAvailableDetailsForCritical(criticalName : string) : string[]
-    {
-        const usedDetails = currentCriticals.value
-            .filter((injury) => injury.name === criticalName && injury.detail)
-            .map((injury) => injury.detail as string);
-
-        if(criticalName === 'Gruesome Injury')
-        {
-            const allChars = [ 'Brawn', 'Agility', 'Intellect', 'Cunning', 'Willpower', 'Presence' ];
-            return allChars.filter((char) => !usedDetails.includes(char));
-        }
-        else if(criticalName === 'Crippled' || criticalName === 'Maimed')
-        {
-            const allLimbs = [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ];
-            return allLimbs.filter((limb) => !usedDetails.includes(limb));
-        }
-
-        return [];
-    }
-
-    function generateRandomDetail(criticalName : string) : string | undefined
-    {
-        const available = getAvailableDetailsForCritical(criticalName);
-        if(available.length === 0)
-        {
-            return undefined;
-        }
-
-        if(criticalName === 'Gruesome Injury')
-        {
-            const roll = Math.floor(Math.random() * 10) + 1;
-            let selected : string;
-            if(roll >= 1 && roll <= 3) { selected = 'Brawn'; }
-            else if(roll >= 4 && roll <= 6) { selected = 'Agility'; }
-            else if(roll === 7) { selected = 'Intellect'; }
-            else if(roll === 8) { selected = 'Cunning'; }
-            else if(roll === 9) { selected = 'Presence'; }
-            else { selected = 'Willpower'; }
-
-            if(available.includes(selected))
-            {
-                return selected;
-            }
-
-            return available[Math.floor(Math.random() * available.length)];
-        }
-        else if(criticalName === 'Crippled' || criticalName === 'Maimed')
-        {
-            return available[Math.floor(Math.random() * available.length)];
-        }
-
-        return undefined;
-    }
-
     function rollCritical(bonus = 0) : void
     {
         bonus = bonus || rollBonus.value || 0;
@@ -332,10 +277,12 @@
         const rolledCritical = diceMan.rollEotECritical(totalBonus);
         if(rolledCritical)
         {
-            const needsDetail = [ 'Crippled', 'Maimed', 'Gruesome Injury' ].includes(rolledCritical.title);
-            if(needsDetail)
+            if(eoteDice.criticalNeedsDetail(rolledCritical.title))
             {
-                const detail = generateRandomDetail(rolledCritical.title);
+                const usedDetails = currentCriticals.value
+                    .filter((injury) => injury.name === rolledCritical.title && injury.detail)
+                    .map((injury) => injury.detail as string);
+                const detail = eoteDice.generateRandomDetail(rolledCritical.title, usedDetails);
                 addCritical(rolledCritical, detail);
             }
             else

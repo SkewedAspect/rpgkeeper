@@ -28,6 +28,7 @@
                             size="sm"
                             class="p-0 ms-1 text-muted"
                             style="font-size: 0.75rem;"
+                            data-testid="edit-detail-btn"
                             @click.stop.prevent="startEdit"
                         >
                             <Fa :icon="injury.detail ? 'edit' : 'plus'" />
@@ -35,7 +36,7 @@
                     </span>
                 </small>
                 <div v-if="editing" class="mt-1 d-flex">
-                    <BFormSelect v-model="editDetail" size="sm" class="flex-grow-1">
+                    <BFormSelect v-model="editDetail" size="sm" class="flex-grow-1" data-testid="edit-detail-select">
                         <option value="">
                             None
                         </option>
@@ -43,10 +44,24 @@
                             {{ option }}
                         </option>
                     </BFormSelect>
-                    <BButton variant="success" size="sm" class="ms-2" style="min-width: 38px;" @click.stop.prevent="saveEdit">
+                    <BButton
+                        variant="success"
+                        size="sm"
+                        class="ms-2"
+                        style="min-width: 38px;"
+                        data-testid="save-detail-btn"
+                        @click.stop.prevent="saveEdit"
+                    >
                         <Fa icon="check" />
                     </BButton>
-                    <BButton variant="secondary" size="sm" class="ms-1" style="min-width: 38px;" @click.stop.prevent="cancelEdit">
+                    <BButton
+                        variant="secondary"
+                        size="sm"
+                        class="ms-1"
+                        style="min-width: 38px;"
+                        data-testid="cancel-detail-btn"
+                        @click.stop.prevent="cancelEdit"
+                    >
                         <Fa icon="times" />
                     </BButton>
                 </div>
@@ -96,6 +111,7 @@
 
     // Utils
     import { shortID } from '@client/lib/utils/misc';
+    import * as eoteDice from '@client/lib/utils/dice-systems/eote';
 
     // Stores
     import { useSystemStore } from '@client/lib/resource-access/stores/systems';
@@ -149,21 +165,13 @@
 
     const criticalNeedsDetail = computed(() =>
     {
-        return [ 'Crippled', 'Maimed', 'Gruesome Injury' ].includes(critical.value.title);
+        return eoteDice.criticalNeedsDetail(critical.value.title);
     });
 
     const detailOptions = computed(() =>
     {
-        if(critical.value.title === 'Gruesome Injury')
-        {
-            return [ 'Brawn', 'Agility', 'Intellect', 'Cunning', 'Willpower', 'Presence' ];
-        }
-        else if([ 'Crippled', 'Maimed' ].includes(critical.value.title))
-        {
-            return [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ];
-        }
-
-        return [];
+        const crit = eoteDice.criticals.find((cr) => cr.title === critical.value.title);
+        return crit?.detailConfig?.options ?? [];
     });
 
     //------------------------------------------------------------------------------------------------------------------

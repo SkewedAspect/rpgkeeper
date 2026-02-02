@@ -16,12 +16,20 @@ interface BaseCriticalInjury
     detail ?: string;
 }
 
+interface BaseCriticalInjuryDetailConfig
+{
+    type : 'limb' | 'characteristic';
+    options : string[];
+    randomWeights ?: { value : string; weight : number }[];
+}
+
 interface BaseCriticalInjuryEntry
 {
     range : [ number, number ];
     severity ?: number;
     title : string;
     description : string;
+    detailConfig ?: BaseCriticalInjuryDetailConfig;
 }
 
 export interface BaseQualityRef
@@ -205,6 +213,7 @@ interface BaseSystemDetails
 export type EoteCharacteristics = BaseCharacteristics;
 export type EoteCriticalInjury = BaseCriticalInjury;
 export type EoteCritical = BaseCriticalInjuryEntry;
+export type EoteCriticalDetailConfig = BaseCriticalInjuryDetailConfig;
 export type EoteAbility = BaseAbility;
 export type EoteSkill = BaseSkill;
 export type EoteGear = BaseGear;
