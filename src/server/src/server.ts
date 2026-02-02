@@ -185,12 +185,14 @@ async function main() : Promise<void>
 
     const rateLimitLogger = logging.getLogger('rate-limit');
 
-    // Strict rate limit for auth routes (10 requests per 15 minutes)
+    // Strict rate limit for auth routes (1000 requests per 15 minutes)
+    // Skip rate limiting for /auth/dev/* routes (used in e2e tests)
     const authLimiter = rateLimit({
         windowMs: 15 * 60 * 1000,
-        max: 10,
+        max: 1000,
         standardHeaders: true,
         legacyHeaders: false,
+        skip: (req) => req.path.startsWith('/dev/'),
         message: { type: 'RateLimitExceeded', message: 'Too many authentication attempts, please try again later.' },
         handler: (req, res, next, options) =>
         {
@@ -199,10 +201,10 @@ async function main() : Promise<void>
         },
     });
 
-    // General rate limit for API routes (1000 requests per 15 minutes)
+    // General rate limit for API routes (5000 requests per 15 minutes)
     const apiLimiter = rateLimit({
         windowMs: 15 * 60 * 1000,
-        max: 1000,
+        max: 5000,
         standardHeaders: true,
         legacyHeaders: false,
         message: { type: 'RateLimitExceeded', message: 'Too many requests, please try again later.' },

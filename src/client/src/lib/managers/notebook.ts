@@ -2,8 +2,10 @@
 // NotesManager
 //----------------------------------------------------------------------------------------------------------------------
 
+import { type Socket, io } from 'socket.io-client';
+
 // Model
-import type { Notebook, NotebookPage } from '@rpgk/core';
+import type { Notebook, NotebookPage, RPGKMessage } from '@rpgk/core';
 
 // Store
 import { useNotebookStore } from '../resource-access/stores/notebook';
@@ -15,6 +17,66 @@ import noteRA from '../resource-access/notebook';
 
 class NotesManager
 {
+    #pageSocket : Socket;
+    #notebookSocket : Socket;
+
+    constructor()
+    {
+        this.#pageSocket = io('/notebook/page');
+        this.#pageSocket.on('message', this._onPageMessage.bind(this));
+
+        this.#notebookSocket = io('/notebook');
+        this.#notebookSocket.on('message', this._onNotebookMessage.bind(this));
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Message Handlers
+    //------------------------------------------------------------------------------------------------------------------
+
+    _onPageMessage(envelope : RPGKMessage) : void
+    {
+        const store = useNotebookStore();
+        switch (envelope.type)
+        {
+            case 'add':
+                store.addPage(envelope.payload as NotebookPage);
+                break;
+
+            case 'update':
+                store.updatePage(envelope.payload as NotebookPage);
+                break;
+
+            case 'remove':
+                store.removePage(envelope.resource);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    _onNotebookMessage(envelope : RPGKMessage) : void
+    {
+        const store = useNotebookStore();
+        switch (envelope.type)
+        {
+            case 'add':
+            case 'update':
+                store.update(envelope.payload as Notebook);
+                break;
+
+            case 'remove':
+                if(store.id === envelope.resource)
+                {
+                    store.clear();
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------
     // Helpers
     //------------------------------------------------------------------------------------------------------------------
@@ -28,7 +90,7 @@ class NotesManager
         }
         else
         {
-            store.$patch({ id: null, pages: [] });
+            store.clear();
         }
     }
 
@@ -44,42 +106,22 @@ class NotesManager
             notebook = await noteRA.getNotebook(noteID);
         }
 
-        // Update the store
         this._updateStore(notebook);
     }
 
     async addPage(noteID : string, page : NotebookPage) : Promise<void>
     {
-        // Add the page
         await noteRA.addPage(noteID, page);
-
-        // Get a new copy of the notebook
-        const newNotebook = await noteRA.getNotebook(noteID);
-
-        // Update the store
-        this._updateStore(newNotebook);
     }
 
     async updatePage(noteID : string, page : NotebookPage) : Promise<void>
     {
         await noteRA.updatePage(noteID, page);
-
-        // Get a new copy of the notebook
-        const newNotebook = await noteRA.getNotebook(noteID);
-
-        // Update the store
-        this._updateStore(newNotebook);
     }
 
     async deletePage(noteID : string, page : NotebookPage) : Promise<void>
     {
         await noteRA.deletePage(noteID, page);
-
-        // Get a new copy of the notebook
-        const newNotebook = await noteRA.getNotebook(noteID);
-
-        // Update the store
-        this._updateStore(newNotebook);
     }
 }
 
