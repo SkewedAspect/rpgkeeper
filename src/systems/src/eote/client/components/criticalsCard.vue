@@ -39,17 +39,8 @@
                 <option value="">
                     Select limb...
                 </option>
-                <option value="Right Arm">
-                    Right Arm
-                </option>
-                <option value="Left Arm">
-                    Left Arm
-                </option>
-                <option value="Right Leg">
-                    Right Leg
-                </option>
-                <option value="Left Leg">
-                    Left Leg
+                <option v-for="limb in availableLimbs" :key="limb" :value="limb">
+                    {{ limb }}
                 </option>
             </BFormSelect>
             <BFormSelect
@@ -60,23 +51,8 @@
                 <option value="">
                     Select characteristic...
                 </option>
-                <option value="Brawn">
-                    Brawn
-                </option>
-                <option value="Agility">
-                    Agility
-                </option>
-                <option value="Intellect">
-                    Intellect
-                </option>
-                <option value="Cunning">
-                    Cunning
-                </option>
-                <option value="Willpower">
-                    Willpower
-                </option>
-                <option value="Presence">
-                    Presence
+                <option v-for="char in availableCharacteristics" :key="char" :value="char">
+                    {{ char }}
                 </option>
             </BFormSelect>
         </BInputGroup>
@@ -107,6 +83,7 @@
                 :injury="injury"
                 :readonly="readonly"
                 @remove="removeCritical(index)"
+                @update="updateCritical(index, $event)"
             />
         </template>
     </RpgkCard>
@@ -184,6 +161,25 @@
         }
 
         return null;
+    });
+
+    const usedDetailsForCritical = computed(() =>
+    {
+        return currentCriticals.value
+            .filter((injury) => injury.name === selectedCritical.value && injury.detail)
+            .map((injury) => injury.detail as string);
+    });
+
+    const availableLimbs = computed(() =>
+    {
+        const allLimbs = [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ];
+        return allLimbs.filter((limb) => !usedDetailsForCritical.value.includes(limb));
+    });
+
+    const availableCharacteristics = computed(() =>
+    {
+        const allChars = [ 'Brawn', 'Agility', 'Intellect', 'Cunning', 'Willpower', 'Presence' ];
+        return allChars.filter((char) => !usedDetailsForCritical.value.includes(char));
     });
     const formattedCriticals = computed(() =>
     {
@@ -268,22 +264,62 @@
         saveChar();
     }
 
-    function generateRandomDetail(criticalName : string) : string | undefined
+    function updateCritical(index : number, injury : EoteCriticalInjury) : void
     {
+        currentCriticals.value[index] = injury;
+        character.value.details.health.criticalInjuries = currentCriticals.value;
+        saveChar();
+    }
+
+    function getAvailableDetailsForCritical(criticalName : string) : string[]
+    {
+        const usedDetails = currentCriticals.value
+            .filter((injury) => injury.name === criticalName && injury.detail)
+            .map((injury) => injury.detail as string);
+
         if(criticalName === 'Gruesome Injury')
         {
-            const roll = Math.floor(Math.random() * 10) + 1;
-            if(roll >= 1 && roll <= 3) { return 'Brawn'; }
-            if(roll >= 4 && roll <= 6) { return 'Agility'; }
-            if(roll === 7) { return 'Intellect'; }
-            if(roll === 8) { return 'Cunning'; }
-            if(roll === 9) { return 'Presence'; }
-            if(roll === 10) { return 'Willpower'; }
+            const allChars = [ 'Brawn', 'Agility', 'Intellect', 'Cunning', 'Willpower', 'Presence' ];
+            return allChars.filter((char) => !usedDetails.includes(char));
         }
         else if(criticalName === 'Crippled' || criticalName === 'Maimed')
         {
-            const limbs = [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ];
-            return limbs[Math.floor(Math.random() * limbs.length)];
+            const allLimbs = [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ];
+            return allLimbs.filter((limb) => !usedDetails.includes(limb));
+        }
+
+        return [];
+    }
+
+    function generateRandomDetail(criticalName : string) : string | undefined
+    {
+        const available = getAvailableDetailsForCritical(criticalName);
+        if(available.length === 0)
+        {
+            return undefined;
+        }
+
+        if(criticalName === 'Gruesome Injury')
+        {
+            const roll = Math.floor(Math.random() * 10) + 1;
+            let selected : string;
+            if(roll >= 1 && roll <= 3) { selected = 'Brawn'; }
+            else if(roll >= 4 && roll <= 6) { selected = 'Agility'; }
+            else if(roll === 7) { selected = 'Intellect'; }
+            else if(roll === 8) { selected = 'Cunning'; }
+            else if(roll === 9) { selected = 'Presence'; }
+            else { selected = 'Willpower'; }
+
+            if(available.includes(selected))
+            {
+                return selected;
+            }
+
+            return available[Math.floor(Math.random() * available.length)];
+        }
+        else if(criticalName === 'Crippled' || criticalName === 'Maimed')
+        {
+            return available[Math.floor(Math.random() * available.length)];
         }
 
         return undefined;
@@ -296,8 +332,16 @@
         const rolledCritical = diceMan.rollEotECritical(totalBonus);
         if(rolledCritical)
         {
-            const detail = generateRandomDetail(rolledCritical.title);
-            addCritical(rolledCritical, detail);
+            const needsDetail = [ 'Crippled', 'Maimed', 'Gruesome Injury' ].includes(rolledCritical.title);
+            if(needsDetail)
+            {
+                const detail = generateRandomDetail(rolledCritical.title);
+                addCritical(rolledCritical, detail);
+            }
+            else
+            {
+                addCritical(rolledCritical);
+            }
         }
 
         rollBonus.value = undefined;

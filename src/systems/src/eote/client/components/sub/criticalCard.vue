@@ -11,16 +11,46 @@
                 style="margin-top: -3px;"
                 @click.stop.prevent="remove"
             />
-            <small>
-                {{ critical.title }}
-                <span v-if="critical.severity">
-                    <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                    (<difficulty v-for="index in severityRange" :key="index" />)
-                </span>
-                <span v-if="injury.detail" class="text-muted">
-                    - {{ injury.detail }}
-                </span>
-            </small>
+            <div>
+                <small>
+                    {{ critical.title }}
+                    <span v-if="critical.severity">
+                        <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
+                        (<difficulty v-for="index in severityRange" :key="index" />)
+                    </span>
+                    <span v-if="!editing">
+                        <span v-if="injury.detail" class="text-muted">
+                            - {{ injury.detail }}
+                        </span>
+                        <BButton
+                            v-if="!readonly && criticalNeedsDetail"
+                            variant="link"
+                            size="sm"
+                            class="p-0 ms-1 text-muted"
+                            style="font-size: 0.75rem;"
+                            @click.stop.prevent="startEdit"
+                        >
+                            <Fa :icon="injury.detail ? 'edit' : 'plus'" />
+                        </BButton>
+                    </span>
+                </small>
+                <div v-if="editing" class="mt-1 d-flex">
+                    <BFormSelect v-model="editDetail" size="sm" class="flex-grow-1">
+                        <option value="">
+                            None
+                        </option>
+                        <option v-for="option in detailOptions" :key="option" :value="option">
+                            {{ option }}
+                        </option>
+                    </BFormSelect>
+                    <BButton variant="success" size="sm" class="ms-2" style="min-width: 38px;" @click.stop.prevent="saveEdit">
+                        <Fa icon="check" />
+                    </BButton>
+                    <BButton variant="secondary" size="sm" class="ms-1" style="min-width: 38px;" @click.stop.prevent="cancelEdit">
+                        <Fa icon="times" />
+                    </BButton>
+                </div>
+            </div>
 
             <BPopover :target="id" triggers="hover" placement="top" teleport-to="body">
                 <template #title>
@@ -88,7 +118,11 @@
 
     const props = defineProps<Props>();
 
-    type Events = (e : 'remove', title : string) => void;
+    interface Events
+    {
+        (e : 'remove', title : string) : void;
+        (e : 'update', injury : EoteCriticalInjury) : void;
+    }
 
     const emit = defineEmits<Events>();
 
@@ -98,6 +132,8 @@
 
     const uuid = ref(shortID());
     const systemStore = useSystemStore();
+    const editing = ref(false);
+    const editDetail = ref<string>('');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -111,6 +147,25 @@
     const reference = computed(() => { return mode.value ? 'E-CRB:217' : 'G-CRB:115'; });
     const severityRange = computed(() => Array(critical.value.severity));
 
+    const criticalNeedsDetail = computed(() =>
+    {
+        return [ 'Crippled', 'Maimed', 'Gruesome Injury' ].includes(critical.value.title);
+    });
+
+    const detailOptions = computed(() =>
+    {
+        if(critical.value.title === 'Gruesome Injury')
+        {
+            return [ 'Brawn', 'Agility', 'Intellect', 'Cunning', 'Willpower', 'Presence' ];
+        }
+        else if([ 'Crippled', 'Maimed' ].includes(critical.value.title))
+        {
+            return [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ];
+        }
+
+        return [];
+    });
+
     //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
@@ -121,6 +176,28 @@
         {
             emit('remove', critical.value.title);
         }
+    }
+
+    function startEdit() : void
+    {
+        editDetail.value = props.injury.detail || '';
+        editing.value = true;
+    }
+
+    function saveEdit() : void
+    {
+        const updatedInjury : EoteCriticalInjury = {
+            ...props.injury,
+            detail: editDetail.value || undefined,
+        };
+        emit('update', updatedInjury);
+        editing.value = false;
+    }
+
+    function cancelEdit() : void
+    {
+        editing.value = false;
+        editDetail.value = '';
     }
 </script>
 
