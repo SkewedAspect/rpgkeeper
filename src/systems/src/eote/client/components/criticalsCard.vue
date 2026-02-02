@@ -268,11 +268,37 @@
         saveChar();
     }
 
+    function generateRandomDetail(criticalName : string) : string | undefined
+    {
+        if(criticalName === 'Gruesome Injury')
+        {
+            const roll = Math.floor(Math.random() * 10) + 1;
+            if(roll >= 1 && roll <= 3) { return 'Brawn'; }
+            if(roll >= 4 && roll <= 6) { return 'Agility'; }
+            if(roll === 7) { return 'Intellect'; }
+            if(roll === 8) { return 'Cunning'; }
+            if(roll === 9) { return 'Presence'; }
+            if(roll === 10) { return 'Willpower'; }
+        }
+        else if(criticalName === 'Crippled' || criticalName === 'Maimed')
+        {
+            const limbs = [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ];
+            return limbs[Math.floor(Math.random() * limbs.length)];
+        }
+
+        return undefined;
+    }
+
     function rollCritical(bonus = 0) : void
     {
         bonus = bonus || rollBonus.value || 0;
         const totalBonus = bonus + (currentCriticals.value.length * 10);
-        addCritical(diceMan.rollEotECritical(totalBonus));
+        const rolledCritical = diceMan.rollEotECritical(totalBonus);
+        if(rolledCritical)
+        {
+            const detail = generateRandomDetail(rolledCritical.title);
+            addCritical(rolledCritical, detail);
+        }
 
         rollBonus.value = undefined;
     }
