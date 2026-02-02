@@ -29,9 +29,13 @@ export const test = base.extend<{ character : CharacterFixture }>({
         // Navigate to app first to establish origin
         await page.goto('/');
 
-        // Login via dev endpoint
-        const response = await page.request.post('/auth/dev/login');
-        expect(response.ok()).toBeTruthy();
+        // Login via dev endpoint using fetch in browser context (so cookies are set)
+        const response = await page.evaluate(async() =>
+        {
+            const resp = await fetch('/auth/dev/login', { method: 'POST' });
+            return { ok: resp.ok, status: resp.status };
+        });
+        expect(response.ok).toBeTruthy();
 
         // Reload to pick up session
         await page.reload();
