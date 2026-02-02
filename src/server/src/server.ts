@@ -194,7 +194,7 @@ async function main() : Promise<void>
         legacyHeaders: false,
         skip: (req) => req.path.startsWith('/dev/'),
         message: { type: 'RateLimitExceeded', message: 'Too many authentication attempts, please try again later.' },
-        handler: (req, res, next, options) =>
+        handler: (req, res, _next, options) =>
         {
             rateLimitLogger.warn(`[AUTH] LIMIT EXCEEDED: ${ req.method } ${ req.path }`);
             res.status(options.statusCode).json(options.message);
@@ -208,7 +208,7 @@ async function main() : Promise<void>
         standardHeaders: true,
         legacyHeaders: false,
         message: { type: 'RateLimitExceeded', message: 'Too many requests, please try again later.' },
-        handler: (req, res, next, options) =>
+        handler: (req, res, _next, options) =>
         {
             rateLimitLogger.warn(`[API] LIMIT EXCEEDED: ${ req.method } ${ req.path }`);
             res.status(options.statusCode).json(options.message);

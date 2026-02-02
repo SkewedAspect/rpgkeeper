@@ -39,6 +39,7 @@ export const ActivationTypeSchema = z.enum([ 'p', 'ai', 'aio', 'am', 'aa' ]);
 export const BaseCriticalInjurySchema = z.object({
     name: z.string(),
     value: z.number().int(),
+    detail: z.string().optional(),
 });
 
 export const BaseCriticalInjuryEntrySchema = z.object({

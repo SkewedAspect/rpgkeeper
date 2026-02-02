@@ -237,12 +237,20 @@ export const criticals : EoteCritical[] = [
         severity: 3,
         title: 'Crippled',
         description: "One of the target's limbs (selected by the GM) is crippled until healed or replaced. Increase difficulty of all checks that require use of that limb by one.",
+        detailConfig: {
+            type: 'limb',
+            options: [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ],
+        },
     },
     {
         range: [ 101, 105 ],
         severity: 3,
         title: 'Maimed',
         description: 'A limb is permanently lost. Unless the target has a cybernetic replacement, the target cannot perform actions that would require the use of that limb. All other actions gain <setback></setback>.',
+        detailConfig: {
+            type: 'limb',
+            options: [ 'Right Arm', 'Left Arm', 'Right Leg', 'Left Leg' ],
+        },
     },
     {
         range: [ 106, 110 ],
@@ -273,6 +281,18 @@ export const criticals : EoteCritical[] = [
         severity: 4,
         title: 'Gruesome Injury',
         description: "Randomly roll 1d10 for one of the target's characteristics&#8212; 1-3 for Brawn, 4-6 for Agility, 7 for Intellect, 8 for Cunning, 9 for Presence, 10 for Willpower. That characteristic is permanently reduced by one, to a minimum of one.",
+        detailConfig: {
+            type: 'characteristic',
+            options: [ 'Brawn', 'Agility', 'Intellect', 'Cunning', 'Willpower', 'Presence' ],
+            randomWeights: [
+                { value: 'Brawn', weight: 3 },
+                { value: 'Agility', weight: 3 },
+                { value: 'Intellect', weight: 1 },
+                { value: 'Cunning', weight: 1 },
+                { value: 'Presence', weight: 1 },
+                { value: 'Willpower', weight: 1 },
+            ],
+        },
     },
     {
         range: [ 131, 140 ],
@@ -369,6 +389,85 @@ export function findCritical(result : number) : EoteCritical | undefined
             return critical;
         }
     });
+}
+
+/**
+ * Check if a critical injury requires a detail (limb, characteristic, etc.)
+ *
+ * @param criticalTitle - The title of the critical injury.
+ *
+ * @returns True if the critical requires detail, false otherwise.
+ */
+export function criticalNeedsDetail(criticalTitle : string) : boolean
+{
+    const critical = criticals.find((crit) => crit.title === criticalTitle);
+    return !!critical?.detailConfig;
+}
+
+/**
+ * Get available detail options for a critical, filtering out already-used details.
+ *
+ * @param criticalTitle - The title of the critical injury.
+ * @param usedDetails - Array of details already used for this critical type.
+ *
+ * @returns Array of available detail options.
+ */
+export function getAvailableDetails(criticalTitle : string, usedDetails : string[] = []) : string[]
+{
+    const critical = criticals.find((crit) => crit.title === criticalTitle);
+    if(!critical?.detailConfig)
+    {
+        return [];
+    }
+
+    return critical.detailConfig.options.filter((option) => !usedDetails.includes(option));
+}
+
+/**
+ * Generate a random detail for a critical injury based on its configuration.
+ *
+ * @param criticalTitle - The title of the critical injury.
+ * @param usedDetails - Array of details already used for this critical type.
+ *
+ * @returns A randomly selected detail, or undefined if no options available.
+ */
+export function generateRandomDetail(criticalTitle : string, usedDetails : string[] = []) : string | undefined
+{
+    const critical = criticals.find((crit) => crit.title === criticalTitle);
+    if(!critical?.detailConfig)
+    {
+        return undefined;
+    }
+
+    const available = getAvailableDetails(criticalTitle, usedDetails);
+    if(available.length === 0)
+    {
+        return undefined;
+    }
+
+    // If there are random weights defined, use weighted selection
+    if(critical.detailConfig.randomWeights)
+    {
+        const roll = Math.floor(Math.random() * 10) + 1;
+        let cumulative = 0;
+
+        for(const { value, weight } of critical.detailConfig.randomWeights)
+        {
+            cumulative += weight;
+            if(roll <= cumulative)
+            {
+                // If the weighted choice is available, use it; otherwise fall back to random
+                if(available.includes(value))
+                {
+                    return value;
+                }
+                break;
+            }
+        }
+    }
+
+    // Random selection from available options
+    return available[Math.floor(Math.random() * available.length)];
 }
 
 //----------------------------------------------------------------------------------------------------------------------

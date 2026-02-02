@@ -20,6 +20,7 @@
                 v-model="selectedCritical"
                 :options="formattedCriticals"
                 :disabled="readonly"
+                data-testid="critical-select"
             />
             <template #append>
                 <BButton
@@ -27,11 +28,41 @@
                     style="max-width: 48px; min-width: 48px;"
                     title="Add selected Critical"
                     :disabled="readonly"
+                    data-testid="add-critical-btn"
                     @click="addCritical()"
                 >
                     <Fa icon="plus" />
                 </BButton>
             </template>
+        </BInputGroup>
+
+        <BInputGroup v-if="selectedCriticalNeedsDetail" class="mt-2">
+            <BFormSelect
+                v-if="selectedCriticalDetailType === 'limb'"
+                v-model="detailInput"
+                :disabled="readonly"
+                data-testid="detail-select"
+            >
+                <option value="">
+                    Select limb...
+                </option>
+                <option v-for="limb in availableLimbs" :key="limb" :value="limb">
+                    {{ limb }}
+                </option>
+            </BFormSelect>
+            <BFormSelect
+                v-else-if="selectedCriticalDetailType === 'characteristic'"
+                v-model="detailInput"
+                :disabled="readonly"
+                data-testid="detail-select"
+            >
+                <option value="">
+                    Select characteristic...
+                </option>
+                <option v-for="char in availableCharacteristics" :key="char" :value="char">
+                    {{ char }}
+                </option>
+            </BFormSelect>
         </BInputGroup>
 
         <BInputGroup class="mt-2">
@@ -52,13 +83,15 @@
 
         <hr class="mt-2 mb-2">
 
-        <template v-for="(critical, index) in currentCriticals" :key="index">
+        <template v-for="(injury, index) in currentCriticals" :key="index">
             <CriticalCard
-                v-if="findCritical(critical.name)"
+                v-if="findCritical(injury.name)"
                 class="mt-2"
-                :critical="findCritical(critical.name)!"
+                :critical="findCritical(injury.name)!"
+                :injury="injury"
                 :readonly="readonly"
                 @remove="removeCritical(index)"
+                @update="updateCritical(index, $event)"
             />
         </template>
     </RpgkCard>
@@ -67,7 +100,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, onMounted, ref } from 'vue';
+    import { computed, onMounted, ref, watch } from 'vue';
     import { storeToRefs } from 'pinia';
     import { sortBy } from 'lodash';
 
@@ -79,6 +112,7 @@
 
     // Managers
     import diceMan from '@client/lib/utils/dice';
+    import * as eoteDice from '@client/lib/utils/dice-systems/eote';
 
     // Components
     import RpgkCard from '@client/components/ui/rpgkCard.vue';
@@ -108,6 +142,7 @@
     const selectedCritical = ref(diceMan.eoteCriticals[0].title);
     const currentCriticals = ref<EoteCriticalInjury[]>([]);
     const rollBonus = ref<number | undefined>(undefined);
+    const detailInput = ref<string>('');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -117,6 +152,34 @@
     const readonly = computed(() => props.readonly);
 
     const criticals = computed(() => diceMan.eoteCriticals);
+
+    const selectedCriticalNeedsDetail = computed(() =>
+    {
+        return eoteDice.criticalNeedsDetail(selectedCritical.value);
+    });
+
+    const selectedCriticalDetailType = computed(() =>
+    {
+        const critical = eoteDice.criticals.find((crit) => crit.title === selectedCritical.value);
+        return critical?.detailConfig?.type ?? null;
+    });
+
+    const usedDetailsForCritical = computed(() =>
+    {
+        return currentCriticals.value
+            .filter((injury) => injury.name === selectedCritical.value && injury.detail)
+            .map((injury) => injury.detail as string);
+    });
+
+    const availableLimbs = computed(() =>
+    {
+        return eoteDice.getAvailableDetails(selectedCritical.value, usedDetailsForCritical.value);
+    });
+
+    const availableCharacteristics = computed(() =>
+    {
+        return eoteDice.getAvailableDetails(selectedCritical.value, usedDetailsForCritical.value);
+    });
     const formattedCriticals = computed(() =>
     {
         return criticals.value.map((critical) =>
@@ -145,6 +208,19 @@
     });
 
     //------------------------------------------------------------------------------------------------------------------
+    // Watchers
+    //------------------------------------------------------------------------------------------------------------------
+
+    // Clear detailInput when switching to a critical that doesn't need detail
+    watch(selectedCritical, (newCritical) =>
+    {
+        if(!eoteDice.criticalNeedsDetail(newCritical))
+        {
+            detailInput.value = '';
+        }
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
     // Methods
     //------------------------------------------------------------------------------------------------------------------
 
@@ -169,14 +245,25 @@
         return criticals.value.find((crit) => crit.title === criticalName);
     }
 
-    function addCritical(critical ?: EoteCritical) : void
+    function addCritical(critical ?: EoteCritical, detail ?: string) : void
     {
         critical = critical || criticals.value.find((crit) => crit.title === selectedCritical.value);
         if(critical)
         {
-            character.value.details.health.criticalInjuries
-                .push({ name: critical.title, value: (critical.severity ?? 9001) });
+            const injury : EoteCriticalInjury = {
+                name: critical.title,
+                value: (critical.severity ?? 9001),
+            };
+
+            if(detail || detailInput.value)
+            {
+                injury.detail = detail || detailInput.value;
+            }
+
+            character.value.details.health.criticalInjuries.push(injury);
             sortCriticals();
+
+            detailInput.value = '';
 
             return saveChar();
         }
@@ -189,11 +276,33 @@
         saveChar();
     }
 
+    function updateCritical(index : number, injury : EoteCriticalInjury) : void
+    {
+        currentCriticals.value[index] = injury;
+        character.value.details.health.criticalInjuries = currentCriticals.value;
+        saveChar();
+    }
+
     function rollCritical(bonus = 0) : void
     {
         bonus = bonus || rollBonus.value || 0;
         const totalBonus = bonus + (currentCriticals.value.length * 10);
-        addCritical(diceMan.rollEotECritical(totalBonus));
+        const rolledCritical = diceMan.rollEotECritical(totalBonus);
+        if(rolledCritical)
+        {
+            if(eoteDice.criticalNeedsDetail(rolledCritical.title))
+            {
+                const usedDetails = currentCriticals.value
+                    .filter((injury) => injury.name === rolledCritical.title && injury.detail)
+                    .map((injury) => injury.detail as string);
+                const detail = eoteDice.generateRandomDetail(rolledCritical.title, usedDetails);
+                addCritical(rolledCritical, detail);
+            }
+            else
+            {
+                addCritical(rolledCritical);
+            }
+        }
 
         rollBonus.value = undefined;
     }
