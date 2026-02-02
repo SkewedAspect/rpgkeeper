@@ -160,7 +160,10 @@
     const readonly = computed(() => props.readonly);
 
     const id = computed(() => `critical-${ uuid.value }`);
-    const reference = computed(() => { return mode.value ? 'E-CRB:217' : 'G-CRB:115'; });
+    const reference = computed(() =>
+    {
+        return mode.value === 'eote' ? 'E-CRB:217' : 'G-CRB:115';
+    });
     const severityRange = computed(() => Array(critical.value.severity));
 
     const criticalNeedsDetail = computed(() =>

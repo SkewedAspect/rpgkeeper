@@ -100,7 +100,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, onMounted, ref } from 'vue';
+    import { computed, onMounted, ref, watch } from 'vue';
     import { storeToRefs } from 'pinia';
     import { sortBy } from 'lodash';
 
@@ -205,6 +205,19 @@
                 text: `${ bounds }: ${ critical.title } ${ severity }`,
             };
         });
+    });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Watchers
+    //------------------------------------------------------------------------------------------------------------------
+
+    // Clear detailInput when switching to a critical that doesn't need detail
+    watch(selectedCritical, (newCritical) =>
+    {
+        if(!eoteDice.criticalNeedsDetail(newCritical))
+        {
+            detailInput.value = '';
+        }
     });
 
     //------------------------------------------------------------------------------------------------------------------

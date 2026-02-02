@@ -2,8 +2,19 @@
 // EotE Critical Injuries Tests
 //----------------------------------------------------------------------------------------------------------------------
 
-import { type Page, expect } from '@playwright/test';
-import { test } from './fixtures';
+import type { Locator, Page } from '@playwright/test';
+import { expect, test } from './fixtures';
+
+//----------------------------------------------------------------------------------------------------------------------
+// Types
+//----------------------------------------------------------------------------------------------------------------------
+
+interface CharacterFixture
+{
+    create : (name : string, system : string) => Promise<string>;
+    delete : (id : string) => Promise<void>;
+    goto : (id : string) => Promise<void>;
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 // Helper Functions
@@ -11,9 +22,9 @@ import { test } from './fixtures';
 
 async function setupCharacterWithCriticals(
     page : Page,
-    character : any,
+    character : CharacterFixture,
     testName : string
-) : Promise<{ criticalsCard : any; charID : string }>
+) : Promise<{ criticalsCard : Locator; charID : string }>
 {
     const charName = `Crit ${ testName } Test ${ Date.now() }`;
     const charID = await character.create(charName, 'eote');
