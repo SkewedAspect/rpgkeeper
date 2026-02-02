@@ -34,6 +34,53 @@
             </template>
         </BInputGroup>
 
+        <BInputGroup v-if="selectedCriticalNeedsDetail" class="mt-2">
+            <BFormSelect v-if="selectedCriticalDetailType === 'limb'" v-model="detailInput" :disabled="readonly">
+                <option value="">
+                    Select limb...
+                </option>
+                <option value="Right Arm">
+                    Right Arm
+                </option>
+                <option value="Left Arm">
+                    Left Arm
+                </option>
+                <option value="Right Leg">
+                    Right Leg
+                </option>
+                <option value="Left Leg">
+                    Left Leg
+                </option>
+            </BFormSelect>
+            <BFormSelect
+                v-else-if="selectedCriticalDetailType === 'characteristic'"
+                v-model="detailInput"
+                :disabled="readonly"
+            >
+                <option value="">
+                    Select characteristic...
+                </option>
+                <option value="Brawn">
+                    Brawn
+                </option>
+                <option value="Agility">
+                    Agility
+                </option>
+                <option value="Intellect">
+                    Intellect
+                </option>
+                <option value="Cunning">
+                    Cunning
+                </option>
+                <option value="Willpower">
+                    Willpower
+                </option>
+                <option value="Presence">
+                    Presence
+                </option>
+            </BFormSelect>
+        </BInputGroup>
+
         <BInputGroup class="mt-2">
             <BFormInput v-model.number="rollBonus" type="number" min="0" step="1" placeholder="Crit. bonus" />
             <template #append>
@@ -52,11 +99,12 @@
 
         <hr class="mt-2 mb-2">
 
-        <template v-for="(critical, index) in currentCriticals" :key="index">
+        <template v-for="(injury, index) in currentCriticals" :key="index">
             <CriticalCard
-                v-if="findCritical(critical.name)"
+                v-if="findCritical(injury.name)"
                 class="mt-2"
-                :critical="findCritical(critical.name)!"
+                :critical="findCritical(injury.name)!"
+                :injury="injury"
                 :readonly="readonly"
                 @remove="removeCritical(index)"
             />
@@ -108,6 +156,7 @@
     const selectedCritical = ref(diceMan.eoteCriticals[0].title);
     const currentCriticals = ref<EoteCriticalInjury[]>([]);
     const rollBonus = ref<number | undefined>(undefined);
+    const detailInput = ref<string>('');
 
     //------------------------------------------------------------------------------------------------------------------
     // Computed
@@ -117,6 +166,25 @@
     const readonly = computed(() => props.readonly);
 
     const criticals = computed(() => diceMan.eoteCriticals);
+
+    const selectedCriticalNeedsDetail = computed(() =>
+    {
+        return [ 'Crippled', 'Maimed', 'Gruesome Injury' ].includes(selectedCritical.value);
+    });
+
+    const selectedCriticalDetailType = computed(() =>
+    {
+        if(selectedCritical.value === 'Gruesome Injury')
+        {
+            return 'characteristic';
+        }
+        else if([ 'Crippled', 'Maimed' ].includes(selectedCritical.value))
+        {
+            return 'limb';
+        }
+
+        return null;
+    });
     const formattedCriticals = computed(() =>
     {
         return criticals.value.map((critical) =>
@@ -169,14 +237,25 @@
         return criticals.value.find((crit) => crit.title === criticalName);
     }
 
-    function addCritical(critical ?: EoteCritical) : void
+    function addCritical(critical ?: EoteCritical, detail ?: string) : void
     {
         critical = critical || criticals.value.find((crit) => crit.title === selectedCritical.value);
         if(critical)
         {
-            character.value.details.health.criticalInjuries
-                .push({ name: critical.title, value: (critical.severity ?? 9001) });
+            const injury : EoteCriticalInjury = {
+                name: critical.title,
+                value: (critical.severity ?? 9001),
+            };
+
+            if(detail || detailInput.value)
+            {
+                injury.detail = detail || detailInput.value;
+            }
+
+            character.value.details.health.criticalInjuries.push(injury);
             sortCriticals();
+
+            detailInput.value = '';
 
             return saveChar();
         }

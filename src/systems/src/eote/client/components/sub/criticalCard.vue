@@ -17,6 +17,9 @@
                     <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
                     (<difficulty v-for="index in severityRange" :key="index" />)
                 </span>
+                <span v-if="injury.detail" class="text-muted">
+                    - {{ injury.detail }}
+                </span>
             </small>
 
             <BPopover :target="id" triggers="hover" placement="top" teleport-to="body">
@@ -26,6 +29,9 @@
                         <span v-if="critical.severity">
                             <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
                             (<difficulty v-for="index in severityRange" :key="index" />)
+                        </span>
+                        <span v-if="injury.detail" class="text-muted">
+                            - {{ injury.detail }}
                         </span>
                     </div>
                 </template>
@@ -56,7 +62,7 @@
     import { computed, ref } from 'vue';
 
     // Models
-    import type { EoteCritical } from '../../../models.ts';
+    import type { EoteCritical, EoteCriticalInjury } from '../../../models.ts';
 
     // Utils
     import { shortID } from '@client/lib/utils/misc';
@@ -76,6 +82,7 @@
     interface Props
     {
         critical : EoteCritical;
+        injury : EoteCriticalInjury;
         readonly : boolean;
     }
 

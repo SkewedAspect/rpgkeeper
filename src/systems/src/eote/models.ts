@@ -13,6 +13,7 @@ interface BaseCriticalInjury
 {
     name : string;
     value : number;
+    detail ?: string;
 }
 
 interface BaseCriticalInjuryEntry
