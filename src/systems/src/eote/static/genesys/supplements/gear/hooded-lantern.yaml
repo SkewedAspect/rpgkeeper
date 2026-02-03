@@ -1,0 +1,12 @@
+id: genesys-gear-hooded-lantern
+name: Hooded Lantern
+description: A simple but ingenious modification of the common lantern, the hooded lantern uses a metal hood and glass
+  lens to focus the lantern's light, making the beam travel farther and also making the light harder to spot when it's
+  not directed squarely at an observer. A lit hooded lantern provides light and removes <setback></setback> added to
+  checks due to concealment (darkness, smoke, and intervening terrain). (If it becomes important to determine how far
+  the light reaches, a focused hooded lantern's light can reach out to medium range.) In addition, your character can
+  use a hooded lantern and not automatically be spotted at night or in the dark (although they still need to add
+  <setback></setback> to any Stealth checks they make, because the light still makes it easier to be noticed).
+encumbrance: 1
+rarity: 4
+reference: G-CRB:156

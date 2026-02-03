@@ -1,0 +1,20 @@
+id: eote-agentsbag
+name: Agent's Bag
+description: >-
+  This is a catchall term for the various confidential packets, courier bags, and attaché cases that intelligence agents
+  have modified for missions in the field. Agent bags are produced in a vast number of styles and types. Some are
+  created for specific tasks, but most are geared toward general survival and work in the field. A typical agent's bag
+  is a workaday, hide-covered attaché case used to carry important documents. It has reinforced hardware and a light
+  armorweave that is good against slugthrower and light blaster fire. Secret compartments sewn into the liner can
+  conceal things like credit chips, hard currency, throwing knives, micro-scanners, listening bugs, miniature
+  holorecorders, and other tools an active agent might need in the field. Some bags are shielded against sensors and
+  scanners, some are equipped with powerful stun fields in case the bag is stolen, and some are even rigged to explode
+  when opened improperly or without entering a combination.
+
+  The exact specifications of an agent bag vary by agency and agent, and are left to the Game Master's discretion. The
+  **Gear Attachments** section, on page 58 of Cyphers and Masks, has many possible items for inclusion in a customized
+  agent's bag, and players and GMs are encouraged to create new attachments as well.
+encumbrance: 2
+rarity: 7
+reference:
+  - CaM:47

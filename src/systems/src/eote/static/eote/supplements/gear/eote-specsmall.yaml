@@ -1,0 +1,25 @@
+id: eote-specsmall
+name: Specimen Container, Small
+description: >-
+  Made by numerous scientific-technology companies throughout the galaxy, such as Loronar Corporation and SoroSuub,
+  specimen containers are ubiquitous among explorers who need to transport delicate or dangerous flora and fauna. They
+  come in all shapes and sizes, from the simple petri dish to massive, environmentally sealed and controlled containers
+  designed to hold the largest and most lethal creatures. No matter their size, shape, or manufacture, specimen
+  containers all possess a set of common features and systems. They are constructed from sturdy impact-resistant
+  polymers and have secure environmentally sealed lids.
+
+  They are generally transparent, the interiors of specimen containers are modular and can be configured to fit a number
+  of small specimens or one large one. They are also usually equipped with life-support and stasis systems that allow
+  specimens to be safely transported.
+
+  Specimen containers come in four general sizes, as follows: tiny, small, medium, and large. Tiny specimen containers
+  have an encumbrance capacity of 1 and are typically roughly the size of a human's hand. Small specimen containers have
+  an encumbrance capacity of 3-5 and range up to the size of an R2 series astromech droid. Medium specimen containers
+  have an encumbrance capacity of 5-10 and typically require two or more sentients to lift and carry them. Large
+  specimen containers have an encumbrance capacity of 10-15 and are designed to carry the largest and heaviest
+  specimens. These last containers are so large that they have their own repulsorlift generators to assist in their
+  handling. They have a maximum altitude of roughly one meter and move as quickly as they can be pushed.
+encumbrance: 1
+rarity: 2
+reference:
+  - EtU:52

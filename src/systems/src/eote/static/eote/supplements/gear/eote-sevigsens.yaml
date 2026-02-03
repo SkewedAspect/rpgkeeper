@@ -1,0 +1,23 @@
+id: eote-sevigsens
+name: SE-Vigilant Automated Sensor
+description: >-
+  This lightweight beacon is a sensor pod attached to a
+
+  1.6-meter collapsible post primarily used by homesteads, militias, and big game hunters. The SE-Vigilant
+
+  transmits to designated comlinks, datapads, computer systems, or droids. A small solar panel ensures
+
+  it can keep transmitting for decades. Hoth’s Echo
+
+  Base utilized a dense SE-Vigilant network to track
+
+  wildlife and scan for Imperial activity.
+
+  The beacon has two sensors attached. The first is a
+
+  motion sensor with video and audio that can detect targets up to long range. Once triggered, the second sensor
+  performs a closer scan, transmitting infrared, ultraviolet, density, electromagnetic, and frequency data.
+encumbrance: 2
+rarity: 4
+reference:
+  - FiB:53

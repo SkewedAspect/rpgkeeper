@@ -1,0 +1,13 @@
+id: genesys-gear-automedicum
+name: Automedicum
+description: "Automedicums are a specialized version of familiar drones that focus on medicine and medical emergencies.
+  They are slightly larger than other familiars and possess an internal storage unit packed with bandages, ointments,
+  sutures, and dermal sealer. Automeds can perform first aid by themselves or can assist other medical personnel in
+  their duties. An automedicum allows your character to heal wounds or Critical Injuries without penalty (this includes
+  healing wounds or Critical Injuries on themself). If your character suffers wounds that exceed their wound threshold,
+  the automedicum administers a dermal sealer at the end of your character's next turn. An automedicum comes installed
+  with a five-dose supply of dermal sealer, which can be replenished after use at the standard cost per dose. This item
+  may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 3
+rarity: 5
+reference: EotI:122

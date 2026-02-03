@@ -1,0 +1,11 @@
+id: eote-microdrlist
+name: Microdroid Listener
+description: These tiny spiderlike automata are little more than mobile audio bugs, barely worth the name "droid".
+  Characters must place and activate them like any other audio bug, hiding them behind furniture or in vents. However,
+  once the microdroids are in place, they will follow a set of pre-programmed instructions from their master, returning
+  after a set perios of time or upon detection of a specific keyword or audio cue. Because microdroids do not broadcast
+  their surveillance data, they can be quite difficult to detect until they return.
+encumbrance: 0
+rarity: 6
+reference:
+  - EV:48

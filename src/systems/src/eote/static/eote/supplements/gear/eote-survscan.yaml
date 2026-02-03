@@ -1,0 +1,16 @@
+id: eote-survscan
+name: Surveillance Scanner
+description: >-
+  Surveillance scanners are handheld devices used to detect active and passive surveillance systems. Typically used to
+  check rooms for bugs or search for hidden observers or electronic surveillance, these scanners can detect and locate
+  comms signals, electromagnetic fields, power fluctuations, and more, depending on the model. Some advanced scanners
+  have thermal imaging, ultrasonic, ultraviolet, motion, and other highly sensitive sensors that can also detect
+  individuals attempting to use or plant surveillance devices.
+
+  Surveillance scanners have a range of close on the planetary scale or long on the personal scale. Using a surveillance
+  scanner upgrades the ability of any checks made to locate bugs, sweep rooms for hidden cameras, pick up data streams,
+  or engage in any other counter-surveillance activities once.
+encumbrance: 2
+rarity: 5
+reference:
+  - CaM:46

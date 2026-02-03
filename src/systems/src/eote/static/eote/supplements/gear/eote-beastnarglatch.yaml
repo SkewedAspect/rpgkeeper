@@ -1,0 +1,12 @@
+id: eote-beastnarglatch
+name: Narglatch
+description: It is unclear exactly where the narglatch evolved, but they are used as mounts for the Talz in the brutal
+  cold of Orto Plutonia; additionally, several variants of this species can be found on other worlds throughout the
+  galaxy, including the swamps of Naboo. Not truly domesticated, these felinoid beasts can be trained to be loyal and
+  fearsome mounts, if a bit headstrong. Unlike most other riding beasts, narglatch are apex predators with hunting
+  instincts, moving quietly to stalk their prey.
+encumbrance: 0
+rarity: 4
+reference:
+  - SoT:87
+  - SS:77

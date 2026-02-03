@@ -1,0 +1,15 @@
+id: eote-reloaddet57
+name: Extra Reloads (Model 57 Detonator Rounds)
+description: >-
+  Extra Reloads (Czerka Arms Model 57 Detonator Rounds)
+
+  Czerka produces a number of specialy ammunitions for use with its precision rifle lines, one of the most popular of
+  which are the Detonator rounds. Produced in a variety of calibers, these plasteel-jacketed rounds contain a shaped
+  charge bullet that explodes on contact with a target. When loaded in its Model 57 "Homesteader" rifle, these rounds
+  have the following effect on the weapon's profile; Add the Blast (4) and Knockdown item qualities. Detonator rounds
+  cost 450 credits per box and have a rarity of 7. If the weapon ever runs out of ammo, a new box of rounds must be
+  purchased to load it.
+encumbrance: 0
+rarity: 7
+reference:
+  - SS:42

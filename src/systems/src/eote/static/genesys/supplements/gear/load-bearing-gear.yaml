@@ -1,0 +1,8 @@
+id: genesys-gear-load-bearing-gear
+name: Load-Bearing Gear
+description: Also known as a tac-vest, load-bearing gear consists of a sturdy, full-torso vest (generally woven from
+  zero-G polymers) covered in snaps, loops, and hooks. It can be worn over body armor or even plasteel carapace. While
+  wearing load-bearing gear, your character increases their encumbrance threshold by 3.
+encumbrance: -3
+rarity: 3
+reference: SotB:96

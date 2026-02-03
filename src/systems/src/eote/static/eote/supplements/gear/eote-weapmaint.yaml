@@ -1,0 +1,18 @@
+id: eote-weapmaint
+name: Weapon Maintenance Kit
+description: >-
+  Produced by every major galactic arms manufacturer, and by many general tool and instrument, makers, weapon
+  maintenance kits are essential for keeping portable weapons operating under field conditions. Typically designed for
+  specific class of weapon—blasters, slugthrowers, disruptors, stun weapons, vibro weapons, air rifles, etc.—weapon
+  maintenance kits include everything an individual needs to keep a weapon in top operating condition. For example, a
+  kit for blasters might contain a small, basic precision toolkit, a circuit tester, galven pattern repair jig, fusion
+  solder, cleaning solutions, extra lenses, and spare cylinder of Tibanna gas. These tools are usually carried in a
+  small roll or case to keep them together and organized.
+
+  When purchasing one of these kits, the player must specify the kit type (blaster, slugthrower, etc.). Each provides
+  <boost></boost><boost></boost> to any Mechanics checks made to repair, maintain or modify a weapon, but for that
+  specific class of weapon.
+encumbrance: 2
+rarity: 3
+reference:
+  - SS:49

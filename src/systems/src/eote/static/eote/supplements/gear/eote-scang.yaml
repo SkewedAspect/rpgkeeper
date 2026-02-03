@@ -1,0 +1,16 @@
+id: eote-scang
+name: Scanner Goggles
+description: >-
+  Simpler than electrobinoculars, scanner goggles enhance vision through a blend of light amplification and thermal
+  imaging. They are common in illegal and combat situations, as they do not require extra effort or hands for their
+  operation.
+
+  Scanner goggles allow the user to see normally in dark conditions.
+
+  **Models Include:** Fabritech X-2000 Scanner Goggles, Torjeka B3, TaggeCo. Luminator.
+encumbrance: 0
+rarity: 3
+reference:
+  - E-CRB:175
+  - A-CRB:191
+  - F-CRB:185

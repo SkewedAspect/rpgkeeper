@@ -1,0 +1,10 @@
+id: genesys-gear-cold-or-hot-weather-gear
+name: Cold or Hot Weather Gear
+description: Cold weather gear features multiple layers of fur, leather, or thick fabric to resist wind and trap body
+  heat. Meanwhile, hot weather gear tends to be loose, flowing and made of light fabric, to allow the skin to breathe
+  while protecting it from the sun. However, both versions have roughly the same value and rules. While your character
+  is wearing cold or hot weather gear, they remove <setback></setback><setback></setback> added to checks they make due
+  to cold or hot weather. When worn, cold or hot weather gear's encumbrance is 1.
+encumbrance: 4
+rarity: 3
+reference: G-EPG:36

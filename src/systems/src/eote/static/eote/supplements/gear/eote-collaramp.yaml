@@ -1,0 +1,15 @@
+id: eote-collaramp
+name: Collar-Amp
+description: >-
+  The Collar-Amp is a deceptively simple and useful device that is essentially an unobtrusive and very small amplifier.
+  It can be mounted on the user's collar or the front of his clothing, where it looks like an innocuous silver button.
+  There, the Collar-Amp detects the user's voice and amplifies it, filtering out ambient noise. Politicians and law
+  enforcement officials often use the Collar-Amp to address large crowds, while some entertainers hook the device into a
+  larger sound system for concerts or performances at large venues.
+
+  The Collar-Amp can boost the wearer's voice so that he can be heard up to long or extreme range (this depends on
+  terrain, environmental conditions, and even the weather).
+encumbrance: 0
+rarity: 1
+reference:
+  - FH:45

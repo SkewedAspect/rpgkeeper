@@ -1,0 +1,28 @@
+id: eote-scramblekey
+name: Scramble Key
+description: >-
+  Breaking into a facility secured with an electronic lock usually requires a knowledgeable slicer, but the galactic
+  underworld has invented myriad ways to perform the task in the absence of such personnel. Scramble keys, also called
+  lottery keys or luckbreakers, are one such tool. Scramble keys interact with electronic locks that require a password
+  or code input to open. instead of providing or faking the legitimate entry code, scremble keys cycle through  possible
+  codes at incredible speeds, offering up a barrage of possible matches in fractions of a second.
+
+  The processing power is usch that they are typically able to generate potential matches faster than they can input all
+  of them. Some criminals alim that it is possible to notice when a scramble key generates the correct code through
+  faint tremors or bussing in the device, even if the key has not yet input this code, and that they can adjust the
+  controls to allow them to select the correct code for immediate input. This procedure can be less effective, but could
+  save valuable time if the operator's hunch is correct. many Force-sensitive users find they have a special knack for
+  this approach and can intuitively select correct codes with ease.
+
+  A scramble key bypasses most simple electronic locks within five minutes of application. At the Game Master's
+  discretion, more complicated locks may require additional time to crack or might trigger alarms at the brute force
+  incursion. The user may attempt to speed up this process with a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Skulduggery
+  check**, relying on pure intuition to select the correct code from thsoe the scramble key generates. Success reduces
+  the time needed to crack a common lock to a single minute, but failure immediately triggers any relevant alarms.
+  Force-sensitive characters may make a Force power check as part of this check, adding either  <success></success> or
+  <advantage></advantage> for each <forcepoint></forcepoint> generated.
+encumbrance: 1
+rarity: 4
+reference:
+  - EV:49

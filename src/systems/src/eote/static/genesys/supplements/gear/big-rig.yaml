@@ -1,0 +1,12 @@
+id: genesys-gear-big-rig
+name: Big Rig
+description: Big rigs are computer terminals that are too large to be easily portable. Such rigs can run from the size
+  of a large crate to a tower a couple of meters tall. Their interfaces vary from holographic haptic interfaces to voice
+  recognition, although many tend to be set up with a BMI (brain-machine interface). Most people have little use for
+  these terminals, as their PADs have all the processing power they would ever need. Thus, big rigs tend to be owned and
+  used only by runners and independent sysops. A big rig is a computer that can have up to four icebreakers and six
+  pieces of ice active on its system at once (for the purposes of Network encounters). It has both wired and wireless
+  connection ports to the Network.
+encumbrance: 8
+rarity: 7
+reference: SotB:98

@@ -1,0 +1,21 @@
+id: eote-healerkit
+name: Healer's Kit
+description: >-
+  Those who live on the fringes of society, whether by choice or by circumstance, tend to be more hardy and skillful
+  than the typical galactic citizen. Resourceful and self-reliant, these individuals often live days or even weeks from
+  civilization, and must rely on what they can find or make by hand for daily survival. A healer's kit is simply a
+  collection of local natural medicines kept together in a case or pouch. Depending on the users and the environments in
+  which they live, it might contain plant back and leaves, mosses, various herbs and other natural healing agents found
+  in the environment.
+
+  Rather than being purchased, a character must fashion her own container and equip the empty pack with native medicinal
+  items through a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Survival check**.
+  A healer's kit allows the character to use the Medicine skill to heal herself or other individuals without penalty as
+  described on page 123 of the **Force and Destiny** Core Rulebook. The GM may spend <despair></despair> on a Medicine
+  check when  a character is using the healer's kit to indicate that some or all of the medicinal items have been
+  exhausted in the attempt, in suh a case, the healer's kit cannot be used again until the character spends some tme
+  restocking and makes an **Average (<difficulty></difficulty><difficulty></difficulty>) Survival check**.
+encumbrance: 2
+rarity: 0
+reference:
+  - SS:48

@@ -1,0 +1,11 @@
+id: genesys-gear-spire-sextant
+name: Spire Sextant
+description: On a world where navigational satellites are not possible and inertial guidance devices are unreliable,
+  enterprising vect merchants have managed to adhere powerful beacons onto the Spire itself. Though they eventually peel
+  away and fall, there is usually at least one active at any given time. Spire sextants can home in on a beacon from
+  great distances, allowing travelers to orient themselves in even the thickest of ebonfogs or radar-repelling ferromite
+  clouds. A spire sextant removes <setback></setback> from checks that the user makes to navigate on the ground and up
+  to <setback></setback><setback></setback> from checks they make to navigate in the air.
+encumbrance: 0
+rarity: 5
+reference: SotC:151

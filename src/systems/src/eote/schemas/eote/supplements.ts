@@ -11,6 +11,7 @@ import {
     AbilityDataSchema,
     ArmorDataSchema,
     BaseSupplementDataSchema,
+    GearDataSchema,
     QualityDataSchema,
     WeaponDataSchema,
     WeaponQualityRefSchema,
@@ -129,12 +130,13 @@ export const ForcePowerDataSchema = BaseSupplementDataSchema.extend({
 
 export const EoteSupplementSchemas = {
     ability: AbilityDataSchema,
-    talent: EoteTalentDataSchema,
-    weapon: WeaponDataSchema,
     armor: ArmorDataSchema,
-    quality: QualityDataSchema,
     attachment: EoteAttachmentDataSchema,
     forcepower: ForcePowerDataSchema,
+    gear: GearDataSchema,
+    quality: QualityDataSchema,
+    talent: EoteTalentDataSchema,
+    weapon: WeaponDataSchema,
 } as const;
 
 //----------------------------------------------------------------------------------------------------------------------

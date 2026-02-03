@@ -1,0 +1,50 @@
+id: eote-holocronskvi
+name: Holocron of Skulduggery and Vigilance
+description: >-
+  A holocron, or holographic chronicle, is an organomechanical data storage device capable of storing tremendous amounts
+  of data in a small package. These fist-sized constructs were first created long ago by the Jedi and the Sith to record
+  and store the knowledge and hard-won experience of members of their respective orders. Made from unique crystals
+  encased in layers of precious metals and polycarbonites, these devices use advanced hologrammatic technology to map
+  and store the contents of a single individual's neural pathways. In essence, holocrons record the memories and
+  knowledge of a particular Jedi or Dark Lord of the Sith and store it for future reference.
+
+  Holocrons are accessed through an advanced holographic operating system based on the personality of the individual
+  upon whom the holocron is imprinted. These gatekeepers act as a user interface, search-and-recovery program, and
+  security system. Once activated, a small hologram of the holocron's namesake is projected above the device. The
+  gatekeeper is then addressed, and can teach lessons, answer questions, or simply engage in conversation with the user.
+  Remarkably intelligent and observant, holocron gatekeepers use latent Force energies to read the motives and
+  personality of the user, in order to tailor the user's experience to his level of skill, experience, and
+  trustworthiness. Some gatekeepers, especially those created by the Sith or who have become corrupt over the centuries,
+  can even lie to and lead astray an unsuspecting user, often doing irreparable damage.
+
+  Most known holocrons were kept at the Jedi Temple on Coruscant, and the majority of those were lost during the Great
+  Purge when Darth Sidious raided the Holocron Archives and either confiscated or destroyed everything he found there.
+  Some few survived and are still at large throughout the galaxy, but with the proscription on the ownership of Jedi
+  artifacts and rarity of holocrons, it's a rare person who has even heard of a holocron, let alone knows where to
+  locate one.
+
+  In **Force and Destiny**, holocrons are more the goal of a quest or entire campaign rather than an item to be
+  purchased or checked out of the local archives. Extremely rare and powerful, holocrons in a **Force and Destiny **
+  game can have far-reaching consequences. Game Masters should be extremely cautious when introducing a holocron into a
+  game. The following guidelines are presented to assist Game Masters in Introducing one of these powerful and desirable
+  artifacts without ruining the tenor of the game.
+
+  Depending on its nature, a holocron can grant new Force powers, increase the damage of a specific kind of attack
+  (Melee, Ranged, Gunnery, Lightsaber, etc.), grant basic or advanced talents, grant or increase a skill, or anything
+  else a Game Master can imagine. On his first attempt to use a holocron, a character must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Knowledge (Lore) check** to activate the
+  device and summon the gatekeeper. Once the holocron is activated, the character who activated it must spend an amount
+  of time dictated by the Came Master studying the holocron and conversing with the gatekeeper before benefiting from
+  whatever bonuses the holocron provides. The character does not have to make the check to activate the Holocron on
+  subsequent uses.
+
+  All holocrons, unless noted otherwise, grant an ongoing benefit to the user. **Two skills, determined by the holocron,
+  become career skills for the holocron's user as long as it remains in the user's possession.** What these skills are
+  depends on the holocron in question (see **Table 2-7: Holocron Skills**, on page 109, for some examples of skill
+  pairs). Further, some holocrons grant additional bonuses. Some bonuses are ongoing, but others take effect only once.
+  In the latter case, the user may continue to consult the gatekeeper and even to search through the holocron for
+  information, but the bonuses granted are not granted a second time.
+encumbrance: 1
+rarity: 10
+reference:
+  - F-CRB:109

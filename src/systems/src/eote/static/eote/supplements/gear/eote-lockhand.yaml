@@ -1,0 +1,13 @@
+id: eote-lockhand
+name: Lockbreaker Hand
+description: >-
+  A lockbreaker hand is a cybernetic hand packed with tiny tools that allow an agent to bypass most common mechanical
+  and electrical locks. Hidden within are retractable lockpicks, electrical probes, keypad sequencers, and various other
+  lockbreaking devices.
+
+  A lockbreaker hand provides one rank in the Bypass Security talent and adds <boost></boost> to Skulduggery and
+  Computers checks made to defeat locks.
+encumbrance: 0
+rarity: 6
+reference:
+  - CaM:44

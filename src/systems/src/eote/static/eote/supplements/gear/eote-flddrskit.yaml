@@ -1,0 +1,27 @@
+id: eote-flddrskit
+name: Viscera Field Dressing Kit
+description: >-
+  When hunting for sustenance or for pure sport, most hunters kill their prey in the field as opposed to trapping it and
+  taking a live—and possibly quite angry—animal back to camp. Quite often these creatures weigh hundreds of kilograms,
+  and even the most well-equipped hunting party balks at dragging a large, dead prey animal overland for many
+  kilometers. To this end, most prey is butchered in the field, its innards removed and the usable meat cut from the
+  carcass and stored in cooling chests for easy transportation. Referred to as field dressing, the act of cleaning and
+  gutting an animal is a bloody and time-consuming task that, like most other complex tasks, can be made quicker and
+  easier through the use of proper tools. For the discerning hunter, SurvivalEquipment Inc. sells the popular and easily
+  carried Viscera Field Dressing Kit.
+
+  The Viscera Field Dressing Kit contains a selection of saws and knives of various shapes and sizes, gut hooks,
+  spring-loaded shears, a portable vacuum packer, sturdy gloves, and a ten-meter coil of extremely strong and incredibly
+  thin synthetic rope. The blades of the tools are all made of a resilient, precision-laser-ground, durasteel-reinforced
+  crystal-ceramic that keeps its edge far longer than other types of knives. These tools come in a compact, locking,
+  impact-resistant polymer case with custom-cut form-fitted recesses for each knife, hook, and saw. The case also
+  contains a small, low-storage datapad with anatomical charts for most known sport and food animals, as well as charts
+  showing different cuts of meat, butchery instructions, sanitation instructions, and other helpful tips for dressing a
+  kill.
+
+  Using the Viscera Field Dressing Kit grants a hunter <boost></boost> to any Survival skill checks made to harvest
+  meat, organs, or bones from a prey animal.
+encumbrance: 3
+rarity: 5
+reference:
+  - EtU:51

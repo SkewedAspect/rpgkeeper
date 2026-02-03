@@ -1,0 +1,18 @@
+id: eote-biofeedreg
+name: Biofeedback Regulator
+description: >-
+  Unusually for cybernetic implants, a biofeedback regulator achieves nothing for the recipient when installed on its
+  own. This complex full-body system takes substantial expertiese to install, and is intended to be integrated with
+  additional cybernetic enhancements. When hooked into existing or newly installed enhancements, the regulator redirects
+  natural bioelectricity flows to work with the power supplies of artificial limbs or to supplement the functioning of
+  pieces that add new capablities to the user's body. The regulator is thoroughly integrated with the autoimmune
+  repsonses of the body as well, preventing them from rejecting even the most copious of upgrades.
+
+  A biofeedback implant regulator increases the character's cybernetic implant cap by two (see page 173 of the **Edge of
+  the Empire** Core Rulebook). A biofeedback regulator does not count toward the character's cybernetic implant cap.
+  Biofeedback regulators cannot be installed on droids and characters can only have a single biofeedback regulator
+  cybernetic installed.
+encumbrance: 0
+rarity: 8
+reference:
+  - SM:49

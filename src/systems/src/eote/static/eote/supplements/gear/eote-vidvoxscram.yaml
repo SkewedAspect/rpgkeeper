@@ -1,0 +1,21 @@
+id: eote-vidvoxscram
+name: Vid-Vox Scrambler
+description: >-
+  Vid-vox scramblers are small personal signal-jamming generators prized by intelligence agents, corporate officers,
+  military brass, powerful crime bosses, and anyone else interested in keeping their private conversations private. When
+  activated, a vid-vox scrambler generates a low-intensity comms-jamming field that disrupts all audio, video, and
+  holographic recording within its area of effect while leaving conversation unaffected. While they are not perfect—a
+  particularly powerful recording device or dedicated eavesdropper may pick up some snippets of a protected
+  conversation—vid-vox scramblers are still an excellent protection against spying.
+
+  Vid-vox scramblers affect all electronic audio, video, and holographic recording devices within a four-meter radius. A
+  **Daunting (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)
+  Perception check** can be made to attempt to overhear a pertinent part of the conversation from within the jamming
+  bubble. Using a recording device to listen in requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers
+  check**; even if the check is successful, any information recorded is incomplete and spotty at best. Recording devices
+  used outside the area of effect cannot detect anything at all.
+encumbrance: 2
+rarity: 8
+reference:
+  - CaM:46

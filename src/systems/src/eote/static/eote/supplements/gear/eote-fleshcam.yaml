@@ -1,0 +1,10 @@
+id: eote-fleshcam
+name: Flesh Camouflage Set
+description: |-
+  A flesh camouflage set is essentially a comprehensive disguise kit, allowing the user to temporarily but dramatically change his appearance and even foil bio-scanners, obscuring his genetic sequence or mimicking one from another person kind enough to "donate" a sample. The disguise is good enough that any checks made to ascertain the user's true identity have their difficulty set at **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)**.
+  **Restrictions:** Many elements within the kit are perfectly legal on their own, but most planetary and Imperial authorities take a dim view of anyone actually carrying a set of items that allows the user to mask himself down to a genetic level.
+encumbrance: 1
+rarity: 7
+reference:
+  - E-CRB:186
+  - A-CRB:193

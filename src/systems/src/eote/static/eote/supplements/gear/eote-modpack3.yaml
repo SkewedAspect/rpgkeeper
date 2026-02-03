@@ -1,0 +1,16 @@
+id: eote-modpack3
+name: Mk. III Modular Backpack
+description: >-
+  Creshaldyne Industries' Mk. III Modular Backpack is a civilian version of its popular Mk. IV military reconnaissance
+  pack. Like the Mk. IV, the Mk. III MB is a large, sturdy, internally supported backpack constructed of hard-wearing,
+  weatherproof textiles. It has a single large interior space and two smaller external pockets that are sealed against
+  the environment with a silent, tear away textile sealing system.. The Mk. III is also equipped with a system of hooks
+  and fasteners that allows up to six smaller pouches to be attached to better tailor the backpack to the wearer's
+  needs.
+        
+  **Note:** To purchase accessory pouches for the modular backpack, select the backpack in your inventory and click the
+  "Attachments" button.  An "attachment" will be available for adding the pouches to the backpack.
+encumbrance: 0
+rarity: 1
+reference:
+  - SS:46

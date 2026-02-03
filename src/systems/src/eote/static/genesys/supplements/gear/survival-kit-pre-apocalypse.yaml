@@ -1,0 +1,9 @@
+id: genesys-gear-survival-kit-pre-apocalypse
+name: Survival Kit (Pre-Apocalypse)
+description: A survival kit is a collection of items-a first-aid kit, fire starter, fishing lines and hooks, a
+  compass-contained in a portable case. These kits may be made of scavenged items, or salvaged intact from
+  pre-apocalypse stores. Characters with a survival check kit add <advantage></advantage> to all Survival skill checks
+  they make. Pre-apocalypse kits add <success></success><advantage></advantage> instead.
+encumbrance: 2
+rarity: 6
+reference: G-EPG:36

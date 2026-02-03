@@ -1,0 +1,22 @@
+id: eote-droidbt
+name: BT-Series Ordnance Droid
+description: >-
+  Produced by Baktoid Fleet Ordnance, these sturdy droids toil away in military hangars and motor pools, loading,
+  unloading, and maintaining ordnance and ordnance delivery systems. Anything from common shoulder-fired missile tubes
+  to sophisticated starship proton torpedo launchers lies within their purview. They are programmed with an exhaustive
+  knowledge of the various specialized information required to work with heavy ordnance.
+
+  These droids are very simply and sturdily constructed, with a tapering, rectangular, slab-sided body covered in thick
+  ferroceramic armor. Their powerful arms can extend to three meters and are equipped with broad, grasping claws. Three
+  smaller, retractable arms with dexterous fingers are mounted in the droid's chest for delicate work or tool
+  manipulation.
+
+  Most BT-series droids, especially those that receive regular maintenance and memory wipes, have a very stiff and
+  business-like attitude. BT droids that develop personalities tend to be cavalier and jocular, with a daredevil,
+  risk-taking attitude-especially when dealing with explosives-that makes their colleagues extremely nervous. Some
+  BT-series droids in military service with the Alliance are programmed with the skills to perform explosive ordnance
+  disposal duties and serve in various combat engineering units.
+encumbrance: 0
+rarity: 6
+reference:
+  - FO:49

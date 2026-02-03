@@ -1,0 +1,11 @@
+id: genesys-gear-hacking-rig
+name: Hacking Rig
+description: Many civilizations and species on the Crucible are highly reliant on computers and other non-sentient yet
+  highly advanced machines, which means they are also vulnerable to attacks on the same. Not that anyone would ever do
+  such a thing, of course. When a character uses a hacking rig to penetrate a computer network or similar device,
+  extract or implant data, take control, or conduct related operations, they may downgrade the difficulty of Computers
+  checks they make once. Note that hacking is only done against non-sentient devices; characters must use social skill
+  checks against sentient AIs and robots to attempt similar actions.
+encumbrance: 1
+rarity: 4
+reference: SotC:149

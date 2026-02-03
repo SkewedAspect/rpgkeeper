@@ -1,0 +1,15 @@
+id: eote-survmesskit
+name: '"Survivalist" Mess Kit'
+description: >-
+  Survival Equipment Inc. "Survivalist" Mess Kit
+
+  The Survivalist by SEI is one of the most popular compact mess kits in the galaxy. Designed for the weight-conscious
+  solo traveler, the Survivalist contains a number of pots and pans, a plate, an insulated cup, and eating utensils, all
+  in one compact unit. All of the cookware is rugged and coated with a nonstick cooking surface to aid in both cooking
+  and cleaning. The pieces all fit together and nest inside the deepest pot, making the kit easy to carry and stow. Many
+  military and paramilitary groups throughout the galxy buy these in bulk to issue to their personnel as part of their
+  standard kit.
+encumbrance: 0
+rarity: 3
+reference:
+  - SS:47

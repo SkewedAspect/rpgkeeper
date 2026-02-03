@@ -1,0 +1,22 @@
+id: eote-destro6charge
+name: Destro-6 Demolition Charge
+description: >-
+  These shaped detonite charges are favored for sabotage missions and clandestine raids: situations with hardened
+  targets but limited actual fighting. Setting up the charges takes time and precision, although a sufficiently
+  confident demolitionist can speed matters up by disabling certain safeties. Once in place, charges can be detonated
+  via timer, with delays of up to six hours, or by a remote signal. Properly placed charges are capable of
+  incapacitating armored vehicles or blasting major breaches in a fortification.
+
+  Setting up one or more Destro-6 charges with the safeties fully engaged requires an **Easy (<difficulty></difficulty>)
+  Mechanics** check and takes five minutes per charge. Disabling the safeties for a batch of charges halves the time
+  required, but increases the difficulty of the check to **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)**. The GM may spend
+  <threat></threat><threat></threat><threat></threat>, or <despair></despair> on any Mechanics check using charges with
+  disabled safety features to cause a premature detonation.
+
+  [P}When a charge detonates, it deals 20 damage with the Breach 1 quality to every character and vehicle within short
+  range. Each additional charge used increases the base damage by 5.
+encumbrance: 1
+rarity: 5
+reference:
+  - RotS:59

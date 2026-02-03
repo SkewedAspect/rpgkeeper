@@ -1,0 +1,15 @@
+id: eote-droidprotm3po
+name: M-3PO-Series Military Protocol Droid
+description: Technically classified as a protocol droid, the M-3P0-series was never intended to assist in negotiations
+  or cultural exchanges. An M-3P0 military protocol droid manages logistical and analytical efforts for soldiers. Its
+  chassis is better protected than a typical protocol droid, and it is programmed for military discipline in all
+  situations. However, the M-3P0-series cannot withstand the rigors of actual combat. An M-3P0 unit is best deployed
+  inside a secure installation where it can access tactical data or manage communications. The droid uses its
+  encyclopedic knowledge of military protocols, tactics, and doctrines to assist nearby personnel. A commander with an
+  M-3P0 advisor gains the edge of keen, dispassionate logic, while a quartermaster assisted by a similar aide always
+  knows how to efficiently supply troops. M-3P0 units are sticklers for obeying whatever regulations apply to the group
+  they are serving. and they are notoriously inflexible.
+encumbrance: 0
+rarity: 5
+reference:
+  - DA:56

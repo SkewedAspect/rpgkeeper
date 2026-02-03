@@ -1,0 +1,22 @@
+id: genesys-gear-painkiller
+name: Painkiller
+description: This is the profile for a painkiller, which is the generic term we use for a consumable, quick-healing
+  item. Being able to quickly heal a number of wounds is important to the system; it lets you keep your character moving
+  when they would otherwise be eliminated, and it tempers the lethality of combat. Although these items mechanically
+  heal wounds, thematically they can help your character get back on their feet in any number of ways, depending on the
+  setting. In a fantasy setting, these may be healing potions that use magic to heal injuries. In the steampunk setting,
+  they may be healing tonics that rely on some ill-understood scientific or alchemical properties. The weird war setting
+  can use aid packs that are either scientific or magical. A modern day setting treats these as painkillers, allowing
+  your character to ignore minor injuries and keep going. Science fiction or space opera settings could also use
+  painkillers, or they could use autohealers that rely on futuristic medicine or even nanotechnology to patch up
+  injuries in moments. Whatever the name, painkillers work the same way in the game mechanics for every setting. Using a
+  painkiller requires one maneuver for your character to apply it either to themself or to another engaged character.
+  The painkiller is consumed in the process, and the character immediately heals 5 wounds. While a character can use
+  multiple painkillers, this provides diminishing returns. Each painkiller after the first heals one wound fewer. A
+  second painkiller heals 4 wounds, a third heals 3, and so on. Using a sixth painkiller in a day has no further effect.
+  After one day, the lingering effects of the painkillers wear off, and the character may use painkillers again with
+  their normal effect (this means a character can consume up to five painkillers a day, each day). See page 116 for more
+  information on painkillers and healing.
+encumbrance: 0
+rarity: 2
+reference: G-CRB:94

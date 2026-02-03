@@ -1,0 +1,18 @@
+id: eote-longsight1
+name: Longsight (1 dose)
+description: >-
+  Longsight
+
+  Longsight is a rare substance, extracted from caves beneath Aleen's surface. In concentrated doses, the drug is lethal
+  to all known species. However, when strongly diluted, the material has an inexplicable effect upon sentient beings. As
+  long as the drug remains within the system—normally until the end of an encounter—an individual’s will becomes
+  extraordinarily potent and focused. Although the user suffers intense mental strain, for some the benefits outweigh
+  the costs.
+
+  A dose of longsight is typically injected directly into the bloodstream as a maneuver. Once injected, the character
+  increases her Willpower by 1 until the end of the encounter. However, at the beginning of each of her turns until the
+  end of the encounter, she suffers 2 strain.
+encumbrance: 0
+rarity: 8
+reference:
+  - NoP:105

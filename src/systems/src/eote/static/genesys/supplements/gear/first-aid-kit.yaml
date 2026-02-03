@@ -1,0 +1,9 @@
+id: genesys-gear-first-aid-kit
+name: First Aid Kit
+description: These are not medical kits, but they provide just enough medical material to be useful while being small
+  and cheap enough to issue to most infantry on the battlefield. This kit provides your character with the equipment
+  needed to make Medicine checks to heal wounds or Critical Injuries without penalty. However, hhh or d means your
+  character has used all of the kit's supplies.
+encumbrance: 1
+rarity: 3
+reference: G-CRB:162

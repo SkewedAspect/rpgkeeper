@@ -1,0 +1,18 @@
+id: eote-portshelter
+name: Portable Survival Shelter
+description: The Portable Survival Shelter by Gandorthral Atmospherics is a marvel of modern materials science and
+  survival technology. Common throughout the galaxy, especially among sportsmen and explorers, the PSS is a collapsible,
+  one-person shelter packed with advanced life-sustaining equipment. Made of sturdy textiles and supported by a unique
+  flexible internal frame, it packs easily, sets up quickly, and provides more than adequate protection from even the
+  harshest environments. The advanced textiles that compose the structure have a natural heat-exchanging property that
+  keeps the interior of the shelter at a constant comfortable temperature no matter what the external temperature is.
+  The shelter is weatherproof, and a special foil-fiber mesh is woven into the fabric that makes it flameproof and able
+  to withstand lightning strikes. portable survival shelters are also equipped with a water-reclamation system that is
+  designed to double a user's carried water supplies. When stowed, these items are about the size of a large datapad and
+  pack easily in a backpack, pannier, or shoulder bag. Unfolding the shelter makes it spring immediately to shape, and
+  within the span of a minute it is ready for use.
+encumbrance: 2
+rarity: 4
+reference:
+  - EtU:49
+  - KoF:50

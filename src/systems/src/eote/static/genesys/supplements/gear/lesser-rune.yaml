@@ -1,0 +1,15 @@
+id: genesys-gear-lesser-rune
+name: Lesser Rune
+description: "Some runes are capable of legendary feats of magic. Some are, well, not, and of little interest to anyone
+  but a Runemaster, who is capable of bending their capabilities beyond their design. Though lacking the fame of other
+  runebound shards, these items are still priceless and the subject of many a quest. - Activation: This rune can be used
+  for a small beneficial effect that varies by rune, such as casting light as a torch, conjuring a small illusionary
+  creature, throwing your voice, or starting small fires as a tinderbox. Your GM chooses the minor effect associated
+  with the rune when the shard is discovered or obtained. - Implement: When your character obtains a lesser rune, the GM
+  determines one effect that the rune lets the character add to any appropriate spell without increasing the spell's
+  difficulty. This effect should ideally be thematically linked to the minor effect determined earlier. The effect the
+  GM chooses should only increase the difficulty of a spell by one. Attack spells cast by your character increase their
+  base damage by three."
+encumbrance: 0
+rarity: 0
+reference: RoT:119

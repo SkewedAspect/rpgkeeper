@@ -1,0 +1,12 @@
+id: eote-beastvaractyl
+name: Varactyl
+description: Domesticated and trained by the Utai of Utapau, varactyls are large, four-legged, long-necked reptavians
+  known for their surprising speed and agility. These beasts have been exported for thousands of years, and as such can
+  be found on many different worlds, including in the wilds of Kashyyyk and Belsavis. Varactyls make excellent
+  fast-moving mounts, and have been known to rival the speeds of airspeeders in short sprints, with powerful claws that
+  allow them to climb over many obstacles that would hinder most other mounts.
+encumbrance: 0
+rarity: 4
+reference:
+  - SoT:89
+  - SS:79

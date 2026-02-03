@@ -1,0 +1,15 @@
+id: eote-vibropick
+name: Vibro-Pickaxe
+description: >-
+  Vibro-pickaxes are heavy-duty tools used for excavation and demolition. Common throughout the galaxy, these tools have
+  a meter-long reinforced polycarbonate haft capped by a strong forged plasteel head. The two-sided head of the tool
+  features a long, curved pick on one side and a broad, flat horizontal blade on the other. While they are excellent
+  tools for general construction, vibro-pickaxes can also be used as weapons in an emergency.
+
+  A vibro-plckaxe requires two hands to use and adds automatic <boost></boost> to checks involving breaking rocks,
+  ground clearing, and similar activities. When used as a weapon, it has the following profile: Melee; Damage +2;
+  Critical 2: Range [Engaged); Cumbersome 4, Pierce 3, Sunder, Vicious 1.
+encumbrance: 5
+rarity: 3
+reference:
+  - FO:48

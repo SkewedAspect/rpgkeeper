@@ -1,0 +1,19 @@
+id: eote-culetiquman
+name: Cultural Etiquette Manual
+description: >-
+  Diplomats rely on protocol droids to ensure not only fluent translation, but also to prevent embarrassing cultural
+  incidents. However, when a protocol droid is not available, or a situation is too specific for a general-purpose
+  droid, emissaries turn to cultural etiquette manuals, specialized datapads with nearly every potentially relevant
+  cultural detail for a given group. A cultural etiquette manual can, for example, help a diplomat choose the perfect
+  opening gift when greeting an unfamiliar society, or avoid accidentally insulting a visiting diplomat. Of course,
+  actively consulting a datapad during an important function creates a level of awkwardness, but the manual does enable
+  a diplomat to extensively prepare beforehand or during a handy lull in conversation.
+
+  A character with a cultural etiquette manual adds automatic <advantage></advantage> to social checks made to interact
+  with members of the culture to which the manual pertains.
+
+  **Models include:** Baobab Archives Compendiums.
+encumbrance: 0
+rarity: 3
+reference:
+  - DA:50

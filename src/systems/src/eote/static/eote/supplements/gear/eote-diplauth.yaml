@@ -1,0 +1,18 @@
+id: eote-diplauth
+name: Diplomatic Authorization
+description: >-
+  p
+
+  Most local governments are reluctant to chastise or otherwise infringe upon another government's chosen delegates, and
+  sometimes diplomats can use this to their advantage. Whether traveling on a diplomatic mission, conveying an important
+  message, or simply bringing some sample products from their homeworld, diplomatic authorization grants wiggle room
+  that can keep eyes off a diplomat's true purpose.
+
+  A character with diplomatic authorization adds automatic <advantage></advantage><advantage></advantage> to all social
+  checks involving members of a foreign government, and can often get access to individuals and services within that
+  government that would otherwise be unavailable. Unless lawfully granted by an authorized body, however, this item can
+  only be acquired illegally.
+encumbrance: 0
+rarity: 8
+reference:
+  - DA:51

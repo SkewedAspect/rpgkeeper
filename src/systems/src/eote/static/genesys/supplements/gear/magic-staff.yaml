@@ -1,0 +1,10 @@
+id: genesys-gear-magic-staff
+name: Magic Staff
+description: Magical staffs have long been a staple of magic in a variety of settings. Used by wizards, druids, and
+  shamans, these can look like ornate, rune-encrusted rods of brass and obsidian, simple wooden staffs, or pretty much
+  anything else. Magical staffs almost universally augment the user's ability to cast spells at range. When they are
+  casting a spell, adding the first Range effect added to the spell does not increase the spell's difficulty. In
+  addition, attack spells cast by the user increase their base damage by four.
+encumbrance: 2
+rarity: 3
+reference: G-CRB:219

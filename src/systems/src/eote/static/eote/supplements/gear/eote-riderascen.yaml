@@ -1,0 +1,22 @@
+id: eote-riderascen
+name: '"Rider" Ascension Pistol'
+description: >-
+  Merr-Sonn "Rider" Ascension Pistol
+
+  Some individuals prefer modifying their standard side arms with grappling hooks, but Merr-Sonn has found a dedicated
+  client base who prefer dedicated devices that require no time to prepare. The "Rider" ascension pistol's small size
+  and reliable design allow easy storage, and the gun's focused utility grants the additional benefit of greater lift
+  capacity than a simple gun mod. The device even allows the user to carry a passenger, though not without difficulty.
+
+  As an action, a character may make an **Average (<difficulty></difficulty><difficulty></difficulty>) Ranged (Light)
+  check** to fire the grappling hook onto an object at up to medium range. As an action, he may reel in the cord,
+  pulling himself to the target object (or, if the object is unsecured and lighter than he is, pulling the object to
+  himself).
+
+  A character using an ascension pistol to pull himself and another character aloft must make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Athletics check** to avoid losing his grip on either his partner
+  or the gun.
+encumbrance: 1
+rarity: 4
+reference:
+  - DA:52

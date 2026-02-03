@@ -1,0 +1,18 @@
+id: eote-ssa
+name: Synthetic Standard Anesthetic
+description: This is a general anesthetic produced on many worlds for medical procedures, designed to render the user
+  unconscious. Unsurprisingly, many criminals have found it valuable. This poison may be introduced into a target's body
+  via aerosol deployment, food ingestion, or injection (via an applicator or dart). A single dose has an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) difficulty**, while two or more doses combined into a single
+  application have a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) difficulty**.
+  The poison inflicts 5 strain if the target fails the check. If the check generates one to two <threat></threat>, the
+  target must also give up his free maneuver during his next turn (he may still take two maneuvers, however); if it
+  generates <threat></threat><threat></threat><threat></threat> or more, he's staggered during his next turn. Finally,
+  the GM can spend <despair></despair> to make the target test against the poison again during the next round, as the
+  poison remains in his system.
+encumbrance: 0
+rarity: 4
+reference:
+  - E-CRB:172
+  - A-CRB:188
+  - F-CRB:181

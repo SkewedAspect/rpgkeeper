@@ -1,0 +1,10 @@
+id: genesys-gear-cross-body-bag
+name: Cross-Body Bag
+description: Cross-body bags run the gamut of large personal carryall bags, including messenger bags, engineers' bags,
+  and computer totes. Worn over the shoulder or slung across the torso by a broad strap, these bags are made from a
+  broad array of textiles and synthleathers and might be weatherproof, reinforced with high-strength zero-G polymers
+  (resin fibers that can only be manufactured in a zero-gravity environment), or RFID-proofed with foil scatterfiber.
+  While wearing a cross-body bag, your character increases their encumbrance threshold by 3.
+encumbrance: -3
+rarity: 1
+reference: SotB:96

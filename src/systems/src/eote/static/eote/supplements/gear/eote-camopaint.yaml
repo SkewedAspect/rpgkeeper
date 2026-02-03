@@ -1,0 +1,14 @@
+id: eote-camopaint
+name: CN-21 Camouflage Paint
+description: >-
+  This thick paint comes in small tubes holding five applications and is intended to camouflage exposed skin, but can be
+  used on everything from weapons to personal gear. In the container, the paste appears an almost colorless gray, but
+  photoreactive pigments allow it to match the color and visual texture of its surroundings once exposed to air.
+
+  CN-21 Camouflage Paint adds automatic <failure></failure> to all checks made to detect items concealed by it. Note
+  that camo paint does not have any of the advanced circuitry that provides concealment from electronic scanning and
+  surveillance. Camouflage paint only works for items or individuals with a silhouette of 1 or smaller.
+encumbrance: 0
+rarity: 2
+reference:
+  - DC:58

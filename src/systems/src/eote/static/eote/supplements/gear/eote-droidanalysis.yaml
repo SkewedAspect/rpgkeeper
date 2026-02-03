@@ -1,0 +1,14 @@
+id: eote-droidanalysis
+name: Analysis Droid
+description: >-
+  (Various Models)
+
+  Almost always found working in groups, analysis droids have served governments, corporations, wealthy private
+  individuals, and even the defunct order of Jedi Knights. Most manufacturers make analysis droids, but the enduring
+  popularity of Cybot Galactica's SP-4 and JN-66 models make them the category leaders. All analysis droids come
+  equipped with a sophisticated sensory suite and a set of onboard analysis protocols that make them invaluable in
+  aiding research, analyzing data, and performing experiments.
+encumbrance: 0
+rarity: 5
+reference:
+  - F-CRB:409

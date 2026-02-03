@@ -1,0 +1,48 @@
+id: eote-droidq7
+name: Q7-Series Astromech Droid
+description: >-
+  The Q7 was the result of a joint venture between Industrial Automaton and Kuat Systems Engineering. Designed
+  specifically for use in KSE's A3 Nimbus short-range interceptor, the Q7 is unique among IA's astromech droid catalog
+  in both construction and personality. Using design specifications and access to the Nimbus' advanced new software
+  architecture, IA developed its new droid specifically for use in the new fighter, a process that both companies felt
+  would be a growing trend in the near future. After numerous failed prototypes, IA finally perfected the interface
+  systems and the brand new Q7 was revealed along with the Nimbus to overwhelming praise from both the military and
+  civilian sectors.
+
+  Unlike any of Industrial Automaton's astromech droids on the market at that time, the Q7 is as visually striking as it
+  is competent. Combining the sensor dome of an R2-series with a lower hemisphere containing a miniaturized repulsorlift
+  generator, the Q7 is a perfect alloy sphere roughly one meter across at its widest. The droid's body style was
+  dictated by the size of the Nimbus, which is an incredibly tiny fighter, and the locations in which designers could
+  find space. The ability to go anywhere, anytime, and to get itself into and out of its droid socket with no outside
+  assistance was one of the Q7's biggest selling points, and one that played very well with those interested in military
+  logistics and planning. The droid's programming and its ability to interface so seamlessly with the A3 was touted as
+  the next step in astromech droid development. Many thought that having a droid built specifically for a given ship
+  represented a significant step forward, as it meant that the droid and the craft could work in perfect tandem. The
+  positive buzz around the Q7 lasted right up until the Republic Navy took delivery of the A3 fighters and their
+  attendant droids, and then some ugly truths became quickly apparent.
+
+  As the Republic Navy became more familiar with the Q7 and its quirks, it became clear that the little droid was
+  drastically limited in both scope and utility. The fact that it was built solely for the Nimbus meant that, while it
+  was quite good at operating that fighter, thanks to its size, shape, and bespoke programming the A3 was the only
+  fighter with which it worked well. The Q7 lacked the programming and the hardware to interface with any other ship or
+  vehicle in the Republic Navy inventory, which, compared to the current R2 and R3 series droids, made it unsuitable for
+  most work undertaken by Navy droids, such as the repair and maintenance of ships. In addition, the Q7's personalities,
+  such as they were, were so single-minded and focused on their specific fighters that they were difficult to work with
+  when doing anything other than flying the A3. Aside from their programming and personalities, the droids' repulsorlift
+  system proved to be finicky, high maintenance, and hard to repair in the inevitable event of a break down. All of this
+  added up to make the 07 perhaps the most loathed droid series in IA's history and a black mark on its otherwise
+  sterling reputation.
+
+  After the initial run of Q7s were produced for the Navy's A3 fighters, production was ceased and all back stock Q7s
+  were sold at fire sale prices to civilians and local governments throughout the galaxy. With the collapse of the
+  Republic and the rise of the Empire came the retirement of the A3 and the development of the new TIE-series fighters,
+  which also meant retirement for the numerous Q7s in the inventory. Many were simply scrapped with their fighters and
+  either recycled or returned to IA for parting out. Those that survived were typically reprogrammed as well as possible
+  to work as general astromech droids and transplanted into surplus R2 and R3 bodies. Today, it's rare to find a
+  functioning Q7, and even rarer to find one in its original body. Those that are still around are typically found in
+  out-of-the-way places where their low cost and admittedly strong grasp of astromechanics make them an attractive
+  investment.
+encumbrance: 10
+rarity: 8
+reference:
+  - SoT:47

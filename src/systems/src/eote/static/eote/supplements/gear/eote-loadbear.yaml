@@ -1,0 +1,14 @@
+id: eote-loadbear
+name: Load-Bearing Gear
+description: >-
+  Load-bearing gear, or combat webbing, is a system used by soldiers to carry necessary equipment on their persons in
+  easily accessible pouches. They are commonly made of hard-wearing reinforced textiles, and often with removable armor
+  plates.
+
+  Load-bearing gear increases a wearer's encumbrance threshold by 3.
+
+  **Models Include:** Imperial Armory M-4 Army Combat Webbing, AHH "Striker" Tactical Vest.
+encumbrance: 0
+rarity: 3
+reference:
+  - A-CRB:198

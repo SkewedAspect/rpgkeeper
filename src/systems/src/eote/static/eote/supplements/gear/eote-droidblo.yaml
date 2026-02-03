@@ -1,0 +1,19 @@
+id: eote-droidblo
+name: BLO-Series Non-Lethal Combat Droid
+description: >-
+  _BLO_-Series Non-Lethal Combat Droid
+
+  Seeing a rising need for crowd suppression and non-lethal enforcement techniques on the Core Worlds, Arakyd Industries
+  briefly flirted with a droid designed to fill this admittedly small niche. The BL0-series combat droid was designed to
+  neutralize opposition without undue injury, thus salvaging important witnesses for later interrogation. Due to their
+  combat effectiveness, however, most BL0's were repurposed as security droids soon after their initial release.
+
+  This droid-scuttling forward on three squat, sturdy legs and with its robust hyperarticulated arms, an array of
+  non-lethal countermeasures, and two long stun whips emerging from its shoulders-made for a terrifying sight to those
+  familiar with it operations. There are still those who prefer the use of the BL0s to more conventional security or
+  combat droids for a wide variety of reasons; especially in the more physical, hardscrabble negotiating environment of
+  the Outer Rim.
+encumbrance: 0
+rarity: 6
+reference:
+  - DoH:54

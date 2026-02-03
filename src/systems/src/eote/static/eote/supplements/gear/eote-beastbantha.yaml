@@ -1,0 +1,11 @@
+id: eote-beastbantha
+name: Bantha Riding Beast
+description: The ubiquitous bantha is found on thousands of worlds across the galaxy, with hundreds of variant species
+  demonstrating this mammal's adaptability. Easily domesticated, banthas are primarily used as beasts of burden and a
+  food source. Some cultures, including the Tusken Raiders of Tatooine, are known to use them as mounts. Found in herds
+  of up to twenty-five individuals, banthas are known for their heavy, bulky frames, large curling horns, and iconic
+  blue milk.
+encumbrance: 0
+rarity: 1
+reference:
+  - SoT:83

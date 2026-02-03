@@ -1,0 +1,12 @@
+id: genesys-gear-breather-mask
+name: Breather Mask
+description: "When a character journeys out into the far reaches of space, the breather mask is a device they should
+  have among their belongings. Acting as both an atmospheric condenser and a respirator, the breather mask produces the
+  atmosphere a sentient requires. Using a mix of filtration and replication technology, the device senses the DNA of the
+  sentient wearing it, quickly manufacturing the desired gases or substances needed to keep the sentient alive. The
+  device also purifies most smoke, irritants, and toxins. While wearing a breather mask, your character adds
+  <boost></boost> to Resilience checks they make to resist poisonous atmospheres or hostile environments. This item may
+  be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 1
+rarity: 1
+reference: EotI:124

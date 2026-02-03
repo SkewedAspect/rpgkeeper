@@ -1,0 +1,23 @@
+id: eote-droidqsignal
+name: Q-Signal Messenger Drone
+description: >-
+  Q-Signal Messenger Droid
+
+  The Q-Signal Messenger Drone from Incom is unlike anything on the market today. Essentially a stripped-down
+  starfighter piloted by a savant-level droid brain, the a-Signal drone is designed to deliver encrypted data and
+  physical specimens through hyperspace to predetermined coordinates. Little more than a space-going dead drop
+  facilitator, the single-minded droid brain that controls the vehicle knows nothing more than its current whereabouts
+  and whatever hyperspace coordinates are programmed into its limited-memory navicomputer. Both Imperial and Alliance
+  intelligence agencies use Q-Signal drones in large numbers. They are commonly found aboard patrol and picket ships,
+  but most military starships carry one or two aboard.
+
+  To use a Q-Signal drone, an agent simply loads data or cargo aboard the vessel and feeds hyperspace coordinates into
+  the navicomputer. The Q-Signal is then pushed out of a hangar bay or launched from a fighter catapult into space,
+  where it jumps away to make its delivery. When a Q-Signal arrives at its destination, it falls into a low-power mode
+  to wait for pickup. While powered down, the droid keeps itself on station with automated thrusters and a simple
+  passive sensor system. Once it is retrieved and its data or cargo removed, its memory is wiped and it is either put in
+  storage aboard the receiving vessel to await another run or returned to its sender.
+encumbrance: 0
+rarity: 6
+reference:
+  - CaM:52

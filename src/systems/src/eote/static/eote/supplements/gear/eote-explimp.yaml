@@ -1,0 +1,12 @@
+id: eote-explimp
+name: Explosive Implant
+description: >-
+  Slavers and slaveholders do not always keep slaves locked up in chains while they carry out their duties. Many slavers
+  inject tiny tracking and explosive devices to discourage slaves from running. A corresponding handheld device similar
+  to a droid caller can locate the implanted target with a **Simple (-) Computers check**. With the press of a button,
+  the implant can explode, instantly killing its victim. 
+   A **Daunting (<challenge></challenge><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Medicine** or **Mechanics check** is required to remove the implant. However, <threat></threat> alerts the transmitter of the tampering, and <despair></despair> triggers the device.
+encumbrance: 0
+rarity: 8
+reference:
+  - FLT:60

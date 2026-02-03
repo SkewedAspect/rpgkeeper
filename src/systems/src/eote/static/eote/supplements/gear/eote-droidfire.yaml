@@ -1,0 +1,20 @@
+id: eote-droidfire
+name: FD-Series Extinguisher Droid
+description: >-
+  Fire Suppression Droid
+
+  A highly specialized maintenance droid, fire suppression droids perform the singular function of putting out fires.
+  These droids are particularly useful aboard starships, where fires can quickly burn up the oxygen and cause
+  irreparable damage to a vessel. Generally mounted on tracked chassis or repulsorlifts and fitted with large tanks of
+  chemical fire retardants, fire suppression droids can quickly respond to out-of-control fires raging through a ship
+  and are able to safely work under conditions that would be hazardous or even lethal to organic beings.
+
+  Fire suppression droids can be used aboard any vehicle or starship with a silhouette of 4 or larger. However, the
+  larger the vessel, the more droids are needed to adequately protect the vessel from fires. A vessel with a silhouette
+  of 4 may require only one fire suppression droid, while a bulk transport or corvette would need several; a starship
+  the size of an Imperial Star Destroyer would need hundreds of droids to adequately protect its massive bulkheads and
+  kilometers of corridors and access shafts. These droids are able to put out small fires independently.
+encumbrance: 10
+rarity: 4
+reference:
+  - SoF:102

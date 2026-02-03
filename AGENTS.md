@@ -12,6 +12,12 @@ This project has been in development for over a decade across multiple major ver
 - **@rpgk/systems** - RPG system definitions and Vue components
 - Monorepo with npm workspaces
 
+## Core Principles
+
+- **Simplicity First**: Make every change as simple as possible. Impact minimal code.
+- **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
+- **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
+
 ## Commands
 
 ```bash
@@ -98,6 +104,8 @@ import { broadcast } from '../utils/sio.ts';
 - Spaces around type annotations: `id : string` not `id: string`
 - Spaces in brackets: `[ 1, 2, 3 ]`, `{ key: 'value' }`
 - Template literals with spacing: `${ variable }`
+- **FORBIDDEN**: Never use `any` type - use `unknown`, generics, or proper types instead
+- **FORBIDDEN**: Never use non-null assertions (`!`) - use proper null checks or type guards
 
 ## Architecture Patterns
 
@@ -275,3 +283,25 @@ With HTML comment breaks between sections:
 - `eslint.config.js` - Code style rules
 - `knexfile.js` - Database configuration
 - `db/rpgk.db` - SQLite database
+
+## Git & Commits
+
+- **Only commit when explicitly instructed** - Never assume the user wants changes committed
+- Ask for confirmation before any git operations that modify history or remote
+- Do not push unless explicitly requested
+
+## Agent Behavior
+
+### Subagent Strategy
+
+- Use subagents liberally to keep main context window clean
+- Offload research, exploration, and parallel analysis to subagents
+- For complex problems, throw more compute at it via subagents
+- One task per subagent for focused execution
+
+### Autonomous Bug Fixing
+
+- When given a bug report: just fix it. Don't ask for hand-holding
+- Point at logs, errors, failing tests - then resolve them
+- Zero context switching required from the user
+- Go fix failing CI tests without being told how

@@ -1,0 +1,18 @@
+id: eote-avtrnsltr
+name: Holo V Audio/Visual Translator
+description: >-
+  The Holo V A/V Translator is a small, handheld translating device produced by TranLang. Based on the software
+  architecture of the popular TranLang III Communicator Module installed in 3P0 and LOM-series protocol droids, the Holo
+  V is slightly less powerful than the TL III but makes up for that small deficiency by being more versatile. Roughly
+  the size of an average datapad, the Holo V is programmed with millions of forms of known verbal and written
+  communication. In addition, it also includes a high-definition audio/video recording device with powerful pattern
+  recognition and analysis software. With this, the Holo V can translate known spoken languages in real time, analyze
+  and attempt to translate unknown spoken languages, and read and decode text, pictograms, hieroglyphics, and other
+  forms of written communication.
+
+  The Holo V grants the scholar or translator <boost></boost> to any Lore or Intellect checks made to decipher or
+  translate an unknown language.
+encumbrance: 1
+rarity: 3
+reference:
+  - EtU:54

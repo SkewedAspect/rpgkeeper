@@ -1,0 +1,11 @@
+id: genesys-gear-portable-ftl-commpack
+name: Portable FTL Commpack
+description: "A portable FTL commpack is a heavy backpack that carries a compact FTL transmitter dish that can be set up
+  in minutes. The device is powerful enough to send an emergency signal to a neighboring star system or to contact
+  someone clandestinely without using a planetary FTL transmitter. It takes two maneuvers to deploy a portable FTL
+  commpack's dish. Its power supply allows for one hour of continuous transmission. Transmissions start to degrade after
+  approximately three light-years and are almost imperceivable at six. This item may be modified with 2-1: Cultural
+  Manufacturing Differences."
+encumbrance: 7
+rarity: 6
+reference: EotI:121

@@ -1,0 +1,17 @@
+id: genesys-gear-teleportation-rune
+name: Teleportation Rune
+description: "A user of one of these shards can teleport either themself or a small object they concentrate on a short
+  distance. It is safest to teleport to a location within line of sight; while users may have the ability to teleport
+  through walls, if they materialize in the same space as a solid object, it can lead to terrible injury. Teleportation
+  runes especially rare to find as they are highly sought after by all manner of assassin, criminal, and adventurer. -
+  Activation: As an action, the user can teleport themself or a single silhouette 0 item in their possession to any
+  location within extreme range that they can currently see. Alternatively, the user may attempt to teleport to a
+  location they have previously experienced in person, but this requires a successful
+  <difficulty></difficulty><difficulty></difficulty>. The GM should modify the check based on the circumstances,
+  including how long it has been since the character visited the target location, the length of time spent there, and so
+  on. The GM may spend <difficulty></difficulty> or multiple <despair></despair> to have the character end up far from
+  their intended location, inside a monster's lair, or in an even worse situation. - Implement: When your character
+  casts any spell, the first three Range effects added to it do not increase its difficulty."
+encumbrance: 0
+rarity: 0
+reference: RoT:121

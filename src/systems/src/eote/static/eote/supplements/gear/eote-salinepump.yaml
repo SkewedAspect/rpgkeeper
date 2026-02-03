@@ -1,0 +1,17 @@
+id: eote-salinepump
+name: Saline Pump
+description: >-
+  Clawdites adjust their shape by moving fluid through their body, and reorganizing the structures on their skin's
+  surface. This ability is partly limited by practice and technique, but is also affected by the amount of fluid within
+  their bodies. Particularly accoplished Clawdite shape-changers may choose to wear a saline pump that can modify the
+  amount of fluid within their limbic system as needed.
+
+  A Clawdite wearing a saline pump can increase or decrease his mass and size by as much as a tenth, enabling him to
+  shape-change into a broader range of forms. Add <boost></boost> to the Clawdite's checks to pass himself off as
+  another person using his species ability, and add <setback></setback> to other characters' checks to the Clawdite's
+  physiological deception. Non-Clawdites gain no benefit to disguise from this item (and would likely find it
+  exceedingly uncomfortable to use).
+encumbrance: 1
+rarity: 7
+reference:
+  - ND:55

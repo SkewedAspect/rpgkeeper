@@ -1,0 +1,13 @@
+id: genesys-gear-cloak-of-mists
+name: Cloak of Mists
+description: An enveloping black cloak with a stole of white feathers, this mysterious artifact is a source of much
+  controversy amongst Terrinoth's wizards. They claim it employs Ynfernael energies, could be used for all manner of
+  criminal mischief, and that thus it ought to be destroyed. The cloak is enchanted in such a way that the wearer can
+  dissipate into a cloud of mist for a time. However, the magic has a vampiric quality, and the longer a wearer makes
+  use of the cloak's power, the weaker they become. While wearing the Cloak of Mists, as an out-of-turn incidental after
+  suffering any amount of damage, your character can spend one Story Point and choose to suffer any amount of strain up
+  to the amount of damage suffered but not exceeding their strain threshold. They then reduce their damage total by the
+  amount of strain suffered. The Cloak of Mists' encumbrance is 0 when worn.
+encumbrance: 1
+rarity: 10
+reference: RoT:108

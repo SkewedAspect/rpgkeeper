@@ -1,0 +1,13 @@
+id: genesys-gear-forensics-kit
+name: Forensics Kit
+description: Investigators not lucky enough to be a part of the NAPD's forensic division (and have access to their
+  comprehensive and state-of-the-art laboratories) need to make do with portable and limited forensic kits. A forensic
+  kit is about the size of a large suitcase. It has storage compartments for small pieces of evidence (including a
+  cold-storage microfreezer), tools for recovering fingerprints and DNA samples, a hand-held magnifier/recorder, a
+  chemical and DNA analyzer, and a combination camera and las-scanner that can holographically record a scene, allowing
+  a PI to take a snapshot of a crime scene and walk through its holographic projection later. In addition to the basic
+  recording, analyzing, and evidence-gathering uses, your character adds <advantage></advantage> to Vigilance and
+  Perception checks made while searching a crime scene using a forensic kit.
+encumbrance: 4
+rarity: 5
+reference: SotB:102

@@ -1,0 +1,15 @@
+id: eote-3malcomlink
+name: 3-MAL Secure Comlink
+description: >-
+  Popular throughout the Rebel Alliance, the 3-MAL Comlink is a versatile comms system squeezed into a tiny, pill-shaped
+  package. In addition to military-grade encryption, the 3-MAL scans popular civil defense, emergency services, and law
+  enforcement frequencies. Like most comlinks on the market, the 3-MAL easily synchronizes with properly equipped
+  droids, computers, sensors, and cyborg units, and can transm it either voice or data.
+
+  This comlink transmits up to medium range on the planetary scale. The 3-MAL’s encryption adds <setback></setback> to
+  any check made to intercept and unscramble the signal. Monitoring a standard clear frequency on a civilized world can
+  add <boost></boost><boost></boost> to Knowledge checks related to current events or conditions at the GM’s discretion.
+encumbrance: 0
+rarity: 4
+reference:
+  - FiB:52

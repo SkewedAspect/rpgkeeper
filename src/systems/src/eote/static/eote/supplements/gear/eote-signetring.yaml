@@ -1,0 +1,17 @@
+id: eote-signetring
+name: Signet Ring
+description: >-
+  Nobles who consider identification cards or files to be fit only for commoners can instead rely on family heirlooms or
+  elaborate jewelry to prove their heritage. The signet ring has remained popular throughout the ages, used by nobles
+  and official government dignitaries alike. Most are masterfully crafted and incorporate designs unique to the wearer
+  or family, and modern signet rings typically incorporate embedded electronics that offer additional identity
+  validation. Some signets are not rings at all, but are instead other pieces of jewelry, such as pendants, bracelets,
+  or even gemstones mounted in the pommels of weaponry—such items fill a similar role, even if they are a different sort
+  of adornment.
+
+  A character who possesses a signet ring (even a stolen one) adds automatic
+  <advantage></advantage><advantage></advantage> to checks to establish his identity (or his assumed identity).
+encumbrance: 0
+rarity: 7
+reference:
+  - DA:53

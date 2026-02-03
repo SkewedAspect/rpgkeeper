@@ -1,0 +1,14 @@
+id: eote-tent
+name: Tent
+description: >-
+  Tents can be found in larger survival kits, and can provide protection from the elements for one or more people.
+  Almost any large piece of fabric can be made into one if necessary, though most would prefer durasilk models with
+  internal memory supports that assemble themselves.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 4
+rarity: 1
+reference:
+  - E-CRB:180
+  - A-CRB:196
+  - F-CRB:188

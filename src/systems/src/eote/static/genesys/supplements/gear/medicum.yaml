@@ -1,0 +1,13 @@
+id: genesys-gear-medicum
+name: Medicum
+description: "A standard medicum consists of a small portable pack containing an autosuture applicator, sterile
+  bandages, antiseptics, sterile medical tools, blood coagulants, a dermal applicator with a range of medicines, and
+  other basic medical supplies. Although the device is packed with appropriate means to nurse a sentient back to health,
+  its small size limits the number of supplies within. The medicum allows your character to heal other characters'
+  wounds or Critical Injuries without penalty, as well as their own by increasing the difficulty by 1 instead of by 2.
+  If your character's Medicine check generates <despair></despair><despair></despair><despair></despair> or
+  <difficulty></difficulty>, the kit's supplies have been depleted, and the medicum may no longer be used. This item may
+  be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 2
+rarity: 2
+reference: EotI:124

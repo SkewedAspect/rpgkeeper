@@ -1,0 +1,17 @@
+id: eote-camonetroll
+name: CN-15 Camouflage Netting (Roll)
+description: >-
+  This sophisticated and versatile camouflage is used by military personnel to conceal encampments, supply caches,
+  vehicles and other high-value assets. Fabritech CN-15 Camouflage Netting contains photoreactive fibers that enable it
+  to match the visual profile of its surroundings, as well as jamming circuitry that offers an effective countermeasure
+  against standard sensor sweeps.
+
+  CN-15 Camouflage Netting adds automatic <failure></failure><failure></failure> to all checks made to detect items
+  concealed by it. One roll of netting can conceal one object up to silhouette 2, two rolls can conceal one object up to
+  silhouette 3, and three rolls can conceal one object up to silhouette 4. Anything silhouette 5 or larger is too large
+  to conceal by camo netting alone.
+encumbrance: 4
+rarity: 2
+reference:
+  - DC:57
+  - KoF:50

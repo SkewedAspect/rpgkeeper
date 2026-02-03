@@ -1,0 +1,19 @@
+id: eote-slicewire
+name: Slicewire
+description: >-
+  Slicewire is a multipurpose cutting tool and makeshift weapon in common use among the galaxy's intelligence services.
+  A standard-issue slicewire is a meter-long monofilament cable contained within a carbonite rod. With a twist, the rod
+  splits in half and releases the monofilament, with the rod halves serving as handles. Thanks to the unique properties
+  of monofilament, a slicewire can cut through nearly any material, from flesh and bone to duranium and plasteel. Also
+  available on spools in lengths of up to one hundred meters, slicewire can be used to create deadly traps and snares
+  and may be strung across corridors or alleys at neck height to catch pursuers unaware. Slicewire is typically only
+  issued to the most experienced agents, as its use poses as much of a threat to the user as it does to the target.
+
+  Slicewire comes in small spools containing ten meters of wire. When used as a weapon, slicewire has the following
+  profile: (Brawl; Damage +2; Critical 2; Range (Engaged); Pierce 2, Vicious 3). If a user fails a Brawl check when
+  using this weapon, the Game Master can spend <threat></threat><threat></threat><threat></threat> or
+  <despair></despair> to inflict the weapon's full damage onto the user.
+encumbrance: 2
+rarity: 6
+reference:
+  - CaM:49

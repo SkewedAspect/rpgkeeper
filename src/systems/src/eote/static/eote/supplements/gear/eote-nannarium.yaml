@@ -1,0 +1,14 @@
+id: eote-nannarium
+name: Nannarium Root (Dose)
+description: >-
+  Large blue flowers native to Drall, nannariums are often cultivated for their beauty and sweet aroma when in bloom.
+  The roots of the nannarium plant also have certain nootropic pharmacological properties. When properly prepared, the
+  extract of the nannarium root is made into a tincture thought to increase the imbiber's cognition and mental acuity.
+
+  A character under the effects of distilled nannarium root extract may upgrade the ability of any Intelligence or
+  Cunning-related check once, though doing so requires single-minded concentration and causes them to suffer 2 strain.
+  The effects of a single dose of nannarium root last for about an hour.
+encumbrance: 0
+rarity: 2
+reference:
+  - SoF:103

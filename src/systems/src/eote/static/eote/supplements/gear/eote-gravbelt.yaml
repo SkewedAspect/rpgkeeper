@@ -1,0 +1,12 @@
+id: eote-gravbelt
+name: Gravity Belt
+description: >-
+  The gravity belt is a specialized utility belt created by Iyranis Gravitics Limited, an Iyra company. In addition to
+  the standard functions of a utility belt, the gravity belt includes gravity pulse generators that saves its wearer
+  from falls by slowing them down.
+
+  _Note:  This item has been removed in recent errata.  Please consult your GM before purchase._
+encumbrance: 0
+rarity: 6
+reference:
+  - SoF:103

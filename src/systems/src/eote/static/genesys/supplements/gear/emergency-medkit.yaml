@@ -1,0 +1,11 @@
+id: genesys-gear-emergency-medkit
+name: Emergency Medkit
+description: Emergency medkits are small, surprisingly comprehensive medical supply kits used to treat moderate injuries
+  in emergency situations. These kits include sterile bandages, a handful of basic drugs, antiseptics, sterile medical
+  tools, blood coagulants, and other basic medical supplies. However, the small size means the total quantity is
+  limited. An emergency medkit allows your character to heal wounds or Critical Injuries without penalty. If your
+  character's Medicine check generates <despair></despair><despair></despair><despair></despair> or
+  <difficulty></difficulty>, it means they have used up all of the kit's supplies, and the medkit may no longer be used.
+encumbrance: 1
+rarity: 2
+reference: SotB:99

@@ -1,0 +1,14 @@
+id: eote-flashcampst
+name: FlashFire Camp Stove
+description: >-
+  Survival Equipment Inc. FlashFire Camp Stove
+
+  SEI's FlashFire is a compact, lightweight, all-in-one ccamp stove designed for individuals who need to travel light
+  through the wilderness. The stove consists of a high-output multifuel burner, a fuel cell, and an integrated canister
+  that acts as pot, pan, kettle, and caf distillation system. The FlashFire is easy to use, windproof, and stands up
+  well to the rigors of field use. Although the mult-use canister is integrated into the device, it can be removed with
+  some basic tools and a few minutes of work to allow the fuel cell and burner to be used with other cookward.
+encumbrance: 2
+rarity: 4
+reference:
+  - SS:47

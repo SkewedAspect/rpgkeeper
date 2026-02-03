@@ -1,0 +1,14 @@
+id: eote-antishblank
+name: Antishock Blanket
+description: >-
+  Circulatory shock poses a grave danger to anyone who has suffered a traumatic injury. As the body increases blood flow
+  to a wounded area, it must decrease blood flow to other areas. When the wounded area is experience blood loss-or if
+  multiple regions suffer wounds simultaneously-it can leave some organs starved for critical nutrients. An antishock
+  blanket can be used for compression and thermal stabilization of the patient, reducing the risk of shock.
+
+  When a character uses an antishock blanket to help heal a Critical Injury, the character may reduce the difficulty of
+  the Medicine check made to heal the injury by one, to a minimum of **Easy (<difficulty></difficulty>)**.
+encumbrance: 2
+rarity: 2
+reference:
+  - DoH:49

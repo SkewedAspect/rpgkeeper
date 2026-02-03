@@ -1,0 +1,22 @@
+id: eote-gv3series
+name: GV/3-series Guardian Droid
+description: >-
+  The GV/3 guardian droid, manufactured by Cybot Galactica, is on eof the most advanced ssecurity droids on the market.
+  Designed to resemble a four-legged canine, the GV/3 is broad and powerful in appearance. The droid's sturdy
+  construction is further reinforced with plasteel plates, and integrated solar panels guarantee that it rarely needs
+  recharging.
+
+  The droid's programming emulates that of a very intelligent beast, and it communicates with its master in a series of
+  yips, yelps, barks and growls. GV/3 guardian droids come standard with strong loyalty imprint software that can be
+  keyed to any number of subjects. As long as a specific individual is imprinted in the droid's memory, it follows that
+  being's commands and, to the best of its ability, prevents that person from being injured, whether by deliberate
+  action or by accident. Despite the GV/3's physical strength, it is capable of being gentle and even playful,
+  especially around children.
+
+  The GV/3 is popularly used for home security and by law enforcement agencies. It has also been adapted to search and
+  rescue operations with much success. Though it is considered a benign droid in most areas, some models have been
+  modified by unscrupulous individuals for criminal applications.
+encumbrance: 10
+rarity: 7
+reference:
+  - KtP:49

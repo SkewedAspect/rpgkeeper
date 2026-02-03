@@ -1,0 +1,18 @@
+id: eote-cylegiii
+name: Cybernetic Leg (Mod III)
+description: >-
+  BioTech's expertise with replacing natural limbs into superior cybernetics also extends to legs. For those with the
+  credits, the loss of such limbs does not have to mean any loss of ability and can even lead to greater mobility than
+  before. Advanced models such as the Mod II can offer greater power, while the Mod III uses computer-guided gyroscopic
+  implants for superior quickness.
+
+  Note that cyberlegs must be purchased as a pair. Mod II Cyberlegs provide + 1 Brawn, while the Mod III provides + 1
+  Agility. The wearer must have both legs replaced to receive the bonus to his characteristics.
+
+  **Models Include:** BioTech Industries Cyberlegs Mod II and Mod III.
+encumbrance: 0
+rarity: 6
+reference:
+  - E-CRB:173
+  - A-CRB:189
+  - F-CRB:183

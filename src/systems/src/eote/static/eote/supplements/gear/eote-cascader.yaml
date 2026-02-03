@@ -1,0 +1,31 @@
+id: eote-cascader
+name: BPEA-1A Cascader
+description: |-
+  Developed by Coruscant-based boutique electronics
+  firm Farbreini MicroElectronics Ltd., the BPEA-IA Cascader
+  was designed to give those who live in the public
+  eye an extra level of control over their appearance. A
+  relatively simple and elegant piece of electronic wizardry,
+  the Cascader is a small, low-powered holoprojector
+  connected to a patented projection matrix called
+  the electronic molecular excitation net (EME Net).
+  The projector is typically built into a piece of jewelry
+  or, in the case of models used by military officers, into
+  medals or decorations on a dress uniform. The EME
+  Net is a lightweight, unobtrusive mesh of photoreceptors
+  and photoreactive materials sewn into specially
+  prepared clothing, such as uniforms and fancy dress
+  outfits. When activated, the Cascader creates a subtle
+  holographic effect that enhances both the features and
+  voice of the wearer, increasing charisma and attractiveness.
+  It allows wearers to tweak the shape of their face
+  and the positions of their features, change the color
+  of their eyes, adjust the tone and texture of their skin,
+  alter the tenor of their voice, and make a number of
+  other small adjustments to their appearance.
+  When wearing a Cascader, a PC upgrades all Charm,
+  Deception, and Leadership checks he makes once.
+encumbrance: 0
+rarity: 8
+reference:
+  - LbE:44

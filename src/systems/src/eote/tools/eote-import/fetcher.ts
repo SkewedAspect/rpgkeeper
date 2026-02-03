@@ -13,6 +13,7 @@ import { XMLParser } from 'fast-xml-parser';
 // Types
 import type {
     ArmorsDocument,
+    GearDocument,
     ItemAttachmentsDocument,
     ItemDescriptorsDocument,
     SkillsDocument,
@@ -20,6 +21,7 @@ import type {
     TalentsDocument,
     WeaponsDocument,
     XmlArmor,
+    XmlGear,
     XmlItemAttachment,
     XmlItemDescriptor,
     XmlSkill,
@@ -170,6 +172,15 @@ export async function loadWeapons(repoPath : string) : Promise<XmlWeapon[]>
 }
 
 /**
+ * Load gear from XML
+ */
+export async function loadGear(repoPath : string) : Promise<XmlGear[]>
+{
+    const doc = await loadXmlFile<GearDocument>(repoPath, XML_FILES.gear);
+    return doc.Gears?.Gear ?? [];
+}
+
+/**
  * Load talents from XML
  */
 export async function loadTalents(repoPath : string) : Promise<XmlTalent[]>
@@ -238,6 +249,7 @@ export interface LoadedData
 {
     armors : XmlArmor[];
     weapons : XmlWeapon[];
+    gear : XmlGear[];
     talents : XmlTalent[];
     attachments : XmlItemAttachment[];
     qualities : XmlItemDescriptor[];
@@ -260,6 +272,9 @@ export async function fetchAndLoadData() : Promise<LoadedData>
     const weapons = await loadWeapons(repoPath);
     console.info(`  - Loaded ${ weapons.length } weapons`);
 
+    const gear = await loadGear(repoPath);
+    console.info(`  - Loaded ${ gear.length } gear items`);
+
     const talents = await loadTalents(repoPath);
     console.info(`  - Loaded ${ talents.length } talents`);
 
@@ -275,7 +290,7 @@ export async function fetchAndLoadData() : Promise<LoadedData>
     const specializations = await loadSpecializations(repoPath);
     console.info(`  - Loaded ${ specializations.length } specializations`);
 
-    return { armors, weapons, talents, attachments, qualities, skills, specializations };
+    return { armors, weapons, gear, talents, attachments, qualities, skills, specializations };
 }
 
 //----------------------------------------------------------------------------------------------------------------------

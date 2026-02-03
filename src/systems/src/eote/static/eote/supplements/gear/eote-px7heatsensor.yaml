@@ -1,0 +1,17 @@
+id: eote-px7heatsensor
+name: PX-7 Heat Sensor
+description: >-
+  The ChandrilTech PX-7 heat sensor used to detect anomalous variations in temperature nearby. This is useful for
+  finding heat-emitting life forms and isolating certain kinds of damage in machines. These devices are especially
+  helpful for any task that combines the two, such as locating vermin infestations in the hull of a star ship. Many
+  ships have had critical hardware failures at inopportune times due to the presence of mynocks or other invasive
+  lifeforms that damage wiring, power cells, and more, and so veteran spacers know the value of running a heat-sensor
+  sweep ove their ship from time to time, just to be sure nothing has taken up residence in the craft's hull.
+
+  A PX-7 heat sensor adds <boost></boost><boost></boost> to Perception checks to find heat-emitting objects within short
+  range and adds <boost></boost> to Mechanics checks to remove Critical Hits from starships and Critical Injuries from
+  droids.
+encumbrance: 3
+rarity: 7
+reference:
+  - KtP:50

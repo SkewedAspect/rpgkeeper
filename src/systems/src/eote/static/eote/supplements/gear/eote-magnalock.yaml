@@ -1,0 +1,10 @@
+id: eote-magnalock
+name: Magna-Lock Safe
+description: |-
+  The best personal safes on the market are those crafted from multiple bonded layers of high-quality durasteel and equipped with magna-locks. The doors of these safes seal with special locking mechanisms that generate micromagnetic fields, creating covalent bonds nearly as strong as those of the surrounding durasteel.
+  Though the sizes of these safes vary, most store about 10 encumbrance. Cracking a magna-safe requires specialized tools, and even with these, opening it requires a **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Skulduggery check**.
+  **Models Include:** Locris Syndicated Securities DT-125 magna-safe, Chirrit & Chirrit Series 89 "Steel Sentry" executive safe.
+encumbrance: 12
+rarity: 5
+reference:
+  - FC:49

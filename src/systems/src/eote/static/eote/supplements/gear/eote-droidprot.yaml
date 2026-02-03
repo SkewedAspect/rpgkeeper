@@ -1,0 +1,16 @@
+id: eote-droidprot
+name: Protocol Droid
+description: >-
+  (Various Models)
+
+  With hundreds or thousands of intelligent races scattered across millions of planets throughout the galaxy,
+  communication can be a significant problem when diplomacy is required. Protocol droids are designed to solve this
+  problem, with the advanced computer brains of these automatons retaining literally millions of languages at a time. As
+  the name indicates, the droids are not only translators but also serve to prevent misunderstandings by ensuring
+  cultural problems do not arise. It is for this reason that, if these droids are left without a memory wipe and begin
+  to develop a personality, they tend to be highly anxious and nervous.
+encumbrance: 0
+rarity: 5
+reference:
+  - E-CRB:409
+  - F-CRB:410

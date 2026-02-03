@@ -1,0 +1,17 @@
+id: eote-databrbo
+name: Blackops Data Breaker
+description: >-
+  Data breakers are common tools used by slicers to force their way into secure systems. Essentially a data battering
+  ram, they are unsubtle tools used for expedience instead of finesse and stealth. Many are also data harvesting
+  devices, recording everything encountered in a system while the slicer roots around for nuggets of information. Most
+  organic Slicers carry one or two of these devices, but droid Slicer Player Characters can have them installed in their
+  internal computer systems as well. Data breakers add <boost></boost><boost></boost> to any Computers check made to
+  slice computers, but they also add <boost></boost> to any attempts to locate use of a data breaker in a computer
+  system due to the "noise" these devices make. Data breakers are highly illegal, and possession or use of one can land
+  a Rebel operative in a maximum security Imperial prison for a very long stay.
+
+  **Models Include:** Numerous variants.
+encumbrance: 1
+rarity: 6
+reference:
+  - A-CRB:193

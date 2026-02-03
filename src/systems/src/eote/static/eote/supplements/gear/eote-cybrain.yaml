@@ -1,0 +1,18 @@
+id: eote-cybrain
+name: Cybernetic Brain Implant
+description: >-
+  One fascinating invention in the field of cybernetics is the cybernetic implant, a computer device designed to augment
+  the user's brainpower. One example, the Aj^6 implant, is a common enhancement for those who must oversee large
+  operations or process vast amounts of data on a regular basis. The implant fits around the user's ears and back of the
+  head, melding with the user's brain to achieve superior reasoning speeds as well as to store information for later
+  analysis. The popular unit also allows for remote computer control as well as comlink capability.
+
+  A cybernetic brain implant provides + 1 Intelligence and includes a comlink and computer access link.
+
+  **Models Include:** BioTech Borg Construct Aj^6 Cybernetic Implant.
+encumbrance: 0
+rarity: 6
+reference:
+  - E-CRB:174
+  - A-CRB:189
+  - F-CRB:183

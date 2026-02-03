@@ -1,0 +1,16 @@
+id: eote-vocalemuimp
+name: Vocal Emulator Implant
+description: >-
+  Known also as a voxscrambler, a vocal emulator implant connects to individuals' vocal cords and allows them to change
+  the tone and tenor of their voice and even impersonate specific individuals. With a thought, users can change their
+  voice to sound like any age, sex, or even species, within reason. Like a cyber disguise, a vocal emulator implant
+  allows a user to mimic specific individuals, given enough study and practice.
+
+  Changing or disguising a character's natural voice takes one round. To mimic the voice of a specific individual, a
+  voxscrambler user must make a thorough study of the subject—listen to recordings, hear the individual deliver a long
+  speech, etc.—and then make a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)
+  Deception check** to nail down the individual's voice, speech patterns, and intonation.
+encumbrance: 0
+rarity: 5
+reference:
+  - CaM:45

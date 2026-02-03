@@ -1,0 +1,12 @@
+id: eote-droidsecur
+name: Security Droid
+description: A more civilized and restricted version of assassin droids, security droids are not illegal but are
+  carefully regulated because of the potential for abuse. Security droids are typically programmed with significant
+  knowledge of law enforcement protocols and often update using local databases when traveling to ensure that their
+  actions are in accordance with planetary, system, and sector law. Typically, security droids are assigned to protect
+  specific locations or individuals and will respond to any threat against their charge with appropriate, sometimes
+  lethal, force.
+encumbrance: 0
+rarity: 5
+reference:
+  - E-CRB:409

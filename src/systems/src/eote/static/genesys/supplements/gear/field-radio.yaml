@@ -1,0 +1,10 @@
+id: genesys-gear-field-radio
+name: Field Radio
+description: Field radios are heavy-duty, military-grade transceivers used by soldiers to send and receive information
+  on the battlefield. Carried by dedicated radio operators, field radios are still small enough that they and their
+  antenna, their power source, and the other bits of equipment needed to operate their system fit into a lightweight
+  pouch. They feature smart encryption systems and can broadcast anywhere within line of sight of the bearer (including
+  low orbit).
+encumbrance: 1
+rarity: 5
+reference: SotB:97

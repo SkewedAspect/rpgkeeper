@@ -1,0 +1,8 @@
+id: eote-bloodscan
+name: Blood Scanner
+description: Utilized for medical diagnostics, blood scanners are sensitive devices capable of scanning blood samples
+  from nearly any species.
+encumbrance: 1
+rarity: 5
+reference:
+  - KtP:51

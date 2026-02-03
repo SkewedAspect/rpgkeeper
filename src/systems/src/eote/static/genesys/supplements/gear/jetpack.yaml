@@ -1,0 +1,8 @@
+id: genesys-gear-jetpack
+name: Jetpack
+description: These relatively small devices usually strap to the wearer's back or waist and allow them to surge into the
+  air. A jetpack allows the wearer to flying (see page 100 of the Genesys Core Rulebook). It can be activated or
+  deactivated as a maneuver. If needed, the wearer uses the Piloting skill with this item.
+encumbrance: 2
+rarity: 7
+reference: SotC:150

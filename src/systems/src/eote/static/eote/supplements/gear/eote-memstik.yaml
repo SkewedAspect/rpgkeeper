@@ -1,0 +1,11 @@
+id: eote-memstik
+name: Mem-Stik
+description: Produced in a variety of styles and sizes, mem-stiks are simple, unpowered data storage devices. The
+  typical mem-stik is the size of an average human's little finger and is designed to plug into a datapad or computer
+  system to upload or download data. They can be secured via a number of encryption methods and are a handy way to
+  transport sensitive data. Espionage agents commonly use mem-stiks in dead drops due to their small size and
+  commonplace appearance. Couriers tend to carry a handful of them at all times.
+encumbrance: 0
+rarity: 2
+reference:
+  - CaM:46

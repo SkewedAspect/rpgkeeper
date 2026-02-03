@@ -1,0 +1,21 @@
+id: eote-knackbolt
+name: '"Knack" Restraining Bolt'
+description: >-
+  The Brennkeyes Syndicate remains among one of the most wanted criminal production industries, and survives only due to
+  constant relocation and intense security regarding its manufacturing methods. The craftsmanship and ingenuity of its
+  wares remains matched only by their corresponding illegality, leading to further inflated prices. The "Knack"
+  restraining bolt has become one of their most popular standard items. It appears just like a standard restraining
+  bolt. However, the 'Knack' can also be preprogrammed with an order that will be relayed to the droid at certain times
+  or based on specified triggers.
+
+  This secret order might simply let the druid ignore the bolt under particular circumstances, or it might enable
+  something more sinister, such as causing the droid to plot a course to a pirate base when its owner directs it to
+  navigate to Coruscant. The programming can be detected only by accessing the restraining bolt through a datapad, and
+  is not visible to anyone examining the druid's programming rather than that of the restraining bolt.
+
+  A PC droid can try to resist a "Knack" restraining bolt in the same way as a normal restraining bolt (see page 195 of
+  the **Age of Rebellion** Core Rulebook).
+encumbrance: 0
+rarity: 8
+reference:
+  - DA:52

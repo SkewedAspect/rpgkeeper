@@ -1,0 +1,16 @@
+id: eote-biomegen
+name: Biome Generator
+description: >-
+  A99 Custom Biome Generator
+
+  Tri-Planetary Atmospherics (TPA) is a small atmospheric research and engineering firm based in the Outer Rim
+  territories. Specializing in atmospheric synthesis technologies, TPA is the go-to company for custom tailored
+  environments. Their most popular product is the A99 Custom Biome Generator, a relatively small, sophisticated device
+  used to create specialty environments in starships, space stations, and buildings. Equipped with powerful chemical
+  analyzers and synthesizers, the A99 can produce comfortable, safe environments for even the most stringent biological
+  requirements. When installed, they are commonly integrated into existing ventilation and temperature regulation
+  systems, allowing the A99 to replicate nearly any biome in the universe.
+encumbrance: 45
+rarity: 4
+reference:
+  - FH:46

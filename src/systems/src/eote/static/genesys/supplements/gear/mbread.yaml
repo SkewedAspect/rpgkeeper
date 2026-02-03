@@ -1,0 +1,9 @@
+id: genesys-gear-mbread
+name: Æmbread
+description: This foodstuff can be found almost anywhere on the Crucible and is a reliable trading item, as everyone can
+  consume it, regardless of their physiology or composition. Once per session as a maneuver, a character may consume a
+  loaf of Æmbread to heal a number of wounds equal to half their wound threshold. They also add <boost></boost> to
+  Resilience checks the consumer makes until the end of the encounter.
+encumbrance: 1
+rarity: 5
+reference: SotC:147

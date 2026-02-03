@@ -1,0 +1,13 @@
+id: eote-droidbd10
+name: BD10-Series Assay Suport Droid
+description: >-
+  _BD10_-Series Assay Suport Droid
+   The galaxy is filled with small, out-of-the-way systems and polities that may stand in the way of prosperity and progress for the greater population. The Outer Rim, in particular, is composed of minor, insular communities and cultures that may lay claim to resources, trade routes, or information essential to the success of larger, more Core-oriented entities. Responding to this situation, Industrial Automatons first created the BD10-series droid, specifically intended to assist negotiating parties in dealing with myriad cultures and systems of the less civilized parts of the galaxy.
+  Programmed with the languages, traditions, taboos, and morays of over a million Rimward civilizations and
+  corporations, the BD10 series is still seen as one of the best choices of companion for anyone seeking to do business
+  in the Outer Rim. With the help of these innocuous droids, any negotiation with a less advanced society will be
+  infinitely easier.
+encumbrance: 0
+rarity: 5
+reference:
+  - DoH:54

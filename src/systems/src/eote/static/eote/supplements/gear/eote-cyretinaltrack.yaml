@@ -1,0 +1,15 @@
+id: eote-cyretinaltrack
+name: Q-22 Retinal Tracker
+description: >-
+  Consisting of microsensors implanted directly behind the user's retinas and a tiny tracking computer installed at the
+  base of the skull, a retinal tracker aids the user in targeting imminent threats. A simple thought impulse activates
+  the system, which projects a targeting reticule directly onto the user's retina. Though not infallible, the system can
+  increase the user's accuracy when trying to land precision shots or hit multiple foes with a heavy weapon.
+
+  A retinal tracker provides automatic <advantage></advantage> on Gunnery and Ranged (Heavy) checks.
+
+  **Models Include:** Neuro-Saav Technologies Q-22.
+encumbrance: 0
+rarity: 6
+reference:
+  - LoNH:107

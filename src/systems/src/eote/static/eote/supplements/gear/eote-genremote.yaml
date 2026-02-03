@@ -1,0 +1,8 @@
+id: eote-genremote
+name: Generic Remote
+description: Small wheeled devices, sphers with miniature repulorlifts, and various other chasses house generic remotes,
+  which can perform basic preprogrammed tasks in response to simple commands from users.
+encumbrance: 0
+rarity: 2
+reference:
+  - SM:53

@@ -1,0 +1,16 @@
+id: eote-hscan
+name: Hand Scanner
+description: >-
+  "Hand scanner" is a catchall designation for a wide variety of handheld scanning devices designed to run
+  specific-purpose scans. Some of the most common versions of these are medisensors, such as the RFX/K Medisensor made
+  by BioTech Industries. The device can be used independently or plugged into a medpac or datapad, and displays a
+  variety of useful bio-signs about the subject. Other scanners can check for atmospheric contaminants, poisons, vermin,
+  or in the case of mechanics, micro-fractures or stress points.
+
+  **Models Include:** RFX/K Medisensor.
+encumbrance: 0
+rarity: 2
+reference:
+  - E-CRB:176
+  - A-CRB:191
+  - F-CRB:185

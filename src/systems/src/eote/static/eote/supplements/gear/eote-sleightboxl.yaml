@@ -1,0 +1,19 @@
+id: eote-sleightboxl
+name: Sleight Box (Large)
+description: >-
+  Sleight Box
+
+  A favorite of smugglers and spies everywhere, the sleight box is a crate or box modified for hiding cargo. Using a
+  low-power repulsorlift coil and matrix, a long-lasting battery, and a false bottom, the sleight box, when weighed or
+  visually inspected, appears to be empty. Although typically made in smaller size to hide weapons, drugs, or other
+  contraband, larger models for more heavyweight materials have been made.
+
+  Sleight boxes can vary in size from Encumbrance 2 to Encumbrance 20, and each can conceal a number of items with a
+  total Encumbrance value up to half of that amount. To find the something hidden within a sleight box, a character must
+  make a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception
+  check**. At the GM's discretion, an unaware character might use Vigilance instead.
+encumbrance: 16
+rarity: 6
+reference:
+  - DA:53

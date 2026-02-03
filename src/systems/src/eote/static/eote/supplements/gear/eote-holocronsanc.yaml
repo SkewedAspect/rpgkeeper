@@ -1,0 +1,22 @@
+id: eote-holocronsanc
+name: Sanctuary Holocron
+description: >-
+  _Sanctuary_ Holocron
+
+  The holocron of the _Sanctuary_ contains a mnemonic imprint of Val Isa's personality, manifests itself as a serene
+  older human woman with a hint of impish humor about her. Of course, while very lifelike, the holocron's personality is
+  not truly sentient, though it may be hard to tell this at times.
+
+  The holocon of the _Sanctuary_ is intended to be a tool the PCs can use to learn about the ancient Jedi Order. It is
+  not an unlimited fount of information, of course, and its knowledge is several thousand years old (so it knows nothing
+  of current events). However it contains a great deal of basic Jedi instruction, which allows the GM and players to
+  explain how the PCs are able to learn Jedi Force practices and train with lightsabers, for example.
+
+  Each PC may count Discipline and Medicine as career skills as long as the group possesses the holocron.
+
+  When making a Knowledge (Lore) check to learn about the Jedi, the PC's may use the holocron to make an assisted check.
+  The holocron counts as having three ranks in Knowledge (Lore).
+encumbrance: 1
+rarity: 10
+reference:
+  - F-CRB:439

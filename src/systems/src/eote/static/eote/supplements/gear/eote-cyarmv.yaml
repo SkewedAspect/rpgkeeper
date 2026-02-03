@@ -1,0 +1,19 @@
+id: eote-cyarmv
+name: Cybernetic Arms (Mod V)
+description: >-
+  BioTech Industries is a leading supplier of cybernetic devices across the galaxy, and its Mod V and Mod VI cyberarms
+  are made to fit hundreds of alien species. These cyberarms are designed for increased strength (in the case of the Mod
+  V) or manual dexterity (in the case of the Mod VI). Although intended to replace limbs lost in accidents, BioTech sees
+  plenty of sales to those who don't mind replacing their arms with mechanical equivalents.
+
+  The Mod V Cyberarm provides + 1 Brawn, while the Mod VI provides + 1 Agility. If a character replaces both arms with
+  cybernetic enhancements, he must use the same model, as they are designed to work in tandem. However, the modifiers
+  from both arms do not stack.
+
+  **Models Include:** BioTech Industries Cyberarm Mod V and Mod VI.
+encumbrance: 0
+rarity: 6
+reference:
+  - E-CRB:173
+  - A-CRB:189
+  - F-CRB:182

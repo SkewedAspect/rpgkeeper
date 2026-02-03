@@ -1,0 +1,16 @@
+id: eote-df15fusiongen
+name: DF-15 Medium-Yield Fusion Generator
+description: >-
+  Draxton DF-15 Medium-Yield Fusion Generator
+
+  The DF-15 is a small fusion generator designed to power worksites or small buildings. It is a small cube roughly half
+  a meter square with a number of universal power couplings on each face. The unit is surrounded by a sturdy frame made
+  of bent alloy tubing that provides protection and handles for easy carrying. It is lightweight, quiet, and efficient
+  and provides clean, stable power for up to ten years.
+
+  As a maneuver, a character may use a DF-15 to recharge an energy weapon or device that has run out of power or
+  ammunition in the manner of an extra reload/power pack.
+encumbrance: 4
+rarity: 4
+reference:
+  - FO:47

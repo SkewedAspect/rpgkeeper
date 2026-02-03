@@ -29,6 +29,7 @@
                 />
                 <WeaponsCard class="mt-1" :readonly="!isAuthorized" @roll="onRoll" @save="onSave" />
                 <ArmorCard class="mt-1" :readonly="!isAuthorized" @save="onSave" />
+                <GearCard class="mt-1" :readonly="!isAuthorized" @save="onSave" />
             </div>
             <div class="d-flex flex-column" style="min-width: 300px; max-width: 300px;">
                 <MotivationsCard
@@ -95,6 +96,7 @@
     import CriticalsCard from './criticalsCard.vue';
     import WeaponsCard from './weaponsCard.vue';
     import ArmorCard from './armorCard.vue';
+    import GearCard from './gearCard.vue';
     import TalentsCard from './talentsCard.vue';
     import ForcePool from './forcePool.vue';
     import ForcePowers from './forcePowers.vue';

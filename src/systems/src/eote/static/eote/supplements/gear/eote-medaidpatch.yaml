@@ -1,0 +1,14 @@
+id: eote-medaidpatch
+name: Med-Aid Patch
+description: >-
+  "Med-Aid" is a general term applied to single-use bandages and compresses that have been infused with bacta,
+  antibiotics, coagulants, and other healing agents. Such supplies are especially valued by field medics treating cases
+  of minor injuries that do not call for the expenditure of stimpacks, as they are relatively less costly.
+
+  When making a Medicine check to heal wounds from a character, a character can expend up to one med-aid patch to add
+  automatic <success></success><advantage></advantage> to the results of the check. A character caoont use more tha one
+  med-aid patch per check.
+encumbrance: 1
+rarity: 4
+reference:
+  - KtP:51

@@ -1,0 +1,9 @@
+id: genesys-gear-winter-clothing
+name: Winter Clothing
+description: Made of thick wool and furs, winter clothing consists of heavy coats, leggings, sturdy boots, and thick
+  cloaks, keeping adventurers warm in the coldest environments. When wearing winter clothing, your character removes
+  <setback></setback><setback></setback> from any Survival or Resilience checks they make due to cold weather. When
+  worn, winter clothing's encumbrance is 1.
+encumbrance: 4
+rarity: 3
+reference: G-CRB:146

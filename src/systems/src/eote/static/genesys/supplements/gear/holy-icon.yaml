@@ -1,0 +1,10 @@
+id: genesys-gear-holy-icon
+name: Holy Icon
+description: Holy icons are items that represent your character's faith and help them focus that faith to cast spells.
+  These are generally religious symbols of some sort, perhaps necklaces, rings, emblems, or medallions. But they just as
+  easily can simply represent your character's beliefs. Holy icons enable divine spellcasters to perform unique
+  miracles. When they are casting a spell, adding any Divine Only effects increase the spell's difficulty one less than
+  they would normally. In addition, the number of wounds healed by heal spells cast by the user increases by two..
+encumbrance: 0
+rarity: 4
+reference: G-CRB:219

@@ -1,0 +1,12 @@
+id: eote-atmoredamp
+name: FasClean Atmospheric Reactive Damper
+description: Typically found on heavily populated, highly advanced worlds such as Coruscant, the FasClean Atmospheric
+  Reactive Damper (ARD) produced by Gandorthral Atmospherics is one of the most important environmental engineering
+  devices produced. Using a multitude of systems, FasClean dampers are deployed in the upper atmosphere in large groups
+  where they scrub excess carbon dioxide from a planet's atmosphere. This prevents populous, heavily industrial worlds
+  from succumbing to catastrophic planetary climate change caused by massive amounts of CO2 in the air. ARDs are also
+  used in planetary colonization, especially on worlds with a high percentage of volcanic or geothermal activity.
+encumbrance: 500
+rarity: 5
+reference:
+  - FH:47

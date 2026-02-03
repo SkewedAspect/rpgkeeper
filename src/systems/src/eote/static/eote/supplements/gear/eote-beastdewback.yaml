@@ -1,0 +1,11 @@
+id: eote-beastdewback
+name: Dewback Riding Beast
+description: Originating from the Dune Sea on Tatooine, dewbacks are large four-legged reptiles who are well-suited to
+  desert environments. Easily domesticated, dewbacks are used as both beasts of burden and reliable, hardy mounts, and
+  like banthas, have been exported off-world for generations. Because of their resilience, these creatures are found in
+  both Imperial and Alliance military forces. In the Stormtrooper Specialty Corps, sandtroopers make good use of their
+  strengths in arid conditions; amongst the Alliance, dewbacks are deployed to SpecForce's 4th Regiment.
+encumbrance: 0
+rarity: 3
+reference:
+  - SoT:85

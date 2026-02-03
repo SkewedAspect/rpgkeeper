@@ -1,0 +1,22 @@
+id: eote-jediutilbelt
+name: Jedi Utility Belt
+description: >-
+  Skilled artisans in the employ of the Jedi Order designed a utility belt for the use of Jedi Knights in the field
+  centuries ago,  incorporating a number of useful tools and items of fine manufacture. Jedi utility belts are visually
+  nondescript, and the pouches worn on them, as well as the compartments within them, contain a number of useful items
+  and tools. These utility belts were not worn by every Jedi Knight in the field, but many found them to be useful, so
+  various iterations and models stayed in circulation throughout the centuries.
+
+  While Jedi utility belts found in circulation or on abandoned battlefields are typically empty, having long ago been
+  picked over, Jedi caches have been known to contain Jedi utility belts that are still supplied. A Jedi utility belt
+  contains a three-day supply of food capsules, an emergency medpac, a Jedi multitool, a slim glow rod, a comlink, and
+  an aquata breather. A number of empty pouches are concealed along the belt's interior side, allowing the wearer to
+  hide small items. In addition, a standard lightsaber can be securely hung from the belt for easy access.
+
+  In addition to potentially containing the supplies listed above, the Jedi utility belt increases the wearer's
+  encumberance threshold by 1.
+encumbrance: 0
+rarity: 8
+reference:
+  - KtP:52
+  - RotS:59

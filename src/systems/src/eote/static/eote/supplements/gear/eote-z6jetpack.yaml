@@ -1,0 +1,17 @@
+id: eote-z6jetpack
+name: Z-6 Jetpack
+description: >-
+  When a soldier needs to make a swift and unexpected arrival, a jetpack provides one of the quickest and most
+  surprising methods. The pack's small thrusters enable the wearer to blast into the air for a short time, achieving a
+  vertical height of up to 70 meters. The pack uses a combination of verbal and wrist-mounted controls.
+
+  The Z-6 provides additional tactical flexibility by incorporating a mount point for a single rocket-fired missile.
+  Different payloads can be incorporated based upon the needs of each objective. Mitrinomon Transports manufactures the
+  Z-6, which -- alongside the JT-12 -- is popular among traditionally minded Mandalorians who prize the additional
+  combat option.
+
+  _Note:  For the vehicle version of this item, see the vehicle of the same name._
+encumbrance: 3
+rarity: 7
+reference:
+  - CotR:59

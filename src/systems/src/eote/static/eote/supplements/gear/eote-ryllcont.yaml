@@ -1,0 +1,17 @@
+id: eote-ryllcont
+name: Ryll (100 doses)
+description: >-
+  A relatively mild but addictive and potentially dangerous spice, ryll is mined primarily on Ryloth, the dry, rocky
+  homeworld of the Twi'leks. Much of the unprocessed ryll is smuggled along the Death Wind Corridor and Triellus Trade
+  Route to Ylesia to be refined before making its way onto the black market. Not as popular in the Core Worlds as other
+  spices, ryll has a ready market in the Outer Rim and the Corporate Sector.
+
+  A dose of ryll allows a character to ignore the effects of a single Easy or Average Critical Injury Result until the
+  end of the scene or combat encounter. Two doses allow the character to ignore the effects of a single Hard Critical
+  Injury result until the end of the scene or combat encounter instead. Once its effects end, the character suffers the
+  effects of the Critical Injury result as normal, and also suffers <setback></setback><setback></setback> on all checks
+  he makes until the end of the game session.
+encumbrance: 25
+rarity: 5
+reference:
+  - LoNH:110

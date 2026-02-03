@@ -1,0 +1,9 @@
+id: genesys-gear-extra-clip
+name: Extra Clip
+description: "This is exactly what it sounds like: an extra clip of ammunition for a ranged weapon. If your character
+  has an extra clip, they may spend a maneuver to reload and continue to use their weapon if it runs out of ammo. This
+  uses up the extra clip. (You can't use this to reload weapons with the Limited Ammo quality, as they usually have
+  special costs for their reloads or are one-use weapons.)"
+encumbrance: 0
+rarity: 2
+reference: G-CRB:168

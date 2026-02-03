@@ -1,0 +1,15 @@
+id: eote-ssnp
+name: Synthetic Standard Neuroparalytic
+description: Poisons that paralyze a target but leave higher cognitive functions intact (and do not kill the target) are
+  difficult to create and administer. However, certain types do exist. This poison may only be introduced into a target
+  via injection. as in an applicator or dart. Any sized dose has a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) difficulty**. The poison Stuns the
+  target for 3 Rounds if the target fails the check. In addition, each <threat></threat> generated inflicts one strain
+  on the target, and the GM can spend <despair></despair> to make the target test against the poison again during the
+  next round, as the poison remains in his system.
+encumbrance: 0
+rarity: 6
+reference:
+  - E-CRB:172
+  - A-CRB:188
+  - F-CRB:181

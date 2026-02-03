@@ -1,0 +1,8 @@
+id: genesys-gear-rope
+name: Rope
+description: "This is a profile for a length of rope: maybe a coil of woven hemp, or maybe a high-tech nylon climbing
+  rope. Rope doesn't come with any unique rules. The only rule associated with it is that often it is the right tool for
+  the job."
+encumbrance: 1
+rarity: 1
+reference: G-CRB:94

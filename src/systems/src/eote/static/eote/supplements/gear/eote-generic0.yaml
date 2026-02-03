@@ -1,0 +1,8 @@
+id: eote-generic0
+name: Incidental Item
+description: Use this item to represent any incidental (Encumbrance 0) item.  Use the "Rename" button to give it a name,
+  and the "Notes" button to describe the item.  If the item is purchased, be sure to deduct the cost from your credit
+  total.
+encumbrance: 0
+rarity: 0
+reference: []

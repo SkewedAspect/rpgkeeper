@@ -1,0 +1,9 @@
+id: eote-beltpouchmil
+name: Military Belt Pouch
+description: The military belt pouch is exactly what it sounds like, a pouch affixed to the user's belt. Though small,
+  the belt pouch is designed to be accessed easily. It can hold two items that have encumbrance 0. The user can draw
+  these items as an incidental.
+encumbrance: 0
+rarity: 0
+reference:
+  - DC:59

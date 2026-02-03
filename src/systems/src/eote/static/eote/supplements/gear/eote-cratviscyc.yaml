@@ -1,0 +1,18 @@
+id: eote-cratviscyc
+name: Cratala's Vision Cycling Implant
+description: >-
+  Within the character’s eyes are small sensors that enable him to quickly scan through different wavelengths, including
+  infrared and ultraviolet.
+
+  When making a Perception check, the character may upgrade his dice pool for the skill check once.
+  <advantage></advantage> might reveal fine details that would otherwise go unseen. <triumph></triumph> can be spent to
+  grant a <boost></boost> to all subsequent Perception checks for the encounter. 
+
+  <despair></despair> may mean the unit gets stuck in one particular mode until the end
+
+  of the encounter. This might result in the addition of <setback></setback><setback></setback> to some checks or make
+  some things virtually impossible to see, as determined by the GM.
+encumbrance: 0
+rarity: 9
+reference:
+  - Beyond the:66

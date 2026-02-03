@@ -1,0 +1,11 @@
+id: eote-beastruping
+name: Ruping
+description: The soaring rupings of Onderon are graceful, noble reptavians that have been trained as flying mounts for
+  generations on their homeworld. Thinner than the Alderaanian thranta, rupings were used both as scouts and battle
+  mounts in the Battle of Onderon during the Clone Wars. Capable of flying to great heights, rupings have two sets of
+  eyes that can focus on both predator and prey simultaneously, giving them exceptional situational awareness. Often
+  rupings alert to danger long before their riders do, and are rarely caught off guard.
+encumbrance: 0
+rarity: 5
+reference:
+  - SoT:88

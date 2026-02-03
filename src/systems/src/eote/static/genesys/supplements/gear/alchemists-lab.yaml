@@ -1,0 +1,16 @@
+id: genesys-gear-alchemists-lab
+name: Alchemist's Lab
+description: Alchemists work with an impressive array of specialized tools to craft their potions and elixirs. Those who
+  travel tend to rely on a portable kit of the devices most essential to their trade, such as a simple mortar and pestle
+  along with a number of flasks, tin measuring cups, and pouches in which to store various alchemical ingredients. Those
+  with access to fully stocked labs, though, can use also use alembics, crucibles, glassware, and more to create even
+  more wondrous concoctions. When your character uses an alchemists' kit, they have the right tool for the job (as per
+  page 93 of the Genesys Core Rulebook) when making Alchemy checks, although some potions and elixirs may require
+  specialized ingredients. At your GM's discretion, some complex alchemical items may not be crafted with the limited
+  resources of an alchemists' kit. An alchemists' lab includes all the items in an alchemists' kit and more. When your
+  character uses an alchemists' lab, they add <boost></boost> to Alchemy checks. While the many tools and devices
+  included are extremely heavy and cumbersome (and thus require a room to contain them), a lab can be considered
+  somewhat portable if a wagon and draft animal are given over entirely to transporting it.
+encumbrance: 8
+rarity: 6
+reference: RoT:100

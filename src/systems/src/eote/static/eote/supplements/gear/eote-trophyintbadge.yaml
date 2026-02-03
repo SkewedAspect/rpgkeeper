@@ -1,0 +1,12 @@
+id: eote-trophyintbadge
+name: Imperial Intelligence Badge
+description: >-
+  The badge of an Imperial Intelligence  agent is a tangible reminder that even the most feared of the Empire's servants
+  are not beyond the reach of justice. This trophy can be a source of courage to any soldier.
+
+  The bearer of this trophy adds <boost></boost><boost></boost> to his Fear checks caused by Imperial operatives, as
+  well as those of allies within short range.
+encumbrance: 0
+rarity: 2
+reference:
+  - FiB:96

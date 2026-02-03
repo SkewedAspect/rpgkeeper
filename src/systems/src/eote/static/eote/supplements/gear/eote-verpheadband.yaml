@@ -1,0 +1,15 @@
+id: eote-verpheadband
+name: Verpine Headband
+description: >-
+  Verpine Bond Gauntlets
+      
+  Another Verpine invention is known simply as a Verpine headband. When worn, it administers small electric shocks to
+  the sleep centers of the brain in an attempt to keep the wearer awake for extended periods of time.
+
+  A character wearing a Verpine headband is not incapacitated by exceeding his strain threshold. Instead, for each
+  strain he suffers over his threshold, he also suffers a wound, and for as long as his strain exceeds his threshold, he
+  is disoriented.
+encumbrance: 1
+rarity: 6
+reference:
+  - SoR:115

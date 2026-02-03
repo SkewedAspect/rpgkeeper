@@ -1,0 +1,14 @@
+id: genesys-gear-arcane-bolt-rune
+name: Arcane Bolt Rune
+description: "Many different runebound shards produce a powerful blast of magical energy when activated. While these
+  runes vary wildly in the appearance and exact manner of their effect, the results are similar in dealing harm to
+  living targets. Some arcane bolts manifest as diffuse showers of light that deal limited amounts of damage over a wide
+  area. Others are focused beams that deliver all their energy in a powerful lance that makes a mockery of armor. -
+  Activation: Until the end of your character's turn, the arcane bolt rune counts as a Ranged weapon with the following
+  profile: (Ranged; Damage 8; Critical 3; Range [Medium]; Auto-fire). - Implement: When your character casts an Attack
+  spell, the first Range effect added does not increase the check's difficulty. In addition, they must add the Impact
+  effect with no increase in difficulty. Attack spells cast by your character increase their base damage by four.
+  [Table: Arcane Bolt]"
+encumbrance: 0
+rarity: 0
+reference: RoT:118

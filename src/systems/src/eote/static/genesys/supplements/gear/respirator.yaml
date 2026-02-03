@@ -1,0 +1,10 @@
+id: genesys-gear-respirator
+name: Respirator
+description: Part gas mask and part rebreather, a respirator is one of the most common pieces of survival gear
+  available. Starships, space stations, and outposts keep stocks of them, and most shops have simple respirators that
+  can filter out smoke, irritants, and toxins. Some respirators only cover the nose and mouth; others have integrated
+  goggles to protect the eyes. While wearing a respirator, your character adds <success></success> to Resilience checks
+  they make to resist poisonous atmospheres or hazardous environments.
+encumbrance: 1
+rarity: 1
+reference: SotB:103

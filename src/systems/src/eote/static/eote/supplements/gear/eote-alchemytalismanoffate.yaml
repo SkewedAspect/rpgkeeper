@@ -1,0 +1,13 @@
+id: eote-alchemytalismanoffate
+name: Talisman of Fate
+description: >-
+  This small icon seems to be made of an impossible number of multicolored threads, tightly bound into a geometric form.
+  As forces rise to threaten the wearer, the threads seem to shift and somehow negate the threats.
+
+  Whenever the GM would flip 1 Destiny Point to upgrade the ability or difficulty of a skill check involving the user,
+  the user may downgrade the difficulty of the check once. This does not return the Destiny Point to the dark side. This
+  talisman falls apart and dissolves after a single use.
+encumbrance: 0
+rarity: 6
+reference:
+  - UP:84

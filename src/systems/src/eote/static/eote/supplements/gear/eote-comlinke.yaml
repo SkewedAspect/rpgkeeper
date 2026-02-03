@@ -1,0 +1,14 @@
+id: eote-comlinke
+name: Earbud Comlink
+description: >-
+  Earbud comlinks are tiny, unobtrusive communications devices that fit snugly into an individual's ear. Popular among
+  spies, ambassadors, and criminals, these miniature devices are activated by touching an ear or quietly clicking one's
+  teeth. Once a device is activated, users can either talk normally or, if the situation warrants, subvocally. Due to
+  the earbud's tiny, low-output power cell, it has a significantly reduced range compared to more common comlink models.
+
+  Earbud comlinks have a usable range of long. Noticing that an individual is wearing an earbud comlink requires a
+  **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check**.
+encumbrance: 0
+rarity: 5
+reference:
+  - CaM:45

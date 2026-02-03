@@ -1,0 +1,25 @@
+id: eote-psfmkiiipowfence
+name: PSF Mk III Power Fence
+description: >-
+  DefenStar Ltd. PSF Mk III Power Fence
+
+  Power fences are specialized shield emitters designed to provide perimeter protection for civilian and military
+  installations. Power fences all have a field generator at their heart. Similar to shield generators found on
+  starships, power fence generators produce a wall of energy that prevents objects and energy beams from passing through
+  it. Each generator is hooked up to a series of thin durasteel amplifier pylons with flared stresscrete bases that come
+  in heights of up to five meters. Once activated, the generators produce walls of crackling, translucent, blue-white
+  energy that extend between the pylons, creating a solid barrier. Power fences are typically flanked with an alloy or
+  plascrete gate, vehicle obstacles, and weapon emplacements to provide perimeter security at both Alliance and Imperial
+  military installations.
+
+  The PSF Mk III power fence by DefenStar Ltd. is a popular small-scale power fence perfect for defending small platoon
+  or company-sized installations. It comes complete with a high-output PFL-99 Barricade power fence generator and twenty
+  amplification pylons, each four meters tall.
+
+  Power fences can be destroyed by either attacking the energy walls with ion weapons or by attacking the amplification
+  pylons with regular energy or slugthrowing weapons. When attacked, power fences have the following profile: Defense 2,
+  Armor I, Wound Threshold (pylons) 15, Strain Threshold (energy wall) 20.
+encumbrance: 10
+rarity: 7
+reference:
+  - FO:44

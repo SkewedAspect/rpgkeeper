@@ -1,0 +1,23 @@
+id: eote-thisspuz
+name: Thisspiasian Puzzle Rings
+description: >-
+  Thisspiasian Puzzle Ring
+
+  During their induction, each Thisspiasian Royal Guard receives a set of interlocking rings. These rings resemble a
+  nest of serpents, twisted and entwined, biting their own tails. One can slide each individual serpent, or rearrange
+  its place within the collection. Once a source of immense pride, the public now dismisses these relics as arcane junk.
+
+  Their original intent, however, was to introduce a Royal Guard to the Force. The puzzle is impossible to solve for
+  those who cannot interact with the Force. The rings wrap around themselves in what appears to be an infinite pattern.
+  By working through them, a Guard sees the interconnectedness of all things. The device's near-impossibility conveys a
+  taste of the future's hidden nature.
+
+  To attempt to solve the puzzle, a character must spend at least one hour working on it and pass a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Discipline check**.If the character
+  fails, they heal 2 strain. If successful, the character has a vision, learning one thing that involves them that may
+  (at the GM's discretion) come to pass in the next week. Once solved, the puzzle rings fall apart, their connection to
+  the Force spent. If they want to pursue another vision, the PC must obtain a new set of rings.
+encumbrance: 1
+rarity: 8
+reference:
+  - UP:53

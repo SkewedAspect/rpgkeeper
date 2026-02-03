@@ -1,0 +1,10 @@
+id: genesys-gear-low-fi
+name: Low-Fi
+description: A popular plaza-level drug among the idle rich, Low-Fi (also known as Blue Tears and Free-Fall) are small
+  blue gel-tabs that slow down a user's time perception while providing some truly epic hallucinations. The results can
+  be some amazing trips that feel like they take hours but only last a few minutes. After taking Low-Fi, your character
+  loses their free maneuver on their turn for the next five rounds (or five minutes of narrative time). In addition,
+  your character adds <despair></despair><despair></despair> to any checks they make during that time.
+encumbrance: 0
+rarity: 2
+reference: SotB:99

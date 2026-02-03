@@ -1,0 +1,18 @@
+id: eote-thermcl
+name: Thermal Cloak
+description: >-
+  For those not used to extremes of heat or cold, thermal protection is a must. Thermal cloaks can be worn while on the
+  move, or used as a blanket or makeshift tent. Depending on the technical access of the user, these could be simple but
+  effective fabric blends or ultra-thin synthetic meshes than can collapse into a pocket. Most offer support for cold
+  environments, with more clever models having reflective materials to also aid in areas of excessive heat.
+
+  Thermal blankets and thermal cloaks remove up to <setback></setback><setback></setback> from any checks made to handle
+  the effects of extreme heat or cold.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 2
+rarity: 1
+reference:
+  - E-CRB:180
+  - A-CRB:196
+  - F-CRB:188

@@ -1,0 +1,13 @@
+id: eote-weapdetgoggle
+name: Weapon Detection Goggles
+description: A weapon detector is a specialized sensor built into goggles able to detect the presence of power cells
+  used in blasters, explosives, and the chemical propellants used in slugthrowers, as well as many types of melee
+  weapons, such as knives, swords, and stun batons. Weapon detectors are used in many secured or restricted locations
+  (like starports, military bases, and prisons) to prevent unauthorized weapons from posing a security threat. These
+  devices are also used by those on the fringe, who are no less concerned with concealed weapons. A character using a
+  weapon detector may add up to <boost></boost><boost></boost> to Perception checks when attempting to find a concealed
+  weapon on a person.
+encumbrance: 1
+rarity: 5
+reference:
+  - SoF:101

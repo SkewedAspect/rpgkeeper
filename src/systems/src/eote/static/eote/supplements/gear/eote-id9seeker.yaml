@@ -1,0 +1,23 @@
+id: eote-id9seeker
+name: ID9 Seeker Droid
+description: >-
+  Seekers are small, repulsor-driven, Class II droids used throughout the galaxy as couriers, scouts, and occasionally
+  assassins. The ID9 by Arakyd Industries is a perfect example of the type. These small, nimble droids look like
+  miniature Viper probe droids. They are commonly used tby the ISB and Inquisitorius in the course of their work rooting
+  out rebels, traitors, and Jedi. Roughly the size of a large datapad, these droids have a flat, saucer-shaped body
+  covered in light-absorbing polycarbonate. A single large red photoreceptor surrounded by four small sensor globes is
+  mounted on the leading edge of the saucer, and the dorsal surface is studded with antennae and sensors. Five
+  multi-jointed limbs-three long and two short-are mounted to the droid's ventral surface. Each of these limbs is
+  equipped with a powerful grasping claw and a short-range energy weapon that allow the little droids to knock out
+  organics and other droids with ease.
+
+  ID9 droids are not the smartest droids in the Imperial arsenal, but they make up for it with tenacity and a kind of
+  low cunning not often seen in droids of their class. With their nearly silent repulsorlift generator, light-absorbing
+  coating, and stealthy programming, they are well suited for sneaking and spying. Since these droids are used primarily
+  by ISB agents and other secretive assets, most resistance operatives don't even know they exist. Those who have
+  encountered them view them with equal parts annoyance, respect, and fear, because while they themselves are easy to
+  deal with, their masters usually are not.
+encumbrance: 0
+rarity: 7
+reference:
+  - DoR:119

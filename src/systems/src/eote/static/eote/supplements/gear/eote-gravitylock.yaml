@@ -1,0 +1,9 @@
+id: eote-gravitylock
+name: Gravity Locks
+description: |-
+  These hovering, slablike devices are the latest attempts to thwart any would-be ship thieves. They are a recent Imperial invention, and can be found on most major planetary docking bays and shipyards as a response to growing resistance missions to acquire Imperial vessels. Once firmly clamped onto each leg of a ship’s landing gear, gravity locks use tractor beam technology to ensure a ship cannot take off. Their tough construction also means they are almost impossible to forcibly remove or even destroy without using weapons that will likely damage the ship itself.
+  A single gravity lock costs 7,400 credits (rarity 6). It has a silhouette of 3 and encumbrance of 14, and counts as having a soak value of 15 and a wound threshold of 10. If attacked, <threat></threat><threat></threat> or <despair></despair> may be spent to inflict half of the damage it suffers onto a ship to which it has been attached. Entering the unique key code created when the lock is installed is the usual manner to deactivate the device, but it can be dismantled in a laborious process requiring an upgraded **Formidable (<challenge></challenge><challenge></challenge><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** and eight hours of hard work. If the character has direct knowledge of a gravity lock’s inner workings, they check is not upgraded and the process takes half the time.
+encumbrance: 14
+rarity: 6
+reference:
+  - DoR:129

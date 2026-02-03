@@ -1,0 +1,9 @@
+id: genesys-gear-happy-patch
+name: Happy Patch
+description: Happy patches are cheap dermal patches filled with a street drug called Pixel. They're created by the
+  millions in the undercity and sold to its poorest residents. The drugs leave the user with a hazy, relaxing high with
+  just a hint of a harsh chemical buzz. After using a happy patch, your character heals 3 strain but is disoriented for
+  the remainder of the encounter (or one hour in narrative time).
+encumbrance: 0
+rarity: 1
+reference: SotB:99

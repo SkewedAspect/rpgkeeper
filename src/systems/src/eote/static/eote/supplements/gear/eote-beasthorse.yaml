@@ -1,0 +1,12 @@
+id: eote-beasthorse
+name: Horse (Equinoid) Riding Beast
+description: '"Horse" is the generic term in Basic for a wide array of single-hoofed quadruped species found throughout
+  the galaxy. While more properly described as equinoids, they share a common physiology in size, speed, and the ease
+  with which they can be trained as swift mounts. Many varieties of equinoids are found throughout the galaxy, as they
+  have been traded as livestock for generations. Some are larger, more suited as draft horses and excellent at pulling
+  large loads, while others are smaller and can be very stubborn. Such beasts are frequently used as pack animals,
+  rather than riding mounts. The following profile is for a standard equinoid riding mount.'
+encumbrance: 0
+rarity: 1
+reference:
+  - SoT:85

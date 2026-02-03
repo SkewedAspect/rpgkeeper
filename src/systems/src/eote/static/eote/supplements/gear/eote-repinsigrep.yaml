@@ -1,0 +1,25 @@
+id: eote-repinsigrep
+name: Republic Insignia Replica
+description: >-
+  Republic Insignia
+
+  Clone troopers, Navy officers, and even Jedi who have served with distinction in the various theaters of the Clone
+  Wars may be nominated for awards to recognize their valor and service. Unlike the most prestigious honors, which must
+  be ratified by the Senate, combat medals and service insignia are granted directly by the Grand Army of the Republic
+  and its commanders, who take care to recognize exceptional service promptly. Most such awards are simple medals
+  designed to be clipped onto a uniform or formal clothing. Clone troopers have been known to attach theirs to the
+  inside of their armor on combat missions, and while the Jedi Council frowns on the implied attachment to an award,
+  some Jedi Knights have been known to affix theirs td their robes.
+
+  A character with one or more Republic insignia adds <boost></boost><boost></boost> to checks made to impress or
+  persuade other characters based on their past service. At the GM's discretion, a character with an exceptional number
+  of insignia might receive an additional <boost></boost> on such checks.
+
+  Genuine Republic insignia cannot be purchased on the open market, as each represents honor granted for a specific
+  owner's accomplishments. However, black-market replicas can be found. If a black-market replica is examined, a
+  successful **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check**
+  reveals the fake. The rarity value and cost listed are those of a counterfeit insignia.
+encumbrance: 0
+rarity: 6
+reference:
+  - RotS:59

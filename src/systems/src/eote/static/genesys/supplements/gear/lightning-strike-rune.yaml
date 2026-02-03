@@ -1,0 +1,13 @@
+id: genesys-gear-lightning-strike-rune
+name: Lightning Strike Rune
+description: "A lightning strike rune is used to call down a bolt of lightning. It is a powerful weapon; most foes
+  struck with a bolt of lightning are either killed outright or stunned senseless. Certain creatures, constructs, and
+  undead beings, though, are resistant to this magic to some degree, as they would be to natural lightning. -
+  Activation: Until the end of your character's turn, the lightning strike rune counts as a Ranged weapon with the
+  following profile: (Discipline; Damage 8; Critical 3; Range [Long]; Auto-fire, Disorient 3). - Activation: When your
+  character casts an Attack spell, the first Range effect they add does not increase the check's difficulty. In
+  addition, they must add the Lightning effect with no increase in difficulty. Attack spells cast by your character
+  increase their base damage by five. [Table: Lightning Strike]"
+encumbrance: 0
+rarity: 0
+reference: RoT:119

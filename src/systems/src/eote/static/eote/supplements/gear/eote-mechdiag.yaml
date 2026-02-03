@@ -1,0 +1,15 @@
+id: eote-mechdiag
+name: Mechanical Dianoga
+description: >-
+  Designed for reaching light spaces in a starship, the mechanical dianoga is a meter-and-a-half-long flexible actuated
+  tube. One end is a full arm sleeve with a snug pressure cuff to keep it from slipping off. The inside of the sleeve
+  has handgrips and controls. There is also a view screen and additional controls on the exterior of the cuff. The
+  business end has small mechanical fingers and basic tools, inculding adjustable wrench sockets, small blades and other
+  such implements.
+
+  A mechanical dianoga removes <setback></setback><setback></setback> from checks to remove system strain from starships
+  and vehicles.
+encumbrance: 4
+rarity: 4
+reference:
+  - SM:52

@@ -1,0 +1,16 @@
+id: eote-thunderpes
+name: Thunderhead PES
+description: >-
+  Thunderhead Portable Entertainment System
+
+  The Thunderhead Portable Entertainment System (PES) is a full suite of tools and equipment for use in the
+  entertainment industry. Custom built to each customer's specifications by Audio Performance Incorporated, each
+  Thunderhead system is unique. That being said, each system does have a number of common components to help the working
+  entertainer. Each system typically includes an assortment of amplifiers, speakers, monitors, sound mixing boards,
+  display screens, light emitters, smoke machines, cables, power generators, data storage units, and other, more
+  esoteric pieces of electronic equipment. The type and amount of equipment varies by customer, but each PES is designed
+  to fit into a single (albeit large) crate with padding and reinforcement.
+encumbrance: 10
+rarity: 4
+reference:
+  - FH:48

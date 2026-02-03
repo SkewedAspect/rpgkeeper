@@ -1,0 +1,21 @@
+id: eote-medbckpck
+name: ECM-598 Medical Backpack
+description: >-
+  Produced by Chiewab Amalgamated Pharmaceuticals Company for use by military forces and search-and-rescue companies,
+  the ECM-598 is the latest word in portable medical equipment. Essentially a scaled-up medpac, the ECM-598 contains a
+  clinic's worth of medical equipment, drugs, tools, scanners, and other contents needed to keep a team of explorers
+  alive in the field. All of this equipment is securely packed into a sturdy internal-frame backpack. It also includes a
+  slim datapad containing an emergency-procedure database for most of the known sentient species in the galaxy, as well
+  as tutorials to assist those with no medical training in treating wounded individuals in an emergency. The ECM-598
+  even includes a collapsible repulsor stretcher with a weight limit of 150 kilograms for evacuating seriously wounded
+  personnel.
+
+  The ECM-598 medical backpack allows characters to attempt to heal others using Medicine checks without penalty, as
+  detailed on page 219 of the **Edge of the Empire** Core Rulebook. In addition, it grants <boost></boost> to all
+  Medicine checks made while using the ECM-598 and, thanks to the tutorials and information on the datapad, individuals
+  using this decrease the difficulty of any Medicine checks they make to heal Critical Injuries by 1 to a minimum of
+  Easy (<difficulty></difficulty>).
+encumbrance: 2
+rarity: 4
+reference:
+  - EtU:48

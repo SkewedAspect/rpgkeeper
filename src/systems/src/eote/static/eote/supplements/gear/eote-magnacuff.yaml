@@ -1,0 +1,9 @@
+id: eote-magnacuff
+name: MC-100 Magnacuffs
+description: |-
+  Produced by Locris Syndicated Securities, MCI-100 magnacuffs are a type of heavy-duty binders designed to restrain unusually powerful or dangerous individuals. Generally built of reinforced durasteel, magnacuffs consist of two full wrist restraints connected by a semi-rigid rod. Instead of crude mechanical locking systems, magnacuffs use tiny, powerful magnetic field generators to stay locked tight around an individual's wrists, and are locked by thumbprint readers or keypad locks. Magnacuffs can be adjusted to fit most known sentient species, and are popular among frontier law enforcement agencies, bounty hunters, and slavers.
+  A character may only escape magnacuffs with a successful **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Coordination check** (the bindings on the cuffs are too strong to break with brute force).
+encumbrance: 1
+rarity: 4
+reference:
+  - FH:46

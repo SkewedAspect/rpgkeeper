@@ -1,0 +1,9 @@
+id: eote-chcube
+name: Chance Cube
+description: Chance cubes are six-sided dice cubes with red and blue sides. They allow for simple gambling in which
+  players bet on the potential results. Their simplicity makes them popular on frontier worlds or long expeditions,
+  where more complicated entertainment would be more likely to malfunction.
+encumbrance: 0
+rarity: 0
+reference:
+  - E-CRB:182

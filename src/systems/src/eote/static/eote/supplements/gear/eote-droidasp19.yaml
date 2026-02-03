@@ -1,0 +1,24 @@
+id: eote-droidasp19
+name: ASP-19 Battle Droid
+description: >-
+  Industrial Automaton's ASP-19 was a popular sparring droid among Jedi during the waning years of the Republic.
+  Developed from ASP-series labor droids, the ASP-19 is a surprisingly capable melee fighter equipped with a
+  sophisticated combat computer that can be programmed to approximate different Jedi fighting styles. In addition, the
+  difficulty of the ASP-19's training routines can be adjusted up or down to better match the abilities of the trainee.
+  The Jedi Order used these droids for training Jedi of all levels, from the greenest Padawan to the most venerated Jedi
+  Master, and they were ubiquitous at the order's various temples and training facilities. While they were relatively
+  simpleminded and programmed with subroutines that prevented them from killing, ASP-19s were occasionally pressed into
+  service to protect their temples.
+
+  ASP-19s are tall, burly constructs with broad shoulders and long limbs. Standing just over two meters tall, they are
+  deceptively quick and possess a raw strength born out of their labor droid roots. Unlike typical battle droids, the
+  ASP-19 is optimized for up-close, hand-to-hand combat instead of ranged fighting. To that end, they are equipped with
+  a retractable vibroblade in one arm and a training lightsaber in the other. What little personality they have is
+  limited to discussion of fighting forms and spouting platitudes about the dignity and honor of dueling. Since they
+  were discontinued nearly four decades ago, ASP-19s are extremely rare and are often destroyed on sight by Imperial
+  personnel. Those that survive, like the scattered remnants of the Jedi Order they once served, remain hidden on
+  backwater worlds or in long-lost Jedi temples.
+encumbrance: 0
+rarity: 9
+reference:
+  - KoF:51

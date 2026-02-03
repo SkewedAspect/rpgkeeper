@@ -1,0 +1,14 @@
+id: eote-droidantbat
+name: Antiquated Battle Droid
+description: >-
+  (Various Models)
+
+  The most frequently encountered droid of this type is the Bl battle droid produced by Baktoid Combat Automata. A
+  generation ago, these frail-looking droids were the terror of the galaxy. Legions of them formed the Separatist armies
+  during the Clone Wars but the intervening years have not been kind to their design, which was inexpensive to begin
+  with. Although no reputable military still employs these droids in number, they can be found in limited quantities in
+  the forces of crime lords, mercenaries, and various other ne'er-do-wells throughout the underbelly of the galaxy.
+encumbrance: 0
+rarity: 5
+reference:
+  - E-CRB:409

@@ -1,0 +1,14 @@
+id: genesys-gear-quintisensor
+name: Quintisensor
+description: "Used primarily by medical staff and scientists operating in the field, a quintisensor is a handheld
+  diagnostic sensor capable of scanning any energy form, living creature, or object. Readout displays offer guidance on
+  the thing scanned, including its biology, energy signature, and molecular composition. The quintisensor can link to a
+  savant to provide further information or to record details of the scan and any findings. The quintisensor allows your
+  character to conduct a wide range of passive and active scans, and it can provide molecular analyses of the materials
+  it scans. When using a quintisensor, your character counts as having the the right tool for the job (see page 93 of
+  the Genesys Core Rulebook) when trying to scan or analyze an object or location, and also adds <success></success> to
+  the results of any Perception or Vigilance checks they make. This item may be modified with 2-1: Cultural
+  Manufacturing Differences."
+encumbrance: 2
+rarity: 2
+reference: EotI:121

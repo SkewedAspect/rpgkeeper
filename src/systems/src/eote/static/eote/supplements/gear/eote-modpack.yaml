@@ -1,0 +1,24 @@
+id: eote-modpack
+name: Mk. IV Modular Backpack
+description: >-
+  Modular Backpack
+
+  The convenient Mk. IV Modular Backpack is manufactured by Creshaldyne Industries and marketed almost exclusively to
+  military and governmental forces. Designed with scouts, reconnaissance troopers, and explorers in mind, these
+  backpacks are large and sturdy, made from weatherproof textiles and equipped with an internal frame to help support
+  the weight of the load carried. The backpack has one large compartment with four smaller compartments on the exterior.
+  Each compartment can be sealed and unsealed quickly with a specially designed, silent tear-away textile sealer that
+  keeps the contents of the backpack safe, secure, and dry. What makes this backpack unique is the number of different
+  pouches that can be purchased and attached to the exterior by way of Creshaldyne's proprietary modular quick-release
+  system. This allows the user to customize his backpack for the job at hand, adding extra pouches for contents like
+  ammunition, optical equipment, or specialized hunting gear.
+
+  The Mk. IV Modular Backpack increases the user's encumbrance threshold by 3, plus an additional 1 point of encumbrance
+  threshold for each accessory pouch to a maximum of 3.
+
+  **Note:** To purchase accessory pouches for the modular backpack, select the backpack in your inventory and click the
+  "Attachments" button.  An "attachment" will be available for adding the pouches to the backpack.
+encumbrance: 0
+rarity: 1
+reference:
+  - EtU:51

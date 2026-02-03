@@ -1,0 +1,10 @@
+id: eote-beastdalgo
+name: Dalgo Riding Beast
+description: The imposing dalgo is a riding beast native to Onderon and has a long history as both a beast of burden and
+  a powerful mount. Though they resemble other equinoids, the herbivorous dalgos are larger and heavier, sporting short
+  defensive tusks from their large mouths. While they make effective mounts, dalgos are often stubborn, and can spook if
+  their riders are inexperienced or careless.
+encumbrance: 0
+rarity: 5
+reference:
+  - SoT:84

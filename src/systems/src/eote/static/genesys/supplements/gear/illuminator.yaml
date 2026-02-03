@@ -1,0 +1,10 @@
+id: genesys-gear-illuminator
+name: Illuminator
+description: These small devices provide a safe source of light. Most are powered by advanced energy sources, although
+  some depend upon consuming plant remains or heating wires to incandescence. The typical illuminator is safe, portable,
+  and long lasting. An illuminator provides light out to medium range and removes <setback></setback> added to checks
+  due to concealment (darkness, smoke, and intervening terrain). It can function underwater, in a vacuum, or in a
+  volatile atmosphere without issue.
+encumbrance: 1
+rarity: 2
+reference: SotC:149

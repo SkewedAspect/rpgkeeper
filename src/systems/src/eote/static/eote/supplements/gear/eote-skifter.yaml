@@ -1,0 +1,17 @@
+id: eote-skifter
+name: Skifter
+description: >-
+  Perhaps the most common means of cheating at sabacc, a skifter is a rigged card. Like genuine sabacc cards, skifters
+  have an electronic display that can shift to show any suit or value. However, unlike normal cards, characters can
+  program a skifter to display any suit or value he wants, often by simply tapping at the corner of the card. By
+  surreptitiously slipping the card into his hand in place of one provided by the dealer, a cardsharp can gain a
+  distinct advantage—so long as he isn't caught.
+
+  When gambling (see page 108 of the **Edge of the Empire** Core Rulebook), a character using a skifter gains
+  <boost></boost> to Skulduggery checks to cheat.
+
+  **Models Include:** Numerous variants.
+encumbrance: 0
+rarity: 6
+reference:
+  - FC:50

@@ -1,0 +1,8 @@
+id: eote-shieldremote
+name: Shield Remote
+description: This asymmetrical remote has an armoured shield on one side and motion-tracking sensors scattered across
+  its shell. The remote places itself between aggressors and the user, physically impeding attacks.
+encumbrance: 0
+rarity: 5
+reference:
+  - SM:53

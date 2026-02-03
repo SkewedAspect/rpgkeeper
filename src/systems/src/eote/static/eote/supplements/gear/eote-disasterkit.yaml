@@ -1,0 +1,17 @@
+id: eote-disasterkit
+name: Disaster Relief Kit
+description: >-
+  These compact containers for use in relief efforts when catastrophe strikes inhabited regions, fom the largest cities
+  to the most isolated villages. They contain basic ration packs capable of sustaining four individuals for up to a
+  week, along with a limited selection of first aid essentials. Also inside is a rugged micro-generator fueled for a
+  week's worth of operation, enough to power a lamp, miniature stove, water purifier, and other essential tools.
+  Chemically treated duraplast casing surround the contents, sealing them agains any contaimination and waterproofing
+  the interior. The cases can also double as water and food storage units ro even personal flotation devices in an
+  emergency.
+
+  A single disaster relief kit can sustain the basic needs of four indivduals of most known species for a week, or
+  potentially up to ten days with careful rationing.
+encumbrance: 2
+rarity: 2
+reference:
+  - EV:50

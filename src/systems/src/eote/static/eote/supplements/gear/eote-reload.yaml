@@ -1,0 +1,16 @@
+id: eote-reload
+name: Extra Reload
+description: >-
+  Technology runs on power, and while most devices have internal power sources, these either run out or need
+  augmentation. Energy cells are small battery disks that can keep most hand-held devices going for a while longer,
+  while power packs are larger versions suitable for blasters and other high-demand gear. Extra reloads allow characters
+  to ignore an out of ammo" <despair></despair> result with a ranged weapon. By spending a maneuver, they may reload
+  their weapons and get back in the fight.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 1
+rarity: 1
+reference:
+  - E-CRB:181
+  - A-CRB:197
+  - F-CRB:189

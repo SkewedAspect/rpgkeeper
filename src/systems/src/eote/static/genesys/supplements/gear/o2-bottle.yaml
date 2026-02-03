@@ -1,0 +1,10 @@
+id: genesys-gear-o2-bottle
+name: O2 Bottle
+description: Emergency oxygen bottles are a common sight from Midway Station all the way to Mars. They have disposable
+  mouth pieces and modular valves, letting them serve as an emergency O2 supply or refill a pressurized compartment.
+  Your character can use an O2 bottle to avoid the effects of suffocation in a low-oxygen environment (such as in
+  vacuum, underwater, or in a choking cloud of gas) for up to ten minutes. Your character still suffers any other
+  effects from that environment (such as wounds from being exposed to vacuum, for example).
+encumbrance: 1
+rarity: 2
+reference: SotB:102

@@ -1,0 +1,17 @@
+id: eote-pioneersquadkit
+name: Pioneer Squad Tool Kit
+description: >-
+  A pioneer squad tool kit is a collection of gear essential for land-clearing and building-construction efforts. Packed
+  into the six impact-resistant carrying cases is a variety of tools and gear that aid Alliance combat engineering
+  squads in the construction of fighting positions, vehicle and infantry obstacles, ports, bases, and airfields. A
+  standard complement includes shovels, axes, prybars, picks, vibrosaws, powered fastener drivers, collapsible ladders,
+  repulsor hoists, glow rods, high-powered work lights, laser distancers and levels, climbing and rappelling gear,
+  machetes, a portable power generator, and various safety gear.
+
+  The tools and equipment included in a pioneer squad tool kit adds <boost></boost><boost></boost> on checks made to
+  clear land, build structures, set up obstacles, set up or disable explosives, or engage in other construction or
+  engineering tasks in the field.
+encumbrance: 25
+rarity: 5
+reference:
+  - FO:48

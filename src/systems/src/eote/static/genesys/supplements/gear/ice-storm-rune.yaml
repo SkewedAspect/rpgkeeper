@@ -1,0 +1,14 @@
+id: genesys-gear-ice-storm-rune
+name: Ice Storm Rune
+description: "Ice storm runes can be used to create a localized, but very intense, blizzard. These runes do not require
+  moisture, and they even function in arid environments. A bearer who activates such a rune quickly becomes the
+  epicenter of a swirling vortex of snow-blown wind. This vortex can be directed to move independently of the wielder,
+  and anyone caught within it soon suffers the effects of the freezing cold. As a weapon, this is particularly effective
+  against Dragonkin, many of whom regard the bearers of such runes with fear and hatred. - Activation: Until the end of
+  your character's turn, the ice storm rune counts as a Ranged weapon with the following profile: (Discipline; Damage 7;
+  Critical 2; Range [Medium]; Blast 4, Ensnare 3). - Implement: When your character casts an Attack spell, they must add
+  the Ice and Blast effects with no increase in difficulty. Attack spells cast by your character increase their base
+  damage by four. [Table: Ice Storm]"
+encumbrance: 0
+rarity: 0
+reference: RoT:118

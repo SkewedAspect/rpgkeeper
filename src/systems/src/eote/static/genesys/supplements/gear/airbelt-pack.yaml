@@ -1,0 +1,9 @@
+id: genesys-gear-airbelt-pack
+name: Airbelt Pack
+description: Airbelt packs are personal mobility assist devices designed for use in low-gravity environments. They
+  consist of a set of air jets worn around the waist and controlled by a handheld virt panel. An experienced user
+  wearing an airbelt pack can move in zero-g as easily as if they had wings. While your character is wearing an airbelt
+  pack, they do not treat movement in zero gravity as movement through difficult terrain.
+encumbrance: 1
+rarity: 3
+reference: SotB:101

@@ -1,0 +1,19 @@
+id: eote-grndpenpck
+name: Ground-Penetrating Sensor Pack
+description: >-
+  Another sensor suite produced by CryonCorp, the GPSP is a powerful ground-penetrating radar suite marketed to
+  companies involved in gas and minerals exploration and chartered search and rescue. Little more than a bulky stack of
+  fine-tuned sensors mounted in an impact and weather-resistant plasteel case, the GPSP uses a powerful
+  ground-penetrating radar array to look through solid objects to see what lies beneath. Either carried slung over an
+  operator's shoulder by a stout strap or mounted to a small repulsor cart, the GPSP can see through soil, dense stone
+  of various types, most kinds of ores and processed metals, organic and inorganic debris, duracrete, ferrocrete, and
+  nearly any other kind of substance that might be encountered. Recently, CryonCorp has released an updated version of
+  the GPSP geared more toward scholarly exploration, with a radar array specially tuned for penetration of
+
+  inorganic, artificially produced building materials like the kind found in the ruins of ancient cities. Using a GPSP
+  does not require a skill check, but interpreting the unit's findings might. If the Game Master sees fit, he can
+  require a Computers skill check to figure out what exactly the GPSP is seeing.
+encumbrance: 5
+rarity: 7
+reference:
+  - EtU:47

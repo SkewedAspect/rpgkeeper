@@ -1,0 +1,43 @@
+id: eote-talisdramorph
+name: Dram of Orphne
+description: >-
+  The curious Mid Rim planet of Aleen has long been speculated to be a place with a strong natural resonance with the
+  Force. Unusual (some would say impossible) features of the planet’s ecology, topology, and atmosphere lend credence to
+  theories that the Force saturates the very crust of the planet, and the existence of the artifact known as the Dram of
+  Orphne adds further support.
+
+  The bifurcated world of Aleen is divided into the surface world, populated by the gregarious and relatively well-known
+  Aleena people, and a mysterious Underworld, ruled by the towering, treelike Kindalo. The division between the two
+  peoples and their environments is absolute. For centuries, it was thought that only the world’s massive arbozoic trees
+  could be said to cross the boundary between the two worlds of Aleen. But during the Clone Wars, a creature out of
+  legend revealed itself. Members of a Republic relief force encountered an Underworld being known as Orphne—neither
+  Aleena nor Kindalo, but of some other, unknown species—a sylphlike being who spoke in riddles.
+
+  When those Republic personnel found themselves trapped in the Underworld, they only escaped when they managed to
+  puzzle out the answer to a conundrum posed in verse by Orphne. Critical to their escape was their physical location.
+  By solving the riddle, they moved within what has come to be known as Orphne’s Fountain, a sophisticated device based
+  on either unknown technology or on the Force itself. Orphne’s Fountain transported the trapped Republic personnel from
+  the Underworld to the surface on a massive jet of water. A phenomenon practically unknown on the relatively arid
+  planet, this unexpected event is well remembered by the Aleena.
+
+  According to official Republic records, what happened next was relatively straightforward. A breach between Aleen’s
+  surface and subterranean worlds was sealed, ending the groundquakes that had necessitated the Republic relief effort
+  in the first place. However, unknown to the commanders of the clone forces on the planet, agents of then-Chancellor
+  Palpatine had been secreted among the medical and support staff sent to their division. One of these agents, acting on
+  standing orders to record any unusual phenomena possibly related to the Force, collected a sample of the water of
+  Orphne’s Fountain. The agent planned to smuggle the sample offworld to Coruscant.
+
+  Why what has become known as the Dram of Orphne never made it off Aleen is unclear. It is possible that the agent was
+  discovered and countered (or even eliminated) by either the Aleena or even the Kindalo, perhaps acting at the behest
+  of Orphne. The vial is currently held by Aleena mystics, who have enshrined it at the center of one of the colossal
+  statues they tend. The Aleena, unlike the Kindalo, are not known to have ever had direct contact with Orphne, but they
+  nevertheless hold the Dram sacred, using it as a focus of unusually efficacious healing rituals.
+
+  A Force-sensitive character who possesses the Dram of Orphne heals 1 additional strain at the end of an encounter. A
+  Force-sensitive character who possesses the Dram of Orphne also heals 1 additional wound when benefiting from natural
+  rest. Finally, when making a Medicine check to heal another character, any character with the Dram of Orphne may add
+  <boost></boost> to the check.
+encumbrance: 0
+rarity: 8
+reference:
+  - NoP:111

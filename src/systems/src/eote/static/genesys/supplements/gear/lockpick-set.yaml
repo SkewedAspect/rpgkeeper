@@ -1,0 +1,11 @@
+id: genesys-gear-lockpick-set
+name: Lockpick Set
+description: Lockpick sets include a number of specialty tools designed to unlock mechanical locks. Whether commercially
+  produced or homemade, a lockpick set is a must-have for criminals, clandestine agents, and prisec operatives. Getting
+  caught by the police in possession of a set of lockpicks usually calls for some fast talking and the liberal
+  application of a credstick to avoid jail time. Lockpick sets allow your character to attempt to open any mechanical
+  locks or latches. In addition, when making a Skulduggery check to open a mechanical lock or latch while using a
+  lockpick set, your character adds <advantage></advantage> to the results.
+encumbrance: 1
+rarity: 5
+reference: SotB:97

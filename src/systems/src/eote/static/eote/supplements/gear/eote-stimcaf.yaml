@@ -1,0 +1,10 @@
+id: eote-stimcaf
+name: Stimcaf Powder
+description: A common spacer joke runs that caf, not credits, is what keeps the galaxy moving. While a Senator might
+  drink it at a local tapcaf, spacers rarely have that luxury. With that in mind, the development of stimcaf powder
+  makes perfect sense. Pale and gritty, this powder is the most concentrated version of caf available on the open
+  market.
+encumbrance: 0
+rarity: 4
+reference:
+  - UP:53

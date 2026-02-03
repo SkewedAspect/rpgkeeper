@@ -1,0 +1,12 @@
+id: eote-alchemyhealingaccelerant
+name: Healing Accelerant
+description: >-
+  This talisman surges with energy, easing minds and mending bodies. It can even rewire circuitry or weld metal if
+  needed.
+
+  When the talisman is active, whenever the user would recover strain or wounds, the user recovers that amount plus 1
+  instead.
+encumbrance: 0
+rarity: 5
+reference:
+  - UP:84

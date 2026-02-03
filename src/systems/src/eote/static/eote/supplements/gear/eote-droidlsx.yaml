@@ -1,0 +1,36 @@
+id: eote-droidlsx
+name: LSx-Series Slicer Droid
+description: >-
+  LSx-series Slicer Droid
+
+  One of the very few dedicated slicer droids on the market, the LSx-series packs an immense amount of computing power
+  into a small package. A product of the notoriously corrupt and rapacious Loronar Corporation, the I-SX was introduced
+  during the early years of the Galactic Empire as a "programming and computer sciences" droid, marketed toward
+  educational institutions and technology companies. Loronar being Loronar, however, the droid was in fact a dedicated
+  slicer unit geared toward industrial espionage and military intelligence. Along with the aboveboard marketing, Loronar
+  used all of its corporate might to peddle these droids to any law enforcement or government intelligence agency that
+  would take them, including the Empire and various factions within the Rebel Alliance. While the ISB and Imperial
+  military Intelligence agencies demurred, having already signed contracts with Arakyd and MerenData to purchase
+  espionage and slicer droids, the Alliance snapped LSx droids up in bulk to bolster its small intelligence corps.
+
+  LSx-series droids are humanoid-shaped constructs just under two meters tall, with spindly limbs and a long,
+  animal-like head reminiscent of Baktoid's old B1 battle droids. They are equipped with cutting-edge slicer gear and
+  powerful programming and data analysis firmware easily rivaling that of most intelligence agencies and criminal
+  organizations. Packed into their hands and bulky forearms is an array of fine manipulators, computer probes, scomp
+  links, circuit chasers, and other electronics and computer repair tools that allow the droids to access anything from
+  a datapad to a military-grade mainframe. Mounted between the knuckles of their right hand, they even carry a
+  scomp-spiker, a highly illegal piece of industrial espionage and sabotage equipment that pours a devastating
+  high-voltage charge through a computer system to destroy both hardware and software. Although they are not programmed
+  for combat, LSx-series droids can defend themselves if necessary, and the scomp-spiker makes for an extremely nasty
+  weapon against both organics and droids.
+
+  These droids rarely speak, and when they do it is in a nearly indecipherable patois of technical jargon, acronyms, and
+  academic pedantry. However, LSx-series droids that have gone without regular maintenance and memory wipes often learn
+  to express themselves in ways less likely to bore and drive away colleagues. Some develop obsessive and deeply
+  sarcastic personalities. The Rebel Alliance currently uses the majority of LSx-series droids that have been produced,
+  typically assigning them to base duty where they work endless hours attempting to crack Imperial military network
+  security.
+encumbrance: 0
+rarity: 8
+reference:
+  - CaM:51

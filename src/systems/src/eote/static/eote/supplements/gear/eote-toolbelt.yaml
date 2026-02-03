@@ -1,0 +1,15 @@
+id: eote-toolbelt
+name: Tool Belt
+description: >-
+  Tool belts come in a variety of styles tailored to specific jobs. While they vary wildly in construction, size, and
+  layout. they all have a number of basic features in common. Basic tool belts have multiple pouches, loops. hooks, and
+  straps for carrying necessary tools and materials such as nails, bolts, gloves, tape, marking pens, and other items an
+  Engineer needs at hand on a job site. Unlike bulky toolboxes, tool belts carry only the necessities. Users each
+  typically have their own unique way of organizing their belt.
+
+  The wearer counts as having a tool kit. Once per encounter, the wearer may draw a tool from the tool belt as an
+  incidental.
+encumbrance: 3
+rarity: 5
+reference:
+  - FO:45

@@ -1,0 +1,22 @@
+id: eote-resbolt
+name: Restraining Bolt
+description: >-
+  Restraining bolts serve the same function on droids as restraints do on other sentients. Once affixed to a droid, the
+  bolts can override their programming. The simplest setting shuts the droid down, but restraining bolts can also force
+  droids to perform any actions they are commanded to do by the person holding the restraining bolt controller. Standard
+  restraining bolts are produced by the billions by companies like Industrial Automation.
+
+  Most droids cannot resist restraining bolts when one is attached to them (a process that requires a few seconds and a
+  spot-welder). However, any Player Character who happens to be a droid is obviously made of sterner stuff than NPC
+  droids. Player Character droids may make a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Discipline
+  check** to overcome the effects of a restraining bolt and act normally when the bolt is applied. They may retry the
+  test at the GM's discretion.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 0
+rarity: 0
+reference:
+  - E-CRB:178
+  - A-CRB:194
+  - F-CRB:187

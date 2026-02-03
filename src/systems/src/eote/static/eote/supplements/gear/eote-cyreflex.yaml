@@ -1,0 +1,15 @@
+id: eote-cyreflex
+name: Cybernetic Reflexes
+description: >-
+  A series of specialized implants designed to stimulate and help regulate the sympathetic nervous system of the user,
+  cybernetic reflexes can greatly increase an individual's reaction time to outside stimuli and threats. By reducing the
+  latency of neural communication between the sensory organs and brainstem, cybernetic reflexes can give the user a
+  slight edge.
+
+  Cybernetic reflexes provide 1 rank of the Rapid Reaction talent.
+
+  **Models Include:** BioTech Industries Rapid 12 Cyber-Reflex System.
+encumbrance: 0
+rarity: 5
+reference:
+  - LoNH:106

@@ -1,0 +1,19 @@
+id: eote-surveybag
+name: Surveyor's Bag
+description: >-
+  Surveyor's bags are made by numerous companies and are marketed to the men and women tasked with exploring and mapping
+  the wild places of the galaxy. The bag itself has a vertical rectangular body with one large compartment, and it is
+  typically worn over the shoulder and across the body, with the bag resting on the wearer's hip or at the small of his
+  back. They are constructed of thick, hard-wearing, weatherproof synthetic textiles designed to stand up to heavy usage
+  and protect the bag's contents from impact, the elements, and foreign-matter damage. The large compartment can hold
+  all manner of equipment and has a sleeve sewn inside that fits most common datapads and portable computers. The
+  exterior of the bag holds a number of covered pouches of different shapes and sizes, with additional clips, straps,
+  and loops for extra carrying and storage. A single large flap folds down and securely covers the main compartment and
+  most of the external pouches. The inside of the flap has a weather-proof, see-through pouch for storing maps, charts,
+  and other references for quick access and easy reading.
+
+  Surprisingly roomy for their compact size, surveyor's bags increase the user's encumbrance threshold by 2.
+encumbrance: 0
+rarity: 1
+reference:
+  - EtU:53

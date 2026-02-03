@@ -1,0 +1,16 @@
+id: eote-rlr331ammo
+name: RLR-331 Rocket
+description: >-
+  Kelvarek Consolidated Arms' RLR-331 is a Clone Wars-era weapon popular with mercenaries and insurgents throughout the
+  galaxy. Remarkably similar in appearance to Baktoid Armor Workshop's E-5 blaster rifle-a fact that, during its heyday,
+  did not go unnoticed by Baktoid's powerful legal department-the RLR-331 is a bulky weapon with a squat, squared-off
+  barrel. It launches small guided rockets from a detachable magazine. Originally sold in bulk to the Confederacy of
+  Independent Systems, Bulldogs were carried by heavy-support B1 battle droids as anti-materiel and light anti-armor
+  weapons. They were used to great effect against the Grand Army of the Republic's heavily armored clone troopers and
+  fighting vehicles, and gained a fearsome reputation among the CIS's foes.
+
+  Rockets for the RLR-331 cost 100 credits each and have a rarity of 5.
+encumbrance: 0
+rarity: 5
+reference:
+  - KoF:41

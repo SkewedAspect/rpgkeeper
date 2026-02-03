@@ -1,0 +1,12 @@
+id: genesys-gear-magic-tome
+name: Magic Tome
+description: Unless one manages to break into the libraries of Greyhaven, most magic tomes are found in the depths of
+  the tombs of long-forgotten spellcasters. A tome is not simply an instruction manual on how to cast a spell. The very
+  act of writing spells upon the page can leave some small resonance with the world's energies, and if the reader can
+  read and follow the instructions exactly, they can call upon that resonance to boost their own spells. When your
+  character makes or obtains a tome, your GM determines up to two effects that the tome lets your character add to any
+  appropriate spell without increasing the spell's difficulty. The effects your GM chooses should normally (without the
+  tome) only increase the difficulty of a spell by a total of three.
+encumbrance: 1
+rarity: 7
+reference: RoT:98

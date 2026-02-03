@@ -1,0 +1,14 @@
+id: genesys-gear-combat-pheromones
+name: Combat Pheromones
+description: Combat is an incredibly stressful undertaking, and concern about its consequences often leaves an
+  individual in the wrong mental state for battle. Combat pheromones are tuned to each species' physiology and mental
+  processes. Once used, they help move a warrior into the appropriate mindset for conflict. As an incidental (possibly
+  one performed out-ofturn), a character may activate combat pheromones tailored to their species; this adds
+  <boost></boost> to their Cool and Discipline checks for the duration of the encounter. However, using combat
+  pheromones for another species is at best ineffective and at worst deadly; in the latter case, the GM may have the
+  user make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> or suffer 3 wounds. The GM may
+  spend <difficulty></difficulty> on a check the character makes during an encounter to indicate the pheromones have
+  worn off and must be "refreshed" with another dose.
+encumbrance: 0
+rarity: 3
+reference: SotC:147

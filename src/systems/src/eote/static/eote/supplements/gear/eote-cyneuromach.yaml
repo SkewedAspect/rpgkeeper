@@ -1,0 +1,15 @@
+id: eote-cyneuromach
+name: Neuromachine Interface
+description: >-
+  A vehicle control system designed to be integrated directly into the nervous system, this ingenious (if notoriously
+  difficult to use) device allows the user to control a vehicle with a thought, moving it as if it was part of his own
+  body. The cybernetic requires use of a linked control device, which must be installed in the craft in question.
+
+  When piloting a vehicle with the linked control device, a character with a neuromachine interface may use his
+  Coordination skill in place of the Pilot (Planetary) or Pilot (Space) skill.
+
+  **Models Include:** Neuro-Saav Technologies C-39 Link.
+encumbrance: 0
+rarity: 6
+reference:
+  - LoNH:107

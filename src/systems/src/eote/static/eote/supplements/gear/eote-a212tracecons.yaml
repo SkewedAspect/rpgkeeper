@@ -1,0 +1,18 @@
+id: eote-a212tracecons
+name: Tracing Console
+description: >-
+  Ealewon A-212 Tracing Console
+
+  Tracing consoles are most commonly found within espionage agencies and other sensitive installations, but they could
+  be used by any group concerned about the security of its electronic systems to which they are linked, logging all
+  attempts at access and monitoring for unsual activity. Once irregularities are logged, the console can be used to
+  assist in following the disturbance to its source.
+
+  A tracing console can be installed to monitor a single system, such as a buildin's data network or a ship's computer.
+  Computers checks to slice a system protected in this way suffer <setback></setback> due to the difficulty of avoiding
+  notice. A defended slicer using the console gains <boost></boost><boost></boost> to Computers checks to identify any
+  intuder as by the Trace User action (see **Slicing Encounters,** page 87).
+encumbrance: 12
+rarity: 6
+reference:
+  - SM:51

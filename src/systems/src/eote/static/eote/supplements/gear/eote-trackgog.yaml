@@ -1,0 +1,15 @@
+id: eote-trackgog
+name: Tracker's Goggles
+description: >-
+  Widely available from a variety of manufacturers such as TaggeCo, Goseia Heavy Industries Concern, and Alvaxi,
+  tracker's goggles are marketed primarily for wilderness enthusiasts and hunters of traditional game animals. These
+  tools are designed with the concepts of functionality and reliablity as central elements. When worn, the user's vision
+  is subsequently enhanced, including thermal imaging as well as improved vision under minimal light conditions.
+
+  Tracker's goggles grant <boost></boost> to the wearer's Perception skill checks to locate a target by sight.
+  Additionally, tracker's goggles remove <setback></setback><setback></setback> imposed due to concealment, darkness, or
+  fog and mist from the wearer's Ranged (Light) and Ranged (Heavy) Combat skill checks.
+encumbrance: 0
+rarity: 5
+reference:
+  - ND:54

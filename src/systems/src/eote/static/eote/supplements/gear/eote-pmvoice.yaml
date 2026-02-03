@@ -1,0 +1,17 @@
+id: eote-pmvoice
+name: Polis Masson Voicebox
+description: >-
+  Polis Massans, being unable to speak, have come to rely on artificial voiceboxes, similar in most respects to droid
+  vocabulators, to communicate with other beings. While Polis Massans are capable of communicating telepathically, many
+  individuals or other species find it unsettling unless they are accustomed to it. In cases in which a Polis Massan
+  wishes to grant the utmost courtesy to a guest or associate, small electronic voiceboxes are used.
+
+  Translation of a Polis Massans thoughts into speech through the voicebox is accomplished through a simple neural
+  connection, which is established via a set of noninvasive electrodes. The voicebox can adopt any one of a number of
+  preprogrammed voice patterns, though the default voice is largely mechanical and not unlike a droid’s. The device’s
+  volume can be modulated with a thought. Polis Massans who use voiceboxes to communicate on a regular basis often
+  attach them to their bodysuits for ready accessibility.
+encumbrance: 1
+rarity: 6
+reference:
+  - SoR:111

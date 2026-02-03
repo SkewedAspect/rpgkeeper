@@ -1,0 +1,12 @@
+id: genesys-gear-rune-of-collection
+name: Rune of Collection
+description: "While runebound shards operate in such a simple fashion that they can be used by those without magical
+  training, some can only be used properly by practicing wizards. Runes of collection act as fonts of magical power by
+  slowly drawing upon the ambient magic of the Verto Magica. These shards each provide a safe and reliable well of
+  magic, although their capacity is limited and wizards who rely on them may falter when the shard is lost. -
+  Activation: The runebound shard glows slightly with untapped power, but nothing seems to happen. - Implement: When
+  casting any spell, your character reduces the difficulty of the check by one. In addition, your character suffers 1
+  less strain when casting a spell."
+encumbrance: 0
+rarity: 0
+reference: RoT:119

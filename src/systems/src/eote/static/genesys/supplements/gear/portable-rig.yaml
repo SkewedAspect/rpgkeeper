@@ -1,0 +1,10 @@
+id: genesys-gear-portable-rig
+name: Portable Rig
+description: Portable rigs offer a compromise between the portability of a PAD and the power of a full-sized rig. About
+  the size of a backpack or satchel, they are basically PADs with extra processing power, memory, and adaptive and
+  responsive programming. Some runners prefer portable rigs because they can use them to conduct runs while on the move.
+  A portable rig is a computer that can have up to two icebreakers and two pieces of ice active on its system at once
+  (for the purposes of Network encounters). It can have both wired and wireless connection ports to the Network.
+encumbrance: 3
+rarity: 5
+reference: SotB:98

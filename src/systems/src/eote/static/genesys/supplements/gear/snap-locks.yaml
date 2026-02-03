@@ -1,0 +1,12 @@
+id: genesys-gear-snap-locks
+name: Snap-Locks
+description: Snap-locks are half-meter long strips of zero-G polymer in a rigid molecular lattice. Normally, they're
+  ruler-straight, but when struck hard against a prisoner's wrists or ankles, the lattice fractures just long enough for
+  the strap to snap around the appendage before the lattice reforms. The resulting restraint can't be severed without
+  heavy-duty cutters, making these perfect disposable restraints. Escaping a snap-lock without heavy cutters requires
+  your character to make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>
+  or <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>.
+encumbrance: 0
+rarity: 3
+reference: SotB:97

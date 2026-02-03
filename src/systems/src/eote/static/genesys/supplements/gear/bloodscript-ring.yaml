@@ -1,0 +1,14 @@
+id: genesys-gear-bloodscript-ring
+name: Bloodscript Ring
+description: Although the priests of Pollox deny any involvement, they are said to have smithed the Bloodscript Rings
+  during the chaos following Timmorran Lokander's death. Rumor has it that the priesthood was concerned about wizards'
+  vulnerability at that time and crafted items to protect them. The rings are made of a dark precious-metal alloy. On
+  their inside edges are a series of complex sigils and wards scribed in crimson lettering. The rings are said to fill
+  those who would harm the wearer with a sense of unnerving dread when magic is worked; even the wearer themself feels
+  an internal weariness within. When your character casts a spell while wearing a Bloodscript Ring, all other characters
+  within short range must immediately make a {fear} check as an out-of-turn incidental. The difficulty of the check is
+  equal to your character's ranks in Knowledge (Forbidden). While wearing a bloodscript ring, your character reduces
+  their strain threshold by one.
+encumbrance: 0
+rarity: 9
+reference: RoT:108

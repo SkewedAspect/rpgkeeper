@@ -1,0 +1,10 @@
+id: genesys-gear-savant
+name: Savant
+description: "Most individuals own a savant, a small and powerful personal computer that can be held in one hand, worn
+  on a limb, or even worn as a piece of jewelry and activated with voice commands or a neural link. The device serves as
+  a computational system, a link to whatever informational network is present at a particular location, and a
+  communications device. If your character has a savant, when making a Knowledge check, they add <success></success> to
+  the result. This item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 1
+rarity: 1
+reference: EotI:121

@@ -1,0 +1,16 @@
+id: eote-aquasuit
+name: Aquasuit
+description: >-
+  Jedi, soldiers, and diplomats need to function within the depths of water worlds such as Mon Cala. In order to do so,
+  they don aquasuits. These form-fitting suits are pressurized, yet remain flexible and airtight due to the natural
+  memory of the materials used. Integrated helmet optics and audio feeds dynamically adjust perception of the
+  environment to suit the user's natural senses. Wearers can better deal with the unfamiliar constraints of operating
+  hundreds of meters beneath the ocean's surface.
+
+  An aquasuit provides six hours of atmosphere to an air breather. During this time, the wearer also has access to fresh
+  water, nutrition supplements, and other biological necessities. While wearing an aquasuit, a character does not suffer
+  movement penalties for traveling through water.
+encumbrance: 3
+rarity: 2
+reference:
+  - CotR:58

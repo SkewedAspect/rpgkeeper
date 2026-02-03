@@ -1,0 +1,18 @@
+id: eote-raquor
+name: Raquor Venom
+description: >-
+  Extracted from the glandular toxin sacs of Sriluurian dark wolves, raquor venom is a powerful paralytic enzyme
+  inhibitor. Significantly harder to shake off than most synthetic neuroparalytics, raquor venom is harvested by Weequay
+  beastmasters and commands a high price on the black market among bounty hunters.
+
+  Any sized dose has a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) difficulty**.
+  The poison Staggers the target for 2 rounds if the target fails the check. In addition, each <threat></threat>
+  generated inflicts 2 strain on the target (this ignores soak), and the GM may spend <despair></despair> to Immobilize
+  the target for 2 rounds. While raquor venom is usually introduced to the target via injection, it can be aerosolized
+  for use in poison gas grenades, though this reduces the effectiveness to a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) difficulty**.
+encumbrance: 0
+rarity: 7
+reference:
+  - LoNH:109

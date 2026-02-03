@@ -1,0 +1,14 @@
+id: genesys-gear-sting
+name: Sting
+description: Sting or Blo-Back is a highly dangerous neurosuppressant that blocks the body's pain receptors while
+  overstimulating the adrenal glands. The resulting drug is popular among some soldiers and mercs who like to "fight
+  through the pain." However, most experienced vets know that shutting off pain just makes you more likely to injure
+  yourself. Needless to say, the drug also sees a lot of use in illegal pit fights in places like the Hoyo Rojo. It
+  takes a maneuver for your character to inject themself or another engaged character with a shot of Sting. Until the
+  end of the encounter, they ignore any penalties that any Critical Injuries would otherwise impose on skill checks they
+  make (at your GM's discretion, this may not apply to the penalties from certain Critical Injuries, such as blindness
+  or loss of a limb). At the end of the encounter, your character no longer ignores those penalties and immediately
+  suffers 4 strain and 4 wounds.
+encumbrance: 0
+rarity: 3
+reference: SotB:100

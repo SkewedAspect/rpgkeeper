@@ -1,0 +1,12 @@
+id: genesys-gear-modular-backpack
+name: Modular Backpack
+description: Designed for military use, these camouflaged or olive-drab backpacks were quickly adopted by students,
+  runners, revolutionaries, and disenfrancistos, thanks in part to the U.S. military's tendency to sell off the surplus
+  from huge production runs. These bags are so tough, thanks to their buckyweave-fiber construction, that some of the
+  earliest models are still used today (after having cycled through dozens of owners). U.S. military modular backpacks
+  have current-activated internal frames that go rigid with a pulse of electricity and give the wearer extra support,
+  and its multiple compartments all have quick-seal flaps that keep items inside safe and dry. While wearing a modular
+  backpack, your character increases their encumbrance threshold by 5.
+encumbrance: -5
+rarity: 3
+reference: SotB:96

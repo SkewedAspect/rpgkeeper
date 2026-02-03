@@ -1,0 +1,18 @@
+id: eote-spacesu
+name: Space Suit
+description: >-
+  Space suits are vital for anyone who plans to travel in space. Space suits also come in handy when exterior repairs
+  are needed between departure and arrival, or when stepping out into a totally unknown atmosphere. The TaggeCo.
+  Standard X (actually made by a dozen secondary manufacturing and distribution factories on Kuat, Fondor, Bilbringi,
+  and Corellia) is a popular model for numerous starships or space stations. It does not include long-term life support,
+  but is useful for short spacewalks. It includes small thrusters to aid in movement, magboots for adhesion in
+  weightlessness, a comlink, and microtool fittings. Like most suits, it also comes with repair packs to seal suit tears
+  or gasket leaks.
+
+  **Models Include:** TaggeCo. Standard X Space Suit.
+encumbrance: 4
+rarity: 1
+reference:
+  - E-CRB:179
+  - A-CRB:196
+  - F-CRB:188

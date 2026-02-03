@@ -1,0 +1,15 @@
+id: eote-alchemyacid
+name: Acid
+description: >-
+  Acids are dangerous, if imprecise, weapons. Although there are plenty of industrial and commercial acids on the open
+  market, an alchemical acid is unique because it only affects living tissue. This means it can be applied to weapons,
+  or even added to food.
+
+  When affected by this potion, the target must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Resilience check**. If they fail, they
+  suffer 2 wounds at the beginning of their turn for the next three rounds, plus one additional round per
+  <threat></threat>.
+encumbrance: 0
+rarity: 6
+reference:
+  - UP:81

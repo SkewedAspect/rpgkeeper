@@ -1,0 +1,10 @@
+id: eote-shiftcoffer
+name: Shift Coffer
+description: |-
+  Also called "Bith hiding cubes," these transparisteel cubes are about three-quarters of a meter on each side, and function as small safes designed to be invisible to the naked eye. Originally designed by Bith engineers, the walls of the coffer contain special fiber optic relays that transfer the light around the cube across its surface. When placed flush into a niche in a wall, the shift coffer disappears, blending perfectly into the surrounding plane of the wall. When out in the open, the coffer refracts light around itself but creates an odd blurring effect akin to heat haze.
+  Shift coffers can contain up to a total 5 encumbrance in items, though items more than about half a meter in length do not fit inside (at least, not without being bent or folded). When the coffer is in its wall niche, attempts to discover it require a successful **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check**. The locks on shift coffers are usually good but not extremely complex or sophisticated, requiring a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Skulduggery check** to pick.
+  **Models Include:** Veretrex Securities hiding cube SCT-1000, SecuriCorp "Sleepsafe" shift coffer.
+encumbrance: 5
+rarity: 7
+reference:
+  - FC:49

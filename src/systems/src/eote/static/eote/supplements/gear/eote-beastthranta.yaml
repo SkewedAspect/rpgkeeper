@@ -1,0 +1,13 @@
+id: eote-beastthranta
+name: Thranta
+description: Now an endangered species, the thranta were once a common sight in the skies of Alderaan prior to the
+  planet's destruction. Unlike many other flying creatures, thrantas do not use their wings as a primary source of lift.
+  Rather, their bodies naturally produce hydrogen, which is stored in several internal air sacs that keep them aloft.
+  This may be one reason why thrantas evolved to be creatures purely of the air, no longer needing legs on which to
+  land. Over time, Alderaanians domesticated numerous breeds of this beast to be used as mounts. Today, only the common
+  and baleen thrantas survive in any measurable quantity. One of the few places one can find a thranta is above the
+  clouds on the tibanna-producing gas giants of Bespin.
+encumbrance: 0
+rarity: 9
+reference:
+  - SoT:88

@@ -1,0 +1,12 @@
+id: genesys-gear-gravpad
+name: Gravpad
+description: "The gravpad is a platform that uses gravimetric compensators to create an antigrav field, reducing the
+  mass of larger objects when they are placed on it. Individuals can then move those objects as required with minimal
+  effort. Gravpads come in a variety of shapes and sizes, from big enough to move large containers aboard cargo vessels
+  and within docking bays to small trolleys used in office buildings. A gravpad can carry items whose encumbrance values
+  together total 50 or less. As long as your character holds the magnetic tether control device (roughly the size of a
+  pen), the gravpad follows your character at short range. As long as the gravpad is active, its encumbrance value is 0.
+  This item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 10
+rarity: 1
+reference: EotI:119

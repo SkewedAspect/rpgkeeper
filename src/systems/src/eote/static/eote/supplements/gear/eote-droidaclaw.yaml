@@ -1,0 +1,18 @@
+id: eote-droidaclaw
+name: AC Law Enforcement Droid
+description: The Rim Securities AC Law Enforcement Droids are a relatively new entry to the field of police automata,
+  envisioned as direct competitors to both Cybot Calactica's HXZ-1 series and SoroSuub's recently released 501-Z series
+  LEO droid. Nearly two meters tall, these broad shouldered humanoid droids are of average intelligence and possessed of
+  a stern, imposing disposition. Programmed for both standard policing as well as fast response riot control duties, AC
+  series droids are covered in imposing plate armor. Their heads have a single horizontal red band for a photoreceptor
+  and they have only the merest hint of other facial features. Their personality matrix seems to have been programmed
+  with the essence of every hard-nosed, uncompromising, "strike first and ask questions later" law officer in history.
+  They are loud, brash, and skilled at physical intimidation. Their grating manner and their tendency to use
+  overwhelming force in inappropriate situations has led to numerous complaints against both the droids and Rim
+  Securities. While civilians may despise the AC series droids, law enforcement agencies throughout the Outer Rim love
+  them for their brutal efficiency, and they are slowly cornering the market for police droids at the edge of the
+  galaxy.
+encumbrance: 0
+rarity: 5
+reference:
+  - FH:49

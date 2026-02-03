@@ -1,0 +1,12 @@
+id: eote-alchemyelixirofvigor
+name: Elixir of Vigor
+description: >-
+  This thick, viscous liquid quickly bonds with muscle tissue, temporarily strengthening the user to unheard-of levels.
+  It drains their mental fortitude, but the gain in raw power is surely worth this drawback.
+
+  When the user consumes this potion, their Brawn increases by 1 but their Willpower is reduced by 1. This effect lasts
+  until the end of the following round.
+encumbrance: 0
+rarity: 6
+reference:
+  - UP:81

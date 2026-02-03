@@ -1,0 +1,20 @@
+id: eote-sulfinh10
+name: Sulfur Inhaler (10 doses)
+description: >-
+  Sulfur Inhaler
+
+  Sulfur is a very common element, broadly available across the galaxy. Devaronians have a unique reaction to the
+  material. While most species find its presence noxious or even poisonous, it stimulates Devaronian physiology. Many
+  Devaronians exploit this by placing purified sulfur in a small, pressurized air cylinder. When inhaled, the sulfur
+  moves into the bloodstream quickly and travels throughout the body.
+
+  A Devaronian with an inhaler can use a maneuver to inhale a dose of the drug from it. The character suffers 2 strain
+  and adds <boost></boost> to any Brawn or Agility checks she makes until the
+
+  end of the encounter. Additional doses inflict more strain but do not give any additional bonuses. A dose is
+  ineffective and unpleasant for most non-Devaronians.
+encumbrance: 0
+rarity: 3
+reference:
+  - NoP:105
+  - ND:55

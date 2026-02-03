@@ -1,0 +1,11 @@
+id: eote-beasttauntaun
+name: Tauntaun
+description: Native to the frigid environs of Hoth, the common tauntaun is the largest of several species of the bipedal
+  reptomammals. These iconic beasts are herbivorous, feeding on lichens and small plants that thrive in caverns and
+  other areas warmed by Hoth's geothermal energies. Heavy fur and a layer of blubber keeps them alive in all but the
+  coldest conditions their home planet has to offer. Standing up to 2.5 meters tall, tauntauns make excellent, if
+  stubborn, mounts for scouting duties in brutally cold conditions, where even vehicles have trouble adjusting.
+encumbrance: 0
+rarity: 10
+reference:
+  - SoT:88

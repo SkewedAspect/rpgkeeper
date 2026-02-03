@@ -1,0 +1,10 @@
+id: genesys-gear-ascender-rig
+name: Ascender Rig
+description: "Employed by military personnel, construction workers, and outdoor enthusiasts, these advanced rigs consist
+  of tactile gloves, traction footpads, and a small plate worn on the chest. The chest plate contains a micro-antigrav
+  projector that negates much of the wearer's weight, enabling them to scale most sheer or slick surfaces. While wearing
+  an ascender rig, your character reduces the difficulty of any Athletics skill checks made to climb by 2, to a minimum
+  of <difficulty></difficulty>. This item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 3
+rarity: 2
+reference: EotI:124

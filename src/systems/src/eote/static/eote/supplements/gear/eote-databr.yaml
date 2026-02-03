@@ -1,0 +1,18 @@
+id: eote-databr
+name: Data Breaker
+description: >-
+  Data breakers are basic tools of the trade for many slicers. While droid slicers are programmed to crack complex
+  sequences, organics usually lack this innate option, and therefore rely on a data breaker to do the grunt work of
+  opening systems to them so that their true skills can shine once they are inside. Most data breakers are also
+  recording devices, and can pull vast amounts of information from ill-guarded systems in seconds. Droid slicers can
+  choose to have a data breaker (or equivalent systems) installed internally at the same cost. Data breakers add
+  <boost></boost><boost></boost> to any Computers check made to slice computers (as opposed to the usual one for having
+  the right tools for the job).
+
+  **Restrictions:** The Empire and many planetary governments restrict possession of data-breaking technology. Military
+  and law-enforcement organizations make legal use of these devices, but typically civilian use of such technology is
+  prohibited.
+encumbrance: 1
+rarity: 6
+reference:
+  - E-CRB:186

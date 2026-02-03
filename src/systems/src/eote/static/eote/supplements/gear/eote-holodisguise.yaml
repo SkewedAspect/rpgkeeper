@@ -1,0 +1,21 @@
+id: eote-holodisguise
+name: Holographic Disguise Matrix
+description: >-
+  When setting a trap or infiltrating a facility, altering one's appearance grants a huge advantage. A holographic
+  disguise matrix overlays the wielder's appearance with on stored on the device. The device—typically small enough to
+  wear on a belt—includes a camera that can be used to record another individual's appearance to overlay on the wearer.
+  A base model unit is capable of storing only a single disguise in memory at a time, though more sophisticated and
+  expensive units do exist.
+
+  The projected hologram must be at least marginally larger than the wearer in order to provide adequate concealment.
+  Thus, it cannot be used to disguise a particularly large individual as a smaller one. The holograms are built around
+  visible light. so do not grant concealment against infrared sensors or detection devices built around other energies.
+
+  When using a holographic disguise matrix, the character can effectively impersonate the visual appearance of whomever
+  the device has previously recorded. This device adds <boost></boost><boost></boost> to the user's Deception checks to
+  impersonate the target and adds <setback></setback><setback></setback> to onlookers' Perception checks to detect the
+  imposter.
+encumbrance: 1
+rarity: 9
+reference:
+  - ND:54

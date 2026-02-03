@@ -1,0 +1,23 @@
+id: eote-skirtopanol
+name: Skirtopanol
+description: >-
+  Originally produced for Corellian Security (CorSec) intelligence agents by Chiewab Amalgamated Pharmaceuticals,
+  Skirtopanol is a powerful truth serum used to coerce confessions out of suspects. Administered through injection,
+  Skirtopanol typically takes effect in minutes. It makes the target lethargic, compliant, open to suggestion, and free
+  with information. While under the influence of Skirtopanol, suspects tend to ramble, chase tangents, and trail off in
+  the middle of sentences. Agents must work constantly to keep an interrogation on track when using Skirtopanol, but it
+  typically is worth the effort. Interrogators must also closely monitor the amount of Skirtopanol injected, as an
+  overdose can cause coma and permanent cognitive impairment. Courts frown on law enforcement agencies using Skirtopanol
+  due to the suggestibility of individuals under its influence, and confessions extracted from subjects under its
+  effects are often ruled as inadmissible.
+
+  One dose of Skirtopanol requires a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Resilience check** to overcome. On a
+  failed check, the drug inflicts 5 strain, and the difficulty of all checks the target makes to resist Charm or
+  Coercion for the remainder of the encounter is upgraded once. In addition, each <threat></threat> generated on the
+  original check inflicts 2 strain on the target. Finally, the GM can spend <despair></despair> to make the target check
+  against the drug again during the next round, as it remains in his system.
+encumbrance: 0
+rarity: 8
+reference:
+  - CaM:43

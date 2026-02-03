@@ -1,0 +1,8 @@
+id: genesys-gear-apothecarys-kit
+name: Apothecary's Kit
+description: Like alchemists, apothecaries often travel with specialized kits. These kits commonly contain bandages,
+  salves, poultices, and other items necessary to heal the injured and sick. An apothecary's kit allows your character
+  to perform Medicine checks to heal wounds and Critical Injuries without penalty.
+encumbrance: 2
+rarity: 4
+reference: RoT:100

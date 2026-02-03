@@ -1,0 +1,20 @@
+id: eote-ebin
+name: Electrobinoculars
+description: >-
+  Electrobinoculars come in many shapes and sizes, depending on their role and the species to use them. Neuro-Saav's
+  Model TD2.3s, for example, are electrically powered and allow for high levels of magnification in zoom and panoramic
+  views. They also offer vision in very high or very low levels of light, thermal imaging, and (in more expensive
+  versions) recording and playback modes. Informational overlays also provide distances, elevations, and velocities of
+  sighted targets.
+
+  Electrobinoculars allow the user to see normally in low light or extremely bright conditions, and can magnify targets
+  up to ten kilometers away. When using electrobinoculars, characters may also remove up to <setback></setback> imposed
+  due to long range or poor light.
+
+  **Models Include:** Neuro-Saav Model TD2.3 Electrobinoculars, Fabritech "Longsight," TaggeCo. Model 3 Imperial Army.
+encumbrance: 1
+rarity: 1
+reference:
+  - E-CRB:175
+  - A-CRB:190
+  - F-CRB:184

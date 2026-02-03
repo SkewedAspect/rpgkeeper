@@ -1,0 +1,18 @@
+id: eote-droidsbd
+name: SBD-Series Assistance and Rescue Droid
+description: >-
+  _SBD_-Series Assistance and Rescue Droid
+
+  Surveyors, explorers, pioneers, and other individuals who must venture far from the comforts of civilization have
+  always felt the need for a wide array of assistance and support in their efforts. The Karflo Coporation, in support of
+  its far-flung mining interests, created the SBD series to fill this necessary role.
+
+  A rugged design, keen intellect, and desire to assist drive this droid to the greatest extremes in a crisis or
+  disaster. The SBDs have proven to be able companions for those voyaging into dangerous environments, such as war zones
+  and regions torn by natural disaster, where assisting locals in need may go a long way toward establishing good will
+  and rapport. Anyone in the market for a droid of superior durability and utility who wants a chance to make a
+  difference in a crisis would do well to consider the SBD series of assistance and rescue droids.
+encumbrance: 0
+rarity: 3
+reference:
+  - DoH:55

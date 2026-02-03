@@ -1,0 +1,15 @@
+id: eote-repulsorasunit
+name: Repulsor Assist Unit
+description: >-
+  Som models of grappling hook and climbing harness rely on forces other than sheer muscle power for operation Repulsor
+  assist units use a miniatureized repulsorlift generator to make whatever they bear nearly weightless, be it a live
+  user climbing a sheer wall, or a bale of cargo attached to the integrated hook via magnets clamp and hauled up by
+  retractable cables. A typical model is highly compact, consisting of a small metal case that stores bothe the wound up
+  cables and the lift generator, with a small hook or magnetic clamp clpped to the side.
+
+  A character using a repulsor assist unit reduces the difficulty to climb by 2 (to a minimum of 0). A repulsor assist
+  unit can also be attached to a cargo to reduce the encbrance value of the cargo by 7.
+encumbrance: 1
+rarity: 3
+reference:
+  - EV:51

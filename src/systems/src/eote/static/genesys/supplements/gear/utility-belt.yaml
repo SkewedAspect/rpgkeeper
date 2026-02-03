@@ -1,0 +1,9 @@
+id: genesys-gear-utility-belt
+name: Utility Belt
+description: A common utility belt is part load-bearing gear, part tool belt, and part carryall. Worn low on the hips,
+  this handy item is equipped with a holster or tool bag and a selection of sealable, weatherproof pouches for carrying
+  small, important items close at hand. While wearing a utility belt, your character increases their encumbrance
+  threshold by 2.
+encumbrance: -2
+rarity: 1
+reference: SotB:96

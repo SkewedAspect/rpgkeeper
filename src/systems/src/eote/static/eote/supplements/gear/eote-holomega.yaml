@@ -1,0 +1,15 @@
+id: eote-holomega
+name: Holo-Megacaster
+description: >-
+  One of the standard tools for a public speaker, a holo-megacaster is a variation on a standard holocomm system.
+  Instead of patching into the HoloNet for long-distance communication, the megacaster projects its user’s voice and
+  image nearby, but magnified to a great volume and size. A typical model is capable of projecting images ranging from
+  centimeters up to ten meters in height. The volume controls are similarly adjustable, suitable for addresses to small,
+  private audiences or vast populist rallies.
+
+  A character using a holo-megacaster adds <boost></boost> to Presence-based checks to address a crowd, and allows the
+  character’s image and voice to be clearly seen and heard at up to extreme range, depending on the settings used.
+encumbrance: 1
+rarity: 3
+reference:
+  - RotS:59

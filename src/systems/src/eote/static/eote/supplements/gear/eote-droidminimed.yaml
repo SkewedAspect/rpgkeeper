@@ -1,0 +1,11 @@
+id: eote-droidminimed
+name: Mini-Med Droid
+description: The Mini-Med is less a droid and more of a skilled set of surgeon's tools. Designed specifically to aid
+  sapient doctors, the Mini-Med is a small, spherical droid with five spindly legs that can double as manipulators. It
+  cannot perform any sort of operations on its own, but when working under the direction of a talented doctor, a team of
+  Mini-Meds can greatly enhance his abilities. However, their almost spider-like appearance has guaranteed they've not
+  caught on in galactic society. Even pragmatic doctors tend to use them only when the patient is anesthetized.
+encumbrance: 0
+rarity: 3
+reference:
+  - FH:49

@@ -1,0 +1,11 @@
+id: genesys-gear-translator
+name: Translator
+description: The Crucible has more modes of communication than grains of Æmber, as the saying goes (which most beings
+  can't understand without assistance, of course). Many variants of translation devices are available to aid in social
+  interactions, from the fabled linguilizers of the vanished Hol civilization to the universal translators of Star
+  Alliance. Basic units allow for crude communications, while the exceptionally rare models can even unravel complicated
+  metaphors. A translator removes <setback></setback> from social skill checks a user makes when an unfamiliar language
+  is involved.
+encumbrance: 0
+rarity: 5
+reference: SotC:152

@@ -1,0 +1,21 @@
+id: eote-falsecred
+name: False Credentials
+description: >-
+  In the vast police state of the Galactic Empire, a lack of proper identification can draw unwanted attention from
+  Imperial authorities. However, for those who would rather keep their actual names to themselves, false identities and
+  the accompanying credentials can be obtained for a price. Clever forgers and slicers create false credentials,
+  counterfeit licenses, and fake permits embedded on standard electronic identification cards that can fool even the
+  most sophisticated holoscanners.
+
+  False credentials can fool most cursory examinations, and characters using scanners require a successful **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check** to recognize the
+  credentials as fakes (or a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception
+  check** without equipment).
+
+  **Models Include:** Numerous variants.
+encumbrance: 0
+rarity: 7
+reference:
+  - FC:50
+  - DA:51

@@ -1,0 +1,18 @@
+id: eote-sounddamp
+name: Sound Dampener
+description: >-
+  Using technology originally designed to minimize the constant background noise of a crowded metropolis, Veslox
+  Corporation ingeniously realized the effect could be localized, and their sound dampener quickly became a bestseller
+  in the criminal underworld. Small enough to be worn on a belt or mounted on a backpack, the device uses nearly
+  instantaneous sound recognition to deploy sound-cancelling waves to eliminate or soften any sounds in the immediate
+  vicinity. The sound dampener cannot cancel out a sound as loud as a blaster bolt, but it can make sounds such as
+  footsteps virtually inaudible.
+
+  The spherical dampening field extends to short range around the device; add <setback></setback><setback></setback> to
+  checks to detect noise coming out of this area.
+
+  **Models include:** Veslox 11 b, TaggeCo. Sound Dampener, Brennkeyes Syndicate Privacy Protector.
+encumbrance: 2
+rarity: 7
+reference:
+  - DA:53

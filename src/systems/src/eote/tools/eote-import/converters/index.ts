@@ -8,6 +8,9 @@ export type { InternalArmor } from './armor.ts';
 export { convertWeapon, convertWeapons } from './weapon.ts';
 export type { InternalWeapon, InternalQualityRef } from './weapon.ts';
 
+export { convertGear } from './gear.ts';
+export type { InternalGear } from './gear.ts';
+
 export { convertTalent, convertTalents } from './talent.ts';
 export type { InternalTalent } from './talent.ts';
 

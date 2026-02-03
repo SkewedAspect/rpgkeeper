@@ -1,0 +1,24 @@
+id: eote-droidj9work
+name: J9 Worker Drone
+description: >-
+  Roche J9 Worker Drone
+       
+  Despite its capabilities, the J9 worker drone was an abject commercial failure. Designed as a protocol droid, the
+  series’ moniker, “worker drone,” was deceptive to potential customers, who assumed it was just another labor droid. In
+  addition, the unit's appearance, which was distinctly bug-like, in conjunction with its flat personality, turned many
+  mammalian species off. The Verpine even attempted to market the droid to other insectoid species, still without much
+  success.
+
+  Most of the J9 worker drones purchased by the public were placed in labor jobs, wasting their more advanced systems
+  and programming on menial tasks. Because of this, J9s are some of the most intelligent labor droids on the market.
+  Over time, however, they develop somewhat bitter personalities, as they feel they were destined for something greater
+  but were somehow cheated out of it.
+
+  The Rebel Alliance has acquired a large number of surplus J9 worker drones directly from Roche and has put them to
+  good use. The Alliance realizes that the J9 is much more than a simple labor droid, and many of the units have been
+  assigned to Rebel teams to assist them with translation and analysis. So far, the majority of these J9s have been a
+  success in the field.
+encumbrance: 0
+rarity: 3
+reference:
+  - SoR:113

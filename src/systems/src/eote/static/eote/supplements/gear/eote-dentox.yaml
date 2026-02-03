@@ -1,0 +1,20 @@
+id: eote-dentox
+name: Dendriton Toxin
+description: >-
+  Dendriton toxin is an exceedingly lethal neurotoxin favored by assassins who prefer their victims to suffer. Once
+  exposed to the poison, the victim begins to suffer fatigue and dull pain, which gradually increases until he is
+  paralyzed and in agony.
+
+  Any sized dose has a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) difficulty**.
+  If the target fails the check, the poison inflicts 1 strain at the end of his next turn, 3 strain at the end of his
+  subsequent turn, and 5 strain at the end of the turn after that one (this ignores soak). In addition, the target
+  suffers <setback></setback> to any check he attempts while under the effects of the poison, and each <threat></threat>
+  he generates on those checks inflicts 1 additional strain (this ignores soak) as the target is wracked with pain and
+  violent muscle spasms. The GM may spend <despair></despair> on the initial Resilience check to make the target make
+  another check against the poison at the end of his third turn or suffer an additional 5 strain (this ignores soak) as
+  the poison torments him.
+encumbrance: 0
+rarity: 7
+reference:
+  - LoNH:109

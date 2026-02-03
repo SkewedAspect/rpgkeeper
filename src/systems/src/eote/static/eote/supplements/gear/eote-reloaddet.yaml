@@ -1,0 +1,13 @@
+id: eote-reloaddet
+name: Extra Reload (Model 38 Detonator Rounds)
+description: "While the standard penetrator ammunition offered with the Model 38 works well in most situations,
+  sometimes a shooter needs a little extra punch to fell his prey. To this end, Czerka offers the Detonator Round for
+  use with the Model 38. Instead of the coated penetrator bullet, Detonator Rounds have a metal coated shaped charge
+  bullet that explodes on contact with its target. When used with the Model 38, these rounds have the following effect
+  on the weapon's stats: Remove the Pierce quality and add the Blast (5) quality and Knockdown quality. Detonator Rounds
+  cost 450 credits for a box of rounds. and have a rarity of 7. If the weapon ever runs out of ammo, a new box of rounds
+  must be purchased to reload it."
+encumbrance: 1
+rarity: 7
+reference:
+  - EtU:41

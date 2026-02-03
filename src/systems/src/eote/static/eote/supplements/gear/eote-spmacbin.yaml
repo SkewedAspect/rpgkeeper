@@ -1,0 +1,14 @@
+id: eote-spmacbin
+name: Sporting Macrobinoculars
+description: >-
+  Sporting macrobinoculars incorporate typical macrobinocular functions with video recording and playback features.
+  Aleena sports enthusiasts are typically credited with the integration of these extra features into the device.
+  Sporting macrobinoculars also see use in the field of espionage. Spies can track their targets’ schedules or
+  selectively record their prey’s actions for later review.
+
+  Sporting macrobinoculars magnify objects up to five kilometers away, and can record objects viewed. They also remove
+  <setback></setback> imposed due to long range or poor light.
+encumbrance: 1
+rarity: 2
+reference:
+  - NoP:105

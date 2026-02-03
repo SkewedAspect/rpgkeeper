@@ -1,0 +1,16 @@
+id: eote-ration
+name: Ration Pack
+description: >-
+  As bland and flavorless as the life of an Imperial stormtrooper, ration packs are a common item on smaller ships used
+  to augment or replace actual galley fare. Each can be easily reconstituted into a full meal through built-in heat
+  infusers and limited hydration. Most ships include emergency ration packs in case of disasters such as hard landings
+  or engine failures, and while not all are actually made for the Imperial Army, most follow the same standard make.
+  Understandably, ration packs are one-use items.
+
+  **Models Include:** Imperial Army Ration Packs.
+encumbrance: 0
+rarity: 0
+reference:
+  - E-CRB:179
+  - A-CRB:196
+  - F-CRB:188

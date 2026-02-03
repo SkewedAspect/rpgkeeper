@@ -1,0 +1,25 @@
+id: eote-model40hoist
+name: Model 40 Field Repulsor Hoist
+description: >-
+  The Model 40 field repulsor hoist began life as a field-expedient (aka jury-rigged) vehicle maintenance lift designed
+  by Alliance Army mechanic Lidiah Alexakis. It is a simple device that uses small, low-output repulsors to lift a
+  broken-down vehicle so that it can
+
+  be moved, towed, and repaired more easily. The first field repulsor hoist (FRH) was little more than a handful of
+  mismatched repulsor coils mated to some magnetic work clamps and controlled by a homemade control box. It soon spread
+  to motor pools and bases throughout the sector as Sgt. Alexakis worked to perfect it. Eventually, after coming to the
+  attention of Alliance Military R&D, the final version of the device was put into production as the Model 40.
+
+  Production hoists consist of a set of six fist-sized lifting units that contain a repulsor coil, a power cell, and
+  either a powerful magnet or a multi-adhesive pad. The lifting units are packed in to a shock-resistant,
+  environmentally sealed carrying case along with a handheld control unit. To use the Model 40, an engineer simply
+  attaches the lifting units to a vehicle or machine. Using the control unit, the trooper can move or lift the vehicle
+  safely and effortlessly.
+
+  The Model 40 can lift a vehicle as large as silhouette 4 up to two meters off the ground. When suspended, the vehicle
+  can be pushed, pulled, or rotated (slowly) in any direction via an Athletics check with a difficulty equal to the
+  vehicle's silhouette.
+encumbrance: 3
+rarity: 6
+reference:
+  - FO:44

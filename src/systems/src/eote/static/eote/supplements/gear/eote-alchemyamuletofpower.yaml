@@ -1,0 +1,13 @@
+id: eote-alchemyamuletofpower
+name: Amulet of Power
+description: >-
+  Though it often takes the form of a small conglomeration of crystal shards, this talisman stores within it a strong
+  connection to the Force. When shattered, the wearer finds themselves surging with additional potency in their Force
+  abilities.
+
+  The user may employ this talisman to roll 1 additional [FO] as part of a Force power check or when adding [FO] to a
+  skill check. Once used, the talisman fragments into dust.
+encumbrance: 0
+rarity: 6
+reference:
+  - UP:84

@@ -1,0 +1,19 @@
+id: eote-netuplink
+name: Networked Slicing Uplink
+description: >-
+  Some Slicers make use of a rare and highly illegal set of droid modifications to mask their slicing signatures by
+  routing them through a drois's systems, which fill the signature with junk data from the droid's base-level processes.
+  These systems can either be made to link up with an external set of slicing tools, or they can be part of an internal
+  suite of devices that allow the droid on which they are installed to slice into systems independently. Droid Slicers
+  who have this upgrade installed can make use of it in their own slicing endeavors, making them particularly pernicious
+  opponents for even skilled administrators.
+
+  A networked slicing uplink is a cybernetic implant that can only be installed in drooids. in addition to its other
+  effects, it counts as a set of slicer gear (see page 179 of the **Edge of The Empire** Core Rulebook).
+
+  When the froid is slicing or assiting with slicing tasks, add<setback></setback> to Computers checks to identify the
+  slicer based on these activities, such as the Trace User action (see **Slicing Encounters**, page 87).
+encumbrance: 0
+rarity: 7
+reference:
+  - SM:50

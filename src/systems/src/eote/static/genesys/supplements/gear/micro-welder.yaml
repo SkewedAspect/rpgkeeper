@@ -1,0 +1,9 @@
+id: genesys-gear-micro-welder
+name: Micro-Welder
+description: Micro-welders are small, hand-held arc welders used to make emergency repairs and to bond lightweight
+  materials. They are equipped with a swivel head for getting into hard-to-reach areas and a flip-up shield to protect
+  the user's eyes from damage. While a micro-welder may not handle heavy-duty work, it can still help fix a weapon or
+  seal a door in a pinch.
+encumbrance: 1
+rarity: 2
+reference: SotB:102

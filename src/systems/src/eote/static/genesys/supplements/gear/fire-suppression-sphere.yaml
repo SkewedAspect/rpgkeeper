@@ -1,0 +1,14 @@
+id: genesys-gear-fire-suppression-sphere
+name: Fire-Suppression Sphere
+description: "A fire-suppression sphere is a single-use device for extinguishing fires and neutralizing caustic or toxic
+  gases. When thrown at a fire, the hovering sphere emits a blast of ultra-low-frequency sound waves, pushing oxygen
+  away. The sphere's casing contains chemical powders that prevent combustion and suppress the effects of toxic
+  chemicals. As an action, your character may use a fire-suppression sphere against a fire, acid, and corrosive
+  atmospheres to reduce the rating of that hazard by 5 (see page 111 of the Genesys Core Rulebook). The sphere affects
+  the hazard zone out to short range. If this causes the hazard's rating to be reduced to 0 or below, the hazard is
+  eliminated in that area. If the hazard is larger than the sphere's area of effect, the hazard may return at your Game
+  Master's discretion. Characters within the effect radius who are not using a breather mask or wearing a sealed
+  environmental suit suffer 3 strain. This item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 1
+rarity: 2
+reference: EotI:124

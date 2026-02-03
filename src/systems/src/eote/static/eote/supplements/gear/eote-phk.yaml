@@ -1,0 +1,12 @@
+id: eote-phk
+name: Portable Healing Kit
+description: >-
+  Small and easily stored in a backpack or small storage compartment, these lifesaving tools contain the basic supplies
+  for healing small injuries as well as those needed to stabilize seriously wounded individuals for transportation to
+  larger medical facilities.
+
+  Portable healing kits allow characters to use the Medicine skill to heal others without penalty.
+encumbrance: 1
+rarity: 1
+reference:
+  - Force and :129

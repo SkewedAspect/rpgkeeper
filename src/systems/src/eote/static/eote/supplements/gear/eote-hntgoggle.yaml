@@ -1,0 +1,19 @@
+id: eote-hntgoggle
+name: Hunting Goggles
+description: >-
+  Produced by a number of well-known manufacturers of sensors and scanners, hunting goggles are a kind of scanner goggle
+  specifically designed to assist professional guides and hunters in tracking their quarry. Along with the usual
+  light-amplification and thermal-imaging sensors found in most scanner goggles, hunting goggles are equipped with an
+  image magnification and enhancement system, a short-range motion detector, and a targeting system and micro heads-up
+  display that projects aiming reticules and targeting information into the wearer's field of vision. Hunting goggles
+  sharpen the wearer's vision to a preternatural degree, and they allow him to see clearly in the dark and through fog,
+  smoke, haze, and other obscuring agents. All of these systems combine to make a highly useful piece of equipment for
+  those who make their livings stalking beasts and sentients through the Outer Rim.
+
+  Hunting Goggles grant <boost></boost> to any Perception skill checks made to locate prey, and thanks to their image
+  magnification and enhancement, they remove up to <setback></setback><setback></setback> imposed due to concealment,
+  darkness, or fog and mist from all Ranged (Light) and Ranged (Heavy) checks.
+encumbrance: 0
+rarity: 5
+reference:
+  - EtU:48

@@ -1,0 +1,15 @@
+id: eote-comlinkl
+name: Comlink (long range)
+description: A common device found across the galaxy, comlinks come in a variety of forms depending on their function
+  and user. Each allows for audio messaging between two parties though advanced models can transmit multiple users or
+  network groups together. Personal comlinks are often small, hand-held cylinders capable of communicating over
+  distances into low orbit. Some models are built into helmets and armor segments. Longer-range versions are usually
+  carried as large satchels or in backpacks, and can reach across a planet and to ships in high orbit (or even elsewhere
+  in the same star system). Most operate on a standard net of frequencies that can be adjusted as desired to elude
+  detection.
+encumbrance: 2
+rarity: 1
+reference:
+  - E-CRB:171
+  - A-CRB:186
+  - F-CRB:180

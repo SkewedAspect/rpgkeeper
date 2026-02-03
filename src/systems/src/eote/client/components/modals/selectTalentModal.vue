@@ -59,7 +59,7 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
 <script lang="ts" setup>
-    import { computed, ref } from 'vue';
+    import { computed, ref, useTemplateRef } from 'vue';
 
     // Models
     import type { EoteTalentInst, GenesysTalent } from '../../../models.ts';
@@ -88,7 +88,8 @@
     // Refs
     //------------------------------------------------------------------------------------------------------------------
 
-    const browserModal = ref<InstanceType<typeof SupplementBrowserModal>>();
+    interface BrowserModalExposed { show : (initialSelectedId ?: string) => void; hide : () => void }
+    const browserModal = useTemplateRef<BrowserModalExposed>('browserModal');
     const systemStore = useSystemStore();
     const supplementStore = useSupplementStore();
 
@@ -134,6 +135,11 @@
 
     function onTalentSelect(talent : GenesysTalent) : void
     {
+        if(!talent.id)
+        {
+            return;
+        }
+
         const talentInst : EoteTalentInst = {
             id: talent.id,
             ranks: talent.ranked ? ranks.value : undefined,

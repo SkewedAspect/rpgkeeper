@@ -1,0 +1,22 @@
+id: eote-xv38
+name: XV-38 Veterinary Kit
+description: >-
+  XV-38 Portable Large Animal Veterinary Kit
+
+  The XV-38 Portable Large Animal Veterinary Kit (PLAV) is produced by Xenovet, a Commenorian biotech firm famous for
+  its high-end designer pets and precision veterinary equipment. Designed for use by veterinarians, beast breeders, or
+  anyone who deals with large and often dangerous animals for a living, the PLAV features a veterinary clinic's worth of
+  equipment in an easy to carry, man-portable package. Roughly the size of a large duffel, within its lockable,
+  hard-sided case the PLAV contains enough drugs, medical supplies, specialty tools, and other gear to stabilize wounded
+  creatures in the field until they can be moved to a fully outfitted clinic. The kit also contains a datapad containing
+  a specialized knowledge and emergency procedure database for many of the more well-known beasts, as well as tutorials
+  to assist those with no veterinary training in treating wounded creatures in an emergency.
+
+  The PLAV allow a user to examine, analyze, and perform medical procedures on all manner of creatures. Like the medpac
+  does for humanoid species (see page 192 of the **Age of Rebellion** Core Rulebook), the PLAV allow a character to
+  medically treat alien creatures without penalty as per the rules on page 232. Additionally, it grants <boost></boost>
+  to all Medicine, Survival, and Knowledge (Xenology) skill checks made to analyze or treat these creatures.
+encumbrance: 3
+rarity: 3
+reference:
+  - SoT:44

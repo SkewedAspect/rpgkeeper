@@ -1,0 +1,9 @@
+id: genesys-gear-unholy-tome
+name: Unholy Tome
+description: This could be almost any book or parchment that describes dread rituals to summon and control the infernal.
+  If your character reads from an unholy tome, for the remainder of the encounter they add automatic
+  <success></success><success></success> to any social skill checks with supernatural or occult creatures. However, if
+  your character generates <difficulty></difficulty> on those checks, the creature immediately attacks your character.
+encumbrance: 1
+rarity: 9
+reference: G-CRB:163

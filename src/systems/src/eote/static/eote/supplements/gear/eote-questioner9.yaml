@@ -1,0 +1,20 @@
+id: eote-questioner9
+name: Questioner-9 (1 dose)
+description: >-
+  Questioner-9 Interrogation Serum
+
+  Interrogation serums are a favored product of the Empire. Used by Imperial authorities from local police forces to the
+  ISB, and even the Inquisitorius, these serms come in a wide variety of forms. Such serums are also available on the
+  black market, where they are purchased by powerful crime lords and ruthless vigilantes. The druge known as
+  Questioner-9 is a typical example, noteworthy primarily for the flexible means of application and for the low
+  syynthesis cost that makes it available to Imperial authorities and criminals alike. Interrogators typically inject
+  the serum into a restrained or helpless target, but Questioner-9 can also operate through ingestions by an
+  unsuspecting diner.
+
+  The serum takes effect in the victim's system after a delay of about five minutes. At the point, the victem upgrades
+  the difficulty of all checks to withold information of resist manipulation (including resisting Force powers such as
+  Influence) once for the next 24 hours.
+encumbrance: 0
+rarity: 6
+reference:
+  - EV:48

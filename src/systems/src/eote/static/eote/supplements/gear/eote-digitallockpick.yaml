@@ -1,0 +1,15 @@
+id: eote-digitallockpick
+name: Digital Lockpick
+description: >-
+  Some smugglers and thieves find that it pays not only to keep a lockpick in hand in a figurative sense, but also in a
+  more literal fashion. A digital lockpick is a cybernetic appendage, usually a finger, equipped with a number of small
+  tools that assist in cracking both physical and electronic locks.
+
+  A digital lockpick provides 1 rank of the Bypass Security talent (see page 133 of the **Edge of the Empire** Core
+  Rulebook).
+
+  **Models Include:** Celta-corp "Jailbreak" cyberpick.
+encumbrance: 0
+rarity: 5
+reference:
+  - FC:48

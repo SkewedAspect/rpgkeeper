@@ -1,0 +1,13 @@
+id: eote-alchemydraughtfire
+name: Draught of Fire
+description: >-
+  This brew is as fiery to consume as its name suggests. Once ingested, though, it bonds with the user's skin to ignite
+  to deadly effect on any they attack.
+
+  Once consumed, the user's body is covered with flames. They do not harm the user and the user ignores any fire- or
+  flame-related damage. Their unarmed attacks gain the Burn 4 quality, or add +1 to that quality if it was already
+  possessed. This effect lasts 1 round, or 30 minutes if used in narrative time.
+encumbrance: 0
+rarity: 5
+reference:
+  - UP:81

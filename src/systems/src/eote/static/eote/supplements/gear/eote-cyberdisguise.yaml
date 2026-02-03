@@ -1,0 +1,23 @@
+id: eote-cyberdisguise
+name: Cyber Disguise
+description: >-
+  A cybernetic disguise implant is composed of a series of systems embedded beneath an individual's skin. These systems
+  allow their users to drastically change their appearance. An extremely invasive, and expensive, full-body implant, a
+  cyber disguise includes a number of systems that can change a being's facial features, skin color, skin texture, hair
+  length and color, eye color, and other surface physical traits. Perfect for infiltrators and deep-cover agents, a
+  cyber disguise can help an agent blend into a crowd, take on a different identity, and even impersonate specific
+  individuals, given enough study and preparation.
+
+  A cyber disguise gives a character all the advantages of a standard disguise kit. In addition, it grants users two
+  ranks in the Indistinguishable talent. Changing general features—for example, changing eye color, altering hair color,
+  or growing a beard—takes one to three rounds. More involved disguises can take minutes or hours to perfect. To take on
+  the appearance of a specific individual, a cyber disguise user must make a thorough study of the subject, then make a
+  **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Deception check** to set the
+  disguise. A cyber disguise cannot change a being's general shape or size, add or subtract limbs, or allow an
+  individual to impersonate a member of another species. At the Game Master's discretion, a cyber disguise could be used
+  to impersonate species that are very similar to the user's; a human could impersonate a Chiss or Pantoran, for
+  example.
+encumbrance: 0
+rarity: 8
+reference:
+  - CaM:44

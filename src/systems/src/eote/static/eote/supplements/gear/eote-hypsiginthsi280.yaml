@@ -1,0 +1,12 @@
+id: eote-hypsiginthsi280
+name: HSI-280 Hyperwave Signal Interceptor
+description: A sophisticated subspace receiver, the hyperwave signal interceptor (HSI) is designed to covertly listen in
+  on communications sent through the HoloNet or by hypertransceivers. Capable of scanning a broad band of subspace
+  frequencies, an HSI can detect and pick up nearly any hypercommunications originating with ten light years of the
+  receiver. Additionally, since they can detect even the smallest fluctuations in hyperspace, they can be used by
+  skilled operators to track vessels through hyperspace, providing several minutes' warning prior to a ship exiting
+  hyperspace or giving the user a fairly good idea of the general course and direction of a vessel in hyperspace.
+encumbrance: 5
+rarity: 8
+reference:
+  - SoF:101

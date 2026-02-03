@@ -1,0 +1,18 @@
+id: eote-atgarartrem
+name: Atgar Artillery Remote
+description: >-
+  During assaults, enemy emplacements are high-priority targets, making emplacement gunner fatailites common. Alliance
+  gunners have turned to remotes to operate emplacements from behind cover. Synchronizing a remote to a stationary
+  emplacement requires attaching a signal reciever that comes with the remote an then configuring fussy programming.
+  Atgar SpaceDefence Corporation is the most popular manufacturer of artillery remotes, likely in response to criticsim
+  reagarding exposure while operating older Atgar emplacements.
+
+  A character can link a single Gunnery weapon to an Atgar Artillery Remote with a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers check**. If the weapon is an
+  Atgar SpaceDefence Corporation model, this check is **Average(<difficulty></difficulty><difficulty></difficulty>)**
+  instead. If the character succeeds, the weapon gains the innaccurate 2 quality and the holder of the remote can fire
+  the linked weapon via the remote from up to medium range.
+encumbrance: 1
+rarity: 7
+reference:
+  - FiB:52

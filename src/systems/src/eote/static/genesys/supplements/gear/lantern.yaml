@@ -1,0 +1,10 @@
+id: genesys-gear-lantern
+name: Lantern
+description: An iron lantern is easier to handle than a torch and can be hung from a belt or shield. Protected inside a
+  cage of metal and sturdy glass, its flame is relatively safe even if the lantern is knocked about. This can prove
+  vital in the darkest caverns that run through the bedrock of Mennara. A lit lantern provides light and removes
+  <setback></setback> added to checks due to concealment (darkness, smoke, and intervening terrain). (If it becomes
+  important to determine how far the light reaches, a lantern can provide light out to short range.)
+encumbrance: 1
+rarity: 1
+reference: RoT:101

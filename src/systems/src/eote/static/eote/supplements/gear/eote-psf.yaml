@@ -1,0 +1,11 @@
+id: eote-psf
+name: Personal Stealth Field
+description: |-
+  Personal stealth fields, as the name suggests, are miniaturized stealth fields that allow their user to vanish from the sight of organic creatures and droids without sufficiently acute optics. Most of them are relics of an age long-past, though several contemporary efforts have been made by various military organizations to recreate this technology.
+  While they are undeniably effective for those who wish to pass unnoticed, the major flaw of most personalized stealth fields is that they are prone to collapsing. Scientists have theorized that this may be an unavoidable result of miniaturizing technology meant for starships, a design flaw, or a result of many of the active devices being antiques. In any case, few are lucky enough to possess one of these devices, and their infamous unreliability makes many prospective users wary. When using this device, it is impossible to see the user visually. In addition, any checks to ascertain the user's location by other means (such as hearing, smell, or observing the surrounding environment) have their difficulty set at **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)**.
+  **Restrictions:** Personalized stealth fields are vanishingly rare, and so few governments bother to place restrictions on their use. Some are legitimate artifacts of ages past, while others are stolen military technology, and the particulars of their creation dictate their legality. Of course, law enforcement officers tend not to see these fine distinctions when apprehending people using them to commit crimes.
+encumbrance: 1
+rarity: 9
+reference:
+  - E-CRB:186
+  - A-CRB:195

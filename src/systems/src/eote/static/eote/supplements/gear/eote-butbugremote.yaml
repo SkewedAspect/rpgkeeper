@@ -1,0 +1,8 @@
+id: eote-butbugremote
+name: Butterbug Remote
+description: These small palm-sized remotes tramsit localised infromation to each other and to the user. Whole batches
+  can be linked together as a networked swarm.
+encumbrance: 0
+rarity: 4
+reference:
+  - SM:53

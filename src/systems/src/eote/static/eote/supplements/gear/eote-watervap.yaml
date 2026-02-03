@@ -1,0 +1,20 @@
+id: eote-watervap
+name: GX-8 Water Vaporator
+description: >-
+  The most popular and well regarded moisture vaporator on the galactic market, Pretormin Environmental's GX-8 has
+  provided fresh, safe water to planetary pioneers for generations. These delicate looking, spindly constructs consist
+  of a five meter tall tower containing a low-powered ion generator and a powerful cooling system. The GX-8 rapidly
+  cools the air around it, causing heavy condensation that is collected and purified by the systems at the vaporator's
+  base. Once conditioned, the fresh water is typically collected in subterranean holding tanks for use in private,
+  public, commercial, and industrial applications. Typically used on hot, arid worlds such as Tatooine, vaporators are
+  organized in sprawling farms, or "water orchards," where their combined condensing and filtration systems can provide
+  a steady supply of water for a settlement. A curious side effect of the use of moisture vaporators is the growth of
+  lush native plants and fungi that tend to spring up in the constantly irrigated ground directly surrounding the
+  machine. These small rings, referred to as "vaporator gardens," are good places to collect edible plants.
+
+  Depending on the moisture levels in the air, a vaporator can typically produce one to three liters of water in a
+  standard day.
+encumbrance: 12
+rarity: 2
+reference:
+  - FH:47

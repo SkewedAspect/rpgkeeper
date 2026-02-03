@@ -1,0 +1,13 @@
+id: eote-glowrod
+name: Glow Rod
+description: >-
+  A glow rod is a hand-held light source that illuminates an area in a directional beam. A common device with many
+  different styles, each operates with an internal chemical power source or a small rechargeable power cell.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 1
+rarity: 0
+reference:
+  - E-CRB:181
+  - A-CRB:197
+  - F-CRB:189

@@ -1,0 +1,24 @@
+id: eote-ashmala
+name: Ashes of Malachor
+description: >-
+  Wars between the dark side and the light are not only fought in an individual's conscience. Centuries ago, the Sith
+  Order formed the backbone of a terrifying war machine. One of their most fearsome strongholds resided on the Outer Rim
+  planet of Malachor. Rumors spread that the Sith bastion hid unstoppable weaponry and forbidden knowledge. Fearing the
+  worst, the Jedi laid siege to the temple.
+
+  The battle left no survivors. The Jedi archives erased all records of the planet, hoping to bury the Sith secrets
+  along with the dead. Over time, spacers began to claim they had stumbled on the lost world of Malachor. They'd bring
+  back artifacts claimed to be Sith relics. Most were obvious frauds. A few had a genuine-and disquieting-connection to
+  the dark side.
+
+  Smugglers claimed to make Ashes of Malachor from the pulverized bones left on the planet. With the planet lost to the
+  galaxy at large, there is no way to confirm this. The results, though, are irrefutable. Some dark essence trapped
+  within the ashes empowers those that consume it. Gruesome power warps their will, increasing their power at the cost
+  of their Morality.
+
+  A Force-sensitive character may spend a maneuver to inhale the Ashes of Malachor. They gain 5 Conflict, but add
+  <success></success><threat></threat> to all attacks they make until the end of the encounter.
+encumbrance: 0
+rarity: 8
+reference:
+  - UP:52

@@ -1,0 +1,30 @@
+id: eote-droidtcsc
+name: TC-SC Infiltration Droid
+description: >-
+  Produced by Cybot Galactica and marketed primarily to government and millitary intelligence agencies, TC-SC droids are
+  frighteningly effective tools for espionage, infiltration, and assassination. Particularly inconspicuous-looking, they
+  stand just under two meters tall and appears to be normal third-degree droids, such as protocol models or teaching
+  units. They have spindly limbs; an oversized, humanoid head with a featureless faceplate; and set of four small, red
+  photoreceptors. These droids come in a cariety of gender programming options, and their personalities are usually
+  queit and conciliatory. THey seem, at first glance, to be simple, uncomplicated droids going about their drudgery with
+  little fanfare. Which, of course, is exactly what their designers want.
+
+  Their innocuous looks and seemingly meek personalities are only one of the myriad of weapons the TC-SC droids utilize.
+  They are deadly and cunning, easily equal to the best espionage agents in the ISB. Their programming includes not only
+  intelligence and counterintelligence techniques, but also stealth, infiltration, combat, assassination, and even
+  acting and mimicry. The most potent weapon, however, is the powerful CQ-3.80 multispectrum disguise suite that shroud
+  them in a nearly foolproof holographic disguise. This allows TC-SC droids to take on the appearance of nearly any
+  species in the galaxy. Combined with their programming, and given time to observe and study a target, these droids can
+  even impersonate specific individuals.
+
+  While they are quite effective and dangerous, TC-SC droids are, thankfully, relatively rare. Their systems—though
+  powerful—are delicate, and the droids require constant maintenance. They also require memory wipes more often than
+  other droids due to quirks in their programming. Without the regular maintenance and memory wipes, some TC-SC droids
+  have lost themselves in their disguises and come to believe that they are acutally who or what they were last
+  impersonating. On a few rare occasions, these droids have gone rogue and disappeared. At least two ISB TC-SC droids
+  have deserted their missions in the Outer Rim in the last decade and remain at large in the galacy following their own
+  whims.
+encumbrance: 0
+rarity: 8
+reference:
+  - EV:47

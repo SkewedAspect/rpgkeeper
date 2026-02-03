@@ -1,0 +1,17 @@
+id: eote-milmodback
+name: Military Modular Backpack Frame
+description: >-
+  Every Alliance soldier has specialized equipment to fulfill one or more combat roles. To ensure each soldier can carry
+  the necessary kit into battle (and away from it, during frequent base repositionings to avoid Imperial detection), the
+  Rebel Alliance Logistics and Supply Corps developed a modular load-bearing frame, which accepts up to two rectangular
+  modules to create a pack tailored for a specific combat role.
+
+  The metal frame has an upper left antennae mount that accepts most comlinks and connects them to a hands-free headset.
+        
+  _Note: To purchase modules for the modular backpack frame, select the frame in your inventory and click the
+  "Attachments" button.  An "attachment" will be available for adding a variety of modules to the backpack.  Up to two
+  modules may be added._
+encumbrance: 0
+rarity: 2
+reference:
+  - FiB:55

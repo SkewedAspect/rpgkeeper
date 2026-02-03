@@ -1,0 +1,15 @@
+id: genesys-gear-immolation-rune
+name: Immolation Rune
+description: "Immolation runes are weapons in and of themselves. When one of these shards is activated, a burst of flame
+  projects forward from the rune. These runes have their own source of power, of course, but a user can concentrate some
+  of their own energies into increasing the size and intensity of the flames. This is injurious to the user, but not
+  nearly so much as it is to their target. The burst only lasts for a few seconds, so the shards are useless for
+  illumination, but they are effective for personal protection and starting fires. - Activation: Until the end of your
+  character's turn, the immolation rune counts as a Ranged weapon with the following profile: (Discipline; Damage 8;
+  Critical 3; Range [Short]; Burn 2). - Implement: When your character casts an Attack spell, they must add the Fire and
+  Deadly effects with no increase in difficulty. In addition, after rolling the magic combat check but before applying
+  damage, your character may choose to suffer any number of wounds no greater than half their wound threshold in order
+  to add an equal amount of damage to all hits of the attack. [Table: Immolate]"
+encumbrance: 0
+rarity: 0
+reference: RoT:118

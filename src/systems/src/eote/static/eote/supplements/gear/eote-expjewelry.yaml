@@ -1,0 +1,13 @@
+id: eote-expjewelry
+name: Expensive Jewelry
+description: >-
+  People associate wealth with authority, and jewelry is an immediate means to display wealth. The distinctive silver
+  sheen of the Durindfire crystal, the brilliant ever-changing sparkle of the Sorian crystal, and the living rainbow
+  gems from Gallinore all attract the eyes of onlookers, making the wearer more memorable.
+
+  A character displaying one or more expensive gems adds automatic <advantage></advantage> to Charm and Deception
+  checks, but others add <boost></boost> to checks to recall the character.
+encumbrance: 0
+rarity: 7
+reference:
+  - DA:51

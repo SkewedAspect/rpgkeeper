@@ -1,0 +1,18 @@
+id: genesys-gear-slap-patch
+name: Slap-Patch
+description: A slap-patch is a one-use emergency medical item used to administer first aid and treat minor wounds. It
+  consists of a synthskin backing that contains a drug cocktail of stim, painkiller, and antibiotic, with a bioadhesive
+  that bonds the patch to a patient's flesh. To use one, a person simply peels a slappatch out of its sterile package
+  and slaps it over a wound. A slap-patch is good enough to deal with bumps, bruises, and light bleeding (although not
+  more serious injuries). It takes a maneuver for your character to use a slap-patch on themself or another engaged
+  character. The slap-patch is consumed in the process, and the character immediately heals 5 wounds. While a character
+  can use multiple slappatches, this provides diminishing returns. Each slap-patch after the first on the same day heals
+  1 wound fewer. A second slap-patch heals 4 wounds, a third heals 3, and so on. Using a sixth slap-patch in a day has
+  no effect. After one day, the lingering effects of the slap-patches wear off, and the character may use slap-patches
+  again, receiving their normal effect (this means a character can consume up to five slap-patches a day, each day). A
+  slap-patch is a painkiller, which is described on page 94 of the Genesys Core Rulebook (the slap-patch just has a
+  setting-specific name). All the rules, talents, and abilities governing and affecting painkillers apply to
+  slap-patches as well.
+encumbrance: 0
+rarity: 2
+reference: SotB:100

@@ -1,0 +1,8 @@
+id: genesys-gear-backpack
+name: Backpack
+description: This is a profile for a backpack. Backpacks can take a lot of different forms, but the basics of how one
+  works remains the same. Backpacks vary in price and rarity, and they have one unique rule that lets characters carry
+  more. While wearing a backpack, your character increases their encumbrance threshold by four.
+encumbrance: -4
+rarity: 3
+reference: G-CRB:94

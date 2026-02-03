@@ -1,0 +1,18 @@
+id: eote-dioxis
+name: Dioxis Gas
+description: >-
+  Used since before the Clone Wars, dioxis can be lethal to most carbon-based life forms within less than one minute
+  following exposure. The greenish gas was used extensively by the Separatists' droid armies, which were immune to it.
+  The gas has since seen use by mercenaries and assassins unconcerned with high body counts.
+
+  A single dose of dioxis has a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)
+  difficulty**, while two or more doses combined have a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) difficulty**.
+  The poison inflicts 5 wounds if the target fails a check at the relevant difficulty (this ignores soak). In addition,
+  each <threat></threat> generated inflicts 2 strain on the target (this ignores soak), who becomes overwhelmed by the
+  nausea and muscle spasms caused by the choking gas. The gas lingers in the air for up to 3 rounds unless dissipated by
+  high winds.
+encumbrance: 0
+rarity: 6
+reference:
+  - LoNH:109

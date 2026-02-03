@@ -1,0 +1,11 @@
+id: genesys-gear-stasis-rune
+name: Stasis Rune
+description: "A character who activates a stasis rune focuses on a single target. For a brief period, the target feels
+  as if they are frozen in time and space. Even if left unassailed, the target finds the experience of catching up with
+  time highly upsetting in the short term. - Activation: As an action, your character suffers 2 strain and chooses one
+  character within short range. That character is staggered and immobilized until the end of their next turn. -
+  Implement: When your character casts a Curse spell, they must add the Paralyzed effect with no increase in
+  difficulty."
+encumbrance: 0
+rarity: 0
+reference: RoT:120

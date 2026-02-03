@@ -1,0 +1,8 @@
+id: genesys-gear-flask
+name: Flask
+description: A clay or pewter flask can be just the thing for carrying water on a long journey. Of course, a Dwarf would
+  probably consider carrying water a waste of a good flask. Most flasks can carry roughly ten ounces of liquid, and have
+  a cork or latching top to keep the contents from spilling.
+encumbrance: 0
+rarity: 1
+reference: RoT:100

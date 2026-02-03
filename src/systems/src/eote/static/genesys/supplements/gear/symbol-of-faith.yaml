@@ -1,0 +1,13 @@
+id: genesys-gear-symbol-of-faith
+name: Symbol of Faith
+description: Symbols of faith appear to call upon higher powers, either through their innate form or their user's
+  belief, to repel the supernatural. These items rely on a character's belief in a certain faith, creed, or religion
+  (which we leave up to you and your GM). But they do give characters a needed defensive boost. During a combat
+  encounter, if your character is wearing a symbol of faith openly and they believe in the faith or religion represented
+  by the symbol, they gain a ranged and melee defense of 2 against monsters, the undead, and other supernatural
+  creatures. In addition, once per session, if your character believes in the faith or religion represented by the
+  symbol of faith, they may make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an
+  action. If they succeed, all monsters, undead, and other supernatural creatures within medium range suffer 4 strain.
+encumbrance: 0
+rarity: 2
+reference: G-EPG:24

@@ -1,0 +1,20 @@
+id: eote-dressuni
+name: Dress Uniform
+description: |-
+  Equal parts formal attire from a variety of worlds and
+  functional military uniform, an assortment of dress
+  uniforms are worn for ceremonial purposes by Alliance
+  Military personnel. Like standard working uniforms
+  within the Alliance Military, dress uniforms are a mix of Imperial military surplus and the uniforms of
+  the various Alliance member species. While they do
+  exist, official dress uniforms are rarely worn by Alliance
+  personnel due to the lack of common standards
+  and a reluctance by some cultures to give up the
+  traditions and trappings of their own militaries. This
+  is slowly changing, however, as the Alliance Military
+  becomes more organized and uniform guidelines filter
+  down from High Command.
+encumbrance: 1
+rarity: 5
+reference:
+  - LbE:44

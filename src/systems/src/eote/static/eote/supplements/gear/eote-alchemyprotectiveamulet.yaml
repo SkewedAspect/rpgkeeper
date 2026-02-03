@@ -1,0 +1,14 @@
+id: eote-alchemyprotectiveamulet
+name: Protective Amulet
+description: >-
+  Commonly taking the form of a ring or brooch, this talisman surrounds the user with an aura that simulates the
+  comforts of their native environment, no matter the dangers that surround them.
+
+  While active, the talisman allows the user to ignore environmental effects such as fire, acid, and corrosive
+  atmospheres. They always act as if in a standard gravity field and may breathe normally even underwater and in a
+  vacuum. Weapons with the Burn quality do not count as having that quality when used as part of an attack against the
+  user.
+encumbrance: 0
+rarity: 4
+reference:
+  - UP:84

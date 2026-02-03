@@ -1,0 +1,15 @@
+id: genesys-gear-terror-rune
+name: Terror Rune
+description: "None can fathom why the dragons crafted terror runes, given their own innate baleful nature. Some
+  Greyhaven scholars wonder if they know more of the Ynfernael and its growing threat to Mennara, or if there are
+  creatures beyond the Molten Heath that are to dragons as dragons are to mortal beings and thus needed a way to ignore
+  their fearsome effects. Adventurers fortunate enough to possess these runes, though, find them invaluable when
+  exploring the dark catacombs within the Mistlands or facing down the creatures of the Ru. - Activation: While
+  possessing a terror runebound shard, your character can ignore the effects of fear, as per page 243 of the Genesys
+  Core Rulebook. - Implement: When your character is casting a spell, any friendly affected targets are immune to the
+  effects of fear for the spell's duration. Any enemy affected targets must immediately make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> as an out-of
+  turn-incidental."
+encumbrance: 0
+rarity: 0
+reference: RoT:121

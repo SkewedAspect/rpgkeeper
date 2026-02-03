@@ -1,0 +1,15 @@
+id: eote-plprotrep
+name: Plasma Protein Replicator
+description: >-
+  Replenishing an individual's vital bodily fluids from an external source can reduce the recovery time from
+  particularly traumatic injuries. This is the most relevant for injuries that involve blood loss, but it can also be
+  helpful in cases of disease or poison where fluids have been contaminated. In either case, an external source enables
+  the patient's body to devote energies to healing tissues. A plasma protein replicator creates synthetic bodily fluids
+  as appropriate for a target species.
+
+  When a character uses a plasma protein replicator to help heal a Critical Injury, the character adds automatic
+  <success></success> to the Medicine check made to heal the injury.
+encumbrance: 3
+rarity: 4
+reference:
+  - DoH:50

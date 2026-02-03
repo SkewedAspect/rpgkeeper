@@ -1,0 +1,27 @@
+id: eote-workman
+name: Workshop Manual
+description: >-
+  Chiles-Zraii Foreman-Series Owner's Workshop Manual
+
+  Produced by the Verpine Chiles-Zraii consortium, the Foreman-series of owner's workshop manuals are a must-have for
+  anyone responsible for the care and maintenance of a ship, walker, speeder, or groundcar. Written for an exhaustive
+  array of ships and vehicles, from the Flare-S Swoop to the YT-1300 to the gravity control system of an Imperial
+  II-class Star Destroyer, each owner's workshop manual features detailed, clearly written, and illustrated instructions
+  designed to assist even an inexperienced mechanic in maintaining or repairing a vehicle, vessel, or a specific system
+  described therein. The manuals are sold in single-use, read-only datapads that contain all the information needed to
+  make repairs, and feature expandable, three-dimensional parts diagrams with constantly updated parts numbers and a
+  wireless connection to the galactic holonet. They also include a diagnostic program that assists in maintenance and
+  repair by using the vehicle's onboard computer to trace circuits and find faults within systems. This allows a
+  mechanic to diagnose the problem with his machine, see what parts he needs, order those parts from the nearest
+  supplier, and then gives him all the information needed to install the parts and fix his problem.
+
+  Using an owner's workshop manual allows the character to downgrade the difficulty of any checks made to maintain or
+  repair the vehicle or starship for which the manual was written once. Owner's manuals give no bonuses to work on other
+  vehicles for which they are not written. For example, an owner's workshop manual for the YT-1300 grants bonuses when
+  working on a YT-1300, but not when working on a Y-wing. At the Game Master's discretion, a workshop manual can be used
+  on two ships or vehicles from the same company with a high parts commonality, such as CEC YT-series freighters. The
+  rarity of a workshop manual is equal to the rarity of the starship or vehicle for which it was written.
+encumbrance: 1
+rarity: 1
+reference:
+  - SoT:46

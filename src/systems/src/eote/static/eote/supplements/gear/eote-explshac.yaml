@@ -1,0 +1,18 @@
+id: eote-explshac
+name: Explosive Shackles
+description: >-
+  A particularly intimidating and malicious method of securing slaves and prisoners, explosive shackles have small but
+  lethal charges built into them to deter escape attempts. Usually composed of a collar and belt joined by durasteel
+  chains, these shackles have detonators that can be set to explode at the push of a button, if the wearer leaves a
+  specified area, or when the wearer moves more than a certain distance from the control unit.
+
+  Removing explosive shackles without the proper key requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Skulduggery
+  check**. If a character fails this check, the shackles detonate, inflicting 10 wounds on the wearer and each character
+  in engaged range (this ignores soak).
+
+  **Models Include:** Numerous variants.
+encumbrance: 2
+rarity: 6
+reference:
+  - LoNH:109

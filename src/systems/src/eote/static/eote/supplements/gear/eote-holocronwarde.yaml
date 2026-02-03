@@ -1,0 +1,16 @@
+id: eote-holocronwarde
+name: Suljo Warde's Holocron
+description: >-
+  Suljo Warde created the holocron to store his knowledge, including the secrets of the Force power he developed,
+  Warde's Foresight. Although holocrons have numerous fail-safes to ensure that only qualified Jedi access their deepest
+  secrets, not the least of which is the gatekeeper itself, Warde feared what his power of foresight could do in the
+  wrong hands. This is the primary reason why he separated some of the holocron’s information into three kyber crystals.
+  The PCs can only learn simple applications of Warde’s Foresight until they attain the first kyber crystal, as outlined
+  on pages 10-11. 
+
+  Additionally, as long as they have Warde’s holocron in their possession, the Player Characters treat **Brawl** and
+  **Vigilance** as career skills.
+encumbrance: 1
+rarity: 10
+reference:
+  - CotG:19

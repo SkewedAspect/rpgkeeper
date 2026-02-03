@@ -1,0 +1,9 @@
+id: genesys-gear-backpack-of-holding
+name: Backpack of Holding
+description: A backpack of holding is a deceptively normal-looking leather backpack whose interior is substantially
+  larger than its exterior. How this is possible is a secret known only to the most learned wizards. It is, obviously,
+  magical. A backpack of holding can carry items of up to 12 encumbrance total. The backpack is always encumbrance 2,
+  regardless of how much it's holding.
+encumbrance: 2
+rarity: 8
+reference: G-CRB:146

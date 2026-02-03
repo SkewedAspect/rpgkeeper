@@ -1,0 +1,16 @@
+id: eote-stuncuffs
+name: Stun Cuffs
+description: >-
+  Similar in appearance to traditional binders, stun cuffs punish a prisoner's attempts at escape with stunning jolts of
+  electricity. The power of the cuffs' jolt is consistent with the force the prisoner uses in any efforts to break free
+  of them. Stun cuffs remain popular with bounty hunters, law enforcement and slavers despite the horror stories about
+  the brutality of these devices.
+
+  Breaking free from stun cuffs requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Athletics or
+  Coordination check**. The GM may spend <threat></threat><threat></threat> or <despair></despair> on the check to have
+  the character suffer 4 strain (this ignores soak).
+encumbrance: 0
+rarity: 5
+reference:
+  - KtP:52

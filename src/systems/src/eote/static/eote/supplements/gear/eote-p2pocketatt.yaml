@@ -1,0 +1,19 @@
+id: eote-p2pocketatt
+name: P-2 Pocket Attaché
+description: >-
+  MicroData P-2 Pocket Attaché
+
+  An improvement on MicroData's versatile Pocket Secretary and the more common Versafunction88 datapad, the P-2 Pocket
+  Attache provides the user with a handheld multipurpose administrative tool and organizer combined with
+  state-of-the-art security and encryption rivaling that of Imperial intelligence agencies. The pricey Pocket Attache
+  has quickly gained popularity among Hutts and their majordomos for the peace of mind it affords.
+
+  Trying to slice into a Pocket Attache requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers
+  check**. If the check is unsuccessful, the data stored on the device, is automatically wiped and lost forever.
+
+  **Models Include:** MicroData P-2 Pocket Attache, Versafunction 108 Traveller datapad.
+encumbrance: 1
+rarity: 6
+reference:
+  - LoNH:111

@@ -82,6 +82,15 @@ interface BaseGear extends Supplement
     rarity : number;
 }
 
+export interface BaseGearRef
+{
+    name : string;
+    description ?: string;
+    encumbrance : number;
+    rarity : number;
+    notes ?: string;
+}
+
 interface BaseAttachment extends Supplement
 {
     id ?: string;
@@ -201,7 +210,7 @@ interface BaseSystemDetails
     skills : BaseSkill[];
     abilities : string[];
     talents : BaseTalentInst[];
-    gear : BaseGear[];
+    gear : BaseGearRef[];
     armor : BaseArmorRef;
     weapons : BaseWeaponRef[];
 }
@@ -217,6 +226,7 @@ export type EoteCriticalDetailConfig = BaseCriticalInjuryDetailConfig;
 export type EoteAbility = BaseAbility;
 export type EoteSkill = BaseSkill;
 export type EoteGear = BaseGear;
+export type EoteGearRef = BaseGearRef;
 export type EoteQuality = BaseQuality;
 export type EoteArmor = BaseArmor;
 export type EoteWeapon = BaseWeapon;
@@ -343,6 +353,7 @@ export interface GenesysTalent extends BaseTalent
 }
 export type GenesysSkill = BaseSkill;
 export type GenesysGear = BaseGear;
+export type GenesysGearRef = BaseGearRef;
 export type GenesysAttachment = BaseAttachment;
 export type GenesysQuality = BaseQuality;
 export type GenesysArmor = BaseArmor;

@@ -1,0 +1,9 @@
+id: genesys-gear-pouches-and-packs
+name: Pouches and Packs
+description: "Every species in the galaxy has invented some means of carrying more stuff. Although each pouch, backpack,
+  or satchel is different depending on the physiology of the species carrying it, such items all follow the same basic
+  principles. While wearing a pouch or pack designed for your species, your character increases their encumbrance
+  threshold by 3. This item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: -3
+rarity: 1
+reference: EotI:119

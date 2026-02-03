@@ -1,0 +1,19 @@
+id: eote-elb
+name: Electronic Lock Breaker
+description: >-
+  The galaxy is filled with security devices to keep valuables protected or secured. A good thief knows that the
+  stronger the security, the more valuable the items inside, and the greater the desire to make them his own. Many locks
+  across the galaxy have complex electronic systems that far surpass the simple mechanical locks of old. Electronic lock
+  breakers like those made by the fancifully named OutlawTech (a group of slicers and criminal technicians) are
+  automatic anti-security slicing systems that can hack
+
+  through most standard electronic locks. There are also much more advanced models that require no skill on the user's
+  part and can defeat the most complicated locks.
+
+  **Models Include:** OutlawTech Electronic Lock Breaker.
+encumbrance: 1
+rarity: 5
+reference:
+  - E-CRB:178
+  - A-CRB:194
+  - F-CRB:187

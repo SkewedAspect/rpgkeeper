@@ -1,0 +1,10 @@
+id: eote-foodprepsys
+name: Food Preparation System
+description: This dubiously named field stove is more commonly known to military personnel as a "hot plate," and is
+  little more than a collapsible tray with integrated thermal circuitry for preparing field rations and other food
+  products. The thermal circuits are powered by solar energy, but the durable surface of the hot plate can be used to
+  cook with fire paste or even over a wood fire.
+encumbrance: 3
+rarity: 1
+reference:
+  - DC:58

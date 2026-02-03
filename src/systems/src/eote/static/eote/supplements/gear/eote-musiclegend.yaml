@@ -1,0 +1,14 @@
+id: eote-musiclegend
+name: Musical Instrument (Legendary)
+description: The number of different musical traditions across the galaxy is truly staggering. From the haunting throat
+  singing of the Tusken Raiders to the cool and sophisticated wail clubs of Coruscant, every sentient species that has
+  ever existed has made music of one kind or another. Along with musical traditions comes musical instruments. Musical
+  instruments are made in a dizzying array of styles, and the list of specific instruments is far too vast to include
+  here, but a character needing to purchase an instrument or instrument accessory (strings, reeds, sticks, etc.) can
+  usually find what he's looking for with little effort on any marginally civilized world. The exact price and
+  availability of a specific instrument not found here is left to the discretion of the Game Master, and the acquisition
+  or theft of a rare musical instrument can easily lay the foundation for a complex and exciting adventure.
+encumbrance: 1
+rarity: 10
+reference:
+  - FH:48

@@ -1,0 +1,19 @@
+id: eote-infrabinocularslr
+name: Infrabinoculars (Long Range)
+description: >-
+  A normal pair of macrobinoculars allows their user to see distant objects with great clarity, and more advanced
+  electrobinoculars allow for surveillance in dim light or at great ranges. Both tools are limited use in a city, where
+  the walls of high-rise buildings frequently limite lines of sight. Infrabinoculars are specialized tools designed to
+  enhance awareness in urban environments. Instead of enhancing vision at a distance, infrabinoculars are able to pick
+  up heat signatures through even thick or shielded walls, outlinging life forms and other heat-emitting phenomena.
+
+  A character using infrabinoculars can see through up to two meters of wall, possible allowing surveillance of a whole
+  building at once. Walls made of dense materials or constructed to shields their interiors may impose one or more
+  <setback></setback> on Perception checks to see inside, at the GM's discretion.
+
+  Some models of infrabinoculars can alternate between this infrared sensor package and a long-range view equivalent to
+  that of electrobinoculars.
+encumbrance: 1
+rarity: 5
+reference:
+  - EV:48

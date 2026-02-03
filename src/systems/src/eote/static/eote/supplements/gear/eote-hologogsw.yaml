@@ -1,0 +1,19 @@
+id: eote-hologogsw
+name: Hologoggles (Streetwise)
+description: >-
+  Learning is accomplished much more effectively when it integrates dedicated practice time. Hologoggles enable wearers
+  to experience an artificial environment, within which they can enjoy a realistic experience devoted to training a
+  specific skill. Each set of hologoggles is specialized for training in a particular field of study at a predetermined
+  level of aptitude. A course of training normally takes eight weeks to complete, at a rate of a few hours each day.
+  When the user completes a course of study, a new set of hologoggles can be purchased to continue in that field at a
+  more advanced level or to study in a different field.
+
+  When purchasing a set of hologoggles, a character selects one non-combat skill. That skill now counts as a career
+  skill as long as the character owns the goggles (however, at the GM's discretion, the goggles must be used for several
+  hours a day for a period of several months to gain this bonus). A character may only receive benefits from one pair of
+  hologoggles at a time; if he wishes to count a new skill as a career skill, he must discard the current set of
+  hologoggles and purchase a new one.
+encumbrance: 1
+rarity: 6
+reference:
+  - DoH:49

@@ -1,0 +1,25 @@
+id: eote-burngel
+name: '"Quickflash" Burning Gel'
+description: >-
+  Burning gel is an electrochemical hull-breaching agent synthesized and sold by the Corellian Chemical Corporation, a
+  wholly owned subsidiary of Chiewab Amalgamated Pharmaceuticals. Colloquially referred to as the "shipwright's spare
+  key," burning gel is used to gain access to doors, hatchways, and machine compartments that have been rendered
+  inaccessible. When applied, it quickly burns through nearly any substance, in any environment, including the vacuum of
+  space. It is commonly used to cut holes in starships that are derelict or otherwise damaged and adrift in space and is
+  quite popular among salvage outfits, archaeologists, and other less savory characters. Unlike cutting torches and
+  welders, it emits no flame and requires no oxygen to operate, making it preferable for use in a vacuum.
+
+  The gel itself consists of two parts: a stable, extremely caustic acid suspended in a clear gel that adheres to nearly
+  any substance and a pair of thin electrodes. Both parts are contained in a dispenser unit that includes a refillable
+  tank of gel and electrode wire, a tiny power generator, and a pistol-grip applicator. When the applicator trigger is
+  squeezed, a measure of gel is released from the applicator along with the wires contained within. Once the desired
+  amount of burning gel has been applied, the power generator is activated, running a quick, high-powered charge through
+  the gel and activating the acid, which immediately begins eating away at whatever it's been applied to.
+
+  For rules purposes, exposure to burning gel deals damage to materials and sentient beings as if it were a weapon. It
+  deals 10 damage and has the Burn 5 and Pierce 5 weapon qualities. Using burning gel requires no skill check. However,
+  placing it correctly and effectively might, at the Game Master's discretion, require a Mechanics check.
+encumbrance: 1
+rarity: 5
+reference:
+  - EtU:52

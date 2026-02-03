@@ -1,0 +1,14 @@
+id: eote-wizpouch
+name: Wizard Pouch
+description: >-
+  A wizard’s pouch is essentially a bag with a shoulder strap; created for the “mages" of Weik to carry spell
+  components. These pouches are often crafted to exacting standards, enchanted with runes of power, and made with the
+  finest ingredients, all under the belief that such measures are necessary to preserve the innate magic in a sprig of
+  holly or vial of mynock blood. That these precautions are entirely unnecessary has not stopped several prestigious
+  Vossport craftspeople from making exorbitant profits from their construction.
+
+  Wizard pouches increase a character’s encumbrance threshold by 1.
+encumbrance: 0
+rarity: 4
+reference:
+  - NoP:106

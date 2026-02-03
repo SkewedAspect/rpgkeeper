@@ -1,0 +1,17 @@
+id: eote-minedetect
+name: Mine Detector
+description: >-
+  Mine detectors are specialized handheld scanners designed to locate buried or concealed anti-personnel and
+  anti-vehicle mines. The simplest mine detectors are sensitive metal detectors that use a magnetic field to locate
+  mines. More advanced models use technologies including ground-penetrating radar, ultrasound emitters, chemical
+  sniffers, and the like.
+
+  Using a mine detector to locate concealed mines requires a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Computers** or **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Vigilance check** with appropriate modifications for
+  environmental conditions such as weather, flora, rough terrain, or the composition of the ground. On a successful
+  check, all mines and other explosive devices within medium range are revealed to the user.
+encumbrance: 1
+rarity: 4
+reference:
+  - FO:46

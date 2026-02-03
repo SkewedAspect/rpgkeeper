@@ -1,0 +1,18 @@
+id: eote-portpowgen
+name: Portable Power Generator
+description: >-
+  For most armies, power is just as important as ammunitition, food and bandages. Energy weapons require constant
+  recharging, heavier emplacements and repeaters need dedicated generators. Droids, comms, and other equipment demand
+  rapid recharging under combat conditions to remain useful. A number of corporations produce small generators the
+  Allicance deploys at trenches, encampments and rally points.
+
+  A portable generator can recharge a depleted piece of equipment as a maneuver, or a droid or larger piece of machinery
+  in an hour.
+
+  Additional, a portable power generator can allow an engaged character to ignore an "out of ammo" <despair></despair>
+  result in the same manner as an extra reload (see page 197 of the **Age of Rebellion** Core Rulebook) the generator is
+  usually not depleted by such use except at the GM's discretion.
+encumbrance: 10
+rarity: 2
+reference:
+  - FiB:54

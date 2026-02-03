@@ -1,0 +1,8 @@
+id: eote-servpatremote
+name: Service Patch Remote
+description: The service patch remote analyzes damage to a starship's systems and repairs broken circuits. Slicers
+  sometimes use service patch remotes to compromise physical security measures protecting computers.
+encumbrance: 0
+rarity: 3
+reference:
+  - SM:53

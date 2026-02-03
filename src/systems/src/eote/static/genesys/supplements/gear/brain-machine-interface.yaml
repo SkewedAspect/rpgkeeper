@@ -1,0 +1,12 @@
+id: genesys-gear-brain-machine-interface
+name: Brain Machine Interface
+description: A BMI typically uses a flexible, net-like sheath full of neural receptors that bridges the user's neurons
+  with electrical connections. In short, it lets runners make "deep" runs in the Network, with full sensory immersion. A
+  BMI is not a computer, but may be connected to any computer. While using a BMI during a Network encounter, a runner
+  can choose to "go deep" as a maneuver. Until they "go shallow" as a maneuver, they may only interact with the Network
+  (performing Network maneuvers and Network actions); they cannot interact with the regular world (such as by performing
+  regular maneuvers or actions). However, they may perform a second maneuver each turn during Network encounters without
+  spending strain.
+encumbrance: 0
+rarity: 4
+reference: SotB:98

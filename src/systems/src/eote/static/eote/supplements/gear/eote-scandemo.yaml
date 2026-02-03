@@ -1,0 +1,10 @@
+id: eote-scandemo
+name: Mark 10 Demolitions Scanner
+description: This handheld unit is designed to detect the distinctive chemical and energy signatures of a broad range of
+  explosive devices. The demolitions scanner can be used independently or connected to a datapad or combat scanner, and
+  its data can be transmitted to a remote receiver. The demolitions scanner allows the user to detect concealed
+  explosive devices, and adds <boost></boost> to any checks to do so.
+encumbrance: 1
+rarity: 4
+reference:
+  - DC:57

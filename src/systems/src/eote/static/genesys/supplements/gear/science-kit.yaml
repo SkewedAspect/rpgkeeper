@@ -1,0 +1,9 @@
+id: genesys-gear-science-kit
+name: Science Kit
+description: Filled with assorted small books, vivisection and sample collection tools, charcoals for sketching new
+  findings, vials for chemical analysis, and other essentials, this kit allows a scientist to act effectively even when
+  away from their familiar laboratory. Your character adds <boost></boost> to all Knowledge checks they make while using
+  a science check.
+encumbrance: 2
+rarity: 3
+reference: G-EPG:24

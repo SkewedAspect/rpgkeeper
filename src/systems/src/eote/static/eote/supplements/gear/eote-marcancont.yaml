@@ -1,0 +1,9 @@
+id: eote-marcancont
+name: Marcan Herb (100 doses)
+description: A mild narcotic popular among Hutts, Marcan herb can induce a sense of euphoria upon inhalation. Often
+  smoked in hookah pipes, the herb has a distinctive odor when burned. While not as profitable as other forms of spice,
+  there is a steady market for Marcan herb in Hutt Space.
+encumbrance: 25
+rarity: 5
+reference:
+  - LoNH:110

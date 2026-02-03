@@ -1,0 +1,13 @@
+id: eote-xv20vetkit
+name: XV-20 Portable Veterinary Kit
+description: The XV-20 is produced by Xenovet, a biotech firm based on Commenor known for its designer pets and
+  respected line of vetinary equipment. Designed for individuals in out-of-the-way places who make their livings with
+  beasts, such as scouts, surveyors and herders, the XV-20 provides all the medical tools and supplies needed to keep a
+  creature happy and healthy. Packed in a small, shock-proof carrying case, the kit contains enough drugs, supplies,
+  vetinary medical instruments and other gear to treat sick or wounded animals in the field, in addition to the medical
+  suppliesm the XV-20 also contains a small datapad with a vetinary care database for most of the galaxy's common
+  creatures and a number of tutorials to assist untrained individuals in the emergency treatment of animals.
+encumbrance: 2
+rarity: 0
+reference:
+  - SS:48

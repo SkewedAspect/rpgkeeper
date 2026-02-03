@@ -1,0 +1,9 @@
+id: genesys-gear-disguise-kit
+name: Disguise Kit
+description: Disguise kits are used by criminals, spies, and investigators to alter their physical appearance. A
+  standard kit includes various wigs, hairpieces, makeup, colored contact lenses, basic camouflage paints, and even
+  prosthetic features. Advanced kits may contain simple biometric spoofers to get around fingerprint readers, retinal
+  scanners, and even, in some cases, genelocks.
+encumbrance: 4
+rarity: 5
+reference: SotB:96

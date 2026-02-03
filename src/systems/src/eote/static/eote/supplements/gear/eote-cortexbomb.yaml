@@ -1,0 +1,15 @@
+id: eote-cortexbomb
+name: Cortex Bomb
+description: >-
+  Cortex bombs are last-resort measures to keep an agent from breaking under interrogation. Essentially kill switches
+  for sentient beings, cortex bombs comprise a series of tiny explosive charges wired to the brain. Normally inert, they
+  are set to detonate when a specific trigger signal is heard or seen, instantly killing the individual with the
+  implant.
+
+  Cortex bombs detonate when the implanted individual speaks, hears, or sees a pre-determined code word or signal, and
+  kill only the wearer. They deal very little discernible damage to the target, though, and no damage to the surrounding
+  area.
+encumbrance: 0
+rarity: 6
+reference:
+  - CaM:44

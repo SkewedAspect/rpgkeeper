@@ -1,0 +1,10 @@
+id: eote-chcubeloaded
+name: Loaded Chance Cube
+description: |-
+  Countless credits have been won and lost on the roll of simple chance cubes. Basic and low-tech, these dice can be found virtually everywhere in the galaxy. The simplicity of chance cubes also makes them susceptible to swindlers who like to keep the odds in their favor. By weighting the cubes slightly, unscrupulous individuals can increase the chances of the cubes coming up either red or blue. While difficult to detect on first glance, even the thickest Gamorrean will eventually realize that loaded chance cubes, or "tops" as they are sometimes called, are anything but random if used too often.
+  Characters using loaded chance cubes may add up to <boost></boost><boost></boost> to Deception checks when gambling. Noticing that chance cubes are weighted requires a **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check** on the first roll of the dice, but the difficulty decreases by one for each subsequent roll.
+  **Models Include:** Numerous variants.
+encumbrance: 1
+rarity: 5
+reference:
+  - LoNH:108

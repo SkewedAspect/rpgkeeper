@@ -1,0 +1,9 @@
+id: eote-aldr8gravbind
+name: AL-DR8 Grav-Binders
+description: |-
+  Designed to restrain the particularly slippery individuals, grav-binders use microrepulsor technology to artificially apply the effects of extreme gravity to a captive. Unlike magna-cuffs, heavy-duty binders that employ a magnetic field to be too strong to break, AL-DR8 grav-binders are fitted snugly across the body and use the power of gravity itself to restrict any movement. This makes them favorable for species that have especially flexible or even amorphous bodies, as they must be able to muster the strength to resist the artificial gravity created by the grav-binders before they can even attempt to slip free.
+  Breaking free from the grav-binders requires the **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Athletics check** (due to the restrictive effects of the artificially raised gravity on the whole body, a character cannot slip free of grav-binders using flexibility alone.)
+encumbrance: 1
+rarity: 7
+reference:
+  - KtP:51

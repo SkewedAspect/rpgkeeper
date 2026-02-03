@@ -1,0 +1,8 @@
+id: genesys-gear-geiger-counter
+name: Geiger Counter
+description: These are handheld sensors used to detect radiation. While your character is holding a Geiger counter, they
+  know when they are about to enter an area that could force them to suffer a level of radiation (see {@sidebar A
+  Certain Glow), on page 29).
+encumbrance: 1
+rarity: 5
+reference: G-EPG:36

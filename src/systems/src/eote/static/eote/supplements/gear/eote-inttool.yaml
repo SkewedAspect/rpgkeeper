@@ -1,0 +1,15 @@
+id: eote-inttool
+name: VX-A Intelligent Toolbox
+description: >-
+  Merr-Sonn VX-A Intelligent Toolbox
+
+  Developed as a civilian alternative to the Merr-Sonn VX Hands-Free Weapon System, this rigid backpack contains a suite
+  of tools and portable supplies. The device has two built-in, multi-jointed arms that respond to the wearer's verbal
+  commands to hand the wearer tools, hold equipment and reorganise tools once the user is done with them.
+
+  An intelligent toolbox counts as a tool kit (see pages 181-182 of the **Edge of The Empire** Core Rulebook).
+encumbrance: 3
+rarity: 8
+reference:
+  - SM:52
+  - FO:48

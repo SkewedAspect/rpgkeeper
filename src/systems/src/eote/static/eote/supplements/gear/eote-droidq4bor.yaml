@@ -1,0 +1,19 @@
+id: eote-droidq4bor
+name: Q4 Borer Droid
+description: >-
+  Quarren Industrial Q4 Borer Droid
+       
+  Manufactured by Quarren Industrial on the planet Mon Cala, the Q-4 borer is a diminutive cylindrical mining droid .7
+  meters in length and .2 meters in diameter. Moving via a repulsorlift engine, the droids use drilling lasers to burrow
+  through dirt and soft rock in search of veins of ore, which they can detect with the use of specialized sensors. Once
+  the Q-4 discovers ore, it continues to search for additional veins, while larger mining droids are called in to
+  extract the discovery.
+
+  Referred to as “mole droids” by the miners who use them, Q-4s possess a cheerful demeanor and pursue their work with
+  apparent glee. Despite their carefree and can-do attitudes, Q-4s aren’t particularly bright, and they often bite off
+  more than they can chew if left unattended for long periods of time. They are used in small teams and deployed in
+  large formations to search for ore, and they operate easily both in atmosphere and underwater.
+encumbrance: 0
+rarity: 5
+reference:
+  - SoR:113

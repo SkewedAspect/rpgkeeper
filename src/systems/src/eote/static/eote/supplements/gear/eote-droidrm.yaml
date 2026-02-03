@@ -1,0 +1,31 @@
+id: eote-droidrm
+name: RM-Series Military Intelligence Droid
+description: >-
+  RM-series Military Intelligence Droid
+
+  The RM-series is a powerful, highly competent espionage droid from the powerful security firm MerenData. Until
+  recently, MerenData was known for its line of espionage droids based on Cybot Galactica's 5PO protocol droids. The
+  release of the RM-series was MerenData's first attempt at a droid designed in-house, and so far that attempt has been
+  a rousing success. Only recently introduced after years of research and development, RMS are small, squat, kite-shaped
+  droids about a meter tall, with an armored, flat-topped head. Their burly arms are tipped with heavy weapons, and
+  numerous dexterous manipulators for grasping and fine-motor work hang from their flat undercarriages. These droids
+  move about via a baffled repulsorlift engine that makes little noise and produce almost no energy signature or
+  emissions. Their personalities are laconic and no-nonsense, although those droids that go without their regular
+  maintenance and memory wipes develop strange philosophical or artistic streaks.
+
+  RM-series droids specialize in military intelligence, specifically post-battle analytics and the study of enemy
+  tactics and strategy. They are commonly dispatched to war zones to gather battlefield data and to observe how clashing
+  forces fight in various galactic conditions. As this is an exceedingly dangerous task, these droids are well armored
+  and carry an array of heavy anti-personnel and anti-droid weaponry. They are equipped with a sophisticated suite of
+  intelligence-gathering and data analysis systems and come packed with optical, audio, chemical, energy, and other
+  sensors. RMS also possess respectable engineering and infiltration programming that allows them to act as combat
+  engineers and saboteurs when needed. Many Imperial camps have been flattened by an RM-series droid's homemade
+  explosives and cunning trickery.
+
+  In Alliance and Imperial espionage circles, RM-series droids have gained a reputation as highly competent units that
+  can be relied upon in the field. This is more so in the Alliance, where these droids are often part of infiltration
+  and sabotage teams, in which their knowledge and offensive capabilities can be used to their fullest potential.
+encumbrance: 0
+rarity: 7
+reference:
+  - CaM:54

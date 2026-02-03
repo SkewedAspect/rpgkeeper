@@ -1,0 +1,9 @@
+id: genesys-gear-wagon
+name: Wagon
+description: Wagons can be expensive enough that several farmers may share one. A farmer's wagon is usually constructed
+  from heavy, rough-hewn timbers—a marked contrast to the varnished wood of a merchant's wagon or the brightly painted
+  covered wagon of a wandering Gnome. A wagon can hold characters and gear totaling up to 50 encumbrance. A wagon
+  features two or more wheels and can move at moderate speed if a beast of burden pulls it.
+encumbrance: 0
+rarity: 2
+reference: RoT:101

@@ -1,0 +1,13 @@
+id: genesys-gear-climbing-harness
+name: Climbing Harness
+description: In a city as vertical as New Angeles, climbing gear occupies a useful niche for anyone who has reason to go
+  clambering around on the outside of buildings. A climbing harness includes a fully secured harness, two hundred meters
+  of micro-filament rope strong enough to support the weight of two adults, and a set of quick-stick pitons with an
+  adhesive that locks onto nearly any surface in seconds. The harness has a small motor that allows it to automatically
+  ascend the rope, and a one-shot grapnel launcher for quick ascents. To use the grapnel launcher, your character must
+  make a Ranged (Light) skill check with a difficulty set by the range of the wall, building, or other structure your
+  character is trying to hit (in the same manner as determining the difficulty of a ranged combat check). Securing a
+  piton requires a maneuver. The motorized harness allows your character to ascend or descend without making a check.
+encumbrance: 2
+rarity: 4
+reference: SotB:101

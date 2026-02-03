@@ -1,0 +1,23 @@
+id: eote-avaspcargo
+name: Avabush Spice (100 dose cargo container)
+description: >-
+  Avabush Spice
+
+  Avabush spice is a drug that induces relaxation and lethargy, and some use it as an illicit sleep aid. Unlike many
+  varieties of spice, it has no hallucinogenic qualities and does not cause physical addiction in most species. However,
+  it does have one interesting quirk that separates it from countless similar drugs: avabush spice makes users more
+  truthful, and can be used to extract information when combined with targeted and insistent questioning. Though not
+  particularly valuable, avabush can only be found on the planet of Baros and in certain specialized greenhouses that
+  maintain samples. It is considerably less effective than the various truth serums commonly employed by the Empire, but
+  is also harder to detect and less unpleasant for those consuming it.
+
+  A character who has consumed avabush spice feels lethargic, and can only upgrade a single <ability></ability> to a
+  <proficiency></proficiency> on any given check because of this mental torpor. Further, whenever this character
+  intentionally tries to lie or conceal the truth, the GM upgrades any one <difficulty></difficulty> in the dice pool
+  into a <challenge></challenge> Avabush spice's effects last for one scene or combat encounter.
+
+  **Restrictions:** Avabush spice is banned or controlled on most worlds with a strong Imperial presence.
+encumbrance: 3
+rarity: 7
+reference:
+  - E-CRB:183

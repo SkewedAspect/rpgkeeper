@@ -1,0 +1,19 @@
+id: eote-trainweight
+name: Training Weights
+description: >-
+  Many Warriors wear weighted bracers or anklets when training. This added weight and resistance not only helps the
+  Warrior to build muscle, but also better prepares them to fight in difficult circumstances such as high-gravity
+  environments. High-end models may incorporate an onboard computer that tracks the user's activity and even sets
+  fitness goals. Some Warriors wear training weights in decidedly real-and potentially lethal-combat situations,
+  although this contradicts all manufacturer specifications.
+
+  A character wearing one or more training weights adds <setback></setback> to all Brawn- and Agility-based checks, and
+  to all combat checks. If a character wears training weights throughout a game session, increase the amount of XP the
+  character receives for the session by 1. At the GM's discretion, a character wearing training weights may not receive
+  this additional XP if they did not make any checks affected by the weights during the session.
+
+  **Models Include:** TaggeCo TruFit System, Sidyne M2 Smart-trainer.
+encumbrance: 3
+rarity: 3
+reference:
+  - KoF:50

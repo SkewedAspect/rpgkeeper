@@ -1,0 +1,19 @@
+id: eote-droidprotlrd
+name: LRD-Series Envoy Droid
+description: >-
+  Envoy droids fill an obscure but significant niche in the protocol droid market. Programmed for greater independence
+  of thought than most and featuring expanded loyalty protocols, envoy droids are able to speak in their master's stead
+  without supervision. While there are entirely legitimate uses of droid envoys, sending one is nevertheless considered
+  a snub in most circles—usually taken to indicate that the droid's master considers his opposite number to be
+  untrustworthy or unworthy of a direct meeting. Nevertheless, the Rebellion often risks the hard feelings, taking the
+  opportunity to conduct negotiations without risking the lives of its agents by deploying LRD-series droids to suspect
+  meetings whenever possible.
+
+  The LRD-series is one of the few envoy droids that receives a measure of respect when sent to a meeting. The droid's
+  mimic circuits allow it to imitate its master with astounding precision. Having an LRD-series envoy at negotiations is
+  considered nearly the same thing as having its master present; given the price of the model, it is generally not taken
+  as harshly to see one arrive instead of a flesh-and-blood negotiator.
+encumbrance: 0
+rarity: 5
+reference:
+  - DA:57

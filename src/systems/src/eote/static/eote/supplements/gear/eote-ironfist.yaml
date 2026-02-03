@@ -1,0 +1,15 @@
+id: eote-ironfist
+name: Talisman of Iron Fists
+description: >-
+  There have been many warrior traditions that have used the Force throughout the history of the galaxy, of which the
+  Jedi are the most famous. Rather than the lightsabers of the Jedi and the Sith, some Force warrior traditions focus on
+  turning the practitioner's body into a weapon. This talisman is from one such order, and it channels the Force into
+  the wearer's body, making It hard as steel.
+
+  **If the wearer of the Talisman of Iron Fists is Force-sensitive, he gains the Cortosis quality, which means that any
+  armor he wears gains the Cortosis quality and his Brawl attacks gain the Cortosis quality. Furthermore, his Brawl
+  attacks gain Pierce X, where X is his current Force rating.
+encumbrance: 1
+rarity: 10
+reference:
+  - F-CRB:190

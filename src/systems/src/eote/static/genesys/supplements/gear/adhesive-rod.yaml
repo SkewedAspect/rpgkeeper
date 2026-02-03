@@ -1,0 +1,12 @@
+id: genesys-gear-adhesive-rod
+name: Adhesive Rod
+description: "Adhesive rods are hand-sized tubes filled with a viscous gel. When this gel is applied to the surface of
+  two objects that are then placed together, it creates a nearly unbreakable bond between them. After a few minutes, the
+  bond can only be removed by treating the area with a neutralizing solution. Your character may glue two objects
+  together by spending a maneuver and expending an adhesive rod. The objects then require a Formidable to break.
+  <difficulty></difficulty> may be spent to have the object break before the adhesive does. Alternatively, if your
+  character has access to the proper chemicals, they can remove the gel with an Average. This item may be modified with
+  2-1: Cultural Manufacturing Differences."
+encumbrance: 1
+rarity: 4
+reference: EotI:125

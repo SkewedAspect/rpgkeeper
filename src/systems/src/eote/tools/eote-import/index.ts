@@ -29,6 +29,7 @@ import { fetchAndLoadData } from './fetcher.ts';
 import {
     type InternalArmor,
     type InternalAttachment,
+    type InternalGear,
     type InternalQuality,
     type InternalTalent,
     type InternalWeapon,
@@ -36,6 +37,7 @@ import {
     buildTalentTreeMap,
     convertArmors,
     convertAttachments,
+    convertGear,
     convertQualities,
     convertTalents,
     convertWeapons,
@@ -332,6 +334,7 @@ async function main() : Promise<void>
 
     let armors : InternalArmor[] = [];
     let weapons : InternalWeapon[] = [];
+    let gear : InternalGear[] = [];
     let talents : InternalTalent[] = [];
     let attachments : InternalAttachment[] = [];
     let qualities : InternalQuality[] = [];
@@ -346,6 +349,12 @@ async function main() : Promise<void>
     {
         weapons = convertWeapons(data.weapons);
         console.info(`  - Converted ${ weapons.length } weapons`);
+    }
+
+    if(!options.type || options.type === 'gear')
+    {
+        gear = convertGear(data.gear);
+        console.info(`  - Converted ${ gear.length } gear items`);
     }
 
     if(!options.type || options.type === 'talent')
@@ -410,6 +419,12 @@ async function main() : Promise<void>
     {
         const stats = await writeItemsToDirectory(weapons, join(SUPPLEMENTS_DIR, 'weapons'), options);
         console.info(`  - Processed ${ weapons.length } weapon files ${ formatStats(stats) }`);
+    }
+
+    if(!options.type || options.type === 'gear')
+    {
+        const stats = await writeItemsToDirectory(gear, join(SUPPLEMENTS_DIR, 'gear'), options);
+        console.info(`  - Processed ${ gear.length } gear files ${ formatStats(stats) }`);
     }
 
     if(!options.type || options.type === 'talent')

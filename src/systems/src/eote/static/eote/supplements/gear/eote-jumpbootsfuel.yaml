@@ -1,0 +1,13 @@
+id: eote-jumpbootsfuel
+name: Jump Boots Fuel
+description: >-
+  Jump boots are, essentially, a single-use jetpack built into a thick boots and allows a user to leap over tall
+  obstacles and even fly for a very limited time. This attachment can be applied to any armor with an encumbrance of 4
+  or less. It is good for only one use and cannot be used again until the rockets are refueled, which costs 100 credits
+  and takes 30 minutes.
+
+  **Models Include:** Zim Systems LO-44.a micro-rockets.
+encumbrance: 0
+rarity: 6
+reference:
+  - CaM:58

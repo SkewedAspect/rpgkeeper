@@ -1,0 +1,16 @@
+id: eote-jedimultitool
+name: Jedi Multi-Tool
+description: >-
+  (Lightsaber Maintenance Kit)
+
+  Designed and manufactured by and for the Jedi Order, the lightsaber maintenence kit is a compact device containing
+  several useful mechanical implements. Though designed primarily to assist in lightsaber maintenence and repair, many
+  of the included tools can also be employed to conduct minor repairs on small mechanical and electronic items.
+
+  In addition to counting as a tool kit for the purposes of most Mechanics checks, a jedi multi-tool adds automatic
+  <advantage></advantage> to checks to build, modify or repair lightsabers.
+encumbrance: 2
+rarity: 9
+reference:
+  - KtP:53
+  - RotS:59

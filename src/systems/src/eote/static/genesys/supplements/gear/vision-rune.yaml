@@ -1,0 +1,13 @@
+id: genesys-gear-vision-rune
+name: Vision Rune
+description: "A vision rune allow a character to expand their eyesight to extraordinary lengths. They can see over the
+  horizon and even through sealed containers or behind walls, abilities any thief or spy would pay anything to do.
+  Wizards can also use them to hurl spells at hidden foes or in darkness, and have allowed the sightless Jenti the Just
+  to recover from unhealable injuries and become a famed sorcerer in the Lorimor Imperial Court. - Activation: As an
+  action, a character can make an <difficulty></difficulty><difficulty></difficulty> to cast their gaze upon a land
+  anywhere within three day's travel as if they were standing there themselves, or to see through a solid object within
+  medium range as if the intervening material was as clear as glass. - Implement: When casting a spell, your character
+  can choose any target in range, even if they cannot see it (such as if the target was in darkness or behind a wall)."
+encumbrance: 0
+rarity: 0
+reference: RoT:121

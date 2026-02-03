@@ -1,0 +1,22 @@
+id: eote-custtool
+name: Custom Tool Kit
+description: >-
+  Journeyman Tools Custom Tool Kit
+
+  For every job there is a proper tool; the bigger the job, the more tools a technician needs. Journeyman Tools Inc.
+  knows the importance of a well-made, reliable, easy-to-use tool to a mechanic or shipwright, and their line of custom
+  tool kits are designed and built for the hardworking and discerning professional. Journeyman custom tool kits feature
+  all the tools common to specific kits, like the kits used to work on a walker or a starfighter, with the addition of a
+  number of specialty implements as dictated by the purchaser. Each tool is custom-fit to the purchaser using a number
+  of variables including grip, handedness, strength, arm length, and even working style. Once ordered, the tools are
+  packed in a custom-built, locking tool box with each tool nestled into its own form-fitted foam cutout to keep it
+  securely in place during use or transit.
+
+  Using a Journeyman Tools custom tool kit grants the user for whom the kit was built <boost></boost> to any skill check
+  made to maintain or repair an item, computer, weapon, vehicle, or starship. A character attempting to use Journeyman
+  tools made for someone else suffers <setback></setback> to the same checks. Custom tools can be customized for another
+  user with extensive, and often expensive, modification.
+encumbrance: 5
+rarity: 5
+reference:
+  - SoT:45

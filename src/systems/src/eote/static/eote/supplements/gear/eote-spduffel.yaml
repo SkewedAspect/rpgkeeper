@@ -1,0 +1,19 @@
+id: eote-spduffel
+name: Spacer's Duffel
+description: >-
+  Most sentients who make their livings as common crew aboard large civilian vessels tend to be lifelong transients,
+  wandering from ship to ship and world to world in search of employment. A spacer might serve on dozens of ships during
+  his career and travel untold millions of light-years, his only home the crew berths of cargo ships and the hostels,
+  bars, and entertainment districts of spaceports. Such beings tend to travel light, carrying their entire lives with
+  them from job to job in large cylinder-shaped bags colloquially known as spacer's duffels. Roughly half the size of a
+  grown human and featuring one large compartment, a sturdy zipper, and a single shoulder strap, spacer's duffels have
+  become a symbol of the free-and-easy life of the common spacer. Made by many different textile and storage-technology
+  companies, these bags are as essential a piece of kit to the survival of a spacer as his certificates and his
+  spacesuit. Among ship captains and recruiting agents, one of the most common sights in the spacelanes is a grizzled
+  spacer with a hopeful look on his face, approaching with his duffel slung over his shoulder to inquire about work.
+
+  Spacer's duffels increase the user's encumbrance threshold by 2 but also have the Cumbersome 3 quality.
+encumbrance: 0
+rarity: 0
+reference:
+  - EtU:44

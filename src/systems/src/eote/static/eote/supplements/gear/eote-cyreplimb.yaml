@@ -1,0 +1,26 @@
+id: eote-cyreplimb
+name: Repli-Limb Prosthetic (limb)
+description: >-
+  Given the often violent nature of the galaxy and the dangerous weapons used to settle many disagreements, many losers
+  (and winners) of such conflicts often wind up with fewer fingers, arms, or legs than when they started. Others might
+  have internal organs destroyed or ruined eyes. While cloning technology and flesh regenerators can be used to repair
+  such losses, few use this option, as it is expensive and often highly illegal. Instead, many opt for mechanical
+  replacements.
+
+  BioTech Industries' Repli-Limb Prosthetic Replacements are some of the more popular options. These cybernetics are
+  designed to provide identical functionality to the original limb or organ, and are installed with a synthflesh
+  covering, making them almost indistinguishable from the organic component they replace.
+
+  Limbs and major organs (including sensory organs such as eyes and ears, as well as heart, lungs, livers, and more) can
+  all be replaced with a Repli-Limb option. They do not provide any bonuses or enhancements to the character, but
+  restore him to normality. There are two general cost entries for Repli-Limb Prosthetics; the first is for limbs, the
+  second for organs. However, the GM should feel free to increase or decrease the costs depending on the specific
+  circumstances.
+
+  **Models Include:** BioTech Industries Repli-Limb Prosthetic Replacements.
+encumbrance: 0
+rarity: 4
+reference:
+  - E-CRB:174
+  - A-CRB:190
+  - F-CRB:184

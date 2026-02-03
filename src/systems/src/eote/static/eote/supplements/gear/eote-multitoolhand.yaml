@@ -1,0 +1,13 @@
+id: eote-multitoolhand
+name: Multi-Tool Hand
+description: >-
+  Multi-tool hands are basic cybernetic hands equipped with a suite of basic tools. Marketed primarily to mechanics,
+  engineers, and hobbyists, these hands contain a small spotlight and a surprising number of tools and accessories that
+  can handle most light repair and maintenance jobs. In a pinch, a multi-tool hand can also be used to sabotage a piece
+  of equipment or to help the user escape from confinement.
+
+  A multi-tool hand provides all the benefits of a tool kit.
+encumbrance: 0
+rarity: 4
+reference:
+  - CaM:44

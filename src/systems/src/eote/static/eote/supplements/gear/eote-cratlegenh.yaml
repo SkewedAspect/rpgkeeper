@@ -1,0 +1,8 @@
+id: eote-cratlegenh
+name: Cratala's Leg Enhancement Implant
+description: The character gains <boost></boost><boost></boost> on any Athletics checks involving the enhanced (not
+  replaced) limbs. <despair></despair> means the unit shorts out temporarily, dealing 5 strain damage.
+encumbrance: 0
+rarity: 9
+reference:
+  - Beyond the:66

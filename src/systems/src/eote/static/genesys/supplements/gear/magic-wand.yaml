@@ -1,0 +1,14 @@
+id: genesys-gear-magic-wand
+name: Magic Wand
+description: Magical wands are as much a tradition of magic as staffs. Usually small sticks about the size and shape of
+  a conductor's baton, they can be constructed from just about anything and worked with any number of designs. Magic
+  wands help augment the user's ability to cast spells in a very specific way. When a character makes or obtains the
+  wand, you, the GM, determine one effect that the wand lets users add to any appropriate spell without increasing the
+  spell's difficulty. The effect chosen must be one that, without a wand, only increases difficulty by one. In addition,
+  attack spells cast by the user increase their base damage by three. For example, your character could have a wand of
+  fire, which lets them add the Fire effect to any magic attack actions they perform. They could also have a wand of
+  enervation, which lets them add the Enervate effect to any curse actions they perform. However, they cannot have a
+  wand of grand summoning, because the Grand Summon effect increases the difficulty of the spell by two, not one.
+encumbrance: 1
+rarity: 5
+reference: G-CRB:219

@@ -1,0 +1,18 @@
+id: eote-stimstick
+name: Stimstick
+description: |-
+  On Yavin 4, sentries stood long watches in crow’s nests
+  atop large poles that breached the jungle canopy, scanning the horizon and sensor feeds for signs of Imperial
+  discovery. Echo Base was similarly dependent on early
+  warnings. Unfortunately, standing watch can be long
+  and boring. To stay alert, many sentries rely on stimsticks. These stylus-shaped cuts of soft wood release a
+  powerful stimulant when chewed.
+  A character who chews a stimstick removes <setback></setback> from
+  her Discipline, Perception, Resilience, or Vigilance
+  checks to stay awake or notice something due to fatigue
+  or lack of sleep until the end of the encounter. At the
+  end of the encounter, the character suffers 1 strain.
+encumbrance: 0
+rarity: 2
+reference:
+  - FiB:53

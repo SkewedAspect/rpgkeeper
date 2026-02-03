@@ -1,0 +1,10 @@
+id: genesys-gear-handheld-diagnostic-scanner
+name: Handheld Diagnostic Scanner
+description: Designed to diagnose mechanical and electrical trouble, these all-purpose scanners can interface with any
+  computer-controlled machine or smart system to detect malfunctions. They are typically sold with software suites that
+  help users navigate the millions of potential error codes in everything from PADs and hoppers to industrial machinery.
+  When your character makes a Computers or Mechanics check to work on a piece of hardware while using a handheld
+  diagnostic scanner, they add <advantage></advantage> to the results.
+encumbrance: 1
+rarity: 2
+reference: SotB:102

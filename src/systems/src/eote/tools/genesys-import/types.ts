@@ -212,6 +212,7 @@ export interface ExternalGearBase
     description : VaryingDisplay;
     price : number | 'priceless' | null;
     rarity : number | null;
+    encumbrance ?: number;
     imageUrl ?: string;
     page ?: number;
     class ?: string;

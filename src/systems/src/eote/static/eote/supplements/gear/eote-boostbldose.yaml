@@ -1,0 +1,25 @@
+id: eote-boostbldose
+name: Booster Blue (dose)
+description: >-
+  Booster Blue
+
+  Derived from an industrial dye used in large-scale construction operations such as the creation of starships, booster
+  blue is a performance enhancing drug popular amongst pilots and gunmen. The drug is most often distributed as a blue
+  liquid stored in metal cans to prevent spillage on skin or surfaces that are easily damaged. Though nobody seems to
+  know the drug's exact history, apparently some intrepid soul came to the realization that by consuming this chemical
+  concoction meant for painting starships, humans and many other species can temporarily benefit from drastically
+  boosted reaction times. Of course, this power is not without a price—booster blue has a number of deleterious
+  side-effects, and over-doses are common, especially amongst pilots who attempt to overlap applications of the drug
+  during extended combat operations.
+
+  A character under the effects of booster blue may upgrade the ability of any Agility, Intellect, or Cunning-related
+  check he undertakes once, reflecting his improved concentration and mental acuity. However, this artificial focus
+  takes a toll on the mind. A character under the effects of booster blue may not remove strain at the end of any scenes
+  or encounters for the remainder of the session. Booster blue's beneficial effects last for one scene or combat
+  encounter.
+
+  **Restrictions:** Booster blue is illegal on most worlds.
+encumbrance: 0
+rarity: 5
+reference:
+  - E-CRB:184

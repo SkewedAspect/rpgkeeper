@@ -1,0 +1,18 @@
+id: eote-vergchart
+name: Vergence Starchart
+description: >-
+  Most starcharts showing the location of legendary vergences are clever (or not so clever) fakes designed to part
+  foolish treasure hunters from their credits. Even if someone manages to get his hands on the real thing, it can be
+  nearly impossible to interpret, since a starchart that actually shows the location of a vergence can be thousands of
+  years old.
+
+  A vergence starchart (if it is real), shows the location of one vergence (chosen by the GM). To read the chart
+  correctly, the character must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Astrogation check**
+
+  with <setback></setback><setback></setback><advantage></advantage> on a check can be spent to determine whether or not
+  the chart is real.
+encumbrance: 0
+rarity: 10
+reference:
+  - NoP:106

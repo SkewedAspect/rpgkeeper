@@ -1,0 +1,10 @@
+id: genesys-gear-magic-scepter
+name: Magic Scepter
+description: A magic scepter superficially resembles a mace, though many are wrought from the finest materials or are
+  intricately decorated with words of power. Greyhaven scholars claim that the resemblance to a weapon helps the scepter
+  boost and channel magical energies in battle. When your character casts a spell while using a magic scepter, add
+  <boost></boost> to the check and adding the Close Combat effect does not increase the difficulty. In addition, Attack
+  spells cast by your character increase their base damage by two.
+encumbrance: 1
+rarity: 5
+reference: RoT:98

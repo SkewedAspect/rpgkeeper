@@ -1,0 +1,13 @@
+id: genesys-gear-stim
+name: Stim
+description: A catchall name for uppers and stimulants, "stim" can range from the equivalent of espresso shots to
+  narcostim, which boosts a user's reflexes and awareness to dangerously heightened levels. Of course, if a character is
+  buying stim on the street, they're probably getting something closer to the latter. It takes a maneuver for your
+  character to take stim through a consumable tab or an autoinjector (or to use an autoinjector on another engaged
+  character). The character receiving the stim immediately heals all strain they are suffering. At the end of the
+  encounter, instead of recovering from strain as described on page 117 of the Genesys Core Rulebook, the character
+  suffers 10 strain. They may make an <difficulty></difficulty><difficulty></difficulty> to reduce the strain suffered
+  by 1 per s or aa.
+encumbrance: 0
+rarity: 1
+reference: SotB:100

@@ -1,0 +1,9 @@
+id: genesys-gear-magic-orb
+name: Magic Orb
+description: These can be orbs of glass, gems, or other semitransparent minerals, and are generally small enough to be
+  carried. Magic orbs help augment the user's ability to affect more targets with their spells. When the user casts a
+  spell, adding the Additional Target and Additional Summon effects do not increase its difficulty. In addition, attack
+  spells cast by the user increase their base damage by three.
+encumbrance: 1
+rarity: 6
+reference: G-CRB:219

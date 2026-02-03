@@ -1,0 +1,14 @@
+id: genesys-gear-rune-of-fate
+name: Rune of Fate
+description: "Among the most subtle of runebound shards, the rune of fate directs the powerful magic held within the
+  shard to influence the very skein of destiny. Even an untrained user who clutches the shard in their hand finds the
+  luck of themselves and their allies improving in subtle but undeniable ways. A Runemaster can coax myriad effects
+  forth from the shard, consigning their enemies to fumble their weapons or helping allies to fortuitously slip their
+  blades through impossibly narrow chinks in the foe's armor. - Activation: As an action, your character may activate
+  this runebound shard to move one Story Point from the player pool to the GM pool; add <difficulty></difficulty> to the
+  next check that targets your character. - Implement: When your character casts an Augment or Curse spell, you may add
+  the Additional Target effect with no increase in difficulty. In addition, when your character casts a Curse spell you
+  must add the Doom effect with no increase in difficulty."
+encumbrance: 0
+rarity: 0
+reference: RoT:119

@@ -1,0 +1,10 @@
+id: genesys-gear-cyber-rig
+name: Cyber-Rig
+description: Hackers use cyber-rigs to delve deep into the Internet (or its equivalent) and defeat the most dangerous
+  firewalls and programs. These things are big, with multiple monitor screens, towers full of electronics, and countless
+  wires. A cyber-rig does everything a personal computer does. It also adds automatic <success></success> to any checks
+  made to hack into protected servers, and adds automatic <failure></failure> to any checks by opponents to hack into
+  its own systems.
+encumbrance: 8
+rarity: 5
+reference: G-CRB:177

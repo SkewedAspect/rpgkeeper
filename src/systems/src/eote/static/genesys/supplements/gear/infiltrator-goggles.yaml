@@ -1,0 +1,10 @@
+id: genesys-gear-infiltrator-goggles
+name: Infiltrator Goggles
+description: These bulky, high-tech goggles combine the utility of smartspecs with various vision-enhancing
+  technologies. Used by criminals and special operatives alike, infiltrator goggles are smartgoggles equipped with a
+  passive night-vision system, supported by thermal imaging and (in some models) microband radar emitters. While wearing
+  infiltrator goggles, your character removes <setback></setback><setback></setback> added to their checks due to
+  concealment (darkness, smoke, and intervening terrain).
+encumbrance: 1
+rarity: 6
+reference: SotB:96

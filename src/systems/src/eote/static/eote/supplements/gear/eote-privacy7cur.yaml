@@ -1,0 +1,18 @@
+id: eote-privacy7cur
+name: Privacy-7 Audio Curtain
+description: >-
+  TaggeCo Privacy-7 Audio Curtain
+
+  This is one of a wide range of products marketed to beings interested in privacy and discretion. The device
+  comprimises two matched rods covered in microemitters. Users can plant the rods onto nearly any horizontal surface in
+  order to create a sound-dampening field between them. Multiple sets of the rods can fully encolse a conversation, or
+  the user can place them at a physical gap, such as an open door or the entry to an encolsed booth at a tapcafé.
+
+  Characters attempting to listen in on a conversation which is being obscured by one or more audio curtains must make a
+  **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception check** to understand
+  anything being said. The GM can spend <threat></threat> or <despair></despair> to have the character misunderstand key
+  words or phrases.
+encumbrance: 4
+rarity: 6
+reference:
+  - EV:49

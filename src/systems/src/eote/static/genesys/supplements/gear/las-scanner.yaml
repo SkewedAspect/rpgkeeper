@@ -1,0 +1,9 @@
+id: genesys-gear-las-scanner
+name: Las-Scanner
+description: Ostensibly a civil engineer's tool, a las-scanner is used to measure and map enclosed spaces. Using
+  laser-imaging technology, a las-scanner can produce a highly detailed three-dimensional map of a room, ship
+  compartment, cave, or other space in seconds. That image can then be run through the enclosed software for
+  post-processing, markup, and notation. Las-scanners are useful to criminals and spies when infiltrating secure areas.
+encumbrance: 1
+rarity: 4
+reference: SotB:102

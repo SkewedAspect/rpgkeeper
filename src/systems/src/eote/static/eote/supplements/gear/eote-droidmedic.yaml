@@ -1,0 +1,13 @@
+id: eote-droidmedic
+name: Medical Droid
+description: >-
+  (Various Models)
+
+  Medical droids take a variety of forms, from simple attendant droids capable of dressing flesh wounds or diagnosing
+  basic illnesses up to the elaborate and incredibly advanced surgical droids that can be found on military starships
+  and major urban centers throughout the galaxy.
+encumbrance: 0
+rarity: 4
+reference:
+  - E-CRB:409
+  - F-CRB:410
