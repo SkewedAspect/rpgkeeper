@@ -1,0 +1,15 @@
+id: eote-droidastro
+name: Astromech Droid
+description: >-
+  (Various Models)
+
+  A common sight throughout the galaxy, astromech droids such as the famous R2 series are relatively small, utilitarian
+  droids designed to interface with and maintain machinery of varying complexities depending upon the model of the
+  droid. Many technologies are designed with these sorts of droids in mind, and have sockets to allow a direct interface
+  with the droid. Some ships are even designed with the intent of offloading certain computing functions to an
+  interfaced droid (for example, some starfighters rely on interfaced astromech droids to serve as a navicomputers for
+  hyperspace travel).
+encumbrance: 0
+rarity: 3
+reference:
+  - E-CRB:409

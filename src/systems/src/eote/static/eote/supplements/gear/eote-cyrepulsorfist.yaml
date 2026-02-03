@@ -1,0 +1,18 @@
+id: eote-cyrepulsorfist
+name: Repulsor Fist
+description: >-
+  Also called a repulse-hand or an enforcer grip, this durasteel weapon cybernetic is typically neither covered in
+  synthskin nor intended to appear natural. It contains miniature repulsor generators that can be switched on to deliver
+  crushing blows and deflect incoming attacks.
+
+  A repulsor grip provides one rank of the Defensive Stance talent and counts as a Brawl weapon with a damage of 8, a
+  Critical Rating of 3, and the Concus-sive 1 and Slow-Firing 2 qualities. This weapon has the Slow-Firing 2 rule,
+  meaning it can only be used once every third round. This means that while a char-acter may still make Brawl attacks
+  when this weapon is "recharging" he does so without any benefits from the weapon—he simply makes an unarmed melee
+  attack.
+
+  **Models Include:** Illicit Electronics Juggernaut Mag Fist, Control Zone Ltd. Repulse-hand.
+encumbrance: 0
+rarity: 7
+reference:
+  - LoNH:107

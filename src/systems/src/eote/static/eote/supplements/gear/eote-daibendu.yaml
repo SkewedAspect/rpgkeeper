@@ -1,0 +1,10 @@
+id: eote-daibendu
+name: Dai Bendu Holocron
+description: |-
+  First attributed to the precursors of the Jedi, these objects remain a mystery. At the surface level, Dai Bendu holocrons resemble those produced by the Jedi. Each holocron contains six tracts, subdivided into four lessons apiece. Unlike ones made by the Jedi, Dai Bendu holocrons allow even the most unskilled of Force sensitives access. Their true key to mastery lies in study.
+  Completing each lesson in the tract requires an amount of study and meditation up to the GM's decision. At its conclusion, the player must roll a Discipline check of one higher difficulty than it took to access that lesson. For example, to complete the first lesson, a Mystic must roll an **Average (<difficulty></difficulty><difficulty></difficulty>) Discipline check**. To complete the final lesson in a tract requires a **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Discipline check**.
+  When a Force-sensitive character completes a tract, the player selects one characteristic. Once per day, they may upgrade the ability dice pool of any single check related to that characteristic by two steps. The player has learned all they can from that tract, and must move on to another. Each subsequent tract provides the same benefit to another characteristic.
+encumbrance: 1
+rarity: 10
+reference:
+  - UP:52

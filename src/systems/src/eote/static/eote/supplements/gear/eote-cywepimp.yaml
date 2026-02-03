@@ -1,0 +1,18 @@
+id: eote-cywepimp
+name: Cybernetic Weapon Implant
+description: >-
+  It took six designs before the weaponsmiths at BlasTech achieved success, but the Mod VII, also known as a "blaster
+  arm," finally combined a realistic limb with a deadly ranged weapon. The company uses outsourced cybernetic limbs as
+  the basis for their designs, modifying them with their own proprietary weapon designs to form the final product.
+  Favored by bounty hunters and assassins, the artificial forearm can split open for a short-ranged blaster to spring
+  out and deliver a hail of shots before most foes are aware they are in danger.
+
+  The standard cybernetic weapon arm appears to be a regular cybernetic arm but features a retractable light blaster
+  pistol that can be deployed as an incidental. It is attached to the arm and cannot be removed, dropped, or disarmed.
+
+  **Models Include:** BlasTech Industries Arms Cybernetic Weapon Enhancement Mod VII, Athakam MedTech Synthlimb Blaster.
+encumbrance: 0
+rarity: 7
+reference:
+  - E-CRB:174
+  - A-CRB:190

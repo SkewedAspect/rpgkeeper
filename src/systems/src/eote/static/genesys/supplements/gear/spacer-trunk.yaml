@@ -1,0 +1,12 @@
+id: genesys-gear-spacer-trunk
+name: Spacer Trunk
+description: "Part luggage, part wardrobe, part home away from home, spacer trunks are ubiquitous among galactic
+  travelers. They are large, approximately 1.5 meters long and half that wide and deep, and the micrograv platform
+  embedded in their base offsets the trunks' fully loaded weight. The spacer trunk can hold items whose encumbrance
+  values together total 20 or less. No single item placed in the trunk may have an encumbrance higher than 4. Opening a
+  spacer trunk without a proper biometric code requires a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>. This item may be modified with 2-1:
+  Cultural Manufacturing Differences."
+encumbrance: 6
+rarity: 4
+reference: EotI:119

@@ -1,0 +1,16 @@
+id: eote-evapowersuit
+name: EVA Power Suit
+description: >-
+  The extra-vehicular activity (EVA) powersuit is a fully-sealed powered space suit designed to facilitate external
+  starship repairs in a vacuum. Equipped with a simple droid brain to help the wearer control the ponderous limbs and
+  complicated maneuvering thrusters of the suit, as well as monitor its life support systems, the powersuit is equipped
+  with a variety of tools, welders, and cutting lasers for making emergency repairs in a vacuum.
+
+  A character in an EVA powersuit ignores penalties for moving in zero gravity (and can move in zero gravity under power
+  from its inbuilt thrusters, effectively allowing it to "fly" in zero gravity as per page 202 in the **Edge of the
+  Empire** Core Rulebook). The EVA suit has a built-in arc welder, small cutting laser, and repair tools (it counts as
+  having a tool kit for making repairs).
+encumbrance: 12
+rarity: 5
+reference:
+  - SoF:103

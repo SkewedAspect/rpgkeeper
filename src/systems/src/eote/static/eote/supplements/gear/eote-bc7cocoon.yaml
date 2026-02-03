@@ -1,0 +1,18 @@
+id: eote-bc7cocoon
+name: BC-7 Environmental Cocoon
+description: >-
+  Czerka BC-7 Environmental Cocoon
+
+  Primarily intended for hunters and survivalists, and environment cocoon provides a secure space in an otherwise
+  hostile locale. While it is designed to be portable, it can quickly inflate to become a small structure large enough
+  for a single occupant. The field unit has dense insulation as well as its own climate-control system. This enables it
+  to maintain a safe temperature for a single person. The cocoon is equipped with an filter that removes the worst of
+  the particulate matter in the atmosphere.
+
+  The cocoon reduces the difficulty of Resilience checks made to resist effects of extreme cold or heat by three. It
+  also removes up to <setback></setback><setback></setback><setback></setback> added to checks due to extreme heat or
+  cold, for as long as the user remains within it.
+encumbrance: 3
+rarity: 4
+reference:
+  - DoH:46

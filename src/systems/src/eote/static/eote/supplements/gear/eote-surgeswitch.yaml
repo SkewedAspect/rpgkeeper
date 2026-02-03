@@ -1,0 +1,16 @@
+id: eote-surgeswitch
+name: Surge Override Switch
+description: >-
+  Ion weapons, electrical phenomena, and overloads are a danger to anyone who relies too heavily on cybernetics. A surge
+  override switch allows a character whose cybernetics have been disabled to reactivate them. Doing so puts considerable
+  stree on the user's body, however, and so such devices are options of last resort.
+
+  Once per encounter as an action, a character with a surge override switch may make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Discipline check.** If he succeeds, he may reactivate any number
+  of cybernetic implants that have been overloaded by weapons with the Ion quality, the Overcharge talent or similar
+  effects. For each implant he reactivates this way, he suffers 2 strain. A surge override switch cannot be disabled by
+  Ion weapons or overloaded by other means.
+encumbrance: 0
+rarity: 6
+reference:
+  - SM:50

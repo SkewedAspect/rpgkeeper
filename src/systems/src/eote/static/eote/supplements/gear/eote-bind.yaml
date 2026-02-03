@@ -1,0 +1,20 @@
+id: eote-bind
+name: Binders
+description: >-
+  Restraints come in many forms, but all are designed to keep a conscious prisoner subdued and manageable. Basic binder
+  cuffs are strong enough to keep a Wookiee under control and are part of any bounty hunter's standard kit. Binders are
+  made by a variety of different companies, such as Locris Syndicated Securities, although most follow the same basic
+  design.
+
+  Breaking free of binders is often a matter of either sheer brawn or impressive agility and flexibility. The difficulty
+  of each restraint is different depending on the make and model, but the most common restraints require a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Athletics** or
+  **Coordination check** to escape.
+
+  **Models Include:** Locris Syndicated Securities Bind-1.
+encumbrance: 0
+rarity: 0
+reference:
+  - E-CRB:178
+  - A-CRB:193
+  - F-CRB:187

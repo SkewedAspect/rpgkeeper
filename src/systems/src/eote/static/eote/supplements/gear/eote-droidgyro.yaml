@@ -1,0 +1,20 @@
+id: eote-droidgyro
+name: Gyrowheel 1.42.08 Recycling Droid
+description: >-
+  A relatively common sight aboard colony ships and in the streets and alleys of countless settlements, Veril Line
+  Systems' Gyrowheel series recycling droid is, in its way, perhaps the most useful and important droid a colony can
+  possess. Using a powerful cocktail of natural and artificial enzymes contained within their bodies, these droids turn
+  garbage, food scraps, and other organic refuse into a nourishing nutrient sludge that can make up the large part of
+  many a colonist's daily caloric intake.
+
+  Standing around two meters high, these hard working droids consist of a broad, round body like a high-walled serving
+  platter around 2.5 meters across covered by a retractable clamshell cover. Dexterous manipulator arms ring the droid's
+  body, and a dull red photoreceptor constantly scans its surroundings for trash. The droid's body is perched on a
+  single hard rubber wheel and is kept balanced by a sophisticated gyro-stabilization system. More a remote than an
+  actual sentient droid, these extremely dim-witted constructs are devoid of individual personality beyond a desire to
+  hunt trash. They operate in packs, scouring their surroundings for organic refuse under the command of a central
+  monitoring computer system.
+encumbrance: 0
+rarity: 4
+reference:
+  - FH:50

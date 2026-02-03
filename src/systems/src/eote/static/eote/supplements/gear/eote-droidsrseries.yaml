@@ -1,0 +1,20 @@
+id: eote-droidsrseries
+name: SR-Series Scout/Observation Droid
+description: >-
+  SR-series droids are produced by TransTech Droidworks for use as scouts and forward observers. Based on TTD'S civilian
+  S-series survey droid, the SR-series was designed primarily to assist artillery and close air support units by seeking
+  out distant targets and relaying location and targeting data back to base.
+
+  SRs are small, unassuming, non-humanoid droids with a dome-shaped body studded with photoreceptors and long-range
+  targeting systems. The underside of the droid's body houses a small, high-output repulsorlift generator and four
+  retractable manipulators for fine-detail work. Their bodies are coated with an optical camouflage system that allows
+  them to blend in with their surroundings, and they have an encrypted, long-range comms suite that allows them to
+  transmit voice and data quickly and securely to allies.
+
+  When in the field scouting or observing targets, SR-series droids are almost completely silent. Once back at base,
+  however, they tend to chatter away endlessly at anyone unlucky enough to be in earshot This is especially pronounced
+  following an extended deployment.
+encumbrance: 0
+rarity: 6
+reference:
+  - KoF:52

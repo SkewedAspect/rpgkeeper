@@ -1,0 +1,29 @@
+id: eote-droidated
+name: All-Terrain Exploration Droid
+description: >-
+  Cybot Galactica/KDY All-Terrain Exploration Droid
+
+  The new All-Terrain Exploration Droid by Cybot Galactica is designed to assist in the exploration and surveying of
+  newly discovered planets. Hailed as one of the most adaptable and competent surveying droids released in recent years,
+  the AT-ED is set to revolutionize the field of planetary exploration. The AT-ED is a nonhumanoid, Class 2 droid built
+  to operate in the harshest, most inhospitable environments. The AT-ED appears at first glance to be a two-and-a-half
+  meter tall version of Kuat's AT-PT Assault Walker. A long, lightly armored trapezoidal chassis perches atop a pair of
+  reverse-articulated legs with broad, round feet and three grasping toes each. Thanks to their drivetrain layout and
+  the precision with which they are engineered, these droids have exceptional balance and are quite adept at traversing
+  rough and broken ground.
+
+  The chassis is crowded with sensors, photoreceptors, microphones, and antennae. Mounted to the left side of the
+  chassis is a powerful, long-range light that can zoom or flood its beam and can project light in the visible,
+  infrared, and ultraviolet spectra, and the ride side mounts a blaster for defense.
+
+  A full array of audio and visual sensors feed information into the droid's computer while the numerous scientific
+  instruments and topographic-surveying tools monitor and sample air, soil, water, radiation, and dozens of other
+  variables while making detailed three-dimensional maps of the surrounding countryside. They can even coordinate with
+  orbiting ships, sending and receiving telemetry to develop a thorough picture of a newly discovered world and what it
+  has to offer. AT-EDs are expensive to purchase and maintain, and their numerous complex systems need significant
+  attention to keep running. Despite these limitations and their strange, standoffish personalities, AT-EDs are very
+  popular in the Outer Rim.
+encumbrance: 0
+rarity: 5
+reference:
+  - EtU:55

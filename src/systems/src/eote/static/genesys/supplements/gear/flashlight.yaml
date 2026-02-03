@@ -1,0 +1,9 @@
+id: genesys-gear-flashlight
+name: Flashlight
+description: While modern flashlights are more powerful, use less energy, and are made from more advanced materials than
+  older models, their basic function hasn't changed for centuries. A flashlight provides light and removes
+  <setback></setback> added to checks due to concealment (darkness, smoke, and intervening terrain). It can provide
+  light out to medium range.
+encumbrance: 0
+rarity: 1
+reference: SotB:102

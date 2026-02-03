@@ -1,0 +1,15 @@
+id: eote-cyimarm
+name: Implant Armor
+description: >-
+  Another product from the ubiquitous Tagge Company and other corporations, implant armor is useful for occasions where
+  obvious armor protection might be impractical or even act as an insult to prospective business partners. These thin
+  plates rest under the skin, where they can absorb enemy fire with little serious damage to vulnerable tissue.
+
+  Implant armor provides + 1 soak.
+
+  **Models Include:** TaggeCo Implant Armor Mod V, BioTech "Duraskin" Implant.
+encumbrance: 0
+rarity: 6
+reference:
+  - E-CRB:174
+  - A-CRB:190

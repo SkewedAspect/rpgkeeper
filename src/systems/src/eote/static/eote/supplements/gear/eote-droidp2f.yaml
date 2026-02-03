@@ -1,0 +1,17 @@
+id: eote-droidp2f
+name: P2F Hostile Environment Remote
+description: >-
+  Droids can perform in a wide array of functions for diplomats and negotiators across the galaxy, but sometimes, no
+  matter how hostile the environment, only direct contact with a diplomat's counterparts will do. Haor Chall Engineering
+  was seeking to address just this need when it designed the P2F remote. Carrying an extensive suite of sensors,
+  recording devices, and projection equipment, the P2Ds can bring a diplomat's likeness to any client, no matter how
+  inaccessible their sphere of influence.
+
+  Although the P2F can be piloted remotely, kept under the complete control of its operator, the units also possess
+  sufficient initiative and awareness to deliver themselves to their assigned area of operation to initiate direct
+  contact. Utilizing a combination of repulsorlift technology and multiple articulated limbs, the P2F can go almost
+  anywhere, providing a secure holoprojector link between the negotiating parties.
+encumbrance: 0
+rarity: 4
+reference:
+  - DoH:55

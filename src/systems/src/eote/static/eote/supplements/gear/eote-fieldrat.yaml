@@ -1,0 +1,11 @@
+id: eote-fieldrat
+name: Field Rations
+description: The only features that distinguish field rations from standard ration packs are their awful taste and
+  hyperinfusion of nutrients that allows a soldier to survive on a single ration for up to one week. The brown goop
+  comes in flat packages and looks like nothing so much as digestive waste. Field rations can be heated by the thermal
+  circuitry integrated in the packaging, and they can also be consumed cold. Soldiers report little difference in taste
+  or enjoyment.
+encumbrance: 0
+rarity: 2
+reference:
+  - DC:58

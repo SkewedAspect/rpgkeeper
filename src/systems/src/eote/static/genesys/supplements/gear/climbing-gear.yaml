@@ -1,0 +1,8 @@
+id: genesys-gear-climbing-gear
+name: Climbing Gear
+description: Ropes, pitons, and a small hammer make climbing up a sheer cliff or wall merely difficult, rather than
+  nearly impossible (and possibly fatal). When your character uses climbing gear they remove <setback></setback> from
+  any Athletics checks they make to climb something.
+encumbrance: 1
+rarity: 2
+reference: RoT:100

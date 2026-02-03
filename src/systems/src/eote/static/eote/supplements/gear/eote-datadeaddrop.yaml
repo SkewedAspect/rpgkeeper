@@ -1,0 +1,17 @@
+id: eote-datadeaddrop
+name: Data Dead Drop
+description: >-
+  A common and relatively cheap tool of embedded agents and informants, a data dead drop enables the covert exchange of
+  a datachip or some other form of encoded message. One operative hides the information in a concealed compartment in a
+  relatively commonplace item such as a glowlamp or datapad. Later, a second operative collects the item. Ideally, the
+  covert agents do not draw attention, and any others casually using the device fail to notice the modification.
+
+  To find the something hidden within a data dead drop, a character must make a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception
+  check**. At the GM's discretion, an unaware character might use Vigilance instead.
+
+  **Models include:** Brennkeyes Syndicate Security Capsule, countless custom-made models.
+encumbrance: 0
+rarity: 7
+reference:
+  - DA:50

@@ -1,0 +1,17 @@
+id: eote-moncalorggill
+name: Mon Calamari Organic Gill
+description: >-
+  Despite their amphibious nature, the Mon Calamari have long made use of a symbiotic blob to breathe underwater for
+  extended periods of time. Developed in their own laboratories from cloned tissue taken from a breed of jellyfish
+  indigenous to Mon Cala, these blobs are referred to as organic gills. When placed over an individual’s nose and mouth
+  (or equivalent), the symbiote filters oxygen from the ocean water. Organic gills are capable of lasting for several
+  weeks in the water before they begin to die.
+
+  Wearing an organic gill prevents speech, but this drawback can be alleviated by the introduction of small, waterproof
+  microphones and earphones into the blob. Most species can wear the organic gill easily, as long as they breathe an
+  atmosphere similar to that of the Mon Calamari. Sullustans, however, have demonstrated an allergic reaction to the
+  gills, which prevents their species from employing them.
+encumbrance: 1
+rarity: 5
+reference:
+  - SoR:115

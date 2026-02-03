@@ -1,0 +1,12 @@
+id: eote-trophycap
+name: Imperial Officer's Cap
+description: >-
+  An Imperial officer's cap is almost certainly the sign of participation in a successful battle, as officers rarely
+  expose themselves directly to danger. A Soldier might tuck the cap into his belt, store it in his bunk, or, while
+  enjoying a downtime celebration, put it on and preform less-than-flattering impersonations of its original owner.
+
+  The bearer of this trophy adds <boost></boost> to his Coercion checks targeting Imperial troops.
+encumbrance: 0
+rarity: 2
+reference:
+  - FiB:96

@@ -1,0 +1,13 @@
+id: eote-beastlavaflea
+name: Mustafarian Lava Flea Riding Beast
+description: Perhaps one of the most unusual mounts in the galaxy, the Mustafarian lava flea is a giant arthropod that
+  evolved for life on the volcanic environment of its homeworld. While considerably larger than the average equinoid,
+  lava fleas have an uncharacteristically lightweight frame. This makes them ideal for leaping considerable distances,
+  but less adapted for hauling heavy loads. The creature's exoskeleton evolved an internal structure of spindles not
+  unlike an internal bone structure, made from the minerals the lava flea digests. This allows these extraordinary
+  beasts to grow to sizes far beyond normal evolutionary constraints. Mustafarians often fashion discarded lava flea
+  shells into heat-resistant armor.
+encumbrance: 0
+rarity: 8
+reference:
+  - SoT:87

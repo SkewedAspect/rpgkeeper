@@ -1,0 +1,15 @@
+id: eote-medpacmil
+name: Military Medpac
+description: >-
+  This advanced medpac is carried by soldiers and security personnel who lack advanced medical training to treat severe
+  trauma in battlefield conditions. The integrated computer contains medical and surgical databases for most prominent
+  species and can even suggest emergency treatment protocols and provide step-by-step instruction. It can be easily used
+  by the untrained to stabilize a patient.
+
+  Medpacs allow characters to attempt to heal others using Medicine checks without penalty, as detailed on page 219 of
+  the **Edge of the Empire** Core Rulebook. In addition, if the user has no ranks in Medicine, he counts as having 1
+  rank in Medicine when using this medpac.
+encumbrance: 2
+rarity: 3
+reference:
+  - DC:57

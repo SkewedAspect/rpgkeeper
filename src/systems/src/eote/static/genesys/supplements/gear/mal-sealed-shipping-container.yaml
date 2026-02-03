@@ -1,0 +1,19 @@
+id: genesys-gear-mal-sealed-shipping-container
+name: MAL-Sealed Shipping Container
+description: A MAL-sealed container is essentially a cross between an antique steamer trunk and a bank vault. Not much
+  to look at, it is a meter-long, flattened, dull-gray oval encased in a hard polycarbon harness. Its case is a
+  vanasteel-based alloy formed into an electroconductive molecular matrix. In its inert state, the case hinges open like
+  any other container. However, if a properly modulated current is run through the matrix, the matrix instantly
+  realigns, leaving the contents protected by a seamless, diamond-hard case. Matrix Alignment Locks are particularly
+  useful because the molecules remain aligned until a second carefully modulated current "unlocks" them. The modulation
+  can be tweaked and the exposure time lengthened, creating a unique, variable-length combination lock. The case stays
+  sealed without any power, and it has no computerized components. Without the proper current frequency, would-be
+  criminals must resort to white-hot plasma cutters or high explosives, which don't leave much hope of looting the
+  contents inside. A MAL-sealed container is impervious to most conventional cutting devices. (Your GM has the final say
+  on what can cut through the vanasteel alloy, but it should generally be limited to military-grade explosives or
+  heavy-duty construction or demolition equipment.) The container can hold a number of items with encumbrance values
+  totaling up to 20. If your character uses a computer to randomly generate modulated currents, they should be able to
+  guess the correct "combination" in 1d5 years.
+encumbrance: 15
+rarity: 8
+reference: SotB:96

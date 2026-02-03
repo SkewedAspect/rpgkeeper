@@ -1,0 +1,17 @@
+id: eote-perstranspond
+name: Personal Transponder
+description: >-
+  Personal transponders are low-powered tracking devices used to locate individuals. While bare-bones transponders are
+  available at relatively low prices, many individuals choose to personalize theirs for use as jewlery, such as rings,
+  pendants, cuff links, or other affectations. Though the transmission range for personal transponders is hardly
+  infinite, they can be easily located with standard hand scanners as long as the transponder's unique frequency is
+  known.
+
+  Picking up a personal transponder's signal accurately enough to find its exact location wthin close range on a
+  planetary scale requires an **Average (<difficulty></difficulty><difficulty></difficulty>) Computers check**. Increase
+  the difficulty of this check by two for each planetary scale range band beyond close, to a maximum of extreme range at
+  the planetary scale.
+encumbrance: 0
+rarity: 4
+reference:
+  - KtP:51

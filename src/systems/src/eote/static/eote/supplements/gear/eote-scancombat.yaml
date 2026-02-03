@@ -1,0 +1,21 @@
+id: eote-scancombat
+name: Mark 6  Combat Scanner
+description: >-
+  Mark 6 Combat scanner
+
+  A combat scanner is a sophisticated optics and sensor array designed for military applications. A combat scanner
+  provides all of the functions of a general-purpose scanner, along with robust mapping and navigation capability,
+  mission data storage and display, and hardened and secure communications with a one-hundred-kilometer line-of-sight
+  range. External optics provide a 360-degree view around the bearer, and this imagery can be beamed to any
+  communications device within range, or shared with the combat scanners worn by other members of the unit. The Chedak
+  Mark 6 is integrated into a combat helmet with visor.
+
+  The Mark 6 offers some of the features of a general purpose scanner, scanner goggles for night-vision capability, and
+  a corn scrambler. This means it allows the user to see normally in dark conditions, can be set to track motion, heat,
+  and metal, and adds <setback></setback><setback></setback> to any checks made to attempt to decode and understand
+  transmissions from the combat scanner to other combat scanners.
+encumbrance: 1
+rarity: 6
+reference:
+  - DC:56
+  - KoF:49

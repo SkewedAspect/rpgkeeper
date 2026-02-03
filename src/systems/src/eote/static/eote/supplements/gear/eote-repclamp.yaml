@@ -1,0 +1,13 @@
+id: eote-repclamp
+name: Repulsor Clamp
+description: >-
+  This pneumatic clamp, attached to a repulsor engine, allows Technicians to hold heavy objects in the air as they work
+  on repairs. Though it is bulky, it can lift massive objects with ease, and thus is extremely useful for many
+  construction and maintenance jobs.
+
+  A repulsor clamp can hold a single object of 10 encumbrance or less aloft. Further, having a repulsor clamp on hand
+  remoces <setback></setback> from checks to repair hull trauma and Critical Hits on starships and vehicles.
+encumbrance: 3
+rarity: 1
+reference:
+  - SM:52

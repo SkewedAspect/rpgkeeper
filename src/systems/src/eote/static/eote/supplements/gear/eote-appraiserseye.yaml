@@ -1,0 +1,18 @@
+id: eote-appraiserseye
+name: Appraiser's Eye
+description: >-
+  To negotiate with clients successfully, a smuggler must be able to recall the rough market value for a staggering
+  number of goods on dozens, if not hundreds, of different worlds. While most smugglers simply develop a sense for such
+  things, certain discerning individuals find estimates to be far too imprecise. An appraiser's eye is a combination
+  scanner and cross-reference tool in the form of a cybernetic eye or lens implant. In addition to identifying most
+  goods quickly and accurately, it constantly records commodity prices on the planets its wearer visits, and offers past
+  data points as well as market trends on the items in question.
+
+  An appraiser's eye provides automatic <advantage></advantage> on Negotiation and Streetwise checks to buy or sell
+  items.
+
+  **Models Include:** Neuro-Saav Technologies 028, Votan Industries 2b Appraiser's Eye.
+encumbrance: 0
+rarity: 7
+reference:
+  - FC:48

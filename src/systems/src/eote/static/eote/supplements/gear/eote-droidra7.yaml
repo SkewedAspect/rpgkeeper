@@ -1,0 +1,38 @@
+id: eote-droidra7
+name: RA-7 Protocol Droid
+description: >-
+  The RA-7 series is the Galactic Empire's go-to choice for protocol and espionage droids. Arakyd Industries designed
+  and produced this series in the years leading up to the Clone Wars in an ambitious but ultimately failed attempt to
+  compete with Cybot Galactica's ubiquitous 3PO-series protocol droids. RA-7s are gawky, awkward-looking droids just
+  under two meters tall, with spindly limbs, a head reminiscent of a Verpine's, and huge, bulbous photoreceptors that
+  take up the majority of their face. Their personalities are, on the whole, dull and dry with an air of aloofness that
+  few owners find tolerable. RA-7s that have gone without regular maintenance and memory wipes tend to be morose,
+  pessimistic, and constantly exasperated with everyone and everything around them.
+
+  The RA-7 line's great failure, which ended Arakyd's plans for further expansion in the protocol droid market, is the
+  fact that the droids offer nothing unique to their buyers. Their etiquette and protocol programming is respectable,
+  and their ability to analyze and collate data is actually quite remarkable, but there is nothing they do that Cybot
+  Galactica's 5POs can't do cheaper, better, and more reliably. After years of dwindling sales and tens of thousands of
+  unsold units, Arakyd canceled the line and offered its entire back stock to the Imperial armed forces at fire-sale
+  prices. Only the ISB took Arakyd up on its offer, and only then, through modification and reprogramming, did the RA-1s
+  find purpose.
+
+  The ISB thoroughly overhauled the thousands of RA-7s it purchased, installing new programming and upgrading the
+  droids' sensor package. Each droid received a sophisticated intelligence-gathering system that included active and
+  passive listening devices and multi-optic, high-resolution photoreceptors with numerous vision modes and the ability
+  to record and transmit audio, video, and holographic data. A constant-on uplink to the ISB's secure HoloNet was
+  installed to give RA-7s constant access to the ISB's expansive databases and to ensure the droids can upload the
+  information they collect as they go about their business. All of these systems are cleverly hidden in plain sight
+  throughout the droid's chassis, and the espionage programming looks like innocent etiquette and protocol subroutines
+  when examined.
+
+  Once they were modified, the ISB deployed their RA-7 droids throughout the Imperial armed forces to keep tabs on
+  Imperial personnel and root out criminals and traitors. Nearly all RA-7s currently active are in Imperial service.
+  Very few have defected to or been stolen by the Alliance; those that have are considered to be nearly priceless thanks
+  to their espionage and intelligence-gathering equipment and their knowledge of ISB protocols. Some models found other
+  roles to play in the Rebellion. One RA-7, for example, escaped ISB reprogramming and served as an inventory specialist
+  in one of the more infamous Rebel cells.
+encumbrance: 0
+rarity: 6
+reference:
+  - CaM:53

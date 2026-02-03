@@ -1,0 +1,24 @@
+id: eote-toolkit
+name: Tool Kit
+description: >-
+  In a technological galaxy, a tool kit is almost essential. Every vessel, no matter the size or function, has some sort
+  of repair kit to deal with mechanical or electric failures, as calling for assistance is often not practical (or
+  safe). Kits are also useful for repairing damaged droids or cybernetic parts, especially ones too modified to take to
+  reputable mechanics. Tool kits need to have a wide range of gear, as many users are fond of tinkering and upgrading on
+  their own. Basic hammers, hydrospanner wrenches, restraining bolts, power coupling scrubbers, fusion cutters, laser
+  and sonic welders, replacement wiring and components, power calibrators, and of course welding goggles and heavy
+  gloves are all standard components. Many of these also make for effective improvised weapons. For those used to doing
+  extensive repairs, some kits include diagnostic probes and other aids to determine the nature of the fault. There is
+  little a skilled mechanic cannot fix with a well-maintained and well-stocked toolkit, given adequate time to conduct
+  the repairs (which is sometimes a problem too).
+
+  Toolkits allow mechanics to perform most Mechanics checks to repair mechanical devices, and can also be used to "heal"
+  droids.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 4
+rarity: 2
+reference:
+  - E-CRB:181
+  - A-CRB:198
+  - F-CRB:189

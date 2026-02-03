@@ -1,0 +1,20 @@
+id: eote-foamcast
+name: Foamcast
+description: >-
+  Foamcast is the commonly used term for a type of quicksetting aerosol foam found in construction and building
+  maintenance. It comes in a tall can with a trigger-activated applicator, and a long, narrow tube provided with each
+  can allows for precision application. When sprayed into a crack, dent, hole, or other space,  foamcast expands and
+  then quickly hardens. Once dry, a foamcast patch is nearly indistinguishable from its surroundings and has all the
+  strength and wearability of plascrete. Foamcast can also be poured into molds to make light obstacles and temporary
+  shelters.
+
+  Foamcast adds <boost></boost> to checks to repair structures and vehicle hulls. The GM may spend <threat></threat> on
+  such checks to indicate the foamcast dispenser can is depleted. A can of foamcast can be made into an improvised
+  explosive with a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics
+  check**. When used in this way, a can of foamcast has the following profile: Mechanics; Damage 4; Critical 5; Range
+  (Short); Blast 4, Ensnare 4, Inferior, Prepare 2. <failure></failure> on the Mechanics check means the can ruptures
+  and covers the user in foamcast.
+encumbrance: 1
+rarity: 2
+reference:
+  - FO:44

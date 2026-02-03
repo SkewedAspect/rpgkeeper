@@ -1,0 +1,13 @@
+id: eote-alchemypoison
+name: Poison
+description: >-
+  This alchemical poison is not all that dissimilar from the deadly neurotoxins produced for assassins and hired killers
+  across the galaxy.
+
+  When affected by the poison, the target must immediately make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Resilience check**. If they fail, they suffer 5 wounds, plus 1
+  strain per <threat></threat>.
+encumbrance: 0
+rarity: 4
+reference:
+  - UP:81

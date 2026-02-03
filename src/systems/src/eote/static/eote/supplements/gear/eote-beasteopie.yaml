@@ -1,0 +1,10 @@
+id: eote-beasteopie
+name: Eopie (Cameloid) Riding Beast
+description: Eopies are ponderous but surprisingly strong and resilient animals used as both mounts and labor animals on
+  their native Tatooine. Eopies are inelegant beasts with an awkward gait and strong natural odor. Despite their
+  stubborn nature, eopies are excellent beasts of burden, capable of carrying far more than their lanky frame might
+  suggest. They are well-adapted to desert conditions, capable of traveling for days without needing water.
+encumbrance: 0
+rarity: 3
+reference:
+  - SoT:85

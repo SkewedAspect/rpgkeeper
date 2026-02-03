@@ -1,0 +1,16 @@
+id: eote-urbancomp
+name: Urban Compass
+description: >-
+  While constructed around common datapads, urban compasses are more specialized tools. These compasses are equipped
+  with a network of miniaturized sensors and data transmitters that connect to any actively broadcasting frequencies to
+  collect information about the position of the user,  possible routes to the user's destination, local conditions, and
+  other information relevent to navigating a large city.
+
+  Individuals using an urban compass to find their way around a city remove <setback></setback><setback></setback> from
+  checks due to unfamiliarity with the city, traffic, or other avoidable travel hazards. Additionally, an urban compass
+  can turn up information on local establishments and customs, granting <boost></boost> to checks to find information
+  about the city's operation, various landmakrs of note and businesses of all types.
+encumbrance: 1
+rarity: 1
+reference:
+  - EV:51

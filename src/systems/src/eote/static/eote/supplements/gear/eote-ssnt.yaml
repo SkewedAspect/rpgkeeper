@@ -1,0 +1,16 @@
+id: eote-ssnt
+name: Synthetic Standard Neurotoxin
+description: This is a general poison synthetically produced on hundreds of worlds (often illegally) that affects the
+  biochemical reactions of most creatures, sometimes fatally. This poison may be introduced into the target's body via
+  aerosol deployment, food ingestion, or injection (via an applicator or dart). Resisting a single dose has an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) difficulty**, while two or more doses combined into a single
+  application have a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) difficulty**.
+  The poison inflicts 5 wounds if the target fails the check. Each <threat></threat> generated inflicts one strain on
+  the target as the effort of fighting the poison overwhelms him. Finally, the GM can spend <despair></despair> to make
+  the target test against the poison again during the next round, as the poison remains in his system.
+encumbrance: 0
+rarity: 6
+reference:
+  - E-CRB:172
+  - A-CRB:188
+  - F-CRB:181

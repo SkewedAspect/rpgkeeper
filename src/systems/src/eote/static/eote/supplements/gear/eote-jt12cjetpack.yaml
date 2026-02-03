@@ -1,0 +1,18 @@
+id: eote-jt12cjetpack
+name: JT-12C Jetpack
+description: >-
+  When clone troopers need to quickly deploy in the field, they are often equipped with the JT-12C jetpack. Merr-Sonn
+  manufactures this modified version of the JT-12 for the Grand Army of the Republic. In addition to having increased
+  production, this variant is modified to improve reliability for extended battlefield use. Intakes, turbines, and
+  nozzles are hardened to reduce the need for field service. The modifications result in a slightly bulkier package.
+  Consequently, soldiers may discard assigned units once they have depleted their fuel cells, to reduce their
+  encumbrance on the battlefield.
+
+  A JT-12C jetpack allows a person to function as a silhouette 1, speed 2, handling 0, system strain 4 vehicle that can
+  only operate in atmosphere and requires Piloting (Planetary) to operate. 
+        
+  _Note:  For the vehicle version of this item, see the vehicle of the same name._
+encumbrance: 2
+rarity: 7
+reference:
+  - CotR:58

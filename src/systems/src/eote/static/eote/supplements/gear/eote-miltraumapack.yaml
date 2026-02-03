@@ -1,0 +1,18 @@
+id: eote-miltraumapack
+name: Military Trauma Pack
+description: |-
+  Sending every soldier into battle with a medkit is not
+  feasible due to weight and cost limitations, but Synthetech/Medtech has optimized its traumapac just for
+  militias, mercenaries, and local defense forces. Forgoing equipment designed to treat heart failure, blood
+  clots, spinal injuries, and other common medical emergencies that are less likely to be the cause of one’s
+  death on the battlefield has halved the pack’s weight.
+  A traumapac only allows a character to use the
+  Medicine skill to a tte m p t to remove Critical Injuries
+  from others without penalty, as described on page
+  232 of the **Age of Rebellion** Core Rulebook, and does
+  not allow her to perform the other treatm ent options
+  described there.
+encumbrance: 1
+rarity: 3
+reference:
+  - FiB:53

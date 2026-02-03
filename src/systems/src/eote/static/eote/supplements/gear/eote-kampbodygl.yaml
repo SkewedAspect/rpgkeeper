@@ -1,0 +1,19 @@
+id: eote-kampbodygl
+name: Kamperdine Clothing Specialists Body Glove
+description: >-
+  A critical negotiation requires the complete attention of everyone taking part. The slightest distraction can be
+  enough to misinterpret a speaker's words or body language-either of which can have disastrous results. Any suggestion
+  of nervousness-including a sweaty brow-can have implications for the direction of the discussion. These factors
+  dictate that personal comfort must be a critical concern for anyone involved in high-stakes meetings.
+
+  This body glove is a tight-fitting layer of clothing that integrates myriad sensors with localized heating and cooling
+  solutions. By design, a body glove is utterly undetectable: effective but silent, producing no visual or auditoy cues
+  to its activities. It provides the wearer with a level of physical comfort that helps overcome inconveniences from
+  both climate and dress requirements.
+
+  A body glove may be worn under other clothing or armor. It removes <setback></setback> from any checks due to
+  tempuratures outside those of the wearer's preferred environment.
+encumbrance: 2
+rarity: 4
+reference:
+  - DoH:47

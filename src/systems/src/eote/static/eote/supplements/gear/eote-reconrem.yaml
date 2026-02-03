@@ -1,0 +1,14 @@
+id: eote-reconrem
+name: Recon Remote
+description: >-
+  These are small, spherical remotes with miniaturized repulsorlift generators used by military and security personnel
+  for reconnaissance and surveillance. They feature full 360 degree visual sensors with night vision capability and have
+  the ability to transmit data to a remote receiver up to 20 kilometers away.
+
+  The Recon Remote is roughly the size of a shuura fruit (silhouette 0), and can travel at speeds of 20 km per hour. The
+  control unit can monitor the input from up to four of these remotes simultaneously. Arakyd Industries' brand of remote
+  can run for 24 hours before needing to be recharged.
+encumbrance: 1
+rarity: 2
+reference:
+  - DC:57

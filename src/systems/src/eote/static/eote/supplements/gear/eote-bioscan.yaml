@@ -1,0 +1,16 @@
+id: eote-bioscan
+name: Bioscan
+description: >-
+  Verifying a target's identity is crucial to retrieving payment on any acquisition. A wise bounty hunter does so prior
+  to contacting the bounty's sponsor. A bioscan is a device that scans for life forms as well as verifying their
+  physical makeup for anomalies and identifiers. Biometric data can be compared against another sample or a recording of
+  one previously obtained.
+
+  Using a bioscan to scan an area for life signs grants <boost></boost> to any Perception checks opposing Stealth. Using
+  the device to verify a person's identity requires an **Average (<difficulty></difficulty><difficulty></difficulty>)
+  Computers check** and a biometric identifier for comparison. The GM may modify this difficulty based upon any unusal
+  anatomical characteristics of the target's species.
+encumbrance: 1
+rarity: 1
+reference:
+  - ND:53

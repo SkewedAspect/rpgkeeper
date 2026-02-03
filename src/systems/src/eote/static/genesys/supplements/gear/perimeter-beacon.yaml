@@ -1,0 +1,12 @@
+id: genesys-gear-perimeter-beacon
+name: Perimeter Beacon
+description: "A perimeter beacon is an invaluable tool for anyone traveling through dangerous wildernesses. When placed,
+  the beacon expands to a height of three meters and the attached drone flies around, keeping an eye out for any motion
+  or intrusion to a distance of several dozen meters. Multiple beacons can be linked together, forming a sensor chain
+  that can help keep large encampments alert for intruders. A perimeter beacon scans the terrain out to long range from
+  its position. While it is active, anyone attempting to sneak past the beacon must make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> check. This item may be modified with 2-1:
+  Cultural Manufacturing Differences."
+encumbrance: 5
+rarity: 4
+reference: EotI:121

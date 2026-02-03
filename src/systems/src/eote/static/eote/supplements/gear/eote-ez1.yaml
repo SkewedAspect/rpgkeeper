@@ -1,0 +1,17 @@
+id: eote-ez1
+name: EZ1 Analyzer
+description: >-
+  SuriTech Foodstuffs EZ1 Analyzer
+
+  When traveling on distant worlds, beings must always be certain that any food they eat there is compatible with their
+  own digestive systems. Organic compounds that are flavorful and nutritious for one species can be lethal to another. A
+  traveler who regularly interacts with new species needs a tool to identify what is safe to consume.
+
+  A food analyzer quickly examines any food or drink to determine whether it is safe for consumption. These devices come
+  with calibration settings for all major species. A physician with basic programming skills can easily adapt the device
+  to work for other species. However, these devices are not capable of determining whether the food tastes good or not.
+  No skill check is required to use a food analyzer.
+encumbrance: 1
+rarity: 3
+reference:
+  - DoH:48

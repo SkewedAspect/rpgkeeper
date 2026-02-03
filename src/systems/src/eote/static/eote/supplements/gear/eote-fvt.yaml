@@ -1,0 +1,20 @@
+id: eote-fvt
+name: False Voice Transmitter
+description: >-
+  The Rebel Alliance has been known to utilize homemade devices known colloquially as false voice transmitters, or FVTs,
+  to fool the Empire for years. The original FVTs were jury-rigged by taking the verbobrain from a protocol droid, a
+  voice-synth box (possibly from the same droid), and a datapad, and combining them with a number of readily available
+  components. The speaker either types in the words to be conveyed with the FVT, or uses a microphone to say them out
+  loud. Due to the usefulness of such devices, the Rebel Alliance began manufacturing them in small numbers.
+
+  As long as an appropriate voice sample is available, an FVT can replicate nearly any organic voice. When used to
+  transmit messages via comlink, the replicated voice is nearly indistinguishable from the original. Despite the benefit
+  an FVT provides, it is only as good as the voice sample used and the turns of phrase the user adopts during the vocal
+  charade.
+
+  When impersonating another individual with the aid of an FVT, the user can upgrade the ability of his Charm, Coercion,
+  Deception, Leadership, and Negotiation checks once.
+encumbrance: 4
+rarity: 6
+reference:
+  - SoR:111

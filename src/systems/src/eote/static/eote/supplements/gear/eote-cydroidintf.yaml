@@ -1,0 +1,17 @@
+id: eote-cydroidintf
+name: Cyborg/Droid Interface
+description: >-
+  Neuro-Saav Cyborg/Droid Interface
+       
+  Neuro-Saav’s cyborg/droid interface is a supplementary cybernetic that must be used in conjunction with a cybernetic
+  brain implant (Ace of Rebellion Core Rulebook, page 189). It allows a properly equipped cyborg to connect directly to
+  a droid’s communications port, letting it communicate with the droid and access its memories and any stored
+  information. Such interfaces are valued by the Rebel Alliance, especially when interrogating captured enemy droids.
+
+  Not only does this device let a cyborg access hidden information stored in a droid’s memory banks, but it also allows
+  it, when attempting to access information that a hostile droid does not wish to reveal, to upgrade the ability of all
+  its Computers checks once
+encumbrance: 0
+rarity: 6
+reference:
+  - SoR:112

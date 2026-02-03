@@ -1,0 +1,19 @@
+id: genesys-gear-soulstone-rune
+name: Soulstone Rune
+description: "A soulstone rune is an object of dread, for it has within it the power to leech away life-energies. A
+  bearer of such a shard soon acquires a dark reputation, though Lord Roland of Kell is still remembered for his brave
+  use of one in the Dragon Wars. When the shard is active, the bearer can focus their will on a visible target. That foe
+  grows increasingly weak, while any aches and injuries suffered by the bearer are assuaged. These runes work too
+  gradually to make for effective weapons, but in time, a bearer could even be brought from near death to full wellness,
+  at the likely cost of the life of their chosen target. - Activation: When your character activates a soulstone rune,
+  it affects all other characters (including allies) within short range. Affected targets must each make an
+  <difficulty></difficulty><difficulty></difficulty> as an out-of-turn incidental. If they fail the check, they suffer 3
+  strain and become staggered for one round. The bearer then heals 1 wound they are currently suffering for each target
+  that failed the check. At the GM's discretion, minions affected by this runebound shard are simply defeated. -
+  Implement: When your character casts a Curse spell, in addition to the spell's normal effects, it also inflicts a
+  number of wounds equal to your character's ranks in Knowledge (Forbidden) on all affected targets. Additionally, your
+  character heals 1 wound each time a target under the effects of the Curse suffers wounds (including when the Curse is
+  cast)."
+encumbrance: 0
+rarity: 0
+reference: RoT:120

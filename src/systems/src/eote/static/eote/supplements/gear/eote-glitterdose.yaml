@@ -1,0 +1,30 @@
+id: eote-glitterdose
+name: Glitterstim (dose)
+description: >-
+  Glitterstim
+
+  Glitterstim is a vanishingly rare variety of spice, refined from the webs spun by the energy spiders of Kessel and
+  mined by the unfortunate slaves sent into those pitch-black depths. Because of its photoactive qualities, it cannot be
+  exposed to light at any stage before consumption, and so laborers at various stages carefully move it from the
+  darkness of the caverns to special holding containers, and then to the small, opaque packets in which it is sold. Its
+  production is jealously guarded by the Empire, and thus a hold full of glitterstim is a treasure for any smuggler
+  ambitious enough to try to sell it.
+
+  The value of glitterstim comes as much from the uniqueness of its properties as its rarity. While it certainly
+  provides a powerful high and is as addictive as many of its equivalents, rumors whisper that it has another, much more
+  interesting effect when consumed. Glitterstim is said to provide those who ingest it with limited telepathic
+  abilities. Of course, there are those who claim that this so-called telepathy is merely a drug-induced delusion, but
+  many swear by the intuitive abilities that each dose imparts. Unfortunately, along with these supposed powers comes
+  another certain effect—glitterstim slowly but surely erodes the mind, burning away certain nerves in the brain
+  connected to sight and coordination, as well as mental balance.
+
+  Glitterstim is a highly addictive drug with hallucinogenic properties. Using it adds three <boost></boost> to all
+  Perception and Vigilance checks for the remainder of a scene. Additionally, some users report gaining temporary
+  telepathic abilities, which the GM may choose to grant to any user at his discretion.
+
+  **Restrictions:** Glitterstim is illegal on most worlds, and its trade is aggressively monitored and controlled by
+  Imperial authorities.
+encumbrance: 0
+rarity: 7
+reference:
+  - E-CRB:184

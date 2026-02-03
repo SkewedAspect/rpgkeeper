@@ -1,0 +1,16 @@
+id: eote-forenkit
+name: Forensics Investigation Kit
+description: >-
+  Essentially a specialized tool kit for crime scene investigations, forensic investigation kits are produced by a
+  number of security companies for use by law enforcement agencies. Whatever their origin, these kits typically contain
+  a number of medical instruments, evidence collection containers, chemical swabs, magnifiers, scanners, multi-spectrum
+  light emitters, marking tools, and different kinds of solvents, adhesives, and specialty chemicals.
+
+  When used during the investigation of a crime, a forensic investigation kit adds automatic <success></success> to all
+  Perception checks made by the user to spot and gather evidence. It may also count as the right tools for the job when
+  making checks to analyze the evidence gathered (see page 171 of the **Edge of the Empire** Core Rulebook). At the GM's
+  discretion, this item can also be used for related purposes such as archeological digs.
+encumbrance: 4
+rarity: 4
+reference:
+  - FH:46

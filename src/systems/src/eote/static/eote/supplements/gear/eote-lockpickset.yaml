@@ -1,0 +1,15 @@
+id: eote-lockpickset
+name: Lockpic Set
+description: >-
+  Lockpick Set
+
+  A lockpick set is a collection of probes, picks, tension spanners, and other arcane tools used to open mechanical
+  locks. While there are some commercially available lockpick sets sold in the galaxy, typically to hobbyists and
+  locksmiths, dedicated Infiltrators and lockbreakers put together their own personalized sets, often with custom tools
+  and devices to help bypass basic electronic locks like number pads and keycard readers.
+
+  A lockpick set counts as a tool kit for the purposes of opening mechanical and simple electrical locks.
+encumbrance: 1
+rarity: 6
+reference:
+  - CaM:48

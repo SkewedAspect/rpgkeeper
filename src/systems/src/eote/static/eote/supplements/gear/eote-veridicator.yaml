@@ -1,0 +1,23 @@
+id: eote-veridicator
+name: Veridicator 200
+description: >-
+  Designed and distributed by Saldalith Manufacturing, the Verdicator is billed as a personal lie-detection device. The
+  user of the device cnan discreetly monitor changes in the physiological functions of a specified target nearby. It
+  tracks metrics that include pulse, blood pressure, rate of respiration, eye activity and body temperature. Such
+  changes are convered to the user by a series of discret pressure nodes that pulsate against the wearer's skin.
+
+  Veridicators are most often disguised as pieces of jewelry, such as bracelets or pendants, inset with a tasteful
+  Falasian liquid crystal. The crystal is actually the Veridicatiors receptor, and it can only monitor targets within a
+  sixty-degree scanning arc. Popular with security forces and corporate recruiters during interviews, the Veridicator
+  has also been used by undercover operatves on both sides of the galactic rebellion. Though useful under the proper
+  circumstances, the devices are only as effective as the individuals  who employ them. Only one target can be scanned
+  and monitored at a time, and they must be relatively nearby. Both the user and the target must remain relatively
+  still, though small movements are unlikely to affect the device's readings.
+
+  A character wearing a Veridicator 200 adds <boost></boost><boost></boost> to checks to discern whether another
+  character is lying or omitting significant informaiton, and adds <boost></boost><boost></boost> to checks to ascertain
+  another character's mental state.
+encumbrance: 1
+rarity: 8
+reference:
+  - KtP:51

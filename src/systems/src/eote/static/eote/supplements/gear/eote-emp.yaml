@@ -1,0 +1,20 @@
+id: eote-emp
+name: Emergency Medpac
+description: >-
+  Medpacs are common even on those ships that do not engage in activities of dubious legality, for even those with
+  little medical training can use the contents to treat injuries and save lives. Most ships carry several, and they are
+  a common component in most survival gear. Standard medpacs contain field dressings, bacta patches, basic drugs,
+  antiseptics, medical tools and knives, blood coagulators, synthflesh applicators, and more, all designed for ease of
+  use and fast patient stabilization. The GLiS (General Life-Sustaining) also has a limited diagnostic scanner to
+  monitor a patient's vital signs, and a computer that can provide treatment options. The intention of this medpac is to
+  allow for basic first aid in the field.
+
+  Medpacs allow characters to attempt to heal others using Medicine checks without penalty, as detailed on page 219.
+
+  **Models Include:** Athakam MedTech Survival Medpac, Chiewab GLiS Emergency Medpac.
+encumbrance: 1
+rarity: 1
+reference:
+  - E-CRB:176
+  - A-CRB:192
+  - F-CRB:185

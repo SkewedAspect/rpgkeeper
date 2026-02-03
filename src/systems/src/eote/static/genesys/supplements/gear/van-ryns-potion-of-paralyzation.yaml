@@ -1,0 +1,13 @@
+id: genesys-gear-van-ryns-potion-of-paralyzation
+name: Van Ryn's Potion of Paralyzation
+description: This tonic does have the distinction of being created by an actual doctor, who was attempting to invent an
+  anesthetic. However, various unscrupulous individuals have repurposed it as a incapacitating poison. A character may
+  covertly drug someone's food with this poison (requiring an opposed Skulduggery vs. Vigilance check) or apply it to a
+  weapon such as a knife as a maneuver. If the target ingests the poison or it enters their bloodstream by other means,
+  they must make a <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> check as an out-of-turn
+  incidental or become immobilized for the next three rounds. The target also suffers 1 strain per <despair></despair>,
+  and your GM can spend <difficulty></difficulty> to make them test against the poison again at the start of their next
+  turn, as it remains in their system.
+encumbrance: 0
+rarity: 6
+reference: G-CRB:156

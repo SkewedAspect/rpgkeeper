@@ -1,0 +1,19 @@
+id: eote-droidwandsc
+name: Wanderer Scout Survey Droid
+description: >-
+  SoroSuub Wanderer Scout Survey Droid
+
+  Often used to collect indigenous wildlife for further study and research, the SoroSuub wanderer scout survey droid is
+  part of a larger set of droids deployed planetside as scouts and collectors. The wanderer scout’s powerful stun
+  blasters, swivel-mounted photoreceptor, and dedicated medical and scouting programming make it an excellent tool for
+  information gathering. Many have been turned to the more serious business of espionage against sentient targets and
+  critical locations. 
+
+  Most of the scout survey’s two-meter height is made up of eight spiderlike legs arranged around a relatively small
+  spherical body. While the wanderer is quick and agile, the medical and scouting modules take up most of the available
+  interior space, leaving little room for a personality matrix. As such, these droids lack any personality features, but
+  they are well regarded for the depth, detail, and unprejudiced nature of the information they collect as a result.
+encumbrance: 0
+rarity: 6
+reference:
+  - SoR:113

@@ -1,0 +1,19 @@
+id: eote-seccollar
+name: Thalassian Security Collar
+description: >-
+  More commonly known as slave collars, the security collars used by Thalassian slavers are actually technologically
+  sophisticated pieces of equipment despite their simple function. Made of durasteel with an attached heavy chain and
+  secured with a magnolock, these collars are designed to be escape-proof and tamper-resistant. Attempts to remove the
+  collar without the proper circuit key results in a painful, potentially lethal neural shock to the wearer. Some
+  variants come with biomet-ric or voice-activated locking systems.
+
+  Safely removing a Thalassian security collar without use of the proper key requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Skulduggery
+  check**. If a character fails this check, the wearer suffers 2 strain and 1 wound (this ignores soak), and becomes
+  Disoriented for 5 rounds.
+
+  **Models Include:** Numerous variants.
+encumbrance: 1
+rarity: 5
+reference:
+  - LoNH:108

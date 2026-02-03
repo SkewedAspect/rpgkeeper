@@ -1,0 +1,14 @@
+id: eote-fuslant
+name: Fusion Lantern
+description: >-
+  These small, squat devices provide both light and heat for the surrounding area. They are also quite durable and
+  reliable, and are commonly found in larger travel kits and survival packs. Characters can also plug other electronic
+  devices into a fusion lantern to power them, such as datapads, glow rods, and small scanning devices.
+
+  **Models Include:** SoroSuub Powermax Fusion Lantern.
+encumbrance: 2
+rarity: 2
+reference:
+  - E-CRB:181
+  - A-CRB:197
+  - F-CRB:189

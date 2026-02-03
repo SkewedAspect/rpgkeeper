@@ -31,12 +31,14 @@ import {
     type InternalAbility,
     type InternalArmor,
     type InternalAttachment,
+    type InternalGear,
     type InternalQuality,
     type InternalTalent,
     type InternalWeapon,
     convertAllAbilities,
     convertArmors,
     convertAttachments,
+    convertGear,
     convertQualities,
     convertTalents,
     convertWeapons,
@@ -308,6 +310,7 @@ async function main() : Promise<void>
     const allWeapons : InternalWeapon[] = [];
     const allArmors : InternalArmor[] = [];
     const allAttachments : InternalAttachment[] = [];
+    const allGear : InternalGear[] = [];
     const allAbilities : InternalAbility[] = [];
 
     for(const [ filename, book ] of filteredBooks.entries())
@@ -354,6 +357,14 @@ async function main() : Promise<void>
             allAttachments.push(...attachments);
         }
 
+        // Convert gear from gear
+        if(!options.type || options.type === 'gear')
+        {
+            const gearItems = convertGear(book.gear, filename);
+            console.info(`  - Gear: ${ gearItems.length }`);
+            allGear.push(...gearItems);
+        }
+
         // Convert abilities
         if(!options.type || options.type === 'ability')
         {
@@ -374,6 +385,7 @@ async function main() : Promise<void>
     const weapons = deduplicateById(allWeapons);
     const armors = deduplicateById(allArmors);
     const attachments = deduplicateById(allAttachments);
+    const gear = deduplicateById(allGear);
     const abilities = deduplicateById(allAbilities);
 
     console.info(`  - Talents: ${ allTalents.length } -> ${ talents.length }`);
@@ -381,6 +393,7 @@ async function main() : Promise<void>
     console.info(`  - Weapons: ${ allWeapons.length } -> ${ weapons.length }`);
     console.info(`  - Armors: ${ allArmors.length } -> ${ armors.length }`);
     console.info(`  - Attachments: ${ allAttachments.length } -> ${ attachments.length }`);
+    console.info(`  - Gear: ${ allGear.length } -> ${ gear.length }`);
     console.info(`  - Abilities: ${ allAbilities.length } -> ${ abilities.length }`);
 
     // Write files
@@ -428,6 +441,7 @@ async function main() : Promise<void>
     await writeItemsToDirectory(weapons, 'weapon', 'weapons');
     await writeItemsToDirectory(armors, 'armor', 'armors');
     await writeItemsToDirectory(attachments, 'attachment', 'attachments');
+    await writeItemsToDirectory(gear, 'gear', 'gear');
     await writeItemsToDirectory(abilities, 'ability', 'abilities');
 
     console.info(`\n${ '='.repeat(80) }`);

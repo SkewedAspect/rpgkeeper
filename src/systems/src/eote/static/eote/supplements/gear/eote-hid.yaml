@@ -1,0 +1,25 @@
+id: eote-hid
+name: Holographic Image Disguiser
+description: >-
+  Also known as holoshrouds, holographic image disguisers (HIDs) use a small, self-contained holoprojector to create a
+  holographic disguise for a single person or object. They project a high-resolution, prerendered image that completely
+  covers a target. The holographic images are incredibly lifelike: they move, breathe, blink, twitch, etc. They are good
+  enough to nearly always fool the unaided eye without a thorough inspection.
+
+  HIDs are not perfect, however, and they are often not as useful as a regular or cybernetic disguise kit. Having an
+  extremely low memory capacity, they can only store one prerendered image, which must be loaded in advance and cannot
+  be changed on the fly. In addition, while an HID can fool a casual observer with ease, many droids, cameras, and other
+  scanners can see through the disguise, thanks to the very faint flicker inherent in even the best hologram. They also
+  consume an enormous amount of energy. Due to their small on-board energy cells, HIDs can only operate for a few
+  minutes at a time unless they are plugged into an external power supply. They also do not emulate vocal patterns, like
+  the uniquely personalized holographic disguise matrix that the Snivvian bounty hunter/technician Sinrich designed
+  during the Clone Wars. This means users must apply their own skills in verbal deception to complete a disguise.
+
+  A holographic disguise needs to be the same size as the target or larger. Detecting an HID with the naked eye requires
+  a **Daunting (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)
+  Perception check**. Droids and anyone viewing the target through a scanner, electrobinoculars, or other technological
+  optical device require only an **Average (<difficulty></difficulty><difficulty></difficulty>) Perception check**.
+encumbrance: 2
+rarity: 6
+reference:
+  - CaM:46

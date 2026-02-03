@@ -1,0 +1,11 @@
+id: eote-toxdet
+name: Toxin Detector
+description: Toxin detectors are simple handheld devices that can detect traces of toxins and poisons. Typically used to
+  mitigate the threat of assassination, these devices can detect poisons, toxins, and spoilage in food and drink. They
+  can also sniff out toxins in the environment, such as poison gas or a contact poison spread on a datapad. Toxin
+  detectors use simple red/green indicators or a subtle vibration to alert a user to the presence of dangerous
+  substances. Many are built into a bracelet or other piece of jewelry for maximum subtlety.
+encumbrance: 1
+rarity: 4
+reference:
+  - CaM:46

@@ -19,6 +19,9 @@ export type { InternalArmor } from './armor.ts';
 export { convertAttachment, convertAttachments, isAttachment } from './attachment.ts';
 export type { InternalAttachment } from './attachment.ts';
 
+export { convertGear, isGear } from './gear.ts';
+export type { InternalGear } from './gear.ts';
+
 export { convertAbility, convertAbilities, convertAllAbilities } from './ability.ts';
 export type { InternalAbility } from './ability.ts';
 

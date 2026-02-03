@@ -1,0 +1,18 @@
+id: eote-sds632
+name: SDS-632 Surveillance Detector
+description: >-
+  Dalabar SDS-632 Surveillance Detector
+
+  Discretion and privacy are critical to any serious negotiation, particularly those with significant ramifications. Not
+  surprisingly, many outsiders are interested in tracking such discussions, particularly on worlds that suffer from
+  tyrannical governments. Consequently, securing such meetings from observation is of the highest priority in many
+  systems, before discussions can even begin, each party involved takes the opportunity to scan a room for bugs, to
+  ensure privacy. Good surveillance detectors identify active devices that transmit on any electromagnetic frequency, as
+  well as recognize the power supplies required to keep such bugs functional.
+
+  A surveillance detector adds <boost></boost><boost></boost> to any Perception or Vigilance checks to attempt to
+  identify the presence of a bug within short range of the user.
+encumbrance: 1
+rarity: 0
+reference:
+  - DoH:48

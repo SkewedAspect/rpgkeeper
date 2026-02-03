@@ -1,0 +1,15 @@
+id: eote-droidmaint
+name: Maintenance Droid
+description: >-
+  (Various Models)
+
+  Taking a multitude of forms, maintenance droids can appear in literally any shape imaginable, from spider-like
+  machines to small, box-like automatons and even to large, vehicle-sized behemoths that repair bridges and the like.
+  They can be found anywhere in the galaxy that has the proper technology level to support droids and starports in
+  particular are typically crawling with the things. Maintenance droids generally have a low level of intelligence and
+  are not a threat to organic beings, but malfunctions or malicious reprogramming have been known to turn them against
+  their masters, sometimes with terribly effective results.
+encumbrance: 0
+rarity: 3
+reference:
+  - E-CRB:409

@@ -1,0 +1,11 @@
+id: genesys-gear-smart-system
+name: Smart-System
+description: The next evolution of personal computing, this handheld device fits into a pocket or can be worn on a wrist
+  and functions as a personal computer with an incorporated weak AI. Basically, this means your character can talk to
+  their computer and it answers back. The AI isn't as smart as an average person, and its "weak" status means it can't
+  learn or evolve, but it does everything a modern computer can do and can even allow futuristic hackers to access and
+  attempt to override security systems. In addition to functioning as a personal computer, the smart-system has
+  information stores that allow the wearer to add <boost></boost> to any Intellect-based checks they make.
+encumbrance: 1
+rarity: 5
+reference: G-CRB:187

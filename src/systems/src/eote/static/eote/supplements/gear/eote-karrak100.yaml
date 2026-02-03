@@ -1,0 +1,23 @@
+id: eote-karrak100
+name: Karrak Spice (100 doses)
+description: >-
+  Karrak Spice
+
+  This rare spice is well known for its properties as a powerful painkiller and for the degenerative toxins that build
+  up in long-term users. Underworld pushers frequently attempt to sell it instead of medicine, knowning it supresses
+  most symptoms of illness long enough to appear effective, while doing nothing to cure the customers of their need for
+  its "treatment". As if this practice were not repugnant enough, the spice has another, less-known property  that
+  offers another venue for exploitation; karrak spice suppresses Force abilities in those who take it. This property is
+  tracked byy the Imperial Science Bureau, which is working on new ways to refine or duplicate it. The ISB has also
+  developed improved froms of the spice that are sometimes issued to Imperial agents hoping to capture a Force-using
+  target.
+
+  When taken by characters who are not Force users, a single does of karrak spice removes
+  <setback></setback><setback></setback><setback></setback> added to checks from pain or illness for twelve hours, but
+  imposes automatic <threat></threat> on all checks for twenty four hours as it slows down thought and reflexes. Force
+  users who take a does of karrak spice recieve both effects for twice the duration and also count their Force rating as
+  one lower while it is active.
+encumbrance: 5
+rarity: 8
+reference:
+  - EV:48

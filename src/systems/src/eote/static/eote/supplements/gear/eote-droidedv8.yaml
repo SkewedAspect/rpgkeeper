@@ -1,0 +1,19 @@
+id: eote-droidedv8
+name: ED-V8-Series Envoy Droid
+description: >-
+  _ED-V8_-Series Envoy Droid
+
+  Seeing a weakness in the general run of protocol droids, namely the almost universal humanoid appearance of most
+  models, the Rseikharhl Droid Group began the development of a droid who would specialize in assisting negotiators and
+  diplomats working specifically with non-humanoid species. Built around the ancient chassis of a Krath war droid, the
+  ED-V8 uses variable-configuration cybernetics to alter the appearance of its body, while two interface modules supply
+  the foundations for communication with an array of non-humanoid cultures.
+
+  The ED-V80 series is programmed to be completely inoffensive and nonthreatening as it assists its owner in
+  establishing contact with local leaders. Programmed with an abnormally high level of autonomy, most droids in this
+  series work as the first point of contact with non-humanoid societies, laying the foundation from which more
+  experienced humanoid diplomats can build.
+encumbrance: 0
+rarity: 6
+reference:
+  - DoH:54

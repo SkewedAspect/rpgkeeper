@@ -1,0 +1,15 @@
+id: eote-comlinkhard
+name: Shockhold Hardened Comlink
+description: >-
+  This hardened comlink is one of the more popular forms of military-grade communications in the galaxy. These devices
+  feature satellite uplink capability for planet-wide and planet-to-orbit communications capability, boosted broadcast
+  power, and military-grade encryption, although they are bulkier than standard comlinks.
+
+  The ShockHold adds automatic <failure></failure><failure></failure> to any checks made to decode and understand its
+  transmissions, and automatic <success></success><success></success> to any checks made to broadcast through a com
+  jammer.
+encumbrance: 3
+rarity: 4
+reference:
+  - DC:56
+  - KoF:49

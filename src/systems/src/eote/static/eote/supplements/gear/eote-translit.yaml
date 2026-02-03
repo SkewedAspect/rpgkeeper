@@ -1,0 +1,11 @@
+id: eote-translit
+name: Transliterator
+description: >-
+  Consolidated Learning Systems Transliterator
+   The vast majority of known galactic species speak or understand Basic, Explorers who work with less civilized or cosmopolitan species, however, may have to engage with individuals who converse in a lesser-known tongue. In most cases, a protocol droid presents a convenient solution-capable of addressing not only language but also etiquette concerns. If an appropriate droid is unavailable, individuals need to use other tools. A transliterator offers a more portable solution. Far more compact than a droid, this device can also be useful in situations where more discretion is required. Further, a transliterator detects colloquial implications of phrases, based upon input cultures. This can enable the user to recognize more subtle points of discussion. It is also helpful when reviewing media in a different dialect, for explaining and clarifying local experessions.
+  A transliterator removes <setback></setback><setback></setback> from any Charm, Coercion, or Negotiation checks that
+  are added due to linguistic difficulties or misunderstandings.
+encumbrance: 1
+rarity: 3
+reference:
+  - DoH:49

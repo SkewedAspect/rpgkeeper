@@ -1,0 +1,15 @@
+id: eote-mbin
+name: Macrobinoculars
+description: >-
+  A far simpler version of the more complicated electrobinoculars, macrobinoculars use rugged imaging systems to magnify
+  far-off objects for their users. They are more reliable than electrobinoculars, because there are few systems that can
+  break down. However, they sacrifice the image enhancement and recording systems, as well as any low light capability.
+  There are countless macrobinocular brands on the market, though most of the differences are purely cosmetic.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 1
+rarity: 2
+reference:
+  - E-CRB:175
+  - A-CRB:191
+  - F-CRB:185

@@ -1,0 +1,9 @@
+id: genesys-gear-soothing-flute
+name: Soothing Flute
+description: This artifact incorporates elements of unrefined Æmber into its construction, focusing on calming and
+  healing energies, even for machine beings (who hear a harmonious series of ones and zeroes). Anyone who hears its
+  sounds enters a restful state better suited to recovery. A soothing flute is a musical instrument. A character using
+  one adds <boost></boost> to Medicine or Mechanics checks they make to heal a character.
+encumbrance: 1
+rarity: 4
+reference: SotC:150

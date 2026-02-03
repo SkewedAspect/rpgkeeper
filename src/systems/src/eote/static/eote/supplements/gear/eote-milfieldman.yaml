@@ -1,0 +1,16 @@
+id: eote-milfieldman
+name: Military Field Manual
+description: >-
+  Field manuals are print or digital publications, issued to Imperial troopers and Rebel agents alike that focus on a
+  variety of important topics. From comprehensive manuals issued to members of the Imperial Navy to the underground
+  publications used to instruct Rebels in guerrilla combat, field manuals can be found wherever troopers are common.
+  Those used by the Empire are written by instructors at the Anaxes War College and other important military thinkers in
+  the Empire's employ, while those used by the Alliance are either stolen from Imperial forces or written by experienced
+  Rebels. Depending on the manual, once per scene a character may use the information found within to gain
+  <boost></boost> to any task at the Game Master's discretion.
+
+  **Models Include:** Imperial Army Field Manual FM-5-31 (Booby Traps), General Airen Cracken's Rebel Handbook.
+encumbrance: 1
+rarity: 4
+reference:
+  - A-CRB:197

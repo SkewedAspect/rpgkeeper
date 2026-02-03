@@ -1,0 +1,18 @@
+id: eote-neutpix
+name: Neutron Pixie (1 dose)
+description: >-
+  A powerful hallucinogenic spice, Neutron Pixie typically has a somewhat calming effect on the user. The spice is
+  derived from Black Gabaki, a variant of the more common Grey Gabaki, and has a very high concentration of
+  hallucinogenic compounds. The natural oils in the mushroom-like plant are quite pungent, leading most users to ingest
+  the spice with a light fruit flavoring to make it more palatable. The Black Gabaki grows only on Toydaria, a secret
+  closely guarded by the small ring of Toydarian spice-growers who manufacture Neutron Pixie, Even the Hutts don't know
+  the origin of the spice, though many would undoubtedly pay handsomely for such information.
+
+  A dose of Neutron Pixie grants the user automatic <advantage></advantage><advantage></advantage> on Agility- and
+  Willpower-related checks until the end of the encounter. Once its effects end, the character suffers automatic
+  <threat></threat> all Brawn, Intellect, and Cunning-related checks for the remainder of the game session due to
+  nausea, muscle aches, weakness, and mental torpor.
+encumbrance: 1
+rarity: 6
+reference:
+  - LoNH:111

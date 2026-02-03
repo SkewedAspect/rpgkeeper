@@ -1,0 +1,15 @@
+id: eote-cycyberjack
+name: Implanted Cyberjack
+description: >-
+  Usually taking the form of a prosthetic finger or other artificial appendage, a cyberjack allows its user to directly
+  interface with a computer system via a universal serial socket. The cyberjack connects the user's brain to a droid or
+  computer directly.
+
+  Once per check, a character with an implanted cyberjack may suffer 2 strain to decrease the difficulty of a Computers
+  check to disable a security device or slice into a computer system by one.
+
+  **Models Include:** Neuro-Saav Technologies Cyber-Interface Unit, Illicit Electronics Cyberjack Package.
+encumbrance: 0
+rarity: 6
+reference:
+  - LoNH:107

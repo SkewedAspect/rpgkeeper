@@ -1,0 +1,18 @@
+id: eote-commscram
+name: Comm Scrambler
+description: >-
+  Scramblers are devices used to encrypt communications for privacy or security (or both). They can be affixed onto most
+  comlinks or other similar equipment, and only those with a linked scrambler are able to follow the conversation. Their
+  small size makes them easy to conceal, which is important since they're illegal for civilians to possess on most
+  civilized worlds. Companies like Chedak produce models like the Mark 5 primarily for military or police use, although
+  many end up on the black market.
+
+  Using scramblers adds <setback></setback><setback></setback> to any checks to attempt to decode and understand the
+  transmission.
+
+  **Models Include:** Chedak Mark 5 Comm Scrambler.
+encumbrance: 0
+rarity: 5
+reference:
+  - E-CRB:178
+  - A-CRB:194

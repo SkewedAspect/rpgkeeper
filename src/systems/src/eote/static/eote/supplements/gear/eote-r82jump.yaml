@@ -1,0 +1,18 @@
+id: eote-r82jump
+name: R82 Jump Boots
+description: >-
+  Aratech R82 Jump Boots
+      
+  Aratech's R82 jump boots are commonly used for sports and leisure activities, but the Rebel Alliance has also found
+  them useful for exploring less accessible areas on newly located worlds. The boots employ a pair of repulsorlift
+  generators and rocket units that allow the user to boost jumps or glide at altitudes of up to thirty-five meters for
+  short distances.
+
+  Jump boots allow the user to function as a Silhouette 1, Speed 2, Handling -1, System Strain Threshold 3 vehicle that
+  can only operate in atmosphere, has a maximum altitude of 35 meters, and requires Piloting (Planetary) to operate.
+        
+  _Uses the Aratech R82 Jump Boots vehicle profile_
+encumbrance: 2
+rarity: 6
+reference:
+  - SoR:115

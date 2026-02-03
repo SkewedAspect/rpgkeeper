@@ -1,0 +1,10 @@
+id: genesys-gear-waterskin-empty
+name: Waterskin (empty)
+description: Generally made from the bladders of sheep or cows, waterskins provide a simple and effective way to
+  transport liquids from well water to traveling wines. Some Gnomes have experimented with making them from canvas
+  treated with alchemical resins, but most people complain about the bitter taste and insist that these will never
+  replace the natural version. A waterskin can carry enough liquid to quench the thirst of two people per day. When
+  full, its encumbrance increases to 2.
+encumbrance: 1
+rarity: 1
+reference: RoT:101

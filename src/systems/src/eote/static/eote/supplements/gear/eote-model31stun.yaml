@@ -1,0 +1,16 @@
+id: eote-model31stun
+name: Model 31 Palm Stunner
+description: >-
+  Merr-Sonn Model 31 Palm Stunner
+
+  This high-output stun weapon takes the form of a flat lense small enough to conceal in the palm of a hand. This
+  compact construction, though, restricts its use in actual combat due to the limits of its power storage. Instead, the
+  owners of these devices typically use them to incapacitate an unaware target with a careful application.
+
+  A character can use a palm stunner on an unaware target with an **opposed Skulduggery versus Resilience check**. A
+  successful check automatically incapacitates a minion, or deals 12 damage to the strain threshold of a rival or
+  nemesis. In addition, each <success></success> on the Opposed Stealth check increases the damage dealt by 1.
+encumbrance: 1
+rarity: 5
+reference:
+  - EV:49

@@ -1,0 +1,19 @@
+id: eote-holorelay
+name: HoloNet Relay
+description: >-
+  X-500 Portable HoloNet Relay
+
+  The HoloNet is one of the crowning achievements of galactic civilization; a nearly instantaneous galaxy-wide
+  communications network. By routing information through millions of hyperwave transceivers and routers, the Empire
+  enjoys a peerless means of communication.
+
+  HoloNet relays, however, are ruinously expensive, and many planets on the Rim must do without. In addition, the Empire
+  regulates the HoloNet and has reserved much of it for military use. However, for those who can afford it, a portable
+  HoloNet relay is one of the few ways a colony can obtain instantaneous communication with the rest of the galaxy.
+
+  The X-500 Portable HoloNet Relay allows the user to communicate with the HoloNet (although at the GM's discretion, the
+  signal may be interrupted by jamming, environmental factors, or Imperial interference).
+encumbrance: 15
+rarity: 7
+reference:
+  - FH:45

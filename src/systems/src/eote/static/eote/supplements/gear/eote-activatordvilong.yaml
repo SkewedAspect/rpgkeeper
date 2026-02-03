@@ -1,0 +1,21 @@
+id: eote-activatordvilong
+name: Remote DVI Activator (Long Range)
+description: >-
+  Useful for those needing to make a speedy getaway, a remote activation controller (also known as a beckon call) is a
+  small, handheld device that can be worn on the wrist or stowed in a pocket. Linked to a slave circuit, a beckon call
+  allows the user to remotely activate the coupled vehicle or starship. Inexpensive, low-end models, such as the Bespin
+  Motors Remote DVI Activator, have relatively short ranges of no more than two to five kilometers, while exceptionally
+  sophisticated beckon calls can transmit through hyper-space up to a parsec and instruct the ship's autopilot to fly to
+  the user's location.
+
+  Inexpensive models simply activate the vehicle or ship's engines from no more than 5 kilometers away and run simple
+  pre-flight checks, allowing the pilot to take off right away. More advanced beckon calls can summon a vehicle or
+  starship, though the autopilot is only capable of performing simple maneuvers, which can be complicated by weather
+  conditions and other obstacles. Some models can be used to remotely pilot a vehicle or starship via slave circuit,
+  though this requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Piloting
+  check**.
+encumbrance: 0
+rarity: 7
+reference:
+  - SoF:100

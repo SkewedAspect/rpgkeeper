@@ -1,0 +1,22 @@
+id: eote-shadowcloak
+name: Shadowcloak
+description: >-
+  Shadowcloaks are peculiar devices designed to protect a user's anonymity during meetings in person. When activated, a
+  shadowcloak generates a field of concealing darkness around its user, causing him to appear as nothing more than a
+  black mass of shadows, even in bright light. In addition to hiding the user from sight, the shadowcloak field also
+  baffles most sensors and scanners, and distorts the user's voice, ensuring his identity remains a secret. The
+  shadowcloak field is relatively static and inflexible once activated, and the user cannot walk or move around too much
+  without revealing his identity. Additionally, the power requirements of the field only allow the device to operate for
+  an hour before it must cool down and recharge for four hours. Normally, the user will sit down somewhere and activate
+  the shadowcloak just prior to a meeting.
+
+  Discerning any identifiable features of a character wearing a shadowcloak requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception
+  check**.
+
+  **Models Include:** Tenloss SX-4 shadowcloak, Creshaldyne Industries "StaticShadow" generator.
+encumbrance: 2
+rarity: 6
+reference:
+  - FC:49
+  - CaM:49

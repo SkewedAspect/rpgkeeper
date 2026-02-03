@@ -1,0 +1,21 @@
+id: eote-yaladai
+name: Yaladai Spice (1 dose)
+description: >-
+  Yaladai Spice
+
+  Yaladai spice is a prized and expensive stimulant, worth many times the value of more common drugs, such as
+  glitterstim, on the black market. To most, it offers a supreme clarity of thought and focus, along with a sense of
+  relaxation that refreshes the user even through extended activity. The spice is extremely addictive with long-term
+  use, but those who can afford to take it regularly it regularly rarely stop for this reason. The benefits of yaladai
+  spice express themselves most strongly among Force users, who can use it to temporarily enhance their abilities and
+  connection to the Force. This can be a double-edge sword as the enhanced connection usually amplifies any negative
+  emotions or effects to which the user experiences.
+
+  Yaladai spice has effects that last for one encounter. When a character under the effects of the spice suffers strain,
+  whe suffers three less strain, to a minimum of one. This does not apply to voluntary strain loss. Additionally, a
+  Force user under the effects of yaladai spice can add [FO] to any Force power checks she makes. When she does so,
+  however, the spice doubles any strain and Conflict suffered for using {DA] to generate <forcepoint></forcepoint>.
+encumbrance: 0
+rarity: 7
+reference:
+  - EV:48

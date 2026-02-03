@@ -1,0 +1,16 @@
+id: eote-datapad
+name: Datapad
+description: >-
+  Datapads are common on most technologically civilized planets, and are used to record, store, display, and organize
+  almost any kind of data from basic text to holographic recordings. Most come with a small display screen, though some
+  use holoprojectors and are small enough to be easily carried in one or two hands, depending on the model. They are
+  commonly encoded or encrypted so that only the actual owner can operate them; some are even set to wipe all data if
+  unauthorized users attempt access.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 1
+rarity: 1
+reference:
+  - E-CRB:181
+  - A-CRB:196
+  - F-CRB:189

@@ -1,0 +1,20 @@
+id: eote-demotool
+name: Demolitions Tool Kit
+description: >-
+  An essential part of any explosive ordnance disposal (EOD) trooper's gear, this kit is small (roughly thirteen
+  centimeters long closed) and constructed of nonreactive, nonconductive materials. When it is unfolded, myriad
+  specialized tools designed for working with explosives are revealed. A typical version contains a pair of pliers,
+  cutters for both stranded and fuse wire, a cap crimper, multiple cutting blades, an electrical crimper, and a blasting
+  cap crimper. In addition, many of them feature extensions that function as small hammers, carbon scrapers, bit
+  drivers, detonite punches, and various other demolitions-related implements. While this item is not as comprehensive
+  and effective as a full EOD tool kit, it still provides the essential tools needed to properly and safely work With
+  explosive devices and compounds in a small and convenient package.
+
+  A demolitions tool kit counts as a tool kit for checks involving preparing, setting, or defusing explosives. When
+  using it for these checks, the wielder may spend
+  <advantage></advantage><advantage></advantage><advantage></advantage><advantage></advantage> to remove
+  <despair></despair>.
+encumbrance: 4
+rarity: 3
+reference:
+  - FO:47

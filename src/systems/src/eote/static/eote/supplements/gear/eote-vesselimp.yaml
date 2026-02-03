@@ -1,0 +1,22 @@
+id: eote-vesselimp
+name: Vessel Implant
+description: >-
+  Vessel implants are small, subdermal data storage implants that Couriers and Sleeper Agents often use. These consist
+  of a miniaturized, high-capacity mem-stik with an integrated power cell and data jack. Data is transmitted to and from
+  the vessel implant by way of a fiber-optic cable that can connect to nearly any datapad or computer. Extremely small
+  and unobtrusive, they are typically set into the back of a user's skull and hidden by hair or a flap of synthetic
+  skin.
+
+  They are highly secure, non-networked, and equipped with a stout anti-virus package. They cannot be sliced unless the
+  user is incapacitated or the implant is removed. The user cannot access the information contained in the implant, so
+  unless that person uploaded the data personally he typically does not know what information is within the item. Most
+  agents who use this device prefer this arrangement as it helps ensure they cannot possibly divulge the secrets they
+  carry.
+
+  Finding a vessel implant on a character requires a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception
+  check**.
+encumbrance: 0
+rarity: 4
+reference:
+  - CaM:45

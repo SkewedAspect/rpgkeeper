@@ -1,0 +1,10 @@
+id: eote-droidinterog
+name: Interrogation Droid
+description: The interrogation droids designed by the Imperial Department of Military Research are among the most feared
+  weapons in the Emperor's vast arsenal. These floating black spheres bristle with instruments of torture. Just the
+  sight of them has been known to elicit confessions and coax out carefully guarded secrets from even the most steadfast
+  of prisoners.
+encumbrance: 0
+rarity: 8
+reference:
+  - F-CRB:410

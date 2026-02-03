@@ -1,0 +1,33 @@
+id: eote-droidm4
+name: M4-Series Messenger Droid
+description: >-
+  M4-series Messenger Droid
+
+  Another of Cybot Galactica's popular and well-liked entries into the droid market, the M4-series is perhaps the finest
+  messenger droid currently available. M4-series droids are roughly half a meter tall and have a thin, blocky,
+  pentagonal body with no external limbs and a small, highly secure compartment built into the right side. A large
+  holoprojector lens dominates the front face of the droid, and a small, high-output repulsorlift generator provides
+  propulsion and gives the M4 a surprising burst of speed when needed. As dedicated messenger droids, M4s are equipped
+  with a high-resolution holoprojector and an on-board memory that can store a single message up to five minutes long.
+  M4s also carry a long-range comlink and a sophisticated navigation suite that connects to the HoloNet for real-time
+  travel and navigation information nearly anywhere in the galaxy.
+
+  Relatively bright and remarkably clever, M4-series droids were built with one goal in mind: to deliver their message
+  at any cost. To that end, these droids are overbuilt to an almost ridiculous degree. They are packed full of redundant
+  operating systems and triple-secure encryption for their messages. Their bodies are heavily reinforced and fitted with
+  solid armor that can turn shots from light-caliber slugthrowers and low-powered blasters with ease. Their shape and
+  size allow them to squeeze through tiny spaces, and a patented Cybot Galactica stealth subroutine allows these little
+  droids to flit about largely unnoticed when needed. Thanks to their design, sturdy build, and on-board systems,
+  M4-series droids have developed a reputation for successfully delivering their messages no matter how hard the trip,
+  how long it takes, or how much damage they suffer en route.
+
+  M4s are rare in Imperial service, as the ISB and other intelligence agencies have their own, bespoke messenger droids
+  in the shape of the familiar MSE-series and AS-MI 2-series droids. A fair number of these sturdy droids have found
+  their way into the Alliance, where they work with intelligence and courier services to run encrypted messages between
+  various Rebel cells. Many M4 droids in Alliance employ take immense pleasure in breaking through various levels of
+  Imperial security to deliver their data. One such droid is even rumored to have broken into an Imperial stockade
+  somewhere in the Outer Rim to deliver a message—and a holdout blaster—to an imprisoned Alliance intelligence agent.
+encumbrance: 0
+rarity: 6
+reference:
+  - CaM:52

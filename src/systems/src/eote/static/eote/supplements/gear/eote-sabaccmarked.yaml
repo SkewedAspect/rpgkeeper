@@ -1,0 +1,18 @@
+id: eote-sabaccmarked
+name: Marked Sabacc Deck
+description: >-
+  A popular game of chance throughout the galaxy, sabacc is difficult to master and even more difficult to cheat at.
+  Each sabacc card has an electronic face, and cards in play can change randomly without warning, which makes card
+  counting virtually impossible. However, clever hustlers and devious cardsharps have found various ways to mark their
+  decks or tamper with the cards or randomizer to tip the odds in their favor.
+
+  Players using a marked sabacc deck gain <boost></boost> to Deception checks when gambling. Noticing that a deck is
+  marked requires a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)** or **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception
+  check**, depending on the quality of the deck (a higher quality marked sabacc deck costs 1,000 credits).
+
+  **Models Include:** Numerous variants.
+encumbrance: 1
+rarity: 6
+reference:
+  - LoNH:108

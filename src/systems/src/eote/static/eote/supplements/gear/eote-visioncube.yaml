@@ -1,0 +1,20 @@
+id: eote-visioncube
+name: Vision Cube
+description: >-
+  s
+
+  In the tumbling of dice and the randomness of fate, some Mystics may catch glimpses of the future. Generally a pair of
+  six-sided dice, Vision Cubes are not all that different from Chance Cubes. Vision Cubes tend to have intricate scenes
+  painted on their faces. They first rose to prominence as part of a high-stakes dice game which was since eclipsed by
+  sabacc. The breathtaking art on these dice lends itself well to the act of divination. Whether these visions are mere
+  trickery or true feats of clairvoyance depends on the owner.
+
+  A character can use a vision cube while performing a check (including a Force power check) to divine the future. If
+  the check results in having at least one uncanceled <advantage></advantage>, the character adds <success></success>
+  and [LI] to the results as well. If the check results in having at least one uncanceled <threat></threat>, the
+  character instead adds <failure></failure> and [DA] to the results. If the check has no <threat></threat> or
+  <advantage></advantage> results, the vision cubes do nothing-except potentially look impressive.
+encumbrance: 0
+rarity: 6
+reference:
+  - UP:54

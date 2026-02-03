@@ -1,0 +1,27 @@
+id: eote-deathstcargo
+name: Death Sticks (100 dose cargo container)
+description: >-
+  Death Sticks
+
+  Death sticks are an unpleasant creation derived from the balo mushroom of the planet of Balosar and distributed in a
+  liquid form in distinctive small red and yellow rods. Though the drug is only mildly hallucinogenic, death sticks are
+  well-named; the active ingredient, Ixetal Cilona, is highly addictive and deleterious to one's health. Each dose tears
+  away an ever-greater portion of one's life while simultaneously tightening the grip of addiction. Death sticks are
+  illegal for obvious reasons, and more than a few smugglers who happily deal in spice or illicit arms avoid running
+  shipments of this particular drug on what they term "moral grounds." Use of death sticks also weakens a person's
+  connection to the Force temporarily, though few users or even dealers are aware of this fact.
+
+  Death sticks have a nasty result in the long run, but unless one's campaign runs over the course of decades or a
+  character has had a death stick addiction for some years already, characters are unlikely to experience the truly
+  miserable death these drugs bring about. A life-long addiction to death sticks typically halves the lifespan of most
+  species, though various species are more or less susceptible to the effects of Ixetal Cilona. The short-term effects
+  of a single dose last for one scene or combat encounter and adds <setback></setback> to any task the character
+  attempts, and may reduce the character's connection to the Force in certain ways at the GM's discretion.
+
+  **Restrictions:** Death sticks are controlled substances on most worlds, and at the very least those under the age of
+  majority cannot purchase them. Death sticks are completely illegal on many other worlds, especially those with high
+  health standards.
+encumbrance: 3
+rarity: 2
+reference:
+  - E-CRB:185

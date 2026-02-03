@@ -1,0 +1,11 @@
+id: genesys-gear-morphic-kit
+name: Morphic Kit
+description: "The morphic kit is a technologically oriented disguise apparatus that utilizes a mix of distortion fields,
+  holographic compensators, makeup, prosthetics, and voice modulators, allowing a character to interact as another
+  individual. When using this kit, your character decreases the difficulty of any Deception or other skill checks they
+  make to pass as another individual by 1, to a minimum of <difficulty></difficulty>. All other characters increase the
+  difficulty of any Vigilance or other skill checks they make to see through the deception by 1. This item may be
+  modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 3
+rarity: 6
+reference: EotI:120

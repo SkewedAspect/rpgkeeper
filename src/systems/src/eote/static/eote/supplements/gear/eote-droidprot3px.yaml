@@ -1,0 +1,15 @@
+id: eote-droidprot3px
+name: 3PX-Series Protocol Droid
+description: Cybot Galactica, manufacturers of the renowned 3P0-series protocol droids, took a decidedly less
+  human-centric approach to the design of the variant 3PX line marketed to customers in the Outer Rim. Because of the
+  diversity of species throughout the vast region, the droid was designed with a face based on no particular species,
+  but with elements of several prominent groups through a wide swath of the Outer Rim territories. The final result was
+  recognizable to almost every species it encountered, but lacked the ability to connect with specific species as well
+  as a more clearly defined 3P0 model. Sales of the 3PX line suffered as a result, leading to a limited production run.
+  However, resold droids tend to command the price of brand-new droids, thanks to the droid's extensive cultural and
+  linguistic databases. The Rebellion also favors use of 3PX-series droids, seeing them as a symbol that distances the
+  Alliance from the Empire's pro-human sentiment.
+encumbrance: 0
+rarity: 4
+reference:
+  - DA:54

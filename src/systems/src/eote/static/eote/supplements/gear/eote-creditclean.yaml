@@ -1,0 +1,10 @@
+id: eote-creditclean
+name: Credit Cleaner
+description: |-
+  While Imperial officials generally turn a blind eye to the various dealings of the Hutts and their associates, those who traffic in high-value illegal goods and services often find it beneficial to make sure that their income cannot be easily traced. For those who prefer their money uncontaminated by any crimes committed in obtaining it, credit cleaners are an ideal solution. Sophisticated datapads incorporating complex encryption codes and logarithms, credit cleaners are designed to route Imperial credits and other electronic currency quickly and efficiently through a convoluted path of transfers and exchanges. Once so laundered, the funds are incredibly difficult to trace, making it virtually impossible for even the most skilled forensic accountant droids to tie them back to their source.
+  The difficulty of a Computers check to trace money shepherded this way is **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)**.
+  **Models Include:** Numerous variants.
+encumbrance: 12
+rarity: 7
+reference:
+  - LoNH:111

@@ -1,0 +1,19 @@
+id: eote-concescapekit
+name: Concealed Escape Kit
+description: >-
+  Concealed escape kits have everything an individual needs to escape most temporary and short-term internments. Hidden
+  in a false heel of a shoe, boot, or other suitably bulky footwear, a concealed escape kit includes a number of
+  miniature tools designed to help an agent open locks and escape holding cells. A typical kit includes a small pair of
+  wire cutters, a durasteel file, a length of slicewire, a miniature mem-stik containing maps of the area in which the
+  agent is operating and other important information about the region, and a tiny, single-use laser cutter. Most kits
+  also include a thin, flexible monoknife hidden length-wise in the footwear's sole.
+
+  The gear hidden in a concealed escape kit upgrades the ability of all Mechanics and Skulduggery checks made to escape
+  confinement once. The laser cutter works for a single round before its energy cell burns out, which is usually just
+  enough time to destroy a mechanical lock or cut a metal bar out of a window or cell door. The flexible monoknife
+  included in the kit has the following profile: (Melee; Damage + 1; Critical 3; Range (Engaged); Pierce 1). Upgrade the
+  difficulty of checks to detect a concealed escape kit twice.
+encumbrance: 0
+rarity: 7
+reference:
+  - CaM:47

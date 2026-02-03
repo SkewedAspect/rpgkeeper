@@ -1,0 +1,18 @@
+id: eote-explosivesbelt
+name: Explosives Belt
+description: >-
+  A tool of Saboteurs and Infiltrators, the explosives belt is a small and convenient concealed demolitions kit.
+  Produced in a wide variety of styles by various intelligence agencies throughout the galaxy, a typical explosives belt
+  is a broad hide or synthetic belt with a sturdy buckle. Hidden within the belt strap is a length of detonite tape; a
+  remote detonator cap and a length of wire are concealed in the buckle. Once placed, the detonator can be triggered by
+  a comlink or a dedicated remote device. Explosives belts are typically used for sabotage, but they can also blast a
+  door or hatch open for a quick escape in a pinch.
+
+  Setting the explosive charge hidden in the belt requires an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Mechanics check**. The charge detonates with the following
+  profile: (Damage 15; Critical 3; Range (Engaged); Blast 5, Breach 1, Limited Ammo 1). Upgrade the difficulty of checks
+  to detect the belt's true nature twice.
+encumbrance: 1
+rarity: 7
+reference:
+  - CaM:48

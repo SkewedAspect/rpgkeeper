@@ -1,0 +1,20 @@
+id: eote-medpac
+name: Medpac
+description: >-
+  Slightly larger and infinitely more advanced than a standard emergency medpac, the FastFlesh is a good example of a
+  medpac carried by a trained medic. The medpac carries instruments for emergency field surgery, a better diagnostic
+  computer and mediscanner, advanced synth-nutrient replicators for sustaining a patient's vital nutrients, spray
+  splints, and counter-radiation and biological poison drugs.
+
+  This medpac allows the user to perform relatively complicated medical procedures in the field, and can rival the
+  infirmaries on smaller starships. It allows characters to attempt to heal others using Medicine checks without penalty
+  as described on page 219, and additionally grants a <boost></boost> on all attempts. In addition, the internal stim
+  storage grants the user the equivalent of one stimpack per scene (although the GM can rule the device has run out of
+  stims if the supplies are used continuously).
+
+  **Models Include:** Athakam MedTech First Responder, BioTech FastFlesh Medpac.
+encumbrance: 2
+rarity: 2
+reference:
+  - E-CRB:177
+  - A-CRB:192

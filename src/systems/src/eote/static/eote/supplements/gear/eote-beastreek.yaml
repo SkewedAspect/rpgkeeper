@@ -1,0 +1,15 @@
+id: eote-beastreek
+name: Reek
+description: Although reeks are naturally herbivorous and non-aggressive, their fearsome appearance as well as great
+  size and strength have seen them used for combat and blood sport in arenas throughout the galaxy. If left hungry,
+  these creatures will turn to meat for sustenance, even hunting aggressively if desperate enough. In their native
+  habitat, on Ylesia or other worlds to which they were less cruelly transplanted, reeks graze in herds. While these
+  massive quardupeds defend each other fiercely with huge tusks, horns and clawed feet, they remain largely docile in
+  the absence of outside threats. Some frontier worlds have experimented with using the beasts as pack animals hoping
+  that their hardiness and capacity for self-defence would make up for the difficulty of training them. Such attempts
+  have had mixed success but reeks are slowly gaining a repuation as valuable, if unorthodox, steeds and beasts of
+  burden in addition to their existing fame as combatants.
+encumbrance: 0
+rarity: 5
+reference:
+  - SS:78

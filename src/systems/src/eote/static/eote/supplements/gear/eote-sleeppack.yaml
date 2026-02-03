@@ -1,0 +1,19 @@
+id: eote-sleeppack
+name: Sleeppack (one dose)
+description: >-
+  Physically similar to a stimpack, a sleeppack is an auto-injection tube filled with a variety of natural and synthetic
+  sedatives. The intent is to quickly knock a target iyt, so that he can be safely manipulated. Originally intended
+  solely for medical use—particularly when dealing with volatile patients—sleeppacks eventually spread to use in law
+  enforcement as well as among bounty hunters.
+
+  Applying a sleeppack to an aware and unwilling target requires the wielder to make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Brawl** or **Melee combat check**
+  against the target. Instead of inflicting damage, if the attacker succeeds, the target must immediately resist the
+  effects of the medications that flood the system as a poison (with a Resilience check, as described on page 172 of the
+  **Edge of the Empire** Core Rulebook). Any sized dose has a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)** difficulty, and failure inflicts 10
+  strain.
+encumbrance: 0
+rarity: 3
+reference:
+  - ND:55

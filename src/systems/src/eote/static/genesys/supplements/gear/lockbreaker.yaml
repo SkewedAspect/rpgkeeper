@@ -1,0 +1,11 @@
+id: genesys-gear-lockbreaker
+name: Lockbreaker
+description: A lockbreaker is a modular electronic lockpicking device designed to aid in bypassing most types of
+  electronic locks. With the included accessories, a lockbreaker can help criminals open key-card locks, time locks,
+  keypad/combination locks, and other common electronic and computer-controlled systems. Advanced models can even unlock
+  biometric locks. Lockbreakers allow your character to attempt to open any electronic lock or latch. In addition, when
+  making a Skulduggery check to open an electronic lock or latch while using a lockbreaker, your character adds
+  <success></success><success></success> to the results.
+encumbrance: 1
+rarity: 5
+reference: SotB:97

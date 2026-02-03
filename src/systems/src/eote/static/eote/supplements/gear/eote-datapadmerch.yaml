@@ -1,0 +1,16 @@
+id: eote-datapadmerch
+name: Mercantiler Datapad
+description: >-
+  Produced by MerenData to meet strong customer demand, the MDD-12 is a less powerful and less versatile version of the
+  onboard Mercantiler computer system equipped in MerenData's Exchequer series commerce droids. This incredibly useful
+  datapad is programmed with region-specific business information, including currency and credit conversion tables, base
+  value listings for a wide variety of traded goods, and a data uplink connected to a region's stock markets and trading
+  houses that grants the user up-to-the-minute information on all goods bought and sold therein.
+
+  When used within the region for which it is programmed—Core Worlds, Inner Rim, Mid Rim, or specific Outer Rim
+  territories—the Mercantiler datapad grants <boost></boost> to any Negotiation skill checks made to buy or sell goods.
+  These datapads grant no bonuses outside of their specific region.
+encumbrance: 1
+rarity: 3
+reference:
+  - FH:48

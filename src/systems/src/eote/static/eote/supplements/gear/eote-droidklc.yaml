@@ -1,0 +1,22 @@
+id: eote-droidklc
+name: KLC Series Exchequer Droid
+description: >-
+  MerenData KLC Series Exchequer Droid
+
+  MerenData's KLC Series Exchequer Droid is marketed throughout the galaxy as The Merchant's Best Friend." These droids
+  are bipedal, humanoid automata similar in stature with sleek lines and nonthreatening facial features designed to put
+  organic users at ease. They are heavily marketed to merchants, bankers, and other powerful entrepreneurs. To this end,
+  KLC Series Exchequers are equipped with a clever and quick-thinking brain optimized for mathematics, negotiations, and
+  market tracking. Their voice synthesizers are calibrated to be smooth and melodious, if perhaps a bit quick, and their
+  pleasing demeanor and handsome design make them some of the more pleasant droids to work with.
+
+  The real selling point of these droids is their powerful "Mercantiler" market-tracking computer system. The
+  Mercantiler computer is programmed with a constantly updating database that tracks the variations in major currency
+  conversions in the galaxy, along with an exhaustive price-and-value list of nearly every commodity bought, sold, or
+  traded. This computer also has a constant holonet connection that monitors the major stock markets in the galaxy,
+  keeping the droid continually updated on the latest financial news and information. All this makes the Exchequers
+  capable merchants in their own right.
+encumbrance: 0
+rarity: 5
+reference:
+  - EtU:56

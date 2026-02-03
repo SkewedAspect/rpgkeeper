@@ -1,0 +1,13 @@
+id: genesys-gear-horn-of-courage
+name: Horn of Courage
+description: Horns play an important role in the mythology of the Weik, for they state that the gods themselves blow war
+  horns when preparing for battle. This horn, made from a cracked, ancient cattle horn and banded with bright silver, is
+  rumored to have been made by priests of Nordros, and certainly attests to their myths. When an adventurer blows the
+  horn, their allies are filled with encouragement and inspiration. As an out-of-turn incidental, your character may
+  blow the Horn of Courage; until the end of the following round, your character and their allies within medium range
+  reduce the difficulty of fear checks by one, to a minimum of <difficulty></difficulty>. Obviously, the horn is very
+  loud; under most circumstances, it can be easily heard by all characters and creatures out to extreme range, and
+  likely farther.
+encumbrance: 1
+rarity: 7
+reference: RoT:109

@@ -1,0 +1,10 @@
+id: genesys-gear-ar-goggles
+name: AR Goggles
+description: Computational work is often easier if the user can maintain the illusion of having a physical interaction
+  with the systems. For the wearer, AR goggles give the physical world an overlay that offers helpful information as
+  well as iconography for interacting with virtual systems. Using AR goggles adds <boost></boost> to Computers checks.
+  At the GM's discretion, AR goggles may also provide <boost></boost> on any check where relevant heads-up information
+  could be useful, and <setback></setback> when such displays would be distracting.
+encumbrance: 0
+rarity: 3
+reference: SotC:147

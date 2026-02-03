@@ -1,0 +1,9 @@
+id: genesys-gear-anti-rad-drugs
+name: Anti-Rad Drugs
+description: For groups playing in a post apocalypse where radiation is a threat, we encourage including this item as
+  the single potential way to get rid of radiation. Such drugs could be pills or injection. When your character consumes
+  a dose of anti-rad drugs, they remove one level of radiation (see A Certain Glow, on page 29). A character may only
+  benefit from consuming one dose of anti-rad drugs over a twenty-four hour period.
+encumbrance: 0
+rarity: 7
+reference: G-EPG:36

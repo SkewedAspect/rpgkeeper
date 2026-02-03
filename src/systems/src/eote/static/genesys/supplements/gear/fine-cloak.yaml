@@ -1,0 +1,8 @@
+id: genesys-gear-fine-cloak
+name: Fine Cloak
+description: A fine silk or embroidered wool cloak not only protects the wearer from the elements, it also elevates
+  their stature in the eyes of others. When wearing a fine cloak, your character removes <setback></setback> from any
+  Charm, Deception, or Leadership checks they make. When worn, a fine cloak's encumbrance is 0.
+encumbrance: 1
+rarity: 4
+reference: G-CRB:146

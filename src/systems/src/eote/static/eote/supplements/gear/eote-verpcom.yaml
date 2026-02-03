@@ -1,0 +1,20 @@
+id: eote-verpcom
+name: Verpine Comlink
+description: >-
+  The mode of short-wave telecommunication used by the Verpine is undetectable outside their species. The Rebel Alliance
+  has, through trial and error, devised a type of comlink that is specially tuned to the Verpine frequency. With such a
+  comlink, Verpine communications can be intercepted, and direct communication with the Verpine can be established
+  within a range of 100 kilometers.
+
+  Interestingly, the signals received on a Verpine comlink when in close proximity to one of their colonies often
+  consist of garbled-sounding transmissions that are, in fact, the product of every Verpine in the colony “speaking” at
+  the same time. Such comlinks are much more effective when used in conjunction with a small group of Verpine away from
+  a large colony.
+
+  That said, Verpine also have some control over the frequencies in which they can broadcast, similar to the way humans
+  can modulate the tones of their own voices. This allows Verpine to choose different “channels,” which the comlink can
+  then be tuned to, allowing for discreet communication even in the midst of the largest Verpine colonies.
+encumbrance: 1
+rarity: 6
+reference:
+  - SoR:112

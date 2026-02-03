@@ -1,0 +1,10 @@
+id: genesys-gear-encryptos
+name: Encryptos
+description: "This small data-device can link to a comm-bead or similar communications tool to scramble outgoing
+  communications. The encryptos also descrambles incoming transmissions, provided it has the proper encryption codes
+  loaded to it. While your character is using an encryptos, anyone attempting to decipher their messages must make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty> check. This item
+  may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 1
+rarity: 7
+reference: EotI:121

@@ -128,18 +128,14 @@ export const BaseWeaponRefSchema = z.object({
 });
 
 export const BaseGearSchema = z.object({
-    id: z.string().optional(),
     name: z.string(),
-    owner: z.string().optional(),
-    scope: z.enum([ 'public', 'user' ]),
-    reference: z.string(),
-    official: z.boolean(),
-    description: z.string(),
+    description: z.string().optional(),
     encumbrance: z.number().int()
         .min(0),
     rarity: z.number().int()
         .min(0),
-}).meta(supplementRef('gear'));
+    notes: z.string().optional(),
+});
 
 export const ExperienceSchema = z.object({
     total: z.number().int()

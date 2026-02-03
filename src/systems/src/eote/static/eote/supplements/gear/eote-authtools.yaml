@@ -1,0 +1,17 @@
+id: eote-authtools
+name: Authentication Tools
+description: >-
+  As criminals and spies advance their ability to forge documents, the need to detect falsifications becomes paramount.
+  Few sentients have sufficiently acute vision to detect minor discrepancies, so officials frequently rely on electronic
+  tools to aid verification. The devices are typically programmed to recognize the telltale markers of official
+  documents issued by the local government, but authentication tools are sometimes unable to verify documents from a
+  different issuing authority.
+
+  A character using authentication tools adds <boost></boost><boost></boost> to checks to determine if a document has
+  been falsified.
+
+  **Models include:** Goseia Heavy Industries Concern Executive Verification Suite.
+encumbrance: 1
+rarity: 5
+reference:
+  - DA:50

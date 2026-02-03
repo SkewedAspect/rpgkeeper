@@ -1,0 +1,9 @@
+id: eote-encrypwhis
+name: Whistler Encryption Module
+description: |-
+  Designed to encode messages sent over comlink or via subspace, encryption modules attach to comlinks or hypertransceivers and allow for secure communications on the battlefield or across long distances. Significantly larger and far more sophisticated than a simple comm scrambler, encryption modules use extremely complex algorithms and ciphers to code transmissions. Without the decryption key needed to decode the transmission, it is nearly impossible to break the code. Used primarily by diplomats, military, and large corporations, encryption modules have also proved useful for bounty hunters, smugglers, and others on the fringe who wish to keep their communications private.
+  Attempts to decode messages sent through an encryption module without a receiver with the decryption key are **Formidable (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)** and require the use of sophisticated equipment, such as a ship's mainframe or a Class One droid. Attempts to decode an encrypted message without a computer are impossible.
+encumbrance: 3
+rarity: 6
+reference:
+  - SoF:100

@@ -1,0 +1,13 @@
+id: genesys-gear-habitent
+name: Habitent
+description: "Useful for anyone seeking shelter in a hostile environment, a habitent has a domed structure large enough
+  to sustain a number of individuals whose silhouettes added together total 6 or less. A habitent is packed in a
+  carrying case the size of a spacer trunk, and it takes only a few minutes for its internal mechanisms to unfurl or for
+  its user to stow the structure. Habitents are self-contained and come with air purification systems and temperature
+  regulators that can handle extreme heat and extreme cold. These systems work for up to two weeks. A reinforced version
+  can maintain integrity and remain airtight water and swimming and in vacuum. It comes with a small pump and air
+  storage that allows it to inflate and add air (or remove water) after a person enters. This version has air recycling
+  supplies that can last for one week. This item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 6
+rarity: 3
+reference: EotI:125

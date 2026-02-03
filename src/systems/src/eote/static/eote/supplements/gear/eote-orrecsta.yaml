@@ -1,0 +1,17 @@
+id: eote-orrecsta
+name: OR-Series Tech Recycling Station
+description: >-
+  Tech recycling stations are used to speed up the time consuming task of sifting through damaged or discarded
+  technology to find items of value. High-grade examples are sometimes used by archaeological expeditions but the more
+  common OR-Series is typical of models in service everywhere from the recycling plants of environmental concerns to the
+  warehouses of Outer Rim scrap dealers. The OR-Series sorts through loads of junked technology to find vaulable quality
+  alloys, active power cells and useful parts that can be separated from the trash surrounding them.
+
+  A character using a tech recycling station adds <boost></boost><boost></boost> to Perception and Mechanics checks to
+  scavenge parts or raw materials and can complete such checks in hald the time (or one quarter of the time with the
+  Utinni! talent). Additionally, a character with a tech recycling station on hand may recover supplies worth hald the
+  Material Price from any failed crafting checks, to a maximum of the full value (see **Crafting** on page 74).
+encumbrance: 10
+rarity: 5
+reference:
+  - SM:52

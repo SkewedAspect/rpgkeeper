@@ -1,0 +1,17 @@
+id: eote-insideguide
+name: Insider's Guide
+description: >-
+  Seasoned travelers can avoid obvious tourist traps and find the establishments frequented by locals, but asking about
+  particularly unusual needs sometimes arouses suspicion. Fortunately, most planets produce a number of guides to major
+  locations, including the best cafes, restaurants, temporary residences, and tips on how to get the best deals and
+  avoid trouble. Some guides include the less publicized sites where one can purchase illegal items. These guides are
+  regional, and useful only in the particular areas they cover.
+
+  A character using an insider's guide adds automatic <advantage></advantage> to any check to find a specific location
+  or service within the region the guide covers.
+
+  **Models include:** Vlaso's Guides to the Galaxy.
+encumbrance: 0
+rarity: 3
+reference:
+  - DA:52

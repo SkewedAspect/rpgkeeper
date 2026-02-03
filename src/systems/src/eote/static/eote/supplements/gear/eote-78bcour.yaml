@@ -1,0 +1,18 @@
+id: eote-78bcour
+name: Swift 78B Vessel Courier System
+description: >-
+  The Swift 78B vessel courier system is a discreet, cybernetically implanted data storage device. Often used by
+  couriers in instances where physical data storage devices are liable to be found or confiscated, the vessel courier
+  system can carry enough information to fill four conventional datapads. 
+
+  The information is accessed via a small dataport that is secured beneath a tiny flap of synthflesh, usually beneath
+  the courier’s hairline. Because the vessel courier system is independent of the courier, the data within it cannot be
+  accessed or modified by him.
+
+  The Rebel Alliance has utilized vessel courier systems to move large amounts of sensitive data between bases and
+  outposts without drawing undue attention. It is also a popular device with criminal organizations and freelance
+  couriers.
+encumbrance: 0
+rarity: 6
+reference:
+  - SoR:112

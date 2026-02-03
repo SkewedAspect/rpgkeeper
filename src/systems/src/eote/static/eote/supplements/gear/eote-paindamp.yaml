@@ -1,0 +1,14 @@
+id: eote-paindamp
+name: Pain Damper
+description: >-
+  Pain dampers are a series of nerve implants that allow an individual to tune out extreme pain and fatigue. They were
+  designed to help beings in physically taxing positions that require long hours of keen attention to stay functional on
+  the job. Initial users included asteroid miners, disaster response technicians, and aerospace traffic controllers.
+  Spies have discovered that pain dampers also allow individuals to withstand incredible amounts of interrogation or
+  torture. As a result, their use has spread throughout many of the galaxy's intelligence communities.
+
+  Pain dampers upgrade the ability of all checks made to resist pain or physical torture once.
+encumbrance: 0
+rarity: 6
+reference:
+  - CaM:45

@@ -1,0 +1,12 @@
+id: genesys-gear-emergency-repair-patch
+name: Emergency Repair Patch
+description: Emergency repair patches are to machines what slap-patch are to humans. Available in sizes that range from
+  mere millimeters to square yards, they consist of an alloy patch that bonds to any surface by means of a powerful
+  adhesive. Although meant as very temporary repair measures, emergency patches are remarkably sturdy and can even be
+  used to patch up shuttles and dropships in a pinch. They can also offer basic repairs to bioroids. Your character can
+  use an emergency repair patch in two different ways. They can use it when making repairs on a mechanical system, in
+  which case it adds <boost></boost> to their Mechanics check. They can also use it as a slap-patch to heal bioroid
+  characters. In this case, it follows all of the rules of slap-patch, as found on page 100.
+encumbrance: 0
+rarity: 2
+reference: SotB:102

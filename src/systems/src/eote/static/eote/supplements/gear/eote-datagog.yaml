@@ -1,0 +1,17 @@
+id: eote-datagog
+name: Data Goggles
+description: >-
+  These goggles overlay the wearer's field of vision with additional information. That information is typically drawn
+  from the Holonet, although localized sources-including a vehicle sensors-may be used instead. The selected information
+  is customizable, and an interface device is required to manipulate it. When the goggles are used by students, an
+  instructor can send material from a datapad to the students' goggles as appropriate, providing new information as a
+  lesson progresses.'
+
+  At the beginning of an encounter, a character may select one Knowledge skill. For the remainder of the encounter, the
+  character adds automatic <success></success> to all checks he makes using that skill while wearing the data goggles.
+  The GM may rule that a character needs to obtain specialized data files to upload into the data goggles before using
+  them.
+encumbrance: 1
+rarity: 1
+reference:
+  - DoH:49

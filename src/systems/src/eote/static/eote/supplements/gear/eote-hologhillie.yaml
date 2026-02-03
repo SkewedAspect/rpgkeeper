@@ -1,0 +1,14 @@
+id: eote-hologhillie
+name: CX-2000 Holographic Ghillie Suit
+description: >-
+  Standard phototropic camouflaging may be insufficient for the extended concealment needed by snipers and other special
+  operations personnel on some missions. The holographic ghillie suit features integrated projectors that make the
+  wearer appear indistinguishable from surrounding foliage, analyzing the environment, selecting appropriate patterns,
+  and even swaying in the wind.
+
+  The holographic ghillie suit increases the difficulty of all checks to locate the wearer by 1, as long as the wearer
+  remains immobile.
+encumbrance: 1
+rarity: 8
+reference:
+  - DC:58

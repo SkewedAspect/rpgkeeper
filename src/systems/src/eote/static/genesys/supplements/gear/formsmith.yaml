@@ -1,0 +1,13 @@
+id: genesys-gear-formsmith
+name: Formsmith
+description: "This bulky device can manufacture almost any handheld object. A formsmith heats a block of neutral matter
+  in a microfurnace to change it on a molecular level into matter with any of a variety of rigidities and tensile
+  strengths. Within minutes, a formsmith can forge nearly any object from an eating utensil to a replacement FTL engine
+  manifold. The formsmith can make any object that serves a purely narrative purpose up to an encumbrance value of 4. It
+  can forge simple weapons with no moving parts, such as a knife or axe. It can't make complex weapons by itself, such
+  as a working firearm, but it can produce most of the components for one. Formsmiths can't make liquids, gases, or
+  other chemicals. Characters who have access to a formsmith add <boost></boost> to Mechanics checks. This item may be
+  modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 5
+rarity: 5
+reference: EotI:125

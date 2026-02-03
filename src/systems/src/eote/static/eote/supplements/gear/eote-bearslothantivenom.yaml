@@ -1,0 +1,12 @@
+id: eote-bearslothantivenom
+name: Bearsloth Antivenom (dose)
+description: >-
+  Bearsloth Antivenom
+
+  Any character who applies a dose may either gain <boost></boost><boost></boost><boost></boost> to checks to resist the
+  effects of the poison until the end of the encounter or immediately remove one instance of the Wracking Venom Critical
+  Injury.
+encumbrance: 0
+rarity: 3
+reference:
+  - CotG:23

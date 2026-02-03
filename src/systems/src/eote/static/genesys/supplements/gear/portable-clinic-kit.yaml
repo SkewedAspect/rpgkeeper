@@ -1,0 +1,14 @@
+id: genesys-gear-portable-clinic-kit
+name: Portable Clinic Kit
+description: Known on the street as a "doc-bag," a portable clinic kit has all of the types of medical supplies one
+  would find in a small clinic. The differences are in the quality of the supplies and in how it uses technology to
+  compress as much as possible into a backpack-sized space. Instead of a collection of scalpels, scissors, and probes, a
+  clinic kit has two omnitools made from self-sterilizing smart plastic that can morph into nearly any medical tool.
+  Bandages are vacuum compressed into fingernail-sized pills, and the drugs are concentrated so smaller doses are more
+  effective. Tying the whole kit together is an integrated computer system with sensor pads to diagnose a patient in
+  moments. The only drawback is that all of this is fantastically expensive. A portable clinic kit allows your character
+  to heal wounds or Critical Injuries without penalty. In addition, whenever your character successfully makes a check
+  to heal wounds, their target heals 1 additional wound and 1 additional strain.
+encumbrance: 3
+rarity: 4
+reference: SotB:99

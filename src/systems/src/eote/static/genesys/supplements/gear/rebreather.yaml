@@ -1,0 +1,8 @@
+id: genesys-gear-rebreather
+name: Rebreather
+description: These devices are specific to the species for which they are designed. Each provides their users with the
+  necessary atmosphere for respiration. While using a rebreather, the wearer does not need to make a check to survive in
+  toxic atmospheres or underwater—though any exposed body surfaces may still suffer damage.
+encumbrance: 1
+rarity: 2
+reference: SotC:150

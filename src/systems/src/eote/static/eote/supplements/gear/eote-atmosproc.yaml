@@ -1,0 +1,15 @@
+id: eote-atmosproc
+name: Elysium Atmospheric Processor
+description: "Gandorthral Atmospherics is a leading provider of atmospheric engineering systems, producing everything
+  from breath masks and hostile environment suits to massive, city-sized terraforming installations. The smallest of
+  these latter items is the highly respected Elysium Model 2 Atmospheric Processor. Powered by a planet's natural
+  subsurface heat and energy, the Model 2 resembles a massive ziggurat: a stepped, flat-topped pyramid full of systems
+  designed to produce breathable atmospheres, clean water, and even weather patterns from the raw materials at hand.
+  Roughly the size of a star cruiser, the Elysium Model 2 requires a crew of at least one hundred engineers and
+  technicians, not to mention numerous droids to work in areas unfit for their organic colleagues. When deployed to a
+  new colony, these processors commonly form the core of the initial settlement, and many a sprawling city throughout
+  the Outer Rim has a decommissioned or repurposed Model 2 somewhere in its borders."
+encumbrance: 10000
+rarity: 7
+reference:
+  - FH:46

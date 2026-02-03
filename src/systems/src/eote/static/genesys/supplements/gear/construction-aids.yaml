@@ -1,0 +1,9 @@
+id: genesys-gear-construction-aids
+name: Construction Aids
+description: Given that the Crucible is an artificial planet, it only makes sense that construction should be paramount
+  everywhere (or so most engineers believe). Construction aids come complete with pandimensional levels, nanoassemblers,
+  instament, and other items helpful for construction in the field. Construction aids decreases the difficulty of
+  Mechanics checks to construct large edifices, bridges, fortifications, and similar structures once.
+encumbrance: 2
+rarity: 5
+reference: SotC:147

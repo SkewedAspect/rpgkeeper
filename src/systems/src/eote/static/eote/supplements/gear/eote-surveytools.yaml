@@ -1,0 +1,19 @@
+id: eote-surveytools
+name: Surveyer's Tools
+description: >-
+  Even in a galaxy as old and well travelled as this, new worlds are still regularly discovered. Whether found by sheer
+  accident or during a sponsored exploration mission, newly discovered worlds need to be surveyed and catalogued—making
+  planetary surveyors in high demand throughout the galaxy. While most surveyors, especially those with years of
+  experience, claim they need little more than a ruler, compass and stout length of chain to do their job, the planetary
+  survey field is full of specialized tools and equipment. A good kit of surveyor's tools and measuring and recording
+  devices for plotting out and mapping, planetary surfaces. Basic kits are often more than a chain, a compass, and tool
+  like a sextant for recording the position and movement of stars, but advanced kits used by professional surveyors can
+  fill one or two large carrying cases or even the bed of a small speeder truck.
+
+  A set of basic surveyor's tools adds <boost></boost> to a character's Perception checks when plotting specific
+  locations on a planet's surface, measuring distances or creating detailed maps. Larger kits may add
+  <boost></boost><boost></boost> at the Game Master's discretion.
+encumbrance: 6
+rarity: 6
+reference:
+  - SS:49

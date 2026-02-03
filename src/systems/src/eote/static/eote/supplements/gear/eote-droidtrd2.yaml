@@ -1,0 +1,20 @@
+id: eote-droidtrd2
+name: TRD-2 Sparring Droid
+description: >-
+  Briefly manufactured by Balmorran Arms, and loosley based upon their SD-series battle droid, these droids were
+  designed to complement live sparring partners during the training of youn Imperial officer cadets. However,
+  instructors found that the TRD-series lacked the killer instinct of more purpose-built combat droids, resulting in
+  fewer training deaths and the perception that trainees were being coddled. The sparring droids were subsequently
+  phased out of service. As the Empire moved on with more lethal units, the TRDs were reproduced, often for crowd
+  suppression or as inexpensive corporate security. There are still examples of the TRD units being used for their
+  original purpose, however, with organizations that feel the droid's versatility and resilience impart a deeper mastery
+  of a wider array of combat skills.
+
+  Buzzing back and forth on their whirring treads, the TRD's arms flash with lightning reflexes, showcasing the fighting
+  styles of over a hundred thousand cultures programmed into the droid's core memory systems. Variable limb
+  configurations serve to mimic the strengths and weaknesses of countless foes. Many find a TRD-2 droid one of the best
+  tests of martial prowess to be found.
+encumbrance: 0
+rarity: 6
+reference:
+  - DoH:55

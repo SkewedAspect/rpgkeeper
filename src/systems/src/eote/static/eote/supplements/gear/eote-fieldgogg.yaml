@@ -1,0 +1,11 @@
+id: eote-fieldgogg
+name: Scout 5 Field Goggles
+description: This eyewear features interchangeable lenses and is designed to protect the soldier's eyes from sun, wind,
+  dust, and other airborne debris. Field goggles are constructed from durable and flexible synthetic frames with foam
+  cushions for comfort and a secure seal, with adjustable straps for a secure and custom fit. They have no electrical
+  systems and thus do not allow soldiers to see in darkness or offer other such benefits, but their very simplicity
+  ensures reliability.
+encumbrance: 0
+rarity: 0
+reference:
+  - DC:58

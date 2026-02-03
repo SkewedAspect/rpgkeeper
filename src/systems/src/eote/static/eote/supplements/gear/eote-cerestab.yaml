@@ -1,0 +1,19 @@
+id: eote-cerestab
+name: IRAPS Cerebral Stabilizer
+description: >-
+  These lifesaving but nightmarish devices, known as "brain cages," are designed to preserve the viability of the
+  central nervous system in critically injured patients. The IRAPS is a full-face helmet with IV lines injected into the
+  large vessels of the patient's neck. The blood circulating in the patient's brain is replaced with a hyper-oxygenated
+  nutrient solution, and thermal circuits in the helmet apparatus reduce cranial temperature to provide critical
+  metabolic stabilization.
+
+  A cerebral stabilizer must be applied to a patient within one round of suffering a Critical Injury. This device may be
+  applied to a character suffering from a Bleeding Out or The End is Nigh Critical Injury, or a character who has died
+  during the current round. Applying the device requires an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Medicine check**. Once applied, the character is stabilized. If
+  he died, he is brought back to life and counts as suffering a Gruesome Injury critical Injury (and all of its
+  effects). Otherwise, his critical injury effects are canceled, though he still suffers from the injury itself.
+encumbrance: 3
+rarity: 7
+reference:
+  - DC:57

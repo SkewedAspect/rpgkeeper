@@ -1,0 +1,10 @@
+id: genesys-gear-nighteyes-goggles
+name: '"Nighteyes" Goggles'
+description: These fantastic goggles are based on alien technology. They allow the wielder to see through concealment
+  (darkness, smoke, and intervening terrain) and even enhance their aim. While wearing "Nighteyes," your character
+  removes <setback></setback><setback></setback> added to their checks due to concealment (darkness, smoke, and
+  intervening terrain). When performing the Aim maneuver, they can choose to add automatic <advantage></advantage> to
+  their check instead of <boost></boost>.
+encumbrance: 1
+rarity: 7
+reference: G-CRB:162

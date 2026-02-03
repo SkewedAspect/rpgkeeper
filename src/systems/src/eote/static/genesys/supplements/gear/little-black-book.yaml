@@ -1,0 +1,11 @@
+id: genesys-gear-little-black-book
+name: Little Black Book
+description: Criminals often store information on their network of contacts within little black books. These devices
+  take many forms, depending upon the technology or arcane means used to create them. Augmenting a book through
+  interactions with underworld contacts may expand its region of effective use, but this also runs the risk of
+  incorporating inaccurate information or data that could draw the attention of law enforcement officers. A little black
+  book adds <success></success><despair></despair> to Streetwise checks its owner makes. Each little black book is
+  typically only effective within a particular city or small region, subject to the GM's discretion.
+encumbrance: 1
+rarity: 2
+reference: SotC:150

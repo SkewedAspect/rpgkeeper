@@ -1,0 +1,22 @@
+id: eote-holobeac
+name: Holonet Homing Beacon
+description: >-
+  Often, a hunter needs to track prey across tremendous distances. Sometimes this could be to identify a base of
+  operations, other times it might simply be a matter of tailing a lead to a mark when the actual target's location is
+  unknown. A homing beacon is a device that tracks a starship or its passengers and cargo even after a hyperspace jump.
+  Homing beacons depend upon using existing HoloNet transceivers to transmit their location back to their source.
+  Consequently, their effectiveness is sharply limited when the vehicle travels to a system that is not connected to the
+  HoloNet.
+
+  Homing beacons vary substantially in size and in their means of application. Smaller models can be thrown by hand or
+  manually attached to their targets. Larger ones may be fired from a rifle or even a vehilce-mounted weapon to track a
+  more distant target. The size of the homing beacon is most relevent in determining the likelihood that anyone on the
+  target vessel might notice its presence.
+
+  As long as a homing beacon is functional, the person who activated it may trace the associated target across the
+  galaxy. No tests are required, so long as the targets travels within known systems. A homing beacon remains functional
+  indefinitely, unless it is deactivated.
+encumbrance: 0
+rarity: 0
+reference:
+  - ND:53

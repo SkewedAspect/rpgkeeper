@@ -1,0 +1,31 @@
+id: eote-droidjcpilot
+name: JC Series Pilot Droid
+description: >-
+  Industrial Automation JC Series Pilot Droid
+
+  Pilot droids have been a common sight throughout the galaxy for millennia. They are produced in a variety of styles,
+  from the diminutive repulsor-driven RX series to the lanky, skeletal cyclopes of the FEG series, and range from simple
+  automated pilots following preprogrammed routes to highly talented droids capable of flying a snubfighter against
+  Imperial Navy pilots.
+
+  The JC series produced by Industrial Automaton takes all of these qualities and turns them on their head. A bipedal,
+  humanoid descendant of the well-respected V-series pilot droids, with which the JC series shares much of its internal
+  systems architecture, these new-style pilot droids are unlike any previously seen on the market. They are brash,
+  aggressive, head-strong droids programmed to be highly competitive in all matters to do with flying starships and
+  atmospheric craft. Whereas a typical pilot droid speaks in a calming baritone and has a steady demeanor, JC-series
+  droids speak in a quick, strong feminine voice full of confidence and swagger.
+
+  They were designed initially to act as test pilots and were marketed to shipbuilding and military-contracting concerns
+  such as Incom and KDY. Quite intelligent for a nonacademic droid, the JC series is equipped with powerful and
+  versatile piloting software, a datalink that allows them to connect directly to a ship's internal systems, and
+  upgraded servos, circuits, and myomer-synthetic musculature to make them incredibly agile. While they are not built
+  with direct combat in mind, they are equipped with a pop-up blaster pistol concealed in their right forearm along with
+  the programming to use them, giving these droids some self-defense capabilities. Most of the JC series are still in
+  service with their original buyers, flying small- and medium-sized prototype spacecraft to the limits of their
+  construction and often paying for it with their lives. Those few that found their way into general civilian hands,
+  especially in the Outer Rim, have found their share of work with traders, smugglers, explorers, and other individuals
+  who tend to live exciting and dangerous lives and might need the services of a talented copilot.
+encumbrance: 0
+rarity: 7
+reference:
+  - EtU:56

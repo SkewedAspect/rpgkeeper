@@ -1,0 +1,19 @@
+id: eote-synopteach
+name: Synoptic Teacher
+description: >-
+  In some cases, an individual needs to absorb a very large amount of information in a limited amount of time. For those
+  instances in which the user does not need to permanently retain the data, a synoptic teacher can be a vital aid. The
+  device transfers data directly to the wearer's brain at a subconscious level. It works over the course of a single
+  night's sleep, embedding the data in a painless and effortless fashion. Unfortunately, information implanted with this
+  device is transient, typically lasting for only a few days.
+
+  A synoptic teacher is preconfigured to teach a single skill at rank 3. A character using it must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Discipline check**. Success means the
+  user counts as having that skill at rank 3 for the remainder of the game session. Failure means the user's strain
+  threshold is halved for the remainder of the session instead. The GM can spend <despair></despair> to cause the
+  synoptic teacher to inflict minor neural scarring, at which point the character can no longer use the synoptic
+  teacher.
+encumbrance: 1
+rarity: 4
+reference:
+  - DoH:49

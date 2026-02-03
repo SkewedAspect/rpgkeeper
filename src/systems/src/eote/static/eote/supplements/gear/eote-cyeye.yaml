@@ -1,0 +1,17 @@
+id: eote-cyeye
+name: Cybernetic Eyes
+description: >-
+  Perhaps one of the most difficult cybernetic enhancement is replacement eyes, for most observers can detect even the
+  slightest error. Athakam MedTech's line of cybernetic eyes passes such inspection, with many agreeing the Mod III is
+  perhaps their finest achievement. Although they are obviously not the user's natural eyes, they grant the user
+  increased visual acuity and recognition.
+
+  Users with cybernetic eyes gain + 1 Vigilance and Perception.
+
+  **Models Include:** Athakam MedTech Cybernetic Eyes Mod III.
+encumbrance: 0
+rarity: 6
+reference:
+  - E-CRB:174
+  - A-CRB:189
+  - F-CRB:183

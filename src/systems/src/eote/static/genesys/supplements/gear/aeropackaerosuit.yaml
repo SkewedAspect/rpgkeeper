@@ -1,0 +1,12 @@
+id: genesys-gear-aeropackaerosuit
+name: Aeropack/Aerosuit
+description: This is any sort of personal flight device. Such items vary greatly in operation and appearance, and most
+  are unique inventions. An aeropack might feature a steam rocket, a propeller, or flapping wings of clockwork and
+  canvas. A character wearing an aeropack can flying (see page 100). However, flying doesn't come naturally to humans,
+  and your GM might call for a Piloting check in dangerous or unusual circumstances. In addition, none of these devices
+  are incredibly reliable, so a <difficulty></difficulty> result means it runs out of power at the end of your
+  character's turn and remains unpowered for the rest of the session. (It also means that if your character doesn't make
+  it to solid ground by that point, they're in for a fall!)
+encumbrance: 5
+rarity: 7
+reference: G-CRB:156

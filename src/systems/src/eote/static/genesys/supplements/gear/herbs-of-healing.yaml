@@ -1,0 +1,8 @@
+id: genesys-gear-herbs-of-healing
+name: Herbs of Healing
+description: Herbs or poultices with ill-defined but powerful healing effects are a staple of many settings. These are
+  often slightly magical in nature. When making a Medicine check, your character may use herbs of healing to add
+  automatic <success></success><advantage></advantage> to the results. Herbs of healing are consumed when used.
+encumbrance: 0
+rarity: 6
+reference: G-CRB:146

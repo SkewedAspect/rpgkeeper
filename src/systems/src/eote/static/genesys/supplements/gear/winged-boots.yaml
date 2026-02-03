@@ -1,0 +1,12 @@
+id: genesys-gear-winged-boots
+name: Winged Boots
+description: The Priesthood of Pollux sponsors all manner of magical research into artifacts that might allow their
+  wearer to fly. Winged Boots are an example of such endeavors, but even so, they do not enable soaring flight. An
+  adventurer equipped with winged boots can hover a few dozen yards above the ground or use the boots to safely slow a
+  descent from a height. While wearing Winged Boots your character can fly (see the Flying sidebar on page 100 of the
+  Genesys Core Rulebook). Your character does not need to use a maneuver in order to remain aloft (the boots do all the
+  work and allow the wearer to hover in place) but cannot go above medium range from the ground. Winged boots have an
+  encumbrance of 0 when worn. When not worn, Winged Boots have a tendency to spring upwards and fly away on their own.
+encumbrance: 1
+rarity: 9
+reference: RoT:110

@@ -1,0 +1,19 @@
+id: eote-distressbcn
+name: PED-21 Personal Distress Beacon
+description: >-
+  Ubiquitous among spacers, explorers, and other professionals in the galaxy, the PED-21 is a personal emergency
+  distress beacon carried in case of accident or misfortune. Around the size of a glow rod and weighing next to nothing,
+  the PED-21 uses a high-powered, long-range transmitter to broadcast a short, constantly repeating emergency message
+  across all common search-and-rescue comm frequencies. The PED-21 can be programmed to repeat its message in up to
+  twelve preprogrammed languages and has a power-pack life of seventy-two standard hours. It can be manually triggered
+  or linked to a monitoring system, such as those found in survival suits or sealed armor, and set to activate
+  automatically when the wearer's bio signs reach a preprogrammed threshold. The signal broadcast by the PED-21 can be
+  picked up from low orbit on most worlds and from many kilometers away depending on atmospheric conditions, terrain,
+  and a number of other variables.
+
+  Anyone searching for an individual with an active PED-21 gains <boost></boost><boost></boost> to any Perception,
+  Computers, or Surveillance checks made in the course of the search.
+encumbrance: 0
+rarity: 1
+reference:
+  - EtU:50

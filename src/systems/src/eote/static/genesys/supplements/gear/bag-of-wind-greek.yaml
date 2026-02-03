@@ -1,0 +1,12 @@
+id: genesys-gear-bag-of-wind-greek
+name: Bag of Wind (Greek)
+description: The large, cumbersome bag, made from the tanned hides of several mismatched sea creatures, contains all the
+  winds of the whole world. The bag was given to Odysseus by Aeolus, king of the four winds, but was lost in a storm
+  when Odysseus' crew fought over it, thinking that it contained gold. While your character holds the Bag of Wind, they
+  reduce the difficulty of any Operating skill chekcs they make to direct sailing vessels by three, to a minimum of
+  <difficulty></difficulty>. In addition, once per encounter, your character may briefly open the Bag of Wind as a
+  maneuver. All characters and any objects that are not secured in front of your character and within medium range are
+  pushed one range band away from your character and knocked prone.
+encumbrance: 2
+rarity: 10
+reference: G-EPG:14

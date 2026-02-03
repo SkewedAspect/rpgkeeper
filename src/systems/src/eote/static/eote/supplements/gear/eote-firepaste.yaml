@@ -1,0 +1,15 @@
+id: eote-firepaste
+name: Fire Paste
+description: >-
+  This versatile chemical putty is used to ignite and sustain emergency fires. Fire paste is packaged in small cubes
+  with integrated igniters, almost like tiny plastic explosive charges. To ignite the fire paste, the user simply
+  spreads the cube on a fuel source and pulls the tab on the igniter. When used without a fuel source, the cube itself
+  burns for about an hour.
+
+  Corellian Chemical Corporation's Fire Paste can be used to ignite nearly any flammable object. Without something to
+  burn, it can burn for roughly an hour with the same intensity as a small campfire. It can burn in any atmosphere, but
+  not underwater or in vacuum.
+encumbrance: 0
+rarity: 1
+reference:
+  - DC:58

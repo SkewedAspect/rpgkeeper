@@ -1,0 +1,10 @@
+id: genesys-gear-z-tab
+name: Z-Tab
+description: "A z-tab is a small, thin square tablet filled with stimulants that a person places under their tongue,
+  where it dissolves in a matter of moments. Z-tabs combine a number of different stimulants with targeted biotracers so
+  that they are effective on most species. However, too many stimulants can do serious damage to a character's biology.
+  When your character consumes a z-tab, they heal 4 strain, then suffer 2 wounds for every other z-tab they have
+  consumed in the past 24 hours. This item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 0
+rarity: 2
+reference: EotI:124

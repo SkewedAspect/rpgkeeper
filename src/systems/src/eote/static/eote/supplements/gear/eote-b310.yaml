@@ -1,0 +1,19 @@
+id: eote-b310
+name: B310 Micro-Imager
+description: >-
+  Applied Imaging B310 Micro-Imager
+
+  Microorganisms, mineral structures, and forensic samples are just a few of the things that a researcher might need to
+  examine in extremely fine detail. Key visual characteristics of objects only a few micrometers in size can provide the
+  information necessary to solve a mystery or resolve a crisis. However, few species have the inherent ability to
+  visually discern such details without an appropriate tool. A micro-imager solves this challenge by magnifying an
+  object up to 100,000 times its original size, using visual light and  a variety of different sensors. The magnified
+  object is projected in a holographic format above the imager. The hologram can be rotated, zoomed, and adjusted as
+  needed, so that the viewer can perceive any necessary details.
+
+  A micro-imager adds <boost></boost><boost></boost> to any Perception, Knowledge (Lore), or Knowledge (Education),
+  checks for which magnification of fine details can contribute to the research at hand.
+encumbrance: 2
+rarity: 2
+reference:
+  - DoH:47

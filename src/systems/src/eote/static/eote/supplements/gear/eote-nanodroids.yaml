@@ -1,0 +1,20 @@
+id: eote-nanodroids
+name: Nano-Droids
+description: >-
+  These microscopic machines typically take the form of spheres, invisible to the naked eye, that are stored in a
+  suspension of electrolytic transfer fluid. Officially designated NM-K reconstitutors, these droids can reconfigure
+  carbon-based matter -- an ability with many applications in the field of advanced electronics. However, due to the
+  dire possibilities of misuse, nano-droids are prohibited by the Republic except for certain monitored and tightly
+  controlled industrial applications. The same capabilities that make them so useful for creating items allow
+  nano-droids to rearrange molecules into explosively unstable configurations, turning a living being into a walking
+  bomb.
+
+  Add <setback></setback><setback></setback><setback></setback> to a character's Perception check to notice nano-droids,
+  unless the searcher knows to look for them and has an appropriate scanner.
+
+  Nano-droids can be reprogrammed to explode. When activated, they deal 20 damage with the Breach 1 item quality to
+  everything within short range, including the object in which they are contained.
+encumbrance: 0
+rarity: 9
+reference:
+  - CotR:58

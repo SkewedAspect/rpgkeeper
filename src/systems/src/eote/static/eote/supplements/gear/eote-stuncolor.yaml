@@ -1,0 +1,16 @@
+id: eote-stuncolor
+name: Stun Collar
+description: >-
+  Used in spice mines and prisons across the galaxy, stun collars are an effective means of subduing a prisoner that can
+  be set to cause relatively little physical damage. 
+
+  When activated via remove, the stun collar delivers a high-voltage shock to its wearer, inflicting 10 Stun Damage.
+  However, the collar can also be used to lethal effect, dealing 12 damage and inflicting a Critical Injury adding +20
+  to the roll. 
+
+  A **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Mechanics check** is necessary
+  to remove the collar without electrocuting its wearer.
+encumbrance: 2
+rarity: 6
+reference:
+  - FLT:60

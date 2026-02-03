@@ -1,0 +1,9 @@
+id: genesys-gear-air-mask-with-tank
+name: Air Mask with Tank
+description: An air mask, sometimes called a breath mask or gas mask, filters the air for its wearer. Sophisticated and
+  expensive models might instead include an air supply, likely in the form of a backpack or hip canister. An air mask
+  allows a user to avoid being poisoned by airborne toxins and to operate in corrosive atmospheres without penalty. The
+  more expensive version with a built-in air supply allows the user to operate underwater for one hour without penalty.
+encumbrance: 3
+rarity: 5
+reference: G-CRB:156

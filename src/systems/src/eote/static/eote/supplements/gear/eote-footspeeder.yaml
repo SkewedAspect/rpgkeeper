@@ -1,0 +1,17 @@
+id: eote-footspeeder
+name: Foot Speeder
+description: >-
+  These curious contraptions combine the swiftness of a speeder car with an ease of storage and simple construction that
+  makes keeping and maintaining them much less expensive than doing so for an actual vehicle. Foot speeders are
+  contructed around a repulsorlift pad large enough for a single being to stand upon, with a steering vane extending up
+  that doubles as a support for the occupant to hold arms.
+
+  A foot speeder allows a person to function as a Silhoette 1, Speed 1, Handling -1, System Strain Threshold 4 vehicle
+  that can only operate in atmosphere, and requires Piloting (Planetary) to operate. It has a flight ceiling of five
+  meters.
+
+  _Note: This item is also included as a vehicle._
+encumbrance: 4
+rarity: 4
+reference:
+  - EV:50

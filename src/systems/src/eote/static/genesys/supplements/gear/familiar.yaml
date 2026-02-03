@@ -1,0 +1,15 @@
+id: genesys-gear-familiar
+name: Familiar
+description: "Familiars are members of a series of robotic drones designed to aid their owners in a variety of tasks.
+  They have simplistic artificial intelligence and typically assist with basic household functions such as cooking,
+  cleaning, and entertainment. More advanced models provide support in certain professions; mechanimiliars assist with
+  repairs, while scimiliars advise on a variety of scientific disciplines. Regardless of a familiar's model, its sensors
+  can be linked to a computer, providing the user with an additional perspective when examining an area. After your
+  character purchases a familiar, choose one skill from the following list: Astrocartography, Computers, Mechanics,
+  Operating, Piloting, Skulduggery, Survival, or any one skill skill. As long as your character's familiar is active and
+  within short range, your character adds <boost></boost> to checks they make with the chosen skill, as well as to
+  Perception and Vigilance checks your character makes if the familiar is linked to your character's savant or
+  quintisensor. This item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 2
+rarity: 2
+reference: EotI:121

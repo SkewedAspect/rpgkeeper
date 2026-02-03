@@ -1,0 +1,19 @@
+id: eote-beastglowbat
+name: Spintiri Glowbat
+description: >-
+  The planet Spintir is known to xenobiologists for its curious diversity of mammalian species, but, few of its native
+  lifeforms are as notable as the local glowbats. With a wingspan of just over a meter, the glowbats are not as
+  physically imposeing as the icewolves or powerful Spintiri lynxes that sit at the top of the planet's food chain.
+  However, thanks to the bioluminescent, scaly flakes that collect under their wings, glowbats have managed to carve out
+  a niche or their homeworld with few regular predators and an abundance of prey. By flapping their wings to spray the
+  flakes forward, flowbats can disorient attackers in order to make their escape or stun prey as they swoop in for the
+  kill.
+
+  What's more, glowbats are able to regulate their bioluminescence for purposes other than predation and defense. They
+  can dim the glow under their wings to avoid attention, or flare it in modulated sequences to communicate with each
+  other. The last capability is used to negotiate territorial boundaries or attract mates, although some Spintiri locals
+  believe it might be possible to train the glowbats to produce signals on command.
+encumbrance: 0
+rarity: 7
+reference:
+  - SS:78

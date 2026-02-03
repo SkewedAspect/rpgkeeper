@@ -1,0 +1,15 @@
+id: genesys-gear-ynfernael-rune
+name: Ynfernael Rune
+description: "Unlike most runebound shards, Ynfernael runes were not carved by the Dragonlords of the Third Darkness.
+  Instead, Ynfernael runes are shards that have been captured and corrupted through the malicious actions of those who
+  seek the regard of demons. An Ynfernael rune has one purpose: to inflict pain on others. The bearer of an Ynfernael
+  rune must spill some of their own blood to activate the shard, but once they have done so, the unholy power unleashed
+  ensures their foes will spill an even greater amount. - Activation: As an action, your character can activate the
+  Ynfernael rune, choosing to suffer a number of wounds not exceeding their wound threshold. For each wound suffered
+  this way, all characters within short range suffer 1 wound. - Implement: When casting an Attack spell, your character
+  must add the Empowered and Deadly effects with no increase in difficulty. When the spell's effects are resolved, the
+  spellcaster suffers 1 wound. If the magic check fails, the spellcaster suffers an additional 4 wounds. Attack spells
+  cast by your character increase their base damage by three."
+encumbrance: 0
+rarity: 0
+reference: RoT:121

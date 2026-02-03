@@ -1,0 +1,39 @@
+id: eote-lowfeedscan
+name: Low-Feedback Scanner
+description: >-
+  CryonCorp designed the low-feedback scanner specifically for Cotals and members of other species sensitive to the
+  electrom agnetic spectrum. While more
+
+  problematic for droids, certain active scanners also
+
+  cause afflicted species migraines or worse. The lowfeedback scanner avoids these issues by only making
+
+  use of passive collection technologies.
+
+  For Alliance purposes, this scanner is effectively
+
+  invisible to Imperial sensor sweeps, making it common in special forces units. The Alliance hijacked
+
+  several shipments of these scanners by invitation of
+
+  CryonCorp CEO and rebel sympathizer Belaya Rist.
+
+  A close ally of Senator Bail Organa, she witnessed
+
+  the destruction of Alderaan from nearby Delaya while
+
+  inspecting new manufacturing facilities.
+
+  This sensor can detect radiation sources of silhouette 1 or larger within short range, life forms within
+
+  medium range, power sources within long range, and
+
+  comms signals within extreme range. Extend the range
+
+  of detection by 1 range band for every silhouette size
+
+  by which the target’s size exceeds silhouette 1.
+encumbrance: 4
+rarity: 5
+reference:
+  - FiB:53

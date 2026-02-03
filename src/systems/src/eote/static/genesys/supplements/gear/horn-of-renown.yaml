@@ -1,0 +1,9 @@
+id: genesys-gear-horn-of-renown
+name: Horn of Renown
+description: Horns of renown are typically attuned to and decorated with glyphs associated with a specific leader and
+  embody their reputation and triumphs. The owner (or an attendant) may spend a maneuver to use the horn; this removes
+  up to <setback></setback><setback></setback> from Leadership checks allies within long range make until the end of the
+  round.
+encumbrance: 1
+rarity: 2
+reference: SotC:149

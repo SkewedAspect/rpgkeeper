@@ -1,0 +1,17 @@
+id: eote-se90structengscan
+name: SE-90 Structural Engineering Scanner
+description: >-
+  CryonCorp SE-90 Structural Engineering Scanner
+
+  The SE-90 from CryonCorp is ubiquitous in construction and engineering. Roughly the size of CryonCorp's EnhanceScan
+  general purpose scanner, the SE-90 is designed for inspecting existing structures. Using an SE-90, an engineer can
+  determine the materials used to build a structure and see through walls to the hidden structures within. It can detect
+  stress fractures and weak points, concealed armor and reinforced sections, conduits, hidden spaces, and the like.
+
+  Using an SE-90 requires an **Average (<difficulty></difficulty><difficulty></difficulty>) Computers check** modified
+  according to construction materials and environmental interference per the GM's discretion. A character who succeeds
+  can see through walls or bulkheads up to short range until the end of the encounter or the scanner is moved.
+encumbrance: 1
+rarity: 6
+reference:
+  - FO:46

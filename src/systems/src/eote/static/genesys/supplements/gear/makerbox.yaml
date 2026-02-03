@@ -1,0 +1,12 @@
+id: genesys-gear-makerbox
+name: Makerbox
+description: '"Makerbox" is a catchall term for a 3D printer or other commercially available automated fabrication
+  suite. Using a variety of materials, typically synthetics and composites derived from buckyfullerene, a makerbox can
+  make nearly any item imaginable if the space and materials are available. While these machines cannot produce complex,
+  multipart items such as firearms or PADs, with the right materials, it can make the components from which to assemble
+  such items. Your character can use a makerbox to assemble a simple tool (or equivalent part) that has an encumbrance
+  value of 2 or less. The process takes five to ten minutes, depending on the size of the tool, and requires an
+  equivalent amount of raw materials (plascrete or metals).'
+encumbrance: 5
+rarity: 6
+reference: SotB:102

@@ -1,0 +1,20 @@
+id: eote-droidgt
+name: GT-Series Construction Droid
+description: >-
+  These burly-looking class five droids from Veril Line Systems are the latest in a long line of construction droids
+  dating back to the ancient AM-Mk II used in the mid-Republic era. They stand two meters tall and have broad shoulders,
+  a narrow waist, and powerful legs and arms that are packed with an on-board suite of construction tools.
+
+  GT-series droids are relatively smart. Their construction and engineering programming allows these droids to carry out
+  all common functions on a construction site, from basic labor to planning, problem solving, logistical tasks, and
+  supervising other construction droids. They can even interface with VLS's I-C4a combat construction droid and are
+  often used to replace that machine's organic crew.
+
+  These droids are overall quietly competent, going about the business of following orders and carrying out construction
+  plans with little fuss. Those that have developed personalities, such as the ones that serve with Alliance engineering
+  units in the field, enjoy working with organics. On a job site, they are quiet and focused, but off the clock they
+  tend to be garrulous and occasionally didactic.
+encumbrance: 0
+rarity: 4
+reference:
+  - FO:50

@@ -1,0 +1,11 @@
+id: genesys-gear-portable-toolkit
+name: Portable Toolkit
+description: Portable toolkits are sold by numerous manufacturers and contain everything a runner needs to carry out
+  basic mechanical and electronic repairs. Most standard kits come with a selection of hand tools like wrenches,
+  screwdrivers, pliers, ratchets, and sockets. Many also include circuit testers, voltmeters, diagnostic scanners,
+  probes, feeler gauges, jumpers, and other specialty tools for doing everything from changing a broken PAD screen to
+  overhauling a hopper's turbine engine. This kit provides your character with the equipment needed to make a Mechanics
+  check without penalty.
+encumbrance: 4
+rarity: 2
+reference: SotB:103

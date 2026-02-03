@@ -1,0 +1,21 @@
+id: eote-holoscanner10
+name: Holoscanner (10 Encumbrance)
+description: >-
+  Used in spaceports and high-security locations throughout the galaxy, holoscanners can detect the presence of
+  dangerous or illegal items without the need to physically search individuals or cargo containers. Using a combination
+  of sensors, energy receptors, and holo-imaging, these large scanners detect and identify virtually any form of
+  weaponry or illicit contraband. While some rare materials, such as cortosis or nightshadow, can foil holoscanners,
+  vigilant operators watch for such obfuscation. Holoscanners come in various shapes and sizes, from small screens for
+  inspecting individuals to massive machines designed to examine speeder trucks, cargo containers, and even light
+  freighters.
+
+  Holoscanners reduce the difficulty of Perception or Vigilance checks to discover concealed items on a person or in a
+  container or vehicle by two. A holoscanner cannot typically scan an item or group of items with encumbrance higher
+  than its own.
+
+  **Models Include:** BAS44 customs-grade holoscanner, Fabritech HB-2 holoscanner, TaggeCo. SecureScan 1500, Neuro-Saav
+  Technologies 7320/H scanning array.
+encumbrance: 10
+rarity: 5
+reference:
+  - FC:48

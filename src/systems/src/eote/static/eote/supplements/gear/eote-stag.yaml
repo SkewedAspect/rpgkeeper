@@ -1,0 +1,17 @@
+id: eote-stag
+name: Surveillance Tagger
+description: >-
+  These small (less than three centimeters across) beacons are commonly placed on their target via darts or other
+  surreptitious means, where they use adhesion or magnetism to stay affixed. Once in place, they relay information such
+  as location, direction, and rate of movement to their user, making them invaluable for tracking an unwitting foe. The
+  most expensive models, such as the Rhinsome Tracking Corp SureSnoop, can relay information through obstructions over
+  dozens of kilometers, while the cheaper Astroserver Industries Rover and Trailmaster and the MechBlaze Observer tend
+  to have much shorter broadcast ranges and can be blocked by large buildings or thick masses of rock or metal.
+
+  **Models Include:** Rhinsome Tracking Corp SureSnoop, Astroserver Industries Rover and Trailmaster, MechBlaze
+  Observer.
+encumbrance: 0
+rarity: 4
+reference:
+  - E-CRB:176
+  - A-CRB:191

@@ -1,0 +1,19 @@
+id: eote-esccir
+name: Escape Circuit
+description: >-
+  Many free droids find the notion of being placed back into servitude intolerable. While some worlds have laws
+  preventing a free droid from being subjected to a restraining bolt, many more do not, and criminals rarely let the law
+  get in their way regardless. Most droids concerned about this fate simply resolve to never be caught in a situation
+  where a restraining bolt could be applied, but some turn to trusted Droid Techs to get an escape circuit installed.
+  These internal systems function similarly to cybernetics in organics, augmenting the droid’s verbobrain with the
+  capacity to resist and even overload restraining bolts through concentrated effort.
+
+  An escape circuit is a cybernetic implant that can only be installed in droids. A droid installed with an escape
+  circuit can resist a restraining bolt with an **Easy (<difficulty></difficulty>) Discipline check** instead of the
+  normal difficulty (see page 178 of the **Edge of The Empire** Core Rulebook). The droid may spend
+  <advantage></advantage><advantage></advantage> from a check made to resist a restraining bolt to overload the bolt,
+  rendering it entirely useless.
+encumbrance: 0
+rarity: 6
+reference:
+  - SM:49

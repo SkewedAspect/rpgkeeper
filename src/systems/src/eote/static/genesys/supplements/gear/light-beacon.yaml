@@ -1,0 +1,10 @@
+id: genesys-gear-light-beacon
+name: Light Beacon
+description: "Light beacons are small, handheld objects that emit light on command. Found practically everywhere, they
+  are common in toolboxes and emergency kits and are carried by security personnel across the galaxy. A light beacon
+  provides illumination out to medium range and removes <setback></setback><setback></setback> added to checks due to
+  concealment (darkness, smoke, and intervening terrain). This item may be modified with 2-1: Cultural Manufacturing
+  Differences."
+encumbrance: 0
+rarity: 1
+reference: EotI:125

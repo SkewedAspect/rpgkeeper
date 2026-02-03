@@ -1,0 +1,25 @@
+id: eote-droidac1
+name: AC1-Series Surveillance Droid
+description: >-
+  AC1-series Surveillance Droid
+
+  Cybot Galactica's AC1-series surveillance droids are among the most ubiquitous droids in the galaxy. Also known as
+  "Spy Eyes," AC1-series droids are spherical droids just under a meter across, equipped with a low-output repulsorlift
+  generator and packed full of sophisticated imaging and observation systems. Standard units carry a 360-degree holocam
+  with a powerful holotransceiver designed to stream live footage to a remote operator's holodisplay. They also carry a
+  multi-optic imaging package with passive low-light, thermal imaging, infrared, ultrasonic, digital optical, X-ray, and
+  various other sensors. Further, they are equipped with a turret-mounted light blaster pistol for defensive and
+  security purposes.
+
+  These droids are quite unintelligent and are programmed with little personality or initiative. A security officer who
+  is in charge of patrol groups of AC1 droids usually pilots them remotely via a control board and voice commands. When
+  left to their own devices, Spy Eyes patrol their given routes and make regular reports to their controller If an AC1
+  detects intruders, it alerts its controller and then follows the intruders at a distance, recording and observing
+  their movements until a security team can arrive. The Imperial military makes heavy use of these droids, which can be
+  found in nearly every base, camp, installation, and space station under Imperial control. Recently, Alliance
+  intelligence agents discovered that, thanks to a previously unknown exploit in their programming, AC1 droids can be
+  sliced into and taken control of remarkably easily.
+encumbrance: 0
+rarity: 4
+reference:
+  - CaM:49

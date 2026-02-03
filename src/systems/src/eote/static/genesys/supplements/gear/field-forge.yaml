@@ -1,0 +1,11 @@
+id: genesys-gear-field-forge
+name: Field Forge
+description: Although field forges come in all sorts of materials, any engineer would recognize these anvil and tool
+  sets anywhere, regardless of the culture. Even the lowest-tech field forges use gravity-reducing materials to allow
+  beings to easily carry them into the wilds or other areas that might lack the desired technological infrastructure.
+  Most also include power sources, welding torches, mega-clamps, and other necessities. Using a field forge decreases
+  the difficulty of checks the user makes to create, repair, or modify mechanical devices (such as repairing hull trauma
+  and Critical Hits on vehicles) by one (to a minimum of <difficulty></difficulty>).
+encumbrance: 3
+rarity: 6
+reference: SotC:148

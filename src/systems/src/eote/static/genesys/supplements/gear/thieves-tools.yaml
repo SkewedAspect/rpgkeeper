@@ -1,0 +1,9 @@
+id: genesys-gear-thieves-tools
+name: Thieves' Tools
+description: This is a collection of lockpicks, files, wires, and oil contained in a small leather pouch, used for
+  quietly opening locks. Needless to say, adventurers find these useful. Thieves' tools allow your character to attempt
+  to open any mechanical locks or latches, even complicated ones. In addition, when making a Skulduggery check to open a
+  lock or latch, your character adds automatic <advantage></advantage> to the results.
+encumbrance: 1
+rarity: 5
+reference: G-CRB:146

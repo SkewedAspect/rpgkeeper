@@ -1,0 +1,23 @@
+id: eote-instamist
+name: InstaMist Generator
+description: >-
+  Though designed for firefighting and agricultural use, Agrierd Intergalactics' InstaMist generator has found a place
+  in the arsenals of some combatants who use it to create ambushes or make quick escapes. When loaded with a specially
+  designed high-pressure mist cartridge and triggered, the InstaMist generator creates clouds of dense vapor. The vapor
+  conceals the user (and anyone else nearby), providing an edge in both offensive and defensive situations. Other
+  cartidges designed for use with the InstaMist generator create mists that can extinguish fires, generate humidity, or
+  dispense pest control agents, but these tend to be separate, specialized products.
+
+  As an action, a character may activate an InstaMist generator to fill an area out to short range of the generator with
+  a heavy fog. As described on page 219 of the **Force and Destiny** core rulebook, heavy fog adds
+  <setback></setback><setback></setback><setback></setback> to Ranged (Light), Ranged (Heavy), Gunnery and Perception
+  checks against targets obscured by it, and adds <boost></boost><boost></boost><boost></boost> to Stealth checks made
+  by characters concealed by it. The heavy fog lasts for three rounds. At the GM's discretion, windy conditions can
+  cause it to become fog or mist or reduce the time it takes for the vapor to disperse entirely.
+
+  The generator comes wiht five vapor cartridges. Additional vapor cartridges cost 10 credits each, and other cartidges
+  vary in price based on their function.
+encumbrance: 5
+rarity: 4
+reference:
+  - KtP:52

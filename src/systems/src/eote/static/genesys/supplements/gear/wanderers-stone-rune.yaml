@@ -1,0 +1,12 @@
+id: genesys-gear-wanderers-stone-rune
+name: Wanderer's Stone (Rune)
+description: "Wanderer's stones are worn on the chest and direct an emanation of healing energy to the heart and lungs.
+  While this energy is too subtle to help heal injuries or disease, it does effectively stave off the effects of
+  fatigue. Characters who bear one of these shards are able to walk, run, swim, row, fly, and fight with significantly
+  improved stamina. Often, instead of using their shards themselves, bearers attach them to the harness of a mount or
+  draft animal in their possession - Activation: Once per encounter, as an action your character can use a wanderer's
+  stone to heal 5 strain. - Implement: When your character casts an Augment spell, they may add the Haste and Swift
+  effects with no increase in difficulty."
+encumbrance: 0
+rarity: 0
+reference: RoT:121

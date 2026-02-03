@@ -1,0 +1,23 @@
+id: eote-repseal
+name: Republic Seal of Service
+description: >-
+  Republic Seal of Service refers to a number of similar awards granted to those who have proven themselves to be
+  exemplars of the Republic's deals and paragons of service and duty. Some of the most famous awards are the Star of
+  Coruscant combat medal; the Order of Chandrila, offered to diplomats, and the Kimble Award, for lifesaving physicians.
+  Such honors and awards typically take the form of a small statuette or medallion. In addition to conveying status and
+  prestige, each award is fitted with a special transponder identifying the award and its bearer as well as details of
+  ihe bearer's accomplishments.The transponder's signals include verification codes common to all Republic databases,
+  making a presented award instantly recognizable as proof of identity.
+
+  Characters who have been awarded a Republic Seal of Service add <success></success> to all checks involving formal
+  Republic proceedings, proof of identity, or verification of past actions. Presenting a Seal of Service may also
+  upgrade the ability of checks the character makes to impress or persuade those loyal to the Republic, at the GM's
+  discretion.
+
+  Republic Seals of Service cannot be purchased on the open market Instead, the seals are awarded by a Senatorial
+  committee for exemplary service to the Republic. The rarity listed indicates the relative infrequency of encountering
+  these seals.
+encumbrance: 0
+rarity: 9
+reference:
+  - RotS:60

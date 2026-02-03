@@ -1,0 +1,17 @@
+id: eote-cyavioncaaf2
+name: CAAF-2 Avionics Interface
+description: >-
+  Implanted in the palm and fingers of the user (or incorporated into prosthetic hands) and linked to the user's
+  brainstem, the cybernetic avionics interface allows a pilot to connect with his airspeeder or starship's avionics and
+  flight control systems at a digital level. While interface doesn't eliminate the need for manual control of a vessel,
+  it does significantly improve a pilot's reaction time and help provide instantaneous feedback from the ship's
+  computer.
+
+  A character with a cybernetic avionics interface and at least 1 rank in Piloting (Planetary) or Piloting (Space) gains
+  + 1 to the appropriate Piloting skill when flying a starship or airspeeder. The avionics in speeders, swoops, and
+  other repulsorcraft are generally too primitive to interface with, but a player may do so at the GM's discretion if
+  the vehicle is equipped with a particularly advanced flight control computer.
+encumbrance: 0
+rarity: 6
+reference:
+  - SoF:101

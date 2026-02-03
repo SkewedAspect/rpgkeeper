@@ -1,0 +1,19 @@
+id: eote-hypertranspio
+name: Pioneer Long-Range Hypertransceiver
+description: >-
+  Also known as subspace transceivers, hypertransceivers are used for nearly instantaneous, faster-than-light
+  communications between star systems. While not as advanced and efficient as those linked in to the HoloNet,
+  hypertransceivers can send messages several light years, with powerful models such as this one able to transmit up to
+  100 light years. Most planets in the galaxy are integrated into a local subspace network independent of the
+  galaxy-spanning HoloNet, with hyperspace transceivers on deep-space relay satellites to create sector-wide
+  communications grid.
+
+  Most starships have hypertransceivers to send long-range messages and transmit distress signals. Small, portable
+  hypertransceivers are also available, with ranges up to about 25 light years. Utilizing local subspace systems, these
+  transceivers can potentially send a message anywhere in the galaxy, routing the transmission across networks. Many
+  smugglers and assorted criminals prefer to send messages using private hypertransceivers rather than the HoloNet in
+  order to make their communications harder to detect and trace.
+encumbrance: 5
+rarity: 3
+reference:
+  - SoF:100

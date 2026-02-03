@@ -1,0 +1,23 @@
+id: eote-cz88arm
+name: CZ-88 Heavy Loader Arm
+description: >-
+  The CZ-88 model heavy loader produced by Czerka is a flexible piece of equipment used for everything from moving
+  freaight to collecting salvage to replacing damaged hull plating on starships. The primary loading arm has several
+  extensions that enchance articulation and balance allowing it to handle even delicate materials without sacrificing
+  the lifting power needed for large-scale construction and salvage jobs. It generally comes mounted on a cart
+  witha  repulsorlift as transporting the arm would otherwise be largely impractical due to its enormity.
+
+  A heavy loader arm includes a monotask droid brain that can perform checks to heft objects; it has an Athletics skill
+  of 1 and a Brawn of 5 (if unassisted, it rolls
+  <proficiency></proficiency><ability></ability><ability></ability><ability></ability><ability></ability> for Athletics
+  checks.
+
+  Sometimes, salvagers install loader arms directly onto starships or other vehicles for easy retrieval of scrap metal
+  and other components, using the arm as a low-cost alternative to a tractor beam projector. A CZ-88 heavy loader arm
+  can be installed onto a vehicle of silhouette 3 or larger as an attachment, and uses one hard point. The occupents of
+  the craft can use it to perform Athletics checks to lift objects into or out of the vessel (and other checks at the
+  GM's discretion) without disembarking.
+encumbrance: 30
+rarity: 3
+reference:
+  - SM:51

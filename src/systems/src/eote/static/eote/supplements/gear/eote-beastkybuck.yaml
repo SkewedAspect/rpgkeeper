@@ -1,0 +1,11 @@
+id: eote-beastkybuck
+name: Kybuck Riding Beast
+description: The amazingly swift kybuck is native to the Woolwarricca plains on the Wookiee homeworld of Kashyyyk.
+  Vaguely resembling the larger tauntaun, kybucks have short tan-to-brown fur with small tails and thick horns. Unlike
+  many other bipedal mounts, kybucks have split hoofs rather than claws or pads, which may help them reach immense
+  speeds for a bipedal animal. Unlike most other riding animals, kybucks are not very effective beasts of burden. While
+  they are very fast and well-trained mounts, they are only capable of carrying smaller individuals as riders.
+encumbrance: 0
+rarity: 6
+reference:
+  - SoT:86

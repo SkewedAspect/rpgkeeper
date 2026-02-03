@@ -1,0 +1,14 @@
+id: eote-alchemypotionofwills
+name: Potion of Wills
+description: >-
+  This poison must be imbibed to have any effect. Although those effects are as impressive as they are disturbing. It
+  inhibits the user's mental faculties, making them willing to agree to anyone's commands.
+
+  This potion cannot be applied to a weapon: it must be ingested. When affected by the poison, the target must make an
+  **Average (<difficulty></difficulty><difficulty></difficulty>) Discipline check**. If they fail, they count their
+  Willpower as 0 for the remainder of the encounter (or one hour in narrative time). At the GM's discretion, they are
+  also willing to follow any instructions that they receive. The duration increases by one hour per <threat></threat>.
+encumbrance: 0
+rarity: 8
+reference:
+  - UP:83

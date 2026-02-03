@@ -1,0 +1,20 @@
+id: eote-rocketboots
+name: Rocket Boots
+description: >-
+  The ability to turn a leap into an extended flight at will offers a tremendous level of tactical versatility. If an
+  opponent fails to recognize this capacity, then the advantage becomes even more substantial. Rocket boots enable an
+  individual to take flight on a whim, without being as bulky or as obvious as a jetpack.
+
+  The convenience of their smaller size comes at a cost, however. Rocket boots cannot operate for extended periods, due
+  to their limited cooling capacity. Furthermore, as they are worn far from a beings center of gravity, they are far
+  more difficult to control.
+
+  Rocket boots enable a person to function as a Silhoette 1, Speed 1, Handling -3, System Strain Threshold 3 vehicle
+  that can only operate in atmosphere, and requires Piloting (Planetary) to operate. At the end of each round of
+  activation, the rocket boots suffer 1 system strain as their fuel depletes.
+
+  _Note:  For the vehicle version of this item, see the vehicle of the same name._
+encumbrance: 2
+rarity: 8
+reference:
+  - ND:53

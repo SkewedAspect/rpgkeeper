@@ -1,0 +1,31 @@
+id: eote-droiddum
+name: DUM-Series Pit Droid
+description: >-
+  Produced in huge numbers by Serv-O-Droid, the ubiquitous DUM-series droids are a common sight in workshops mechanics'
+  garages and racing pits all across the galaxy. Introduced during the days of the Galactic Republic these droids were
+  constucted at the Serv-O-Droid facility on Cyrillia for labor repair, and light construction use. Through out the
+  decades during which the DUM series has been in service these droids have gained an unfortunate reputation as poorly
+  programmed, hapless and clumsy things that are often not worth the trouble of keeping. They are also
+  highly  disposable, thanks to their sheap construction and low price point, most DUM-series droids are simply
+  destroyed or recycled when damaged rather than repairing. Scrapyards throughout the galaxy are littered with the
+  remains of DUM-series droids, and few individuals consider them to have worth at all.
+
+  Despite their repuation and common prejudices against them DUM-series droids are quite capable within the narrow range
+  of their abilities DUM-series droids stand roughly one meter high. They have a spindly almost skeletal appearance,
+  with long, thin limbs and agile digits. They have a broad, flared dome-shaped head dominated by a single large, round
+  photoreceptor equipped with multi-spectrum scanners that detect microscopic damage in metals and other solid
+  materials. Designed to work in large packs, they are euipped with a built-in comm system that includes a constant data
+  link allowing groups of the droids to work together more efficiently and effectively without vocal communications. In
+  addition, DUM-series droids can lift and carry weights well out of proportion to their tiny size. When deactivated,
+  DUM-series droids can fold up into rough cubes covered by their broad heads this allows them to be stored and shipped
+  easily. They can also use this mode to protect themselves from danger such as crashing vehicles or falling debris.
+
+  While not particularly well liked by the general galactic population or well supported by Serv-O-Droid, DUM-series
+  droids are still a common sight in the galaxy. They are especially popular in the Outer Rim, where their relative
+  strength and mechanical programming make them excellent assistants to poorer shipwrights and vehicel builders.
+  DUM-series droids are also closely associated with Podracing, nearly every Podracing team keeps a stable of these
+  droids to maintain their vehicles and salvage scrap from crashed competitors along racecourses.
+encumbrance: 0
+rarity: 1
+reference:
+  - EV:45

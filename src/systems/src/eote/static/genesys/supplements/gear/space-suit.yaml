@@ -1,0 +1,10 @@
+id: genesys-gear-space-suit
+name: Space Suit
+description: "Space suits are a must in every space opera setting. After all, one of the mainstays of the setting is
+  traveling through space. They all do roughly the same thing: keep the wearer alive in a vacuum. Generally, space suits
+  include the following: multidirectional maneuvering thrusters, a built-in light, a communications device,
+  magnetic-soled boots, and an emergency repair kit that allows the user to fix any small leaks or tears as a maneuver.
+  The space suit also allows the wearer to survive in vacuum for up to four hours."
+encumbrance: 2
+rarity: 2
+reference: G-CRB:187

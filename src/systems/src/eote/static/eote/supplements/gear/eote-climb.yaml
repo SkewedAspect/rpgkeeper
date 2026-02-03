@@ -1,0 +1,15 @@
+id: eote-climb
+name: Climbing Gear
+description: >-
+  Though climbing gear is usually used in wilderness areas away from artificial turbolifts or simple stairs, it also can
+  be useful in gaining entry to higher reaches through clandestine means. Most gear includes a spooled length of
+  syntherope or liquid cable, with a hook or some other attachment to secure the line. The Pretormin Environmental Basic
+  kit also includes four quick-adhesion pitons that can securely attach to almost any surface.
+
+  **Models Include:** Pretormin Environmental Basic Climbing Gear.
+encumbrance: 1
+rarity: 2
+reference:
+  - E-CRB:180
+  - A-CRB:196
+  - F-CRB:188

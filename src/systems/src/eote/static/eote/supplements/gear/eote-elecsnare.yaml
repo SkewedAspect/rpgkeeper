@@ -1,0 +1,21 @@
+id: eote-elecsnare
+name: Electro-Snare
+description: >-
+  There are countless devices in the galaxy designed to incapacitate a target or prey animal so that it can be captured
+  alive. These include stun batons, gas grenades, and even low-powered blaster rifles used to short circuit a sentient's
+  nervous system and render him unconscious. One of the smallest, simplest devices is the ubiquitous electro-snare.
+  Little more than a power pack, an energy-discharge node, and a proximity sensor contained in a light metal frame,
+  electro-snares are produced by many manufacturers in the galaxy. Simple and effective, electro-snares are difficult to
+  detect, nearly foolproof, and one of the safest and most humane stun devices on the market.
+
+  To use an electro-snare, an individual must make a **Survival check** to set and conceal the snare with a difficulty
+  set by the Game Master based on surrounding environmental factors. Once successfully hidden, any animal or sentient
+  approaching the snare must make an **Opposed Perception check** against the Survival skill of the character who
+  originally set the snare. If the snare remains undetected, it fires a powerful stun blast at the target once it enters
+  engaged range, automatically hitting and dealing 10 stun damage (the damage is applied to the target's strain
+  threshold but does not ignore soak), plus 2 additional damage per <success></success> scored on the initial Survival
+  check.
+encumbrance: 1
+rarity: 5
+reference:
+  - EtU:49

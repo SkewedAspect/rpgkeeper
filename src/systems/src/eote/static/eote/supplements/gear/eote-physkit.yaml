@@ -1,0 +1,19 @@
+id: eote-physkit
+name: Physician's Kit
+description: >-
+  Carried by doctors and healers on backwater worlds, physician's kits are bigger and more comprehensive than their
+  medpac cousins. While some contain the usual technological medical equipment such as mediscanners, diagnostic
+  computers, spray splints, and the like, many users augment the included medical gear and medications with more
+  holistic or natural healing products. It's not unknown for a physician's kit to include all manner of salves,
+  tinctures, poultices, and special bandages made from local flora and fauna.
+
+  A physician's kit allows a user to perform relatively complex medical procedures in the field. Like emergency medpacs,
+  physician's kits allow a character to use the Medicine skill without penalty, as per the rules on page 226, and in
+  addition grant <boost></boost> to all Medicine skill checks. Also, thanks to their stock of stimulants and other
+  unguents, these kits add an automatic <advantage></advantage> to successful Medicine checks made while using the kit.
+
+  **Models Include:** Numerous variants.
+encumbrance: 2
+rarity: 2
+reference:
+  - F-CRB:186

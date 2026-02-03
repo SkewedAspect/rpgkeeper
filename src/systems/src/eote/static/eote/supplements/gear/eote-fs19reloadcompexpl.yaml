@@ -1,0 +1,27 @@
+id: eote-fs19reloadcompexpl
+name: Explosive Tipped Arrow (FS19 Compound Bow)
+description: >-
+  Explosive Tipped Arrow (Field Sports FS19 Compound Bow)
+
+  Traditional, projectile-throwin bow weapons are a rarity in the galaxy. They are considered even more archaic and
+  efficient than slugthrowers, and are rarely seen outside of museums or the collections of passionate enthusiasts. Even
+  the vaunted bowcaster used by Wookiees is an energy weapon, despite its antiquated appearance. There are times,
+  however, when the simplicity, portability, and reliablity of a bow—not to mention its near silence of operation and
+  broad selection of ammunition types are exactly what a given situation requires.
+
+  The FS19 by Field Sports is one of the better bows sold throughout the galaxy. Roughly hald as long as a grown human
+  is tall, the FS19 uses a system of pulleys and cams to increase an archer's leverage and strength, therefore producing
+  a more powerful and efficent weapon in a small easy-to-use package. The bow itesle if built from plasteel-reinforced
+  polycarbonates, which give it incredible strength, and the string is a polyfiber nylamesh weave designed to minimize
+  stretch and sag.
+
+  The basic ammunition used with the FS19 is Field Sports' Mk IV "Broadhead" arrow, which consists of a meter-long
+  plasteel shaft with with  sharp, bladed point at one end and synthetic, spin stabilizing fletching on the other. THese
+  arrows are cheap to replace; the GM who wishes to set a price could charge 1 credit per arrow. In addition, Field
+  Sports produces a line of other arrows for use with the FS19 that increase the weapon's versatility **Table 2—1:
+  Ranged Weapons**, on page 47, gives the base profile for the standard arrows that come with the weapon as with the
+  profiles for the non-standard arrows for the bow.
+encumbrance: 0
+rarity: 5
+reference:
+  - SS:41

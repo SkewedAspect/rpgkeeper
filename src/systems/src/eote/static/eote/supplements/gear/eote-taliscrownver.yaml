@@ -1,0 +1,57 @@
+id: eote-taliscrownver
+name: Crown of Verity
+description: >-
+  In the days of the Republic and even before, the Outer Rim world of Auratera, little visited now, attracted the
+  attention of Force users from all over the galaxy. Its curious day-night cycle might have been enough to interest
+  scouts and astronomers, but it was the presence of the powerful vergence of Acablas that drew Jedi, Sith, and other
+  Force sensitives to the planet for millennia. Over the course of Auratera’s history, such visitors had varying degrees
+  of success in penetrating the ruins around Acablas and coming to understand its mysteries.
+
+  At least one Jedi is known to have been studying Acablas on Auratera at the time of Order 66. Though he is presumed
+  dead, the fate of the Ithorian Master Tobar Ka-Teen is unknown. What is known is that Ka-Teen had, with the permission
+  of the Jedi Council, carried with him to Auratera a powerful and ancient Force artifact known as the Crown of Verity.
+
+  In surviving Jedi records, the so-called “Crown” is actually described as a silvered skullcap capable of altering its
+  own size and shape so that it might be worn by any sentient possessed of a discernible head. The Crown of Verity is
+  said to have been used as a symbol of office by the Magistrates of Benetage before that Outer Rim planet was
+  mysteriously abandoned almost thirty thousand years ago. How it came to be held in the Jedi Temple at Coruscant is
+  unknown. Force-sensitive beings who don the Crown find themselves simultaneously able to discern any lie and unable to
+  utter any falsehood themselves.
+
+  His final, probably fatal trip to Auratera did not mark the first occasion on which Master Tobar Ka-Teen was allowed
+  use of the Crown. His fascination with what constitutes truth had led the philosophy-minded Ithorian to make several
+  studies of the artifact. He sought a way to duplicate its properties in other devices, and to expand and perfect the
+  Jedi’s already considerable innate sensitivity to falsehoods.
+
+  Ka-Teen’s interest in truthtelling had a dark origin. Shortly after he was named a Jedi Master, the Ithorian fell
+  afoul of the Black Sun criminal syndicate when he inadvertently interrupted their machinations aboard Kriost Station,
+  a deep space trading outpost. Seeking to punish the Jedi for his interference, the Black Sun placed a bounty on Master
+  Ka-Teen’s head, hiring a deeply corrupt human woman known as Kallyx the Piner to capture him and learn everything the
+  Jedi Order knew about Black Sun activities by any means necessary.
+
+  “Piner” is an ancient and obscure term for torturer, and the weeks Tobar Ka-Teen spent under the knives of Kallyx
+  before his rescue by fellow Jedi tested him beyond anything he had been trained for. However, to his astonishment, the
+  gentle Ithorian found a capacity for something he had never thought possible in himself: lying.
+
+  Instead of revealing anything about Jedi operations or intelligence, Master Ka-Teen successfully wove a complex net of
+  deception that ensnared Kallyx the Piner. Seeking to protect his fellow Jedi, Ka-Teen found his only option to be what
+  he later described as “the abandonment of truth."
+
+  Despite being hailed as a hero by the Jedi Council, the Ithorian turned deeply inward following the episode, becoming
+  an intensely private individual who spent more time alone in the libraries and archives of Coruscant than with his
+  fellow Jedi Knights. Tobar Ka-Teen was seeking something elemental, and that search led him first to his studies of
+  the Crown of Verity, and then, apparently, to the mysterious vergence on Auratera in the ruins of Acablas.
+
+  Though he was not a general and took little part in the Clone Wars, Ka-Teen was accompanied to Auratera by several
+  squads of Republic troops. Order 66 was enacted during his scheduled stay on the planet, and there is no reason to
+  believe he survived its execution. However, there is no record that the clone troops “guarding” him ever returned from
+  Auratera, either. Thus, the planet is the last known location of the Crown of Verity, and of the Jedi Master who so
+  desperately desired to understand its secrets.
+
+  A Force-sensitive character who dons the Crown of Verity automatically fails all Deception checks while wearing it. At
+  the same time, she gains automatic <success></success><success></success><success></success> on any checks to detect
+  lies or determine whether someone is telling the truth.
+encumbrance: 0
+rarity: 9
+reference:
+  - NoP:110

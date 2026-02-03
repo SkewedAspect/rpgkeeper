@@ -1,0 +1,20 @@
+id: eote-comscan
+name: Com-Scan
+description: >-
+  Nearly every person and vehicle carries a comlink or a transceiver. While most are encrypted at some
+  level—particularly military grade gear—sophisticated sensory apparatuses can detect the act of sending a signal,
+  regardless of its content. If a system is able to identify the transceiver codes from a particular device, that unit
+  can be accurately traced over a great distance, even if the contents of its messages cannot be decrypted.
+
+  Military organizations mount complex and sophisticated com-scans on their capital ships, which are capable of tracing
+  signals even across subspace. More compact eversions, with substantially more limited capabilites, however, may be
+  installed in smaller vehicles, including speeders. These are of greater interest to independent operators, who might
+  need to track the movements of an individual or vehice.
+
+  Using a com-scan, a character can triangulate the location and movement of a known comlink or transceiver with an
+  **Average (<difficulty></difficulty><difficulty></difficulty>) Computers check**. The device functions out to close
+  range on planetary scale. Prevailing atmospheric conditions or excessive background signals can reduce its efficacy.
+encumbrance: 10
+rarity: 6
+reference:
+  - ND:54

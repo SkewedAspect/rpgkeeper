@@ -1,0 +1,15 @@
+id: eote-sligear
+name: Slicer Gear
+description: >-
+  Slicers use their formidable talents to gain access and control of computers, and items such as these are their main
+  tools. Their main weapons are highly customized (usually to illegal degrees) computers of their own, filled with the
+  latest decryption software, codebreakers, and data probes. Other items might include false credit chips for accessing
+  the accounts of others or modifying monetary levels. But like slicers themselves, their tools are unique; often a
+  slicer can identify another slicer simply by inspecting the electronic fingerprints his tools leave behind.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 2
+rarity: 4
+reference:
+  - E-CRB:179
+  - A-CRB:195

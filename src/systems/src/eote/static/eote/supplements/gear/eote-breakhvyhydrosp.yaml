@@ -1,0 +1,18 @@
+id: eote-breakhvyhydrosp
+name: '"Breaker" Heavy Hydrospanner'
+description: >-
+  Regalis Engineering "Breaker" Heavy Hydrospanner
+
+  Built by Regalis Engineering, the Breaker is a massive, long-handled hydrospanner nearly a meter long. It is built of
+  heavy reinforced alloys and has a forged, hydraulic-assisted head that can be adjusted to fit most common fasteners.
+  The long handle allows for the application of extra leverage on a stuck fastener, and the tool's sturdy build prevents
+  stripping, warping, and breaking. Most field mechanics keep at least one Breaker in their toolbox and use it for more
+  than just snapping off bolts and reattaching plating.
+
+  Using a Breaker adds an automatic <advantage></advantage> to Mechanics checks. When used as a weapon, a Breaker heavy
+  hydrospanner has the following profile: Melee; Damage +2; Critical 4; Range (Engaged); Cumbersome 3, Disorient 1,
+  Inaccurate 1.
+encumbrance: 3
+rarity: 2
+reference:
+  - FO:47

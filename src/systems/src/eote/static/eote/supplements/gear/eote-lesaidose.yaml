@@ -1,0 +1,25 @@
+id: eote-lesaidose
+name: Lesai (dose)
+description: >-
+  Lesai
+
+  Lesai is a variety of spice that is not mined, but grown in a fungus found only on certain kinds of lizards from the
+  planets Zebitrope IV and VIII. By harvesting the distinctive purple mold and applying it underneath the jaw, members
+  of many sentient species can eliminate their need to sleep. The stains that the fungus leaves are hard to disguise,
+  but it has few other confirmed side-effects. Most species become psychologically if not physically dependent on the
+  drug very quickly, however, and users who miss a dose frequently collapse and only awake days later.
+
+  A character who partakes in lesai at least once every twenty-four hours does not need to sleep, and suffers no
+  penalties or strain for lack of sleep. The character may remove strain as if he had slept a full night after any
+  period of eight or more hours in which he did not engage in any stressful activities (such as combat, intense mental
+  effort, or emotionally charged discussion). Lesai's only noticeable side-effect is that it leaves odd purple stains
+  where applied. If a character under the effects of lesai ever goes twenty-four full hours without a dose of the drug,
+  he finds it increasingly difficult to stay awake until he receives more lesai or sleeps. Some Imperial officials claim
+  that lesai turns users into amoral monsters without feelings or compassion. Whether this is true or not is entirely up
+  to the GM, and he should feel free to keep his decision secret from any players whose characters use lesai.
+
+  **Restrictions:** Lesai is illegal on most worlds with a strong Imperial presence.
+encumbrance: 0
+rarity: 9
+reference:
+  - E-CRB:184

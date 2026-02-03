@@ -1,0 +1,9 @@
+id: eote-reloadcompexp
+name: Explosive Tipped Arrow (Corellian Compound Bow)
+description: Regular arrows are cheap to replace; if the GM needs to set a price he can charge 1 credit per arrow. These
+  bows can also be used to fire special explosive tipped or stun arrows instead of the normal broad-head arrows. If
+  these arrows are used, use the secondary profile given on **Table 3-1**.
+encumbrance: 0
+rarity: 6
+reference:
+  - SoF:97

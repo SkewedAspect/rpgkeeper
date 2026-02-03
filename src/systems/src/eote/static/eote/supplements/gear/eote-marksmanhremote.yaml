@@ -1,0 +1,22 @@
+id: eote-marksmanhremote
+name: Marksman-H Combat Training Remote
+description: >-
+  Also referred to as a "seeker droid" or "training remote", the MArksman-H by Industrial Automation is a versatile
+  little droid that has found many niches, some of them unintended. This model of droid is employed variously as a basic
+  security unit, a training tool, a pest controller, and even as a tiny assassin. Individuals the galaxy over continue
+  to find new and innovative uses for this versatile droid.
+
+  Some Jedi once preferred the Marksman-H as a training tool when teaching Padawans to reflect blaster bolts with their
+  lightsabers. Even after the fall of the Jedi Order, some of these same droids remain active. A Marksman-H can be a
+  tenacious opponent. It respondds to a handheld signaleer which transmits high-pitched bursts of coded data, and can be
+  programmed to receive verbal commands.
+
+  The Marksman-H is a small, spherical droid only fifteen centimeters in diameter. Its tiny repulsorlift unit propels it
+  in seemingly random directions without warning, making it hard to track. Studded with a number of emitter nozzles
+  which are factory-equipped with micro stun blasters, these droids are commonly programmed for use as security drones.
+
+  <font size=1>Please see page 49 of the Keeping the Peace sourcebook for details.
+encumbrance: 1
+rarity: 5
+reference:
+  - KtP:49

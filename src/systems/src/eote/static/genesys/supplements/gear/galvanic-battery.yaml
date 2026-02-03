@@ -1,0 +1,15 @@
+id: genesys-gear-galvanic-battery
+name: Galvanic Battery
+description: Based on professor Volta's wondrous electrical storage devices, a galvanic battery can deliver a steady
+  current to power arcane devices or can give off a mighty discharge that can fell a human or revive things that were
+  once human. In a pinch, it can even help bring someone back from the brink of death. While equipped with a galvanic
+  battery, your character may target one other engaged character and make a
+  <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>. If the check is successful and the target
+  is not incapacitated, the target suffers 6 strain. If the check is successful and the target is incapacitated, the
+  target heals enough wounds to reduce the wounds it is currently suffering to its wound threshold. If the target is
+  currently suffering The End is Nigh Critical Injury, that Critical Injury is also healed. Once the battery has been
+  used, it may not be used again until it has been recharged. This requires hooking it up to a power source such as a
+  lightning rod or dynamo with a successful <difficulty></difficulty><difficulty></difficulty>
+encumbrance: 2
+rarity: 5
+reference: G-EPG:24

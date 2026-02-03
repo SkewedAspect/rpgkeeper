@@ -1,0 +1,24 @@
+id: eote-droidrh
+name: RH-Series Research Droid
+description: >-
+  RH-series research droids are a small-run series of science droids produced by Cybot Galactica. A variant of the
+  company's 2R-series medical droid, they were designed to act as a combination research assistant and walking database
+  for field scientists on research missions. Only a few thousand of these droids were produced, as they proved unpopular
+  in the scientific community. Most of those produced are still active, though. They are commonly found working in
+  farflung laboratories carrying out experiments that are too dangerous for organics or assisting in the same.
+  Occasionally, they can even be found leading biological, anthropological, or archaeological field research.
+
+  RH-series droids stand just shy of two meters tall, with a basic humanoid chassis covered in thick, protective
+  plasteel plates. Their hands are packed with various manipulators, tools, probes, lights, and other small devices that
+  allow the droids to carry out numerous scientific and research functions. They have a flat, oval-shaped head dominated
+  by a single curving sensor window that resembles a helmet visor. RH-series droids are relatively agile and surefooted
+  for droids, and they require little maintenance to keep running.
+
+  These droids have a reputation for reliability-both mechanical and personal-while working in the field. They are
+  detail oriented, are often work-obsessed, and can be fussy or develop various compulsive behaviors if they go too long
+  between memory wipes. Alliance R&D makes use of many RH-series droids, as do many freelance scientists and scholars
+  the Alliance employs to discover new planets and make contact with new species.
+encumbrance: 0
+rarity: 8
+reference:
+  - FO:51

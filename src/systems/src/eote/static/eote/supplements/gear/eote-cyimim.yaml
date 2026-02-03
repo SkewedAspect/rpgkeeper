@@ -1,0 +1,18 @@
+id: eote-cyimim
+name: Immune Implant
+description: >-
+  Given the wide variety of life forms and the frequency with which many travel the galaxy, it is little wonder that
+  diseases can become a major concern. Most have to rely on treatment or some form of local resistance meds, but these
+  can vary from world to world. Athakam MedTech's Immune Implant solves such problems with simplicity and efficiency
+  through use of a subdermal wide-spectrum defense mixture, designed to protect against almost every disease known. The
+  Mod I implant is the most commonly used version, combining broad effectiveness and long-term results in a single
+  package that rests just below the skin.
+
+  Possessing an Immune Implant grants the wearer +1 Resilience
+
+  **Models Include:** Athakam MedTech Immune Implant Mod I.
+encumbrance: 0
+rarity: 6
+reference:
+  - E-CRB:174
+  - A-CRB:190

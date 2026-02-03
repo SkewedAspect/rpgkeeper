@@ -1,0 +1,18 @@
+id: eote-bactat
+name: Bacta (full tank)
+description: >-
+  Bacta is a liquid used for healing, made of an artificially grown bacteria developed thousands of years ago. It is
+  nothing short of miraculous, working on a wide variety of species and healing terrible wounds with little or no
+  scarring. It is commonly used in large tanks for total immersion, but can also be administered in pretreated patches,
+  injection, portable pouches, and even through direct consumption. While full-size bacta tanks are rare outside of
+  major installations, some ships often have portable tanks, and most medpacs and field kits have bacta patches.
+
+  Bacta provides greatly accelerated healing rates, as described on page 220.
+
+  **Models Include:** None.
+encumbrance: 12
+rarity: 1
+reference:
+  - E-CRB:176
+  - A-CRB:192
+  - F-CRB:185

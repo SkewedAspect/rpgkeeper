@@ -1,0 +1,9 @@
+id: genesys-gear-extra-quiver
+name: Extra Quiver
+description: This can include additional arrows in a spare pouch, crossbow bolts wrapped in a leather pouch, or missiles
+  for other ranged weapons such as blowpipes or dart throwers. If your character has an extra quiver, they can spend a
+  maneuver to replenish their ranged weapon when it has suffered an "out of ammo" <threat></threat> result. Note this
+  does not replenish weapons with the Limited Ammo quality as they do not actually run out of ammunition.
+encumbrance: 2
+rarity: 2
+reference: RoT:100

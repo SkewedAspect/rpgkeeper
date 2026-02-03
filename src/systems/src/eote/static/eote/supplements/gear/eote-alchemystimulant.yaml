@@ -1,0 +1,13 @@
+id: eote-alchemystimulant
+name: Stimulant
+description: >-
+  Similar in effect but infinitely stronger than a pot of hot caf, an alchemical stimulant can keep an exhausted
+  individual awake and moving for hours. Of course, the inevitable crash from this induced alertness just gets worse the
+  more that individual pushes themselves.
+
+  When the user consumes this potion, they increase their strain threshold by five for the remainder of the encounter
+  (or one hour in narrative time).
+encumbrance: 0
+rarity: 4
+reference:
+  - UP:83

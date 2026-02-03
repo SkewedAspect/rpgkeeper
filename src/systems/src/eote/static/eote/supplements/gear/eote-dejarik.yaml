@@ -1,0 +1,9 @@
+id: eote-dejarik
+name: Dejarik Table
+description: Dejarik, which uses a holographic display table to project playing pieces of real and mythical monsters, is
+  a popular game of skill between two players. The holographic display allows the pieces to "do battle" as a part of the
+  game, and many bystanders enjoy the holographic carnage as much as the actual skill the real players employ.
+encumbrance: 10
+rarity: 1
+reference:
+  - E-CRB:182

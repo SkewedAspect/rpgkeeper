@@ -11,6 +11,7 @@ import {
     AbilityDataSchema,
     ArmorDataSchema,
     BaseSupplementDataSchema,
+    GearDataSchema,
     QualityDataSchema,
     WeaponDataSchema,
     WeaponQualityRefSchema,
@@ -71,12 +72,13 @@ export const MotivationDataSchema = BaseSupplementDataSchema.extend({
 
 export const GenesysSupplementSchemas = {
     ability: AbilityDataSchema,
+    armor: ArmorDataSchema,
+    attachment: GenesysAttachmentDataSchema,
+    gear: GearDataSchema,
+    motivation: MotivationDataSchema,
+    quality: QualityDataSchema,
     talent: GenesysTalentDataSchema,
     weapon: WeaponDataSchema,
-    armor: ArmorDataSchema,
-    quality: QualityDataSchema,
-    attachment: GenesysAttachmentDataSchema,
-    motivation: MotivationDataSchema,
 } as const;
 
 //----------------------------------------------------------------------------------------------------------------------

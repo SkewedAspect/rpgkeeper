@@ -1,0 +1,16 @@
+id: eote-ptplink
+name: PTP Link
+description: >-
+  A PTP (or point-to-point) link is a multichannel personal communications device capable of transmitting audio signals
+  up to twenty-five kilometers. Available in a wide variety of sizes and styles, PTP links were used extensively during
+  the time of the Republic. As more powerful methods of telecommunications grew popular, PTP links became obsolete.
+
+  Despite the obsolescence of PTP links, PTP transmission boosters and relays were installed on a number of Core Worlds,
+  and they are still used exclusively on low-tech worlds the galaxy over. Because most modern communications devices are
+  unable to pick up PTP transmissions, the Rebel Alliance often uses them in order to avoid Imperial eavesdropping. With
+  the addition of PTP encryption devices, which can cost up to 1,000 credits, this archaic transmission format is almost
+  undetectable.
+encumbrance: 2
+rarity: 7
+reference:
+  - SoR:111

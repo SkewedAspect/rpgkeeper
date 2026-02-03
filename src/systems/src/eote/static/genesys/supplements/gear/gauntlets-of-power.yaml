@@ -1,0 +1,12 @@
+id: genesys-gear-gauntlets-of-power
+name: Gauntlets of Power
+description: These magical gauntlets resemble mundane armored gauntlets save for the fact that they are forged from
+  thick slabs of black iron rather than thin sheets of bright steel. The origin of such gauntlets is unknown, though the
+  brutal aesthetics suggest Orcish work. There is a practical frugality to the enchantment cast on the gauntlets. They
+  store energy from the blows that strike them, and then release it when striking back. An adventurer in melee combat is
+  able to inflict stunning blows with the gauntlets. When worn, Gauntlets of Power add
+  <success></success><advantage></advantage> to all Brawn-based skill checks your character makes. Gauntlets of Power
+  have an encumbrance of 0 when worn.
+encumbrance: 1
+rarity: 8
+reference: RoT:109

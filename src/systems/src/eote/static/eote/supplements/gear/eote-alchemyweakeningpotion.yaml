@@ -1,0 +1,14 @@
+id: eote-alchemyweakeningpotion
+name: Weakening Potion
+description: >-
+  This poison does not kill the target, but it does weaken them significantly. Under its effects, a target's wounds
+  bleed freely, and even the least effort exhausts them.
+
+  When affected by the potion , the target must immediately make an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Resilience check**. If they fail, they reduce their wound and
+  strain threshold to half their normal value (rounding up) for the remainder of the encounter (or one hour in narrative
+  time). The duration increases by one hour per <threat></threat>.
+encumbrance: 0
+rarity: 6
+reference:
+  - UP:83

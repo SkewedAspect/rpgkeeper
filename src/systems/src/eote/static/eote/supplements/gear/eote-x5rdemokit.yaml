@@ -1,0 +1,18 @@
+id: eote-x5rdemokit
+name: X5R Heavy Demolitions Kit
+description: >-
+  The heavy carbo-plas case of art X5R heavy demolitions kit is filled with precision timers, remote detonators, and
+  other vital tools of the trade for a dedicated explosives expert. Additionally, it contains a heavily shielded and
+  signal-proof compartment large enough to store a half-dozen thermal detonators or a pair of larger demolition charges.
+  The numerous tools wilhin the kit can assist a user in setting or disarming explosives, and the precise measurements
+  and modulation made possible by the equipment reduce the risk of catastrophic errors. However, the full kit is
+  unwieldy, and it requires significant space and attention to use.
+
+  The user of an X5R kit gains <boost></boost><boost></boost> on Mechanics checks to prepare, set, or disarm explosives.
+  In addition, once per session, a character using an X5R can remove one <despair></despair> or up to
+  <threat></threat><threat></threat><threat></threat> (after canceling dice symbols but before resolving the effect)
+  from a Mechanics check dealing with explosives.
+encumbrance: 4
+rarity: 6
+reference:
+  - RotS:60

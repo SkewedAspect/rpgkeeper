@@ -1,0 +1,11 @@
+id: genesys-gear-umbral-lens
+name: Umbral Lens
+description: "Many missions performed by covert operatives involve watching from the shadows and moving through darkened
+  buildings and environments. For species who can't see in the dark, an umbral lens (usually in the form of eyewear or a
+  lens placed directly over the pupil) picks up a range of wavelengths and allows them to see as if it were daylight.
+  While wearing an umbral lens, your character removes <setback></setback><setback></setback> from checks they make due
+  to concealment (darkness, smoke, and intervening terrain). This item may be modified with 2-1: Cultural Manufacturing
+  Differences."
+encumbrance: 1
+rarity: 4
+reference: EotI:120

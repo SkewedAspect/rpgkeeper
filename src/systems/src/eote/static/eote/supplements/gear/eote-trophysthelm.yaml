@@ -1,0 +1,13 @@
+id: eote-trophysthelm
+name: Stormtrooper Helmet/ComLink
+description: >-
+  A helmet or comlink taken from a defeated stormtrooper can prove highly useful in the short term for monitoring
+  communications and enemy plans. Even after frequencies change, this easily carried trophy is a reminder of rebel
+  ingenuity and Imperial adherence to protocol.
+
+  The bearer of this trophy removes <setback></setback> from his checks made to intercept, interpret, or imitate
+  Imperial communications.
+encumbrance: 0
+rarity: 2
+reference:
+  - FiB:96

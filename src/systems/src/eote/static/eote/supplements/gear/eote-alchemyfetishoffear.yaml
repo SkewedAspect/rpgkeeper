@@ -1,0 +1,14 @@
+id: eote-alchemyfetishoffear
+name: Fetish of Fear
+description: >-
+  This talisman radiates an aura of terror into anyone seeking to attack the wearer. Many crafters deliberately form
+  each into small, grotesque figurines or body parts, the better to heighten the effect.
+
+  The user may choose to have an enemy character attempting to move into engaged range with them to first make an
+  **Average (<difficulty></difficulty><difficulty></difficulty>) Fear check** as an out of turn incidental. If the
+  character succeeds, they can move as desired. If the character fails, they cannot perform the desired maneuver but can
+  still perform another maneuver instead.
+encumbrance: 0
+rarity: 4
+reference:
+  - UP:84

@@ -1,0 +1,11 @@
+id: genesys-gear-bypass-pack
+name: Bypass Pack
+description: "Bypass packs are small, flexible sheets coated with circuitry, wired clips, diagnostic probes, and
+  self-sealing patches to help cover breaches to an object's surface. Once placed, the bypass pack's internal processor
+  automatically works to repair minor damage and reroute power around damaged electrical components. Your character may
+  spend a maneuver and expend a bypass pack to repair 1 hull trauma on a vehicle or to repair a damaged item one step
+  (see Item Maintenance on page 89 of the Genesys Core Rulebook). This item may be modified with 2-1: Cultural
+  Manufacturing Differences."
+encumbrance: 1
+rarity: 1
+reference: EotI:125

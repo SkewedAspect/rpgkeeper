@@ -1,0 +1,17 @@
+id: eote-concrec
+name: Concealed Recorder
+description: >-
+  A surreptitiously captured moment can be turned into evidence that wins wars, topples governments, or simply persuades
+  a certain person to remain silent. Many corporations and investigative groups have produced a wide range of
+  specialized recorders that can be effectively hidden. Although usually made to capture full-color hobos and audio,
+  sometimes such devices capture flat-screen images or audio only, depending on the needs of the user. These miniature
+  recording devices can be installed in an innocuous item, such as a light fixture or chronometer, and left to record
+  until retrieved by the operator. Simple programming optimizes data storage, pausing recording when no activity is
+  detected.
+
+  Add <setback></setback><setback></setback> to a character's Perception checks to find a concealed recorder on a
+  person's body.
+encumbrance: 0
+rarity: 5
+reference:
+  - DA:50

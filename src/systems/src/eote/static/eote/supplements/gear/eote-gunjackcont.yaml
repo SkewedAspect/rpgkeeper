@@ -1,0 +1,14 @@
+id: eote-gunjackcont
+name: Gunjack Spice (100 doses)
+description: >-
+  Synthesized from a highly concentrated admixture of methylpenatox, glucose, and isotropic chemicals. gunjack markedly
+  increases the strength of its user at the cost of reduced motor coordination, diminished mental acuity, and severe
+  long-term health risks.
+
+  A dose of gunjack increases the user's Brawn characteristic by 1 (to a maximum of 6) until the end of the scene or
+  combat encounter. Additionally, each dose a character consumes upgrades the difficulty of his Agility, Intellect, and
+  Cunning related checks once until the end of the game session.
+encumbrance: 25
+rarity: 6
+reference:
+  - LoNH:110

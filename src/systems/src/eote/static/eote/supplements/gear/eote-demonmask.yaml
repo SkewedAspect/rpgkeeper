@@ -1,0 +1,16 @@
+id: eote-demonmask
+name: Demon Mask
+description: >-
+  Every species and culture has scary stories of monsters with supernatural powers. While the stories are—usually—only
+  stories, disciples of the dark side throughout history have found value in adopting the imagery of the mythical demons
+  to spread fear in their enemies and fearlessness among their followers. Having been worn by these adepts for
+  generations, some demon masks have become imbued with the dark side of the Force, and grant their wearers certain
+  powers.
+
+  A Force-sensitive character wearing a demon mask increases his wound threshold by 2 while he is a dark side Force
+  user. Furthermore, characters making Discipline checks to resist fear caused by a character wearing a demon mask add
+  <setback></setback> equal to that character's Force rating.
+encumbrance: 1
+rarity: 10
+reference:
+  - F-CRB:190

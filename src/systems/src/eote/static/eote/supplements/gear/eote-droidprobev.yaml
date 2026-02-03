@@ -1,0 +1,11 @@
+id: eote-droidprobev
+name: Viper Probe Droid
+description: When searching the most remote regions in the galaxy, Imperial authorities often make use of probe droids
+  to scout out remote planets and scour distant locations for signs of whatever, or whomever, is being sought. Probe
+  droids travel to their destinations inside one-way hyperspace pods and communicate with their programmers via
+  encrypted holo-channels. When the quarry may be on any of a thousand worlds, the best solution is often to disperse a
+  thousand probe droids.
+encumbrance: 0
+rarity: 7
+reference:
+  - F-CRB:410

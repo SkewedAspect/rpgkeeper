@@ -1,0 +1,9 @@
+id: genesys-gear-torches-3
+name: Torches (3)
+description: Wrap the end of a length of wood in cloth, dip it in pitch or tar, and light it. The resulting torch should
+  burn for an hour or so, and is a simple way to light up the darkness. A lit torch provides light and removes
+  <setback></setback> added to checks due to concealment (darkness, smoke, and intervening terrain). (If it becomes
+  important to determine how far the light reaches, a torch can provide light out to short range.)
+encumbrance: 1
+rarity: 0
+reference: RoT:101

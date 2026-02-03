@@ -1,0 +1,11 @@
+id: genesys-gear-mbrew
+name: Æmbrew
+description: No one knows who created the first batch of Æmbrew, but many toasts and prayers are offered to them every
+  day across the Local Group. It now comes in a dazzling array of types, from bubbling potions to refreshing tonics and
+  more, all laced (some more than others) with Æmber and other carefully selected ingredients. Such is its power that
+  even incorporeal spirits and machine AIs can feel the effects. Once per session as a maneuver, a character may consume
+  a flask of Æmbrew to heal strain equal to half their strain threshold. They also add <boost></boost> to Discipline
+  checks the consumer makes until the end of the encounter.
+encumbrance: 1
+rarity: 4
+reference: SotC:147

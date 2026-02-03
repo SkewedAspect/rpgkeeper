@@ -1,0 +1,15 @@
+id: eote-sigmodpad
+name: Signature Modulation Pad
+description: >-
+  Tools designed to hide or disguise slicing signatures take many forms across the galaxy, as they are typically
+  assembled in back-alley workshops or ciminal facilities instead of by reputable manufacturers. One of the most common
+  variants for such gear takes the form of a modified datapad that uses the device's data storage capacity to endlessly
+  reroute its signal through its modified circuitry, distorting the electronic fingerprint of the slicing tools used
+  alongside it.
+
+  Add <setback></setback><setback></setback> to checks attempting to acquire the user's slicing signature, such as the
+  Trace User action (see **Slicing Encounters** page 87).
+encumbrance: 2
+rarity: 7
+reference:
+  - SM:51

@@ -1,0 +1,25 @@
+id: eote-yarrockcargo
+name: Yarrock (100 dose cargo container)
+description: >-
+  Yarrock
+
+  For untold ages, the spice called yarrock has been produced on Iridonia, created by their shamans to grant their
+  warriors a greater clarity of mind and violent purpose. Though there are other drugs that fit this description
+  scattered across the galaxy, many seasoned warriors respond with respect, adulation, or even fear to the mere sight of
+  the signature black pellets that contain yarrock. A soldier under the effects of yarrock is ruthless, and able to
+  shrug off tremendous physical hardship. Unfortunately, for every high there is a crash, and this drug is no
+  exception—as a dose runs its course, its effect seems to reverse, and every step becomes an endless journey until the
+  warrior can metabolize the chemicals or simply collapses from exhaustion. Some also say that the drug has a further
+  effect on the user's very soul, drawing it deeper and deeper into the shadows as time goes on, but validated
+  scientific data on this particular concern is understandably scarce.
+
+  Yarrock lasts for one scene. A character under the effects of yarrock is not required to make any Fear checks; he
+  counts as succeeding automatically. However, once he has used yarrock, he must also add <setback></setback> to any
+  Willpower or Presence-related checks for the remainder of the session.
+
+  **Restrictions:** Yarrock is quite rare, and thus few planets explicitly regulate its use, as the only shipments go
+  through black market traders.
+encumbrance: 3
+rarity: 9
+reference:
+  - E-CRB:185

@@ -1,0 +1,20 @@
+id: eote-crash
+name: Crash Survival Kit
+description: >-
+  While life is usually controlled and comfortable, there are many times when physical survival becomes an issue. A
+  forced landing might strand a crew deep in Tatooine's deserts, or a speeder failure could result in extended durations
+  in glacial snow. Most ships, especially smaller ones such as fighters and escape pods, contain kits to help ensure
+  survival until rescue or repair. Pretormin Environmental (a company specializing in exploration and survival gear)
+  makes a popular model of survival kit small enough to fit into an escape pod or snubfighter. Their contents include a
+  thermal cloak, multipurpose knife, distress beacon, two emergency comlinks, wire spool, ration bars, basic medpac
+  (equivalent of the GLiS Emergency Medpac), two respirators, water filter and jug, glow rod, 50 meters of high strength
+  microfiber, ten ration packs, and a flare gun. Some pirates would augment their kits with compact blasters or other
+  weapons, knowing that often their enemies will also be eagerly searching for them, although Pretormin Environmental
+  doesn't equip their kits with weapons as standard.
+
+  **Models Include:** Pretormin Environmental Crash Survival Kit.
+encumbrance: 5
+rarity: 2
+reference:
+  - E-CRB:180
+  - A-CRB:195

@@ -1,0 +1,11 @@
+id: genesys-gear-sunburst-rune
+name: Sunburst Rune
+description: "When activated, a sunburst rune emits a powerful burst of intense light that disorients the foe and
+  inflicts scorching-hot wounds. - Activation: Until the end of your character's turn, the sunburst rune counts as a
+  Ranged weapon with the following profile: (Ranged; Damage 4; Critical 1; Range [Medium]; Breach 1). - Implement: When
+  your character casts an Attack spell, they must add the Holy effect with no increase in difficulty and gains the
+  Breach quality. This is an exception to the normal restriction limiting Holy to spells using the Divine skill. [Table:
+  Sunburst]"
+encumbrance: 0
+rarity: 0
+reference: RoT:121

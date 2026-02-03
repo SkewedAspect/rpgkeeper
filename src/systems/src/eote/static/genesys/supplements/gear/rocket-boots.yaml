@@ -1,0 +1,9 @@
+id: genesys-gear-rocket-boots
+name: Rocket Boots
+description: These boots incorporate several small engines and a limited fuel supply. They do not provide enough power
+  to fly or hover, but they significantly extend the wearer's jumping distance. They may also be triggered selectively
+  when climbing to assist that action. Rocket boots add <boost></boost><boost></boost> to Athletics checks the wearer
+  makes related to jumping or climbing.
+encumbrance: 1
+rarity: 3
+reference: SotC:150

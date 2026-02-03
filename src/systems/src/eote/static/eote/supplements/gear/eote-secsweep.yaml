@@ -1,0 +1,21 @@
+id: eote-secsweep
+name: Security Sweeper
+description: >-
+  Government officials and military personnel must maintain a vigilant guard against espionage, taking greats pains to
+  ensure they are not being overheard or recorded. The world of intelligence and counterintelligence fluctuates as
+  recorders become more complex and more difficult to detect, and sweepers advance to keep up with them. Security
+  sweepers are optimized to detect specialized electronic components, ignoring mundane devices such as holocams or
+  datapads. Security sweepers precisely locate recorders and listening devices, but they typically cannot identify the
+  exact nature of any such device.
+
+  A character using a security sweeper may check an area for espionage tools by making an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Computers check**. If he succeeds, the device notifies him of the
+  presence and location of any recording or espionage devices within medium range of his current location. If the device
+  is particularly well-hidden, this check might be opposed by the Mechanics skill of the character who placed the
+  device.
+
+  **Models include:** Veslox 19q, TaggeCo. Security Verification Sweeper.
+encumbrance: 1
+rarity: 6
+reference:
+  - DA:53

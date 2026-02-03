@@ -1,0 +1,31 @@
+id: eote-droidr7
+name: R7-Series Astromech Droid
+description: >-
+  The R7-series is the latest member of Industrial Automaton's highly respected R-series family of astromech droids.
+  Designed specifically for use in the newly released E-wing multi-role starfighter, the R7-series was developed in
+  secret, along with its bespoke starfighter, as part of a joint venture between IA and FreiTek Incorporated. Using the
+  development of IA's R6-series astromechs as cover, the R7 project set out to build the most competent and reliable
+  astromech droid ever produced. Using an all-new, highly-advanced droid brain and the latest versions of IA's
+  tried-and-true astromech programming, the R7-series outshines even the venerable R2-series as an astrogator,
+  technician, and starship pilot.
+
+  The R7 is an extremely novel design, using few parts or systems from earlier R-series droids. While it still has the
+  iconic R-series barrel-shaped body, domed head, and two outboard legs with broad, treaded feet, that's where the
+  resemblance to its older cousins ends. The internal systems of the R7 are all new, and its power and computer systems
+  are heavily shielded using circuit-hardening technology typically found in starfighters. The droid's chassis is
+  reinforced and constructed from stronger and lighter alloys than previous models. The triangle-shaped sensor eye is
+  packed with advanced optical sensors that allow the droid to see in nearly any light as well as scan and analyze
+  materials and structures for microfractures and stress fatigue. R7s are programmed with an eager, can-do personality
+  that stands in stark contrast to the strange and surly personalities exhibited by their R5 predecessors.
+
+  Unfortunately, despite all their advanced systems and genial personalities, the capabilities of the R7 series are
+  limited. While they enjoy incredible synchronicity between their systems and the systems of the new E-wing
+  starfighters for which they were designed, R7s find it difficult or even impossible to interface with older
+  starfighters. Even the vaunted X-wing's systems are too slow and dusky for an R7 to use fully. R7s can be programmed
+  to interface with other starfighters, but their compatibility can never be one hundred percent. In game terms, this
+  means that when connected with any starfighter or other vessel that isn't an E-wing, an R7 loses the benefits of its
+  Galaxy Mapper and Hold Together talents.
+encumbrance: 10
+rarity: 6
+reference:
+  - SoT:46

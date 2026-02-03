@@ -1,0 +1,17 @@
+id: eote-antidoteset
+name: Antidote Set
+description: >-
+  Poisoning is not a common concern for most citizens, but for certain high-value persons of interest, poisoning is an
+  all-too-real hazard. Small, portable antidote sets offer a degree of protection, providing an assortment of single-use
+  vials of antidotes to common poisons. Almost every major medical corporation offers some version of the portable
+  antidote set, and some even sell regional variants.
+
+  A character using an antidote set reduces the difficulty of any check to resist a poison by two (to a minimum of
+  **Easy (<difficulty></difficulty>)**). If he does not know which poison was used, he must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Knowledge (Underworld) check** to make
+  an educated guess at the poison based on region, its qualities, and other evidence at his disposal to benefit from
+  this item.
+encumbrance: 1
+rarity: 5
+reference:
+  - DA:50

@@ -1,0 +1,17 @@
+id: eote-droidprotlom
+name: LOM-Series Protocol Droid
+description: >-
+  When Industrial Automaton entered the protocol droid market with the LOM-series, they gambled on an unusual strategy.
+  Rather than compete directly with the dominant Cybot Galactica for the core of the market, they released droid
+  designed for a more niche buyer. The LOM-series has oversized optical sensors reminiscent of compound eyes and other
+  insectoid facial features designed to maximize appeal with similarly-featured alien species such as the Gand and
+  Verpine. The LOM-series was a huge success, earning Industrial Automaton not only customers from that market but also
+  among those who frequently do business with insectoid species.
+
+  As a gesture of goodwill, the Rebellion often employs LOM-series droids when working with insectoid species. However,
+  the LOM-series is perfectly functional in any circumstance requiring a protocol droid, so they are often assigned to
+  assist Alliance representatives, regardless of the species involved.
+encumbrance: 0
+rarity: 5
+reference:
+  - DA:58

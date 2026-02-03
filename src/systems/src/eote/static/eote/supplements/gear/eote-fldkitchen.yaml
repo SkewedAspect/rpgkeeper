@@ -1,0 +1,21 @@
+id: eote-fldkitchen
+name: Field Kitchen
+description: >-
+  An ingenious way to stay fed in the wilderness, the Field Kitchen is the latest offering from SurvivalEquipment Inc.
+  Designed for large, semipermanent encampments, like hunting camps or forward-scout bases, the field kitchen includes
+  all the tools needed to feed a small number of sentients for extended periods of time. Packed in a broad, flat,
+  impact-resistant case, the field kitchen includes a small, high-output induction-cooking range and oven combination, a
+  selection of stacking pots and pans, a set of good-quality knives, cooking utensils, a water-purification system, a
+  food sterilizer, and a flash-freezing and vacuum-sealing system for storing food. Also included is a datapad
+  containing a nutritional database outlining the daily nutritional needs for most of the galaxy's known sentient
+  species, an exhaustive guide to identifying, foraging, and eating wild plants, basic cooking instructions, and a
+  database of recipes optimized for cooking in the wilderness.
+
+  Setting up a field kitchen takes about thirty standard minutes. Thanks to the efficient design and the information
+  included in the datapad, using a field kitchen grants <boost></boost><boost></boost> to any Survival or Education
+  skill checks made to store, identify, cook, or sterilize comestibles (and can, at the GM's discretion, allow the
+  processing of foods that normally could not be made edible).
+encumbrance: 5
+rarity: 4
+reference:
+  - EtU:50

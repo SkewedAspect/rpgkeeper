@@ -1,0 +1,32 @@
+id: eote-nullcaine
+name: Nullcaine
+description: >-
+  Nullicaine is a staple of field treatm ent, useful for
+
+  helping soldiers to fight on despite injuries. While it
+
+  does little to treat an injury, it addresses many of the
+
+  symptoms in the short term. Spraying or applying a
+
+  bandage with this powerful anesthetic on an injury
+
+  deadens any pain with only minor numbness.
+
+  A character may apply nullicaine to herself or an
+
+  engaged character by making an **Easy (<difficulty></difficulty>) Medicine
+
+  check** and choosing 1 **Easy (<difficulty></difficulty>), Average
+  (<difficulty></difficulty><difficulty></difficulty>)**, or
+
+  **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)** Critical Injury the target is
+  currently suffering. If she succeeds, the target immediately suffers 3
+
+  strain and ignores the chosen Critical Injury until the end
+
+  of the encounter. Nullicaine only affects living creatures.
+encumbrance: 0
+rarity: 2
+reference:
+  - FiB:53

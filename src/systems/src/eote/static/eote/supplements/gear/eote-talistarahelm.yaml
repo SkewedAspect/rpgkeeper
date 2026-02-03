@@ -1,0 +1,57 @@
+id: eote-talistarahelm
+name: Taradon's Helm
+description: >-
+  Somewhere in the icy wastes of Hum, the wreckage of a starfighter serves as the tomb of the Jedi Taradon, a Corellian
+  human possessed of extraordinary prowess as a pilot. Taradon was a member of the Jedi Order in the early days of the
+  Republic. If legends are to be believed, he pursued evildoers with blade and blaster for almost a century before
+  disappearing while fighting off a raid of the Jedi-protected planet Hum.
+
+  Taradon is known to have brought dozens of galactic criminals to justice, but unlike other famous Jedi Knights, he
+  rarely met his foes face to face. Instead, he haunted the spacelanes, ghosting in and out of hyperspace at the
+  controls of one of the half-dozen starfighters and gunboats he is known to have piloted. Whether acting on his own or
+  at the behest of the Jedi Council, the human always preferred to stalk his prey while safely ensconced in a cockpit,
+  where his preternatural skills and technical acumen eventually led him to develop the omnicompatible piloting device
+  known today as Taradon’s Helm.
+
+  Though many shipwrights and pilots have heard tales of the Helm, few could venture to describe its physical
+  characteristics, much less its functions. The Helm is known to have been human-portable; hot-swappable into the
+  hardware of dozens, if not hundreds, of different ship types; and capable of integrating piloting, navigation, and
+  weapon systems into a discrete, maddeningly complicated interface. What is less well known is that Taradon imbued his
+  unique invention with secret crystalline technologies that tap into the Force, enabling those who use it to channel
+  their courage and wisdom into extraordinary acts of piloting derring-do.
+
+  In fact, the device now called the Helm (it is unknown by what name Taradon referred to it) is relatively small and
+  bears more resemblance to a modern slicer’s gear than to surviving examples of early Republic starship control
+  mechanisms. It takes the form of a control box studded with switches, buttons, and indicator lights, roughly
+  rectangular but tapering to a conical point on one side. This cone, along with the leads that extend from it, is the
+  interface point that connects Taradon’s Helm to the controls of almost any craft capable of flight, from simple
+  atmospheric hoppers to interstellar dreadnoughts. The design is wickedly clever, with multiple methods available to
+  connect the Helm to a ship, accounting for the mind-boggling array of craft it could augment.
+
+  Reinforced and rugged, the Helm is believed to have survived the crash that took Taradon’s life on Hum. It may be seen
+  as ironic that this ace of the spacelanes and ship’s captain without peer died in a crash, but, in fact, other
+  survivors of the battle in the planet’s frigid skies believed that Taradon of Corellia sacrificed himself in a
+  successful last-ditch effort to fight off a force led by turncoat Jedi raiding for kyber crystals.
+
+  Taradon was flying in close action against a starfighter piloted by a rogue Jedi when they entered orbit around Hum.
+  The traitor pilot was a Rodian Jedi turned assassin named Deelguh, whom Taradon had trained with as a young Padawan.
+  Taradon had long sought to bring Deelguh to justice, only to be stymied time and again, as the Rodian was his
+  near-equal as a pilot. Knowing that the fearsome fighter would become yet more dangerous if the raiding mission
+  succeeded, Taradon knew the raid must be stopped. With Deelguh’s ship about to land, having successfully fought off
+  Taradon’s attacks, the Corellian apparently chose to bring both vessels down in a fiery collision. Presumably unable
+  to eject or unwilling to leave his ship behind, Taradon rode his burning craft all the way down to the surface, to his
+  death. He died secure in the knowledge that Deelguh had also met his end.
+
+  Expeditions to investigate the crash site were never successful in locating the wrecked ship, but a careful
+  examination of Taradon’s transmitted flight logs revealed an unidentifiable surge of energy coming from the
+  Corellian’s navicomputer moments before his death. The Jedi who reviewed the logs theorized that it might have been a
+  function of the legendary Taradon’s Helm, fighting to protect its master, a conclusion scoffed at by others, who said
+  the Helm would never have disobeyed a command.
+
+  A Force-sensitive character who possesses Taradon’s Helm may reroll one <force></force> when making checks that
+  involve piloting or using a starship or vehicle. If there is some question as to whether the check involves piloting
+  or using a starship or vehicle, the CM is the final arbiter.
+encumbrance: 0
+rarity: 10
+reference:
+  - NoP:112

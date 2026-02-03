@@ -1,0 +1,21 @@
+id: eote-commjam
+name: Comm Jammer
+description: >-
+  Where there are people wishing to communicate, there are people wishing to prevent it, and thus there are jammers.
+  Smaller versions can shut out local signals, while others are so powerful as to cut entire planets off from the rest
+  of the galaxy. The Miradyne "Hail" is one of the former, a relatively portable device that can blanket standard
+  comlink frequencies over a quarter-kilometer radius. It can also focus on a single target (such as an individual
+  building) from up to three kilometers away.
+
+  Cutting through the noise created by a comm jammer requires a Computers check, with a difficulty proportional to the
+  distance from the jammer and the power of the device. The closer and more powerful the jammer, the harder the
+  difficulty. The "Hail" forces an **Average (<difficulty></difficulty><difficulty></difficulty>) check**, which becomes
+  more difficult at close ranges (the exact difficulty is up to the GM, but should increase to Hard or Daunting if at
+  medium range or closer to the device).
+
+  **Models Include:** Miradyne 1 x-Hail Comm Jammer.
+encumbrance: 4
+rarity: 3
+reference:
+  - E-CRB:178
+  - A-CRB:194

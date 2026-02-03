@@ -1,0 +1,15 @@
+id: eote-adsignetring
+name: Adamite Signet Ring
+description: >-
+  When the Paladins of the Adamite Tower  agree to accept a new member to their ranks, they present that individual with
+  one of the extremely rare blades of their order. That novice must travel deep into the ruined depths of the Adamite
+  Tower. There, they must cut a ring of  metal from one of the impossibly tough metal fitting; metal that cannot be
+  forged by any technology on Weik. They carve their crest and the symbol of the Tower on the ring with the tip of their
+  blade and this signet ring forever declares them to be a Paladin.
+
+  Possessing a signet ring signifies to anyone on Weik that the character is one of the Paladins of the Adamite Tower.
+  Possessing a signet ring under false pretenses earns the lasting enmity of all Paladins and their allies.
+encumbrance: 0
+rarity: 8
+reference:
+  - NoP:105

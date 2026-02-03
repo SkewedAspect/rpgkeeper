@@ -1,0 +1,19 @@
+id: eote-wj880blind
+name: WJ-880 Blinding Helmet
+description: >-
+  In the days of the former Republic and the Jedi Order, the WJ-880 blinding helmet was a common training aid for a Jedi
+  Padawan, helping the aspirant to learn to sense the Force flowing through all things by cutting out sensory
+  distractions. The helmet's opaque shield prevents the wearers from relying on sight: instead, they must use their
+  instincts. Of course, these devices are not particularly practical for combat, but they can be exceptionally useful to
+  anyone trying to train in the ways of the Force. As artifacts of the Jedi Order, these devices are contraband, but
+  they are hardly so obvious as a lightsaber, and so a number of them have passed into civilian hands. Force sensitives
+  in this era can acquire them with far less difficulty than most Jedi relics, or they can even make their own
+  facsimilies using basic supplies.
+
+  A character wearing a WJ-880 blinding helmet adds <setback></setback><setback></setback><setback></setback> to Combat
+  checks (and any other checks that rely on sight). At the GM's discretion, training while wearing such a helmet might
+  help a character to develop his perception of the Force that shapes and guides the universe around him.
+encumbrance: 3
+rarity: 8
+reference:
+  - KtP:53

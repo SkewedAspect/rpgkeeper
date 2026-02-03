@@ -1,0 +1,16 @@
+id: eote-wpr60
+name: WPR-60 Water Purifier
+description: >-
+  Nearly every known species depends upon a steady supply of water free from contaminants for basic survival. Water is
+  heavy, bulky, and expensive to transport around the galaxy. However, purifying water can be a time-consuming and
+  expensive process, particularly when the types of contaminants are not readily known. Every inhabited world has its
+  own potentially deadly microorganisms, but nonliving mineral, organic, and even radioactive threats may also be
+  present. Removing all of these requires a reliable and low-maintenance water purifier, particularly for those times
+  when a traveler needs to make a protracted visit far from civilization. Better models are capable of extracting water
+  from the atmosphere.
+
+  A water purifier allows the user to purify enough water for one person to drink per day.
+encumbrance: 4
+rarity: 1
+reference:
+  - DoH:47

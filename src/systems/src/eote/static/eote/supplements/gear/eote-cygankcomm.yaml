@@ -1,0 +1,19 @@
+id: eote-cygankcomm
+name: Gank Comm Implant
+description: >-
+  This peculiar comlink implant interfaces directly with the user's neocortex, allowing the user to communicate silently
+  with other characters who possess similar implants merely by thinking. Virtually every adult Gank has one of these
+  implants, which allows them to coordinate their actions with unparalleled efficiency.
+
+  Characters with Gank comm implants can communicate silently with each other at ranges of up to several kilometers.
+  Since these implants do not use audible information exchange, they cannot be used to communicate with a normal
+  comlink. Likewise, due to the unique nature of these devices, it is virtually impossible for anyone without the
+  implant to listen in on others' comm implant communications, though comm jammers can disrupt their signals. The
+  messages sent via Gank comm implants are not auditory, so effectively communicating requires the users to share a
+  language.
+
+  **Models Include:** Various.
+encumbrance: 0
+rarity: 7
+reference:
+  - LoNH:107

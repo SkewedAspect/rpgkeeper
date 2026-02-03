@@ -1,0 +1,12 @@
+id: eote-watpur
+name: Water Purifier
+description: Water purifiers are made by countless wilderness supply and outfitting companies throughout the galaxy.
+  They use a number of different technologies to achieve the same goal; safe uncontaminated drinking water. Some are
+  simple polycarbonate containers that use pumps or gravity to push water through a filter to clean it of
+  microorganisms. Others use chemicals, ionization or ultraviolet light to kill microorganisms, deadly viruses, and
+  toxins. In ten minutes, a typical water purifier can treat enough water to fulfil one sentient's needed for one day of
+  rigorous activity.
+encumbrance: 1
+rarity: 2
+reference:
+  - SS:48

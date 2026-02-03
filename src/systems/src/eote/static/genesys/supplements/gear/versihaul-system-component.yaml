@@ -1,0 +1,13 @@
+id: genesys-gear-versihaul-system-component
+name: VersiHaul System Component
+description: "The VersiHaul system is a series of pouches, bags, hooks, and harnesses that makes carrying equipment
+  easier. Each cargo pouch has a special backing that adheres onto fabrics, plastics, or metal. Once a VersiHaul system
+  component is attached, it takes some effort to remove it, so most users attach theirs to a harness or belt to allow
+  for quick removal. Each VersiHaul system component purchased increases the character's encumbrance threshold by 1.
+  Each component can be narratively described as a pouch, belt hook, holster, or other carrying item, or a character can
+  purchase several components at the same time to represent a larger pouch or backpack. A character may wear enough
+  VersiHaul system components to double their original encumbrance threshold. This item may be modified with 2-1:
+  Cultural Manufacturing Differences."
+encumbrance: -1
+rarity: 3
+reference: EotI:120

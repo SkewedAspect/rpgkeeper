@@ -1,0 +1,15 @@
+id: eote-droideodmkiv
+name: EOD-Mk IV Explosives Disposal Remote
+description: EOD-Mk IV remotes are produced by Industrial Automaton for use in construction, demolitions, and explosive
+  ordnance disposal (EOD) applications. These small, spherical remotes are designed to be operated from afar via a
+  datapad that allows a user to maneuver the remote in to tight spaces and see through its array of multi-optic sensors.
+  They are equipped with two manipulator arms and a built-in EOD tool kit that an operator can use remotely to disarm
+  explosive devices. An on-board demolitions scanner can detect explosive compounds and devices to assist the operator
+  in locating hidden demolitions items. They are also equipped with a small demolitions charge to remotely detonate an
+  explosive device should it be impractical or too difficult to disarm. While they are usually operated by a qualified
+  EOD or demolitions operator, EOD-Mk IV remotes can operate autonomously, traveling in groups with preprogrammed
+  orders.
+encumbrance: 0
+rarity: 6
+reference:
+  - FO:50

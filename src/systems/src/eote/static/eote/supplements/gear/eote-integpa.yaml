@@ -1,0 +1,14 @@
+id: eote-integpa
+name: Integrated Public Address System
+description: >-
+  For instances when a full-fledged stage set-up is unavailable, various corporations offer a lightweight, portable
+  speaker system that provides the necessary degree of amplification for public address. The system consists of a stand,
+  microphone receiver, several speakers, and a power pack, all stored neatly in the backpack carrying case that can also
+  be used as an impromptu soapbox from which to speak. Precise optimization enables the power supply to keep the unit
+  operating for one hour before requiring a recharge.
+
+  **Models include:** Alvaxi "Impetus" PA-wear, TaggeCo. Broadcaster.
+encumbrance: 4
+rarity: 4
+reference:
+  - DA:52

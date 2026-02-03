@@ -1,0 +1,10 @@
+id: eote-rmd20droid
+name: RMD-20 "Eye in the Sky"
+description: Designed for the civilian market, the RMD-20 "Eye in the Sky" is a small, spherical remote intended to
+  record footage while staying on the move. The RMD-20's sensitive audio and video sensors can be fed to a host computer
+  or datapad, allowing for 24-hour surveillance. The remote itself is equipped with a repulsorlift generator, allowing
+  it to hover.
+encumbrance: 1
+rarity: 4
+reference:
+  - KtP:50

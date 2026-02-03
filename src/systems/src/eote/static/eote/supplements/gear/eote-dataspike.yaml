@@ -1,0 +1,18 @@
+id: eote-dataspike
+name: Dataspike
+description: >-
+  Dataspikes, also known as slicers' spikes or computer spikes, are a common tool for bypassing computer security. While
+  expert Slicers sometimes craft advanced examples to break into particular systems, a typical dataspike can be put
+  together to work with any computer. Once installed in a sytem, a dataspike releases a barrage of junk data that
+  overwhlems security, allowing the user a window in which  to access the secured systems. Dataspikes are typically
+  designed to byrn out after use, leaving behind minimal evidence.
+
+  Once per round, a character with a dataspike may expend it to attempt to disable a security program as a maneuver
+  (rather than as an action). This can include the use of the Disable Security Program action (see **Slicing
+  Encounters,**). Reduce the difficulty of the subsequent Computers check to disable the program by 2, to a minimum of
+  **Simple (-)**. After one use, the dataspike burns out and becomes useless.
+encumbrance: 1
+rarity: 3
+reference:
+  - SM:51
+  - CaM:45

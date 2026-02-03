@@ -1,0 +1,10 @@
+id: eote-droidcham
+name: Chameleon Droid
+description: The Arakyd Industries spelunker droid was originally intended for mining purposes. The Confederacy of
+  Independent Systems modified and armed these droids for combat purposes. Removing the heavy mining gear, they added a
+  minelayer, blasters, and a holographic cloaking array. It is the last item that led to their new name, “chameleon
+  droids.”
+encumbrance: 0
+rarity: 6
+reference:
+  - NoP:106

@@ -1,0 +1,19 @@
+id: eote-msemaintenance
+name: MSE-series Maintenance Droid
+description: >-
+  The ubiquitous MSE-series "mouse droids" are so common in the galaxy's starships and spaceports as to be nearly
+  invisible. Designed by Rebaxan Columni decades before the outbreak of the Clone Wars, these tiny, boxy droids were
+  produced by the billions. Closer in intellect and utility to a remote than to a full droid, they are equipped with a
+  low-powered, single-function droid brain that can contain a single program at a time. These programs can be switched
+  out with ease, making the droids surprisingly versatile. This versatility is hampered, however, by the droid's lack of
+  intellect, creativity, and problem-solving abilities.
+
+  Mouse droids are largely used in maintenance and custodial roles aboard ships and in military installations. With
+  their three retractable manipulators and a surprisingly excellent sensor package, they excel at basic mechanical and
+  electrical repair, and at cleaning, scraping, painting, and otherwise carry out the drudgery of keeping a starship
+  ship-shape. They also make remarkably good security and communications droids, keeping watch over sensitive areas,
+  carrying encrypted messages, or even acting as tools in espionage efforts.
+encumbrance: 0
+rarity: 2
+reference:
+  - DoR:121

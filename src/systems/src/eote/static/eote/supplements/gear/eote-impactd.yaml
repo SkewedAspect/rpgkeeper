@@ -1,0 +1,16 @@
+id: eote-impactd
+name: Impact (Dose)
+description: >-
+  Derived from the extract of the nysillim plant of Felucia, impact has grown in popularity in recent years among
+  smugglers and other starship pilots. Though nysillim spice is primarily used for its healing and palliative
+  properties, when concentrated and cooked into impact, it has a dramatic effect on the user's reflexes. However, after
+  a short while, the effects of the spice end in a lethargic crash. Impact use is on the rise despite Imperial attempts
+  to crack down on the spice.
+
+  A dose of impact lasts for one encounter and allows the user to upgrade the ability of any Agility based checks until
+  the end of the encounter. After the effects of impact wear off, the character suffers <setback></setback> to any
+  Agility, Cunning, or Intellect based checks for the remainder of the game session.
+encumbrance: 0
+rarity: 6
+reference:
+  - FC:50

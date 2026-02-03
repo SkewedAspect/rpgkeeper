@@ -1,0 +1,26 @@
+id: eote-symcomm
+name: Symbol of Command
+description: |-
+  Alliance Commanders hail from numerous human, nearhuman,
+  and alien cultures from throughout the galaxy.
+  From contemplative, level-headed Mon Calamari, to
+  cunning Bothans, to dangerously capricious humans of
+  every stripe, Commanders who join the Alliance bring
+  with them generations of their native military culture
+  and heritage. In most of these cultures, commanding
+  officers and highly ranked NCOs carry some item
+  about their person that represents their lawful command
+  over their subordinates. This could be anything
+  from a ceremonial saber worn with a dress uniform, to
+  a megaphone used to broadcast commands, to a stuncrop
+  used to motivate sluggish troopers. Whatever the
+  item, it symbolizes the power of an individual’s command,
+  and the Commander is rarely found without it.
+  No matter what form the item takes, Commanders
+  carrying a symbol of command add <boost></boost> to all Social
+  skill checks made to interact with others brought up
+  in their particular military culture.
+encumbrance: 1
+rarity: 3
+reference:
+  - LbE:44

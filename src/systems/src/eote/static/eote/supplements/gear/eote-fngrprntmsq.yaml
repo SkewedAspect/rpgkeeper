@@ -1,0 +1,23 @@
+id: eote-fngrprntmsq
+name: Fingerprint Masque
+description: >-
+  For those who are serious about keeping their identity unknown, fingerprint masques are essential. A thin,
+  liquid-crystal biometric screen applied to the fingertip, a fingerprint masque creates a random fingerprint pattern or
+  mimics known patterns. Advanced masques can also be embedded with false DNA in order to circumvent more sophisticated
+  biometric scanners and readers.
+
+  Fingerprint masques can fool basic fingerprint readers with nothing more than an **Easy (<difficulty></difficulty>)
+  Cool** or **Deception check**, while more advanced scanners require an **Average
+  (<difficulty></difficulty><difficulty></difficulty>)** or **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) check**, at the GM's discretion. If the
+  biometric scanner operator has reason to be suspicious of a character wearing a fingerprint masque, it may require an
+  opposed social skill check versus the operator's Computers skill. A character must make a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Perception
+  check** to actually notice the physical presence of a fingerprint masque on an individual's fingers.
+
+  **Models Include:** Numerous variants.
+encumbrance: 0
+rarity: 7
+reference:
+  - FC:50
+  - CaM:48

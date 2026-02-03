@@ -1,0 +1,14 @@
+id: genesys-gear-burst-transmitter
+name: Burst Transmitter
+description: These powerful devices were designed during the Lunar Insurrection to send short, encrypted messages from
+  Earth to orbit. They use a narrow-band beam with a smart encryption system that can transmit voice and data to
+  dedicated receivers. During the Lunar Insurrection, they often served as signals-warfare devices to insert viruses and
+  remote commands into both open and secure networks by brute force. More than one group of insurgents found themselves
+  cut off or vented into space by a black-ops radio operator with a burst transmitter. Since the Insurrection, burst
+  transmitters have found their way into the black market via military surplus brokers, and some shady electronics
+  vendors have begun selling new models with updated software. When your character attempts to perform the access system
+  action (see page 129) while using a burst transmitter, they reduce the difficulty of the check by 1, to a minimum of
+  <difficulty></difficulty>.
+encumbrance: 1
+rarity: 6
+reference: SotB:97

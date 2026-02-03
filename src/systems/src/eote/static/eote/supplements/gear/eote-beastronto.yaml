@@ -1,0 +1,10 @@
+id: eote-beastronto
+name: Ronto
+description: Often seen as beasts of burden and mounts for Jawas, rontos are known to be effective, if skittish, mounts.
+  Found on many worlds, including Nubia, Tatooine, and Kashyyyk, rontos are often employed away from populated areas, to
+  reduce contact with technologies that might spook the beasts. Even so, they remain a common sight in many of
+  Tatooine's spaceports, and those who work with these animals place great stock in their loyalty.
+encumbrance: 0
+rarity: 3
+reference:
+  - SoT:87

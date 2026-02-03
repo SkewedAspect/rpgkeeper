@@ -1,0 +1,14 @@
+id: eote-alchemytokenofresistance
+name: Token of Resistance
+description: >-
+  Often worn on a necklace as a starburst of metallic shards, this fetish acts to dampen Force powers used to sway the
+  wearer's thinking. For those who fear the mind tricks of olden days, it is essential to preserve an individual's sense
+  of self.
+
+  Whenever the user is targeted by an opposed social skill check where a Force power was used either to perform or
+  augment the check, they may choose to have the opposing character roll 1 fewer [FO] as part of the check. If this
+  means there are not enough [FO] for the check to be made or the power to activate, the check automatically fails.
+encumbrance: 0
+rarity: 9
+reference:
+  - UP:84

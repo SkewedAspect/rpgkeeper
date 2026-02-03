@@ -1,0 +1,26 @@
+id: eote-ardos
+name: Ardos Disk
+description: >-
+  Small coins or medals made of aurodium mined from Varl, Ardos disks are valuable not merely for their rare metal
+  content, but for what they represent. Bearing a stylized image of the star Ardos on one side and the sigil of the
+  kajidic issuing the disk on the other, Ardos disks are given as rewards to highly favored servants and emissaries.
+  They identify the bearer as being under the protection of the Hutts. For a Hutt to kill the possessor of an Ardos disk
+  is nearly as taboo as the murder of another Hutt: most Hutts and their servants honor the relative immunity afforded
+  those given such a rare boon. Conversely, the theft or forgery of an Ardos disk is seen as a heinous act among the
+  Hutts.
+
+  Upon displaying an Ardos disk, a character adds <boost></boost><boost></boost> to any Charm or Negotiation skill
+  checks made with Hutts or their henchmen or servants. In general, most Hutts will honor the implicit significance of
+  the Ardos disk and refrain from overtly harming or hindering the bearer. If the disk bears the sigil of a rival clan,
+  however, the GM can upgrade the difficulty of any Charm or Negotiation skill checks with the Hutt in question once
+  instead, though the Hutt will still be loath to openly harm the bearer.
+
+  For instance, Jabba Desilijic Tiure might not be very welcoming or polite to characters displaying an Ardos disk given
+  to them by the Besadii Hutts, but he would at least grant them safe passage through Desilijic space, and would not
+  feed them to his pet rancor (at least, not without severe provocation). Since Hutts are extremely suspicious and
+  imperious by their very natures, they often demand to examine any Ardos disk presented to them, even if they already
+  know it is valid.
+encumbrance: 1
+rarity: 5
+reference:
+  - LoNH:111

@@ -1,0 +1,14 @@
+id: eote-alchemyhealingpotion
+name: Healing Potion
+description: >-
+  This might take the form of a foul-smelling salve, crystal-clear elixir, or tincture with a strange ethereal glow to
+  it. However, the overall effect is the same. Somehow, the potion heals injuries and restores those who drink it to
+  good health.
+
+  When the user consumes this potion, they immediately heal one Critical Injury with a severity of **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>)** or less. Although this potion can heal
+  the Maimed Critical Injury, it cannot regrow the lost limb.
+encumbrance: 0
+rarity: 5
+reference:
+  - UP:81

@@ -1,0 +1,15 @@
+id: genesys-gear-magic-ring
+name: Magic Ring
+description: Magic rings are items of great power and danger in most fantasy settings. We decided to stick with that
+  theme, so our rings are items of great power and peril. When a character obtains a magic ring, you, the GM, choose one
+  type of magic skill, then select three effects that can be added to spells cast by that skill. Two of the effects can
+  normally only increase the difficulty of the spell by one; the third can normally only increase the difficulty of the
+  spell by two. When the user casts a spell, adding these effects do not increase the spell's difficulty. However, when
+  using a magic ring, you must always upgrade the difficulty of any spells you cast once, and
+  <difficulty></difficulty><difficulty></difficulty> cannot be spent to destroy the ring. In addition, attack spells
+  cast by the user increase their base damage by two. An example of this might be a ring of protection, which allows
+  your character to add the Range, Additional Target, and Reflection effects to a Barrier spell without increasing the
+  difficulty.
+encumbrance: 0
+rarity: 8
+reference: G-CRB:219

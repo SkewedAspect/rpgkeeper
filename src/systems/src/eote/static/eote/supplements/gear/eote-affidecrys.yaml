@@ -1,0 +1,13 @@
+id: eote-affidecrys
+name: Affide Crystal
+description: >-
+  Affide crystals are commonly used as a last-resort "suicide pill" in the event of capture or torture. Typically hidden
+  in a false tooth implanted in the agent's jaw, affide crystals are an extremely powerful neuro-toxin that, upon
+  exposure to moisture, can kill an individual in seconds by immediately stopping respiratory functions. To use them,
+  agents simply bite down hard on their false tooth, shattering it and allowing the crystal to dissolve in their mouth.
+  Depending on the agent's species and constitution, death can take from 20 to 40 seconds.
+   A single affide crystal is a poison that requires an upgraded **Daunting (<challenge></challenge><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Resilience check** to overcome when ingested. The poison inflicts 10 wounds and a Critical Injury on a failed check. Each <threat></threat> generated adds +40 to the roll for the Critical Injury result. GMs may spend <threat></threat><threat></threat><threat></threat> or <despair></despair> to kill a target instantly, leaving no opportunity for resuscitation.
+encumbrance: 0
+rarity: 8
+reference:
+  - CaM:42

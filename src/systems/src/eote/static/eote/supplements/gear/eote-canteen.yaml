@@ -1,0 +1,9 @@
+id: eote-canteen
+name: Canteen
+description: This standard container is constructed from rugged synthetics and housed in a canvas cover available in a
+  variety of uniform specifications and camouflage patterns. The military-issue canteen holds 1.5 liters of liquid and
+  features an integrated filtration system that can purify water.
+encumbrance: 1
+rarity: 1
+reference:
+  - DC:58

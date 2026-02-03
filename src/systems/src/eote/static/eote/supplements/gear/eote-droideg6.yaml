@@ -1,0 +1,20 @@
+id: eote-droideg6
+name: EG-6 Power Droid
+description: >-
+  VeriI Line Systems' EG-6 units are the most common class five droids in the galaxy. Essentially walking fusion
+  reactors, these droids were designed to provide power wherever it is needed. Thanks to being monotask droids, they
+  have little in the way of personality. This is exacerbated by the fact that these droids can only communicate in droid
+  and computer languages.
+
+  EG-6 droids have a squat, bipedal form and chassis reminiscent of two ziggurats mounted together at the base. They are
+  surprisingly heavily armored and shielded. A busy control panel full of switches, light power couplings, and a handful
+  of sensor lenses makes up what passes for a face. They do possess a small, meter-long retractable manipulator arm in
+  the center of their front panel; it is rarely used, though, and many owners have no idea the droids have them.
+
+  These droids carry a medium fusion reactor good for recharging vehicles or providing power to small buildings or
+  installations. They are also equipped with a powerful sensor suite that includes a spectrometer, a multi-spectral
+  scanner, and a power diagnostics package that allows them to diagnose and repair power systems.
+encumbrance: 0
+rarity: 2
+reference:
+  - FO:49

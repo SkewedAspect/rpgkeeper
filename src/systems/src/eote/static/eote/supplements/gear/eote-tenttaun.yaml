@@ -1,0 +1,10 @@
+id: eote-tenttaun
+name: Tauntaun Pup Tent
+description: This ubiquitous tent is popular amongst explorers and mercenary soldiers for its sturdy construction,
+  lightweight materials, easy storage, and quick deployment. The Tauntaun Pup Tent is constructed of a flexible
+  alumasilk weave with an integrated heat-insulating layer that can allow those inside to ignore temperatures up to -20
+  degrees.
+encumbrance: 3
+rarity: 2
+reference:
+  - DC:58

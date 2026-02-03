@@ -1,0 +1,24 @@
+id: eote-erp
+name: Emergency Repair Patch
+description: >-
+  Emergency repair patches, like the SoroSuub Pocket Tech, are designed to be both portable and able to be used quickly
+  in an emergency. An emergency repair patch consists of a semi-flexible durasteel disk rimmed with auto-activating
+  thermal welds. Some also contain an electrically inert inner insulation layer to protect against shortouts. The patch
+  can be quickly applied over a damaged portion of a droid's chassis, then almost instantly spot-welded into place,
+  keeping the vulnerable interior safe from further damage and maintaining the chassis's structural integrity.
+
+  Emergency repair patches are one-use items that mechanics can use to patch small holes in items or vehicles, or droids
+  can use to heal wounds. The second use is more common. It takes a maneuver for a character to use an emergency repair
+  patch on himself or another. An emergency repair patch automatically heals 3 wounds on a droid. A droid can use
+  emergency repair patches five times in a day. The sixth emergency repair patch heals no wounds—the droid is so patched
+  together that further patches would be useless. It takes a day for the droid's self repair diagnostics (or some actual
+  repairs) to restore his body to enough functionality to be able to accept additional emergency patches. See page 220
+  for more information.
+
+  **Models Include:** SoroSuub Pocket Tech.
+encumbrance: 0
+rarity: 2
+reference:
+  - E-CRB:182
+  - A-CRB:197
+  - EV:50

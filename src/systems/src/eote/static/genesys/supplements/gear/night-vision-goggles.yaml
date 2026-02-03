@@ -1,0 +1,8 @@
+id: genesys-gear-night-vision-goggles
+name: Night Vision Goggles
+description: These goggles allow the user to see normally in the dark. When wearing night vision goggles, your character
+  removes up to <setback></setback><setback></setback> added to their checks due to concealment (darkness, smoke, and
+  intervening terrain).
+encumbrance: 1
+rarity: 5
+reference: G-CRB:169

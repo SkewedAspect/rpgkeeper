@@ -1,0 +1,18 @@
+id: eote-droidprottc
+name: TC-Series Protocol Droid
+description: The TC-series, produced by Cybot Galactica, is less widely known than the more affordable 3P0 models from
+  the same manufacturer, but it remains one of the most highly regarded lines of protocol droids. Officially registered
+  as a variant line on the more common 3P0 models, the TC-series is actually a solid upgrade in most aspects. The
+  differences are not apparent to the casual observer, as the two droids are nearly identical visually. Instead, the
+  improvements of the TC-series lie in two key areas of programming. First, TC units have benefited from increased
+  design attention, giving them more stable and helpful personalities after some 3P0-series droids were reported to
+  develop eccentric and grating personalities. Secondly, and perhaps more significantly, the TC-series is equipped with
+  a more advanced version of the TranLang It communications module used throughout the protocol droid market. While
+  almost any protocol droid is programmed with a vast array of languages and the capacity to decipher new ones with
+  impressive speed, the TC-series excels above its competitors. The TranLang variant used in these droids uses adaptive
+  programming to improve the unit's grasp on a language throughout a conversation, enabling them to attempt
+  communication after only a few words spoken by a new species or culture.
+encumbrance: 0
+rarity: 4
+reference:
+  - DA:55

@@ -1,0 +1,20 @@
+id: eote-aglmkiii
+name: AG/L Mk. III Targeting Goggles
+description: >-
+  Fabritech AG/L Mk. III Targeting Goggles
+
+  Popular with weapon crewmen, squad support gunners, and anyone who makes a living behind the sights of a heavy
+  man-portable or vehicle-mounted weapon, Fabritech's AG/I Mk. III targeting goggles are the best selling targeting aid
+  on the galactic market today. Worn over a shooter's eyes, the Mk. III goggles use a number of physical and electronic
+  systems to improve a gunner's combat effectiveness. Along with a highly detailed holographic targeting reticule, the
+  Mk.III also provides a user with varying strengths of telescopic zoom, low-light vision, and a number of filters to
+  reduce glare and eye fatigue. In addition, the goggles are equipped with a small, powerful ballistic computer that can
+  instantly plot firing solutions, label and rank enemies by threat level, track friendlies, and generally increase
+  accuracy while reducing waste and incidents of friendly fire.
+
+  Wearing an AG/I Mk. III targeting goggles allows the character to count the silhouette of his target as one greater
+  when making Gunnery checks targeting a starship or vehicle.
+encumbrance: 1
+rarity: 5
+reference:
+  - SoT:45

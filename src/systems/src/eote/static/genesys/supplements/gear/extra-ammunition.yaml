@@ -1,0 +1,10 @@
+id: genesys-gear-extra-ammunition
+name: Extra Ammunition
+description: "Whether a weapon fires projectiles or energy beams, it inevitably runs out of ammo. Carrying reloads is
+  always a smart idea. Your character may spend a maneuver and expend this item to reload one weapon they are holding
+  that has run out ammunition, allowing them to continue using the weapon during the current encounter. Extra ammunition
+  may not be used to reload weapons with the Limited Ammo quality (these have their own ammunition costs). This item may
+  be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 1
+rarity: 1
+reference: EotI:124

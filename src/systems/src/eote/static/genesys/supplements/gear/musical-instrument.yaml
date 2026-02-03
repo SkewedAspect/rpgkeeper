@@ -1,0 +1,14 @@
+id: genesys-gear-musical-instrument
+name: Musical Instrument
+description: While the scholars of Greyhaven University continuously and vigorously disagree as to whether bards are
+  actual users of magic or are a bunch of charlatans, the truth is that most bards are probably a mixture of both. Their
+  use of magic—such as it is—is likely entirely instinctive and affected greatly by the bard's charisma. What this means
+  is that bards do not craft magical implements as other spellcasters do, but over time, they tend to infuse the
+  instruments they play with some small measure of power. Some instruments have even been passed from bard to bard and,
+  over generations, have become magical relics in their own right. Of course, a great many more instruments get passed
+  off as magical relics when their owners need to make up the money lost in an ill-advised night of carousing. When your
+  character casts a spell using the Verse skill while using a musical instrument, adding the Additional Target effect
+  does not increase its difficulty
+encumbrance: 1
+rarity: 4
+reference: RoT:99

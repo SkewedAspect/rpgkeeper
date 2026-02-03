@@ -1,0 +1,19 @@
+id: eote-gps
+name: General Purpose Scanner
+description: >-
+  Most scanners are small, hand-held gear, designed to be simple and durable for field use by scouts and explorers.
+  Depending on the model, they indicate the nearby presence of life forms, heat fonts, radiation sources, acoustic
+  emissions, or any combination thereof. Some operate in all directions, displaying their results on screens or
+  holo-displays, while others are directional and only give indications towards where they are pointing. The Cryoncorp
+  EnhanceScan is a typical example of this. Small enough to be carried by a single scout, the scanner has life-form
+  tracking, motion sensing, metal detection, and the ability to intercept standard frequency comlink transmissions. The
+  motion sensing operates up to half a kilometer, while the remaining systems can detect targets up to a kilometer and a
+  half, and the comlink interceptor can catch signals from much further.
+
+  **Models Include:** Cryoncorp EnhanceScan General Purpose Scanner, Crozo Industrial Mineral Scanner, CUE GenScan.
+encumbrance: 2
+rarity: 3
+reference:
+  - E-CRB:175
+  - A-CRB:191
+  - F-CRB:185

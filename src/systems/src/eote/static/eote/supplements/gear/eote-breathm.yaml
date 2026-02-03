@@ -1,0 +1,24 @@
+id: eote-breathm
+name: Breath Mask
+description: >-
+  Not all planets or environments are hospitable to all species, and thus many species require breathing devices to
+  survive on them. The most basic are simple nose plugs which filter out contaminants; there are also higher quality
+  items such as wearable face masks with gas canisters, filtration masks for poisonous atmospheres, and even aquatic
+  rebreathers for sustained activity underwater.
+
+  The Gandorthral Atmospherics Roamer-6 is a fairly simple variant stored aboard many starships that filters harmful
+  atmospheres and provides additional gases to produce a proper oxygen-nitrogen mix. Other variants (especially those
+  made for alien species who must spend long periods of time in hostile atmospheres) can be more unobtrusive or
+  comfortable to wear, but essentially do the same thing.
+
+  Breathing aids can be set to provide nearly any atmosphere, although oxygen-nitrogen atmospheres are the most common.
+  Some variants of Gand, however, use rebreathers to inhale an ammonia mix that mimics the atmosphere of their home
+  planet.
+
+  **Models Include:** Gandorthral Atmospherics Roamer-6.
+encumbrance: 1
+rarity: 1
+reference:
+  - E-CRB:179
+  - A-CRB:195
+  - F-CRB:188

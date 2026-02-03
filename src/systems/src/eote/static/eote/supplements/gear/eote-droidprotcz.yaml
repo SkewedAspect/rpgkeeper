@@ -1,0 +1,20 @@
+id: eote-droidprotcz
+name: CZ-Series Communications/Business Droid
+description: >-
+  The CZ-series communications/business droid exemplifies extreme specialization in protocol droid manufacture. Its
+  databanks feature a suite of languages and cultural customs smaller than comparable models, and it lacks information
+  on species or cultures beyond the Core Worlds. Instead, the CZ-series is programmed with a near-complete database of
+  banking and financial regulations, as well as storage space to record current market prices for any goods it might
+  encounter. A long-range comlink enables the droid to observe markets across a whole planet or to access interstellar
+  communications networks to track deals made throughout the galaxy. The model's one universally reviled downside is the
+  standard paintjob, designed to draw attention to the droid in dealerships. It is a truly vulgar mix of bright green
+  and orange—obviously, many owners have these droids repainted.
+
+  Although the Rebellion has limited need for the business acumen the CZ-series is built for, the droids are top-notch
+  negotiators, often capable of reaching settlements solely on the strength of their programming. Furthermore, the
+  droid's long-range comlink can serve as a distress beacon or homing device for Rebel cells in negotiations with groups
+  of dubious trustworthiness.
+encumbrance: 0
+rarity: 4
+reference:
+  - DA:55

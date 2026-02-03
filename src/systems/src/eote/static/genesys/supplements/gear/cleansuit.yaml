@@ -1,0 +1,9 @@
+id: genesys-gear-cleansuit
+name: Cleansuit
+description: "\"Cleansuit\" is a catchall term for a variety of coveralls with breathing protection designed to protect
+  a wearer from radiation, chemicals, or contagious diseases. While a character is wearing a cleansuit, they
+  automatically succeed on Resilience checks to see if they suffer levels of radiation (see A Certain Glow, on page 29)
+  or if they become infected (see Contagion, on page 30). When worn, a cleansuit's encumbrance is 2."
+encumbrance: 5
+rarity: 6
+reference: G-EPG:36

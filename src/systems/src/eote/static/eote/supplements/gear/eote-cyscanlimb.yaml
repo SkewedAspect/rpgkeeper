@@ -1,0 +1,17 @@
+id: eote-cyscanlimb
+name: Cyberscanner Limb
+description: >-
+  This cybernetic arm does far more than simply replace a limb; it also includes a basic scanner for medium range
+  detection. The CyberScanner displays data on a holo-projector that appears above the user's open palm and can show
+  nearby motion, life-forms, energy signatures, and other common targets as desired.
+
+  The Mod IV Scanner Limb incorporates a portable scanner, and unlike most cybernetics, is concealed by a synthflesh
+  covering to disguise the fact that there is anything out of the ordinary about the limb.
+
+  **Models Include:** Neuro-Saav Technologies CyberScanner Limb, NeuroFabritech ScanMaster Arm.
+encumbrance: 0
+rarity: 7
+reference:
+  - E-CRB:174
+  - A-CRB:190
+  - F-CRB:184

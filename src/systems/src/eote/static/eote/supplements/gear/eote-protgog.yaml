@@ -1,0 +1,9 @@
+id: eote-protgog
+name: Protective Goggles
+description: These goggles protect the wearer from the effects of  bright light.  They can negate negative consequences
+  of light and can prevent blindness in very bright conditions. Defels wear them due to their high sensitivity to
+  visible light.  When worn by a Defel, it eliminates their light sensitivity trait.
+encumbrance: 0
+rarity: 2
+reference:
+  - Unofficial

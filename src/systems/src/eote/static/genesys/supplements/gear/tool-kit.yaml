@@ -1,0 +1,10 @@
+id: genesys-gear-tool-kit
+name: Tool Kit
+description: Tool kits are just the thing for patching up a cracked proton humidifier, mounting the wheels back onto a
+  holocycle, checking the polarity on a failing reactor, or just pounding out the dents in a flying saucer. You can tell
+  a lot about the user by the contents of their tool kit, no matter their species. A tool kit counts as the right tool
+  for the job (see page 93 of the Core Rulebook) for most mechanical or technological efforts. Additionally, its
+  internal power supply can serve as a power source for other devices for one hour.
+encumbrance: 2
+rarity: 4
+reference: SotC:152

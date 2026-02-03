@@ -1,0 +1,9 @@
+id: genesys-gear-druidic-circlet
+name: Druidic Circlet
+description: Druidic circlets could be simple bands of entwined metal, elaborate headdresses of antlers, or even crowns
+  of ivy. They help those using primal magic commune with the natural world. When the user casts the Conjure spell to
+  summon a living creature, adding the Summon Ally effect does not increase its difficulty. In addition, the creature
+  remains summoned until the end of the encounter without your character having to use the concentrate.
+encumbrance: 0
+rarity: 5
+reference: G-CRB:219

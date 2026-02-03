@@ -1,0 +1,20 @@
+id: eote-neuralrec
+name: Neural Recorder
+description: >-
+  An individual with a neural recorder installed gains the ability to record and store sensory information with the
+  veracity and recall of an advanced computer system. The recorder's recall is not truly perfect, as most known species
+  have sensory limitations that prevent them from uploading perfectly detailed information on everything they observe,
+  but it is still the next-best thing to a perfect memory. The recorder only captures information that the user
+  consciously chooses to record but after a short period of adjustment, keeping it running in the absence of concern for
+  privacy or security becomes second nature.
+
+  Neural recorders allow the user to make an **Easy (<difficulty></difficulty>) Discipline check** to recall any
+  information experienced while the recorder was running. Information gained from this check is highly detailed and is
+  generally comparable in quality to the recording of a standard holorecorder would make. The installation of a neural
+  recorder usually inludes a small connection port elsewhere on the user's body - typically the palm. A character with a
+  neural recorder can copy information recorded by the implant to a more common type of external storage device using
+  this connection.
+encumbrance: 0
+rarity: 8
+reference:
+  - SM:50

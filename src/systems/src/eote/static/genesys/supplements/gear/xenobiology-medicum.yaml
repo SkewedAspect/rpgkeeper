@@ -1,0 +1,14 @@
+id: genesys-gear-xenobiology-medicum
+name: Xenobiology Medicum
+description: "The most advanced and complex medical kit available to field medics, the xenobiology medicum takes up most
+  of the space of a large backpack. In addition to all of the usual medical materials, it also has silicate pastes,
+  plasma ionizers, and other healing items useful for dealing with non-carbon-based physiologies. It also includes a
+  savant explaining how to use them. The medicum allows your character to heal other characters' wounds or Critical
+  Injuries without penalty, as well as their own by increasing the difficulty by 1 instead of by 2. It also allows them
+  to heal any character using the Medicine skill, even if that character cannot normally be healed using Medicine. If
+  your character's Medicine check generates <despair></despair><despair></despair><despair></despair> or
+  <difficulty></difficulty>, the kit's supplies have depleted, and the xenobiology medicum may no longer be used. This
+  item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 4
+rarity: 6
+reference: EotI:124

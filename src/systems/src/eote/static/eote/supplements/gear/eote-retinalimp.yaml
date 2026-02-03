@@ -1,0 +1,17 @@
+id: eote-retinalimp
+name: Retinal Implant
+description: >-
+  Retinal implants are designed to fool retinal ID scanners. They can be implanted in a natural or cybernetic eye and
+  can project up to six different retina patterns.
+
+  Programming a retinal implant with a retina pattern requires a few minutes of studying the pattern and an **Average
+  (<difficulty></difficulty><difficulty></difficulty>) Perception check**. Retinal implants fool most retina scanners
+  with an **Easy (<difficulty></difficulty>) Cool or Deception check**. More advanced retina scanners require an
+  **Average (<difficulty></difficulty><difficulty></difficulty>)** or **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) check** for the wearer to defeat them.
+  If the retinal scanner operator has reason to be suspicious, using the retinal implant may also require an **opposed
+  Deception check vs.** the scanner operator's **Computers** skill.
+encumbrance: 0
+rarity: 6
+reference:
+  - CaM:45

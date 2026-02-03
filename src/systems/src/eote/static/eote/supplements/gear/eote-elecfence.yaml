@@ -1,0 +1,16 @@
+id: eote-elecfence
+name: Electric Perimeter Fence
+description: Made by a number of manufacturers throughout the galaxy, portable electric perimeter fences use beams of
+  coherent energy to make a protective barrier around encampments, outposts, or any other sensitive areas that require
+  extra security. Composed of a powerful energy generator and a number of sturdy plasteel posts equipped with
+  repeater/booster modules and long anchoring spikes, these fences are constructed by simply finding a safe place for
+  the generator and placing the posts along the desired perimeter. Once the perimeter is set, the generator is hooked up
+  to one of the posts to provide the energy. When the generator is activated, the power it produces is projected and
+  amplified by each of the fence posts, creating a nearly impassable fence made of crackling, humming energy beams.
+  Basic models must be completely deactivated to allow anything to pass through, but the more advanced models have
+  controls that allow for the various sections between posts to be activated and deactivated at will. Anyone coming into
+  contact with a portable electric perimeter fence suffers the effects of a stun grenade.
+encumbrance: 6
+rarity: 5
+reference:
+  - EtU:49

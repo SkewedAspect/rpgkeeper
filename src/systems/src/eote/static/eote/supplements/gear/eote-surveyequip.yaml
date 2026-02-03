@@ -1,0 +1,15 @@
+id: eote-surveyequip
+name: Surveyor's Equipment
+description: >-
+  The first step in building anything on a planet is a good land survey, so most Alliance engineers are trained in
+  equipment to aid in this task. Basic surveyor gear is often little more than a laser measurement system for
+  calculating distance, macrobinoculars, a device for determining the position and movement of stars, a length of chain,
+  and a compass. More advanced sets include various ground and terrain scanners, survey remotes, specialized hand tools,
+  seismic recorders, and all manner of esoteric equipment.
+
+  Surveyor's equipment adds <boost></boost><boost></boost> to a character's Perception checks when determining locations
+  on a planet's surface, measuring distances, plotting settlements or bases, and creating detailed planetary maps.
+encumbrance: 6
+rarity: 8
+reference:
+  - FO:46

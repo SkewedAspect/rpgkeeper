@@ -1,0 +1,19 @@
+id: eote-igrmenforcer
+name: IG-RM-series Enforcer Droid
+description: >-
+  The IG-RM series is one the the more common offshoots of Holowan Laboratories IG-series combat droids. Closely related
+  to the IG-series assassin droids, IG-RM droids are tall, faceless, imposing constructs with broad shoulders, spindly
+  arms, and a penchant for violence. Designed to act as bodyguards and security personnel, IG-RM droids have a heavily
+  armored torso and programming that makes them fanatically loyal to their owners. These droids have no qualms against
+  harming other sentients at their owners' behest, and will even throw themselves directly into harm's way to protect
+  their masters. They tend to take orders literally and show little in the way of initiative or creative thinking.
+  Thanks to these traits and their looming, intimidating presence, many of these droids have found their way into the
+  employ of various crime syndicates and corrupt governments as enforcers and toughs.
+
+  IG-RM droids possess no internal weaponry. They are, however, programmed to handle most known military and civilian
+  arms. They are also programmed for close-in melee combat and grappling, which comes in handy when an opponent needs to
+  be subdued rather than killed outright.
+encumbrance: 0
+rarity: 6
+reference:
+  - DoR:119

@@ -1,0 +1,12 @@
+id: genesys-gear-autocuffs
+name: Autocuffs
+description: "Law enforcement officials, troopers, and even some criminals carry these auto-activating restraints to
+  secure captured individuals. Placed around a limb or similar appendage, each cuff automatically tightens to a point
+  that is restrictive without risk of cutting off air or blood flow. Once locked, the cuffs are nearly impossible to
+  slip out of or break. As an action, an engaged target who is immobilized or incapacitated may be fitted with
+  autocuffs. The target is then immobilized until the autocuffs are removed. The bound individual may attempt a
+  Formidable to break or slip out of the autocuffs. This item may be modified with 2-1: Cultural Manufacturing
+  Differences."
+encumbrance: 1
+rarity: 2
+reference: EotI:120

@@ -1,0 +1,19 @@
+id: eote-lifescanner
+name: ILF-6500 Life Form Scanner
+description: >-
+  A more powerful variant of Idellian Arrays's ILF-5000, the ILF-6500 is one of the most powerful long-range,
+  omnidirectional life-form scanners on the market. With a database containing information on thousands of known species
+  of wildlife and with space for recording new data, the ILF-6500 is most often used as the center of a security
+  perimeter for scout or hunting encampments. Mounted on a telescoping tripod that can extend up to three meters and
+  capable of monitoring an area nearly half a kilometer across depending on terrain and vegetation, this scanner can
+  track and identify up to two dozen targets at a time, categorize and rank them in order of threat level, and alert its
+  operators either by sending updates to their datapads or sounding a shrill alarm.
+
+  Setting up the ILF-6500 requires either an **Average (<difficulty></difficulty><difficulty></difficulty>) Survival
+  check** or a **Hard (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Education** or
+  **Computers** check to ensure that the device is properly calibrated and located in the best possible area for taking
+  full advantage of its scanning capabilities.
+encumbrance: 4
+rarity: 5
+reference:
+  - EtU:47

@@ -1,0 +1,15 @@
+id: genesys-gear-dead-mans-compass
+name: Dead Man's Compass
+description: This artifact is rumored to be the work of necromancers, though its origins are unknown, and arcanists have
+  been known to use it. Set within a gilded frame is a glass dome, beneath which swirls a dark, viscous liquid. The
+  bones of a Human hand float upon the liquid. They are bleached white, save for the final joint of the first finger,
+  which is dyed scarlet. Should someone succeed in activating the device, they may ask it to indicate a desired
+  destination, or where something or someone may be found. The bones will then slowly form a hand that points in the
+  right direction. When your character makes a Knowledge (Geography), Perception, or Vigilance check to chart a course,
+  find a location, avoid becoming lost, or otherwise navigate, they may choose to use the Dead Man's Compass as an
+  incidental after rolling the check but before determining the results; your character suffers a number of wounds and
+  adds an equal number of <success></success> to the check. If these wounds cause the character to exceed their wound
+  threshold, add +50 to the resulting Critical Injury roll.
+encumbrance: 0
+rarity: 10
+reference: RoT:109

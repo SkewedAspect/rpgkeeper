@@ -1,0 +1,10 @@
+id: genesys-gear-portable-motion-sensor
+name: Portable Motion Sensor
+description: This handheld device, easily stored in a pocket or pouch, detects nearby movement. The user can calibrate
+  sensitivity to avoid false alarms by small vermin. Under normal conditions, a character using the sensor automatically
+  detects any moving creatures within medium range. Of course, it can't distinguish friend from foe or identify the
+  creatures. If creatures within range are actively hidden, your character adds <boost></boost><boost></boost> to
+  Vigilance or Perception checks to notice them while using the motion sensor (instead of spotting them automatically).
+encumbrance: 1
+rarity: 4
+reference: G-CRB:186

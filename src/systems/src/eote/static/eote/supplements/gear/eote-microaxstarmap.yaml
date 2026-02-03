@@ -1,0 +1,26 @@
+id: eote-microaxstarmap
+name: Starmapper Handheld NaviComputer
+description: >-
+  Microaxial Starmapper Handheld NaviComputer
+
+  Microaxial LLC is a relatively small technology firm from the Core Worlds region that specializes in navicomputers and
+  navigational aids. While it is known primarly as a producer of starfighter navicomputers, such as the powerful LpM-549
+  used on the Alliance's B-wing heavy attack fighters. It also produces a number of other navigation related products.
+  Microaxial's products have a reputation as rugged, reliable, and easy to maintain, a reputation the company works very
+  hard to maintain through excellent manufacturing and service.
+
+  The Starmapper is a small, dedicated-use datapad designed to assist a starship's navigator in plotting courses and
+  performing, the tricky math of hyperspace navigation. Within its prodigious memory, the Starmapper contains hyperspace
+  and realspace maps of every known region of the galaxy. These maps are annotated and well organized, allowing a user
+  to find a given map or star chart in an instant. Through its permanent connection to the galactic HoloNet, the
+  Starmapper constantly upgrades its maps and charts as changes are made by the Imperial Survey Corps and by various
+  regional and planetary survey bureaus. In addition, a Starmapper user can make changes to an existing chart and upload
+  those changes to the HoloNet, from which other users can retrieve them and change their charts accordingly. This
+  ensures that Starmapper users always have the latest navigational data available to them. Using a Starmapper Handheld
+  Navicomputer grants a character <boost></boost><boost></boost> to all Astrogation checks. Game Masters can reduce this
+  to <boost></boost> or eliminate the bonus altogether if the character using the Starmapper has been out of HoloNet
+  range for an extended period of time.
+encumbrance: 1
+rarity: 8
+reference:
+  - SS:49

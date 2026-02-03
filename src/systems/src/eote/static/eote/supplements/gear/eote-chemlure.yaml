@@ -1,0 +1,27 @@
+id: eote-chemlure
+name: Chem Lure
+description: >-
+  Similar to the beast call, the Beastmaster Chem Lure by CorChemCo is designed to attract beasts to a place where they
+  can be easily captured or killed. However, where the beast call uses sound and recording technology, the Beastmaster
+  does so through the use of pheromones. Small and easy to conceal (around the size of a typical datapad), the
+  Beastmaster contains an exhaustive database listing the genetic codes of most known species in the galaxy. With the
+  creature database and an onboard testing and recording suite that contains a DNA sequencer and a chemical synthesizer,
+  the Beastmaster can create nearly any pheromone, musk, or other biological secretion. It can also be programmed with
+  new DNA if it is provided with a physical sample such as blood, hair, skin, or bone.
+
+  To use, a hunter first chooses his creature from the database or creates a new entry with a sample. Then he simply
+  conceals the chemical lure, retreats to an upwind location, and settles in to wait. The Beastmaster uses the DNA
+  information stored in the database to synthesize the correct chemical, aerosolizes it, and then slowly releases it
+  over the course of one standard hour. The synthetic pheromones are incredibly hard for a targeted beast to resist, and
+  the Beastmaster typically has a better chance of luring in its prey than a beast call or other apparatus.
+
+  Creatures targeted by the Beastmaster must make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Discipline check** to resist, otherwise
+  they come as quickly as possible to investigate. These items are often used with electro-snares or other live-trapping
+  equipment to capture exotic animals alive for use as pets, zoo animals, and research subjects. Using the Beastmaster
+  does not require a skill check, although placing it in the best position might, at the Game Master's discretion,
+  require a Survival check.
+encumbrance: 1
+rarity: 4
+reference:
+  - EtU:52

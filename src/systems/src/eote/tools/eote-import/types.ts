@@ -107,6 +107,27 @@ export interface XmlArmor
 }
 
 //----------------------------------------------------------------------------------------------------------------------
+// Gear Types
+//----------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Gear item from XML
+ */
+export interface XmlGear
+{
+    Key : string;
+    Name : string;
+    Description : string;
+    Source ?: string | XmlSource;
+    Sources ?: { Source : XmlSource | XmlSource[] };
+    Custom ?: string;
+    Categories ?: XmlCategory;
+    Encumbrance ?: number;
+    Price ?: number;
+    Rarity ?: number;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
 // Weapon Types
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -265,6 +286,16 @@ export interface WeaponsDocument
 {
     Weapons : {
         Weapon : XmlWeapon[];
+    };
+}
+
+/**
+ * Gear XML document
+ */
+export interface GearDocument
+{
+    Gears : {
+        Gear : XmlGear[];
     };
 }
 

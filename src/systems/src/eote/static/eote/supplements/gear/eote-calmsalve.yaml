@@ -1,0 +1,19 @@
+id: eote-calmsalve
+name: Calming Salve
+description: >-
+  Sentient beings all over the galaxy lead a hard life. Stress accumulates over time, threatening to overwhelm the less
+  hardy. Resting often helps, but in the heat of battle, it's likely a combatant needs more immediate help. Thousands of
+  remedies, salves, and balms exist to that effect. There is as much variety in the production of these items as in the
+  individuals that consume them.
+
+  Rubbing these salves into the skin opens a sentient being up to the Living Force surrounding them. Those without Force
+  sensitivity find the experience strange but comforting. A Mystic in tune with the Force can draw the energy into
+  themselves. When they release it, they wash away their fears in the cleansing warmth of the Force.
+
+  Once per session as an action, a Force-sensitive character may use the Calming Salve and make a Force power check.
+  They may spend <forcepoint></forcepoint> generated from [LI] results to recover one strain per
+  <forcepoint></forcepoint> spent in this way.
+encumbrance: 0
+rarity: 3
+reference:
+  - UP:53

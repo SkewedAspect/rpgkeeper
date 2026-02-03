@@ -1,0 +1,10 @@
+id: genesys-gear-gyroscopic-belt
+name: Gyroscopic Belt
+description: An external point of balance can make it far easier for a person to find their gravitational center,
+  especially while undertaking acrobatic maneuvers. A gyroscopic belt can be worn at the waist or as a harness,
+  depending upon its design. Regardless of the wearer's motions, the belt continuously attempts to remain stable, gently
+  providing stabilizing feedback to the user as they move. A gyroscopic belt adds <boost></boost><boost></boost> to
+  Coordination checks that the user makes.
+encumbrance: 1
+rarity: 3
+reference: SotC:149

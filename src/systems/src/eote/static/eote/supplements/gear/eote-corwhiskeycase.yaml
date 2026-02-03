@@ -1,0 +1,11 @@
+id: eote-corwhiskeycase
+name: Corellian Whiskey (25 Bottle Case)
+description: A popular alcoholic drink from Corellia, distilled anywhere from three to twenty times and aged for several
+  years in wooden casks. Corellian whiskey is characterized by a smooth, woody, slightly spicy flavor and relatively
+  high alcohol content. With production methods strictly controlled by the government, only whiskeys distilled according
+  to specific processes on Corellia and a few colony worlds can carry the label of Corellian whiskey. As such, Corellian
+  whiskey is difficult to come by outside of the Corellian Sector and tends to be pricey.
+encumbrance: 20
+rarity: 2
+reference:
+  - SoF:102

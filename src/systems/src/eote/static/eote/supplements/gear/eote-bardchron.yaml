@@ -1,0 +1,11 @@
+id: eote-bardchron
+name: Bardottan Chronoscanner
+description: Due to their concern for the preservation of antiquities, Bardottan port security officers often carry
+  chronoscanners, in addition to more typical security gear. In use, the chronoscanner is capable of quickly analyzing
+  the chemical composition of an object and estimating its date of manufacture within a range of roughly a century.
+  While it cannot pinpoint the exact date that an item was created, it can readily distinguish between an ancient
+  artifact and a more recent replica.
+encumbrance: 0
+rarity: 2
+reference:
+  - NoP:105

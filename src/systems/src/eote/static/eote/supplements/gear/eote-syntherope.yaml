@@ -1,0 +1,15 @@
+id: eote-syntherope
+name: Syntherope
+description: Degan Explorations, a subsidiary of the Chiewab Amalgamated Pharmaceuticals Company, is mostly known for
+  its vast network of professional scouts and survey crews that scour the Outer Rim for new chemical resources. In
+  addition to their exploratory work, they are also the makers of Syntherope, a synthetic rope used in nearly every
+  industry. Made from a mix of natural and synthetic chemicals and textiles, including the proteins found in the
+  secretions of numerous arachnid species, Syntherope is thin, lightweight, and extremely strong, with a tensile
+  strength ten times that of durasteel. Sold in twenty-meter spools, Syntherope is used primarily for climbing,
+  rappelling, and securing cargo, but it can be used anywhere a good stout rope is needed. It is said that at the bottom
+  of every backpack, pannier, and cargo crate in the Outer Rim there lies a coil of Syntherope, and while that statement
+  is obviously hyperbole, it's also not too far from the truth.
+encumbrance: 1
+rarity: 1
+reference:
+  - EtU:49

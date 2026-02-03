@@ -1,0 +1,23 @@
+id: eote-kxenforcer
+name: KX-series Enforcer Droid
+description: >-
+  Arakyd Industries' KX-series enforcer droids are a rarity in the Empire's armed forces. While droids in general are
+  quite common in the Imperial military, those programmed for combat or other warlike functions are largely unheard of.
+  General distrust of Class IV droids throughout the galaxy, plus the debacle of the dark trooper program, has soured
+  the Joint Chiefs on the use of combat droids. One exception to this rule, however, is the Imperial Army's KX-series.
+
+  Officially classified as security droids, KX-series droids are general-purpose units used in roles ranging from combat
+  support to security to frontline battle. They stand just over two meters tall, with broad shoulders; long, thin limbs;
+  and a skull-like head with two piercing white optical sensors. Their bodies are covered in dark gunmetal armor and an
+  integrated back-mounted combat computer gives them an almost hunchbacked posture. Rigorously controlled and monitored,
+  these droids are subjected to all appropriate service and maintenance, which gives them little opportunity to develop
+  individual personalities. What little personality they do have is cool, commanding, and menacing. Extremely
+  single-minded, they are quite difficult to bluff or distract from their given mission. Their humanoid form also means
+  they can be equipped with almost any weapon a human could use.
+
+  KX-series droids are a priority target for insurgents. Rebel leadershiphas put a bounty on their capture, and at least
+  one cell has a KX among its membership that acts as an infiltrator and spy.
+encumbrance: 0
+rarity: 8
+reference:
+  - DoR:120

@@ -1,0 +1,12 @@
+id: genesys-gear-baneful-items
+name: Baneful Items
+description: For reasons no scholar of the supernatural can fathom, certain substances cause negative reactions among
+  supernatural beings.. Strands of garlic, wolf's bane, substances used in religious ceremonies, and other items can
+  repel even the most fearsome of creatures but have no effect on humans. Until they somehow remove such an item (often
+  via their minions), a monster affected by it is utterly stymied. Baneful items may form a barrier (laid in a line,
+  hung over a threshold, or poured into a circle). Supernatural creatures may not cross barriers created by baneful
+  items. The price of Baneful items varies from 10 to 200, depending on the item. The rarity varies from 1 to 5,
+  depending on the item.
+encumbrance: 2
+rarity: 1
+reference: G-EPG:23

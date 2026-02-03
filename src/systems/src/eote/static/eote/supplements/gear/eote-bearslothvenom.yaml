@@ -1,0 +1,19 @@
+id: eote-bearslothvenom
+name: Bearsloth Venom (dose)
+description: >-
+  Bearsloth Venom
+
+  At any dose size, this poison has a Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) difficulty (which the target resists
+  with Resilience). If the target fails, the poison causes an immediate
+
+  Critical Injury, but instead of rolling on the Critical Injury Result table, the character automatically suffers the
+  following special Critical Injury:
+
+  Wracking Venom (Hard <difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>): Whenever this
+  character would otherwise suffer 1 or more wounds or 1 or more strain, this character suffers that number of wounds or
+  strain plus 2 instead.
+encumbrance: 0
+rarity: 3
+reference:
+  - CotG:22

@@ -1,0 +1,30 @@
+id: eote-dh77headcomm
+name: DH77 Headcomm
+description: >-
+  Standard issue for Imperial Army platoon leaders and
+
+  also found inside storm trooper helmets, SoroSuub’s
+
+  DH77 Headcomm is an easy-to-use system with complex encryption subroutines. Codes rotate periodically, and Imperial
+  battlefield management systems keeps encryption synchronized.
+
+  Unfortunately, the low energy requirements set by
+
+  the Empire for the comlink means the signal strength
+
+  is poor, leaving it susceptible to interference from
+
+  explosions, ion engines, and jamming. After the Battle
+
+  of Yavin, Imperials began replacing the DH77 w ith the
+
+  Herzfall Corporation DH107, which boosts power to
+
+  mitigate DH77 ’s vulnerabilities.
+
+  This comlink transmits up to medium range on the planetary scale. The DH77's constantly shifting encryption adds
+  <setback></setback><setback></setback><setback></setback> to any attempt to intercept and unscramble the signal.
+encumbrance: 0
+rarity: 3
+reference:
+  - FiB:52

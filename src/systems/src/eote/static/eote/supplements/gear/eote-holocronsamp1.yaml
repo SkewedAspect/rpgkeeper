@@ -1,0 +1,13 @@
+id: eote-holocronsamp1
+name: Sample Holocron
+description: |-
+  This is a sample holocron.  This holocron does the following:
+        <ul>
+        <li>Makes Ranged - Light a career skill</li>
+        <li>Adds <boost></boost><boost></boost> to Vigilance checks</li>
+        <li>Grants 2 ranks in the Sleight of Mind talent</li>
+        </ul>
+encumbrance: 1
+rarity: 10
+reference:
+  - F-CRB:190

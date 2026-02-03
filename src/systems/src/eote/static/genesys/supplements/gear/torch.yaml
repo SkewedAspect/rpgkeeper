@@ -1,0 +1,9 @@
+id: genesys-gear-torch
+name: Torch
+description: Torches are wooden sticks with oil-soaked cloths wrapped around one end. When lit, they burn for a long
+  time and help illuminate your surroundings. A lit torch provides light and removes <setback></setback> added to checks
+  due to concealment (darkness, smoke, and intervening terrain). (If it becomes important to determine how far the light
+  reaches, a torch can provide light out to short range.)
+encumbrance: 1
+rarity: 0
+reference: G-CRB:146

@@ -1,0 +1,16 @@
+id: eote-muond
+name: Muon Gold (Dose)
+description: >-
+  Made from engine lubricant subjected to an intense bombardment of muons, muon gold is a designer spice that provides
+  the user a sense of mental focus and reduces inhibitions. Popular among smugglers and other rogues who rely on their
+  wits, long-term abuse of muon gold can result in severe degradation of the neural pathways, reduction of cognitive
+  abilities, and even dementia. Because of its particular qualities, muon gold is especially tempting to many smugglers
+  who might normally avoid sampling their own wares.
+
+  A dose of muon gold lasts for one encounter and allows the user to add <boost></boost> to all Cunning and Presence
+  based checks until the end of the encounter. At the GM's discretion, repeated use of the spice can cause cognitive
+  impairment, imposing temporary or lasting <setback></setback> to a character's Intellect and Cunning based checks.
+encumbrance: 0
+rarity: 6
+reference:
+  - FC:51

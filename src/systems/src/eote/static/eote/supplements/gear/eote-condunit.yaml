@@ -1,0 +1,14 @@
+id: eote-condunit
+name: Condenser Unit
+description: |-
+  The SurvivalGear condenser unit is a two-liter receptacle with a flared metal shade. Between is a series of
+  coils attached to a small power unit and condenser.
+  Chilling the coils gathers water in a manner similar to a
+  moisture vaporator. Inverting the shade instead heats
+  the coils to temperatures suitable for smokeless cooking. The device can gather enough water each day to
+  sustain one person, and its battery lasts six months.
+encumbrance: 2
+rarity: 2
+reference:
+  - FiB:54
+  - KoF:50

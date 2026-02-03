@@ -1,0 +1,10 @@
+id: genesys-gear-dermal-sealer
+name: Dermal Sealer
+description: "This small, self-contained, single-use medical device sprays a liquid that expands into a semi-rigid foam
+  soon after exposure to air. The foam adheres to most organic surfaces, providing an impermeable barrier that prevents
+  blood loss. The sealant also incorporates anti-infective agents as well as topical anesthetics that help relieve
+  localized pain. Dermal sealers use the same rules as painkillers, as described on page 94 of the Genesys Core
+  Rulebook. This item may be modified with 2-1: Cultural Manufacturing Differences."
+encumbrance: 0
+rarity: 1
+reference: EotI:122

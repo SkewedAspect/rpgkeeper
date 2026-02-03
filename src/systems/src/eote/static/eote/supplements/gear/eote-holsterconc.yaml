@@ -1,0 +1,14 @@
+id: eote-holsterconc
+name: Model 58 Concealment Holster
+description: >-
+  These compact holsters built for small, light handguns are designed to fit the contours of the carrier's body and mask
+  his presence from even determined observation and surveillance. Concealment holsters are available in a variety of
+  forms, allowing them to be worn high on the belt, under the arm, in the small of the back, or on an ankle or other
+  extremity.
+
+  These holsters add <setback></setback> to Perception checks to discover the presence of the concealed weapon, but may
+  only hold light blaster pistols or holdout blasters.
+encumbrance: 0
+rarity: 3
+reference:
+  - DC:59

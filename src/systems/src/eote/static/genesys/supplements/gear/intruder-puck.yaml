@@ -1,0 +1,13 @@
+id: genesys-gear-intruder-puck
+name: Intruder Puck
+description: "This palm-sized, disk-shaped object can be used to open virtually any sort of lock. The puck's internal
+  processor is capable of overriding electronic encryption systems. The device also has a series of micromanipulators
+  that are able to pick physical locks. An intruder puck is delicate and may break due to electronic feedback or tension
+  on the micromanipulators. When using an intruder puck, your character upgrades the ability of Skulduggery checks they
+  make to override any sort of lock twice, but also upgrades the difficulty of the check once. Your GM may spend
+  <despair></despair><despair></despair> to permanently damage the lock. Your GM must spend <difficulty></difficulty> to
+  destroy the intruder puck, rendering it nonfunctional for future uses. This item may be modified with 2-1: Cultural
+  Manufacturing Differences."
+encumbrance: 0
+rarity: 5
+reference: EotI:120

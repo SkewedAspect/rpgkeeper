@@ -1,0 +1,20 @@
+id: eote-frangfp1
+name: Frangawl Force Powder (1 dose)
+description: >-
+  Frangawl Force Powder
+
+  Frangawl cultists are masters of dark side techniques, including ones that deal with capturing and corrupting the
+  Living Force in a sentient being. The cult practices rituals that culminate in acts of brutal sacrifice. As their
+  victims die, Force sensitives among the cultists use tools to extract the Living Force from them. Once extracted, the
+  energy can be used to power a ritual in progress, or it can be preserved for some future purpose.
+
+  One way the cultists preserve the energy is to store it in a very fine crystalline powder. When charged with the
+  Living Force, the powder glows with a faint blue hue. A single sacrifice typically yields several doses of Frangawl
+  Force powder.
+
+  A Force-sensitive character can consume a dose of Frangawl Force powder as a maneuver. Upon doing so, the PC gains 10
+  Conflict and adds automatic [DA][DA] to the PCs next Force power check during that encounter.
+encumbrance: 0
+rarity: 10
+reference:
+  - NoP:105

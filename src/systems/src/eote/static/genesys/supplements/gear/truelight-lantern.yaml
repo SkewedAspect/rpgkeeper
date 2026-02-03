@@ -1,0 +1,12 @@
+id: genesys-gear-truelight-lantern
+name: Truelight Lantern
+description: The Truelight Lanterns are wrought by the magic of the Latari Elves. They look more like large,
+  multifaceted jewels than the glass-and-iron lanterns associated with craftspeople of the Free Cities. When activated,
+  the lantern gives off a soft green glow that somehow illuminates the surrounding area as effectively as a flaming
+  torch. The light cast by the lantern also pierces illusions, allowing the bearer to see things like magically
+  concealed doors and traps. A Truelight Lantern provides illumination out to short range. Within the area of
+  illumination, all characters upgrade their Perception checks to notice concealed doors, illusions, hidden objects, and
+  similar details twice.
+encumbrance: 1
+rarity: 8
+reference: RoT:110

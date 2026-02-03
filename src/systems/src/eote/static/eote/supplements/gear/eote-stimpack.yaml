@@ -1,0 +1,20 @@
+id: eote-stimpack
+name: Stimpack
+description: >-
+  Stimpacks are auto-injection tubes filled with medicine, bacta, and painkillers. They are field-ready emergency health
+  recovery products, and useful for quick healing in the field. There are countless makers of stimpacks, from Chiewab
+  Amalgamated Pharmaceuticals to Athakam MedTech.
+
+  It takes a maneuver for a character to inject a stimpack in himself or another..Stimpacks are one-use items, and
+  automatically heal 5 wounds. Characters can use stimpacks more than once, but each use heals one less wound (so the
+  second use heals four, the third use heals three, and so on). The sixth stimpack heals no wounds—the character is
+  already oversaturated with the medicine for it to have any effect. It takes a day for the character's body to process
+  the stimpacks and for him to be able to use them at full effectiveness. See page 220 for more information.
+
+  **Models Include:** Numerous Variants.
+encumbrance: 0
+rarity: 1
+reference:
+  - E-CRB:177
+  - A-CRB:193
+  - F-CRB:186

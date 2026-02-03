@@ -1,0 +1,26 @@
+id: eote-cyand570
+name: Cyanoxis D-570
+description: >-
+  Cyanoxis D-570 was originally developed by Toxico as an all-purpose rodenticide. An extremely aggressive
+  anticoagulant, D-570 works by weakening the walls of a creature's small blood vessels. This causes them to rupture,
+  leading to internal hemorrhaging and eventually death. Thanks to its particular and well-guarded chemical makeup,
+  D-570 works on numerous species throughout the galaxy, a very rare quality in a vermin-killing poison. Spies and
+  assassins began to capitalize on this shared toxicity not long after the poison first appeared on the market.
+
+  When used as an assassination tool, D-570 is typically administered through food and drink. Once ingested, the poison
+  takes about a week to break down a sentient being's circulatory system and cause internal bleeding. During that time,
+  the target is fatigued, bruises easily, and often bleeds slightly from the nose, mouth, or ears. Death typically
+  results in ten days or fewer. Since death occurs so long after first exposure, it is often difficult to determine that
+  D-570 was the cause of an individual's death. By the time a week has passed, there is little evidence left, and the
+  assassin can be halfway across the galaxy and out of reach of punishment.
+
+  One dose of Cyanoxis D-570 requires a character to make a **Hard
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Resilience check** to overcome. On a
+  failed check, the poison inflicts 2 wounds and 2 strain immediately, plus 1 wound and I strain per day for ten days or
+  until the target succumbs to death. Each <threat></threat> generated inflicts I additional strain per day as internal
+  blood loss takes its toll on the target's constitution. <despair></despair> can be spent to increase the number of
+  days the poison stays in effect by one.
+encumbrance: 1
+rarity: 4
+reference:
+  - CaM:43

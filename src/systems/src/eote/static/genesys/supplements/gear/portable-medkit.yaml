@@ -1,0 +1,9 @@
+id: genesys-gear-portable-medkit
+name: Portable Medkit
+description: A well-equipped portable medkit comes with everything someone might need to treat all manner of injuries,
+  from bullet wounds to broken legs. A portable medkit allows your character to perform Medicine checks to heal wounds
+  and Critical Injuries without penalty. The inclusion of modern drugs adds automatic <advantage></advantage> to the
+  check results.
+encumbrance: 2
+rarity: 4
+reference: G-CRB:169

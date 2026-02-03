@@ -1,0 +1,19 @@
+id: eote-alchemywateroflife
+name: Water of Life
+description: >-
+  Created using something the Nightsisters of Dathomir called “spirit ichor." the so-called Water of Life is a glowing
+  green liquid that can heal wounds, and even return the "mostly" dead back to life.
+
+  When the user consumes this potion, they heal all wounds and strain they are currently suffering. In addition, if
+  applied to a target who died during the current encounter, the target may immediately make a **Daunting
+  (<difficulty></difficulty><difficulty></difficulty><difficulty></difficulty><difficulty></difficulty>) Discipline** or
+  **Resilience check** (even though the target is dead). If successful, the target returns to life and heals one
+  Critical Injury of their choice that they are suffering from.
+
+  Alternatively, a the user may consume this potion while making a Force power check. If they do so, they suffer 1
+  Conflict, and they add automatic [LI][DA] to the check results. If the Force user is attempting to make a Conjure
+  check, they add [LI][LI][DA][DA] instead.
+encumbrance: 0
+rarity: 10
+reference:
+  - UP:83

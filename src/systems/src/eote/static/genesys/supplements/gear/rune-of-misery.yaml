@@ -1,0 +1,13 @@
+id: genesys-gear-rune-of-misery
+name: Rune of Misery
+description: "This runebound shard imparts painful afflictions upon the target, rarely enough to seriously injure but
+  more than enough to weaken. Elite bounty hunters in the Free Cities fight viciously for them, as such shards can allow
+  them to take in their quarries with less chance of bothersome bloodshed. - Activation: As an action, the bearer
+  suffers 3 strain and selects one target within short range. The target becomes disoriented for three rounds. While the
+  target is disoriented due to the rune of misery, the bearer may spend <despair></despair><despair></despair> generated
+  on any check the target makes to inflict 1 wound on the target. - Implement: When casting a Curse spell, your
+  character reduces the difficulty of the skill check by two. In addition, your GM can spend
+  <despair></despair><despair></despair> on the check to inflict 1 wound on your character."
+encumbrance: 0
+rarity: 0
+reference: RoT:120

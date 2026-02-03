@@ -1,0 +1,10 @@
+id: eote-sabacc
+name: Sabacc Deck
+description: A favorite gambling game across the galaxy, sabacc utilizes a deck of cards. Players attempt to reach some
+  combination of 23 or -23 (or more esoteric combinations, such as a natural “2” and “3”) to win. However, the cards are
+  electronic, and randomly shift and swap to different cards during play. This means sabacc is a game of bluffing and
+  brinksmanship as much as it is one of skill and logic, an tricks such as counting cards are almost impossible.
+encumbrance: 0
+rarity: 0
+reference:
+  - E-CRB:182

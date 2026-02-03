@@ -1,0 +1,14 @@
+id: genesys-gear-dr-wilsons-incomparable-miracle-tonic
+name: Dr. Wilson's Incomparable Miracle Tonic
+description: This curious elixir is, despite its name, only one of countless such cure-alls available for purchase
+  (also, it was not developed by a real doctor). As with most such products, both the ingredients and the effect of the
+  tonic are vague, but it indeed fulfills its promise to soothe pain and enhance the user's vigor and alertness. A
+  character who uses a maneuver to drink the tonic increases their wound threshold and strain threshold by five until
+  the end of the current encounter, but must succeed at an <difficulty></difficulty><difficulty></difficulty> as an
+  incidental or suffer 5 strain - an unfortunate side effect of the quicksilver included in the tincture. If your
+  character is already benefiting from the use of the tonic, additional uses have no further effect. Furthermore, once
+  the effects wear off, if your character's wounds or strain now exceed their threshold, they're immediately
+  incapacitated and suffer all related effects.
+encumbrance: 0
+rarity: 5
+reference: G-CRB:156

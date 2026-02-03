@@ -1,0 +1,14 @@
+id: eote-forgetools
+name: Forgery Tools
+description: >-
+  A busy Diplomat might misplace his identity card and need a quick replacement. A deep-cover operative might need
+  temporary access to a secure facility. Regardless of the case or the legitimacy of the reason, quality forgery tools
+  such as carefully crafted inks and implements or complex credential-falsification devices can enhance a crafter's
+  innate talents.
+
+  **Models include:** Goseia Heavy Industries Concern Executive Privacy Suite, countless custom-made (and illegal)
+  models.
+encumbrance: 2
+rarity: 8
+reference:
+  - DA:51

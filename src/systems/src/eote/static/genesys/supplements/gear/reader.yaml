@@ -1,0 +1,10 @@
+id: genesys-gear-reader
+name: Reader
+description: Second only to PADs in their abundance and variety, readers are small devices used to read IDs and credit
+  information. Popular with street vendors, artisans, and bouncers, these tiny devices can be worn as jewelry or
+  implanted beneath the skin. They are perfect for point-of-sale transactions and for processing many ID chips in a
+  short period of time A reader is not a computer, but may be linked to a computer. It can also be a link into a system
+  (see page 128).
+encumbrance: 0
+rarity: 2
+reference: SotB:99

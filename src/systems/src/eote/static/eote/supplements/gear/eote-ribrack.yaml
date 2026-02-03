@@ -1,0 +1,18 @@
+id: eote-ribrack
+name: Ribbon Rack
+description: |-
+  A ribbon rack is typically worn with a dress uniform to
+  display the various decorations earned by the wearer.
+  Instead of the full medallions, which tend to be bulky,
+  heavy, and unsuited for wearing on a day-to-day basis,
+  most Alliance Military personnel prefer to wear the, less
+  obtrusive rack ribbons issued with their commendations.
+  These are typically small, horizontal bar ribbons a few
+  centimeters in length in the same color and pattern as
+  the ribbon on the full-sized medal. These smaller ribbons
+  slot into the ribbon rack and can be easily rearranged as
+  the wearer gains more commendations.
+encumbrance: 0
+rarity: 4
+reference:
+  - LbE:44
