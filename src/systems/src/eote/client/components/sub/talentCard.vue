@@ -3,8 +3,21 @@
   --------------------------------------------------------------------------------------------------------------------->
 
 <template>
-    <BCard v-if="talent && talentBase" :id="id" class="eote-talent-card" no-body>
+    <BCard
+        v-if="talent && talentBase"
+        :id="id"
+        class="eote-talent-card"
+        :class="{ 'editable': !readonly }"
+        no-body
+        @click="onEdit"
+    >
         <template #header>
+            <CloseButton
+                v-if="!readonly"
+                class="float-end"
+                style="margin-top: -3px;"
+                @click.stop.prevent="onRemove"
+            />
             <div class="text-nowrap text-center">
                 <b>{{ talentBase?.name }}</b>
                 <span v-if="talentBase.ranked" class="fw-bold ms-1">{{ talent.ranks }}</span>
@@ -50,6 +63,19 @@
         cursor: pointer;
         padding: 0.25rem 0.5rem;
     }
+
+    &.editable {
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: var(--bs-primary);
+        }
+    }
+}
+
+.dark-mode .eote-talent-card.editable:hover {
+    background-color: rgba(255, 255, 255, 0.05);
 }
 </style>
 
@@ -74,6 +100,7 @@
     // Components
     import MarkdownBlock from '@client/components/ui/markdownBlock.vue';
     import Reference from '@client/components/character/referenceBlock.vue';
+    import CloseButton from '@client/components/ui/closeButton.vue';
 
     //------------------------------------------------------------------------------------------------------------------
     // Component Definition
@@ -86,6 +113,11 @@
     }
 
     const props = defineProps<Props>();
+
+    const emit = defineEmits<{
+        remove : [talentId : string];
+        edit : [talent : EoteTalentInst];
+    }>();
 
     //------------------------------------------------------------------------------------------------------------------
     // Refs
@@ -126,6 +158,26 @@
 
         return '';
     });
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    function onRemove() : void
+    {
+        if(!props.readonly)
+        {
+            emit('remove', props.talent.id);
+        }
+    }
+
+    function onEdit() : void
+    {
+        if(!props.readonly)
+        {
+            emit('edit', props.talent);
+        }
+    }
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->
