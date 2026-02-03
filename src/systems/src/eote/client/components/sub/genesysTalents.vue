@@ -37,7 +37,7 @@
     import { storeToRefs } from 'pinia';
 
     // Models
-    import type { EoteCharacter, EoteTalentInst } from '../../../models.ts';
+    import type { EoteCharacter, EoteTalentInst, GenesysTalent } from '../../../models.ts';
 
     // Stores
     import { useCharacterStore } from '@client/lib/resource-access/stores/characters';
@@ -80,7 +80,7 @@
     const character = computed<EoteCharacter>(() => current.value as any);
     const talents = computed(() => character.value.details.talents);
     const mode = computed(() => systemStore.current?.id ?? 'genesys');
-    const allTalentsList = computed(() => supplementStore.get(mode.value, 'talent'));
+    const allTalentsList = computed(() => supplementStore.get<GenesysTalent>(mode.value, 'talent'));
 
     //------------------------------------------------------------------------------------------------------------------
     // Methods
@@ -107,7 +107,7 @@
         const currentTierCount = talents.value
             .filter((tal) =>
             {
-                const base = allTalentsList.value.find((talentBase : any) => talentBase.id === tal.id);
+                const base = allTalentsList.value.find((talentBase) => talentBase.id === tal.id);
                 return base?.tier === tier;
             })
             .length - 1; // -1 because we're simulating the deletion
@@ -117,7 +117,7 @@
         const nextTierCount = talents.value
             .filter((tal) =>
             {
-                const base = allTalentsList.value.find((talentBase : any) => talentBase.id === tal.id);
+                const base = allTalentsList.value.find((talentBase) => talentBase.id === tal.id);
                 return base?.tier === nextTier;
             })
             .length;
@@ -140,7 +140,7 @@
     function onRemoveTalent(talentId : string) : void
     {
         // Find the talent and its tier
-        const talentBase = allTalentsList.value.find((tal : any) => tal.id === talentId);
+        const talentBase = allTalentsList.value.find((tal) => tal.id === talentId);
         if(!talentBase)
         {
             return;
