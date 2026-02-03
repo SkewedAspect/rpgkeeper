@@ -282,9 +282,28 @@
         selectedSupplement.value = null;
     }
 
+    function selectById(id : string) : void
+    {
+        const supp = props.supplements.find((item) => item.id === id);
+        if(supp)
+        {
+            selectSupplement(supp);
+
+            // Scroll the selected item into view
+            setTimeout(() =>
+            {
+                const activeItem = document.querySelector('.supplement-browser .list-group-item.active');
+                if(activeItem)
+                {
+                    activeItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 100);
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------
 
-    defineExpose({ clearSelection });
+    defineExpose({ clearSelection, selectById });
 </script>
 
 <!--------------------------------------------------------------------------------------------------------------------->

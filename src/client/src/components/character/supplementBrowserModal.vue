@@ -132,7 +132,7 @@
     //------------------------------------------------------------------------------------------------------------------
 
     const innerModal = useTemplateRef<InstanceType<typeof BModal>>('innerModal');
-    const browser = ref<{ clearSelection : () => void } | null>(null);
+    const browser = ref<{ clearSelection : () => void; selectById : (id : string) => void } | null>(null);
     const selectedSupplement = ref<Supplement | null>(null);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -170,10 +170,20 @@
         selectedSupplement.value = supp;
     }
 
-    function show() : void
+    function show(initialSelectedId ?: string) : void
     {
         selectedSupplement.value = null;
         innerModal.value?.show();
+
+        // Pre-select item if provided
+        if(initialSelectedId)
+        {
+            // Need to wait for modal to be shown before selecting
+            setTimeout(() =>
+            {
+                browser.value?.selectById(initialSelectedId);
+            }, 0);
+        }
     }
 
     function hide() : void
