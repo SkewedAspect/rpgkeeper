@@ -153,7 +153,7 @@ export const genesysDefinition : SystemDefinition<GenesysSystemDetails>
         name: 'Genesys',
         description: 'Genesys is a role playing system designed for flexibility and adaptability, '
             + 'specifically tooled to work with any setting imaginable.',
-        status: SupportStatus.Public,
+        status: SupportStatus.Stable,
         defaults: genesysDefaults,
         supplements: {
             ability: { schema: AbilityDataSchema },
@@ -239,7 +239,7 @@ export const eoteDefinition : SystemDefinition<EoteSystemDetails>
         id: 'eote',
         name: 'Edge of the Empire',
         description: "A system designed for Fantasy Flight's Edge of the Empire (and associated) RPGs.",
-        status: SupportStatus.Public,
+        status: SupportStatus.Stable,
         defaults: eoteDefaults,
         supplements: {
             ability: { schema: AbilityDataSchema },
